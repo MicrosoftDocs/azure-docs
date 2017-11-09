@@ -56,7 +56,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-For more information about the `BlobTrigger` attribute, see [Trigger - .NET attributes](#trigger---c-attributes).
+For more information about the `BlobTrigger` attribute, see [Trigger - Attributes for precompiled C#](#trigger---attributes-for-precompiled-c).
 
 ### Trigger - C# script example
 
@@ -79,7 +79,7 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-The [settings](#trigger---settings) section explains these properties.
+The [configuration](#trigger---configuration) section explains these properties.
 
 Here's C# script code that binds to a `Stream`:
 
@@ -124,7 +124,7 @@ Here's the *function.json* file:
 }
 ```
 
-The [settings](#trigger---settings) section explains these properties.
+The [configuration](#trigger---configuration) section explains these properties.
 
 Here's the JavaScript code:
 
@@ -135,7 +135,7 @@ module.exports = function(context) {
 };
 ```
 
-## Trigger - .NET attributes
+## Trigger - Attributes for precompiled C#
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a blob trigger:
 
@@ -190,7 +190,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#trigger---usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code. | 
 |**path** | **BlobPath** |The container to monitor.  May be a [blob name pattern](#trigger-blob-name-patterns). | 
-|**connection** | **Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**connection** | **Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>When you're developing locally, app settings go into the values of the [local.settings.json](../../Documents/GitHub/azure-docs-pr/articles/azure-functions/functions-run-local.md#local-settings-file) file.|
 
 ## Trigger - usage
 
@@ -294,7 +294,7 @@ If the blob container being monitored contains more than 10,000 blobs, the Funct
 for new or changed blobs. This process can result in delays. A function might not get triggered until several minutes or longer 
 after the blob is created. In addition, [storage logs are created on a "best effort"](/rest/api/storageservices/About-Storage-Analytics-Logging) 
 basis. There's no guarantee that all events are captured. Under some conditions, logs may be missed. If you require faster or more reliable blob processing, consider creating a [queue message](../storage/queues/storage-dotnet-how-to-use-queues.md) 
- when you create the blob. Then use a [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob.
+ when you create the blob. Then use a [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob. Another option is to use Event Grid; see the tutorial [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
 ## Blob storage input & output bindings
 
@@ -376,7 +376,7 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
 }
 ``` 
 
-The [settings](#input--output---settings) section explains these properties.
+The [configuration](#input--output---configuration) section explains these properties.
 
 Here's the C# script code:
 
@@ -423,7 +423,7 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
 }
 ``` 
 
-The [settings](#input--output---settings) section explains these properties.
+The [configuration](#input--output---configuration) section explains these properties.
 
 Here's the JavaScript code:
 
@@ -435,7 +435,7 @@ module.exports = function(context) {
 };
 ```
 
-## Input & output - .NET attributes
+## Input & output - Attributes for precompiled C#
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -457,7 +457,7 @@ public static void Run(
     [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
 ```
 
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - .NET attributes](#trigger---net-attributes).
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - Attributes for precompiled C#](#trigger---attributes-for-precompiled-c).
 
 ## Input & output - configuration
 

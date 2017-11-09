@@ -74,7 +74,7 @@ Here's the *function.json* file:
 }
 ```
 
-The [settings](#trigger---settings) section explains these properties.
+The [configuration](#trigger---configuration) section explains these properties.
 
 Here's the C# script code:
 
@@ -128,7 +128,7 @@ Here's the *function.json* file:
 }
 ```
 
-The [settings](#trigger---settings) section explains these properties.
+The [configuration](#trigger---configuration) section explains these properties.
 
 Here's the JavaScript code:
 
@@ -148,7 +148,7 @@ module.exports = function (context) {
 
 The [usage](#trigger---usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#trigger---message-metadata) explains all of the other variables shown.
 
-## Trigger - .NET attributes
+## Trigger - Attributes for precompiled C#
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a queue trigger:
 
@@ -303,7 +303,7 @@ Here's the *function.json* file:
 }
 ``` 
 
-The [settings](#output---settings) section explains these properties.
+The [configuration](#output---configuration) section explains these properties.
 
 Here's C# script code that creates a single queue message:
 
@@ -364,7 +364,7 @@ Here's the *function.json* file:
 }
 ``` 
 
-The [settings](#output---settings) section explains these properties.
+The [configuration](#output---configuration) section explains these properties.
 
 Here's the JavaScript code:
 
@@ -383,7 +383,7 @@ module.exports = function(context) {
 };
 ```
 
-## Output - .NET attributes
+## Output - Attributes for precompiled C#
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -403,7 +403,7 @@ You can set the `Connection` property to specify the storage account to use, as 
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 ```
 
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - .NET attributes](#trigger---net-attributes).
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - Attributes for precompiled C#](#trigger---attributes-for-precompiled-c).
 
 ## Output - configuration
 
@@ -415,7 +415,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.| 
 |**queueName** |**QueueName** | The name of the queue. | 
-|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br>When you're developing locally, app settings go into the values of the [local.settings.json](../../Documents/GitHub/azure-docs-pr/articles/azure-functions/functions-run-local.md#local-settings-file) file.|
 
 ## Output - usage
  
