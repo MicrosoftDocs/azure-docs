@@ -18,9 +18,11 @@ ms.author: apimpm
 
 ---
 # What is an API Management operation
- Each API Manement (APIM) API represents a set of operations available to developers. Each APIM API contains a reference to the backend service that implements the API, and its operations map to the operations implemented by the backend service. Before an API in APIM can be used, operations must be added. If you import an existing API, all its operations are added (as shown in [Import and publish your first API](api-management-get-started.md). You later can make updates to the operations, as shown in [Protect your API with rate limits](api-management-howto-product-with-rules.md).
+ Each API Manement (APIM) API represents a set of operations available to developers. Each APIM API contains a reference to the backend service that implements the API, and its operations map to the operations implemented by the backend service. Before an API in APIM can be used, operations must be added. If you import an existing API, all its operations are added (as shown in [Import and publish your first API](import-and-publish.md). You later can make updates to the operations, as shown in [Protect your API with rate limits](transform-api.md).
 
 You can also add operations manually, as shown in [Test an APIM instance with mocked API responses](mock-api-responses.md).
+
+## Settings
 
 This article explains **Operation**'s settings.  
 
@@ -34,7 +36,7 @@ This article explains **Operation**'s settings.
 |Request content types|You can define request content types, examples, and schemas. |
 |Response status codes|Define response status codes, content types, examples, and schemas.|
 
-For information on how to transform your API and its operations, see [Transform and protect your API](api-management-howto-product-with-rules.md).
+For information on how to transform your API and its operations, see [Transform and protect your API](transform-api.md).
 
 ## <a name="next-steps"> </a>Next steps
 

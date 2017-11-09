@@ -20,7 +20,7 @@ ms.author: apimpm
 In API Management, developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance. For information on managing user accounts programmatically, see the [User entity](https://msdn.microsoft.com/library/azure/dn776330.aspx) documentation in the [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) reference.
 
 ## <a name="create-developer"> </a>Create a new developer
-To create a new developer, click **Publisher portal** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal. If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
+To create a new developer, click **Publisher portal** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal. If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance].
 
 ![Publisher portal][api-management-management-console]
 
@@ -96,6 +96,6 @@ Once a developer account is created, you can associate it with roles and subscri
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [Create an API Management service instance]: get-started-create-service-instance.md
 [Configure email templates]: api-management-howto-configure-notifications.md#email-templates

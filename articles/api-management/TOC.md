@@ -24,23 +24,27 @@
 ## Policies
 ### [Overview](api-management-howto-policies.md)
 ### [Policy reference index](api-management-policy-reference.md)
-### [Policy expressions](api-management-policy-expressions.md)
-### [Custom caching](api-management-sample-cache-by-key.md)
-### [Advanced monitoring](api-management-log-to-eventhub-sample.md)
-### [Advanced request throttling](api-management-sample-flexible-throttling.md)
-### [Using external services](api-management-sample-send-request.md)
-### [Manage secrets using properties](api-management-howto-properties.md)
-### [Secure APIs using client certificate authentication](api-management-howto-mutual-certificates-for-clients.md)
 ## Manage in production
 ### [Manage using automation](automation-manage-api-management.md)
 ### [Use Role-Based Access Control](api-management-role-based-access-control.md)
 ## [Error handling](api-management-error-handling-policies.md)
 ## [API import restrictions](api-management-api-import-restrictions.md)
 # How-to guides
-## [Upgrade and scale](upgrade-and-scale.md)
-## [Configure a custom domain](configure-custom-domain.md)
-## [Add caching to improve performance](api-management-howto-cache.md)
-## [Set or edit policies](set-edit-policies.md)
+## Define APIs 
+### [Add an API manually](add-api-manually.md)
+### [Import an API from OpenAPI Specification](import-api-from-oas.md)
+### [Import a SOAP API](import-soap-api.md)
+### [Import a SOAP API and convert to REST](restify-soap-api.md)
+### [Import an API App as an API](import-api-app-as-api.md)
+### [Import a Function App as an API](import-function-app-as-api.md)
+### [Import a Logic App as an API](import-logic-app-as-api.md)
+### [Import a Service Fabric app as an API](import-service-fabric-app-as-api.md)
+### [Edit an API](edit-api.md)
+## Provision and scale
+### [Upgrade and scale](upgrade-and-scale.md)
+### [Configure a custom domain](configure-custom-domain.md)
+## Cache
+### [Add caching to improve performance](api-management-howto-cache.md)
 ## Secure your backend
 ### [Protect Web API backend with AAD](api-management-howto-protect-backend-with-aad.md)
 ### [Connect to a virtual network](api-management-using-with-vnet.md)
@@ -55,7 +59,15 @@
 ### [Delegated authentication](api-management-howto-setup-delegation.md)
 ### [E-mail notifications and templates](api-management-howto-configure-notifications.md)
 ### [Enable console OAuth support](api-management-howto-oauth2.md)
-## Policy reference
+## Define policies
+### [Set or edit policies](set-edit-policies.md)
+### [Policy expressions](api-management-policy-expressions.md)
+### [Custom caching](api-management-sample-cache-by-key.md)
+### [Advanced monitoring](api-management-log-to-eventhub-sample.md)
+### [Advanced request throttling](api-management-sample-flexible-throttling.md)
+### [Using external services](api-management-sample-send-request.md)
+### [Manage secrets using properties](api-management-howto-properties.md)
+### [Secure APIs using client certificate authentication](api-management-howto-mutual-certificates-for-clients.md)
 ### [Access restriction policies](api-management-access-restriction-policies.md)
 ### [Advanced policies](api-management-advanced-policies.md)
 ### [Authentication policies](api-management-authentication-policies.md)

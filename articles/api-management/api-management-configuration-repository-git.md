@@ -280,7 +280,7 @@ For information on other ways to manage your service instance, see:
   * [Service deployment PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Service management PowerShell cmdlet reference](https://msdn.microsoft.com/library/azure/mt613507.aspx)
 * Manage your service instance in the publisher portal
-  * [Manage your first API](api-management-get-started.md)
+  * [Manage your first API](import-and-publish.md)
 * Manage your service instance using the REST API
   * [API Management REST API reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

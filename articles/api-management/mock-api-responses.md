@@ -37,9 +37,8 @@ You can view a video that talks about APIM mock up at the end of the article.
 ## Prerequisites
 
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ [Import and publish your first API](import-and-publish.md)
 
-## Create a test API and operation
+## Create a test API and an operation
 
 The steps in this section show how to create a blank API with no backend. It also shows how to add an operation to the API. Calling the operation after completing steps in this section produces an error. You will get no errors after you complete steps in the "Enable response mocking" section.
 
@@ -93,7 +92,7 @@ The steps in this section show how to create a blank API with no backend. It als
 
 ## View video
 
-> [!VIDEO https://www.youtube.com/watch?v=i9PjUAvw7DQ//player]
+> [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
 > 
 > 
 
