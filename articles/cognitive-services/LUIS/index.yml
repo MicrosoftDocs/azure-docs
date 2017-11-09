@@ -4,7 +4,7 @@ title: Language Understand Intelligent Service (LUIS) Documentation
 metadata:
   document_id: 
   title: Language Understand Intelligent Service (LUIS) - Tutorials, Quickstarts, API Reference
-  description: Learn how to use Language Understand Intelligent Service API to allows your application to understand what a person wants in their own words. 
+  description: Learn how to use Language Understand Intelligent Service API to allow your application to understand what a person wants in their own words. 
   author: Kaiqb
   manager: carolz
   ms.service: cognitive-services
@@ -57,7 +57,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Create a LUIS app&#58; <a href="/azure/LUIS/luis-nodejs-tutorial-build-bot-framework-sample">Node.js</a> | <a href="/azure/LUIS/luis-csharp-tutorial-build-bot-framework-sample">.NET</a>
+    - html: Integrating LUIS with a bot&#58; <a href="/azure/LUIS/luis-nodejs-tutorial-build-bot-framework-sample">Node.js</a> | <a href="/azure/LUIS/luis-csharp-tutorial-build-bot-framework-sample">.NET</a>
     - html: Import utterances from a log&#58; <a href="/azure/LUIS/luis-tutorial-node-import-utterances-csv">Node.js</a>
 - title: Reference
   items:
@@ -65,12 +65,8 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: LUIS APIs
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78"> Endpoint API Reference</a></p><p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f"> Authoring API Reference</a></p>
-    - title: Prebuilt entity reference  
-      html: <p><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-prebuilt-entities"> LUIS prebuilt entities reference</a></p>
-    - title: Prebuilt app reference
-      html: <p><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-cortana-prebuilt"> Cortana prebuilt app reference</a></p>
+    - title: REST APIs
+      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78"> Endpoint API</a></p><p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f"> Authoring API</a></p>
     - title: SDKs
       html: <p><a href="https://github.com/Microsoft/Cognitive-LUIS-Android"> Andriod</a></p><p><a href="https://github.com/Microsoft/Cognitive-LUIS-Node.js"> Node.js</a></p><p><a href="https://github.com/Microsoft/Cognitive-LUIS-Python"> Python</a></p><p><a href="https://github.com/Microsoft/Cognitive-LUIS-Windows"> .NET</a></p>
       
