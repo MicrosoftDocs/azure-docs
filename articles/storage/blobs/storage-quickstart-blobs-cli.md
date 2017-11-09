@@ -82,7 +82,7 @@ az storage blob list \
 
 ## Download a blob
 
-Use the [az storage blob download](/cli/azure/storage/blob#download) command to download a blob you uploaded earlier.
+Use the [az storage blob download](/cli/azure/storage/blob#download) command to download the blob you uploaded earlier.
 
 ```azurecli-interactive
 az storage blob download \
