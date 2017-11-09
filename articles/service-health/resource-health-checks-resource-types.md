@@ -53,13 +53,12 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.datalakeanalytics/accounts
 |Executed Checks|
 |---|
-|<ul><li>Can users submit jobs to Data Lake Analytics in the region?</li><li>Do basic jobs run and complete successfully in the region?</li><li>Can users list catalog items in the region?</li>|
-
+|<ul><li>Have users experienced problems submitting or listing their Data Lake Analytics jobs?</li><li>Are Data Lake Analytics jobs unable to complete to system errors?</li></ul>|
 
 ## Microsoft.datalakestore/accounts
 |Executed Checks|
 |---|
-|<ul><li>Can users upload data to Data Lake Store in the region?</li><li>Can users download data from Data Lake Store in the region?</li></ul>|
+|<ul><li>Have users experienced problems uploading data to Data Lake Store?</li></li>Have users experienced problems downloading data from Data Lake Store?</li></ul>|
 
 ## Microsoft.devices/iothubs
 
