@@ -18,15 +18,15 @@ ms.author: kgremban
 ms.custom: 
 ---
 
-# How Azure IoT Edge works
+# How Azure IoT Edge works - Public preview
 
 Azure IoT Edge moves cloud analytics and custom business logic to devices so that your organization can focus on business insights instead of data management. Enable your solution to truly scale by configuring your IoT software, deploying it to devices via standard containers, and monitoring it all from the cloud.
 
 Analytics drives business value in IoT solutions, but not all analytics needs to be in the cloud. If you want a device to respond to emergencies as quickly as possible, you can perform anomaly detection on the device itself. Similarly, if you want to reduct bandwidth costs and avoid transferring terabytes of raw data, you can perform data cleaning and aggregation locally then send the insights to the cloud. 
 
 Azure IoT Edge is made up of three components:
-* IoT Edge modules are containers that are deployed to IoT Edge devices and execute the code or processes. 
-* The IoT Edge runtime manages the modules running your IoT Edge devices. 
+* IoT Edge modules are containers that run Azure services or your own code, and are deployed on IoT Edge devices. 
+* The IoT Edge runtime is deployed to each IoT Edge device, and manages the modules. 
 * A cloud-based interface enables you to remotely monitor and manage IoT Edge devices.
 
 ## IoT Edge modules

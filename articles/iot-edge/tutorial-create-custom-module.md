@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Develop and Deploy an IoT Edge module to your simulated device
+# Develop and Deploy an IoT Edge module to your simulated device -- Public preview
 
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying a custom module that filters sensor data on the simulated IoT Edge device that you created in the [Install Azure IoT Edge tutorial](./tutorial-install-iot-edge.md). In this tutorial, you learn how to:    
 
