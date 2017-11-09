@@ -23,7 +23,7 @@ ms.author: jeffgilb
 
 Azure Stack Storage is the set of storage cloud services in Microsoft Azure Stack. Azure Stack Storage provides blob, table, queue, and account management functionality with Azure-consistent semantics.
 
-This article summarizes the known Azure Stack Storage differences from Azure Storage or using [Azure storage services](https://docs.microsoft.com/rest/api/storageservices/) within Azure Stack. It also summarizes other considerations to keep in mind when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+This article summarizes the known Azure Stack Storage differences from Azure Storage. It also summarizes other considerations to keep in mind when you deploy Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
 
 ## Cheat sheet: Storage differences
 
