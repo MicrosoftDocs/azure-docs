@@ -38,6 +38,19 @@ Service Fabric does not run natively on OS X. To run a local Service Fabric clus
 > * You can follow the steps mentioned in the official Docker [documentation](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install) to install Docker on your Mac. 
 > * Once you are done installing, validate if it got installed properly following the steps mentioned [here](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine)
 
+## Setup IPv6 in the host
+
+Update the docker daemon on the Mac so that it is configured for IPv6. This is achieved by updating the `daemon.json` file by appending the two entries as follows:
+
+    ```json
+    {
+    "ipv6": true,
+    "fixed-cidr-v6": "fd00::/64"
+    }
+    ```
+
+The `daemon.json` file location is either `/etc/docker/daemon.json` or under your user directory at `~/.docker/daemon.json. You will have to restart the docker daemon after the change to the config by running :wq!
+
 
 ## Create a local container and setup Service Fabric
 To setup a local Docker container and have a service fabric cluster running on it, perform the following steps:
