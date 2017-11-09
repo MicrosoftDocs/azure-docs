@@ -163,7 +163,7 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 
 To query the GPU device state, SSH to the VM and run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
 
-Output similar to the following appears:
+Output similar to the following appears. Your driver version and GPU details may be different from the ones shown.
 
 ![NVIDIA device status](./media/n-series-driver-setup/smi-nv.png)
  
