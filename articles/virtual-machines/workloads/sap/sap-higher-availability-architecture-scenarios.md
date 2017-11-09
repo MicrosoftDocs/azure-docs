@@ -1,6 +1,6 @@
 ---
-title: Utilizing Azure Infrastructure VM Restart to Achieve “Higher Availability” of SAP System | Microsoft Docs
-description: Utilizing Azure Infrastructure VM Restart to Achieve “Higher Availability” of SAP Applications
+title: Utilize Azure infrastructure VM restart to achieve “higher availability” of an SAP system | Microsoft Docs
+description: Utilize Azure infrastructure VM restart to achieve “higher availability” of SAP applications
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Utilizing Azure Infrastructure VM Restart to Achieve “Higher Availability” of SAP System
+# Utilize Azure infrastructure VM restart to achieve “higher availability” of an SAP system
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -205,70 +205,79 @@ ms.custom: H1Hack27Feb2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-> This chapter is applicable for both:
+> This section applies to:
 >
 > ![Windows][Logo_Windows] Windows and ![Linux][Logo_Linux] Linux
 >
 
-If you decide not to use functionalities like Windows Server Failover Clustering (WSFC) or Pacemaker on Linux (currently only supported for SLES 12 and higher), Azure VM Restart is utilized to protect an SAP System against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
+If you decide not to use functionalities such as Windows Server Failover Clustering (WSFC) or Pacemaker on Linux (currently supported only for SUSE Linux Enterprise Server [SLES] 12 and later), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
 
 > [!NOTE]
-> It is important to mention that Azure VM Restart primarily protects VMs and NOT applications. VM Restart does not offer high availability for SAP applications, but it does offer a certain level of infrastructure availability and therefore indirectly “higher availability” of SAP systems. There is also no SLA for the time it will take to restart a VM after a planned or unplanned host outage. Therefore, this method of ‘high availability’ is not suitable for critical components of an SAP system like (A)SCS or DBMS.
+> Azure VM restart primarily protects VMs and *not* applications. VM restart does not offer high availability for SAP applications, but it does offer a certain level of infrastructure availability and, therefore, indirectly offers “higher availability” of SAP systems. There is also no SLA for the time it will take to restart a VM after a planned or unplanned host outage. Therefore, this method of ‘high availability’ is not suitable for critical components of an SAP system such as an ASCS/SCS instance or a database management system (DBMS).
 >
 >
 
-Another important infrastructure element for high availability is storage. For example Azure Storage SLA is 99,9 % availability. If one deploys all VMs with its disks into a single Azure Storage Account, potential Azure Storage unavailability will cause unavailability of all VMs that are placed in that Azure Storage Account, and also all SAP components running inside of those VMs.  
+Another important infrastructure element for high availability is storage. For example, the Azure Storage SLA is 99.9% availability. If you deploy all VMs and their disks in a single Azure storage account, potential Azure Storage unavailability will cause the unavailability of all VMs that are placed in that storage account and all SAP components that are running inside of the VMs.  
 
-Instead of putting all VMs into one single Azure Storage Account, you can also use dedicated storage accounts for each VM, and in this way increase overall VM and SAP application availability by using multiple independent Azure Storage Accounts.
+Instead of putting all VMs into a single Azure storage account, you can use dedicated storage accounts for each VM. By using multiple independent Azure storage accounts, you increase overall VM and SAP application availability.
 
-Azure Managed Disks are automatically placed in the Fault Domain of the virtual machine they are attached to. If you place two virtual machines in an availability set and use Managed Disks, the platform will take care of distributing the Managed Disks into different Fault Domains as well. If you plan to use Premium Storage, we highly recommend using Manage Disks as well.
+Azure managed disks are automatically placed in the fault domain of the virtual machine they are attached to. If you place two virtual machines in an availability set and use managed disks, the platform takes care of distributing the managed disks into different fault domains as well. If you plan to use a premium storage account, we highly recommend using managed disks.
 
-A sample architecture of an SAP NetWeaver system that uses Azure infrastructure HA and storage accounts could look like this:
+A sample architecture of an SAP NetWeaver system that uses Azure infrastructure high availability and storage accounts might look like this:
 
-![Utilizing Azure infrastructure HA to achieve SAP application “higher” availability][planning-guide-figure-2900]
+![Utilize Azure infrastructure high availability to achieve SAP application “higher availability"][planning-guide-figure-2900]
 
-A sample architecture of an SAP NetWeaver system that uses Azure infrastructure HA and Managed Disks could look like this:
+A sample architecture of an SAP NetWeaver system that uses Azure infrastructure high availability and managed disks might look like this:
 
-![Utilizing Azure infrastructure HA to achieve SAP application “higher” availability][planning-guide-figure-2901]
+![Utilize Azure infrastructure high availability to achieve SAP application “higher availability"][planning-guide-figure-2901]
 
-For critical SAP components we achieved the following so far:
+For critical SAP components, we have achieved the following so far:
 
-* High Availability of SAP Application Servers (AS)
+* High availability of SAP application servers
 
-  SAP application server instances are redundant components. Each SAP AS instance is deployed on its own VM, that is running in a different Azure Fault and Upgrade Domain (see chapters [Fault Domains][planning-guide-3.2.1] and [Upgrade Domains][planning-guide-3.2.2]). This is ensured by using Azure Availability Sets (see chapter [Azure Availability Sets][planning-guide-3.2.3]). Potential planned or unplanned unavailability of an Azure Fault or Upgrade Domain will cause unavailability of a restricted number of VMs with their SAP AS instances.
+    SAP application server instances are redundant components. Each SAP application server instance is deployed on its own VM, which is running in a different Azure fault and upgrade domain. For more information, see the [Fault domains][planning-guide-3.2.1] and [Upgrade domains][planning-guide-3.2.2] sections. 
 
-  Each SAP AS instance is placed in its own Azure Storage account – potential unavailability of one Azure Storage Account will cause unavailability of only one VM with its SAP AS instance. However, be aware that there is a limit of Azure Storage Accounts within one Azure subscription. To ensure automatic start of (A)SCS instance after the VM reboot, make sure to set the Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5].
-  Please also read chapter [High Availability for SAP Application Servers][planning-guide-11.4.1] for more details.
+    You can ensure this configuration by using Azure availability sets. For more information, see the [Azure availability sets][planning-guide-3.2.3]) section. 
 
-  Even if you use Managed Disks, those disks are also stored in an Azure Storage Account and can be unavailable in an event of a storage outage.
+    Potential planned or unplanned unavailability of an Azure fault or upgrade domain will cause unavailability of a restricted number of VMs with their SAP application server instances.
 
-* *Higher* Availability of SAP (A)SCS instance
+    Each SAP application server instance is placed in its own Azure storage account. The potential unavailability of one Azure storage account will cause the unavailability of only one VM with its SAP application server instance. However, be aware that there is a limit on the number of Azure storage accounts within one Azure subscription. To ensure automatic start of an ASCS/SCS instance after the VM reboot, set the Autostart parameter in the ASCS/SCS instance start profile that is described in the [Using Autostart for SAP instances][planning-guide-11.5] section.
+  
+    For more information, see [High availability for SAP application servers][planning-guide-11.4.1].
 
-  Here we utilize Azure VM Restart to protect the VM with installed SAP (A)SCS instance. In the case of planned or unplanned downtime of Azure severs, VMs will be restarted on another available server. As mentioned earlier, Azure VM Restart primarily protects VMs and NOT applications, in this case the (A)SCS instance. Through the VM Restart we’ll reach indirectly “higher availability” of SAP (A)SCS instance. To insure automatic start of (A)SCS instance after the VM reboot, make sure to set Autostart parameter in (A)SCS instance start profile described in chapter [Using Autostart for SAP instances][planning-guide-11.5]. This means the (A)SCS instance as a Single Point of Failure (SPOF) running in a single VM will be the determinative factor for the availability of the whole SAP landscape.
+    Even if you use managed disks, the disks are stored in an Azure storage account and might be unavailable in the event of a storage outage.
 
-* *Higher* Availability of DBMS Server
+* *Higher availability* of SAP ASCS/SCS instances
 
-  Here, similar to the SAP (A)SCS instance use case, we utilize Azure VM Restart to protect the VM with installed DBMS software, and we achieve “higher availability” of DBMS software through VM Restart.
-  DBMS running in a single VM is also a SPOF, and it is the determinative factor for the availability of the whole SAP landscape.
+    In this scenario, utilize Azure VM restart to protect the VM with the installed SAP ASCS/SCS instance. In the case of planned or unplanned downtime of Azure servers, VMs are restarted on another available server. As mentioned earlier, Azure VM restart primarily protects VMs and *not* applications, in this case the ASCS/SCS instance. Through the VM restart, you indirectly reach “higher availability” of the SAP ASCS/SCS instance. 
 
-## Using Autostart for SAP Instances
-  SAP offered the functionality to start SAP instances immediately after the start of the OS within the VM. The exact steps were documented in SAP Knowledge Base Article [1909114]. However, SAP is not recommending to use the setting anymore because there is no control in the order of instance restarts, assuming more than one VM got affected or multiple instances ran per VM. Assuming a typical Azure scenario of one SAP application server instance in a VM and the case of a single VM eventually getting restarted, the Autostart is not really critical and can be enabled by adding this parameter:
+    To ensure an automatic start of ASCS/SCS instance after the VM reboot, set the Autostart parameter in the ASCS/SCS instance start profile, as described in the [Using Autostart for SAP instances][planning-guide-11.5] section. This setting means that the ASCS/SCS instance as a single point of failure (SPOF) running in a single VM will determine the availability of the whole SAP landscape.
+
+* *Higher availability* of the DBMS server
+
+    As in the preceding SAP ASCS/SCS instance use case, you utilize Azure VM restart to protect the VM with installed DBMS software, and you achieve “higher availability” of DBMS software through VM restart.
+  
+    A DBMS that's running in a single VM is also a SPOF, and it is the determinative factor for the availability of the whole SAP landscape.
+
+## Using Autostart for SAP instances
+SAP offers a setting that lets you start SAP instances immediately after the start of the OS within the VM. The instructions are documented in SAP Knowledge Base Article [1909114]. However, SAP no longer recommends the use of the setting, because it does not allow control of the order of instance restarts if more than one VM is affected or if multiple instances are running per VM. 
+
+Assuming a typical Azure scenario of one SAP application server instance in a VM and a single VM eventually getting restarted, Autostart is not critical. But you can enable it by adding the following parameter into the start profile of the SAP Advanced Business Application Programming (ABAP) or Java instance:
 
       Autostart = 1
 
-  Into the start profile of the SAP ABAP and/or Java instance.
 
   > [!NOTE]
-  > The Autostart parameter can have some downfalls as well. In more detail, the parameter triggers the start of an SAP ABAP or Java instance when the related Windows/Linux service of the instance is started. That certainly is the case when the operating system boots up. However, restarts of SAP services are also a common thing for SAP Software Lifecycle Management functionality like SUM or other updates or upgrades. These functionalities are not expecting an instance to be restarted automatically at all. Therefore, the Autostart parameter should be disabled before running such tasks. The Autostart parameter also should not be used for SAP instances that are clustered, like ASCS/SCS/CI.
+  > The Autostart parameter has certain shortcomings as well. Specifically, the parameter triggers the start of an SAP ABAP or Java instance when the related Windows or Linux service of the instance is started. That sequence occurs when the operating system boots up. However, restarts of SAP services are also a common occurrence for SAP Software Lifecycle Management functionality such as Software Update Manger (SUM) or other updates or upgrades. These functionalities are not expecting an instance to be restarted automatically. Therefore, the Autostart parameter should be disabled before you run such tasks. The Autostart parameter also should not be used for SAP instances that are clustered, such as ASCS/SCS/CI.
   >
   >
 
-  See additional information regarding autostart for SAP instances here:
+  For more information about Autostart for SAP instances, see the following articles:
 
-  * [Start/Stop SAP along with your Unix Server Start/Stop](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
-  * [Starting and Stopping SAP NetWeaver Management Agents](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-  * [How to enable auto Start of HANA Database](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
+  * [Start or stop SAP along with your Unix Server Start/Stop](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
+  * [Starting and stopping SAP NetWeaver management agents](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
+  * [How to enable autostart of the HANA database](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 
 ## Next Steps
 
-For the full SAP NetWeaver application aware high availability, see [SAP Application High Availability on Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].
+For information about full SAP NetWeaver application-aware high availability, see [SAP application high availability on Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].
