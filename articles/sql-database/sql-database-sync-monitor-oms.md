@@ -23,15 +23,15 @@ You no longer need to look through the logs of each Sync Group individually to l
 
 ## Automated Email notifications
 
-You no longer need to check the log manually in the Azure Portal or through PowerShell or the REST API. By leveraging [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), you can create alerts that go directly to the email addresses of those that need to see them in the event of an error.
+You no longer need to check the log manually in the Azure portal or through PowerShell or the REST API. With [OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), you can create alerts that go directly to the email addresses of the people that need to see them when an error occurs.
 
 ![Data Sync email notifications](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
-## How do you set this up? 
+## How do you set up these monitoring features? 
 
-Implement a custom OMS monitoring solution for SQL Data Sync in less than an hour by doing the following things.
+Implement a custom OMS monitoring solution for SQL Data Sync in less than an hour by doing the following things:
 
-You'll need to configure 3 components:
+You need to configure three components:
 
 -   A PowerShell runbook to feed SQL Data Sync log data to OMS.
 
@@ -65,7 +65,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
 1.  Under your Azure Automation account, select the **Runbooks** tab under Process Automation.
 
-2.  Select **Add a Runbooks** at the top left corner of the Runbooks page.
+2.  Select **Add a Runbook** at the top left corner of the Runbooks page.
 
 3.  Select **Import an existing Runbook**.
 
@@ -75,13 +75,13 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
 6.  Under your Azure Automation Account, select the **Variables** tab under Shared Resources.
 
-7.  Select **Add a variable** on the Variables page. We need to create a variable to store the last execution time for the runbook. If you have multiple runbooks, you need one variable for each runbook.
+7.  Select **Add a variable** on the Variables page. Create a variable to store the last execution time for the runbook. If you have multiple runbooks, you need one variable for each runbook.
 
 8.  Set the variable name as `DataSyncLogLastUpdatedTime` and set its Type as DateTime.
 
 9.  Select the runbook and click the edit button at the top of the page.
 
-10. Make the changes required for your account and your SQL Data Sync configuration. (See the sample script for more detailed information.)
+10. Make the changes required for your account and your SQL Data Sync configuration. (For more detailed information, see the sample script.)
 
     1.  Azure information.
 
@@ -91,7 +91,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
 11. Run the runbook in the Test pane. Check to make sure it was successful.
 
-    If you have errors, make sure you have the latest PowerShell module installed. You can do this in the **Modules Gallery** in your Automation Account.
+    If you have errors, make sure you have the latest PowerShell module installed. You can install the latest PowerShell module in the **Modules Gallery** in your Automation Account.
 
 12. Click **Publish**
 
@@ -113,7 +113,7 @@ To schedule the runbook:
 
 ### Check the automation
 
-To monitor whether your automation is running as expected, under **Overview** for your automation account, find the **Job Statistics** view under **Monitoring**. Pin this to your dashboard for easy viewing. Successful runs of the runbook show as "Completed" and Failed runs show as "Failed".
+To monitor whether your automation is running as expected, under **Overview** for your automation account, find the **Job Statistics** view under **Monitoring**. Pin this view to your dashboard for easy viewing. Successful runs of the runbook show as "Completed" and Failed runs show as "Failed."
 
 ## Create an OMS Log Reader Alert for Email Notifications
 
@@ -131,9 +131,9 @@ To create an alert that uses OMS Log Analytics, do the following things. As a pr
 
     1.  Set the Aggregate Value to **Greater than**.
 
-    2.  After **Greater than**, enter the threshold to elapse before you receive notifications. Transient errors are expected in Data Sync. We recommend that you set the threshold to 5 to reduce noise.
+    2.  After **Greater than**, enter the threshold to elapse before you receive notifications. Transient errors are expected in Data Sync. To reduce noise, set the threshold to 5.
 
-5.  Under **Actions**, set **Email notification** to "Yes". Enter the desired email recipients.
+5.  Under **Actions**, set **Email notification** to "Yes." Enter the desired email recipients.
 
 6.  Click **Save**. The specified recipients now receive email notifications when errors occur.
 
@@ -188,6 +188,7 @@ For more info about SQL Data Sync, see:
 
 -   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
 -   [Get Started with Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:
