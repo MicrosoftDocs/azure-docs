@@ -1,5 +1,5 @@
 ---
-title: Data Factory Service Identity | Microsoft Docs
+title: Azure Data Factory service identity | Microsoft Docs
 description: Learn about data factory service identity in Azure Data Factory. 
 services: data-factory
 author: linda33wj
@@ -15,7 +15,7 @@ ms.date: 11/09/2017
 ms.author: jingwang
 ---
 
-# Azure Data Factory Service Identity
+# Azure Data Factory service identity
 
 This article helps you understand what is data factory service identity and how it works.
 
