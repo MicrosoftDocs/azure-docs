@@ -12,9 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 11/10/2017
 ms.author: ccompy
 ---
+
+# Configuring your ASE with forced tunnling
+
 The App Service Environment is a deployment of the Azure App Service in a customer's Azure Virtual Network (VNet). Many customers configure their VNets to be extensions of their on premises networks with VPNs or ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all outbound traffic on premises before it can go out to the internet. Changing the routing of the VNet so that the outbound traffic from the VNet flows through the VPN or ExpressRoute connection to on premises is called forced tunneling.  
 
 Forced tunneling can cause problems for an ASE. The ASE has a number of external dependencies, which are enumerated in this [ASE Network Architecture][network] document. The ASE, by default, requires that all outbound communication goes through the VIP that is provisioned with the ASE.
