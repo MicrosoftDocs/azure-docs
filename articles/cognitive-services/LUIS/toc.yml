@@ -11,7 +11,7 @@
   items: 
   - name: Create a new app
     href: luis-get-started-create-app.md
-  - name: Call a LUIS endpoint API
+  - name: Call LUIS endpoint API
     items:
     - name: C#
       href: luis-get-started-cs-get-intent.md
