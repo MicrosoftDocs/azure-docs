@@ -28,9 +28,9 @@ This quick start demonstrates how to create an Azure Cosmos DB account for the [
 
 ## Prerequisites
 
-* Before you can run this sample, you must have the following prerequisites:
-	* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
-	* [Git](http://git-scm.com/)
+* Access to the Azure Cosmos DB Cassandra API preview program. If you haven't applied for access yet, [sign up now](https://aka.ms/cosmosdb-cassandra-signup).
+* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
+* [Git](http://git-scm.com/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

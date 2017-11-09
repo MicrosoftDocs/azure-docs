@@ -21,8 +21,7 @@ ms.author: mimig
 
 [Azure Cosmos DB](introduction.md) provides the Cassandra API (preview) for applications that are written for Apache Cassandra that need premium capabilities like:
 
-* [Turnkey global distribution](distribute-data-globally.md).
-* [Dedicated throughput](partition-data.md) worldwide.
+* [Scalable storage size and throughput](partition-data.md).
 * Single-digit millisecond latencies at the 99th percentile.
 * Guaranteed high availability.
 
