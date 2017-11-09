@@ -1,21 +1,14 @@
 ---
-title: Manage resources with Azure Resource Manager | Microsoft Docs
-description: This article describes how to use Azure Resource Manager to manage Time Series Insights resources
-keywords: 
+title: Manage Time Series Insights with REST APIs | Microsoft Docs
+description: This article describes how to use REST APIs and Azure Resource Manager to manage Time Series Insights resources.
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: kfile
-manager: jhubbard
-editor: 
-
-ms.assetid: 
-ms.service: tsi
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-data
-ms.date: 11/06/2017
 ms.author: kfile
+manager: jhubbard
+editor: v-mamcge, jasonwhowell, kfile, tsidocs
+ms.workload: big-data
+ms.date: 11/09/2017
 ---
 
 # Manage Time Series Insights Resources with Azure Resource Manager

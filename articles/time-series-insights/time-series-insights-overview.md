@@ -1,21 +1,14 @@
 ---
 title: Overview of Azure Time Series Insights | Microsoft Docs
 description: Introduction to Azure Time Series Insights, a new service for time series data analytics and IoT solutions
-keywords:  
-services: tsi
-documentationcenter:
+services: time-series-insights
+ms.service: time-series-insights
 author: op-ravi
-manager: jhubbard
-editor: 
-
-ms.assetid:
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/03/2017
 ms.author: omravi
+manager: jhubbard
+editor: v-mamcge, jasonwhowell, kfile, tsidocs
+ms.workload: big-data
+ms.date: 11/09/2017
 ---
 
 # What is Azure Time Series Insights
