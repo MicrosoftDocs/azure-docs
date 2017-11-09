@@ -247,7 +247,7 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 Patch orchestration app logs are collected as part of Service Fabric runtime logs.
 
-In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses below fixed provider ID's to log events via [eventsource](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses below fixed provider ID's to log events via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
