@@ -1,17 +1,29 @@
 ---
+
 title: Payment Processing Blueprint for PCI DSS-compliant environments
-description: Guidance for deploying a PCI DSS-compliant environment on Microsoft Azure.
+description: PCI DSS Requirement 1
+services: security
+documentationcenter: na
 author: simorjay
-ms.date: 09/14/2017
+manager: mbaldwin
+editor: tomsh
+
+ms.assetid: 2f1e00a8-0dd6-477f-9453-75424d06a1df
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/15/2017
+ms.author: frasim
+
 ---
 
 # Payment Processing Blueprint for PCI DSS-compliant environments
 
-## Overview
-
 The Payment Processing Blueprint for PCI DSS-Compliant Environments provides guidance for the deployment of a PCI DSS-compliant Platform-as-a-Service (PaaS) environment suitable for handling sensitive payment card data. It showcases a common reference architecture and is designed to simplify adoption of Microsoft Azure. This foundational architecture illustrates an end-to-end solution to meet the needs of organizations seeking a cloud-based approach to reducing the burden and cost of deployment.
 
-This foundational architecture meets the requirements of stringent Payment Card Industry Data Security Standards (PCI DSS 3.2) for the collection, storage, and retrieval of payment card data. It demonstrates the proper handling of credit card data (including card number, expiration, and verification data) in a secure, compliant multi-tier environment deployed as an end-to-end Azure-based solution. For more information about PCI DSS 3.2 requirements and this solution, see [PCI DSS Requirements - High-Level Overview](./requirements-overview.md).
+This foundational architecture meets the requirements of stringent Payment Card Industry Data Security Standards (PCI DSS 3.2) for the collection, storage, and retrieval of payment card data. It demonstrates the proper handling of credit card data (including card number, expiration, and verification data) in a secure, compliant multi-tier environment deployed as an end-to-end Azure-based solution. For more information about PCI DSS 3.2 requirements and this solution, see [PCI DSS Requirements - High-Level Overview](pci-dss-requirements-overview.md).
 
 This architecture is intended to serve as a foundation for customers to adjust to their specific requirements, and should not be used as-is in a production environment. Deploying an application into this environment without modification is not sufficient to completely meet the requirements of a PCI DSS-compliant solution. Please note the following:
 - This foundational architecture provides a baseline to help customers use Microsoft Azure in a PCI DSS-compliant manner.
@@ -365,7 +377,7 @@ The solution was reviewed by Coalfire systems, Inc. (PCI-DSS Qualified Security 
 - This document is for informational purposes only. MICROSOFT AND AVYAN MAKE NO WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, AS TO THE INFORMATION IN THIS DOCUMENT. This document is provided “as-is.” Information and views expressed in this document, including URL and other Internet website references, may change without notice. Customers reading this document bear the risk of using it.  
 - This document does not provide customers with any legal rights to any intellectual property in any Microsoft or Avyan product or solutions.  
 - Customers may copy and use this document for internal reference purposes.  
-- NOTE: Certain recommendations in this paper may result in increased data, network, or compute resource usage in Azure, and may increase a customer’s Azure license or subscription costs.  
+- Certain recommendations in this paper may result in increased data, network, or compute resource usage in Azure, and may increase a customer’s Azure license or subscription costs.  
 - The solution in this document is intended as a foundational architecture and must not be used as-is for production purposes. Achieving PCI compliance requires that customers consult with their Qualified Security Assessor.  
 - All customer names, transaction records, and any related data on this page are fictitious, created for the purpose of this foundational architecture and provided for illustration only. No real association or connection is intended, and none should be inferred.  
 - This solution was developed jointly by Microsoft and Avyan Consulting, and is available under the [MIT License](https://opensource.org/licenses/MIT).

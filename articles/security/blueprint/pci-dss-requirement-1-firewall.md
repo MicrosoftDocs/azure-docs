@@ -24,7 +24,7 @@ ms.author: frasim
 
 **Install and maintain a firewall configuration to protect cardholder data**
 
-> **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
+> [!NOTE] These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
 Firewalls are devices that control computer traffic allowed between an entity’s networks (internal) and untrusted networks (external), as well as traffic into and out of more sensitive areas within an entity’s internal trusted networks. The cardholder data environment is an example of a more sensitive area within an entity’s trusted network.
 A firewall examines all network traffic and blocks those transmissions that do not meet the specified security criteria.
@@ -41,7 +41,7 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides firewalling of the CDE using PaaS isolation, and an App Service Environment implementation ensures that CDE ingress and egress of data is protected.<br /><br />An [App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) is a Premium service plan used for compliance reasons. For more information on ASE controls and configuration, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides firewalling of the CDE using PaaS isolation, and an App Service Environment implementation ensures that CDE ingress and egress of data is protected.<br /><br />An [App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) is a Premium service plan used for compliance reasons. For more information on ASE controls and configuration, see [PCI Guidance - App Service Environment](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -55,7 +55,7 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore instance establishes a CI/CD DevOps model for ensuring that all changes are managed correctly. [Operations Management Suite (OMS)](/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](index.md#logging-and-auditing).<br /><br />[Azure Security Center](https://azure.microsoft.com/services/security-center/) provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | A Contoso Webstore instance establishes a CI/CD DevOps model for ensuring that all changes are managed correctly. [Operations Management Suite (OMS)](/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Azure Security Center](https://azure.microsoft.com/services/security-center/) provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.|
 
 
 
@@ -94,7 +94,7 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure employs boundary protection devices such as gateways, network ACLs, and application firewalls to control communications at external and internal boundaries at the platform level. The customer then configures these to their specifications and requirements. Microsoft Azure filters communication when coming into the platform. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides a DMZ using PaaS isolation, and an App Service Environment implementation ensures that CDE ingress and egress of data is protected.<br /><br />An [App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) is a Premium service plan used for compliance reasons. For more information on ASE controls and configuration, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides a DMZ using PaaS isolation, and an App Service Environment implementation ensures that CDE ingress and egress of data is protected.<br /><br />An [App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) is a Premium service plan used for compliance reasons. For more information on ASE controls and configuration, see [PCI Guidance - App Service Environment](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -141,7 +141,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.2** Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment. 
 
-> **Note:** An “untrusted network” is any network that is external to the networks belonging to the entity under review, and/or which is out of the entity's ability to control or manage.
+> [!NOTE] An “untrusted network” is any network that is external to the networks belonging to the entity under review, and/or which is out of the entity's ability to control or manage.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -161,7 +161,9 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore's CDE is defined in the RA and deployment documentation. Untrusted networks are denied by design. The Contoso Webstore demo configures the Microsoft Azure application firewall to allow only specified ranges of IP addresses to access Microsoft Azure services. The Contoso Webstore provides a deny-all firewall at all CDE boundaries. All configurations is performed during the initial setup of the deployment.<br ><br />**NOTE**: App Service Environment (ASE) is used in this solution to isolate the CDE However, it is essential that your Qualified Security Assessor (QSA) evaluates this solution, as ASE implements a DMZ isolation that allows outbound connections to be made by the ASE. PCI-DSS requires that all inbound and outbound connections which are not required must be blocked. For ASE to operate correctly, ASE will establish outbound connections as needed as defined in ["Networking considerations for an App Service Environment"](/azure/app-service/app-service-environment/network-info). Customers should evaluate the outbound connections with your QSA prior to deploying the solution into a production environment to ensure it will meet the requirements. |
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore's CDE is defined in the RA and deployment documentation. Untrusted networks are denied by design. The Contoso Webstore demo configures the Microsoft Azure application firewall to allow only specified ranges of IP addresses to access Microsoft Azure services. The Contoso Webstore provides a deny-all firewall at all CDE boundaries. All configurations is performed during the initial setup of the deployment.
+
+[!NOTE] App Service Environment (ASE) is used in this solution to isolate the CDE However, it is essential that your Qualified Security Assessor (QSA) evaluates this solution, as ASE implements a DMZ isolation that allows outbound connections to be made by the ASE. PCI-DSS requires that all inbound and outbound connections which are not required must be blocked. For ASE to operate correctly, ASE will establish outbound connections as needed as defined in ["Networking considerations for an App Service Environment"](/azure/app-service/app-service-environment/network-info). Customers should evaluate the outbound connections with your QSA prior to deploying the solution into a production environment to ensure it will meet the requirements. |
 
 
 
@@ -254,7 +256,7 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore architecture prevents unauthorized outbound traffic from the in-scope environment to the Internet. This is accomplished by configuring outbound traffic ACLs for approved ports and protocols in Microsoft Azure. These controls include access to the CDE in the SQL Server database. <br /><br />A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore architecture prevents unauthorized outbound traffic from the in-scope environment to the Internet. This is accomplished by configuring outbound traffic ACLs for approved ports and protocols in Microsoft Azure. These controls include access to the CDE in the SQL Server database. <br /><br />A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -282,7 +284,7 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure uses network segregation and NAT to separate customer traffic from management traffic. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore architecture prevents unauthorized outbound traffic from the in-scope environment to the Internet. This is accomplished by configuring outbound traffic ACLs for approved ports and protocols in Microsoft Azure. These controls include access to the CDE in the SQL Server database. <br /><br />A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore architecture prevents unauthorized outbound traffic from the in-scope environment to the Internet. This is accomplished by configuring outbound traffic ACLs for approved ports and protocols in Microsoft Azure. These controls include access to the CDE in the SQL Server database. <br /><br />A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -292,11 +294,11 @@ Other system components may provide firewall functionality, as long as they meet
 addresses and routing information to
 unauthorized parties. 
 
-> **Note:** Methods to obscure IP addressing may include, but are not limited to:
-- Network Address Translation (NAT).
-- Placing servers containing cardholder data behind proxy servers/firewalls.
-- Removal or filtering of route advertisements for private networks that employ registered addressing.
-- Internal use of RFC1918 address space instead of registered addresses.
+> [!NOTE] Methods to obscure IP addressing may include, but are not limited to:
+> - Network Address Translation (NAT).
+> - Placing servers containing cardholder data behind proxy servers/firewalls.
+> - Removal or filtering of route advertisements for private networks that employ registered addressing.
+> - Internal use of RFC1918 address space instead of registered addresses.
 
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**

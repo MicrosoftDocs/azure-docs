@@ -24,7 +24,7 @@ ms.author: frasim
 
 **Track and monitor all access to network resources and cardholder data**
 
-> **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
+> [!NOTE] These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
 Logging mechanisms and the ability to track user activities are critical in preventing, detecting, or minimizing the impact of a data compromise. The presence of logs in all environments allows thorough tracking, alerting, and analysis when something does go wrong. Determining the cause of a compromise is very difficult, if not impossible, without system activity logs.
 
@@ -37,7 +37,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure restricts access to administrative and diagnostic tools to authorized personnel with relevant job responsibility. Microsoft Azure restricts privileged access to the tools used in the production environment based on least privilege principles. Microsoft Azure records and maintains a log of all individual user access to Microsoft Azure system components in the platform environment.<br /><br />Microsoft Azure platform components (including OS, CloudNet, Fabric, and so on) are configured to log and collect security events. Administrator activity in the Microsoft Azure platform is logged. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -57,7 +57,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure restricts access to administrative and diagnostic tools to authorized personnel with relevant job responsibility. Microsoft Azure restricts privileged access to the tools used in the production environment based on least privilege principles. Microsoft Azure records and maintains a log of all individual user access to Microsoft Azure system components in the platform environment.<br /><br />Microsoft Azure platform components (including OS, CloudNet, Fabric, and so on) are configured to log and collect security events. Administrator activity in the Microsoft Azure platform is logged. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system and user activity, including CHD logging. For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system and user activity, including CHD logging. For more information, see [PCI Guidance - Logging](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -83,7 +83,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 ## PCI DSS Requirement 10.4
 
 **10.4** Using time-synchronization technology, synchronize all critical system clocks and times and ensure that the following is implemented for acquiring, distributing, and storing time. 
-> **Note:** One example of time synchronization technology is Network Time Protocol (NTP).
+> [!NOTE] One example of time synchronization technology is Network Time Protocol (NTP).
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
@@ -213,8 +213,9 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 ## PCI DSS Requirement 10.6
 
-**10.6** Review logs and security events for all system components to identify anomalies or suspicious activity. 
->Note: Log harvesting, parsing, and alerting tools may be used to meet this Requirement.
+**10.6** Review logs and security events for all system components to identify anomalies or suspicious activity.
+ 
+> [!NOTE] Log harvesting, parsing, and alerting tools may be used to meet this Requirement.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
@@ -277,7 +278,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure retains audit logs for one year, with the most recent 3 months immediately accessible through their internal portal. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -293,7 +294,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 - Audit logging mechanisms
 - Segmentation controls (if used) 
 
-> **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
+> [!NOTE] This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
 
@@ -302,7 +303,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -318,7 +319,7 @@ remediation required to address root cause
 - Implementing controls to prevent cause of failure from reoccurring
 -Resuming monitoring of security controls 
 
-> **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
+> [!NOTE] This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
@@ -326,7 +327,7 @@ remediation required to address root cause
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 

@@ -24,7 +24,7 @@ ms.author: frasim
 
 **Do not use vendor-supplied defaults for system passwords and other security parameters**
 
-> **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
+> [!NOTE] These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
 Malicious individuals (external and internal to an entity) often use vendor default passwords and other vendor default settings to compromise systems. These passwords and settings are well known by hacker communities and are easily determined via public information.
 
@@ -69,7 +69,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | For Microsoft Azure, the OSSC Technical Security Services team develops security configuration standards for systems in the Microsoft Azure environment that are consistent with industry-accepted hardening standards. These configurations are documented in system baselines and relevant configuration changes are communicated to impacted teams (e.g., IPAK team). Procedures are implemented to monitor for compliance against the security configuration standards. The security configuration standards for systems in the Microsoft Azure environment are consistent with industry-accepted hardening standards and are reviewed at least annually. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides hardening of all services in scope for the cardholder data environment (CDE). <br /><br />The Contoso Webstore also deploys the [Azure Security Center](https://azure.microsoft.com/services/security-center/), which provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.<br /><br />The Contoso Webstore utilizes Operations Management Suite to log all system changes. [Operations Management Suite (OMS)](/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides hardening of all services in scope for the cardholder data environment (CDE). <br /><br />The Contoso Webstore also deploys the [Azure Security Center](https://azure.microsoft.com/services/security-center/), which provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.<br /><br />The Contoso Webstore utilizes Operations Management Suite to log all system changes. [Operations Management Suite (OMS)](/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -77,14 +77,14 @@ Sources of industry-accepted system hardening standards may include, but are not
 
 **2.2.1** Implement only one primary function per server to prevent functions that require different security levels from co-existing on the same server. (For example, web servers, database servers, and DNS should be implemented on separate servers.) 
 
-> **Note:** Where virtualization technologies are in use, implement only one primary function per virtual system component.
+> [!NOTE] Where virtualization technologies are in use, implement only one primary function per virtual system component.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore services are deployed as PaaS services. All services are isolated, and segmented using network segmentation.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore services are deployed as PaaS services. All services are isolated, and segmented using network segmentation.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -97,7 +97,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure software and hardware configurations are reviewed at least quarterly to identify and eliminate any unnecessary functions, ports, protocols and services. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore services are deployed as PaaS services. All services are isolated, and segmented using network segmentation.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore services are deployed as PaaS services. All services are isolated, and segmented using network segmentation.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -105,7 +105,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 
 **2.2.3** Implement additional security features for any required services, protocols, or daemons that are considered to be insecure. 
 
-> **Note:** Where SSL/early TLS is used, the
+> [!NOTE] Where SSL/early TLS is used, the
 requirements in Appendix A2 must be
 completed.
 
@@ -115,7 +115,7 @@ completed.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore services are deployed as PaaS services. All services are isolated, and segmented using network segmentation. The deployment also provides hardening of all services in scope of the CDE. <br /><br />The Contoso Webstore also deploys the [Azure Security Center](https://azure.microsoft.com/services/security-center/), which provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore services are deployed as PaaS services. All services are isolated, and segmented using network segmentation. The deployment also provides hardening of all services in scope of the CDE. <br /><br />The Contoso Webstore also deploys the [Azure Security Center](https://azure.microsoft.com/services/security-center/), which provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -128,7 +128,7 @@ completed.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Azure ensures only authorized personnel are able to configure Azure platform security controls, using multi-factor access controls and a documented business need. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore utilizes AAD and AD RBAC to manage security parameters are deployed correctly. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore utilizes AAD and AD RBAC to manage security parameters are deployed correctly. For more information, see [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management).|
 
 
 
@@ -149,14 +149,14 @@ completed.
 
 **2.3** Encrypt all non-console administrative access using strong cryptography. 
 
-> **Note:** Where SSL/early TLS is used, the requirements in Appendix A2 must be completed.
+> [!NOTE] Where SSL/early TLS is used, the requirements in Appendix A2 must be completed.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ensures the use of strong cryptography is enforced when accessing the hypervisor infrastructure. Microsoft Azure also ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore shows how strong passwords can be implemented in a solution; additionally, all tests can be performed to verify that encryption is implemented throughout the solution.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore shows how strong passwords can be implemented in a solution; additionally, all tests can be performed to verify that encryption is implemented throughout the solution.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -169,7 +169,7 @@ completed.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore demo PaaS solution inventory can be reviewed in the provided documentation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](index.md#oms-solutions).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore demo PaaS solution inventory can be reviewed in the provided documentation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](payment-processing-blueprint.md#oms-solutions).|
 
 
 
