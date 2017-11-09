@@ -57,7 +57,7 @@ Before you prepare your environment, please understand the limitations.
 * Backing up virtual machines with data disk sizes greater than 1023GB is not supported.
 
 > [!NOTE]
-> We have a private preview to support backups for VMs with >1TB unmanaged disks. Please reach out to AskAzureBackupTeam@microsoft.com to register your subscription for the preview. 
+> We have a private preview to support backups for VMs with >1TB unmanaged disks. For details refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
