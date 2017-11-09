@@ -40,10 +40,10 @@ Docker for Windows can run either Windows containers or Linux containers. The st
 
 1. Make sure you're using a supported Windows version:
    * Windows 10 
-   * Windows Server 1709
-2. Install [Docker for Windows][lnk-docker-windows] and make sure it's running.
-3. Install [Python 2.7 on Windows][lnk-python-windows] and make sure you can use the pip command.
-4. Run the following command to download the IoT Edge control tool.
+   * Windows Server
+2. Install [Docker for Windows][lnk-docker] and make sure it's running.
+3. Install [Python 2.7 on Windows][lnk-python] and make sure you can use the pip command.
+4. Run the following command to download the IoT Edge control script.
 
    ```
    pip install -U azure-iot-edge-runtime-ctl
@@ -74,9 +74,9 @@ Docker for Windows can run either Windows containers or Linux containers. The st
    ```
 
    This script provides the following:
-   * Docker, configured to use Windows containers
-   * Python 2.7
-   * The IoT Edge control tool (iotedgectl.exe)
+   * Docker, configured to use Windows containers. If you already have Docker on your machine, go through the steps to [switch to Windows containers][lnk-docker-containers]. 
+   * Python 3.6
+   * The IoT Edge control script (iotedgectl.exe)
 
 ## Create an IoT hub
 
@@ -160,6 +160,7 @@ This tutorial is the prerequisite for all of the other IoT Edge tutorials. You c
 
 <!-- Links -->
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
-[lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
-[lnk-python-windows]: https://www.python.org/downloads/
+[lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 
+[lnk-python]: https://www.python.org/downloads/
+[lnk-docker-containers]: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
