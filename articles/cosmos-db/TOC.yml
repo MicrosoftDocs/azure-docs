@@ -67,6 +67,8 @@
       href: import-data.md
     - name: MongoDB
       href: mongodb-migrate.md
+    - name: Table
+      href: table-import.md
   - name: 3 - Query
     items:
     - name: DocumentDB
