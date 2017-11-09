@@ -65,7 +65,7 @@ The examples below show of variety of ways to do one or both functions:
 
 ### HTTP/REST 
 
-Any client application running on the VM that can make HTTP REST calls, can acquire an MSI access token. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs and Azure AD endpoint).
+REST provides a fundamental interface for acquiring an access token, accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs and Azure AD endpoint).
 
 Sample request:
 
@@ -142,48 +142,29 @@ catch (Exception e)
 
 ### Azure CLI
 
-Scripting hosts such as Azure CLI can use an MSI service principal for sign-in, instead of signing in interactively with a user account. When using an MSI service principal, the host takes care of acquiring an access token in the background, and using it to make subsequent calls to access resources. 
-
 The following script demonstrates how to:
 
-- sign in to Azure AD under the VM's MSI service principal
-- use the MSI service principal to make an Azure Resource Manager call, to obtain the ID of the service principal
+1. Sign in to Azure AD under the VM's MSI service principal
+2. Call Azure Resource Manager and get the VM's service principal ID. CLI takes care of managing token acquisition/use for you automatically.
 
-```azurecli
+Please note, if you're using interactive sign in via Azure Cloud Shell, you won't be sign-in under the MSI service principal.
+
+```azurecli-interactive
 az login --msi
 spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
 echo The MSI service principal ID is $spID
 ```
 
-If you're using interactive sign in via Azure Cloud Shell, you can use:
-
-```azurecli-interactive
-spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
-echo The MSI service principal ID is $spID
-```
-
-
 ### Azure PowerShell
-
-Scripting hosts such as Azure PowerShell can use an MSI service principal for sign-in, instead of signing in interactively with a user account. When using an MSI service principal, the host takes care of acquiring an access token in the background, and using it to make subsequent calls to access resources. 
-
-> [!NOTE]
-> In order to complete this section, you need the application ID of the MSI's service principal. Use the following script to retreive it, substituting the name of your virtual machine for `<VM-NAME>`: 
-
-> ```azurepowershell-interactive
-> # Install the Azure AD PS cmdlets if necessary
-> Install-Module AzureAD
-> # Sign in using an account from the AAD tenant that is associated with the Azure subscription of your VM
-> Connect-AzureAD 
-> # Copy the appId property returned from the following, substituting the name of your VM for VM-NAME
-> Get-AzureADServicePrincipal -Filter "displayName eq '<VM-NAME>'" 
-> ```  
 
 The following script demonstrates how to:
 
 1. Acquire an MSI access token for an Azure VM.
-2. Use the access token to sign in to Azure AD, under the application ID of the corresponding MSI service principal. Be sure to substitute the MSI service principal's application ID for `<APP-ID>` in the script. 
-3. Use the MSI service principal to make an Azure Resource Manager call, to obtain the ID of the service principal. Be sure to substitute your resource group and virtual machine name for `<RESOURCE-GROUP>` and `<VM-NAME>` respectively.
+2. Use the access token to call Azure Resource Manager and get information about the VM. Be sure to substitute your subscription ID, resource group name, and virtual machine name for `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, and `<VM-NAME>`, respectively.
+2. Use the access token to sign in to Azure AD, under the corresponding MSI service principal. 
+3. Call Azure Resource Manager and get information about the VM. PowerShell takes care of managing token acquisition/use for you automatically.
+
+Please note, if you're using interactive sign in via Azure Cloud Shell, you won't be sign-in under the MSI service principal.
 
 ```azurepowershell-interactive
 # Get an access token for the MSI
@@ -193,25 +174,16 @@ $content =$response.Content | ConvertFrom-Json
 $access_token = $content.access_token
 echo "The MSI access token is $access_token"
 
-# Use the access token to sign in under the MSI service principal
-Login-AzureRmAccount -AccessToken $access_token -AccountId "<APP-ID>"
+# Use the access token to get resource information for the VM
+(Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
 
-# The MSI service principal is now signed in for this session.
-# Next, a call to Azure Resource Manager is made to get the service principal ID for the VM's MSI. 
+# Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
+Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+
+# Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
 $vmInfo = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
 $spID = $vmInfo.Identity.PrincipalId
 echo "The MSI service principal ID is $spID"
-```
-
-**TODO:** Talk about just using the access token and REST, instead of doing sign-in? ie:
-
-```azurepowershell-interactive
-$response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-
-$content = $response.Content | ConvertFrom-Json
-$ArmToken = $content.access_token
-
-(Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content
 ```
 
 ### Bash/CURL
