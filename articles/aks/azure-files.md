@@ -28,9 +28,7 @@ For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-
 
 ## Create an Azure file share
 
-Before using an Azure file share with Azure Container Instances, you must create it. Run the following script to create a storage account and a file share. The storage account name must be globally unique, so the script adds a random value to the base string. The file share name will be `aksshare`, this can be updated to a value of your choosing.
-
-This script will also retrieve the storage account key and place it in a variable. This variable is used in a later step.
+Before using an Azure File Share as a Kubernetes volume, you must create an Azure Storage account and the file share. The following script can be used to complete these tasks. Take note or update the parameter values, some of these are needed when creating the Kubernetes volume. Also, the storage account key is needed to create the Kubernetes volume. This script gathers the storage key value and stores it in the `STORAGE_KEY` variable.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -67,7 +65,7 @@ First, encode the name of the storage account. If needed, replace `$AKS_PERS_STO
 echo -n $AKS_PERS_STORAGE_ACCOUNT_NAME | base64
 ```
 
-Next, encode the storage account access key. If needed, replace `$STORAGE_KEY` with the name of the Azure storage account key.
+Next, encode the storage account key. If needed, replace `$STORAGE_KEY` with the name of the Azure storage account key.
 
 ```azurecli-interactive
 echo -n $STORAGE_KEY | base64
