@@ -25,7 +25,7 @@ This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Importing data with the Data Migration tool
-> * Importing data with az copy
+> * Importing data with AzCopy
 
 ## Data Migration tool
 
