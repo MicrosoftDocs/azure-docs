@@ -26,6 +26,7 @@ This article talks about steps to configure reports for Azure Backup using Recov
 2. Reports for Azure SQL, DPM and Azure Backup Server are not supported at this time.
 3. You can view reports across vaults and across subscriptions, if same storage account is configured for each of the vaults. Storage account selected should be in the same region as recovery services vault.
 4. The frequency of scheduled refresh for the reports is 24 hours in Power BI. You can also perform an ad-hoc refresh of the reports in Power BI, in which case latest data in customer storage account is used for rendering reports. 
+5. Azure Backup Reports are currently not supported in National clouds.
 
 ## Prerequisites
 1. Create an [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) to configure it for reports. This storage account is used for storing reports related data.
