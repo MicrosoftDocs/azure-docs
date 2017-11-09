@@ -19,17 +19,20 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Build a Python application using the Table API
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, wide-column, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries using the [Azure Cosmos DB Table API](https://aka.ms/tableapinuget) package from NuGet.
+This quick start demonstrates how to create an Azure Cosmos DB [Table API](table-introduction.md) account by using the Azure portal. You'll then clone and run a sample from github that inserts, updates, queries, and deletes entities in a table by using Python and the Azure Cosmos DB Table API.
 
 ## Prerequisites
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+In addition:
 
 * If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 * Python Tools for Visual Studio from [GitHub](http://microsoft.github.io/PTVS/). This tutorial uses Python Tools for VS 2015.
 * Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a database account
 
@@ -65,7 +68,7 @@ Now let's clone a Table app from github, set the connection string, and run it. 
 2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-python-getting-started.git
     ```
 
 3. Then open the solution file in Visual Studio. 

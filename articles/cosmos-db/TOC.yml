@@ -45,6 +45,12 @@
     items:
     - name: .NET
       href: create-table-dotnet.md
+    - name: Java
+      href: create-table-java.md
+    - name: Node.js
+      href: create-table-nodejs.md
+    - name: Python
+      href: create-table-python.md
 - name: Tutorials
   items:
   - name: 1 - Create

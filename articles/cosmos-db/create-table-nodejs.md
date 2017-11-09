@@ -1,6 +1,6 @@
 ---
-title: Build an Azure Cosmos DB .NET application using the Table API | Microsoft Docs
-description: Get started with Azure Cosmos DB's Table API using .NET
+title: Build an Azure Cosmos DB Node.js application using the Table API | Microsoft Docs
+description: Get started with Azure Cosmos DB's Table API using Node.js
 services: cosmos-db
 documentationcenter: ''
 author: arramac
@@ -12,25 +12,27 @@ ms.service: cosmos-db
 ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: node
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: arramac
 
 ---
-# Azure Cosmos DB: Build a .NET application using the Table API
+# Azure Cosmos DB: Build a Node.js application using the Table API
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, wide-column, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries using the [Azure Cosmos DB Table API](https://aka.ms/tableapinuget) package from NuGet.
+This quick start demonstrates how to create an Azure Cosmos DB [Table API](table-introduction.md) account by using the Azure portal. You'll then clone and run a sample from github that inserts, updates, queries, and deletes entities in a table by using Node.js and the Azure Cosmos DB Table API.
 
 ## Prerequisites
 
-* Before you can run this sample, you must have the following prerequisites:
-	* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
-	* [Git](http://git-scm.com/)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+
+In addition:
+
+* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
+* [Git](http://git-scm.com/)
 
 ## Create a database account
 
@@ -66,7 +68,7 @@ Now let's clone a Table app from github, set the connection string, and run it. 
 2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
 3. Then open the solution file in Visual Studio. 
