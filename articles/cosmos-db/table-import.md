@@ -38,7 +38,7 @@ Information on defining Azure Table storage as the source and Table API as the t
 
 ## AzCopy command
 
-Using the AzCopy command line utility is the other option for migrating data from Azure Table storage to the Azure Cosmos DB Table API. To use AzCopy, you first export your data to a manifest file as described in [Export data from Table storage](../storage/common/storage-use-azcopy.md#export-data-from-table-storage), then import the data from the manifest file to Azure Cosmos DB Table API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage).
+Using the AzCopy command line utility is the other option for migrating data from Azure Table storage to the Azure Cosmos DB Table API. To use AzCopy, you first export your data to a manifest file as described in [Export data from Table storage](../storage/common/storage-use-azcopy.md#export-data-from-table-storage.md), then import the data from the manifest file to [Azure Cosmos DB Table API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage).
 
 ## Next steps
 
