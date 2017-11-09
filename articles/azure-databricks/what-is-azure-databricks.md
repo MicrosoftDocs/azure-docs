@@ -74,7 +74,7 @@ With **Serverless** option, Azure Databricks completely abstracts out the infras
 
 For Data Engineers, who care deeply about the performance of production jobs, Azure Databricks provides a Spark engine that is faster and performant through various optimizations at the I/O layer and processing layer (Databricks I/O).
 
-## Collaborative workspace
+### Collaborative workspace
 
 Through a collaborative and integrated environment, Azure Databricks streamlines the process of exploring data, prototyping, and running data-driven applications in Spark.
 
