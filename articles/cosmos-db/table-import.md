@@ -31,11 +31,14 @@ This tutorial covers the following tasks:
 
 The Azure Cosmos DB Data Migration tool is one option to import your existing Azure Table storage data. To import data with the tool, you select Azure Table storage as the source and the Azure Cosmos DB Table API as the target, and provide the rest of the information as reqested in the tool. Data can be exported in bulk, or by using sequential record import. 
 
-Information on defining Azure Table storage as the source is provided in [To import from Azure Table storage](import-data.md#AzureTableSource). Information on exporting to the Azure Cosmos DB Table API in bulk is provided in [Export to Table API (Bulk import)](import-data.md#tableapibulkexport). Information on exporting to the Azure Cosmos DB Table API in using sequential record is provided in [Export to Table API (Sequential Record Import)](import-data.md#tableapiseqtarget).
+Information on defining Azure Table storage as the source and Table API as the target is provided in the following sections:
+- [Using Azure Table storage as a data migration source](import-data.md#AzureTableSource). 
+- [Export to Table API with bulk import](import-data.md#tableapibulkexport)
+- [Export to Table API with sequential record import](import-data.md#tableapiseqtarget).
 
 ## Importing data with az copy
 
-Using the AzCopy command line utility is the other option for migrating data from Azure Table storage to the Azure Cosmos DB Table API. To use AzCopy, you first export your data to a manifest file as described in [Export data from Table storage](../storage/common/storage-use-azcopy.md#export-data-from-table-storage), then import the import the data from the manifest file to Azure Cosmos DB Table API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage).
+Using the AzCopy command line utility is the other option for migrating data from Azure Table storage to the Azure Cosmos DB Table API. To use AzCopy, you first export your data to a manifest file as described in [Export data from Table storage](../storage/common/storage-use-azcopy.md#export-data-from-table-storage), then import the data from the manifest file to Azure Cosmos DB Table API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage).
 
 ## Next steps
 
@@ -45,7 +48,10 @@ In this tutorial you learned how to:
 > * Import data with the Data Migration tool
 > * Import data with AzCopy
 
+You can now proceed to the next tutorial and learn how to query data using the Azure Cosmos DB Table API. 
 
+> [!div class="nextstepaction"]
+>[How to query data?](../cosmos-db/tutorial-query-table.md)
 
 
 

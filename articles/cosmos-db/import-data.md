@@ -18,9 +18,9 @@ ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
 ---
-# How to import data into Azure Cosmos DB with the DocumentDB API
+# Azure Cosmos DB: Data migration tool
 
-This tutorial provides instructions on using the Azure Cosmos DB: DocumentDB API Data Migration tool, which can import data from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and Azure Cosmos DB DocumentDB API collections into collections for use with Azure Cosmos DB and the DocumentDB API. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the DocumentDB API.
+This tutorial provides instructions on using the Azure Cosmos DB Data Migration tool, which can import data from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and Azure Cosmos DB DocumentDB API collections into collections and tables for use with Azure Cosmos DB. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the DocumentDB API.
 
 The Data Migration tool only works when importing data into Azure Cosmos DB for use with the DocumentDB API or Table API. For information specific to importing data for the Azure Cosmos DB Table API, see [Import data for use with the Azure Cosmos DB Table API](table-import.md). Importing data for use with the Graph API is not supported at this time. 
 
@@ -226,7 +226,9 @@ Here is a command line sample for CSV import:
     dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionThroughput:2500
 
 ## <a id="AzureTableSource"></a>To import from Azure Table storage
-The Azure Table storage source importer option allows you to import from an individual Azure Table storage table and optionally filter the table entities to be imported. Note that you cannot use the Data Migration tool to import Azure Table storage data into Azure Cosmos DB for use with the Table API. Only importing to Azure Cosmos DB for use with the DocumentDB API is supported at this time.
+The Azure Table storage source importer option allows you to import from an individual Azure Table storage table and optionally filter the table entities to be imported. 
+
+Data imported from Azure Table Storage can be output to Azure Cosmos DB tables and entities, for use with the Table API, or to collections and documents, for use with the DocumentDB API.  
 
 ![Screenshot of Azure Table storage source options](./media/import-data/azuretablesource.png)
 
@@ -554,7 +556,6 @@ The Azure Cosmos DB JSON exporter enables you to export information from an Azur
 ## <a id="tableapiseqtarget"></a>Export to Table API (Sequential Record Import)
 
 The Azure Cosmos DB JSON exporter enables you to export information from an Azure Table storage source to an Azure Cosmos DB Table API database.
-
 
 ## Advanced configuration
 In the Advanced configuration screen, specify the location of the log file to which you would like any errors written. The following rules apply to this page:
