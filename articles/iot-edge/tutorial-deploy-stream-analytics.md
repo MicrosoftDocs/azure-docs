@@ -114,7 +114,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
     ![set module][6]
 
     > [!NOTE]
-    > For 11-09 bug bash, there is a known issue that you can't use long module name. Click edit button for this module, change to module name to "asa". Then save.
+    > For 11-09 bug bash, there is a known issue that you can't use long module name. Click edit button for this ASA module, rename the module with any three characters. Then save.
 
 1. Copy the name of this module. Click **Next** to configure routes.
 
