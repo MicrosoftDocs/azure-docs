@@ -99,19 +99,48 @@ class Program
 
     static void Main(string[] args)
     {
-        var clusterConnectionString = "localhost:19000";
+        var clusterConnectionString = "locahost:19000";
         using (var client = new FabricClient(clusterConnectionString))
         {
             var startTimeUtc = DateTime.UtcNow;
             var stabilizationTimeout = TimeSpan.FromSeconds(30.0);
             var timeToRun = TimeSpan.FromMinutes(60.0);
             var maxConcurrentFaults = 3;
+            var startContext = new Dictionary<string, string>{{"ReasonForStart", "Testing"}};
+            var waitTimeBetweenIterations = TimeSpan.FromSeconds(10);
+            var waitTimeBetweenFaults = TimeSpan.Zero;
+            var clusterHealthPolicy = new ClusterHealthPolicy
+            {
+                ConsiderWarningAsError = false,
+                MaxPercentUnhealthyApplications = 100,
+                MaxPercentUnhealthyNodes = 100
+            };
+
+            // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
+            // for nodes of types 'N0040Ref' and 'N0010Ref'
+            var nodetypeInclusionList = new List<string> { "N0040Ref", "N0010Ref"};
+
+            // In addition to the faults included by nodetypeInclusionList, 
+            // restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
+            // even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+            var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
+
+            var chaosTargetFilter = new ChaosTargetFilter
+            {
+                NodeTypeInclusionList = nodetypeInclusionList,
+                ApplicationInclusionList = applicationInclusionList
+            };
 
             var parameters = new ChaosParameters(
                 stabilizationTimeout,
                 maxConcurrentFaults,
                 true, /* EnableMoveReplicaFault */
-                timeToRun);
+                timeToRun,
+                startContext,
+                waitTimeBetweenIterations,
+                waitTimeBetweenFaults,
+                clusterHealthPolicy) {ChaosTargetFilter = chaosTargetFilter};
+
 
             try
             {
@@ -126,9 +155,37 @@ class Program
 
             var eventSet = new HashSet<ChaosEvent>(new ChaosEventComparer());
 
+            string continuationToken = null;
+
             while (true)
             {
-                var report = client.TestManager.GetChaosReportAsync(filter).GetAwaiter().GetResult();
+                ChaosReport report;
+                try
+                {
+                    report = string.IsNullOrEmpty(continuationToken)
+                        ? client.TestManager.GetChaosReportAsync(filter).GetAwaiter().GetResult()
+                        : client.TestManager.GetChaosReportAsync(continuationToken).GetAwaiter().GetResult();
+                }
+                catch (Exception e)
+                {
+                    if (e is FabricTransientException)
+                    {
+                        Console.WriteLine("A transient exception happened: '{0}', going to retry...", e);
+                    }
+                    else if(e is TimeoutException)
+                    {
+                        Console.WriteLine("A timeout exception happened: '{0}', going to retry...", e);
+                    }
+                    else
+                    {
+                        throw;
+                    }
+
+                    Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
+                    continue;
+                }
+
+                continuationToken = report.ContinuationToken;
 
                 foreach (var chaosEvent in report.History)
                 {
