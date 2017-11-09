@@ -12,75 +12,104 @@ ms.date: 10/30/2017
 ms.author: v-jansko
 ---
 
-# Supported languages in the Microsoft Translator Text API #
-The Microsoft Translator Text API supports the following languages for text to text translation. 
+# Supported languages in the Microsoft Translator Text API 
+The Microsoft Translator Text API supports the following languages for text to text translation using statistical machine translation (SMT). 
 
-| Language    | Language code | NMT Available|
-|:----------- |:-------------:|:----------- |
-| Afrikaans      | `af`          |               |
-| Arabic       | `ar`          | Yes              |
-| Bangla      | `bn`          |               |
-| Bosnian (Latin)      | `bs`          |               |
-| Bulgarian      | `bg`          |               |
-| Cantonese (Traditional)      | `yue`          |               |
-| Catalan      | `ca`          ||              |
-| Chinese Simplified      | `zh-Hans`          | Yes               |
-| Chinese Traditional      | `zh-Hant`          |              |
-| Croatian      | `hr`          |               |
-| Czech      | `cs`          |               |
-| Danish      | `da`          |               |
-| Dutch      | `nl`          |               |
-| English      | `en`          |  Yes             |
-| Estonian      | `et`          |               |
-| Fijian      | `fj`          |               |
-| Filipino      | `fil`          |               |
-| Finnish      | `fi`          |               |
-| French      | `fr`          | Yes              |
-| German      | `de`          | Yes              |
-| Greek      | `el`          |               |
-| Haitian Creole      | `ht`          |               |
-| Hebrew      | `he`          |              |
-| Hindi      | `hi`          |               |
-| Hmong Daw      | `mww`          |               |
-| Hungarian      | `hu`          |               |
-| Indonesian      | `id`          |               |
-| Italian      | `it`          | Yes               |
-| Japanese      | `ja`          | Yes               |
-| Kiswahili      | `sw`          |               |
-| Klingon      | `tlh`          |               |
-| Klingon (plqaD)      | `tlh-Qaak`          |               |
-| Korean      | `ko`          | Yes               |
-| Latvian      | `lv`          |              |
-| Lithuanian      | `lt`          |               |
-| Malagasy      | `mg`          |               |
-| Malay      | `ms`          |               |
-| Maltese      | `mt`          |               |
-| Norwegian      | `nb`          |               |
-| Persian      | `fa`          |               |
-| Polish      | `pl`          |               |
-| Portuguese      | `pt`          | Yes              |
-| Queretaro Otomi      | `otq`          |               |
-| Romanian      | `ro`          |               |
-| Russian      | `ru`          | Yes               |
-| Samoan      | `sm`          |               |
-| Serbian (Cyrillic)      | `sr-Cyrl`          |               |
-| Serbian (Latin)      | `sr-Latn`          |               |
-| Slovak     | `sk`          |              |
-| Slovenian      | `sl`          |              |
-| Spanish      | `es`          | Yes               |
-| Swedish      | `sv`          |               |
-| Tahitian      | `ty`          |               |
-| Tamil      | `ta`          |               |
-| Thai      | `th`          |               |
-| Tongan      | `to`          |               |
-| Turkish      | `tr`          |               |
-| Ukrainian      | `uk`          |               |
-| Urdu      | `ur`          |               |
-| Vietnamese      | `vi`          |              |
-| Welsh      | `cy`          |              |
-| Yucatec Maya      | `yua`          |              |
+| Language    | Language code |
+|:----------- |:-------------:|
+| Afrikaans      | `af`          |
+| Arabic       | `ar`          |
+| Bangla      | `bn`          |
+| Bosnian (Latin)      | `bs`          |
+| Bulgarian      | `bg`          |
+| Cantonese (Traditional)      | `yue`          |
+| Catalan      | `ca`          |
+| Chinese Simplified      | `zh-Hans`          | 
+| Chinese Traditional      | `zh-Hant`          |
+| Croatian      | `hr`          |
+| Czech      | `cs`          |
+| Danish      | `da`          |
+| Dutch      | `nl`          |
+| English      | `en`          |
+| Estonian      | `et`          |
+| Fijian      | `fj`          |
+| Filipino      | `fil`          |
+| Finnish      | `fi`          |
+| French      | `fr`          |
+| German      | `de`          |
+| Greek      | `el`          |
+| Haitian Creole      | `ht`          |
+| Hebrew      | `he`          |
+| Hindi      | `hi`          |
+| Hmong Daw      | `mww`          |
+| Hungarian      | `hu`          |
+| Indonesian      | `id`          |
+| Italian      | `it`          |
+| Japanese      | `ja`          |
+| Kiswahili      | `sw`          |
+| Klingon      | `tlh`          |
+| Klingon (plqaD)      | `tlh-Qaak`          |
+| Korean      | `ko`          |
+| Latvian      | `lv`          |
+| Lithuanian      | `lt`          |
+| Malagasy      | `mg`          |
+| Malay      | `ms`          |
+| Maltese      | `mt`          |
+| Norwegian      | `nb`          |
+| Persian      | `fa`          |
+| Polish      | `pl`          |
+| Portuguese      | `pt`          |
+| Queretaro Otomi      | `otq`          |
+| Romanian      | `ro`          |
+| Russian      | `ru`          |
+| Samoan      | `sm`          |
+| Serbian (Cyrillic)      | `sr-Cyrl`          |
+| Serbian (Latin)      | `sr-Latn`          |
+| Slovak     | `sk`          |
+| Slovenian      | `sl`          |
+| Spanish      | `es`          |
+| Swedish      | `sv`          |
+| Tahitian      | `ty`          |
+| Tamil      | `ta`          |
+| Thai      | `th`          |
+| Tongan      | `to`          |
+| Turkish      | `tr`          |
+| Ukrainian      | `uk`          |
+| Urdu      | `ur`          |
+| Vietnamese      | `vi`          |
+| Welsh      | `cy`          |
+| Yucatec Maya      | `yua`          |
 
-**Access the list programmatically**
+## Neural Machine Translation systems
+
+The following languages are supported for Neural Machine Translation. The NMT system can be used by adding "generalnn" to the category parameter of the API call.
+
+| Language    | Language code |
+|:----------- |:-------------:|
+| Arabic       | `ar`          |
+| Bulgarian       | `bg`          |
+| Chinese Simplified      | `zh-Hans`          | 
+| Czech      | `cs`          |
+| Danish      | `da`          |
+| Dutch      | `nl`          |
+| English      | `en`          |
+| French      | `fr`          |
+| German      | `de`          |
+| Hindi      | `hi`          |
+| Italian      | `it`          |
+| Japanese      | `ja`          |
+| Korean      | `ko`          |
+| Norwegian      | `nb`          |
+| Polish      | `pl`          |
+| Portuguese      | `pt`          |
+| Romanian      | `ro`          |
+| Russian      | `ru`          |
+| Spanish      | `es`          |
+| Swedish      | `sv`          |
+| Turkish      | `tr`          |
+
+
+## Access the list programmatically
 
 You can access the list of supported languages programmatically using the Languages API method on the Languages API reference page. This list provides the language code as well as the language name in English, or localized into another language. This list is automatically updated by the Microsoft Translator service as new languages become available.
 
@@ -95,7 +124,7 @@ Note that this method uses the Microsoft Translator Speech API to return the lis
 
 [Visit the API reference to try out the languages method](http://docs.microsofttranslator.com/languages.html)
 
-**Microsoft Translator website**
+## Access the list on the Microsoft Translator website
 
 For a quick look at the languages, the Microsoft Translator website shows all the languages supported by the Translator Text and Speech APIs as well as specific language lists available in the Microsoft Translator apps. This list does not include developer specific information such as language codes.
 
