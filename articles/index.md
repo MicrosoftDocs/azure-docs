@@ -132,33 +132,33 @@ featureFlags:
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
                                                 <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;padding-left:0;">
-												<ul class="noBullet">
+                                                <ul class="noBullet">
                                                     <li>
-														<a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
-															<img src="media/index/logo_NET.svg" alt="">
-															.NET</a>
-													</li>
-													<li>
-														<a class="barLink" href="/python/azure/">
-															<img src="media/index/logo_python.svg" alt="">
-															Python</a>
-													</li>
-													<li>
-														<a class="barLink" href="/java/azure/">
-															<img src="media/index/logo_java.svg" alt="">
-															Java</a>
-													</li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
-													<li>
-														<a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
-															<img src="media/index/logo_PHP.svg" alt="">
-															PHP</a>
-													</li>
-													<li>
-														<a class="barLink" href="/nodejs/azure/">
-															<img src="media/index/logo_nodejs.svg" alt="">
-															Node.js</a>
-													</li>
-												</ul></td></tr></table>
+                                                        <a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
+                                                            <img src="media/index/logo_NET.svg" alt="">
+                                                            .NET</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/python/azure/">
+                                                            <img src="media/index/logo_python.svg" alt="">
+                                                            Python</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/java/azure/">
+                                                            <img src="media/index/logo_java.svg" alt="">
+                                                            Java</a>
+                                                    </li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
+                                                    <li>
+                                                        <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
+                                                            <img src="media/index/logo_PHP.svg" alt="">
+                                                            PHP</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/nodejs/azure/">
+                                                            <img src="media/index/logo_nodejs.svg" alt="">
+                                                            Node.js</a>
+                                                    </li>
+                                                </ul></td></tr></table>
                                                <h4>App Models</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
@@ -311,7 +311,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/container-service/">
+                                            <a href="/azure/aks/">
                                                 <img src="media/index/containerservice.svg" alt="" />
                                                 <p>Azure Container Service (AKS)</p>
                                             </a>
@@ -395,7 +395,7 @@ featureFlags:
                                     <h3>Containers</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/container-service/">
+                                            <a href="/azure/aks/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
                                                 <p>Azure Container Service (AKS)</p>
                                             </a>
@@ -1353,7 +1353,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-service/">
+                                <a href="/azure/aks/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2022,7 +2022,7 @@ featureFlags:
                         <a href="#containers">Containers</a>
                         <ul id="containers" class="cardsA">
                             <li>
-                                <a href="/azure/container-service/">
+                                <a href="/azure/aks/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
