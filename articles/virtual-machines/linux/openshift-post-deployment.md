@@ -22,13 +22,13 @@ ms.author: haroldw
 
 After you deploy an OpenShift cluster, you can configure additional items. This article covers the following:
 
-- How to configure Single Sign-On using Azure Active Directory
-- How to configure OMS to monitor OpenShift
+- How to configure single sign-on by using Azure Active Directory (Azure AD)
+- How to configure Operations Management Suite to monitor OpenShift
 - How to configure metrics and logging
 
-## Configure Single Sign-On using Azure Active Directory
+## Configure single sign-on by using Azure Active Directory
 
-To use Azure Active Directory (AAD) for authentication, first you need to create an Azure AD app registration. This process involves two steps: creating the app registration, and configuring permissions.
+To use Azure Active Directory for authentication, first you need to create an Azure AD app registration. This process involves two steps: creating the app registration, and configuring permissions.
 
 ### Create an app registration
 
@@ -40,7 +40,7 @@ These steps use the Azure CLI to create the app registration, and the GUI (porta
 - Reply URL: Master public URL and the app registration name (for example, https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
 - Password: Secure password (use a strong password)
 
-The following example creates an app registration using the preceding information:
+The following example creates an app registration by using the preceding information:
 
 ```azurecli
 az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
@@ -68,9 +68,9 @@ If the command is successful, you get a JSON output similar to:
 
 Take note of the appId property returned from the command for a later step.
 
-In the **Azure portal**:
+In the Azure portal:
 
-1.  Select **Azure Active Directory** --> **App Registration**.
+1.  Select **Azure Active Directory** > **App Registration**.
 2.  Search for your app registration (for example, OCPAzureAD).
 3.  In the results, click the app registration.
 4.  Under **Settings**, select **Required permissions**.
@@ -90,9 +90,9 @@ In the **Azure portal**:
 
 ### Configure OpenShift for Azure AD authentication
 
-To configure OpenShift to use Azure AD as an authentication provider, the **/etc/origin/master/master-config.yaml** file must be edited on all master nodes.
+To configure OpenShift to use Azure AD as an authentication provider, the /etc/origin/master/master-config.yaml file must be edited on all master nodes.
 
-The tenant ID can be found by using the following CLI command:
+Find the tenant ID by using the following CLI command:
 
 ```azurecli
 az account show
@@ -142,7 +142,7 @@ Insert the following lines immediately after the preceding lines:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-The tenant ID can be found by using the following CLI command: ```az account show```
+Find the tenant ID by using the following CLI command: ```az account show```
 
 Restart the OpenShift master services on all master nodes:
 
@@ -153,7 +153,7 @@ sudo systemctl restart origin-master-api
 sudo systemctl restart origin-master-controllers
 ```
 
-**OpenShift Container Platform with multiple masters**
+**OpenShift Container Platform (OCP) with multiple masters**
 
 ```bash
 sudo systemctl restart atomic-openshift-master-api
@@ -166,13 +166,13 @@ sudo systemctl restart atomic-openshift-master-controllers
 sudo systemctl restart atomic-openshift-master
 ```
 
-In the OpenShift console, you now see two options for authentication: htpasswd_auth and **[App Registration]**.
+In the OpenShift console, you now see two options for authentication: htpasswd_auth and [App Registration].
 
-## Monitor OpenShift with OMS
+## Monitor OpenShift with Operations Management Suite
 
-To monitor OpenShift with OMS, you can use one of two options: OMS Agent installation on VM host, or OMS Container. This article provides instructions for deploying the OMS Container.
+To monitor OpenShift with Operations Management Suite, you can use one of two options: OMS Agent installation on VM host, or OMS Container. This article provides instructions for deploying the OMS Container.
 
-## Create an OpenShift project for OMS and set user access
+## Create an OpenShift project for Operations Management Suite and set user access
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -241,7 +241,7 @@ spec:
 
 ## Create a secret yaml file
 
-In order to create the secret yaml file, you need two pieces of information: OMS Workspace ID and OMS Workspace Shared Key. 
+To create the secret yaml file, you need two pieces of information: OMS Workspace ID and OMS Workspace Shared Key. 
 
 A sample ocp-secret.yml file follows: 
 
@@ -282,11 +282,11 @@ oc create -f ocp-omsagent.yml
 
 The OpenShift Container Platform (OCP) Resource Manager template provides input parameters for enabling metrics and logging. The OpenShift Container Platform Marketplace offer and the OpenShift Origin Resource Manager template do not.
 
-If the OCP Resource Manager template was used and metrics and logging weren't enabled at installation time, or if the OCP Marketplace offer was used, these can be easily enabled after the fact. If you're using the OpenShift Origin Resource Manager template, some pre-work is required.
+If you used the OCP Resource Manager template and metrics and logging weren't enabled at installation time, or if you used the OCP Marketplace offer, you can be easily enable these after the fact. If you're using the OpenShift Origin Resource Manager template, some pre-work is required.
 
 ### OpenShift Origin template pre-work
 
-1. SSH to the first master node using port 2200.
+1. SSH to the first master node by using port 2200.
 
    Example:
 
@@ -294,7 +294,7 @@ If the OCP Resource Manager template was used and metrics and logging weren't en
    ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
    ```
 
-2. Edit the **/etc/ansible/hosts file** and add the following lines after the Identity Provider Section (# Enable HTPasswdPasswordIdentityProvider):
+2. Edit the /etc/ansible/hosts file and add the following lines after the Identity Provider Section (# Enable HTPasswdPasswordIdentityProvider):
 
    ```yaml
    # Setup metrics
@@ -316,11 +316,11 @@ If the OCP Resource Manager template was used and metrics and logging weren't en
    openshift_master_logging_public_url=https://kibana.$ROUTING
    ```
 
-3. Replace $ROUTING with the string used for the **openshift_master_default_subdomain** option in the same **/etc/ansible/hosts** file.
+3. Replace $ROUTING with the string used for the openshift_master_default_subdomain option in the same /etc/ansible/hosts file.
 
 ### Azure Cloud Provider in use
 
-On the first master node (Origin) or bastion node (OCP), SSH using the credentials provided during deployment. Issue the following command:
+On the first master node (Origin) or bastion node (OCP), SSH by using the credentials provided during deployment. Issue the following command:
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -334,7 +334,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 
 ### Azure Cloud Provider not in use
 
-On the first master node (Origin) or bastion node (OCP), SSH using the credentials provided during deployment. Issue the following command:
+On the first master node (Origin) or bastion node (OCP), SSH by using the credentials provided during deployment. Issue the following command:
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
