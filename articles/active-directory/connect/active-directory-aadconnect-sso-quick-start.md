@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 10/19/2017
 ms.author: billmath
 ---
 
@@ -28,10 +28,13 @@ To deploy Seamless SSO, you need to follow these steps:
 
 Ensure that the following prerequisites are in place:
 
-1. Set up your Azure AD Connect server: If you use [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) as your sign-in method, no further action is required. If you use [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) as your sign-in method, and if there is a firewall between Azure AD Connect and Azure AD, ensure that:
-- You are using versions 1.1.484.0 or later of Azure AD Connect.
-- Azure AD Connect can communicate with `*.msappproxy.net` URLs and over port 443. This prerequisite is applicable only when you enable the feature, not for actual user sign-ins.
-- Azure AD Connect can make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). Again, this prerequisite is applicable only when you enable the feature.
+1. Set up your Azure AD Connect server: If you use [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) as your sign-in method, no additional pre-requisite check is required. If you use [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) as your sign-in method, and if there is a firewall between Azure AD Connect and Azure AD, ensure that:
+- You are using versions 1.1.644.0 or later of Azure AD Connect. 
+- If your firewall or proxy allows DNS whitelisting, whitelist connections to **\*.msappproxy.net** URLs over port 443. If not, allow access to [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly. This prerequisite is applicable only when you enable the feature, not for actual user sign-ins.
+
+    >[!NOTE]
+    >Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0 and 1.1.614.0 have an issue related to Password Hash Synchronization. If you _don't_ intend to use Password Hash Synchronization in conjunction with Pass-through Authentication, read the [Azure AD Connect release notes](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) to learn more.
+
 2. You need Domain Administrator credentials for each AD forest that you synchronize to Azure AD (using Azure AD Connect) and for whose users you want to enable Seamless SSO.
 
 ## Step 2: Enable the feature

@@ -26,7 +26,7 @@ You can configure the server to access the MySQL slow query log.
 
 See [How to Configure Server Parameters](howto-configure-server-parameters-using-cli.md) to learn how to set the value of these parameters through the Azure CLI.
 
-For example, the following CLI command turns ON the slow query log, sets the long query time to 10 seconds, and turns OFF the logging of the slow admin statement. Finally it lists the configuration options for your review.
+For example, the following CLI command turns ON the slow query log, sets the long query time to 10 seconds, and turns OFF the logging of the slow admin statement. Finally, it lists the configuration options for your review.
 ```azurecli-interactive
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server myserver4demo --value ON
 az mysql server configuration set --name long_query_time --resource-group myresourcegroup --server myserver4demo --value 10

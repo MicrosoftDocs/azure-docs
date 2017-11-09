@@ -111,7 +111,7 @@ dependencies:
   - python=3.5.2
   - pip: 
     # use the Linux build of Microsoft Cognitive Toolkit 2.1 with GPU support
-    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-win_amd64.whl
+    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
 You can also use the 1 bit-SGD version of the Microsoft Cognitive Toolkit which provides performance improvements on multi-GPU VMs. Do note [the license requirement for 1 bit-SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).

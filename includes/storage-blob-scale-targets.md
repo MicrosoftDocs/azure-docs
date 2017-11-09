@@ -8,5 +8,5 @@
 | Max size of an append blob | 50,000 X 4 MB (approx. 195 GiB) |
 | Max size of a page blob | 8 TiB |
 | Max number of stored access policies per blob container | 5 |
-| Maximum request rate | 20,000 requests per second<sup>2</sup> |
+| Maximum request rate per storage account | 20,000 requests per second<sup>2</sup> |
 | Target throughput for single blob | Up to 60 MiB per second, or up to 500 requests per second |

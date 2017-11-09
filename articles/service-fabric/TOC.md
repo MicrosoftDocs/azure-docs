@@ -6,6 +6,7 @@
 ## [Create .NET application](service-fabric-quickstart-dotnet.md)
 ## [Deploy a Linux container application](service-fabric-quickstart-containers-linux.md)
 ## [Deploy a Windows container application](service-fabric-quickstart-containers.md)
+## [Deploy a Java application](service-fabric-quickstart-java.md)
 
 # Tutorials
 ## Deploy a .NET app
@@ -28,7 +29,9 @@
 ### 1- Create a cluster on Azure
 #### [1a- Create a Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- Create a Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [2- Scale the cluster](service-fabric-tutorial-scale-cluster.md)
+### [3- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=service-fabric)
@@ -133,11 +136,30 @@
 ## [Integrate with API Management](service-fabric-api-management-overview.md)
 
 ## Monitor and diagnose
-### [Overview](service-fabric-diagnostics-overview.md)
-### [Health model](service-fabric-health-introduction.md)
-### [Diagnostics in stateful Reliable Services](service-fabric-reliable-services-diagnostics.md)
-### [Diagnostics in Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-### [Performance counters for Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md)
+### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
+### Generate events
+#### [Generate platform level events](service-fabric-diagnostics-event-generation-infra.md)
+##### [Operational channel](service-fabric-diagnostics-event-generation-operational.md)
+##### [Reliable Services events](service-fabric-reliable-services-diagnostics.md)
+##### [Reliable Actors events](service-fabric-reliable-actors-diagnostics.md)
+##### [Performance metrics](service-fabric-diagnostics-event-generation-perf.md)
+##### [Monitoring Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md)
+#### [Generate application level events](service-fabric-diagnostics-event-generation-app.md)
+### Inspect application and cluster health
+#### [Monitor Service Fabric health](service-fabric-health-introduction.md)
+#### [Report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Add custom health reports](service-fabric-report-health.md)
+#### [Troubleshoot with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [View health reports](service-fabric-view-entities-aggregated-health.md)
+### Aggregate events
+#### [Aggregate events with EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Aggregate events with Azure Diagnostics
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Analyze events
+#### [Analyze events with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [Analyze events with OMS](service-fabric-diagnostics-event-analysis-oms.md)
+### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # How-to guides
 ## Set up your development environment
@@ -314,30 +336,12 @@
 #### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## Monitor and diagnose
-### [Monitor and diagnose applications](service-fabric-diagnostics-overview.md)
-### Generate events
-#### [Generate platform level events](service-fabric-diagnostics-event-generation-infra.md)
-##### [Operational channel](service-fabric-diagnostics-event-generation-operational.md)
-##### [Reliable Services events](service-fabric-reliable-services-diagnostics.md)
-##### [Reliable Actors events](service-fabric-reliable-actors-diagnostics.md)
-##### [Performance metrics](service-fabric-diagnostics-event-generation-perf.md)
-#### [Generate application level events](service-fabric-diagnostics-event-generation-app.md)
-### Inspect application and cluster health
-#### [Monitor Service Fabric health](service-fabric-health-introduction.md)
-#### [Report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-#### [Add custom health reports](service-fabric-report-health.md)
-#### [Troubleshoot with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-#### [View health reports](service-fabric-view-entities-aggregated-health.md)
-#### [Monitor Windows Server containers](service-fabric-diagnostics-containers-windowsserver.md)
-### Aggregate events
-#### [Aggregate events with EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
-#### Aggregate events with Azure Diagnostics
-##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
-##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
-### Analyze events
-#### [Analyze events with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-#### [Analyze events with OMS](service-fabric-diagnostics-event-analysis-oms.md)
-### [Troubleshoot your local cluster](service-fabric-troubleshoot-local-cluster-setup.md)
+### OMS
+#### [Set up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
+#### [Add the OMS Agent](service-fabric-diagnostics-oms-agent.md)
+#### [Monitor containers](service-fabric-diagnostics-oms-containers.md)
+### Performance monitoring
+#### [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
@@ -358,6 +362,7 @@
 ## [Java API](/java/api/overview/azure/servicefabric)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
+## [Service model XML schema](service-fabric-service-model-schema.md)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

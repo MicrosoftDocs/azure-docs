@@ -39,7 +39,7 @@ The following limits apply only for networking resources managed through Azure R
 | Application security groups that can be specified within all security rules of a network security group |50 |100 |
 | User defined route tables |100 |200 |
 | User defined routes per route table |100 |400 |
-| Public IP addresses - dynamic |(Basic) |60 |contact support |
+| Public IP addresses - dynamic |(Basic) 60 |contact support |
 | Public IP addresses - static |(Basic) 20 |contact support |
 | Public IP addresses - static |(Standard) 20 |contact support |
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |

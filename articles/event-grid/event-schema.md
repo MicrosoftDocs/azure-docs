@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/20/2017
 ms.author: babanisa
 ---
 
@@ -159,10 +159,6 @@ This sample event shows the schema of an Event Hubs event raised when the Captur
 
 
 ## Azure Blob storage
-
->[!IMPORTANT]
->You must be registered for the Blob storage events preview to use Blob storage events. For more information about the preview program, see [Azure Blob storage events](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview#join-the-preview).  
-
 
 ### Available event types
 

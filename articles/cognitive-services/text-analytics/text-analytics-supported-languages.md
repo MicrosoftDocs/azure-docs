@@ -32,7 +32,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Language    | Language code | Sentiment | Key phrases | Notes       |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|
 | Danish      | `da`          | ✔ \*     |             |             |
-| Dutch       | `nl`          | ✔ \*     |             |             |
+| Dutch       | `nl`          | ✔ \*     | ✔          |             |
 | English     | `en`          | ✔        | ✔           |             | 
 | Finnish     | `fi`          | ✔ \*     | ✔           |             |
 | French      | `fr`          | ✔        | ✔           |             |

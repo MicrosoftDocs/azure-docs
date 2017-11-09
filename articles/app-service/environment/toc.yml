@@ -34,10 +34,10 @@
   items:
   - name: Use an ASE
     href: using-an-ase.md
-  - name: Create ASE from a template
-    href: create-from-template.md
   - name: Integrate with Application Gateway
     href: integrate-with-application-gateway.md
+  - name: Create ASE from a template
+    href: create-from-template.md
   - name: Forced tunnel configuration
     href: forced-tunnel-support.md
 - name: Reference

@@ -1,6 +1,6 @@
 ---
 title: Set up the Cloud App Discovery service in Azure Active Directory | Microsoft Docs
-description: Find and manage applications with Cloud App DiscoveryTo provide ongoing information on cloud use and shadow IT.
+description: Find and manage applications with Cloud App Discovery to provide actionable information on cloud use and shadow IT.
 services: active-directory
 keywords: cloud app discovery, managing applications
 documentationcenter: ''

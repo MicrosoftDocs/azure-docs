@@ -33,14 +33,14 @@ HA Ports is configured by setting the frontend and backend ports to **0** and pr
 
 ## Why use HA ports
 
-### Network Virtual Appliances
+### <a name="nva"></a>Network Virtual Appliances
 
-Azure customers rely heavily on the network virtual appliances (NVAs) for securing their workloads from multiple types of security threats. In addition, the NVAs must be reliable, highly available, and scale-out for demand.
+You can use network virtual appliances (NVA) for securing your Azure workload from multiple types of security threats. When NVA are used in these scenarios, they must be reliable, highly available, and scale-out for demand.
 
-You can now achieve high availability for your HA deployments by simply adding NVAs to the backend pool of the Azure internal Load Balancer and configuring an HA Ports Load Balancer rule.
+You can achieve these goals in your scenario by simply adding NVA instances to the backend pool of the Azure internal Load Balancer and configuring an HA Ports Load Balancer rule.
 
 HA Ports provide several advantages for NVA HA scenarios:
-- fast failover to healthy instances with per instance health probes
+- fast fail over to healthy instances with per instance health probes
 - higher performance with scale-out to n-active instances
 - n-active and active-passive scenarios
 - eliminating the need for complex solutions like Zookeeper nodes for monitoring appliances
@@ -55,9 +55,7 @@ If you are using Network Virtual Appliances, please confirm with the respective 
 
 ### Load balancing large numbers of ports
 
-Azure customers who are faced with application scenarios where large numbers of ports are used concurrently can also take advantage of this load balancing rule to simplify the construction of their scenario.  HA Ports can be used as a single load balancing rule for a range of ports rather than individual load balancing rules, one for every port.  Using HA Ports can greatly simplify the configuration as well as unlock scenarios previously not possible where large numbers of rules would have been needed.
-
-These scenarios can now be addressed using this rule with an internal [Load Balancer Standard](https://aka.ms/lbpreview).
+You can also use HA Ports for application scenarios which require load balanicng of large numbers of ports. These scenarios can be simplified using an internal [Load Balancer Standard](https://aka.ms/lbpreview) with HA Ports where a single load balancing rule replaces multiple individual load balancing rules, one for every port.
 
 ## Region availability
 
@@ -138,6 +136,8 @@ Following are the supported configurations or exceptions for HA Ports:
 - A single Network Interface IP configuration can have one or more DSR load balancer rules with HA Ports, provided all of their respective frontend IP configurations are unique.
 - If all of the load balancing rules are HA Ports (DSR only), or, all of the rules are non-HA Ports (DSR & non-DSR), two (or more) Load Balancer rules pointing to the same backend pool can co-exist. Two such load balancing rules cannot co-exist if there is a combination of HA Ports and non-HA Ports rules.
 - HA Ports is not available for IPv6.
+- Flow symmetry for NVA scenarios is supported with single NIC only. See description and diagram for [Network Virtual Appliances](#nva). 
+
 
 
 ## Next steps

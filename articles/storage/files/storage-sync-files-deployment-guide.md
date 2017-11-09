@@ -115,6 +115,9 @@ The resulting "Add server endpoint" pane requires the following information to c
 
 Click "Create" to add the Server Endpoint. Your files will now be kept in sync across your Azure File share and your Windows Server. 
 
+> [!Important]  
+> You can make changes to any Cloud or Server Endpoint in the Sync Group and have your files synchronized to the other endpoints in the Sync Group. If you make a change to the Cloud Endpoint (Azure File share) directly, please note that changes first need to be discovered by an Azure File Sync change detection job, which is only initatiated for a Cloud Endpoint once every 24 hours. See the [Azure Files FAQ](storage-files-faq.md#afs-change-detection) for more information.
+
 ## Next steps
 - [Add/Remove an Azure File Sync Server Endpoint](storage-sync-files-server-endpoint.md)
 - [Register/deregister a server with Azure File Sync](storage-sync-files-server-registration.md)

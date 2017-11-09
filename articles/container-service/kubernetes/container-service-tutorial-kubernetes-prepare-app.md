@@ -22,6 +22,8 @@ ms.custom: mvc
 
 # Create container images to be used with Azure Container Service
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 In this tutorial, part one of seven, a multi-container application is prepared for use in Kubernetes. Steps completed include:  
 
 > [!div class="checklist"]
