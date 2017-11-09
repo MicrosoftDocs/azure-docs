@@ -14,17 +14,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 11/08/2017
 ms.author: nitinme
 
 ---
-# Query Azure Log Analytics to monitor HDInsight clusters (Preview)
+# Query Azure Log Analytics to monitor HDInsight clusters
 
 In this article, you look at some scenarios on how to use Azure Log Analytics with Azure HDInsight clusters. Three most common scenarios are:
 
-* Analyze HDInsight cluster metrics in OMS
-* Search for specific log messages for HDInsight clusters
-* Create alerts based on events occurring in the clusters
+* [Analyze HDInsight cluster metrics in OMS](#analyze-hdinsight-cluster-metrics-in-oms)
+* [Search for specific log messages for HDInsight clusters](#search-for-specific-log-messages-in-hdinsight-clusters)
+* [Create alerts based on events occurring in the clusters](#create-alerts-to-track-events)
 
 ## Prerequisites
 
@@ -36,19 +36,20 @@ In this article, you look at some scenarios on how to use Azure Log Analytics wi
 
 In this section, we walk through the steps to look for specific metrics for your HDInsight cluster.
 
-1. Open the OMS dashboard. In the Azure portal, open the HDInsight cluster blade that you associated with Azure Log Analytics, click the Monitoring tab, and the click **Open OMS Dashboard**.
+1. In the Azure portal, open an HDInsight cluster blade that you associated with Azure Log Analytics.
+2. Click **Monitoring**, and the click **Open OMS Dashboard**.
 
     ![Open OMS dashboard](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS dashboard")
 
-2. In the OMS dashboard, from the home screen, click **Log Search**.
+2. In the OMS dashboard, click **Log Search** on the left menu.
 
     ![Open Log Search](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "Open Log Search")
 
-3. In the Log Search window, in the **Begin search here** text box, type `*` to search for all metrics for all available metrics for all HDInsight clusters configured to use Azure Log Analytics. Press ENTER.
+3. Type `search *` to search for all metrics for all available metrics for all HDInsight clusters configured to use Azure Log Analytics, and then press ENTER.
 
     ![Search all metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Search all metrics")
 
-4. You should see an output like the following.
+    The output shall look like the following:
 
     ![Search all metrics output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "Search all metrics output")
 
@@ -64,7 +65,7 @@ In this section, we walk through the steps to look for specific metrics for your
 
 6. You can now dig deeper into this specific metric. For example, you can now refine the existing output based on the average of resources used in a 10-minute interval, categorized by cluster name. Type the following query in the query text box.
 
-        * (Type=metrics_resourcemanager_queue_root_default_CL) | measure avg(UsedAMResourceMB_d) by ClusterName_s interval 10minute
+        search in (metrics_resourcemanager_queue_root_default_CL) * | summarize AggregatedValue = avg(UsedAMResourceMB_d) by ClusterName_s, bin(TimeGenerated, 10m)
 
     ![Search for specific metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-more-specific-metrics.png "Search for specific metrics")
 
