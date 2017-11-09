@@ -273,9 +273,8 @@ function renderSearchResults(results) {
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
 
-    // for each possible section, render the resuts from that section
-    for (section in { pole: 0, mainline: 0, sidebar: 0 }) {
-
+    // Render the resuts to the mainline section
+    for (section in { mainline: 0 }) {
          showDiv(section, renderResultsItems(section, results));
     }
 }
@@ -285,17 +284,17 @@ The resulting HTML is returned to `renderSearchResults()`, where it is inserted 
 
 ```javascript
 // render search results
-function renderResultsItems(section, results) {
+    function renderResultsItems(section, results) {   
 
-    var items = results.value; 
-    var html = [];
-    for (var i = 0; i < items.length; i++) { //items.length
-        var item = items[i];
-        // collection name has lowercase first letter
-        var type = "videos"; 
-        var render = searchItemRenderers[type];
-        html.push(render(item, section));  
-    }
+        var items = results.value;
+        var html = [];
+        for (var i = 0; i < items.length; i++) { 
+            var item = items[i];
+            // collection name has lowercase first letter
+            var type = "videos";
+            var render = searchItemRenderers[type];
+            html.push(render(item, section));  
+        }
     return html.join("\n\n");
 }
 ```
@@ -313,13 +312,14 @@ As previously seen in `renderSearchResults()`, we render only the `relatedItems`
 
 ##Rendering result items
 
-In the JavaScript code the object, `searchItemRenderers`, can contains *renderers:* functions that generate HTML for each kind of search result.
+In the JavaScript code the object, `searchItemRenderers`, can contains *renderers:* functions that generate HTML for each kind of search result. The video search page only uses `videos`. See other tutorials for various types of renderers.
 
 ```javascript
 searchItemRenderers = {
 	news: function(item) { ... },
 	webPages: function (item) { ... }, 
     images: function(item, index, count) { ... },
+    videos: function (item, section, index, count) { ... },
     relatedSearches: function(item) { ... }
 }
 ```
@@ -336,30 +336,25 @@ The `index` and `count` parameters can be used to number results, to generate sp
 The `video` renderer is shown in the following javascript excerpt. Using the Videos endpoint, all results are of type `Videos`. The `searchItemRenderers` are shown in the following code segment.
 
 ```javascript
-// render functions for video search results
-    searchItemRenderers = { 
-    // render video result using thumbnail
+// render functions for various types of search results
+    searchItemRenderers = {
+
     videos: function (item, section, index, count) {
-        // videos are rendered like images so this call forwards results to the `images` function.
-        return searchItemRenderers.images(item, section, index, count);
-    },
-    // render image result using thumbnail
-    images: function (item, section, index, count) {
         var height = 60;
         var width = Math.round(height * item.thumbnail.width / item.thumbnail.height);
         var html = [];
-        if (section === "sidebar") {
-            if (index) html.push("<br>");
-        } else {
-            if (!index) html.push("<p class='images'>");
-        }
+
+        html.push("<p class='images'>");
         html.push("<a href='" + item.hostPageUrl + "'>");
         var title = escapeQuotes(item.name) + "\n" + getHost(item.hostPageDisplayUrl);
         html.push("<img src='" + item.thumbnailUrl + "&h=" + height + "&w=" + width +
             "' height=" + height + " width=" + width + " title='" + title + "' alt='" + title + "'>");
         html.push("</a>");
+        html.push("<br>");
+        html.push("<nobr><a href='" + item.contentUrl + "'>Video page source</a> - ");
+        html.push(title.replace("\n", " (").replace(/([a-z0-9])\.([a-z0-9])/g, "$1.<wbr>$2") + ")</p>");
         return html.join("");
-    }  
+    }
 }
 ```
 
