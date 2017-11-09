@@ -12,70 +12,20 @@ ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
 
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
 ---
 
-# Deploy your first IoT Edge module from the Azure portal to a Windows device - Public preview
+# Deploy your first IoT Edge module from the Azure portal to a Linux device - Public preview
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this topic, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
 
 ## Prerequisites
 
-To create an IoT hub and register your IoT Edge device, you need an active Azure subscription. If you don't have a subscription, create a [free account][lnk-account] before you begin.
+To accomplish this task, use your computer or a virtual machine to simulate an Internet of Things device. The following services are required to successfully deploy an IoT Edge device:
 
-This tutorial assumes that you're using a computer or virtual machine running Windows to simulate an Internet of Things device. 
+- [Install Docker on Linux][lnk-docker-ubuntu] and make sure it's running. 
+- Most Linux distributions, including Ubuntu, already have Python 2.7 installed. Use the following command to make sure that pip is installed: `sudo apt-get install python-pip`.
 
->[!TIP]
->If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
-
-Docker for Windows can run either Windows containers or Linux containers. The steps for the tutorial are the same regardless of which container type you use, but the software prerequisites are different. 
-
-### Linux containers in Docker
-
-1. Make sure you're using a supported Windows version:
-   * Windows 10 
-   * Windows Server
-2. Install [Docker for Windows][lnk-docker] and make sure it's running.
-3. Install [Python 2.7 on Windows][lnk-python] and make sure you can use the pip command.
-4. Run the following command to download the IoT Edge control script.
-
-   ```
-   pip install -U azure-iot-edge-runtime-ctl
-   ```
-
-   > [!NOTE]
-   > During bug bash: Instead of step 4, run the following code:
-   >
-   > Download [scripts](https://azureiotedgepreview.blob.core.windows.net/shared/azure-iot-edge-ctl.zip)
-   >
-   > Extract all
-   >
-   > Open cmd in extracted dir
-   >
-   > `pip install -U .[win32]`
-
-
-### Windows containers in Docker
-
-1. Make sure you're using a supported Windows version:
-   * Windows IoT Core (Build 16299) on a x64-based device
-   * Windows 10 Fall Creators Update
-   * Windows Server 1709 (Build 16299)
-2. Run the following command in an Admin PowerShell console to install and configure the prerequisites:
-
-   ```powershell
-   iex (iwr -useb https://aka.ms/iotedgewin)
-   ```
-
-   This script provides the following:
-   * Docker, configured to use Windows containers. If you already have Docker on your machine, go through the steps to [switch to Windows containers][lnk-docker-containers]. 
-   * Python 3.6
-   * The IoT Edge control script (iotedgectl.exe)
+To register your IoT Edge device and manage it from the cloud interface, you need an active Azure subscription. If you don't have a subscription, create a [free account][lnk-account] before you begin.
 
 ## Create an IoT hub with Azure CLI
 
@@ -101,8 +51,6 @@ If you've used IoT Hub in the past and already have a hub created, you can skip 
    >[!TIP]
    >You can only have one F1-level IoT hub in each subscription. If you get an error, try changing the sku to S1 instead. 
 
-
-
 ## Register an IoT Edge device
 
 Create a device identity for your simulated device so that it can communicate with your IoT hub. Since IoT Edge devices behave and can be managed differently than typical IoT devices, you declare this to be an IoT Edge device from the beginning. 
@@ -116,29 +64,34 @@ Create a device identity for your simulated device so that it can communicate wi
 1. Select your new device from the list of devices. 
 1. Copy the value for **Connection string--primary key** and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
 
-## Configure the IoT Edge runtime
+## Install and start the IoT Edge runtime
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. First, the IoT Edge agent facilitates deployment and monitoring of modules on the IoT Edge device. Second, the IoT Edge hub manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
-
 Use the following steps to install and start the IoT Edge runtime:
+
+1. On the machine where you'll run the IoT Edge device, download the IoT Edge control script.
+
+   ```
+   sudo pip install -U azure-iot-edge-runtime-ctl
+   ```
 
 1. Configure the runtime with your IoT Edge device connection string from the previous section.
 
    ```
-   iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+   sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
    ```
 
 1. Start the runtime.
 
    ```
-   iotedgectl start
+   sudo iotedgectl start
    ```
 
 1. Check Docker to see that the IoT Edge agent is running as a module.
 
    ```
-   docker ps
+   sudo docker ps
    ```
 
 ## Deploy a module
@@ -179,8 +132,7 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 [2]: ./media/tutorial-install-iot-edge/view-module.png
 
 <!-- Links -->
-[lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
-[lnk-python-windows]: https://www.python.org/downloads/
+[lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
