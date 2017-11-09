@@ -98,11 +98,9 @@ In this section, you modify the device app you created in the [Get started with 
 
 ## Add Service Bus queue to your IoT hub and route messages to it
 
-In this section, you create both a Service Bus queue and a Storage account, connect them to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message and all messages to the Storage account. For more information about how to process messages from Service Bus queues, see [Get started with queues][lnk-sb-queues-node] and how to manage storage, see [Get started with Azure Storage][Azure Storage].
+In this section, you create a Service Bus queue, connect it to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message. For more information about how to process messages from Service Bus queues, see [Get started with queues][lnk-sb-queues-node].
 
 1. Create a Service Bus queue as described in [Get started with queues][lnk-sb-queues-node]. Make a note of the namespace and queue name.
-
-1. Create a Storage account as described in [Azure Storage Documentation][lnk-storage]. Make a note of the account name.
 
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
 
@@ -113,16 +111,9 @@ In this section, you create both a Service Bus queue and a Storage account, conn
  > [!NOTE]
    > Depending on your IoT Hub's pricing tier you might be limited to only one **Endpoint**.  If so, skip step 5 and return after completing the tutorial and then replace the **CriticalQueue** with the **StorageQueue** as your single endpoint.
 
-1. Click **Add** again, name the endpoint **StorageQueue** and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom.
-
     ![Adding an endpoint][31]
 
 4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="critical"` as the condition, and choose **CriticalQueue** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
-
- > [!NOTE]
-   > Depending on your IoT Hub's pricing tier you might be limited to only one **Endpoint**.  If so, skip step 7 and return after completing the tutorial and then replace the **CriticalQueue** route with the **StorageQueue** route.
-
-1. Click **Add** again, select **Device Messages** as the source of data, enter `level="storage"` as the condition, and choose **StorageQueue** as the endpoint.  When you are done, click **Save** at the bottom.
 
     ![Adding a route][32]
 
@@ -211,6 +202,28 @@ Now you are ready to run the three applications.
 
  > [!NOTE]
    > If you are limited to only one **Endpoint**, only complete this step after re-running the tutorial after replacing the **CriticalQueue** with the **StorageQueue** as your single endpoint.
+
+## (Optional) Read from the storage endpoint
+
+In this section, you create a Storage account, connect it to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message. For more information about how to manage storage, see [Get started with Azure Storage][Azure Storage].
+
+1. Create a Storage account as described in [Azure Storage Documentation][lnk-storage]. Make a note of the account name.
+
+2. In the Azure portal, open your IoT hub and click **Endpoints**.
+
+    ![Endpoints in IoT hub][30]
+
+3. In the **Endpoints** blade, click **Add** at the top to add your queue to your IoT hub. Name the endpoint **StorageQueue** and use the drop-downs to select **Azure Storage Container**, and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom.  
+
+    ![Adding an endpoint][31]
+
+4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="storage"` as the condition, and choose **StorageQueue** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
+
+    ![Adding a route][32]
+
+    Make sure the fallback route is set to **ON**. This setting is the default configuration of an IoT hub.
+
+    ![Fallback route][33]
 
 ## Next steps
 
