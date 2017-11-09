@@ -28,6 +28,8 @@ This quick start demonstrates how to create an Azure Cosmos DB account for the [
 
 ## Prerequisites
 
+Access to the Azure Cosmos DB Cassandra API preview program. If you haven't applied for access yet, [sign up now](https://aka.ms/cosmosdb-cassandra-signup).
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 In addition: 
