@@ -56,7 +56,7 @@ To setup a local Docker container and have a service fabric cluster running on i
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    You can directly update this on daemon.json in your docker installation path (location of which might vary from machine to machine, e.g. - ``~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json``). The advised way to update is - go to Docker Icon > Preferences > Daemon > Advanced and update it there.
+    You can directly update this on daemon.json in your docker installation path (location of which might vary from machine to machine, e.g. - ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json). The advised way to update is - go to Docker Icon > Preferences > Daemon > Advanced and update it there.
 
 3. Start a Service Fabric One-box container instance with the image:
 
