@@ -57,6 +57,7 @@ For more control, automatic application of tuning recommendations can be turned 
 
 For an overview of how Automatic tuning works and for typical usage scenarios, please see the embedded video:
 
+>
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
 >
 
