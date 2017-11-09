@@ -2,6 +2,7 @@
 ## [What is Time Series Insights?](time-series-insights-overview.md)
 
 # Quickstarts
+## [Azure Time Series Insights](time-series-quickstart.md)
 ## [Plan your environment](time-series-insights-environment-planning.md)
 ## [Create an environment](time-series-insights-get-started.md)
 ## [Grant data access](time-series-insights-data-access.md)
