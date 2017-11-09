@@ -145,7 +145,7 @@ Yes. Azure DNS Nameservers are dual-stack (have both IPv4 and IPv6 addresses). T
 
 International Domain Names (IDNs) work by encoding each DNS name using '[punycode](https://en.wikipedia.org/wiki/Punycode)'. DNS queries are made using these punycode-encoded names.
 
-You can use the Azure CLI 2.0 to specify and view International Domain Names for the CNAME, MX and SRV record sets. For more details see [Azure CLI 2.0 DNS](https://docs.microsoft.com/en-us/cli/azure/network/dns?view=azure-cli-latest)
+You can configure International Domain Names (IDNs) in Azure DNS by first converting the zone name or record set name to punycode. Azure DNS does not currently support built-in conversion to/from punycode.
 
 ## Next steps
 

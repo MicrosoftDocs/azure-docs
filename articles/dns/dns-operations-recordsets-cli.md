@@ -3,7 +3,7 @@ title: Manage DNS records in Azure DNS using the Azure CLI 2.0 | Microsoft Docs
 description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All CLI 2.0 commands for operations on record sets and records.
 services: dns
 documentationcenter: na
-author: jtuliani
+author: subsarma
 manager: carmonm
 
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
@@ -13,8 +13,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 02/27/2017
-ms.author: jonatul
+ms.date: 11/08/2017
+ms.author: subsarma
 ---
 
 # Manage DNS records and recordsets in Azure DNS using the Azure CLI 2.0
@@ -108,7 +108,7 @@ az network dns record-set aaaa set-record --resource-group myresourcegroup --zon
 ### Create an CAA record
 
 ```azurecli
-az network dns record-set caa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-caa --name testcaa --caaflags 0 --catag issue --caavalue "ca1.contoso.com"
+az network dns record-set caa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-caa --name testcaa --caaflags 0 --catag "issue" --caavalue "ca1.contoso.com"
 ```
 
 ### Create a CNAME record
@@ -212,9 +212,9 @@ az network dns record-set a remove-record --resource-group myresourcegroup --zon
 
 Each record set contains a [time-to-live (TTL)](dns-zones-records.md#time-to-live), [metadata](dns-zones-records.md#tags-and-metadata), and DNS records. The following sections explain how to modify each of these properties.
 
-### To modify an A, AAAA, MX, NS, PTR, SRV, or TXT record
+### To modify an A, AAAA, CAA, MX, NS, PTR, SRV, or TXT record
 
-To modify an existing record of type A, AAAA, MX, NS, PTR, SRV, or TXT, you should first add a new record and then delete the existing record. For detailed instructions on how to delete and add records, see the earlier sections of this article.
+To modify an existing record of type A, AAAA, CAA, MX, NS, PTR, SRV, or TXT, you should first add a new record and then delete the existing record. For detailed instructions on how to delete and add records, see the earlier sections of this article.
 
 The following example shows how to modify an 'A' record, from IP address 1.2.3.4 to IP address 5.6.7.8:
 
