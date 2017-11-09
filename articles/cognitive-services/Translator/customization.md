@@ -37,8 +37,6 @@ More details about the various levels of customization, based on available data,
 > As of January 1, 2018 AddTranslation() will do nothing, it will silently fail. The API response will still be success (200), but nothing will be written.
 Microsoft will replace the functionality with an extended version of the Translator Hub API, which produces a custom system with your terminology, and you can invoke it using the Category ID of your custom Hub system. See [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). 
 
-The Collaborative Translations Framework (CTF) is an extension of the core Microsoft Translator Text API that enables postpublishing improvement of translated text. [View documentation for the CTF on GitHub](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/collaborative-translation-framework-reporting-api.md) 
-
 ## Next Steps
 > [!div class="nextstepaction"]
 > [Set up a customized language system using the Microsoft Translator Hub](https://hub.microsofttranslator.com)
