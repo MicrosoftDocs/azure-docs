@@ -7,7 +7,7 @@ manager: routlaw
 ms.service: virtual-machines-linux
 ms.custom: devops
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/09/2017
 ms.author: tarcher
 ---
 
@@ -29,7 +29,7 @@ In this tutorial you:
 > [!NOTE]
 > If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this section.
 
-In this section, you generate an Azure service principal, and a Terraform variables file containing the credentials from the security principal.
+In this section, you generate an Azure service principal, and two Terraform configuration files containing the credentials from the security principal.
 
 1. [Set up an Azure AD service principal](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) to enable Terraform to provision resources into Azure. While creating the principal, Make note of the values for the subscription ID, tenant ID, displayName, and password.
 
@@ -37,9 +37,27 @@ In this section, you generate an Azure service principal, and a Terraform variab
 
 3. Create an empty directory in which you are going to store your Terraform files.
 
-4. Create a new file to define your Terraform variables. It is common to name your Terraform variable file `terraform.tfvars` as Terraform automatically loads any file named `terraform.tfvars` (or following a patern of `*.auto.tfvars`) if present in the current directory. 
+4. Create a new file that holds your variables declarations. You can name this file anything you like with a `.tf` extension.
 
-5. Copy the following code into your newly created Terraform variables file. Make sure to replace the placeholders as follows: For `subscription_id`, use the Azure subscription ID you specified when running `az account set`. For `tenant_id`, use the `tenant` value returned from `az ad sp create-for-rbac`. For `client_id`, use the `appId` value returned from `az ad sp create-for-rbac`. For `client_secret`, use the `password` value returned from `az ad sp create-for-rbac`.
+5. Copy the following code into your variable declaration file:
+
+  ```tf
+  variable subscription_id {}
+  variable tenant_id {}
+  variable client_id {}
+  variable client_secret {}
+  
+  provider "azurerm" {
+      subscription_id = "${var.subscription_id}"
+      tenant_id = "${var.tenant_id}"
+      client_id = "${var.client_id}"
+      client_secret = "${var.client_secret}"
+  }
+  ```
+
+6. Create a new file that contains the values for your Terraform variables. It is common to name your Terraform variable file `terraform.tfvars` as Terraform automatically loads any file named `terraform.tfvars` (or following a patern of `*.auto.tfvars`) if present in the current directory. 
+
+7. Copy the following code into your variables file. Make sure to replace the placeholders as follows: For `subscription_id`, use the Azure subscription ID you specified when running `az account set`. For `tenant_id`, use the `tenant` value returned from `az ad sp create-for-rbac`. For `client_id`, use the `appId` value returned from `az ad sp create-for-rbac`. For `client_secret`, use the `password` value returned from `az ad sp create-for-rbac`.
 
   ```tf
   subscription_id = "<azure-subscription-id>"
