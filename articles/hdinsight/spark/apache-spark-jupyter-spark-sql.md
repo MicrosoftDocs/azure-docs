@@ -4,7 +4,7 @@ description: HDInsight Spark quickstart on how to create an Apache Spark cluster
 keywords: spark quickstart,interactive spark,interactive query,hdinsight spark,azure spark
 services: hdinsight
 documentationcenter: ''
-author: maxluk
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
-ms.author: maxluk
+ms.author: nitinme
 
 ---
 # Create an Apache Spark cluster in Azure HDInsight
