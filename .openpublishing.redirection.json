@@ -6471,8 +6471,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/LUIS/index.md",
-            "redirect_url": "/azure/cognitive-services/LUIS/Home",
+            "source_path": "articles/cognitive-services/LUIS/index.yml",
+            "redirect_url": "/azure/cognitive-services/LUIS/",
             "redirect_document_id": false
         },
         {
