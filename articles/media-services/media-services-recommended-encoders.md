@@ -25,7 +25,7 @@ ms.service: media-services
 # Recommended on-prem encoders
 When live streaming with Azure Media Services, you can specify how you want your channel to receive the input stream. If you choose to use an on-prem encoder with a live encoding channel, your encoder should push a high-quality single-bitrate stream as output. If you choose to use an on-prem encoder with a pass through channel, your encoder should push a multi-bitrate stream as output with all desired output qualities. For more information, see [Live streaming with on-prem encoders](media-services-live-streaming-with-onprem-encoders.md).
 
-Azure Media Services recommends using one of following live encoders have RTMP as output:
+Azure Media Services recommends using one of following live encoders that have RTMP as output:
 - Adobe Flash Media Live Encoder
 - Haivision
 - Telestream Wirecast
@@ -54,12 +54,11 @@ To become an on-prem encoder partner, you must verify compatibility of your on-p
 1. Create an Azure Media Services account
 2. Create and start a **pass-through** channel
 3. For each of the configuration settings for your on-prem encoder:
-    a. Create a published live event
-    b. Run your live encoder for approximately 10 minutes
-    c. Stop the live event
-    d. Record the Asset ID, published streaming URL for the live archive, and the settings used from your live encoder
-    e. Reset the channel state after creating each sample
+    - Create a published live event
+    - Run your live encoder for approximately 10 minutes
+    - Stop the live event
+    - Record the Asset ID, published streaming URL for the live archive, and the settings used from your live encoder
+    - Reset the channel state after creating each sample
 4. Send your recorded settings and live archive parameters to Media Services by emailing amsstreaming@microsoft.com.
-5. Upon receipt, Media Services performs verification tests on the samples from your live encoder
 
-Upon successful verification, Media Services can add your encoder to the list of recommendations or marketing materials.
+Upon receipt, Media Services performs verification tests on the samples from your live encoder. After successful verification, Media Services can add your encoder to the list of recommendations or marketing materials.
