@@ -53,7 +53,7 @@ In this section, you create an Azure Stream Analytics job to take data from your
 > [!NOTE]
 > An Azure Storage account is required to provide an endpoint to be used as an output in your ASA job. The example below uses the BLOB storage type.  For more information, see the **Blobs** section of the [Azure Storage Documentation][azure-storage].
 
-1. In the Azure portal, navigate to **New -> Storage** and click **Storage account - blob, file, table, queue**.
+1. In the Azure portal, navigate to **Create a resource -> Storage**, click **See all**, and click **Storage account - blob, file, table, queue**.
 
 2. Enter a name and use the remaining default values.  Click **Create**. Note the name for later.
 
@@ -62,7 +62,7 @@ In this section, you create an Azure Stream Analytics job to take data from your
     > [!NOTE]
     > Make sure the **Location** you use is the same as your IoT Hub **Location** else additional fees may apply.
 
-1. In the Azure portal, navigate to **New -> Internet of Things** and click **Stream Analytics Job**.
+1. In the Azure portal, navigate to **Create a resource -> Internet of Things** and click **Stream Analytics Job**.
 
 1. Enter a name, **choose "Edge" as Hosting environment** and use the remaining default values.  Click **Create**.
 
@@ -94,7 +94,7 @@ In this section, you create an Azure Stream Analytics job to take data from your
     FROM 
        temperature TIMESTAMP BY timeCreated 
     GROUP BY TumblingWindow(second,30) 
-    HAVING Avg(machine.temperature)>100
+    HAVING Avg(machine.temperature) > 100
     ```
 
 1. Under **Job Topology**, select **Devices**, and click **Add** to enter in your IoT Hub information.  Select _Disabled_ under **Monitoring**.  Click **Save**.
