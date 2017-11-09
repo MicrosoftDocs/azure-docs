@@ -47,7 +47,7 @@ In this section, you configure an existing HDInsight Hadoop cluster to use an Az
 
 1. Open an HDInsight cluster in the Azure portal.
 2. In the left pane, click **Monitoring**.
-3. In the right pane, click **Enable**, select an existing Log Analytics workspace and then click **Save**.
+3. In the right pane, click **Enable**, select an existing Log Analytics workspace, and then click **Save**.
 
     ![Enable monitoring for HDInsight clusters](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Enable monitoring for HDInsight clusters")
 

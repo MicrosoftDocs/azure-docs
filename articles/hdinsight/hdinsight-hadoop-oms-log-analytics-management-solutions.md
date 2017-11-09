@@ -30,7 +30,7 @@ In this article, you learn how to add cluster-specific management solutions to a
 
 ## Add cluster-specific management solutions
 
-In this section, you add an HBase cluster management solution to an existing OMS workspace. Similar solutions for other HDInsight cluster types will be available soon.
+In this section, you add an HBase cluster management solution to an existing OMS workspace.
 
 1. Open an HDInsigt cluster in the Azure portal, click **Monitoring**, and then click **Open OMS Dashboard**.
 
@@ -48,7 +48,7 @@ In this section, you add an HBase cluster management solution to an existing OMS
     - HDInsight Storm Monitoring
     - HDInsight Spark Monitoring
 
-3. In the next screen, click **Add**.  The following screnshots shows the Add button for the HBase Monitoring.
+3. In the next screen, click **Add**.  The following screenshot shows the Add button for the HBase Monitoring.
 
      ![Add HBase management solution](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/add-hbase-management-solution.png "Add HBase management solution")
 
