@@ -19,7 +19,7 @@ ms.author: arramac
 ---
 # Introduction to Azure Cosmos DB Table API
 
-[Azure Cosmos DB](introduction.md) provides the Table API (preview) for applications that are written for Azure Table storage and that need premium capabilities like:
+[Azure Cosmos DB](introduction.md) provides the Table API for applications that are written for Azure Table storage and that need premium capabilities like:
 
 * [Turnkey global distribution](distribute-data-globally.md).
 * [Dedicated throughput](partition-data.md) worldwide.
@@ -36,9 +36,9 @@ We recommend that you watch the following video, where Aravind Ramachandran expl
 > 
 
 ## Table offerings
-If you currently use Azure Table Storage, you gain the following benefits by moving to the Azure Cosmos DB Table API (preview):
+If you currently use Azure Table Storage, you gain the following benefits by moving to the Azure Cosmos DB Table API:
 
-| | Azure Table storage | Azure Cosmos DB Table API (preview) |
+| | Azure Table storage | Azure Cosmos DB Table API |
 | --- | --- | --- |
 | Latency | Fast, but no upper bounds on latency. | Single-digit millisecond latency for reads and writes, backed with <10-ms latency reads and <15-ms latency writes at the 99th percentile, at any scale, anywhere in the world. |
 | Throughput | Variable throughput model. Tables have a scalability limit of 20,000 operations/s. | Highly scalable with [dedicated reserved throughput per table](request-units.md) that's backed by SLAs. Accounts have no upper limit on throughput and support >10 million operations/s per table. |

@@ -28,7 +28,7 @@ ms.author: mimig
 |---|---|
 |**SDK download**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**API documentation**|[.NET API reference documentation](https://aka.ms/acdbtableapiref)|
-|**Quickstart**|[Azure Cosmos DB: Build an app with .NET and the Table API](create-table-dotnet.md|
+|**Quickstart**|[Azure Cosmos DB: Build an app with .NET and the Table API](create-table-dotnet.md)|
 |**Tutorial**|[Azure CosmosDB: Create a container with the Graph API](tutorial-develop-graph-dotnet.md)|
 |**Current supported framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
@@ -38,12 +38,12 @@ ms.author: mimig
 * General Availability Release
 
 ### <a name="0.1.0-preview"/>0.1.0-preview
-* Update
+* Update to initial preview release
 
 ### <a name="0.0.1-preview"/>0.0.1-preview
 * Initial preview release
 
-## Release & Retirement dates
+## Release and Retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 

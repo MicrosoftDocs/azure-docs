@@ -38,7 +38,7 @@ The following table shows the number of RUs required to perform read and write t
 |1 KB|1 RU|5 RUs|
 |100 KB|10 RUs|50 RUs|
 
-## Cost of Reads and writes
+## Cost of reads and writes
 
 If you provision 1,000 RU/sec, this amounts to 3.6m RU/hour and will cost $0.08 for the hour (in the US and Europe). For a 1KB size document, this means that you can consume 3.6m reads or 0.72m writes (3.6mRU / 5) using your provisioned throughput. Normalized to million reads and writes, the cost would be $0.022 /m reads ($0.08 / 3.6) and $0.111/m writes ($0.08 / 0.72). The cost per million becomes minimal as shown in the table below.
 

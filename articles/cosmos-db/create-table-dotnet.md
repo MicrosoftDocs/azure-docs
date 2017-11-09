@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quickstart connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -22,7 +22,7 @@ ms.author: arramac
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries using the [Azure Cosmos DB Table API](https://aka.ms/tableapinuget) package from NuGet.
+This quickstart demonstrates how to create an Azure Cosmos DB account, and create a table within that account using the Azure portal. You'll then write code to insert, update, and delete entities, and run some queries using the [Azure Cosmos DB Table API](https://aka.ms/tableapinuget) package from NuGet.
 
 ## Prerequisites
 
