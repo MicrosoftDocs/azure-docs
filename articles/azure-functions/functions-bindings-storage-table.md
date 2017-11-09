@@ -355,6 +355,9 @@ The Table storage input binding supports the following scenarios:
 
   Access the table data by using a method parameter `IQueryable<T> <paramName>`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. `T` must be a type that implements `ITableEntity` or derives from `TableEntity`. You can use `IQueryable` methods to do any filtering required. The `partitionKey`, `rowKey`, `filter`, and `take` properties are not used in this scenario.  
 
+> [!NOTE]
+> `IQueryable` does not work in .NET Core, so it doesn't work in the [Functions v2 runtime](functions-versions.md).
+
   An alternative is to use a `CloudTable paramName` method parameter to read the table by using the Azure Storage SDK.
 
 * **Read one or more rows in JavaScript**
