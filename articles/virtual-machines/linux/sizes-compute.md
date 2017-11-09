@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/23/2017
+ms.date: 11/08/2017
 ms.author: jonbeck
 
 ---
 
-# Compute optimized Linux VM sizes
+# Compute optimized virtual machine sizes
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../../includes/virtual-machines-common-sizes-compute.md)]
 

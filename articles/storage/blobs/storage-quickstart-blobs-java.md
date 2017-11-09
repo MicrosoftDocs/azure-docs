@@ -79,7 +79,7 @@ You can also use a tool such as the [Azure Storage Explorer](http://storageexplo
 
 After you've verified the files, press the enter key to finish the demo and delete the test files. Now that you know what the sample does, open the **AzureApp.java** file to look at the code. 
 
-## Get references to the storage objects
+## Code Walkthrough
 
 The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
 
