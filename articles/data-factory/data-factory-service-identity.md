@@ -20,7 +20,7 @@ ms.author: jingwang
 This article helps you understand what is data factory service identity and how it works.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documenttion for Data Factory version1](v1/data-factory-introduction.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version1](v1/data-factory-introduction.md).
 
 ## Overview
 
@@ -164,7 +164,7 @@ Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 
-## Next
+## Next steps
 See the following topics which introduce when and how to use data factory service identity:
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md)

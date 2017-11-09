@@ -22,7 +22,7 @@ You can store credentials for data stores in an [Azure Key Vault](../key-vault/k
 Currently, only [Dynamics connector](connector-dynamics-crm-office-365.md) and [Salesforce connector](connector-salesforce.md) support this feature.
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documenttion for Data Factory version1](v1/data-factory-introduction.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version1](v1/data-factory-introduction.md).
 
 ## Prerequisites
 
