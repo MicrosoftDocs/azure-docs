@@ -32,7 +32,7 @@ For driver installation and verification steps, see [N-series driver setup for L
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* We don't recommend installing X server or other systems that use the Nouveau driver on Ubuntu NC VMs. Before installing NVIDIA GPU drivers, you need to disable the Nouveau driver.  
+* You shouldn't install X server or other systems that use the `Nouveau` driver on Ubuntu NC VMs. Before installing NVIDIA GPU drivers, you need to disable the `Nouveau` driver.  
 
 ## Other sizes
 - [General purpose](sizes-general.md)
