@@ -1,5 +1,5 @@
 # Overview
-## [What is Time Series Insights?](time-series-insights-overview.md)
+## [About Time Series Insights](time-series-insights-overview.md)
 
 # Quickstarts
 
