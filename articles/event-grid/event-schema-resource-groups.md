@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
 ---
 
@@ -19,14 +19,16 @@ Azure subscriptions and resource groups emit the same event types. The event typ
 
 ## Available event types
 
-Resource groups emit management events from Azure Resource Manager, such as when a VM is created or a storage account is deleted. Resource groups raise the following event types:
+Resource groups emit management events from Azure Resource Manager, such as when a VM is created or a storage account is deleted.
 
-- **Microsoft.Resources.ResourceWriteSuccess**: Raised when a resource create or update operation succeeds.  
-- **Microsoft.Resources.ResourceWriteFailure**: Raised when a resource create or update operation fails.  
-- **Microsoft.Resources.ResourceWriteCancel**: Raised when a resource create or update operation is canceled.  
-- **Microsoft.Resources.ResourceDeleteSuccess**: Raised when a resource delete operation succeeds.  
-- **Microsoft.Resources.ResourceDeleteFailure**: Raised when a resource delete operation fails.  
-- **Microsoft.Resources.ResourceDeleteCancel**: Raised when a resource delete operation is canceled. This event happens when a template deployment is canceled.
+| Event type | Description |
+| ---------- | ----------- |
+| Microsoft.Resources.ResourceWriteSuccess | Raised when a resource create or update operation succeeds. |
+| Microsoft.Resources.ResourceWriteFailure | Raised when a resource create or update operation fails. |
+| Microsoft.Resources.ResourceWriteCancel | Raised when a resource create or update operation is canceled. |
+| Microsoft.Resources.ResourceDeleteSuccess | Raised when a resource delete operation succeeds. |
+| Microsoft.Resources.ResourceDeleteFailure | Raised when a resource delete operation fails. |
+| Microsoft.Resources.ResourceDeleteCancel | Raised when a resource delete operation is canceled. This event happens when a template deployment is canceled. |
 
 ## Example event
 

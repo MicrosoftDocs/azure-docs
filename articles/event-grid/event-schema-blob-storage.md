@@ -1,26 +1,28 @@
 ---
-title: Azure Event Grid storage blob event schema
-description: Describes the properties that are provided for storage blob events with Azure Event Grid
+title: Azure Event Grid blob storage event schema
+description: Describes the properties that are provided for blob storage events with Azure Event Grid
 services: event-grid
 author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
 ---
 
-# Azure Event Grid event schema for storage blobs
+# Azure Event Grid event schema for Blob storage
 
-This article provides the properties and schema for storage blob events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for blob storage events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Available event types
 
-Storage blobs emit the following event types:
+Blob storage emits the following event types:
 
-- **Microsoft.Storage.BlobCreated**: Raised when a blob is created.
-- **Microsoft.Storage.BlobDeleted**: Raised when a blob is deleted.
+| Event type | Description |
+| ---------- | ----------- |
+| Microsoft.Storage.BlobCreated | Raised when a blob is created. |
+| Microsoft.Storage.BlobDeleted | Raised when a blob is deleted. |
 
 ## Example event
 
@@ -84,7 +86,7 @@ An event has the following top-level data:
 | eventType | string | One of the registered event types for this event source. |
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
 | id | string | Unique identifier for the event. |
-| data | object | Storage blob event data. |
+| data | object | Blob storage event data. |
 
 The data object has the following properties:
 
@@ -105,4 +107,4 @@ The data object has the following properties:
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
-* For an introduction to working with storage blob events, see [Route Blob storage events - Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 
+* For an introduction to working with blob storage events, see [Route Blob storage events - Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

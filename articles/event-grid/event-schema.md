@@ -36,7 +36,7 @@ The following example shows the properties that are used by all event publishers
 ]
 ```
 
-For example, the schema published for an Azure storage blob event is:
+For example, the schema published for an Azure Blob storage event is:
 
 ```json
 [
