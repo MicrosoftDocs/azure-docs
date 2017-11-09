@@ -33,7 +33,7 @@ The following topology illustrates a file server environment with DFSR implement
 
 In the figure, multiple file servers (referred to as members) actively participate in replicating files across a replication group. The contents in the replicated folder are available to all the clients that are sending requests to either of the members, even if one of the members goes offline.
 
-## Disaster recovery recommendations for file servers
+## Disaster recovery strategies for file servers
 
 - **Replicate a file server to Azure by using Azure Site Recovery**: When one or more of the on-premises file servers are inaccessible, the recovery VMs can be brought up in Azure. The recovery VMs can then serve requests from clients, on-premises, if there’s site-to-site VPN connectivity and Active Directory is configured in Azure. You can do this in a DFSR-configured environment or in a simple file server environment with no DFSR. 
 
@@ -88,7 +88,7 @@ You can use Azure Files to completely replace or supplement traditional on-premi
 The following steps detail the disaster recovery recommendation for Azure VMs that perform the same function as traditional file servers:
 1.	Protect machines by using Azure Site Recovery, through the steps mentioned here.
 2.	Use Azure File Sync to replicate files from the VM that acts as the file server, to the cloud.
-3.	Use the recovery plan feature in Azure Site Recovery to add scripts to [mount the Azure file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) and access the share in your virtual machine.
+3.	Use the [recovery plan](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-create-recovery-plans) feature in Azure Site Recovery to add scripts to [mount the Azure file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) and access the share in your virtual machine.
 
 The following steps briefly describe how to use the Azure File Sync service:
 
@@ -115,9 +115,10 @@ If you have on-premises clients that access the IaaS file server virtual machine
 
 For more information on disaster recovery to a secondary region, see [Azure-to-Azure replication architecture](concepts-azure-to-azure-architecture.md).
 
+## Disaster recovery recommendations for on-premises virtual machines 
 
 ### Replicate an on-premises file server by using Azure Site Recovery
-The following steps detail replication for a VMware VM. For steps to replicate a Hyper-V VM, refer here.
+The following steps detail replication for a VMware VM. For steps to replicate a Hyper-V VM, see [Set up disaster recovery of on-premises Hyper-V VMs to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-hyper-v-to-azure).
 
 1.	[Prepare Azure resources](tutorial-prepare-azure.md) for replication of on-premises machines.
 2.	Establish a site-to-site VPN connection between the on-premises site and the Azure network.  
@@ -164,7 +165,7 @@ The following steps detail using the Azure File Sync service:
 > Ensure that port 445 is open. Azure Files uses the SMB protocol. SMB communicates over TCP port 445. Check to see if your firewall is blocking port 445 from the client machine.
 
 
-### Perform a test failover
+## Perform a test failover
 
 1.	Go to the Azure portal and select your Recovery Services vault.
 2.	Select the recovery plan created for the file server environment.
@@ -177,7 +178,7 @@ For more information on performing a test failover, see [Test 	failover to Azure
 
 For guidance on performing test failover for Active Directory and DNS, see [Test failover considerations for Active Directory and DNS](site-recovery-active-directory.md).
 
-### Perform a failover
+## Perform a failover
 
 1.	Go to the Azure portal and select your Recovery Services vault.
 2.	Select the recovery plan created for the file server environment.
