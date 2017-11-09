@@ -107,7 +107,7 @@ Another way to view access permissions is to click **Roles** on the Users blade.
 ## Monitor resource usage
 In the dashboard, resource monitoring is limited to the information shown in the service dashboard and a few metrics that you can obtain by querying the service. On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application.
 
-Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. For more information, see [Search service limits](search-limits-quotas-capacity.md). 
+Using the Search Service REST API, you can get a count on documents and indexes programmatically: 
 
 * [Get Index Statistics](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Count Documents](https://docs.microsoft.com/rest/api/searchservice/count-documents)
