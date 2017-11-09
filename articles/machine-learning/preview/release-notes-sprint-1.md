@@ -123,13 +123,13 @@ Below is a list of detailed updates in each component area of Azure Machine Lear
 - Image construction service now supports building images for Azure IoT services/devices.
 
 ### Sample projects
-- _Classifying Iris_ sample project:
+- [_Classifying Iris_](./tutorial-classifying-iris-part-1.md) sample project:
     - `iris_pyspark.py` is renamed to `iris_spark.py`.
     - `iris_score.py` is renamed to `iris-score.py`.
     - `iris.dprep` and `iris.dsource` are updated to reflect the latest data prep engine updates.
     - `iris.ipynb` Notebook is amended to work in HDInsight cluster.
     - Run history is turned on in `iris.ipynb` Notebook cell.
-- _Advanced Data Prep using Bike Share Data_ sample project "Handle Error Value" step fixed.
-- _MMLSpark on Adult Census Data_ sample project `docker.runconfig` format updated from JSON to YAML.
-- Distributed Hyperparameter Tuning sample project`docker.runconfig` format updated from JSON to YAML.
-- New sample project _Image Classification using CNTK_.
+- [_Advanced Data Prep using Bike Share Data_](./tutorial-bikeshare-dataprep.md) sample project "Handle Error Value" step fixed.
+- [_MMLSpark on Adult Census Data_](https://github.com/Azure/MachineLearningSamples-mmlspark) sample project `docker.runconfig` format updated from JSON to YAML.
+- [_Distributed Hyperparameter Tuning_](./scenario-distributed-tuning-of-hyperparameters.md) sample project`docker.runconfig` format updated from JSON to YAML.
+- New sample project [_Image Classification using CNTK_](./scenario-image-classification-using-cntk.md).
