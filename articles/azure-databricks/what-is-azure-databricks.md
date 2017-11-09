@@ -21,6 +21,7 @@ ms.author: nitinme
 
 Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics platform optimized for Azure. Designed in collaboration with the founders of Apache Spark, Azure Databricks combines the best of Databricks and Azure to help customers accelerate innovation with one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.
 
+![What is Azure Databricks?](./media/what-is-azure-databricks/azure-databricks-overview.png "What is Azure Databricks?")
 
 ## Why use Azure Databricks?
 
