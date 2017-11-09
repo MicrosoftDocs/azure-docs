@@ -553,9 +553,15 @@ You may optionally choose to prettify the resulting JSON, which will increase th
 
 The Azure Cosmos DB JSON exporter enables you to export information from an Azure Table storage source to an Azure Cosmos DB Table API database. 
 
+The Connection String for the Azure Cosmos DB Table API account to export to can be retrieved from the Azure portal, in the Connection String page. Use the Copy button ![Screenshot of connection string in the Azure portal](./media/import-data/copy-button.png) on the right side of the screen to copy the entire string.
+
+![Screenshot of connection string in the Azure portal](./media/import-data/connection-string.png)
+
 ## <a id="tableapiseqtarget"></a>Export to Table API (Sequential Record Import)
 
 The Azure Cosmos DB JSON exporter enables you to export information from an Azure Table storage source to an Azure Cosmos DB Table API database.
+
+The Connection String for the Azure Cosmos DB Table API account to export to can be retrieved from the Azure portal, in the Connection String page, as shown in the image in [Export to Table API (Bulk import)](#tableapibulkexport) above.
 
 ## Advanced configuration
 In the Advanced configuration screen, specify the location of the log file to which you would like any errors written. The following rules apply to this page:
