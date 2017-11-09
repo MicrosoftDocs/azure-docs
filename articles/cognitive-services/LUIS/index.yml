@@ -41,7 +41,6 @@ sections:
       - title: Create a LUIS app
         values:
         - href: luis-get-started-create-app
-    rows:
       - title: Get intent from utterance
         values:
         - href: luis-get-started-cs-get-intent
