@@ -14,7 +14,7 @@ metadata:
   ms.date: 10/30/2017
   ms.author: v-jansko
 abstract:
-  description: Microsoft Translator Text API is a cloud-based machine translation service supporting multiple languages. You can easily conduct real-time text translation with a simple REST API call in any solution requiring multilanguage support. 
+  description: <p>Microsoft Translator Text API is a cloud-based machine translation service.  With this API you can translate text in near real-time from any app or service through a simple REST API call. The API uses both the most modern neural machine translation (NMT) technology, and legacy statistical machine translation (SMT) technology. For the list of supported languages, both for NMT and SMT, please refer to <a href=”languages”>Supported languages</a>.</p>
 sections:
 - title: 5-Minute Quickstarts
   items:
