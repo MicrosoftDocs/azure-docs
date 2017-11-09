@@ -34,7 +34,7 @@ A virtual network peering cannot be created between two virtual networks deploye
 
 When creating a virtual network peering between virtual networks that exist in different subscriptions, the subscriptions must both be associated to the same Azure Active Directory tenant. If you don't already have an Azure Active Directory tenant, you can quickly [create one](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). 
 
-You ability to connect virtual networks created through either deployment model, different deployment models, different regions, or subscriptions associated to the same or different Azure Active Directory tenants using an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) is in preview release, and does not require registration.
+The ability to connect virtual networks created through either deployment model, different deployment models, different regions, or subscriptions associated to the same or different Azure Active Directory tenants using an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) is in preview release, and does not require registration.
 
 You can use the [Azure portal](#portal), the Azure [command-line interface](#cli) (CLI), or Azure [PowerShell](#powershell) to create a virtual network peering. Click any of the previous tool links to go directly to the steps for creating a virtual network peering using your tool of choice.
 
@@ -265,7 +265,7 @@ Before completing any of the following steps, you must register for the preview.
       | Format-Table VirtualNetworkName, PeeringState
     ```
 
-    The state is **Connected**. It changes to **Connected** once you setup the peering to myVnetA from myVnetB.
+    The state is **Connected**. It changes to **Connected** once you set up the peering to myVnetA from myVnetB.
 
     Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server. Learn how to set up [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
