@@ -3,6 +3,7 @@
 
 # Quickstarts
 ## [Azure Time Series Insights](time-series-quickstart.md)
+
 # Tutorials
 ## [Connect an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)
 ## [Connect an IoT Hub event source](time-series-insights-how-to-add-an-event-source-iothub.md)
