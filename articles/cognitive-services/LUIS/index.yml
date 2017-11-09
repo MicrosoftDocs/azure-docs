@@ -50,7 +50,6 @@ sections:
         - href: luis-get-started-python-get-intent
         - href: luis-get-started-php-get-intent
         - href: luis-get-started-ruby-get-intent
-    rows: 
       - title: Authoring API
         values:
         - href:
