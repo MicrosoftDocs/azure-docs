@@ -22,7 +22,7 @@ The App Service Environment is a deployment of the Azure App Service in a custom
 
 Forced tunneling can cause problems for an ASE. The ASE has a number of external dependencies, which are enumerated in this [ASE Network Architecture][network] document. The ASE, by default, requires that all outbound communication goes through the VIP that is provisioned with the ASE.
 
-In an Azure Virtual Network, routing is done based on Longest Prefix Match (LPM).  If there is more than one route with the same LPM match, then a route is selected based on its origin in the following order:
+Routes are a critical aspect what forced tunneling is and how to deal with it. In an Azure Virtual Network, routing is done based on Longest Prefix Match (LPM).  If there is more than one route with the same LPM match, then a route is selected based on its origin in the following order:
 
 1. User defined route
 1. BGP route (when ExpressRoute is used)
