@@ -105,7 +105,7 @@ You can now click on a `.ipynb` notebook file, open it, and set the kernel (if i
 
 ## Use magic commands to manage experiments
 
-You can use [magic commands](http://ipython.readthedocs.io/en/stable/interactive/magics.html) within your notebook cells to track your run history and write outputs, such as models or datasets.
+You can use [magic commands](http://ipython.readthedocs.io/en/stable/interactive/magics.html) within your notebook cells to track your run history and save outputs, such as models or datasets.
 
 To track individual notebook cell runs, use '%azureml history on' magic command. After you turn the history on, each cell run will appear as entry in run history.
 
