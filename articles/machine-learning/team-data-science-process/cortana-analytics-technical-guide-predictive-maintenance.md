@@ -20,7 +20,7 @@ ms.author: fboylu
 # Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses
 
 ## **Important**
-This article has been deprecated. The discussion is still relevant to the problem at hand, that is, Predictive Maintenance in Aerospace, but refer to [this](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) for current information.
+This article has been deprecated. The discussion is still relevant to the problem at hand, that is, Predictive Maintenance in Aerospace, but refer to [Solution Overview for Business Audiences](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) for current information.
 
 ## **Acknowledgements**
 This article was authored by data scientists Yan Zhang, Gauher Shaheen, Fidan Boylu Uz, and software engineer Dan Grecoe at Microsoft.
@@ -45,7 +45,7 @@ at the end.
 > 
 > 
 
-## **The "Big" picture**
+## **Overview**
 ![Predictive maintenance architecture](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 When the solution is deployed, various Azure services within Cortana
@@ -74,14 +74,13 @@ while it's executing on your computer.
 ### Azure event hub
 The [Azure Event
 Hub](https://azure.microsoft.com/services/event-hubs/) service is
-the recipient of the input provided by the Synthetic Data Source
-described above.
+the recipient of the input provided by the Synthetic Data Source.
 
 ## **Data preparation and analysis**
 ### Azure Stream Analytics
 Use [Azure Stream
 Analytics](https://azure.microsoft.com/services/stream-analytics/)
-service to provide near real-time analytics on the input stream
+service to provide near real time analytics on the input stream
 from the [Azure Event Hub](#azure-event-hub) service and publish results
 onto a [Power BI](https://powerbi.microsoft.com) dashboard as well as
 archiving all raw incoming events to the [Azure
@@ -91,7 +90,7 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service.
 
 ### HDInsight custom aggregation
-Use theAzure HDInsight service to run
+Use the Azure HDInsight service to run
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts (orchestrated by Azure Data Factory) to provide aggregations on
 the raw events that were archived using the Azure Stream Analytics
@@ -120,23 +119,19 @@ Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) servic
 predictions stored in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) that
 were produced using the [Azure Machine
 Learning](https://azure.microsoft.com/services/machine-learning/)
-service. For Instructions on how to build the Power BI dashboard for this
-Solution Template, refer to the section below.
+service.
 
 ## **How to bring in your own data**
 This section describes how to bring your own data to Azure, and what
 areas require changes for the data you bring into this
 architecture.
 
-It's unlikely that any dataset you bring will match the dataset used by
+It's unlikely that your data set matches the dataset used by
 the [Turbofan Engine Degradation Simulation Data
 Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)
 used for this solution template. Understanding your data and the
 requirements are crucial in how you modify this template to work
-with your own data. If this is your first exposure to the Azure Machine
-Learning service, you can get an introduction to it by using the example
-in [How to create your first
-experiment](../studio/create-experiment.md).
+with your own data. 
 
 The following sections discuss the sections of the template that
 require modifications when a new dataset is introduced.
@@ -149,7 +144,7 @@ the data that's fed into it.
 
 This document does not describe how to ingest your data, but you can
 easily send events or data to an Azure Event Hub using the Event Hub
-API's.
+APIs.
 
 ### Azure Stream Analytics
 Use the Azure Stream Analytics service to provide near real-time
@@ -157,7 +152,7 @@ analytics by reading from data streams and outputting data to any number
 of sources.
 
 For the Predictive Maintenance for Aerospace Solution Template, the
-Azure Stream Analytics query consists of four sub-queries, each
+Azure Stream Analytics query consists of four sub queries, each
 query consuming events from the Azure Event Hub service, with outputs to
 four distinct locations. These outputs consist of three Power BI
 datasets and one Azure Storage location.
@@ -166,7 +161,7 @@ The Azure Stream Analytics query can be found by:
 
 * Connect to the Azure portal
 * Locating the Stream Analytics jobs ![Stream Analytics icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-stream-analytics.png) that were
-  generated when the solution was deployed (*e.g.*,
+  generated when the solution was deployed (*for example*,
   **maintenancesa02asapbi** and **maintenancesa02asablob** for the
   predictive maintenance solution)
 * Selecting
@@ -301,16 +296,16 @@ created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature 
 Once the Data Generator is launched, the pipeline begins to dehydrate, and the different components of your solution start kicking into action following the commands issued by the data factory. There are two ways to monitor the pipeline.
 
 1. One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel, you see the **rawdata** folder. Inside the rawdata folder, you see folders with names such as hour=17, hour=18 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see csv files that should have finite sizes in MB in those folders.
-2. The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through the [Azure portal](https://portal.azure.com/). On the left panel locate SQL DATABASES ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
+2. The last step of the pipeline is to write data (for example predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through the [Azure portal](https://portal.azure.com/). On the left panel locate SQL DATABASES ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
    
     ![Manage icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
    
-    Here, you can click on New Query and query for the number of rows (e.g. select count(*) from PMResult ). As your database grows, the number of rows in the table should  increase.
+    Here, you can click on New Query and query for the number of rows (for example select count(*) from PMResult). As your database grows, the number of rows in the table should  increase.
 
 ## **Power BI Dashboard**
 ### Overview
 This section describes how to set up Power BI dashboard to visualize
-your real-time data from Azure Stream Analytics (hot path), as well as
+your data from Azure Stream Analytics (hot path), as well as
 batch prediction results from Azure machine learning (cold path).
 
 ### Setup cold path dashboard
@@ -331,7 +326,7 @@ desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-des
 
 The following steps guide you on how to connect the pbix file to
 the SQL Database that was spun up at the time of solution deployment
-containing data (*e.g.*. prediction results) for visualization.
+containing data (for example, prediction results) for visualization.
 
 1. Get the database credentials.
    
@@ -345,7 +340,7 @@ containing data (*e.g.*. prediction results) for visualization.
    * Select the subscription you're using for deploying the solution, and
      then select **'YourSolutionName\_ResourceGroup'**.
    * In the new pop out panel, click the  ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) icon to access your
-     database. Your database name is next to this icon (*e.g.*, **'pmaintenancedb'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSoutionName.database.windows.net**.
+     database. Your database name is next to this icon (for example, **'pmaintenancedb'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSoutionName.database.windows.net**.
    * Your database **username** and **password** are the same as
      the username and password previously recorded during deployment of the solution.
 2. Update the data source of the cold path report file with Power
@@ -408,7 +403,7 @@ containing data (*e.g.*. prediction results) for visualization.
      [Data refresh in Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
 ### Setup hot path dashboard
-The following steps guide you how to visualize real-time data
+The following steps guide you how to visualize data
 output from Stream Analytics jobs that were generated at the time of
 solution deployment. A [Power BI online](http://www.powerbi.com/)
 account is required to perform the following steps. If you don't have an
@@ -417,9 +412,9 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 1. Add Power BI output in Azure Stream Analytics (ASA).
    
    * You must follow the instructions in
-     [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](../../stream-analytics/stream-analytics-power-bi-dashboard.md)
+     [Azure Stream Analytics & Power BI: A real time analytics dashboard for real time visibility of streaming data](../../stream-analytics/stream-analytics-power-bi-dashboard.md)
      to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
-   * The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you need to add an output to ASA. When you add the first output (*e.g.* **aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message (*e.g.*, "Starting Stream Analytics job maintenancesa02asapbi succeeded").
+   * The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you need to add an output to ASA. When you add the first output ( **aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message ("Starting Stream Analytics job maintenancesa02asapbi succeeded").
 2. Log in to [Power BI online](http://www.powerbi.com)
    
    * On the left panel Datasets section in My Workspace, the
