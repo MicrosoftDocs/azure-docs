@@ -25,7 +25,7 @@ ms.service: iot-edge
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an  IoT Edge module that filters sensor data on the simulated IoT Edge device that you created in the [Install Azure IoT Edge tutorial](./tutorial-install-iot-edge.md). In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
-> * Use Visual Studio Code to create an IoT Edge module
+> * Use Visual Studio Code to create an IoT Edge module based on .NET core 2.0
 > * Use VS Code and Docker to create a docker image and publish it to your registry 
 > * Deploy the module to your IoT Edge device
 > * View generated data
@@ -69,7 +69,7 @@ The steps in this section are only required until Azure IoT Edge goes public. Th
     ```
 
 ## Choose or Sign up for a Docker registry
-In this tutorial, you use the IoT Edge extension to build a [Docker image](https://docs.docker.com/glossary/?term=image) from your module code. Then you push this Docker image to a [Docker repository](https://docs.docker.com/glossary/?term=repository) hosted by a [Docker registry](https://docs.docker.com/glossary/?term=registry). Finally, you deploy your Docker image packaged as a [Docker container](https://docs.docker.com/glossary/?term=container) from your registry to your IoT Edge device.  
+In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a [Docker image](https://docs.docker.com/glossary/?term=image). Then you push this Docker image to a [Docker repository](https://docs.docker.com/glossary/?term=repository) hosted on a [Docker registry](https://docs.docker.com/glossary/?term=registry). Finally, you deploy your Docker image packaged as a [Docker container](https://docs.docker.com/glossary/?term=container) from your registry to your IoT Edge device.  
 
 You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are **Azure Container Registry** and **Docker Hub**:
 
@@ -83,9 +83,10 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 Throughout this tutorial, where appropriate, commands will be provided for both Azure Container Registry and Docker Hub.
 
 ## Create an IoT Edge module project
-The following steps show you how to create an IoT Edge module using Visual Studio Code and the IoT Edge extension.
-1. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
-2. In the integrated terminal, enter the following command to install the **AzureIoTEdgeModule** template in dotnet:
+The following steps show you how to create an IoT Edge module based on .NET core 2.0 using Visual Studio Code and the Azure IoT Edge extension.
+1. Open VS Code.
+2. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
+3. In the integrated terminal, enter the following command to install (or update) the **AzureIoTEdgeModule** template in dotnet:
 
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
@@ -129,7 +130,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     }
     ```
 
-7. In the **InitEdgeModule** method, replace the code in the **try** block with the following code. This code creates and configures a **DeviceClient** object, which allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. This is similar to the way code in a device uses a **DeviceClient** to connect to a remote IoT Hub, except that the endpoint and credential information used in the connection string are specific to the Edge hub. The connection string parameter used in the **InitEdgeModule** method is supplied to the module by Azure IoT Edge in an environment variable - **EdgeHubConnectionString**. After creating the **DeviceClient**, the code registers a callback for desired properties updates on the module twin and registers the **FilterHandler** method as the handler for messages from the Edge Hub via the "input1" endpoint.
+7. In the **InitEdgeModule** method, replace the code in the **try** block with the following code. This code creates and configures a **DeviceClient** object, which allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string parameter used in the **InitEdgeModule** method is supplied to the module by IoT Edge runtime in an environment variable - **EdgeHubConnectionString**. After creating the **DeviceClient**, the code registers a callback for desired properties updates on the module twin and registers the **FilterHandler** method as the handler for messages from the Edge Hub via the "input1" endpoint.
 
     ```csharp
     // Open a connection to the Edge runtime using MQTT transport and
@@ -145,7 +146,7 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
-1. Add the following method to the **Program** class to update the **temperatureThreshold** field based on the desired properties sent by the back-end service via the module twin. All modules have their own module twin. A module twin lets a back-end service configure the code running inside a module, just like a device twin lets a back-end service configure code running on a device.
+1. Add the following method to the **Program** class to update the **temperatureThreshold** field based on the desired properties sent by the back-end service via the module twin. All modules have their own module twin. A module twin lets a back-end service configure the code running inside a module.
 
     ```csharp
     static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -232,14 +233,14 @@ The following steps show you how to create an IoT Edge module using Visual Studi
     }
     ```
 
-11. Build the project. Use the **View | Explorer** menu command to open the VS Code explorer. In the explorer, right-click the **FilterModule.csproj** file and click **Build IoT Edge module**.
+11. Build the project. Use the **View | Explorer** menu command to open the VS Code explorer. In the explorer, right-click the **FilterModule.csproj** file and click **Build IoT Edge module** to compile the module and export the binary and its dependencies into a folder that the Docker image is created from in the next step.
 
 ## Create a Docker image and publish it to your registry
 
 1. Build the Docker image.
     1. In VS Code explorer, click the **Docker** folder to open it. Then click the **linux-x64** folder, right-click the **Dockerfile** and click **Build IoT Edge module Docker image**. 
     2. In the **Select Folder** box, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
-    3. In the pop-up text box at the top of the VS Code window, enter the image URL. For example:`<docker registry address>/filtermodule:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or similar to `<your registry name>.azurecr.io`, if you are using Azure Container Registry.
+    3. In the pop-up text box at the top of the VS Code window, enter the image URL. For example:`<docker registry name>/filtermodule:latest`; where *docker registry name* is your Docker ID if you are using Docker Hub or similar to `<your registry name>.azurecr.io`, if you are using Azure Container Registry.
  
 4. Sign in to Docker. In integrated terminal, enter the following command: 
 
@@ -267,7 +268,7 @@ iotedgectl login --address <docker-repository> --username <docker-username> --pa
 ```
 
 > [!NOTE]
-> The preceding command gives the Python 2.7 command for Windows. If you're running your Edge device on Linux, add `sudo` in front of the command.
+> The preceding command gives the Python command for Windows. If you're running your Edge device on Linux, add `sudo` in front of the command.
 
 ## Run the solution
 
@@ -282,7 +283,7 @@ iotedgectl login --address <docker-repository> --username <docker-username> --pa
 10. In the **Name** field, enter `filtermodule`.
 11. In the **Image** field, enter your image address; for example `{your registry}/filtermodule:latest`.
 12. Check the **Edit module twin** box.
-13. Replace the JSON in the text box with the following JSON: 
+13. Replace the JSON in the text box for the module twin with the following JSON: 
 
     ```json
     {
@@ -307,7 +308,7 @@ iotedgectl login --address <docker-repository> --username <docker-username> --pa
 
 4. Click **Next**.
 5. In the **Review Template** step, click **Submit**. 
-6. Return to the device details page and click **Refresh**. You should see the new **filtermodule** running along with the **tempSensor** module and the **IoT Edge runtime**. 
+6. Return to the IoT Edge device details page and click **Refresh**. You should see the new **filtermodule** running along with the **tempSensor** module and the **IoT Edge runtime**. 
 
 ## View generated data
 
