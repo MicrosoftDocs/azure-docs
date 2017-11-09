@@ -4,7 +4,7 @@ description: Learn how to use Spark Apache Spark to stream data into or out of A
 keywords: kafka example,kafka zookeeper,spark streaming kafka,spark streaming kafka example 
 services: hdinsight
 documentationcenter: ''
-author: maxluk
+author: Blackmist
 manager: jhubbard
 editor: cgronlun
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
-ms.author: maxluk
+ms.author: larryfr
 ---
 # Apache Spark streaming (DStream) example with Kafka (preview) on HDInsight
 
