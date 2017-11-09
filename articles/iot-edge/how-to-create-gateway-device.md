@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Create an edge gateway device to process data from other IoT devices
+# Create an IoT Edge gateway device to process data from other IoT devices
 
 There are two ways to use IoT Edge devices as gateways:
 
@@ -153,7 +153,7 @@ You can decide to create a *transparent* or *opaque* gateway:
 | Direct methods and cloud-to-device messages | The cloud can address each connected device individually | The cloud can only address the gateway device |
 | [IoT Hub throttles and quotas][lnk-iothub-throttles-quotas] | Apply to each device | Apply to the gateway device |
 
-> [AZURE.IMPORTANT]  When using an opaque gateway pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
+When using an opaque gateway pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
 
 When implementing an opaque gateway, your protocol translation module uses the module connection string.
 
