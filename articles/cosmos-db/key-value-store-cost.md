@@ -21,9 +21,9 @@ ms.author: mimig
 
 # Azure Cosmos DB as a key value store – Cost overview
 
-Azure Cosmos DB is a globally distributed, multi-model database service for building highly available, large scale applications easily. By default, Azure Cosmos DB automatically indexes all the data it ingests, efficiently. This enables fast and consistent [SQL](documentdb-sql-query.md) (and [JavaScript](programming.md)) queries on any kind of data. 
+Azure Cosmos DB is a globally distributed, multi-model database service for building highly available, large-scale applications easily. By default, Azure Cosmos DB automatically indexes all the data it ingests, efficiently. This enables fast and consistent [SQL](documentdb-sql-query.md) (and [JavaScript](programming.md)) queries on any kind of data. 
 
-This article describes the cost of Azure Cosmos DB for simple write and read operations when it’s used as a key/value store. Write operations include inserts, replaces, deletes, and upserts of documents. Besides guaranteeing a 99.99% high availability, and a 99.999% read availability for database accounts spanning two or more Azure regions, Azure Cosmos DB offers guaranteed <10 ms latency for reads and <15 ms latency for the (indexed) writes respectively, at the 99th percentile. 
+This article describes the cost of Azure Cosmos DB for simple write and read operations when it’s used as a key/value store. Write operations include inserts, replaces, deletes, and upserts of documents. Besides guaranteeing a 99.99% high availability, and a 99.999% read availability for database accounts spanning two or more Azure regions, Azure Cosmos DB offers guaranteed <10-ms latency for reads and <15-ms latency for the (indexed) writes respectively, at the 99th percentile. 
 
 ## Why we use Request Units (RUs)
 
@@ -31,7 +31,7 @@ Azure Cosmos DB performance is based on the amount of provisioned [Request Units
 
 As a globally distributed database system, Cosmos DB is the only Azure service that provides an SLA on latency, throughput, and consistency in addition to high availability. The throughput you provision is applied to each of the regions associated with your Cosmos DB database account. For reads, Cosmos DB offers multiple, well-defined [consistency levels](consistency-levels.md) for you to choose from. 
 
-The following table shows the number of RUs required to perform read and write transactions based on document size of 1KB and 100KBs.
+The following table shows the number of RUs required to perform read and write transactions based on document size of 1 KB and 100 KBs.
 
 |Item Size|1 Read|1 Write|
 |-------------|------|-------|
@@ -40,15 +40,15 @@ The following table shows the number of RUs required to perform read and write t
 
 ## Cost of reads and writes
 
-If you provision 1,000 RU/sec, this amounts to 3.6m RU/hour and will cost $0.08 for the hour (in the US and Europe). For a 1KB size document, this means that you can consume 3.6m reads or 0.72m writes (3.6mRU / 5) using your provisioned throughput. Normalized to million reads and writes, the cost would be $0.022 /m reads ($0.08 / 3.6) and $0.111/m writes ($0.08 / 0.72). The cost per million becomes minimal as shown in the table below.
+If you provision 1,000 RU/sec, this amounts to 3.6 m RU/hour and will cost $0.08 for the hour (in the US and Europe). For a 1-KB size document, this means that you can consume 3.6-m reads or 0.72-m writes (3.6 m RU / 5) using your provisioned throughput. Normalized to million reads and writes, the cost would be $0.022 /m reads ($0.08 / 3.6) and $0.111/m writes ($0.08 / 0.72). The cost per million becomes minimal as shown in the table below.
 
-|Item Size|1m Read|1m Write|
+|Item Size|1-m Read|1-m Write|
 |-------------|-------|--------|
 |1 KB|$0.022|$0.111|
 |100 KB|$0.222|$1.111|
 
 
-Most of the basic blob or object stores services charge $0.40 per million read transaction and $5 per million write transaction. If used optimally, Cosmos DB can be up to 98% cheaper than these other solutions (for 1KB transactions).
+Most of the basic blob or object stores services charge $0.40 per million read transaction and $5 per million write transaction. If used optimally, Cosmos DB can be up to 98% cheaper than these other solutions (for 1-KB transactions).
 
 ## Next steps
 
