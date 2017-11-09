@@ -17,7 +17,7 @@ ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 
 # Service-to-service authentication for Key Vault apps created with .NET
 
-When developing .NET apps that rely on Key Vault and services that rely on Azure AD authentication, it can be difficult to manage local credentials safely and securely. It's tempting to bundle development credentials into an app, either by including them in source or configuration files.  
+When developing .NET apps that rely on Key Vault and other Azure services that rely on Azure AD authentication, it can be difficult to manage local credentials safely and securely. It's tempting to bundle development credentials into an app by including them in source or configuration files.  
 
 The `Microsoft.Azure.Services.AppAuthentication` for .NET library simplifies this problem. It uses local credentials to authenticate during local development. When the solution is later deployed to Azure, either as a service or an Azure VM, the library automatically switches an OAuth 2.0 authentication flow.  
 
