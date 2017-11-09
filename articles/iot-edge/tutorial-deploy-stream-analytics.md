@@ -126,15 +126,11 @@ You are now ready to deploy the ASA job on your IoT Edge device.
     }
     ```
 
-    ![routes][7]
-
 1. Click **Next**.
 
 1. In the **Review Template** step, click **Submit**.
 
 1. Return to the device details page and click **Refresh**.  You should see the new **ASA** module running along with the **tempSensor** module and the **IoT Edge runtime**.
-
-    ![module output][8]
 
 ## View data (optional)
 
@@ -144,15 +140,11 @@ You are now ready to deploy the ASA job on your IoT Edge device.
     docker ps  
     ```
 
-    ![docker output][9]
-
 1. Run the command to see all system logs and metrics data. Use the module name from above:
 
     ```cmd/sh
     docker logs -f {ModuleName}  
     ```
-
-    ![docker logs][10]
 
 1. In the Azure portal, in your Storage account, under **Blob Service**, click **Browse blobs**, select your container, and select newly created JSON file.
 
@@ -172,10 +164,7 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 [4]: ./media/tutorial-deploy-stream-analytics/add_device.png
 [5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
 [6]: ./media/tutorial-deploy-stream-analytics/set_module.png
-[7]: ./media/tutorial-deploy-stream-analytics/routes.png
-[8]: ./media/tutorial-deploy-stream-analytics/module_output.png
-[9]: ./media/tutorial-deploy-stream-analytics/docker_output.png
-[10]: ./media/tutorial-deploy-stream-analytics/docker_log.png
+
 
 <!-- Links -->
 [lnk-first-tutorial]: tutorial-install-iot-edge.md
