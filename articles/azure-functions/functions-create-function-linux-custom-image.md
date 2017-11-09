@@ -15,7 +15,8 @@ manager: cfowler
 
 # Create a function on Linux using a custom image
 
-Azure Functions lets you host your functions on Linux in your own custom container. You can also [host on a default Azure App Service container](functions-create-first-azure-function-azure-cli-linux.md). In this tutorial, you learn how to deploy a function app as a custom Docker image. This pattern is useful when you need to customize the built-in App Service container image. For example, you need a specific language version, or your function app requires a specific dependency or configuration that isn't provided within the built-in image.
+Azure Functions lets you host your functions on Linux in your own custom container. You can also [host on a default Azure App Service container](functions-create-first-azure-function-azure-cli-linux.md).  
+In this tutorial, you learn how to deploy a function app as a custom Docker image. This pattern is useful when you need to customize the built-in App Service container image. You may want to use a custom image when your functions need a specific language version or require a specific dependency or configuration that isn't provided within the built-in image.
 
 This tutorial walks you through how to use Azure Functions to create and push a custom image to Docker Hub. You then use this image as the deployment source for a function app that runs on Linux. You use Docker to build and push the image. You use the Azure CLI to create a function app and deploy the image from Docker Hub. 
 
@@ -53,14 +54,15 @@ cd functions-linux-custom-image
 
 ## Build the image from the Docker file
 
-In the Git repository, take a look at _Dockerfile_. This file describes the environment that is required to run the function app on Linux. 
+In this Git repository, take a look at the _Dockerfile_. This file describes the environment that is required to run the function app on Linux. 
 
 ```docker
-# Base the image on the default Azure Functions Linux image.
-FROM microsoft/azure-functions-runtime:v2.0.0-jessie
+# Base the image on the built-in Azure Functions Linux image.
+FROM microsoft/azure-functions-runtime:2.0.0-jessie
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot
 
-COPY . /home/site/wwwroot
+# Add files from this repo to the root site folder.
+COPY . /home/site/wwwroot 
 ```
 >[!NOTE]
 > When hosting an image in a private container registry, you should add the connection settings to the function app by using **ENV** variables in the Dockerfile. Because this tutorial cannot guarantee that you use a private registry, the connection settings are [added after the deployment by using the Azure CLI](#configure-the-function-app) as a security best practice.   
@@ -95,7 +97,7 @@ Successfully tagged ggailey777/mydockerimage:v1.0.0
 ```
 
 ### Test the image locally
-Test that the build works by running the Docker image in a local container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. Be sure to specify the port using the `-p` argument.
+Verify that the built image works by running the Docker image in a local container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. Be sure to specify the port using the `-p` argument.
 
 ```bash
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0

@@ -76,7 +76,7 @@ After the function app has been created and deployed, the Azure CLI shows inform
 Because `myAppServicePlan` is a Linux plan, the built-in docker image is used to create the container that runs the function app on Linux. 
 
 >[!NOTE]  
->The sample repository currently includes two scripting files, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) and [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). The.deployment file tells the deployment process to use deploy.sh as the [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). In the current preview release, scripts are required to deploy the function app on a Linux image.  
+>The sample repository currently includes two scripting files, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) and [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). The .deployment file tells the deployment process to use deploy.sh as the [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). In the current preview release, scripts are required to deploy the function app on a Linux image.  
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
