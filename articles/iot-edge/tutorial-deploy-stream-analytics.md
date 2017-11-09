@@ -118,7 +118,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
 1. Copy the name of this module. Click **Next** to configure routes.
 
-1. Copy the following to **Routes**.  Replace {ModuleName} with the module name you copied:
+1. Copy the following to **Routes**.  Replace _{ModuleName}_ with the module name you copied:
 
     ```json
     {
@@ -135,7 +135,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
 1. In the **Review Template** step, click **Submit**.
 
-1. Return to the device details page and click **Refresh**.  You should see the new **ASA** module running along with the **tempSensor** module and the **IoT Edge runtime**.
+1. Return to the device details page and click **Refresh**.  You should see the new _{ModuleName}_ module running along with the **IoT Edge agent** module and the **IoT Edge hub**.
 
     ![module output][7]
 
