@@ -53,7 +53,7 @@ used to subscribe to events in the hub. If omitted, the `$Default` consumer grou
 Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub
 itself. This connection string must have at least read permissions to activate the trigger.
 
-[Additional settings](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) can be provided in a host.json file to further fine tune Event Hubs triggers.  
+[Additional settings](functions-host-json.md) can be provided in a host.json file to further fine tune Event Hubs triggers.
 
 <a name="triggerusage"></a>
 
