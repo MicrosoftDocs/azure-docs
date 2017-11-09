@@ -30,6 +30,8 @@ sections:
       - image:
           src: media/index/logo_java.svg
       - image:
+          src: media/index/logo_js.svg
+      - image:
           src: media/index/logo_nodejs.svg
       - image:
           src: media/index/logo_python.svg
@@ -46,6 +48,7 @@ sections:
         - href: 
         - href: luis-get-started-cs-get-intent
         - href: luis-get-started-java-get-intent
+        - href: luis-get-started-js-get-intent
         - href: luis-get-started-node-get-intent
         - href: luis-get-started-python-get-intent
         - href: luis-get-started-php-get-intent
@@ -55,8 +58,8 @@ sections:
         - href:
         - href: 
         - href:
-        - href: luis-get-started-node-get-intent
-        - href:
+        - href: 
+        - href: luis-quickstart-node-add-utterance
         - href:
         - href:
 - title: Step-by-Step Tutorials
@@ -66,7 +69,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Integrating LUIS with a bot&#58; <a href="/azure/cognitive-services/LUIS/luis-nodejs-tutorial-build-bot-framework-sample">Node.js</a> | <a href="/azure/cognitive-services/LUIS/luis-csharp-tutorial-build-bot-framework-sample">.NET</a>
+    - html: Integrate LUIS with a bot&#58; <a href="/azure/cognitive-services/LUIS/luis-nodejs-tutorial-build-bot-framework-sample">Node.js</a> | <a href="/azure/cognitive-services/LUIS/luis-csharp-tutorial-build-bot-framework-sample">.NET</a>
     - html: Import utterances from a log&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-node-import-utterances-csv">Node.js</a>
 - title: Reference
   items:
