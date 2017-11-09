@@ -161,10 +161,11 @@ When implementing a trasparent gateway, the module creates multiple instances of
 
 ## Next steps
 
-Learn how to 
+- [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
 
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks
 [lnk-tutorial1]: tutorial-install-iot-edge.md
+[lnk-module-dev]: module-development.md
 [lnk-iothub-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
 [lnk-iothub-x509]: ../iot-hub/iot-hub-x509ca-overview.md
 [lnk-iothub-secure-deployment]: ../iot-hub/iot-hub-security-deployment

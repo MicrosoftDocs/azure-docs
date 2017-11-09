@@ -111,6 +111,7 @@ Perform rollbacks in the following sequence: 
 * Learn more about other IoT Edge concepts like the [IoT Edge runtime][lnk-runtime] and [IoT Edge modules][lnk-modules].
 
 <!-- Links -->
+[lnk-tutorial1]: tutorial-install-iot-edge.md
 [lnk-lifecycle]: ../iot-hub/iot-hub-device-management-overview.md
 [lnk-runtime]: iot-edge-runtime.md
 [lnk-modules]: iot-edge-modules.md
