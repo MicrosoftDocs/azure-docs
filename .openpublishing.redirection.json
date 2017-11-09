@@ -6471,11 +6471,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/LUIS/index.yml",
-            "redirect_url": "/azure/cognitive-services/LUIS/",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/video-indexer/home.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-get-started",
             "redirect_document_id": false
