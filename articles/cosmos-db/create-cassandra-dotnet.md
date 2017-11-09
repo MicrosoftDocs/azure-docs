@@ -42,7 +42,7 @@ If you don't already have Visual Studio 2017 installed, you can download and use
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone a DocumentDB API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's switch to working with code. Let's clone a Cassandra API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
 
@@ -168,7 +168,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and verify the output](./media/create-cassandra-dotnet/output.png)
 
-You can now go back to Data Explorer and see query, modify, and work with this new data. 
+    You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal
 

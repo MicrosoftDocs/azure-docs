@@ -167,7 +167,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and verify the output](./media/create-cassandra-dotnet/output.png)
 
-4. You can now go back to Data Explorer to see query, modify, and work with this new data. 
+    You can now go back to Data Explorer to see query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal
 

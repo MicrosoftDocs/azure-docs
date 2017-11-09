@@ -50,7 +50,7 @@ Before you can create a document database, you need to create a Cassandra accoun
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone a DocumentDB API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's switch to working with code. Let's clone a Cassandra app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
 
@@ -66,86 +66,77 @@ Now let's switch to working with code. Let's clone a DocumentDB API app from Git
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `uprofile.js` file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java and src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java files. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-* User name and password is set using the connection string page in the Azure portal.  
-
-   ```java
-   const authProviderLocalCassandra = new cassandra.auth.PlainTextAuthProvider(config.username, config.password);
-   ```
-
-* The `client` is initialized with contactPoint information. The contactPoint is retrieved from the Azure portal.
-
-    ```java
-   const client = new cassandra.Client({contactPoints: [config.contactPoint], authProvider: authProviderLocalCassandra});
-    ```
-
-* The `client` connects to the Azure Cosmos DB Cassandra API.
-
-    ```java
-    client.connect(next);
-    ```
-
-* A new keyspace is created.
-
-    ```java
-    function createKeyspace(next) {
-    	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
-    	client.execute(query, next);
-    	console.log("created keyspace");    
-  }
-    ```
-
-* A new table is created.
+* Cassandra Host, Port, User name and password are set using the connection string page in the Azure portal.
 
    ```java
-   function createTable(next) {
-   	var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
-    	client.execute(query, next);
-    	console.log("created table");
-   },
+   this.cluster = Cluster.builder().addContactPoint(host).withPort(port).withCredentials(username, password).build();
    ```
 
-* Key/value entities are inserted.
+* The `cluster` connects to the Azure Cosmos DB Cassandra API and returns a session to access.
 
     ```java
-    ...
-    {
-          query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
-          params: [5, 'SubbannaG', 'Belgaum', '2017-10-3136']
-        }
-    ];
-    client.batch(queries, { prepare: true}, next);
+    return cluster.connect();
     ```
 
-* Query to get get all key values.
+* Create a new keyspace.
 
     ```java
-   var query = 'SELECT * FROM uprofile.user';
-    client.execute(query, { prepare: true}, function (err, result) {
-      if (err) return next(err);
-      result.rows.forEach(function(row) {
-        console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-      }, this);
-      next();
-    });
-    ```  
-    
- * Query to get a key-value.
-
-    ```java
-    function selectById(next) {
-    	console.log("\Getting by id");
-    	var query = 'SELECT * FROM uprofile.user where user_id=1';
-    	client.execute(query, { prepare: true}, function (err, result) {
-      	if (err) return next(err);
-      		result.rows.forEach(function(row) {
-        	console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-      	}, this);
-      	next();
-    	});
+    public void createKeyspace() {
+        final String query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
+        session.execute(query);
+        LOGGER.info("Created keyspace 'uprofile'");
     }
-    ```  
+    ```
+
+* Create a new table.
+
+   ```java
+   public void createTable() {
+        final String query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
+        session.execute(query);
+        LOGGER.info("Created table 'user'");
+   }
+   ```
+
+* Insert user entities using a prepared statement object.
+
+    ```java
+    public PreparedStatement prepareInsertStatement() {
+        final String insertStatement = "INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (?,?,?)";
+        return session.prepare(insertStatement);
+    }
+
+	public void insertUser(PreparedStatement statement, int id, String name, String city) {
+        BoundStatement boundStatement = new BoundStatement(statement);
+        session.execute(boundStatement.bind(id, name, city));
+    }
+    ```
+
+* Query to get all user information.
+
+    ```java
+   public void selectAllUsers() {
+        final String query = "SELECT * FROM uprofile.user";
+        List<Row> rows = session.execute(query).all();
+
+        for (Row row : rows) {
+            LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+        }
+    }
+    ```
+
+ * Query to get a single user's information.
+
+    ```java
+    public void selectUser(int id) {
+        final String query = "SELECT * FROM uprofile.user where user_id = 3";
+        Row row = session.execute(query).one();
+
+        LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+    }
+    ```
 
 ## Update your connection string
 
@@ -153,21 +144,27 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
-    Use the copy buttons on the right side of the screen to copy the USERNAME value.
-
     ![View and copy a username from the Azure portal, Connection String page](./media/create-cassandra-java/keys.png)
 
-2. Open the `config.properties` file from C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources folder. 
+2. Use the ![Copy button](./media/create-cassandra-java/copy.png) Copy button on the right side of the screen to copy the CONTACT POINT value.
 
-3. Paste the USERNAME value from the portal over `localhost` on line 3.
+3. Open the `config.properties` file from C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources folder. 
 
-    Line 3 of config.properties should now look similar to 
+3. Paste the CONTACT POINT value from the portal over `<Cassandra endpoint host>` on line 2.
 
-    `cassabdra_username=cosmos-db-quickstart`
+    Line 2 of config.properties should now look similar to 
 
-4. Go back to portal and copy the PASSWORD value as shown in the screenshot. Paste the PASSWORD value from the portal over the current password on line 4.
+    `cassandra_host=cosmos-db-quickstarts.documents.azure.com`
+
+3. Go back to portal and copy the USERNAME value. Past the USERNAME value from the portal over `<cassandra endpoint username>` on line 4.
 
     Line 4 of config.properties should now look similar to 
+
+    `cassandra_username=cosmos-db-quickstart`
+
+4. Go back to portal and copy the PASSWORD value. Paste the PASSWORD value from the portal over `<cassandra endpoint password>` on line 5.
+
+    Line 5 of config.properties should now look similar to 
 
     `cassandra_password=2Ggkr662ifxz2Mg...==`
 
@@ -181,18 +178,15 @@ Now go back to the Azure portal to get your connection string information and co
     cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples"
     ```
 
-2. In the git terminal window, type `mvn package` to install the required Java packages.
+2. In the git terminal window, type `mvn clean install` to generate the cosmosdb-cassandra-examples.jar file.
 
-3. In the git terminal window, run `mvn exec:java -D exec.mainClass=GetStarted.Program` to start the Java application.
+3. In the git terminal window, run `java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.examples.UserProfile` to start the Java application.
 
-    The terminal window displays a notification that the FamilyDB database was created. Press a key to create the collection, then switch to the Data Explorer and you'll see that it now contains a FamilyDB database.
+    The terminal window displays notifications that the keyspace and table are created. It then selects and returns all users in the table and displays the output, and then selects a row by id and displays the value.  
     
-    Continue to press keys to create the documents and then perform a query.
-    
-    At the end of the program, all the resources from this app are deleted from your account so that you don't incur any charges. 
-
     ![Console output](./media/create-cassandra-java/output.png)
 
+    You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal
 
