@@ -91,7 +91,7 @@ Show me the first n rows, ordered by a particular column:
 
 The result would be the same, but it would run a bit more slowly. (You could also write `order`, which is an alias of `sort`.)
 
-The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, you'll only re-order the records you've retrieved.
+The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, clicking on the column header will only re-order the records you've retrieved.
 
 ## [Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtering on a condition
 
