@@ -50,9 +50,10 @@ Once the project finishes importing, open **AzureApp.java** (located in **blobQu
 In the application, you must provide the connection string for your storage account. Open the **AzureApp.Java** file. Find the `storageConnectionString` variable. Replace the `AccountName` and `AccountKey` values in the connection string with the values you saved from the Azure portal. Your `storageConnectionString` should look similar to the following:
 
 ```java
-    public static final String storageConnectionString ="DefaultEndpointsProtocol=https;" +
-     "AccountName=<Namehere>;" +
-    "AccountKey=<Keyhere>";
+public static final String storageConnectionString =
+"DefaultEndpointsProtocol=https;" +
+"AccountName=<account-name>;" +
+"AccountKey=<account-key>";
 ```
 
 ## Run the sample
@@ -105,25 +106,14 @@ In this section, you create an instance of the objects, create a new container, 
 This example uses **CreateIfNotExists** because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, it's better practice to only call **CreateIfNotExists** once. Alternatively, you can create the container ahead of time so you don't need to create it in the code.
 
 ```java
-CloudStorageAccount storageAccount = CloudStorageAccount.parse(storageConnectionString);
-        
-CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
+// Parse the connection string and create a blob client to interact with Blob storage
+storageAccount = CloudStorageAccount.parse(storageConnectionString);
+blobClient = storageAccount.createCloudBlobClient();
+container = blobClient.getContainerReference("quickstartcontainer");
 
-// Get a reference to a container.
-// The container name must be lower case
-CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
-
-// Create the container if it does not exist.
-container.createIfNotExists();
-
-// Create a permissions object.
-BlobContainerPermissions containerPermissions = new BlobContainerPermissions();
-
-// Include public access in the permissions object.
-containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
-
-// Set the permissions on the container.
-container.uploadPermissions(containerPermissions);
+// Create the container if it does not exist with public access.
+System.out.println("Creating container: " + container.getName());
+container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobRequestOptions(), new OperationContext());
 ```
 
 ### Upload blobs to the container
@@ -135,36 +125,19 @@ To upload a file to a blob, get a reference to the blob in the target container.
 The sample code creates a local file to be used for the upload and download. storing the file to be uploaded as **source** and the name of the blob in **blob**. The following example uploads the file to your container called **quickstartblobs**.
 
 ```java
-//Getting the path to user's myDocuments folder
-String myDocs = FileSystemView.getFileSystemView().getDefaultDirectory().getPath();
+//Creating a sample file
+sourceFile = File.createTempFile("sampleFile", ".txt");
+System.out.println("Creating a sample file at: " + sourceFile.toString());
+Writer output = new BufferedWriter(new FileWriter(sourceFile));
+output.write("Hello Azure!");
+output.close();
 
-//Creating a file in the myDocuments folder
-File source = new File(myDocs + File.separator + "results.txt");
-try( Writer output = new BufferedWriter(new FileWriter(source)))
-{
-    System.out.println("Location of file: " + source.toString());
-
-    output.write("Hello Azure!");
-    output.close();
-    
-    System.out.println("File has been written");
-}
-catch(IOException x) 
-{
-    System.err.println(x);
-}
-
-//Getting blob reference
-CloudBlockBlob blob = container.getBlockBlobReference("results.txt");
-
-//Creating a FileInputStream as it is necessary for the upload
-FileInputStream myFile = new FileInputStream(source);
+//Getting a blob reference
+CloudBlockBlob blob = container.getBlockBlobReference(sourceFile.getName());
 
 //Creating blob and uploading file to it
-blob.upload( myFile, source.length());
-
-//Closing FileInputStream
-myFile.close();
+System.out.println("Uploading the sample file ");
+blob.uploadFromFile(sourceFile.getAbsolutePath());
 ```
 
 There are several [upload methods](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) that you can use with Blob storage. For example, if you have a string, you can use the UploadText method rather than the Upload method. 
@@ -192,8 +165,9 @@ The following code downloads the blob uploaded in a previous section, adding a s
 // Download blob. In most cases, you would have to retrieve the reference
 // to cloudBlockBlob here. However, we created that reference earlier, and 
 // haven't changed the blob we're interested in, so we can reuse it. 
-// First, add a _DOWNLOADED before the .txt so you can see both files in your default directory.
-blob.downloadToFile(myDocs + File.separator + "results_DOWNLOADED.txt");
+// Here we are creating a new file to download to. Alternatively you can also pass in the path as a string into downloadToFile method: blob.downloadToFile("/path/to/new/file").
+downloadedFile = new File(sourceFile.getParentFile(), "downloadedFile.txt");
+blob.downloadToFile(downloadedFile.getAbsolutePath());
 ```
 
 ### Clean up resources
@@ -201,9 +175,19 @@ blob.downloadToFile(myDocs + File.separator + "results_DOWNLOADED.txt");
 If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using [Cloud​Blob​Container.​DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). This also deletes the files in the container.
 
 ```java
-//Deletes container if it exists then deletes files created locally
-container.deleteIfExists();
+try {
+if(container != null)
+    container.deleteIfExists();
+} catch (StorageException ex) {
+System.out.println(String.format("Service error. Http code: %d and error code: %s", ex.getHttpStatusCode(), ex.getErrorCode()));
+}
+
+System.out.println("Deleting the source, and downloaded files");
+
+if(downloadedFile != null)
 downloadedFile.deleteOnExit();
+        
+if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
 
