@@ -1,26 +1,22 @@
 ---
-title: Plan your Azure Time Series Insights environment | Microsoft Docs
-description: This article describes best practices for planning an Azure Time Series Insights environment
-keywords: 
+title: Plan the scale of your Azure Time Series Insights environment | Microsoft Docs
+description: This article describes how to follow best practices when planning an Azure Time Series Insights environment, including storage capacity, data retention, ingress capacity, and monitoring. 
 services: time-series-insights
-documentationcenter: 
-author: 
+ms.service: time-series-insights
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
-editor: 
-
-ms.assetid: 
-ms.service: tsi
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: 
+editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
 ms.workload: big-data
-ms.date: 11/07/2017
-ms.author: 
+ms.topic: article
+ms.date: 11/15/2017
 ---
 
-# Plan your Time Series Insights environment
+# Plan your Azure Time Series Insights environment
 
-This topic describes how to plan your Time Series Insights environment based on your expected ingress rate and your data retention requirements.
+This article describes how to plan your Azure Time Series Insights environment based on your expected ingress rate and your data retention requirements.
 
 ## Best practices
 
@@ -82,7 +78,6 @@ To provision your Time Series Insights environment, identify the SKU(s) that wil
 For information about how to prevent throttling and latency, see [When Time Series Insights throttles data](time-series-insights-how-tsi-throttles.md) and [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md). 
 
 ## Next steps
-
-[How to add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)
-[How to add an IoT Hub event source](time-series-insights-how-to-add-an-event-source-iothub.md)
+- [How to add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)
+- [How to add an IoT Hub event source](time-series-insights-how-to-add-an-event-source-iothub.md)
 
