@@ -47,7 +47,7 @@ With this template, you deploy a Service Bus namespace with topic, subscription,
 
 ## What are rules (filters)?
 
-In many scenarios, messages that have specific characteristics must be processed in different ways. To enable this, you can configure subscriptions to find messages that have specific properties and then perform modifications to those properties. Although Service Bus subscriptions see all messages sent to the topic, you can only copy a subset of those messages to the virtual subscription queue. This is accomplished using subscription filters. To learn more about rules (filters), see [Rules and actions](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+In many scenarios, messages that have specific characteristics must be processed in different ways. To enable this custom processing, you can configure subscriptions to find messages that have specific properties and then perform modifications to those properties. Although Service Bus subscriptions see all messages sent to the topic, you can only copy a subset of those messages to the virtual subscription queue. This is accomplished using subscription filters. To learn more about rules (filters), see [Rules and actions](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 To run the deployment automatically, click the following button:
 
