@@ -50,7 +50,7 @@ This guide assumes you already have a working trial or licensed Azure Active Dir
             
     ![Authentication][Authentication]
 
-4. Recommended: Under **Customization** you can change the **Contact your administrator** link to point to a page or email address you define. We recommend that you set this link to something like an email address or website that your users already use for support questions.
+4. Recommended: Under **Customization**, you can change the **Contact your administrator** link to point to a page or email address you define. We recommend that you set this link to something like an email address or website that your users already use for support questions.
 
 5. Optional: The **Registration** page provides administrators with the option to:
     * Require users to register when they sign in.
