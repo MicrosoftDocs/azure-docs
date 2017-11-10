@@ -19,7 +19,7 @@ ms.author: markgal
 ---
 # Monitor and manage Azure recovery services vaults and servers for Windows machines
 
-In this article you'll find an overview of the backup monitor and management tasks available through the Azure portal and the Microsoft Azure Backup agent. This article assumes you already have an Azure subscription and have created at least one Recovery Services vault.
+This article contains an overview of the backup monitor and management tasks available through the Azure portal and the Microsoft Azure Backup agent. This article assumes you already have an Azure subscription and have created at least one Recovery Services vault.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -33,7 +33,7 @@ The Recovery Services vault dashboard shows you the details or attributes of a R
 
     ![Open list of Recovery Services vaults step 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
-3. You want to open a Recovery Services vault. In the dialog box, start typing **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vaults** to display the list of Recovery Services vaults in your subscription.
+3. You want to open a Recovery Services vault. In the dialog box, start typing **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vaults** to display the list of Recovery Services vaults in your subscription.
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
 
@@ -41,7 +41,7 @@ The Recovery Services vault dashboard shows you the details or attributes of a R
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. From the list of vaults, select the name of the Recovery Services vault you want to open. The Recovery Services vault dashboard blade opens.
+4. From the list of vaults, select the name of the Recovery Services vault you want to open. The Recovery Services vault dashboard menu opens.
 
     ![recovery services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -58,13 +58,13 @@ You monitor jobs and alerts from the Recovery Services vault dashboard, where yo
 
 ![Backup dashboard tasks](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
 
-Clicking the information in each of these tiles will open the associated blade where you manage related tasks.
+Clicking the information in each of these tiles opens the associated menu where you manage related tasks.
 
 From the top of the Dashboard:
 
-* Settings provides access available backup tasks.
+* Settings - provides access available backup tasks.
 * Backup - helps you back up new files and folders (or Azure VMs) to the Recovery Services vault.
-* Delete - If a recovery services vault is no longer being used, you can delete it to free up storage space. Delete is only enabled after all protected servers have been deleted from the vault.
+* Delete - If a recovery services vault is no longer in use, delete it to free up storage space. Delete is only enabled after all protected servers have been deleted from the vault.
 
 ![Backup dashboard tasks](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
@@ -72,11 +72,11 @@ From the top of the Dashboard:
 | Alert Level | Alerts sent |
 | --- | --- |
 | Critical |Backup failure, recovery failure |
-| Warning |Backup completed with warnings (when fewer than one hundred files are not backed up due to corruption issues, and more than one million files are successfully backed up) |
+| Warning |Backup completed with warnings (when < 100 files are not backed up due to corruption issues, and > 1,000,000 files are successfully backed up) |
 | Informational |None |
 
 ## Manage Backup alerts
-Click the **Backup Alerts** tile to open the **Backup Alerts** blade and manage alerts.
+Click the **Backup Alerts** tile to open the **Backup Alerts** menu and manage alerts.
 
 ![Backup alerts](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
 
@@ -85,23 +85,23 @@ The Backup Alerts tile shows you the number of:
 * critical alerts unresolved in last 24 hours
 * warning alerts unresolved in last 24 hours
 
-Clicking on each of these links takes you to the **Backup Alerts** blade with a filtered view of these alerts (critical or warning).
+Click the link to view the **Backup Alerts** menu, with a filtered view of these alerts (critical or warning).
 
-From the Backup Alerts blade, you:
+From the Backup Alerts menu, you:
 
 * Choose the appropriate information to include with your alerts.
 
     ![Choose columns](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
-* Filter alerts for severity, status and start/end times.
+* Filter alerts for severity, status, and start/end times.
 
     ![Filter alerts](./media/backup-azure-manage-windows-server/filter-alerts.png)
 * Configure notifications for severity, frequency and recipients, as well as turn alerts on or off.
 
     ![Filter alerts](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
-If **Per Alert** is selected as the **Notify** frequency no grouping or reduction in emails occurs. Every alert results in 1 notification. This is the default setting and the resolution email is also sent out immediately.
+If **Per Alert** is selected as the **Notify** frequency, no grouping or reduction in emails occurs. Every alert results in one notification (the default setting), and a resolution email is sent immediately.
 
-If **Hourly Digest** is selected as the **Notify** frequency one email is sent to the user telling them that there are unresolved new alerts generated in the last hour. A resolution email is sent out at the end of the hour.
+If **Hourly Digest** is selected as the **Notify** frequency, an email is sent to the user explaining unresolved alerts were generated in the last hour. A resolution email is sent out at the end of the hour.
 
 Alerts can be sent for the following severity levels:
 
@@ -109,12 +109,12 @@ Alerts can be sent for the following severity levels:
 * warning
 * information
 
-You inactivate the alert with the **inactivate** button in the job details blade. When you click inactivate, you can provide resolution notes.
+You inactivate the alert with the **inactivate** button in the job details menu. When you click inactivate, you can provide resolution notes.
 
 You choose the columns you want to appear as part of the alert with the **Choose columns** button.
 
 > [!NOTE]
-> From the **Settings** blade, you manage backup alerts by selecting **Monitoring and Reports > Alerts and Events > Backup Alerts** and then clicking **Filter** or **Configure Notifications**.
+> From the **Settings** menu, you manage backup alerts by selecting **Monitoring and Reports > Alerts and Events > Backup Alerts** and then clicking **Filter** or **Configure Notifications**.
 >
 >
 
@@ -125,14 +125,14 @@ Click **File-Folders** in the Backup Items tile.
 
 ![Backup items tile](./media/backup-azure-manage-windows-server/backup-items-tile.png)
 
-The Backup Items blade opens with the filter set to File-Folder where you see each specific backup item listed.
+The Backup Items menu opens with the filter set to File-Folder where you see each specific backup item listed.
 
 ![Backup items](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
 If you select a specific backup item from the list, you see the essential details for that item.
 
 > [!NOTE]
-> From the **Settings** blade, you manage files and folders by selecting **Protected Items > Backup Items** and then selecting **File-Folders** from the drop down menu.
+> From the **Settings** menu, you manage files and folders by selecting **Protected Items > Backup Items** and then selecting **File-Folders** from the drop down menu.
 >
 >
 
@@ -146,18 +146,18 @@ In the Backup section of the dashboard, the Backup job tile shows the number of 
 * in progress
 * failed in the last 24 hours.
 
-To manage your backup jobs, click the **Backup Jobs** tile, which opens the Backup Jobs blade.
+To manage your backup jobs, click the **Backup Jobs** tile, which opens the Backup Jobs menu.
 
 ![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs.png)
 
-You modify the information available in the Backup Jobs blade with the **Choose columns** button at the top of the page.
+You modify the information available in the Backup Jobs menu with the **Choose columns** button at the top of the page.
 
 Use the **Filter** button to select between Files and folders and Azure virtual machine backup.
 
-If you don't see your backed up files and folders, click **Filter** button at the top of the page and select **Files and folders** from the Item Type menu.
+If you don't see your backup files and folders, click **Filter** button at the top of the page and select **Files and folders** from the Item Type menu.
 
 > [!NOTE]
-> From the **Settings** blade, you manage backup jobs by selecting **Monitoring and Reports > Jobs > Backup Jobs** and then selecting **File-Folders** from the drop down menu.
+> From the **Settings** menu, you manage backup jobs by selecting **Monitoring and Reports > Jobs > Backup Jobs** and then selecting **File-Folders** from the drop down menu.
 >
 >
 
@@ -172,7 +172,7 @@ To manage your production servers, click **Settings**.
 
 Under Manage click **Backup infrastructure > Production Servers**.
 
-The Production Servers blade lists of all your available production servers. Click on a server in the list to open the server details.
+The Production Servers menu lists of all your available production servers. Click on a server in the list to open the server details.
 
 ![Protected items](./media/backup-azure-manage-windows-server/production-server-list.png)
 
