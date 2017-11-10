@@ -32,7 +32,7 @@ If you don't already have Visual Studio 2017 installed, you can download and use
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
-[Git](https://www.git-scm.com/)
+Install [Git](https://www.git-scm.com/) to clone the example.
 
 <a id="create-account"></a>
 ## Create a database account
