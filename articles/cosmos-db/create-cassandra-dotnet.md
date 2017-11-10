@@ -123,7 +123,7 @@ This step is optional. If you're interested in learning how the database resourc
     });
     ```  
     
- * Query to get a key-value.
+* Query to get a key-value.
 
     ```csharp
     function selectById(next) {
