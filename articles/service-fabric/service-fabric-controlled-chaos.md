@@ -141,7 +141,7 @@ class Program
 
             // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
             // for nodes of types 'N0040Ref' and 'N0010Ref'
-            var nodetypeInclusionList = new List<string> { "N0040Ref", "N0010Ref"};
+            var nodetypeInclusionList = new List<string> { "FrontEndType"};
 
             // In addition to the faults included by nodetypeInclusionList, 
             // restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
@@ -274,7 +274,7 @@ $chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collecti
 
 # All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
 # for nodes of types 'N0040Ref' and 'N0010Ref'
-$chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("N0040Ref", "N0010Ref") )
+$chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
 $chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
 
 # In addition to the faults included by nodetypeInclusionList, 
