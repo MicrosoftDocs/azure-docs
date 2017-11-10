@@ -108,7 +108,7 @@ az network dns record-set aaaa set-record --resource-group myresourcegroup --zon
 ### Create an CAA record
 
 ```azurecli
-az network dns record-set caa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-caa --name testcaa --caaflags 0 --catag "issue" --caavalue "ca1.contoso.com"
+az network dns record-set caa add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name test-caa --flags 0 --tag "issue" --value "ca1.contoso.com"
 ```
 
 ### Create a CNAME record

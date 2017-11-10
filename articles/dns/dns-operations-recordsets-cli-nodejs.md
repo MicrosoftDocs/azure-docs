@@ -109,7 +109,7 @@ azure network dns record-set add-record MyResourceGroup contoso.com test-aaaa AA
 The following example shows how to create a CAA record. 
 
 ```azurecli
-azure network dns record-set add-record MyResourceGroup contoso.com ca1 CAA --caflags 0 --catag issue --cavalue "ca1.contoso.com"
+azure network dns record-set add-record MyResourceGroup contoso.com ca1 CAA --caaflags 0 --caatag issue --caavalue "ca1.contoso.com"
 ```
 
 ### Create a CNAME record
