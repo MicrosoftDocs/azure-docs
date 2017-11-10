@@ -56,19 +56,18 @@ When you connect devices to a IoT Edge gateway using the Azure IoT device SDK, y
 * Set up the downstream device with a connection string referring to the gateway device hostname; and
 * Make sure that the downstream device trusts the certificate used to accept the connection by the gateway device.
 
-When you install the Azure IoT Edge runtime using the control script, a certificate is created for the Edge hub, as you did in the [Install IoT Edge on a simulated device][lnk-tutorial1]. This certificate is used by the Edge hub to accept incoming TLS connections, and has to be trusted by the downstream device when connecting to the gateway device.
+When you install the Azure IoT Edge runtime using the control script, a certificate is created for the Edge hub, as you did in the tutorial [Install IoT Edge on a simulated device][lnk-tutorial1]. This certificate is used by the Edge hub to accept incoming TLS connections, and has to be trusted by the downstream device when connecting to the gateway device.
 
 You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security][lnk-iothub-x509] in IoT Hub, which involves a X.509 CA certificate associated to a specific IoT hub (the *IoT hub owner CA*), and a series of certificates, signed with this CA, installed in the IoT Edge devices.
 
 >[!IMPORTANT]
 >Currently, IoT Edge devices and downstream devices can only use [SAS tokens][lnk-iothub-tokens] to authenticate with IoT Hub. The certificates will be used only to validate the TLS connection between the leaf and gateway device.
 
-The main idea is to use device certificates, signed with the IoT Hub-level CA, as a root of trust for the IoT Edge devices used as gateways; and have downstream devices trust the CA.
-Given these certificates you can easily create a solution allowing all devices to use any other IoT Edge device as a gateway, as long as they are connected to the same hub.
-
-This is implemented using the **IoT hub owner CA** as:
+Our configuration uses **IoT hub owner CA** as:
 * a signing certificate for the setup of the IoT Edge runtime on all IoT Edge devices, and as
 * a public key certificate installed in downstream devices.
+
+This will result in a solution that enables all devices to use any IoT Edge device as a gateway, as long as they are connected to the same IoT hub.
 
 ### Create the certificates for test scenarios
 
@@ -93,7 +92,7 @@ We assume the following file names from the sample scripts above:
 | Device private key | `private/new-device.cert.pem` |
 | Device certificate chain | `certs/new-device-full-chain.cert.pem` |
 
- Analogously to the installation described in [Install IoT Edge on a simulated device][lnk-tutorial1], you have to provide the above information to the IoT Edge runtime. In Linux:
+Analogously to the installation described in [Install IoT Edge on a simulated device][lnk-tutorial1], you have to provide the above information to the IoT Edge runtime. In Linux:
 
         sudo iotedgectl setup --connection-string {device connection string}
             --device-ca-cert-file ./certs/new-device.cert.pem
@@ -106,7 +105,7 @@ In Windows:
             --device-ca-chain-cert-file ./certs/new-device-full-chain.cert.pem
             --device-ca-private-key-file ./private/new-device.cert.pem
 
-By default the sample scripts do not set a passphrase to the device private key. If you added a passphrase, add the following parameter:
+By default the sample scripts do not set a passphrase to the device private key. If you set a passphrase, add the following parameter:
 
         --device-ca-private-key-passphrase {passphrase}
 
@@ -136,7 +135,7 @@ Performing this step at the OS level is different between Windows and across Lin
 The second step is to initialize the IoT Hub device sdk with a connection string referring to the hostname of the gateway device.
 This is done by appending the `GatewayHostName` property to your device connection string. For instance, here is a sample device connection string for a device, to which we appended the `GatewayHostName` property:
 
-        HostName=yourHub.azure-devices-int.net;DeviceId=yourDevice;SharedAccessKey=2BUaYcaq5uBS/O1AsawWuQslU4GX+SPkrytydWNdFxc=;GatewayHostName=mygateway.contoso.com
+        HostName=yourHub.azure-devices-int.net;DeviceId=yourDevice;SharedAccessKey=2BUaYca45uBS/O1AsawsuQslH4GX+SPkrytydWNdFxc=;GatewayHostName=mygateway.contoso.com
 
 These two steps will enable your device application to connect to the gateway device.
 
@@ -157,7 +156,7 @@ When using an opaque gateway pattern, all devices connecting through that gatewa
 
 When implementing an opaque gateway, your protocol translation module uses the module connection string.
 
-When implementing a transparent gateway, the module creates multiple instances of the IoT Hub device client, using the connection strings for the downstream devices. This allows the 
+When implementing a transparent gateway, the module creates multiple instances of the IoT Hub device client, using the connection strings for the downstream devices.
 
 ## Next steps
 
