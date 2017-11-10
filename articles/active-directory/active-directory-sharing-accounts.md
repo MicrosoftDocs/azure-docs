@@ -45,7 +45,7 @@ Users log in once with their organizational account. This is the same account th
 
 Shared accounts not only increase oversight and improve usability, they also enhance your security. Users with permissions to use the credentials don't see the shared password, but rather get permissions to use the password as part of an orchestrated authentication flow. Further, with some password SSO applications, you have the option to have Azure AD periodically rollover (update) the password using large, complex passwords, increasing the account security. The administrator can easily grant or revoke access to an application and also know who has access to the account and who accessed it in the past.
 
-Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS), Premium, or Basic licensed users, across all types of password single sign on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](active-directory-sso-integrate-saas-apps.md).
+Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS), Premium, or Basic licensed users, across all types of password single sign on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](active-directory-enterprise-apps-manage-sso.md).
 
 Azure AD features that enable account sharing include:
 
@@ -70,6 +70,6 @@ You can also make your shared account more secure with Multi-Factor Authenticati
 
 ## Related articles
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [Protecting apps with conditional access](active-directory-conditional-access.md)
+* [Protecting apps with conditional access](active-directory-conditional-access-azure-portal.md)
 * [Self-service group management/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
