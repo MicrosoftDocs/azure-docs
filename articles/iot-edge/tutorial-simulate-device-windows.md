@@ -34,10 +34,6 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
 >[!TIP]
 >If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
 
-Docker for Windows can run either Windows containers or Linux containers. The steps for the tutorial are the same regardless of which container type you use, but the software prerequisites are different. 
-
-### Linux containers in Docker
-
 1. Make sure you're using a supported Windows version:
    * Windows 10 
    * Windows Server
@@ -49,34 +45,21 @@ Docker for Windows can run either Windows containers or Linux containers. The st
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
-   > [!NOTE]
-   > During bug bash: Instead of step 4, run the following code:
-   >
-   > Download [scripts](https://azureiotedgepreview.blob.core.windows.net/shared/azure-iot-edge-ctl.zip)
-   >
-   > Extract all
-   >
-   > Open cmd in extracted dir
-   >
-   > `pip install -U .[win32]`
-
-
-### Windows containers in Docker
-
-1. Make sure you're using a supported Windows version:
-   * Windows IoT Core (Build 16299) on a x64-based device
-   * Windows 10 Fall Creators Update
-   * Windows Server 1709 (Build 16299)
-2. Run the following command in an Admin PowerShell console to install and configure the prerequisites:
-
-   ```powershell
-   iex (iwr -useb https://aka.ms/iotedgewin)
-   ```
-
-   This script provides the following:
-   * Docker, configured to use Windows containers. If you already have Docker on your machine, go through the steps to [switch to Windows containers][lnk-docker-containers]. 
-   * Python 3.6
-   * The IoT Edge control script (iotedgectl.exe)
+> [!NOTE]
+> Azure IoT Edge can run either Windows containers or Linux containers. If you want to use Windows containers, you have to satisfy these alternative prerequisites:
+>
+> 1. Make sure you're using a supported Windows version:
+>    * Windows IoT Core (Build 16299) on a x64-based device
+>    * Windows 10 Fall Creators Update
+>    * Windows Server 1709 (Build 16299)
+> 2. Run the following command in an Admin PowerShell console to install and configure the prerequisites:
+>    ```powershell
+>    iex (iwr -useb https://aka.ms/iotedgewin)
+>    ```
+>    This script provides the following:
+>    * Docker, configured to use Windows containers. If you already have Docker on your machine, go through the steps to [switch to Windows containers][lnk-docker-containers]. 
+>    * Python 3.6
+>    * The IoT Edge control script (iotedgectl.exe)
 
 ## Create an IoT hub
 
