@@ -78,7 +78,7 @@ Control activity | Description
 [Wait Activity](control-flow-wait-activity.md) | When you use a Wait activity in a pipeline, the pipeline waits for the specified period of time before continuing with execution of subsequent activities. 
 
 ## Pipeline JSON
-Let us take a closer look on how a pipeline is defined in JSON format. The generic structure for a pipeline looks as follows:
+Here is how a pipeline is defined in JSON format: 
 
 ```json
 {
@@ -174,7 +174,7 @@ retry | Maximum retry attempts | Integer | No. Default is 0
 retryIntervalInSeconds | The delay between retry attempts in seconds | Integer | No. Default is 20 seconds
 
 ### Control activity
-Control activities have the following top-level structure.
+Control activities have the following top-level structure:
 
 ```json
 {
@@ -357,7 +357,7 @@ You can chain two activities by using [activity dependency](#activity-dependency
 ## Scheduling pipelines
 Pipelines are scheduled by triggers. There are different types of triggers (scheduler trigger, which allows pipelines to be triggered on a wall-clock schedule, as well as manual trigger, which triggers pipelines on-demand). For more information about triggers, see [pipeline execution and triggers](concepts-pipeline-execution-triggers.md) article. 
 
-To have your trigger kick off a pipeline run, you must include a pipeline reference of the particular pipeline in the trigger definition. Pipelines & triggers have a n-m relationship. Multiple triggers can kick off a single pipeline and the same trigger can kick off multiple pipelines. Once the trigger is defined, you must start the trigger to have it start triggering the pipeline. For more information about triggers, see [pipeline execution and triggers](concepts-pipeline-execution-triggers.md) article. 
+To have your trigger kick off a pipeline run, you must include a pipeline reference of the particular pipeline in the trigger definition. Pipelines & triggers have an n-m relationship. Multiple triggers can kick off a single pipeline and the same trigger can kick off multiple pipelines. Once the trigger is defined, you must start the trigger to have it start triggering the pipeline. For more information about triggers, see [pipeline execution and triggers](concepts-pipeline-execution-triggers.md) article. 
 
 For example, say you have a scheduler trigger, “Trigger A” that I wish to kick off my pipeline, “MyCopyPipeline.” You define the trigger as shown in the following example:
 
