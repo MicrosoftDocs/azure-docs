@@ -1,7 +1,7 @@
 ---
 title: A tour through Analytics in Azure Application Insights | Microsoft Docs
 description: Short samples of all the main queries in Analytics, the powerful search tool of Application Insights.
-services: application-insights
+services: application-insightsG
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
@@ -114,8 +114,9 @@ The `where` operator takes a Boolean expression. Here are some key points about 
 
 <!---Read all about [scalar expressions]().--->
 
-### Getting the right type
-Find unsuccessful requests:
+### Find unsuccessful requests
+
+Convert a string value to an integer to use greater-than comparison:
 
 ```AIQL
 
