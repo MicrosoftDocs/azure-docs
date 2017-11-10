@@ -156,8 +156,8 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 [2]: ./media/tutorial-install-iot-edge/view-module.png
 
 <!-- Links -->
-[lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
-[lnk-python-windows]: https://www.python.org/downloads/
+[lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 
+[lnk-python]: https://www.python.org/downloads/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
