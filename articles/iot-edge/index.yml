@@ -1,0 +1,44 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure IoT Edge
+metadata:
+  title: Service Slug iot-edge - Tutorials, API Reference
+  meta.description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge
+  services: iot-edge
+  author: kgremban
+  manager: timlt
+  ms.service: iot-edge
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/08/2017
+  ms.author: kgremban
+abstract:
+  description: Azure IoT Edge is an Internet of Things (IoT) service that builds on top of IoT Hub. This service is meant for customers who want to analyze data on devices, a.k.a. "at the edge", instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to changes in status.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Deploy your first IoT Edge module and process data on a simulated device.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/sql-database/media/index/portal.svg
+      text: Windows
+      href: /azure/iot-edge/quickstart
+    - image: 
+        src: /azure/sql-database/media/index/portal.svg
+      text: Linux
+      href: /azure/iot-edge/quickstart-linux
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to install and configure IoT Edge, deploy modules, and utilize Azure services like Stream Analytics at the edge.
+  - type: list
+    style: ordered
+    items:
+-html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">Simulate an IoT Edge device in Windows</a>
+-html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Simulate an IoT Edge device in Linux</a>
+-html: <a href="/azure/iot-edge/tutorial-create-custom-module">Develop and deploy a C# module</a>
+-html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Deploy Azure Stream Analytics as a module</a>
