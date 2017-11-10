@@ -14,19 +14,19 @@ ms.service: iot-edge
 
 ---
 
-# Install the IoT Edge runtime on Windows IoT Core
+# Install the IoT Edge runtime on Windows IoT Core - Public preview
 
 The Azure IoT Edge Runtime can run even on tiny Single Board Computer (SBC) devices which are very prevalent in the IoT industry. This article walks through provisioning the runtime on a [MinnowBoard Turbot][lnk-minnow] development board running Windows IoT Core.
 
 ## Install the runtime
 
 1. Install [Windows 10 IoT Core Dashboard][lnk-core] on a host system.
-1. Follow the steps in [Set up your device][lnk-board] to configure your board with the MinnowBoard MAX Build 16299 image. 
+1. Follow the steps in [Set up your device][lnk-board] to configure your board with the MinnowBoard Turbot/MAX Build 16299 image. 
 1. Turn on the device, then [login remotely with PowerShell][lnk-powershell].
 2. Run the following command in the PowerShell console to install IoT Edge runtime and configure the prerequisites:
 
    ```powershell
-   iex (iwr -useb https://aka.ms/iotedgewin)
+   Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
    ```
 
    This script provides the following:

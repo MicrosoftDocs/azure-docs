@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 ---
 
-# Deploy Azure IoT Edge on a simulated device in Windows
+# Deploy Azure IoT Edge on a simulated device in Windows - Public preview
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things (IoT) devices. This tutorial walks you through creating a simulated IoT Edge device that generates sensor data. You learn how to:
 
@@ -69,8 +69,8 @@ Docker for Windows can run either Windows containers or Linux containers. The st
    * Windows Server 1709 (Build 16299)
 2. Run the following command in an Admin PowerShell console to install and configure the prerequisites:
 
-   ```powershell
-   iex (iwr -useb https://aka.ms/iotedgewin)
+    ```powershell
+   Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
    ```
 
    This script provides the following:
