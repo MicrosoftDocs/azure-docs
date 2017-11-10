@@ -5,7 +5,17 @@
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
 	    "redirect_document_id": false 
 	},
-	{
+    {
+        "source_path": "articles/active-directory/active-directory-manage-o365-subscription.md",
+        "redirect_url": "/azure/active-directory/domains-admin-takeover",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/active-directory/active-directory-accessmanagement-dedicated-groups.md",
+        "redirect_url": "/azure/active-directory/active-directory-groups-create-azure-portal",
+        "redirect_document_id": false
+    },
+    {
 	    "source_path": "articles/cognitive-services/Video/Glossary.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
 	    "redirect_document_id": false 
@@ -26,9 +36,14 @@
 	    "redirect_document_id": false 
 	},
 	{
-            "source_path": "articles/active-directory/cloudappdiscovery-overview.md",
-            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
-            "redirect_document_id": false
+        "source_path": "articles/active-directory/cloudappdiscovery-overview.md",
+        "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
+        "redirect_document_id": false
+    },
+    {
+            "source_path": "articles/active-directory/active-directory-users-work-info-azure-portal.md",
+            "redirect_url": "/azure/active-directory/active-directory-users-profile-azure-portal",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/virtual-machines/linux/impactful-maintenance.md",
@@ -361,18 +376,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles//azure-resource-manager/resource-manager-policy-portal.md",
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-portal.md",
             "redirect_url": "/azure/azure-policy/assign-policy-definition",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles//azure-resource-manager/resource-manager-policy-network.md",
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles//azure-resource-manager/resource-manager-policy-storage.md",
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-storage.md",
             "redirect_url": "/azure/azure-policy/json-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-create-assign.md",
+            "redirect_url": "/azure/azure-policy/assign-policy-definition-ps",
             "redirect_document_id": false
         },
         {
@@ -5047,7 +5067,12 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-customize-hadoop-cluster.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/customize-hadoop-cluster",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/customize-hadoop-cluster.md",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
             "redirect_document_id": false
         },
         {
@@ -5523,6 +5548,11 @@
         {
             "source_path": "articles/storage/storage-troubleshoot-file-connection-problems.md",
             "redirect_url": "/azure/storage/storage-troubleshoot-windows-file-connection-problems",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/storage-quickstart-blobs-java.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
         },
         {
@@ -7189,6 +7219,11 @@
         {
             "source_path": "articles/service-fabric/service-fabric-reliable-actors-get-started-java.md",
             "redirect_url": "/azure/service-fabric/service-fabric-create-your-first-linux-application-with-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-diagnostics-containers-windowsserver.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-oms-containers",
             "redirect_document_id": false
         },
         {
@@ -14928,6 +14963,11 @@
             "source_path": "articles/hdinsight/hdinsight-using-json-in-hive.md",
             "redirect_url": "/azure/hdinsight/hadoop/using-json-in-hive",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/hdinsight/r-server/r-server-install-r-studio.md",
+            "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",

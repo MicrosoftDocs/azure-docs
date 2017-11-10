@@ -90,7 +90,7 @@ $size = 'Standard_DS2_v2'
 $disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
 
 # Get the ARM resource to get name and resource group of the VM
-$vmResource = Get-AzureRmResource -ResourceId $disk.OwnerId
+$vmResource = Get-AzureRmResource -ResourceId $disk.diskId
 $vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName 
 
 # Stop and deallocate the VM before changing the storage type

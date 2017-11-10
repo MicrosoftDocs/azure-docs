@@ -22,7 +22,7 @@ This monitoring and troubleshooting guide helps you learn how to track replicati
 
 ## Understand the components
 ### VMware virtual machine or physical server site deployment for replication between on-premises and Azure
-To set up database recovery between an on-premises VMware virtual machine or physical server and Azure, you need to set up the configuration server, master target server, and process server components on your virtual machine or server. When you enable protection for the source server, Azure Site Recovery installs the Mobile Apps feature of Microsoft Azure App Service. After an on-premises outage and after the source server fails over to Azure, customers need to set up a process server in Azure and a master target server on premises to rebuild the source server on premises.
+To set up database recovery between an on-premises VMware virtual machine or physical server and Azure, you need to set up the configuration server, master target server, and process server components on your virtual machine or server. When you enable protection for the source server, Azure Site Recovery installs the Mobility Service from the chosen Process server if an up-to-date version is not already deployed. After an on-premises outage and after the source server fails over to Azure, customers need to set up a process server in Azure and a master target server on premises to rebuild the source server on premises.
 
 ![VMware/Physical site deployment for replication between on-premises and Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 

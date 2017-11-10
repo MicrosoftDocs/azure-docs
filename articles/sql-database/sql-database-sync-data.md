@@ -18,7 +18,7 @@ ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
 ---
-# Sync data across multiple cloud and on-premises databases with SQL Data Sync
+# Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)
 
 SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances.
 
@@ -40,7 +40,7 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 -   The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
 
 > [!NOTE]
-> If you're using an on premises database, you have to [configure a local agent.](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync)
+> If you're using an on premises database, you have to [configure a local agent.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
 
 ![Sync data between databases](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -111,7 +111,7 @@ After you export a database as a `.bacpac` file and import the file to create a 
 
 -   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 
--   Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+-   Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### General considerations
 
@@ -151,7 +151,10 @@ Data Sync uses insert, update, and delete triggers to track changes. It creates 
 
 For more info about SQL Data Sync, see:
 
--   [Getting Started with SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Get Started with Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   [Monitor Azure SQL Data Sync with OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:
     -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -162,5 +165,4 @@ For more info about SQL Data Sync, see:
 For more info about SQL Database, see:
 
 -   [SQL Database Overview](sql-database-technical-overview.md)
-
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
