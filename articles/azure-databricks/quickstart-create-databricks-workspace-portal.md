@@ -27,7 +27,7 @@ Log in to the [Azure  portal](https://portal.azure.com).
 
 ## Create a Databricks workspace
 
-Before you begin with this quickstart, you need to [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) and download the sample CSV file from << HERE >>.
+Before you begin with this quickstart, you need to [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 1. Click **+**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. Under **Azure Databricks**, click **Create**.
 
@@ -89,6 +89,7 @@ In this section, you create a notebook and then configure the notebook to read d
     > You can also use Azure Data Lake Store with a Spark cluster on Azure Databricks. For instructions, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
 
 4. You can now run Spark jobs on the data available in the storage accounts. For more information on how to read different data formats and run jobs, see [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
+
 ## Clean up resources
 
 While creating the Spark cluster, if you selected the checkbox **Terminate after ___ minutes of activity**, the cluster will automatically terminate if it has been inactive for the specified time.
