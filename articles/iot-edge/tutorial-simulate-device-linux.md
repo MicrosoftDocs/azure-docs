@@ -1,5 +1,5 @@
 ---
-title: Install Azure IoT Edge - Linux | Microsoft Docs 
+title: Simulate Azure IoT Edge on Linux | Microsoft Docs 
 description: Install the Azure IoT Edge runtime on a simulated device in Linux, and deploy your first module
 services: iot-edge
 keywords: 
@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 ---
 
-# Deploy Azure IoT Edge on a simulated device in Linux
+# Deploy Azure IoT Edge on a simulated device in Linux - preview
 
 Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, built from Azure services or custom code, but first you need a device to test. 
 
@@ -48,14 +48,6 @@ This tutorial assumes that you're using a computer or virtual machine running Li
 The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. First, the IoT Edge agent facilitates deployment and monitoring of modules on the IoT Edge device. Second, the IoT Edge hub manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
 Use the following steps to install and start the IoT Edge runtime:
-
-> [!NOTE]
-> Remove before merging. During bug bash: Instead of step 1, run the following code:
->
-> `wget https://azureiotedgepreview.blob.core.windows.net/shared/azure-iot-edge-ctl.tar.gz`
-> `tar xvzf azure-iot-edge-ctl-1.0.0rc6.dev6995193.tar.gz`
-> `cd azure-iot-edge-ctl-1.0.0rc6.dev6995193`
-> `sudo pip install -U .`
 
 1. On the machine where you'll run the IoT Edge device, download the IoT Edge control script.
 

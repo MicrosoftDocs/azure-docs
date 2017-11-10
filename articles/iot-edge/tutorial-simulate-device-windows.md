@@ -1,5 +1,5 @@
 ---
-title: Install Azure IoT Edge - Windows | Microsoft Docs 
+title: Simulate Azure IoT Edge on Windows | Microsoft Docs 
 description: Install the Azure IoT Edge runtime on a simulated device in Windows and deploy your first module
 services: iot-edge
 keywords: 
@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 ---
 
-# Deploy Azure IoT Edge on a simulated device in Windows - Public preview
+# Deploy Azure IoT Edge on a simulated device in Windows -  preview
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things (IoT) devices. This tutorial walks you through creating a simulated IoT Edge device that generates sensor data. You learn how to:
 

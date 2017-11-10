@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 ---
 
-# Install the IoT Edge runtime on Windows IoT Core - Public preview
+# Install the IoT Edge runtime on Windows IoT Core - preview
 
 The Azure IoT Edge Runtime can run even on tiny Single Board Computer (SBC) devices which are very prevalent in the IoT industry. This article walks through provisioning the runtime on a [MinnowBoard Turbot][lnk-minnow] development board running Windows IoT Core.
 
@@ -46,3 +46,4 @@ Now that you have a device running the IoT Edge runtime, learn how to [Deploy an
 [lnk-board]: https://developer.microsoft.com/windows/iot/Docs/GetStarted/mbm/sdcard/stable/getstartedstep2
 [lnk-powershell]: https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell
 [lnk-deploy]: how-to-deploy-monitor.md
+[lnk-docker-containers]: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers

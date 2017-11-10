@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Create an IoT Edge gateway device to process data from other IoT devices
+# Create an IoT Edge gateway device to process data from other IoT devices - preview
 
 There are two ways to use IoT Edge devices as gateways:
 
@@ -40,7 +40,7 @@ In this article we will call *IoT Edge gateway* an IoT Edge device used as a gat
 > * Downstream devices are not able to authenticate with the gateway if the gateway is disconnected from IoT Hub; and
 > * IoT Edge devices cannot connect to IoT Edge gateways.
 
-## Connect devices using the Azure IoT device SDK
+## Use the Azure IoT device SDK
 
 The Edge hub that is installed in all IoT Edge devices exposes the following primitives to downstream devices:
 
@@ -144,7 +144,7 @@ This is done by appending the `GatewayHostName` property to your device connecti
 
 These two steps will enable your device application to connect to the gateway device.
 
-## Connect devices using other protocols
+## Use other protocols
 
 One of the main functions of a gateway device is to interpret protocols of downstream devices. To connect devices that do not use the IoT Hub protocol, you can develop an IoT Edge module which performs this translation and connects on behalf of the downstream device to IoT Hub.
 
