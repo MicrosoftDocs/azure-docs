@@ -37,6 +37,7 @@ Azure Databricks comprises the complete open-source Apache Spark cluster technol
 
 * **Spark Core API**: Includes support for R, SQL, Python, Scala, and Java.
 
+## Apache Spark in Azure Databricks
 
 Azure Databricks builds on the capabilities of Spark by providing a zero-management cloud platform that includes:
 
