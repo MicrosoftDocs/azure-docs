@@ -19,7 +19,7 @@ ms.author: nitinme
 
 # Quickstart: Get started with Azure Databricks using the Azure portal
 
-This quickstart shows how to create an Azure Databricks workspace and then an Apache Spark cluster within that workspace. You also learn how to run your first Spark job on the cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
+This quickstart shows how to create an Azure Databricks workspace and an Apache Spark cluster within that workspace. You also learn how to access Azure storage from a Databricks Spark cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
 
 ## Log in to the Azure portal
 
@@ -30,6 +30,9 @@ Log in to the [Azure  portal](https://portal.azure.com).
 Before you begin with this quickstart, you need to [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) and download the sample CSV file from << HERE >>.
 
 1. Click **+**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. Under **Azure Databricks**, click **Create**.
+
+    > [!NOTE]
+    > Azure Databricks is currently in limited preview. If your Azure subscription is not whitelisted for the preview, you must fill out the [sign up form](https://databricks.azurewebsites.net/).  
 
 2. Under **Azure Databricks Service**, provide the following values:
 
@@ -50,17 +53,21 @@ Before you begin with this quickstart, you need to [Create an Azure storage acco
 
     ![Databricks on Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks on Azure")
 
-3. In the **New cluster** page, enter a name for the cluster, accept all other default values, and then click **Create cluster**.
+3. In the **New cluster** page, provide the values to create a cluster., accept all other default values, and then click .
 
     ![Create Databricks Spark cluster on Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
+
+    * Enter a name for the cluster.
+    * Make sure you select the **Terminate after ___ minutes of activity** checkbox. You must also provide a duration (in minutes) to terminate the cluster if the cluster is not being used. 
+    * Click **Create cluster**.
 
     For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
     Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-## Run a Spark SQL job on the cluster
+## Access Azure Blob storage from the cluster
 
-In this section, you create a notebook and then run a Spark SQL job on the cluster.
+In this section, you create a notebook and then configure the notebook to read data from an Azure Blob storage account.
 
 1. In the left pane, click **Workspace**. From the **Workspace** drop-down, click **Create** and then click **Notebook**.
 
@@ -81,40 +88,14 @@ In this section, you create a notebook and then run a Spark SQL job on the clust
     > [!NOTE]
     > You can also use Azure Data Lake Store with a Spark cluster on Azure Databricks. For instructions, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
 
-4.  Run a SQL statement to create a temporary table using data from the sample CSV data file, HVAC.csv. You can download the sample file from << HERE >>.
+4. You can now run Spark jobs on the data available in the storage accounts. For more information on how to read different data formats and run jobs, see [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
+## Clean up resources
 
-    ```sql
-    %sql
-    CREATE TEMPORARY TABLE hvacTempTable USING csv OPTIONS (path "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}/Path/to/sample/file/HVAC.csv", header "true", mode "FAILFAST")
-    ```
+While creating the Spark cluster, if you selected the checkbox **Terminate after ___ minutes of activity**, the cluster will automatically terminate if it has been inactive for the specified time.
 
-    Press SHIFT + ENTER to run the code cell.
+If you did not select the checkbox, you must manually terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, click **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and click the **Terminate** icon.
 
-    The `%sql` language magic command enables you to run a SQL code from the notebook, even if the notebook is of another type. For more information, see [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
-
-5. Let's look at a snapshot of the sample CSV data to better understand the query that we run.
-
-    ![Sample CSV data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Sample CSV data")
-
-    The sample data captures the temperature variations of a building. For each building, it lists the target temperature and the actual temperature, in addition to other details.
-
-6.  Run a SQL query on the table you created earlier. The query lists the difference between the target and actual temperature, for each building, on a given date.
-
-    ```sql
-    %sql
-    SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvacTempTable WHERE date = "6/1/13"
-    ```
-
-    Press SHIFT + ENTER to run the code cell. You see a tabular output, similar the following screenshot:
-
-    ![Databricks query output tabular](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output.png "Databricks query output tabular")
-
-7. You can also change the query output to display in other formats. You can pick the plotting format, and the columns to populate that plot, using the buttons at the bottom of the output cell.
-
-    ![Databricks query output area graph](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-area-chart.png "Databricks query output area graph")
-
-    The screenshot shows an area chart with **buildingID** as the key and **temp_diff** as the value. 
-
+![Terminate Databricks cluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Terminate Databricks cluster")
 
 ## Next steps
 
