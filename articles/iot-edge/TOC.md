@@ -9,7 +9,7 @@
 # Tutorials
 ## [Simulate an Edge device - Windows](tutorial-simulate-device-windows.md) 
 ## [Simulate an Edge device - Linux](tutorial-simulate-device-linux.md) 
-## [Develop a C# module](tutorial-create-custom-module.md)
+## [Develop a C# module](tutorial-csharp-module.md)
 ## [Deploy Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
 
 # How-to guides

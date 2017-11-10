@@ -136,7 +136,7 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 
 * [Deploy Azure Function as a module](tutorial-deploy-function.md)
 * [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
-* [Deploy your own code as a module](tutorial-create-custom-module.md)
+* [Deploy your own code as a module](tutorial-csharp-module.md)
 
 
 <!-- Images -->

@@ -148,7 +148,7 @@ This tutorial is the prerequisite for all of the other IoT Edge tutorials. You c
 > [!div class="nextstepaction"]
 > [Deploy Azure Function as a module](tutorial-deploy-function.md)<br>
 > [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)<br>
-> [Deploy your own code as a module](tutorial-create-custom-module.md)
+> [Deploy your own code as a module](tutorial-csharp-module.md)
 
 
 <!-- Images -->

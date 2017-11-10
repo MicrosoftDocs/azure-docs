@@ -117,7 +117,7 @@ In this tutorial, you created a new IoT Edge device and used the Azure IoT Edge 
 This tutorial is the prerequisite for all of the other IoT Edge tutorials. You can continue on to any of the other tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Deploy your own code as a module](tutorial-create-custom-module.md)
+> [Deploy your own code as a module](tutorial-csharp-module.md)
 > [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
 
 
