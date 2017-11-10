@@ -25,10 +25,10 @@ To deploy Azure Active Directory (Azure AD) Self-Service Password Reset (SSPR), 
    * Properly format the data in your on-premises directory.
    * Configure [Azure AD Connect by using the express settings](./connect/active-directory-aadconnect-get-started-express.md), without requiring user interaction.
 
-To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, *+1 4255551234*.
+To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
 
 > [!NOTE]
-> Password reset does not support phone extensions. Even in the *+1 4255551234X12345* format, extensions are removed before the call is placed.
+> Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
 
 ## Fields populated
 

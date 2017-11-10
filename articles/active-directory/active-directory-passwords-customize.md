@@ -44,7 +44,8 @@ To find out more about the different administrator roles and how to assign them,
 If your organization does not want administrators notified about password reset requests, you can enable the following configuration:
 
 * Enable self-service password reset for all end users. This option is under **Password Reset** > **Properties**.
-    * If you don't wish users to reset their own passwords, you can scope access to an empty group. *We don't recommend this option.*
+  
+  If you don't wish users to reset their own passwords, you can scope access to an empty group. *We don't recommend this option.*
 * Customize the helpdesk link to provide a web URL or mailto: address that users can use to get assistance. This option is under **Password Reset** > **Customization** > **Custom helpdesk email or URL**.
 
 ## Customize the ADFS sign-in page for SSPR
@@ -63,8 +64,8 @@ The graphics you choose are shown in the following circumstances:
 
 * After a user types their username.
 * If the user accesses the customized URL:
-    * By passing the *whr* parameter to the password reset page, like *https://login.microsoftonline.com/?whr=contoso.com*.
-    * By passing the *username* parameter to the password reset page, like *https://login.microsoftonline.com/?username=admin@contoso.com*.
+    * By passing the *whr* parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com."
+    * By passing the *username* parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com".
 
 ### Graphics details
 
