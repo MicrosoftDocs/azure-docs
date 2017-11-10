@@ -38,7 +38,7 @@ Before you begin with this quickstart, you need to [Create an Azure storage acco
     * For **Workspace name**, provide a name for your Databricks workspace.
     * For **Subscription**, from the drop-down, select your Azure subscription.
     * For **Resource group**, specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md).
-    * For **Location**, select **East US 2**. The other available regions are US West and West Europe.
+    * For **Location**, select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).
 
 3. Click **Create**.
 
