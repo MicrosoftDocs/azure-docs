@@ -67,17 +67,17 @@ sections:
           - href: /azure/cosmos-db/create-graph-gremlin-console
       - title: Table API
         values:
-          - href: https://aka.ms/tableapijavaqs
+          - href: /azure/cosmos-db/create-table-java
           - href: /azure/cosmos-db/create-table-dotnet
-          - href: https://aka.ms/tableapinodeqs
-          - href: https://aka.ms/tableapipythonqs 
+          - href: /azure/cosmos-db/create-table-nodejs
+          - href: /azure/cosmos-db/create-table-python 
           - href:
       - title: Cassandra API
         values:
-          - href: https://aka.ms/cassapijavaqs
-          - href: https://aka.ms/cassapidotnetqs
-          - href: https://aka.ms/cassapinodeqs
-          - href: https://aka.ms/cassapipython
+          - href: /azure/cosmos-db/create-cassandra-java
+          - href: /azure/cosmos-db/create-cassandra-dotnet
+          - href: /azure/cosmos-db/create-cassandra-nodejs
+          - href: /azure/cosmos-db/create-cassandra-python
           - href:
 - title: Step-by-Step Tutorials
   items:
@@ -111,6 +111,6 @@ sections:
     - title: MongoDB APIs
       html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Wire Protocol</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
     - title: Table APIs
-      html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="https://aka.ms/tableapinodesdk">Node.js</a></p><p><a href="https://aka.ms/tableapijavasdk">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
+      html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.js</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
     - title: Gremlin APIs
       html: <p><a href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>
