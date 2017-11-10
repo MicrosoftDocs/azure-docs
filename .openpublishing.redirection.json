@@ -381,6 +381,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-tags.md",
+            "redirect_url": "/azure/azure-policy/scripts/billing-tags-policy-init",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
             "redirect_document_id": false
