@@ -22,7 +22,7 @@ You can use IoT Edge modules to deploy code that implements your business logic 
 > * Deploy an Azure Machine Learning module to your IoT Edge device
 > * View generated data
 
-aThe Azure Machine Learning module is a module hosted in DockerHub that contains a sample machine learning model.  When you want to use your own Azure Machine Learning model in your solution you will [deploy a model](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3) for IoT Edge and host it in a container registry like [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/).
+The Azure Machine Learning module is a module hosted in DockerHub that contains a sample machine learning model.  When you want to use your own Azure Machine Learning model in your solution you will [deploy a model](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3) for IoT Edge and host it in a container registry like [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/).
 
 ## Prerequisites
 
