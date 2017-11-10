@@ -57,7 +57,7 @@ Follow these steps to grant data access for a user principal:
 
 8. Click **Ok** in the **Select User Role** page.
 
-9. The list users on the **Data Access Policies** page shows the users and the role(s) for each user.
+9. The **Data Access Policies** page lists the users and the role(s) for each user.
    ![Manage the Time Series Insights source - results](media/data-access/getstarted-grant-data-access5.png)
 
 ## Next steps
