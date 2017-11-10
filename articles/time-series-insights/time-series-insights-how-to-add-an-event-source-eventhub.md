@@ -42,7 +42,7 @@ This article describes how to use the Azure portal to add an event source that r
    
 7. If you have selected the **Use Event Hub from available subscriptions** option, the following table explains each required property:
 
-| PROPERTY NAME | DESCRIPTION |
+| Property | Description |
 | --- | --- |
 | Subscription Id | Select the subscription in which this event hub was created.
 | Service bus namespace | Select the Service Bus namespace that contains the Event Hub.
@@ -53,7 +53,7 @@ This article describes how to use the Azure portal to add an event source that r
 
 8. If you have selected the **Provide Event Hub settings manually** option, the following table explains each required property:
 
-| PROPERTY NAME | DESCRIPTION |
+| Property | Description |
 | --- | --- |
 | Subscription Id | The subscription in which this event hub was created.
 | Resource group | The subscription in which this event hub was created.
