@@ -15,7 +15,7 @@ ms.date: 11/15/2017
 
 # Explore Azure Time Series Insights
 
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time.  If you are building an application that needs to store or query time series data, you can develop using the Time Series Insights REST APIs.
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.  If you are building an application that needs to store or query time series data, you can develop using the Time Series Insights REST APIs.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
  
    ![Select a time frame](media/quickstart/quickstart3.png) 
 
-   Time Series Insights displays a chart visualization for the time frame you specified. You can do a lot of things with the line chart, including filtering, pinning, sorting, and stacking. 
+   Time Series Insights displays a chart visualization for the time frame you specified. You can do various actions within with the line chart, such as filtering, pinning, sorting, and stacking. 
 
    To return to the **Time selection panel**, click the down arrow as shown:
 
@@ -59,7 +59,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
    ![Add a term](media/quickstart/quickstart8.png)
 
-8. Enter a filter term in the **Filter series...** box for ad-hoc series filtering. For the quickstart, enter **Station5** to cross-correlate temperature and pressure for that station.
+8. Enter a filter term in the **Filter series...** box for ad hoc series filtering. For the quickstart, enter **Station5** to cross-correlate temperature and pressure for that station.
  
    ![Filter series](media/quickstart/quickstart9.png)
 
