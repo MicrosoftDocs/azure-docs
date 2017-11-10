@@ -69,7 +69,7 @@ Getting started takes less than 5 minutes.
 3.	Upload reference data (this is not an additional service).
 4.	See your data in minutes with the Time Series Insights explorer.
 
-This diagram shows an example of basic architecture to get started using Time Series Insights.
+This diagram shows an example of basic architecture to get started using Time Series Insights:
 ![Time Series Insights architecture](media/overview/time-series-insights-overview-flow.png)
 
 ## Next steps
