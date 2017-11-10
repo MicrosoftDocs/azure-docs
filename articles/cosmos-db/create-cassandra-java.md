@@ -192,8 +192,6 @@ Now go back to the Azure portal to get your connection string information and co
 
     The terminal window displays notifications that the keyspace and table are created. It then selects and returns all users in the table and displays the output, and then selects a row by id and displays the value.  
     
-    ![Console output](./media/create-cassandra-java/output.png)
-
     You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal

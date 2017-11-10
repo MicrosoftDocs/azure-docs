@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
 ---
@@ -33,8 +33,8 @@ Data copied from Cassandra should be placed in tables in an Azure Cosmos DB Cass
 
 To import data Cassandra data into Azure Cosmos DB, use the CQL COPY command.
 
-1. Export data from Cassandra to an csv file using the [COPY](http://docs.datastax.com/en/cql/3.1/cql/cql_reference/copy_r.html) command.
-2. Import to Azure Cosmos DB from the csv file using the COPY command. 
+1. Export data from Cassandra to a csv file using the [COPY TO](http://cassandra.apache.org/doc/latest/tools/cqlsh.html) command.
+2. Import to Azure Cosmos DB from the csv file using the [COPY FROM](http://cassandra.apache.org/doc/latest/tools/cqlsh.html) command. 
 
 ## Next steps
 

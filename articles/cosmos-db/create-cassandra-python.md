@@ -168,8 +168,6 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Verify the results as expected from the command line.
 
-    ![View and verify the output](./media/create-cassandra-dotnet/output.png)
-
 4. You can now go back to Data Explorer to see query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal
