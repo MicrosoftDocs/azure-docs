@@ -80,7 +80,7 @@ You don't get charged for using the App Service features that are available to y
 
 - App Service Domains - you pay when you purchase one in Azure and when you renew it each year.
 - App Service Certificates - you pay when you purchase one in Azure and when you renew it each year.
-- IP-based SSL connections - There's an hourly charge for each IP-based SSL connection. SNI-based SSL connections are free.
+- IP-based SSL connections - There's an hourly charge for each IP-based SSL connection, but some **Standard** tier or above gives you one IP-based SSL connection for free. SNI-based SSL connections are free.
 
 > [!NOTE]
 > If you integrate App Service with another Azure service, you may need to consider charges from these other services. For example, if you use Azure Traffic Manager to scale your app geographically, Azure Traffic Manager also charges you based on your usage. To estimate your cross-services cost in Azure, see [Pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
