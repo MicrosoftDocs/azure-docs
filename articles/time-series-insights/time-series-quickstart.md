@@ -13,7 +13,7 @@ ms.workload: big-data
 ms.date: 11/15/2017
 ---
 
-# Explore Azure Time Series Insights
+# Quickstart: Explore Azure Time Series Insights
 
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.  If you are building an application that needs to store or query time series data, you can develop using the Time Series Insights REST APIs.
 
@@ -23,17 +23,17 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 1. In your browser, navigate to [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
 
-2. Log in to the Time Series Insights explorer using your Azure account credentials. 
+2. If prompted, Log in to the Time Series Insights explorer using your Azure account credentials. 
  
-4. The Time Series Insights quick tour page is displayed. Click **Next** to begin the quick tour.
+3. The Time Series Insights quick tour page is displayed. Click **Next** to begin the quick tour.
 
    ![Click Next](media/quickstart/quickstart1.png)
 
-3. The **Time selection panel** is displayed. Use this panel to select a time frame to visualize.
+4. The **Time selection panel** is displayed. Use this panel to select a time frame to visualize.
 
    ![Time selection panel](media/quickstart/quickstart2.png)
 
-4. Click and drag in the region, then click the **Search** button.
+5. Click and drag in the region, then click the **Search** button.
  
    ![Select a time frame](media/quickstart/quickstart3.png) 
 
@@ -43,11 +43,11 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
    ![Chart](media/quickstart/quickstart4.png)
 
-5. Click **Add** in the **Terms panel** to add a new search term.
+6. Click **Add** in the **Terms panel** to add a new search term.
 
    ![Add item](media/quickstart/quickstart5.png)
 
-6. In the chart, you can select a region, right-click the region, and select **Explore Events**.
+7. In the chart, you can select a region, right-click the region, and select **Explore Events**.
  
    ![Explore Events](media/quickstart/quickstart6.png)
 
@@ -55,11 +55,11 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
    ![Grid view](media/quickstart/quickstart7.png)
 
-7. Edit your terms to change the values in the chart, and add another term to cross-correlate different types of values:
+8. Edit your terms to change the values in the chart, and add another term to cross-correlate different types of values:
 
    ![Add a term](media/quickstart/quickstart8.png)
 
-8. Enter a filter term in the **Filter series...** box for ad hoc series filtering. For the quickstart, enter **Station5** to cross-correlate temperature and pressure for that station.
+9. Enter a filter term in the **Filter series...** box for ad hoc series filtering. For the quickstart, enter **Station5** to cross-correlate temperature and pressure for that station.
  
    ![Filter series](media/quickstart/quickstart9.png)
 
