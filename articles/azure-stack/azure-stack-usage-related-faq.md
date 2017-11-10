@@ -32,6 +32,7 @@ resource providers.
 | | B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*hours |Total capacity consumed by page blobs |
 | | B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*hours |Total capacity consumed by queue |
 | | 09F8879E-87E9-4305-A572-4B7BE209F857 |BlockBlobCapacity |GB\*hours |Total capacity consumed by block blobs |
+| | B5C15376-6C94-4FDD-B655-1A69D138ACA3 |UnmanagedDisk  |GB\*hours |Total capacity consumed by unmanaged disks |
 | | B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90 |TableTransactions |Request count in 10,000s |Table service requests (in 10,000s) |
 | | 50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D |TableDataTransIn |Ingress data in GB |Table service data ingress in GB |
 | | 1B8C1DEC-EE42-414B-AA36-6229CF199370 |TableDataTransOut |Outgress in GB |Table service data egress in GB |
