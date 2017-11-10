@@ -1,7 +1,7 @@
----
+﻿---
 title: Save money by pre-paying for Azure virtual machines - Azure | Microsoft Docs
 description: Learn about Azure Reserved Virtual Machine Instance to save on your virtual machines costs. 
-services: ''
+services: 'billing'
 documentationcenter: ''
 author: vikramdesai01
 manager: vikramdesai01
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2017
+ms.date: 11/09/2017
 ms.author: vikdesai
 ---
 # Save money on virtual machines with Reserved Virtual Machine Instances 
-Reserved Virtual Machine Instances allow you to pre-pay for 1 to 3 years of compute capacity to get a discount on the virtual machines you use. It significantly reduces your virtual machine costs compared to pay-as-you-go prices – with one-year or three-year upfront commitment. Reserved Virtual Machine Instances is a billing discount and does not affect the runtime state of virtual machines.
+Reserved Virtual Machine Instances allow you to pre-pay for one-year or three-years of compute capacity to get a discount on the virtual machines you use. It significantly reduces your virtual machine costs compared to pay-as-you-go prices – with one-year or three-year upfront commitment. Reserved Virtual Machine Instances is a billing discount and does not affect the runtime state of virtual machines.
 
-You can buy a Reserved Virtual Machine Instance in the [Azure portal](https://portal.azure.com). For more information, see [Pre-Pay for virtual machines and save money with Reserved Virtual Machine Instances](https://go.microsoft.com/fwlink/?linkid=861721).
+You can buy a Reserved Virtual Machine Instance in the [Azure portal](https://portal.azure.com). For more information, see [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](https://go.microsoft.com/fwlink/?linkid=861721).
 
 ## Why should I buy a Reserved Virtual Machine Instance?
 If you have virtual machines that run for long periods of time, purchasing a Reserved Virtual Machine Instance gives you the best effective price. For example, if you continuously run four instances of Standard D2 in West US region, without a reservation you are charged at pay-as-go-you rates. If you purchase a Reserved Virtual Machine Instance for those four VMs, the VMs immediately get the billing benefit. They are no longer charged at the pay-as-you go rates. 
@@ -30,11 +30,11 @@ A reservation only covers the virtual machine infrastructure charges for your Wi
 Azure customers with these subscriptions types that can purchase a Reserved Virtual Machine Instance:
 -	Enterprise agreement subscription offer type (MS-AZR-0017P).
 -	Pay-As-You-Go subscription offer type (MS-AZR-003P).
-You must be in the role “Owner” on the subscription to buy a Reserved Instance. For purchasing reservations in an enterprise enrollment, the enterprise administrator must enable reservation purchases in the EA portal.
+You must be in the role “Owner” on the subscription to buy a Reserved Instance. For purchasing reservations in an enterprise enrollment, the enterprise administrator must enable reservation purchases in the EA portal, by default the setting is enabled for all enrollments.
 
 ## How is a Reserved Virtual Machine Instances purchase billed?
 The reservation purchase is charged to the payment method tied to the subscription. 
-If you have an Enterprise subscription, the reservation cost is deducted from your balance. If your balance doesn’t cover the cost of the reservation, you’re billed the overage.
+If you have an Enterprise subscription, the reservation cost is deducted from your monetary commitment balance. If your monetary commitment balance doesn’t cover the cost of the reservation, you’re billed the overage.
 If you have a Pay-As-You-Go subscription, the credit card you have on your account is billed immediately. If you’re billed by invoice, you see the charges on your next invoice.
 
 ## How is the purchased Reserved Virtual Machine Instance discount applied?
