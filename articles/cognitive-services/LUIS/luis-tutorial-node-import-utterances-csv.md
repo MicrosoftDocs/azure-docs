@@ -165,11 +165,11 @@ Once the script completes, you can log in to [luis.ai](https://www.luis.ai) and 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [test and train your app in LUIS.ai](Train-Test.md)
+> [Test and train your app in LUIS.ai](Train-Test.md)
 
 ## Additional resources
 
-This sample applications use the following LUIS APIs:
+This sample applications uses the following LUIS APIs:
 - [create app](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
 - [add intents](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
 - [add entities](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
