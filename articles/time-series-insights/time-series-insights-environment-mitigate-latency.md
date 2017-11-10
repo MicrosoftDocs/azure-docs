@@ -1,26 +1,21 @@
 ---
-title: How to mitigate throttling and latency in Azure Time Series Insights | Microsoft Docs
-description: This article describes how to mitigate latency and throttling in Azure Time Series Insights 
-keywords: 
+title: How to monitor performance, reduce throttling, and prevent latency in Azure Time Series Insights | Microsoft Docs
+description: This article describes how to monitor, diagnose, and mitigate performance issues that cause latency and throttling in Azure Time Series Insights.
 services: time-series-insights
-documentationcenter: 
-author: 
+ms.service: time-series-insights
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
-editor: 
-
-ms.assetid: 
-ms.service: tsi
-ms.devlang: 
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
+editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
 ms.workload: big-data
-ms.date: 11/06/2017
-ms.author: 
+ms.topic: troubleshooting
+ms.date: 11/15/2017
 ---
 
-# Mitigate latency and throttling
-
-If the amount of incoming data exceeds your environment's configuration, you may experience latency or throttling in Azure Time Series Insights.
+# Improve performance, reduce latency, and mitigate throttling in Azure Time Series Insights
+When the amount of incoming data exceeds your environment's configuration, you may experience latency or throttling in Azure Time Series Insights.
 
 You can avoid latency and throttling by properly configuring your environment for the amount of data you want to analyze.
 
@@ -32,7 +27,7 @@ You are most likely to experience latency and throttling when you:
 - Join reference data with telemetry, resulting in larger event size.  From a throttling perspective, an ingressed data packet with a packet size of 32 KB is treated as 32 events, each sized 1 KB. The maximum allowed event size is 32 KB; data packets larger than 32 KB are truncated.
 
 
-## Diagnose latency and throttling with alerts
+## Monitor latency and throttling with alerts
 
 Alerts can help you to help diagnose and mitigate latency issues caused by your environment. 
 
@@ -62,12 +57,11 @@ For example, if you have three S1 units provisioned (or 2100 events per minute i
 
 Also, if you suspect you are being throttled, you can compare your **Ingress Received Messages** with your event source’s egressed messages.  If ingress into your Event Hub is greater than your **Ingress Received Messages**, your Time Series Insights are likely being throttled.
 
-## Mitigation 
-
-To mitigate throttling or experiencing latency, the best way to correct it is to increase your environment's capacity. 
+## Improving performance 
+To reduce throttling or experiencing latency, the best way to correct it is to increase your environment's capacity. 
 
 You can avoid latency and throttling by properly configuring your environment for the amount of data you want to analyze. For more information about how to add capacity to your environment, see [Scale your environment](time-series-insights-how-to-scale-your-environment.md).
 
 ## Next steps
-
-[Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md)
+For additional troubleshooting steps, [Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md).
+For additional assistance, start a conversation on the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). You can also contact [Azure support](https://azure.microsoft.com/support/options/) for assisted support options.
