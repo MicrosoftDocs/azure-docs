@@ -7222,6 +7222,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-api-management-quick-start.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-api-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-reliable-actors-get-started-java.md",
             "redirect_url": "/azure/service-fabric/service-fabric-create-your-first-linux-application-with-java",
             "redirect_document_id": false
