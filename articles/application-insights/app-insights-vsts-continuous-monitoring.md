@@ -86,4 +86,4 @@ To observe this behavior, Select **Releases** > Right-click Release name **open*
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about VSTS Build and Release](https://docs.microsoft.com/en-us/vsts/build-release/) 
+> [Learn more about VSTS Build and Release](https://docs.microsoft.com/en-us/vsts/build-release/)
