@@ -86,9 +86,11 @@ If you are configuring and managing disaster recovery of file servers hosted on 
 You can use Azure Files to completely replace or supplement traditional on-premises file servers or NAS devices. Azure file shares can also be replicated with Azure File Sync to Windows servers, either on-premises or in the cloud, for performant and distributed caching of the data where it's being used. 
 
 The following steps detail the disaster recovery recommendation for Azure VMs that perform the same function as traditional file servers:
-1.	Protect machines by using Azure Site Recovery, through the steps mentioned here.
-2.	Use Azure File Sync to replicate files from the VM that acts as the file server, to the cloud.
-3.	Use the [recovery plan](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-create-recovery-plans) feature in Azure Site Recovery to add scripts to [mount the Azure file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) and access the share in your virtual machine.
+1. Protect machines by using Azure Site Recovery, through the steps mentioned here.
+
+2. Use Azure File Sync to replicate files from the VM that acts as the file server, to the cloud.
+
+3. Use the [recovery plan](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-create-recovery-plans) feature in Azure Site Recovery to add scripts to [mount the Azure file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) and access the share in your virtual machine.
 
 The following steps briefly describe how to use the Azure File Sync service:
 
@@ -98,20 +100,20 @@ The following steps briefly describe how to use the Azure File Sync service:
 
 3. [Deploy Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) on your Azure file server.
 
-4. Create a sync group. Endpoints within a sync group will stay in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure File share, and one server endpoint, which represents a path on a Windows server.
+4. Create a sync group. Endpoints within a sync group will stay in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure File share, and one server endpoint, which represents a path on a Windows server.  
+    Your files will now stay in sync across your Azure file share and your on-premises server.
 
-   Your files will now stay in sync across your Azure file share and your on-premises server.
-
-6.	If there's a disaster in your on-premises environment, perform a failover by using a recovery plan. Add the script to [mount the Azure file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) and access the share in your virtual machine.
+5. If there's a disaster in your on-premises environment, perform a failover by using a recovery plan. Add the script to [mount the Azure file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) and access the share in your virtual machine.
 
 ### Replicate an IaaS file server virtual machine by using Azure Site Recovery
 
 If you have on-premises clients that access the IaaS file server virtual machine, perform all the following steps. Otherwise, perform only step 3.
 
 1. Establish a site-to-site VPN connection between the on-premises site and the Azure network.  
-2. Extend on-premises Active Directory.
-3. [Set up disaster recovery](azure-to-azure-tutorial-enable-replication.md) for the IaaS file server machine to a secondary region.
 
+2. Extend on-premises Active Directory.
+
+3. [Set up disaster recovery](azure-to-azure-tutorial-enable-replication.md) for the IaaS file server machine to a secondary region.
 
 For more information on disaster recovery to a secondary region, see [Azure-to-Azure replication architecture](concepts-azure-to-azure-architecture.md).
 
@@ -120,32 +122,40 @@ For more information on disaster recovery to a secondary region, see [Azure-to-A
 ### Replicate an on-premises file server by using Azure Site Recovery
 The following steps detail replication for a VMware VM. For steps to replicate a Hyper-V VM, see [Set up disaster recovery of on-premises Hyper-V VMs to Azure](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-hyper-v-to-azure).
 
-1.	[Prepare Azure resources](tutorial-prepare-azure.md) for replication of on-premises machines.
-2.	Establish a site-to-site VPN connection between the on-premises site and the Azure network.  
+1. [Prepare Azure resources](tutorial-prepare-azure.md) for replication of on-premises machines.
+
+2. Establish a site-to-site VPN connection between the on-premises site and the Azure network.  
+
 3. Extend on-premises Active Directory.
-4.	[Prepare on-premises VMware servers](tutorial-prepare-on-premises-vmware.md).
-5.	[Set up disaster recovery](tutorial-vmware-to-azure.md) to Azure for on-premises VMs.
+
+4. [Prepare on-premises VMware servers](tutorial-prepare-on-premises-vmware.md).
+
+5. [Set up disaster recovery](tutorial-vmware-to-azure.md) to Azure for on-premises VMs.
 
 ### Extend DFSR to an Azure IaaS virtual machine
 
-1.	Establish a site-to-site VPN connection between the on-premises site and the Azure network. 
-2.	Extend on-premises Active Directory.
-3.	[Create and provision a file server VM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) on the Azure virtual network.
+1. Establish a site-to-site VPN connection between the on-premises site and the Azure network. 
 
+2. Extend on-premises Active Directory.
+
+3. [Create and provision a file server VM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) on the Azure virtual network.  
     Ensure that the virtual machine is added to the same Azure virtual network, which has cross-connectivity with the on-premises environment. 
 
-4.	Install and [configure DFS Replication](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx) on Windows Server.
+4. Install and [configure DFS Replication](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx) on Windows Server.
 
-5.	[Implement a DFS namespace](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
-6.	With the DFS namespace implemented, you can fail over shared folders from production to disaster recovery sites by updating the DFS namespace folder targets. After these DFS namespace changes replicate via Active Directory, users are connected to the appropriate folder targets transparently.
+5. [Implement a DFS namespace](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
+
+6. With the DFS namespace implemented, you can fail over shared folders from production to disaster recovery sites by updating the DFS namespace folder targets. After these DFS namespace changes replicate via Active Directory, users are connected to the appropriate folder targets transparently.
 
 ### Use Azure File Sync to replicate your on-premises files
 By using the Azure File Sync service, you can replicate the desired files to the cloud. In the event of a disaster and unavailability of your on-premises file server, you can then mount the desired file locations from the cloud and continue to service requests from the client machines.
 
 The suggested approach of integrating Azure File Sync with Azure Site Recovery is:
-1.	Protect the file server machines by using Azure Site Recovery. Follow the steps in [Set up disaster recovery to Azure for on-premises VMware VMs](tutorial-vmware-to-azure.md).
-2.	Use Azure File Sync to replicate files from the machine that serves as a file server, to the cloud.
-3.	Use the recovery plan feature in Azure Site Recovery to add scripts to mount the Azure file share on the failed-over file server VM in Azure.
+1. Protect the file server machines by using Azure Site Recovery. Follow the steps in [Set up disaster recovery to Azure for on-premises VMware VMs](tutorial-vmware-to-azure.md).
+
+2. Use Azure File Sync to replicate files from the machine that serves as a file server, to the cloud.
+
+3. Use the recovery plan feature in Azure Site Recovery to add scripts to mount the Azure file share on the failed-over file server VM in Azure.
 
 The following steps detail using the Azure File Sync service:
 
@@ -155,11 +165,10 @@ The following steps detail using the Azure File Sync service:
 
 3. [Deploy Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) in your on-premises file server.
 
-4. Create a sync group. Endpoints within a sync group will stay in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share, and one server endpoint, which represents a path on the on-premises Windows server.
+4. Create a sync group. Endpoints within a sync group will stay in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share, and one server endpoint, which represents a path on the on-premises Windows server.  
+    Your files will now stay in sync across your Azure file share and your on-premises server.
 
-   Your files will now stay in sync across your Azure file share and your on-premises server.
-
-6.	If there's a disaster in your on-premises environment, perform a failover by using a recovery plan. Add the script to mount the Azure file share and access the share in your virtual machine.
+5. If there's a disaster in your on-premises environment, perform a failover by using a recovery plan. Add the script to mount the Azure file share and access the share in your virtual machine.
 
 > [!NOTE]
 > Ensure that port 445 is open. Azure Files uses the SMB protocol. SMB communicates over TCP port 445. Check to see if your firewall is blocking port 445 from the client machine.
@@ -167,22 +176,30 @@ The following steps detail using the Azure File Sync service:
 
 ## Perform a test failover
 
-1.	Go to the Azure portal and select your Recovery Services vault.
-2.	Select the recovery plan created for the file server environment.
-3.	Select **Test Failover**.
-4.	Select the recovery point and Azure virtual network to start the test failover process.
-5.	When the secondary environment is up, perform your validations.
-6.	When the validations are complete, you can select **Cleanup test failover** on the recovery plan, and the test failover environment is cleaned.
+1. Go to the Azure portal and select your Recovery Services vault.
 
-For more information on performing a test failover, see [Test 	failover to Azure in Site Recovery](site-recovery-test-failover-to-azure.md).
+2. Select the recovery plan created for the file server environment.
+
+3. Select **Test Failover**.
+
+4. Select the recovery point and Azure virtual network to start the test failover process.
+
+5. When the secondary environment is up, perform your validations.
+
+6. When the validations are complete, you can select **Cleanup test failover** on the recovery plan, and the test failover environment is cleaned.
+
+For more information about performing a test failover, see [Test 	failover to Azure in Site Recovery](site-recovery-test-failover-to-azure.md).
 
 For guidance on performing test failover for Active Directory and DNS, see [Test failover considerations for Active Directory and DNS](site-recovery-active-directory.md).
 
 ## Perform a failover
 
-1.	Go to the Azure portal and select your Recovery Services vault.
-2.	Select the recovery plan created for the file server environment.
-3.	Select **Failover**.
-4.	Select the recovery point to start the failover process.
+1. Go to the Azure portal and select your Recovery Services vault.
 
-For more information on performing a failover, see [Failover in Site Recovery](site-recovery-failover.md).
+2. Select the recovery plan created for the file server environment.
+
+3. Select **Failover**.
+
+4. Select the recovery point to start the failover process.
+
+For more information about performing a failover, see [Failover in Site Recovery](site-recovery-failover.md).
