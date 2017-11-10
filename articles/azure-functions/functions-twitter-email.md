@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 + This topic uses as its starting point the resources created in [Create your first function from the Azure portal](functions-create-first-azure-function.md).  
 If you haven't already done so, complete these steps now to create your function app.
 
-## Create a Cognitive Services Resource
+## Create a Cognitive Services resource
 
 The Cognitive Services APIs are available in Azure as individual resources. Use the Text Analytics API to detect the sentiment of the tweets being monitored.
 
@@ -75,7 +75,7 @@ Functions provides a great way to offload processing tasks in a logic apps workf
 
 1. Click the **New** button and select **Compute** > **Function App**. Then, use the settings as specified in the table below. Accept the terms, then select **Pin to dashboard**.
 
-![Create Azure Function App](media/functions-twitter-email/create_fun.png)
+    ![Create Azure Function App](media/functions-twitter-email/create_fun.png)
 
 | Setting      |  Suggested value   | Description       |
 | --- | --- | --- |
