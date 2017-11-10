@@ -68,7 +68,7 @@ In the following trigger definition, scheduled time of the trigger is passed as 
 
 ## Example
 
-Here is a sample dataset definition (that uses a parameter named: `date`) :
+Here is a sample dataset definition (that uses a parameter named: `date`):
 
 ```json
 {
