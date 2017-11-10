@@ -40,87 +40,104 @@ To generate a new LUIS app from the source file, first you parse the data from t
 var path = require('path');
 
 const parse = require('./_parse');
-const create = require('./_create');
-const intents = require('./_intents');
-const entities = require('./_entities');
-const upload = require('./_utterances');
+const createApp = require('./_create');
+const addEntities = require('./_entities');
+const addIntents = require('./_intents');
+const upload = require('./_upload');
 
-// CHANGE THESE VALUES
-const LUIS_subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-const LUIS_appName = "Your App Name";
-const LUIS_appCulture = "en-us";
+// Change these values
+const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
+const LUIS_appName = "Sample App";
+const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
 
 // Source CSV
-const sourceFile= "./IoT_sample.csv";
-// Parsed JSON for the Authoring API
-const outputFile = "./utterances.json"
+const downloadFile = "./IoT.csv";
+// Parsed JSON
+const uploadFile = "./utterances.json"
 
+// The app ID is returned from LUIS when your app is created
+var LUIS_appId = ""; // default app ID
 var intents = [];
 var entities = [];
 
-// add utterances parameters 
+
+/* add utterances parameters */
 var configAddUtterances = {
-    LUIS_subscriptionKey: LUIS_subscriptionKey,
+    LUIS_subscriptionKey: LUIS_programmaticKey,
     LUIS_appId: LUIS_appId,
     LUIS_versionId: LUIS_versionId,
     inFile: path.join(__dirname, uploadFile),
     batchSize: 100,
-    uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples".replace("{appId}", LUIS_appId).replace("{versionId}", LUIS_versionId)
+    uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples"
 };
 
-// create app parameters 
+/* create app parameters */
 var configCreateApp = {
-    LUIS_subscriptionKey: LUIS_subscriptionKey,
+    LUIS_subscriptionKey: LUIS_programmaticKey,
     LUIS_versionId: LUIS_versionId,
     appName: LUIS_appName,
     culture: LUIS_appCulture,
     uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/"
 };
 
-// add intents parameters 
+/* add intents parameters */
 var configAddIntents = {
-    LUIS_subscriptionKey: LUIS_subscriptionKey,
+    LUIS_subscriptionKey: LUIS_programmaticKey,
     LUIS_appId: LUIS_appId,
     LUIS_versionId: LUIS_versionId,
     intentList: intents,
-    uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples".replace("{appId}", LUIS_appId).replace("{versionId}", LUIS_versionId)
+    uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/intents"
 };
 
-// parse parameters 
+/* add entities parameters */
+var configAddEntities = {
+    LUIS_subscriptionKey: LUIS_programmaticKey,
+    LUIS_appId: LUIS_appId,
+    LUIS_versionId: LUIS_versionId,
+    entityList: intents,
+    uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/entities"
+};
+
+/* input and output files for parsing CSV */
 var configParse = {
     inFile: path.join(__dirname, downloadFile),
     outFile: path.join(__dirname, uploadFile)
-}; 
+};
 
-// Parse the CSV to extract intents and entities first.
-// Then create an app, add intents, entities, and add utterances 
+// Parse CSV
 parse(configParse)
-.then((model) => {
-    // After parsing the CSV, the model contains utterances labeled with intents and entities.
-    intents = model.intents;
-    entities = model.entities;
+    .then((model) => {
+        // Save intent and entity names from parse
+        intents = model.intents;
+        entities = model.entities;
+        // Create the LUIS app
+        return createApp(configCreateApp);
 
-    // Create the LUIS app
-    return createApp(configCreateApp);
+    }).then((appId) => {
+        // Add intents
+        LUIS_appId = appId;
+        configAddIntents.LUIS_appId = appId;
+        configAddIntents.intentList = intents;
+        return addIntents(configAddIntents);
 
-}).then((appId) => {
-    // Add intents
-    return addIntents(configAddIntents);
-    console.log("process done");
+    }).then(() => {
+        // Add entities
+        configAddEntities.LUIS_appId = LUIS_appId;
+        configAddEntities.entityList = entities;
+        return addEntities(configAddEntities);
 
-}).then((intentIdList) => {
-    // Add entities
-    return addEntities(configAddEntities);
-    console.log("process done");
+    }).then(() => {
+        // Add example utterances to the intents in the app
+        configAddUtterances.LUIS_appId = LUIS_appId;
+        return upload(configAddUtterances);
 
-}).then((entityIdList) => {
-    return upload(configAddUtterances);
-    console.log("process done");
-}).catch(err => {
-    console.log(err);
-});
+    }).catch(err => {
+        console.log(err.message);
+    });
+
 ```
+
 ## Parsing the CSV
 
 The column entries that contain the utterances in the CSV have to be parsed into a JSON format that LUIS can understand. This JSON format must contain an `intentName` field that identifies the intent of the utterance. It must also contain an `entityLabels` field, which can be empty if there are no entities in the utterance. 
@@ -241,7 +258,7 @@ const convert = async (config) => {
 
             // skip first line with headers
             if (i++ == 0) {
-                // on the first line, [0]=Intent,[1]=text, [2]..[n]= entity fields
+
                 // csv to baby parser object
                 let dataRow = babyparse.parse(line);
 
@@ -288,9 +305,13 @@ module.exports = convert;
 Once the data has been parsed into JSON, we need a LUIS app to add it to. The following code creates the LUIS app. Copy or download it, and save it into `_create.js`.
 
 ```javascript
+// node 7.x
+// uses async/await - promises
+
 var rp = require('request-promise');
 var fse = require('fs-extra');
 var path = require('path');
+
 
 
 // main function to call
@@ -320,13 +341,14 @@ var createApp = async (config) => {
             let results = await createAppPromise;
 
             // Create app returns an app ID
-            let response = results;
-    
-            console.log("Add utterance done");
+            let appId = results.response;  
+            console.log(`Called createApp, created app with ID ${appId}`);
+            return appId;
+
     
         } catch (err) {
-            console.log(`Error adding utterance:  ${err.message} `);
-            //throw err;
+            console.log(`Error creating app:  ${err.message} `);
+            throw err;
         }
     
     }
@@ -338,7 +360,7 @@ var callCreateApp = async (options) => {
         var response; 
         if (options.method === 'POST') {
             response = await rp.post(options);
-        } else if (options.method === 'GET') {
+        } else if (options.method === 'GET') { // TODO: There's no GET for create app
             response = await rp.get(options);
         }
         // response from successful create should be the new app ID
@@ -355,45 +377,67 @@ module.exports = createApp;
 Once you have an app, you need to intents to it. The following code creates the LUIS app. Copy or download it, and save it into `_intents.js`.
 
 ```javascript
+
 var rp = require('request-promise');
 var fse = require('fs-extra');
 var path = require('path');
+var request = require('requestretry');
 
+// time delay between requests
+const delayMS = 1000;
 
-// main function to call
+// retry recount
+const maxRetry = 5;
+
+// retry request if error or 429 received
+var retryStrategy = function (err, response, body) {
+    let shouldRetry = err || (response.statusCode === 429);
+    if (shouldRetry) console.log("retrying add intent...");
+    return shouldRetry;
+}
+
 // Call add-intents
 var addIntents = async (config) => {
     var intentPromises = [];
+    config.uri = config.uri.replace("{appId}", config.LUIS_appId).replace("{versionId}", config.LUIS_versionId);
+
     config.intentList.forEach(function (intent) {
+        config.intentName = intent;
         try {
 
             // JSON for the request body
-            // { "name": MyIntentName}
             var jsonBody = {
                 "name": config.intentName,
             };
 
-            // Create an app
+            // Create an intent
             var addIntentPromise = callAddIntent({
-                uri: config.uri,
+                // uri: config.uri,
+                url: config.uri,
+                fullResponse: false,
                 method: 'POST',
                 headers: {
                     'Ocp-Apim-Subscription-Key': config.LUIS_subscriptionKey
                 },
                 json: true,
-                body: jsonBody
+                body: jsonBody,
+                maxAttempts: maxRetry,
+                retryDelay: delayMS,
+                retryStrategy: retryStrategy
             });
             intentPromises.push(addIntentPromise);
 
-            console.log("Add utterance done");
+            console.log(`Called addIntents for intent named ${intent}.`);
 
         } catch (err) {
-            console.log(`Error adding utterance:  ${err.message} `);
-            //throw err;
+            console.log(`Error in addIntents:  ${err.message} `);
+
         }
     }, this);
+
     let results = await Promise.all(intentPromises);
-    let response = results;// await fse.writeJson(createResults.json, results);
+    console.log(`Results of all promises = ${JSON.stringify(results)}`);
+    let response = results;
 
 
 }
@@ -402,17 +446,12 @@ var addIntents = async (config) => {
 var callAddIntent = async (options) => {
     try {
 
-        var response;
-        if (options.method === 'POST') {
-            response = await rp.post(options);
-        } else if (options.method === 'GET') {
-            response = await rp.get(options);
-        }
-        // response from successful create should be the new app ID
-        return { response };
+        var response;        
+        response = await request(options);
+        return { response: response };
 
     } catch (err) {
-        throw err;
+        console.log(`Error in callAddIntent:  ${err.message} `);
     }
 }
 
@@ -422,18 +461,36 @@ module.exports = addIntents;
 The following code adds the entities to the LUIS app. Copy or download it, and save it into `_entities.js`.
 
 ```javascript
+// node 7.x
+// uses async/await - promises
+
+const request = require("requestretry");
 var rp = require('request-promise');
 var fse = require('fs-extra');
 var path = require('path');
 
+// time delay between requests
+const delayMS = 1000;
+
+// retry recount
+const maxRetry = 5;
+
+// retry request if error or 429 received
+var retryStrategy = function (err, response, body) {
+    let shouldRetry = err || (response.statusCode === 429);
+    if (shouldRetry) console.log("retrying add entity...");
+    return shouldRetry;
+}
 
 // main function to call
 // Call add-entities
 var addEntities = async (config) => {
     var entityPromises = [];
+    config.uri = config.uri.replace("{appId}", config.LUIS_appId).replace("{versionId}", config.LUIS_versionId);
+
     config.entityList.forEach(function (entity) {
         try {
-
+            config.entityName = entity;
             // JSON for the request body
             // { "name": MyEntityName}
             var jsonBody = {
@@ -442,24 +499,29 @@ var addEntities = async (config) => {
 
             // Create an app
             var addEntityPromise = callAddEntity({
-                uri: config.uri,
+                url: config.uri,
+                fullResponse: false,
                 method: 'POST',
                 headers: {
                     'Ocp-Apim-Subscription-Key': config.LUIS_subscriptionKey
                 },
                 json: true,
-                body: jsonBody
+                body: jsonBody,
+                maxAttempts: maxRetry,
+                retryDelay: delayMS,
+                retryStrategy: retryStrategy
             });
             entityPromises.push(addEntityPromise);
 
-            console.log("Add utterance done");
+            console.log(`called addEntity for entity named ${entity}.`);
 
         } catch (err) {
-            console.log(`Error adding utterance:  ${err.message} `);
+            console.log(`Error in addEntities:  ${err.message} `);
             //throw err;
         }
     }, this);
     let results = await Promise.all(entityPromises);
+    console.log(`Results of all promises = ${JSON.stringify(results)}`);
     let response = results;// await fse.writeJson(createResults.json, results);
 
 
@@ -469,17 +531,12 @@ var addEntities = async (config) => {
 var callAddEntity = async (options) => {
     try {
 
-        var response;
-        if (options.method === 'POST') {
-            response = await rp.post(options);
-        } else if (options.method === 'GET') {
-            response = await rp.get(options);
-        }
-        // response from successful create should be the new app ID
-        return { response };
+        var response;        
+        response = await request(options);
+        return { response: response };
 
     } catch (err) {
-        throw err;
+        console.log(`error in callAddEntity: ${err.message}`);
     }
 }
 
@@ -489,12 +546,28 @@ module.exports = addEntities;
 Once the entities and intents have been defined in the LUIS app, you can add the utterances. The following code uses the [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API which allows you to add up to 100 utterances at a time.  Copy or download it, and save it into `_utterances.js`.
 
 ```javascript
+// node 7.x
+// uses async/await - promises
+
 var rp = require('request-promise');
 var fse = require('fs-extra');
 var path = require('path');
+var request = require('requestretry');
 
+// time delay between requests
+const delayMS = 500;
 
-// main function for adding utterances to the LUIS app
+// retry recount
+const maxRetry = 5;
+
+// retry request if error or 429 received
+var retryStrategy = function (err, response, body) {
+    let shouldRetry = err || (response.statusCode === 429);
+    if (shouldRetry) console.log("retrying add examples...");
+    return shouldRetry;
+}
+
+// main function to call
 var upload = async (config) => {
 
     try{
@@ -509,15 +582,19 @@ var upload = async (config) => {
 
         // load up promise array
         pages.forEach(page => {
-
+            config.uri = "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples".replace("{appId}", config.LUIS_appId).replace("{versionId}", config.LUIS_versionId)
             var pagePromise = sendBatchToApi({
-                uri: config.uri,
+                url: config.uri,
+                fullResponse: false,
                 method: 'POST',
                 headers: {
                     'Ocp-Apim-Subscription-Key': config.LUIS_subscriptionKey
                 },
                 json: true,
-                body: page
+                body: page,
+                maxAttempts: maxRetry,
+                retryDelay: delayMS,
+                retryStrategy: retryStrategy
             });
 
             uploadPromises.push(pagePromise);
@@ -526,6 +603,7 @@ var upload = async (config) => {
         //execute promise array
         
         let results =  await Promise.all(uploadPromises)
+        console.log(`\n\nResults of all promises = ${JSON.stringify(results)}`);
         let response = await fse.writeJson(config.inFile.replace('.json','.upload.json'),results);
 
         console.log("upload done");
@@ -570,9 +648,9 @@ var getPagesForBatch = (batch, maxItems) => {
 var sendBatchToApi = async (options) => {
     try {
 
-        var response =  await rp.post(options);
-        return {page: options.body, response:response};
-
+        var response = await request(options);
+        //return {page: options.body, response:response};
+        return {response:response};
     }catch(err){
         throw err;
     }   
@@ -580,18 +658,7 @@ var sendBatchToApi = async (options) => {
 
 module.exports = upload;
 ```
-<!-- 
-## Download sample code
 
-The code for this tutorial is at [CSV Upload Sample](https://github.com/Microsoft/LUIS-Samples/tree/master/examples/create-app-programmatically/). Download the following files:
-
-| Filename    | Description           |
-|-------------|-----------------------|
-| [index.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/index.js)  |  The sample's main file. It contains configuration settings and uploads the batch of utterances. Change the `sourceFile` value in the `index.js` file to the location and name of your query log file. |
-| [_parse.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/_parse.js)  |  This file converts the utterances to the format expected by the [Utterances_AddBatch API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) |
-| [_create.js](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-example-utterances/demo-Upload-utterances-from-querylog/_upload.js)  |  This file contains methods for adding utterances using the [Batch Add Labels API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) |
-
--->
 
 ## Run the code
 
@@ -610,7 +677,7 @@ Open the index.js file, and change these values at the top of the file.
 
 
 ````JavaScript
-// TBD: CHANGE THESE VALUES
+// CHANGE THESE VALUES
 const LUIS_subscriptionKey = "YOUR_SUBSCRIPTION_KEY"; 
 const LUIS_appId = "YOUR_APP_ID";
 const LUIS_versionId = "0.1";
