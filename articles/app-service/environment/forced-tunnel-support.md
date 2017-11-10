@@ -16,7 +16,7 @@ ms.date: 11/10/2017
 ms.author: ccompy
 ---
 
-# Configure your App Service Environment with forced tunneled
+# Configure your App Service Environment with forced tunneling
 
 The App Service Environment (ASE) is a deployment of the Azure App Service in a customer's Azure Virtual Network (VNet). Many customers configure their VNets to be extensions of their on-premises networks with VPNs or ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all outbound traffic on-premises before it can go out to the internet. Changing the routing of the VNet so that the outbound traffic from the VNet flows through the VPN or ExpressRoute connection to on-premises is called forced tunneling.  
 
