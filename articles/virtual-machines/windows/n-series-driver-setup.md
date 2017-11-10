@@ -47,7 +47,7 @@ To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com
 
 1. Open a command prompt and change to the **C:\Program Files\NVIDIA Corporation\NVSMI** directory.
 
-2. Run **nvidia-smi**. If the driver is installed you will see output similar to the following. Note that **GPU-Util** shows **0%** unless you are currently running a GPU workload on the VM. Your driver version and GPU details may be different from the ones shown.
+2. Run `nvidia-smi`. If the driver is installed you will see output similar to the following. Note that **GPU-Util** shows **0%** unless you are currently running a GPU workload on the VM. Your driver version and GPU details may be different from the ones shown.
 
 ![NVIDIA device status](./media/n-series-driver-setup/smi.png)  
 
