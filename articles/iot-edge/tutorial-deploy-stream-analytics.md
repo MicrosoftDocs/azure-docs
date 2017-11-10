@@ -36,7 +36,7 @@ This tutorial walks you through the creation of an Azure Stream Analytics job, a
 ## Prerequisites
 
 * An IoT Hub 
-* An IoT Edge runtime
+* An IoT Edge runtime (see [Simulate an Edge Device - Windows][lnk-setup] or [Simulate an Edge Device - Linux][lnk-setup2])
 * Docker
     * [Windows installation][lnk-docker-windows]
     * [Linux installation][lnk-docker-linux]
@@ -62,16 +62,13 @@ In this section, you create an Azure Stream Analytics job to take data from your
     ![new storage account][1]
 
     > [!NOTE]
-    > Make sure the **Location** you use is the same as your IoT Hub **Location** else additional fees may apply.
+    > Make sure the **Location** you use is the same as your IoT Hub **Location** or else additional fees may apply.
 
 3. In the Azure portal, navigate to the storage account that you just created. Click **Browse blobs** under **Blob Service**. Create a new container for the ASA module to store data. Set the access level to _Container_. Click **OK**.
 
     ![storage settings][10]
 
 1. In the Azure portal, navigate to **Create a resource -> Internet of Things** and click **Stream Analytics Job**.
-
-    > [!NOTE]
-    > For 11-09 bug bash, please create your ASA job under location **Canada East**.
 
 1. Enter a name, **choose "Edge" as Hosting environment** and use the remaining default values.  Click **Create**.
 
@@ -117,9 +114,6 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
     ![set module][6]
 
-    > [!NOTE]
-    > For 11-09 bug bash, there is a known issue that you can't use long module name. Click edit button for this ASA module, rename the module with any three characters. Then save.
-
 1. Click **Add IoT Edge Module** to add the temperature sensor module. Enter _tempSensor_ for name, `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview` for Image URL. Leave the other settings unchanged, and click **Save**.
 
     ![temperature module][11]
@@ -133,7 +127,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
         "routes": {                                                               
           "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream", 
           "alertsToCloud": "FROM /messages/modules/{moduleName}/* INTO $upstream", 
-          "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/reset\")", 
+          "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")", 
           "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")" 
         }
     }
@@ -149,7 +143,19 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
 ## View data (optional)
 
-1. At a command prompt, run the following command to see the modules running:
+1. At a command prompt, configure the runtime with your IoT Edge device connection string:
+
+    ```cmd/sh
+    iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords  
+    ```
+
+1. Run the command to start the runtime:
+
+    ```cmd/sh
+    iotedgectl start  
+    ```
+
+1. Run the command to see the modules running:
 
     ```cmd/sh
     docker ps  
@@ -202,6 +208,8 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 [lnk-first-tutorial]: tutorial-install-iot-edge.md
 [lnk-module-tutorial]: tutorial-create-custom-module.md
 [lnk-next-tutorial2]: tutorial-create-custom-module.md
+[lnk-setup]: tutorial-simulate-device-windows
+[lnk-setup2]: tutorial-simulate-device-linux
 
 [lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
 [lnk-docker-linux]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
