@@ -1,23 +1,23 @@
 ---
-title: Azure Time Series Insights explorer quickstart | Microsoft Docs
-description: This quickstart shows you how to get started with Azure Time Series Insights explorer. You will tour the key features.
+title: Quickstart: Azure Time Series Insights explorer | Microsoft Docs
+description: This quickstart shows you how to get started with Azure Time Series Insights explorer in your web browser to visualize large volumes of IoT data. You will tour the key features in a demo environment. 
 services: time-series-insights
 ms.service: time-series-insights 
 author: MarkMcGeeAtAquent
+ms.author: v-mamcge
 manager: jhubbard
-editor: v-mamcge, jasonwhowell, kfile, tsidocs 
+editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
-ms.date: 11/09/2017
+ms.date: 11/15/2017
 ---
 
 # Explore Azure Time Series Insights
 
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time.  If you are building an application that needs to store or query time series data, you can develop using the Time Series Insights REST APIs.
 
-## Prerequisites
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Explore Time Series Insights explorer in a demonstration environment
 
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 2. Log in to the Time Series Insights explorer using your Azure account credentials. 
  
-4. In the Time Series Insights quick tour page, click **Next** to begin the quick tour.
+4. The Time Series Insights quick tour page is displayed. Click **Next** to begin the quick tour.
 
    ![Click Next](media/quickstart/quickstart1.png)
 
@@ -55,17 +55,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    ![Grid view](media/quickstart/quickstart7.png)
 
-7. You can edit your terms to change the values in the chart, or add another term to cross-correlate different types of values:
+7. Edit your terms to change the values in the chart, and add another term to cross-correlate different types of values:
 
    ![Add a term](media/quickstart/quickstart8.png)
 
-8. Enter a filter term in the **Filter series...** box for ad-hoc series filtering. For the tutorial, enter **Station5** to cross-correlate temperature and pressure for that station.
+8. Enter a filter term in the **Filter series...** box for ad-hoc series filtering. For the quickstart, enter **Station5** to cross-correlate temperature and pressure for that station.
  
    ![Filter series](media/quickstart/quickstart9.png)
 
 After you finish the quickstart, you can experiment with the sample data set to create different visualizations. 
 
 ## Next steps
-
-- [Plan your environment](time-series-insights-environment-planning.md)
-- [Create an environment](time-series-insights-get-started.md)
+You are ready to create your own Time Series Insights environment:
+> [!div class="nextstepaction"]
+> [Plan your Time Series Insights environment](time-series-insights-environment-planning.md)
