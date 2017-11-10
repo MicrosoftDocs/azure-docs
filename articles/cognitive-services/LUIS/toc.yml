@@ -28,13 +28,11 @@
     - name: Ruby
       href: luis-get-started-ruby-get-intent.md
   - name: Call LUIS authoring API
-    items:
-    - name: Add utterance and train
-      items: 
-      - name: Node.js
-        href: luis-quickstart-node-add-utterance.md
-      - name: Python
-        href: luis-quickstart-python-add-utterance.md
+    items: 
+    - name: Node.js
+      href: luis-quickstart-node-add-utterance.md
+    - name: Python
+      href: luis-quickstart-python-add-utterance.md
 - name: Tutorials
   items: 
   - name: Integrate LUIS with a bot using Node.js
