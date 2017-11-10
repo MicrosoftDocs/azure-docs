@@ -37,7 +37,7 @@ You need to create an Azure AD DS before you can create an HDInsight cluster. To
 > [!NOTE]
 > Only the tenant administrators have the privileges to create domain services. 
 
-After the domain service has been created, you need to create a service account in the **Azure AD DC Administrators** group to create the HDInsight cluster. The serice account must be a global administrator on the Azure AD.
+After the domain service has been provisioned, you need to create a service account in the **Azure AD DC Administrators** group to create the HDInsight cluster. The serice account must be a global administrator on the Azure AD.
 
 ## Create a Domain-joined HDInsight cluster
 
