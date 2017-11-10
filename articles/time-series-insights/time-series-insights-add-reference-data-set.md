@@ -1,21 +1,17 @@
 ---
-title: Add reference data set to your Azure Time Series Insights environment | Microsoft Docs
-description: In this tutorial, you add reference data set to your Time Series Insights environment
-keywords:
+title: How to add a reference data set to your Azure Time Series Insights environment | Microsoft Docs
+description: This article describes how to add a reference data set to your Azure Time Series Insights environment. Reference data is useful to join to your source data to augment the values.
 services: time-series-insights
-documentationcenter:
-author: venkatgct   
-manager: almineev
-editor: cgronlun
-
-ms.assetid:
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.service: time-series-insights
+author: venkatgct
+ms.author: venkatja
+manager: jhubbard
+editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
 ms.workload: big-data
-ms.date: 10/20/2017
-ms.author: kfile
+ms.topic: article
+ms.date: 11/15/2017
 ---
 
 # Create a reference data set for your Time Series Insights environment using the Azure portal
