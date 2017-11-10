@@ -48,7 +48,7 @@ This article describes how to use the Azure portal to add an event source that r
 | Service bus namespace | Select the Service Bus namespace that contains the Event Hub.
 | Event hub name | Select the name of the Event Hub.
 | Event hub policy name | Select the shared access policy, which can be created on the Event Hub Configure tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions.
-| Event hub policy key | The Shared Access key is not needed.
+| Event hub policy key | The key is prepopulated.
 | Event hub consumer group | The Consumer Group to read events from the Event Hub. It is highly recommended to use a dedicated consumer group for your event source.
 
 8. If you have selected the **Provide Event Hub settings manually** option, the following table explains each required property:
