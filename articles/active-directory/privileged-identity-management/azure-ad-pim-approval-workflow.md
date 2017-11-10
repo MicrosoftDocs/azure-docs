@@ -17,26 +17,20 @@ ms.author: barclayn
 ms.custom: pim
 ---
 
-# Approvals (Preview)
+# Approvals
 
 ## Overview
 
 With Approvals for Privileged Identity Management, you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Keep reading to learn how to configure roles and select approvers.
 
->[!NOTE]
-Please keep in mind this feature is still in development, and you may encounter
-bugs. The functionality, including text and naming conventions are subject to
-change, and should not be considered final.
 
-
-## Key Terminology
+## New Terminology
 
 *Eligible Role User* – An eligible role user is a user within your organization
 that’s been assigned to an Azure AD role as eligible (role requires activation).
 
 *Delegated Approver* – A delegated approver is one or multiple individuals or
-groups within your Azure AD who are responsible for approving requests for role
-activation.
+groups within your Azure AD responsible for approving requests to activate roles.
 
 ## Scenarios
 

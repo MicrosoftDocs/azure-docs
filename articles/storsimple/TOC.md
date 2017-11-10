@@ -19,10 +19,12 @@
 
 ## How to
 ### [Manage via Azure portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Install latest update](storsimple-virtual-array-install-update-06.md)
-##### [Install Update 0.5](storsimple-virtual-array-install-update-05.md)
-##### [Install Update 0.4](storsimple-virtual-array-install-update-04.md)
-##### [Install Update 0.3](storsimple-virtual-array-install-update.md)
+#### [Install latest update](storsimple-virtual-array-install-update-1.md)
+##### [Install Update 0.6](storsimple-virtual-array-install-update-06.md)
+##### Archive
+###### [Install Update 0.5](storsimple-virtual-array-install-update-05.md)
+###### [Install Update 0.4](storsimple-virtual-array-install-update-04.md)
+###### [Install Update 0.3](storsimple-virtual-array-install-update.md)
 #### [Create & manage backups](storsimple-virtual-array-backup.md)
 #### [Clone from backups](storsimple-virtual-array-clone.md)
 #### [Failover and DR](storsimple-virtual-array-failover-dr.md)
@@ -36,16 +38,17 @@
 #### [Manage jobs](storsimple-virtual-array-manage-jobs.md)
 #### [Change device password](storsimple-virtual-array-change-device-admin-password.md)
 #### [Configure MPIO on Windows Server host](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Monitor using alerts](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnose and troubleshoot](storsimple-virtual-array-diagnose-problems.md)
 #### [Log Support request](storsimple-virtual-array-log-support-ticket.md)
 
 ### [Configure via local web UI](storsimple-ova-web-ui-admin.md)
 
 ## Release notes
-### [Update 0.6 - current](storsimple-virtual-array-update-06-release-notes.md)
-### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
-
+### [Update 1 - current](storsimple-virtual-array-update-1-release-notes.md)
+### [Update 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Archive
+#### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
 #### [Update 0.4](storsimple-virtual-array-update-04-release-notes.md)
 #### [Update 0.3](storsimple-ova-update-03-release-notes.md)
 #### [Update 0.2 and 0.1](storsimple-ova-update-01-release-notes.md)
@@ -56,6 +59,7 @@
 ### [What is the solution?](storsimple-overview.md)
 ### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Security considerations](storsimple-8000-security.md)
+### [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md)
 
 ## Get started
 
@@ -99,6 +103,7 @@
 ##### [Manage volume containers](storsimple-8000-manage-volume-containers.md)
 ##### [Manage volumes - current](storsimple-8000-manage-volumes-u2.md)
 ###### [FAQ: Locally pinned volumes](storsimple-8000-local-volume-faq.md)
+##### [Role-based Access Control](storsimple-8000-role-based-access-control.md)
 ##### [Manage ACRs](storsimple-8000-manage-acrs.md)
 ##### [Manage bandwidth templates](storsimple-8000-manage-bandwidth-templates.md)
 ##### [View and manage jobs](storsimple-8000-manage-jobs-u2.md)
@@ -117,6 +122,7 @@
 ##### [Modify DATA 0 settings](storsimple-8000-modify-data-0.md)
 
 
+
 #### [Using StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 ##### [About StorSimple Snapshot Manager interface](storsimple-use-snapshot-manager.md)
@@ -127,6 +133,11 @@
 ##### [Manage backup jobs via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-backup-jobs.md)
 ##### [Manage volumes via StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
 ##### [Use MMC actions in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
+
+### Automate
+
+#### [Using Azure PowerShell sample scripts](storsimple-8000-automation-azurerm-scripts.md)
+#### [Using Azure Automation runbooks](storsimple-8000-automation-azurerm-runbook.md)
 
 ### Build solutions
 #### [StorSimple with Veeam](storsimple-configure-backup-target-veeam.md)
@@ -162,15 +173,17 @@
 ##### [Create Support package](storsimple-8000-create-manage-support-package.md)
 
 ### Migrate
-#### [From 5000-7000 series](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
+#### [Subscriptions and storage accounts](storsimple-8000-migrate-classic-azure-portal.md)
 #### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
-#### [Install Update 4 - current](storsimple-8000-install-update-4.md)
+#### [Install Update 5 - current](storsimple-8000-install-update-5.md)
+#### [Install Update 4](storsimple-8000-install-update-4.md)
 
 
 ## Release notes
-### [Update 4 - current](storsimple-update4-release-notes.md)
+### [Update 5 - current](storsimple-update5-release-notes.md)
+### [Update 4](storsimple-update4-release-notes.md)
 ### [Update 3](storsimple-update3-release-notes.md)
 ### [Update 2.2](storsimple-update21-release-notes.md)
 
@@ -183,7 +196,7 @@
 #### [Release - GA](storsimple-july-2014-release-notes.md)
 
 ## Reference
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 8000 Series (Classic portal)
@@ -299,16 +312,17 @@
 ##### [Create Support package](storsimple-create-manage-support-package.md)
 
 ### Migrate
-#### [From 5000-7000 series](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
+#### [Install Update 5 - current](storsimple-install-update-5.md)
 #### [Install Update 4](storsimple-install-update-4.md)
 #### [Install Update 3](storsimple-install-update-3.md)
 #### [Update your device](storsimple-update-device.md)
 
 ## Release notes
-### [Update 4 - current](storsimple-update4-release-notes.md)
+### [Update 5 - current](storsimple-update5-release-notes.md)
+### [Update 4](storsimple-update4-release-notes.md)
 ### [Update 3](storsimple-update3-release-notes.md)
 ### [Update 2.2](storsimple-update21-release-notes.md)
 

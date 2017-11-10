@@ -58,7 +58,7 @@ In this section, you create a Java app that adds location metadata as a tag to t
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -215,7 +215,7 @@ In this section, you create a Java console app that sets a reported property val
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 
@@ -263,7 +263,7 @@ In this section, you create a Java console app that sets a reported property val
     private static String deviceId = "myDeviceId";
     ```
 
-    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. Currently, to use device twin features you must use the MQTT protocol.
+    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. 
 
 1. Add the following code to the **main** method to:
     * Create a device client to communicate with IoT Hub.

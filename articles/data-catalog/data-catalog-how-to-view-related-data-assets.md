@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 06/23/2017
+ms.date: 11/01/2017
 ms.author: maroche
 
 ---
@@ -27,6 +27,9 @@ When you register data assets from the following data sources, Azure Data Catalo
 - Azure SQL Database
 - MySQL
 - Oracle
+
+> [!NOTE]
+> For Data Catalog to import relationship between two data assets, you must register both the assets at the same time. If you had added one of them separately, add it again and the other data asset to import relationship between them.
 
 ## View related data assets
 To view data assets that are related to a selected dataset, use the **Relationships** tab as shown in the following image: 

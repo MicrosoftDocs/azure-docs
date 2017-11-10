@@ -13,23 +13,23 @@
   - name: Academic Knowledge
     href: Academic-Knowledge/Home.md
   - name: Bing Autosuggest
-    href: Bing-Autosuggest/get-suggested-search-terms.md
+    href: Bing-Autosuggest/index.yml
   - name: Bing Entities Search
     href: Bing-Entities-Search/search-the-web.md
   - name: Bing Image Search
-    href: Bing-Image-Search/search-the-web.md
+    href: Bing-Image-Search/index.yml
   - name: Bing News Search
     href: Bing-News-Search/search-the-web.md
   - name: Bing Speech
     href: Speech/Home.md
   - name: Bing Spell Check
-    href: Bing-Spell-Check/proof-text.md
+    href: Bing-Spell-Check/index.yml
   - name: Bing Video Search
     href: Bing-Video-Search/search-the-web.md
   - name: Bing Web Search
-    href: Bing-Web-Search/search-the-web.md
+    href: Bing-Web-Search/index.yml
   - name: Bing Custom Search
-    href: Bing-Custom-Search/overview.md
+    href: Bing-Custom-Search/index.md
   - name: Computer Vision
     href: Computer-vision/Home.md
   - name: Content Moderator
@@ -47,7 +47,7 @@
   - name: Face
     href: Face/Overview.md
   - name: Video Indexer
-    href: video-indexer/video-indexer-overview.md  
+    href: video-indexer/video-indexer-overview.md
   - name: Knowledge Exploration Service
     href: KES/Overview.md
   - name: Linguistic Analysis
@@ -61,11 +61,9 @@
   - name: Speaker Recognition
     href: Speaker-recognition/Home.md
   - name: Text Analytics
-    href: Text-Analytics/overview.md
+    href: text-analytics/overview.md
   - name: Translator
     href: Translator/translator-info-overview.md
-  - name: Video
-    href: Video/Home.md
   - name: Web Language Model
     href: Web-Language-Model/Home.md
 - name: Resources

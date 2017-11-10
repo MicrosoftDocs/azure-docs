@@ -5,6 +5,8 @@
 ## [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md)
 ## [Endpoint types](traffic-manager-endpoint-types.md)
 ## [Endpoint monitoring](traffic-manager-monitoring.md)
+## [Real User Measurements](traffic-manager-rum-overview.md)
+## [Traffic View](traffic-manager-traffic-view-overview.md)
 ## [FAQs](traffic-manager-FAQs.md)
 
 # Get Started
@@ -16,19 +18,22 @@
 ## [Configure priority routing method](traffic-manager-configure-priority-routing-method.md)
 ## [Configure weighted routing method](traffic-manager-configure-weighted-routing-method.md)
 ## [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+## Send Real User Measurements to Traffic Manager 
+### [Using Visual Studio SDK](traffic-manager-create-rum-visual-studio.md)
+### [Using web pages](traffic-manager-create-rum-web-pages.md)
 ## [Manage endpoints](traffic-manager-manage-endpoints.md)
 ## [Manage profiles](traffic-manager-manage-profiles.md)
 ## [Verify Traffic Manager settings](traffic-manager-testing-settings.md)
 ## [Combine load balancing services](traffic-manager-load-balancing-azure.md)
 ## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md)
-## [Use PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md)
+## [Use Azure PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md)
 ## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
 ## Troubleshoot
 ### [Troubleshoot degraded state on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
-## [PowerShell](/powershell/module/azurerm.trafficmanager)
+## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)

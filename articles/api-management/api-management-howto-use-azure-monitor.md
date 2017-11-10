@@ -3,7 +3,7 @@ title: Monitor API Management with Azure Monitor | Microsoft Docs
 description: Learn how to monitor Azure API Management service using Azure Monitor.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: Requesting access tokens | Microsoft Docs'
+title: 'Requesting access tokens - Azure AD B2C | Microsoft Docs'
 description: This article will show you how to setup a client application and acquire an access token.
 services: active-directory-b2c
 documentationcenter: android
@@ -17,11 +17,11 @@ ms.date: 08/09/2017
 ms.author: parakhj
 
 ---
-# Azure AD B2C: Requesting Access Tokens
+# Azure AD B2C: Requesting access tokens
 
 An access token (denoted as **access\_token** in the responses from Azure AD B2C) is a form of security token that a client can use to access resources that are secured by an [authorization server](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), such as a web API. Access tokens are represented as [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the access token must be present in the HTTP request.
 
-This article discusses how to configure a client application and web api in order to obtain an **access\_token**.
+This article discusses how to configure a client application and web API in order to obtain an **access\_token**.
 
 > [!NOTE]
 > **Web API chains (On-Behalf-Of) is not supported by Azure AD B2C.**
@@ -30,14 +30,14 @@ This article discusses how to configure a client application and web api in orde
 >
 > This chained web API scenario can be supported by using the OAuth 2.0 JWT Bearer Credential grant, otherwise known as the On-Behalf-Of flow. However, the On-Behalf-Of flow is not currently implemented in Azure AD B2C.
 
-## Register a web api and publish permissions
+## Register a web API and publish permissions
 
 Before requesting an access token, you first need to register a web API and publish permissions (scopes) that can be granted to the client application.
 
-### Register a web api
+### Register a web API
 
-1. On the B2C features blade on the Azure portal, click **Applications**.
-1. Click **+Add** at the top of the blade.
+1. On the Azure AD B2C features menu on the Azure portal, click **Applications**.
+1. Click **+Add** at the top of the menu.
 1. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso API".
 1. Toggle the **Include web app / web API** switch to **Yes**.
 1. Enter an arbitrary value for the **Reply URLs**. For example, enter `https://localhost:44316/`. The value does not matter since an API should not be receiving the token directly from Azure AD B2C.
@@ -49,7 +49,7 @@ Before requesting an access token, you first need to register a web API and publ
 
 Scopes, which are analogous to permissions, are necessary when your app is calling an API. Some examples of scopes are "read" or "write". Suppose you want your web or native app to "read" from an API. Your app would call Azure AD B2C and request an access token that gives access to the scope "read". In order for Azure AD B2C to emit such an access token, the app needs to be granted permission to "read" from the specific API. To do this, your API first needs to publish the "read" scope.
 
-1. Within the Azure AD B2C **Applications** blade, open the web api application ("Contoso API").
+1. Within the Azure AD B2C **Applications** menu, open the web API application ("Contoso API").
 1. Click on **Published scopes**. This is where you define the permissions (scopes) that can be granted to other applications.
 1. Add **Scope Values** as necessary (for example, "read"). By default, the "user_impersonation" scope will be defined. You can ignore this if you wish. Enter a description of the scope in the **Scope Name** column.
 1. Click **Save**.
@@ -61,7 +61,7 @@ Scopes, which are analogous to permissions, are necessary when your app is calli
 
 Once an API is configured to publish scopes, the client application needs to be granted those scopes via the Azure portal.
 
-1. Navigate to the **Applications** menu in the B2C features blade.
+1. Navigate to the **Applications** menu in the Azure AD B2C features menu.
 1. Register a client application ([web app](active-directory-b2c-app-registration.md#register-a-web-app) or [native client](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app)) if you don’t have one already. If you are following this guide as your starting point, you'll need to register a client application.
 1. Click on **API access**.
 1. Click on **Add**.
@@ -124,7 +124,7 @@ When your API receives the **access\_token**, it must [validate the token](activ
 
 We are always open to feedback and suggestions! If you have any difficulties with this topic, please post on Stack Overflow using the tag ['azure-ad-b2c'](https://stackoverflow.com/questions/tagged/azure-ad-b2c). For feature requests, add them to [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 
-## Next Steps
+## Next steps
 
-* Build a web api using [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-* Build a web api using [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+* Build a web API using [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
+* Build a web API using [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)

@@ -1,9 +1,9 @@
----
+﻿---
 title: Azure Application Insights for ASP.NET Core | Microsoft Docs
 description: Monitor web applications for availability, performance and usage.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 # Application Insights for ASP.NET Core

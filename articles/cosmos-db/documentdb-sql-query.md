@@ -2266,7 +2266,7 @@ Refer to [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-documentd
 ### <a id="JavaScriptServerSideApi"></a>JavaScript server-side API
 Cosmos DB provides a programming model for executing JavaScript based application logic directly on the collections using stored procedures and triggers. The JavaScript logic registered at a collection level can then issue database operations on the operations on the documents of the given collection. These operations are wrapped in ambient ACID transactions.
 
-The following example show how to use the queryDocuments in the JavaScript server API to make queries from inside stored procedures and triggers.
+The following example shows how to use the queryDocuments in the JavaScript server API to make queries from inside stored procedures and triggers.
 
     function businessLogic(name, author) {
         var context = getContext();

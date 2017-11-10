@@ -4,7 +4,7 @@ description: This topic shows how to configure the Tricaster live encoder to sen
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 8973181a-3059-471a-a6bb-ccda7d3ff297

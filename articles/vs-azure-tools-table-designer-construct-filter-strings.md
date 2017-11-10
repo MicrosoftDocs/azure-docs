@@ -3,8 +3,8 @@ title: Constructing filter strings for the table designer | Microsoft Docs
 description: Constructing filter strings for the table designer
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: ''
 
 ms.assetid: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: tarcher
+ms.author: kraigb
 
 ---
 # Constructing Filter Strings for the Table Designer

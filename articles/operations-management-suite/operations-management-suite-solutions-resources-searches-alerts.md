@@ -1,6 +1,6 @@
 ---
 title: Saved searches and alerts in OMS solutions | Microsoft Docs
-description: Solutions in OMS will typically include saved searches in Log Analytics to analyze data collected by the solution.  They may also define alerts to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in an ARM template so they can be included in management solutions.
+description: Solutions in OMS typically include saved searches in Log Analytics to analyze data collected by the solution.  They may also define alerts to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a Resource Manager template so they can be included in management solutions.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 10/16/2017
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -32,19 +32,34 @@ ms.custom: H1Hack27Feb2017
 > The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
 
 ## Prerequisites
-This article assumes that you're already familiar with how to [create a management solution](operations-management-suite-solutions-creating.md) and the structure of an [ARM template](../resource-group-authoring-templates.md) and solution file.
+This article assumes that you're already familiar with how to [create a management solution](operations-management-suite-solutions-creating.md) and the structure of a [Resource Manager template](../resource-group-authoring-templates.md) and solution file.
 
 
 ## Log Analytics Workspace
-All resources in Log Analytics are contained in a [workspace](../log-analytics/log-analytics-manage-access.md).  As described in [OMS workspace and Automation account](operations-management-suite-solutions.md#oms-workspace-and-automation-account) the workspace isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
+All resources in Log Analytics are contained in a [workspace](../log-analytics/log-analytics-manage-access.md).  As described in [OMS workspace and Automation account](operations-management-suite-solutions.md#oms-workspace-and-automation-account), the workspace isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install fails.
 
 The name of the workspace is in the name of each Log Analytics resource.  This is done in the solution with the **workspace** parameter as in the following example of a savedsearch resource.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
+## Log Analytics API version
+All Log Analytics resources defined in a Resource Manager template have a property **apiVersion** that defines the version of the API the resource should use.  This version is different for resources that use the [legacy and the upgraded query language](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ The following table specifies the Log Analytics API versions for legacy and upgraded workspaces and a sample query to specify the different syntax for each. 
+
+| Workspace version | API version | Sample query |
+|:---|:---|:---|
+| v1 (legacy)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
+| v2 (upgraded) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+
+Note the following for which workspaces are supported by different versions.
+
+- Templates that use the legacy query language can be installed in a legacy or upgraded workspace.  If installed in an upgraded workspace, then queries are converted on the fly to the new language when they are run by the user.
+- Templates that use the upgraded query language can only be installed in an upgraded workspace.
+
 
 ## Saved Searches
-Include [saved searches](../log-analytics/log-analytics-log-searches.md) in a solution to allow users to query data collected by your solution.  Saved searches will appear under **Favorites** in the OMS portal and **Saved Searches** in the Azure portal .  A saved search is also required for each alert.   
+Include [saved searches](../log-analytics/log-analytics-log-searches.md) in a solution to allow users to query data collected by your solution.  Saved searches appear under **Favorites** in the OMS portal and **Saved Searches** in the Azure portal.  A saved search is also required for each alert.   
 
 [Log Analytics saved search](../log-analytics/log-analytics-log-searches.md) resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches` and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
@@ -65,7 +80,7 @@ Include [saved searches](../log-analytics/log-analytics-log-searches.md) in a so
 
 
 
-Each of the properties of a saved search are described in the following table. 
+Each property of a saved search are described in the following table. 
 
 | Property | Description |
 |:--- |:--- |
@@ -81,10 +96,10 @@ Each of the properties of a saved search are described in the following table.
 
 Alert rules in a management solution are made up of the following three different resources.
 
-- **Saved search.**  Defines the log search that will be run.  Multiple alert rules can share a single saved search.
-- **Schedule.**  Defines how often the log search will be run.  Each alert rule will have one and only one schedule.
-- **Alert action.**  Each alert rule will have one action resource with a type of **Alert** that defines the details of the alert such as the criteria for when an alert record will be created and the alert's severity.  The action resource will optionally define a mail and runbook response.
-- **Webhook action (optional).**  If the alert rule will call a webhook, then it requires an additional action resource with a type of **Webhook**.    
+- **Saved search.**  Defines the log search that is run.  Multiple alert rules can share a single saved search.
+- **Schedule.**  Defines how often the log search is run.  Each alert rule has one and only one schedule.
+- **Alert action.**  Each alert rule has one action resource with a type of **Alert** that defines the details of the alert such as the criteria for when an alert record is created and the alert's severity.  The action resource will optionally define a mail and runbook response.
+- **Webhook action (optional).**  If the alert rule calls a webhook, then it requires an additional action resource with a type of **Webhook**.    
 
 Saved search resources are described above.  The other resources are described below.
 
@@ -129,7 +144,7 @@ Action resources have a type of `Microsoft.OperationalInsights/workspaces/savedS
 
 #### Alert actions
 
-Every schedule will have one **Alert** action.  This defines the details of the alert and optionally notification and remediation actions.  A notification sends an email to one or more addresses.  A remediation starts a runbook in Azure Automation to attempt to remediate the detected issue.
+Every schedule has one **Alert** action.  This defines the details of the alert and optionally notification and remediation actions.  A notification sends an email to one or more addresses.  A remediation starts a runbook in Azure Automation to attempt to remediate the detected issue.
 
 Alert actions have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
@@ -174,7 +189,7 @@ The properties for Alert action resources are described in the following tables.
 
 | Element name | Required | Description |
 |:--|:--|:--|
-| Type | Yes | Type of the action.  This will be **Alert** for alert actions. |
+| Type | Yes | Type of the action.  This is **Alert** for alert actions. |
 | Name | Yes | Display name for the alert.  This is the name that's displayed in the console for the alert rule. |
 | Description | No | Optional description of the alert. |
 | Severity | Yes | Severity of the alert record from the following values:<br><br> **Critical**<br>**Warning**<br>**Informational** |
@@ -213,7 +228,7 @@ This section is optional.  Include this section if you want to suppress alerts f
 
 | Element name | Required | Description |
 |:--|:--|:--|
-| Recipients | Yes | Comma delimited list of email addresses to send notification when an alert is created such as in the following example.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Recipients | Yes | Comma-delimited list of email addresses to send notification when an alert is created such as in the following example.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
 | Subject | Yes | Subject line of the mail. |
 | Attachment | No | Attachments are not currently supported.  If this element is included, it should be **None**. |
 
@@ -253,17 +268,17 @@ The properties for Webhook action resources are described in the following table
 
 | Element name | Required | Description |
 |:--|:--|:--|
-| type | Yes | Type of the action.  This will be **Webhook** for webhook actions. |
+| type | Yes | Type of the action.  This is **Webhook** for webhook actions. |
 | name | Yes | Display name for the action.  This is not displayed in the console. |
 | wehookUri | Yes | Uri for the webhook. |
-| customPayload | No | Custom payload to be sent to the webhook. The format will depend on what the webhook is expecting. |
+| customPayload | No | Custom payload to be sent to the webhook. The format depends on what the webhook is expecting. |
 
 
 
 
 ## Sample
 
-Following is a sample of a solution that include that includes the following resources:
+Following is a sample of a solution that includes that includes the following resources:
 
 - Saved search
 - Schedule

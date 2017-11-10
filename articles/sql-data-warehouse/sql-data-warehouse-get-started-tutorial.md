@@ -14,8 +14,8 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-ms.author: elbutter;barbkess
+ms.date: 11/06/2017
+ms.author: elbutter
 
 ---
 # Get started with SQL Data Warehouse
@@ -82,8 +82,7 @@ A SQL Data Warehouse is a special type of database that is designed for massivel
 4. Choose **Pin to dashboard**
     ![Pin To Dashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
-5. Sit back and wait for your data warehouse to deploy! It's normal for this process to take several minutes. 
-The portal notifies you when your data warehouse is ready to use. 
+5. Sit back and wait for your data warehouse to deploy! It's normal for this process to take several minutes. The portal notifies you when your data warehouse is ready to use. 
 
 ## Connect to SQL Data Warehouse
 
@@ -141,7 +140,6 @@ Since you are currently logged in as the server admin you have permissions to cr
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. Now querying the *SQL Data Warehouse database*, create a database user based on the login you created to access and perform operations on the database.
@@ -199,16 +197,15 @@ You are now ready to load data into your data warehouse. This step shows you how
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
 
 3. Define the external file formats
 
-    The ```CREATE EXTERNAL FILE FORMAT``` command is used to specify the
-    format of files that contain the external data. They contain text separated by one or more characters called delimiters. For demonstration purposes, the taxi cab data is stored both as uncompressed data and as gzip compressed data.
+    The ```CREATE EXTERNAL FILE FORMAT``` command is used to specify the format of files that contain the external data. They contain text separated by one or more characters called delimiters. For demonstration purposes, the taxi cab data is stored both as uncompressed data and as gzip compressed data.
 
-	Run these T-SQL commands to define two different formats: uncompressed and compressed.
+    Run these T-SQL commands to define two different formats: uncompressed and compressed.
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -227,7 +224,7 @@ You are now ready to load data into your data warehouse. This step shows you how
         FORMAT_TYPE = DELIMITEDTEXT,
         FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
             STRING_DELIMITER = '',
-	    DATE_FORMAT = '',
+        DATE_FORMAT = '',
             USE_TYPE_DEFAULT = False
         ),
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
@@ -241,7 +238,7 @@ You are now ready to load data into your data warehouse. This step shows you how
     ```
 5. Create the external tables. These tables reference data stored in Azure blob storage. Run the following T-SQL commands to create several external tables that all point to the Azure blob we defined previously in our external data source.
 
-```sql
+  ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -407,14 +404,14 @@ You are now ready to load data into your data warehouse. This step shows you how
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
-```
+  ```
 
 ### Import the data from Azure blob storage.
 
@@ -432,7 +429,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
+
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -443,7 +440,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -453,7 +450,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-    
+
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -463,7 +460,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-    
+
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -473,7 +470,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-    
+
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -483,7 +480,7 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-    
+
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -497,9 +494,9 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
 
 2. View your data as it loads.
 
-   You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
-    
-    ```sql
+  You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+
+  ```sql
     SELECT
         r.command,
         s.request_id,
@@ -525,7 +522,8 @@ SQL Data Warehouse supports a key statement called CREATE TABLE AS SELECT (CTAS)
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-    ```
+  ```
+
 
 3. View all system queries.
 
@@ -565,7 +563,7 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     > [!NOTE]
     > Queries cannot run while changing the scale. Scaling **kills** your currently running queries. You can restart them when the operation is finished.
     >
-    
+
 5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager to move on quickly, feel free to select fewer rows. Take note of the time it takes to run this operation.
 
     ```sql
@@ -630,12 +628,12 @@ First, let's scale the sizing down to 100 DWU so we can get an idea of how one c
     > [!NOTE]
     > SQL DW does not automatically manage statistics for you. Statistics are important for query
     > performance and it is highly recommended you create and update statistics.
-    > 
+    >
     > **You gain the most benefit by having statistics on columns involved in joins, columns
     > used in the WHERE clause and columns found in GROUP BY.**
     >
 
-3. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
+4. Run the query from Prerequisites again and observe any performance differences. While the differences in query performance will not be as drastic as scaling up, you should notice a  speed-up. 
 
 ## Next steps
 
@@ -658,7 +656,7 @@ savings by pausing and scaling to meet your business needs.
 
 [Migrating Data to Azure SQL Data Warehouse][]
 
-[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[Concurrency and Workload Management]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Best practices for Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Query Monitoring]: sql-data-warehouse-manage-monitor.md
 [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
