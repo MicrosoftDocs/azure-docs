@@ -8,7 +8,7 @@
 | Windows Server 2012 R2 | [385.41](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
 
 > [!NOTE]
-> Microsoft provides GRID driver installers for Azure VMs. Install only these GRID drivers on Azure NV VMs. These drivers include licensing for GRID Virtual GPU Software in Azure.
+> Microsoft redistributes NVIDIA GRID driver installers for NV VMs. Install only these GRID drivers on Azure NV VMs. These drivers include licensing for GRID Virtual GPU Software in Azure.
 >
 
 ### NC instances - NVIDIA Tesla drivers
