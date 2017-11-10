@@ -49,18 +49,6 @@ Docker for Windows can run either Windows containers or Linux containers. The st
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
-   > [!NOTE]
-   > During bug bash: Instead of step 4, run the following code:
-   >
-   > Download [scripts](https://azureiotedgepreview.blob.core.windows.net/shared/azure-iot-edge-ctl.zip)
-   >
-   > Extract all
-   >
-   > Open cmd in extracted dir
-   >
-   > `pip install -U .[win32]`
-
-
 ### Windows containers in Docker
 
 1. Make sure you're using a supported Windows version:
