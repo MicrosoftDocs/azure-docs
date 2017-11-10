@@ -174,7 +174,7 @@ In this section, you create a Node.js console app that reads critical messages f
 
 Now you are ready to run the three applications.
 
-1. To run the **ReadDeviceToCloudMessages** application, in a command prompt or shell navigate to the readdevicetocloudmessages folder and execute the following command:
+1. To run the **ReadDeviceToCloudMessages.js** application, in a command prompt or shell navigate to the readdevicetocloudmessages folder and execute the following command:
 
    ```cmd/sh
    node ReadDeviceToCloudMessages.js
@@ -182,7 +182,7 @@ Now you are ready to run the three applications.
 
    ![Run read-d2c-messages][readd2c]
 
-2. To run the **ReadCriticalQueue** application, in a command prompt or shell navigate to the readcriticalqueue folder and execute the following command:
+2. To run the **ReadCriticalQueue.js** application, in a command prompt or shell navigate to the readcriticalqueue folder and execute the following command:
 
    ```cmd/sh
    node ReadCriticalQueue.js
@@ -190,7 +190,7 @@ Now you are ready to run the three applications.
    
    ![Run read-critical-messages][readqueue]
 
-3. To run the **SimulatedDevice** app, in a command prompt or shell navigate to the simulateddevice folder and execute the following command:
+3. To run the **SimulatedDevice.js** app, in a command prompt or shell navigate to the simulateddevice folder and execute the following command:
 
    ```cmd/sh
    node SimulatedDevice.js
@@ -198,14 +198,12 @@ Now you are ready to run the three applications.
    
    ![Run simulated-device][simulateddevice]
 
-1. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, navigate to and click the JSON file, and click **Download** to view the data.
+## (Optional) Add Storage queue to your IoT hub and route messages to it
+
+In this section, you create a Storage account, connect it to your IoT hub, and configure your IoT hub to send messages to the account based on the presence of a property on the message. For more information about how to manage storage, see [Get started with Azure Storage][Azure Storage].
 
  > [!NOTE]
-   > If you are limited to only one **Endpoint**, only complete this step after re-running the tutorial after replacing the **CriticalQueue** with the **StorageQueue** as your single endpoint.
-
-## (Optional) Read from the storage endpoint
-
-In this section, you create a Storage account, connect it to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message. For more information about how to manage storage, see [Get started with Azure Storage][Azure Storage].
+   > If you are not limited to one **Endpoint**, feel free to setup the **StorageQueue** in addition to the **CriticalQueue** and run both simulatneously.
 
 1. Create a Storage account as described in [Azure Storage Documentation][lnk-storage]. Make a note of the account name.
 
@@ -213,17 +211,24 @@ In this section, you create a Storage account, connect it to your IoT hub, and c
 
     ![Endpoints in IoT hub][30]
 
-3. In the **Endpoints** blade, click **Add** at the top to add your queue to your IoT hub. Name the endpoint **StorageQueue** and use the drop-downs to select **Azure Storage Container**, and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom.  
+3. In the **Endpoints** blade, select the **CriticalQueue** endpoint, and click **Delete**. Click **Yes**, and then click **Add**. Name the endpoint **StorageQueue** and use the drop-downs to select **Azure Storage Container**, and create a **Storage account** and a **Storage container**.  Make note of the names.  When you are done, click **OK** at the bottom. 
+
+ > [!NOTE]
+   > If you are not limited to one **Endpoint**, you do not need to delete the **CriticalQueue**.
 
     ![Adding an endpoint][31]
 
-4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="storage"` as the condition, and choose **StorageQueue** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
+4. Click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **Device Messages** as the source of data. Enter `level="storage"` as the condition, and choose **StorageQueue** as a custom endpoint as the routing rule endpoint. Click **Save** at the bottom.  
 
     ![Adding a route][32]
 
     Make sure the fallback route is set to **ON**. This setting is the default configuration of an IoT hub.
 
     ![Fallback route][33]
+
+1. Make sure your previous application **SimulatedDevice.js** is still running. 
+
+1. In the Azure Portal, go to your storage account, under **Blob Service**, click **Browse blobs...**.  Select your container, navigate to and click the JSON file, and click **Download** to view the data.
 
 ## Next steps
 
