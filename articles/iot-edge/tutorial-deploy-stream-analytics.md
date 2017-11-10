@@ -59,15 +59,19 @@ In this section, you create an Azure Stream Analytics job to take data from your
 
 2. Enter a name and use the remaining default values.  Click **Create**. Note the name for later.
 
-    > [!NOTE]
-    > For 11-09 bug bash, please create your ASA job under location **Canada East**.
-
     ![new storage account][1]
 
     > [!NOTE]
     > Make sure the **Location** you use is the same as your IoT Hub **Location** else additional fees may apply.
 
+3. In the Azure portal, navigate to the storage account that you just created. Click **Browse blobs** under **Blob Service**. Create a new container for the ASA module to store data. Set the access level to _Container_. Click **OK**.
+
+    ![storage settings][10]
+
 1. In the Azure portal, navigate to **Create a resource -> Internet of Things** and click **Stream Analytics Job**.
+
+    > [!NOTE]
+    > For 11-09 bug bash, please create your ASA job under location **Canada East**.
 
 1. Enter a name, **choose "Edge" as Hosting environment** and use the remaining default values.  Click **Create**.
 
@@ -116,7 +120,11 @@ You are now ready to deploy the ASA job on your IoT Edge device.
     > [!NOTE]
     > For 11-09 bug bash, there is a known issue that you can't use long module name. Click edit button for this ASA module, rename the module with any three characters. Then save.
 
-1. Copy the name of this module. Click **Next** to configure routes.
+1. Click **Add IoT Edge Module** to add the temperature sensor module. Enter _tempSensor_ for name, `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:latest` for Image URL. Leave the other settings unchanged, and click **Save**.
+
+    ![temperature module][11]
+
+1. Copy the name of the ASA module. Click **Next** to configure routes.
 
 1. Copy the following to **Routes**.  Replace _{moduleName}_ with the module name you copied:
 
@@ -178,6 +186,8 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 [7]: ./media/tutorial-deploy-stream-analytics/module_output.png
 [8]: ./media/tutorial-deploy-stream-analytics/docker_output.png
 [9]: ./media/tutorial-deploy-stream-analytics/docker_log.png
+[10]: ./media/tutorial-deploy-stream-analytics/storage_settings.png
+[11]: ./media/tutorial-deploy-stream-analytics/temp_module.png
 
 
 <!-- Links -->
