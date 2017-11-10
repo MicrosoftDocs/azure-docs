@@ -55,7 +55,7 @@ To create a wildcard record set, use the record set name '\*'. Alternatively, yo
 ### CAA records
 
 CAA records allow domain owners to specify which Certificate Authorities (CAs) are authorized to issue certificates for their domain. This allows CAs to avoid mis-issuing certificates in some circumstances. CAA records have three properties:
-* flags: This is an integer between 0 and 255, used to represent the critical flag that has special meaning per the [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* Flags: This is an integer between 0 and 255, used to represent the critical flag that has special meaning per the [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * Tag: an ASCII string which can be one of the following:
     * Issue: use this if you want to specify CAs that are permitted to issue certs (all types)
     * Issuewild: use this if you want to specify CAs that are permitted to issue certs (wildcard certs only)
