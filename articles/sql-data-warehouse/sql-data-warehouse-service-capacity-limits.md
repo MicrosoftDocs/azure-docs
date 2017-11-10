@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 11/10/2017
 ms.author: kevin;barbkess
 
 ---
@@ -24,8 +24,8 @@ The following tables contain the maximum values allowed for various components o
 ## Workload management
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |Max DWU for a single SQL Data Warehouse |6000 |
-| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |Max DWU for a single SQL server |6000 by default<br/><br/> By default, each SQL server (e.g. myserver.database.windows.net) has a DTU Quota of 45,000 which allows up to 6000 DWU. This quota is simply a safety limit. You can increase your quota by [creating a support ticket][creating a support ticket] and selecting *Quota* as the request type.  To calculate your DTU needs, multiply the 7.5 by the total DWU needed. You can view your current DTU consumption from the SQL server blade in the portal. Both paused and un-paused databases count toward the DTU quota. |
+| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |Max DWU for a single SQL Data Warehouse | Optimized for Elasticity: DW6000<br></br>Optimized for Compute: DW30000c |
+| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |Default DTU per server |54,000<br></br>By default, each SQL server (for example, myserver.database.windows.net) has a DTU Quota of 54,000 which allows up to DW6000c. This quota is simply a safety limit. You can increase your quota by [creating a support ticket][creating a support ticket] and selecting *Quota* as the request type.  To calculate your DTU needs, multiply the 7.5 by the total DWU needed, or multiply 9.0 by the total cDWU needed. For example:<br></br>DW6000 x 7.5 = 45,000 DTUs<br></br>DW600c x 9.0 = 54,000 DTUs.<br></br>You can view your current DTU consumption from the SQL server blade in the portal. Both paused and un-paused databases count toward the DTU quota. |
 | Database connection |Concurrent open sessions |1024<br/><br/>We support a maximum of 1024 active connections, each of which can submit requests to a SQL Data Warehouse database at the same time. Note, that there are limits on the number of queries that can actually execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed. |
 | Database connection |Maximum memory for prepared statements |20 MB |
 | [Workload management][Workload management] |Maximum concurrent queries |32<br/><br/> By default, SQL Data Warehouse can execute a maximum of 32 concurrent queries and queues remaining queries.<br/><br/>The concurrency level may decrease when users are assigned to a higher resource class or when SQL Data Warehouse is configured with low DWU. Some queries, like DMV queries, are always allowed to run. |
