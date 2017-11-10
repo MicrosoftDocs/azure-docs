@@ -25,10 +25,15 @@ This article describes how to use the Azure portal to add an event source that r
 ## Add a new event source
 
 1. In the Azure portal, locate your existing Time Series Insights environment.
+
 2. Under the **Environment Topology** heading, click **Event Sources**.
+
 3. Click **Add**.
-4. Provide an **Event source name** unique to this Time Series Insights environment. 
+
+4. Provide an **Event source name** unique to this Time Series Insights environment, such as **EHSource1**.
+
 5. Select the **Source** as **Event Hub**.
+
 6. Select the appropriate **Import option**. 
    - If you already have an existing Event Hub on one of your subscriptions, it is easiest to select **Use Event Hub from available subscriptions**. 
    - If the Event Hub is external to your subscription, or you wish to choose advanced options, choose **Provide Event Hub settings manually**. 
@@ -46,7 +51,7 @@ This article describes how to use the Azure portal to add an event source that r
 | Event hub policy key | The Shared Access key is not needed.
 | Event hub consumer group | The Consumer Group to read events from the Event Hub. It is highly recommended to use a dedicated consumer group for your event source.
 
-8. If you have selected the **Provide Event Hub settings manually** option, the following table explains each required property.
+8. If you have selected the **Provide Event Hub settings manually** option, the following table explains each required property:
 
 | PROPERTY NAME | DESCRIPTION |
 | --- | --- |
