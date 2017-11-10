@@ -57,7 +57,7 @@ Now let's clone a Cassandra API app from github, set the connection string, and 
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the `uprofile.js` file and you find that these lines of code create the Azure Cosmos DB resources. 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `uprofile.js` file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
 * User name and password is set using the connection string page in the Azure portal.  
 
