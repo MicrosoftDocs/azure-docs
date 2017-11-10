@@ -1,5 +1,5 @@
 ---
-title: Configure your ASE to be force tunneled
+title: Configure your Azure App Service Environment to be force tunneled
 description: Enable your ASE to work when outbound traffic is force tunneled
 services: app-service
 documentationcenter: na
@@ -16,9 +16,9 @@ ms.date: 11/10/2017
 ms.author: ccompy
 ---
 
-# Configuring your ASE with forced tunnling
+# Configure your App Service Environment with forced tunneled
 
-The App Service Environment is a deployment of the Azure App Service in a customer's Azure Virtual Network (VNet). Many customers configure their VNets to be extensions of their on premises networks with VPNs or ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all outbound traffic on premises before it can go out to the internet. Changing the routing of the VNet so that the outbound traffic from the VNet flows through the VPN or ExpressRoute connection to on premises is called forced tunneling.  
+The App Service Environment (ASE) is a deployment of the Azure App Service in a customer's Azure Virtual Network (VNet). Many customers configure their VNets to be extensions of their on-premises networks with VPNs or ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all outbound traffic on-premises before it can go out to the internet. Changing the routing of the VNet so that the outbound traffic from the VNet flows through the VPN or ExpressRoute connection to on-premises is called forced tunneling.  
 
 Forced tunneling can cause problems for an ASE. The ASE has a number of external dependencies, which are enumerated in this [ASE Network Architecture][network] document. The ASE, by default, requires that all outbound communication goes through the VIP that is provisioned with the ASE.
 
@@ -51,7 +51,7 @@ If you make these two changes, internet-destined traffic that originates from th
 
 ## Change the egress endpoint for your ASE ##
 
-This section describes how to enable an ASE to operate in a forced tunnel configuration by changing the egress endpoint used by the ASE. If the outbound traffic from the ASE is forced tunneled to an on premises network, then you need to allow that traffic to source from IP addresses other than the ASE VIP address.
+This section describes how to enable an ASE to operate in a forced tunnel configuration by changing the egress endpoint used by the ASE. If the outbound traffic from the ASE is forced tunneled to an on-premises network, then you need to allow that traffic to source from IP addresses other than the ASE VIP address.
 
 An ASE not only has external dependencies but it also must listen for inbound traffic to manage the ASE. The ASE must be able to respond to such traffic and the replies cannot be sent back from another address as that breaks TCP.  There are thus three steps required to change the egress endpoint for the ASE.
 
