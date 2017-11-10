@@ -54,4 +54,4 @@ Capacities scale linearly, so an S1 SKU with capacity 2 supports 2 GB (2 million
 4. Select **Save** to scale the environment. The progress indicator is displayed until the change is committed, momentarily. 
 
 ## Next steps
-Verify that the new capacity is sufficient to prevent throttling. For more information, see [If your environment is getting throttled](time-series-insights-diagnose-and-solve-problems.md#your-environment-is-getting-throttled).
+Verify that the new capacity is sufficient to prevent throttling. For more information, see [If your environment is getting throttled](time-series-insights-diagnose-and-solve-problems.md).
