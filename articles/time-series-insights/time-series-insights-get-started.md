@@ -22,7 +22,7 @@ Follow these steps to create an environment:
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 
-2.	Select the plus icon **+** in the top left corner to **Create a resource**.
+2.	Select the **+ Create a resource** button on the upper left of the portal.
 
 3.	Search for **Time Series Insights** in the search box.
 
@@ -33,8 +33,8 @@ Follow these steps to create an environment:
   ![Create the Time Series Insights resource group](media/get-started/getstarted-create-environment2.png)
 
 
-    Setting|Suggested value|Description
-    ---|---|---
+   Setting|Suggested value|Description
+   ---|---|---
    Environment name | A unique name | This name will represent the environment in [time series explorer](https://insights.timeseries.azure.com)
    Subscription | Your subscription | If you have multiple subscriptions, choose the subscription that contains your event source preferably. Time Series Insights can auto-detect Azure IoT Hub and Event Hub resources existing in the same subscription.
    Resource group | Create a new or use existing | A resource group is a collection of Azure resources used together. You can choose an existing resource group, for example the one which contains your Event Hub or IoT Hub, or make a new one if this project is not related to the other resources.
@@ -42,12 +42,13 @@ Follow these steps to create an environment:
    Pricing tier | S1 | Choose the throughput needed. For lowest costs and starter capacity, select S1.
    Capacity | 1 | Capacity is the multiplier applies to the ingress rate, storage capacity and cost associated with the selected Pricing SKU.  You can change capacity of an environment after creation. For lowest costs, select 1. 
   
-5. Check **Pin to dashboard** to best easily access your Time Series Environment in the future. 
-  ![Create the Time Series Insights pin to dashboard](media/get-started/getstarted-create-environment3.png)
+5. Check **Pin to dashboard** to best easily access your Time Series Environment in the future.
+
+   ![Create the Time Series Insights pin to dashboard](media/get-started/getstarted-create-environment3.png)
   
 6. Select **Create** to begin the provisioning process. It may take a couple of minutes.
 
-7. On the toolbar, select the **Notifications** symbol (bell icon) to monitor the deployment process. 
+7. On the topmost toolbar, select the **Notifications** symbol (bell icon) to monitor the deployment process. 
 
 When the deployment succeeds, you can select **Go to resource** to configure other properties, set security with data access policies, add event sources, add reference data sets, and other actions.
 
