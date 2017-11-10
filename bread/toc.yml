@@ -58,6 +58,9 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
+  - name: Azure Databricks
+    tocHref: /azure/azure-databricks/
+    topicHref: /azure/azure-databricks/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
