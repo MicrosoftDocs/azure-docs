@@ -53,7 +53,7 @@ Expand any item to see the detail:
 ![Choose Table, and use Configure Columns](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Sorting this way doesn't always show you the actual highest or lowest items. To sort items reliably, use the `top` or `sort` operator.
+> Click the header of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Sorting this way simply sorts the returned result set and doesn't always show you the actual highest or lowest items. To sort items reliably, use the `top` or `sort` operator.
 >
 >
 
