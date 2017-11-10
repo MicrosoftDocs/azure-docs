@@ -9,7 +9,7 @@ author: "douglaslMS"
 ms.author: "douglasl"
 manager: "craigg"
 ---
-# Monitor Azure SQL Data Sync (Preview) with OMS Log Analytics 
+# Monitor SQL Data Sync (Preview) with OMS Log Analytics 
 
 To check the SQL Data Sync activity log and detect errors and warnings, you previously had to check SQL Data Sync manually in the Azure portal, or use PowerShell or the REST API. Follow the steps in this article to configure a custom solution that improves the Data Sync monitoring experience. You can customize this solution to fit your scenario.
 
@@ -87,7 +87,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
     2.  Sync Group information.
 
-    3.  OMS information. Find this information at OMS Portal | Settings | Connected Sources. For more info about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (public preview)](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api).
+    3.  OMS information. Find this information at OMS Portal | Settings | Connected Sources. For more info about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (public preview)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Run the runbook in the Test pane. Check to make sure it was successful.
 
@@ -187,7 +187,7 @@ Download the code samples described in this article from the following locations
 For more info about SQL Data Sync, see:
 
 -   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
--   [Get Started with Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
 -   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
