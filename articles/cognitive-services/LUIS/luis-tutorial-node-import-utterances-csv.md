@@ -163,7 +163,7 @@ For example, the entry for "Turn on the lights" maps to this JSON:
         }
 ```
 
-In this example, the `intentName` comes from the user request under the **Request** column heading in the CSV file, and the `entityName` comes from the other columns with key information. For example, if there's an entry for **Operation** or **Device**, and that string also occurs in the actual request, then it can be labeled as an entity. The following code demonstrates this parsing process. You can copy or download it and save it to `_parse.js`.
+In this example, the `intentName` comes from the user request under the **Request** column heading in the CSV file, and the `entityName` comes from the other columns with key information. For example, if there's an entry for **Operation** or **Device**, and that string also occurs in the actual request, then it can be labeled as an entity. The following code demonstrates this parsing process. You can copy or [download](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_parse.js) it and save it to `_parse.js`.
 
 ```javascript
 const fse = require('fs-extra');
@@ -302,7 +302,7 @@ const convert = async (config) => {
 module.exports = convert;
 ``` 
 ## Creating the app
-Once the data has been parsed into JSON, we need a LUIS app to add it to. The following code creates the LUIS app. Copy or download it, and save it into `_create.js`.
+Once the data has been parsed into JSON, we need a LUIS app to add it to. The following code creates the LUIS app. Copy or [download](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_create.js) it, and save it into `_create.js`.
 
 ```javascript
 // node 7.x
@@ -374,7 +374,7 @@ var callCreateApp = async (options) => {
 module.exports = createApp;
 ```
 ## Add intents
-Once you have an app, you need to intents to it. The following code creates the LUIS app. Copy or download it, and save it into `_intents.js`.
+Once you have an app, you need to intents to it. The following code creates the LUIS app. Copy or [download](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_intents.js) it, and save it into `_intents.js`.
 
 ```javascript
 
@@ -458,7 +458,7 @@ var callAddIntent = async (options) => {
 module.exports = addIntents;
 ```
 ## Add entities
-The following code adds the entities to the LUIS app. Copy or download it, and save it into `_entities.js`.
+The following code adds the entities to the LUIS app. Copy or [download](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_upload.js) it, and save it into `_entities.js`.
 
 ```javascript
 // node 7.x
@@ -543,7 +543,7 @@ var callAddEntity = async (options) => {
 module.exports = addEntities;
 ```
 ## Add utterances
-Once the entities and intents have been defined in the LUIS app, you can add the utterances. The following code uses the [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API which allows you to add up to 100 utterances at a time.  Copy or download it, and save it into `_utterances.js`.
+Once the entities and intents have been defined in the LUIS app, you can add the utterances. The following code uses the [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API which allows you to add up to 100 utterances at a time.  Copy or [download](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_upload.js) it, and save it into `_utterances.js`.
 
 ```javascript
 // node 7.x
