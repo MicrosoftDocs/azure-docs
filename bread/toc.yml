@@ -214,7 +214,7 @@
       - name: Kafka
         tocHref: /azure/hdinsight/kafka
         topicHref: /azure/hdinsight/kafka/apache-kafka-introduction
-      - name: Multi-user
+      - name: Enterprise Security
         tocHref: /azure/hdinsight/domain-joined
         topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
       - name: R Server
