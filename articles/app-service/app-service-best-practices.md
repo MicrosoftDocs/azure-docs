@@ -40,8 +40,9 @@ For more information about “statefull” vs “stateless” applications you c
 A common reason for exhausting outbound TCP connections is the use of client libraries which are not implemented to reuse TCP connections, or in the case of a higher level protocol such as HTTP - Keep-Alive not being leveraged. Please review the documentation for each of the libraries referenced by the apps in your App Service Plan to ensure they are configured or accessed in your code for efficient reuse of outbound connections. Also follow the library documentation guidance for proper creation and release or cleanup to avoid leaking connections. While such client libraries investigations are in progress impact may be mitigated by scaling out to multiple instances.
 
 ### Node.js and outgoing http requests
-When working with Node.js and having a lot of outgoing http requests, dealing with HTTP - Keep-Alive is really important. You can use the [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) npm package to make it easier in your code.
-You should always handle the http response, even if you do nothing in the handler. If you do not handle the response properly, you application will finally get stuck, because no more socket will be available.
+When working with Node.js and many outgoing http requests, dealing with HTTP - Keep-Alive is really important. You can use the [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` package to make it easier in your code.
+
+You should always handle the `http` response, even if you do nothing in the handler. If you don't handle the response properly, your application will eventually get stuck because no more sockets are available.
 
 For example, when working with the `http` or `https` package:
 
@@ -51,8 +52,9 @@ var request = https.request(options, function(response) {
 });
 ```
 
-If you are running on App Service on Linux on a machine with multiple cores another best practice could be to use PM2 to start multiple node.js processes to execute your application. You can do it by specifying a startup command to your container.
-For example, to start 4 instances:
+If you are running on App Service on Linux on a machine with multiple cores, another best practice is to use PM2 to start multiple Node.js processes to execute your application. You can do this by specifying a startup command to your container.
+
+For example, to start four instances:
 
 `pm2 start /home/site/wwwroot/app.js --no-daemon -i 4`
 
