@@ -62,13 +62,9 @@ Create a ResourceGroup in your subscription. This can be done through REST APIs,
 
 A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. For more information, see the following documents:
 
-- [Azure Resource Manager overview - Template deployment](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment)
+- [Azure Resource Manager overview - Template deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)
 
-- [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)
-
-The template that creates a Time Series Insights Environment and a child EventSource that reads events from an EventHub can be downloaded from the following link: 
-
-https://microsoft.sharepoint.com/teams/TSIcore/Shared%20Documents/Getting%20Started/CreateTSIEnvironmentAndEventSourceTemplate.json 
+- [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
 
 |Parameter Name |Description  |Required/Optional |Default Value  |
@@ -91,7 +87,7 @@ https://microsoft.sharepoint.com/teams/TSIcore/Shared%20Documents/Getting%20Star
 |**accessPolicyPrincipalObjectId**|	The objectId of the service principal for the user or application in AAD. The service principal objectId can be obtained by calling the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. Creating an access policy for AAD groups is not supported.|Required	  |         |         |
 |**accessPolicyRole**|	The role granted to the service principle. The supported roles are *Reader* and *Contributor*. For more information, see [Time Series Insights RBAC roles](#time-series-insights-rbac-roles).|	Required  |         |
 
-You can pass parameters at the PowerShell command line, but it’s often cleaner and more convenient to use a Parameters file. In this case, the command to create the environment would look like: 
+You can pass parameters at the PowerShell command line, but its often cleaner and more convenient to use a Parameters file. In this case, the command to create the environment would look like: 
 
 `PS C:> New-AzureRmResourceGroupDeployment -ResourceGroupName TestTSITemplateDeployment1 -TemplateFile .\CreateEnvironmentTemplate.json -TemplateParameterFile .\CreateEnvironmentParameters.json`
 
