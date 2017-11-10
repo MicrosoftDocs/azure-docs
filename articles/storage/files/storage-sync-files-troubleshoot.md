@@ -125,6 +125,7 @@ This issue is expected if you create a Cloud Endpoint and use an Azure file shar
 If individual files fail to sync:
 1. In Event Viewer, review the operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent.
 2. Verify that there are no open handles on the file.
+
     > [!NOTE]
     > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
@@ -133,6 +134,7 @@ If individual files fail to sync:
 If files fail to tier to Azure Files:
 
 1. Verify that the files exist in the Azure file share.
+
     > [!NOTE]
     > A file must be synced to an Azure file share before it can be tiered.
 2. In Event Viewer, review the operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent.
