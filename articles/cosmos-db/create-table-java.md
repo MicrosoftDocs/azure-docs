@@ -1,6 +1,6 @@
 ---
-title: Build an Azure Cosmos DB Java application using the Table API | Microsoft Docs
-description: Get started with Azure Cosmos DB's Table API using Java
+title: 'Quickstart: Table API with Java - Azure Cosmos DB | Microsoft Docs'
+description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Java
 services: cosmos-db
 documentationcenter: ''
 author: arramac
@@ -18,11 +18,11 @@ ms.date: 11/15/2017
 ms.author: arramac
 
 ---
-# Azure Cosmos DB: Build a Java application using the Table API
+# Quickstart: Build a Table API app with Java and Azure Cosmos DB
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, wide-column, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+This quickstart shows how to use Java and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. This quickstart also shows you how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
 
-This quick start demonstrates how to create an Azure Cosmos DB [Table API](table-introduction.md) account by using the Azure portal. You'll then clone and run a sample from github that inserts, updates, queries, and deletes entities in a table by using Java and the Azure Cosmos DB Table API.
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
 ## Prerequisites
 
@@ -129,14 +129,11 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps: 
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  Now you can query your data using the Table API.  
 
 > [!div class="nextstepaction"]
-> [Query using the Table API](tutorial-query-table.md)
+> [Import table data to the Table API](table-import.md)
