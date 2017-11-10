@@ -29,8 +29,7 @@ This tutorial describes the region availability for the StorSimple Device Manage
 
 StorSimple Device Manager service is not available in all the Azure regions. The service is currently supported in 12 public regions and 2 Azure Government regions.
 
-You define a region or location when you first create the StorSimple Device Manager service. 
-Typically, locations refers to the geographical location in which the StorSimple device will be deployed. But the device and the service can also be deployed in different locations.
+You define a region or location when you first create the StorSimple Device Manager service. In general, a location closest to the geographical region where the device is deployed is chosen. But the device and the service can also be deployed in different locations.
 
 Here is a list of regions where StorSimple Device Manager service is available and can be deployed.
 
@@ -39,6 +38,7 @@ Here is a list of regions where StorSimple Device Manager service is available a
 Azure storage accounts are available in all the Azure regions. Storage account is where the data is physically stored. When you create a storage account, the primary location of the storage account is chosen.
 
 When you first create a StorSimple Device Manager service and associate a storage account with it, the location where you deploy the service can be different from the primary location of the storage account. 
+Your StorSimple Device Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Device Manager and Azure storage account separately
 
 If you are using a cloud appliance, then we recommend that the region is which you deploy the service is the same as the region associated with the storage account used by the service. Storage accounts in different regions may result in poor performance. 
 
@@ -46,7 +46,9 @@ If you are using a cloud appliance, then we recommend that the region is which y
 
 Depending upon the model, the StorSimple devices can be available in different countries or locations.
 
-If using a StorSimple 8100 or 8600, then the physical device is available in the following countries. For a most up-to-date list of the countries, go to StorSimple country availability.
+If using a StorSimple 8100 or 8600, then the physical device is available in the following countries. Microsoft can ship physical hardware and provide hardware spare parts replacement for StorSimple to the countries in this list. For a most up-to-date list of the countries, go to StorSimple country availability. 
+
+It is important to not place a StorSimple physical device in a region where StorSimple is not supported. Microsoft will not be able to ship any replacement parts to countries where StorSimple is not supported. 
 
 | #  | Country        | #  | Country     | #  | Country      | #  | Country              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
