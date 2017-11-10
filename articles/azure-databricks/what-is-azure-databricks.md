@@ -27,6 +27,8 @@ Azure Databricks is an Apache Spark-based analytics platform optimized for the M
 
 Azure Databricks comprises the complete open-source Apache Spark cluster technologies and capabilities. Spark in Azure Databricks includes the following components:
 
+![Apache Spark in Azure Databricks](./media/what-is-azure-databricks/apache-spark-ecosystem-databricks.png "Apache Spark in Azure Databricks")
+
 * **Spark SQL and DataFrames**: Spark SQL is the Spark module for working with structured data. A DataFrame is a distributed collection of data organized into named columns. It is conceptually equivalent to a table in a relational database or a data frame in R/Python.
 
 * **Streaming**: Real-time data processing and analysis for analytical and interactive applications. Integrates with HDFS, Flume, and Kafka.
@@ -41,9 +43,9 @@ Azure Databricks comprises the complete open-source Apache Spark cluster technol
 
 Azure Databricks builds on the capabilities of Spark by providing a zero-management cloud platform that includes:
 
-- fully managed Spark clusters
-- an interactive workspace for exploration and visualization
-- a platform for powering your favorite Spark-based applications
+- Fully managed Spark clusters
+- An interactive workspace for exploration and visualization
+- A platform for powering your favorite Spark-based applications
 
 ### Fully managed Apache Spark clusters in the cloud
 

@@ -19,7 +19,7 @@ ms.author: nitinme
 
 # Quickstart: Get started with Azure Databricks using the Azure portal
 
-This quickstart shows how to create an Azure Databricks workspace and an Apache Spark cluster within that workspace. You also learn how to access Azure storage from a Databricks Spark cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
+This quickstart shows how to create an Azure Databricks workspace and an Apache Spark cluster within that workspace. Finally, you learn how to run a Spark job on the Databricks cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
 
 ## Log in to the Azure portal
 
@@ -27,7 +27,7 @@ Log in to the [Azure  portal](https://portal.azure.com).
 
 ## Create a Databricks workspace
 
-Before you begin with this quickstart, you need to [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Before you begin with this quickstart, you need to [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) and download a sample JSON file [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). You must also upload the sample JSON file to the Azure storage account you create. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files. 
 
 1. Click **+**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. Under **Azure Databricks**, click **Create**.
 
@@ -45,7 +45,7 @@ Before you begin with this quickstart, you need to [Create an Azure storage acco
 
 3. Click **Create**.
 
-## Create an Apache Spark cluster in Databricks
+## Create a Spark cluster in Databricks
 
 1. In the Azure portal, go to the Databricks workspace that you created, and then click **Initialize Workspace**.
 
@@ -63,21 +63,21 @@ Before you begin with this quickstart, you need to [Create an Azure storage acco
 
 For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
-## Access Azure Blob storage from the cluster
+## Run a Spark SQL job
 
-In this section, you create a notebook and then configure the notebook to read data from an Azure Blob storage account.
+In this section, you create a notebook, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
 
-1. In the left pane, click **Workspace**. From the **Workspace** drop-down, click **Create** and then click **Notebook**.
+1. In the left pane, click **Workspace**. From the **Workspace** drop-down, click **Create**, and then click **Notebook**.
 
-    ![Create notebook in databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Create notebook in databricks")
+    ![Create notebook in Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Create notebook in Databricks")
 
 2. In the **Create Notebook** dialog box, enter a name, select **Scala** as the language, and select the Spark cluster that you created earlier.
 
-    ![Create notebook in databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Create notebook in databricks")
+    ![Create notebook in Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Create notebook in Databricks")
 
     Click **Create**.
 
-3. In the following snippet, replace the placeholder values with your Azure storage account name and the storage account access key. Run SHIFT + ENTER to run the code cell. This snippet configures the notebook to read data from an Azure blob storage.
+3. In the following snippet, replace the placeholder values with your Azure storage account name and the storage account access key. Paste the snippet in an empty cell in the notebook and then press SHIFT + ENTER to run the code cell. This snippet configures the notebook to read data from an Azure blob storage.
 
        spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
     
@@ -86,7 +86,52 @@ In this section, you create a notebook and then configure the notebook to read d
     > [!NOTE]
     > You can also use Azure Data Lake Store with a Spark cluster on Azure Databricks. For instructions, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
 
-4. You can now run Spark jobs on the data available in the storage accounts. For more information on how to read different data formats and run jobs, see [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
+4. Run a SQL statement to create a temporary table using data from the sample JSON data file, **small_radio_json.json**. Paste the following snippet in a code cell and press SHIFT + ENTER.
+
+    ```sql
+    %sql 
+    CREATE TEMPORARY TABLE radio_sample_data
+    USING json
+    OPTIONS (
+     path "wasbs://mycontainer@hdiadlsstorage.blob.core.windows.net/small_radio_json.json"
+    )
+    ```
+
+    Once the command successfully completes, you have all the data from the JSON file as a table in Databricks cluster.
+
+    The `%sql` language magic command enables you to run a SQL code from the notebook, even if the notebook is of another type. For more information, see [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
+
+5. Let's look at a snapshot of the sample JSON data to better understand the query that we run. Paste the following snippet in the code cell and press **SHIFT + ENTER**.
+
+    ```sql
+    %sql 
+    SELECT * from radio_sample_data
+    ```
+
+6. You see a tabular output like shown in the following screenshot (only some columns are shown):
+
+    ![Sample JSON data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Sample JSON data")
+
+    Among other details, the sample data captures the gender of the audience of a radio channel (column name, **gender**)  and whether their subscription is free or paid (column name, **level**).
+
+7. You now create a visual representation of this data to show for each gender, how many users have free accounts and how many are paid subscribers. From the bottom of the tabular output, click the **Bar chart** icon, and then click **Plot Options**.
+
+    ![Create bar chart](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Create bar chart")
+
+8. In **Customize Plot**, drag-and-drop values as shown in the screenshot.
+
+    ![Customize bar chart](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Customize bar chart")
+
+    * Set **Keys** to **gender**.
+    * Set **Series groupings** to **level**.
+    * Set **Values** to **level**.
+    * Set **Aggregation** to **COUNT**.
+
+    Click **Apply**.
+
+9. The output shows the visual representation as depicted in the following screenshot:
+
+     ![Customize bar chart](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Customize bar chart")
 
 ## Clean up resources
 
