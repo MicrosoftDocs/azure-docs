@@ -153,5 +153,43 @@ Skus
 
 From this list, copy the chosen SKU name, and you have all the information for the `Set-AzureRMVMSourceImage` PowerShell cmdlet or for a resource group template.
 
+## Determining if plan information is needed to create a Virtual Machine
+
+Azure Marketplace Virtual Machine Images require that extra information (plan information) is provided in order to create a Virtual Machine using the image, to dermine if this extra information is required list the properties of a Virtual Machine Image
+
+```azurepowershell-interactive
+$pubName="bitnami"
+$offerName="rabbitmq"
+$skuName="rabbitmq"
+$version=(Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName)[0].Version
+Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName -Version $version
+```
+Output:
+
+```
+Id               : /Subscriptions/1e50fe9c-b28a-43d6-bbce-cbe72d4dc77b/Providers/Microsoft.Compute/Locations/north
+                   europe/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/<Version>
+Location         : northeurope
+PublisherName    : bitnami
+Offer            : rabbitmq
+Skus             : rabbitmq
+Version          : <Version>
+FilterExpression :
+Name             : <Version>
+OSDiskImage      : {
+                     "operatingSystem": "Linux"
+                   }
+PurchasePlan     : {
+                     "publisher": "bitnami",
+                     "name": "rabbitmq",
+                     "product": "rabbitmq"
+                   }
+DataDiskImages   : []
+
+```
+
+If the PurchasePlan information is NOT null then this information is needed to create an Virtual Machine and in addition, before you can use a that image from PowerShell you must enable the it for programmatic use.To do this in the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save. The plan information should then be provided as arguments for the `Set-AzureRmVMPlan` PowerShell cmdlet or for the plan object in a resource manager template.
+
+
 ## Next steps
 Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the image information, which you just found, see [Create a Windows virtual machine with PowerShell](quick-create-powershell.md).
