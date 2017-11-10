@@ -13,7 +13,7 @@ ms.service: iot-edge
 
 ---
 
-# Securing Azure IoT Edge 
+# Securing Azure IoT Edge - preview
 
 Securing the intelligent edge is necessary to confer confidence in cloud operations at the edge. As an organiztion, you need to protect cloud assets and value generated from edge intelligent processing.  Azure IoT Edge is designed for security that is extensible to different risk profiles and deployment scenarios.  Azure IoT Edge offers the same protection that you expect from all Azure services. 
  
