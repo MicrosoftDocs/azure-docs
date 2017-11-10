@@ -142,7 +142,7 @@ parse(configParse)
 ```
 -->
 
-## Parsing the CSV
+## Parse the CSV
 
 The column entries that contain the utterances in the CSV have to be parsed into a JSON format that LUIS can understand. This JSON format must contain an `intentName` field that identifies the intent of the utterance. It must also contain an `entityLabels` field, which can be empty if there are no entities in the utterance. 
 
@@ -310,7 +310,7 @@ module.exports = convert;
 ``` 
 -->
 
-## Creating the app
+## Create the LUIS app
 Once the data has been parsed into JSON, we need a LUIS app to add it to. The following code creates the LUIS app. Copy or [download](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/_create.js) it, and save it into `_create.js`.
 
    [!code-nodejs[Node.js code for creating a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/_create.js)]
@@ -753,8 +753,6 @@ Once the script completes, you can log in to [luis.ai](https://www.luis.ai) and 
 ![TurnOn intent](./media/luis-tutorial-node-import-utterances-csv/imported-utterances.png) 
 
 ## Next steps
-
-* You can test and train your app in LUIS.ai.
 
 > [!div class="nextstepaction"]
 > [test and train your app in LUIS.ai](Train-Test.md)
