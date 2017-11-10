@@ -62,25 +62,23 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
  
 3. Create a file named **_X509testcertificate.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file. 
 
-4. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+4. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
 
 4. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
 5. Under the **Add enrollment list entry**, enter the following information:
     - Select **X.509** as the identity attestation *Mechanism*.
     - Under the *Certificate .pem or .cer file*, select the certificate file **_X509testcertificate.pem_** created in the previous steps using the *File Explorer* widget.
-    - Select an IoT hub linked with your provisioning service.
-    - Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
-    - Optionally, update the **Initial device twin state** with the desired initial configuration for the device.
+    - Optionally, you may provide the following information:
+        - Select an IoT hub linked with your provisioning service.
+        - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
+        - Update the **Initial device twin state** with the desired initial configuration for the device.
     - Once complete, click the **Save** button. 
 
     ![Enter X.509 device enrollment information in the portal blade](./media/quick-create-simulated-device-x509/enter-device-enrollment.png)  
 
    On successful enrollment, your X.509 device appears as **riot-device-cert** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
-> [!NOTE]
-> At present, you can only add one X.509 device for Individual Enrollment. Enrolling a second X.509 device replaces the enrollment for the existing X.509 device. 
-> 
 
 
 <a id="firstbootsequence"></a>
@@ -98,7 +96,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     static const char* scope_id = "[ID Scope]";
     ```
 
-4. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. Run the sample. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. Close the window at the end of the messages.
+4. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. Run the sample. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. Look for message indicating successful registration with your hub: *Registration Information received from service: yourhuburl!*. Close the window when prompted.
 
 5. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. Note that you might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
