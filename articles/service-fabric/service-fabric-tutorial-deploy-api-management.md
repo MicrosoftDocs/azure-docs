@@ -138,19 +138,28 @@ For this tutorial, we deploy a basic web server which echoes messages back to th
 5. Open a browser and type in http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, you should see "[version 1.0]Hello World !!!" displayed.
 
 ## Download and understand the Azure Resource Manager template
-Download the following Resource Manager template and parameters file:
+Download and save the following Resource Manager template and parameters file:
  
 - [apim.json][apim-arm]
 - [apim.parameters.json][apim-parameters-arm]
 
+The following sections describe the resources being defined by the *apim.json* template. For more information on the , follow the links to the template reference documentation within each section. The configurable parameters defined in the *apim.parameters.json* paramters file are set later in this article.
 
-### Configure API Management Security
-API Management must authenticate with your Service Fabric cluster for service discovery using a client certificate that has access to your cluster. For simplicity, this tutorial uses the same certificate specified previously when creating the [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor), which by default can be used to access your cluster. This tutorial uses the same certificate for client authentication and cluster node-to-node security. You may use a separate client certificate if you have one configured to access your Service Fabric cluster. Select the private key file (.pfx) of the cluster certificate that you specified when creating your Service Fabric cluster, give it a name, and provide the private key password.
+### Microsoft.ApiManagement/service
+[Microsoft.ApiManagement/service](/azure/templates/microsoft.apimanagement/service) describes the API Managment service instance: name, SKU or tier, resource group location, publisher information, and virtual network.
 
-### Configure the backend
-Now that API Management security is configured, you can configure the Service Fabric backend. For Service Fabric backends, the Service Fabric cluster is the backend, rather than a specific Service Fabric service. This allows a single policy to route to more than one service in the cluster. The **url** parameter here is a fully qualified service name of a service in your cluster that all requests are routed to by default if no service name is specified in a backend policy. You may use a fake service name, such as "fabric:/fake/service" if you do not intend to have a fallback service. Refer to the API Management [backend API reference documentation](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend) for more details on each field.
+### Microsoft.ApiManagement/service/certificates
+[Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates) configures API Management security. API Management must authenticate with your Service Fabric cluster for service discovery using a client certificate that has access to your cluster. This tutorial uses the same certificate specified previously when creating the [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor), which by default can be used to access your cluster. This tutorial uses the same certificate for client authentication and cluster node-to-node security. You may use a separate client certificate if you have one configured to access your Service Fabric cluster. Provide the name, password, and data (base-64 encoded) of the private key file (.pfx) of the cluster certificate that you specified when creating your Service Fabric cluster.
 
-### Create an API operation
+### Microsoft.ApiManagement/service/backends
+[Microsoft.ApiManagement/service/backends](/azure/templates/microsoft.apimanagement/service/backends) configures the Service Fabric backend. For Service Fabric backends, the Service Fabric cluster is the backend instead of a specific Service Fabric service. This allows a single policy to route to more than one service in the cluster. The **url** parameter here is a fully qualified service name of a service in your cluster that all requests are routed to by default if no service name is specified in a backend policy. You may use a fake service name, such as "fabric:/fake/service" if you do not intend to have a fallback service. The cluster managment endpoint and certificate thumbprint are used to identify the cluster.
+
+### Microsoft.ApiManagement/service/products
+[Microsoft.ApiManagement/service/products](/azure/templates/microsoft.apimanagement/service/products) configures the product. In Azure API Management, a product contains one or more APIs as well as a usage quota and the terms of use. Once a product is published, developers can subscribe to the product and begin to use the product's APIs. For this tutorial, a subscription is required but subcription approval by an admin is not.  This product is "published" and is visible to subscribers. 
+
+### Microsoft.ApiManagement/service/apis
+
+### Microsoft.ApiManagement/service/apis/operations
 Now we're ready to create an operation in API Management that external clients use to communicate with the ASP.NET Core stateless service running in the Service Fabric cluster.
     - **Web service URL**: For Service Fabric backends, this URL value is not used. You can put any value here. For this tutorial, use: "http://servicefabric".
     - **Display Name**: Provide any name for your API. For this tutorial, use "Service Fabric App".
@@ -163,7 +172,7 @@ to add a front-end API operation. Fill out the values:
     - **URL**: Select **GET** and provide a URL path for the API. For this tutorial, use "/api/values".  By default, the URL path specified here is the URL path sent to the backend Service Fabric service. If you use the same URL path here that your service uses, in this case "/api/values", then the operation works without further modification. You may also specify a URL path here that is different from the URL path used by your backend Service Fabric service, in which case you also need to specify a path rewrite in your operation policy later.
     - **Display name**: Provide any name for the API. For this tutorial, use "Values".
 
-### Configure a backend policy
+### Microsoft.ApiManagement/service/apis/policies
 The backend policy ties everything together. This is where you configure the backend Service Fabric service to which requests are routed. You can apply this policy to any API operation. The [backend configuration for Service Fabric](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService) provides the following request routing controls: 
  - Service instance selection by specifying a Service Fabric service instance name, either hardcoded (for example, `"fabric:/myapp/myservice"`) or generated from the HTTP request (for example, `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`).
  - Partition resolution by generating a partition key using any Service Fabric partitioning scheme.
@@ -192,6 +201,7 @@ For this tutorial, create a backend policy that routes requests directly to the 
 
 For a full set of Service Fabric back-end policy attributes, refer to the [API Management back-end documentation](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService)
 
+### Microsoft.ApiManagement/service/products/apis
 
 ## Set parameters and deploy API Management
 Fill in the following empty parameters in the *apim.parameters.json* for your deployment.
