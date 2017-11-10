@@ -280,7 +280,7 @@ oc create -f ocp-omsagent.yml
 
 ## Configure metrics and logging
 
-The OpenShift Container Platform (OCP) Resource Manager template provides input parameters for enabling metrics and logging. The OpenShift Container Platform Marketplace offer and the OpenShift Origin Resource Manager template do not.
+The Azure Resource Manager template for OpenShift Container Platform provides input parameters for enabling metrics and logging. The OpenShift Container Platform Marketplace offer and the OpenShift Origin Resource Manager template do not.
 
 If you used the OCP Resource Manager template and metrics and logging weren't enabled at installation time, or if you used the OCP Marketplace offer, you can be easily enable these after the fact. If you're using the OpenShift Origin Resource Manager template, some pre-work is required.
 
