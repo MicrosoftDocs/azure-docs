@@ -1,6 +1,6 @@
 ---
-title: Build an Azure Cosmos DB Python application using the Table API | Microsoft Docs
-description: Get started with Azure Cosmos DB's Table API using Python
+title: 'Quickstart: Table API with Python - Azure Cosmos DB | Microsoft Docs'
+description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Python
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -17,11 +17,11 @@ ms.date: 11/15/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a Python application using the Table API
+# Quickstart: Build a Table API app with Python and Azure Cosmos DB
+
+This quickstart shows how to use Python and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. This quickstart also shows you how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, wide-column, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
-
-This quick start demonstrates how to create an Azure Cosmos DB [Table API](table-introduction.md) account by using the Azure portal. You'll then clone and run a sample from github that inserts, updates, queries, and deletes entities in a table by using Python and the Azure Cosmos DB Table API.
 
 ## Prerequisites
 
@@ -79,32 +79,17 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
-    Use the copy buttons on the right side of the screen to copy the CONNECTION STRING.
-
     ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-python/connection-string.png)
 
-2. In Visual Studio, open the app.config file. 
+2. Open the config.py file, and copy the required connection string properties into the config file.
 
-3. Paste the CONNECTION STRING value into the app.config file as the value of the CosmosDBStorageConnectionString. 
-
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
-
-    > [!NOTE]
-    > To use this app with Azure Table storage, you need to change the connection string in `app.config file`. Use the account name as Table-account name and key as Azure Storage Primary key. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
-    >
-
-4. Save the app.config file.
-
-You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+3. Save the config.py file.
 
 ## Run the app
 
 1. In Visual Studio, right-click on the project in **Solution Explorer**, select the current Python environment, then right click.
 
-2. Select Install Python Package, then type in **pydocumentdb**
+2. Select Install Python Package, then type in **azure-storage-table**
 
 3. Run F5 to run the application. Your app displays in your browser. 
 
@@ -116,14 +101,11 @@ You can now go back to Data Explorer and see query, modify, and work with this n
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps: 
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  Now you can query your data using the Table API.  
 
 > [!div class="nextstepaction"]
-> [Query using the Table API](tutorial-query-table.md)
+> [Import table data to the Table API](table-import.md)

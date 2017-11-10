@@ -1,6 +1,6 @@
 ---
-title: Build an Azure Cosmos DB Java application using the Table API | Microsoft Docs
-description: Get started with Azure Cosmos DB's Table API using Java
+title: 'Quickstart: Table API with Java - Azure Cosmos DB | Microsoft Docs'
+description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Java
 services: cosmos-db
 documentationcenter: ''
 author: arramac
@@ -18,11 +18,11 @@ ms.date: 11/15/2017
 ms.author: arramac
 
 ---
-# Azure Cosmos DB: Build a Java application using the Table API
+# Quickstart: Build a Table API app with Java and Azure Cosmos DB
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, wide-column, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+This quickstart shows how to use Java and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. This quickstart also shows you how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
 
-This quick start demonstrates how to create an Azure Cosmos DB [Table API](table-introduction.md) account by using the Azure portal. You'll then clone and run a sample from github that inserts, updates, queries, and deletes entities in a table by using Java and the Azure Cosmos DB Table API.
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
 ## Prerequisites
 
@@ -76,52 +76,38 @@ Now let's clone a Table app from github, set the connection string, and run it. 
     git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
     ```
 
-3. Then open the solution file in Visual Studio. 
-
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
 1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
-    Use the copy buttons on the right side of the screen to copy the CONNECTION STRING.
+   ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-java/connection-string.png)
 
-    ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-java/connection-string.png)
+2. Open the config.properties file, and copy the required connection string properties into the config file.
 
-2. In Visual Studio, open the app.config file. 
-
-3. Paste the CONNECTION STRING value into the app.config file as the value of the CosmosDBStorageConnectionString. 
-
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
-
-    > [!NOTE]
-    > To use this app with Azure Table storage, you need to change the connection string in `app.config file`. Use the account name as Table-account name and key as Azure Storage Primary key. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
-    >
-
-4. Save the app.config file.
+3. Save the config.properties file.
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
 ## Run the app
 
-1. In the git terminal window, `cd` to the azure-cosmos-db-documentdb-java-getting-started folder.
+1. In the git terminal window, `cd` to the storage-table-java-getting-started folder.
 
     ```git
-    cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
+    cd "C:\git-samples\
+storage-table-java-getting-started"
     ```
 
-2. In the git terminal window, type `mvn package` to install the required Java packages.
+2. In the git terminal window, run the following commands to run start the Java application.
 
-3. In the git terminal window, run `mvn exec:java -D exec.mainClass=GetStarted.Program` to start the Java application.
+    ```git
+    mvn compile exec:java 
+    ```
 
-    The terminal window displays a notification that the FamilyDB database was created. Press a key to create the collection, then switch to the Data Explorer and you'll see that it now contains a FamilyDB database.
-    
-    Continue to press keys to create the documents and then perform a query.
-    
-    At the end of the program, all the resources from this app are deleted from your account so that you don't incur any charges.  
+    The console window displays the table data being added to the new table database in Azure Cosmos DB.
+
+    You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal
 
@@ -129,14 +115,11 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps: 
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
 In this quickstart, you've learned how to create an Azure Cosmos DB account, create a table using the Data Explorer, and run an app.  Now you can query your data using the Table API.  
 
 > [!div class="nextstepaction"]
-> [Query using the Table API](tutorial-query-table.md)
+> [Import table data to the Table API](table-import.md)
