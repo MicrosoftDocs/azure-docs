@@ -88,11 +88,6 @@ class Program
     {
         public bool Equals(ChaosEvent x, ChaosEvent y)
         {
-            if (x == null && y != null || x != null && y == null)
-            {
-                return false;
-            }
-
             return x.TimeStampUtc.Equals(y.TimeStampUtc);
         }
         public int GetHashCode(ChaosEvent obj)
