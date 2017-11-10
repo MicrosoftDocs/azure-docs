@@ -109,7 +109,7 @@
 ### [IoT security best practices](../../iot-suite/iot-security-best-practices.md)
 
 ## Security architecture
-### [Data classification](../https://gallery.technet.microsoft.com/Data-Classification-for-51252f03)
+### [Data classification](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03)
 ### [Disaster recovery and high availability for applications built on Azure](../../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 # Related
@@ -124,10 +124,10 @@
 ## [Operations Management Suite](../../operations-management-suite/oms-security-getting-started.md)
 
 # Resources
-## [Azure Roadmap](../https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Azure security MVP program](../azure-security-mvp.md)
 ## [Cybersecurity consulting](../azure-security-cyber-services.md)
-## [Pricing calculator](../https://azure.microsoft.com/pricing/calculator/)
+## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Security Recommendations for Azure Marketplace images](../security-recommendations-azure-marketplace-images.md)
 ## Scenarios
 ### [Manage personal data in Azure](../manage-personal-data-azure.md)
@@ -139,7 +139,7 @@
 ### [Protect personal data at rest by using encryption](../protect-personal-data-at-rest.md)
 ### [Protect personal data in transit by using encryption](../protect-personal-data-in-transit-encryption.md)
 ### [Protect personal data by using Azure reporting tools](../protection-personal-data-azure-reporting-tools.md)
-## [Security and Compliance blog](../http://blogs.msdn.com/b/azuresecurity/)
+## [Security and Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
 ## [Security courses from Virtual Academy](../security-microsoft-virtual-academy.md)
 ## [Security videos on Channel 9](../security-channel-nine.md)
 ## [Threat Modeling Tool](../azure-security-threat-modeling-tool.md)
