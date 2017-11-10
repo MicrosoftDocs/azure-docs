@@ -24,7 +24,7 @@ This tutorial will demonstrate how you can use Azure Functions to manage the com
 
 In order to use Azure Function App with SQL Data Warehouse, you must create a [Service Principal Account](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) with contributor access under the same subscription as your data warehouse instance. 
 
-## Deploy Timer based scaler with an ARM Template
+## Deploy Timer based scaler with an Azure Resource Manager Template
 
 To deploy the template, you will need the following information:
 
@@ -173,7 +173,7 @@ Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pau
 
 
 
-## Next Steps
+## Next steps
 
 Learn more about [timer trigger](../azure-functions/functions-create-scheduled-function.md) Azure functions.
 
