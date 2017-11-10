@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Create an IoT Edge gateway device to process data from other IoT devices
+# Create an IoT Edge gateway device to process data from other IoT devices - preview
 
 There are two ways to use IoT Edge devices as gateways:
 
