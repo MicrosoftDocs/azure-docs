@@ -41,6 +41,6 @@ sections:
     items:
     - html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">Simulate an IoT Edge device in Windows</a>
     - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Simulate an IoT Edge device in Linux</a>
-    - html: <a href="/azure/iot-edge/tutorial-create-custom-module">Develop and deploy a C# module</a>
+    - html: <a href="/azure/iot-edge/tutorial-csharp-module">Develop and deploy a C# module</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Deploy Azure Stream Analytics as a module</a>
     - html: <a href="/azure/iot-edge/tutorial-deploy-function">Deploy Azure Functions as a module</a>
