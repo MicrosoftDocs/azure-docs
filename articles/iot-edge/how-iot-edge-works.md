@@ -35,15 +35,15 @@ IoT Edge modules are units of execution, currently implemented as Docker compati
 
 ### Azure on the edge
 
-When you use Azure IoT Hub to manage your devices, it's easy to integrate with other Azure services to store and process data to create insights or make business decisions. Azure IoT Edge is designed to enhance this relationship. If you already use a cloud analytics service to process data from your devices, you shouldn't need to rewrite the logic in order to move it to the edge. Instead, Azure IoT Edge allows you to deploy the event processing, machine learning, image recognition, and AI products that you're familiar with. 
+If you use Azure services to process data from your IoT devices, Azure IoT Edge can move that workload out of the cloud and onto your devices. If you already use a cloud analytics service to process data from your devices, you shouldn't need to rewrite the logic in order to move it to the edge. Instead, Azure IoT Edge allows you to deploy the event processing, machine learning, image recognition, and AI products that you're familiar with. 
 
 ### Bring your own code
 
-When you do want to deploy your own code to your devices, Azure IoT Edge supports that, too. Azure IoT Edge holds to the same programming model as the other Azure IoT services. This consistency means that the same code can be run on a device or in the cloud. Azure IoT Edge supports both Linux and Windows so you can code to the platform of your choice. It supports Java, .NET Core 2.0, Node.js, C, and Python so your developers can code in a language they already know and use existing business logic without writing it from scratch.
+When you want to deploy your own code to your devices, Azure IoT Edge supports that, too. Azure IoT Edge holds to the same programming model as the other Azure IoT services. The same code can be run on a device or in the cloud. Azure IoT Edge supports both Linux and Windows so you can code to the platform of your choice. It supports Java, .NET Core 2.0, Node.js, C, and Python so your developers can code in a language they already know and use existing business logic without writing it from scratch.
 
 ## IoT Edge runtime
 
-The Azure IoT Edge runtime enables custom and cloud logic on IoT Edge devices. It lets you locally run workloads tailored to a specific type of device. The runtime performs several functions:
+The Azure IoT Edge runtime enables custom and cloud logic on IoT Edge devices. It sits on the IoT Edge device, and performs management and communication operations. The runtime performs several functions:
 
 * Installs modules on a device.
 * Ensures modules are always running.
