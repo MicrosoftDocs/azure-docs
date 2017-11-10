@@ -18,7 +18,7 @@ ms.date: 11/10/2016
 ms.author: saurinsh
 
 ---
-# Configure Domain-joined HDInsight clusters (Preview) using Azure Active Directory Domain Services
+# Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services
 
 Domain-joined clusters provide the multi-user enterprise security capabilities on HDInsight. Domain-joined HDInsight clusters are connected to active directory domains, so that domain users can use their domain credentials to authenticate with the clusters and run big data jobs. 
 
@@ -32,9 +32,12 @@ In this article, you learn how to configure a Domain-joined HDInsight cluster us
 
 ## Create Azure ADDS
 
-You need to create an Azure AD DS before you can create an HDInsight cluster. To create an Azure ADDS, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). Only the tenant administrators have the privileges to create domain services. 
+You need to create an Azure AD DS before you can create an HDInsight cluster. To create an Azure ADDS, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
-After the domain service has been created, you need to create a service account in the Azure AD DC Administrators group to create the HDInsight cluster.
+> [!NOTE]
+> Only the tenant administrators have the privileges to create domain services. 
+
+After the domain service has been created, you need to create a service account in the **Azure AD DC Administrators** group to create the HDInsight cluster. The serice account must be a global administrator on the Azure AD.
 
 ## Create a Domain-joined HDInsight cluster
 
