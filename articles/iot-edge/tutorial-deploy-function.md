@@ -48,18 +48,6 @@ The Azure Function that you create in this tutorial filters the temperature data
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. 
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
-## Bug Bash Configuration steps
-The steps in this section are only required until Azure IoT Edge goes public. They walk you through setting up VS Code with dependencies that will not be public until we release Azure IoT Edge. 
- 
-1. Install version 3 or later of the [NuGet CLI](https://docs.microsoft.com/en-us/nuget/guides/install-nuget#nuget-cli). The module code depends on a couple of NuGet packages that won't be made public until we release Azure IoT Edge. For the time being, we have placed them on `myget`. You need the NuGet CLI to reference these packages. 
-2. Open Visual Studio Code. 
-3. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
-1. In integrated terminal, add a NuGet source for the **AzureIotEdgeFunction** template NuGet package.  
-
-    ```cmd/sh
-    nuget sources add -name AzureIoTEdgeFunction -source https://www.myget.org/F/dotnet-template-azure-iot-edge-function/api/v3/index.json  
-    ``` 
-
 ## Choose or sign up for a Docker registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to create an Azure Function and build a [Docker image](https://docs.docker.com/glossary/?term=image) with it. Then you push this Docker image to a [Docker repository](https://docs.docker.com/glossary/?term=repository) hosted by a [Docker registry](https://docs.docker.com/glossary/?term=registry). Finally, you deploy your Docker image packaged as a [Docker container](https://docs.docker.com/glossary/?term=container) from your registry to your IoT Edge device.  
 
@@ -163,12 +151,6 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 ## Create a Docker image and publish it to your registry
 
 1. Build the Docker image.
-    > [!IMPORTANT]
-    > **For Bug Bash**, to create the Docker image, you will need to access the private registry hosting the function base image. In integrated terminal, run the following command before proceeding with the steps below: 
-    > 
-    > ```csh/sh
-    > docker login --username "EdgePreview" --password "L0K1xGpPa88BAWu847=LWAarMsuN+obs" edgepreview.azurecr.io 
-    > ```
   
     1. In VS Code explorer, click the **Docker** folder to open it. Then click the **linux-x64** folder, right-click the **Dockerfile** file, and click **Build IoT Edge module Docker image**. 
     2. In the **Select Folder** box, navigate to the **Docker/linux-x64** folder, and click **Select Folder as EXE_DIR**. 
@@ -209,7 +191,7 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 
 ## Run the solution
 
-1. In the **Azure portal**, [https://df.onecloud.azure-test.net/](https://df.onecloud.azure-test.net/), navigate to your IoT hub.
+1. In the **Azure portal**, navigate to your IoT hub.
 2. Go to **IoT Edge Explorer** and select your IoT Edge device.
 1. Select **Set Modules**. 
 2. Add the **tempSensor** module. This step is only required if you have not previously deployed the **tempSensor** module to your IoT Edge device.

@@ -18,7 +18,7 @@ ms.author: kgremban
 ms.custom: 
 ---
 
-# How Azure IoT Edge works - Public preview
+# What is Azure IoT Edge - preview
 
 Azure IoT Edge moves cloud analytics and custom business logic to devices so that your organization can focus on business insights instead of data management. Enable your solution to truly scale by configuring your IoT software, deploying it to devices via standard containers, and monitoring it all from the cloud.
 

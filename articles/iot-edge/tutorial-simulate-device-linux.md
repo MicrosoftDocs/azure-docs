@@ -49,14 +49,6 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modul
 
 Use the following steps to install and start the IoT Edge runtime:
 
-> [!NOTE]
-> Remove before merging. During bug bash: Instead of step 1, run the following code:
->
-> `wget https://azureiotedgepreview.blob.core.windows.net/shared/azure-iot-edge-ctl.tar.gz`
-> `tar xvzf azure-iot-edge-ctl-1.0.0rc6.dev6995193.tar.gz`
-> `cd azure-iot-edge-ctl-1.0.0rc6.dev6995193`
-> `sudo pip install -U .`
-
 1. On the machine where you'll run the IoT Edge device, download the IoT Edge control script.
 
    ```
