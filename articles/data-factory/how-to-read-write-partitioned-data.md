@@ -66,3 +66,4 @@ In the following trigger definition, scheduled time of the trigger is passed as 
 ```
 
 ## Next steps
+For a complete walkthrough of creating a data factory with a pipeline, see [Quickstart: create a data factory](quickstart-create-data-factory-powershell.md). 
