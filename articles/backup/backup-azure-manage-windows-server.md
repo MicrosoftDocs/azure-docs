@@ -13,16 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: markgal
 
 ---
 # Monitor and manage Azure recovery services vaults and servers for Windows machines
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-manage-windows-server.md)
-> * [Classic](backup-azure-manage-windows-server-classic.md)
->
->
 
 In this article you'll find an overview of the backup monitor and management tasks available through the Azure portal and the Microsoft Azure Backup agent. This article assumes you already have an Azure subscription and have created at least one Recovery Services vault.
 
