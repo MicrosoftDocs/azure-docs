@@ -29,7 +29,7 @@ Log in to the [Azure  portal](https://portal.azure.com).
 
 Before you begin with this quickstart, you need to [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) and download a sample JSON file [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). You must also upload the sample JSON file to the Azure storage account you create. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files. 
 
-1. Click **+**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. Under **Azure Databricks**, click **Create**.
+1. In the Azure portal, click **+**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. Under **Azure Databricks**, click **Create**.
 
     > [!NOTE]
     > Azure Databricks is currently in limited preview. If you want your Azure subscription to be considered for whitelisting for the preview, you must fill out the [sign up form](https://databricks.azurewebsites.net/).
