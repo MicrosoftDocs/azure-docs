@@ -51,7 +51,7 @@ To set up usage data reporting, you must [register your Azure Stack instance wit
 
 ## View usage - CSP subscriptions
 
-If you registered your Azure Stack using a CSP subscription, you can view your usage and charges in the same way in which you view Azure consumption. Azure Stack usage will be included in your invoice and in the reconciliation file, available through [Partner Center](https://partnercenter.microsoft.com/en-us/partner/home). The reconciliation file is updated monthly. If you need to access recent Azure Stack usage information, you can use the Partner Center APIs.
+If you registered your Azure Stack using a CSP subscription, you can view your usage and charges in the same way in which you view Azure consumption. Azure Stack usage will be included in your invoice and in the reconciliation file, available through [Partner Center](https://partnercenter.microsoft.com/partner/home). The reconciliation file is updated monthly. If you need to access recent Azure Stack usage information, you can use the Partner Center APIs.
 
    ![partner center](media/azure-stack-usage-reporting/partner-center.png)
 
@@ -80,7 +80,7 @@ Users are only charged for VMs that run under tenant subscriptions. All workload
 
 ## I have a Windows Server license I want to use on Azure Stack, how do I do it?
 
-Using the existing licenses avoids generating usage meters. Existing Windows Server licenses can be used in Azure Stack, as described in the “Using existing software with Azure Stack” section of [the Azure Stack Licensing Guide](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Customers need to deploy their Windows Server virtual machines as described in the [Hybrid benefit for Windows Server license](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) topic in order to use their existing licenses.
+Using the existing licenses avoids generating usage meters. Existing Windows Server licenses can be used in Azure Stack, as described in the “Using existing software with Azure Stack” section of [the Azure Stack Licensing Guide](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Customers need to deploy their Windows Server virtual machines as described in the [Hybrid benefit for Windows Server license](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) topic in order to use their existing licenses.
 
 ## Which subscription is charged for the resources consumed?
 The subscription that is provided when [registering Azure Stack with Azure](azure-stack-register.md) is charged.
@@ -95,7 +95,7 @@ In the Azure Stack Development Kit, usage data reporting requires subscriptions 
 
 ## How can users identify Azure Stack usage data in the Azure billing portal?
 
-Users can see the Azure Stack usage data in the usage details file. To know about how to get the usage details file, refer to the [download usage file from the Azure Account Center article](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). The usage details file contains the Azure Stack meters that identify Azure Stack storage and VMs. All resources used in Azure Stack are reported under the region named “Azure Stack.”
+Users can see the Azure Stack usage data in the usage details file. To know about how to get the usage details file, refer to the [download usage file from the Azure Account Center article](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). The usage details file contains the Azure Stack meters that identify Azure Stack storage and VMs. All resources used in Azure Stack are reported under the region named “Azure Stack.”
 
 ## Why doesn’t the usage reported in Azure Stack match the report generated from Azure Account Center?
 
