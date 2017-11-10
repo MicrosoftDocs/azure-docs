@@ -11,7 +11,7 @@ ms.workload: big-data
 ms.date: 11/09/2017
 ---
 
-# Azure Time Series Insights
+# Explore Azure Time Series Insights
 
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time.  If you are building an application that needs to store or query time series data, you can develop using the Time Series Insights REST APIs.
 
