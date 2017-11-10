@@ -98,7 +98,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Review the code
 
-Let's quickly review what's happening in the app. Open the Program.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `Program.cs` file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
 * The CloudTableClient is initialized.
 
