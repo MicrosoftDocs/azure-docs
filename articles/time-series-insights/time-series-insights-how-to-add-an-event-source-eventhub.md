@@ -65,7 +65,7 @@ This article describes how to use the Azure portal to add an event source that r
 
 9. Select the **Event serialization format**. JSON is the available serialization at present.
 
-10. It is recommended to provide a **Timestamp property name**. You need to know the message format of the event data to make this decision. This is the name of the event property in the message data that should be used as the event timestamp. When not specified, event enqueue time within the event source will be used as the event timestamp. 
+10. It is recommended to provide a **Timestamp property name**. You need to know the message format of the event data to make this decision. This is the name of the event property in the message data that should be used as the event timestamp. When not specified, event enqueue time within the event source is used as the event timestamp. 
 
 11. Select **Create** to add the new event source.
 
