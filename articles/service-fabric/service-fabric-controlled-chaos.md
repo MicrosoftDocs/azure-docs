@@ -236,7 +236,7 @@ class Program
 
 ```powershell
 $clusterConnectionString = "localhost:19000"
-$timeToRunMinute = 5
+$timeToRunMinute = 60
 
 # The maximum amount of time to wait for all cluster entities to become stable and healthy. 
 # Chaos executes in iterations and at the start of each iteration it validates the health of cluster entities. 
@@ -306,6 +306,8 @@ while($true)
             else
             {
                 Write-Host $e
+                # When Chaos stops, a StoppedEvent is created.
+                # If a StoppedEvent is found, exit the loop.
                 if($e -is [System.Fabric.Chaos.DataStructures.StoppedEvent])
                 {
                     return
