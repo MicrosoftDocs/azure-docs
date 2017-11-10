@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Apex Portal support team](support@apexanalytix.com) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Apex Portal support team](mailto:support@apexanalytix.com) to get these values.
  
 4. The Apex Portal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
 
@@ -145,7 +145,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-apexportal-tutorial/tutorial_general_400.png)
 
-8. To configure single sign-on on **Apex Portal** side, you need to send the downloaded **Metadata XML** to [Apex Portal support team](support@apexanalytix.com). They set this setting to have the SAML SSO connection set properly on both sides.
+8. To configure single sign-on on **Apex Portal** side, you need to send the downloaded **Metadata XML** to [Apex Portal support team](mailto:support@apexanalytix.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -187,7 +187,7 @@ The objective of this section is to create a test user in the Azure portal calle
 The objective of this section is to create a user called Britta Simon in Apex Portal. Apex Portal supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Apex Portal if it doesn't exist yet.
  
 > [!NOTE]
-> If you need to create a user manually, you need to contact the [Apex Portal support team](support@apexanalytix.com).
+> If you need to create a user manually, you need to contact the [Apex Portal support team](mailto:support@apexanalytix.com).
 
 ### Assign the Azure AD test user
 
