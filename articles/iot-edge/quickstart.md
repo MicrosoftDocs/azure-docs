@@ -48,18 +48,6 @@ Docker for Windows can run either Windows containers or Linux containers. The st
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
-   > [!NOTE]
-   > During bug bash: Instead of step 4, run the following code:
-   >
-   > Download [scripts](https://azureiotedgepreview.blob.core.windows.net/shared/azure-iot-edge-ctl.zip)
-   >
-   > Extract all
-   >
-   > Open cmd in extracted dir
-   >
-   > `pip install -U .[win32]`
-
-
 ### Windows containers in Docker
 
 1. Make sure you're using a supported Windows version:
@@ -156,8 +144,8 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 [2]: ./media/tutorial-install-iot-edge/view-module.png
 
 <!-- Links -->
-[lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
-[lnk-python-windows]: https://www.python.org/downloads/
+[lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 
+[lnk-python]: https://www.python.org/downloads/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
