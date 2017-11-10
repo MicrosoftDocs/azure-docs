@@ -121,7 +121,6 @@ The following tables list some of the StorSimple alerts that you might encounter
 * [Job failure alerts](#job-failure-alerts)
 * [Performance alerts](#performance-alerts)
 * [Security alerts](#security-alerts)
-* [Update alerts](#update-alerts)
 
 ### Cloud connectivity alerts
 
@@ -160,13 +159,6 @@ The following tables list some of the StorSimple alerts that you might encounter
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
 | Password for <*device name*> will expire in <*number*> days. |Password warning. |Your password will expire in <number< days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-virtual-array-change-device-admin-password.md). |
-
-### Update alerts
-
-| Alert text | Event | More information / recommended actions |
-|:--- |:--- |:--- |
-| New updates are available for your device. |Updates to the StorSimple Virtual Array are available. |You can install new updates from the **Maintenance** page. |
-| Could not scan for new updates on <*device name*>. |Update failure. |An error occurred while installing new updates. You can manually install the updates. If the problem persists, contact [Microsoft Support](storsimple-contact-microsoft-support.md). |
 
 ## Next steps
 
