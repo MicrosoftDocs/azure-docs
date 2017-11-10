@@ -79,32 +79,17 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
-    Use the copy buttons on the right side of the screen to copy the CONNECTION STRING.
-
     ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-python/connection-string.png)
 
-2. In Visual Studio, open the app.config file. 
+2. Open the config.py file, and copy the required connection string properties into the config file.
 
-3. Paste the CONNECTION STRING value into the app.config file as the value of the CosmosDBStorageConnectionString. 
-
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
-
-    > [!NOTE]
-    > To use this app with Azure Table storage, you need to change the connection string in `app.config file`. Use the account name as Table-account name and key as Azure Storage Primary key. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
-    >
-
-4. Save the app.config file.
-
-You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+3. Save the config.py file.
 
 ## Run the app
 
 1. In Visual Studio, right-click on the project in **Solution Explorer**, select the current Python environment, then right click.
 
-2. Select Install Python Package, then type in **pydocumentdb**
+2. Select Install Python Package, then type in **azure-storage-table**
 
 3. Run F5 to run the application. Your app displays in your browser. 
 

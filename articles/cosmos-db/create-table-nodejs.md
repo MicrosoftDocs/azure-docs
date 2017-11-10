@@ -79,34 +79,32 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
-    Use the copy buttons on the right side of the screen to copy the CONNECTION STRING.
+    ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-nodejs/connection-string.png)
 
-    ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-nodejs/connection-string.png)
+2. Open the app.config file, and copy the required connection string properties into the config file.
 
-2. In Visual Studio, open the app.config file. 
-
-3. Paste the CONNECTION STRING value into the app.config file as the value of the CosmosDBStorageConnectionString. 
-
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
-
-    > [!NOTE]
-    > To use this app with Azure Table storage, you need to change the connection string in `app.config file`. Use the account name as Table-account name and key as Azure Storage Primary key. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
-    >
-
-4. Save the app.config file.
+3. Save the app.config file.
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
 ## Run the app
 
-1. Run `npm install` in a terminal to install required npm modules
+1. In the git terminal window, `cd` to the storage-table-java-getting-started folder.
 
-2. Run `node app.js` in a terminal to start your node application.
+    ```git
+    cd "C:\git-samples\
+storage-table-node-getting-started"
+    ```
 
-You can now go back to Data Explorer and see query, modify, and work with this new data. 
+2. In the git terminal window, run the following commands to run start the Java application.
+
+    ```git
+    node ./tableSample.js 
+    ```
+
+    The console window displays the table data being added to the new table database in Azure Cosmos DB.
+
+    You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal
 

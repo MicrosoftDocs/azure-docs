@@ -76,52 +76,38 @@ Now let's clone a Table app from github, set the connection string, and run it. 
     git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
     ```
 
-3. Then open the solution file in Visual Studio. 
-
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
 1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
-    Use the copy buttons on the right side of the screen to copy the CONNECTION STRING.
+   ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-java/connection-string.png)
 
-    ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-java/connection-string.png)
+2. Open the config.properties file, and copy the required connection string properties into the config file.
 
-2. In Visual Studio, open the app.config file. 
-
-3. Paste the CONNECTION STRING value into the app.config file as the value of the CosmosDBStorageConnectionString. 
-
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
-
-    > [!NOTE]
-    > To use this app with Azure Table storage, you need to change the connection string in `app.config file`. Use the account name as Table-account name and key as Azure Storage Primary key. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
-    >
-
-4. Save the app.config file.
+3. Save the config.properties file.
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
 ## Run the app
 
-1. In the git terminal window, `cd` to the azure-cosmos-db-documentdb-java-getting-started folder.
+1. In the git terminal window, `cd` to the storage-table-java-getting-started folder.
 
     ```git
-    cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
+    cd "C:\git-samples\
+storage-table-java-getting-started"
     ```
 
-2. In the git terminal window, type `mvn package` to install the required Java packages.
+2. In the git terminal window, run the following commands to run start the Java application.
 
-3. In the git terminal window, run `mvn exec:java -D exec.mainClass=GetStarted.Program` to start the Java application.
+    ```git
+    mvn compile exec:java 
+    ```
 
-    The terminal window displays a notification that the FamilyDB database was created. Press a key to create the collection, then switch to the Data Explorer and you'll see that it now contains a FamilyDB database.
-    
-    Continue to press keys to create the documents and then perform a query.
-    
-    At the end of the program, all the resources from this app are deleted from your account so that you don't incur any charges.  
+    The console window displays the table data being added to the new table database in Azure Cosmos DB.
+
+    You can now go back to Data Explorer and see query, modify, and work with this new data. 
 
 ## Review SLAs in the Azure portal
 
