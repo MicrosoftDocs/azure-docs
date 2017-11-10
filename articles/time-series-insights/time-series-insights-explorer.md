@@ -1,40 +1,34 @@
 ---
-title: Using the Azure Time Series Insights explorer | Microsoft Docs
-description: This article describes how to use the Azure Time Series Insights explorer
-keywords: 
+title: Explore data using the Azure Time Series Insights explorer | Microsoft Docs
+description: This article describes how to use the Azure Time Series Insights explorer in your web browser to quickly see a global view of your big data and validate your IoT environment.
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: kfile
-manager: jhubbard
-editor: 
-
-ms.assetid: 
-ms.service: tsi
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-data
-ms.date: 10/18/2017
 ms.author: kfile
+manager: jhubbard
+editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
 ---
-
 # Azure Time Series Insights explorer
 
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.
 
-You use Time Series Insights explorer to create visualizations of your data.
+You use Time Series Insights explorer in your web browser to create visualizations of your data.
 
 ## Prerequisites
 
 Before you can use Time Series Insights explorer, you must:
- 
-- Provision a Time Series Insights environment
-- Provide yourself access to that environment
-- Add an event source that is ingesting data
+- Create a Time Series Insights environment
+- Provide access to your account in the environment
+- Add an event source to ingest data and store it
 
-Within minutes of connecting your event source to your Time Series Insights environment, you can start exploring and querying your time series data.
+Within minutes of connecting your event source to your Time Series Insights environment, you can explore and query your time series data.
 
-To start, go to [Time Series Insights](https://insights.timeseries.azure.com/) and select an environment on the left side of the window. All environments that you have access to are listed in alphabetical order.
+To start, open the [Time Series Insights explorer](https://insights.timeseries.azure.com/) in your web browser, and select an environment on the left side of the window. All environments that you have access to are listed in alphabetical order.
 
 Once you select an environment, either use the **FROM** and **TO** configurations at the top, or click and drag over your desired time span.  Click the magnifying glass at the top right, or right-click over the selected timespan and select **Search**.  
 
@@ -108,5 +102,4 @@ Click the **STATS** tab after exploring events to expose patterns and column sta
 ![STATS](media/time-series-insights-explorer/explorer8.png) 
 
 ## Next steps
-
 *  [Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md)
