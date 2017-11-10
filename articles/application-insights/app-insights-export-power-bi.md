@@ -84,7 +84,7 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 2. Click on the Power BI Button 
 
 ![PowerBI Button](./media/app-insights-export-power-bi/button.png)
-3. In Power BI Desktop select **Get Data, Blank Query** and then  in the uery editor, under **View** select **Advanced Query Editor**.
+3. In Power BI Desktop select **Get Data, Blank Query** and then  in the query editor, under **View** select **Advanced Query Editor**.
 
 ![Blank Query](./media/app-insights-export-power-bi/blankquery.png)
 
@@ -103,7 +103,7 @@ Paste the exported M Language script into the Advanced Query Editor.
 ## Troubleshooting
 
 ### 401 or 403 Unauthorized 
-This can happen if your refesh token has not been updated. Try these steps to ensure you still have access. If you do have access and refershing the credentials does not work, please open a support ticket.
+This can happen if your refresh token has not been updated. Try these steps to ensure you still have access. If you do have access and refreshing the credentials does not work, please open a support ticket.
 
 1. Log into the Azure Portal and make sure you can access the resource
 2. Try to refresh the credentials for the Dashboard
