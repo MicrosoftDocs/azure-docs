@@ -21,18 +21,20 @@ ms.custom: it-pro
 ---
 # Deploy password reset without requiring end-user registration
 
-Deploying Self-Service Password Reset (SSPR) requires authentication data to be present. Some organizations have their users enter their authentication data themselves, but many organizations prefer to synchronize with existing data in Active Directory. If you have properly formatted data in your on-premises directory, and configure [Azure AD Connect using express settings](./connect/active-directory-aadconnect-get-started-express.md), that data is made available to Azure AD and SSPR with no user interaction required.
+To deploy Azure Active Directory (Azure AD) Self-Service Password Reset (SSPR), authentication data needs to be present. Some organizations have their users enter their authentication data themselves, but many organizations prefer to synchronize with existing data in Active Directory. The synced data is made available to Azure AD and SSPR with no user interaction required if you:
+   * Properly format the data in your on-premises directory.
+   * Configure [Azure AD Connect by using the express settings](./connect/active-directory-aadconnect-get-started-express.md), without requiring user interaction.
 
-Any phone numbers must be in the format +CountryCode PhoneNumber Example: +1 4255551234 to work properly.
+To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, *+1 4255551234*.
 
 > [!NOTE]
-> Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
+> Password reset does not support phone extensions. Even in the *+1 4255551234X12345* format, extensions are removed before the call is placed.
 
 ## Fields populated
 
-If you use the default settings in Azure AD Connect the following mappings are made.
+If you use the default settings in Azure AD Connect, the following mappings are made:
 
-| On-premises AD | Azure AD | Azure AD Authentication contact info |
+| On-premises Active Directory | Azure AD | Azure AD authentication contact info |
 | --- | --- | --- |
 | telephoneNumber | Office phone | Alternate phone |
 | mobile | Mobile phone | Phone |
@@ -40,31 +42,31 @@ If you use the default settings in Azure AD Connect the following mappings are m
 
 ## Security questions and answers
 
-Security questions and answers are stored securely in your Azure AD tenant and are only accessible to users via the [SSPR registration portal](https://aka.ms/ssprsetup). Administrators can't see or modify the contents of another users questions and answers.
+The security questions and answers are stored securely in your Azure AD tenant and are only accessible to users via the [SSPR registration portal](https://aka.ms/ssprsetup). Administrators can't see or modify the contents of another users' questions and answers.
 
 ### What happens when a user registers
 
 When a user registers, the registration page sets the following fields:
 
-* Authentication Phone
-* Authentication Email
-* Security Questions and Answers
+* **Authentication Phone**
+* **Authentication Email**
+* **Security Questions and Answers**
 
-If you have provided a value for **Mobile Phone** or **Alternate Email**, users can immediately use those values to reset their passwords, even if they haven't registered for the service. In addition, users see those values when registering for the first time, and modify them if they wish. After they successfully register, these values will be persisted in the **Authentication Phone** and **Authentication Email** fields, respectively.
+If you have provided a value for **Mobile phone** or **Alternate email**, users can immediately use those values to reset their passwords, even if they haven't registered for the service. In addition, users see those values when they register for the first time, and they can modify them if they wish to. After they register successfully, these values will be persisted in the **Authentication Phone** and **Authentication Email** fields, respectively.
 
-## Set and read authentication data using PowerShell
+## Set and read the authentication data through PowerShell
 
-The following fields can be set using PowerShell
+The following fields can be set through PowerShell:
 
-* Alternate Email
-* Mobile Phone
-* Office Phone - Can only be set if not synchronizing with an on-premises directory
+* **Alternate email**
+* **Mobile phone**
+* **Office phone**: Can only be set if you're not synchronizing with an on-premises directory
 
-### Using PowerShell V1
+### Use PowerShell version 1
 
-To get started, you need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Once you have it installed, you can follow the steps that follow to configure each field.
+To get started, you need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). After you have it installed, you can use the steps that follow to configure each field.
 
-#### Set Authentication Data with PowerShell V1
+#### Set the authentication data with PowerShell version 1
 
 ```
 Connect-MsolService
@@ -76,7 +78,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com") -MobilePhone "+1 1234567890" -PhoneNumber "+1 1234567890"
 ```
 
-#### Read Authentication Data with PowerShellPowerShell V1
+#### Read the authentication data with PowerShell version 1
 
 ```
 Connect-MsolService
@@ -88,7 +90,9 @@ Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
 Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,MobilePhone,PhoneNumber | Format-Table
 ```
 
-#### Authentication Phone and Authentication Email can only be read using Powershell V1 using the commands that follow
+#### Read the Authentication Phone and Authentication Email options
+
+To read the **Authentication Phone** and **Authentication Email** when you use Powershell version 1, use the following commands:
 
 ```
 Connect-MsolService
@@ -96,11 +100,11 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
 ```
 
-### Using PowerShell V2
+### Use PowerShell version 2
 
-To get started, you need to [download and install the Azure AD V2 PowerShell module](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Once you have it installed, you can follow the steps that follow to configure each field.
+To get started, you need to [download and install the Azure AD version 2 PowerShell module](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). After you have it installed, you can use the steps that follow to configure each field.
 
-To install quickly from recent versions of PowerShell that support Install-Module, run these commands (the first line simply checks to see if it's installed already):
+To install quickly from recent versions of PowerShell that support Install-Module, run the following commands (the first line simply checks to see if the module is already installed):
 
 ```
 Get-Module AzureADPreview
@@ -108,7 +112,7 @@ Install-Module AzureADPreview
 Connect-AzureAD
 ```
 
-#### Set Authentication Data with PowerShell V2
+#### Set the authentication data with PowerShell version 2
 
 ```
 Connect-AzureAD
@@ -120,7 +124,7 @@ Set-AzureADUser -ObjectId user@domain.com -TelephoneNumber "+1 1234567890"
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mobile "+1 1234567890" -TelephoneNumber "+1 1234567890"
 ```
 
-### Read Authentication Data with PowerShell V2
+#### Read the authentication data with PowerShell version 2
 
 ```
 Connect-AzureAD
@@ -135,9 +139,9 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 ## Next steps
 
 * [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
-* [Reset or change your password](active-directory-passwords-update-your-own-password.md).
-* [Register for self-service password reset](active-directory-passwords-reset-register.md).
-* [Do you have a Licensing question?](active-directory-passwords-licensing.md)
+* [Reset or change your password](active-directory-passwords-update-your-own-password.md)
+* [Register for self-service password reset](active-directory-passwords-reset-register.md)
+* [Do you have a licensing question?](active-directory-passwords-licensing.md)
 * [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [What are the policy options with SSPR?](active-directory-passwords-policy.md)
 * [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
