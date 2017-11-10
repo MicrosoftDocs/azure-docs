@@ -32,7 +32,7 @@ Before you begin with this quickstart, you need to [Create an Azure storage acco
 1. Click **+**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. Under **Azure Databricks**, click **Create**.
 
     > [!NOTE]
-    > Azure Databricks is currently in limited preview. If your Azure subscription is not whitelisted for the preview, you must fill out the [sign up form](https://databricks.azurewebsites.net/).  
+    > Azure Databricks is currently in limited preview. If you want your Azure subscription to be considered for whitelisting for the preview, you must fill out the [sign up form](https://databricks.azurewebsites.net/).
 
 2. Under **Azure Databricks Service**, provide the following values:
 
