@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 11/10/2017
 ms.author: vikdesai
 ---
 # Understand how the Reserved Virtual Machine Instance discount is applied
