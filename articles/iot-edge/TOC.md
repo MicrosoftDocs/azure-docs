@@ -9,13 +9,13 @@
 # Tutorials
 ## [Simulate an Edge device - Windows](tutorial-simulate-device-windows.md) 
 ## [Simulate an Edge device - Linux](tutorial-simulate-device-linux.md) 
-## [Deploy C# code](tutorial-create-custom-module.md)
+## [Develop a C# module](tutorial-create-custom-module.md)
 ## [Deploy Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
 
 # How-to guides
 ## [Create a gateway device](how-to-create-gateway-device.md)
-## [Deploy Azure Functions](tutorial-deploy-function.md)
 ## [Deploy and monitor at scale](how-to-deploy-monitor.md)
+## [Deploy Azure Functions](tutorial-deploy-function.md)
 ## [Provision an IoT Core device](how-to-install-iot-core.md)
 
 # Concepts
