@@ -15,6 +15,7 @@
 ## [Create a gateway device](how-to-create-gateway-device.md)
 ## [Deploy Azure Functions](tutorial-deploy-function.md)
 ## [Deploy and monitor at scale](how-to-deploy-monitor.md)
+## [Provision an IoT Core device](how-to-install-iot-core.md)
 
 # Concepts
 ## [Iot Edge modules](iot-edge-modules.md)
