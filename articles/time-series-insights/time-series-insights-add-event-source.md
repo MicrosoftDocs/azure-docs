@@ -29,11 +29,11 @@ Time Series Insights Event source data is derived from an event broker, such as 
 
 3. Click **+ Add**.
 
+4. Provide an **Event source name** unique to this Time Series Insights environment, such as **event-stream**. This name is associated with all events coming from this event source and is available at query time.
+
    ![Create the Time Series Insights event source - details](media/add-event-source/getstarted-create-event-source-2.png)
 
-4. Provide an **Event source name** unique to this Time Series Insights environment, such as **Source1**. This name is associated with all events coming from this event source and is available at query time.
-
-5. Select the **Source** as **Event Hub** or **IoT Hub**
+5. Choose the **Source** as **Event Hub** or **IoT Hub** depending on your source type.
 
 6. Select the appropriate **Import option**. 
    - If you already have an existing Event Hub on one of your subscriptions, it is easiest to select **Use Event Hub from available subscriptions**. 
