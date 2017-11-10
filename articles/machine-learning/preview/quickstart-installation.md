@@ -90,34 +90,21 @@ Install Azure Machine Learning Workbench on your computer running Windows 10, Wi
    `C:\Users\<user>\AppData\Local\AmlWorkbench`
 
 ## Install Azure Machine Learning Workbench on macOS
-Install Azure Machine Learning Workbench on your computer running macOS Sierra.
+Install Azure Machine Learning Workbench on your computer running macOS Sierra or later.
 
-1. Install the openssl library by using [Homebrew](http://brew.sh). For more information, see [Prerequisite for .NET Core on Mac](https://docs.microsoft.com/dotnet/core/macos-prerequisites).
-   ```
-   # install Homebrew first if you don't have it already
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-   # install latest openssl needed for .NET Core 1.x
-   brew update
-   brew install openssl
-   mkdir -p /usr/local/lib
-   ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-   ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-   ```
-
-2. Download the latest Azure Machine Learning Workbench installer,
+1. Download the latest Azure Machine Learning Workbench installer,
 [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
 
    >[!IMPORTANT]
    >Download the installer fully on disk, and then run it from there. Do not run it directly from your browser's download widget.
 
-3. Double-click the downloaded installer **AmlWorkbench.dmg** from Finder.
+2. Double-click the downloaded installer **AmlWorkbench.dmg** from Finder.
 
-4. Finish the installation by following the on-screen instructions.
+3. Finish the installation by following the on-screen instructions.
 
    The installer downloads all the necessary dependent components, such as Python, Miniconda, and other related libraries. The installation might take around half an hour to finish all the components. 
 
-5. Azure Machine Learning Workbench is now installed in the following directory: 
+4. Azure Machine Learning Workbench is now installed in the following directory: 
 
    `/Applications/AmlWorkbench.app`
 

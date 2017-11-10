@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Use Stream Analytics to process exported data from Application Insights
