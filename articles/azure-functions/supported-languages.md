@@ -38,7 +38,7 @@ There are three levels of support:
 
 The experimental languages in v1 don't scale well and don't support all bindings. For example, Python is slow because the Functions runtime runs *python.exe* with each function invocation. And while Python supports HTTP bindings, it can't access the request object.
 
-Experimental support for PowerShell is limited to version 4.0 because that is what's installed on the VMs that Function apps run on. If you want to run PowerShell scripts, consider [Azure Automation](https://azure.microsoft.com/en-us/services/automation/).
+Experimental support for PowerShell is limited to version 4.0 because that is what's installed on the VMs that Function apps run on. If you want to run PowerShell scripts, consider [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 The v2 runtime doesn't support experimental languages. In v2 we will add support for a language only when it scales well and supports advanced triggers.
 
