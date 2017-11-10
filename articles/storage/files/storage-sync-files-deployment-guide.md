@@ -27,7 +27,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     - [Region availability](storage-sync-files-planning.md#region-availability) for Azure File Sync.
     - [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for a step-by-step description of how to create a storage account.
     - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
-* At least one supported Windows server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability).
+* At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability).
 
 ## Deploy the Storage Sync Service 
 The Storage Sync Service is the top-level Azure resource for Azure File Sync. To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.com/), and then search for Azure File Sync. In the search results, select **Azure File Sync (preview)**, and then select **Create** to open the **Deploy Storage Sync** tab.
@@ -41,7 +41,7 @@ On the pane that opens, enter the following information:
 
 When you are finished, select **Create** to deploy the Storage Sync Service.
 
-## Prepare Windows servers to use with Azure File Sync
+## Prepare Windows Server to use with Azure File Sync
 For each server that you intend to use with Azure File Sync, including server nodes in a Failover Cluster, complete the following steps:
 
 1. Disable **Internet Explorer Enhanced Security Configuration**. This is required only for initial server registration. You can re-enable it after the server has been registered.
@@ -64,7 +64,7 @@ For each server that you intend to use with Azure File Sync, including server no
 3. [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). We recommend using the latest version of the Azure PowerShell modules.
 
 ## Install the Azure File Sync agent
-The Azure File Sync agent is a downloadable package that enables a Windows server to be synced with an Azure file share. You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation.
+The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share. You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation.
 
 > [!Important]  
 > If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster.
@@ -76,7 +76,7 @@ The Azure File Sync agent installation package should install relatively quickly
 When the Azure File Sync agent installation is finished, the Server Registration UI automatically opens. To learn how to register this server with Azure File Sync, see the next section.
 
 ## Register Windows Server with Storage Sync Service
-Registering your Windows server with a Storage Sync Service establishes a trust relationship between your server (or cluster) and the Storage Sync Service. The Server Registration UI should open automatically after installation of the Azure File Sync agent. If it doesn't, you can open it manually from its file location: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. When the Server Registration UI opens, select **Sign-in** to begin.
+Registering Windows Server with a Storage Sync Service establishes a trust relationship between your server (or cluster) and the Storage Sync Service. The Server Registration UI should open automatically after installation of the Azure File Sync agent. If it doesn't, you can open it manually from its file location: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. When the Server Registration UI opens, select **Sign-in** to begin.
 
 After you sign in, you are prompted for the following information:
 
@@ -89,7 +89,7 @@ After you sign in, you are prompted for the following information:
 After you have selected the appropriate information, select **Register** to complete the server registration. As part of the registration process, you are prompted for an additional sign-in.
 
 ## Create a Sync Group
-A Sync Group defines the sync topology for a set of files. Endpoints within a Sync Group are kept in sync with each other. A Sync Group must contain at least one Cloud Endpoint, which represents an Azure file share, and one Server Endpoint, which represents a path on a Windows server. To create a Sync Group, in the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, and then select **+ Sync group**:
+A Sync Group defines the sync topology for a set of files. Endpoints within a Sync Group are kept in sync with each other. A Sync Group must contain at least one Cloud Endpoint, which represents an Azure file share, and one Server Endpoint, which represents a path on Windows Server. To create a Sync Group, in the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, and then select **+ Sync group**:
 
 ![Create a new Sync Group in the Azure portal](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
@@ -107,11 +107,11 @@ To add a Server Endpoint, go to the newly created Sync Group and then select **A
 In the **Add server endpoint** pane, enter the following information to create a Server Endpoint:
 
 - **Registered Server**: The name of the server or cluster where you want to create the Server Endpoint.
-- **Path**: The path on the Windows server to be synced as part of the Sync Group.
+- **Path**: The Windows Server path to be synced as part of the Sync Group.
 - **Cloud Tiering**: A switch to enable or disable cloud tiering. With cloud tiering, infrequently used or accessed files can be tiered to Azure Files.
 - **Volume Free Space**: The amount of free space to reserve on the volume on which the Server Endpoint is located. For example, if volume free space is set to 50% on a volume that has a single Server Endpoint, roughly half the amount of data is tiered to Azure Files. Regardless of whether cloud tiering is enabled, your Azure file share always has a complete copy of the data in the Sync Group.
 
-To add the Server Endpoint, select **Create**. Your files are now kept in sync across your Azure file share and your Windows server. 
+To add the Server Endpoint, select **Create**. Your files are now kept in sync across your Azure file share and Windows Server. 
 
 > [!Important]  
 > You can make changes to any Cloud Endpoint or Server Endpoint in the Sync Group and have your files synced to the other endpoints in the Sync Group. If you make a change to the Cloud Endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a Cloud Endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](storage-files-faq.md#afs-change-detection).

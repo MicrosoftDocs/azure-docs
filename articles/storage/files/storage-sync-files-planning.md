@@ -31,11 +31,11 @@ The Storage Sync Service is the top-level Azure resource for Azure File Sync. Th
 ### Sync Group
 A Sync Group defines the sync topology for a set of files. Endpoints within a Sync Group are kept in sync with each other. If, for example, you have two distinct sets of files that you want to manage with Azure File Sync, you would create two Sync Groups and add different endpoints to each Sync Group. A Storage Sync Service can host as many Sync Groups as you need.  
 
-### Registered server
-The registered server object represents a trust relationship between your server (or cluster) and the Storage Sync Service. You can register as many servers to a Storage Sync Service instance as you want. However, a server (or cluster) can be registered with only one Storage Sync Service at a time.
+### Registered Server
+The Registered Server object represents a trust relationship between your server (or cluster) and the Storage Sync Service. You can register as many servers to a Storage Sync Service instance as you want. However, a server (or cluster) can be registered with only one Storage Sync Service at a time.
 
 ### Azure File Sync agent
-The Azure File Sync agent is a downloadable package that enables a Windows server to be synced with an Azure file share. The Azure File Sync agent has three main components: 
+The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share. The Azure File Sync agent has three main components: 
 - **FileSyncSvc.exe**: The background Windows service that is responsible for monitoring changes on Server Endpoints, and for initiating sync sessions to Azure.
 - **StorageSync.sys**: The Azure File Sync file system filter, which is responsible for tiering files to Azure Files (when cloud tiering is enabled).
 - **PowerShell management cmdlets**: PowerShell cmdlets that you use to interact with the Microsoft.StorageSync Azure resource provider. You can find these at the following (default) locations:
@@ -43,7 +43,7 @@ The Azure File Sync agent is a downloadable package that enables a Windows serve
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### Server Endpoint
-A Server Endpoint represents a specific location on a registered server, such as a folder on a server volume or the root of the volume. Multiple Server Endpoints can exist on the same volume if their namespaces do not overlap (for example, F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each Server Endpoint. If you add a server location that has an existing set of files as a Server Endpoint to a Sync Group, those files are merged with any other files that are already on other endpoints in the Sync Group.
+A Server Endpoint represents a specific location on a Registered Server, such as a folder on a server volume or the root of the volume. Multiple Server Endpoints can exist on the same volume if their namespaces do not overlap (for example, F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each Server Endpoint. If you add a server location that has an existing set of files as a Server Endpoint to a Sync Group, those files are merged with any other files that are already on other endpoints in the Sync Group.
 
 ### Cloud Endpoint
 A Cloud Endpoint is an Azure file share that is part of a Sync Group. The entire Azure file share syncs, and an Azure file share can be a member of only one Cloud Endpoint. Therefore, an Azure file share can be a member of only one Sync Group. If you add an Azure file share that has an existing set of files as a Cloud Endpoint to a Sync Group, the existing files are merged with any other files that are already on other endpoints in the Sync Group.
@@ -68,7 +68,7 @@ Currently, the supported versions of Windows Server by Azure File Sync are:
 Future versions of Windows Server will be added as they are released. Earlier versions of Windows might be added based on user feedback.
 
 > [!Important]  
-> We recommend keeping all Windows servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
+> We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
 
 ### File system features
 | Feature | Support status | Notes |
