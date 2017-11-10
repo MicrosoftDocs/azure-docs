@@ -29,10 +29,9 @@ Follow these steps to create an environment:
   ![Create the Time Series Insights environment](media/get-started/getstarted-create-environment1.png)
 
 4.	Select **Time Series Insights**, then click **Create**.
-
-  ![Create the Time Series Insights resource group](media/get-started/getstarted-create-environment2.png)
-
-
+   
+   ![Create the Time Series Insights resource group](media/get-started/getstarted-create-environment2.png)
+   
    Setting|Suggested value|Description
    ---|---|---
    Environment name | A unique name | This name represents the environment in [time series explorer](https://insights.timeseries.azure.com)
