@@ -24,11 +24,15 @@ To get started, it’s best if you know how much data you expect to push by the 
 
 For more information about capacity and retention for both Time Series Insights SKUs, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-## Overall storage capacity
+You need to consider the following attributes to best plan the environment for long term success: 
+- Storage capacity
+- Data retention period
+- Ingress capacity 
 
+## Understand overall storage capacity
 By default, Time Series Insights retains data based on the amount of storage you have provisioned (units times amount of storage per unit) and ingress.  
 
-## Data retention
+## Understand data retention
 
 You can configure your Time Series Insights environment’s retention, enabling up to 400 days of retention.  Time Series Insights has two modes, one that optimizes for ensuring your environment has the most up-to-date data (on by default), and another that optimizes for ensuring retention limits are met, where ingress is paused if the overall storage capacity of the environment is hit.  You can adjust retention and toggle between the two modes in the environment’s configuration page in the Azure portal.
 
@@ -36,13 +40,17 @@ It’s important to configure this setting based on your needs.  For more inform
 
 You can configure a maximum of 400 days of data retention in your Time Series Insights environment.
 
-To configure data retention:
+## Configure data retention
 
-* In your Azure portal, click **Configure**, then enter a value (in days) from from 1 to 31. 
+1. In the [Azure portal](https://portal.azure.com), select your Time Series Insights environment.
+
+2. On the **Time Series Insights environment page**, under the **Settings** heading, select **Configure**. 
+
+3. In the **Data retention time (in days)** box, enter a value from 1 to 31 days (for S1 SKU), or 1 to 100 days (for S2 SKU).
 
    ![Configure retention](media/environment-mitigate-latency/configure-retention.png)
 
-## Ingress capacity
+## Understand ingress capacity
 
 The other area to focus on for planning is ingress capacity, which is a derivative of the per-minute allocation. 
 
@@ -63,13 +71,11 @@ If you have a spike in your data ingress lasting less than 24 hours, Time Series
 
 For example, if you have a single S1 SKU and ingress data at a rate of 700 events per minute, and spike for less than 1 hour at a rate of 1400 events or less, there would be no noticeable latency to your environment. However, if you exceed 1400 events per minute for more than one hour, you would likely experience latency to data that is visualized and available for query in your environment. 
 
-You may not know in advance how much data you expect to push. In this case, you can find data telemetry for [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) and [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in your Azure portal. This telemetry can help you determine how to provision your environment. Use the **Metrics** blade in the Azure portal for the respective event source to view its telemetry. If you understand your event source metrics, you can more effectively plan and provision your Time Series Insights environment.
+You may not know in advance how much data you expect to push. In this case, you can find data telemetry for [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) and [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in your Azure portal. This telemetry can help you determine how to provision your environment. Use the **Metrics** page in the Azure portal for the respective event source to view its telemetry. If you understand your event source metrics, you can more effectively plan and provision your Time Series Insights environment.
 
-## Know your requirements
+## Calculate your ingress requirements
 
-To provision your Time Series Insights environment, identify the SKU(s) that will deliver enough retention and ingress to meet your requirements.
-
-- Confirm your ingress capacity is above your average per-minute rate and that your environment is large enough to handle your anticpated ingress equivalent to 2x your capacity for less than 1 hour.
+- Confirm your ingress capacity is above your average per-minute rate and that your environment is large enough to handle your anticipated ingress equivalent to 2x your capacity for less than 1 hour.
 
 - If ingress spikes occur that last for longer than 1 hour, use the spike rate as your average, and provision an environment with the capacity to handle the spike rate.
  
@@ -80,4 +86,3 @@ For information about how to prevent throttling and latency, see [When Time Seri
 ## Next steps
 - [How to add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)
 - [How to add an IoT Hub event source](time-series-insights-how-to-add-an-event-source-iothub.md)
-
