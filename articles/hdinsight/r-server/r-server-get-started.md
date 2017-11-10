@@ -784,6 +784,5 @@ If you run into issues with creating HDInsight clusters, see [access control req
 
 Now you should understand how to create a new HDInsight cluster that includes the R Server and the basics of using the R console from an SSH session. The following topics explain other ways of managing and working with R Server on HDInsight:
 
-* [Add RStudio Server to HDInsight (if not installed during cluster creation)](r-server-install-r-studio.md)
 * [Compute context options for R Server on HDInsight](r-server-compute-contexts.md)
 * [Azure Storage options for R Server on HDInsight](r-server-storage.md)
