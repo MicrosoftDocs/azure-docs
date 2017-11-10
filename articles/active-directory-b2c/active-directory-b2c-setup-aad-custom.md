@@ -50,8 +50,8 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 1. Select **Web app / API** for the application type.
 1. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
 
->[!NOTE]
->  The value for "yourtenant" must be all lowercase in the Sign-on URL.
+    >[!NOTE]
+    >The value for "yourtenant" must be all lowercase in the **Sign-on URL**.
 
     ```
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
