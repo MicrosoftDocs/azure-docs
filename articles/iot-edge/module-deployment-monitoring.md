@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Understand IoT Edge deployments for single devices or at scale - Public preview
+# Understand IoT Edge deployments for single devices or at scale - preview
 
 Azure IoT Edge devices follow a [device lifecycle][lnk-lifecycle] that is similar to other types of IoT devices:
 

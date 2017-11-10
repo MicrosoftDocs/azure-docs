@@ -1,5 +1,5 @@
 ---
-title: Install Azure IoT Edge - Linux | Microsoft Docs 
+title: Simulate Azure IoT Edge on Linux | Microsoft Docs 
 description: Install the Azure IoT Edge runtime on a simulated device in Linux, and deploy your first module
 services: iot-edge
 keywords: 
@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 ---
 
-# Deploy Azure IoT Edge on a simulated device in Linux
+# Deploy Azure IoT Edge on a simulated device in Linux - preview
 
 Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, built from Azure services or custom code, but first you need a device to test. 
 

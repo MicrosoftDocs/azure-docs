@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Understand how IoT Edge modules can be used, configured, and reused - Public preview
+# Understand how IoT Edge modules can be used, configured, and reused - preview
 
 Azure IoT Edge allows you to compose multiple IoT Edge modules before deploying them to IoT Edge devices. This article explains the most important concepts around composing multiple IoT Edge modules before deployment. 
 

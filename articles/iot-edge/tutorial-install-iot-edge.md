@@ -14,7 +14,7 @@ ms.service: iot-edge
 
 ---
 
-# Deploy an Azure IoT Edge module on a simulated device - Public preview
+# Deploy an Azure IoT Edge module on a simulated device - preview
 
 Azure IoT Edge enables you to perform analytics and data processing on your devices, instead of having to push all the data to the cloud. The IoT Edge tutorials demonstrate how to deploy different types of modules, built from Azure services or custom code, but first you need a device to test. 
 

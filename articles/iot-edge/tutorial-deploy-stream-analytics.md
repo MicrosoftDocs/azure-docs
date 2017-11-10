@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Deploy Azure Stream Analytics as an IoT Edge module
+# Deploy Azure Stream Analytics as an IoT Edge module - preview
 
 IoT devices can produce large quantities of data. Sometimes this data has to be analyzed or processed before reaching the cloud to reduce the size of uploaded data or to eliminate the round-trip latency of an actionable insight.
 
