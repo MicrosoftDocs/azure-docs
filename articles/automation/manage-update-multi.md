@@ -89,7 +89,7 @@ For instructions on how to enable update management for non-Azure Windows virtua
 
 For instructions on how to enable update management for non-Azure Linux virtual machines and computers, see [Connect your Linux computers to Log Analytics](../log-analytics/log-analytics-agent-linux.md).
 
-## View update assessment
+## View an update assessment
 
 After update management is enabled, the **Update management** dialog box appears. You can see a list of missing updates on the **Missing updates** tab.
 
@@ -151,29 +151,29 @@ After you finish configuring the schedule, return to the status dashboard by sel
 
 ## View results of an update deployment
 
-After the scheduled deployment is started, you can see the status for that deployment on the **Update deployments** tab on the **Update management** screen.
-If it is currently running, it's status shows as **In progress**. After it completes, if successful, it changes to **Succeeded**.
+After the scheduled deployment is started, you can see the status for that deployment on the **Update deployments** tab in the **Update management** dialog box.
+If the deployment is currently running, its status shows as **In progress**. After it finishes successfully, it changes to **Succeeded**.
 If there is a failure with one or more updates in the deployment, the status is **Partially failed**.
 
-![Update Deployment status ](./media/manage-update-multi/update-view-results.png)
+![Status of update deployment](./media/manage-update-multi/update-view-results.png)
 
-Select the completed update deployment to see the dashboard for that update deployment.
+To see the dashboard for an update deployment, select the completed deployment.
 
-In **Update results** tile is a summary of the total number of updates and deployment results on the virtual machine.
-In the table to the right is a detailed breakdown of each update and the installation results, which could be one of the following values:
+The **Update results** pane shows a summary of the total number of updates and the deployment results on the virtual machine.
+In the table to the right is a detailed breakdown of each update and the installation results. Installation results can be one of the following values:
 
-* Not attempted - the update was not installed because there was insufficient time available based on the maintenance window duration defined.
-* Succeeded - the update succeeded
-* Failed - the update failed
+* Not attempted: The update was not installed because there was insufficient time available based on the defined maintenance window.
+* Succeeded: The update succeeded.
+* Failed: The update failed.
 
-Select **All logs** to see all log entries that the deployment created.
+To see all log entries that the deployment created, select **All logs**.
 
-Select the **Output** tile to see job stream of the runbook responsible for managing the update deployment on the target virtual machine.
+To see the job stream of the runbook that manages the update deployment on the target virtual machine, select the **Output** tile.
 
-Select **Errors** to see detailed information about any errors from the deployment.
+To see detailed information about any errors from the deployment, select **Errors**.
 
 For detailed information about the logs, output, and error information, see [Update Management](../operations-management-suite/oms-solution-update-management.md).
 
 ## Next steps
 
-* To learn more about Update management, see [Update Management](../operations-management-suite/oms-solution-update-management.md).
+* To learn more about update management, see [Update Management](../operations-management-suite/oms-solution-update-management.md).
