@@ -46,3 +46,4 @@ Now that you have a device running the IoT Edge runtime, learn how to [Deploy an
 [lnk-board]: https://developer.microsoft.com/windows/iot/Docs/GetStarted/mbm/sdcard/stable/getstartedstep2
 [lnk-powershell]: https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell
 [lnk-deploy]: how-to-deploy-monitor.md
+[lnk-docker-containers]: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers

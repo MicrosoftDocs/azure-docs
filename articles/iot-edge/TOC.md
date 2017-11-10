@@ -11,7 +11,9 @@
 ## [Simulate an Edge device - Linux](tutorial-simulate-device-linux.md) 
 ## [Develop a C# module](tutorial-csharp-module.md)
 ## [Deploy Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
+## [Deploy Azure Machine Learning](tutorial-deploy-machine-learning.md)
 ## [Deploy Azure Functions](tutorial-deploy-function.md)
+
 
 # How-to guides
 ## [Create a gateway device](how-to-create-gateway-device.md)

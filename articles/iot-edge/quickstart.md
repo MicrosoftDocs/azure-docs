@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure IoT Edge quickstart | Microsoft Docs 
+title: Quickstart Azure IoT Edge + Windows | Microsoft Docs 
 description: Try out Azure IoT Edge by running analytics on a simulated edge device
 services: iot-edge
 keywords: 
@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Deploy your first IoT Edge module from the Azure portal to a Windows device - Public preview
+# Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this topic, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
 
@@ -145,6 +145,7 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 
 <!-- Links -->
 [lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 
+[lnk-docker-containers]: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers
 [lnk-python]: https://www.python.org/downloads/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
