@@ -17,7 +17,7 @@ ms.date: 11/10/2017
 ms.author: alkohli
 
 ---
-# Available regions for your StorSimple 
+# Available regions for your StorSimple
 
 ## Overview
 
@@ -39,7 +39,6 @@ Here is a list of regions where StorSimple Device Manager service is available f
 
 For Azure Government cloud, the StorSimple Device Manager service is available in US Gov Iowa and US Gov Virginia datacenters.
 
-
 ## Region availability for data stored in StorSimple
 
 StorSimple data is physically stored in Azure storage accounts and these accounts are available in all the Azure regions. When you create an Azure storage account, the primary location of the storage account is chosen and that determines the region where the data resides.
@@ -50,7 +49,7 @@ If you are using a StorSimple Cloud Appliance, then we recommend that the servic
 
 ## Availability of StorSimple device
 
-Depending upon the model, the StorSimple devices can be available in different geogrpahies or countries.
+Depending upon the model, the StorSimple devices can be available in different geographies or countries.
 
 ### StorSimple physical device (Models 8100/8600)
 
@@ -74,19 +73,9 @@ If using a StorSimple 8100 or 8600 physical device, the device is available in t
 | 14 | Germany        | 29 | Mexico      | 44 | Slovakia     | 59 | Vietnam              |
 | 15 | Greece         | 30 | Netherlands | 45 | Slovenia     | 60 | Croatia              |
 
-The following countries will be added to the above list soon.
+This list changes as more countries are added. For a most up-to-date list of the geographies, go to the [Appendix - Storage Array Terms in the Product terms](https://www.microsoft.com/Licensing/product-licensing/products.aspx).
 
-| # | Country    |
-|---|------------|
-| 1 | Argentina  |
-| 2 | Bulgaria   |
-| 3 | Costa Rica |
-| 4 | Lebanon    |
-| 5 | Morocco    |
-| 6 | Pakistan   |
-| 7 | Serbia     |
-
-Microsoft can ship physical hardware and provide hardware spare parts replacement for StorSimple to the geographies in the preceding list. For a most up-to-date list of the geographies, go to the [Appendix - Storage Array Terms in the Product terms](https://www.microsoft.com/Licensing/product-licensing/products.aspx).
+Microsoft can ship physical hardware and provide hardware spare parts replacement for StorSimple to the geographies in the preceding list.
 
 > [!IMPORTANT]
 > Do not place a StorSimple physical device in a region where StorSimple is not supported. Microsoft will not be able to ship any replacement parts to countries where StorSimple is not supported.
