@@ -59,6 +59,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
          |HAS     | String        |  Only constant string literals are allowed at right-hand side. Empty string and NULL are not allowed.       |
 
       - **Examples of queries**
+      
          ![Example queries](media/time-series-insights-explorer/explorer9.png)
 
 6. The **Interval Size** slider tool enables you to zoom in and out of intervals over the same timespan.  This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
@@ -97,7 +98,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
    - **Column stats**:  Column stats provide charting and tables that break down data from each column of the selected data series over the selected time span.  
  
-   ![STATS](media/time-series-insights-explorer/explorer8.png) 
+      ![STATS](media/time-series-insights-explorer/explorer8.png) 
 
 Now you have seen the various features and options available within the Time Series Insights explorer web app. 
 
