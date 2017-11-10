@@ -40,28 +40,32 @@ Follow these steps to grant data access for a user principal:
 3. Select **Time Series Environment** in the search results. 
 
 4. Select your Time Series Insights environment from the list.
+   
    ![Manage the Time Series Insights source - environment](media/data-access/getstarted-grant-data-access1.png)
 
 5. Select **Data Access Policies**, then select **Add**.
-  ![Manage the Time Series Insights source - add](media/data-access/getstarted-grant-data-access2.png)
+
+   ![Manage the Time Series Insights source - add](media/data-access/getstarted-grant-data-access2.png)
 
 6. Click **Select user**.  Search for the user name or email address to locate the user you want to add. Click **Select** to confirm the selection. 
-  ![Manage the Time Series Insights source - select user](media/data-access/getstarted-grant-data-access3.png)
+
+   ![Manage the Time Series Insights source - select user](media/data-access/getstarted-grant-data-access3.png)
 
 7. Click **Select role**. Choose the appropriate access role for the user:
    - Select **Contributor** if you want to allow user to change reference data and share saved queries and perspectives with other users of the environment. 
    - Otherwise, select **Reader** to allow user query data in the environment and save personal (not shared) queries in the environment.
 
    Click **Ok** to confirm the role choice.
+   
    ![Manage the Time Series Insights source - select role](media/data-access/getstarted-grant-data-access4.png)
 
 8. Click **Ok** in the **Select User Role** page.
 
 9. The **Data Access Policies** page lists the users and the role(s) for each user.
+
    ![Manage the Time Series Insights source - results](media/data-access/getstarted-grant-data-access5.png)
 
 ## Next steps
-
 * [Create an event source](time-series-insights-add-event-source.md)
 * [Send events](time-series-insights-send-events.md) to the event source
 * View your environment in [Time Series Insights explorer](https://insights.timeseries.azure.com)
