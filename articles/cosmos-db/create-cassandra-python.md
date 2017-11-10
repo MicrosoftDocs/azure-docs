@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Cassandra API with Python - Azure Cosmos DB | Microsoft Docs'
-description: earn how to use the Azure Cosmos DB Cassandra API to create a get started application with the Azure portal and Java
+description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Python
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
