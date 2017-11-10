@@ -167,7 +167,7 @@ blob.upload( myFile, source.length());
 myFile.close();
 ```
 
-There are several [upload methods](java/api/com.microsoft.azure.storage.blob._cloud_block_blob) that you can use with Blob storage. For example, if you have a string, you can use the UploadText method rather than the Upload method. 
+There are several [upload methods](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) that you can use with Blob storage. For example, if you have a string, you can use the UploadText method rather than the Upload method. 
 
 Block blobs can be any type of text or binary file. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
 
