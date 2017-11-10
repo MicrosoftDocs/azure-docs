@@ -6,7 +6,7 @@ ms.service: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
+editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
