@@ -48,7 +48,7 @@ IoT Edge takes advantage of pre-built Azure Service IoT Edge modules for quick d
 
 For more information on Azure Stream Analytics, see the **Overview** section of the [Stream Analytics Documentation][azure-stream].  If you want to learn how to create your solution-specific IoT Edge Module, instead of using Azure Service provider, see [Create an IoT Edge module][lnk-next-tutorial2]. 
 
-## Create an ASA job to process data on the Edge
+## Create an ASA job
 
 In this section, you create an Azure Stream Analytics job to take data from your IoT hub, query the sent telemetry data from your device, and forward the results to an Azure Storage Container (BLOB). For more information, see the **Overview** section of the [Stream Analytics Documentation][azure-stream]. 
 
@@ -102,7 +102,7 @@ In this section, you create an Azure Stream Analytics job to take data from your
     HAVING Avg(machine.temperature) > 100
     ```
 
-## Deploy the ASA job to an IoT Edge device
+## Deploy the job
 
 You are now ready to deploy the ASA job on your IoT Edge device.
 
@@ -141,7 +141,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
     ![module output][7]
 
-## View data (optional)
+## View data
 
 1. At a command prompt, run the following command to see the modules running:
 
@@ -168,7 +168,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 In this tutorial, you configured an Azure Storage container and a Streaming Analytics job to analyze data from your IoT Edge device.  You then loaded a custom ASA module to move data from your device, through the stream, into a BLOB for download.  You can continue on to other tutorials to further see how Azure IoT Edge can create solutions for your business.
 
 > [!div class="nextstepaction"] 
-> [Create a custom module][lnk-next-tutorial2]
+> [Deploy an Azure Function as a module][lnk-function-tutorial]
 
 <!-- Images. -->
 [1]: ./media/tutorial-deploy-stream-analytics/storage.png
@@ -196,6 +196,7 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 [lnk-first-tutorial]: tutorial-install-iot-edge.md
 [lnk-module-tutorial]: tutorial-create-custom-module.md
 [lnk-next-tutorial2]: tutorial-create-custom-module.md
+[lnk-function-tutorial]: tutorial-deploy-function.md
 
 [lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
 [lnk-docker-linux]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/

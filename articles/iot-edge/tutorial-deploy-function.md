@@ -48,7 +48,7 @@ The Azure Function that you create in this tutorial filters the temperature data
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. 
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
-## Choose or sign up for a Docker registry
+## Set up a Docker registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to create an Azure Function and build a [Docker image](https://docs.docker.com/glossary/?term=image) with it. Then you push this Docker image to a [Docker repository](https://docs.docker.com/glossary/?term=repository) hosted by a [Docker registry](https://docs.docker.com/glossary/?term=registry). Finally, you deploy your Docker image packaged as a [Docker container](https://docs.docker.com/glossary/?term=container) from your registry to your IoT Edge device.  
 
 You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are **Azure Container Registry** and **Docker Hub**:
@@ -62,7 +62,7 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 
 Throughout this tutorial, where appropriate, commands are provided for both Azure Container Registry and Docker Hub.
 
-## Create an IoT Edge function project
+## Create a function project
 The following steps show you how to create an IoT Edge function using Visual Studio Code and the Azure IoT Edge extension.
 1. Open VS Code.
 2. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
@@ -148,7 +148,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 
 11. Save the file.
 
-## Create a Docker image and publish it to your registry
+## Publish a Docker image
 
 1. Build the Docker image.
   
@@ -174,7 +174,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 
 3. Push the image to your Docker repository. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command and enter the image name in the pop-up text box at the top of the VS Code window. Use the same image name you used in step 1.c.
 
-## Add registry credentials to Edge runtime on your Edge device
+## Add registry credentials to your Edge device
 Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. This gives the runtime access to pull the container. 
 
 - For Windows, run the following command:
