@@ -4,6 +4,7 @@ description: Use the Microsoft.Azure.Services.AppAuthentication library to easil
 keywords: azure key vault service authentication local credentials
 author: lleonard-msft
 manager: mbaldwin
+services: key-vault
 
 ms.author: alleonar
 ms.date: 07/09/2017
@@ -167,7 +168,7 @@ When you run your code in Azure that supports MSI or in an Azure VM, the library
 
 It may be necessary to create a service principal and use it to authenticate. Common examples include:
 
-1. Your code runs on a local development environment, but not under the developer's identity.  Service Fabric, for example, uses a [NetworkService account](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684272(v=vs.85).aspx) for local development.
+1. Your code runs on a local development environment, but not under the developer's identity.  Service Fabric, for example, uses a [NetworkService account](https://msdn.microsoft.com/library/windows/desktop/ms684272(v=vs.85).aspx) for local development.
  
 2. Your code runs on a local development environment and you authenticate to a custom service, so you can't use your developer identity. 
  
@@ -232,7 +233,7 @@ The following options are supported:
 
 ## Next steps
 
-- Learn more about [Managed Service Identity](/azure/app-service/app-service-managed-service-identity)
+- Learn more about [Managed Service Identity](/azure/app-service/app-service-managed-service-identity).
 
 - Learn different ways to [authenticate and authorize apps](/azure/app-service/app-service-authentication-overview).
 
