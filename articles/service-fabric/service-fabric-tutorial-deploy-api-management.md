@@ -19,7 +19,7 @@ ms.author: ryanwi
 ---
 
 # Deploy API Management with Service Fabric
-This tutorial is part two of a series. This tutorial shows you how to set up [Azure API Management](../api-management/api-management-key-concepts.md) with Service Fabric to route traffic to a back-end service in Service Fabric.  When you're finished, you have deployed API Management to a VNET, configured an API operation to send traffic to back-end stateless services. To learn more about Azure API Management scenarios with Service Fabric, see the [overview](service-fabric-api-management-overview.md) article.
+This tutorial is part three of a series.  Deploying Azure API Management with Service Fabric is an advanced scenario, useful when you need to publish APIs with a rich set of routing rules to your back-end Service Fabric services. This tutorial shows you how to set up [Azure API Management](../api-management/api-management-key-concepts.md) with Service Fabric to route traffic to a back-end service in Service Fabric.  When you're finished, you have deployed API Management to a VNET, configured an API operation to send traffic to back-end stateless services. To learn more about Azure API Management scenarios with Service Fabric, see the [overview](service-fabric-api-management-overview.md) article.
 
 In this tutorial, you learn how to:
 
@@ -61,6 +61,10 @@ az account set --subscription <guid>
 Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. In Service Fabric, a gateway can be any stateless service such as an ASP.NET Core application, or another service designed for traffic ingress, such as Event Hubs, IoT Hub, or Azure API Management. This tutorial is an introduction to using Azure API Management as a gateway to your Service Fabric applications. API Management integrates directly with Service Fabric, allowing you to publish APIs with a rich set of routing rules to your back-end Service Fabric services. 
 
 Now that you have a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure, deploy API Management to the virtual network (VNET) in the subnet and NSG designated for API Management. For this tutorial, the API Management Resource Manager template is pre-configured to use the names of the VNET, subnet, and NSG that you set up in the previous [Windows cluster tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster tutorial](service-fabric-tutorial-create-vnet-and-linux-cluster.md). 
+
+This tutorial deploys the following topology to Azure in which API Management and Service Fabric are in subnets of the same Virtual Network:
+
+ ![Picture caption][sf-apim-topology-overview]
 
 Download the following Resource Manager template and parameters file:
  
@@ -403,3 +407,6 @@ In this tutorial, you learned how to:
 
 [cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
 [cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+
+<!-- pics -->
+[sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
