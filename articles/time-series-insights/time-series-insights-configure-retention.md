@@ -1,24 +1,19 @@
 ---
-title: Configure Data Retention in Azure Time Series Insights | Microsoft Docs
-description: This article describes how to configure data retention in Azure Time Series Insights
-keywords: 
+title: Configure data retention in Azure Time Series Insights | Microsoft Docs
+description: This article describes the concepts of data retention in Azure Time Series Insights. The two modes are "continue ingress and purge old data" and "pause ingress".
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: kfile
-manager: jhubbard
-editor: 
-
-ms.assetid: 
-ms.service: tsi
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-data
-ms.date: 10/31/2017
 ms.author: kfile
+manager: jhubbard
+editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
 ---
 
-# Configure data retention in Time Series Insights
+# Configure data retention in Azure Time Series Insights
 
 Time Series Insights can store data for up to 400 days and Time Series Insights enables two modes for managing ingress and data purge settings when the capacity of an environment is reached.  These two modes are **continue ingress and purge old data** and **pause ingress**.  The default setting, and the only option available when creating a new environment, is **continue ingress and purge old data**. From experience and customer interaction, we expect most will want to use this setting, which optimizes for the freshest data.  However, you can toggle between these modes in the configuration for of an existing environment. 
 
