@@ -1,6 +1,6 @@
 ---
-title: Import utterances from the CSV query log using Node.js | Microsoft Docs 
-description: Learn how to import utterances from the query log that contains all the user utterances passed to your LUIS endpoint. 
+title: Build a LUIS app programmatically using Node.js | Microsoft Docs 
+description: Learn how to build a LUIS app programmatically from preexisting data in CSV format using the LUIS Authoring API. 
 services: cognitive-services
 author: DeniseMak
 manager: rstand
@@ -8,13 +8,13 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: v-demak
 ---
 
 # Build a LUIS app programmatically using Node.js
 
-LUIS provides a programmatic API that does everything that the UI at [https://www.luis.ai](https://www.luis.ai) does. This can save time when you might have a lot of preexisting data and it'd be faster to programmatically create a LUIS app than entering information by hand. 
+LUIS provides a programmatic API that does everything that the UI at [https://www.luis.ai](https://www.luis.ai) does. This can save time when you might have a lot of preexisting data and it'd be faster to create a LUIS app programmatically than by entering information by hand. 
 
 ## Prerequisites
 
