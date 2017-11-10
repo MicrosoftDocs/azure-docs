@@ -6,7 +6,7 @@ ms.service: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
@@ -19,7 +19,7 @@ This article describes how to change the capacity of your environment your Time 
 
 You can use the Azure portal to increase or decrease capacity within a given pricing Sku. 
 
-However, changing the pricing tier SKU is not allowed. For example, an environment with a S1 pricing Sku cannot be converted into an S2, or vis-a-versa. 
+However, changing the pricing tier SKU is not allowed. For example, an environment with a S1 pricing SKU cannot be converted into an S2, or vice versa. 
 
 
 ## S1 SKU ingress rates and capacities
