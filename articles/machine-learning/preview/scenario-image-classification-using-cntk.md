@@ -88,12 +88,10 @@ This tutorial uses as running example an upper body clothing texture dataset con
 
 The script `0_downloadData.py` downloads all images to the *DATA_DIR/images/fashionTexture/* directory. Some of the 428 URLs are likely broken. This is not an issue, and just means that we have slightly fewer images for training and testing.
 
-The following figure shows examples for the attributes dotted (left two columns), striped (middle two columns), and leopard (right two columns). Annotations were done according to the upper body clothing item.
+The following figure shows examples for the attributes dotted (left), striped (middle), and leopard (right). Annotations were done according to the upper body clothing item.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 
