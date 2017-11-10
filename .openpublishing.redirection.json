@@ -381,6 +381,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-tags.md",
+            "redirect_url": "/azure/azure-policy/scripts/billing-tags-policy-init",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
             "redirect_document_id": false
@@ -5548,11 +5553,6 @@
         {
             "source_path": "articles/storage/storage-troubleshoot-file-connection-problems.md",
             "redirect_url": "/azure/storage/storage-troubleshoot-windows-file-connection-problems",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storage/blobs/storage-quickstart-blobs-java.md",
-            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
             "redirect_document_id": false
         },
         {
