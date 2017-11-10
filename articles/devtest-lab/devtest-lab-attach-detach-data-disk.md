@@ -18,9 +18,9 @@ ms.author: tarcher
 
 ---
 # Attach or detach a data disk to a virtual machine in Azure DevTest Labs
-[Azure Managed Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview) manages the storage accounts associated with virtual machine data disks. A user attaches a new data disk to a VM, specifies the type and size of disk that's needed, and Azure creates and manages the disk automatically. The data disk can then be detached from the VM and either reattached later to the same VM, or attached to a different VM if it belongs to the same user.
+[Azure Managed Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview) manages the storage accounts associated with virtual machine data disks. A user attaches a new data disk to a VM, specifies the type and size of disk that's needed, and Azure creates and manages the disk automatically. The data disk can then be detached from the VM and either reattached later to the same VM, or attached to a different VM that belongs to the same user.
 
-This is handy for managing storage or software outside of each individual virtual machine. If the storage or software already exists inside a data disk, it can be easily attached, detached, and reattached to any VM that is owned by the user that owns that data disk.
+This functionality is handy for managing storage or software outside of each individual virtual machine. If the storage or software already exists inside a data disk, it can be easily attached, detached, and reattached to any VM that is owned by the user that owns that data disk.
 
 ## Attach a data disk
 Before you attach a data disk to a VM, review these tips:
@@ -49,7 +49,7 @@ Follow these steps to create and attach a new managed data disk to a VM in Azure
 After a few moments, the new data disk is created and attached to the VM and appears in the list of **DATA DISKS** for that VM.
 
 ## Detach a data disk
-When you no longer need a data disk that's attached to a VM, you can easily detach it. This removes the disk from the VM, but keeps it in storage for use later.
+When you no longer need a data disk that's attached to a VM, you can easily detach it. Detaching removes the disk from the VM, but keeps it in storage for use later.
 
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine or to another one.
 
@@ -76,8 +76,9 @@ The disk is detached and is available to attach to another VM.
 
    > [!NOTE]
    > If a data disk is already detached, you can choose to remove it from your list of available data disks by selecting **Delete**.
->
->
+   >
+   >
+
 ## Reattach a data disk
 Follow these steps to reattach an existing available data disk to a running VM. 
 
