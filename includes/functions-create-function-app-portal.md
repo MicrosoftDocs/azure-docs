@@ -2,7 +2,7 @@
 
     ![Create a function app in the Azure portal](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
-2. Use the function app settings as specified in the table.
+2. Use the function app settings as specified in the table below the image.
 
     ![Define new function app settings](./media/functions-create-function-app-portal/function-app-create-flow2.png)
 
