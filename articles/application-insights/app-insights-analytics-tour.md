@@ -1,7 +1,7 @@
 ---
 title: A tour through Analytics in Azure Application Insights | Microsoft Docs
 description: Short samples of all the main queries in Analytics, the powerful search tool of Application Insights.
-services: application-insightsG
+services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
