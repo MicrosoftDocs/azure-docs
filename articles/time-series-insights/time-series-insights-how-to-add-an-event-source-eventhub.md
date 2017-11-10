@@ -36,7 +36,7 @@ This article describes how to use the Azure portal to add an event source that r
 
 6. Select the appropriate **Import option**. 
    - If you already have an existing Event Hub on one of your subscriptions, it is easiest to select **Use Event Hub from available subscriptions**. 
-   - If the Event Hub is external to your subscription, or you wish to choose advanced options, choose **Provide Event Hub settings manually**. 
+   - If the Event Hub is external to your subscriptions, or you wish to choose advanced options, choose **Provide Event Hub settings manually**. 
 
    ![Import Option setting](media/add-event-source/HowToAddEventHubEventImportOption.png)
    
