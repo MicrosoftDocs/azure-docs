@@ -40,3 +40,4 @@ The following illustration demonstrates the data the Funnels blade generates. Fr
 
 ## Next steps
 - Learn more about [usage analysis](app-insights-usage-overview.md).
+- Export funnel to Power BI [Power BI](app-insights-export-power-bi.md).
