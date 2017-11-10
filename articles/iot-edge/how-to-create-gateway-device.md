@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Create an edge gateway device to process data from other IoT devices
+# Create an IoT Edge gateway device to process data from other IoT devices
 
 There are two ways to use IoT Edge devices as gateways:
 
@@ -29,9 +29,9 @@ There are two ways to use IoT Edge devices as gateways:
 
 When you use an IoT Edge device as a gateway you get the following advantages:
 
-* **Connection multiplexing**. All devices connecting to IoT Hub throgh an IoT Edge device will use the same underlying connection.
+* **Connection multiplexing**. All devices connecting to IoT Hub through an IoT Edge device will use the same underlying connection.
 * **Traffic smoothing**. The IoT Edge device will automatically implement exponential backoff in case of IoT Hub throttling, while persisting the messages locally. This will make your solution resilient to spikes in traffic.
-* **Limited offline support**. The gateway device will store locally messages that cannnot be delivered to IoT Hub.
+* **Limited offline support**. The gateway device will store locally messages that cannot be delivered to IoT Hub.
 
 In this article we will call *IoT Edge gateway* an IoT Edge device used as a gateway.
 
@@ -58,7 +58,7 @@ When you connect devices to a IoT Edge gateway using the Azure IoT device SDK, y
 
 When you install the Azure IoT Edge runtime using the control script, a certificate is created for the Edge hub, as you did in the [Install IoT Edge on a simulated device][lnk-tutorial1]. This certificate is used by the Edge hub to accept incoming TLS connections, and has to be trusted by the downstream device when connecting to the gateway device.
 
-You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate set up that you would use to enable [X.509 CA security][lnk-iothub-x509] in IoT Hub, which involves a X.509 CA certificate associated to a specific IoT hub (the *IoT hub owner CA*), and a series of certificates, signed with this CA, installed in the IoT Edge devices.
+You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security][lnk-iothub-x509] in IoT Hub, which involves a X.509 CA certificate associated to a specific IoT hub (the *IoT hub owner CA*), and a series of certificates, signed with this CA, installed in the IoT Edge devices.
 
 >[!IMPORTANT]
 >Currently, IoT Edge devices and downstream devices can only use [SAS tokens][lnk-iothub-tokens] to authenticate with IoT Hub. The certificates will be used only to validate the TLS connection between the leaf and gateway device.
@@ -67,7 +67,7 @@ The main idea is to use device certificates, signed with the IoT Hub-level CA, a
 Given these certificates you can easily create a solution allowing all devices to use any other IoT Edge device as a gateway, as long as they are connected to the same hub.
 
 This is implemented using the **IoT hub owner CA** as:
-* a signing certificate for the set up of the IoT Edge runtime on all IoT Edge devices, and as
+* a signing certificate for the setup of the IoT Edge runtime on all IoT Edge devices, and as
 * a public key certificate installed in downstream devices.
 
 ### Create the certificates for test scenarios
@@ -76,7 +76,7 @@ You can use the sample Powershell and Bash scripts described in [Managing CA Cer
 
 1. Follow step 1 to install the scripts.
 2. Follow step 2 to generate the **IoT hub owner CA**, this file will be used by the downstream devices to validate the connection.
-3. Follow step 4 to create a device cert for your gateway devices, this file will be used when configuring the IoT Edge runtime on the gateway devices. You have to use the hostname (Fully Qualified Domain Name) of your gateway as the command paramater, e.g. `./certGen.sh mygateway.contoso.com`.
+3. Follow step 4 to create a device cert for your gateway devices, this file will be used when configuring the IoT Edge runtime on the gateway devices. You have to use the hostname (Fully Qualified Domain Name) of your gateway as the command parameter, e.g. `./certGen.sh mygateway.contoso.com`.
 
 >[!IMPORTANT]
 >This sample is meant only for test purposes. For production scenarios, refer to [Secure your IoT deployment][lnk-iothub-secure-deployment] for the Azure IoT guidelines on how to secure your IoT solution, and provision your certificate accordingly.
@@ -93,7 +93,7 @@ We assume the following file names from the sample scripts above:
 | Device private key | `private/new-device.cert.pem` |
 | Device certificate chain | `certs/new-device-full-chain.cert.pem` |
 
- Analogously to the installation described in [Install IoT Edge on a simulated device][lnk-tutorial1], you have to provide the above information to the IoT Edgr runtime. In Linux:
+ Analogously to the installation described in [Install IoT Edge on a simulated device][lnk-tutorial1], you have to provide the above information to the IoT Edge runtime. In Linux:
 
         sudo iotedgectl setup --connection-string {device connection string}
             --device-ca-cert-file ./certs/new-device.cert.pem
@@ -142,7 +142,7 @@ These two steps will enable your device application to connect to the gateway de
 
 ## Connect devices using other protocols
 
-One of the main fuctions of a gateway device is to interpret protocols of downstream devices. To connect devices that do not use the IoT Hub protocol, you can develop an IoT Edge module which performs this translation and connects on behalf of the downstream device to IoT Hub.
+One of the main functions of a gateway device is to interpret protocols of downstream devices. To connect devices that do not use the IoT Hub protocol, you can develop an IoT Edge module which performs this translation and connects on behalf of the downstream device to IoT Hub.
 
 You can decide to create a *transparent* or *opaque* gateway:
 
@@ -153,24 +153,24 @@ You can decide to create a *transparent* or *opaque* gateway:
 | Direct methods and cloud-to-device messages | The cloud can address each connected device individually | The cloud can only address the gateway device |
 | [IoT Hub throttles and quotas][lnk-iothub-throttles-quotas] | Apply to each device | Apply to the gateway device |
 
-> [AZURE.IMPORTANT]  When using an opaque gateway pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
+When using an opaque gateway pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
 
 When implementing an opaque gateway, your protocol translation module uses the module connection string.
 
-When implementing a trasparent gateway, the module creates multiple instances of the IoT Hub device client, using the connection strings for the downstream devices. This allows the 
+When implementing a transparent gateway, the module creates multiple instances of the IoT Hub device client, using the connection strings for the downstream devices. This allows the 
 
 ## Next steps
 
 - [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
 
-[lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks
+[lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1]: tutorial-install-iot-edge.md
 [lnk-module-dev]: module-development.md
 [lnk-iothub-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
 [lnk-iothub-x509]: ../iot-hub/iot-hub-x509ca-overview.md
-[lnk-iothub-secure-deployment]: ../iot-hub/iot-hub-security-deployment
+[lnk-iothub-secure-deployment]: ../iot-hub/iot-hub-security-deployment.md
 [lnk-iothub-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-tokens 
-[lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling
-[lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins
-[lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d
+[lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
+[lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
 [lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md

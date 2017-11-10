@@ -8,7 +8,7 @@ author: JimacoMS2
 manager: timlt
 
 ms.author: v-jamebr
-ms.date: 10/05/2017
+ms.date: 11/08/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -21,11 +21,11 @@ ms.service: iot-edge
 ---
 
 # Deploy Azure Function as an IoT Hub module - Public preview
-You can use Azure Functions to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an Azure Function that filters sensor data on the simulated IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md). You learn how to:    
+You can use Azure Functions to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an Azure Function that filters sensor data on the simulated IoT Edge device that you created in the [Install Azure IoT Edge tutorial](./tutorial-install-iot-edge.md). In this tutorial, you learn how to:     
 
 > [!div class="checklist"]
-> * Use Visual Studio Code to create an azure function
-> * Use VS Code and Docker to create a docker image and publish it to your registry 
+> * Use Visual Studio Code to create an Azure Function
+> * Use VS Code and Docker to create a Docker image and publish it to your registry 
 > * Deploy the module to your IoT Edge device
 > * View generated data
 
@@ -34,7 +34,7 @@ The Azure Function that you create in this tutorial filters the temperature data
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md).
+* The Azure IoT Edge device that you created in the [Install Azure IoT Edge tutorial](./tutorial-install-iot-edge.md).
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * The following Visual Studio Code extensions: 
@@ -48,39 +48,36 @@ The Azure Function that you create in this tutorial filters the temperature data
     > 3. Install the extension VSIX by using the **View | Command Palette... | Extensions: Install from VSIX...** menu command, navigating to the downloaded VSIX on your computer and clicking **Open**. (You can also install the extension by clicking **...** in the upper-right corner of the extension panel and selecting **Install from VSIX...**.)
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. 
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
-* [Nuget CLI](https://docs.microsoft.com/en-us/nuget/guides/install-nuget#nuget-cli). 
+* [NuGet CLI](https://docs.microsoft.com/en-us/nuget/guides/install-nuget#nuget-cli). 
 
 ## Bug Bash Configuration steps
 The steps in this section are only required until Azure IoT Edge goes public. They walk you through setting up VS Code with dependencies that will not be public until we release Azure IoT Edge. 
  
-1. Install version 3 or later of the [Nuget CLI](https://docs.microsoft.com/en-us/nuget/guides/install-nuget#nuget-cli). The module code depends on a couple of Nuget packages that won't be made public until we release Azure IoT Edge. For the time being, we have placed them on `myget`. You need the Nuget CLI to reference these packages. 
+1. Install version 3 or later of the [NuGet CLI](https://docs.microsoft.com/en-us/nuget/guides/install-nuget#nuget-cli). The module code depends on a couple of NuGet packages that won't be made public until we release Azure IoT Edge. For the time being, we have placed them on `myget`. You need the NuGet CLI to reference these packages. 
 2. Open Visual Studio Code. 
 3. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
-1. In integrated terminal, add a Nuget source for the **AzureIotEdgeFunction** template Nuget package.  
+1. In integrated terminal, add a NuGet source for the **AzureIotEdgeFunction** template NuGet package.  
 
     ```cmd/sh
     nuget sources add -name AzureIoTEdgeFunction -source https://www.myget.org/F/dotnet-template-azure-iot-edge-function/api/v3/index.json  
     ``` 
-2. Install the **AzureIoTEdgeFunction** template in dotnet
 
-    ```cmd/sh
-    dotnet new -i Microsoft.Azure.IoT.Edge.Function
-    ```
+## Choose or sign up for a Docker registry
+In this tutorial, you use the IoT Edge extension to build a [Docker image](https://docs.docker.com/glossary/?term=image) from your Azure Function code. Then you push this Docker image to a [Docker repository](https://docs.docker.com/glossary/?term=repository) hosted by a [Docker registry](https://docs.docker.com/glossary/?term=registry). Finally, you deploy your Docker image packaged as a [Docker container](https://docs.docker.com/glossary/?term=container) from your registry to your IoT Edge device.  
 
-## Create a Docker container registry
-For this tutorial, you need a Docker registry to publish your IoT Edge module to. You can use any Docker-compatible container registry, for example: [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). If you already have a Docker-compatible container registry, you can use it; otherwise, you can get a free private Docker repository on Docker Hub when you sign up for a Docker ID. 
+You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are **Azure Container Registry** and **Docker Hub**:
 
-1. To sign up for a Docker ID, follow the instructions in [Register for a Docker ID](https://docs.docker.com/docker-id/#register-for-a-docker-id) on the Docker site. 
+- [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) is available with a [paid subscription](https://azure.microsoft.com/en-us/pricing/details/container-registry/). For this tutorial, the **Basic** subscription is sufficient. 
 
-2. To create a private Docker repository, follow the instructions in [Creating a new repository on Docker Hub](https://docs.docker.com/docker-hub/repos/#creating-a-new-repository-on-docker-hub) on the Docker site.
+- [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) offers one free private repository if you sign up for a (free) Docker ID. 
+    1. To sign up for a Docker ID, follow the instructions in [Register for a Docker ID](https://docs.docker.com/docker-id/#register-for-a-docker-id) on the Docker site. 
 
-## Configure the IoT Edge Visual Studio Code extension with your IoT hub connection string 
-1. Open Visual Studio Code.
-2. Use the **View | Explorer** menu command to open the VS Code explorer. 
-3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window.  
+    2. To create a private Docker repository, follow the instructions in [Creating a new repository on Docker Hub](https://docs.docker.com/docker-hub/repos/#creating-a-new-repository-on-docker-hub) on the Docker site.
 
-## Create a custom IoT Edge function project
-The following steps show you how to create a IoT Edge function using Visual Studio Code and the IoT Edge extension.
+Throughout this tutorial, where appropriate, commands are provided for both Azure Container Registry and Docker Hub.
+
+## Create an IoT Edge function project
+The following steps show you how to create an IoT Edge function using Visual Studio Code and the IoT Edge extension.
 1. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
 2. In the integrated terminal, enter the following command to install the **AzureIoTEdgeFunction** template in dotnet:
 
@@ -97,20 +94,16 @@ The following steps show you how to create a IoT Edge function using Visual Stud
     > This command creates the project folder, **FilterFunction**, in the current working folder. If you want to create it in another location, change directories before running the command.
 
 3. Use the  **File | Open Folder** menu command, browse to the **FilterFunction**  folder, and click **Select Folder** to open the project in VS Code.
-4. In VS Code explorer, click **run.csx** to open it.
-5. Add the following statements:
+4. In VS Code explorer, click the **EdgeHubTrigger-Csharp** folder, then click the **run.csx** file to open it.
+5. Add the following statement after the `#r "Microsoft.Azure.Devices.Client"` statement:
 
     ```csharp
-    #r "Microsoft.Azure.Devices.Client"
-    #r "System.Collection.Generic"
     #r "Newtonsoft.Json"
     ```
 
-5. Add the following using statements:
+5. Add the following using statements after the existing `using` statements:
 
     ```csharp
-    using Microsoft.Azure.Devices.Client;
-    using System.Collections.Generic;
     using Newtonsoft.Json;
     ```
 
@@ -135,26 +128,34 @@ The following steps show you how to create a IoT Edge function using Visual Stud
     }
     ```
 
-1. Add the following code to the end of the **Run** method. It filters messages based on the temperature value in the body of the message and the temperature threshold value.
+1. Replace the body of the **Run** method with the following code. It filters messages based on the temperature value in the body of the message and the temperature threshold value.
 
     ```csharp
     const int temperatureThreshold = 25;
-    // Get message body
-    var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
 
-    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+    byte[] messageBytes = messageReceived.GetBytes();
+    var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
+
+    if (!string.IsNullOrEmpty(messageString))
     {
-        log.Info($"Machine temperature {messageBody.machine.temperature} " +
-          $"exceeds threshold {temperatureThreshold}");
-        var filteredMessage = new Message(messageBytes);
-        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+        // Get the body of the message and deserialize it
+        var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
+        
+        if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
         {
-            filteredMessage.Properties.Add(prop.Key, prop.Value);
+            // We will send the message to the output as the temperature value is greater than the threashold
+            var filteredMessage = new Message(messageBytes);
+            // We need to copy the properties of the original message into the new Message object
+            foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+            {
+                filteredMessage.Properties.Add(prop.Key, prop.Value);
+            }
+            // We are adding a new property to the message to indicate it is an alert
+            filteredMessage.Properties.Add("MessageType", "Alert");
+            // Send the message        
+            await output.AddAsync(filteredMessage);
+            log.Info("Received and transfered a message with temperature above the threshold");
         }
-
-        filteredMessage.Properties.Add("MessageType", "Alert");
-      
-        await output.AddAsync(filteredMessage);
     }
     ```
 
@@ -162,7 +163,7 @@ The following steps show you how to create a IoT Edge function using Visual Stud
 
 ## Create a Docker image and publish it to your registry
 
-1. Build the docker image.
+1. Build the Docker image.
     > [!IMPORTANT]
     > **For Bug Bash**, to create the Docker image, you will need to access the private registry hosting the function base image. In integrated terminal, run the following command before proceeding with the steps below: 
     > 
@@ -172,26 +173,31 @@ The following steps show you how to create a IoT Edge function using Visual Stud
   
   1. In VS Code explorer, click on the **Docker** folder to open it, then right-click the **Dockerfile** and click **Build IoT Edge module Docker image**. 
   2. In the **Select Folder** box, click **Select Folder as EXE_DIR**. (Do not enter a value.)
-  3. In the pop-up text box at the top of the VS Code window, enter the image URL; for example, `<docker registry address>/filterfunction:latest`.
+  3. In the pop-up text box at the top of the VS Code window, enter the image URL; for example, `<docker registry address>/filterfunction:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or similar to `<your registry name>.azurecr.io`, if you are using Azure Container Registry.
  
-4. Sign in to Docker. In integrated terminal, enter the following command and enter your credentials when prompted:
+4. Sign in to Docker. In integrated terminal, enter the following command: 
 
-    ```csh/sh
-    docker login
-    ```
-    > [!NOTE] 
-    > By default, the **docker login** command connects to your private Docker Hub repository. If you are working with a different container registry, for example, Azure container registry, you may need to specify the login server for that registry as the **\[SERVER\]** parameter to the **docker login** command. For details about **docker login**, enter the following command:
-    >
-    > ```csh/sh
-    > docker help login
-    > ```
-3. Push the image to your Docker repository. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command and enter the image URL in the pop-up text box at the top of the VS Code window. This should be the same image URL you used in step 1.a.; for example, `<docker registry address>/filterfunction:latest`.
+    - Docker Hub (enter your credentials when prompted):
+        
+        ```csh/sh
+        docker login
+        ```
+
+    - Azure Container Registry:
+        
+        ```csh/sh
+        docker login -u <username> -p <password> <Login server>
+        ```
+        
+        To find the user name, password and login server to use in this command, go to the [Azure portal] (https://portal.azure.com). From **All resources**, click the tile for your Azure container registry to open its properties, then click **Access keys**. Copy the values in the **Username**, **password**, and **Login server** fields. The login server sould be of the form: `<your registry name>.azurecr.io`.
+
+3. Push the image to your Docker repository. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command and enter the image URL in the pop-up text box at the top of the VS Code window. Use the same image URL you used in step 1.c.
 
 ## Add registry credentials to Edge runtime on your Edge device
 Add the credentials for your registry to the Edge runtime on the machine where you are running your Edge device. This gives the runtime access to pull the container. Run the following command on the machine where you are running your Edge device:
 
 ```cmd/sh
-iotedgectl login --address --username --password 
+iotedgectl login --address <docker-repository> --username <docker-username> --password <docker-password> 
 ```
 
 > [!NOTE]
@@ -201,19 +207,16 @@ iotedgectl login --address --username --password
 
 1. In the **Azure portal**, [https://df.onecloud.azure-test.net/](https://df.onecloud.azure-test.net/), navigate to your IoT hub.
 2. Go to **IoT Edge Explorer** and select your IoT Edge device.
-3. Select **Deploy modules**. 
-4. Select **Add custom IoT Edge module**.
+3. Select **Set Modules**. 
+4. Select **Add IoT Edge Module**.
 5. In the **Name** field, enter `tempSensor`.
 6. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`.
-7. In the **OS** field, select **linux**.
-8. Leave the other settings unchanged and select **Save**.
-9. From the **Add Modules** step, select **Add custom IoT Edge module** again.
-10. In the **Name** field, enter `filterfunction`.
-11. In the **Image** field, enter your image address; for example `{your registry}/filterfunction:latest`.
-12. In the **OS** field, select **linux**.
-13. In the **Architecture** field, select **x64**.
+7. Leave the other settings unchanged and click **Save**.
+8. Select **Add IoT Edge Module** again.
+9. In the **Name** field, enter `filterfunction`.
+10. In the **Image** field, enter your image address; for example `<docker registry address>/filterfunction:latest`.
 11. Click **Save**.
-12. Back in the **Add Modules** step, click **Next**.
+12. Click **Next**.
 13. In the **Specify Routes** step, copy the JSON below into the text box. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial, you need two routes. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint, which is the endpoint that you configured with the  **FilterMessages** handler. The second route transports messages from the filter module to IoT Hub. In this route, `upstream` is a special destination that tells Edge Hub to send messages to IoT Hub. 
 
     ```json
@@ -231,7 +234,15 @@ iotedgectl login --address --username --password
 
 ## View generated data
 
- In VS Code, use the **View | Command Palette... | IoT: Start Monitoring D2C Messages** menu command to monitor data arriving in the IoT Hub. 
+To monitor device to cloud messages sent from your IoT Edge device to your IoT hub:
+1. Configure the Azure IoT Toolkit extension with connection string for your IoT hub: 
+    1. Use the **View | Explorer** menu command to open the VS Code explorer. 
+    3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window. 
+
+        To find the connection string, click the tile for your IoT hub in the Azure portal and then click **Shared access policies**. In **Shared access policies**, click the **iothubowner** policy and copy the IoT Hub connection string in the **iothubowner** window.   
+
+1. To monitor data arriving at the IoT hub, use the **View | Command Palette... | IoT: Start monitoring D2C message** menu command. 
+2. To stop monitoring data, use the **View | Command Palette... | IoT: Stop monitoring D2C message** menu command. 
 
 ## Next steps
 

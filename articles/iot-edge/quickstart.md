@@ -65,16 +65,7 @@ If you've used IoT Hub in the past and already have a hub created, you can skip 
 
 ## Register an IoT Edge device
 
-Create a device identity for your simulated device so that it can communicate with your IoT hub. Since IoT Edge devices behave and can be managed differently than typical IoT devices, you declare this to be an IoT Edge device from the beginning. 
-
-1. In the Azure portal, navigate to your IoT hub.
-1. Select **IoT Edge Explorer**.
-1. Select **Add Edge device**.
-1. Give your simulated device a unique device ID.
-1. Confirm that the value of **Azure IoT Edge device** is set to **Yes**.
-1. Select **Save** to add your device.
-1. Select your new device from the list of devices. 
-1. Copy the value for **Connection string--primary key** and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
+[!INCLUDE [iot-edge-register-device](../../includes/iot-edge-register-device.md)]
 
 ## Install and start the IoT Edge runtime
 
@@ -111,21 +102,7 @@ Use the following steps to install and start the IoT Edge runtime:
 
 ## Deploy a module
 
-One of the key capabilities of Azure IoT Edge is being able to deploy modules to your IoT Edge devices from the cloud. An IoT Edge module is an executable package implemented as a container. In this section, you deploy a module that generates telemetry for your simulated device. 
-
-1. In the Azure portal, navigate to your IoT hub.
-1. Go to **IoT Edge Explorer** and select your IoT Edge device.
-1. Select **Deploy modules**.
-1. Select **Add custom IoT Edge module**.
-1. In the **Name** field, enter `tempSensor`. 
-1. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`. 
-1. Leave the other settings unchanged, and select **Save**.
-1. Back in the **Add modules** step, select **Next**.
-1. In the **Specify routes** step, select **Next**.
-1. In the **Review template** step, select **Submit**.
-1. Return to the device details page and select **Refresh**. You should see the new tempSensor module running along the IoT Edge runtime. 
-
-   ![View tempSensor in list of deployed modules][2]
+[!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 ## View generated data
 
