@@ -29,15 +29,14 @@ Azure IoT Edge is an Azure service that enables analytics and data processing at
 
 IoT Edge also includes a cloud interface that enables remote management of devices. Without having to physically access your devices, you can deploy code, monitor the status, and update it. You can remotely manage single devices, or create deployments that affect large sets of devices that you define. For more information, see [Understand IoT Edge deployments for single devices or at scale][lnk-deployment].
 
-To learn how Azure IoT Hub enables standards-based device management for you to remotely manage your devices, see [Overview of device management with IoT Hub][lnk-device-management].
-
-To implement client applications on a wide variety of device hardware platforms and operating systems, you can use the Azure IoT device SDKs. The device SDKs include libraries that facilitate sending telemetry to an IoT hub and receiving cloud-to-device messages. When you use the device SDKs, you can choose from several network protocols to communicate with IoT Hub. To learn more, see the [information about device SDKs][lnk-device-sdks].
+To learn about the components that enable IoT Edge, see [How Azure IoT Edge works][lnk-overview].
 
 To get started writing some code and running some samples, see the [Get started with IoT Hub][lnk-getstarted] tutorial.
 
 You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a collection of preconfigured solutions. IoT Suite enables you to get started quickly and scale IoT projects to address common IoT scenarios--such as remote monitoring, asset management, and predictive maintenance.
 
 [lnk-deployment]: module-deployment-monitoring.md
+[lnk-overview]: how-iot-edge-works.md
 
 [lnk-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
