@@ -50,5 +50,4 @@ When ingress resumes:
 Device-to-cloud messages are durable and retained in an IoT Hub's default messages/events endpoint for up to seven days. For more information, see [Send device-to-cloud messages to IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c).
 
 ## Next steps
-
-*  [Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md)
+[Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md)
