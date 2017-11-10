@@ -70,9 +70,6 @@ In this section, you create an Azure Stream Analytics job to take data from your
 
 1. In the Azure portal, navigate to **Create a resource -> Internet of Things** and click **Stream Analytics Job**.
 
-    > [!NOTE]
-    > For 11-09 bug bash, please create your ASA job under location **Canada East**.
-
 1. Enter a name, **choose "Edge" as Hosting environment** and use the remaining default values.  Click **Create**.
 
     ![ASA create][5]
@@ -116,9 +113,6 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 1. Select the subscription and the ASA Edge job that you created. Then select your storage account. Click **Save**.
 
     ![set module][6]
-
-    > [!NOTE]
-    > For 11-09 bug bash, there is a known issue that you can't use long module name. Click edit button for this ASA module, rename the module with any three characters. Then save.
 
 1. Click **Add IoT Edge Module** to add the temperature sensor module. Enter _tempSensor_ for name, `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview` for Image URL. Leave the other settings unchanged, and click **Save**.
 

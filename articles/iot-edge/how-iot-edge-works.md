@@ -18,7 +18,7 @@ ms.author: kgremban
 ms.custom: 
 ---
 
-# How Azure IoT Edge works - Public preview
+# What is Azure IoT Edge - preview
 
 Azure IoT Edge moves cloud analytics and custom business logic to devices so that your organization can focus on business insights instead of data management. Enable your solution to truly scale by configuring your IoT software, deploying it to devices via standard containers, and monitoring it all from the cloud.
 
@@ -39,11 +39,11 @@ Azure IoT Edge allows you to deploy complex event processing, machine learning, 
 
 ### Bring your own code
 
-When you do want to deploy your own code to your devices, Azure IoT Edge supports that, too. Azure IoT Edge holds to the same programming model as the other Azure IoT services. This consistency means that the same code can be run on a device or in the cloud. Azure IoT Edge supports both Linux and Windows so you can code to the platform of your choice. It supports Java, .NET Core 2.0, Node.js, C, and Python so your developers can code in a language they already know and use existing business logic without writing it from scratch.
+When you want to deploy your own code to your devices, Azure IoT Edge supports that, too. Azure IoT Edge holds to the same programming model as the other Azure IoT services. The same code can be run on a device or in the cloud. Azure IoT Edge supports both Linux and Windows so you can code to the platform of your choice. It supports Java, .NET Core 2.0, Node.js, C, and Python so your developers can code in a language they already know and use existing business logic without writing it from scratch.
 
 ## IoT Edge runtime
 
-The Azure IoT Edge runtime enables custom and cloud logic on IoT Edge devices. It lets you locally run workloads tailored to a specific type of device. The runtime performs several functions:
+The Azure IoT Edge runtime enables custom and cloud logic on IoT Edge devices. It sits on the IoT Edge device, and performs management and communication operations. The runtime performs several functions:
 
 * Installs and updates workloads on the device.
 * Maintains Azure IoT Edge security standards on the device.
