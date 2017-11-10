@@ -18,9 +18,9 @@ ms.date: 11/03/2017
 ms.author: omravi
 ---
 
-# What is Azure Time Series Insights
+# What is Azure Time Series Insights? An Overview:
 
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously.  It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time.  If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using Time Series Insights’s REST APIs.
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously.  It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real-time.  If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using REST APIs.
 
 Time Series Insights allows you to get started visualizing and querying data flowing into Azure IoT Hubs and Event Hubs in minutes, enabling you to query extremely large volumes of time series data in seconds.  It was designed for the internet-of-things (IoT) scale and can handle terabytes of data.  Additionally:
 
@@ -62,13 +62,17 @@ There is no new language to learn; Time Series Insights provides a granular, fre
 - **Scalability:** Time Series Insights is designed to support IoT at scale. In Preview, it can ingress from 1 million to 100 million events per day, with a default retention span of 31 days. You can visualize and analyze live data streams in near real-time, alongside vast amounts of historical data. Moving forward, ingress and retention rates will increase to accommodate an ever evolving enterprise scale.
 
 ## Time Series Insights architecture
-
 Getting started takes less than 5 minutes. 
-Below is an example of basic architecture to get started using Time Series Insights.
 
 1.	To get started, provision a Time Series Insights environment in the Azure portal. 
 2.	Connect an event source like an Azure IoT Hub or Event Hub.  
 3.	Upload reference data (this is not an additional service).
 4.	See your data in minutes with the Time Series Insights explorer.
 
+This diagram shows an example of basic architecture to get started using Time Series Insights:
 ![Time Series Insights architecture](media/overview/time-series-insights-overview-flow.png)
+
+## Next steps
+- [Explore using Time Series Insights explorer in a demonstration environment](./time-series-quickstart.md)
+- [Plan your own Time Series Insights environment](time-series-insights-environment-planning.md)
+
