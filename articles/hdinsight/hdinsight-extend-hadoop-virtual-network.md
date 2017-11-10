@@ -378,7 +378,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 301 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule3" `
         -Description "HDI health and management 168.61.49.99" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -389,7 +389,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 302 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule4" `
         -Description "HDI health and management 23.99.5.239" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -400,7 +400,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 303 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule5" `
         -Description "HDI health and management 168.61.48.131" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -411,7 +411,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 304 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule6" `
         -Description "HDI health and management 138.91.141.162" `
         -Protocol "*" `
         -SourcePortRange "*" `
