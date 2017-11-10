@@ -48,7 +48,7 @@ In the following command, substitute your own globally unique name for the Blob 
 
 ```powershell-interactive
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
-  -Name "mystorageaccountrgfv" `
+  -Name "mystorageaccount" `
   -Location EastUS `
   -SkuName Standard_LRS `
   -Kind Storage `
@@ -113,13 +113,12 @@ Run the following cmdlet to finalize configuration of the virtual machine. This 
 
 ```azurepowershell-interactive
 # Start a CustomScript extension to use a simple PowerShell script to instal .NET core, dependancies, and pre-create the files to upload.
-Measure-Command -Expression { Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location EastUS `
     -FileUri https://raw.githubusercontent.com/georgewallace/StoragePerfandScalabilityExample/master/script.ps1 `
-    -Run 'script.ps1' `
+    -Run 'setup_env.ps1' `
     -Name DemoScriptExtension
-}
 ```
 
 ## Next steps

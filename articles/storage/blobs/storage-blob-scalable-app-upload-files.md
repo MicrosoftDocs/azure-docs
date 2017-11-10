@@ -45,19 +45,17 @@ mstsc /v:<publicIpAddress>
 
 ## Configure the connection string
 
-Log in to the virtual machine you created in the previous tutorial. Open a **Command Prompt** as an administrator and  in  Navigate to `C:\Git\StoragePerfandScalabilityExample` and open the `config.json` file in a text editor.
-
 In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account in the Azure portal. Copy the **connection string** from the primary or secondary key. Log in to the virtual machine you created in the previous tutorial. Open a **Command Prompt** as an administrator and replace **\<storageConnectionString\>** in the following sample. Run the **setx** command to save the environment variable. The environment variable is not available until to reload the **Command Prompt**.
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m
 ```
 
-When finished, open another **Command Prompt**, navigate to `D:\git\StoragePerfandScalabilityExample` and type `dotnet build` to rebuild the application.
+When finished, open another **Command Prompt**, navigate to `D:\git\storage-dotnet-perf-scale-app` and type `dotnet build` to rebuild the application.
 
 ## Run the application
 
-Open a `Command Prompt` and navigate to `c:\git\StoragePerfandScalabilityExample`.
+Open a `Command Prompt` and navigate to `D:\git\storage-dotnet-perf-scale-app`.
 
 Type `dotnet run` to run the application. A command runs initially to populate your local package cache, to improve restore speed and enable offline access. This command takes up to a minute to complete and only happens once.
 
@@ -84,6 +82,7 @@ private static async Task UploadFilesAsync()
     // Create random 5 characters containers to upload files to.
     CloudBlobContainer[] containers = await GetRandomContainersAsync();
     var currentdir = System.IO.Directory.GetCurrentDirectory();
+
     // path to the directory to upload
     string uploadPath = currentdir + "\\upload";
     Stopwatch time = Stopwatch.StartNew();
@@ -93,9 +92,11 @@ private static async Task UploadFilesAsync()
         int count = 0;
         int max_outstanding = 100;
         int completed_count = 0;
+
+        // Create a new instance of the semaphore class to define the number of threads to use in the application.
         Semaphore sem = new Semaphore(max_outstanding, max_outstanding);
 
-        List<Task> Tasks = new List<Task>();
+        List<Task> tasks = new List<Task>();
         Console.WriteLine("Found {0} file(s)", Directory.GetFiles(uploadPath).Count());
 
         // Iterate through the files
@@ -104,28 +105,32 @@ private static async Task UploadFilesAsync()
             // Create random file names and set the block size that is used for the upload.
             var container = containers[count % 5];
             Random r = new Random((int)DateTime.Now.Ticks);
-            String s = (r.Next() % 10000).ToString("X5");
+            string s = (r.Next() % 10000).ToString("X5");
             Console.WriteLine("Starting upload of {0} as {1} to container {2}.", fileName, s, container.Name);
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(s);
             blockBlob.StreamWriteSizeInBytes = 100 * 1024 * 1024;
             sem.WaitOne();
+
             // Create tasks for each file that is uploaded. This is added to a collection that executes them all asyncronously.  Defined the BlobRequestionOptions on the upload.
             // This includes defining an exponential retry policy to ensure that failed connections are retried with a backoff policy. As multiple large files are being uploaded
             // large block sizes this can cause an issue if an exponential retry policy is not defined.  Additionally parallel operations are enabled with a thread count of 8
             // This could be should be multiple of the number of cores that the machine has. Lastly MD5 hash validation is disabled, this imroves the upload speed.
-            Tasks.Add(blockBlob.UploadFromFileAsync(fileName, null, new BlobRequestOptions() { ParallelOperationThreadCount = 8, DisableContentMD5Validation = true, StoreBlobContentMD5 = false }, null).ContinueWith((t) => {
+            tasks.Add(blockBlob.UploadFromFileAsync(fileName, null, new BlobRequestOptions() { ParallelOperationThreadCount = 8, DisableContentMD5Validation = true, StoreBlobContentMD5 = false }, null).ContinueWith((t) =>
+            {
                 sem.Release();
                 Interlocked.Increment(ref completed_count);
             }));
             count++;
         }
+
         // Creates an asynchonous task that completes when all the uploads complete.
-        await Task.WhenAll(Tasks);
+        await Task.WhenAll(tasks);
     }
     catch (Exception ex)
     {
         Console.WriteLine(ex.Message);
     }
+
     time.Stop();
 
     Console.WriteLine("Upload has been completed in {0} seconds. Press any key to continue", time.Elapsed.TotalSeconds.ToString());
@@ -142,13 +147,13 @@ Created container https://mystorageaccount.blob.core.windows.net/aboan
 Created container https://mystorageaccount.blob.core.windows.net/scdpz
 Created container https://mystorageaccount.blob.core.windows.net/abbim
 Created container https://mystorageaccount.blob.core.windows.net/vefmk
-Iterating in directiory: D:\git\StoragePerfandScalalabilityExample\upload
+Iterating in directiory: D:\git\storage-dotnet-perf-scale-app\upload
 Found 36 file(s)
-Starting upload of D:\git\StoragePerfandScalalabilityExample\upload\1d596d16-f6de-4c4c-8058-50ebd8141e4d.txt as 0187A to container jjahy.
-Starting upload of D:\git\StoragePerfandScalalabilityExample\upload\242ff392-78be-41fb-b9d4-aee8152a6279.txt as 00E13 to container aboan.
-Starting upload of D:\git\StoragePerfandScalalabilityExample\upload\38d4d7e2-acb4-4efc-ba39-f9611d0d55ef.txt as 02121 to container scdpz.
-Starting upload of D:\git\StoragePerfandScalalabilityExample\upload\45930d63-b0d0-425f-a766-cda27ff00d32.txt as 00589 to container abbim.
-Starting upload of D:\git\StoragePerfandScalalabilityExample\upload\5129b385-5781-43be-8bac-e2fbb7d2bd82.txt as 01922 to container vefmk.
+Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\1d596d16-f6de-4c4c-8058-50ebd8141e4d.txt as 0187A to container jjahy.
+Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\242ff392-78be-41fb-b9d4-aee8152a6279.txt as 00E13 to container aboan.
+Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\38d4d7e2-acb4-4efc-ba39-f9611d0d55ef.txt as 02121 to container scdpz.
+Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\45930d63-b0d0-425f-a766-cda27ff00d32.txt as 00589 to container abbim.
+Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\5129b385-5781-43be-8bac-e2fbb7d2bd82.txt as 01922 to container vefmk.
 ...
 Upload has been completed in 142.0429536 seconds. Press any key to continue
 ```
