@@ -73,8 +73,9 @@ Control activity | Description
 [WebActivity](control-flow-web-activity.md) | Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity. 
 [Lookup Activity](control-flow-lookup-activity.md) | Lookup Activity can be used to read or look up a record/ table name/ value from any external source. This output can further be referenced by succeeding activities. 
 [Get Metadata Activity](control-flow-get-metadata-activity.md) | GetMetadata activity can be used to retrieve metadata of any data in Azure Data Factory. 
-Do Until Activity | Implements Do-Until loop that is similar to Do-Until looping structure in programming languages.
-If Condition Activity | The If Condition can be used branch based on condition that evaluates to true or false. 
+[Until Activity](control-flow-until-activity.md) | Implements Do-Until loop that is similar to Do-Until looping structure in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity in Data Factory.
+[If Condition Activity](control-flow-if-condition-activity.md) | The If Condition can be used branch based on condition that evaluates to true or false. 
+[Wait Activity](control-flow-wait-activity.md) | When you use a Wait activity in a pipeline, the pipeline waits for the specified period of time before continuing with execution of subsequent activities. 
 
 ## Pipeline JSON
 Let us take a closer look on how a pipeline is defined in JSON format. The generic structure for a pipeline looks as follows:
