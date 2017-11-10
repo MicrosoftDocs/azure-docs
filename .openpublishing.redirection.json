@@ -6,6 +6,11 @@
 	    "redirect_document_id": false 
 	},
     {
+        "source_path": "articles/active-directory/active-directory-manage-o365-subscription.md",
+        "redirect_url": "/azure/active-directory/domains-admin-takeover",
+        "redirect_document_id": false
+    },
+    {
         "source_path": "articles/active-directory/active-directory-accessmanagement-dedicated-groups.md",
         "redirect_url": "/azure/active-directory/active-directory-groups-create-azure-portal",
         "redirect_document_id": false
@@ -14958,6 +14963,11 @@
             "source_path": "articles/hdinsight/hdinsight-using-json-in-hive.md",
             "redirect_url": "/azure/hdinsight/hadoop/using-json-in-hive",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/hdinsight/r-server/r-server-install-r-studio.md",
+            "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
