@@ -35,7 +35,7 @@ When a user navigates to the password reset portal, a workflow is kicked off to 
 
 Read through the following steps to learn about the logic behind the password reset page:
 
-1. The user selects the **Cannot access your account** link or goes directly to [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
+1. The user selects the **Can't access your account** link or goes directly to [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
    * Based on the browser locale the experience is rendered in the appropriate language. The password reset experience is localized into the same languages that Office 365 supports.
 2. The user enters a user ID and passes a captcha.
 3. Azure AD verifies that the user is able to use this feature by doing the following checks:
