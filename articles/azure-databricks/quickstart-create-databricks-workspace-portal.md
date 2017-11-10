@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create Azure Databricks workspace by using the Azure portal | Microsoft Docs'
-description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace.
+description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace and Apache Spark cluster.
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
