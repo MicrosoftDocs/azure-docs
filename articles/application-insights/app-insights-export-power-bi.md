@@ -83,22 +83,22 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 1. [Make your Funnel](usage-funnels.md)
 2. Click on the Power BI Button 
 
-![PowerBI Button](./media/app-insights-export-power-bi/button.png)
+   ![PowerBI Button](./media/app-insights-export-power-bi/button.png)
 3. In Power BI Desktop select **Get Data, Blank Query** and then  in the query editor, under **View** select **Advanced Query Editor**.
 
-![Blank Query](./media/app-insights-export-power-bi/blankquery.png)
+   ![Blank Query](./media/app-insights-export-power-bi/blankquery.png)
 
 Paste the exported M Language script into the Advanced Query Editor. 
 
-![Advanced Query Editor](./media/app-insights-export-power-bi/advancedquery.png)
+   ![Advanced Query Editor](./media/app-insights-export-power-bi/advancedquery.png)
 
 4. Select items from the query and choose Funnel visualization
 
-![Select sequence and Funnel](./media/app-insights-export-power-bi/selectsequence.png)
+   ![Select sequence and Funnel](./media/app-insights-export-power-bi/selectsequence.png)
 
 5. Change the title to make it meaningful and publish your report to your Power BI cloud workspace. 
 
-![Change title](./media/app-insights-export-power-bi/changetitle.png)
+   ![Change title](./media/app-insights-export-power-bi/changetitle.png)
 
 ## Troubleshooting
 
