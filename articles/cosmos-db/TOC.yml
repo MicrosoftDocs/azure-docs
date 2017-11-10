@@ -59,6 +59,8 @@
       href: create-cassandra-java.md
     - name: .NET
       href: create-cassandra-dotnet.md
+    - name: Python
+      href: create-cassandra-python.md
 - name: Tutorials
   items:
   - name: 1 - Create
