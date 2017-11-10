@@ -14,7 +14,7 @@ ms.author: v-demak
 
 # Build a LUIS app programmatically using Node.js
 
-LUIS provides a programmatic API that does everything that the UI at [luis.ai](http://www.luis.ai) does. This can save time when you might have a lot of preexisting data and it'd be faster to programmatically create a LUIS app than entering information by hand. 
+LUIS provides a programmatic API that does everything that the UI at [https://www.luis.ai](https://www.luis.ai) does. This can save time when you might have a lot of preexisting data and it'd be faster to programmatically create a LUIS app than entering information by hand. 
 
 ## Prerequisites
 
@@ -25,13 +25,13 @@ LUIS provides a programmatic API that does everything that the UI at [luis.ai](h
 * **[Recommended]** Visual Studio Code for IntelliSense and debugging, download it from [here](https://code.visualstudio.com/) for free.
 
 ## Map preexisting data to intents and entities
-Even if you have a system that wasn't created with LUIS in mind, if it contains textual data that maps to different things users want to do, you might be able to come up a mapping from the existing categories of user input to intents in LUIS. If you can identify important words or phrases in what the users said, these might map to entities.
+Even if you have a system that wasn't created with LUIS in mind, if it contains textual data that maps to different things users want to do, you might be able to come up with a mapping from the existing categories of user input to intents in LUIS. If you can identify important words or phrases in what the users said, these might map to entities.
 
 Open the `IoT.csv` file. It contains a log of user queries to a hypothetical home automation service, including how they were categorized, what the user said, and some columns with useful information pulled out of them. 
 
 ![CSV file](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
-You'll see that the **RequestType** column could be intents, the **Request** column shows an example utterance, and the other fields could be entities if they actually occur in the utterance. Because we have what intents, entities, and example utterances, we have what we need to create a sample app.
+You'll see that the **RequestType** column could be intents, the **Request** column shows an example utterance, and the other fields could be entities if they actually occur in the utterance. Because we have intents, entities, and example utterances, we have what we need to create a sample app.
 
 ## Steps to generate a LUIS app from non-LUIS data
 To generate a new LUIS app from the source file, first you parse the data from the CSV file and convert this data to a format that you can upload to LUIS using the Authoring API. From the parsed data, you gather information on what intents and entities are there. Then you make API calls to create the app, and add intents and entities that were gathered from the parsed data. Once you have created the LUIS app, you can add the example utterances from the parsed data. You can see this flow in the last part of the code below. Copy or [download](https://github.com/Microsoft/LUIS-Samples/tree/master/examples) this code and save it in `index.js`.
@@ -696,15 +696,16 @@ Install the Node.js dependencies from NPM in the terminal/command line.
 ````
 
 ### Change Configuration Settings
-In order to use this application, you need to change the values in the index.js file to your own subscription key, app ID, and version ID. 
+In order to use this application, you need to change the values in the index.js file to your own subscription key, and provide the name you want the app to have. You can also set the app's culture or change the version number.
 
 Open the index.js file, and change these values at the top of the file.
 
 
 ````JavaScript
-// CHANGE THESE VALUES
-const LUIS_subscriptionKey = "YOUR_SUBSCRIPTION_KEY"; 
-const LUIS_appId = "YOUR_APP_ID";
+// Change these values
+const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
+const LUIS_appName = "Sample App";
+const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
 ````
 ### Run the script
