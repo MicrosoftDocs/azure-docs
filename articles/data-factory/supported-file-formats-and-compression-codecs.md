@@ -8,14 +8,14 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 11/02/2017
 ms.author: jingwang
 
 ---
 
 # Supported file formats and compression codecs in Azure Data Factory
 
-*This topic applies to the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Store](connector-azure-data-lake-store.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).*
+*This topic applies to the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Store](connector-azure-data-lake-store.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).*
 
 If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. If you want to **parse or generate files with a specific format**, Azure Data Factory supports the following file format types:
 
@@ -26,7 +26,7 @@ If you want to **copy files as-is** between file-based stores (binary copy), ski
 * [Parquet format](#parquet-format)
 
 > [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally availabile (GA), see [supported file and compression formats in Data Factory version1](v1//data-factory-supported-file-and-compression-formats.md).
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [supported file and compression formats in Data Factory version1](v1//data-factory-supported-file-and-compression-formats.md).
 
 ## Text format
 

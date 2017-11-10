@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -79,11 +79,7 @@ In addition to the Microsoft cloud apps, you can assign a conditional access pol
 
 ## Device platform condition
 
-In a conditional access policy, you can configure the device platform condition to tie the policy to the operating system on a client.
-
-![Tie the access policy to the client OS](./media/active-directory-conditional-access-technical-reference/41.png)
-
-Azure AD conditional access supports the following device platforms:
+In a conditional access policy, you can configure the device platform condition to tie the policy to the operating system on a client. Azure AD conditional access supports the following device platforms:
 
 - Android
 
@@ -93,7 +89,12 @@ Azure AD conditional access supports the following device platforms:
 
 - Windows
 
-- macOS (preview)
+- macOS
+
+
+![Tie the access policy to the client OS](./media/active-directory-conditional-access-technical-reference/41.png)
+
+
 
 
 
@@ -128,11 +129,11 @@ In your conditional access policy, the following browsers are supported:
 | Windows Server 2016    | Chrome                      | Coming soon |
 | Windows Server 2012 R2 | Internet Explorer, Chrome   | ![Check][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome   | ![Check][1] |
-| macOS                  | Safari                      | ![Check][1] |
-| macOS                  | Chrome                      | Coming soon |
+| macOS                  | Chrome, Safari              | ![Check][1] |
+
 
 > [!NOTE]
-> For Chrome support, you muse use Windows 10 Creators Update (version 1703) or later.<br>
+> For Chrome support, you must use Windows 10 Creators Update (version 1703) or later.<br>
 > You can install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
 ### Supported mobile applications and desktop clients
@@ -144,23 +145,25 @@ Control app and client access by using the **Mobile apps and desktop clients** o
 The following mobile apps and desktop clients support conditional access for Office 365 and other Azure AD-connected service applications:
 
 
-| Client applications| Target service| Platform |
+| Client apps| Target Service| Platform |
 | --- | --- | --- |
-| Azure Multi-Factor Authentication and location policy for apps (device-based policies are not supported)| Any My Apps app service| Android, iOS|
-| Azure RemoteApp| Azure RemoteApp service| Windows 10, Windows 8.1, Windows 7, iOS, Android, macOS|
-| Dynamics 365 app| Dynamics 365| Windows 10, Windows 8.1, Windows 7, iOS, Android|
-| Microsoft Office 365 Teams (controls all services that support Microsoft Teams and all of its client apps: Windows Desktop, iOS, Android, Windows Phone, web client)| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android|
-| Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)| Office 365 Exchange Online| Windows 10|
+| Azure Remote app| Azure Remote App service| Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X|
+| Dynamics CRM app| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, and Android|
+| Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Office 365 Exchange Online| Windows 10|
+| MFA and location policy for apps. Device based policies are not supported.| Any My Apps app service| Android and iOS|
+| Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android and macOS|
+| Office 2016 apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), OneDrive sync client (see [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office Groups support is planned for the future, SharePoint app support is planned for the future| Office 365 SharePoint Online| Windows 10|
+| Office 2016 for macOS (Word, Excel, PowerPoint, OneNote only). OneDrive for Business support planned for the future| Office 365 SharePoint Online| Mac OS X|
+| Office mobile apps| Office 365 SharePoint Online| iOS, Android|
+| Office Yammer app| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2016 (Office for macOS)| Office 365 Exchange Online| Mac OS X|
 | Outlook 2016, Outlook 2013 (with modern authentication), Skype for Business (with modern authentication)| Office 365 Exchange Online| Windows 8.1, Windows 7|
 | Outlook mobile app| Office 365 Exchange Online| iOS|
-| Outlook 2016 (Office for macOS)| Office 365 Exchange Online| macOS|
-| Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), [OneDrive](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) sync client, future support planned for Office Groups and SharePoint app| Office 365 SharePoint Online| Windows 10|
-| Office 2016 apps, Office 2013 (with modern authentication), [OneDrive](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) sync client| Office 365 SharePoint Online| Windows 8.1, Windows 7|
-| Office mobile apps| Office 365 SharePoint Online| iOS, Android|
-| Office 2016 for macOS (support only for Word, Excel, PowerPoint, OneNote), future support planned for OneDrive for Business| Office 365 SharePoint Online| macOS|
-| Office Yammer app| Office 365 Yammer| Windows 10, iOS, Android|
-| PowerBI app (not currently supported on Android)| PowerBI service| Windows 10, Windows 8.1, Windows 7, and iOS|
-| Visual Studio Team Services app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS, Android|
+| PowerBI app. The Power BI app for Android does not currently support device-based conditional access.| PowerBI service| Windows 10, Windows 8.1, Windows 7, and iOS|
+| Skype for Business| Office 365 Exchange Online| Android, IOS|
+| Visual Studio Team Services app| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS, and Android|
+
 
 
 
