@@ -93,7 +93,7 @@ When you use the Consumption hosting plan, function code files are stored on Azu
 > [!NOTE]
 > When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this initial delay, consider one of the following options:
 > - Host the function app on an App Service plan, with Always On enabled.
-> - Use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. For an example, see [Queue trigger with blob input binding](functions-bindings-storage-blob.md#input-sample).
+> - Use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. For an example, see the [C# script and JavaScript examples for the blob input and output bindings](functions-bindings-storage-blob.md#input--output---example).
 
 ### Runtime scaling
 
