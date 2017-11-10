@@ -10,7 +10,7 @@ ms.service: iot-suite
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 11/10/2017
 ms.author: carolz
 ---
 
