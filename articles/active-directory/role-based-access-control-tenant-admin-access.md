@@ -23,6 +23,24 @@ Role-based Access Control helps tenant administrators get temporary elevations i
 
 This feature is important because it allows the tenant admin to see all the subscriptions that exist in an organization. It also allows for automation apps like invoicing and auditing to access all the subscriptions and provide an accurate view of the state of the organization for billing or asset management.  
 
+## View role assignments at "/" scope using PowerShell
+To view the **User Access Administrator** assignment at the **/** scope, use the `Get-AzureRmRoleAssignment` PowerShell cmdlet.
+    
+```
+Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
+```
+
+**Example output**:
+
+RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
+Scope              : /    
+DisplayName        : username    
+SignInName         : username@somedomain.com    
+RoleDefinitionName : User Access Administrator    
+RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
+ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
+ObjectType         : User    
+
 ## Use elevateAccess for tenant access with Azure AD admin center
 
 1. Go to the [Azure Active Directory admin center](https://aad.portal.azure.com) and log in with you credentials.
@@ -124,6 +142,10 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 	3. Finally, Use the highlighted **RoleAssignment ID** to delete the assignment added by Elevate Access:
 
 		DELETE https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+
+## Delete the role assignment at "/" scope using Powershell:
+You can delete the assignment using following PowerShell cmdlet:
+*Remove-AzureRmRoleAssignment* -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/"
 
 ## Next steps
 
