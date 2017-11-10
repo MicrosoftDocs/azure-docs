@@ -91,19 +91,24 @@ We assume the following file names from the sample scripts above:
 | Device certificate | `certs/new-device.cert.pem` |
 | Device private key | `private/new-device.cert.pem` |
 | Device certificate chain | `certs/new-device-full-chain.cert.pem` |
+| IoT hub owner CA | `certs/azure-iot-test-only.root.ca.cert.pem` |
 
 Analogously to the installation described in [Install IoT Edge on a simulated device][lnk-tutorial1], you have to provide the above information to the IoT Edge runtime. In Linux:
 
         sudo iotedgectl setup --connection-string {device connection string}
+            --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
             --device-ca-cert-file ./certs/new-device.cert.pem
             --device-ca-chain-cert-file ./certs/new-device-full-chain.cert.pem
             --device-ca-private-key-file ./private/new-device.cert.pem
+            --owner-ca-cert-file ./certs/azure-iot-test-only.root.ca.cert.pem
 
 In Windows:
         iotedgectl setup --connection-string {device connection string}
+            --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
             --device-ca-cert-file ./certs/new-device.cert.pem
             --device-ca-chain-cert-file ./certs/new-device-full-chain.cert.pem
             --device-ca-private-key-file ./private/new-device.cert.pem
+            --owner-ca-cert-file ./certs/azure-iot-test-only.root.ca.cert.pem
 
 By default the sample scripts do not set a passphrase to the device private key. If you set a passphrase, add the following parameter:
 
