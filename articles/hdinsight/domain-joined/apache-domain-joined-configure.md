@@ -77,12 +77,12 @@ After creating the VNet, you will configure the Azure AD DS to use this VNet.
    * **Subnet address range**: 10.0.0.0/24
    * **Subscription**: (Select your Azure subscription.)
    * **Resource group**: contosohdirg
-   * **Location**: (Select the same location as the Azure AD VNet, i.e. contosoaadvnet.)
+   * **Location**: (Select the same location as the Azure AD VNet. For example, contosoaadvnet.)
 5. Click **Create**.
 
 **To configure DNS for the Resource Manager VNet**
 
-1. From the [Azure portal](https://portal.azure.com), click **More services** -> **Virtual networks**. Ensure not to click **Virtual networks (classic)**.
+1. From the [Azure portal](https://portal.azure.com), click **More services** > **Virtual networks**. Ensure not to click **Virtual networks (classic)**.
 2. Click **contosohdivnet**.
 3. Click **DNS servers** from the left side of the new blade.
 4. Click **Custom**, and then enter the following values:
@@ -148,7 +148,7 @@ For more information, see [Azure AD Domain Services (Preview) - Create the 'AAD 
    * **Directory name**: contosoaaddirectory
    * **DNS domain name**: This shows the default DNS name of the Azure directory. For example, contoso.onmicrosoft.com.
    * **Location**: Select your region.
-   * **Network**: Select the virtual network and subnet you created earlier, i.e. **contosohdivnet**.
+   * **Network**: Select the virtual network and subnet you created earlier. For example, **contosohdivnet**.
 3. Click **OK** from the summary page. You will see **Deployment in progress...** under notifications.
 4. Wait until **Deployment in progress...** disappears, and **IP Address** gets populated. Two IP addresses will get populated. These are the IP addresses of the domain controllers provisioned by Domain Services. Each IP address will be visible after the corresponding domain controller is provisioned and ready. Write down the two IP addresses. You will need them later.
 
