@@ -58,13 +58,16 @@ This article describes how to use the Azure portal to add an event source that r
 | Subscription Id | The subscription in which this event hub was created.
 | Resource group | The subscription in which this event hub was created.
 | Service bus namespace | A Service Bus namespace is a container for a set of messaging entities. When you created a new Event Hub, you also created a Service Bus namespace.
-| Event hub name | The name of your Event Hub. When you created your event hub, you also gave it a specific name
+| Event hub name | The name of your Event Hub. When you created your event hub, you also gave it a specific name.
 | Event hub policy name | The shared access policy, which can be created on the Event Hub Configure tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions.
 | Event hub policy key | The Shared Access key used to authenticate access to the Service Bus namespace. Type the primary or secondary key here.
 | Event hub consumer group | The Consumer Group to read events from the Event Hub. It is highly recommended to use a dedicated consumer group for your event source.
 
 9. Select the **Event serialization format**. JSON is the available serialization at present.
-10. If needed, provide a **Timestamp property name**. This is the name of the event property (from the event hub message data) that should be used as the event timestamp. When not specified, event enqueue time within the event source will be used as the event timestamp. 
+
+10. It is recommended to provide a **Timestamp property name**. You need to know the message format of the event data to make this decision. This is the name of the event property in the message data that should be used as the event timestamp. When not specified, event enqueue time within the event source will be used as the event timestamp. 
+
+11. Select **Create** to add the new event source.
 
 ## Next steps
 - Secure the data with a data access policy: [Define data access policies](time-series-insights-data-access.md)
