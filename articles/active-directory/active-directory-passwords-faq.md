@@ -37,7 +37,7 @@ This FAQ is split into the following sections:
 
 * **Q:  Can my users register their own password reset data?**
 
-  > **A:** Yes, as long as password reset is enabled and they are licensed, they can go to the [password reset registration portal](http://aka.ms/ssprsetup) to register their authentication information. Users can also register through the [Access Panel]( http://myapps.microsoft.com). To register, they need to select their profile picture, select *Profile**, and then select the **Register for password reset** option.
+  > **A:** Yes, as long as password reset is enabled and they are licensed, they can go to the [password reset registration portal](http://aka.ms/ssprsetup) to register their authentication information. Users can also register through the [Access Panel]( http://myapps.microsoft.com). To register, they need to select their profile picture, select **Profile**, and then select the **Register for password reset** option.
   >
   >
 * **Q:  Can I define password reset data on behalf of my users?**
@@ -85,7 +85,7 @@ This FAQ is split into the following sections:
         > * Check your junk folder.
         > * Check that the number or email being contacted is the one you expect.
         > * Check that the authentication data in the directory is correctly formatted:
-            >     * Example: *+1 4255551234* or *user@contoso.com*
+            >     * Example: +1 4255551234 or *user@contoso.com*
   >
   >
 * **Q:  What languages are supported by password reset?**
