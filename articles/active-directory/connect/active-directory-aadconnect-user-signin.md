@@ -1,4 +1,4 @@
----
+ ---
 title: 'Azure AD Connect: User sign-in | Microsoft Docs'
 description: Azure AD Connect user sign-in for custom settings.
 services: active-directory
@@ -19,6 +19,8 @@ ms.author: billmath
 ---
 # Azure AD Connect user sign-in options
 Azure Active Directory (Azure AD) Connect allows your users to sign in to both cloud and on-premises resources by using the same passwords. This article describes key concepts for each identity model to help you choose the identity that you want to use for signing in to Azure AD.
+
+It is important to remember that by configuring federation for Azure AD, you establish trust between your Azure AD tenant and your federated domains. With this trust federated domain users will have access to Azure AD cloud resources within the tenant. 
 
 If you’re already familiar with the Azure AD identity model and want to learn more about a specific method, see the appropriate link:
 
