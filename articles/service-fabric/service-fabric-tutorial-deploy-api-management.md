@@ -184,7 +184,7 @@ To add a front-end API operation, fill out the values:
 
 - **displayName** and **description** describe the operation. For this tutorial, use "Values".
 - **method** specifies the HTTP verb.  For this tutorial, specify **GET**.
-- **urlTemplate** is appended to the base URL of the API and identifies a single HTTP operation.  For this tutorial, use "/api/values" if you added the .NET backend service or "getMessage" if you added the Java backend service.  By default, the URL path specified here is the URL path sent to the backend Service Fabric service. If you use the same URL path here that your service uses, such as "/api/values", then the operation works without further modification. You may also specify a URL path here that is different from the URL path used by your backend Service Fabric service, in which case you also need to specify a path rewrite in your operation policy later.
+- **urlTemplate** is appended to the base URL of the API and identifies a single HTTP operation.  For this tutorial, use `/api/values` if you added the .NET backend service or `getMessage` if you added the Java backend service.  By default, the URL path specified here is the URL path sent to the backend Service Fabric service. If you use the same URL path here that your service uses, such as "/api/values", then the operation works without further modification. You may also specify a URL path here that is different from the URL path used by your backend Service Fabric service, in which case you also need to specify a path rewrite in your operation policy later.
 
 ### Microsoft.ApiManagement/service/apis/policies
 [Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) creates a backend policy, which ties everything together. This is where you configure the backend Service Fabric service to which requests are routed. You can apply this policy to any API operation.  For more information, see [Policies overview](/azure/api-management/api-management-howto-policies). 
@@ -220,17 +220,17 @@ For a full set of Service Fabric back-end policy attributes, refer to the [API M
 ## Set parameters and deploy API Management
 Fill in the following empty parameters in the *apim.parameters.json* for your deployment.
 
-|Parameter|Value|Description|
-|---|---|
-|apimInstanceName|sf-apim|
-|apimPublisherEmail|myemail@contosos.com|
-|apimSku|Developer|
-|serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
-|certificatePassword|q6D7nN%6ck@6|
-|serviceFabricCertificate|0C6CFFA0DE2573E8CD3C161A65E584B5BDAD65B1|
-|url_path|/api/values|
-|clusterHttpManagementEndpoint|https://mysfcluster321.westus2.cloudapp.azure.com:19080|
-|inbound_policy|<policies><inbound><base /><set-backend-service backend-id=\"servicefabric\" sf-service-instance-name=\"fabric:/ApiApplication/WebApiService\" sf-resolve-condition=\"@((int)context.Response.StatusCode != 200)\" /></inbound><backend><base /></backend><outbound><base /></outbound><on-error>   <base /></on-error></policies>|
+|Parameter|Value|Note|
+|---|---|---|
+|apimInstanceName|sf-apim||
+|apimPublisherEmail|myemail@contosos.com||
+|apimSku|Developer||
+|serviceFabricCertificateName|sfclustertutorialgroup320171031144217||
+|certificatePassword|q6D7nN%6ck@6|Password must match the cluster certificate password used to secure the cluster. |
+|serviceFabricCertificate|0C6CFFA0DE2573E8CD3C161A65E584B5BDAD65B1|The thumbprint of the cluster certificate password used to secure the cluster.|
+|url_path|/api/values|use `/api/values` if you added the .NET backend service or `getMessage` if you added the Java backend service.|
+|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.azure.com:19080||
+|inbound_policy|<policies><inbound><base /><set-backend-service backend-id=\"servicefabric\" sf-service-instance-name=\"service-name\" sf-resolve-condition=\"@((int)context.Response.StatusCode != 200)\" /></inbound><backend><base /></backend><outbound><base /></outbound><on-error>   <base /></on-error></policies>|Replace "service-name" with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service.|
 
 Use the following script to deploy the Resource Manager template and parameter files for API Management:
 
