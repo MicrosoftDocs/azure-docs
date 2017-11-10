@@ -44,7 +44,7 @@ The following diagram shows a Time Series Insights environment that has a SKU of
 
 ![Environment SKU current capacity](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)
 
-Assume that this environment is ingesting messages from an event hub with the ingress rate shown in the following diagram:
+For example, assume that this environment is ingesting messages from an event hub. Observe the ingress rate shown in the following diagram:
 
 ![Example ingress rate for an event hub](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)
 
