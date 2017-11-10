@@ -22,7 +22,7 @@ ms.author: saurinsh
 
 Domain-joined clusters provide the multi-user enterprise security capabilities on HDInsight. Domain-joined HDInsight clusters are connected to active directory domains, so that domain users can use their domain credentials to authenticate with the clusters and run big data jobs. 
 
-There are three ways to setup a domain controller so that a domain-joined HDInsight cluster can connect to:
+There are three ways to set up a domain controller so that a domain-joined HDInsight cluster can connect to:
 
 - Azure Active Directory Domain Services (Azure AD DS)
 - On-premises Active Directory
@@ -32,7 +32,7 @@ In this article, you learn how to configure a Domain-joined HDInsight cluster us
 
 ## Create Azure ADDS
 
-You need to create an Azure AD DS before you can create an HDInsight cluster. To create an Azure ADDS, see [Enable Azure Active Directory Domain Services using the Azure portal](../active-directory-domain-services/active-directory-ds-getting-started.md). Usually only the tenant administrators have the privilages to create domain services. 
+You need to create an Azure AD DS before you can create an HDInsight cluster. To create an Azure ADDS, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). Only the tenant administrators have the privileges to create domain services. 
 
 After the domain service has been created, you need to create a service account in the Azure AD DC Administrators group to create the HDInsight cluster.
 
@@ -40,7 +40,7 @@ After the domain service has been created, you need to create a service account 
 
 The next step is to create the HDInsight cluster using the AAD DS and the service account created in the previous section.
 
-It is easier to place both the Azure AD domain service and the HDInsight cluster in the same Azure virtual network(VNet). In case they are in different VNets, you must peer both VNets. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+It is easier to place both the Azure AD domain service and the HDInsight cluster in the same Azure virtual network(VNet). In case they are in different VNets, you must peer both VNets. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
 
 When you create a domain-joined HDInsight cluster, you must supply the following parameters:
 
