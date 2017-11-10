@@ -90,6 +90,7 @@ Paste the exported M Language script into the Advanced Query Editor.
 4. Select items from the query and choose Funnel visualization
 ![Select sequence and Funnel](/.media/app-insights-export-power-bi/selectsequence.png)
 5. Change the title to make it meaningful and publish your report to your Power BI cloud workspace. 
+![Change title](./media/app-insights-export-power-bi/changetitle.png)
 
 ## Troubleshooting
 
