@@ -12,7 +12,6 @@
 ## [Configure data retention](time-series-insights-configure-retention.md)
 
 # Concepts
-## [Manage resources with Azure Resource Manager](time-series-insights-manage-resources-using-azure-resource-manager.md)
 ## [Visualize your data with the explorer](time-series-insights-explorer.md)
 ## [Causes of throttling](time-series-insights-how-tsi-throttles.md)
 ## [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md)
