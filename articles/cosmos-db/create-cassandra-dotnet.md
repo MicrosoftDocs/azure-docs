@@ -64,7 +64,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
-    Use the copy button on the right side of the screen to copy the USERNAME value.
+    Use the ![Copy button](./media/create-cassandra-dotnet/copy.png) button on the right side of the screen to copy the USERNAME value.
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-cassandra-dotnet/keys.png)
 

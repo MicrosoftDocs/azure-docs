@@ -66,7 +66,7 @@ Now let's switch to working with code. Let's clone a Cassandra app from GitHub, 
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). These snippets are all taken from the src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.  
 
-* Cassandra Host, Port, User name and password are set using the connection string page in the Azure portal.
+* Cassandra host, port, user name, and password are set using the connection string page in the Azure portal.
 
    ```java
    this.cluster = Cluster.builder().addContactPoint(host).withPort(port).withCredentials(username, password).build();
@@ -78,7 +78,7 @@ This step is optional. If you're interested in learning how the database resourc
     return cluster.connect();
     ```
 
- The following snippets are from the src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java file.
+The following snippets are from the src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java file.
 
 * Create a new keyspace.
 
@@ -146,7 +146,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy a username from the Azure portal, Connection String page](./media/create-cassandra-java/keys.png)
 
-2. Use the ![Copy button](./media/create-cassandra-java/copy.png) Copy button on the right side of the screen to copy the CONTACT POINT value.
+2. Use the ![Copy button](./media/create-cassandra-java/copy.png) button on the right side of the screen to copy the CONTACT POINT value.
 
 3. Open the `config.properties` file from C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources folder. 
 
