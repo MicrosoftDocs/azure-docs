@@ -35,7 +35,7 @@ Refer to the [Authoring API definitions][authoring-apis] for technical documenta
 
 ## Write the Python code
 
-1. Copy one of the following code snippets:
+1. Copy the following code snippets:
 
    [!code-python[Console app code that adds an utterance Python 3.6](~/samples-luis/documentation-samples/authoring-api-samples/python/add-utterances-3-6.py)]
 
