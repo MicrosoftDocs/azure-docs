@@ -64,7 +64,7 @@ Now let's switch to working with code. Let's clone a Cassandra app from GitHub, 
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java and src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java files. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). These snippets are all taken from the src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.  
 
 * Cassandra Host, Port, User name and password are set using the connection string page in the Azure portal.
 
@@ -77,6 +77,8 @@ This step is optional. If you're interested in learning how the database resourc
     ```java
     return cluster.connect();
     ```
+
+ The following snippets are from the src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java file.
 
 * Create a new keyspace.
 
@@ -176,9 +178,17 @@ Now go back to the Azure portal to get your connection string information and co
     cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples"
     ```
 
-2. In the git terminal window, type `mvn clean install` to generate the cosmosdb-cassandra-examples.jar file.
+2. In the git terminal window, use the following command to generate the cosmosdb-cassandra-examples.jar file.
 
-3. In the git terminal window, run `java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.examples.UserProfile` to start the Java application.
+    ```git
+    mvn clean install
+    ```
+
+3. In the git terminal window, run the following command to start the Java application.
+
+    ```git
+    java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.examples.UserProfile
+    ```
 
     The terminal window displays notifications that the keyspace and table are created. It then selects and returns all users in the table and displays the output, and then selects a row by id and displays the value.  
     
