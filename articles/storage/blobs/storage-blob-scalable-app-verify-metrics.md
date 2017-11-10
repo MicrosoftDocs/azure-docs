@@ -27,7 +27,7 @@ In part four of the series, you learn how to:
 > * Configure charts in the Azure portal
 > * Verify throughput and latency metrics
 
-[Azure storage metrics](../common/storage-metrics-in-azure-monitor)
+[Azure storage metrics](../common/storage-metrics-in-azure-monitor.md) uses Azure monitor to provide a unified 
 ![Storage account metrics](./media/storage-blob-scalable-app-verify-metrics/figure1.png)
 
 
