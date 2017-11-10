@@ -15,7 +15,7 @@ ms.date: 11/15/2017
 ---
 # How to scale your Time Series Insights environment
 
-This article describes how to change the capacity of your environment your Time Series Insights environment using the Azure portal. Capacity is the multiplier applied to the ingress rate, storage capacity and cost associated with your selected Sku. 
+This article describes how to change the capacity of your environment your Time Series Insights environment using the Azure portal. Capacity is the multiplier applied to the ingress rate, storage capacity, and cost associated with your selected Sku. 
 
 You can use the Azure portal to increase or decrease capacity within a given pricing Sku. 
 
