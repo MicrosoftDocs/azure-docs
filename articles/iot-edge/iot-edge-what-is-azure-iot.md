@@ -31,15 +31,10 @@ IoT Edge also includes a cloud interface that enables remote management of devic
 
 To learn about the components that enable IoT Edge, see [How Azure IoT Edge works][lnk-overview].
 
-To get started writing some code and running some samples, see the [Get started with IoT Hub][lnk-getstarted] tutorial.
-
-You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a collection of preconfigured solutions. IoT Suite enables you to get started quickly and scale IoT projects to address common IoT scenarios--such as remote monitoring, asset management, and predictive maintenance.
+If you haven't used Azure IoT Hub before, you might want to start with an [Overview of the Azure IoT Hub service][lnk-iot-hub].
 
 [lnk-deployment]: module-deployment-monitoring.md
 [lnk-overview]: how-iot-edge-works.md
-
-[lnk-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-iot-hub]: ../iot-hub/iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
