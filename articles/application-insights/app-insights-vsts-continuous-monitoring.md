@@ -11,17 +11,17 @@ ms.topic: article
 manager: carmonm
 ---
 
-# Continuous Monitoring of the VSTS Release Pipeline
+# Continuous Monitoring of the DevOps Release Pipeline
 
-Visual Studio Team Services (VSTS) integrates with Azure Application Insights to allow continuous monitoring of your DevOps release pipeline throughout the software deployment lifecycle. Historically, users have configured wait times coupled with manual approvals to guard against deployment issues.
+Visual Studio Team Services (VSTS) integrates with Azure Application Insights to allow continuous monitoring of your DevOps release pipeline throughout the software development lifecycle. Historically, users have configured wait times coupled with manual approvals to help guard against release deployment issues.
 
-VSTS now supports continuous monitoring whereby release pipelines can incorporate monitoring data from Application Insights and other Azure resources. When a monitoring alert is detected, the deployment can remain gated or be rolled back until the alert is resolved. If all checks pass, deployments can proceed automatically from test all the way to production without the need for manual intervention. 
+VSTS now supports continuous monitoring whereby release pipelines can incorporate monitoring data from Application Insights and other Azure resources. When an alert is detected, the deployment can remain gated or be rolled back until the alert is resolved. If all checks pass, deployments can proceed automatically from test all the way to production without the need for manual intervention. 
 
 ## Configure Continuous Monitoring
 
-1. Select an existing VSTS Project that you are monitoring with Application Insights.
+1. Select an existing VSTS Project.
 
-2. Hover over **Build and Release** > Select **Releases** > Click the **plus sign** followed by      **Create release definition** > Search for **Monitoring** > **Azure App Service Deployment with Continuous Monitoring**
+2. Hover over **Build and Release** > Select **Releases** > Click the **plus sign** > **Create release definition** > Search for **Monitoring** > **Azure App Service Deployment with Continuous Monitoring**
 
    ![New VSTS Release Definition](.\media\app-insights-continuous-monitoring\001.png)
 
@@ -31,7 +31,7 @@ VSTS now supports continuous monitoring whereby release pipelines can incorporat
 
    ![View environment tasks](.\media\app-insights-continuous-monitoring\002.png)
 
-   A configuration box will appear, use the table below to fill out the input fields.
+   A configuration box will appear, use the following table to fill out the input fields.
 
     | Parameter        | Value |
    | ------------- |:-----|
@@ -59,9 +59,9 @@ VSTS now supports continuous monitoring whereby release pipelines can incorporat
 
 4. Select **OK** > **Save** > Enter a descriptive comment > Click **OK**
 
-## Add Pre/Post-deployment conditions
+## Add Deployment Conditions
 
-1. Click **Pipeline** > Select the **Post-deployment conditions** symbol
+1. Click **Pipeline** > Select the **Pre** or **Post-deployment conditions** symbol depending on the stage that requires a continuous monitoring gate.
 
    ![Pre-Deployment Conditions](.\media\app-insights-continuous-monitoring\004.png)
 
@@ -75,9 +75,9 @@ VSTS now supports continuous monitoring whereby release pipelines can incorporat
 
 5. Enter a **Sampling Interval**
 
-## Deployment Gate Logs
+## Deployment Gate Status Logs
 
-Once you add continuous monitoring-based deployment gates an alert in Application Insights that exceeds your previously defined Alert Rule protects your deployment before promoting the release. Once the alert is resolved, the deployment can proceed automatically.
+Once you add deployment gates, an alert in Application Insights which exceeds your previously defined threshold, guards your deployment from unwanted release promotion. Once the alert is resolved, the deployment can proceed automatically.
 
 To observe this behavior, Select **Releases** > Right-click Release name **open** > **Logs**
 
