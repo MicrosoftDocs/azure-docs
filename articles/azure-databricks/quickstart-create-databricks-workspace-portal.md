@@ -59,11 +59,9 @@ Before you begin with this quickstart, you need to [Create an Azure storage acco
 
     * Enter a name for the cluster.
     * Make sure you select the **Terminate after ___ minutes of activity** checkbox. You must also provide a duration (in minutes) to terminate the cluster if the cluster is not being used. 
-    * Click **Create cluster**.
+    * Click **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-    For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
-
-    Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
 ## Access Azure Blob storage from the cluster
 
