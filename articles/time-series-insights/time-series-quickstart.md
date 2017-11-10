@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 1. In your browser, navigate to [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
 
-2. If prompted, Log in to the Time Series Insights explorer using your Azure account credentials. 
+2. If prompted, log in to the Time Series Insights explorer using your Azure account credentials. 
  
 3. The Time Series Insights quick tour page is displayed. Click **Next** to begin the quick tour.
 
