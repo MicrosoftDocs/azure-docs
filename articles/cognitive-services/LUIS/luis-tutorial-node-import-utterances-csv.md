@@ -694,50 +694,32 @@ or
 ````
 
 ### Application progress
-While the application is running, the command line shows progress.
+While the application is running, the command line shows progress. The command line output includes the format of the responses from LUIS.
 
 ````
 > node index.js
-intents: ["TurnAllOn","TurnAllOff","None","TurnOn","TurnOff"]
-entities: ["Operation","Device"]
+intents: ["TurnOn","TurnOff","Dim","Other"]
+entities: ["Operation","Device","Room"]
 parse done
+JSON file should contain utterances. Next step is to create an app with the intents and entities it found.
+Called createApp, created app with ID 314b306c-0033-4e09-92ab-94fe5ed158a2
+Called addIntents for intent named TurnOn.
+Called addIntents for intent named TurnOff.
+Called addIntents for intent named Dim.
+Called addIntents for intent named Other.
+Results of all calls to addIntent = [{"response":"e7eaf224-8c61-44ed-a6b0-2ab4dc56f1d0"},{"response":"a8a17efd-f01c-488d-ad44-a31a818cf7d7"},{"response":"bc7c32fc-14a0-4b72-bad4-d345d807f965"},{"response":"727a8d73-cd3b-4096-bc8d-d7cfba12eb44"}]
+called addEntity for entity named Operation.
+called addEntity for entity named Device.
+called addEntity for entity named Room.
+Results of all calls to addEntity= [{"response":"6a7e914f-911d-4c6c-a5bc-377afdce4390"},{"response":"56c35237-593d-47f6-9d01-2912fa488760"},{"response":"f1dd440c-2ce3-4a20-a817-a57273f169f3"}]
+retrying add examples...
+
+Results of add utterances = [{"response":[{"value":{"UtteranceText":"turn on the lights","ExampleId":-67649},"hasError":false},{"value":{"UtteranceText":"turn the heat on","ExampleId":-69067},"hasError":false},{"value":{"UtteranceText":"switch on the kitchen fan","ExampleId":-3395901},"hasError":false},{"value":{"UtteranceText":"turn off bedroom lights","ExampleId":-85402},"hasError":false},{"value":{"UtteranceText":"turn off air conditioning","ExampleId":-8991572},"hasError":false},{"value":{"UtteranceText":"kill the lights","ExampleId":-70124},"hasError":false},{"value":{"UtteranceText":"dim the lights","ExampleId":-174358},"hasError":false},{"value":{"UtteranceText":"hi how are you","ExampleId":-143722},"hasError":false},{"value":{"UtteranceText":"answer the phone","ExampleId":-69939},"hasError":false},{"value":{"UtteranceText":"are you there","ExampleId":-149588},"hasError":false},{"value":{"UtteranceText":"help","ExampleId":-81949},"hasError":false},{"value":{"UtteranceText":"testing the circuit","ExampleId":-11548708},"hasError":false}]}]
 upload done
-process done
 ````
 
 
-<!-- 
-````JavaScript
-// malformed item - malformed JSON - no comma
-// fix - add comma after every key:value pair
-[
-    {
-        "text": "Hello"
-        "intent": "Greetings"
-    },
-    {
-        "text": "I want bread"
-        "intent": "Request"
-    }
-]
-```` 
 
-````JavaScript
-// malformed item - malformed JSON - extra comma at end of key:value pair
-// while Node.js will ignore this, the LUIS API will not
-// fix - remove extra comma
-[
-    {
-        "text": "Hello",
-        "intent": "Greetings",
-    },
-    {
-        "text": "I want bread",
-        "intent": "Request"
-    }
-]
-````
--->
 
 ## Open the LUIS app in LUIS.ai
 Once the script completes, you can log in to [luis.ai](https://www.luis.ai) and see the LUIS app you just created under **My Apps**. You should be able to see the utterances you added under the **TurnOn**, **TurnOff**, and **None** intents.
@@ -746,7 +728,10 @@ Once the script completes, you can log in to [luis.ai](https://www.luis.ai) and 
 
 ## Next steps
 
-* You can work with your app in LUIS.ai.
+* You can test and train your app in LUIS.ai.
+
+> [!div class="nextstepaction"]
+> [test and train your app in LUIS.ai](Train-Test.md)
 
 ## Additional resources
 
