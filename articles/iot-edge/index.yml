@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
-  title: Service Slug iot-edge - Tutorials, API Reference
+  title: Azure IoT Edge - Tutorials, API Reference
   meta.description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge
   services: iot-edge
   author: kgremban
@@ -38,7 +38,7 @@ sections:
   - type: list
     style: ordered
     items:
--html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">Simulate an IoT Edge device in Windows</a>
--html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Simulate an IoT Edge device in Linux</a>
--html: <a href="/azure/iot-edge/tutorial-create-custom-module">Develop and deploy a C# module</a>
--html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Deploy Azure Stream Analytics as a module</a>
+    -html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">Simulate an IoT Edge device in Windows</a>
+    -html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Simulate an IoT Edge device in Linux</a>
+    -html: <a href="/azure/iot-edge/tutorial-create-custom-module">Develop and deploy a C# module</a>
+    -html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Deploy Azure Stream Analytics as a module</a>
