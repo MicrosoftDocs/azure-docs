@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Build an app with Python and the Cassandra API | Microsoft Docs'
+title: 'Quickstart: Cassandra API with Python - Azure Cosmos DB | Microsoft Docs'
 description: earn how to use the Azure Cosmos DB Cassandra API to create a get started application with the Azure portal and Java
 services: cosmos-db
 documentationcenter: ''
@@ -18,13 +18,11 @@ ms.date: 11/08/2017
 ms.author: govindk
 
 ---
-# Azure Cosmos DB: Build a Cassandra API app with Python and the Azure portal
+# Quickstart: Build a Cassandra web app with Python and Azure Cosmos DB
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+This quickstart shows how to use Python and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also walks you through the creation of an Azure Cosmos DB account by using the web-based Azure portal.
 
-This quick start demonstrates how to create an Azure Cosmos DB account for the [Cassandra API](cassandra-introduction.md) by using the Azure portal. You'll then build a profile console app, as shown in the following image, with sample data cloning a Python sample from GitHub.  
-
-![View and verify the output](./media/create-cassandra-python/output.png)
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.   
 
 ## Prerequisites
 
@@ -33,7 +31,7 @@ This quick start demonstrates how to create an Azure Cosmos DB account for the [
 	* [Git](http://git-scm.com/)
     * [Python Driver for Apache Cassandra](https://github.com/datastax/python-driver)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 
 ## Create a database account
@@ -46,9 +44,13 @@ Before you can create a document database, you need to create a Cassandra accoun
 
 Now let's clone a Cassandra API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
+1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
 
-2. Run the following command to clone the sample repository. 
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started.git

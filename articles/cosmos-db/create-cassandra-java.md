@@ -18,19 +18,17 @@ ms.author: mimig
 
 ---
 
-# Azure Cosmos DB: Build a Cassandra API app with Java and the Azure portal
+#Quickstart: Build a Cassandra web app with Java and Azure Cosmos DB
+
+This quickstart shows how to use Java and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also walks you through the creation of an Azure Cosmos DB account by using the web-based Azure portal.
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
-
-This quick start demonstrates how to create an Azure Cosmos DB account for the [Cassandra API](cassandra-introduction.md) by using the Azure portal. You'll then build a profile console app, as shown in the following image, with sample data cloning a Java sample from GitHub.  
-
-![View and verify the output](./media/create-cassandra-java/output.png)  
 
 ## Prerequisites
 
 Access to the Azure Cosmos DB Cassandra API preview program. If you haven't applied for access yet, [sign up now](https://aka.ms/cosmosdb-cassandra-signup).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 In addition: 
 
@@ -61,7 +59,7 @@ Now let's switch to working with code. Let's clone a Cassandra app from GitHub, 
 2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
-    git clone git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git
     ```
 
 ## Review the code
