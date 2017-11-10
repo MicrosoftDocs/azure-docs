@@ -153,7 +153,7 @@ To use an optional parameters file, copy the [201-servicebus-create-queue](https
 }
 ```
 
-For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) topic.
+For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) article.
 
 ### Log in to Azure and set the Azure subscription
 
@@ -163,13 +163,13 @@ From a PowerShell prompt, run the following command:
 Login-AzureRmAccount
 ```
 
-You are prompted to log on to your Azure account. After logging on, run the following command to view your available subscriptions.
+You are prompted to log on to your Azure account. After logging on, run the following command to view your available subscriptions:
 
 ```powershell
 Get-AzureRMSubscription
 ```
 
-This command returns a list of available Azure subscriptions. Choose a subscription for the current session by running the following command. Replace `<YourSubscriptionId>` with the GUID for the Azure subscription you want to use.
+This command returns a list of available Azure subscriptions. Choose a subscription for the current session by running the following command. Replace `<YourSubscriptionId>` with the GUID for the Azure subscription you want to use:
 
 ```powershell
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
@@ -211,7 +211,7 @@ The following command prompts you for the three parameters in the PowerShell win
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-To specify a parameters file instead, use the following command.
+To specify a parameters file instead, use the following command:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
