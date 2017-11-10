@@ -4,9 +4,9 @@ description: This article describes how to add an event source that is connected
 services: time-series-insights
 ms.service: time-series-insights
 author: sandshadow
-manager: almineev
+ms.author: edett
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
