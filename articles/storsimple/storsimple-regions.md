@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 11/10/2017
 ms.author: alkohli
 
 ---
@@ -21,11 +21,13 @@ ms.author: alkohli
 
 ## Overview
 
-The Azure datacenters operate in multiple geographies around the world to meet customer's demands of performance, requirements, and preferences regarding data location. An Azure geography is a defined area of the world that contains at least one Azure Region. An Azure region is an area within a geography, containing one or more datacenters. When possible, regions are placed atleast 300 miles from each other. This placement ensures that in the unlikely event of a natural disaster, no more than one region is affected at the same time.
+The Azure datacenters operate in multiple geographies around the world to meet customer's demands of performance, requirements, and preferences regarding data location. An Azure geography is a defined area of the world that contains at least one Azure Region. An Azure region is an area within a geography, containing one or more datacenters.
+
+Choosing an Azure region is very important for your StorSimple solution. The choice of region is influenced by factors such as data residency and sovereignty, service availability, performance, cost, and redundancy. For more information on how to choose a region, go to [Which Azure region is right for me?](https://azure.microsoft.com/overview/datacenters/how-to-choose/)
 
 This tutorial describes the region availability for the StorSimple Device Manager service, the on-premises physical and the cloud devices. The information contained in this article is applicable to both, the StorSimple 8000 and 1200 series devices.
 
-## StorSimple Device Manager service availability
+## Region availability for StorSimple Device Manager service
 
 StorSimple Device Manager service is not available in all the Azure regions. The service is currently supported in 12 public regions and 2 Azure Government regions.
 
@@ -33,22 +35,23 @@ You define a region or location when you first create the StorSimple Device Mana
 
 Here is a list of regions where StorSimple Device Manager service is available and can be deployed.
 
-## Azure storage account availability
+## Region availability  for Azure storage accounts
 
 Azure storage accounts are available in all the Azure regions. Storage account is where the data is physically stored. When you create a storage account, the primary location of the storage account is chosen.
 
-When you first create a StorSimple Device Manager service and associate a storage account with it, the location where you deploy the service can be different from the primary location of the storage account. 
+When you first create a StorSimple Device Manager service and associate a storage account with it, the location where you deploy the service can be different from the primary location of the storage account.
+
 Your StorSimple Device Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Device Manager and Azure storage account separately
 
-If you are using a cloud appliance, then we recommend that the region is which you deploy the service is the same as the region associated with the storage account used by the service. Storage accounts in different regions may result in poor performance. 
+If you are using a cloud appliance, then we recommend that the region is which you deploy the service is the same as the region associated with the storage account used by the service. Storage accounts in different regions may result in poor performance.
 
-## StorSimple device availability
+## Availability of StorSimple device
 
-Depending upon the model, the StorSimple devices can be available in different countries or locations.
+Depending upon the model, the StorSimple devices can be available in different countries.
 
-If using a StorSimple 8100 or 8600, then the physical device is available in the following countries. Microsoft can ship physical hardware and provide hardware spare parts replacement for StorSimple to the countries in this list. For a most up-to-date list of the countries, go to StorSimple country availability. 
+### StorSimple physical device (Models 8100/8600)
 
-It is important to not place a StorSimple physical device in a region where StorSimple is not supported. Microsoft will not be able to ship any replacement parts to countries where StorSimple is not supported. 
+If using a StorSimple 8100 or 8600 physical device, the device is available in the following countries. 
 
 | #  | Country        | #  | Country     | #  | Country      | #  | Country              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
@@ -80,19 +83,18 @@ The following countries will be added to the above list soon.
 | 6 | Pakistan   |
 | 7 | Serbia     |
 
+Microsoft can ship physical hardware and provide hardware spare parts replacement for StorSimple to the countries in the preceding list. For a most up-to-date list of the countries, go to StorSimple country availability.
+
+> [!IMPORTANT] 
+> Do not place a StorSimple physical device in a region where StorSimple is not supported. Microsoft will not be able to ship any replacement parts to countries where StorSimple is not supported.
+
+### StorSimple Cloud Appliance (Models 8010/8020)
+
 If using a StorSimple Cloud Appliance 8010 or 8020, then the device is supported and available in all the regions where the underlying VM is supported. The 8010 uses a Standard_A3 and the 8020 uses a Standard_DS3 VM to create a cloud appliance.
 
+### StorSimple Virtual Array (Model 1200)
+
 If using a 1200 series StorSimple Virtual Array, then the virtual disk image is supported in all Azure regions.
-
-## Choosing Azure region
-
-Choosing an Azure region is very important for your StorSimple solution. There are a number of factors to consider when choosing a region to deploy your services in:
-
-- Data export and compliance - 
-- Service availability - Both StorSimple service and device should be available in the selected region. See the list of the countries where the device is available.
-- Performance - Latency dictates performance and the nearest Azure region may not be the region with the lowest latency. For higher performance, you want to choose the Azure region with the lowest latency. You can run the Azure speed test to determine the latency between you and each Azure region.
-- Cost - the cost of the services varies by regions. If latency and compliance do not matter, then you can deploy your service in the cheapest region.
-- Redundancy - 
 
 ## Next steps
 * Learn more about the [StorSimple deployment process](storsimple-8000-deployment-walkthrough-u2.md).
