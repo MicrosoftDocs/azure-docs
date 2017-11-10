@@ -50,7 +50,7 @@ If you are using a StorSimple Cloud Appliance, then we recommend that the servic
 
 ## Availability of StorSimple device
 
-Depending upon the model, the StorSimple devices can be available in different countries.
+Depending upon the model, the StorSimple devices can be available in different geogrpahies or countries.
 
 ### StorSimple physical device (Models 8100/8600)
 
@@ -86,14 +86,14 @@ The following countries will be added to the above list soon.
 | 6 | Pakistan   |
 | 7 | Serbia     |
 
-Microsoft can ship physical hardware and provide hardware spare parts replacement for StorSimple to the countries in the preceding list. For a most up-to-date list of the countries, go to StorSimple country availability.
+Microsoft can ship physical hardware and provide hardware spare parts replacement for StorSimple to the geographies in the preceding list. For a most up-to-date list of the geographies, go to the [Appendix - Storage Array Terms in the Product terms](https://www.microsoft.com/Licensing/product-licensing/products.aspx).
 
 > [!IMPORTANT]
 > Do not place a StorSimple physical device in a region where StorSimple is not supported. Microsoft will not be able to ship any replacement parts to countries where StorSimple is not supported.
 
 ### StorSimple Cloud Appliance (Models 8010/8020)
 
-If using a StorSimple Cloud Appliance 8010 or 8020, then the device is supported and available in all the regions where the underlying VM is supported. The 8010 uses a Standard_A3 which is supported in all Azure reigons. 
+If using a StorSimple Cloud Appliance 8010 or 8020, then the device is supported and available in all the regions where the underlying VM is supported. The 8010 uses a Standard_A3 which is supported in all Azure reigons.
 
 The 8020 uses premium storage and Standard_DS3 VM to create a cloud appliance. The 8020 is supported in Azure regions that support Premium Storage and DS3 Azure VMs. Use [this list](https://azure.microsoft.com/regions/services/) to see if both **Virtual Machines > DS-series** and **Storage > Disk storage** are available in your region.
 
