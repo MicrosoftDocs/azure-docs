@@ -23,7 +23,7 @@ Role-based Access Control helps tenant administrators get temporary elevations i
 
 This feature is important because it allows the tenant admin to see all the subscriptions that exist in an organization. It also allows for automation apps like invoicing and auditing to access all the subscriptions and provide an accurate view of the state of the organization for billing or asset management.  
 
-## View role assignments at "/" scope using PowerShell
+## View role assignments at the "/" scope using PowerShell
 To view the **User Access Administrator** assignment at the **/** scope, use the `Get-AzureRmRoleAssignment` PowerShell cmdlet.
     
 ```
