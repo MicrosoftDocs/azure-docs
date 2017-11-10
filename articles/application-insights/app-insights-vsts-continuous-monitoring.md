@@ -1,5 +1,5 @@
 ---
-title: Continuious Monitoring of your DevOps release pipeline with VSTS and Application Insights  | Microsoft Docs
+title:  Continuous Monitoring of your DevOps release pipeline with VSTS and Application Insights  | Microsoft Docs
 description: Provides instructions to quickly setup a Node.js Web App for monitoring with Application Insights
 services: application-insights
 keywords:
