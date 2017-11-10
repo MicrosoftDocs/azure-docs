@@ -145,7 +145,7 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 
 ## Delete the role assignment at "/" scope using Powershell:
 You can delete the assignment using following PowerShell cmdlet:
-*Remove-AzureRmRoleAssignment* -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/"
+*Remove-AzureRmRoleAssignment* -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
 
 ## Next steps
 
