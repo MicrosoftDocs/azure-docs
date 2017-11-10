@@ -141,7 +141,7 @@ To configure the Service Fabric backend, you first need to configure API Managem
 
 The API Management REST API is currently the only way to configure a backend service. The first step is to enable the API Management REST API and secure it.
 
- 1. In the API Management service, select **Management API - PREVIEW** under **Security**.
+ 1. In the API Management service, select **Management API** under **Security**.
  2. Check the **Enable API Management REST API** checkbox.
  3. Note the Management API URL - this is the URL we'll use later to set up the Service Fabric backend
  4. Generate an **access Token** by selecting an expiry date and a key, then click the **Generate** button toward the bottom of the page.
@@ -151,7 +151,7 @@ The API Management REST API is currently the only way to configure a backend ser
 
 API Management must authenticate with your Service Fabric cluster for service discovery using a client certificate that has access to your cluster. For simplicity, this tutorial uses the same certificate specified when creating the Service Fabric cluster, which by default can be used to access your cluster.
 
- 1. In the API Management service, select **Client certificates - PREVIEW** under **Security**.
+ 1. In the API Management service, select **Client certificates** under **Security**.
  2. Click the **+ Add** button
  2. Select the private key file (.pfx) of the cluster certificate that you specified when creating your Service Fabric cluster, give it a name, and provide the private key password.
 
@@ -278,7 +278,7 @@ An ASP.NET Core stateless service named `fabric:/ApiApplication/WebApiService` s
 Now we're ready to create an operation in API Management that external clients use to communicate with the ASP.NET Core stateless service running in the Service Fabric cluster.
 
  1. Log in to the Azure portal and navigate to your API Management service deployment.
- 2. In the API Management service blade, select **APIs - Preview**
+ 2. In the API Management service blade, select **APIs**
  3. Add a new API by clicking the **Blank API** box and filling out the dialog box:
 
      - **Web service URL**: For Service Fabric backends, this URL value is not used. You can put any value here. For this tutorial, use: `http://servicefabric`.
@@ -330,17 +330,21 @@ For a full set of Service Fabric back-end policy attributes, refer to the [API M
 
 Before you can call the API, it must be added to a product where you can grant access to users. 
 
- 1. In the API Management service, select **Products - PREVIEW**.
+ 1. In the API Management service, select **Products**.
  2. By default, API Management providers two products: Starter and Unlimited. Select the Unlimited product.
  3. Select APIs.
  4. Click the **+ Add** button.
  5. Select the `Service Fabric App` API you created in the previous steps and click the **Select** button.
+ 
+ ### Configure the API Management to integrate with your VNET. 
+
+To be able to test, you have to integrate the API Management instance with the VNET where Service Fabric is installed. For this, follow the instructions in [How to use Azure API Management with virtual networks] (https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet). The easiest way is to configure with the External option so that you can access the service via public internet.
 
 ### Test it
 
 You can now try sending a request to your back-end service in Service Fabric through API Management directly from the Azure portal.
 
- 1. In the API Management service, select **API - PREVIEW**.
+ 1. In the API Management service, select **API**.
  2. In the `Service Fabric App` API you created in the previous steps, select the **Test** tab.
  3. Click the **Send** button to send a test request to the backend service.
 
