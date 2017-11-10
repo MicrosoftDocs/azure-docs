@@ -53,12 +53,13 @@ Before you begin with this quickstart, you need to [Create an Azure storage acco
 
     ![Databricks on Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks on Azure")
 
-3. In the **New cluster** page, provide the values to create a cluster., accept all other default values, and then click .
+3. In the **New cluster** page, provide the values to create a cluster.
 
     ![Create Databricks Spark cluster on Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
     * Enter a name for the cluster.
-    * Make sure you select the **Terminate after ___ minutes of activity** checkbox. You must also provide a duration (in minutes) to terminate the cluster if the cluster is not being used. 
+    * Make sure you select the **Terminate after ___ minutes of activity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+    * Accept all other default values. 
     * Click **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
