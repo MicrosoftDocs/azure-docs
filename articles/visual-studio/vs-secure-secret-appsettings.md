@@ -41,49 +41,49 @@ If you are developing a team project and need to share source code securely, use
 
 1. Create a Key Vault in your Azure subscription. Fill out all required fields on the UI and click *Create* on the bottom of the blade
 
-![Create Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
+    ![Create Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
 2. Grant you and your team members access to the Key Vault. If you have a large team, you can create an [Azure Active Directory group](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal) and add that security group access to the Key Vault. In the *Secret Permissions* dropdown, check *Get* and *List* under *Secret Management Operations*.
 
-![Add Key Vault access policy](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
+    ![Add Key Vault access policy](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
 3. Add your secret to Key Vault on Azure portal. For nested configuration settings, replace ':' with '--' so the Key Vault secret name is valid. ':' is not allowed to be in the name of a Key Vault secret.
 
-![Add Key Vault secret](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
+    ![Add Key Vault secret](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
 4. Install the [Azure Services Authentication extension for Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354). Through this extension, app can access Key Vault using the Visual Studio sign-in identity.
 
 5. Add the following NuGet packages to your project:
 
-```
-Microsoft.Azure.Services.AppAuthentication
-```
+    ```
+    Microsoft.Azure.Services.AppAuthentication
+    ```
 6. Add the following code to Program.cs file:
 
-```csharp
-public static IWebHost BuildWebHost(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-        .ConfigureAppConfiguration((ctx, builder) =>
-        {
-            var keyVaultEndpoint = GetKeyVaultEndpoint();
-            if (!string.IsNullOrEmpty(keyVaultEndpoint))
+    ```csharp
+    public static IWebHost BuildWebHost(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((ctx, builder) =>
             {
-                var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                var keyVaultClient = new KeyVaultClient(
-                    new KeyVaultClient.AuthenticationCallback(
-                        azureServiceTokenProvider.KeyVaultTokenCallback));
-                builder.AddAzureKeyVault(
-                    keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-            }
-        })
-        .UseStartup<Startup>()
-        .Build();
+                var keyVaultEndpoint = GetKeyVaultEndpoint();
+                if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                {
+                    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                    var keyVaultClient = new KeyVaultClient(
+                        new KeyVaultClient.AuthenticationCallback(
+                            azureServiceTokenProvider.KeyVaultTokenCallback));
+                            builder.AddAzureKeyVault(
+                            keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                        }
+                    })
+                    .UseStartup<Startup>()
+                    .Build();
 
-private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
-```
+        private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
+    ```
 7. Add your Key Vault URL to launchsettings.json file. The environment variable name *KEYVAULT_ENDPOINT* is defined in the code you added in step 6.
 
-![Add Key Vault URL as a project environment variable](add-keyvault-url.png)
+    ![Add Key Vault URL as a project environment variable](add-keyvault-url.png)
 
 8. Start debugging the project. It should run successfully.
 
@@ -96,62 +96,64 @@ To proceed, [download .NET 4.7.1](https://www.microsoft.com/en-us/download/detai
 If you are writing a quick prototype and don't want to provision Azure resources, go with this option.
 
 1. Install the following NuGet package to your project
-```
-Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
-```
+    ```
+    Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
+    ```
 
 2. Create a file that's similar to the follow. Save it under a location outside of your project folder.
 
-```xml
+    ```xml
 
-	<root>
-	    <secrets ver="1.0">
-	        <secret name="secret1" value="foo_one" />
-	        <secret name="secret2" value="foo_two" />
-	    </secrets>
-	</root>
-```
+	   <root>
+	          <secrets ver="1.0">
+	                 <secret name="secret1" value="foo_one" />
+	                    <secret name="secret2" value="foo_two" />
+	                   </secrets>
+	  </root>
+      ```
 
 3. Define the secret file to be a configuration builder in your Web.config file. Put this section before *appSettings* section.
 
 ```xml
-<configSections>
-  <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
-</configSections>
-<configBuilders>
-    <builders>
+        <configSections>
+            <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
+        </configSections>
+        <configBuilders>
+            <builders>
 
-	<!-- All Key/Value builders in these packages:
+    <!-- All Key/Value builders in these packages:
 
-		Optional attributes:
-			mode="Strict|Greedy|Expand" - Strict is the default.
-				Strict - replace values in appSettings and/or connectionStrings (depending on which sections you tag) ONLY IF the key/name matches a key in the config source.
-				Greedy - add all values to appSettings/connectionstrings from the config source, even if the key wasn't originally in the web.config.
-				Expand - Look at the raw xml for any tagged section and replace ${TOKENS} with values if they exist in the config source.
+        Optional attributes:
+            mode="Strict|Greedy|Expand" - Strict is the default.
+                Strict - replace values in appSettings and/or connectionStrings (depending on which sections you tag) ONLY IF the key/name matches a key in the config source.
+                Greedy - add all values to appSettings/connectionstrings from the config source, even if the key wasn't originally in the web.config.
+                Expand - Look at the raw xml for any tagged section and replace ${TOKENS} with values if they exist in the config source.
 
-			keyPrefix="string" - Only look at values from the source if they start with the keyPrefix. (Case-insensitive)
-			stripPrefix="true|false" - If in greedy mode, the key will be inserted as the name/key in the resulting config. True will strip the prefix off before inserting.
-	-->
+            keyPrefix="string" - Only look at values from the source if they start with the keyPrefix. (Case-insensitive)
+            stripPrefix="true|false" - If in greedy mode, the key will be inserted as the name/key in the resulting config. True will strip the prefix off before inserting.
+    -->
 
-	<!-- Secrets
+    <!-- Secrets
 
-		secretsFile="string" - This is required at the moment. ~ will resolve as expected in desktop and web apps.
-	 -->
-      <add name="Secrets" secretsFile="C:\Users\AppData\secrets.xml" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
+        secretsFile="string" - This is required at the moment. ~ will resolve as expected in desktop and web apps.
+     -->
+            <add name="Secrets" secretsFile="C:\Users\AppData\secrets.xml" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
 
 
-    </builders>
+        </builders>
 ```
+
 4. Specify appSettings section is using the secret configuration builder. Make sure there is any entry for the secret setting with a dummy value.
 
+
 ```xml
-<appSettings configBuilders="Secrets">
-   <add key="webpages:Version" value="3.0.0.0" />
-   <add key="webpages:Enabled" value="false" />
-   <add key="ClientValidationEnabled" value="true" />
-   <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-   <add key="secret" value="" />
- </appSettings>
+    <appSettings configBuilders="Secrets">
+        <add key="webpages:Version" value="3.0.0.0" />
+        <add key="webpages:Enabled" value="false" />
+        <add key="ClientValidationEnabled" value="true" />
+        <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+        <add key="secret" value="" />
+    </appSettings>
 ```
 
 5. Debug your app. It should run successfully.
