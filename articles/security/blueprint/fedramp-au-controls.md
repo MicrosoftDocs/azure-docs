@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: Audit and Accountability 
-description: Web Applications for FedRAMP: Audit and Accountability 
+title: Web Applications for FedRAMP - Audit and Accountability 
+description: Web Applications for FedRAMP - Audit and Accountability 
 services: security
 documentationcenter: na
 author: jomolesk

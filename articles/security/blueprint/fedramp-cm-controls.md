@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: Configuration Management
-description: Web Applications for FedRAMP: Configuration Management
+title: Web Applications for FedRAMP - Configuration Management
+description: Web Applications for FedRAMP - Configuration Management
 services: security
 documentationcenter: na
 author: jomolesk

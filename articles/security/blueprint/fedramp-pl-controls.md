@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: Planning
-description: Web Applications for FedRAMP: Planning
+title: Web Applications for FedRAMP - Planning
+description: Web Applications for FedRAMP - Planning
 services: security
 documentationcenter: na
 author: jomolesk

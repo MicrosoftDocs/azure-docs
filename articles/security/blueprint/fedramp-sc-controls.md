@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: System and Communications Protection 
-description: Web Applications for FedRAMP: System and Communications Protection 
+title: Web Applications for FedRAMP - System and Communications Protection 
+description: Web Applications for FedRAMP - System and Communications Protection 
 services: security
 documentationcenter: na
 author: jomolesk

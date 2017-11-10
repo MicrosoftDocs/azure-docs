@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: System and Information Integrity
-description: Web Applications for FedRAMP: System and Information Integrity
+title: Web Applications for FedRAMP - System and Information Integrity
+description: Web Applications for FedRAMP - System and Information Integrity
 services: security
 documentationcenter: na
 author: jomolesk

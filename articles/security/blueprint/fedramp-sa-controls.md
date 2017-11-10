@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: System and Services Acquisition
-description: Web Applications for FedRAMP: System and Services Acquisition
+title: Web Applications for FedRAMP - System and Services Acquisition
+description: Web Applications for FedRAMP - System and Services Acquisition
 services: security
 documentationcenter: na
 author: jomolesk

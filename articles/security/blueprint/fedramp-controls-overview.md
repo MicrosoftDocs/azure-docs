@@ -27,20 +27,20 @@ Browse the control families below to see how this Blueprint Automation aligns wi
 
 | | |
 |---|---|
-| [AC](fredramp-ac-controls.md ) | Access Control |
-| [AU](fredramp-au-controls.md ) | Audit and Accountability |
-| [AT](fredramp-at-controls.md ) | Awareness and Training |
-| [CM](fredramp-cm-controls.md ) | Configuration Management |
-| [CP](fredramp-cp-controls.md ) | Contingency Planning |
-| [IA](fredramp-ia-controls.md ) | Identification and Authentication |
-| [IR](fredramp-ir-controls.md ) | Incident Response |
-| [MA](fredramp-ma-controls.md ) | Maintenance |
-| [MP](fredramp-mp-controls.md ) | Media Protection |
-| [PS](fredramp-ps-controls.md ) | Personnel Security |
-| [PE](fredramp-pe-controls.md ) | Physical and Environmental Protection |
-| [PL](fredramp-pl-controls.md ) | Planning |
-| [RA](fredramp-ra-controls.md ) | Risk Assessment |
-| [CA](fredramp-ca-controls.md ) | Security Assessment and Authorization |
-| [SC](fredramp-sc-controls.md ) | System and Communications Protection |
-| [SI](fredramp-si-controls.md ) | System and Information Integrity |
-| [SA](fredramp-sa-controls.md ) | System and Services Acquisition |
+| [AC](fedramp-ac-controls.md ) | Access Control |
+| [AU](fedramp-au-controls.md ) | Audit and Accountability |
+| [AT](fedramp-at-controls.md ) | Awareness and Training |
+| [CM](fedramp-cm-controls.md ) | Configuration Management |
+| [CP](fedramp-cp-controls.md ) | Contingency Planning |
+| [IA](fedramp-ia-controls.md ) | Identification and Authentication |
+| [IR](fedramp-ir-controls.md ) | Incident Response |
+| [MA](fedramp-ma-controls.md ) | Maintenance |
+| [MP](fedramp-mp-controls.md ) | Media Protection |
+| [PS](fedramp-ps-controls.md ) | Personnel Security |
+| [PE](fedramp-pe-controls.md ) | Physical and Environmental Protection |
+| [PL](fedramp-pl-controls.md ) | Planning |
+| [RA](fedramp-ra-controls.md ) | Risk Assessment |
+| [CA](fedramp-ca-controls.md ) | Security Assessment and Authorization |
+| [SC](fedramp-sc-controls.md ) | System and Communications Protection |
+| [SI](fedramp-si-controls.md ) | System and Information Integrity |
+| [SA](fedramp-sa-controls.md ) | System and Services Acquisition |

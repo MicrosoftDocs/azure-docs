@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: Awareness and Training 
-description: Web Applications for FedRAMP: Awareness and Training 
+title: Web Applications for FedRAMP - Awareness and Training 
+description: Web Applications for FedRAMP - Awareness and Training 
 services: security
 documentationcenter: na
 author: jomolesk

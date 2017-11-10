@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: Access Control
-description: Web Applications for FedRAMP: Access Control
+title: Web Applications for FedRAMP - Access Control
+description: Web Applications for FedRAMP - Access Control
 services: security
 documentationcenter: na
 author: jomolesk

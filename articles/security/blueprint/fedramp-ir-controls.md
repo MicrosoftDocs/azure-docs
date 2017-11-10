@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: Incident Response
-description: Web Applications for FedRAMP: Incident Response
+title: Web Applications for FedRAMP - Incident Response
+description: Web Applications for FedRAMP - Incident Response
 services: security
 documentationcenter: na
 author: jomolesk

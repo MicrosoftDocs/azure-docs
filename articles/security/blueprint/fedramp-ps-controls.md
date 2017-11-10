@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: Personnel Security 
-description: Web Applications for FedRAMP: Personnel Security
+title: Web Applications for FedRAMP - Personnel Security 
+description: Web Applications for FedRAMP - Personnel Security
 services: security
 documentationcenter: na
 author: jomolesk

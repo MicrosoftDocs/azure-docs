@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: Security Assessment and Authorization 
-description: Web Applications for FedRAMP: Security Assessment and Authorization 
+title: Web Applications for FedRAMP - Security Assessment and Authorization 
+description: Web Applications for FedRAMP - Security Assessment and Authorization 
 services: security
 documentationcenter: na
 author: jomolesk

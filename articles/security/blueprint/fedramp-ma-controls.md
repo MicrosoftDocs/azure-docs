@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: Maintenance
-description: Web Applications for FedRAMP: Maintenance
+title: Web Applications for FedRAMP - Maintenance
+description: Web Applications for FedRAMP - Maintenance
 services: security
 documentationcenter: na
 author: jomolesk

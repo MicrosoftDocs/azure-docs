@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: Identification and Authentication
-description: Web Applications for FedRAMP: Identification and Authentication
+title: Web Applications for FedRAMP - Identification and Authentication
+description: Web Applications for FedRAMP - Identification and Authentication
 services: security
 documentationcenter: na
 author: jomolesk

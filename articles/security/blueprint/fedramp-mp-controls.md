@@ -1,7 +1,7 @@
 ---
 
-title: Web Applications for FedRAMP: Media Protection
-description: Web Applications for FedRAMP: Media Protection
+title: Web Applications for FedRAMP - Media Protection
+description: Web Applications for FedRAMP - Media Protection
 services: security
 documentationcenter: na
 author: jomolesk
