@@ -240,7 +240,7 @@ Or we could separate the result into requests of different names:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` collects the data points in the stream into groups for which the `by` clause evaluates equally. Each value in the `by` expression - each operation name in the above example - results in a row in the result table.
+`Summarize` collects the data points in the stream into groups for which the `by` clause evaluates equally. Each value in the `by` expression - each unique operation name in the above example - results in a row in the result table.
 
 Or we could group results by time of day:
 
@@ -402,7 +402,7 @@ How many sessions are there of different lengths?
     | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-The last line is required to convert to datetime. Currently the x axis of a chart is displayed as a scalar only if it is a datetime.
+The last line is required to convert to datetime. Currently the x-axis of a chart is displayed as a scalar only if it is a datetime.
 
 The `where` clause excludes one-shot sessions (sessionDuration==0) and sets the length of the x-axis.
 
