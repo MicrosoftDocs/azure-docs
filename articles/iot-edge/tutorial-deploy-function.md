@@ -196,10 +196,13 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. This gives the runtime access to pull the container. 
 
 - For Windows, run the following command:
+    
     ```cmd/sh
     iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password> 
     ```
+
 - For Linux, run the following command:
+    
     ```cmd/sh
     sudo iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password> 
     ```
