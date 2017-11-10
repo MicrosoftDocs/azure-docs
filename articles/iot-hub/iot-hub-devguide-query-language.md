@@ -56,7 +56,7 @@ Assume, for instance, that your IoT hub device twins have the following structur
                 "sendFrequencyInSecs": 300
             },
             "$metadata": {
-                "$lastUpdated": "2017-11-10T00:11:28.6196096Z"
+                ...
             },
             "$version": 4
         },
@@ -70,7 +70,7 @@ Assume, for instance, that your IoT hub device twins have the following structur
                 "status": "Success"
             },
             "$metadata": {
-                "$lastUpdated": "2017-11-10T00:11:28.6196096Z"
+                ...
             },
             "$version": 7
         }
