@@ -66,10 +66,10 @@ Docker for Windows can run either Windows containers or Linux containers. The st
    * Windows IoT Core (Build 16299) on a x64-based device
    * Windows 10 Fall Creators Update
    * Windows Server 1709 (Build 16299)
-2. Run the following command in an Admin PowerShell console to install and configure the prerequisites:
+1. Run the following command in an Admin PowerShell console to install and configure the prerequisites:
 
    ```powershell
-   iex (iwr -useb https://aka.ms/iotedgewin)
+   Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
    ```
 
    This script provides the following:
