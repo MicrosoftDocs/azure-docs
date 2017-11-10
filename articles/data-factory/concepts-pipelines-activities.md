@@ -74,7 +74,7 @@ Control activity | Description
 [Lookup Activity](control-flow-lookup-activity.md) | Lookup Activity can be used to read or look up a record/ table name/ value from any external source. This output can further be referenced by succeeding activities. 
 [Get Metadata Activity](control-flow-get-metadata-activity.md) | GetMetadata activity can be used to retrieve metadata of any data in Azure Data Factory. 
 [Until Activity](control-flow-until-activity.md) | Implements Do-Until loop that is similar to Do-Until looping structure in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity in Data Factory.
-[If Condition Activity](control-flow-if-condition-activity.md) | The If Condition can be used branch based on condition that evaluates to true or false. 
+[If Condition Activity](control-flow-if-condition-activity.md) | The If Condition can be used to branch based on condition that evaluates to true or false. The If Condition activity provides the same functionality that an if statement provides in programming languages. It evaluates a set of activities when the condition evaluates to `true` and another set of activities when the condition evaluates to `false`.
 [Wait Activity](control-flow-wait-activity.md) | When you use a Wait activity in a pipeline, the pipeline waits for the specified period of time before continuing with execution of subsequent activities. 
 
 ## Pipeline JSON
