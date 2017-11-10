@@ -1,14 +1,15 @@
 ---
-title: Send events to Azure Time Series Insights environment | Microsoft Docs
+title: How to send events to an Azure Time Series Insights environment | Microsoft Docs
 description: This tutorial explains how to create and configure event hub and run a sample application to push events to be shown in Azure Time Series Insights.
-services: tsi
-ms.service: tsi
+services: time-series-insights
+ms.service: time-series-insights
+ms.topic: article
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
-editor: v-mamcge, jasonwhowell, kfile, tsidocs
+editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
-ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/09/2017
 ---

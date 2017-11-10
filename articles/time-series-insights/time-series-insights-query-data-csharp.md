@@ -8,9 +8,9 @@ ms.author: ankryach
 manager: jhubbard
 editor: v-mamcge, jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
-ms.topic: get-started-article
 ms.workload: big-data
-ms.date: 11/09/2017
+ms.topic: article
+ms.date: 11/15/2017
 ---
 # Query data from the Azure Time Series Insights environment using C#
 

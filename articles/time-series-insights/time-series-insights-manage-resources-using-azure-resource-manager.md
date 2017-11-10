@@ -6,16 +6,19 @@ ms.service: time-series-insights
 author: kfile
 ms.author: kfile
 manager: jhubbard
-editor: v-mamcge, jasonwhowell, kfile, tsidocs
+editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
 ms.workload: big-data
-ms.date: 11/09/2017
+ms.topic: article | overview | quickstart | sample | tutorial | troubleshooting
+ms.date: 11/15/2017
 ---
 
 # Manage Time Series Insights Resources with Azure Resource Manager
 
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. If you are building an application that needs to store or query time series data, you can develop using Time Series Insights using its REST APIs.
 
-This tutorial demonstrates how to manage Time Series Insights with Azure Resource Management  resources. This helps you manage Time Series Insights environments where using the Azure portal doesn’t make sense, for example if you have a custom application built on top of Time Series Insights.  Using Azure Resoure Manager allows you to automate control for the same resources you can configure in the Azure portal.
+This tutorial demonstrates how to manage Time Series Insights with Azure Resource Management  resources. This helps you manage Time Series Insights environments where using the Azure portal doesn’t make sense, for example if you have a custom application built on top of Time Series Insights.  Using Azure Resource Manager allows you to automate control for the same resources you can configure in the Azure portal.
 
 There are four types of Time Series Insights resources that can be created using this Resource Manager template:  
 

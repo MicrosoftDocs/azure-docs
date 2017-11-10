@@ -6,9 +6,11 @@ ms.service: time-series-insights
 author: op-ravi
 ms.author: omravi
 manager: jhubbard
-editor: v-mamcge, jasonwhowell, kfile, tsidocs
+editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.date: 11/09/2017
+ms.topic: article
+ms.date: 11/15/2017
 ---
 
 # What is Azure Time Series Insights
