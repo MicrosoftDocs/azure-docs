@@ -31,7 +31,7 @@ Some organizations configure their Azure Active Directory tenant to federate wit
 
 In cases where the tenant is federated to another IdP for sign-in, enabling auto-acceleration makes user sign-in more streamlined in cases where you know that everyone signing in can be authenticated by that IdP.  You can configure auto-acceleration for individual applications.
 
->[NOTE!]
+>[!NOTE]
 >If you configure an application for auto-acceleration, guest users cannot sign-in. Taking the user straight to a federated IdP for authentication is a one-way street as there is no way to get back to the Azure Active Directory sign-in page.  Guest users, who may need to be directed to other tenants or an external IdP like Microsoft account to be authenticated, won’t be able to sign in to that application as the Home Realm Discovery step is being skipped.  
 
 There are two ways to control auto-acceleration to a federated IdP.  Either:   
@@ -52,7 +52,7 @@ If a domain hint is included in the authentication request from the application 
 
 See this [blog post](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/) for more information on auto-acceleration using the domain hints supported by Azure Active Directory.
 
->[NOTE!]
+>[!NOTE]
 >If a domain hint is included in an authentication request its presence overrides any HRD policy that is set for the application.
 
 ## Home Realm Discovery (HRD) Policy
@@ -72,13 +72,15 @@ The Graph API that manipulates policy is described [here](https://msdn.microsoft
 
 Here’s an example HRD policy definition:
     
-	```{  
+ ```
+   {  
     "HomeRealmDiscoveryPolicy":
     {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu"
     }
-    }```
+   }
+```
 
 The policy type is "HomeRealmDiscoveryPolicy".
 
@@ -110,14 +112,14 @@ In the examples below you create, update, link, and delete policies on applicati
 1.	To begin, download the latest Azure AD PowerShell Cmdlet Preview. 
 2.	Once you have the Azure AD PowerShell Cmdlets, run the Connect command to sign into Azure AD with your admin account.
 
-``` powershell
-Connect-AzureAD -Confirm
-```
+    ``` powershell
+    Connect-AzureAD -Confirm
+    ```
 3.	Run the following command to see all the policies in your organization.
 
-``` powershell
-Get-AzureADPolicy
-```
+    ``` powershell
+    Get-AzureADPolicy
+    ```
 
 If nothing is returned, you have no policies created in your tenant
 
