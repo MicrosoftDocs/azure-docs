@@ -1,6 +1,6 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Multi-user clusters on HDInsight
+- name: Enterprise Security on HDInsight
   items:
   - name: Overview
     href: apache-domain-joined-introduction.md
