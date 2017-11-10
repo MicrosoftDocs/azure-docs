@@ -40,26 +40,26 @@ This article describes how to use the Azure portal to add an event source that r
 
 7. If you have selected the **Use IoT Hub from available subscriptions** option, the following table explains each required property:
 
-| Property | Description |
-| --- | --- |
-| Subscription Id | Select the subscription in which this IoT hub was created.
-| Service bus namespace | Select the Service Bus namespace that contains the IoT Hub.
-| IoT hub name | Select the name of the IoT Hub.
-| IoT hub policy name | Select the shared access policy, which can be found on the IoT Hub settings tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **service connect** permissions.
-| IoT hub policy key | The key is prepopulated.
-| IoT hub consumer group | The consumer group to read events from the IoT Hub. It is highly recommended to use a dedicated consumer group for your event source.
+   | Property | Description |
+   | --- | --- |
+   | Subscription Id | Select the subscription in which this IoT hub was created.
+   | Service bus namespace | Select the Service Bus namespace that contains the IoT Hub.
+   | IoT hub name | Select the name of the IoT Hub.
+   | IoT hub policy name | Select the shared access policy, which can be found on the IoT Hub settings tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **service connect** permissions.
+   | IoT hub policy key | The key is prepopulated.
+   | IoT hub consumer group | The consumer group to read events from the IoT Hub. It is highly recommended to use a dedicated consumer group for your event source.
 
 8. If you have selected the **Provide IoT Hub settings manually** option, the following table explains each required property:
 
-| Property | Description |
-| --- | --- |
-| Subscription Id | The subscription in which this IoT hub was created.
-| Resource group | The resource group name in which this IoT hub was created.
-| Service bus namespace | A service bus namespace is a container for a set of messaging entities. When you created a new IoT Hub, you also created a Service Bus namespace.
-| IoT hub name | The name of your IoT Hub. When you created your IoT hub, you also gave it a specific name.
-| IoT hub policy name | The shared access policy, which can be created on the IoT Hub settings tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **service connect** permissions.
-| IoT hub policy key | The shared access key used to authenticate access to the Service Bus namespace. Type the primary or secondary key here.
-| IoT hub consumer group | The consumer group to read events from the IoT Hub. It is highly recommended to use a dedicated consumer group for your event source.
+   | Property | Description |
+   | --- | --- |
+   | Subscription Id | The subscription in which this IoT hub was created.
+   | Resource group | The resource group name in which this IoT hub was created.
+   | Service bus namespace | A service bus namespace is a container for a set of messaging entities. When you created a new IoT Hub, you also created a Service Bus namespace.
+   | IoT hub name | The name of your IoT Hub. When you created your IoT hub, you also gave it a specific name.
+   | IoT hub policy name | The shared access policy, which can be created on the IoT Hub settings tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **service connect** permissions.
+   | IoT hub policy key | The shared access key used to authenticate access to the Service Bus namespace. Type the primary or secondary key here.
+   | IoT hub consumer group | The consumer group to read events from the IoT Hub. It is highly recommended to use a dedicated consumer group for your event source.
 
 9. Select the **Event serialization format**. JSON is the only available serialization at present.
 
@@ -67,6 +67,7 @@ This article describes how to use the Azure portal to add an event source that r
 
 11. Select **Create** to add the new event source.
 
+After creation of the event source, Time Series Insights will automatically start streaming data into your environment.
 
 ### Add a consumer group to your IoT hub
 Consumer groups are used by applications to pull data from Azure IoT Hub.  You need to create a consumer group to be used by Time Series Insights to reliably read data from your IoT hub.
