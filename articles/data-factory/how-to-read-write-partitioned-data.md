@@ -17,10 +17,10 @@ ms.author: shlo
 
 ---
 # How to read or write partitioned data in Azure Data Factory version 2
-In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variable. In version 2, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. 
+In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In version 2, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. 
 
 ## Use a pipeline parameter 
-In version, you could use the partitionedBy property and SliceStart system variable as shown in the following example: 
+In version 1, you could use the partitionedBy property and SliceStart system variable as shown in the following example: 
 
 ```json
 "folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/yearno={Year}/monthno={Month}/dayno={Day}/",
@@ -31,10 +31,12 @@ In version, you could use the partitionedBy property and SliceStart system varia
 ],
 ```
 
+For more information about the partitonedBy property, see [version 1 Azure Blob connector](v1/data-factory-azure-blob-connector.md#dataset-properties) article. 
+
 In version 2, a way to achieve this behavior is to do the following actions: 
 
-1. Define a pipeline parameter of type string. In the following example, name of the pipeline parameter is ScheduledRunTime. 
-2. Use the pipeline parameter for folderPath in the dataset definition as shown in the example. 
+1. Define a **pipeline parameter** of type string. In the following example, name of the pipeline parameter is **ScheduledRunTime**. 
+2. Set **folderPath** in the dataset definition to the value of pipeline parameter for as shown in the example. 
 3. Pass a hardcoded value for the parameter before running the pipeline. Or, pass a trigger's start time or scheduled time dynamically at runtime. 
 
 ```json
