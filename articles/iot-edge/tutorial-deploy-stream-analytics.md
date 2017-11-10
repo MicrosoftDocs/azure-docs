@@ -59,15 +59,19 @@ In this section, you create an Azure Stream Analytics job to take data from your
 
 2. Enter a name and use the remaining default values.  Click **Create**. Note the name for later.
 
-    > [!NOTE]
-    > For 11-09 bug bash, please create your ASA job under location **Canada East**.
-
     ![new storage account][1]
 
     > [!NOTE]
     > Make sure the **Location** you use is the same as your IoT Hub **Location** else additional fees may apply.
 
+3. In the Azure portal, navigate to the storage account that you just created. Click **Browse blobs** under **Blob Service**. Create a new container for the ASA module to store data. Set the access level to _Container_. Click **OK**.
+
+    ![storage settings][10]
+
 1. In the Azure portal, navigate to **Create a resource -> Internet of Things** and click **Stream Analytics Job**.
+
+    > [!NOTE]
+    > For 11-09 bug bash, please create your ASA job under location **Canada East**.
 
 1. Enter a name, **choose "Edge" as Hosting environment** and use the remaining default values.  Click **Create**.
 
@@ -116,17 +120,21 @@ You are now ready to deploy the ASA job on your IoT Edge device.
     > [!NOTE]
     > For 11-09 bug bash, there is a known issue that you can't use long module name. Click edit button for this ASA module, rename the module with any three characters. Then save.
 
-1. Copy the name of this module. Click **Next** to configure routes.
+1. Click **Add IoT Edge Module** to add the temperature sensor module. Enter _tempSensor_ for name, `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:latest` for Image URL. Leave the other settings unchanged, and click **Save**.
 
-1. Copy the following to **Routes**.  Replace {ModuleName} with the module name you copied:
+    ![temperature module][11]
+
+1. Copy the name of the ASA module. Click **Next** to configure routes.
+
+1. Copy the following to **Routes**.  Replace _{moduleName}_ with the module name you copied:
 
     ```json
     {
         "routes": {                                                               
-          "telemetryToCloud": "FROM /messages/modules/{ModuleName}/* INTO $upstream", 
-          "alertsToCloud": "FROM /messages/modules/{ModuleName}/* INTO $upstream", 
-          "alertsToReset": "FROM /messages/modules/{ModuleName}/* INTO BrokeredEndpoint(\"/modules/{ModuleName}/inputs/reset\")", 
-          "telemetryToAsa": "FROM /messages/modules/{ModuleName}/* INTO BrokeredEndpoint(\"/modules/{ModuleName}/inputs/temperature\")" 
+          "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream", 
+          "alertsToCloud": "FROM /messages/modules/{moduleName}/* INTO $upstream", 
+          "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/reset\")", 
+          "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")" 
         }
     }
     ```
@@ -135,7 +143,9 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
 1. In the **Review Template** step, click **Submit**.
 
-1. Return to the device details page and click **Refresh**.  You should see the new **ASA** module running along with the **tempSensor** module and the **IoT Edge runtime**.
+1. Return to the device details page and click **Refresh**.  You should see the new _{moduleName}_ module running along with the **IoT Edge agent** module and the **IoT Edge hub**.
+
+    ![module output][7]
 
 ## View data (optional)
 
@@ -145,11 +155,15 @@ You are now ready to deploy the ASA job on your IoT Edge device.
     docker ps  
     ```
 
+    ![docker output][8]
+
 1. Run the command to see all system logs and metrics data. Use the module name from above:
 
     ```cmd/sh
-    docker logs -f {ModuleName}  
+    docker logs -f {moduleName}  
     ```
+
+    ![docker log][9]
 
 1. In the Azure portal, in your Storage account, under **Blob Service**, click **Browse blobs**, select your container, and select newly created JSON file.
 
@@ -160,7 +174,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 In this tutorial, you configured an Azure Storage container and a Streaming Analytics job to analyze data from your IoT Edge device.  You then loaded a custom ASA module to move data from your device, through the stream, into a BLOB for download.  You can continue on to other tutorials to further see how Azure IoT Edge can create solutions for your business.
 
 > [!div class="nextstepaction"] 
-> [Create an IoT Edge module][lnk-next-tutorial2]
+> [Create a custom module][lnk-next-tutorial2]
 
 <!-- Images. -->
 [1]: ./media/tutorial-deploy-stream-analytics/storage.png
@@ -169,6 +183,11 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 [4]: ./media/tutorial-deploy-stream-analytics/add_device.png
 [5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
 [6]: ./media/tutorial-deploy-stream-analytics/set_module.png
+[7]: ./media/tutorial-deploy-stream-analytics/module_output.png
+[8]: ./media/tutorial-deploy-stream-analytics/docker_output.png
+[9]: ./media/tutorial-deploy-stream-analytics/docker_log.png
+[10]: ./media/tutorial-deploy-stream-analytics/storage_settings.png
+[11]: ./media/tutorial-deploy-stream-analytics/temp_module.png
 
 
 <!-- Links -->

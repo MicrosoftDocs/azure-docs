@@ -3,10 +3,12 @@
 ## [About Azure IoT Edge](how-iot-edge-works.md)
 
 # Quickstart
-## [Analyze data on the edge](quickstart.md)
+## [Deploy to the edge - Windows](quickstart.md)
+## [Deploy to the edge - Linux](quickstart-linux.md)
 
 # Tutorials
-## [Simulate an Edge device](tutorial-install-iot-edge.md)
+## [Simulate an Edge device - Windows](tutorial-simulate-device-windows.md) 
+## [Simulate an Edge device - Linux](tutorial-simulate-device-linux.md) 
 ## [Deploy C# code](tutorial-create-custom-module.md)
 ## [Deploy Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
 
@@ -14,6 +16,7 @@
 ## [Create a gateway device](how-to-create-gateway-device.md)
 ## [Deploy Azure Functions](tutorial-deploy-function.md)
 ## [Deploy and monitor at scale](how-to-deploy-monitor.md)
+## [Provision an IoT Core device](how-to-install-iot-core.md)
 
 # Concepts
 ## [Iot Edge modules](iot-edge-modules.md)
