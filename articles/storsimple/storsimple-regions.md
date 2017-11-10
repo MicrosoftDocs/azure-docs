@@ -25,7 +25,7 @@ The Azure datacenters operate in multiple geographies around the world to meet c
 
 Choosing an Azure region is very important for your StorSimple solution. The choice of region is influenced by factors such as data residency and sovereignty, service availability, performance, cost, and redundancy. For more information on how to choose a region, go to [Which Azure region is right for me?](https://azure.microsoft.com/overview/datacenters/how-to-choose/)
 
-This tutorial describes the region availability for the StorSimple Device Manager service, the on-premises physical and the cloud devices. The information contained in this article is applicable to both, the StorSimple 8000 and 1200 series devices.
+This tutorial describes the region availability for the StorSimple Device Manager service, the on-premises physical and the cloud devices. The information contained in this article is applicable to StorSimple 8000 and 1200 series devices.
 
 ## Region availability for StorSimple Device Manager service
 
@@ -33,17 +33,20 @@ StorSimple Device Manager service is not available in all the Azure regions. The
 
 You define a region or location when you first create the StorSimple Device Manager service. In general, a location closest to the geographical region where the device is deployed is chosen. But the device and the service can also be deployed in different locations.
 
-Here is a list of regions where StorSimple Device Manager service is available and can be deployed.
+Here is a list of regions where StorSimple Device Manager service is available for Azure public cloud and can be deployed.
 
-## Region availability  for Azure storage accounts
+[storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
-Azure storage accounts are available in all the Azure regions. Storage account is where the data is physically stored. When you create a storage account, the primary location of the storage account is chosen.
+For Azure Government cloud, the StorSimple Device Manager service is available in US Govt Iowa and US Govt Virginia datacenters.
 
-When you first create a StorSimple Device Manager service and associate a storage account with it, the location where you deploy the service can be different from the primary location of the storage account.
 
-Your StorSimple Device Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Device Manager and Azure storage account separately
+## Region availability for data stored in StorSimple
 
-If you are using a cloud appliance, then we recommend that the region is which you deploy the service is the same as the region associated with the storage account used by the service. Storage accounts in different regions may result in poor performance.
+StorSimple data is physically stored in Azure storage accounts and these accounts are available in all the Azure regions. When you create an Azure storage account, the primary location of the storage account is chosen and that determines the region where the data resides.
+
+When you first create a StorSimple Device Manager service and associate a storage account with it, your StorSimple Device Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Device Manager and Azure storage account separately.
+
+If you are using a StorSimple Cloud Appliance, then we recommend that the service and the associated storage account are in the same region. Storage accounts in a different region  may result in poor performance.
 
 ## Availability of StorSimple device
 
@@ -51,7 +54,7 @@ Depending upon the model, the StorSimple devices can be available in different c
 
 ### StorSimple physical device (Models 8100/8600)
 
-If using a StorSimple 8100 or 8600 physical device, the device is available in the following countries. 
+If using a StorSimple 8100 or 8600 physical device, the device is available in the following countries.
 
 | #  | Country        | #  | Country     | #  | Country      | #  | Country              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
@@ -85,18 +88,20 @@ The following countries will be added to the above list soon.
 
 Microsoft can ship physical hardware and provide hardware spare parts replacement for StorSimple to the countries in the preceding list. For a most up-to-date list of the countries, go to StorSimple country availability.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Do not place a StorSimple physical device in a region where StorSimple is not supported. Microsoft will not be able to ship any replacement parts to countries where StorSimple is not supported.
 
 ### StorSimple Cloud Appliance (Models 8010/8020)
 
-If using a StorSimple Cloud Appliance 8010 or 8020, then the device is supported and available in all the regions where the underlying VM is supported. The 8010 uses a Standard_A3 and the 8020 uses a Standard_DS3 VM to create a cloud appliance.
+If using a StorSimple Cloud Appliance 8010 or 8020, then the device is supported and available in all the regions where the underlying VM is supported. The 8010 uses a Standard_A3 which is supported in all Azure reigons. 
+
+The 8020 uses premium storage and Standard_DS3 VM to create a cloud appliance. The 8020 is supported in Azure regions that support Premium Storage and DS3 Azure VMs. Use [this list](https://azure.microsoft.com/regions/services/) to see if both **Virtual Machines > DS-series** and **Storage > Disk storage** are available in your region.
 
 ### StorSimple Virtual Array (Model 1200)
 
 If using a 1200 series StorSimple Virtual Array, then the virtual disk image is supported in all Azure regions.
 
 ## Next steps
-* Learn more about the [StorSimple deployment process](storsimple-8000-deployment-walkthrough-u2.md).
+* Learn more about the [pricing for various StorSimple models](https://azure.microsoft.com/pricing/calculator/#storsimple2).
 * Learn more about [managing your StorSimple storage account](storsimple-8000-manage-storage-accounts.md).
 * Learn more about how to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
