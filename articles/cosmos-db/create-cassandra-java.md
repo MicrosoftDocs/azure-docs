@@ -127,7 +127,7 @@ This step is optional. If you're interested in learning how the database resourc
     }
     ```
 
- * Query to get a single user's information.
+* Query to get a single user's information.
 
     ```java
     public void selectUser(int id) {

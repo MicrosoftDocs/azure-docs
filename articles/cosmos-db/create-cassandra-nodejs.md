@@ -122,7 +122,7 @@ This step is optional. If you're interested in learning how the database resourc
     });
     ```  
     
- * Query to get a key-value.
+* Query to get a key-value.
 
     ```nodejs
     function selectById(next) {
@@ -166,7 +166,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     Line 3 should now look similar to
 
-    `config.password = '2Ggkr662ifxz2Mg==`';`
+    `config.password = '2Ggkr662ifxz2Mg==';`
 
 6. Save the config.js file.
     

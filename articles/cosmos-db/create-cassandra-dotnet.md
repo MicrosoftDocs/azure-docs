@@ -151,11 +151,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. In Visual Studio 2017, open the web.config file. 
 
-3. Copy your USERNAME value from the portal (using the copy button) and make it the value of the endpoint key in web.config. 
+3. Copy the USERNAME value from the portal (using the copy button) and make it the value of the endpoint key in web.config. 
 
     `<add key="endpoint" value="FILLME" />`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the authKey in web.config. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+4. Then copy the PASSWORD value from the portal and make it the value of the authKey in web.config. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
     `<add key="authKey" value="FILLME" />`
     
