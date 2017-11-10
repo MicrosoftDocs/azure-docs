@@ -70,7 +70,7 @@ sections:
           - href: /azure/cosmos-db/create-table-java
           - href: /azure/cosmos-db/create-table-dotnet
           - href: /azure/cosmos-db/create-table-nodejs
-          - href: /azure/cosmos-db/create-table-python 
+          - href: /azure/cosmos-db/create-table-python
           - href:
       - title: Cassandra API
         values:
