@@ -41,6 +41,7 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
         * [MongoDB API](mongodb-introduction.md): A MongoDB database service built on top of Cosmos DB. Compatible with existing MongoDB libraries, drivers, tools and applications.
         * [Table API](table-introduction.md): A key-value storage database service built to provide premium capabilities for Azure Table storage applications.
         * [Graph (Gremlin) API](graph-introduction.md): A graph database service built following the [Apache TinkerPop specification](http://tinkerpop.apache.org/).
+        * [Cassandra API](cassandra-introduction.md): A key/value store built on the [Apache Cassandra](https://cassandra.apache.org/) implementation. 
         * Additional data models coming soon!
 
 * **Elastically scale throughput and storage on demand, worldwide**

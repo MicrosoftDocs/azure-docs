@@ -416,6 +416,12 @@ Yes, we plan to add other mechanisms for query in the future.
 ### How can I use the new Graph API (Preview) offering? 
 To get started, complete the [Graph API](../cosmos-db/create-graph-dotnet.md) quick-start article.
 
+## Develop against the Cassandra API (preview)
+
+### How can I use the new Cassandra API (preview) offering? 
+
+The Cassandra API is provided for existing users Cassandra users that want to take advantage of the benefits of Azure Cosmos DB, such as elastic scale of throughput and storage, rich queries over schema free data, and multi-entity transactions, while still using the Cassandra drivers and tools they're used to. 
+
 <a id="moving-to-cosmos-db"></a>
 ## Questions from DocumentDB customers
 ### Why are you moving to Azure Cosmos DB? 
