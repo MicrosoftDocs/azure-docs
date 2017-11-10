@@ -62,8 +62,8 @@ Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Specifies whether to skip incompatible rows during copy or not. | True<br/>False (default) | No
 redirectIncompatibleRowSettings | A group of properties that can be specified when you want to log the incompatible rows. | &nbsp; | No
-linkedServiceName | The linked service of Azure Storage to store the log that contains the skipped rows. | The name of an AzureStorage or AzureStorageSas linked service, which refers to the storage instance that you want to use to store the log file. | No
-path | The path of the log file that contains the skipped rows. | Specify the Blob storage path that you want to use to log the incompatible data. If you do not provide a path, the service creates a container for you. | No
+linkedServiceName | The linked service of Azure Storage to store the log that contains the skipped rows. | The name of an AzureStorage or AzureStorageSas linked service, which refers to the storage instance that you want to use to store the log file. Azure Blob Storage and Azure Data Lake Storage are supported here. | No
+path | The path of the log file that contains the skipped rows. | Specify the storage path that you want to use to log the incompatible data. If you do not provide a path, the service creates a container for you. | No
 
 ## Monitor skipped rows
 After the copy activity run completes, you can see the number of skipped rows in the output of the copy activity:
