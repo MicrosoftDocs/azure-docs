@@ -1,5 +1,5 @@
 ---
-title: Create your first function on Linux from the Azure CLI | Microsoft Docs 
+title: Create your first function on Linux from the Azure CLI (preview) | Microsoft Docs 
 description: Learn how to create your first Azure Function running on a default Linux image using the Azure CLI.
 services: functions 
 keywords: 
@@ -13,9 +13,9 @@ ms.devlang: azure-cli
 manager: cfowler
 ---
 
-# Create your first function running on Linux using the Azure CLI
+# Create your first function running on Linux using the Azure CLI (preview)
 
-Azure Functions lets you host your functions on Linux in a default Azure App Service container. You can also [bring your own custom container](functions-create-function-linux-custom-image.md). This quickstart topic walks you through how to use Azure Functions with the Azure CLI to create your first function app on Linux hosted on the default App Service container. The function code itself is deployed to the image from a GitHub sample repository.    
+Azure Functions lets you host your functions on Linux in a default Azure App Service container. This functionality is currently in preview. You can also [bring your own custom container](functions-create-function-linux-custom-image.md). This quickstart topic walks you through how to use Azure Functions with the Azure CLI to create your first function app on Linux hosted on the default App Service container. The function code itself is deployed to the image from a GitHub sample repository.    
 
 The following steps are supported on a Mac, Windows, or Linux computer. 
 
