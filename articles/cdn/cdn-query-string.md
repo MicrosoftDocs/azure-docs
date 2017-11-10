@@ -24,7 +24,7 @@ ms.author: mazha
 > 
 
 ## Overview
-Query string caching controls how files are cached when a request contains query strings. For example, \http://www.domain.com/content.mov?data=true. If there is more than one query string in a request, the order of the query strings does not matter.
+Query string caching controls how files are cached when a request contains query strings. For example, http:\//www.domain.com/content.mov?data=true. If there is more than one query string in a request, the order of the query strings does not matter.
 
 > [!IMPORTANT]
 > The standard and premium CDN products provide the same query string caching functionality, but the user interface differs.  This article describes the interface for **Azure CDN Standard from Akamai** and **Azure CDN Standard from Verizon**. For query string caching with **Azure CDN Premium from Verizon**, see [Controlling caching behavior of CDN requests with query strings - Premium](cdn-query-string-premium.md).
@@ -38,7 +38,7 @@ Three query string modes are available:
 ## Changing query string caching settings for standard CDN profiles
 1. Select a CDN profile, then select the CDN endpoint you want to manage.
    
-    ![CDN profile endpoints](./media/cdn-query-string/cdn-endpoints.png)
+   ![CDN profile endpoints](./media/cdn-query-string/cdn-endpoints.png)
    
    The CDN endpoint blade opens.
 2. Under Settings, click **Cache**.
