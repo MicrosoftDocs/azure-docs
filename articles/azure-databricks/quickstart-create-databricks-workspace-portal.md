@@ -17,7 +17,7 @@ ms.author: nitinme
 
 ---
 
-# Quickstart: Get started with Azure Databricks by using the Azure portal
+# Quickstart: Get started with Azure Databricks using the Azure portal
 
 This quickstart shows how to create an Azure Databricks workspace and then an Apache Spark cluster within that workspace. You also learn how to run your first Spark job on the cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
 
@@ -25,15 +25,13 @@ This quickstart shows how to create an Azure Databricks workspace and then an Ap
 
 Log in to the [Azure  portal](https://portal.azure.com).
 
-## Create an Azure Databricks workspace
+## Create a Databricks workspace
 
 Before you begin with this quickstart, you need to [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) and download the sample CSV file from << HERE >>.
 
-1. Sign in to the [Azure  portal](https://portal.azure.com).
+1. Click **+**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. Under **Azure Databricks**, click **Create**.
 
-2. Click **+**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. Under **Azure Databricks**, click **Create**.
-
-3. Under **Azure Databricks Service**, provide the following values:
+2. Under **Azure Databricks Service**, provide the following values:
 
     ![Create an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
@@ -42,7 +40,7 @@ Before you begin with this quickstart, you need to [Create an Azure storage acco
     * For **Resource group**, specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md).
     * For **Location**, select **East US 2**. The other available regions are US West and West Europe.
 
-4. Click **Create**.
+3. Click **Create**.
 
 ## Create an Apache Spark cluster in Databricks
 
@@ -58,7 +56,7 @@ Before you begin with this quickstart, you need to [Create an Azure storage acco
 
     For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
-4. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+    Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 ## Run a Spark SQL job on the cluster
 
@@ -78,10 +76,6 @@ In this section, you create a notebook and then run a Spark SQL job on the clust
 
        spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
     
-    For example:
-
-        spark.conf.set("fs.azure.account.key.mystorageaccount.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
-
     For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
 
     > [!NOTE]
@@ -89,8 +83,10 @@ In this section, you create a notebook and then run a Spark SQL job on the clust
 
 4.  Run a SQL statement to create a temporary table using data from the sample CSV data file, HVAC.csv. You can download the sample file from << HERE >>.
 
-        %sql
-        CREATE TEMPORARY TABLE hvacTempTable USING csv OPTIONS (path "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}/Path/to/sample/file/HVAC.csv", header "true", mode "FAILFAST")
+    ```sql
+    %sql
+    CREATE TEMPORARY TABLE hvacTempTable USING csv OPTIONS (path "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}/Path/to/sample/file/HVAC.csv", header "true", mode "FAILFAST")
+    ```
 
     Press SHIFT + ENTER to run the code cell.
 
@@ -104,8 +100,10 @@ In this section, you create a notebook and then run a Spark SQL job on the clust
 
 6.  Run a SQL query on the table you created earlier. The query lists the difference between the target and actual temperature, for each building, on a given date.
 
-        %sql
-        SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvacTempTable WHERE date = "6/1/13"
+    ```sql
+    %sql
+    SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvacTempTable WHERE date = "6/1/13"
+    ```
 
     Press SHIFT + ENTER to run the code cell. You see a tabular output, similar the following screenshot:
 
@@ -115,12 +113,12 @@ In this section, you create a notebook and then run a Spark SQL job on the clust
 
     ![Databricks query output area graph](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-area-chart.png "Databricks query output area graph")
 
-    The screenshot shows an area chart with **buildingID** as the key and **temp_diff** as the value.  
+    The screenshot shows an area chart with **buildingID** as the key and **temp_diff** as the value. 
 
 
 ## Next steps
 
-In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. Look at the following articles to know more about working with Azure Databricks.
+In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to use Azure Data Lake Store with Azure Databricks.
 
-* [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store)
-* [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)
+> [!div class="nextstepaction"]
+>[Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store)
