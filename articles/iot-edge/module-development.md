@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Understand the requirements and tools for developing IoT Edge modules - Public preview
+# Understand the requirements and tools for developing IoT Edge modules - preview
 
 This article explains what functionalities are available when writing applications that run as IoT Edge module, and how to take advantage of them.
 
