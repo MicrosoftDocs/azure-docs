@@ -221,32 +221,32 @@ For a full set of Service Fabric back-end policy attributes, refer to the [API M
 Fill in the following empty parameters in the *apim.parameters.json* for your deployment.
 
 |Parameter|Value|Description|
-|---|---|---|
-|apimInstanceName|sf-apim||
-|apimPublisherEmail|myemail@contosos.com||
-|apimSku|Developer||
-|serviceFabricCertificateName|sfclustertutorialgroup320171031144217||
-|certificatePassword|q6D7nN%6ck@6||
-|serviceFabricCertificate|0C6CFFA0DE2573E8CD3C161A65E584B5BDAD65B1||
-|url_path|/api/values||
-|clusterHttpManagementEndpoint|https://mysfcluster321.westus2.cloudapp.azure.com:19080||
-|inbound_policy|<policies>\r\n  <inbound>\r\n    <base />\r\n    <set-backend-service backend-id=\"servicefabric\" sf-service-instance-name=\"fabric:/ApiApplication/WebApiService\" sf-resolve-condition=\"@((int)context.Response.StatusCode != 200)\" />\r\n  </inbound>\r\n  <backend>\r\n    <base />\r\n  </backend>\r\n  <outbound>\r\n    <base />\r\n  </outbound>\r\n  <on-error>\r\n    <base />\r\n  </on-error>\r\n</policies>||
+|---|---|
+|apimInstanceName|sf-apim|
+|apimPublisherEmail|myemail@contosos.com|
+|apimSku|Developer|
+|serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
+|certificatePassword|q6D7nN%6ck@6|
+|serviceFabricCertificate|0C6CFFA0DE2573E8CD3C161A65E584B5BDAD65B1|
+|url_path|/api/values|
+|clusterHttpManagementEndpoint|https://mysfcluster321.westus2.cloudapp.azure.com:19080|
+|inbound_policy|<policies><inbound><base /><set-backend-service backend-id=\"servicefabric\" sf-service-instance-name=\"fabric:/ApiApplication/WebApiService\" sf-resolve-condition=\"@((int)context.Response.StatusCode != 200)\" /></inbound><backend><base /></backend><outbound><base /></outbound><on-error>   <base /></on-error></policies>|
 
 Use the following script to deploy the Resource Manager template and parameter files for API Management:
 
 ```powershell
-$ResourceGroupName = "tutorialgroup"
+$ResourceGroupName = "sfclustertutorialgroup"
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
 ```
 
 ```azurecli
-ResourceGroupName="tutorialgroup"
+ResourceGroupName="sfclustertutorialgroup"
 az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json 
 ```
 
 ## Test it
 
-You can now try sending a request to your back-end service in Service Fabric through API Management directly from the Azure portal.
+You can now try sending a request to your back-end service in Service Fabric through API Management directly from the [Azure portal](https://portal.azure.com).
 
  1. In the API Management service, select **API**.
  2. In the **Service Fabric App** API you created in the previous steps, select the **Test** tab and then the **Values** operation.
@@ -285,12 +285,12 @@ A cluster is made up of other Azure resources in addition to the cluster resourc
 Log in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](http://portal.azure.com). Delete the resource group and all the cluster resources using the [Remove-AzureRMResourceGroup cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
-$ResourceGroupName = "tutorialgroup"
+$ResourceGroupName = "sfclustertutorialgroup"
 Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ```azurecli
-ResourceGroupName="tutorialgroup"
+ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
