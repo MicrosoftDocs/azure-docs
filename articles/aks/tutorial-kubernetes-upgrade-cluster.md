@@ -1,6 +1,6 @@
----
-title: Kubernertes on Azure tutorial - update cluster | Microsoft Docs
-description: Kubernertes on Azure tutorial - update cluster
+﻿---
+title: Kubernetes on Azure tutorial - update cluster | Microsoft Docs
+description: Kubernetes on Azure tutorial - update cluster
 services: container-service
 documentationcenter: ''
 author: neilpeterson
