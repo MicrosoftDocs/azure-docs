@@ -13,7 +13,6 @@
 
 # Concepts
 ## [Visualize your data with the explorer](time-series-insights-explorer.md)
-## [Causes of throttling](time-series-insights-how-tsi-throttles.md)
 ## [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md)
 ## Develop
 ### [Authentication and authorization](time-series-insights-authentication-and-authorization.md)
