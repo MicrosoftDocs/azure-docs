@@ -31,7 +31,7 @@ This article helps you move a public peering configuration to Microsoft peering 
 
 * To connect to Microsoft peering, you need to set up and manage NAT. Your connectivity provider may set up and manage the NAT as a managed service. If you are planning to access the Azure PaaS and Azure SaaS services on Microsoft peering, it's important to size the NAT IP pool correctly. For more information about NAT for ExpressRoute, see the [NAT requirements for Microsoft peering](expressroute-nat.md#nat-requirements-for-microsoft-peering).
 
-* If you currently have a network access control list (ACL) for the Azure PaaS service resource that exists in Azure public peering, you need to make sure that the NAT IP pool **Address Range** is included in the Firewall ACL for Microsoft peering.
+* If you are using public peering and currently have IP Network rules for public IP addresses that are used to access [Azure Storage](../storage/common/storage-network-security.md) or [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), you need to make sure that the NAT IP pool configured with Microsoft peering is included in the list of public IP addresses for the Azure storage account or Azure SQL account.
 
 * In order to move to Microsoft peering with no downtime, use the steps in this article in the order that they are presented.
 
