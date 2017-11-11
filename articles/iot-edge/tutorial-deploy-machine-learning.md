@@ -40,9 +40,10 @@ The Azure Machine Learning module is a module hosted in DockerHub that contains 
 1. Leave the other settings unchanged and select **Save**.
 1. From the **Add Modules** step, select **Add custom IoT Edge module** again.
 1. In the **Name** field, enter `machinelearningmodule`.
-1. In the **Image URI** field, enter `microsoft/azureiotedge-sensor-anomaly-detection:latest`.
+1. In the **Image** field, enter `microsoft/azureiotedge-sensor-anomaly-detection:latest`.
 1. Click **Save**.
 1. Back in the **Add Modules** step, click **Next**.
+1. Update routes for your module:
 1. In the **Specify Routes** step, copy the JSON below into the text box. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial you need two routes. The first route transports messages from the temperature sensor to the machine learning module via the "mlInput" endpoint, which is the endpoint that all Azure Machine Learning modules use. The second route transports messages from the machine learning module to IoT Hub. In this route, ''mlOutput'' is the endput that all Azure Machine Learning modules use to output data, and ''upstream'' is a special destination that tells Edge Hub to send messages to IoT Hub. 
 
     ```json
@@ -55,8 +56,8 @@ The Azure Machine Learning module is a module hosted in DockerHub that contains 
     ``` 
 
 1. Click **Next**. 
-1. In the **Review Template** step, click **Submit**. 
-1. Return to the device details page and click **Refresh**. You should see the new machinelearningmodule running along with the tempSensor module and the IoT Edge runtime.
+1. In the ''Review Template'' step, click ''Submit''. 
+1. Return to the device details page and click ''Refresh.''  You should see the new ''machinelearningmodule'' running along with the ''tempSensor module'' and the ''IoT Edge runtime''.
 
 ## View generated data
 
@@ -64,8 +65,7 @@ The Azure Machine Learning module is a module hosted in DockerHub that contains 
 
 ## Next steps
 
-In this tutorial, you deployed an IoT Edge module powered by Azure Machine Learning. You can continue on to either of the following tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
+In this tutorial, you deployed an IoT Edge module powered by Azure Machine Learning. You can continue on to any of the other tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Develop and deploy a C# module](tutorial-create-custom-module.md)
-> [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
+> [Deploy an Azure Function as a module](tutorial-deploy-function.md)
