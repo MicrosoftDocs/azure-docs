@@ -24,7 +24,7 @@ To get started, it’s best if you know how much data you expect to push by the 
 
 For more information about capacity and retention for both Time Series Insights SKUs, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-You need to consider the following attributes to best plan the environment for long term success: 
+Consider the following attributes to best plan the environment for long-term success: 
 - Storage capacity
 - Data retention period
 - Ingress capacity 
