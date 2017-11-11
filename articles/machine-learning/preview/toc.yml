@@ -88,6 +88,8 @@
       href: how-to-scale-clusters.md
     - name: Deploy a web service
       href: model-management-service-deploy.md
+    - name: Deploy to an IoT Edge device
+      href: deploy-to-iot-edge-device.md
     - name: Consume a web service
       href: model-management-consumption.md  
     - name: Collect model data
