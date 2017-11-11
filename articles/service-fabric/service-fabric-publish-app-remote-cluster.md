@@ -102,7 +102,7 @@ If you are connecting to an unsecured cluster, all that's required is the cluste
   Note that in this case, the new publish profile points to one of the default application parameter files. This is appropriate if you want to publish the same application configuration to a number of environments. By contrast, in cases where you want to have different configurations for each environment that you want to publish to, it would make sense to create a corresponding application parameter file.
 
 ## Next steps
-To learn how to automate the publishing process in a continuous integration environment, see [Set up Service Fabric continuous integration](service-fabric-set-up-continuous-integration.md).
+To learn how to automate the publishing process in a continuous integration environment, see [Set up Service Fabric continuous integration](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
 [0]: ./media/service-fabric-publish-app-remote-cluster/PublishDialog.png
 [1]: ./media/service-fabric-publish-app-remote-cluster/SelectCluster.png
