@@ -195,6 +195,6 @@ In this quickstart, you learned how to transfer files between a local disk and A
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](storage-dotnet-how-to-use-blobs.md)
 
-For additional Azure Storage code samples that you can download and run, see the list of [Azure Storage samples using .NET](../common/storage-samples-dotnet).
+For additional Azure Storage code samples that you can download and run, see the list of [Azure Storage samples using .NET](../common/storage-samples-dotnet.md).
 
 For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
