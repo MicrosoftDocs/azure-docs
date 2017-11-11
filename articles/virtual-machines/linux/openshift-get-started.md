@@ -1,6 +1,6 @@
 ---
-title: OpenShift on Azure Overview | Microsoft Docs
-description: OpenShift on Azure Overview.
+title: OpenShift in Azure overview | Microsoft Docs
+description: An overview of OpenShift in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -18,49 +18,49 @@ ms.date:
 ms.author: haroldw
 ---
 
-# OpenShift Overview
+# OpenShift in Azure
 
-OpenShift is an open and extensible container application platform that brings docker and Kubernetes to the enterprise.  
+OpenShift is an open and extensible container application platform that brings Docker and Kubernetes to the enterprise.  
 
-OpenShift includes Kubernetes for container orchestration and management. It adds developer and operations-centric tools that enable:
+OpenShift includes Kubernetes for container orchestration and management. It adds developer- and operations-centric tools that enable:
 
-- Rapid application development
-- Easy deployment and scaling
-- Long-term life-cycle maintenance for teams and applications
+- Rapid application development.
+- Easy deployment and scaling.
+- Long-term lifecycle maintenance for teams and applications.
 
-There are multiple offerings of OpenShift of which two are available to run in Azure.
+There are multiple versions of OpenShift, of which two are available to run in Azure:
 
 - OpenShift Origin
 - OpenShift Container Platform
 - OpenShift Online
 - OpenShift Dedicated
 
-Of the four offerings covered, two are available for customers to deploy into Azure on their own - OpenShift Origin and OpenShift Container Platform.
+Of the four versions covered in this article, two are available for customers to deploy in Azure on their own: OpenShift Origin and OpenShift Container Platform.
 
 ## OpenShift Origin
 
-[Open source](https://www.openshift.org/) upstream project of OpenShift that is community supported. Origin can be installed on CentOS or RHEL.
+Origin is an [open-source](https://www.openshift.org/) upstream project of OpenShift that's community supported. Origin can be installed on CentOS or Red Hat Enterprise Linux (RHEL).
 
 ## OpenShift Container Platform
 
-Enterprise ready ([commercial offering](https://www.openshift.com)) version from Red Hat that is supported by Red Hat. Customer purchases the necessary entitlements for OpenShift Container Platform and is responsible for installation and management of entire infrastructure.
+Container Platform is an enterprise-ready [commercial version](https://www.openshift.com) from and supported by Red Hat. With this version, customers purchase the necessary entitlements for OpenShift Container Platform and are responsible for installation and management of the entire infrastructure.
 
-Since customer "owns" the entire platform, they can install in their on-premises datacenter, public cloud (Azure, AWS, Google, etc.), etc.
+Because customers "own" the entire platform, they can install it in their on-premises datacenter, or in a public cloud (such as Azure, AWS, or Google).
 
 ## OpenShift Online
 
-Red Hat managed **multi-tenant** OpenShift (using Container Platform). Red Hat manages all the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). 
+Online is a Red Hat-managed *multi-tenant* OpenShift that uses Container Platform. Red Hat manages all of the underlying infrastructure (such as VMs, OpenShift cluster, networking, and storage). 
 
-Customer deploys containers but has no control on which hosts the containers run. Since it is multi-tenant, containers may be co-located on same VM hosts as containers from other customers. Cost is per container.
+With this version, the customer deploys containers but has no control over which hosts the containers run. Because Online is multi-tenant, containers may be located on the same VM hosts as containers from other customers. Cost is per container.
 
 ## OpenShift Dedicated
 
-Red Hat managed **single-tenant** OpenShift (using Container Platform). Red Hat manages all the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). The cluster is specific to one customer and runs in a public cloud (AWS, Google, Azure - coming in early 2018). Starting cluster includes four Application Nodes for $48K / year (upfront payment for an entire year).
+Dedicated is a Red Hat-managed *single-tenant* OpenShift that uses Container Platform. Red Hat manages all of the underlying infrastructure (VMs, OpenShift cluster, networking, storage, etc.). The cluster is specific to one customer and runs in a public cloud (such as AWS or Google, with Azure coming in early 2018). A starting cluster includes four application nodes for $48,000 per year (paid up front).
 
 ## Next steps
 
 - [Configure common prerequisites for OpenShift in Azure](./openshift-prerequisites.md)
-- [Deploy OpenShift Origin](./openshift-origin.md)
-- [Deploy OpenShift Container Platform](./openshift-container-platform.md)
-- [Post deployment tasks](./openshift-post-deployment.md)
-- [Troubleshooting OpenShift deployment](./openshift-troubleshooting.md)
+- [Deploy OpenShift Origin in Azure](./openshift-origin.md)
+- [Deploy OpenShift Container Platform in Azure](./openshift-container-platform.md)
+- [Post-deployment tasks](./openshift-post-deployment.md)
+- [Troubleshoot OpenShift deployment](./openshift-troubleshooting.md)
