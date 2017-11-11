@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 11/11/2017
 ms.author: sngun
 
 ---
@@ -204,6 +204,7 @@ If the resource group is created successfully, the previous command outputs the 
 ![Resource group create output](media/azure-stack-connect-cli/image1.png)
 
 ## Known issues
+There are some know issues that you must be aware of when using CLI in Azure Stack:
 
 * The CLI interactive mode i.e the `az interactive` command is not yet supported in Azure Stack.
 * To get the list of virtual machine images available in Azure Stack, use the `az vm images list --all` command instead of the `az vm image list` command. Specifying the `--all` option makes sure that response returns only the images that are available in your Azure Stack environment. 
