@@ -49,7 +49,7 @@ Both DWUs and cDWUs support scaling compute up or down, and pausing compute when
 As you increase data warehouse units, you are linearly increasing computing resources. The optimized for compute performance tier provides the best query performance and highest scale but has a higher entry price. It is designed for businesses that have a constant demand for performance. These systems make the most use of the cache. 
 
 ### Capacity limits
-By default, each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../sql-database/sql-database-what-is-a-dtu.md) quota of 54,000 which allows up to DW6000c. This can be changed. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../sql-database/sql-database-what-is-a-dtu.md) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
 
 ## How many data warehouse units do I need?
