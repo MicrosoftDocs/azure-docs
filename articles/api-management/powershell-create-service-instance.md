@@ -20,11 +20,11 @@ This tutorial describes the steps for creating a new API Management instance usi
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-![new APIM instance](media/powershell-create-service-instance/powershell-create-service-instance01.png)
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Launch Azure Cloud Shell
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-The Azure Cloud Shell is a free shell that you can run directly within the Azure portal. It has common Azure tools preinstalled and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper right of the **Azure** portal (**>_**).
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Create resource group
 
