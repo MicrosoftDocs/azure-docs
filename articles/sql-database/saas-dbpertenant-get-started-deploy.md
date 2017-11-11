@@ -15,7 +15,7 @@ ms.workload: "Inactive"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 11/10/2017
 ms.author: sstein
 
 ---
@@ -37,7 +37,7 @@ In this tutorial you learn:
 > * How to provision a new tenant
 > * How to monitor tenant activity in the app
 
-To explore various SaaS design and management patterns, a [series of related tutorials](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials) is available that build upon this initial deployment. While going through the tutorials, dive into the provided scripts, and examine how the different SaaS patterns are implemented. Step through the scripts in each tutorial to gain a deeper understanding how to implement the many SQL Database features that simplify developing SaaS applications.
+To explore various SaaS design and management patterns, a [series of related tutorials](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) is available that build upon this initial deployment. While going through the tutorials, dive into the provided scripts, and examine how the different SaaS patterns are implemented. Step through the scripts in each tutorial to gain a deeper understanding how to implement the many SQL Database features that simplify developing SaaS applications.
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ Deploy the Wingtip SaaS app:
 
 1. Monitor deployment status by clicking **Notifications** (the bell icon right of the search box). Deploying the Wingtip SaaS app takes approximately five minutes.
 
-   ![deployment succeeded](media/sql-database-saas-tutorial/succeeded.png)
+   ![deployment succeeded](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
 ## Download and unblock the Wingtip SaaS scripts
 
@@ -108,16 +108,16 @@ A central **Events Hub** provides a list of tenant URLs specific to your deploym
 
 1. Open the _Events Hub_ in your web browser: http://events.wtp.&lt;USER&gt;.trafficmanager.net (replace with your deployment's user name):
 
-    ![events hub](media/sql-database-saas-tutorial/events-hub.png)
+    ![events hub](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
 1. Click **Fabrikam Jazz Club** in the *Events Hub*.
 
-   ![Events](./media/sql-database-saas-tutorial/fabrikam.png)
+   ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
 
-To control the distribution of incoming requests, the app uses [*Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview). The events pages, which are tenant-specific, require that tenant names are included in the URLs. All the tenant URLs include your specific *User* value and follow this format: http://events.wtp.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*. The events app parses the tenant name from the URL and uses it to create a key to access a catalog using [*shard map management*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-scale-shard-map-management). The catalog maps the key to the tenant's database location. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant’s name associated with each database to provide the list of URLs.
+To control the distribution of incoming requests, the app uses [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). The events pages, which are tenant-specific, require that tenant names are included in the URLs. All the tenant URLs include your specific *User* value and follow this format: http://events.wtp.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*. The events app parses the tenant name from the URL and uses it to create a key to access a catalog using [*shard map management*](sql-database-elastic-scale-shard-map-management.md). The catalog maps the key to the tenant's database location. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant’s name associated with each database to provide the list of URLs.
 
-In a production environment, you would typically create a CNAME DNS record to [*point a company internet domain*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-point-internet-domain) to the traffic manager profile.
+In a production environment, you would typically create a CNAME DNS record to [*point a company internet domain*](../traffic-manager/traffic-manager-point-internet-domain.md) to the traffic manager profile.
 
 ## Start generating load on the tenant databases
 
@@ -138,7 +138,7 @@ For now, leave the load generator running in the job-invoking state.
 
 ## Provision a new tenant
 
-The initial deployment creates three sample tenants, but let’s create another tenant to see how this impacts the deployed application. The Wingtip SaaS provisioning-tenants workflow is detailed in the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md). In this step, you quickly create a new tenant.
+The initial deployment creates three sample tenants, but let’s create another tenant to see how this impacts the deployed application. The Wingtip SaaS provisioning-tenants workflow is detailed in the [Provision and catalog tutorial](saas-dbpertenant-provision-and-catalog.md). In this step, you quickly create a new tenant.
 
 1. Open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* in the *PowerShell ISE*.
 1. Press **F5** to run the script (leave the default values for now).
@@ -148,7 +148,7 @@ The initial deployment creates three sample tenants, but let’s create another 
 
 The new tenant database is created in a SQL elastic pool, initialized and registered in the catalog. After successful provisioning, the new tenant's ticket-selling *Events* site appears in your browser:
 
-![New tenant](./media/sql-database-saas-tutorial/red-maple-racing.png)
+![New tenant](./media/saas-dbpertenant-get-started-deploy/red-maple-racing.png)
 
 Refresh the *Events Hub* and the new tenant now appears in the list.
 
@@ -159,11 +159,11 @@ Now that you've started running a load against the collection of tenants, let’
 
 1. In the [Azure portal](http://portal.azure.com), browse to your list of SQL servers and open the **catalog-&lt;USER&gt;** server. The catalog server contains two databases. The **tenantcatalog**, and the **basetenantdb** (an empty *golden* or template database that is copied to create new tenants).
 
-   ![databases](./media/sql-database-saas-tutorial/databases.png)
+   ![databases](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 1. Go back to your list of SQL servers and open the **tenants1-&lt;USER&gt;** server that holds the tenant databases. Each tenant database is an _Elastic Standard_ database in a 50 eDTU standard pool. Also notice there is a _Red Maple Racing_ database, the tenant database you provisioned previously.
 
-   ![server](./media/sql-database-saas-tutorial/server.png)
+   ![server](./media/saas-dbpertenant-get-started-deploy/server.png)
 
 ## Monitor the pool
 
@@ -171,9 +171,9 @@ If the load generator has been running for several minutes, enough data should b
 
 1. Browse to the server **tenants1-&lt;USER&gt;**, and click **Pool1** to view resource utilization for the pool (the load generator ran for an hour in the following charts):
 
-   ![monitor pool](./media/sql-database-saas-tutorial/monitor-pool.png)
+   ![monitor pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
-What these two charts nicely illustrate, is how well suited elastic pools and SQL Database are for SaaS application workloads. Four databases that are each bursting to as much as 40 eDTUs are easily being supported in a 50 eDTU pool. If they were provisioned as standalone databases, they would each need to be an S2 (50 DTU) to support the bursts. The cost of 4 standalone S2 databases would be nearly 3 times the price of the pool, and the pool still has plenty of headroom for many more databases. In real-world situations, SQL Database customers are currently running up to 500 databases in 200 eDTU pools. For more information, see the [performance monitoring tutorial](sql-database-saas-tutorial-performance-monitoring.md).
+What these two charts nicely illustrate, is how well suited elastic pools and SQL Database are for SaaS application workloads. Four databases that are each bursting to as much as 40 eDTUs are easily being supported in a 50 eDTU pool. If they were provisioned as standalone databases, they would each need to be an S2 (50 DTU) to support the bursts. The cost of 4 standalone S2 databases would be nearly 3 times the price of the pool, and the pool still has plenty of headroom for many more databases. In real-world situations, SQL Database customers are currently running up to 500 databases in 200 eDTU pools. For more information, see the [performance monitoring tutorial](saas-dbpertenant-performance-monitoring.md).
 
 
 ## Next steps
@@ -189,13 +189,13 @@ In this tutorial you learned:
 > * How to view pool utilization to monitor tenant activity
 > * How to delete sample resources to stop related billing
 
-Now try the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md)
+Now try the [Provision and catalog tutorial](saas-dbpertenant-provision-and-catalog.md).
 
 
 
 ## Additional resources
 
-* Additional [tutorials that build on the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
-* To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
-* To learn about multi-tenant SaaS applications, see [*Design patterns for multi-tenant SaaS applications*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)
+* Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md.md#sql-database-wingtip-saas-tutorials)
+* To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
+* To learn about multi-tenant SaaS applications, see [*Design patterns for multi-tenant SaaS applications*](saas-tenancy-app-design-patterns.md)

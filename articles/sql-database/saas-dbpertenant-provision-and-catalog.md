@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](sql-database-saas-tutorial.md)
+* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## Introduction to the SaaS Catalog pattern
@@ -42,11 +42,11 @@ In a database-backed multi-tenant SaaS application, it's important to know where
 
 Each tenant is assigned a key that identifies them in the catalog and which is mapped to the location of the appropriate database. In the Wingtip SaaS app, the key is formed from a hash of the tenant’s name. This allows the tenant name portion of the application URL to be used to construct the key. Other tenant key schemes could be used.  
 
-The catalog allows the name or location of the database to be changed with minimal impact on the application.  In a multi-tenant database model, this also accommodates ‘moving’ a tenant between databases.  The catalog can also be used to indicate whether a tenant or database is offline for maintenance or other actions. This is explored in the [restore single tenant tutorial](sql-database-saas-tutorial-restore-single-tenant.md).
+The catalog allows the name or location of the database to be changed with minimal impact on the application.  In a multi-tenant database model, this also accommodates ‘moving’ a tenant between databases.  The catalog can also be used to indicate whether a tenant or database is offline for maintenance or other actions. This is explored in the [restore single tenant tutorial](saas-dbpertenant-restore-single-tenant.md).
 
 In addition, the catalog, which is in effect a management database for a SaaS application, can store additional tenant or database metadata, such as the tier or edition of a database, schema version, service plan, or SLAs offered to tenants, and other info that enables application management, customer support, or devops processes.  
 
-Beyond the SaaS application, the catalog can enable database tools.  In the Wingtip SaaS sample, the catalog is used to enable cross-tenant query, explored in the [ad hoc analytics tutorial](sql-database-saas-tutorial-adhoc-analytics.md). Cross-database job management is explored in the [schema management](sql-database-saas-tutorial-schema-management.md) and [tenant analytics](sql-database-saas-tutorial-tenant-analytics.md) tutorials. 
+Beyond the SaaS application, the catalog can enable database tools.  In the Wingtip SaaS sample, the catalog is used to enable cross-tenant query, explored in the [ad hoc analytics tutorial](saas-tenancy-adhoc-analytics.md). Cross-database job management is explored in the [schema management](saas-tenancy-schema-management.md) and [tenant analytics](saas-tenancy-tenant-analytics.md) tutorials. 
 
 In the Wingtip SaaS app, the catalog is implemented using the Shard Management features of the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). The EDCL enables an application to create, manage, and use a database-backed shard map. A shard map contains a list of shards (databases) and the mapping between keys (tenants) and databases.  EDCL functions can be used from applications or PowerShell scripts during tenant provisioning to create the entries in the shard map, and from applications to efficiently connect to the correct database. EDCL caches connection information to minimize the traffic to the catalog database and speed up the application.  
 
@@ -60,14 +60,14 @@ When onboarding a new tenant in a SaaS application that uses a single-tenant dat
 
 Different approaches can be used to database provisioning, which could include executing SQL scripts, deploying a bacpac, or copying a 'golden' template database.  
 
-The provisioning approach you use must be comprehended in your overall schema management strategy, which must ensure that new databases are provisioned with the latest schema.  This is explored in the [schema management tutorial](sql-database-saas-tutorial-schema-management.md).  
+The provisioning approach you use must be comprehended in your overall schema management strategy, which must ensure that new databases are provisioned with the latest schema.  This is explored in the [schema management tutorial](saas-tenancy-schema-management.md).  
 
 The Wingtip SaaS app provisions new tenants by copying a golden database named basetenantdb, deployed on the catalog server.  Provisioning could be integrated into the application as part of a sign-up experience, and/or supported offline using scripts. This tutorial will explore provisioning using PowerShell. The provisioning scripts copy the basetenantdb to create a new tenant database in an elastic pool, then initialize it with tenant-specific info and register it in the catalog shard map.  In the sample app, databases are given names based on the tenant name, but this is not a critical part of the pattern – the use of the catalog allows any name to be assigned to the database.+ 
 
 
 ## Get the Wingtip application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](saas-dbpertenant-wingtip-app-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 
 ## Provision and catalog detailed walkthrough
@@ -81,13 +81,13 @@ To understand how the Wingtip application implements new tenant provisioning, ad
 
 1. Add a breakpoint by putting your cursor anywhere on line 48, the line that says: *New-Tenant `*, and press **F9**.
 
-   ![break point](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
+   ![break point](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 1. To run the script press **F5**.
 
 1. After the script execution stops at the breakpoint, press **F11** to step into the code.
 
-   ![break point](media/sql-database-saas-tutorial-provision-and-catalog/debug.png)
+   ![break point](media/saas-dbpertenant-provision-and-catalog/debug.png)
 
 
 
@@ -125,7 +125,7 @@ The **tenant database is registered in the catalog** with *Add-TenantDatabaseToC
 
 After provisioning completes, execution returns to the original *Demo-ProvisionAndCatalog* script, which opens the **Events** page for the new tenant in the browser:
 
-   ![events](media/sql-database-saas-tutorial-provision-and-catalog/new-tenant.png)
+   ![events](media/saas-dbpertenant-provision-and-catalog/new-tenant.png)
 
 
 ## Provision a batch of tenants
@@ -142,7 +142,7 @@ The script deploys a batch of additional tenants. It uses an [Azure Resource Man
 
 * Open the *tenants1* server by browsing to your list of servers in the [Azure portal](https://portal.azure.com), click **SQL databases**, and verify the batch of 17 additional databases are now in the list:
 
-   ![database list](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
+   ![database list](media/saas-dbpertenant-provision-and-catalog/database-list.png)
 
 
 
@@ -166,10 +166,10 @@ In this tutorial you learned how to:
 > * Provision a batch of additional tenants
 > * Step into the details of provisioning tenants, and registering them into the catalog
 
-Try the [Performance monitoring tutorial](sql-database-saas-tutorial-performance-monitoring.md).
+Try the [Performance monitoring tutorial](saas-dbpertenant-performance-monitoring.md).
 
 ## Additional Resources
 
-* Additional [tutorials that build upon the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
-* [Elastic database client library](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library)
+* Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Elastic database client library](sql-database-elastic-database-client-library.md)
 * [How to Debug Scripts in Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)

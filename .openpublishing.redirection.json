@@ -5632,7 +5632,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-saas-tutorial-schema-management.md",
-            "redirect_url": "/azure/sql-database/saas-dbpertenant-schema-management",
+            "redirect_url": "/azure/sql-database/saas-tenancy-schema-management",
             "redirect_document_id": false
         },
         {
@@ -5642,7 +5642,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-saas-tutorial-tenant-analytics.md",
-            "redirect_url": "/azure/sql-database/saas-dbpertenant-tenant-analytics",
+            "redirect_url": "/azure/sql-database/saas-tenancy-tenant-analytics",
             "redirect_document_id": false
         },
         {

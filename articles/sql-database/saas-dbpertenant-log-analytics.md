@@ -21,7 +21,7 @@ ms.author: billgib; sstein
 ---
 # Setup and use Log Analytics (OMS) with a multi-tenant Azure SQL Database SaaS app
 
-In this tutorial, you set up and use *Log Analytics([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* for monitoring elastic pools and databases. This tutorial builds on the [Performance Monitoring and Management tutorial](sql-database-saas-tutorial-performance-monitoring.md). It shows how to use *Log Analytics* to augment the monitoring and alerting provided in the Azure portal. Log Analytics is suitable for monitoring and alerting at scale because it supports hundreds of pools and hundreds of thousands of databases. It also provides a single monitoring solution, which can integrate monitoring of different applications and Azure services, across multiple Azure subscriptions.
+In this tutorial, you set up and use *Log Analytics([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* for monitoring elastic pools and databases. This tutorial builds on the [Performance Monitoring and Management tutorial](saas-dbpertenant-performance-monitoring.md). It shows how to use *Log Analytics* to augment the monitoring and alerting provided in the Azure portal. Log Analytics is suitable for monitoring and alerting at scale because it supports hundreds of pools and hundreds of thousands of databases. It also provides a single monitoring solution, which can integrate monitoring of different applications and Azure services, across multiple Azure subscriptions.
 
 In this tutorial you learn how to:
 
@@ -31,10 +31,10 @@ In this tutorial you learn how to:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](sql-database-saas-tutorial.md)
+* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
-See the [Performance Monitoring and Management tutorial](sql-database-saas-tutorial-performance-monitoring.md) for a discussion of the SaaS scenarios and patterns, and how they affect the requirements on a monitoring solution.
+See the [Performance Monitoring and Management tutorial](saas-dbpertenant-performance-monitoring.md) for a discussion of the SaaS scenarios and patterns, and how they affect the requirements on a monitoring solution.
 
 ## Monitoring and managing performance with Log Analytics (OMS)
 
@@ -75,42 +75,42 @@ In this exercise, open Log Analytics and the OMS portal to look at the telemetry
 
 1. Browse to the [Azure portal](https://portal.azure.com) and open Log Analytics by clicking More services, then search for Log Analytics:
 
-   ![open log analytics](media/sql-database-saas-tutorial-log-analytics/log-analytics-open.png)
+   ![open log analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
 1. Select the workspace named *wtploganalytics-&lt;USER&gt;*.
 
 1. Select **Overview** to open the Log Analytics solution in the Azure portal.
-   ![overview-link](media/sql-database-saas-tutorial-log-analytics/click-overview.png)
+   ![overview-link](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     **IMPORTANT**: It may take a couple of minutes before the solution is active. Be patient!
 
 1. Click on the Azure SQL Analytics tile to open it.
 
-    ![overview](media/sql-database-saas-tutorial-log-analytics/overview.png)
+    ![overview](media/saas-dbpertenant-log-analytics/overview.png)
 
-    ![analytics](media/sql-database-saas-tutorial-log-analytics/analytics.png)
+    ![analytics](media/saas-dbpertenant-log-analytics/analytics.png)
 
 1. The view in the solution blade scrolls sideways, with its own scroll bar at the bottom (refresh the blade if needed).
 
 1. Explore the various views by clicking on them or on individual resources to open a drill-down explorer, where you can use the time-slider in the top left or click on a vertical bar to focus in on a narrower time slice. With this view, you can select individual databases or pools to focus on specific resources:
 
-    ![chart](media/sql-database-saas-tutorial-log-analytics/chart.png)
+    ![chart](media/saas-dbpertenant-log-analytics/chart.png)
 
 1. Back on the solution blade, if you scroll to the far right you will see some saved queries that you can click on to open and explore. You can experiment with modifying these, and save any interesting queries you produce, which you can then re-open and use with other resources.
 
 1. Back on the Log Analytics workspace blade, select OMS Portal to open the solution there.
 
-    ![oms](media/sql-database-saas-tutorial-log-analytics/oms.png)
+    ![oms](media/saas-dbpertenant-log-analyticsoms.png)
 
 1. In the OMS portal, you can configure alerts. Click on the alert portion of the database DTU view.
 
 1. In the Log Search view that appears you will see a bar graph of the metrics being represented.
 
-    ![log search](media/sql-database-saas-tutorial-log-analytics/log-search.png)
+    ![log search](media/saas-dbpertenant-log-analytics/log-search.png)
 
 1. If you click on Alert in the toolbar you will be able to see the alert configuration and can change it.
 
-    ![add alert rule](media/sql-database-saas-tutorial-log-analytics/add-alert.png)
+    ![add alert rule](media/saas-dbpertenant-log-analytics/add-alert.png)
 
 The monitoring and alerting in Log Analytics and OMS is based on queries over the data in the workspace, unlike the alerting on each resource blade, which is resource-specific. Thus, you can define an alert that looks over all databases, say, rather than defining one per database. Or write an alert that uses a composite query over multiple resource types. Queries are only limited by the data available in the workspace.
 
@@ -125,10 +125,10 @@ In this tutorial you learned how to:
 > * Install and configure Log Analytics (OMS)
 > * Use Log Analytics to monitor pools and databases
 
-[Tenant analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md)
+[Tenant analytics tutorial](saas-dbpertenant-log-analytics.md)
 
 ## Additional resources
 
-* [Additional tutorials that build upon the initial Wingtip SaaS application deployment](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* [Additional tutorials that build upon the initial Wingtip SaaS application deployment](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
 * [OMS](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)

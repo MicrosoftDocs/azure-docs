@@ -36,14 +36,14 @@ In this tutorial you learn how to:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](sql-database-saas-tutorial.md)
+* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## Introduction to SaaS performance management patterns
 
 Managing database performance consists of compiling and analyzing performance data, and then reacting to this data by adjusting parameters to maintain an acceptable response time for your application. When hosting multiple tenants, Elastic database pools are a cost-effective way to provide and manage resources for a group of databases with unpredictable workloads. With certain workload patterns, as few as two S3 databases can benefit from being managed in a pool.
 
-![application diagram](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
+![application diagram](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
 Pools, and the databases in pools, should be monitored to ensure they stay within acceptable ranges of performance. Tune the pool configuration to meet the needs of the aggregate workload of all databases, ensuring that the pool eDTUs are appropriate for the overall workload. Adjust the per-database min and per-database max eDTU values to appropriate values for your specific application requirements.
 
@@ -56,11 +56,11 @@ Pools, and the databases in pools, should be monitored to ensure they stay withi
 
 The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. For SQL Database, monitoring and alerting is available on databases and pools. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not very convenient when working with many resources.
 
-For high-volume scenarios where you're working with many reources, [Log Analytics (OMS)](sql-database-saas-tutorial-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
+For high-volume scenarios where you're working with many reources, [Log Analytics (OMS)](saas-dbpertenant-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
 
 ## Get the Wingtip application source code and scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](saas-dbpertenant-wingtip-app-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Provision additional tenants
 
@@ -74,7 +74,7 @@ If you already provisioned a batch of tenants in a prior tutorial, skip to the [
 
 The script will deploy 17 tenants in less than five minutes.
 
-The *New-TenantBatch* script uses a nested or linked set of [Resource Manager](../azure-resource-manager/index.md) templates that create a batch of tenants, which by default copies the database **basetenantdb** on the catalog server to create the new tenant databases, then registers these in the catalog, and finally initializes them with the tenant name and venue type. This is consistent with the way the app provisions a new tenant. Any changes made to *basetenantdb* are applied to any new tenants provisioned thereafter. See the [Schema Management tutorial](sql-database-saas-tutorial-schema-management.md) to see how to make schema changes to *existing* tenant databases (including the *basetenantdb* database).
+The *New-TenantBatch* script uses a nested or linked set of [Resource Manager](../azure-resource-manager/index.md) templates that create a batch of tenants, which by default copies the database **basetenantdb** on the catalog server to create the new tenant databases, then registers these in the catalog, and finally initializes them with the tenant name and venue type. This is consistent with the way the app provisions a new tenant. Any changes made to *basetenantdb* are applied to any new tenants provisioned thereafter. See the [Schema Management tutorial](saas-tenancy-schema-management.md) to see how to make schema changes to *existing* tenant databases (including the *basetenantdb* database).
 
 ## Simulate usage on all tenant databases
 
@@ -110,11 +110,11 @@ Observe the **Elastic pool monitoring** and **Elastic database monitoring** char
 
 The pool's resource utilization is the aggregate database utilization for all databases in the pool. The database chart shows the five hottest databases:
 
-![database chart](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
+![database chart](./media/saas-dbpertenant-performance-monitoring/pool1.png)
 
 Because there are additional databases in the pool beyond the top five, the pool utilization shows activity that is not reflected in the top five databases chart. For additional details, click **Database Resource Utilization**:
 
-![database resource utilization](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
+![database resource utilization](./media/saas-dbpertenant-performance-monitoring/database-utilization.png)
 
 
 ## Set performance alerts on the pool
@@ -124,7 +124,7 @@ Set an alert on the pool that triggers on \>75% utilization as follows:
 1. Open *Pool1* (on the *tenants1-\<user\>* server) in the [Azure portal](https://portal.azure.com).
 1. Click **Alert Rules**, and then click **+ Add alert**:
 
-   ![add alert](media/sql-database-saas-tutorial-performance-monitoring/add-alert.png)
+   ![add alert](media/saas-dbpertenant-performance-monitoring/add-alert.png)
 
 1. Provide a name, such as **High DTU**,
 1. Set the following values:
@@ -134,7 +134,7 @@ Set an alert on the pool that triggers on \>75% utilization as follows:
    * **Period = Over the last 30 minutes**.
 1. Add an email address to the *Additional administrator email(s)* box and click **OK**.
 
-   ![set alert](media/sql-database-saas-tutorial-performance-monitoring/alert-rule.png)
+   ![set alert](media/saas-dbpertenant-performance-monitoring/alert-rule.png)
 
 
 ## Scale up a busy pool
@@ -177,7 +177,7 @@ As an alternative to scaling up the pool, create a second pool and move database
     1. Click **Add databases** to see a list of databases on the server that can be added to *Pool2*.
     1. Select any 10 databases to move these to the new pool, and then click **Select**. If you've been running the load generator, the service already knows that your performance profile requires a larger pool than the default 50 eDTU size and recommends starting with a 100 eDTU setting.
 
-    ![recommendation](media/sql-database-saas-tutorial-performance-monitoring/configure-pool.png)
+    ![recommendation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
     1. For this tutorial, leave the default at 50 eDTUs, and click **Select** again.
     1. Select **OK** to create the new pool and to move the selected databases into it.
@@ -240,12 +240,12 @@ In this tutorial you learn how to:
 > * Scale up the Elastic pool in response to the increased database load
 > * Provision a second Elastic pool to load balance the database activity
 
-[Restore a single tenant tutorial](sql-database-saas-tutorial-restore-single-tenant.md)
+[Restore a single tenant tutorial](saas-dbpertenant-restore-single-tenant.md)
 
 
 ## Additional resources
 
-* Additional [tutorials that build upon the Wingtip SaaS application deployment](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional [tutorials that build upon the Wingtip SaaS application deployment](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [SQL Elastic pools](sql-database-elastic-pool.md)
 * [Azure automation](../automation/automation-intro.md)
-* [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - Setting up and using Log Analytics tutorial
+* [Log Analytics](saas-dbpertenant-log-analytics.md) - Setting up and using Log Analytics tutorial

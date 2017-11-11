@@ -61,7 +61,7 @@ Tenant isolation often is a fundamental requirement in SaaS multi-tenant applica
 ## Multi-tenant data models
 Common design practices for placing tenant data follow three distinct models, shown in Figure 1.
 
-![multi-tenant application data models](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-multi-tenant-data-models.png)
+![multi-tenant application data models](./media/saas-tenancy-app-design-patterns/sql-database-multi-tenant-data-models.png)
 
 Figure 1: Common design practices for multi-tenant data models
 
@@ -83,7 +83,7 @@ It’s important to evaluate the different types of multi-tenant data models in 
 
 In Figure 2, the Y axis shows the level of tenant isolation. The X axis shows the level of resource sharing. The gray, diagonal arrow in the middle indicates the direction of DevOps costs, tending to increase or decrease.
 
-![Popular multi-tenant application design patterns](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-popular-application-patterns.png)
+![Popular multi-tenant application design patterns](./media/saas-tenancy-app-design-patterns/sql-database-popular-application-patterns.png)
 
 Figure 2: Popular multi-tenant data models
 
@@ -104,7 +104,7 @@ Given the design trade-offs shown in Figure 2, an ideal multi-tenant model needs
 ## Multi-tenancy support in Azure SQL Database
 Azure SQL Database supports all multi-tenant application patterns outlined in Figure 2. With elastic pools, it also supports an application pattern that combines good resource sharing and the isolation benefits of the database-per-tenant approach (see the upper-right quadrant in Figure 3). Elastic database tools and capabilities in SQL Database help reduce the cost to develop and operate an application that has many databases (shown in the shaded area in Figure 3). These tools can help you build and manage applications that use any of the multi-database patterns.
 
-![Patterns in Azure SQL Database](./media/sql-database-design-patterns-multi-tenancy-saas-applications/sql-database-patterns-sqldb.png)
+![Patterns in Azure SQL Database](./media/saas-tenancy-app-design-patterns/sql-database-patterns-sqldb.png)
 
 Figure 3: Multi-tenant application patterns in Azure SQL Database
 
@@ -153,10 +153,10 @@ Learn how to [monitor and manage an elastic pool](sql-database-elastic-pool-mana
 
 ## Additional resources
 
-* [Deploy and explore a multi-tenant application that uses Azure SQL Database - Wingtip SaaS](sql-database-saas-tutorial.md)
+* [Deploy and explore a multi-tenant application that uses Azure SQL Database - Wingtip SaaS](saas-dbpertenant-get-started-deploy.md)
 * [What is an Azure elastic pool?](sql-database-elastic-pool.md)
 * [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
-* [multi-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
+* [multi-tenant applications with elastic database tools and row-level security](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 * [Authentication in multi-tenant apps by using Azure Active Directory and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
 

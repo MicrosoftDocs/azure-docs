@@ -352,11 +352,11 @@
       - name: Restore single tenant
         href: saas-dbpertenant-restore-single-tenant.md
       - name: Manage tenant schema
-        href: saas-dbpertenant-schema-management.md
+        href: saas-tenancy-schema-management.md
       - name: Run ad-hoc queries
         href: saas-tenancy-adhoc-analytics.md
       - name: ETL for analysis
-        href: saas-dbpertenant-tenant-analytics.md
+        href: saas-tenancy-tenant-analytics.md
   - name: Develop apps
     items:
     - name: C and C ++

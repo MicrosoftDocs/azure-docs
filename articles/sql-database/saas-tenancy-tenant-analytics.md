@@ -32,7 +32,7 @@ In this tutorial you learn how to:
 
 To complete this tutorial, make sure the following prerequisites are met:
 
-* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](sql-database-saas-tutorial.md)
+* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * The latest version of SQL Server Management Studio (SSMS) is installed. [Download and Install SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
@@ -42,7 +42,7 @@ One of the great opportunities with SaaS applications is to use the rich tenant 
 
 ## Get the Wingtip application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](saas-dbpertenant-wingtip-app-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Deploy a database for tenant analytics results
 
@@ -77,7 +77,7 @@ This script creates a job to retrieve ticket purchase information from all tenan
 
 Successfully running the script should result in similar results:
 
-![results](media/sql-database-saas-tutorial-tenant-analytics/ticket-purchases-job.png)
+![results](media/saas-tenancy-tenant-analytics/ticket-purchases-job.png)
 
 ## Create a job to retrieve a summary count of ticket purchases from all tenants
 
@@ -91,7 +91,7 @@ This script creates a job to retrieve sum of all ticket purchases from all tenan
 
 Successfully running the script should result in similar results:
 
-![results](media/sql-database-saas-tutorial-tenant-analytics/total-sales.png)
+![results](media/saas-tenancy-tenant-analytics/total-sales.png)
 
 
 
@@ -114,5 +114,5 @@ Congratulations!
 
 ## Additional resources
 
-* Additional [tutorials that build upon the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastic Jobs](sql-database-elastic-jobs-overview.md)
