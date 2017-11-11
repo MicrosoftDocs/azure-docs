@@ -13,31 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/16/2017
+ms.date: 11/10/2017
 ms.author: barclayn
 
 ---
 # Get started with Azure Key Vault
+This article helps you get started with Azure Key Vault using PowerShell and walks you through the following activities:
+- It shows you how to create a hardened container (a vault) in Azure.
+- How to use KeyVault to store and manage cryptographic keys and secrets in Azure.
+- How an application can use that key or password.
+
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
-
-## Introduction
-Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure. It walks you through the process of using Azure PowerShell to create a vault that contains a key or password that you can then use with an Azure application. It then shows you how an application can use that key or password.
-
-**Estimated time to complete:** 20 minutes
 
 > [!NOTE]
 > This tutorial does not include instructions for how to write the Azure application that one of the steps includes, namely how to authorize an application to use a key or secret in the key vault.
->
-> This tutorial uses Azure PowerShell. For Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli2.md).
->
->
 
-For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
+For Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli2.md).
 
-## Prerequisites
-To complete this tutorial, you must have the following:
+## Requirements
+Before you move forward with the article please confirm that you have the following:
 
-* A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure subscription. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell, **minimum version of 1.1.0**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`. When you have Azure PowerShell version 0.9.1 through 0.9.8 installed, you can still use this tutorial with some minor changes. For example, you must use the `Switch-AzureMode AzureResourceManager` command and some of the Azure Key Vault commands have changed. For a list of the Key Vault cmdlets for versions 0.9.1 through 0.9.8, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
 * An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
@@ -45,8 +41,10 @@ This tutorial is designed for Azure PowerShell beginners, but it assumes that yo
 
 To get detailed help for any cmdlet that you see in this tutorial, use the **Get-Help** cmdlet.
 
+    ````PowerShell
     Get-Help <cmdlet-name> -Detailed
-
+    ```
+    
 For example, to get help for the **Login-AzureRmAccount** cmdlet, type:
 
     Get-Help Login-AzureRmAccount -Detailed
@@ -59,9 +57,12 @@ You can also read the following tutorials to get familiar with Azure Resource Ma
 ## <a id="connect"></a>Connect to your subscriptions
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
+    ```PowerShell
     Login-AzureRmAccount
+    ```
 
-Note that if you are using a specific instance of Azure, for example, Azure Government, use the -Environment parameter with this command. For example: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
+>[!NOTE]
+ If you are using a specific instance of Azure use the -Environment parameter. For example: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell gets all the subscriptions that are associated with this account and by default, uses the first one.
 
@@ -231,3 +232,8 @@ To see how your key vault is being used, see [Azure Key Vault Logging](key-vault
 For a list of the latest Azure PowerShell cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
 
 For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
+
+
+## Next steps
+
+- For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
