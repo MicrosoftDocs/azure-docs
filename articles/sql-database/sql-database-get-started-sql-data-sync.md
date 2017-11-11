@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure SQL Data Sync (Preview) | Microsoft Docs
-description: This tutorial helps you get started with Azure SQL Data Sync (Preview)
+title: Set up Azure SQL Data Sync (Preview) | Microsoft Docs
+description: This tutorial shows you how to set up Azure SQL Data Sync (Preview)
 services: sql-database
 documentationcenter: ''
 author: douglaslms
@@ -18,7 +18,7 @@ ms.date: 06/08/2017
 ms.author: douglasl
 ms.reviewer: douglasl
 ---
-# Get started with Azure SQL Data Sync (Preview)
+# Set up SQL Data Sync (Preview)
 In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybrid sync group that contains both Azure SQL Database and SQL Server instances. The new sync group is fully configured and synchronizes on the schedule you set.
 
 This tutorial assumes that you have at least some prior experience with SQL Database and with SQL Server. 
@@ -106,7 +106,7 @@ On the **Configure Azure Database** page, do the following things:
 
     ![New SQL Database sync member has been added](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### Add an on-premises SQL Server database
+### <a name="add-on-prem"></a> Add an on-premises SQL Server database
 
 In the **Member Database** section, optionally add an on-premises SQL Server to the sync group by selecting **Add an On-Premises Database**. The **Configure On-Premises** page opens.
 
