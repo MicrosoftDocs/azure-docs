@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 11/10/2017
 ms.author: dobett
 
 ---
@@ -138,5 +138,6 @@ If you want to explore the source code and developer documentation, start with o
 
 * [Preconfigured solution for remote monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Preconfigured solution for remote monitoring with Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Preconfigured solution for remote monitoring architecture)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 For more conceptual information about the remote monitoring preconfigured solution, see [Customize the preconfigured solution](iot-suite-remote-monitoring-customize.md).
