@@ -5587,7 +5587,62 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-build-multi-tenant-apps.md",
-            "redirect_url": "/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications",
+            "redirect_url": "/azure/sql-database/saas-tenancy-app-design-patterns",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md",
+            "redirect_url": "/azure/sql-database/saas-tenancy-app-design-patterns",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md",
+            "redirect_url": "/azure/sql-database/saas-tenancy-elastic-tools-multi-tenant-row-level-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-wtp-overview.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-wingtip-app-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-get-started-deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-provision-and-catalog.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-provision-and-catalog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-performance-monitoring.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-performance-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-log-analytics.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-log-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-restore-single-tenant.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-restore-single-tenant",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-schema-management.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-schema-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-adhoc-analytics.md",
+            "redirect_url": "/azure/sql-database/saas-tenancy-adhoc-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-tenant-analytics.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-tenant-analytics",
             "redirect_document_id": false
         },
         {
