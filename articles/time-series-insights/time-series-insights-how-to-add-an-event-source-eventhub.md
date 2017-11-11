@@ -74,5 +74,6 @@ This article describes how to use the Azure portal to add an event source that r
 After creation of the event source, Time Series Insights will automatically start streaming data into your environment.
 
 ## Next steps
-- Secure the data with a data access policy: [Define data access policies](time-series-insights-data-access.md)
-- Access your environment in the [Time Series Insights explorer](https://insights.timeseries.azure.com)
+- Secure the data with an data access policy: [Define data access policies](time-series-insights-data-access.md).
+- [Send events](time-series-insights-send-events.md) to the event source.
+- Access your environment in the [Time Series Insights explorer](https://insights.timeseries.azure.com).
