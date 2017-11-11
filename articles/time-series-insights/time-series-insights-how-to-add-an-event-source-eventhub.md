@@ -6,7 +6,7 @@ ms.service: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
@@ -56,7 +56,7 @@ This article describes how to use the Azure portal to add an event source that r
    | Property | Description |
    | --- | --- |
    | Subscription Id | The subscription in which this event hub was created.
-   | Resource group | The subscription in which this event hub was created.
+   | Resource group | The resource group in which this event hub was created.
    | Service bus namespace | A Service Bus namespace is a container for a set of messaging entities. When you created a new Event Hub, you also created a Service Bus namespace.
    | Event hub name | The name of your Event Hub. When you created your event hub, you also gave it a specific name.
    | Event hub policy name | The shared access policy, which can be created on the Event Hub Configure tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions.
