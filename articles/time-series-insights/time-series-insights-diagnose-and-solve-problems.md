@@ -1,10 +1,10 @@
 ---
 title: Diagnose and solve problems in Azure Time Series Insights | Microsoft Docs
-description: This article describes how to diagnose, troubleshoot, and solve common problems you might encounters in your Azure Time Series Insights environment. 
+description: This article describes how to diagnose, troubleshoot, and solve common problems you might encounter in your Azure Time Series Insights environment. 
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
@@ -70,5 +70,6 @@ Ensure that the name and value conform to the following rules:
 * The timestamp property name is _case-sensitive_.
 * The timestamp property value that's coming from your event source, as a JSON string, should have the format _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_. An example of such a string is “2008-04-12T12:53Z”.
 
-## Next steps:
-For additional assistance, start a conversation on the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). You can also contact [Azure support](https://azure.microsoft.com/support/options/) for assisted support options.
+## Next steps
+- For additional assistance, start a conversation on the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 
+- You can also use [Azure support](https://azure.microsoft.com/support/options/) for assisted support options.
