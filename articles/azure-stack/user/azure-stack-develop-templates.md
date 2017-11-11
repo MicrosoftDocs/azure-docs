@@ -23,6 +23,9 @@ ms.author: helaw
 
 As you develop your application, it is important to ensure template portability between Azure and Azure Stack.  This topic provides considerations for developing Azure Resource Manager [templates](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), so you can prototype your application and test deployment in Azure without access to an Azure Stack environment.
 
+## Resource provider availability
+The template must be using a Microsoft Azure service that is already available or in preview in Azure Stack.
+
 ## Public namespaces
 Because Azure Stack is hosted in your datacenter, it has different service endpoint namespaces than the Azure public cloud. As a result, hardcoded public endpoints in Resource Manager templates fail when you try to deploy them to Azure Stack. Instead, you can use the *reference* and *concatenate* function to dynamically build the service endpoint based on values retrieved from the resource provider during deployment. For example, rather than specifying *blob.core.windows.net* in your template, retrieve the [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) to dynamically set the *osDisk.URI* endpoint:
 
@@ -70,7 +73,6 @@ Resource Manager templates use a location attribute to place resources during de
       }
     }
     ]
-
 
 ## Next steps
 * [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)

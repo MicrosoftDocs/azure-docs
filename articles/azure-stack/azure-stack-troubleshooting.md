@@ -35,16 +35,6 @@ If you experience a failure during installation, you can use use the rerun optio
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
 This behavior is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The development kit deployment has actually succeeded but the script was paused when selecting the window. You can verify this is the case by looking for the word "select" in the titlebar of the command window.  Press the ESC key to unselect it, and the completion message should be shown after it.
 
-## Templates
-### Azure template won't deploy to Azure Stack
-Make sure that:
-
-* The template must be using a Microsoft Azure service that is already available or in preview in Azure Stack.
-* The APIs used for a specific resource are supported by the local Azure Stack instance, and that you are targeting a valid location (“local” in Azure Stack development kit, vs the “East US” or “South India” in Azure).
-* You review [this article](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) about the Test-AzureRmResourceGroupDeployment cmdlets, which catch small differences in Azure Resource Manager syntax.
-
-You can also use the Azure Stack templates already provided in the [GitHub repository](http://aka.ms/AzureStackGitHub/) to help you get started.
-
 ## Virtual machines
 ### Default image and gallery item
 You must first add a Windows Server image and gallery item before deploying VMs in Azure Stack.
