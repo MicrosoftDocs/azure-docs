@@ -1,0 +1,168 @@
+# Configure health alerts with ServiceNow
+
+By setting up webhook integration with your ServiceNow instance, you will get alerts through your existing notification infrastructure when Azure service issues affect you. Every time an Azure Service Health alert fires, it will invoke a webhook through a ServiceNow Scripted REST API which we will create below.
+
+## Creating a Scripted REST API in ServiceNow
+1.  Make sure you have signed up for and are signed into your [ServiceNow](https://www.servicenow.com/) account.
+2.  Navigate to the **System Web Services** section in ServiceNow and select **Scripted REST APIs**.
+
+    ![The "Scripted Web Service" section in ServiceNow](./media/webhook-alerts/servicenow-sws-section.png)
+3.  Click **New** to create a new Scripted REST service.
+ 
+    ![The "New Scripted REST API" button in ServiceNow](./media/webhook-alerts/servicenow-new-button.png)
+4.  Add a **Name** to your REST API and set the **API ID** to `azureservicehealth`.
+5.  Click **Submit**.
+
+    ![The "REST API Settings" in ServiceNow](./media/webhook-alerts/servicenow-restapi-settings.png)
+6.  Select the REST API you just created, and under the **Resources** tab select **New**.
+
+    ![The "Resource Tab" in ServiceNow](./media/webhook-alerts/servicenow-resource-tab.png)
+7.  **Name** your new resource `event` and change the **HTTP method** to `POST`.
+8.  In the **Script** section, add the following JavaScript code.
+
+    >[!NOTE]
+    >You will need to update the `<secret>`,`<group>`, and `<email>` value in the script below.
+    >* `<secret>` should be a random string, like a GUID
+    >* `<group>` should be the ServiceNow group you want to assign the incident to
+    >* `<email>` should be the specific person you want to assign the incident to (optional)
+    >
+    >
+    ```javascript
+    (function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+        var apiKey = request.queryParams['apiKey'];
+        var secret = '<secret>';
+        if (apiKey == secret) {
+            var event = request.body.data;
+            var responseBody = {};
+
+            if (event.data.context.activityLog.operationName == 'Microsoft.ServiceHealth/incident/action') {
+                var inc = new GlideRecord('incident');
+                var incidentExists = false;
+
+                inc.addQuery('number', event.data.context.activityLog.properties.trackingId);
+                inc.query();
+                if (inc.hasNext()) {
+                    incidentExists = true;
+                    inc.next();
+                } else {
+                    inc.initialize();
+                }
+
+                var short_description = "Azure Service Health";
+                if (event.data.context.activityLog.properties.incidentType == "Incident") {
+                    short_description += " - Service Issue - ";
+                }
+                else if (event.data.context.activityLog.properties.incidentType == "Maintenance") {
+                    short_description += " - Planned Maintenance - ";
+                }
+                else if (event.data.context.activityLog.properties.incidentType == "Information" || event.data.context.activityLog.properties.incidentType == "ActionRequired") {
+                    short_description += " - Health Advisory - ";
+                }
+                short_description += event.data.context.activityLog.properties.title;
+                inc.short_description = short_description;
+                inc.description = event.data.context.activityLog.properties.communication;
+                inc.work_notes = "Impacted subscription: " + event.data.context.activityLog.subscriptionId;
+
+                if (incidentExists) {
+                    if (event.data.context.activityLog.properties.stage == 'Active') {
+                        inc.state = 2;
+                    } else if (event.data.context.activityLog.properties.stage == 'Resolved') {
+                        inc.state = 6;
+                    } else if (event.data.context.activityLog.properties.stage == 'Closed') {
+                        inc.state = 7;
+                    }
+                    inc.update();
+                    responseBody.message = "Incident updated.";
+                } else {
+                    inc.number = event.data.context.activityLog.properties.trackingId;
+                    inc.state = 1;
+                    inc.impact = 2;
+                    inc.urgency = 2;
+                    inc.priority = 2;
+                    inc.assigned_to = '<email>';
+                    inc.assignment_group.setDisplayValue('<group>');
+                    var subscriptionId = event.data.context.activityLog.subscriptionId;
+                    var comments = "Azure Portal Link: https://app.azure.com/h";
+                    comments += "/" + event.data.context.activityLog.properties.trackingId;
+                    comments += "/" + subscriptionId.substring(0,3) + subscriptionId.slice(-3);
+                    var impactedServices = JSON.parse(event.data.context.activityLog.properties.impactedServices);
+                    var impactedServicesFormatted = "";
+                    for (var i = 0; i < impactedServices.length; i++) {
+	                    impactedServicesFormatted += impactedServices[i].ServiceName + ": ";
+	                    for (var j = 0; j < impactedServices[i].ImpactedRegions.length; j ++) {
+  	                    if (j != 0) {
+    	                    impactedServicesFormatted += ", ";
+                        }
+  	                    impactedServicesFormatted += impactedServices[i].ImpactedRegions[j].RegionName;
+ 	                    }
+  
+                      impactedServicesFormatted += "\n";
+	
+                    }
+                    comments += "\n\nImpacted Services:\n" + impactedServicesFormatted;
+                    inc.comments = comments;
+                    inc.insert();
+
+                    responseBody.message = "Incident created.";
+                }
+
+            } else {
+                responseBody.message = "Hello from the other side!";
+            }
+            response.setBody(responseBody);
+        } else {
+            var unauthorized = new sn_ws_err.ServiceError();
+            unauthorized.setStatus(401);
+            unauthorized.setMessage('Invalid apiKey');
+            response.setError(unauthorized);
+        }
+    })(request, response);
+    ```
+9.  In the Security tab, uncheck **Requires authentication** and press **Submit**. We will be using the `<secret>` you set above to protect this API instead.
+
+    ![The "Requires Authentication" checkbox in ServiceNow](./media/webhook-alerts/servicenow-resource-settings.png)
+10.  Back at the Scripted REST APIs section, you should find the **Base API Path** for your new REST API:
+
+     ![The "Base API Path" in ServiceNow](./media/webhook-alerts/servicenow-base-api-path.png)
+11.  Your full Integration URL will look like:
+        
+         https://<integration>.service-now.com/<baseApiPath>?apiKey=<secret>
+
+
+## Create a health alert using ServiceNow's Integration URL in the Azure Portal
+### For a new action group:
+1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+2. Define in the list of **Actions** the following:
+
+    a. **Action Type:** *Webhook*
+    b. **Details:** The ServiceNow **Integration URL** you previously saved.
+    c. **Name:** Webhook’s name, alias or identifier.
+
+3. Select **Save** when done to create the alert.
+
+### For an existing action group:
+1. In the [Azure Portal](https://portal.azure.com/), select **Monitor**.
+2. In the **Settings** section, select **Action groups**.
+3. Find and select the action group you want to edit.
+4. Add to the list of **Actions** the following:
+
+    a. **Action Type:** *Webhook*
+    b. **Details:** The ServiceNow **Integration URL** you previously saved.
+    c. **Name:** Webhook’s name, alias or identifier.
+
+5. Select **Save** when done to update the action group.
+
+## Testing your Webhook Integration via an HTTP POST request
+
+1. Create the Service Health payload you want to send. You can find an example Service Health webhook payload at [Webhooks for Azure activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+2. Create an HTTP POST request as follows:
+
+    ```
+    POST        https://<integration>.service-now.com/<baseApiPath>?apiKey=<secret>
+
+    HEADERS     Content-Type: application/json
+
+    BODY        <Service Health payload>
+    ```
+3. You should receive a `200 OK` response with the message "Incident created".
+4. Go to [ServiceNow](https://www.servicenow.com/) to confirm that your integration was set up successfully.
