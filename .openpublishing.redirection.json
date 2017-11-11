@@ -396,6 +396,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-naming-convention.md",
+            "redirect_url": "/azure/azure-policy/json-samples",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-create-assign.md",
             "redirect_url": "/azure/azure-policy/assign-policy-definition-ps",
             "redirect_document_id": false
