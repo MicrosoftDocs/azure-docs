@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL Data Sync Best Practices | Microsoft Docs"
+title: "Best Practices for Azure SQL Data Sync | Microsoft Docs"
 description: "Learn best practices for configuring and running Azure SQL Data Sync"
 services: sql-database
 ms.date: "11/2/2017"
@@ -9,7 +9,7 @@ author: "douglaslMS"
 ms.author: "douglasl"
 manager: "craigg"
 ---
-# Best practices for Azure SQL Data Sync (Preview) 
+# Best practices for SQL Data Sync (Preview) 
 
 This article describes best practices for SQL Data Sync (Preview).
 
@@ -224,7 +224,7 @@ If you attempt to remove a database, and then edit a sync group without first de
 For more info about SQL Data Sync, see:
 
 -   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
--   [Get Started with Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
 -   [Monitor Azure SQL Data Sync with OMS Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
