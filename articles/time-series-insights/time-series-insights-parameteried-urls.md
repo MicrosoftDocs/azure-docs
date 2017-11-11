@@ -6,7 +6,7 @@ ms.service: time-series-insights
 author: kfile
 ms.author: kfile
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: rest-api
 ms.topic: get-started-article
@@ -33,7 +33,7 @@ For absolute time values, use the `from=<integer>` and `to=<integer>` parameters
 
 `from=<integer>` is a value in JavaScript milliseconds of the start time for the search span.
 
-`to=<integer>`is a value in JavaScript milliseonds of the end time for the search span. 
+`to=<integer>`is a value in JavaScript milliseconds of the end time for the search span. 
 
 To identify the JavaScript milliseconds for a date, see [Epoch & Unix Timestamp Converter](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html).
 
@@ -96,18 +96,4 @@ The full view (including the chart) would appear like this:
 ![Chart view](media/parameterized-url/url2.png)
 
 ## Next steps
-
-- [Query data using C#](time-series-insights-query-data-csharp.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
+[Query data using C#](time-series-insights-query-data-csharp.md)
