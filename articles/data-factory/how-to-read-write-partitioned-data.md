@@ -1,6 +1,6 @@
 ---
 title: How to read or write partitioned data in Azure Data Factory | Microsoft Docs
-description: Learn how to read or write partitioned data Azure Data Factory version 2. 
+description: Learn how to read or write partitioned data in Azure Data Factory version 2. 
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
