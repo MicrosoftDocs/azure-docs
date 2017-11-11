@@ -68,5 +68,5 @@ The Azure Machine Learning module is a module hosted in DockerHub that contains 
 In this tutorial, you deployed an IoT Edge module powered by Azure Machine Learning. You can continue on to either of the following tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Develop and deploy a C# module](tutorial-create-custom-module.md)
+> [Develop and deploy a C# module](tutorial-csharp-module.md)
 > [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
