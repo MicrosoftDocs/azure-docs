@@ -318,21 +318,6 @@
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
-### Manage and orchestrate cluster resources
-#### [Cluster Resource Manager overview](service-fabric-cluster-resource-manager-introduction.md)
-#### [Cluster Resource Manager architecture](service-fabric-cluster-resource-manager-architecture.md)
-#### [Describe a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Application groups overview](service-fabric-cluster-resource-manager-application-groups.md)
-#### [Configure Cluster Resource Manager settings](service-fabric-cluster-resource-manager-configure-services.md)
-#### [Resource consumption metrics](service-fabric-cluster-resource-manager-metrics.md)
-#### [Use service affinity](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [Service placement policies](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [Manage a cluster](service-fabric-cluster-resource-manager-management-integration.md)
-#### [Cluster defragmentation](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [Balance a cluster](service-fabric-cluster-resource-manager-balancing.md)
-#### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
-
 ## Monitor and diagnose
 ### OMS
 #### [Set up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
