@@ -1,6 +1,6 @@
 # Configure health alerts with ServiceNow
 
-By setting up webhook integration with your ServiceNow instance, you will get alerts through your existing notification infrastructure when Azure service issues affect you. Every time an Azure Service Health alert fires, it will invoke a webhook through a ServiceNow Scripted REST API which we will create below.
+After setting up webhook integration with your ServiceNow instance, you get alerts through your existing notification infrastructure when Azure service issues affect you. Every time an Azure Service Health alert fires, it invokes a webhook through a ServiceNow Scripted REST API, which we create below.
 
 ## Creating a Scripted REST API in ServiceNow
 1.  Make sure you have signed up for and are signed into your [ServiceNow](https://www.servicenow.com/) account.
@@ -14,14 +14,14 @@ By setting up webhook integration with your ServiceNow instance, you will get al
 5.  Click **Submit**.
 
     ![The "REST API Settings" in ServiceNow](./media/webhook-alerts/servicenow-restapi-settings.png)
-6.  Select the REST API you just created, and under the **Resources** tab select **New**.
+6.  Select the REST API you created, and under the **Resources** tab select **New**.
 
     ![The "Resource Tab" in ServiceNow](./media/webhook-alerts/servicenow-resource-tab.png)
 7.  **Name** your new resource `event` and change the **HTTP method** to `POST`.
-8.  In the **Script** section, add the following JavaScript code.
+8.  In the **Script** section, add the following JavaScript code:
 
     >[!NOTE]
-    >You will need to update the `<secret>`,`<group>`, and `<email>` value in the script below.
+    >You need to update the `<secret>`,`<group>`, and `<email>` value in the script below.
     >* `<secret>` should be a random string, like a GUID
     >* `<group>` should be the ServiceNow group you want to assign the incident to
     >* `<email>` should be the specific person you want to assign the incident to (optional)
@@ -82,7 +82,7 @@ By setting up webhook integration with your ServiceNow instance, you will get al
                     inc.assigned_to = '<email>';
                     inc.assignment_group.setDisplayValue('<group>');
                     var subscriptionId = event.data.context.activityLog.subscriptionId;
-                    var comments = "Azure Portal Link: https://app.azure.com/h";
+                    var comments = "Azure portal Link: https://app.azure.com/h";
                     comments += "/" + event.data.context.activityLog.properties.trackingId;
                     comments += "/" + subscriptionId.substring(0,3) + subscriptionId.slice(-3);
                     var impactedServices = JSON.parse(event.data.context.activityLog.properties.impactedServices);
@@ -118,37 +118,37 @@ By setting up webhook integration with your ServiceNow instance, you will get al
         }
     })(request, response);
     ```
-9.  In the Security tab, uncheck **Requires authentication** and press **Submit**. We will be using the `<secret>` you set above to protect this API instead.
+9.  In the Security tab, uncheck **Requires authentication** and press **Submit**. The `<secret>` you set protects this API instead.
 
     ![The "Requires Authentication" checkbox in ServiceNow](./media/webhook-alerts/servicenow-resource-settings.png)
 10.  Back at the Scripted REST APIs section, you should find the **Base API Path** for your new REST API:
 
      ![The "Base API Path" in ServiceNow](./media/webhook-alerts/servicenow-base-api-path.png)
-11.  Your full Integration URL will look like:
+11.  Your full Integration URL looks like:
         
          https://<integration>.service-now.com/<baseApiPath>?apiKey=<secret>
 
 
-## Create a health alert using ServiceNow's Integration URL in the Azure Portal
+## Create a health alert using ServiceNow's Integration URL in the Azure portal
 ### For a new action group:
 1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
-2. Define in the list of **Actions** the following:
+2. Define in the list of **Actions**:
 
     a. **Action Type:** *Webhook*
     b. **Details:** The ServiceNow **Integration URL** you previously saved.
-    c. **Name:** Webhook’s name, alias or identifier.
+    c. **Name:** Webhook’s name, alias, or identifier.
 
 3. Select **Save** when done to create the alert.
 
 ### For an existing action group:
-1. In the [Azure Portal](https://portal.azure.com/), select **Monitor**.
+1. In the [Azure portal](https://portal.azure.com/), select **Monitor**.
 2. In the **Settings** section, select **Action groups**.
 3. Find and select the action group you want to edit.
-4. Add to the list of **Actions** the following:
+4. Add to the list of **Actions**:
 
     a. **Action Type:** *Webhook*
     b. **Details:** The ServiceNow **Integration URL** you previously saved.
-    c. **Name:** Webhook’s name, alias or identifier.
+    c. **Name:** Webhook’s name, alias, or identifier.
 
 5. Select **Save** when done to update the action group.
 
@@ -164,5 +164,5 @@ By setting up webhook integration with your ServiceNow instance, you will get al
 
     BODY        <Service Health payload>
     ```
-3. You should receive a `200 OK` response with the message "Incident created".
+3. You should receive a `200 OK` response with the message "Incident created."
 4. Go to [ServiceNow](https://www.servicenow.com/) to confirm that your integration was set up successfully.

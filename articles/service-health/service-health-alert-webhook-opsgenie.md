@@ -17,26 +17,26 @@ By using [OpsGenie](https://www.opsgenie.com/)’s Azure Service Health Integratio
     ![The "Integration URL" in OpsGenie](./media/webhook-alerts/opsgenie-integration-url.png)
 7.  Click **Save Integration**
 
-## Create a health alert using OpsGenie's Integration URL in the Azure Portal
+## Create a health alert using OpsGenie's Integration URL in the Azure portal
 ### For a new action group:
 1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
-2. Define in the list of **Actions** the following:
+2. Define in the list of **Actions**:
 
     a. **Action Type:** *Webhook*
     b. **Details:** The OpsGenie **Integration URL** you previously saved.
-    c. **Name:** Webhook’s name, alias or identifier.
+    c. **Name:** Webhook’s name, alias, or identifier.
 
 3. Select **Save** when done to create the alert.
 
 ### For an existing action group:
-1. In the [Azure Portal](https://portal.azure.com/), select **Monitor**.
+1. In the [Azure portal](https://portal.azure.com/), select **Monitor**.
 2. In the **Settings** section, select **Action groups**.
 3. Find and select the action group you want to edit.
-4. Add to the list of **Actions** the following:
+4. Add to the list of **Actions**:
 
     a. **Action Type:** *Webhook*
     b. **Details:** The OpsGenie **Integration URL** you previously saved.
-    c. **Name:** Webhook’s name, alias or identifier.
+    c. **Name:** Webhook’s name, alias, or identifier.
 
 5. Select **Save** when done to update the action group.
 
@@ -52,5 +52,5 @@ By using [OpsGenie](https://www.opsgenie.com/)’s Azure Service Health Integratio
 
     BODY        <Service Health payload>
     ```
-3. You should receive a `200 OK` response with the message of status "successful".
+3. You should receive a `200 OK` response with the message of status "successful."
 4. Go to [OpsGenie](https://www.opsgenie.com/) to confirm that your integration was set up successfully.

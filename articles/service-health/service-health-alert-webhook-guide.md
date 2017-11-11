@@ -1,10 +1,10 @@
 # Configure webhook notifications for existing problem management systems
 
-This article will show you how to configure your Service Health alerts to send data through Webhooks to your existing notification system.
+This article shows you how to configure your Service Health alerts to send data through Webhooks to your existing notification system.
 
-Today, you can configure Service Health Alerts so that when an Azure Service Incident affects you, you will be notified via SMS or e-mail, and equipped with the information to follow up and track the incident.
+Today, you can configure Service Health Alerts so that when an Azure Service Incident affects you, you get notified via SMS or e-mail, and equipped with the information to follow up and track the incident.
 However, you might already have existing external notification system in place that you would like to use.
-We will show you the most important parts of the webhook payload, and how you can create custom alerts to get notified when service issues affect you.
+We show you the most important parts of the webhook payload, and how you can create custom alerts to get notified when service issues affect you.
 
 If you want to use our preconfigured integrations, see how to:
 * [Configure alerts with OpsGenie](service-health-alert-webhook-opsgenie.md)
@@ -12,7 +12,7 @@ If you want to use our preconfigured integrations, see how to:
 * [Configure alerts with ServiceNow](service-health-alert-webhook-servicenow.md)
 
 ## Configuring a custom service health alert using the webhook payload
-If you want to set up your own custom webhook integration, you will need to parse the JSON payload that we send during Service Health notifications.
+If you want to set up your own custom webhook integration, you need to parse the JSON payload that we send during Service Health notifications.
 
 Look [here to see an example](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) of what the `Service Health` webhook payload looks like.
 
@@ -32,7 +32,7 @@ You can create a direct link to your personalized Azure Service Health incident 
 https://app.azure.com/h/<trackingId>/<first and last 3 digits of subscriptionId>
 ```
 
-For example, if your `subscriptionId` is `45529734-0ed9-4895-a0df-44b59a5a07f9` and your `trackingId` is `0NIH-U2O`, then your personalized Azure Service Health URL will be:
+For example, if your `subscriptionId` is `45529734-0ed9-4895-a0df-44b59a5a07f9` and your `trackingId` is `0NIH-U2O`, then your personalized Azure Service Health URL is:
 
 ```
 https://app.azure.com/h/0NIH-U2O/4557f9
@@ -42,8 +42,8 @@ https://app.azure.com/h/0NIH-U2O/4557f9
 From lowest severity to highest severity, the `level` property in the payload can be any of `Informational`, `Warning`, `Error`, and `Critical`.
 
 #### Parsing the Impacted Services to understand the full scope of the Incident
-Service Health Alerts can inform you about issues across multiple Regions and services. To get the full details, you will need to parse the value of `impactedServices`.
-The content inside is a [JSON escaped](http://json.org/) string which, when unescaped, will contain another JSON object which can be parsed regularly.
+Service Health Alerts can inform you about issues across multiple Regions and services. To get the full details, you need to parse the value of `impactedServices`.
+The content inside is a [JSON escaped](http://json.org/) string which, when unescaped, contains another JSON object which can be parsed regularly.
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}
