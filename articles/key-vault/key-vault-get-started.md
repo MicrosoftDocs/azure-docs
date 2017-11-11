@@ -41,13 +41,15 @@ This tutorial is designed for Azure PowerShell beginners, but it assumes that yo
 
 To get detailed help for any cmdlet that you see in this tutorial, use the **Get-Help** cmdlet.
 
-    ````PowerShell
-    Get-Help <cmdlet-name> -Detailed
-    ```
+```powershell
+Get-Help <cmdlet-name> -Detailed
+```
     
 For example, to get help for the **Login-AzureRmAccount** cmdlet, type:
 
-    Get-Help Login-AzureRmAccount -Detailed
+```PowerShell
+Get-Help Login-AzureRmAccount -Detailed
+```
 
 You can also read the following tutorials to get familiar with Azure Resource Manager in Azure PowerShell:
 
@@ -57,9 +59,9 @@ You can also read the following tutorials to get familiar with Azure Resource Ma
 ## <a id="connect"></a>Connect to your subscriptions
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
-    ```PowerShell
-    Login-AzureRmAccount
-    ```
+```PowerShell
+Login-AzureRmAccount
+```
 
 >[!NOTE]
  If you are using a specific instance of Azure use the -Environment parameter. For example: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
