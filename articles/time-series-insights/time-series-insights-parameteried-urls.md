@@ -6,7 +6,7 @@ ms.service: time-series-insights
 author: kfile
 ms.author: kfile
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: rest-api
 ms.topic: get-started-article
@@ -96,18 +96,4 @@ The full view (including the chart) would appear like this:
 ![Chart view](media/parameterized-url/url2.png)
 
 ## Next steps
-
-- [Query data using C#](time-series-insights-query-data-csharp.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
+[Query data using C#](time-series-insights-query-data-csharp.md)
