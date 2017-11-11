@@ -163,7 +163,7 @@ ZRS | Not supported |
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
 
 >[!IMPORTANT]
-> Ensure that you observe the VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-performance-targets.md) or [Windows](../virtual-machines/windows/disk-performance-targets.md) virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required disks and storage accounts based on the source configuration. If you customize and select your own settings, ensure that you follow the disk scalability and performance targets for your source VMs.
+> Ensure that you observe the VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required disks and storage accounts based on the source configuration. If you customize and select your own settings, ensure that you follow the disk scalability and performance targets for your source VMs.
 
 ## Support for Network configuration
 **Configuration** | **Supported/Not supported** | **Remarks**
