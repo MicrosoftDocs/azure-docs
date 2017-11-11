@@ -19,7 +19,7 @@
 ### [Authentication and authorization](time-series-insights-authentication-and-authorization.md)
 ### [Query data using C#](time-series-insights-query-data-csharp.md)
 ### [Manage reference data using C#](time-series-insights-manage-reference-data-csharp.md)
-### [Share a custom view](time-series-insights-parameteried-urls.md)
+### [Share a custom view](time-series-insights-parameterized-urls.md)
 
 #How-to guides
 ## [Plan your environment](time-series-insights-environment-planning.md)
