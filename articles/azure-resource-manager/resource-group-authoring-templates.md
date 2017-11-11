@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
 
 ---
@@ -277,6 +277,57 @@ The next example shows a variable that is a complex JSON type, and variables tha
     "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
     "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
     "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
+}
+```
+
+You can use the **copy** syntax to create a variable with an array of multiple elements. You provide a count for the number of elements. Each element contains the properties within the **input** object. You can use copy either within a variable or to create the variable. Both approaches are shown in the following example:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
+          }
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
+    }
+  }
 }
 ```
 
