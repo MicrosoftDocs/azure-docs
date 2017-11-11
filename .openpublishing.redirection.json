@@ -381,6 +381,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-tags.md",
+            "redirect_url": "/azure/azure-policy/scripts/billing-tags-policy-init",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
             "redirect_document_id": false
@@ -5551,11 +5556,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/storage/blobs/storage-quickstart-blobs-java.md",
-            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory",
             "redirect_document_id": false
@@ -7214,6 +7214,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-api-management-quick-start.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-api-management",
             "redirect_document_id": false
         },
         {
@@ -14963,6 +14968,11 @@
             "source_path": "articles/hdinsight/hdinsight-using-json-in-hive.md",
             "redirect_url": "/azure/hdinsight/hadoop/using-json-in-hive",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/hdinsight/r-server/r-server-install-r-studio.md",
+            "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md",
