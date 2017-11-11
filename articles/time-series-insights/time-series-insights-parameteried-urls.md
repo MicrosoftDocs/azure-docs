@@ -33,7 +33,7 @@ For absolute time values, use the `from=<integer>` and `to=<integer>` parameters
 
 `from=<integer>` is a value in JavaScript milliseconds of the start time for the search span.
 
-`to=<integer>`is a value in JavaScript milliseonds of the end time for the search span. 
+`to=<integer>`is a value in JavaScript milliseconds of the end time for the search span. 
 
 To identify the JavaScript milliseconds for a date, see [Epoch & Unix Timestamp Converter](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html).
 
