@@ -26,7 +26,7 @@ This article helps you get started with Azure Key Vault using PowerShell and wal
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
 > [!NOTE]
-> This tutorial does not include instructions for how to write the Azure application that one of the steps includes, namely how to authorize an application to use a key or secret in the key vault.
+> This article does not include instructions for how to write an Azure application mentioned in one of the steps below. 
 
 For Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli2.md).
 
@@ -37,7 +37,7 @@ Before you move forward with the article please confirm that you have the follow
 * Azure PowerShell, **minimum version of 1.1.0**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`. When you have Azure PowerShell version 0.9.1 through 0.9.8 installed, you can still use this tutorial with some minor changes. For example, you must use the `Switch-AzureMode AzureResourceManager` command and some of the Azure Key Vault commands have changed. For a list of the Key Vault cmdlets for versions 0.9.1 through 0.9.8, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
 * An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
-This tutorial is designed for Azure PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information, see [Getting started with Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
+This article assumes a basic understanding of PowerShell and Azure. For more information on PowerShell, see [Getting started with Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
 
 To get detailed help for any cmdlet that you see in this tutorial, use the **Get-Help** cmdlet.
 
@@ -51,7 +51,7 @@ For example, to get help for the **Login-AzureRmAccount** cmdlet, type:
 Get-Help Login-AzureRmAccount -Detailed
 ```
 
-You can also read the following tutorials to get familiar with Azure Resource Manager in Azure PowerShell:
+You can also read the following articles to get familiar with Azure Resource Manager deployment model in Azure PowerShell:
 
 * [How to install and configure Azure PowerShell](/powershell/azure/overview)
 * [Using Azure PowerShell with Resource Manager](../powershell-azure-resource-manager.md)
@@ -70,26 +70,33 @@ In the pop-up browser window, enter your Azure account user name and password. A
 
 If you have multiple subscriptions and want to specify a specific one to use for Azure Key Vault, type the following to see the subscriptions for your account:
 
-    Get-AzureRmSubscription
+```powershell
+Get-AzureRmSubscription
+```
 
 Then, to specify the subscription to use, type:
 
-    Set-AzureRmContext -SubscriptionId <subscription ID>
+```powershell
+Set-AzureRmContext -SubscriptionId <subscription ID>
+```
 
 For more information about configuring Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ## <a id="resource"></a>Create a new resource group
 When you use Azure Resource Manager, all related resources are created inside a resource group. We will create a new resource group named **ContosoResourceGroup** for this tutorial:
 
-    New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
-
+```powershell
+New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
+```
 
 ## <a id="vault"></a>Create a key vault
 Use the [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) cmdlet to create a key vault. This cmdlet has three mandatory parameters: a **resource group name**, a **key vault name**, and the **geographic location**.
 
 For example, if you use the vault name of **ContosoKeyVault**, the resource group name of **ContosoResourceGroup**, and the location of **East Asia**, type:
 
-    New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+```powershell
+New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+```
 
 The output of this cmdlet shows properties of the key vault that you’ve just created. The two most important properties are:
 
@@ -106,22 +113,29 @@ Your Azure account is now authorized to perform any operations on this key vault
 ## <a id="add"></a>Add a key or secret to the key vault
 If you want Azure Key Vault to create a software-protected key for you, use the [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet, and type the following:
 
-    $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
+```powershell
+$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
+```
 
 However, if you have an existing software-protected key in a .PFX file saved to your C:\ drive in a file named softkey.pfx that you want to upload to Azure Key Vault, type the following to set the variable **securepfxpwd** for a password of **123** for the .PFX file:
 
-    $securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
+```powershell
+$securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
+```
 
 Then type the following to import the key from the .PFX file, which protects the key by software in the Key Vault service:
 
-    $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
-
+```powershell
+$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
+```
 
 You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** to always get the current version, and use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** to get this specific version.  
 
 To display the URI for this key, type:
 
-    $Key.key.kid
+```powershell
+$Key.key.kid
+```
 
 To add a secret to the vault, which is a password named SQLPassword and has the value of Pa$$w0rd to Azure Key Vault, first convert the value of Pa$$w0rd to a secure string by typing the following:
 
@@ -135,7 +149,9 @@ You can now reference this password that you added to Azure Key Vault, by using 
 
 To display the URI for this secret, type:
 
-    $secret.Id
+```powershell
+$secret.Id
+```
 
 Let’s view the key or secret that you just created:
 
@@ -149,13 +165,13 @@ This step would usually be done by a developer, on a separate computer. It is no
 
 > [!IMPORTANT]
 > To complete the tutorial, your account, the vault, and the application that you will register in this step must all be in the same Azure directory.
->
->
+
 
 Applications that use a key vault must authenticate by using a token from Azure Active Directory. To do this, the owner of the application must first register the application in their Azure Active Directory. At the end of registration, the application owner gets the following values:
 
-* An **Application ID** (also known as a Client ID) and **authentication key** (also known as the shared secret). The application must present both these values to Azure Active Directory, to get a token. How the application is configured to do this depends on the application. For the Key Vault sample application, the application owner sets these values in the app.config file.
+* An **Application ID** (also known as a Client ID) and **authentication key** (also known as the shared secret). The application must present both these values to Azure Active Directory, to get a token. How the application is configured to do this depends on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
 
+For detailed steps on registering an application with Azure Active Directory you should review the article titled [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)
 To register the application in Azure Active Directory:
 
 1. Sign in to the Azure classic portal.
@@ -175,11 +191,15 @@ To authorize the application to access the key or secret in the vault, use the
 
 For example, if your vault name is **ContosoKeyVault** and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, run the following:
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+```
 
 If you want to authorize that same application to read secrets in your vault, run the following:
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
+```
 
 ## <a id="HSM"></a>If you want to use a hardware security module (HSM)
 For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete).
@@ -188,34 +208,43 @@ To create these HSM-protected keys, you must use the [Azure Key Vault Premium se
 
 When you create the key vault, add the **-SKU** parameter:
 
-    New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
-
+```powershell
+New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
+```
 
 
 You can add software-protected keys (as shown earlier) and HSM-protected keys to this key vault. To create an HSM-protected key, set the **-Destination** parameter to 'HSM':
 
-    $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
+```powershell
+$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
+```
 
 You can use the following command to import a key from a .PFX file on your computer. This command imports the key into HSMs in the Key Vault service:
 
-    $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
-
+```powershell
+$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
+```
 
 The next command imports a “bring your own key" (BYOK) package. This scenario lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:
 
-    $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
+```powershell
+$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
+```
 
 For more detailed instructions about how to generate this BYOK package, see [How to generate and transfer HSM-protected keys for Azure Key Vault](key-vault-hsm-protected-keys.md).
 
 ## <a id="delete"></a>Delete the key vault and associated keys and secrets
 If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the [Remove-AzureRmKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault) cmdlet:
 
-    Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+```powershell
+Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+```
 
 Or, you can delete an entire Azure resource group, which includes the key vault and any other resources that you included in that group:
 
-    Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
-
+```powershell
+Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
+```
 
 ## <a id="other"></a>Other Azure PowerShell Cmdlets
 Other commands that you might find useful for managing Azure Key Vault:
@@ -226,16 +255,10 @@ Other commands that you might find useful for managing Azure Key Vault:
 * `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: Example how to remove a specific key.
 * `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: Example how to remove a specific secret.
 
-## <a id="next"></a>Next steps
-For a follow-up tutorial that uses Azure Key Vault in a web application, see [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md).
-
-To see how your key vault is being used, see [Azure Key Vault Logging](key-vault-logging.md).
-
-For a list of the latest Azure PowerShell cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
-
-For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
-
-
 ## Next steps
 
 - For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
+- To see how your key vault is being used, see [Azure Key Vault Logging](key-vault-logging.md).
+- For a follow-up tutorial that uses Azure Key Vault in a web application, see [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md).
+- For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
+- For a list of the latest Azure PowerShell cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
