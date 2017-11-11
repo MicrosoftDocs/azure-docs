@@ -20,26 +20,26 @@ By using [PagerDuty](https://www.pagerduty.com/)’s custom Microsoft Azure integr
 
     ![The "Integration URL" in PagerDuty](./media/webhook-alerts/pagerduty-integration-url.png)
 
-## Create a health alert using PagerDuty's Integration URL in the Azure Portal
+## Create a health alert using PagerDuty's Integration URL in the Azure portal
 ### For a new action group:
 1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
-2. Define in the list of **Actions** the following:
+2. Define in the list of **Actions**:
 
     a. **Action Type:** *Webhook*
     b. **Details:** The PagerDuty **Integration URL** you previously saved.
-    c. **Name:** Webhook’s name, alias or identifier.
+    c. **Name:** Webhook’s name, alias, or identifier.
 
 3. Select **Save** when done to create the alert.
 
 ### For an existing action group:
-1. In the [Azure Portal](https://portal.azure.com/), select **Monitor**.
+1. In the [Azure portal](https://portal.azure.com/), select **Monitor**.
 2. In the **Settings** section, select **Action groups**.
 3. Find and select the action group you want to edit.
-4. Add to the list of **Actions** the following:
+4. Add to the list of **Actions**:
 
     a. **Action Type:** *Webhook*
     b. **Details:** The PagerDuty **Integration URL** you previously saved.
-    c. **Name:** Webhook’s name, alias or identifier.
+    c. **Name:** Webhook’s name, alias, or identifier.
 
 5. Select **Save** when done to update the action group.
 
@@ -55,5 +55,5 @@ By using [PagerDuty](https://www.pagerduty.com/)’s custom Microsoft Azure integr
 
     BODY        <Service Health payload>
     ```
-3. You should receive a `202 Accepted` with a message containing your "event id".
+3. You should receive a `202 Accepted` with a message containing your "event ID."
 4. Go to [PagerDuty](https://www.pagerduty.com/) to confirm that your integration was set up successfully.
