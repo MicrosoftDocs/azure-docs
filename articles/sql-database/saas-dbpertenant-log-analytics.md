@@ -100,7 +100,7 @@ In this exercise, open Log Analytics and the OMS portal to look at the telemetry
 
 1. Back on the Log Analytics workspace blade, select OMS Portal to open the solution there.
 
-    ![oms](media/saas-dbpertenant-log-analyticsoms.png)
+    ![oms](media/saas-dbpertenant-log-analytics/oms.png)
 
 1. In the OMS portal, you can configure alerts. Click on the alert portion of the database DTU view.
 
