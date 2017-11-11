@@ -13,7 +13,7 @@ ms.date: 11/10/2017
 ---
 # Deploy and Azure Machine Learning model to an Azure IoT Edge device
 
-All Azure Machine Learning models containerized as Docker-based web services can also run on Azure IoT Edge devices. Additional scripts and instructions can be found in the [Azure IoT Edge AI Toolkit](http://aka.ms/AI-toolkit).
+All Azure Machine Learning models containerized as Docker-based web services can also run on Azure IoT Edge devices. Additional scripts and instructions can be found in the [AI Toolkit for Azure IoT Edge](http://aka.ms/AI-toolkit).
 
 ## Operationalize the model
 Operationalize your model by following the instructions in [Azure Machine Learning Model Management Web Service Deployment](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy) to create a Docker image with your model.
