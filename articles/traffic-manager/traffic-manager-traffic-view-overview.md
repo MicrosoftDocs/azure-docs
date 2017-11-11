@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 11/11/2017
 ms.author: kumud
 ms.custom: 
 ---
@@ -27,12 +27,18 @@ ms.custom:
 Traffic Manager provides you with DNS level routing so that your end users are directed to healthy endpoints based on the routing method you had set up when the profile is created. This provides Traffic Manager with a view of your user bases (at a DNs resolver granularity level) and their traffic pattern. When you enable Traffic View, this information is processed to provide you with actionable insights. 
 
 By using Traffic View, you can:
+- get a visual display of a heat map of your end-points that are color-coded for latency scale that you can use as follows:
+    - hover on a DNS query IP to view the query volumes.
+    - click on an end-point to view the distribution volume across all source IPs that the end-point is connected to along with the latency that is color coded.
+       >[NOTE!]
+       > - Latency is shown as best effort. If data is unavailable, latency is shown as null.
+       > - In most cases, the IP address of the DNS source query is of the local DNS resolver.
 - understand where your user bases are located (up to a local DNS resolver level granularity).
 - view the volume of traffic (observed as DNS queries handled by Azure Traffic Manager) originating from these regions.
--  get insights into what is the representative latency experienced by these users.
+- get insights into what is the representative latency experienced by these users.
 - deep dive into the specific traffic patterns from each of these user bases to Azure regions where you have endpoints. 
 
-For example, you can use Traffic View to understand which regions have a large number of traffic but suffer from higher latencies. Next you can use this information to plan your footprint expansion to new Azure regions so that these users can have a lower latency experience.
+For example, you can use Traffic View to understand which regions have a large number of traffic but suffer from higher latencies. Next, you can use this information to plan your footprint expansion to new Azure regions so that these users can have a lower latency experience.
 
 ## How Traffic View works
 
