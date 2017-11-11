@@ -19,10 +19,10 @@ ms.author: ryanwi
 ---
 # Deploy and remove applications using PowerShell
 > [!div class="op_single_selector"]
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
-> * [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 > * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
+> * [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 
 <br/>
 
