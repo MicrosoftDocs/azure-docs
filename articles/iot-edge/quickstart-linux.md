@@ -18,6 +18,8 @@ ms.service: iot-edge
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this topic, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
 
+If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
+
 ## Prerequisites
 
 To accomplish this task, use your computer or a virtual machine to simulate an Internet of Things device. The following services are required to successfully deploy an IoT Edge device:
@@ -25,11 +27,9 @@ To accomplish this task, use your computer or a virtual machine to simulate an I
 - [Install Docker on Linux][lnk-docker-ubuntu] and make sure it's running. 
 - Most Linux distributions, including Ubuntu, already have Python 2.7 installed. Use the following command to make sure that pip is installed: `sudo apt-get install python-pip`.
 
-To register your IoT Edge device and manage it from the cloud interface, you need an active Azure subscription. If you don't have a subscription, create a [free account][lnk-account] before you begin.
-
 ## Create an IoT hub with Azure CLI
 
-If you've used IoT Hub in the past and already have a hub created, you can skip this section and go on to [Register an IoT Edge device][anchor-register].
+Create an IoT hub in your Azure subscription. The free level of IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a free hub created, you can skip this section and go on to [Register an IoT Edge device][anchor-register]. Each subscription can only have one free IoT hub. 
 
 1. Sign in to the [Azure portal][lnk-portal]. 
 1. Select the **Cloud Shell** button. 
@@ -48,9 +48,6 @@ If you've used IoT Hub in the past and already have a hub created, you can skip 
    az iot hub create --resource-group IoTEdge --name MyIotHub --sku F1 
    ```
 
-   >[!TIP]
-   >You can only have one F1-level IoT hub in each subscription. If you get an error, try changing the sku to S1 instead. 
-
 ## Register an IoT Edge device
 
 Create a device identity for your simulated device so that it can communicate with your IoT hub. Since IoT Edge devices behave and can be managed differently than typical IoT devices, you declare this to be an IoT Edge device from the beginning. 
@@ -68,31 +65,25 @@ Create a device identity for your simulated device so that it can communicate wi
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. First, the IoT Edge agent facilitates deployment and monitoring of modules on the IoT Edge device. Second, the IoT Edge hub manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
-Use the following steps to install and start the IoT Edge runtime:
+On the machine where you'll run the IoT Edge device, download the IoT Edge control script:
+```python
+sudo pip install -U azure-iot-edge-runtime-ctl
+```
 
-1. On the machine where you'll run the IoT Edge device, download the IoT Edge control script.
+Configure the runtime with your IoT Edge device connection string from the previous section:
+```python
+sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```
 
-   ```
-   sudo pip install -U azure-iot-edge-runtime-ctl
-   ```
+Start the runtime:
+```python
+sudo iotedgectl start
+```
 
-1. Configure the runtime with your IoT Edge device connection string from the previous section.
-
-   ```
-   sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
-   ```
-
-1. Start the runtime.
-
-   ```
-   sudo iotedgectl start
-   ```
-
-1. Check Docker to see that the IoT Edge agent is running as a module.
-
-   ```
-   sudo docker ps
-   ```
+Check Docker to see that the IoT Edge agent is running as a module:
+```python
+sudo docker ps
+```
 
 ## Deploy a module
 
@@ -103,6 +94,14 @@ Use the following steps to install and start the IoT Edge runtime:
 You can monitor your new IoT Edge device's status by clicking on it in IoT Edge Explorer page of your IoT hub. 
 
 You can view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer].
+
+## Clean up resources
+
+When you no longer need the IoT Hub you created, you can use the [az iot hub delete][lnk-delete] command to remove the resource and any devices associated with it:
+
+```azurecli
+az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
+```
 
 ## Next steps
 
