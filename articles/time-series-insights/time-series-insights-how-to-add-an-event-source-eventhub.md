@@ -10,7 +10,7 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article | overview | quickstart | sample | tutorial | troubleshooting
+ms.topic: article
 ms.date: 11/15/2017
 ---
 # How to add an Event Hub event source to Time Series Insights environment
@@ -18,13 +18,15 @@ ms.date: 11/15/2017
 This article describes how to use the Azure portal to add an event source that reads data from an Event Hub into your Time Series Insights environment.
 
 ## Prerequisites
+- Create a Time Series Insights environment, For more information, see [Create an Azure Time Series Insights environment](time-series-insights-get-started.md) 
 - Create an Event Hub. For more information on Event Hubs, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md)
 - The Event Hub needs to have active message events being sent in. For more information, see [Send events to Azure Event Hubs using the .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Create a dedicated consumer group in Event Hub for the Time Series Insight environment to consume from. Each Time Series Insights event source needs to have its own dedicated consumer group that is not shared with any other consumers. If multiple readers consume events from the same consumer group, all readers are likely to see failures. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
 
 ## Add a new event source
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the Azure portal, locate your existing Time Series Insights environment.
+2. Locate your existing Time Series Insights environment. Click **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
 
 2. Under the **Environment Topology** heading, click **Event Sources**.
 
