@@ -14,7 +14,7 @@
 ### [Query data using C#](time-series-insights-query-data-csharp.md)
 ### [Create reference data in C#](time-series-insights-manage-reference-data-csharp.md)
 ### [Share a custom view](time-series-insights-parameteried-urls.md)
-#How-to guides
+# How-to guides
 ## [Create an environment](time-series-insights-get-started.md)
 ## [Grant data access](time-series-insights-data-access.md)
 ## [Connect to event sources](time-series-insights-add-event-source.md)
