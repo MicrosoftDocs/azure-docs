@@ -18,7 +18,7 @@
 ### [Governance in Azure](governance-in-azure.md)
 ### [Data encryption at rest](azure-security-encryption-atrest.md)
 ### Architecture Blueprints
-#### [Compliance - PCI DSS](./blueprints/pci-dss-payment-processing-blueprint.md)
+#### [Compliance - PCI DSS](./blueprints/payment-processing-blueprint.md)
 ##### [Requirements Overview](./blueprints/pci-dss-requirements-overview.md)
 ##### [Requirement 1 - Firewalls](./blueprints/pci-dss-requirement-1-firewall.md)
 ##### [Requirement 2 - Passwords](./blueprints/pci-dss-requirement-2-password.md)
