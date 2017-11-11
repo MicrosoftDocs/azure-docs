@@ -25,7 +25,6 @@
 ## [Plan your environment](time-series-insights-environment-planning.md)
 ## [Create an environment](time-series-insights-get-started.md)
 ## [Grant data access](time-series-insights-data-access.md)
-## [Connect an event source](time-series-insights-add-event-source.md)
 ## [Create a reference data set](time-series-insights-add-reference-data-set.md)
 ## [Send events](time-series-insights-send-events.md)
 

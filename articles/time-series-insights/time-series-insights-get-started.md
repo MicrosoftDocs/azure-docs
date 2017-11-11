@@ -36,8 +36,8 @@ Follow these steps to create an environment:
    ---|---|---
    Environment name | A unique name | This name represents the environment in [time series explorer](https://insights.timeseries.azure.com)
    Subscription | Your subscription | If you have multiple subscriptions, choose the subscription that contains your event source preferably. Time Series Insights can auto-detect Azure IoT Hub and Event Hub resources existing in the same subscription.
-   Resource group | Create a new or use existing | A resource group is a collection of Azure resources used together. You can choose an existing resource group, for example the one which contains your Event Hub or IoT Hub. Or you can make a new one if this resource is not related to the other resources.
-   Location | Nearest your event source | Preferably choose the same data center location that contains your event source data, in effort to avoid added cross-region and cross-zone bandwidth costs and added latency when moving data out of the region.
+   Resource group | Create a new or use existing | A resource group is a collection of Azure resources used together. You can choose an existing resource group, for example the one that contains your Event Hub or IoT Hub. Or you can make a new one if this resource is not related to the other resources.
+   Location | Nearest your event source | Preferably, choose the same data center location that contains your event source data, in effort to avoid added cross-region and cross-zone bandwidth costs and added latency when moving data out of the region.
    Pricing tier | S1 | Choose the throughput needed. For lowest costs and starter capacity, select S1.
    Capacity | 1 | Capacity is the multiplier applies to the ingress rate, storage capacity, and cost associated with the selected SKU.  You can change capacity of an environment after creation. For lowest costs, select a capacity of 1. 
   
@@ -49,9 +49,10 @@ Follow these steps to create an environment:
 
 7. On the topmost toolbar, select the **Notifications** symbol (bell icon) to monitor the deployment process. 
 
-When the deployment succeeds, you can select **Go to resource** to configure other properties, set security with data access policies, add event sources, add reference data sets, and other actions.
+When the deployment succeeds, you can select **Go to resource** to configure other properties, set security with data access policies, add event sources, and other actions.
 
 ## Next steps
-* [Define data access policies](time-series-insights-data-access.md) to access your environment in [Time Series Insights explorer](https://insights.timeseries.azure.com)
-* [Create an event source](time-series-insights-add-event-source.md)
-* [Send events](time-series-insights-send-events.md) to the event source
+* [Define data access policies](time-series-insights-data-access.md) to secure your environment.
+* [Add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md) to your Azure Time Series Insights environment. 
+* [Send events](time-series-insights-send-events.md) to the event source.
+* View your environment in [Time Series Insights explorer](https://insights.timeseries.azure.com).

@@ -45,7 +45,7 @@ This article explains how to create and configure event hub and run a sample app
   ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
 
 ## Create Time Series Insights event source
-1. If you haven't created an event source, follow [these instructions](time-series-insights-add-event-source.md) to create an event source.
+1. If you haven't created an event source, follow [these instructions](time-series-insights-how-to-add-an-event-source-eventhub.md) to create an event source.
 
 2. Specify **deviceTimestamp** as the timestamp property name – this property is used as the actual timestamp in the C# sample. The timestamp property name is case-sensitive and values must follow the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the event hub enqueued time is used.
 
