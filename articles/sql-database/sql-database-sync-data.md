@@ -18,7 +18,7 @@ ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
 ---
-# Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)
+# Sync data across multiple cloud and on-premises databases with SQL Data Sync (Preview)
 
 SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances.
 
@@ -40,7 +40,7 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 -   The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
 
 > [!NOTE]
-> If you're using an on premises database, you have to [configure a local agent.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
+> If you're using an on premises database, you have to [configure a local agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Sync data between databases](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -151,8 +151,9 @@ Data Sync uses insert, update, and delete triggers to track changes. It creates 
 
 For more info about SQL Data Sync, see:
 
--   [Get Started with Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
 -   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   [Monitor Azure SQL Data Sync with OMS Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:
