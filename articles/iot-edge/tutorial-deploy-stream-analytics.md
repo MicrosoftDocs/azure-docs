@@ -26,7 +26,9 @@ IoT devices can produce large quantities of data. Sometimes this data has to be 
 
 [Azure Stream Analytics][azure-stream] (ASA) provides a richly structured query syntax for data analysis both in the cloud and on IoT Edge devices. For more information about ASA on IoT Edge, see [ASA documentation](https://go.microsoft.com/fwlink/?linkid=862381).
 
-This tutorial walks you through the creation of an Azure Stream Analytics job, and its deployment on an IoT Edge device in order to process a local telemetry stream directly on the device, and generate alerts to drive immediate action on the device.  You learn how to:
+This tutorial walks you through the creation of an Azure Stream Analytics job, and its deployment on an IoT Edge device in order to process a local telemetry stream directly on the device, and generate alerts to drive immediate action on the device.  There are two modules involved in this tutorial. A simulated temperature sensor module (tempSensor) that generates temperature data from 20 to 120 degrees, incremented by 1 every 5 seconds, and an ASA module that filters out temperatures greater than 100 degrees. The ASA module also resets the tempSensor when the 30 seconds average reaches 100.
+
+You learn how to:
 
 > [!div class="checklist"]
 > * Create an ASA job to process data on the Edge
@@ -62,7 +64,7 @@ In this section, you create an Azure Stream Analytics job to take data from your
     ![new storage account][1]
 
     > [!NOTE]
-    > Make sure the **Location** you use is the same as your IoT Hub **Location** else additional fees may apply.
+    > Make sure the **Location** you use is the same as your IoT Hub **Location** or else additional fees may apply.
 
 3. In the Azure portal, navigate to the storage account that you just created. Click **Browse blobs** under **Blob Service**. Create a new container for the ASA module to store data. Set the access level to _Container_. Click **OK**.
 
@@ -127,7 +129,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
         "routes": {                                                               
           "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream", 
           "alertsToCloud": "FROM /messages/modules/{moduleName}/* INTO $upstream", 
-          "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/reset\")", 
+          "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")", 
           "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")" 
         }
     }
@@ -143,7 +145,19 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
 ## View data
 
-1. At a command prompt, run the following command to see the modules running:
+1. At a command prompt, configure the runtime with your IoT Edge device connection string:
+
+    ```cmd/sh
+    iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords  
+    ```
+
+1. Run the command to start the runtime:
+
+    ```cmd/sh
+    iotedgectl start  
+    ```
+
+1. Run the command to see the modules running:
 
     ```cmd/sh
     docker ps  
