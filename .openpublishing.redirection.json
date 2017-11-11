@@ -15063,6 +15063,11 @@
           "source_path": "articles/security-center/security-center-powerbi.md",
           "redirect_url": "https://docs.microsoft.com/en-us/azure/security-center",
           "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/service-fabric/service-fabric-set-up-continuous-integration.md",
+             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts",
+             "redirect_document_id": false
         }
     ]
 }
