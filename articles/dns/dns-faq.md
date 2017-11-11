@@ -139,7 +139,7 @@ For more information, see [Protecting DNS Zones and Records](dns-protect-zones-r
 
 ### Do Azure DNS Nameservers resolve over IPv6 ? 
 
-Yes. Azure DNS Nameservers are dual-stack (have both IPv4 and IPv6 addresses). To find the IPv6 address for the Azure DNS nameservers assigned to your DNS zone, you can use a tool such as nslookup. (Eg: nslookup -q=aaaa <Azure DNS Nameserver>)
+Yes. Azure DNS Nameservers are dual-stack (have both IPv4 and IPv6 addresses). To find the IPv6 address for the Azure DNS nameservers assigned to your DNS zone, you can use a tool such as nslookup (for example, `nslookup -q=aaaa <Azure DNS Nameserver>`).
 
 ### How do I set up an International Domain Name (IDN) in Azure DNS?
 
