@@ -33,14 +33,14 @@ When you want to use your own [Azure Machine Learning][https://docs.microsoft.co
 
 ## Run the solution
 
-1. On the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
-1. Go to **IoT Edge (preview)** and select your IoT Edge device.
-1. Select **Set modules**.
-1. Select **Add IoT Edge module**.
+1. On the [Azure portal](https://df.onecloud.azure-test.net/), navigate to your IoT hub.
+1. Go to **IoT Edge Explorer** and select your IoT Edge device.
+1. Select **Deploy modules.**
+1. Select **Add custom IoT Edge module.**
 1. In the **Name** field, enter `tempSensor`.
-1. In the **Image URI** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`.
+1. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`.
 1. Leave the other settings unchanged and select **Save**.
-1. Still on the **Add Modules** step, select **Add IoT Edge module** again.
+1. From the **Add Modules** step, select **Add custom IoT Edge module** again.
 1. In the **Name** field, enter `machinelearningmodule`.
 1. In the **Image** field, enter `microsoft/azureiotedge-sensor-anomaly-detection:latest`.
 1. Click **Save**.
