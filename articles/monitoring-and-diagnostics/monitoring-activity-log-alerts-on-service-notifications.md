@@ -68,7 +68,7 @@ For information on how to configure service health notification alerts by using 
 
     b. **Action Type**: Select SMS, email, webhook, Azure app, and more.
 
-    c. **Details**: Based on the action type chosen, enter a phone number, email address, webhook URI, etc...
+    c. **Details**: Based on the action type chosen, enter a phone number, email address, webhook URI, etc.
 
 10. Select **OK** to create the alert.
 
@@ -93,7 +93,7 @@ Within a few minutes, the alert is active and begins to trigger based on the con
 
 ## Manage your alerts
 
-After you create an alert, it's visible in the **Alerts** section of the **Monitor** blade. Select the alert you want to manage to:
+After you create an alert, it's visible in the **Alerts** section of **Monitor**. Select the alert you want to manage to:
 
 * Edit it.
 * Delete it.
