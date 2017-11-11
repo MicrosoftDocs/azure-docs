@@ -203,6 +203,14 @@ If the resource group is created successfully, the previous command outputs the 
 
 ![Resource group create output](media/azure-stack-connect-cli/image1.png)
 
+## Known issues
+
+* The CLI interactive mode i.e the `az interactive` command is not yet supported in Azure Stack.
+* To get the list of virtual machine images available in Azure Stack, use the `az vm images list --all` command instead of the `az vm image list` command. Specifying the `--all` option makes sure that response returns only the images that are available in your Azure Stack environment. 
+* Virtual machine image aliases that are available in Azure may not be applicable to Azure Stack. When using virtual machine images, you must use the entire URN parameter (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) instead of the image alias. And this URNmust match the image specifications as derived from the `az vm images list` command.
+* By default, CLI 2.0 uses “Standard_DS1_v2” as the default virtual machine image size. However, this size is not yet available in Azure Stack, so, you need to specify the `--size` parameter explicitly when creating a virtual machine. You can get the list of virtual machine sizes that are available in Azure Stack by using the `az vm list-sizes --location <locationName>` command.
+
+
 ## Next steps
 
 [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
