@@ -31,7 +31,7 @@ The *deployment manifest* is a JSON document that describes:
 * The configuration of the Edge hub, describing how messages should flow between modules, and between modules and IoT Hub;
 * Optionally, the values to set in the desired properties of the module twins, to configure the individual module applications.
 
-In the tutorial [Deploy an IoT Edge module to a simulated device][lnk-tutorial1], you build a deployment manifest by going through a wizard in the Azure IoT Edge portal. You can also apply a deployment manifest programmatically using REST or the IoT Hub Service SDK. Refer to [Deploy and monitor][lnk-deploy] for more information on IoT Edge deployments.
+In the Azure IoT Edge tutorials, you build a deployment manifest by going through a wizard in the Azure IoT Edge portal. You can also apply a deployment manifest programmatically using REST or the IoT Hub Service SDK. Refer to [Deploy and monitor][lnk-deploy] for more information on IoT Edge deployments.
 
 At a high level, the deployment manifest configures the desired properties of the IoT Edge modules deployed on an IoT Edge device. Two of these modules are always present: the Edge agent, and the Edge hub.
 
@@ -290,7 +290,6 @@ The desired properties are set when applying a deployment manifest on a specific
 
 Now that you know how IoT Edge modules are used, [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
 
-[lnk-tutorial1]: tutorial-install-iot-edge.md
 [lnk-deploy]: module-deployment-monitoring.md
 [lnk-edgeagent-desired]: #edge-agent-twin-desired-properties
 [lnk-edgeagent-reported]: #edge-agent-twin-reported-properties

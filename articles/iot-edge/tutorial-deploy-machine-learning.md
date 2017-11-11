@@ -16,7 +16,7 @@ ms.service: iot-edge
 
 # Deploy Azure Machine Learning as an IoT Edge module
 
-You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on sensor data on the simulated IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md). You learn how to: 
+You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on sensor data on the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. You learn how to: 
 
 > [!div class="checklist"]
 > * Deploy an Azure Machine Learning module to your IoT Edge device
@@ -26,7 +26,7 @@ The Azure Machine Learning module is a module hosted in DockerHub that contains 
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md).
+* The Azure IoT Edge device that you created in the quickstart or first tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.  
 
 ## Run the solution
@@ -70,3 +70,7 @@ In this tutorial, you deployed an IoT Edge module powered by Azure Machine Learn
 > [!div class="nextstepaction"]
 > [Develop and deploy a C# module](tutorial-create-custom-module.md)
 > [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
+
+<!--Links-->
+[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
+[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

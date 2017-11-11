@@ -22,7 +22,7 @@ ms.service: iot-edge
 
 # Develop and Deploy an IoT Edge module to your simulated device -- Public preview
 
-You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an  IoT Edge module that filters sensor data on the simulated IoT Edge device that you created in the [Install Azure IoT Edge tutorial](./tutorial-install-iot-edge.md). In this tutorial, you learn how to:    
+You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an  IoT Edge module that filters sensor data on the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an IoT Edge module based on .NET core 2.0
@@ -35,7 +35,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md).
+* The Azure IoT Edge device that you created in the quickstart or previous tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * The following Visual Studio Code extensions: 
@@ -336,3 +336,8 @@ In this tutorial, you created an IoT Edge module that contains code to filter ra
 > [!div class="nextstepaction"]
 > [Deploy Azure Function as a module](tutorial-deploy-function.md)
 > [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
+
+
+<!-- Links -->
+[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
+[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
