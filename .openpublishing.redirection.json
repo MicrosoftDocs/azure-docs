@@ -15063,7 +15063,11 @@
           "redirect_url": "https://support.microsoft.com/help/4042960",
           "redirect_document_id": false
         },
-
+        {
+            "source_path": "articles/time-series-insights/time-series-insights-add-event-source.md",
+            "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
+            "redirect_document_id": true
+          },
 	 {
           "source_path": "articles/security-center/security-center-powerbi.md",
           "redirect_url": "https://docs.microsoft.com/en-us/azure/security-center",
