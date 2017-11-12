@@ -1,5 +1,5 @@
 ---
-title: Managing devices using the Azure portal - preview | Microsoft Docs
+title: Managing devices using the Azure portal | Microsoft Docs
 description: Learn how to use the Azure portal to manage devices.
 services: active-directory
 documentationcenter: ''
@@ -13,15 +13,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2017
+ms.date: 11/11/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
 ---
-# Managing devices using the Azure portal - preview
-
->[!NOTE]
->This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory (Azure AD) subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure Active Directory premium subscription.
+# Managing devices using the Azure portal
 
 
 With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. 

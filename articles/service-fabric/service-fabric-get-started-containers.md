@@ -325,7 +325,7 @@ The application is ready when it's in ```Ready``` state:
 Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:8081. You should see the heading "Hello World!" display in the browser.
 
 ## Clean up
-You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party clusters](http://tryazureservicefabric.westus.cloudapp.azure.com/) are automatically deleted after a few hours.
+You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party clusters](https://try.servicefabric.azure.com/) are automatically deleted after a few hours.
 
 After you push the image to the container registry you can delete the local image from your development computer:
 

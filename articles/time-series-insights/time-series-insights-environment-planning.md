@@ -6,7 +6,7 @@ ms.service: time-series-insights
 author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
@@ -24,7 +24,7 @@ To get started, it’s best if you know how much data you expect to push by the 
 
 For more information about capacity and retention for both Time Series Insights SKUs, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
-You need to consider the following attributes to best plan the environment for long term success: 
+Consider the following attributes to best plan the environment for long-term success: 
 - Storage capacity
 - Data retention period
 - Ingress capacity 
@@ -34,9 +34,9 @@ By default, Time Series Insights retains data based on the amount of storage you
 
 ## Understand data retention
 
-You can configure your Time Series Insights environment’s retention, enabling up to 400 days of retention.  Time Series Insights has two modes, one that optimizes for ensuring your environment has the most up-to-date data (on by default), and another that optimizes for ensuring retention limits are met, where ingress is paused if the overall storage capacity of the environment is hit.  You can adjust retention and toggle between the two modes in the environment’s configuration page in the Azure portal.
+You can configure your Time Series Insights environment’s **Data retention time** setting, enabling up to 400 days of retention.  Time Series Insights has two modes, one that optimizes for ensuring your environment has the most up-to-date data (on by default), and another that optimizes for ensuring retention limits are met, where ingress is paused if the overall storage capacity of the environment is hit.  You can adjust retention and toggle between the two modes in the environment’s configuration page in the Azure portal.
 
-It’s important to configure this setting based on your needs.  For more information, see [Configure data retention in Time Series Insights](time-series-insights-configure-retention.md).  
+It’s important to configure the Data retention time setting based on your needs.  For more information, see [Configure data retention in Time Series Insights](time-series-insights-configure-retention.md).  
 
 You can configure a maximum of 400 days of data retention in your Time Series Insights environment.
 
@@ -46,7 +46,7 @@ You can configure a maximum of 400 days of data retention in your Time Series In
 
 2. On the **Time Series Insights environment page**, under the **Settings** heading, select **Configure**. 
 
-3. In the **Data retention time (in days)** box, enter a value from 1 to 31 days (for S1 SKU), or 1 to 100 days (for S2 SKU).
+3. In the **Data retention time (in days)** box, enter a value from 1 to 400.
 
    ![Configure retention](media/environment-mitigate-latency/configure-retention.png)
 

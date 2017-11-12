@@ -83,7 +83,11 @@ You can also use a tool such as the [Azure Storage Explorer](http://storageexplo
 
 After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the Program.cs file to look at the code. 
 
-## Get references to the storage objects
+## Understand the sample code
+
+Next, we walk through the sample code so that you can understand how it works.
+
+### Get references to the storage objects
 
 The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
 
@@ -121,7 +125,7 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-## Upload blobs to the container
+### Upload blobs to the container
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that's what is used in this quickstart. 
 
@@ -145,7 +149,7 @@ There are several upload methods that you can use with Blob storage. For example
 
 Block blobs can be any type of text or binary file. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
 
-## List the blobs in a container
+### List the blobs in a container
 
 You can get a list of files in the container using [Cloud​Blob​Container.​List​BlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). The following code retrieves the list of blobs, then loops through them, showing the URIs of the blobs found. You can copy the URI from the command window and paste it into a browser to view the file.
 
@@ -165,7 +169,7 @@ do
 } while (blobContinuationToken != null);
 ```
 
-## Download blobs
+### Download blobs
 
 Download blobs to your local disk using [Cloud​Blob.​Download​To​FileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
 
@@ -181,7 +185,7 @@ Console.WriteLine("Downloading blob to {0}", fileAndPath2);
 await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 ```
 
-## Clean up resources
+### Clean up resources
 
 If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using [Cloud​Blob​Container.​DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Also delete the files created if they are no longer needed.
 
