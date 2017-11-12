@@ -170,7 +170,7 @@ ASA on IoT Edge is made available as Windows and Linux images, running on both x
 
 ## Input and output
 ### Input and Output Streams
-ASA Edge jobs can get inputs and outputs from other modules running on IoT Edge devices. To connect from and to specific modules, you can set the routing configuration at deployment time. More information is described on [the IoT Edge module composition documentation].(https://docs.microsoft.com/en-us/azure/iot-edge/module-composition).
+ASA Edge jobs can get inputs and outputs from other modules running on IoT Edge devices. To connect from and to specific modules, you can set the routing configuration at deployment time. More information is described on [the IoT Edge module composition documentation](https://docs.microsoft.com/en-us/azure/iot-edge/module-composition).
 
 For both inputs and outputs, CSV and JSON formats are supported.
 
