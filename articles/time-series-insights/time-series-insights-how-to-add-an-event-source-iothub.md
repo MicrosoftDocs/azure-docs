@@ -8,11 +8,11 @@ ms.author: edett
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
-ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article 
 ms.date: 11/15/2017
 ---
+
 # How to add an IoT Hub event source to Time Series Insights environment
 This article describes how to use the Azure portal to add an event source that reads data from an IoT Hub into your Time Series Insights  environment.
 
@@ -27,62 +27,69 @@ This article describes how to use the Azure portal to add an event source that r
 
 2. Locate your existing Time Series Insights environment. Click **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
 
-2. Under the **Environment Topology** heading, click **Event Sources**.
+3. Under the **Environment Topology** heading, click **Event Sources**.
+   ![Event Sources + Add](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
 
-3. Click **Add**.
+4. Click **+ Add**.
 
-4. Provide an **Event source name** unique to this Time Series Insights environment, such as **IoTSource1**.
+5. Provide an **Event source name** unique to this Time Series Insights environment, such as **event-stream**.
 
-5. Select the **Source** as **IoT Hub**.
+   ![Fill in the first three parameters in the form.](media/time-series-insights-how-to-add-an-event-source-iothub/2-import-option.png)
 
-6. Select the appropriate **Import option**. 
-   - If you already have an existing IoT Hub on one of your subscriptions, it is easiest to select **Use IoT Hub from available subscriptions**. 
-   - If the IoT Hub is external to your subscriptions, or you wish to choose advanced options, choose **Provide IoT Hub settings manually**. 
-   
-   ![Import Option setting](media/add-event-source/HowToAddIoTEventImportOption.png)
+6. Select the **Source** as **IoT Hub**.
 
-7. If you have selected the **Use IoT Hub from available subscriptions** option, the following table explains each required property:
+7. Select the appropriate **Import option**. 
+   - Choose **Use IoT Hub from available subscriptions** when you already have an existing IoT Hub on one of your subscriptions. This is the easiest approach.
+   - Choose **Provide IoT Hub settings manually** when the IoT Hub is external to your subscriptions, or you wish to choose advanced options. 
+
+8. If you have selected the **Use IoT Hub from available subscriptions** option, the following table explains each required property:
+
+   ![Subscription and Event hub details](media/time-series-insights-how-to-add-an-event-source-iothub/3-new-event-source.png)
 
    | Property | Description |
    | --- | --- |
-   | Subscription Id | Select the subscription in which this IoT hub was created.
-   | Service bus namespace | Select the Service Bus namespace that contains the IoT Hub.
+   | Subscription ID | Select the subscription in which this IoT hub was created.
    | IoT hub name | Select the name of the IoT Hub.
    | IoT hub policy name | Select the shared access policy, which can be found on the IoT Hub settings tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **service connect** permissions.
    | IoT hub policy key | The key is prepopulated.
    | IoT hub consumer group | The consumer group to read events from the IoT Hub. It is highly recommended to use a dedicated consumer group for your event source.
+   | Event serialization format | JSON is the only available serialization at present. The event messages must be in this format, or no data can be read. |
+   | Timestamp property name | To determine this value, you need to understand the message format of the message data sent into IoT Hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. When left blank, the **event enqueue time** within the event source is used as the event timestamp. |
 
-8. If you have selected the **Provide IoT Hub settings manually** option, the following table explains each required property:
+9. If you have selected the **Provide IoT Hub settings manually** option, the following table explains each required property:
 
    | Property | Description |
    | --- | --- |
-   | Subscription Id | The subscription in which this IoT hub was created.
+   | Subscription ID | The subscription in which this IoT hub was created.
    | Resource group | The resource group name in which this IoT hub was created.
-   | Service bus namespace | A service bus namespace is a container for a set of messaging entities. When you created a new IoT Hub, you also created a Service Bus namespace.
    | IoT hub name | The name of your IoT Hub. When you created your IoT hub, you also gave it a specific name.
    | IoT hub policy name | The shared access policy, which can be created on the IoT Hub settings tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **service connect** permissions.
    | IoT hub policy key | The shared access key used to authenticate access to the Service Bus namespace. Type the primary or secondary key here.
    | IoT hub consumer group | The consumer group to read events from the IoT Hub. It is highly recommended to use a dedicated consumer group for your event source.
+   | Event serialization format | JSON is the only available serialization at present. The event messages must be in this format, or no data can be read. |
+   | Timestamp property name | To determine this value, you need to understand the message format of the message data sent into IoT Hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. When left blank, the **event enqueue time** within the event source is used as the event timestamp. |
 
-9. Select the **Event serialization format**. JSON is the only available serialization at present.
+10. Select **Create** to add the new event source.
 
-10. It is recommended to provide a **Timestamp property name**. You need to know the message format of the event data to make this decision. This is the name of the event property in the message data that should be used as the event timestamp. When not specified, event enqueue time within the event source is used as the event timestamp.
+   ![Click Create](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
 
-11. Select **Create** to add the new event source.
-
-After creation of the event source, Time Series Insights will automatically start streaming data into your environment.
+   After creation of the event source, Time Series Insights will automatically start streaming data into your environment.
 
 ### Add a consumer group to your IoT hub
-Consumer groups are used by applications to pull data from Azure IoT Hub.  You need to create a consumer group to be used by Time Series Insights to reliably read data from your IoT hub.
+Consumer groups are used by applications to pull data from Azure IoT Hubs. Provide a dedicated consumer group, for use by this Time Series Insights environment only, to reliably read data from your IoT Hub.
 
-To add a consumer group to your IoT hub, follow these steps:
+To add a new consumer group to your IoT hub, follow these steps:
 1. In the Azure portal, locate and open your IoT hub.
 
-2. Select **Endpoints**, select **Events** on the middle pane.
+2. Under the **Messaging** heading, select **Endpoints**. 
 
-3. Provide a new name under **Consumer groups** on the right pane, and then click **Save**. Use this same name in Time Series Insights environment when creating a new event source.
+   ![Add a consumer group](media/time-series-insights-how-to-add-an-event-source-iothub/5-add-consumer-group.png)
 
-   ![Add a consumer group](media/time-series-insights-how-to-add-an-event-source-iothub/add-consumer-group.png)
+3. Select the **Events** endpoint, and the **Properties** page opens.
+
+4. Under the **Consumer groups** heading, provide a new unique name for the consumer group. Use this same name in Time Series Insights environment when creating a new event source.
+
+5. Select **Save** to save the new consumer group.
 
 ## Next steps
 - [Define data access policies](time-series-insights-data-access.md) to secure the data.
