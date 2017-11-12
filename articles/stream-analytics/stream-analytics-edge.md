@@ -31,7 +31,7 @@ This feature is in preview, if you have any question or feedback you can use [th
 
 
 ## Scenarios
-![High level diagram](./ASAedge_highlevel.png)
+![High level diagram](./media/stream-analytics-edge/ASAedge_highlevel.png)
 Here's few typical scenarios for which running ASA on the edge is particularly interesting:
 * **Low-latency command and control**: For example, manufacturing safety systems are required to respond to operational data with ultra-low latency. With ASA on IoT Edge, you can analyze sensor data in near real time and issue commands when you detect anomalies to stop a machine or trigger alerts.
 *	**Limited connectivity to the cloud**: Mission critical systems, such as remote mining equipment, connected vessels or offshore drilling, need to analyze and react to data even when cloud connectivity is intermittent. With ASA, your streaming logic runs independently of the network connectivity and you can choose what you send to the cloud for further processing or storage.
@@ -46,7 +46,7 @@ ASA Edge jobs run as modules within [Azure IoT Edge runtime](https://docs.micros
 2.	The ASA on IoT Edge module that runs locally. It contains the ASA Complex Event Processing engine and receives the job definition from the cloud. 
 
 ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT Edge deployment can be seen here](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
-![Edge job](ASAedge_job.png)
+![Edge job](./media/stream-analytics-edge/ASAedge_job.png)
 
 
 ## Installation instructions
@@ -62,7 +62,7 @@ You can follow [this step-by-step tutorial](https://docs.microsoft.com/en-us/azu
 ### Create an ASA Edge job
 1. From the Azure portal, create a new "Stream Analytics job". [Direct link to create a new ASA job here](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 2. In the creation option, select "Edge" as hosting environment (see the following picture)
-![Job creation](./ASAEdge_create.png)
+![Job creation](./media/stream-analytics-edge/ASAEdge_create.png)
 3. Job Definition
     1. **Define Input Stream**. Define one or several input streams for your job.
     2. Define Reference data (optional).
@@ -99,7 +99,7 @@ Refer to the IoT Edge documentation, and follow instructions for [Windows](https
 - In the Azure portal, open IoT Hub, navigate to IoT Edge Explorer and open your device blade.
 - Select **Set modules**, then select **Import Azure Service IoT Edge Module**.
 - Select the subscription and the ASA Edge job that you created. Then select your storage account. Click Save.
-![Add ASA module in your deployment](./set_module.png)
+![Add ASA module in your deployment](./media/stream-analytics-edge/set_module.png)
 
 
 > [!Note]
@@ -126,7 +126,7 @@ Names of the inputs and outputs created in the ASAjob  can be used as endpoints 
 
 ```
 This example  shows the routes for the scenario described in the following picture. It contains an edge job called "**ASA**", with an input named "**temperature**" and an output named "**alert**".
-![Example of routing](./RoutingExample.png)
+![Example of routing](./media/stream-analytics-edge/RoutingExample.png)
 
 This example defines the following routes:
 - Every message from the **tempSensor** is sent to the module named **ASA** to the input named **temperature**,
@@ -183,7 +183,7 @@ In order to use reference data for ASA on Iot Edge, you need to follow these ste
 1. Create a new input for your job
 1.1. Choose **Reference data** as the **Source Type**.
 1.2 Set the file path. The file path should be an **absolute** file path on the device
-![Reference data creation](ReferenceData.png)
+![Reference data creation](./media/stream-analytics-edge/ReferenceData.png)
 
 2. Enable *Shared Drives* in your Docker configuration, and make sure the drive is enabled before starting your deployment.
 2.1. See more information in [Docker documentation for Windows here](https://docs.docker.com/docker-for-windows/#shared-drives).
@@ -195,8 +195,8 @@ In order to use reference data for ASA on Iot Edge, you need to follow these ste
 
 
 # License and third-party notices
-* [Azure Stream Analytics on IoT Edge preview license](ASAEdgeLicense.pdf). 
-* [Third-party notice for Azure Stream Analytics on IoT Edge preview](ASAEdgeTPN.pdf).
+* [Azure Stream Analytics on IoT Edge preview license](./media/stream-analytics-edge/ASAEdgeLicense.pdf). 
+* [Third-party notice for Azure Stream Analytics on IoT Edge preview](./media/stream-analytics-edge/ASAEdgeTPN.pdf).
 
 ## Get help
 For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
