@@ -85,9 +85,9 @@ To add a new consumer group to your IoT hub, follow these steps:
 
    ![Add a consumer group](media/time-series-insights-how-to-add-an-event-source-iothub/5-add-consumer-group.png)
 
-3. Select the **Events** endpoint.
+3. Select the **Events** endpoint, and the **Properties** page opens.
 
-4. Under **Consumer groups** heading, provide a new unique name for the consumer group. Use this same name in Time Series Insights environment when creating a new event source.
+4. Under the **Consumer groups** heading, provide a new unique name for the consumer group. Use this same name in Time Series Insights environment when creating a new event source.
 
 5. Select **Save** to save the new consumer group.
 

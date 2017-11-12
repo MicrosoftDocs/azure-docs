@@ -34,7 +34,7 @@ This article describes how to use the Azure portal to add an event source that r
 
 4. Click **+ Add**.
 
-5. Provide an **Event source name** unique to this Time Series Insights environment, such as **EHSource1**.
+5. Provide an **Event source name** unique to this Time Series Insights environment, such as **event-stream**.
 
    ![Fill in the first three parameters in the form.](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
 
