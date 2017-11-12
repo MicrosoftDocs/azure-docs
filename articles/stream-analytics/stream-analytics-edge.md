@@ -1,6 +1,6 @@
 ---
 title: 'Azure Stream Analytics on IoT Edge (preview)'
-description: Create "edge" jobs in Azure Stream Analytics and deploy them to devices runnning Azure IoT Edge.
+description: Create edge jobs in Azure Stream Analytics and deploy them to devices runnning Azure IoT Edge.
 keywords: data stream, iot, edge
 services: stream-analytics
 documentationcenter: ''
@@ -26,7 +26,7 @@ ms.author: jeanb
 # What is Azure Stream Analytics on IoT Edge
 ## Principles
 Azure Stream Analytics (ASA) on IoT Edge empowers developers to deploy near-real-time analytical intelligence closer to IoT devices so that they can unlock the full value of device-generated data. Designed for customers requiring low latency, resiliency, efficient use of bandwidth and compliance, enterprises can now deploy control logic close to the industrial operations and complement Big Data analytics done in the cloud.  
-Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/en-us/campaigns/iot-edge/) framework, and deployment and management of ASA jobs can be done using IoT Hub once the job is create in ASA.
+Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/en-us/campaigns/iot-edge/) framework, and deployment and management of ASA jobs can be done using IoT Hub once the job is created in ASA.
 This feature is in preview, if you have any question or feedback you can use [this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) to contact the product team.
 
 
@@ -46,6 +46,7 @@ ASA Edge jobs run as modules within [Azure IoT Edge runtime](https://docs.micros
 2.	The ASA on IoT Edge module that runs locally. It contains the ASA Complex Event Processing engine and receives the job definition from the cloud. 
 
 ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT Edge deployment can be seen here](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
+
 ![Edge job](media/stream-analytics-edge/ASAedge_job.png)
 
 
@@ -53,7 +54,7 @@ ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT E
 The high-level steps are described in the following table. More details are given in the following sections.
 |      |Step   | Place     | Notes   |
 | ---   | ---   | ---       |  ---      |
-| 1   | **Create an ASA edge job**   | Azure portal      |  When creating a **new** job, select "Edge" as *hosting environment*. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices.     |
+| 1   | **Create an ASA edge job**   | Azure portal      |  Create a new job, select **Edge** as **hosting environment**. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices.     |
 | 2   | **Create a storage container**   | Azure portal       | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.     |
 | 3   | **Set up your IoT Edge environment on your device(s)**   | Device(s)      | Instructions for [Windows](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux).          |
 | 4   | **Deploy ASA on your IoT Edge device(s)**   | Azure portal      |  ASA job definition is exported to the storage container created earlier.       |
@@ -61,12 +62,12 @@ You can follow [this step-by-step tutorial](https://docs.microsoft.com/en-us/azu
 
 ### Create an ASA Edge job
 1. From the Azure portal, create a new "Stream Analytics job". [Direct link to create a new ASA job here](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
-2. In the creation option, select "Edge" as hosting environment (see the following picture)
+2. In the creation screen, select **Edge** as **hosting environment** (see the following picture)
 ![Job creation](media/stream-analytics-edge/ASAEdge_create.png)
 3. Job Definition
-    1. **Define Input Stream**. Define one or several input streams for your job.
+    1. **Define Input Stream(s)**. Define one or several input streams for your job.
     2. Define Reference data (optional).
-    3. **Define Output Stream**. Define one or several outputs streams for your job. 
+    3. **Define Output Stream(s)**. Define one or several outputs streams for your job. 
     4. **Define query**. Define the ASA query in the cloud using the inline editor. The compiler automatically checks the syntax enabled for ASA edge. You can also test your query by uploading sample data. 
 4. Set optional settings
     1. **Event ordering**. You can configure out-of-order policy in the portal. Documentation is available [here](https://msdn.microsoft.com/en-US/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
@@ -75,8 +76,10 @@ You can follow [this step-by-step tutorial](https://docs.microsoft.com/en-us/azu
 
 ### Create a storage container
 A storage container is required in order to export the ASA compiled query and the job configuration. It is used to configure the ASA Docker image with your specific query. 
-1. Follow [these instructions](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) to create a storage account in the Azure portal. You can keep all default options to use this account with ASA.
-2. In the newly created storage account, create a blob storage container. Click on "Blobs" , then "+ Container". Enter a name and keep the container as "Private"
+1. Follow [these instructions](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) to create a storage account from the Azure portal. You can keep all default options to use this account with ASA.
+2. In the newly created storage account, create a blob storage container:
+    1. Click on "Blobs" , then "+ Container". 
+    2. Enter a name and keep the container as "Private"
 
 
 > [!Note]
@@ -85,13 +88,13 @@ A storage container is required in order to export the ASA compiled query and th
 
 
 ### Set up your IoT Edge environment on your device(s)
-"Edge"  jobs can be deployed on devices running Azure IoT Edge.
+Edge jobs can be deployed on devices running Azure IoT Edge.
 For this, you need to follow these steps:
-- Create an Iot Hub
-- Install Docker and IoT Edge runtime on your edge device
+- Create an Iot Hub;
+- Install Docker and IoT Edge runtime on your edge devices;
 - Set your devices as "IoT Edge devices" in IoT Hub.
 
-Refer to the IoT Edge documentation, and follow instructions for [Windows](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux).  
+These steps are described in the IoT Edge documentation for [Windows](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux).  
 
 
 ###  Deployment ASA on your IoT Edge device(s)
@@ -112,7 +115,7 @@ For more details about IoT Edge deployments, see to [this page](https://docs.mic
 
 #### Configure routes
 IoT Edge provides a way to declaratively route messages between modules, and between modules and IoT Hub. The full syntax is described [here](https://docs.microsoft.com/en-us/azure/iot-edge/module-composition).
-Names of the inputs and outputs created in the ASAjob  can be used as endpoints for routing.  
+Names of the inputs and outputs created in the ASA job can be used as endpoints for routing.  
 
 ##### Example
 ```
@@ -131,14 +134,13 @@ This example  shows the routes for the scenario described in the following pictu
 This example defines the following routes:
 - Every message from the **tempSensor** is sent to the module named **ASA** to the input named **temperature**,
 - All outputs of **ASA** module are sent to the IoT Hub linked to this device ($upstream),
-- All outputs of **ASA** module are sent to the **control** endpoint of the **tempSensor**
+- All outputs of **ASA** module are sent to the **control** endpoint of the **tempSensor**.
 
 
 # Technical documentation
 ## Current limitations for edge jobs compared to cloud jobs
 The goal is to have parity between edge jobs and cloud jobs. Most of the features of our SQL query language are already supported.
-
-Here are the current limitations for edge jobs:
+However the following features are not yet supported for edge jobs:
 * User-defined functions (UDF) and user-defined aggregates (UDA).
 * Azure ML functions.
 * Using more than 14 aggregates in a single step.
@@ -159,7 +161,7 @@ Here are the current limitations for edge jobs:
 
 
 ## Runtime and hardware requirements
-In order to run ASA on IoT Edge, you need to install [Azure IoT Edge](https://azure.microsoft.com/en-us/campaigns/iot-edge/)  on your devices. You can then manage these devices with IoT Hub.
+In order to run ASA on IoT Edge, you need devices that can run [Azure IoT Edge](https://azure.microsoft.com/en-us/campaigns/iot-edge/). 
 
 ASA and Azure IoT Edge use **Docker** containers to provide a portable solution that runs on multiple host OS (Windows, Linux).
 
@@ -168,7 +170,7 @@ ASA on IoT Edge is made available as Windows and Linux images, running on both x
 
 ## Input and output
 ### Input and Output Streams
-ASA Edge jobs can get inputs and outputs from other modules on the "Edge Hub". To connect from and to specific modules and messages, you can set the routing configuration at deployment time. More information is described on [the IoT Edge module composition documentation].(https://docs.microsoft.com/en-us/azure/iot-edge/module-composition).
+ASA Edge jobs can get inputs and outputs from other modules running on IoT Edge devices. To connect from and to specific modules, you can set the routing configuration at deployment time. More information is described on [the IoT Edge module composition documentation].(https://docs.microsoft.com/en-us/azure/iot-edge/module-composition).
 
 For both inputs and outputs, CSV and JSON formats are supported.
 
@@ -183,9 +185,10 @@ In order to use reference data for ASA on Iot Edge, you need to follow these ste
 1. Create a new input for your job
 1.1. Choose **Reference data** as the **Source Type**.
 1.2 Set the file path. The file path should be an **absolute** file path on the device
+
 ![Reference data creation](media/stream-analytics-edge/ReferenceData.png)
 
-2. Enable *Shared Drives* in your Docker configuration, and make sure the drive is enabled before starting your deployment.
+2. Enable **Shared Drives** in your Docker configuration, and make sure the drive is enabled before starting your deployment.
 2.1. See more information in [Docker documentation for Windows here](https://docs.docker.com/docker-for-windows/#shared-drives).
 
 > [!Note]
