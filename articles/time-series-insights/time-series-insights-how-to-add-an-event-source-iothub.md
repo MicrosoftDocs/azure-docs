@@ -28,7 +28,7 @@ This article describes how to use the Azure portal to add an event source that r
 2. Locate your existing Time Series Insights environment. Click **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
 
 3. Under the **Environment Topology** heading, click **Event Sources**.
-   ![Event Sources + Add](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
+   ![Event Sources + Add](media/time-series-insights-how-to-add-an-event-source-iothub/1-event-sources.png)
 
 4. Click **+ Add**.
 
