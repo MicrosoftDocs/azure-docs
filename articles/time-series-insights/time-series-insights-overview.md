@@ -62,6 +62,6 @@ This diagram shows an example of time series insights data viewed through the ex
 
 
 ## Next steps
- [Explore using Time Series Insights explorer in a demonstration environment](./time-series-quickstart.md)
- [Plan your own Time Series Insights environment](time-series-insights-environment-planning.md)
+ - [Explore using Time Series Insights explorer in a demonstration environment](./time-series-quickstart.md)
+ - [Plan your own Time Series Insights environment](time-series-insights-environment-planning.md)
 
