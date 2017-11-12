@@ -42,7 +42,7 @@ Here's few typical scenarios for which running ASA on the edge is particularly i
 ## What is an "edge" job?
 
 ASA Edge jobs run as modules within [Azure IoT Edge runtime](https://docs.microsoft.com/en-us/azure/iot-edge/how-iot-edge-works). They are composed of two parts:
-1.	A cloud part that is responsible for job definition: users will define inputs, output, query and other settings (out of order events, etc.) in the cloud.
+1.	A cloud part that is responsible for job definition: users define inputs, output, query and other settings (out of order events, etc.) in the cloud.
 2.	The ASA on IoT Edge module that runs locally. It contains the ASA Complex Event Processing engine and receives the job definition from the cloud. 
 
 ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT Edge deployment can be seen here](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
@@ -50,18 +50,18 @@ ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT E
 
 
 ## Installation instructions
-The high level steps are described in the table below. More details are given in the following sections.
+The high-level steps are described in the following table. More details are given in the following sections.
 |      |Step   | Place     | Notes   |
 | ---   | ---   | ---       |  ---      |
-| 1   | **Create an ASA edge job**   | Azure portal      |  When creating a **new** job, select "Edge" as *hosting environment*. <br> These jobs are created/managed from the cloud, and will run on your own IoT Edge devices.     |
-| 2   | **Create a storage container**   | Azure portal       | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  Note that you can reuse any existing storage container.     |
+| 1   | **Create an ASA edge job**   | Azure portal      |  When creating a **new** job, select "Edge" as *hosting environment*. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices.     |
+| 2   | **Create a storage container**   | Azure portal       | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.     |
 | 3   | **Set up your IoT Edge environment on your device(s)**   | Device(s)      | Instructions for [Windows](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux).          |
-| 4   | **Deploy ASA on your IoT Edge device(s)**   | Azure portal      |  ASA jobs are snapshoted and saved to the storage container created earlier. They remain unchanged for the duration of the deployment.       |
+| 4   | **Deploy ASA on your IoT Edge device(s)**   | Azure portal      |  ASA job definition is exported to the storage container created earlier.       |
 You can follow [this step-by-step tutorial](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-stream-analytics) to deploy your first ASA job on IoT Edge.
 
 ### Create an ASA Edge job
-1. From the Azure portal, create a new "Stream Analytics job". You can do this by clicking [here](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
-2. In the creation option, select "Edge" as hosting environment (see picture below)
+1. From the Azure portal, create a new "Stream Analytics job". [Direct link to create a new ASA job here](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
+2. In the creation option, select "Edge" as hosting environment (see the following picture)
 ![Job creation](./ASAEdge_create.png)
 3. Job Definition
     1. **Define Input Stream**. Define one or several input streams for your job.
@@ -74,13 +74,13 @@ You can follow [this step-by-step tutorial](https://docs.microsoft.com/en-us/azu
 
 
 ### Create a storage container
-A storage container is required in order to export the ASA compiled query and the job configuration. It will be used to configure the ASA Docker image with your specific query. 
+A storage container is required in order to export the ASA compiled query and the job configuration. It is used to configure the ASA Docker image with your specific query. 
 1. Follow [these instructions](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) to create a storage account in the Azure portal. You can keep all default options to use this account with ASA.
-2. In the newly created storage account, create a blob storage container. For this, click on "Blobs" , then "+ Container". Enter an name and keep the container as "Private"
+2. In the newly created storage account, create a blob storage container. Click on "Blobs" , then "+ Container". Enter a name and keep the container as "Private"
 
 
 > [!Note]
-> When a deployment is created, ASA will snapshot the current job definition and export it to a storage container, so jobs can remain the same during the duration of a deployment. 
+> When a deployment is created, ASA exports the job definition to a storage container. Jobs definition remain the same during the duration of a deployment. 
 > As a consequence, if you want to update a job running on the edge, you need to edit the job in ASA, and then create a new deployment in IoT Hub.
 
 
@@ -91,7 +91,7 @@ For this, you need to follow these steps:
 - Install Docker and IoT Edge runtime on your edge device
 - Set your devices as "IoT Edge devices" in IoT Hub.
 
-Please refer to the IoT Edge documentation, and follow instructions for [Windows](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux).  
+Refer to the IoT Edge documentation, and follow instructions for [Windows](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart-linux).  
 
 
 ###  Deployment ASA on your IoT Edge device(s)
@@ -107,7 +107,7 @@ Please refer to the IoT Edge documentation, and follow instructions for [Windows
 > In order to deploy your job to edge devices, ASA creates a shared access signature (SAS) for the job definition file. The SAS key is securely transmitted to the IoT Edge devices using device twin. The expiration of this key is 3 years from the day of its creation.
 
 
-For more details about IoT Edge deployments, please refer to [this page](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
+For more details about IoT Edge deployments, refer to [this page](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
 
 
 #### Configure routes
@@ -136,10 +136,10 @@ This example defines the following routes:
 
 # Technical documentation
 ## Current limitations for edge jobs compared to cloud jobs
-Our goal is to bring parity between edge jobs and cloud jobs. Most of the features of our SQL query language are already supported.
+The goal is to have parity between edge jobs and cloud jobs. Most of the features of our SQL query language are already supported.
 
 Here are the current limitations for edge jobs:
-* User defined functions (UDF) and aggregates (UDA).
+* User-defined functions (UDF) and user-defined aggregates (UDA).
 * Azure ML functions.
 * Using more than 14 aggregates in a single step.
 * AVRO format for input/output. At this time only CSV and JSON are supported.
@@ -168,18 +168,18 @@ ASA on IoT Edge is made available as Windows and Linux images, running on both x
 
 ## Input and output
 ### Input and Output Streams
-ASA Edge jobs can get inputs and outputs from other modules on the the "Edge Hub". To connect from and to specific modules and messages, you can set the routing configuration at deployment time. More information is described on [the IoT Edge module composition documentation].(https://docs.microsoft.com/en-us/azure/iot-edge/module-composition).
+ASA Edge jobs can get inputs and outputs from other modules on the "Edge Hub". To connect from and to specific modules and messages, you can set the routing configuration at deployment time. More information is described on [the IoT Edge module composition documentation].(https://docs.microsoft.com/en-us/azure/iot-edge/module-composition).
 
 For both inputs and outputs, CSV and JSON formats are supported.
 
-For each input and output stream you create in your ASA job, a corresponding input or output is created on your deployed module and can be used in the routes of your deployment.
+For each input and output stream you create in your ASA job, a corresponding endpoint is created on your deployed module. These endpoints can be used in the routes of your deployment.
 
 
 
 #### Reference data
-Reference data (also known as a lookup table) is a finite data set that is static or slowing changing in nature, used to perform a lookup or to correlate with your data stream. To make use of reference data in your Azure Stream Analytics job, you will generally use a [Reference Data Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in your Query. For more information please refer to the [ASA documentation about reference data](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-use-reference-data).
+Reference data (also known as a lookup table) is a finite data set that is static or slowing changing in nature. It is used to perform a lookup or to correlate with your data stream. To make use of reference data in your Azure Stream Analytics job, you will generally use a [Reference Data Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in your Query. For more information, see the [ASA documentation about reference data](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-use-reference-data).
 
-In order to use reference data for ASA on Iot Edge, you will need to follow these steps: 
+In order to use reference data for ASA on Iot Edge, you need to follow these steps: 
 1. Create a new input for your job
 1.1. Choose **Reference data** as the **Source Type**.
 1.2 Set the file path. The file path should be an **absolute** file path on the device
@@ -199,15 +199,14 @@ In order to use reference data for ASA on Iot Edge, you will need to follow thes
 * [Third-party notice for Azure Stream Analytics on IoT Edge preview](ASAEdgeTPN.pdf).
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-You can also give feedback on this preview feature using [this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
 
 ## Next steps
 
 * [More information on Azure Iot Edge](https://docs.microsoft.com/en-us/azure/iot-edge/how-iot-edge-works)
 * [ASA on IoT Edge tutorial](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-stream-analytics)
-* [Send us feedback using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
