@@ -8,11 +8,11 @@ ms.author: edett
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
-ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
 ---
+
 # How to add an Event Hub event source to Time Series Insights environment
 
 This article describes how to use the Azure portal to add an event source that reads data from an Event Hub into your Time Series Insights environment.
@@ -28,21 +28,25 @@ This article describes how to use the Azure portal to add an event source that r
 
 2. Locate your existing Time Series Insights environment. Click **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
 
-2. Under the **Environment Topology** heading, click **Event Sources**.
+3. Under the **Environment Topology** heading, click **Event Sources**.
 
-3. Click **Add**.
+   ![Event Sources + Add](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
 
-4. Provide an **Event source name** unique to this Time Series Insights environment, such as **EHSource1**.
+4. Click **+ Add**.
 
-5. Select the **Source** as **Event Hub**.
+5. Provide an **Event source name** unique to this Time Series Insights environment, such as **EHSource1**.
 
-6. Select the appropriate **Import option**. 
-   - If you already have an existing Event Hub on one of your subscriptions, it is easiest to select **Use Event Hub from available subscriptions**. 
-   - If the Event Hub is external to your subscriptions, or you wish to choose advanced options, choose **Provide Event Hub settings manually**. 
+   ![Fill in the first three parameters in the form.](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
 
-   ![Import Option setting](media/add-event-source/HowToAddEventHubEventImportOption.png)
-   
-7. If you have selected the **Use Event Hub from available subscriptions** option, the following table explains each required property:
+6. Select the **Source** as **Event Hub**.
+
+7. Select the appropriate **Import option**. 
+   - Choose **Use Event Hub from available subscriptions** when you already have an existing Event Hub on one of your subscriptions. This is the easiest approach.
+   - Choose **Provide Event Hub settings manually** when the Event Hub is external to your subscriptions, or you wish to choose advanced options. 
+
+8. If you have selected the **Use Event Hub from available subscriptions** option, the following table explains each required property:
+
+   ![Subscription and Event hub details](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
 
    | Property | Description |
    | --- | --- |
@@ -50,28 +54,50 @@ This article describes how to use the Azure portal to add an event source that r
    | Service bus namespace | Select the Service Bus namespace that contains the Event Hub.
    | Event hub name | Select the name of the Event Hub.
    | Event hub policy name | Select the shared access policy, which can be created on the Event Hub Configure tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions.
-   | Event hub policy key | The key is prepopulated.
-   | Event hub consumer group | The Consumer Group to read events from the Event Hub. It is highly recommended to use a dedicated consumer group for your event source.
+   | Event hub policy key | The key value may be prepopulated.
+   | Event hub consumer group | The consumer group to read events from the Event Hub. It is highly recommended to use a dedicated consumer group for your event source. |
+   | Event serialization format | JSON is the only available serialization at present. The event messages must be in this format, or no data can be read. |
+   | Timestamp property name | To determine this value, you need to understand the message format of the message data sent into Event Hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. When left blank, the **event enqueue time** within the event source is used as the event timestamp. |
 
-8. If you have selected the **Provide Event Hub settings manually** option, the following table explains each required property:
+
+9. If you have selected the **Provide Event Hub settings manually** option, the following table explains each required property:
 
    | Property | Description |
    | --- | --- |
-   | Subscription Id | The subscription in which this event hub was created.
+   | Subscription ID | The subscription in which this event hub was created.
    | Resource group | The resource group in which this event hub was created.
    | Service bus namespace | A Service Bus namespace is a container for a set of messaging entities. When you created a new Event Hub, you also created a Service Bus namespace.
    | Event hub name | The name of your Event Hub. When you created your event hub, you also gave it a specific name.
    | Event hub policy name | The shared access policy, which can be created on the Event Hub Configure tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions.
    | Event hub policy key | The Shared Access key used to authenticate access to the Service Bus namespace. Type the primary or secondary key here.
    | Event hub consumer group | The Consumer Group to read events from the Event Hub. It is highly recommended to use a dedicated consumer group for your event source.
+   | Event serialization format | JSON is the only available serialization at present. The event messages must be in this format, or no data can be read. |
+   | Timestamp property name | To determine this value, you need to understand the message format of the message data sent into Event Hub. This value is the **name** of the specific event property in the message data that you want to use as the event timestamp. The value is case-sensitive. When left blank, the **event enqueue time** within the event source is used as the event timestamp. |
 
-9. Select the **Event serialization format**. JSON is the available serialization at present.
 
-10. It is recommended to provide a **Timestamp property name**. You need to know the message format of the event data to make this decision. This is the name of the event property in the message data that should be used as the event timestamp. When not specified, event enqueue time within the event source is used as the event timestamp. 
+10. Select **Create** to add the new event source.
+   
+   ![Click Create](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 
-11. Select **Create** to add the new event source. 
+   After creation of the event source, Time Series Insights will automatically start streaming data into your environment.
 
-After creation of the event source, Time Series Insights will automatically start streaming data into your environment.
+
+### Add a consumer group to your Event Hub
+Consumer groups are used by applications to pull data from Azure Event Hubs. Provide a dedicated consumer group, for use by this Time Series Insights environment only, to reliably read data from your Event Hub.
+
+To add a new consumer group in your Event Hub, follow these steps:
+1. In the Azure portal, locate and open your Event Hub.
+
+2. Under the **Entities** heading, select **Consumer Groups**.
+
+   ![Event Hub - Add a consumer group](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+
+3. Select **+ Consumer Group** to add a new consumer group. 
+
+4. On the **Consumer groups** page, provide a new unique **Name**.  Use this same name when creating a new event source in the Time Series Insights environment.
+
+5. Select **Create** to create the new consumer group.
+
 
 ## Next steps
 - [Define data access policies](time-series-insights-data-access.md) to secure the data.
