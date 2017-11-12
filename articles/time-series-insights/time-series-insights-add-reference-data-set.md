@@ -29,7 +29,7 @@ A Reference Data Set is a collection of items that are augmented with the events
 
     ![Create the Time Series Insights reference data set](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
 
-4. Click **+ Add** to add a new reference data set.
+4. Select **+ Add** to add a new reference data set.
 
 5. Specify a unique **Reference Data Set name**.
 
@@ -39,7 +39,7 @@ A Reference Data Set is a collection of items that are augmented with the events
 
    For example, if you provide key name as **DeviceId** and type as **String**, then the Time Series Insights ingress engine looks for a property with the name **DeviceId** of type **String** in each incoming event to look up and join with. You can provide more than one key to join with the event. The key name match is case-sensitive.
 
-7. Click **Create**.
+7. Select **Create**.
 
 ## Next steps
 * [Manage reference data](time-series-insights-manage-reference-data-csharp.md) programmatically.
