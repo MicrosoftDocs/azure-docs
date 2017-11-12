@@ -125,7 +125,7 @@ Below is a list of detailed updates in each component area of Azure Machine Lear
 ### Sample projects
 - [_Classifying Iris_](./tutorial-classifying-iris-part-1.md) sample project:
     - `iris_pyspark.py` is renamed to `iris_spark.py`.
-    - `iris_score.py` is renamed to `iris-score.py`.
+    - `iris_score.py` is renamed to `score_iris.py`.
     - `iris.dprep` and `iris.dsource` are updated to reflect the latest data prep engine updates.
     - `iris.ipynb` Notebook is amended to work in HDInsight cluster.
     - Run history is turned on in `iris.ipynb` Notebook cell.

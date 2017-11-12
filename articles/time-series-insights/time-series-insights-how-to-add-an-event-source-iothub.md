@@ -17,12 +17,15 @@ ms.date: 11/15/2017
 This article describes how to use the Azure portal to add an event source that reads data from an IoT Hub into your Time Series Insights  environment.
 
 ## Prerequisites
+- Create a Time Series Insights environment. For more information, see [Create an Azure Time Series Insights environment](time-series-insights-get-started.md) 
 - Create an IoT Hub. For more information on IoT Hubs, see [Create an IoT hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md)
 - The IoT Hub needs to have active message events being sent in.
 - Create a dedicated consumer group in IoT Hub for the Time Series Insight environment to consume from. Each Time Series Insights event source needs to have its own dedicated consumer group that is not shared with any other consumers. If multiple readers consume events from the same consumer group, all readers are likely to see failures. For details, see the [IoT Hub developer guide](../iot-hub/iot-hub-devguide.md).
 
 ## Add a new event source
-1. In the Azure portal, locate your existing Time Series Insights environment.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. Locate your existing Time Series Insights environment. Click **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
 
 2. Under the **Environment Topology** heading, click **Event Sources**.
 
@@ -82,5 +85,6 @@ To add a consumer group to your IoT hub, follow these steps:
    ![Add a consumer group](media/time-series-insights-how-to-add-an-event-source-iothub/add-consumer-group.png)
 
 ## Next steps
-- Secure the data with a data access policy: [Define data access policies](time-series-insights-data-access.md)
-- Access your environment in the [Time Series Insights explorer](https://insights.timeseries.azure.com)
+- [Define data access policies](time-series-insights-data-access.md) to secure the data.
+- [Send events](time-series-insights-send-events.md) to the event source.
+- Access your environment in the [Time Series Insights explorer](https://insights.timeseries.azure.com).
