@@ -31,7 +31,7 @@ This feature is in preview, if you have any question or feedback you can use [th
 
 
 ## Scenarios
-![High level diagram](./media/stream-analytics-edge/ASAedge_highlevel.png)
+![High-level diagram](./media/stream-analytics-edge/ASAedge_highlevel.png)
 Here's few typical scenarios for which running ASA on the edge is particularly interesting:
 * **Low-latency command and control**: For example, manufacturing safety systems are required to respond to operational data with ultra-low latency. With ASA on IoT Edge, you can analyze sensor data in near real time and issue commands when you detect anomalies to stop a machine or trigger alerts.
 *	**Limited connectivity to the cloud**: Mission critical systems, such as remote mining equipment, connected vessels or offshore drilling, need to analyze and react to data even when cloud connectivity is intermittent. With ASA, your streaming logic runs independently of the network connectivity and you can choose what you send to the cloud for further processing or storage.
@@ -80,7 +80,7 @@ A storage container is required in order to export the ASA compiled query and th
 
 
 > [!Note]
-> When a deployment is created, ASA exports the job definition to a storage container. Jobs definition remain the same during the duration of a deployment. 
+> When a deployment is created, ASA exports the job definition to a storage container. This job definition remain the same during the duration of a deployment. 
 > As a consequence, if you want to update a job running on the edge, you need to edit the job in ASA, and then create a new deployment in IoT Hub.
 
 
@@ -104,10 +104,10 @@ Refer to the IoT Edge documentation, and follow instructions for [Windows](https
 
 > [!Note]
 > During this step, ASA requests access to the selected storage container, and then creates a folder named "EdgeJobs". For each  deployment, a new subfolder is created in the "EdgeJobs" folder.
-> In order to deploy your job to edge devices, ASA creates a shared access signature (SAS) for the job definition file. The SAS key is securely transmitted to the IoT Edge devices using device twin. The expiration of this key is 3 years from the day of its creation.
+> In order to deploy your job to edge devices, ASA creates a shared access signature (SAS) for the job definition file. The SAS key is securely transmitted to the IoT Edge devices using device twin. The expiration of this key is three years from the day of its creation.
 
 
-For more details about IoT Edge deployments, refer to [this page](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
+For more details about IoT Edge deployments, see to [this page](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
 
 
 #### Configure routes
@@ -161,7 +161,7 @@ Here are the current limitations for edge jobs:
 ## Runtime and hardware requirements
 In order to run ASA on IoT Edge, you need to install [Azure IoT Edge](https://azure.microsoft.com/en-us/campaigns/iot-edge/)  on your devices. You can then manage these devices with IoT Hub.
 
-Azure IoT Edge leverages **Docker** containers to provide a portable solution that runs on multiple host OS (Windows, Linux).
+ASA and Azure IoT Edge use **Docker** containers to provide a portable solution that runs on multiple host OS (Windows, Linux).
 
 ASA on IoT Edge is made available as Windows and Linux images, running on both x86-64 or ARM architectures. 
 
