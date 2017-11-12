@@ -28,7 +28,7 @@ Azure IoT Edge lets you deploy and manage business logic on the edge in the form
 IoT Edge module images contain applications that take advantage of the management, security, and communication features of the IoT Edge runtime. You can develop your own module images, or export one from a supported Azure service, such as Azure Stream Analytics.
 The images exist in the cloud and they can be updated, changed, and deployed in different solutions. For instance, a module that uses machine learning to predict production line output exists as a separate image than a module that uses computer vision to control a drone. 
 
-Each time a module image is deployed to a device and started by the IoT Edge runtime, a new instance of that module is created. A factory in Germany and a factory in Saudi Arabia may use the same production line module image from the cloud, but they each run a different module instance. 
+Each time a module image is deployed to a device and started by the IoT Edge runtime, a new instance of that module is created. Two devices in different parts of the world could use the same module image; however each would have their own module instance when the module is started on the device. 
 
 ![Module images in cloud - module instances on devices][1]
 
@@ -37,7 +37,7 @@ In implementation, modules images exist as container images in a repository, and
 ## Module identities
 
 When a new module instance is created by the IoT Edge runtime, the instance is associated with a corresponding module identity. The module identity is stored in IoT Hub, and is employed as the addressing and security scope for all local and cloud communications for that specific module instance.
-The identity associated with a module instance depends on the identity of the device on which the instance is running and the name you provide to that module in your solution. For instance, if you call `StreamProcessingJob` a module that uses an Azure Stream Analytics, and you deploy it on a device called `SolutionDevice`, the IoT Edge runtime creates a corresponding module identity called `/devices/SolutionDevice/modules/StreamProcessingJob`.
+The identity associated with a module instance depends on the identity of the device on which the instance is running and the name you provide to that module in your solution. For instance, if you call `insight` a module that uses an Azure Stream Analytics, and you deploy it on a device called `Hannover01`, the IoT Edge runtime creates a corresponding module identity called `/devices/Hannover01/modules/insight`.
 
 Clearly, in scenarios when you need to deploy one module image multiple times on the same device, you can deploy the same image multiple times with different names.
 
