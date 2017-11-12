@@ -2,20 +2,18 @@
 title: Azure Time Series Insights Documentation - Tutorials, API Reference | Microsoft Docs 
 description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more. 
 services: time-series-insights 
-author: czeumault 
-manager: carolz 
+author: kfile
+manager: jhubbard
 layout: LandingPage 
 ms.assetid:  
 ms.service: time-series-insights 
-ms.tgt_pltfrm: na 
-ms.devlang: na 
 ms.topic: landing-page 
-ms.date: 04/13/2017 
-ms.author: carolz 
+ms.date: 11/15/2017 
+ms.author: kfile
 --- 
 # Azure Time Series Insights Documentation 
  
-Learn how to set up Time Series Insights environment, explore and analyze time series data of your IoT solutions or connected things. Documentation shares the prerequisites, how to, API references and other documentation to help you to get started in minutes. 
+Learn how to set up a Time Series Insights environment, explore, and analyze time series data of your IoT solutions or connected things. Documentation describes the prerequisites, how to, API references, and other articles to help you get started in minutes. 
  
 <ul class="panelContent cardsFTitle"> 
     <li> 
@@ -47,7 +45,7 @@ Learn how to set up Time Series Insights environment, explore and analyze time s
                         </div> 
                     </div> 
                     <div class="cardText"> 
-                        <h3>Time Series Insights Video Library</h3> 
+                        <h3>Time Series Insights video library</h3> 
                     </div> 
                 </div> 
             </div> 
