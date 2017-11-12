@@ -24,12 +24,13 @@ ms.custom: oldportal;it-pro;
 This article discusses how to install additional domain controllers (also known as replica DCs) for an on-premises Active Directory domain on Azure virtual machines (VMs) in an Azure virtual network. You can optionally [install a Windows Server Active Directory forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md). For how to install Active Directory Domain Services (AD DS) on an Azure virtual network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## Scenario diagram
-In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the replica DCs are installed in an Azure virtual network. The virtual network can be connected to the on-premises network by a [site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) connection, as shown in the following diagram, or you can use [ExpressRoute](../expressroute/expressroute-locations-providers.md) for a faster connection.
+In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the replica DCs are installed in an Azure virtual network. The virtual network can be connected to the on-premises network by [ExpressRoute](../expressroute/expressroute-locations-providers.md), or you can use a [site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) connection, as shown in the following diagram. 
+
+
+![Diagram pf replica Active Directory domain controller an Azure vnet][1]
 
 The application servers and the DCs are deployed within separate cloud services to distribute compute processing and within availability sets for improved fault tolerance.
 The DCs replicate with each other and with on-premises DCs by using Active Directory replication. No synchronization tools are needed.
-
-![Diagram pf replica Active Directory domain controller an Azure vnet][1]
 
 ## Create an Active Directory site for the Azure virtual network
 It’s a good idea to create a site in Active Directory that represents the network region corresponding to the virtual network. That helps optimize authentication, replication, and other DC location operations. The following steps explain how to create a site, and for more background, see [Adding a New Site](https://technet.microsoft.com/library/cc781496.aspx).
@@ -39,10 +40,10 @@ It’s a good idea to create a site in Active Directory that represents the netw
 3. Create a subnet and associate with the new site: double-click **Sites** > right-click **Subnets** > **New subnet** > type the IP address range of the virtual network (such as 10.1.0.0/16 in the scenario diagram) > select the new Azure site > **OK**.
 
 ## Create an Azure virtual network
-To create an Azure virtual netowrk and set up site-to-site VPN, follow the steps included in the article [Create a Site-to-Site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md). 
+To create an Azure virtual network and set up site-to-site VPN, follow the steps included in the article [Create a Site-to-Site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md). 
 
 ## Create Azure VMs for the DC roles
-Repeat the steps in [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md) to create VMs to host the DC role as needed. You should deploy at least two virtual DCs to provide fault tolerance and redundancy. If the Azure virtual network includes at least two DCs that are similarly configured (that is, they are both GCs, run DNS server, and neither holds any FSMO role, and so on) then place the VMs that run those DCs in an availability set for improved fault tolerance.
+To create VMs to host the DC role, repeat the steps in [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md) as needed. Deploy at least two virtual DCs to provide fault tolerance and redundancy. If the Azure virtual network has at least two DCs that are similarly configured, you can place the VMs that run those DCs in an availability set for improved fault tolerance.
 
 To create the VMs by using Windows PowerShell instead of the Azure portal, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
