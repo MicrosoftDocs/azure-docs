@@ -11,11 +11,11 @@ ms.topic: article
 manager: carmonm
 ---
 
-# Continuous Monitoring of the DevOps Release Pipeline
+# Adding Continuous Monitoring to your Release Pipeline
 
-Visual Studio Team Services (VSTS) integrates with Azure Application Insights to allow continuous monitoring of your DevOps release pipeline throughout the software development lifecycle. Historically, users have configured wait times coupled with manual approvals to help guard against release deployment issues.
+Visual Studio Team Services (VSTS) integrates with Azure Application Insights to allow continuous monitoring of your DevOps release pipeline throughout the software development lifecycle. 
 
-VSTS now supports continuous monitoring whereby release pipelines can incorporate monitoring data from Application Insights and other Azure resources. When an alert is detected, the deployment can remain gated or be rolled back until the alert is resolved. If all checks pass, deployments can proceed automatically from test all the way to production without the need for manual intervention. 
+VSTS now supports continuous monitoring whereby release pipelines can incorporate monitoring data from Application Insights and other Azure resources. When an Application Insights alert is detected, the deployment can remain gated or be rolled back until the alert is resolved. If all checks pass, deployments can proceed automatically from test all the way to production without the need for manual intervention. 
 
 ## Configure Continuous Monitoring
 
@@ -85,5 +85,4 @@ To observe this behavior, Select **Releases** > Right-click Release name **open*
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about VSTS Build and Release](https://docs.microsoft.com/en-us/vsts/build-release/)
+To learn more about VSTS Build and Release try these [quickstarts.](https://docs.microsoft.com/en-us/vsts/build-release/)
