@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 10/19/2017
 ms.author: billmath
 ---
 
@@ -26,7 +26,7 @@ It depends on your on-premises environment and organizational requirements. Revi
 
 ## Is Pass-through Authentication a free feature?
 
-Pass-through Authentication is a free feature and you don't need any paid editions of Azure AD to use it. It remains free when the feature reaches general availability.
+Pass-through Authentication is a free feature and you don't need any paid editions of Azure AD to use it.
 
 ## Is Pass-through Authentication available in [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) and [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/)?
 
@@ -42,7 +42,7 @@ Yes. Pass-through Authentication supports `Alternate ID` as the username when co
 
 ## Does Password Hash Synchronization act as a fallback to Pass-through Authentication?
 
-No, Password Hash Synchronization is not a generic fallback to Pass-through Authentication. It only acts as a fallback for [scenarios that Pass-through Authentication doesn't support today](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+No, Pass-through Authentication _does not_ automatically failover to Password Hash Synchronization. It only acts as a fallback for [scenarios that Pass-through Authentication doesn't support today](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## Can I install an [Azure AD Application Proxy](../active-directory-application-proxy-get-started.md) connector on the same server as a Pass-through Authentication Agent?
 

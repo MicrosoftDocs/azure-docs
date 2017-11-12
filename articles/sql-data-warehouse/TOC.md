@@ -2,8 +2,6 @@
 
 ## [What is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Data warehouse workload](sql-data-warehouse-overview-workload.md)
-## [Distributed data](sql-data-warehouse-distributed-data.md)
-## [Frequently asked questions](sql-data-warehouse-overview-faq.md)
 
 # Get Started
 
@@ -12,9 +10,13 @@
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
 
-
-
 # How To
+
+## Service features
+### [MPP architecture](massively-parallel-processing-mpp-architecture.md)
+### [Performance tiers](performance-tiers.md)
+### [Data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Frequently asked questions](sql-data-warehouse-overview-faq.md)
 
 ## Backup and restore
 
@@ -118,13 +120,17 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### [Automate compute levels](manage-compute-with-azure-functions.md)
+
+### Resource classes
+#### [Guidelines](resource-classes-for-workload-management.md)
+#### [Analyze your workload](analyze-your-workload.md)
 
 ## Performance
 
 ### [Overview](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Monitor](sql-data-warehouse-manage-monitor.md)
-### [Workload](sql-data-warehouse-develop-concurrency.md)
 
 ## Security
 

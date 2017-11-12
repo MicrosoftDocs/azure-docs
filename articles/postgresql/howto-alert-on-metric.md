@@ -1,6 +1,6 @@
 ---
-title: Configure metrics alerts for Azure Database for PostgreSQL in Azure Portal | Microsoft Docs
-description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL from the Azure Portal.
+title: Configure metrics alerts for Azure Database for PostgreSQL in Azure portal | Microsoft Docs
+description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL from the Azure portal.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -8,21 +8,21 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 10/24/2017
 ---
+
 # Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL 
 
-## Overview
 This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 
 The alert triggers when the value of a specified metric crosses a threshold you assign. The alert triggers both when the condition is first met, and then afterwards when that condition is no longer being met. 
 
 You can configure an alert to do the following actions when it triggers:
-* send email notifications to the service administrator and co-administrator0s
-* send email to additional emails that you specify.
-* call a webhook
+* Send email notifications to the service administrator and co-administrators.
+* Send email to additional emails that you specify.
+* Call a webhook.
 
-You can configure and get information about alert rules using
+You can configure and get information about alert rules using:
 * [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [Command-line interface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
@@ -68,7 +68,7 @@ You can configure and get information about alert rules using
 
    Within a few minutes, the alert is active and triggers as previously described.
 
-## Managing your alerts
+## Manage your alerts
 Once you have created an alert, you can select it and do the following actions:
 
 * View a graph showing the metric threshold and the actual values from the previous day relevant to this alert.

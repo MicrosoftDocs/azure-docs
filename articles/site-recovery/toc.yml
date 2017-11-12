@@ -59,16 +59,8 @@
     href: site-recovery-support-matrix-to-sec-site.md
   - name: Disaster recovery for workloads
     href: site-recovery-workload.md
-  - name: Azure to Azure networking (preview)
-    href: site-recovery-azure-to-azure-networking-guidance.md
-  - name: VM connectivity after failover to Azure
-    href: concepts-on-premises-to-azure-networking.md
-  - name: VM connectivity after failover to a secondary site
-    href: concepts-on-premises-to-on-premises-networking.md
-  - name: Network mapping for Azure VM replication
-    href: site-recovery-network-mapping-azure-to-azure.md
-  - name: Network mapping for Hyper-V VM replication to Azure
-    href: site-recovery-network-mapping.md
+  - name: Migration to Azure
+    href: site-recovery-migrate-to-azure.md
   - name: Role-based access permissions
     href: site-recovery-role-based-linked-access-control.md
   - name: FAQ
@@ -77,8 +69,6 @@
   items:
   - name: Disaster recovery
     items:
-    - name: VMware VMs with multi-tenant support to Azure
-      href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Hyper-V VMs to Azure
       href: tutorial-hyper-v-to-azure.md
     - name: Physical servers to Azure
@@ -97,6 +87,8 @@
       href: tutorial-hyper-v-to-azure-failover-failback.md
     - name: Run a failover and failback between on-premises sites
       href: tutorial-vmm-to-vmm-failover-failback.md
+    - name: VMware VMs with multi-tenant support to Azure
+      href: site-recovery-multi-tenant-support-vmware-using-csp.md
   - name: Capacity and scaling
     items:
     - name: Capacity planning for VMware replication to Azure
@@ -104,15 +96,25 @@
     - name: Deployment Planner tool for VMware replication to Azure
       href: site-recovery-deployment-planner.md
     - name: Capacity planning for Hyper-V replication to Azure
-      href: site-recovery-capacity-planning-for-hyper-v-replication.md
-    - name: Capacity Planner tool for Hyper-V replication to Azure
       href: site-recovery-capacity-planner.md
+    - name: Capacity Planner tool for Hyper-V replication to Azure
+      href: site-recovery-capacity-planning-for-hyper-v-replication.md
     - name: Scale out process servers for VMware replication
       href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
     - name: Performance scale tests for Hyper-V replication between on-premises sites
       href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
   - name: Configure
     items:
+    - name: Set up networking for Azure VM disaster recovery (preview)
+      href: site-recovery-azure-to-azure-networking-guidance.md
+    - name: Set up IP addressing for access after failover to Azure
+      href: concepts-on-premises-to-azure-networking.md
+    - name: Set up IP addressing for access after failover to a secondary site
+      href: concepts-on-premises-to-on-premises-networking.md
+    - name: Set up network mapping for Azure VM disaster recovery (preview)
+      href: site-recovery-network-mapping-azure-to-azure.md
+    - name: Prepare network mapping for Hyper-V VM replication to Azure
+      href: site-recovery-network-mapping.md
     - name: Set up the source environment
       items:
       - name: Source environment for VMware to Azure
@@ -181,7 +183,9 @@
       href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
   - name: Migrate
     items:
-    - name: Replicate migrated machines to another Azure region
+    - name: Migrate Azure VMs to another Azure region
+      href: site-recovery-migrate-azure-to-azure.md
+    - name: Replicate machines to another Azure region after migration
       href: site-recovery-azure-to-azure-after-migration.md
   - name: Workloads
     items:
@@ -199,6 +203,8 @@
       href: site-recovery-workload.md#protect-exchange
     - name: SAP
       href: site-recovery-sap.md
+    - name: File Server
+      href: file-server-disaster-recovery.md
     - name: IIS based web applications
       href: site-recovery-iis.md
     - name: Citrix XenApp and XenDesktop

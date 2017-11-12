@@ -63,7 +63,7 @@ The URL looks something like the following URL:
 
 ```
 # LUIS endpoint URL
-https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/a0be191c-ebe0-4153-a4c3-d880b9c5d753?subscription-key=e237d6bc86cd4562bf67b09dff44d2e6&timezoneOffset=0&verbose=true&q=
+https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/a0be191c-ebe0-4153-a4c3-d880b9c5d753?subscription-key=a237d6bc86cd4562bf67b09dff44d2e6&timezoneOffset=0&verbose=true&q=
 ```
 
 The number after the /apps/ is your app ID. The number in the query string for subscription-key is your subscription ID. Using the above example, the app ID is: 

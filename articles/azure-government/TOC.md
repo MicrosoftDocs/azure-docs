@@ -20,6 +20,7 @@
 ## [Functions](documentation-government-functions.md)
 ## [Cognitive Services](documentation-government-cognitiveservices.md)
 ## [Virtual Machines](documentation-government-quickstarts-vm.md) 
+## [GPUs](documentation-government-gpu.md)
 
 # How To
 ## Plan
@@ -34,6 +35,7 @@
 # Reference
 ## [Azure Stack](documentation-azure-stack-gov.md)
 ## [Images](documentation-government-image-gallery.md)
+## [Extensions](documentation-government-extension.md)
 ## [Marketplace](documentation-government-manage-marketplace.md)
 ## [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
 

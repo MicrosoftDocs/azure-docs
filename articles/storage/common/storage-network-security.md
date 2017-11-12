@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 09/25/2017
+ms.date: 10/25/2017
 ms.author: cbrooks
 
 ---
@@ -20,13 +20,7 @@ ms.author: cbrooks
 Azure Storage provides a layered security model allowing you to secure your storage accounts to a specific set of allowed networks​.  When network rules are configured, only applications from allowed networks can access a storage account.  When calling from an allowed network, applications continue to require proper authorization (a valid access key or SAS token) to access the storage account.
 
 ## Preview availability and support
-Storage Firewalls and Virtual Networks are in preview.  This capability is currently available for new or existing storage accounts in the following regions:
-- East US
-- West US
-- West US 2
-- West Central US
-- Australia East
-- Australia Southeast
+Storage Firewalls and Virtual Networks are in preview.  This capability is currently available for new or existing storage accounts in all Azure public cloud regions.
 
 > [!NOTE]
 > Production workloads are not supported during preview.
@@ -41,7 +35,7 @@ Network rules can be applied to existing Storage accounts, or can be applied dur
 
 Once network rules are applied, they are enforced for all requests.  SAS tokens that grant access to a specific IP Address service serve to **limit** the access of the token holder, but do not grant new access beyond configured network rules. 
 
-Virtual Machine Disk traffic (including mount and unmount operations, and disk IO) is **not** affected b​y network rules.  Backup of unmanaged disks is not supported for protected storage accounts during the preview.  REST access to page blobs (used for Virtual Machine disks) is protected by network rules.
+Virtual Machine Disk traffic (including mount and unmount operations, and disk IO) is **not** affected by network rules.  REST access to page blobs is protected by network rules.
 
 Classic Storage accounts **do not** support Firewalls and Virtual Networks.
 
@@ -84,7 +78,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
 2. Display the status of the default rule for the storage account.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.defaultAction
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
 ```
 
 3. Set the default rule to deny network access by default.  
@@ -302,6 +296,7 @@ When the "Trusted Microsoft Services" exception is enabled, the following servic
 |Azure HDInsight|Microsoft.HDInsight|Cluster provisioning and installation.  [Learn more](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Azure Networking|Microsoft.Networking|Store and analyze network traffic logs.  [Learn more](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure SQL Data Warehouse|Microsoft.Sql|Data import and export.  [Learn more](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
+|Azure Backup|Microsoft.RecoveryServices|Backup and restore of unmanaged disks.  [Learn more](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### Storage analytics data access
@@ -342,7 +337,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Login](/cli/azure/authenticate-azure-cli).
 2. Display the exceptions for the storage account network rules.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.bypass
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
 ```
 
 3. Configure the exceptions to the storage account network rules.

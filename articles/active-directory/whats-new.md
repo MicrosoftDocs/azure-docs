@@ -1,11 +1,13 @@
 ---
-title: What's new in Azure Active Directory | Microsoft Docs
-description: What's new in Azure Active Directory.
+title: What’s new? Release notes for Azure Active Directory | Microsoft Docs
+description: Learn what is new with Azure Active Directory (Azure AD) including latest release notes, known issues, bug fixes, deprecated functionality and upcoming changes.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: femila
 editor: ''
+featureFlags:
+ - clicktale
 
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
@@ -13,13 +15,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ---
-# What's new in Azure Active Directory
+# What's new in Azure Active Directory?
 
+
+
+
+> Stay up-to-date with what's new in Azure Active Directory by subscribing to this [feed](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) in your favorite RSS feed reader.
+
+
+
+We are improving Azure Active Directory on an ongoing basis. To enable you to stay up to date with the most recent developments, this topic provides you with information about:
+
+-	The latest releases 
+-	Known issues 
+-	Bug fixes 
+-	Deprecated functionality 
+-	Plans for changes 
+
+Please revisit this page regularly as we are updating it on a monthly basis.
+
+## November 2017
+
+**Type:** Deprecated functionality  
+**Service Category:** ACS  
+**Product Capability:** Access Control Service 
+
+<a name="acs-retirement"></a>
+
+Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) is being retired in late 2018.  Further information, including a detailed schedule & high level migration guidance, will provided in the next few weeks. In the meantime, please leave comments on this page with any questions regarding ACS, and a member of our team will reach out to help answer.
+
+---
 
 
 ## October 2017
@@ -64,6 +94,8 @@ In the world we live in, multi-Factor authentication (MFA) is an essential part 
 
 With this public preview, MFA management and reporting are an integrated part of the core Azure AD configuration experience, allowing you to manage the MFA Management portal functionality within the Azure AD experience.
 
+For more information, see [Reference for multi-factor authentication reporting in the Azure portal](active-directory-reporting-activity-sign-ins-mfa.md) 
+
 
 ---
 **Type:** New feature  
@@ -100,8 +132,6 @@ For more information, see [PIM for Azure resources](privileged-identity-manageme
 **Service Category:** Access Reviews  
 **Product Capability:** Governance  
 
-
-What's new in Azure AD?
 
 Access reviews (preview) enable organizations to efficiently manage group memberships and access to enterprise applications: 
 

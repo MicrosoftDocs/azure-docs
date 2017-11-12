@@ -79,7 +79,7 @@ Set up an [Azure storage account](../storage/common/storage-create-storage-accou
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.
-- The storage account can be standard or [premium](../storage/common/storage-premium-storage.md).
+- The storage account can be standard or [premium](../virtual-machines/windows/premium-storage.md).
 - If you set up a premium account, you need an additional standard account for log data.
 
 ### Prepare Hyper-V hosts
@@ -248,7 +248,7 @@ If you're using VMM, set up network mapping.
 3. In **Copy frequency**, specify how often you want to replicate delta data after the initial replication (every 30 seconds, 5 or 15 minutes).
 
 	> [!NOTE]
-	>  A 30 second frequency isn't supported when replicating to premium storage. The limitation is determined by the number of snapshots per blob (100) supported by premium storage. [Learn more](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob).
+	>  A 30 second frequency isn't supported when replicating to premium storage. The limitation is determined by the number of snapshots per blob (100) supported by premium storage. [Learn more](../virtual-machines/windows/premium-storage.md#snapshots-and-copy-blob).
 
 4. In **Recovery point retention**, specify how long the retention window will be (in hours) for each recovery point. Protected machines can be recovered to any point within a window.
 5. In **App-consistent snapshot frequency**, specify how frequently (1-12 hours) recovery points containing application-consistent snapshots will be created. Hyper-V uses two types of snapshots:

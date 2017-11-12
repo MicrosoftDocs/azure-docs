@@ -1,6 +1,6 @@
 ---
-title: Getting started with Azure SQL Data Sync (Preview) | Microsoft Docs
-description: This tutorial helps you get started with Azure SQL Data Sync (Preview).
+title: Set up Azure SQL Data Sync (Preview) | Microsoft Docs
+description: This tutorial shows you how to set up Azure SQL Data Sync (Preview)
 services: sql-database
 documentationcenter: ''
 author: douglaslms
@@ -10,27 +10,24 @@ editor: ''
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: na
+ms.workload: "Active"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
-
+ms.reviewer: douglasl
 ---
-# Getting Started with Azure SQL Data Sync (Preview)
+# Set up SQL Data Sync (Preview)
 In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybrid sync group that contains both Azure SQL Database and SQL Server instances. The new sync group is fully configured and synchronizes on the schedule you set.
 
 This tutorial assumes that you have at least some prior experience with SQL Database and with SQL Server. 
 
-For an overview of SQL Data Sync, see [Sync data](sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md).
 
 For complete PowerShell examples that show how to configure SQL Data Sync, see the following articles:
 -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
 -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
-
-> [!NOTE]
-> The complete technical documentation set for Azure SQL Data Sync, formerly located on MSDN, is available as a .PDF document. Download it [here](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
 
 ## Step 1 - Create sync group
 
@@ -42,17 +39,17 @@ For complete PowerShell examples that show how to configure SQL Data Sync, see t
 
     ![List of Azure SQL databases](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
-3.  On the **SQL databases** blade, select the existing SQL database that you want to use as the hub database for Data Sync. The SQL database blade opens.
+3.  On the **SQL databases** page, select the existing SQL database that you want to use as the hub database for Data Sync. The SQL database page opens.
 
-4.  On the SQL database blade for the selected database, select **Sync to other databases**. The Data Sync blade opens.
+4.  On the SQL database page for the selected database, select **Sync to other databases**. The Data Sync page opens.
 
     ![Sync to other databases option](media/sql-database-get-started-sql-data-sync/datasync-preview-newsyncgroup.png)
 
 ### Create a new Sync Group
 
-1.  On the Data Sync blade, select **New Sync Group**. The **New sync group** blade opens with Step 1, **Create sync group**, highlighted. The **Create Data Sync Group** blade also opens.
+1.  On the Data Sync page, select **New Sync Group**. The **New sync group** page opens with Step 1, **Create sync group**, highlighted. The **Create Data Sync Group** page also opens.
 
-2.  On the **Create Data Sync Group** blade, do the following things:
+2.  On the **Create Data Sync Group** page, do the following things:
 
     1.  In the **Sync Group Name** field, enter a name for the new sync group.
 
@@ -61,7 +58,7 @@ For complete PowerShell examples that show how to configure SQL Data Sync, see t
         > [!NOTE]
         > Microsoft recommends that you create a new, empty database to use as the Sync Metadata Database. Data Sync creates tables in this database and runs a frequent workload. This database is automatically shared as the Sync Metadata Database for all of your Sync groups in the selected region. You can't change the Sync Metadata Database or its name without dropping it.
 
-        If you chose **New database**, select **Create new database.** The **SQL Database** blade opens. On the **SQL Database** blade, name and configure the new database. Then select **OK**.
+        If you chose **New database**, select **Create new database.** The **SQL Database** page opens. On the **SQL Database** page, name and configure the new database. Then select **OK**.
 
         If you chose **Use existing database**, select the database from the list.
 
@@ -79,17 +76,17 @@ For complete PowerShell examples that show how to configure SQL Data Sync, see t
 
 ## Step 2 - Add sync members
 
-After the new sync group is created and deployed, Step 2, **Add sync members**, is highlighted in the **New sync group** blade.
+After the new sync group is created and deployed, Step 2, **Add sync members**, is highlighted in the **New sync group** page.
 
 In the **Hub Database** section, enter the existing credentials for the SQL Database server on which the hub database is located. Don't enter *new* credentials in this section.
 
 ![Hub database has been added to sync group](media/sql-database-get-started-sql-data-sync/datasync-preview-hubadded.png)
 
-## Add an Azure SQL Database
+### Add an Azure SQL Database
 
-In the **Member Database** section, optionally add an Azure SQL Database to the sync group by selecting **Add an Azure Database**. The **Configure Azure Database** blade opens.
+In the **Member Database** section, optionally add an Azure SQL Database to the sync group by selecting **Add an Azure Database**. The **Configure Azure Database** page opens.
 
-On the **Configure Azure Database** blade, do the following things:
+On the **Configure Azure Database** page, do the following things:
 
 1.  In the **Sync Member Name** field, provide a name for the new sync member. This name is distinct from the name of the database itself.
 
@@ -109,17 +106,17 @@ On the **Configure Azure Database** blade, do the following things:
 
     ![New SQL Database sync member has been added](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-## Add an on-premises SQL Server database
+### <a name="add-on-prem"></a> Add an on-premises SQL Server database
 
-In the **Member Database** section, optionally add an on-premises SQL Server to the sync group by selecting **Add an On-Premises Database**. The **Configure On-Premises** blade opens.
+In the **Member Database** section, optionally add an on-premises SQL Server to the sync group by selecting **Add an On-Premises Database**. The **Configure On-Premises** page opens.
 
-On the **Configure On-Premises** blade, do the following things:
+On the **Configure On-Premises** page, do the following things:
 
-1.  Select **Choose the Sync Agent Gateway**. The **Select Sync Agent** blade opens.
+1.  Select **Choose the Sync Agent Gateway**. The **Select Sync Agent** page opens.
 
     ![Choose the sync agent gateway](media/sql-database-get-started-sql-data-sync/datasync-preview-choosegateway.png)
 
-2.  On the **Choose the Sync Agent Gateway** blade, choose whether to use an existing agent or create a new agent.
+2.  On the **Choose the Sync Agent Gateway** page, choose whether to use an existing agent or create a new agent.
 
     If you chose **Existing agents**, select the existing agent from the list.
 
@@ -139,7 +136,7 @@ On the **Configure On-Premises** blade, do the following things:
         
         ![Creating a new sync agent](media/sql-database-get-started-sql-data-sync/datasync-preview-selectsyncagent.png)
 
-    5.  Select **OK** to close the **Select Sync Agent** blade.
+    5.  Select **OK** to close the **Select Sync Agent** page.
 
     6.  On the SQL Server computer, locate and run the Client Sync Agent app.
 
@@ -152,7 +149,7 @@ On the **Configure On-Premises** blade, do the following things:
         ![Enter the agent key and server credentials](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   If you get a firewall error at this point, you have to create a firewall rule on Azure to allow incoming traffic from the SQL Server computer. You can create the rule manually in the portal, but you may find it easier to create it in SQL Server Management Studio (SSMS). In SSMS, try to connect to the hub database on Azure. Enter its name as \<hub_database_name\>.database.windows.net. Follow the steps in the dialog box to configure the Azure firewall rule. Then return to the Client Sync Agent app.
+        >   If you get a firewall error at this point, you have to create a firewall rule on Azure to allow incoming traffic from the SQL Server computer. You can create the rule manually in the portal, but you may find it easier to create it in SQL Server Management Studio (SSMS). In SSMS, try to connect to the hub database on Azure. Enter its name as \<hub_database_name\>.database.windows.net. To configure the Azure firewall rule, follow the steps in the dialog box. Then return to the Client Sync Agent app.
 
     9.  In the Client Sync Agent app, click **Register** to register a SQL Server database with the agent. The **SQL Server Configuration** dialog box opens.
 
@@ -164,13 +161,13 @@ On the **Configure On-Premises** blade, do the following things:
 
     11. You can now close the Client Sync Agent app.
 
-    12. In the portal, on the **Configure On-Premises** blade, select **Select the Database.** The **Select Database** blade opens.
+    12. In the portal, on the **Configure On-Premises** page, select **Select the Database.** The **Select Database** page opens.
 
-    13. On the **Select Database** blade, in the **Sync Member Name** field, provide a name for the new sync member. This name is distinct from the name of the database itself. Select the database from the list. In the **Sync Directions** field, select Bi-directional Sync, To the Hub, or From the Hub.
+    13. On the **Select Database** page, in the **Sync Member Name** field, provide a name for the new sync member. This name is distinct from the name of the database itself. Select the database from the list. In the **Sync Directions** field, select Bi-directional Sync, To the Hub, or From the Hub.
 
         ![Select the on premises database](media/sql-database-get-started-sql-data-sync/datasync-preview-selectdb.png)
 
-    14. Select **OK** to close the **Select Database** blade. Then select **OK** to close the **Configure On-Premises** blade and wait for the new sync member to be created and deployed. Finally, click **OK** to close the **Select sync members** blade.
+    14. Select **OK** to close the **Select Database** page. Then select **OK** to close the **Configure On-Premises** page and wait for the new sync member to be created and deployed. Finally, click **OK** to close the **Select sync members** page.
 
         ![On premises database added to sync group](media/sql-database-get-started-sql-data-sync/datasync-preview-onpremadded.png)
 
@@ -178,9 +175,9 @@ On the **Configure On-Premises** blade, do the following things:
 
 ## Step 3 - Configure sync group
 
-After the new sync group members are created and deployed, Step 3, **Configure sync group**, is highlighted in the **New sync group** blade.
+After the new sync group members are created and deployed, Step 3, **Configure sync group**, is highlighted in the **New sync group** page.
 
-1.  On the **Tables** blade, select a database from the list of sync group members, and then select **Refresh schema**.
+1.  On the **Tables** page, select a database from the list of sync group members, and then select **Refresh schema**.
 
 2.  From the list of available tables, select the tables that you want to sync.
 
@@ -195,9 +192,20 @@ After the new sync group members are created and deployed, Step 3, **Configure s
 ## Next steps
 Congratulations. You have created a sync group that includes both a SQL Database instance and a SQL Server database.
 
-For more info about SQL Database and SQL Data Sync, see:
+For more info about SQL Data Sync, see:
 
--   [Download the complete SQL Data Sync technical documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
+-   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   [Monitor Azure SQL Data Sync with OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+
+-   Complete PowerShell examples that show how to configure SQL Data Sync:
+    -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+
 -   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+For more info about SQL Database, see:
+
 -   [SQL Database Overview](sql-database-technical-overview.md)
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)

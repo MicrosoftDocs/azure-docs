@@ -20,7 +20,7 @@ ms.author: maxluk
 ---
 # Authorize users for Ambari Views
 
-[Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) provide enterprise-grade capabilities, including Azure Active Directory-based authentication. You can synchronize new users
+[Domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md) provide enterprise-grade capabilities, including Azure Active Directory-based authentication. You can synchronize new users
 <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Currently, working with users, groups, and permissions in Ambari is only supported when using a domain-joined HDInsight cluster.
 
 Active Directory users can log on to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate cluster interactions with other approved endpoints like Hue, Ambari Views, ODBC, JDBC, PowerShell, and REST APIs.
@@ -28,7 +28,7 @@ Active Directory users can log on to the cluster nodes using their domain creden
 > [!WARNING]
 > Do not change the password of the Ambari watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password breaks the ability to use script actions or perform scaling operations with your cluster.
 
-If you have not already done so, follow [these instructions](hdinsight-domain-joined-configure.md) to provision a new domain-joined cluster.
+If you have not already done so, follow [these instructions](./domain-joined/apache-domain-joined-configure.md) to provision a new domain-joined cluster.
 
 ## Access the Ambari management page
 
@@ -121,7 +121,7 @@ The List view provides quick editing capabilities in two categories: Users and G
 
     ![Roles list view - users](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* The Groups category of the List view displays all groups, and the role assigned to each group. In our example, the list of groups is synchronized from the Azure AD groups specified in the **Access user group** property of the cluster's Domain settings. See [Create HDInsight cluster](hdinsight-domain-joined-configure.md#create-hdinsight-cluster).
+* The Groups category of the List view displays all groups, and the role assigned to each group. In our example, the list of groups is synchronized from the Azure AD groups specified in the **Access user group** property of the cluster's Domain settings. See [Create HDInsight cluster](./domain-joined/apache-domain-joined-configure.md#create-hdinsight-cluster).
 
     ![Roles list view - groups](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 
@@ -141,8 +141,8 @@ We have assigned our Azure AD domain user "hiveuser2" to the *Cluster User* role
 
 ## Next steps
 
-* [Configure Hive policies in Domain-joined HDInsight](hdinsight-domain-joined-run-hive.md)
-* [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md)
-* [Use the Hive View with Hadoop in HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Configure Hive policies in Domain-joined HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
+* [Manage Domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-manage.md)
+* [Use the Hive View with Hadoop in HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 
 <!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->

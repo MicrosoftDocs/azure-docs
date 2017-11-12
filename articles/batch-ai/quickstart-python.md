@@ -34,6 +34,13 @@ In this example, you use the MNIST database of handwritten images to train a con
 
 * Azure Active Directory service principal credentials - See [How to create a service principal with the CLI](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
+* Register the Batch AI resource providers once for your subscription using Azure Cloud Shell or the Azure CLI. A provider registration can take up to 15 minutes.
+
+  ```azurecli
+  az provider register -n Microsoft.BatchAI
+  az provider register -n Microsoft.Batch
+  ```
+
 
 ## Configure credentials
 Create these parameters in your Python script, substituting your own values:
@@ -54,7 +61,7 @@ admin_user_name = 'my_admin_user_name'
 admin_user_password = 'my_admin_user_password'
 ```
 
-As a best practice, all credentials should be stored in a separate configuration file, which is not shown in this example. Refer to the [recipes](https://github.com/azure/BatchAI/recipes) to implement a configuration file. 
+As a best practice, all credentials should be stored in a separate configuration file, which is not shown in this example. Refer to the [recipes](https://github.com/Azure/BatchAI/tree/master/recipes) to implement a configuration file. 
 
 ## Authenticate with Batch AI
 
@@ -68,7 +75,7 @@ import azure.mgmt.batchai.models as models
 creds = ServicePrincipalCredentials(
 		client_id=client_id, secret=secret, token_uri=token_uri)
 
-client = batchai.BatchAIManagementClient(credentials=creds,
+batchai_client = batchai.BatchAIManagementClient(credentials=creds,
                                          subscription_id=subscription_id
 )
 ```
@@ -82,10 +89,10 @@ from azure.mgmt.resource import ResourceManagementClient
 
 resource_group_name = 'myresourcegroup'
 
-client = ResourceManagementClient(
+resource_management_client = ResourceManagementClient(
         credentials=creds, subscription_id=subscription_id)
 
-resource = client.resource_groups.create_or_update(
+resource = resource_management_client.resource_groups.create_or_update(
         resource_group_name, {'location': 'eastus'})
 ```
 
@@ -162,7 +169,7 @@ parameters = models.ClusterCreateParameters(
          ), 
     ), 
 ) 
-client.clusters.create(resource_group_name, cluster_name, parameters).result() 
+batchai_client.clusters.create(resource_group_name, cluster_name, parameters).result() 
 ```
 
 ## Get cluster status
@@ -170,7 +177,7 @@ client.clusters.create(resource_group_name, cluster_name, parameters).result()
 Monitor the cluster status using the following command: 
 
 ```Python
-cluster = client.clusters.get(resource_group_name, cluster_name)
+cluster = batchai_client.clusters.get(resource_group_name, cluster_name)
 print('Cluster state: {0} Target: {1}; Allocated: {2}; Idle: {3}; '
       'Unusable: {4}; Running: {5}; Preparing: {6}; leaving: {7}'.format(
     cluster.allocation_state,
@@ -236,16 +243,16 @@ parameters = models.job_create_parameters.JobCreateParameters(
  ) 
  
 # Create the job 
-client.jobs.create(resource_group_name, job_name, parameters).result() 
+batchai_client.jobs.create(resource_group_name, job_name, parameters).result() 
 ```
 
 ## Monitor job
 You can inspect the job’s state using the following command: 
  
 ```Python
-job = client.jobs.get(resource_group_name, job_name) 
+job = batchai_client.jobs.get(resource_group_name, job_name) 
  
-print(`Job state: {0} `.format(job.execution_state.name))
+print('Job state: {0} '.format(job.execution_state.name))
 ```
 
 Output is similar to: `Job state: running`.
@@ -259,7 +266,7 @@ The `executionState` contains the current execution state of the job:
 Use the following command to list links to the stdout and stderr log files:
 
 ```Python
-files = client.jobs.list_output_files(resource_group_name, job_name, models.JobsListOutputFilesOptions("stdouterr")) 
+files = batchai_client.jobs.list_output_files(resource_group_name, job_name, models.JobsListOutputFilesOptions("stdouterr")) 
  
 for file in list(files):
      print('file: {0}, download url: {1}'.format(file.name, file.download_url)) 
@@ -268,12 +275,12 @@ for file in list(files):
 
 Use the following command to delete the job:
 ```Python
-client.jobs.delete(resource_group_name, job_name) 
+batchai_client.jobs.delete(resource_group_name, job_name) 
 ```
 
 Use the following command to delete the cluster:
 ```Python
-client.clusters.delete(resource_group_name, cluster_name)
+batchai_client.clusters.delete(resource_group_name, cluster_name)
 ```
 ## Next steps
 

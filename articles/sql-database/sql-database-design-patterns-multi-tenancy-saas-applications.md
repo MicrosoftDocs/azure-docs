@@ -14,7 +14,7 @@ ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-design
+ms.workload: "Active"
 ms.date: 02/01/2017
 ms.author: srinia
 
