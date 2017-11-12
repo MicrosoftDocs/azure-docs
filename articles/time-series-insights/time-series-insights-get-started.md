@@ -32,6 +32,7 @@ Follow these steps to create an environment:
 4.	On the **Time Series Insights** page, select **Create**.
 
 5. Fill in the required parameters. The following table explains each parameter:
+   
    ![Create the Time Series Insights resource group](media/time-series-insights-get-started/2-create-tsi.png)
    
    Setting|Suggested value|Description
@@ -51,9 +52,9 @@ Follow these steps to create an environment:
 
 8. To monitor the deployment process, select the **Notifications** symbol (bell icon).
 
-When the deployment succeeds, you can select **Go to resource**. Then configure other properties, set security with data access policies, add event sources, add reference data sets, and other actions.
-
    ![Watch the notifications](media/time-series-insights-get-started/4-notifications.png)
+
+   When the deployment succeeds, you can select **Go to resource**. Then configure other properties, set security with data access policies, add event sources, add reference data sets, and other actions.
 
 ## Next steps
 * [Define data access policies](time-series-insights-data-access.md) to access your environment in [Time Series Insights explorer](https://insights.timeseries.azure.com)
