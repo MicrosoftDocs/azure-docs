@@ -416,11 +416,52 @@ Yes, we plan to add other mechanisms for query in the future.
 ### How can I use the new Graph API (Preview) offering? 
 To get started, complete the [Graph API](../cosmos-db/create-graph-dotnet.md) quick-start article.
 
-## Develop against the Cassandra API (preview)
+## Develop against the Apache Cassandra API (preview)
 
-### How can I use the new Cassandra API (preview) offering? 
+### What is the protocol version supported in the preview ? Do you plan to support other protocols ?
+Apache Cassandra API for Azure Cosmos DB currently supports CQL version 4. To provide feedback on the support of additional models, please create requests using [uservoice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) or send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com). 
 
-The Cassandra API is provided for existing users Cassandra users that want to take advantage of the benefits of Azure Cosmos DB, such as elastic scale of throughput and storage, rich queries over schema free data, and multi-entity transactions, while still using the Cassandra drivers and tools they're used to. 
+### I was trying to create multiple tables quickly in succession and faced an error. 
+Azure Cosmos DB is a resource governed system for both data and control plane activities. Containers like collections and tables are runtime entities that are provisioned for a certain throughput capacity. The creation of these containers in quick succession is not expected activity and may be throttled. If you have tests that drop/create tables immediately - please try to space them out or reuse existing tables after removing data.
+
+### What is maximum number of tables that can be created?
+There is no physical limit on the number of tables that can be created. Please send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) if you need to create more than 100 tables at a time.  
+
+### What is the maximum number of keyspaces that can be created? 
+There is no physical limit on the number of keyspaces that can be created as they are metadata containers. Please send an email at [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) if you need to create a very large number of keyspaces. 
+
+### I depend on lot of yaml file settings to configure Casssandra behavior, where do I go to manipulate them with this API?
+Apache Cassandra API of Azure Cosmos DB is platform service. It provides protocol level compatibilty for executing operations. It hides away the complexity of management, monitoring and configuration. As a developer/user you do not need to worry about availability, tombstones, key cache, row cache, bloom filter and multitude of other settings. Azure Cosmos DB's Apache Cassandra API focuses on providing read and write performance that you require without the overhead.
+
+### Will Apache Cassandra API for Azure Cosmos DB support node addition/cluster status/node status commands?
+Apache Cassandra API is a platform service which makes capacity planning, responding the elasticity demands for throughput & storage a breeze. With Azure Cosmos DB you provision throughput you need. Then you can scale it up and down any number of times through the day without worrying about adding/deleting nodes or managing them. This implies you do not need to use the node, cluster management tool too. 
+
+### What happens with respect to various config settings for keyspace creation like simple/network?
+Azure Cosmos DB provides global distribution out of the box for availability and low latency reasons. You do not need to setup replicas, etc. All writes are always durably quorum committed in any region where you write or distribute data to while providing performance guarantees. So these settings are ignored. 
+
+### What happens with respect to various settings for table metadata like bloom filter, caching, read repair change, gc_grace, compression memtable_flush_period etc?
+Azure cosmos DB provides performance for reads/writes and throughput without need for touching any of the configuration settings and accidently manipulating them. This eliminates a whole set of configuration settings which are tough to manage and maintain.
+
+### What is the default consistency of the Apache Cassandra API account?
+Azure Cosmos DB supports 5 consistency levels out of the box, as described in [Tunable data consistency levels in Azure Cosmos DB](consistency-levels.md). The Apache Cassandra API supports session when an account is created. 
+
+### Is time to live (TTL) supported for Cassandra tables? 
+Yes, TTL is supported for for table. 
+
+### What is the default throughput of a table when created through CQL? What If I need to change it?
+Azure Cosmos DB uses request units per second (RU/s) as a currency for providing throughput. Tables created through CQL have 400 RU/s by default. You can change the throughput of a table in the Azure portal, and scale up to 10,000 RU. If you need more than 10,000 RU/s during preview, create your table by using the Azure portal. Or if you need this capability for CQL, please connect with us at [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com). 
+
+### I used to monitor node status, replica status, gc, OS parameters with various tools. What do I need to monitor now?
+Azure Cosmos DB is a platform service that helps you increase productivity and not worry about managing and monitoring infrastructure. The metric you want to monitor is throughput, which is available on the Throughput tab of the Azure Cosmos DB Metrics page in the Azure portal. These charts indicate whether you are getting throttled and need to increase or decrease the throughput. For more information, see [Monitor Azure Cosmos DB](monitor-accounts.md) and [Monitoring and debugging with metrics in Azure Cosmos DB](use-metrics.md).
+
+### Which client SDKs can work with Apache Cassandra API of Azure Cosmos DB?
+The Apache Cassandra API has been tested with the C#, Java, Python, and Node Apache Cassandra drivers. If you have other drivers that you use and need assistance, please email us at [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
+
+### How do I get RU capacity planning for the Apache Cassandra API?
+Azure Cosmos DB provides a [capacity planner](https://www.documentdb.com/capacityplanner). You provide a json representation of the entity and the planner get the RUs required for point read/writes. For queries and other operations, existing drivers return the metadata that has the RU consumption information. You can utilize that information for accurate planning. 
+
+### Is composite primary key supported?
+Yes, you can use regular syntax to create a composite partition key. 
 
 <a id="moving-to-cosmos-db"></a>
 ## Questions from DocumentDB customers
