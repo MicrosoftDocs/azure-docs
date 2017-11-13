@@ -60,10 +60,17 @@ Now let's clone a Cassandra API app from github, set the connection string, and 
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `pyquickstart.py` file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-* User name and password  is set using the connection string page in the Azure portal.  
+* User name and password  is set using the connection string page in the Azure portal. Replace the path\to\cert
 
    ```python
-   auth_provider = PlainTextAuthProvider(username=cfg.config['username'], password=cfg.config['password'])
+   	ssl_options = {
+                  'ca_certs': 'path\to\cert',
+                  'ssl_version': ssl.PROTOCOL_TLSv1_2
+        }
+    	auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
+    	cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_options)
+	session = cluster.connect()
+   
    ```
 
 * The `cluster` is initialized with contactPoint information. The contactPoint is retrieved from the Azure portal.
