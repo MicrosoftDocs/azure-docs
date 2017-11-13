@@ -1,6 +1,6 @@
 ---
 
-title: Web Applications for FedRAMP - System and Services Acquisition
+title: FedRAMP Azure Blueprint Automation - System and Services Acquisition
 description: Web Applications for FedRAMP - System and Services Acquisition
 services: security
 documentationcenter: na

@@ -1,6 +1,6 @@
 ﻿---
 
-title: CHD requirements for PCI DSS-compliant environments
+title: Azure Payment Processing Blueprint - CHD requirements
 description: PCI DSS Requirement 3
 services: security
 documentationcenter: na
@@ -18,6 +18,7 @@ ms.date: 10/15/2017
 ms.author: frasim
 
 ---
+
 # CHD requirements for PCI DSS-compliant environments
 ## PCI DSS Requirement 3
 
@@ -49,8 +50,8 @@ Please refer to the PCI DSS and PA-DSS Glossary of Terms, Abbreviations, and Acr
 ## PCI DSS Requirement 3.2
 
 **3.2** Do not store sensitive authentication data after authorization (even if encrypted). If sensitive authentication data is received, render all data unrecoverable upon completion of the authorization process. 
-> - There is a business justification, and 
-> - The data is stored securely.
+- There is a business justification, and 
+- The data is stored securely.
 Sensitive authentication data includes the data as cited in the following Requirements 3.2.1 through 3.2.3:
 
 

@@ -1,7 +1,7 @@
 ---
 
 title: Payment Processing Blueprint for PCI DSS-compliant environments
-description: PCI DSS Requirement 1
+description: PCI DSS Requirement
 services: security
 documentationcenter: na
 author: simorjay

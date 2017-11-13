@@ -1,6 +1,6 @@
 ---
 
-title: Web Applications for FedRAMP - System and Communications Protection 
+title: FedRAMP Azure Blueprint Automation - System and Communications Protection 
 description: Web Applications for FedRAMP - System and Communications Protection 
 services: security
 documentationcenter: na

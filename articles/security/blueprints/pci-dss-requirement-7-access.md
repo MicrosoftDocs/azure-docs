@@ -1,6 +1,6 @@
 ﻿---
 
-title: Access requirements for PCI DSS-compliant environments
+title: Azure Payment Processing Blueprint - Access requirements
 description: PCI DSS Requirement 7
 services: security
 documentationcenter: na

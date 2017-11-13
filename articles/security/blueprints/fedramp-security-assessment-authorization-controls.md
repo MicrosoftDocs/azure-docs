@@ -1,6 +1,6 @@
 ---
 
-title: Web Applications for FedRAMP - Security Assessment and Authorization 
+title: FedRAMP Azure Blueprint Automation -- Security Assessment and Authorization 
 description: Web Applications for FedRAMP - Security Assessment and Authorization 
 services: security
 documentationcenter: na

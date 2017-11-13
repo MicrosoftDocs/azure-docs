@@ -1,7 +1,7 @@
 ---
 
-title: PCI DSS requirements - high-level overview
-description: PCI DSS customer responsibility matrix (overview)
+title: Azure Payment Processing Blueprint - High-level overview
+description: Azure Payment Processing Blueprint - customer responsibility matrix (overview)
 services: security
 documentationcenter: na
 author: simorjay

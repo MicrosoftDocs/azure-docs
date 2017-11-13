@@ -1,6 +1,6 @@
 ﻿---
 
-title: Testing requirements for PCI DSS-compliant environments 
+title: Azure Payment Processing Blueprint - Testing requirements 
 description: PCI DSS Requirement 11
 services: security
 documentationcenter: na

@@ -1,6 +1,6 @@
 ﻿---
 
-title: Identity requirements for PCI DSS-compliant environments
+title: Azure Payment Processing Blueprint - Identity requirements
 description: PCI DSS Requirement 8
 services: security
 documentationcenter: na

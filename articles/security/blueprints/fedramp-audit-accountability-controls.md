@@ -1,6 +1,6 @@
 ---
 
-title: Web Applications for FedRAMP - Audit and Accountability 
+title: FedRAMP Azure Blueprint Automation - Audit and Accountability 
 description: Web Applications for FedRAMP - Audit and Accountability 
 services: security
 documentationcenter: na

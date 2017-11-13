@@ -1,6 +1,6 @@
 ﻿---
 
-title: Secure system requirements for PCI DSS-compliant environments
+title: Azure Payment Processing Blueprint - Secure system requirements
 description: PCI DSS Requirement 6
 services: security
 documentationcenter: na

@@ -1,6 +1,6 @@
 ---
 
-title: Web Applications for FedRAMP - Maintenance
+title: FedRAMP Azure Blueprint Automation - Maintenance
 description: Web Applications for FedRAMP - Maintenance
 services: security
 documentationcenter: na

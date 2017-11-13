@@ -1,6 +1,6 @@
 ﻿---
 
-title: Password requirements for PCI DSS-compliant environments
+title: Azure Payment Processing Blueprint - Password requirements
 description: PCI DSS Requirement 2
 services: security
 documentationcenter: na

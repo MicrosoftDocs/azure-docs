@@ -1,6 +1,6 @@
 ---
 
-title: Web Applications for FedRAMP - Planning
+title: FedRAMP Azure Blueprint Automation - Planning
 description: Web Applications for FedRAMP - Planning
 services: security
 documentationcenter: na

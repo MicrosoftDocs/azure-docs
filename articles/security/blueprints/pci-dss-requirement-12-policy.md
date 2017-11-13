@@ -1,6 +1,6 @@
 ﻿---
 
-title: Policy requirements for PCI DSS-Compliant Environments
+title: Azure Payment Processing Blueprint - Policy requirements
 description: PCI DSS Requirement 12
 services: security
 documentationcenter: na

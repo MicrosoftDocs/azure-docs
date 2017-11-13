@@ -1,6 +1,6 @@
 ﻿---
 
-title: Monitoring requirements for PCI DSS-compliant environments
+title: Azure Payment Processing Blueprint - Monitoring requirements
 description: PCI DSS Requirement 10
 services: security
 documentationcenter: na

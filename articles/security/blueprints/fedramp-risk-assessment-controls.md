@@ -1,6 +1,6 @@
 ---
 
-title: Web Applications for FedRAMP - Risk Assessment
+title: FedRAMP Azure Blueprint Automation - Risk Assessment
 description: Web Applications for FedRAMP - Risk Assessment
 services: security
 documentationcenter: na

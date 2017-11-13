@@ -1,6 +1,6 @@
 ---
 
-title: Web Applications for FedRAMP - Awareness and Training 
+title: FedRAMP Azure Blueprint Automation - Awareness and Training 
 description: Web Applications for FedRAMP - Awareness and Training 
 services: security
 documentationcenter: na

@@ -1,6 +1,6 @@
 ---
 
-title: Web Applications for FedRAMP - Configuration Management
+title: FedRAMP Azure Blueprint Automation - Configuration Management
 description: Web Applications for FedRAMP - Configuration Management
 services: security
 documentationcenter: na

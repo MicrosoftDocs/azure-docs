@@ -1,6 +1,6 @@
 ﻿---
 
-title: Physical access requirements for PCI DSS-compliant environments
+title: Azure Payment Processing Blueprint - Physical access requirements
 description: PCI DSS Requirement 9
 services: security
 documentationcenter: na

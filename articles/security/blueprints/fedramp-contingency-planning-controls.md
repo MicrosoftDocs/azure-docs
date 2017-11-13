@@ -1,6 +1,6 @@
 ---
 
-title: Web Applications for FedRAMP - Contingency Planning 
+title: FedRAMP Azure Blueprint Automation - Contingency Planning 
 description: Web Applications for FedRAMP - Contingency Planning 
 services: security
 documentationcenter: na

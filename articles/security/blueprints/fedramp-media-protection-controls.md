@@ -1,6 +1,6 @@
 ---
 
-title: Web Applications for FedRAMP - Media Protection
+title: FedRAMP Azure Blueprint Automation - Media Protection
 description: Web Applications for FedRAMP - Media Protection
 services: security
 documentationcenter: na

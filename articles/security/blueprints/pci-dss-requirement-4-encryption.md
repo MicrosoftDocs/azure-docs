@@ -1,6 +1,6 @@
 ﻿---
 
-title: Encryption requirements for PCI DSS-compliant environments
+title: Azure Payment Processing Blueprint - Encryption requirements
 description: PCI DSS Requirement 4
 services: security
 documentationcenter: na

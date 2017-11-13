@@ -1,6 +1,6 @@
 ---
 
-title: Web Applications for FedRAMP - Identification and Authentication
+title: FedRAMP Azure Blueprint Automation - Identification and Authentication
 description: Web Applications for FedRAMP - Identification and Authentication
 services: security
 documentationcenter: na
