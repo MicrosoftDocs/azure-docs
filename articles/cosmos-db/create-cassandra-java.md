@@ -66,10 +66,10 @@ Now let's switch to working with code. Let's clone a Cassandra app from GitHub, 
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). These snippets are all taken from the src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.  
 
-* Cassandra host, port, user name, and password are set using the connection string page in the Azure portal.
+* Cassandra host, port, user name, password, and SSL options are set. The connection string information comes from the connection string page in the Azure portal.
 
    ```java
-   this.cluster = Cluster.builder().addContactPoint(host).withPort(port).withCredentials(username, password).build();
+   cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
    ```
 
 * The `cluster` connects to the Azure Cosmos DB Cassandra API and returns a session to access.
@@ -168,7 +168,19 @@ Now go back to the Azure portal to get your connection string information and co
 
     `cassandra_password=2Ggkr662ifxz2Mg...==`
 
-5. Save the config.properties file.
+5. On line 6, if you want to use a specific SSL certificate, then replace `<SSL key store file location>` with the location of the SSL certificate. If a value is not provided, the JDK certificate installed at <JAVA_HOME>/jre/lib/security/cacerts is used. 
+
+6. On line 7, replace `<SSL key store password>` with the SSL keyword. 
+
+7. Save the config.properties file.
+
+## Create the X509 certificate
+
+1. Create an X509 certificate and save it locally.
+
+2. Open pyquickstart.py and change the 'path\to\cert' to point to your X509 certificate.
+
+3. Save pyquickstart.py.
 
 ## Run the app
 
