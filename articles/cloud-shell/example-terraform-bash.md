@@ -1,5 +1,5 @@
 ---
-title: Deploy with Terraform in Cloud Shell | Microsoft Docs
+title: Deploy with Terraform with Bash in Azure Cloud Shell | Microsoft Docs
 description: Deploy Azure resources with Terraform in Bash
 services: Azure
 documentationcenter: ''
@@ -12,9 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/6/2017
+ms.date: 11/13/2017
 ms.author: juluk
 ---
+
+# About Terraform
 This article walks you through creating a resource group with the [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
 [Hashicorp Terraform](https://www.terraform.io/) is an open source tool that codifies APIs into declarative configuration files that can be shared amongst team members, treated as code, edited, reviewed, and versioned. The Microsoft AzureRM provider is used to interact with the many resources supported by Azure Resource Manager via the AzureRM APIs. 
@@ -28,8 +30,8 @@ Terraform uses the default Azure CLI 2.0 subscription that is set. To update def
 az account set --subscription mySubscriptionName
 ```
 
-# Walkthrough
-## Create the template
+## Walkthrough
+### Create the template
 Create a new Terraform template named main.tf
 1. Create a new main.tf file
 ```azurecli-interactive
@@ -44,7 +46,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 ```
 4. Save your file
 
-## Terraform init
+### Terraform init
 Begin by running `terraform init`.
 
 ```
@@ -75,7 +77,7 @@ commands will detect it and remind you to do so if necessary.
 
 The [terraform init command](https://www.terraform.io/docs/commands/init.html) is used to initialize a working directory containing Terraform configuration files. The `terraform init` command is the first command that should be run after writing a new Terraform configuration or cloning an existing one from version control. It is safe to run this command multiple times.
 
-## Terraform plan
+### Terraform plan
 Preview the resources to be created by the Terraform template with `terraform plan`.
 
 ```
@@ -111,7 +113,7 @@ can't guarantee that exactly these actions will be performed if
 
 The [terraform plan command](https://www.terraform.io/docs/commands/plan.html) is used to create an execution plan. Terraform performs a refresh, unless explicitly disabled, and then determines what actions are necessary to achieve the desired state specified in the configuration files. The plan can be saved using -out, and then provided to terraform apply to ensure only the pre-planned actions are executed.
 
-## Terraform apply
+### Terraform apply
 Provision the Azure resources with `terraform apply`.
 
 ```
@@ -127,10 +129,10 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 The [terraform apply command](https://www.terraform.io/docs/commands/apply.html) is used to apply the changes required to reach the desired state of the configuration.
 
-## Verify deployment with Azure CLI 2.0
+### Verify deployment with Azure CLI 2.0
 Run `az group show -n myRgName` to verify the resource has succeeded provisioning.
 
-## Clean up with terraform destroy
+### Clean up with terraform destroy
 Clean up the resource group created with the [Terraform destroy command](https://www.terraform.io/docs/commands/destroy.html) to cleanup Terraform-created infrastructure.
 
 ```
@@ -164,8 +166,8 @@ azurerm_resource_group.demo: Destruction complete after 45s
 Destroy complete! Resources: 1 destroyed.
 ```
 
-You have successfully created an Azure resource through Terraform! Visit next steps to continue learning about Cloud Shell!
+You have successfully created an Azure resource through Terraform. Visit next steps to continue learning about Cloud Shell.
 
-## Next Steps
+## Next steps
 [Learn about the Terraform Azure provider](https://www.terraform.io/docs/providers/azurerm/#)<br>
 [Bash in Cloud Shell quickstart](quickstart.md)
