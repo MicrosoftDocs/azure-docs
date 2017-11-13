@@ -28,15 +28,11 @@ Open your web browser, and navigate to the [Microsoft Azure portal](https://port
 
     ![Create migration service](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
 
-1. Choose a **Service name** that is memorable and unique to identify your Azure Database Migration Service Instance.
-
-1. Select your Azure **Subscription** in which you want to create the Database Migration Service.
-
-1. Create a new **Network** with a unique name.
-
-1. Choose the **Location** that is closest to your source or target server.
-
-1. Select Basic: 1 vCore for the **Pricing tier**.
+    - Choose a **Service name** that is memorable and unique to identify your Azure Database Migration Service Instance.
+    - Select your Azure **Subscription** in which you want to create the Database Migration Service.
+    - Create a new **Network** with a unique name.
+    - Choose the **Location** that is closest to your source or target server.
+    - Select Basic: 1 vCore for the **Pricing tier**.
 
 1. Click **Create**.
 
