@@ -253,7 +253,7 @@ az network public-ip show \
     --output tsv
 ```
 
-You can then enter the public IP address in to a web browser. Remember - it takes a few minutes the the VMs to be ready before the load balancer starts to distribute traffic to them. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
+You can then enter the public IP address in to a web browser. Remember - it takes a few minutes for the VMs to be ready before the load balancer starts to distribute traffic to them. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to as in the following example:
 
 ![Running Node.js app](./media/tutorial-load-balancer/running-nodejs-app.png)
 
