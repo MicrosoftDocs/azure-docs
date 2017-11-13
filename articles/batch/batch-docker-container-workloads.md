@@ -9,7 +9,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/02/2017
+ms.date: 11/13/2017
 ms.author: v-dotren
 
 ---
@@ -62,7 +62,6 @@ To access the Azure RDMA network, use VMs of the following sizes: A8, A9, H16r, 
 
 * Batch provides RDMA and MPI support only for containers running on Linux pools.
 
-* Batch currently does not support Windows images with Windows Hyper-V containers.
 
 
 ## Authenticate using Azure Active Directory
@@ -106,13 +105,13 @@ The Batch pool is the collection of compute nodes on which Batch executes tasks 
 
 There are several options for pool creation. You can create a pool with or without prefetched container images. 
 
-The pull (or prefetch) process lets you pre-load container images either from Docker Hub or another container registry on the Internet. The advantage of prefetching container images is that when tasks first start running they don't have to wait for the container image to download. The container configuration copies container images to the VMs when the pool is created. Tasks that run on the pool can then reference the list of container images and container run options.
+The pull (or prefetch) process lets you pre-load container images either from Docker Hub or another container registry on the Internet. The advantage of prefetching container images is that when tasks first start running they don't have to wait for the container image to download. The container configuration pulls container images to the VMs when the pool is created. Tasks that run on the pool can then reference the list of container images and container run options.
 
 
 
 ### Pool without prefetched container images
 
-To configure the pool without prefetched container images, use a `ContainerConfiguration` as shown in the following example. This example assumes that you are using a custom Ubuntu 16.04 LTS image with Docker Engine installed.
+To configure the pool without prefetched container images, use a `ContainerConfiguration` as shown in the following example. This and the following examples assume that you are using a custom Ubuntu 16.04 LTS image with Docker Engine installed. To support GPU container workloads in these examples, the custom image should have the NVIDIA drivers and NVIDIA Docker installed, and the pool uses an NC-series VM size.
 
 ```csharp
 // Specify container configuration
@@ -128,8 +127,8 @@ VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConf
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 20,
-    virtualMachineSize: "Standard_D3_v2",
+    targetDedicatedComputeNodes: 4,
+    virtualMachineSize: "Standard_NC6",
     virtualMachineConfiguration: virtualMachineConfiguration);
 
 // Commit pool creation
@@ -138,13 +137,13 @@ pool.Commit();
 
 ### Prefetch images for container configuration
 
-To prefetch container images on the pool, add the list of container images (`containerImageNames`) to the container configuration, and give the image list a name. The following example assumes that you are using a custom Ubuntu 16.04 LTS image, prefetch a TensorFlow image from the [Google container registry](https://cloud.google.com/container-registry/), and start TensorFlow in a start task.
+To prefetch container images on the pool, add the list of container images (`containerImageNames`) to the container configuration, and give the image list a name. The following example assumes that you are using a custom Ubuntu 16.04 LTS image, prefetch a TensorFlow image from [Docker Hub](https://hub.docker.com), and start TensorFlow in a start task.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
     type: "Docker",
-    containerImageNames: new List<string> { "gcr.io/tensorflow/tensorflow:latest-gpu" } );
+    containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
@@ -157,7 +156,7 @@ StartTask startTaskNative = new StartTask( CommandLine: "<native-host-command-li
 
 // Define container settings
 TaskContainerSettings startTaskContainerSettings = new TaskContainerSettings (
-    imageName: "gcr.io/tensorflow/tensorflow:latest-gpu");
+    imageName: "tensorflow/tensorflow:latest-gpu");
 StartTask startTaskContainer = new StartTask(
     CommandLine: "<docker-image-command-line>",
     TaskContainerSettings: startTaskContainerSettings);
@@ -165,41 +164,29 @@ StartTask startTaskContainer = new StartTask(
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 20,
-    virtualMachineSize: "Standard_H16r",
+    targetDedicatedComputeNodes: 4,
+    virtualMachineSize: "Standard_NC6",
     virtualMachineConfiguration: virtualMachineConfiguration, startTaskContainer);
 
 // Commit pool creation
 pool.Commit();
 ```
 
-Alternatively, if you wanted to use an image from an Azure container registry, you could prefetch the Microsoft Azure CLI Docker Image from the [Docker Hub](https://hub.docker.com/r/microsoft/azure-cli/) registry, and define the container settings as follows:
-
-```csharp
-// Define container settings
-TaskContainerSettings startTaskContainerSettings = new TaskContainerSettings (
-    imageName: "microsoft/cntk:2.1-gpu-python3.5-cuda8.0-cudnn6.0");
-StartTask startTaskContainer = new StartTask(
-    CommandLine: "<docker-image-command-line>",
-    TaskContainerSettings: startTaskContainerSettings);
-```
-
-
 ### Prefetch images from a private container registry
 
-You can also prefetch container images by authenticating to a private container registry server. The following example assumes that you are using a custom Ubuntu 16.04 LTS image and are prefetching a private TensorFlow image from a private Azure container registry. Because the example TensorFlow image is the GPU version, the custom image should have the NVIDIA driver installed, and it should use NC instead of H16R SKU for RDMA (the standard Ubuntu image might not support RDMA).
+You can also prefetch container images by authenticating to a private container registry server. The following example assumes that you are using a custom Ubuntu 16.04 LTS image and are prefetching a private TensorFlow image from a private Azure container registry. 
 
 ```csharp
 // Specify a container registry
 ContainerRegistry containerRegistry = new ContainerRegistry (
-	registryServer: <myContainerRegistry>.azurecr.io,
-    username: <myUserName>, password: myPassword);
+	registryServer: "myContainerRegistry.azurecr.io",
+    username: "myUserName", password: "myPassword");
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration(
     type: "Docker",
     containerImageNames: new List<string> {
-        "<myContainerRegistry>.azurecr.io/tensorflow/tensorflow:latest-gpu" },
+        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
     containerRegistries: new List<ContainerRegistry> { containerRegistry } );
 
 // VM configuration
@@ -210,7 +197,9 @@ VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConf
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
-    poolId: poolId, targetDedicatedComputeNodes: 20, virtualMachineSize: "Standard_D3_v2",
+    poolId: poolId, 
+    targetDedicatedComputeNodes: 4, 
+    virtualMachineSize: "Standard_NC6",
     virtualMachineConfiguration: virtualMachineConfiguration);
 
 // Commit pool creation
@@ -224,11 +213,11 @@ When you set up tasks to run on the compute nodes, you must specify container-sp
 
 Use the ContainerSettings property of the task classes to configure container-specific settings. These settings are defined by the [TaskContainerSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskcontainersettings) class.
 
-If you run tasks on container images, the [cloud task](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) and [job manager task](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) require container settings. However, the [start task](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.starttask), [job preparation task]((https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask)), and [job release task]((https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)) do not require container settings (that is, they can run within a container context or directly on the node).
+If you run tasks on container images, the [cloud task](/dotnet/api/microsoft.azure.batch.cloudtask) and [job manager task](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) require container settings. However, the [start task](https:///dotnet/api/microsoft.azure.batch.starttask), [job preparation task](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), and [job release task](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) do not require container settings (that is, they can run within a container context or directly on the node).
 
 When you configure the container settings, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
 
-The code example in [Prefetch images for container configuration](#prefetch-images-for-container-configuration) shows how you specify a container configuration for a cloud task and start task. The following code example shows how you specify container configuration for a cloud task:
+The code example in [Prefetch images for container configuration](#prefetch-images-for-container-configuration) shows how you specify a container configuration for a start task. The following code example shows how you specify a container configuration for a cloud task:
 
 ```csharp
 // Simple task command
@@ -236,7 +225,7 @@ The code example in [Prefetch images for container configuration](#prefetch-imag
 string cmdLine = "<my-command-line>";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
-    imageName: "gcr.io/tensorflow/tensorflow:latest-gpu",
+    imageName: "tensorflow/tensorflow:latest-gpu",
     containerRunOptions: "-rm -read-only"
     );
 
