@@ -62,7 +62,8 @@ In this section, you perform the steps to:
 To quickly perform these steps, see the following cmdlets:
 
 ```powershell
-$app = New-AzureRmADApplication -DisplayName "{app-name}" -HomePage "https://{your-domain}/{app-name}" -IdentifierUris "https://{your-domain}/{app-name}" -Password "{your-password}"
+$password = convertto-securestring "{provide-password}" -asplaintext -force
+$app = New-AzureRmADApplication -DisplayName "{app-name}" -HomePage "https://{your-domain}/{app-name}" -IdentifierUris "https://{your-domain}/{app-name}" -Password $password
 New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 Start-Sleep 15
 New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId
