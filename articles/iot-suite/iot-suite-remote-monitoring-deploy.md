@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 08/09/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -45,7 +45,7 @@ Before you deploy the preconfigured solution to your Azure subscription, you mus
 
 1. On the **Create Remote Monitoring solution** page, enter a **Solution name** for your remote monitoring preconfigured solution.
 
-1. Select a **Basic** or **Standard** deployment. If you are deplying the solution to learn how it works or to run a demonstration, choose the **Basic** option to minimize costs.
+1. Select a **Basic** or **Standard** deployment. If you are deploying the solution to learn how it works or to run a demonstration, choose the **Basic** option to minimize costs.
 
 1. Choose either **Java** or **.NET** as the language. All the microservices are available as either Java or .NET implementations.
 
