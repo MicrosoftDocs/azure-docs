@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
 
@@ -33,7 +33,7 @@ An existing Azure File share can be used with Azure Container Service. If you ne
 Create a resource group for the Azure File share using the [az group create][az-group-create] command. The resource group of the storage account and the Kubernetes cluster must be located in the same region.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 Use the [az storage account create][az-storage-create] command to create an Azure Storage account. The storage account name must be unique. Update the value of the `--name` argument with a unique value.
