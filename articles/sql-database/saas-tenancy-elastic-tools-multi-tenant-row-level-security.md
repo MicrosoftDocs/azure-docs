@@ -19,7 +19,7 @@ ms.author: thmullan;torsteng
 
 ---
 # Multi-tenant applications with elastic database tools and row-level security
-[Elastic database tools](sql-database-elastic-scale-get-started.md) and [row-level security (RLS)](https://msdn.microsoft.com/library/dn765131) offer a powerful set of capabilities for flexibly and efficiently scaling the data tier of a multi-tenant application with Azure SQL Database. For more information, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) for more information. 
+[Elastic database tools](sql-database-elastic-scale-get-started.md) and [row-level security (RLS)](https://msdn.microsoft.com/library/dn765131) offer a powerful set of capabilities for flexibly and efficiently scaling the data tier of a multi-tenant application with Azure SQL Database. For more information, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md) for more information. 
 
 This article illustrates how to use these technologies together to build an application with a highly scalable data tier that supports multi-tenant shards, using **ADO.NET SqlClient** and/or **Entity Framework**.  
 
@@ -303,7 +303,7 @@ Elastic database tools and row-level security can be used together to scale out 
 ## Additional resources
 * [What is an Azure elastic pool?](sql-database-elastic-pool.md)
 * [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md)
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](saas-tenancy-app-design-patterns.md)
 * [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 * [Tailspin Surveys application](../guidance/guidance-multitenant-identity-tailspin.md)
 
@@ -311,7 +311,7 @@ Elastic database tools and row-level security can be used together to scale out 
 For questions, reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
+[1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
 
