@@ -194,14 +194,6 @@ After the new sync group members are created and deployed, Step 3, **Configure s
 ### How frequently can Data Sync synchronize my data? 
 The minimum frequency is every five minutes.
 
-### Why do I see tables that I did not create?  
-Data Sync creates side tables in your database for change tracking. Don't delete them or Data Sync stops working.
-
-### How can I export and import a database with Data Sync?
-After you export a database as a `.bacpac` file and import the file to create a new database, you have to do the following two things to use Data Sync in the new database:
-1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). This script deletes all of the required Data Sync objects from the database.
-2.  Recreate the sync group with the new database. If you no longer need the old sync group, delete it.
-
 ### Does SQL Data Sync fully create and provision tables?
 
 If the sync schema tables are not already created in the destination database, SQL Data Sync (Preview) creates them with the columns that you selected. However, this behavior does not result in a full fidelity schema, for the following reasons:
@@ -223,6 +215,9 @@ Because of these limitations, we recommend the following things:
 -   For production environments, provision the full-fidelity schema yourself.
 -   For trying out the service, the auto-provisioning feature of SQL Data Sync (Preview) works well.
 
+### Why do I see tables that I did not create?  
+Data Sync creates side tables in your database for change tracking. Don't delete them or Data Sync stops working.
+
 ### Is my data convergent after a sync?
 
 Not necessarily. In a sync group with a hub and three spokes (A, B, and C), the synchronizations are Hub to A, Hub to B, and Hub to C. If a change is made to database A *after* the Hub to A sync, that change is not written to either database B or database C until the next sync task.
@@ -230,6 +225,11 @@ Not necessarily. In a sync group with a hub and three spokes (A, B, and C), the 
 ### How do I get schema changes into a sync group?
 
 You have to perform schema changes manually.
+
+### How can I export and import a database with Data Sync?
+After you export a database as a `.bacpac` file and import the file to create a new database, you have to do the following two things to use Data Sync in the new database:
+1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). This script deletes all of the required Data Sync objects from the database.
+2.  Recreate the sync group with the new database. If you no longer need the old sync group, delete it.
 
 ## FAQ about the Client Agent
 
