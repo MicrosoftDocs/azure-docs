@@ -95,7 +95,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  What parts of the password reset experience get branded when I set the organizational branding items in my directory’s configure tab?**
 
-  > **A:** The password reset portal shows your organizationas logo and allows you to configure the **Contact your administrator** link to point to a custom email or URL. Any email that's sent by password reset includes your organization’s logo, colors, and name in the body of the email, and is customized from the settings for that particular name.
+  > **A:** The password reset portal shows your organization's logo and allows you to configure the **Contact your administrator** link to point to a custom email or URL. Any email that's sent by password reset includes your organization’s logo, colors, and name in the body of the email, and is customized from the settings for that particular name.
   >
   >
 * **Q:  How can I educate my users about where to go to reset their passwords?**
