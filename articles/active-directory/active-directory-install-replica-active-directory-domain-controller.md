@@ -31,8 +31,8 @@ In this scenario, external users need to access applications that run on domain-
 The application servers and the DCs are deployed within separate cloud services to distribute compute processing and within availability sets for improved fault tolerance.
 The DCs replicate with each other and with on-premises DCs by using Active Directory replication. No synchronization tools are needed.
 
-## Create an Active Directory site for the Azure virtual network
-It’s a good idea to create a site in Active Directory that represents the network region corresponding to the virtual network. That helps optimize authentication, replication, and other DC location operations. The following steps explain how to create a site, and for more background, see [Adding a New Site](https://technet.microsoft.com/library/cc781496.aspx).
+## Create an on-premises Active Directory site for the Azure virtual network
+You can create a site in Active Directory that represents the network region corresponding to the virtual network. This site can help optimize authentication, replication, and other DC location operations. The following steps explain how to create a site, and for more background, see [Adding a New Site](https://technet.microsoft.com/library/cc781496.aspx).
 
 1. Open Active Directory Sites and Services: **Server Manager** > **Tools** > **Active Directory Sites and Services**.
 2. Create a site to represent the region where you created an Azure virtual network: click **Sites** > **Action** > **New site** > type the name of the new site, such as Azure US West > select a site link > **OK**.
@@ -40,6 +40,8 @@ It’s a good idea to create a site in Active Directory that represents the netw
 
 ## Create an Azure virtual network
 To create an Azure virtual network and set up site-to-site VPN, follow the steps included in the article [Create a Site-to-Site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md). 
+
+You can also configure the virtual network gateway to create a secure site-to-site VPN connection. Create the site-to-site VPN connection between the new virtual network and an on-premises VPN device. For instructions, see [Configure a Virtual Network Gateway](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Create Azure VMs for the DC roles
 To create VMs to host the DC role, repeat the steps in [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md) as needed. Deploy at least two virtual DCs to provide fault tolerance and redundancy. If the Azure virtual network has at least two DCs that are similarly configured, you can place the VMs that run those DCs in an availability set for improved fault tolerance.
