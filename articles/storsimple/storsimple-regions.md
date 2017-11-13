@@ -23,7 +23,13 @@ ms.author: alkohli
 
 The Azure datacenters operate in multiple geographies around the world to meet customer's demands of performance, requirements, and preferences regarding data location. An Azure geography is a defined area of the world that contains at least one Azure Region. An Azure region is an area within a geography, containing one or more datacenters.
 
-Choosing an Azure region is very important and the choice of region is influenced by factors such as data residency and sovereignty, service availability, performance, cost, and redundancy. For more information on how to choose a region, go to [Which Azure region is right for me?](https://azure.microsoft.com/overview/datacenters/how-to-choose/) For StorSimple solution, the choice of region is specifically determined by the regions where the service is available, the countries where the phsyical device is available, and where the storage accounts that store StorSimple data should be located for optimum performance.
+Choosing an Azure region is very important and the choice of region is influenced by factors such as data residency and sovereignty, service availability, performance, cost, and redundancy. For more information on how to choose a region, go to [Which Azure region is right for me?](https://azure.microsoft.com/overview/datacenters/how-to-choose/)
+
+For StorSimple solution, the choice of region is specifically determined by the following factors:
+
+- Regions where the StorSimple Device Manager service is available.
+- The countries where the StorSimple physical, cloud, or virtual device is available.
+- The regions where the storage accounts that store StorSimple data should be located for optimum performance.
 
 This tutorial describes the region availability for the StorSimple Device Manager service, the on-premises physical and the cloud devices. The information contained in this article is applicable to StorSimple 8000 and 1200 series devices.
 
