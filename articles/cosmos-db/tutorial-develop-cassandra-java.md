@@ -29,9 +29,10 @@ This tutorial covers the following tasks by using the Cassandra API:
 
 > [!div class="checklist"]
 > * Create an Azure Cosmos DB account
-> * Create a keyspace and Table with a primary key
+> * Create a keyspace and table with a primary key
 > * Insert data
 > * Query data
+> * Review SLAs
 
 ## Prerequisites
 
@@ -221,9 +222,10 @@ In this quickstart, you've learned how to do the following:
 
 > [!div class="checklist"]
 > * Create an Azure Cosmos DB account
-> * Create a keyspace and Table with a primary key
+> * Create a keyspace and table with a primary key
 > * Insert data
 > * Query data
+> * Reivew SLAs
 
 You can now import additional data into your Azure Cosmos DB collection. 
 
