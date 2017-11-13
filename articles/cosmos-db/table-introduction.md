@@ -47,7 +47,7 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 | Query | Query execution uses index for primary key, and scans otherwise. | Queries can take advantage of automatic indexing on properties for fast query times. The Azure Cosmos DB database engine is capable of supporting aggregates, geospatial, and sorting. |
 | Consistency | Strong within primary region. Eventual within secondary region. | [Five well-defined consistency levels](consistency-levels.md) to trade off availability, latency, throughput, and consistency based on your application needs. |
 | Pricing | Storage-optimized. | Throughput-optimized. |
-| SLAs | 99.99% availability. | 99.99% availability within a single region, and 99.999% read availability for database accounts spanning two or more Azure regions. [Industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) on general availability. |
+| SLAs | 99.99% availability. | 99.99% availability SLA for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts [Industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) on general availability. |
 
 ## Get started
 
