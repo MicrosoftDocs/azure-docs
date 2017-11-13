@@ -185,6 +185,7 @@ The following table summarizes the differences between the main tenancy models.
 
 - [Deploy and explore a multi-tenant Wingtip application that uses the database-per-tenant SaaS model - Azure SQL Database][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 
+- [Welcome to the Wingtip Tickets sample SaaS Azure SQL Database tenancy app][docu-saas-tenancy-welcome-wingtip-tickets-app-384w]
 
 
 <!--  Article link references.  -->
@@ -196,6 +197,7 @@ The following table summarizes the differences between the main tenancy models.
 [docu-elastic-db-client-library-536r]: sql-database-elastic-database-client-library.md
 [docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]: sql-database-saas-tutorial.md
 [docu-sql-db-automatic-tuning-771a]: sql-database-automatic-tuning.md
+[docu-saas-tenancy-welcome-wingtip-tickets-app-384w]: saas-tenancy-welcome-wingtip-tickets-app.md
 
 
 <!--  Image references.  -->
