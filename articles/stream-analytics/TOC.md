@@ -1,7 +1,6 @@
 # Overview
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
 ## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
-## [Stream Analytics on IoT Edge (preview)](stream-analytics-edge.md)
 
 # Get started
 ## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
@@ -14,6 +13,7 @@
 ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Stream Analytics on IoT Edge (preview)](stream-analytics-edge.md)
 
 ## Create jobs
 ### [Create inputs](stream-analytics-define-inputs.md)
