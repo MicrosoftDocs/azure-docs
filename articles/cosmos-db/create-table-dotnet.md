@@ -40,7 +40,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Add sample data
 
-You can now add data to your new table using Data Explorer (Preview).
+You can now add data to your new table using Data Explorer.
 
 1. In Data Explorer, expand **sample-table**, click **Entities**, and then click **Add Entity**.
 
@@ -94,7 +94,6 @@ Let's make a quick review of what's happening in the app. Open the Program.cs fi
    TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
    table.Execute(retrieveOperation);
    ```
-   
    
    ```csharp
    TableOperation deleteOperation = TableOperation.Delete(items[i]);

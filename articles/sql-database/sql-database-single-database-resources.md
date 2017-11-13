@@ -13,7 +13,7 @@ ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.date: 10/11/2017
 ms.author: carlrab
 
@@ -98,7 +98,7 @@ To set or change Azure SQL databases service tiers, performance levels, and stor
 |[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
 |[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Returns a list of databases inside a recommented elastic pool.|
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
-|[Databases - Update]((/rest/api/sql/databases/update)|Updates an existing database.|
+|[Databases - Update](/rest/api/sql/databases/update)|Updates an existing database.|
 
 
 

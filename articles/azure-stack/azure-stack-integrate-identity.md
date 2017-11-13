@@ -19,7 +19,7 @@ Azure Stack can be deployed using Azure Active Directory (Azure AD) or Active Di
 The following table shows the differences between the two identity choices:
 
 
-||Physically diconnected|Physically connected|
+||Physically disconnected|Physically connected|
 |---------|---------|---------|
 |Billing|Must be Capacity<br> Enterprise Agreement (EA) only|Capacity or Pay-as-you-use<br>EA or Cloud Solution Provider (CSP)|
 |Identity|Must be AD FS|Azure AD or AD FS|

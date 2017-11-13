@@ -45,7 +45,7 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    This steps downloads the file `Vagrantfile` containing the VM configuration along with the location the VM is downloaded from.  The file points to a stock Ubuntu image.
+    This steps bring downs the file `Vagrantfile` containing the VM configuration along with the location the VM is downloaded from.  The file points to a stock Ubuntu image.
 
 2. Navigate to the local clone of the repo
 
@@ -93,7 +93,7 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
 
     ![Service Fabric Explorer viewed from the host Mac][sfx-mac]
 
-## Install the necessary Java artifacts on Vagrant to use Service Fabric Java programming model
+## Install the necessary Java artifacts on Vagrant (optional, if you want to use the Java programming models)
 
 To build Service Fabric services using Java, ensure you have JDK 1.8 installed along with Gradle which is used for running build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
 
@@ -103,13 +103,17 @@ To build Service Fabric services using Java, ensure you have JDK 1.8 installed a
   sudo apt-get install gradle
 ```
 
-## Set up the Service Fabric CLI (sfctl) on your Mac
+## Set up the Service Fabric CLI
 
-Follow the instructions at [Service Fabric CLI](service-fabric-cli.md#cli-mac) to install the Service Fabric CLI (`sfctl`) on your Mac.
-The CLI commands for interacting with Service Fabric entities, including clusters, applications and services.
+The [Service Fabric CLI](service-fabric-cli.md) has commands for interacting with Service Fabric entities,
+including clusters and applications. It is based on python, so be sure to have python and pip installed before you
+proceed with the following command:
 
-## Create application on you Mac using Yeoman
+```bash
+pip install sfctl
+```
 
+## Create application on Mac using Yeoman
 Service Fabric provides scaffolding tools which will help you create a Service Fabric application from terminal using Yeoman template generator. Please follow the steps below to ensure you have the Service Fabric yeoman template generator working on your machine.
 
 1. You need to have Node.js and NPM installed on you mac. If not you can install Node.js and NPM using Homebrew using the following. To check the versions of Node.js and NPM installed on your Mac, you can use the ``-v`` option.

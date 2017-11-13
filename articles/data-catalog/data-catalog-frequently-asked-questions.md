@@ -14,7 +14,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
+<<<<<<< HEAD
 ms.date: 11/13/2017
+=======
+ms.date: 10/15/2017
+>>>>>>> 68b43f37ee532f79e08b17f00b50b837ecee4913
 ms.author: maroche
 
 ---
