@@ -91,7 +91,7 @@
     items:
     - name: Azure
       items:
-      - name: Add Continuous Monitoring
+      - name: Add continuous monitoring
         href: app-insights-vsts-continuous-monitoring.md
       - name: Profiler
         href: app-insights-profiler.md
