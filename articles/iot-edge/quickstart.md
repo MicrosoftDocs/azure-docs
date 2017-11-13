@@ -47,7 +47,7 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
 >    * Windows Server 1709 (Build 16299), or
 >    * Windows IoT Core (Build 16299) on a x64-based device
 >
-> For Windows IoT Core, follow the instructions in [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore]. Otherwise, simply [configure Docker to use Windows containers][lnk-docker-containers], and optionally check your requirements with the following powershell command:
+> For Windows IoT Core, follow the instructions in [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore]. Otherwise, simply [configure Docker to use Windows containers][lnk-docker-containers], and optionally validate your prerequisites with the following powershell command:
 >    ```
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```

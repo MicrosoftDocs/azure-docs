@@ -73,12 +73,25 @@ This will result in a solution that enables all devices to use any IoT Edge devi
 
 You can use the sample Powershell and Bash scripts described in [Managing CA Certificate Sample][lnk-ca-scripts] to generate a self-signed **IoT hub owner CA** and device certificates signed with it.
 
-1. Follow step 1 to install the scripts.
-2. Follow step 2 to generate the **IoT hub owner CA**, this file will be used by the downstream devices to validate the connection.
-3. Follow step 4 to create a device cert for your gateway devices, this file will be used when configuring the IoT Edge runtime on the gateway devices. You have to use the hostname (Fully Qualified Domain Name) of your gateway as the command parameter, e.g. `./certGen.sh mygateway.contoso.com`.
-
 >[!IMPORTANT]
 >This sample is meant only for test purposes. For production scenarios, refer to [Secure your IoT deployment][lnk-iothub-secure-deployment] for the Azure IoT guidelines on how to secure your IoT solution, and provision your certificate accordingly.
+
+1. Follow step 1 to install the scripts.
+2. Follow step 2 to generate the **IoT hub owner CA**, this file will be used by the downstream devices to validate the connection.
+
+Use the following instructions to generate a certificate for your gateway device.
+
+#### Bash
+
+* Run `./certGen.sh create_edge_device_certificate myGateway` to create the new device certificate.  
+  This will create the files .\certs\new-edge-device.* that contain the public key and PFX and .\private\new-edge-device.key.pem that contains the device's private key.  
+* `cat new-edge-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-edge-device-full-chain.cert.pem` to get the public key.
+* `./private/new-edge-device.cert.pem` contains the device's private key.
+
+#### Powershell
+
+* Run `New-CACertsEdgeDevice myGateway` to create the new device certificate.
+  This will create files myEdgeDevice* that contain the public key, private key, and PFX of this certificate.  When prompted to enter a password during the signing process, enter "123".
 
 ### Configure an IoT Edge device as a gateway
 
@@ -88,27 +101,27 @@ We assume the following file names from the sample scripts above:
 
 | Output | Bash script |
 | ------ | ----------- |
-| Device certificate | `certs/new-device.cert.pem` |
-| Device private key | `private/new-device.cert.pem` |
-| Device certificate chain | `certs/new-device-full-chain.cert.pem` |
+| Device certificate | `certs/new-edge-device.cert.pem` |
+| Device private key | `private/new-edge-device.cert.pem` |
+| Device certificate chain | `certs/new-edge-device-full-chain.cert.pem` |
 | IoT hub owner CA | `certs/azure-iot-test-only.root.ca.cert.pem` |
 
 Analogously to the installation described in [Install IoT Edge on a simulated device][lnk-tutorial1], you have to provide the above information to the IoT Edge runtime. In Linux:
 
         sudo iotedgectl setup --connection-string {device connection string}
             --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
-            --device-ca-cert-file ./certs/new-device.cert.pem
-            --device-ca-chain-cert-file ./certs/new-device-full-chain.cert.pem
-            --device-ca-private-key-file ./private/new-device.cert.pem
-            --owner-ca-cert-file ./certs/azure-iot-test-only.root.ca.cert.pem
+            --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
+            --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem
+            --device-ca-private-key-file {full path}/private/new-edge-device.cert.pem
+            --owner-ca-cert-file {full path}/certs/azure-iot-test-only.root.ca.cert.pem
 
 In Windows:
         iotedgectl setup --connection-string {device connection string}
             --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
-            --device-ca-cert-file ./certs/new-device.cert.pem
-            --device-ca-chain-cert-file ./certs/new-device-full-chain.cert.pem
-            --device-ca-private-key-file ./private/new-device.cert.pem
-            --owner-ca-cert-file ./certs/azure-iot-test-only.root.ca.cert.pem
+            --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
+            --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem
+            --device-ca-private-key-file {full path}/private/new-edge-device.cert.pem
+            --owner-ca-cert-file {full path}/certs/azure-iot-test-only.root.ca.cert.pem
 
 By default the sample scripts do not set a passphrase to the device private key. If you set a passphrase, add the following parameter:
 
