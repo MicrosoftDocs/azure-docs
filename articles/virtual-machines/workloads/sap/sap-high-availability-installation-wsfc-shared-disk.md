@@ -49,6 +49,8 @@ ms.custom: H1Hack27Feb2017
 [sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
 [sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
+[sap-ha-guide-8.9]:high-availability-guide.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
+[sap-ha-guide-8.11]:high-availability-guide.md#661035b2-4d0f-4d31-86f8-dc0a50d78158
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
@@ -407,7 +409,7 @@ _**Figure 7:** In SIOS DataKeeper, replicate the local volume from cluster node 
   Move-ClusterGroup -Name $SAPClusterGroup
 
   ```
-2.  Restart cluster node A within the Windows guest operating system (this initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B).  
+2.  Restart cluster node A within the Windows guest operating system. This initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B.  
 3.  Restart cluster node A from the Azure portal (this initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B).  
 4.  Restart cluster node A by using Azure PowerShell (this initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B).
 
