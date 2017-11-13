@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2017
+ms.date: 11/13/2017
 ms.author: cherylmc
 
 ---
@@ -36,21 +36,27 @@ You can:
 
 * See the ExpressRoute system state from a previous point in time
 
-**How does it work?**
+## <a name="regions"></a>Supported regions
+
+You can monitor ExpressRoute circuits in any part of the world by using a workspace that is hosted in one of the following regions:
+
+* West Europe 
+* East US 
+* South East Asia 
+
+## <a name="workflow"></a>Workflow
 
 Monitoring agents are installed on multiple servers, both on-premises and in Azure. The agents communicate with each other, but do not send data, they send TCP handshake packets. The communication between the agents allows Azure to map the network topology and path the traffic could take.
 
-**Workflow**
-
-1. Create an NPM Workspace in the West Central US region. Currently this is the only region where this Preview is supported.
+1. Create an NPM Workspace in the one of the [supported regions](#regions).
 2. Install and configure software agents: 
     * Install monitoring agents on the on-premises servers and the Azure VMs.
     * Configure settings on the monitoring agent servers to allow the monitoring agents to communicate. (Open firewall ports, etc.)
 3. Configure network security group (NSG) rules to allow the monitoring agent installed on Azure VMs to communicate with on-premises monitoring agents.
-4. Request to whitelist your NPM Workspace
+4. Request to whitelist your NPM Workspace.
 5. Set up monitoring: Auto-Discover and manage which networks are visible in NPM.
 
-If you are already using Network Performance Monitor to monitor other objects or services, and you already have Workspace in West Central US, you can skip Step 1 and Step 2, and begin your configuration with Step 3.
+If you are already using Network Performance Monitor to monitor other objects or services, and you already have Workspace in one of the available regions, you can skip Step 1 and Step 2, and begin your configuration with Step 3.
 
 ## <a name="configure"></a>Step 1: Create a Workspace
 
@@ -63,7 +69,7 @@ If you are already using Network Performance Monitor to monitor other objects or
   * OMS Workspace - Type a name for your Workspace.
   * Subscription - If you have multiple subscriptions, choose the one you want to associate with the new Workspace.
   * Resource group - Create a resource group, or use an existing one.
-  * Location - You must select West Central US for this Preview
+  * Location - You must select a [supported region](#regions).
   * Pricing tier - Select 'Free'
 
   ![workspace](.\media\how-to-npm\4.png)<br><br>
