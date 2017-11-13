@@ -290,7 +290,7 @@ A scale-out file share offers a highly available and horizontally scalable SAPMN
 Storage Spaces Direct is used as a shared disk for a scale-out file share. You can use Storage Spaces Direct to build highly available and scalable storage using servers with local storage. Shared storage that is used for a scale-out file share, like for SAP global host files, is not a single point of failure.
 
 > [!IMPORTANT]
->If you plan to set up disaster recovery, we recommend using a scale-out file share as a solution for a highly available file share in Azure.
+>If you *do not* plan to set up disaster recovery, we recommend using a scale-out file share as a solution for a highly available file share in Azure.
 >
 
 ### SAP prerequisites for scale-out file shares in Azure
