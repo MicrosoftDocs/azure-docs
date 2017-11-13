@@ -12,8 +12,6 @@
     href: time-series-insights-environment-planning.md
   - name: Visualize data in the explorer
     href: time-series-insights-explorer.md
-  - name: Understand data retention
-    href: time-series-insights-configure-retention.md
   - name: Mitigate throttling
     href: time-series-insights-environment-mitigate-latency.md
   - name: Diagnose and troubleshoot
