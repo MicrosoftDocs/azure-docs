@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
 ---
@@ -159,10 +159,13 @@ for i in `seq 1 3`; do
 done
 ```
 
+When all three virtual NICs are created, continue on to the next step
+
+
 ## Create virtual machines
 
 ### Create cloud-init config
-In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app.
+In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. You can use the same cloud-init configuration file to install NGINX and run a simple 'Hello World' Node.js app in the next step. To see the load balancer in action, at the end of the tutorial you access this simple app in a web browser.
 
 In your current shell, create a file named *cloud-init.txt* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. Enter `sensible-editor cloud-init.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
@@ -274,6 +277,24 @@ az network nic ip-config address-pool remove \
 
 To see the load balancer distribute traffic across the remaining two VMs running your app you can force-refresh your web browser. You can now perform maintenance on the VM, such as installing OS updates or performing a VM reboot.
 
+To view a list of VMs with virtual NICs connected to the load balancer, use [az network lb address-pool show](/cli/azure/network/lb/address-pool#show). Query and filter on the ID of the virtual NIC as follows:
+
+```azurecli-interactive
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+The output is similar to the following example, which shows that the virtual NIC for VM 2 is no longer part of the backend address pool:
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### Add a VM to the load balancer
 After performing VM maintenance, or if you need to expand capacity, you can add a VM to the backend address pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#add). The following example adds the virtual NIC for **myVM2** to *myLoadBalancer*:
 
@@ -285,6 +306,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+To verify that the virtual NIC is connected to the backend address pool, use [az network lb address-pool show](/cli/azure/network/lb/address-pool#show) again from the preceding step.
 
 
 ## Next steps
