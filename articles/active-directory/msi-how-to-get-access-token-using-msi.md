@@ -49,17 +49,23 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, y
 
 As discussed previously, MSI offers a service principal for sign-in (and resource access), and an access token for resource access.
 
-The examples below show of variety of ways to do one or both functions:
+The examples below show of variety of ways to do one or both functions, starting from concrete to more abstract methods:
 
-|         Client         |       Code snippets       |  Code samples  | 
+|      Client type       |       Code snippets       |  Code samples  | 
 | ---------------------- | ------------------------- | ---------------|
 | [HTTP/REST](#httprest) | Acquire token             |                |
 | <br> Programming languages: |                      |                |           
-| [.NET C#](#net-c)      | Acquire token             | Deploy an ARM template from a Windows VM using Managed Service Identity (.NET)<br>Call Azure services from a Linux VM using Managed Service Identity (.NET Core)   | 
+| [.NET C#](#net-c)      | Acquire token             |                | 
 | [Go](#go)              | Acquire token             |                |                                          
 | [Node](#php)           |                           | Manage resources using Managed Service Identity | 
 | [Python](#python)      |                           | Use MSI to authenticate simply from inside a VM | 
 | [Ruby](#ruby)          |                           | Manage resources from an MSI-enabled VM | 
+| <br>SDKs and samples:  |                           |                |    
+| .NET                   |                           | [Deploy an ARM template from a Windows VM using Managed Service Identity](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
+| .NET Core              |                           | [Call Azure services from a Linux VM using Managed Service Identity](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |  
+| Node.js                |                           | [Manage resources using Managed Service Identity](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |   
+| Python                 |                           | [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |   
+| Ruby                   |                           | [Manage resources from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) |     
 | <br>Scripting hosts / CLIs: |                      |                |           
 | [Azure PowerShell](#azure-powershell) | Acquire token, Sign-in |    |               
 | [Azure CLI](#azure-cli)| Sign-in                   |                |
