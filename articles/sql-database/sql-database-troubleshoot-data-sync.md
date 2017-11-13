@@ -103,6 +103,14 @@ The most likely cause is a synchronization loop. A synchronization loop occurs w
 
 The best fix is prevention. Ensure that you do not have circular references in your sync groups. Any row that is synchronized by one sync group cannot be synchronized by another sync group.
 
+### I got an error message that said "cannot insert the value NULL into the column <column>. Column does not allow nulls." What does this mean, and how can I fix the error? 
+This error message indicates one of the two following issues:
+1.  There may be a table without a primary key. To fix this issue, add a primary key to all the tables you're syncing.
+2.  There may be a WHERE clause in your CREATE INDEX statement. Sync does not handle this condition. To fix this issue, remove the WHERE clause or manually make the changes to all databases. 
+ 
+### How does Data Sync handle circular references? That is, when the same data is synced in multiple sync groups, and keeps changing as a result?
+Data Sync doesn’t handle circular references. Be sure to avoid them. 
+
 ## Troubleshooting the Client Agent
 
 ### Install, uninstall, or repair fails
@@ -489,6 +497,10 @@ You are not able to delete a sync group within three minutes of uninstalling/sto
     a.  Remove the agent XML file from the SQL Data Sync (Preview) installation folder if the file exists.
 
     b.  Install the agent on same or another on-premises computer, submit the agent key from the portal generated for the agent that's showing offline.
+
+### What happens when I restore a lost or corrupted databases?
+
+If you restore a lost or corrupted databases from a backup, there may be non-convergence of data in the sync group(s) to which the databases belongs.
 
 ## Next steps
 For more info about SQL Data Sync, see:
