@@ -14,12 +14,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/06/2017
+ms.date: 11/13/2017
 ms.author: maroche
 
 ---
 # What's new in Azure Data Catalog
 Updates to **Azure Data Catalog** are released regularly. Not every release includes new user-facing features, as some releases are focused on back-end service capabilities. This page highlights new user-facing capabilities added to the Azure Data Catalog service.
+
+## What's new for November 2017 
+As of November 2017, the following capabilities have been added to Azure Data Catalog:
+
+* Support for linking directly to specific business glossary terms in the Data Catalog portal. Users can copy links from the business glossary and embed them in documents, emails, reports, or other locations to link directly to the glossary term definition.
+* Support for Azure Active Directory service principals. Data Catalog administrators can authorize client applications using service principals to access the catalog, and can grant those applications specific permissions just as they can grant permissions to users and security groups. For additional information see [Application and service principal objects in Azure Active Directory](../active-directory/develop/active-directory-application-objects).
+* Support for Azure Active Directory authentication when connecting to Azure SQL Database and Azure SQL Data Warehouse data sources using the Data Catalog data source registration tool. For additional information see [Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse](../sql-database/sql-database-aad-authentication).
+
 
 ## What's new for September 2017 
 As of September 2017, the following capabilities have been added to Azure Data Catalog:
