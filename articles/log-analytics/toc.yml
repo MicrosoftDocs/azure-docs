@@ -66,7 +66,7 @@
       - name: Azure resources
         href: log-analytics-azure-storage.md
       - name: Azure PaaS resources
-        href: log-analytics-collect-azurepaas-posh.md
+        href: log-analytics-collect-azurepass-posh.md
       - name: Diagnostic or log data from Azure storage
         href: log-analytics-azure-storage-iis-table.md
       - name: Operations Manager
