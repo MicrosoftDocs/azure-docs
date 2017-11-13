@@ -4,7 +4,7 @@ description: 'How to manage file and folder permissions for domain-joined HDInsi
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: maxluk
+author: Blackmist
 manager: jhubbard
 editor: cgronlun
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
-ms.author: maxluk
+ms.author: larryfr
 ---
 # Manage user permissions at the file and folder levels
 
