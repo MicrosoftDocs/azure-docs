@@ -64,7 +64,7 @@ The following table summarizes the ingress capacity for each SKU:
 
 You can increase the capacity of an S1 or S2 SKU to 10 units in a single environment. You cannot migrate from an S1 environment to an S2, or from an S2 environment to an S1. 
 
-For ingress capacity, you should first determine the total ingress you require on a per-month basis. Next, determine what your per-minute needs are, as this is where throttling and latency play a role. For more information, see [When Time Series Insights throttles data](time-series-insights-how-tsi-throttles.md).
+For ingress capacity, you should first determine the total ingress you require on a per-month basis. Next, determine what your per-minute needs are, as this is where throttling and latency play a role.
 
 If you have a spike in your data ingress lasting less than 24 hours, Time Series Insights can "catch-up" at an ingress rate of 2x the listed rates above. 
 
@@ -80,7 +80,7 @@ You may not know in advance how much data you expect to push. In this case, you 
  
 ## Mitigate throttling and latency
 
-For information about how to prevent throttling and latency, see [When Time Series Insights throttles data](time-series-insights-how-tsi-throttles.md) and [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md). 
+For information about how to prevent throttling and latency, see [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md). 
 
 ## Next steps
 - [How to add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md)

@@ -3,11 +3,12 @@
 # Quickstarts
 ## [Explore Time Series Insights](time-series-quickstart.md)
 # Concepts
+## [Visualize your data with the explorer](time-series-insights-explorer.md)
+## [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md)
 ## [Plan your environment](time-series-insights-environment-planning.md)
 ## [Visualize data in the explorer](time-series-insights-explorer.md)
 ## [Understand data retention](time-series-insights-configure-retention.md)
-## [Understand throttling](time-series-insights-how-tsi-throttles.md)
-## [Optimize performance](time-series-insights-environment-mitigate-latency.md)
+## [Mitigate throttling](time-series-insights-environment-mitigate-latency.md)
 ## [Diagnose and troubleshoot](time-series-insights-diagnose-and-solve-problems.md)
 ## Develop
 ### [Authenticate and authorize](time-series-insights-authentication-and-authorization.md)
