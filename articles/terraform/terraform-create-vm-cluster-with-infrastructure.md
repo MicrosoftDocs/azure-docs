@@ -31,7 +31,7 @@ In this tutorial, you:
 
 In this section, you generate an Azure service principal, and two Terraform configuration files containing the credentials from the security principal.
 
-1. [Set up an Azure AD service principal](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) to enable Terraform to provision resources into Azure. While creating the principal, Make note of the values for the subscription ID, tenant ID, displayName, and password.
+1. [Set up an Azure AD service principal](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) to enable Terraform to provision resources into Azure. While creating the principal, Make note of the values for the subscription ID, tenant, displayName, and password.
 
 2. Open a command prompt.
 
@@ -232,7 +232,7 @@ To initialize Terraform, run the following command:
 
 The [terraform plan command](https://www.terraform.io/docs/commands/plan.html) is used to create an execution plan. To generate an execution plan, Terraform aggregates all the `.tf` files in the current directory. 
 
-If you are working in a collaborative environment where the configuration might change between the time you create the execution plan and the time you apply the execution plan, you should use the [terraform plan command's -out parameter](https://www.terraform.io/docs/commands/plan.html#out-path) and output the execution plan to a file. Otherwise, if you are working in a single-person environment, you can omit the `-out` parameter.
+If you are working in a collaborative environment where the configuration might change between the time you create the execution plan and the time you apply the execution plan, you should use the [terraform plan command's -out parameter](https://www.terraform.io/docs/commands/plan.html#out-path) to save the execution plan to a file. Otherwise, if you are working in a single-person environment, you can omit the `-out` parameter.
 
 If the name of your Terraform variables file is not `terraform.tfvars` and it doesn't follow the `*.auto.tfvars` pattern, you need to specify the file name using the [terraform plan command's -var-file parameter](https://www.terraform.io/docs/commands/plan.html#var-file-foo) when running the `terraform plan` command.
 
