@@ -97,6 +97,7 @@ The 8020 uses premium storage and _Standard_DS3_ VM to create a cloud appliance.
 If using a 1200 series StorSimple Virtual Array, then the virtual disk image is supported in all Azure regions.
 
 ## Next steps
+
 * Learn more about the [pricing for various StorSimple models](https://azure.microsoft.com/pricing/calculator/#storsimple2).
 * Learn more about [managing your StorSimple storage account](storsimple-8000-manage-storage-accounts.md).
 * Learn more about how to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
