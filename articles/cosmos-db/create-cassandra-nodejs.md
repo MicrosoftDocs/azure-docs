@@ -74,8 +74,6 @@ This step is optional. If you're interested in learning how the database resourc
 
     ```nodejs
     const client = new cassandra.Client({contactPoints: [config.contactPoint], authProvider: authProviderLocalCassandra, sslOptions:ssl_option});
-
-
     ```
 
 * The `client` connects to the Azure Cosmos DB Cassandra API.
