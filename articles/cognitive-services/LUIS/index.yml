@@ -60,8 +60,9 @@ sections:
         - href:
         - href: 
         - href: luis-quickstart-node-add-utterance
+        - href: luis-quickstart-python-add-utterance
         - href:
-        - href:
+        - href: 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
