@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/18/2017
+ms.date: 11/13/2017
 ms.author: gwallace
 ms.custom: mvc
 ---
@@ -107,7 +107,7 @@ For this tutorial, there are pre-requisites that must be installed on the virtua
 > * Install GIT
 > * Clone the sample repo
 > * Restore NuGet packages
-> * Creates 32 1GB files with random data
+> * Creates 32 1-GB files with random data
 
 Run the following cmdlet to finalize configuration of the virtual machine. This step takes 5-10 minutes to complete.
 
