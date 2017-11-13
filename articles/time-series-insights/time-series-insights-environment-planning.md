@@ -35,8 +35,6 @@ By default, Time Series Insights retains data based on the amount of storage you
 ## Understand data retention
 You can configure your Time Series Insights environment’s **Data retention time** setting, enabling up to 400 days of retention.  Time Series Insights has two modes, one that optimizes for ensuring your environment has the most up-to-date data (on by default), and another that optimizes for ensuring retention limits are met, where ingress is paused if the overall storage capacity of the environment is hit.  You can adjust retention and toggle between the two modes in the environment’s configuration page in the Azure portal.
 
-It’s important to configure the Data retention time setting based on your needs.  For more information, see [Configure data retention in Time Series Insights](time-series-insights-configure-retention.md).  
-
 You can configure a maximum of 400 days of data retention in your Time Series Insights environment.
 
 ## Configure data retention
