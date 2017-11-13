@@ -27,20 +27,20 @@ Browse the control families below to see how this Blueprint Automation aligns wi
 
 | | |
 |---|---|
-| [AC](fedramp-ac-controls.md ) | Access Control |
-| [AU](fedramp-au-controls.md ) | Audit and Accountability |
-| [AT](fedramp-at-controls.md ) | Awareness and Training |
-| [CM](fedramp-cm-controls.md ) | Configuration Management |
-| [CP](fedramp-cp-controls.md ) | Contingency Planning |
-| [IA](fedramp-ia-controls.md ) | Identification and Authentication |
-| [IR](fedramp-ir-controls.md ) | Incident Response |
-| [MA](fedramp-ma-controls.md ) | Maintenance |
-| [MP](fedramp-mp-controls.md ) | Media Protection |
-| [PS](fedramp-ps-controls.md ) | Personnel Security |
-| [PE](fedramp-pe-controls.md ) | Physical and Environmental Protection |
-| [PL](fedramp-pl-controls.md ) | Planning |
-| [RA](fedramp-ra-controls.md ) | Risk Assessment |
-| [CA](fedramp-ca-controls.md ) | Security Assessment and Authorization |
-| [SC](fedramp-sc-controls.md ) | System and Communications Protection |
-| [SI](fedramp-si-controls.md ) | System and Information Integrity |
-| [SA](fedramp-sa-controls.md ) | System and Services Acquisition |
+| [AC](fedramp-access-controls.md ) | Access Control |
+| [AU](fedramp-audit-accountability-controls.md ) | Audit and Accountability |
+| [AT](fedramp-awareness-training-controls.md ) | Awareness and Training |
+| [CM](fedramp-configuration-manager-controls.md ) | Configuration Management |
+| [CP](fedramp-contingency-planning-controls.md ) | Contingency Planning |
+| [IA](fedramp-identification-authentication-controls.md ) | Identification and Authentication |
+| [IR](fedramp-incident-response-controls.md ) | Incident Response |
+| [MA](fedramp-maintenance-controls.md ) | Maintenance |
+| [MP](fedramp-media-protection-controls.md ) | Media Protection |
+| [PS](fedramp-personnel-security-controls.md ) | Personnel Security |
+| [PE](fedramp-physical-environmental-protection-controls.md ) | Physical and Environmental Protection |
+| [PL](fedramp-planning-controls.md ) | Planning |
+| [RA](fedramp-risk-assessment-controls.md ) | Risk Assessment |
+| [CA](fedramp-security-assessment-authorization-controls.md ) | Security Assessment and Authorization |
+| [SC](fedramp-system-communications-protection-controls.md ) | System and Communications Protection |
+| [SI](fedramp-system-information-integrity-controls.md ) | System and Information Integrity |
+| [SA](fedramp-system-services-acquisition-controls.md ) | System and Services Acquisition |
