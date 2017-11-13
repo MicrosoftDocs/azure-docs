@@ -29,7 +29,7 @@ ms.author: raynew
 
     **Setting** | **Details** | **Default**
     --- | --- | ---
-    **Target location** | The Azure location to which you want to migrate. | Default is the location in which you create the migration project.
+    **Target location** | The Azure location to which you want to migrate. | West US if the project location is US. NorthEurope if the project location is in Europe.
     **Storage redundancy** | The type of storage that the Azure VMs will use after migration. | Only [Locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) is currently supported.
     **Comfort factor** | Comfort factor is a buffer that is used during assessment. Use it to account for things such as seasonal usage, short performance history, likely increase in future usage. | Default setting is 1.3.
     **Perfomance history** | Time used in evaluating performance history. | Default is one month.
