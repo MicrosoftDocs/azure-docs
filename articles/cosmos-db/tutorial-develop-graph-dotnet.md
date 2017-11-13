@@ -81,7 +81,7 @@ In the Azure portal, navigate to your Azure Cosmos DB account, click **Keys**, a
 
 Copy the URI from the portal and paste it over `Endpoint` in the endpoint property above. Then copy the PRIMARY KEY from the portal and paste it into the `AuthKey` property above. 
 
-![Screen shot of the Azure portal used by the tutorial to create a C# application. Shows an Azure Cosmos DB account the KEYS button highlighted on the Azure Cosmos DB navigation , and the URI and PRIMARY KEY values highlighted on the Keys blade][keys] 
+![Screen shot of the Azure portal used by the tutorial to create a C# application. Shows an Azure Cosmos DB account the KEYS button highlighted on the Azure Cosmos DB navigation , and the URI and PRIMARY KEY values highlighted on the Keys blade](./media/tutorial-develop-graph-dotnet/keys.png) 
  
 ## <a id="instantiate"></a>Instantiate the DocumentClient 
 Next, create a new instance of the **DocumentClient**.  
@@ -266,7 +266,7 @@ If you're not going to continue to use this app, use the following steps to dele
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
 2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
 
-## Next Steps
+## Next steps
 
 In this tutorial, you've done the following:
 
