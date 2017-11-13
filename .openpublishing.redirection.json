@@ -14975,6 +14975,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/hdinsight/hdinsight-add-acls-at-file-folder-levels.md",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
+            "redirect_document_id": false,
+        },
+        {
             "source_path": "articles/hdinsight/r-server/r-server-install-r-studio.md",
             "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
             "redirect_document_id": false
