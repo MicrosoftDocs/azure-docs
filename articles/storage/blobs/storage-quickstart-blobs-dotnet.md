@@ -3,53 +3,32 @@ title: Azure Quickstart - Transfer objects to/from Azure Blob storage using .NET
 description: Quickly learn to transfer objects to/from Azure Blob storage using .NET
 services: storage
 documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
+author: tamram
+manager: jeconnoc
 
-ms.assetid: 
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/01/2017
-ms.author: robinsh
+ms.date: 11/10/2017
+ms.author: tamram
 ---
 
 # Transfer objects to/from Azure Blob storage using .NET
 
-In this quickstart, you learn how to use C#.NET to upload, download, and list block blobs in a container in Azure Blob storage on Windows.
+In this quickstart, you learn how to use the .NET client library for Azure Storage to upload, download, and list block blobs in a container.
 
 ## Prerequisites
 
-To complete this quickstart:
-
-* Install [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) with the following workload:
+To complete this quickstart, install [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) with the following workload:
+    
     - **Azure development**
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create a storage account using the Azure portal
-
-First, create a new general-purpose storage account to use for this quickstart. 
-
-1. Go to the [Azure portal](https://portal.azure.com) and log in using your Azure account. 
-2. On the Hub menu, select **New** > **Storage** > **Storage account - blob, file, table, queue**. 
-3. Enter a name for your storage account. The name must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. It must also be unique.
-4. Set `Deployment model` to **Resource manager**.
-5. Set `Account kind` to **General purpose**.
-6. Set `Performance` to **Standard**. 
-7. Set `Replication` to **Locally Redundant storage (LRS)**.
-8. Set `Storage service encryption` to **Disabled**.
-9. Set `Secure transfer required` to **Disabled**.
-10. Select your subscription. 
-11. For `resource group`, create a new one and give it a unique name. 
-12. Select the `Location` to use for your storage account.
-13. Check **Pin to dashboard** and click **Create** to create your storage account. 
-
-After your storage account is created, it is pinned to the dashboard. Click on it to open it. Under SETTINGS, click **Access keys**. Select a key and copy the CONNECTION STRING to the clipboard, then paste it into a text editor for later use.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## Download the sample application
 
@@ -101,7 +80,11 @@ You can also use a tool such as the [Azure Storage Explorer](http://storageexplo
 
 After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the Program.cs file to look at the code. 
 
-## Get references to the storage objects
+## Understand the sample code
+
+Next, we walk through the sample code so that you can understand how it works.
+
+### Get references to the storage objects
 
 The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
 
@@ -111,7 +94,10 @@ The first thing to do is create the references to the objects used to access and
 
 * Create an instance of the **CloudBlobContainer** object, which represents the container you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
 
-Once you have the **CloudBlobContainer**, you can create an instance of the **CloudBlockBlob** object that points to the specific  blob in which you are interested, and perform an upload, download, copy, etc. operation.
+Once you have the **CloudBlobContainer**, you can create an instance of the **CloudBlockBlob** object that points to the specific blob in which you are interested, and perform an upload, download, copy, etc. operation.
+
+> [!IMPORTANT]
+> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
 
 In this section, you create an instance of the objects, create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container is called **quickstartblobs**. 
 
@@ -136,7 +122,7 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-## Upload blobs to the container
+### Upload blobs to the container
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that's what is used in this quickstart. 
 
@@ -160,7 +146,7 @@ There are several upload methods that you can use with Blob storage. For example
 
 Block blobs can be any type of text or binary file. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
 
-## List the blobs in a container
+### List the blobs in a container
 
 You can get a list of files in the container using [Cloud​Blob​Container.​List​BlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). The following code retrieves the list of blobs, then loops through them, showing the URIs of the blobs found. You can copy the URI from the command window and paste it into a browser to view the file.
 
@@ -180,7 +166,7 @@ do
 } while (blobContinuationToken != null);
 ```
 
-## Download blobs
+### Download blobs
 
 Download blobs to your local disk using [Cloud​Blob.​Download​To​FileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
 
@@ -196,7 +182,7 @@ Console.WriteLine("Downloading blob to {0}", fileAndPath2);
 await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 ```
 
-## Clean up resources
+### Clean up resources
 
 If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using [Cloud​Blob​Container.​DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Also delete the files created if they are no longer needed.
 
@@ -212,5 +198,7 @@ In this quickstart, you learned how to transfer files between a local disk and A
 
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](storage-dotnet-how-to-use-blobs.md)
+
+For additional Azure Storage code samples that you can download and run, see the list of [Azure Storage samples using .NET](../common/storage-samples-dotnet.md).
 
 For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

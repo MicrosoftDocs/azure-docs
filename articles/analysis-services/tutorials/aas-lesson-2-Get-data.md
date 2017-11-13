@@ -4,7 +4,7 @@ description: Describes how to get and import data in the Azure Analysis Services
 services: analysis-services
 documentationcenter: ''
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 11/01/2017
 ms.author: owend
 ---
 

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2017
+ms.date: 10/15/2017
 ms.author: shlo
 
 robots: noindex
@@ -24,7 +24,7 @@ robots: noindex
 > * [Version 2 - Preview](../introduction.md)
 
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is generally availabile (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Introduction to Data Factory V2](../introduction.md).
+> This article applies to version 1 of Azure Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Introduction to Data Factory V2](../introduction.md).
 
 
 ## What is Azure Data Factory?

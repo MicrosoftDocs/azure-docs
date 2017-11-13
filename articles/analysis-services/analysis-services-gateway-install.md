@@ -4,7 +4,7 @@ description: Learn how to install and configure an On-premises data gateway.
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
