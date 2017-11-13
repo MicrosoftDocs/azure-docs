@@ -121,7 +121,7 @@ The following diagram shows two copy activity samples:
 ![Which IR to use](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## Integration runtime location
-The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Currently, the supported Data Factory locations are: East US, East US 2. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the IR available globally in multiple regions to ensure data compliance, efficiency, and reduced network egress costs.
+The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Currently, the supported Data Factory locations are: East US, East US 2, and West Europe. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. This behavior is realized through the IR available globally in multiple regions to ensure data compliance, efficiency, and reduced network egress costs.
 
 The IR Location defines the location of its back-end compute, and essentially the location where the data movement,  activity dispatching, and SSIS package execution are performed. The IR location can be different from the location of the data factory it belongs to. The following diagram shows location settings of Data Factory and its integration run times:
 
