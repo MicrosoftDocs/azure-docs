@@ -67,12 +67,15 @@
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
-  - name: Government
+  - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
-  - name: Germany
+  - name: Azure Germany
     tocHref: /azure/germany/
     topicHref: /azure/germany/
+  - name: Azure China 21Vianet
+    tocHref: /azure/china/
+    topicHref: /azure/china/
   - name: Azure portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
