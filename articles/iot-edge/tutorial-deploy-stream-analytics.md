@@ -208,8 +208,8 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 [azure-stream]: https://docs.microsoft.com/en-us/azure/stream-analytics/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-first-tutorial]: tutorial-install-iot-edge.md
-[lnk-module-tutorial]: tutorial-create-custom-module.md
-[lnk-next-tutorial2]: tutorial-create-custom-module.md
+[lnk-module-tutorial]: tutorial-csharp-module.md
+[lnk-next-tutorial2]: tutorial-csharp-module.md
 [lnk-function-tutorial]: tutorial-deploy-function.md
 
 [lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
