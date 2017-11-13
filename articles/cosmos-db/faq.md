@@ -25,7 +25,7 @@ Azure Cosmos DB is a globally replicated, multi-model database service that that
 
 Azure Cosmos DB is the right solution for web, mobile, gaming, and IoT applications when predictable throughput, high availability, low latency, and a schema-free data model are key requirements. It delivers schema flexibility and rich indexing, and it includes multi-document transactional support with integrated JavaScript. 
 
-For more database questions, answers, and instructions for deploying and using this service, see the [Azure Cosmos DB documentation page](https://azure.microsoft.com/documentation/services/cosmos-db/).
+For more database questions, answers, and instructions for deploying and using this service, see the [Azure Cosmos DB documentation page]((https://docs.microsoft.com/azure/cosmos-db/).
 
 ### What happened to DocumentDB?
 The DocumentDB API is one of the supported APIs and data models for Azure Cosmos DB. In addition, Azure Cosmos DB supports you with Graph API (Preview), Table API and MongoDB API. For more information, see [Questions from DocumentDB customers](#moving-to-cosmos-db).
@@ -416,6 +416,7 @@ Yes, we plan to add other mechanisms for query in the future.
 ### How can I use the new Graph API (Preview) offering? 
 To get started, complete the [Graph API](../cosmos-db/create-graph-dotnet.md) quick-start article.
 
+<a id="cassandra"></a> 
 ## Develop with the Apache Cassandra API (preview)
 
 ### What is the protocol version supported in the preview? Do you plan to support other protocols?
