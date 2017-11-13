@@ -143,6 +143,8 @@
       href: web-sites-enable-diagnostic-log.md
   - name: Manage app
     items:
+    - name: Manage the hosting plan
+      href: app-service-plan-manage.md
     - name: Back up an app
       href: web-sites-backup.md
     - name: Restore a backup

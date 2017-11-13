@@ -22,16 +22,13 @@ ms.service: iot-edge
 
 # Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
 
-Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this topic, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
+In this quickstart, use the Azure IoT Edge cloud interface to deploy prebuilt code remotely to an IoT Edge device. To accomplish this task, first use your Windows device to simulate an IoT Edge device, then you can deploy a module to it.
+
+If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
 ## Prerequisites
 
-To create an IoT hub and register your IoT Edge device, you need an active Azure subscription. If you don't have a subscription, create a [free account][lnk-account] before you begin.
-
-This tutorial assumes that you're using a computer or virtual machine running Windows to simulate an Internet of Things device. 
-
->[!TIP]
->If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
+This tutorial assumes that you're using a computer or virtual machine running Windows to simulate an Internet of Things device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
 
 Docker for Windows can run either Windows containers or Linux containers. The steps for the tutorial are the same regardless of which container type you use, but the software prerequisites are different. 
 
@@ -67,7 +64,7 @@ Docker for Windows can run either Windows containers or Linux containers. The st
 
 ## Create an IoT hub with Azure CLI
 
-If you've used IoT Hub in the past and already have a hub created, you can skip this section and go on to [Register an IoT Edge device][anchor-register].
+Create an IoT hub in your Azure subscription. The free level of IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a free hub created, you can skip this section and go on to [Register an IoT Edge device][anchor-register]. Each subscription can only have one free IoT hub. 
 
 1. Sign in to the [Azure portal][lnk-portal]. 
 1. Select the **Cloud Shell** button. 
@@ -86,11 +83,6 @@ If you've used IoT Hub in the past and already have a hub created, you can skip 
    az iot hub create --resource-group IoTEdge --name MyIotHub --sku F1 
    ```
 
-   >[!TIP]
-   >You can only have one F1-level IoT hub in each subscription. If you get an error, try changing the sku to S1 instead. 
-
-
-
 ## Register an IoT Edge device
 
 [!INCLUDE [iot-edge-register-device](../../includes/iot-edge-register-device.md)]
@@ -99,26 +91,23 @@ If you've used IoT Hub in the past and already have a hub created, you can skip 
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. First, the IoT Edge agent facilitates deployment and monitoring of modules on the IoT Edge device. Second, the IoT Edge hub manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
+Configure the runtime with your IoT Edge device connection string from the previous section.
 
-Use the following steps to install and start the IoT Edge runtime:
+```
+iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```
 
-1. Configure the runtime with your IoT Edge device connection string from the previous section.
+Start the runtime.
 
-   ```
-   iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
-   ```
+```
+iotedgectl start
+```
 
-1. Start the runtime.
+Check Docker to see that the IoT Edge agent is running as a module.
 
-   ```
-   iotedgectl start
-   ```
-
-1. Check Docker to see that the IoT Edge agent is running as a module.
-
-   ```
-   docker ps
-   ```
+```
+docker ps
+```
 
 ## Deploy a module
 
@@ -129,6 +118,14 @@ Use the following steps to install and start the IoT Edge runtime:
 You can monitor your new IoT Edge device's status by clicking on it in IoT Edge Explorer page of your IoT hub. 
 
 You can view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer].
+
+## Clean up resources
+
+When you no longer need the IoT Hub you created, you can use the [az iot hub delete][lnk-delete] command to remove the resource and any devices associated with it:
+
+```azurecli
+az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
+```
 
 ## Next steps
 
@@ -150,6 +147,8 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
+[lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
+[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device
