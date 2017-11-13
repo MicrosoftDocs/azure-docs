@@ -492,7 +492,7 @@ By using the throughput specification, you can elastically change it to benefit 
 
 Azure Cosmos DB is an SLA-based system that provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. To ensure guaranteed premium performance, make sure that your data size and index are manageable and scalable. The 10-GB limit on the number of entities or items per partition key is to ensure that Azure Cosmos DB provides great lookup and query performance. To ensure that your application scales well even for Azure Storage, we recommend that you *not* create a hot partition by storing all information in one partition and querying it. 
 
-## How does the Cassandra API handle failover if a region goes down? 
+### How does the Cassandra API handle failover if a region goes down? 
 The Azure Cosmos DB Cassandra API borrows from the globally distributed platform of Azure Cosmos DB. To ensure that your application can tolerate datacenter downtime, enable at least one more region for the account in the Azure Cosmos DB portal. You can set the priority of the region by using the portal as described in [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). 
 
 You can add as many regions as you want for the account, and control where the account fails over to by providing a failover priority. Of course, to use the database, you need to provide an application there as well. When you do so, your customers will not experience downtime.  
