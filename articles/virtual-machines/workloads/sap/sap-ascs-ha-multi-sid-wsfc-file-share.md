@@ -234,13 +234,13 @@ The goal is to install multiple SAP Advanced Business Application Programming (A
 
 _**Figure 2:** SAP multi-SID configuration in two clusters_
 
-The installation of an additional \<SID2> SAP system is identical to the installation of one <SID> system. Two additional preparation steps are required on the ASCS/SCS cluster as well as on the file share SOFS cluster.
+The installation of an additional **SAP <SID2>** system is identical to the installation of one <SID> system. Two additional preparation steps are required on the ASCS/SCS cluster as well as on the file share SOFS cluster.
 
 ## Prepare the infrastructure for an SAP multi-SID scenario
 
 ### Prepare the infrastructure on the domain controller
 
-Create the domain group \<Domain>\SAP_\<SID2>;_GlobalAdmin, for example, with \<SID2> = PR2. The domain group name is <Domain>\SAP_PR2_GlobalAdmin.
+Create the domain group **\<Domain>\SAP_\<SID2>_GlobalAdmin**, for example, with \<SID2> = PR2. The domain group name is <Domain>\SAP_PR2_GlobalAdmin.
 
 ### Prepare the infrastructure on the ASCS/SCS cluster
 
@@ -261,8 +261,8 @@ You can reuse the existing \<SAPGlobalHost> and Volume1 of the first SAP <SID1> 
 _**Figure 3:** Multi-SID SOFS is the same as the SAP Global Host name_
 
 > [!IMPORTANT]
->For the second SAP \<SID2> system, you use the same Volume1 and the same \<SAPGlobalHost> network name.
->Because you have already set *SAPMNT* as the share name for various SAP systems, to reuse the \<SAPGlobalHost> network name, you must use the same Volume1.
+>For the second **SAP \<SID2>** system, the same Volume1 and the same **\<SAPGlobalHost>** network name are used.
+>Because you have already set **SAPMNT** as the share name for various SAP systems, to reuse the **\<SAPGlobalHost>** network name, you must use the same **Volume1**.
 >
 >The file path for the <SID2> global host is
 >C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\.
@@ -321,7 +321,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### Prepare the infrastructure on the SOFS cluster by using a different SAP Global Host
 
-You can configure the second SOFS (for example, the second SOFS cluster role with \<SAPGlobalHost2>) and a different Volume2 for the second \<SID2>.
+You can configure the second SOFS (for example, the second SOFS cluster role with **\<SAPGlobalHost2>** and a different **Volume2** for the second **\<SID2>)**.
 
 ![Figure 4: Multi-SID SOFS is the same as the SAP GLOBAL host name 2][sap-ha-guide-figure-8015]
 
@@ -335,7 +335,7 @@ $SAPGlobalHostName = "sapglobal2"
 Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 ```
 
-Create the second Volume2. Execute this PowerShell script:
+Create the second **Volume2**. Execute this PowerShell script:
 
 ```PowerShell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
