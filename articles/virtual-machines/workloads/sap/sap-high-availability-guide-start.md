@@ -183,12 +183,9 @@ This series of articles covers:
 * Architecture and scenarios.
 * Infrastructure preparation.
 * SAP installation steps for deploying high-availability SAP systems in Azure by using the Azure Resource Manager deployment model.
-
   > [!IMPORTANT]
   > We strongly recommend that you use the Azure Resource Manager deployment model for your SAP installations. It offers many benefits that are not available in the classic deployment model. Learn more about Azure [deployment models][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
->
->
-
+  >
 * SAP high availability on:
   * ![Windows][Logo_Windows]  **Windows**, using **Windows Server Failover Cluster (WSFC)**
   * ![Linux][Logo_Linux] **Linux**, using **Linux Cluster Framework**
