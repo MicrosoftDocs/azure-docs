@@ -22,7 +22,7 @@ ms.author: kirillg
 Learn how to set global consistency, work with keys, and delete an Azure Cosmos DB account in the Azure portal.
 
 ## <a id="consistency"></a>Manage Azure Cosmos DB consistency settings
-Selecting the right consistency level depends on the semantics of your application. You should familiarize yourself with the available consistency levels in Azure Cosmos DB by reading [Using consistency levels to maximize availability and performance in Azure Cosmos DB][consistency]. Azure Cosmos DB provides consistency, availability, and performance guarantees, at every consistency level available for your database account. The following simple steps show you how to select the default consistency level for your database account. 
+Selecting the right consistency level depends on the semantics of your application. You should familiarize yourself with the available consistency levels in Azure Cosmos DB by reading [Using consistency levels to maximize availability and performance in Azure Cosmos DB][consistency]. Azure Cosmos DB provides consistency, availability, and performance guarantees, at every consistency level available for your database account. Configuring your database account with a consistency level of Strong requires that your data is confined to a single Azure region and not globally available. On the other hand, the relaxed consistency levels - bounded staleness, session or eventual enable you to associate any number of Azure regions with your database account. The following simple steps show you how to select the default consistency level for your database account.
 
 ### To specify the default consistency for an Azure Cosmos DB account
 1. In the [Azure portal](https://portal.azure.com/), access your Azure Cosmos DB account.
