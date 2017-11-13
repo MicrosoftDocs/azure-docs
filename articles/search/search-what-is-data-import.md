@@ -1,5 +1,5 @@
 ---
-title: Data upload in Azure Search | Microsoft Docs
+title: Data import in Azure Search | Microsoft Docs
 description: Learn how to upload data to an index in Azure Search.
 services: search
 documentationcenter: ''
@@ -14,11 +14,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 11/01/2017
 ms.author: ashmaka
 
 ---
-# Upload data to Azure Search
+# Data import in Azure Search
 > [!div class="op_single_selector"]
 > * [Overview](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -26,7 +26,9 @@ ms.author: ashmaka
 > 
 > 
 
-There are two ways to populate an index with your data. The first option is manually pushing your data into the index using the Azure Search [REST API](search-import-data-rest-api.md) or [.NET SDK](search-import-data-dotnet.md). The second option is to [point a supported data source](search-indexer-overview.md) to your index and let Azure Search automatically pull in the data.
+In Azure Search, queries execute over your content loaded into a [search index](search-what-is-an-index.md). This article examines the two basic approaches for loading content into an index: *push* your data into the index programmatically, or pointing an [Azure Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
+
+using the Azure Search [REST API](search-import-data-rest-api.md) or [.NET SDK](search-import-data-dotnet.md). The second option is to [point a supported data source](search-indexer-overview.md) to your index and let Azure Search automatically pull in the data.
 
 ## Push data to an index
 This approach refers to programmatically sending your data to Azure Search to make it available for searching. For applications having very low latency requirements (for example, if you need search operations to be in sync with dynamic inventory databases), the push model is your only option.
@@ -48,9 +50,10 @@ An advantage to using the portal is that Azure Search can usually generate a def
 
 After the index is populated, you can use **Search Explorer** in the portal command bar as a verification step.
 
-## Query an index using Search Explorer
+## Verify data import with Search Explorer
 
 A quick way to perform a preliminary check on the document upload is to use **Search Explorer** in the portal. The explorer lets you query an index without having to write any code. The search experience is based on default settings, such as the [simple syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) and default [searchMode query parameter](/rest/api/searchservice/search-documents). Results are returned in JSON so that you can inspect the entire document.
 
 > [!TIP]
 > Numerous [Azure Search code samples](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) include embedded or readily available datasets, offering an easy way to get started. The portal also provides a sample indexer and data source consisting of a small real estate dataset (named "realestate-us-sample"). When you run the preconfigured indexer on the sample data source, an index is created and loaded with documents that can then be queried in Search Explorer or by code that you write.
+

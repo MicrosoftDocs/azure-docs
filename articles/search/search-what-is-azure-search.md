@@ -3,7 +3,7 @@ title: What is Azure Search | Microsoft Docs
 description: Azure Search is a fully-managed hosted cloud search service. Learn more in this feature overview.
 services: search
 manager: jhubbard
-author: ashmaka
+author: HeidiSteen
 documentationcenter: ''
 
 ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
-ms.author: ashmaka
+ms.date: 11/10/2017
+ms.author: heidist
 ---
 # What is Azure Search?
-Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over your data in web, mobile, and enterprise applications.
+Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over your content in web, mobile, and enterprise applications.
 
-Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of search technology. In addition to APIs, the Azure portal provides administration and prototyping support. Infrastructure and availability are managed by Microsoft.
+Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. In addition to APIs, the Azure portal provides administration and content management support, with tools for protoyping and querying your indexes. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
 
 <a name="feature-drilldown"></a>
 
