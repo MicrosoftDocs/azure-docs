@@ -24,8 +24,7 @@ ms.custom: oldportal;it-pro;
 This article discusses how to install additional domain controllers (DCs) to be used as replica DCs for an on-premises Active Directory domain on Azure virtual machines (VMs) in an Azure virtual network. You can also [install a Windows Server Active Directory forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md). For how to install Active Directory Domain Services (AD DS) on an Azure virtual network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## Scenario diagram
-In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the replica DCs are installed in an Azure virtual network. The virtual network can be connected to the on-premises network by [ExpressRoute](../expressroute/expressroute-locations-providers.md), or you can use a [site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) connection, as shown in the following diagram. 
-
+In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the replica DCs are installed in an Azure virtual network. The virtual network can be connected to the on-premises network by [ExpressRoute](../expressroute/expressroute-locations-providers.md), or you can use a [site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) connection, as shown: 
 
 ![Diagram pf replica Active Directory domain controller an Azure vnet][1]
 
@@ -50,7 +49,7 @@ To create the VMs by using Windows PowerShell instead of the Azure portal, see [
 Reserve a static IP address for VMs that will run the DC role. To reserve a static IP address, download the Microsoft Web Platform Installer and [install Azure PowerShell](/powershell/azure/overview) and run the Set-AzureStaticVNetIP cmdlet. For example:
 
 ````
-'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
+Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 ````
 For more information about setting a static IP address, see [Configure a static internal IP address for a VM](../virtual-network/virtual-networks-reserved-private-ip.md).
 
@@ -67,9 +66,7 @@ Sign in to a VM and verify that you have connectivity across the site-to-site VP
 
 ## Create VMs for application servers
 
-To create VMs to host the application server role, repeat the steps in [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md) as needed. 
-
-To create the VMs by using Microsoft PowerShell instead of the Azure portal, see [Use Azure PowerShell to create and configure Windows-based Virtual Machines](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+To create VMs to host the application server role, repeat the steps in [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md) as needed. To create the VMs by using Microsoft PowerShell instead of the Azure portal, see [Use Azure PowerShell to create and configure Windows-based Virtual Machines](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). The following table contains suggested settings.
 
 | Setting | Values |
 | --- | --- |
@@ -78,11 +75,15 @@ To create the VMs by using Microsoft PowerShell instead of the Azure portal, see
 |  **Virtual Machine Configuration** |<p>Cloud Service: Choose **Create a new cloud service** for the first VM and select that same cloud service name when you create more VMs that will host the application.</p><p>Cloud Service DNS Name: Specify a globally unique name</p><p>Region/Affinity Group/Virtual Network: Specify the virtual network name (such as WestUSVNet).</p><p>Storage Account: Choose **Use an automatically generated storage account** for the first VM and then select that same storage account name when you create more VMs that will host the application.</p><p>Availability Set: Choose **Create an availability set**.</p><p>Availability set name: Type a name for the availability set when you create the first VM and then select that same name when you create more VMs.</p> |
 |  **Virtual Machine Configuration** |<p>Select <b>Install the VM Agent</b> and any other extensions you need.</p> |
   
-After each VM is provisioned, sign in and join it to the domain. In **Server Manager**, click **Local Server** > **WORKGROUP** > **Change…** and then select **Domain** and type the name of your on-premises domain. Provide credentials of a domain user, and then restart the VM to complete the domain join.
-
-For more information about using Windows PowerShell, see [Get Started with Azure Cmdlets](/powershell/azure/overview) and [Azure Cmdlet Reference](/powershell/azure/get-started-azureps).
+After each VM is provisioned, sign in and join it to the domain. 
+1. In **Server Manager** &gt; **Local Server** &gt; **WORKGROUP** &gt; **Change…**, select **Domain**.
+2. Enter the name of your on-premises domain. 
+3. Provide credentials of a domain user.
+4. Restart the VM.
 
 ## Additional resources
+
+* For more information about using Windows PowerShell, see [Get Started with Azure Cmdlets](/powershell/azure/overview) and [Azure Cmdlet Reference](/powershell/azure/get-started-azureps).
 * [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 * [How to upload existing on-premises Hyper-V domain controllers to Azure by using Azure PowerShell](http://support.microsoft.com/kb/2904015)
 * [Install a new Active Directory forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
