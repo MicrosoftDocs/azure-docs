@@ -5,7 +5,7 @@ keywords: app service, azure app service, diagnostics, support, web app, trouble
 services: app-service
 documentationcenter: ''
 author: jen7714
-manager: apurvajo
+manager: cfowler
 editor: ''
 
 ms.service: app-service
@@ -28,7 +28,7 @@ Although this experience is most helpful when you’re having issues with your w
 
 ## Health checkup
 
-If you do not know what’s wrong with your web app or don’t know where to start troubleshooting your issues, health checkup is a good place to start. Health checkup will analyze your web applications to give you a quick, interactive overview that points out what’s healthy and what’s wrong, telling you where to look to investigate the issue. Its intelligent and interactive interface provides you with guidance through the troubleshooting process.  
+If you don't know what’s wrong with your web app or don’t know where to start troubleshooting your issues, the health checkup is a good place to start. The health checkup will analyze your web applications to give you a quick, interactive overview that points out what’s healthy and what’s wrong, telling you where to look to investigate the issue. Its intelligent and interactive interface provides you with guidance through the troubleshooting process.  
 
 ![Health checkup](./media/app-service-diagnostics/HealthCheckup2.png)
 
@@ -38,13 +38,13 @@ If an issue is detected with a specific problem category within the last 24 hour
 
 ## Tile shortcuts
 
-If you know exactly what kind of troubleshooting information you’re looking for, the tile shortcuts will take you directly to the full diagnostic report of the problem category that you’re interested in. Compared to the health checkup, this is the more direct, but less guided way of accessing your diagnostic metrics.  
+If you know exactly what kind of troubleshooting information you’re looking for, the tile shortcuts will take you directly to the full diagnostic report of the problem category that you’re interested in. Compared to the health checkup, the tile shortcuts are the more direct, but less guided way of accessing your diagnostic metrics.  
 
 ![Tile shortcuts](./media/app-service-diagnostics/TileShortcuts4.png)
 
 ## Diagnostic report
 
-Whether you want more information after running a [health checkup](#health-checkup) or clicked on one of the [tile shortcuts](#tile-shortcuts), the full diagnostic report will show you relevant graphed metrics from the last 24 hours. If your app experiences any downtime, it is represented by an orange bar underneath the timeline. You can click on one of the downtimes to get analyzed observations about the downtime and the suggested solutions. 
+Whether you want more information after running a [health checkup](#health-checkup) or you clicked on one of the [tile shortcuts](#tile-shortcuts), the full diagnostic report will show you relevant graphed metrics from the last 24 hours. If your app experiences any downtime, it's represented by an orange bar underneath the timeline. You can select one of the downtimes to get analyzed observations about the downtime and the suggested solutions. 
 
 ![Diagnostic report](./media/app-service-diagnostics/DiagnosticReport5.png)
 
