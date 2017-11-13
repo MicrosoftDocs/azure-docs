@@ -18,10 +18,13 @@
 ### [Understand terms on your usage](billing-understand-your-usage.md)
 ### [Understand external service charges](billing-understand-your-azure-marketplace-charges.md)
 ### [Understand free service meter mapping](billing-understand-free-service-meter-mapping.md)
+### [Reserve VM Instances Windows costs](billing-reserved-Instance-windows-software-costs.md)
 ### [Understand Reserved VM Instance discount application](billing-understand-vm-reservation-charges.md)
 ### [Understand spending limit](billing-spending-limit.md)
 ### [Set up billing alerts](billing-set-up-alerts.md)
 ### [Resolve past due balance](billing-azure-subscription-past-due-balance.md)
+### [Understand Reserved Instance usage for Pay-As-You-Go](billing-understand-reserved-instance-usage.md)
+### [Understand Reserved Instance usage for Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Manage subscriptions
 ### [Manage administrator roles](billing-add-change-azure-subscription-administrator.md)
