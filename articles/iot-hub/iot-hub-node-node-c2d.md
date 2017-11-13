@@ -21,7 +21,11 @@ ms.author: dobett
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Get started with IoT Hub] tutorial shows how to:
+
+* Create an IoT hub.
+* Provision a device identity in an IoT hub.
+* Code a simulated device app that sends device-to-cloud messages.
 
 This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
@@ -33,8 +37,8 @@ You can find more information on cloud-to-device messages in the [IoT Hub develo
 
 At the end of this tutorial, you run two Node.js console apps:
 
-* **SimulatedDevice**, a modified version of the app created in [Get started with IoT Hub], which connects to your IoT hub and receives cloud-to-device messages.
-* **SendCloudToDeviceMessage**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgement.
+* `simulateddevice`, a modified version of the app created in [Get started with IoT Hub], which connects to your IoT hub and receives cloud-to-device messages.
+* `sendcloudtodevicemessage`, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgement.
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center].
@@ -82,19 +86,19 @@ In this section, you modify the simulated device app you created in [Get started
 
 In this section, you create a Node.js console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Get started with IoT Hub] tutorial. You also need the IoT Hub connection string for your hub that you can find in the [Azure portal].
 
-1. Create an empty folder called **sendcloudtodevicemessage**. In the **sendcloudtodevicemessage** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+1. Create an empty folder called `sendcloudtodevicemessage`. In the `sendcloudtodevicemessage` folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
 
     ```cmd/sh
     npm init
     ```
 
-1. At your command prompt in the **sendcloudtodevicemessage** folder, run the following command to install the **azure-iothub** package:
+1. At your command prompt in the `sendcloudtodevicemessage` folder, run the following command to install the **azure-iothub** package:
 
     ```cmd/sh
     npm install azure-iothub --save
     ```
 
-1. Using a text editor, create a **SendCloudToDeviceMessage.js** file in the **sendcloudtodevicemessage** folder.
+1. Using a text editor, create a **SendCloudToDeviceMessage.js** file in the `sendcloudtodevicemessage` folder.
 
 1. Add the following `require` statements at the start of the **SendCloudToDeviceMessage.js** file:
 
@@ -105,7 +109,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
     var Message = require('azure-iot-common').Message;
     ```
 
-1. Add the following code to **SendCloudToDeviceMessage.js** file. Replace the "{iot hub connection string}" placeholder value with the IoT Hub connection string for the hub you created in the [Get started with IoT Hub] tutorial. Replace the "{device id}" placeholder with the device ID of the device you added in the [Get started with IoT Hub] tutorial:
+1. Add the following code to **SendCloudToDeviceMessage.js** file. Replace the `{iot hub connection string}` placeholder value with the IoT Hub connection string for the hub you created in the [Get started with IoT Hub] tutorial. Replace the `{device id}` placeholder with the device ID of the device you added in the [Get started with IoT Hub] tutorial:
 
     ```javascript
     var connectionString = '{iot hub connection string}';
@@ -160,7 +164,7 @@ In this section, you create a Node.js console app that sends cloud-to-device mes
 
 You are now ready to run the applications.
 
-1. At the command prompt in the **simulateddevice** folder, run the following command to send telemetry to IoT Hub and to listen for cloud-to-device messages:
+1. At the command prompt in the `simulateddevice` folder, run the following command to send telemetry to IoT Hub and to listen for cloud-to-device messages:
 
     ```cmd/sh
     node SimulatedDevice.js
@@ -168,13 +172,13 @@ You are now ready to run the applications.
 
     ![Run the simulated device app][img-simulated-device]
 
-1. At a command prompt in the **sendcloudtodevicemessage** folder, run the following command to send a cloud-to-device message and wait for the acknowledgment feedback:
+1. At a command prompt in the `sendcloudtodevicemessage` folder, run the following command to send a cloud-to-device message and wait for the acknowledgment feedback:
 
     ```cmd/sh
-    node SendCloudToDeviceMessage.js 
+    node SendCloudToDeviceMessage.js
     ```
 
-    ![Run the app to send the cloud-to-device command][img-send-command]
+    ![To send the cloud-to-device command, run the app][img-send-command]
 
    > [!NOTE]
    > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].

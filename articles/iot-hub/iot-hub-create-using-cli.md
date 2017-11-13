@@ -28,7 +28,7 @@ You can use Azure CLI 2.0 (az.py) to create and manage Azure IoT hubs programmat
 You can complete the task using one of the following CLI versions:
 
 * [Azure CLI (azure.js)](iot-hub-create-using-cli-nodejs.md) – the CLI for the classic and resource management deployment models.
-* Azure CLI 2.0 (az.py) - the next generation CLI for the resource management deployment model as described in this article.
+* Azure CLI 2.0 (az.py) - the next generation CLI for the resource management deployment model. Described in this article.
 
 To complete this tutorial, you need the following:
 
