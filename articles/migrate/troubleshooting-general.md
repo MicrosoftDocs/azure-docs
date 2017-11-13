@@ -63,29 +63,29 @@ Yes, every project key ends with “==”. The collector encrypts the project ke
 
 **Issue** | **Fix**
 --- | ---
-Boot type not supported | Change to BIOS before assessment.
-Disk count exceeds limit | Remove unused disks from the machine before assessment.
-Disk size exceeds limit | Shrink disks to less than 4 TB before assessment. 
-Disk unavailable in the specified location | Make sure the disk is in your target location.
+Boot type not supported | Change to BIOS before you run a migrate.
+Disk count exceeds limit | Remove unused disks from the machine before migration.
+Disk size exceeds limit | Shrink disks to less than 4 TB before migration. 
+Disk unavailable in the specified location | Make sure the disk is in your target location before you migrate.
 Disk unavailable for the specified redundancy | The disk should use the redundancy storage type defined in the assessment settings (LRS by default).
 Could not determine disk suitability due to an internal error | Try creating a new assessment for the group. 
-VM with required cores and memory not found | Azure couldn't fine a suitable VM type. Reducing the memory and number of cores of the on-premises machine before assessment. 
-One or more unsuitable disks. | Make sure on-premises disks are 4 TB or under before assessment.
-One or more unsuitable network adapters. | Remove unused network adapters from the machine before assessment.
+VM with required cores and memory not found | Azure couldn't fine a suitable VM type. Reduce the memory and number of cores of the on-premises machine before you migrate. 
+One or more unsuitable disks. | Make sure on-premises disks are 4 TB or under before you run a migration.
+One or more unsuitable network adapters. | Remove unused network adapters from the machine before migration.
 Could not determine VM suitability due to an internal error. | Try creating a new assessment for the group. 
 Could not determine suitability for one or more disks due to an internal error. | Try creating a new assessment for the group.
 Could not determine suitability for one or more network adapters due to an internal error. | Try creating a new assessment for the group.
-VM not found for the required storage performance. | The storage performance (IOPS/throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine.
+VM not found for the required storage performance. | The storage performance (IOPS/throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine before migration.
 VM not found for the required network performance. | The network performance (in/out) required for the machine exceeds Azure VM support. Reduce the networking requirements for the machine. 
 VM not found for the specified pricing tier. | Check the pricing tier settings. 
-VM not found in the specified location. | Use a different target location for assessment.
+VM not found in the specified location. | Use a different target location before migration.
 Linux OS support issues | Make sure you're running 64-bit with these supported [operating systems](../virtual-machines/linux/endorsed-distros.md).
 Windows OS support issues | Make sure you're running a supported operating system. [Learn more](concepts-assessment-calculation.md#azure-suitability-analysis)
 Unknown operating system. | Check that the operating system specified in vCenter is correct and repeat the discovery process.
 Requires Visual Studio subscription. | Windows client operating systems are only supported on Visual Studio (MSDN) subscriptions.
 
 
-## Troubleshoot logging
+## Collect logs
 
 **How do I collect logs on the collector VM?**
 
@@ -99,4 +99,24 @@ To collect Event Tracing for Windows, do the following:
 
 1. On the collector VM, open a PowerShell command window.
 2. Run **Get-EventLog -LogName Application | export-csv eventlog.csv**.
+
+**How do I collect portal logs?**
+
+1. Open the browser and [navigate to the portal](http://aka.ms/migrate/prod).
+2. Press F12 to start the browser Developer Tools, and click the **Network** tab.
+3. Enable network traffic capturing:
+ - In Chrome, click **Save as HAR with content**.the circle icon on the left side to enable. A red circle indicates traffic is being captured.
+ - In Internet Explorer, click on the **Play** button to enable capturing.
+4. Try to reproduce the error.
+5. Save the network logs:
+ - In Chrome, right-click and click **Save as HAR with content**. This exports the logs as an .har file, and zips them.
+ - In Internet Explorer, click the icon to export captured traffic, and zip the logs.
+6. Navigate to the **Console** tab.
+4. Save the console logs:
+ - In Chrome, right-click > **Save as** to export and zip the logs.
+ - In Internet Explorer, copy the logs, save the logs in Notepad, and zip the files.
+ 
+
+
+
 
