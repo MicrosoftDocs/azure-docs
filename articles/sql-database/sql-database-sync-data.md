@@ -74,33 +74,6 @@ Data Sync is not appropriate for the following scenarios:
     -   If you select *Hub wins*, the changes in the hub always overwrite changes in the member.
     -   If you select *Member wins*, the changes in the member overwrite changes in the hub. If there's more than one member, the final value depends on which member syncs first.
 
-## Common questions
-
-### How frequently can Data Sync synchronize my data? 
-The minimum frequency is every five minutes.
-
-### Can I use Data Sync to sync between SQL Server on-premises databases only? 
-Not directly. You can sync between SQL Server on-premises databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
-   
-### Can I use Data Sync to seed data from my production database to an empty database, and then keep them synchronized? 
-Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
-
-### Why do I see tables that I did not create?  
-Data Sync creates side tables in your database for change tracking. Don't delete them or Data Sync stops working.
-   
-### I got an error message that said "cannot insert the value NULL into the column \<column\>. Column does not allow nulls." What does this mean, and how can I fix the error? 
-This error message indicates one of the two following issues:
-1.  There may be a table without a primary key. To fix this issue, add a primary key to all the tables you're syncing.
-2.  There may be a WHERE clause in your CREATE INDEX statement. Sync does not handle this condition. To fix this issue, remove the WHERE clause or manually make the changes to all databases. 
- 
-### How does Data Sync handle circular references? That is, when the same data is synced in multiple sync groups, and keeps changing as a result?
-Data Sync doesn’t handle circular references. Be sure to avoid them. 
-
-### How can I export and import a database with Data Sync?
-After you export a database as a `.bacpac` file and import the file to create a new database, you have to do the following two things to use Data Sync in the new database:
-1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). This script deletes all of the required Data Sync objects from the database.
-2.  Recreate the sync group with the new database. If you no longer need the old sync group, delete it.
-
 ## <a name="sync-req-lim"></a> Requirements and limitations
 
 ### General requirements
@@ -146,6 +119,45 @@ Data Sync uses insert, update, and delete triggers to track changes. It creates 
 | Data row size on a table                                        | 24 Mb                  |                             |
 | Minimum sync interval                                           | 5 Minutes              |                             |
 |||
+
+## FAQ about SQL Data Sync
+
+### How much does the SQL Data Sync (Preview) service cost?
+
+During the Preview, there is no charge for the SQL Data Sync (Preview) service itself.  However, you still accrue data transfer charges for data movement in and out of your SQL Database instance. For more
+details about pricing, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+
+### What regions support Data Sync?
+
+SQL Data Sync (Preview) is available in all public cloud regions.
+
+### Is a SQL Database account required? 
+
+Yes. You must have a SQL Database account to host the Hub Database.
+
+### Can I use Data Sync to sync between SQL Server on-premises databases only? 
+Not directly. You can sync between SQL Server on-premises databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
+   
+### Can I use Data Sync to seed data from my production database to an empty database, and then keep them synchronized? 
+Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
+
+### Should I use SQL Data Sync to backup and restore my databases?
+
+It is not recommended to use SQL Data Sync (Preview) to create a backup of your data. You cannot backup and restore to a specific point in time because SQL Data Sync (Preview) does not version synchronizations. Furthermore, SQL Data Sync (Preview) does not back up other SQL objects, such as stored procedures, and does not do the equivalent of a restore operation quickly.
+
+For one recommeneded backup technique, see [Copy an Azure SQL database](sql-database-copy.md).
+
+### Is collation supported in SQL Data Sync?
+
+Yes. SQL Data Sync supports collation in the following scenarios:
+
+-   If the selected sync schema tables are not already in your hub or member databases, then when you deploy the sync group, the service automatically creates the corresponding tables and columns with the  collation settings selected in the empty destination databases.
+
+-   If the tables to be synced already exist in both your hub and member databases, SQL Data Sync requires that the primary key columns have the same collation between hub and member databases to successfully deploy the sync group. There are no collation restrictions on columns other than the primary key columns.
+
+### Is federation supported in SQL Data Sync?
+
+Federation Root Database can be used in the SQL Data Sync (Preview) Service without any limitation. You cannot add the Federated Database endpoint to the current version of SQL Data Sync (Preview).
 
 ## Next steps
 
