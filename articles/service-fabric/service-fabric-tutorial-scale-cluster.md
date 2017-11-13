@@ -20,7 +20,7 @@ ms.author: adegeo
 
 # Scale a Service Fabric cluster
 
-This tutorial is part three of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
+This tutorial is part two of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
 
 In this tutorial, you learn how to:
 
@@ -46,6 +46,11 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
+```azurecli
+az login
+az account set --subscription <guid>
+```
+
 ## Connect to the cluster
 
 To successfully complete this part of the tutorial, you need to connect to both the Service Fabric cluster and the virtual machine scale set (that hosts the cluster). The virtual machine scale set is the Azure resource that hosts Service Fabric on Azure.
@@ -65,7 +70,12 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $endpoint `
 Get-ServiceFabricClusterHealth
 ```
 
-With the `Get-ServiceFabricClusterHealth` command, status is returned to you with details about the health of each node in the cluster.
+```azurecli
+sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
+--pem ./aztestcluster201709151446.pem --no-verify
+```
+
+Now that you're connected, you can use a command to get the status of each node in the cluster. For PowerShell, use the `Get-ServiceFabricClusterHealth` command, and for **sfctl** use the `` command.
 
 ## Scale out
 
@@ -78,7 +88,15 @@ $scaleset.Sku.Capacity += 1
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
 
-After the update operation is completed, run the `Get-ServiceFabricClusterHealth` command to see the new node information.
+This code sets the capacity to 6.
+
+```azurecli
+# Get the name of the node with
+az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
+
+# Use the name to scale
+az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
+```
 
 ## Scale in
 
@@ -89,22 +107,29 @@ Scaling in is the same as scaling out, except you use a lower **capacity** value
 > [!NOTE]
 > This part only applies to the *Bronze* durability tier. For more information about durability, see [Service Fabric cluster capacity planning][durability].
 
-When you scale in a virtual machine scale set, the scale set (in most cases) removes the virtual machine instance that was last created. So you need to find the matching, last created, service fabric node. You can find this last node by checking the biggest `NodeInstanceId` property value on the service fabric nodes. 
+When you scale in a virtual machine scale set, the scale set (in most cases) removes the virtual machine instance that was last created. So you need to find the matching, last created, service fabric node. You can find this last node by checking the biggest `NodeInstanceId` property value on the service fabric nodes. The code examples below sort by the node instance and return the details about the instance with the largest id value. 
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
+```azurecli
+`sfctl node list --query "sort_by(items[*], &instanceId)[-1]"`
+```
+
 The service fabric cluster needs to know that this node is going to be removed. There are three steps you need to take:
 
 1. Disable the node so that it no longer is a replicate for data.  
-`Disable-ServiceFabricNode`
+PowerShell: `Disable-ServiceFabricNode`  
+sfcli: `sfctl node disable`
 
 2. Stop the node so that the service fabric runtime shuts down cleanly, and your app gets a terminate request.  
-`Start-ServiceFabricNodeTransition -Stop`
+PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
+sfcli: `sfctl node transition --node-transition-type Stop`
 
 2. Remove the node from the cluster.  
-`Remove-ServiceFabricNodeState`
+PowerShell: `Remove-ServiceFabricNodeState`  
+sfcli: `sfctl node remove-state`
 
 Once these three steps have been applied to the node, it can be removed from the scale set. If you're using any durability tier besides [bronze][durability], these steps are done for you when the scale set instance is removed.
 
@@ -167,6 +192,30 @@ else
 }
 ```
 
+In the **sfctl** code below, the following command is used to get the **node-name** and **node-instance-id** values of the last-created node: `sfctl node list --query "sort_by(items[*], &instanceId)[-1].[instanceId,name]"`
+
+```azurecli
+# Inform the node that it is going to be removed
+sfctl node disable --node-name _nt1vm_5 --deactivation-intent 4 -t 300
+
+# Stop the node using a random guid as our operation id
+sfctl node transition --node-instance-id 131541348482680775 --node-name _nt1vm_5 --node-transition-type Stop --operation-id c17bb4c5-9f6c-4eef-950f-3d03e1fef6fc --stop-duration-in-seconds 14400 -t 300
+
+# Remove the node from the cluster
+sfctl node remove-state --node-name _nt1vm_5
+```
+
+> [!TIP]
+> Use the following **sfctl** queries to check the status of each step
+>
+> **Check deactivation status**  
+> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].nodeDeactivationInfo"`
+>
+> **Check stop status**  
+> `sfctl node list --query "sort_by(items[*], &instanceId)[-1].isStopped"`
+>
+
+
 ### Scale in the scale set
 
 Now that the service fabric node has been removed from the cluster, the virtual machine scale set can be scaled in. In the example below, the scale set capacity is reduced by 1.
@@ -177,6 +226,17 @@ $scaleset.Sku.Capacity -= 1
 
 Update-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm -VirtualMachineScaleSet $scaleset
 ```
+
+This code sets the capacity to 5.
+
+```azurecli
+# Get the name of the node with
+az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
+
+# Use the name to scale
+az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
+```
+
 
 ## Next steps
 
@@ -190,6 +250,6 @@ In this tutorial, you learned how to:
 
 Next, advance to the following tutorial to learn how to deploy an application and use API management.
 > [!div class="nextstepaction"]
-> [Deploy an application](service-fabric-tutorial-deploy-api-management.md)
+> [Deploy API Management](service-fabric-tutorial-deploy-api-management.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

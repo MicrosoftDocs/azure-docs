@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/10/2017
+ms.date: 11/03/2017
 ms.author: mimig
 
 ---

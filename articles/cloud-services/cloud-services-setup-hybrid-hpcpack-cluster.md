@@ -84,7 +84,9 @@ HPC Pack installs a self-signed certificate on the head node, called the Default
 
 2. Click **Subscriptions** > *your_subscription_name*.
 
-3. Click **Management certificates** > **Upload**.4. Browse on the head node for the file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Then, click **Upload**.
+3. Click **Management certificates** > **Upload**.
+
+4. Browse on the head node for the file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Then, click **Upload**.
 
    
 The **Default HPC Azure Management** certificate appears in the list of management certificates.
