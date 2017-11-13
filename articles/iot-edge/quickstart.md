@@ -138,7 +138,6 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 
 <!-- Images -->
 [1]: ./media/quickstart/cloud-shell.png
-[2]: ./media/tutorial-install-iot-edge/view-module.png
 
 <!-- Links -->
 [lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 

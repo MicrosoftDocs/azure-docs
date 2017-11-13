@@ -21,7 +21,7 @@ ms.service: iot-edge
 ---
 
 # Deploy Azure Function as an IoT Hub module - preview
-You can use Azure Functions to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an Azure Function that filters sensor data on the simulated IoT Edge device that you created in the [Install Azure IoT Edge tutorial](./tutorial-install-iot-edge.md). In this tutorial, you learn how to:     
+You can use Azure Functions to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an Azure Function that filters sensor data on the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. In this tutorial, you learn how to:     
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an Azure Function
@@ -34,7 +34,7 @@ The Azure Function that you create in this tutorial filters the temperature data
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the [Install Azure IoT Edge tutorial](./tutorial-install-iot-edge.md).
+* The Azure IoT Edge device that you created in the quickstart or previous tutorial.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * The following Visual Studio Code extensions: 
   * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
@@ -239,3 +239,7 @@ In this tutorial, you created an Azure Function that contains code to filter raw
 > [!div class="nextstepaction"]
 > [Create a custom module](tutorial-csharp-module.md)
 > [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
+
+<!--Links-->
+[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
+[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
