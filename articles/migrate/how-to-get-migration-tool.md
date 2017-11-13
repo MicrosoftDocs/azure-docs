@@ -31,7 +31,7 @@ After an assessment using Azure Migrate, here's what we suggest:
 1. Create an Azure Migrate project, discover on-premises machines, and run a migration assessment. [Learn more](tutorial-assessment-vmware.md).
 2. Download and install the Azure Migrate agents on each on-premises machine for which you want to see a recommended migration method. [Follow this procedure](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) to install the agents.
 2. Identify your on-premises machines that are suitable for lift-and-shift migration. These are the VMs that don't require any changes to apps running on them, and can be migrated as is.
-3. For lift-and-shift migration, we suggest using Azure Site Recovery. [Learn more](tutorial-migrate-on-premises-to-azure.md). Alternately, you can use 3rd party tools that support migration to Azure.
+3. For lift-and-shift migration, we suggest using Azure Site Recovery. [Learn more](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternately, you can use 3rd party tools that support migration to Azure.
 4. If you have on-premises machines that aren't suitable for a lift-and-shift migration, for example if you want to migrate specific app rather than an entire VM, you can use other migration tools. For example, we suggest the [Azure Database Migration service](https://azure.microsoft.com/campaigns/database-migration/) if you want to migrate on-premises SQL Server or Oracle databases to Azure.
 
 
