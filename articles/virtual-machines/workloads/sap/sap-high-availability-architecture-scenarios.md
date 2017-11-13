@@ -236,15 +236,21 @@ ms.custom: H1Hack27Feb2017
 ## Overview of high availability
 SAP high availability in Azure can be separated into three types:
 
-* **Azure infrastructure high availability**: For example, high availability can include compute (VMs), network, or storage and its benefits for increasing the availability of SAP applications.
+* **Azure infrastructure high availability**: 
 
-* **Utilizing Azure infrastructure VM restart to achieve *higher availability* of SAP applications**: If you decide not to use functionalities such as Windows Server Failover Clustering (WSFC) or Pacemaker on Linux, Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
+    For example, high availability can include compute (VMs), network, or storage and its benefits for increasing the availability of SAP applications.
 
-* **SAP application high availability**: To achieve full SAP system high availability, you must protect all critical SAP system components. For example:
-  * Redundant SAP application servers.
-  * Unique components. An example might be a single point of failure (SPOF) component, such as an SAP ASCS/SCS instance or a database management system (DBMS).
+* **Utilizing Azure infrastructure VM restart to achieve *higher availability* of SAP applications**: 
 
-SAP high availability in Azure has some differences compared to SAP high availability in an on-premises physical or virtual environment. The following paper [SAP NetWeaver High Availability and Business Continuity in Virtual Environments with VMware and Hyper-V on Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper] describes standard SAP High Availability configurations in virtualized environments on Windows.
+    If you decide not to use functionalities such as Windows Server Failover Clustering (WSFC) or Pacemaker on Linux, Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
+
+* **SAP application high availability**: 
+
+    To achieve full SAP system high availability, you must protect all critical SAP system components. For example:
+    * Redundant SAP application servers.
+    * Unique components. An example might be a single point of failure (SPOF) component, such as an SAP ASCS/SCS instance or a database management system (DBMS).
+
+SAP high availability in Azure differs from SAP high availability in an on-premises physical or virtual environment. The following paper [SAP NetWeaver high availability and business continuity in virtual environments with VMware and Hyper-V on Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper] describes standard SAP high-availability configurations in virtualized environments on Windows.
 
 There is no sapinst-integrated SAP high-availability configuration for Linux as there is for Windows. For information about SAP high availability on-premises for Linux, see [High availability partner information][sap-ha-partner-information].
 
