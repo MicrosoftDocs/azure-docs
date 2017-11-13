@@ -71,5 +71,5 @@ Information about the Azure Cosmos DB Cassandra API is integrated into the overa
 
 * Follow the [Quickstarts](create-cassandra-nodejs.md) to create an account and a new app by using a Git sample
 * Follow the [Tutorial](tutorial-develop-cassandra-java.md) to create a new app programmatically.
-* Follow the [Import Cassandra data tutorial](cassandra-import.md) to import your existing data into Azure Cosmos DB.
+* Follow the [Import Cassandra data tutorial](cassandra-import-data.md) to import your existing data into Azure Cosmos DB.
 * Read the [FAQ](faq.md#cassandra).
