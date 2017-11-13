@@ -55,13 +55,13 @@ Perform the following steps to download and execute the script.
 
 3. Run `Login-AzureRmAccount` to create a connection with Azure.   
 4. Run the following script `.\Enable-AzureRmDiagnostics.ps1` without any parameters to enable data collection from a specific resource in your subscription or with the parameter `-ResourceGroup <myResourceGroup>` to specify a resource in a specific resource group.   
-5. Select the appropriate subscription from the list if you have more than one, by entering the correct value.<br><br> ![Select subscription returned by script](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Otherwise, it will automatically selects the single subscription available.
+5. Select the appropriate subscription from the list if you have more than one, by entering the correct value.<br><br> ![Select subscription returned by script](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Otherwise, it automatically selects the single subscription available.
 6. Next, the script returns a list of Log Analytics workspaces registered in the subscription.  Select the appropriate one from the list.<br><br> ![Select workspace returned by script](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 
 7. Select the Azure resource that you would like to enable collection from. For example, if you type 5, you enable data collection for SQL Azure Databases.<br><br> ![Select resource type returned by script](./media/log-analytics-collect-azurepass-posh/script-select-resource.png)<br>
    You can only select resources that support collecting metrics with Azure Diagnostics and sending directly to a Log Analytics.  The script will show a value of **True** under the **Metrics** column for the list of resources it discovers in your subscription or specified resource group.    
-8. You are prompted to confirm your selection.  Enter **Y** to enable metrics logging for all databases in that subscription.
+8. You are prompted to confirm your selection.  Enter **Y** to enable metrics logging for all selected resources for the scope defined, which in our example are all SQL databases in the subscription.  
 
-The script will run against each database and enable metrics collection for those resources. After it’s finished, you will see a message indicating configuration is complete.  
+The script will run against each and every resource matching selected criteria and enable metrics collection for them. After it’s finished, you will see a message indicating configuration is complete.  
 
 Shortly after completion, you will start to see data from the Azure PaaS resource in your Log Analytics repository.  A record with type `AzureMetrics` is created and analyzing these records are supported by the [Azure SQL Analytics](log-analytics-azure-sql.md) and [Azure Web Apps Analytics](log-analytics-azure-web-apps-analytics.md) management solutions.   
 
