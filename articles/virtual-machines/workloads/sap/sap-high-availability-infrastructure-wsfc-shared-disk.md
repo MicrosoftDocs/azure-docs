@@ -50,6 +50,7 @@ ms.custom: H1Hack27Feb2017
 [sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
 [sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
+[sap-ha-guide-9.1.1]:high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 
@@ -334,8 +335,8 @@ To set up the database multi-SID template, in the [database multi-SID template][
 
   -  **Sap System Id**: Enter the SAP system ID of the SAP system that you want to install. The ID is used as a prefix for the resources that are deployed.
   -  **Os Type**: Select the operating system of the virtual machines.
-  -  **Dbtype**: Select the type of database that you want to install on the cluster. Select **SQL** if you want to install Microsoft SQL Server. Select **HANA** if you plan to install SAP HANA on the virtual machines. Make sure that you select the correct operating system type. Select **Windows** for SQL, and select a Linux distribution for HANA. The Azure Load Balancer that is connected to the virtual machines is configured to support the selected database type:
-    * **SQL**: The load balancer load-balance port 1433. Make sure to use this port for your SQL Server Always On setup.
+  -  **Dbtype**: Select the type of database that you want to install on the cluster. Select **SQL** if you want to install Microsoft SQL Server. Select **HANA** if you plan to install SAP HANA on the virtual machines. Make sure that you select the correct operating system type. Select **Windows** for SQL, and select a Linux distribution for HANA. Azure Load Balancer that is connected to the virtual machines is configured to support the selected database type:
+    * **SQL**: The load balancer load-balance port 1433. Make sure to use this port for your SQL Server AlwaysOn setup.
     * **HANA**: The load balancer load-balance ports 35015 and 35017. Make sure to install SAP HANA with instance number **50**.
     The load balancer uses probe port 62550.
   -  **Sap System Size**: Set the number of SAPS the new system provides. If you are not sure how many SAPS the system requires, ask your SAP Technology Partner or System Integrator.
@@ -373,7 +374,7 @@ To set the required DNS IP addresses, complete the following steps:
 2.  Select your settings based on the type of network you have. For more information, see the following resources:
     * [Corporate network connectivity (cross-premises)][planning-guide-2.2]: Add the IP addresses of the on-premises DNS servers.  
     You can extend on-premises DNS servers to the virtual machines that are running in Azure. In that scenario, you can add the IP addresses of the Azure virtual machines on which you run the DNS service.
-    * [Cloud-only deployment][planning-guide-2.1]: Deploy an additional virtual machine in the same Virtual Network instance that serves as a DNS server. Add the IP addresses of the Azure virtual machines that you've set up to run DNS service.
+    * [Cloud-only deployment][planning-guide-2.1]: Deploy an additional virtual machine in the same Virtual Network instance that serves as a DNS server. Add the IP addresses of the Azure virtual machines that you've set up to run the DNS service.
 
     ![Figure 2: Configure DNS servers for Azure Virtual Network][sap-ha-guide-figure-3001]
 
