@@ -58,6 +58,51 @@ Now let's switch to working with code. Let's clone a Cassandra API app from GitH
 
 3. Then open the CassandraQuickStartSample solution file in Visual Studio. 
 
+## Review the code
+
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `Program.cs` file installed in the C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string).
+
+* The session is initialized by connecting to a Cassandra cluster endpoint. The Cassandra API on Azure Cosmos DB supports only TLSv1.2. 
+
+  ```csharp
+   var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
+   Cluster cluster = Cluster.Builder().WithCredentials(UserName, Password).WithPort(CassandraPort).AddContactPoint(CassandraContactPoint).WithSSL(options).Build();
+   ISession session = cluster.Connect();
+   ```
+
+* A new keyspace is created.
+
+    ```csharp
+  session.Execute("CREATE KEYSPACE IF NOT EXISTS uprofile WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 }");
+    ```
+
+* A new table is created.
+
+   ```csharp
+  session.Execute("CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)");
+   ```
+
+* User entities are inserted by using the IMapper object with a new session that connects to the uprofile keyspace.
+
+    ```csharp
+    mapper.Insert<User>(new User(1, "Kanna", "Bangalore"));
+    ```
+    
+* Query to get get all user's information.
+
+    ```csharp
+   foreach (User user in mapper.Fetch<User>("Select * from user"))
+   {
+      Console.WriteLine(user);
+   }
+    ```
+    
+ * Query to get a single user's information.
+
+    ```csharp
+    mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
+    ```
+
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database.
