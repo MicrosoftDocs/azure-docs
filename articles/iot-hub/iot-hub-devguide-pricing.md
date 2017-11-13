@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 08/29/2017
 ms.author: elioda
 
 ---
@@ -32,7 +32,7 @@ ms.author: elioda
 | File uploads | File transfer to Azure Storage is not metered by IoT Hub. File transfer initiation and completion messages are charged as messaged metered in 4-KB increments. For instance, transferring a 10-MB file is charged two messages in addition to the Azure Storage cost. |
 | Direct methods | Successful method requests are charged in 4-KB chunks, responses with non-empty bodies are charged in 4-KB as additional messages. Requests to disconnected devices are charged as messages in 4-KB chunks. For instance, a method with a 6-KB body that results in a response with no body from the device, is charged as two messages; a method with a 6-KB body that results in a 1-KB response from the device is charged as two messages for the request plus another message for the response. |
 | Device twin reads | Device twin reads from the device and from the solution back end are charged as messages in 512-byte chunks. For instance, reading a 6-KB device twin is charged as 12 messages. |
-| Device twin updates (tags and properties) | Device twin updates from the device and the device are charged as messages in 512-byte chunks. For instance, reading a 6-KB device twin is charged as 12 messages. |
+| Device twin updates (tags and properties) | Device twin updates from the device and from the solution back end are charged as messages in 512-byte chunks. For instance, reading a 6-KB device twin is charged as 12 messages. |
 | Device twin queries | Queries are charged as messages depending on the result size in 512-byte chunks. |
 | Jobs operations <br/> (create, update, list, delete) | Not charged. |
 | Jobs per-device operations | Jobs operations (such as device twin updates, and methods) are charged as normal. For instance, a job resulting in 1000 method calls with 1-KB requests and empty-body responses is charged 1000 messages. |
@@ -50,10 +50,10 @@ The device consumes 1 message * 60 minutes * 24 hours = 1440 messages per day fo
 
 A device sends one 100-KB device-to-cloud message every hour. It also updates its device twin with 1-KB payloads every 4 hours. The solution back end, once per day, reads the 14-KB device twin and updates it with 512-byte payloads to change configurations.
 
-The device consumes 25 (100KB / 4KB) messages * 24 hours for device-to-cloud messages, plus 1 message * 6 times per day for device twin updates, for a total of 156 messages per day.
+The device consumes 25 (100KB / 4KB) messages * 24 hours for device-to-cloud messages, plus 2 messages (1KB / 0.5KB) * 6 times per day for device twin updates, for a total of 612 messages per day.
 The solution back end consumes 28 messages (14KB / 0.5KB) to read the device twin, plus 1 message to update it, for a total of 29 messages.
 
-In total, the device and the solution back end consume 185 messages per day.
+In total, the device and the solution back end consume 641 messages per day.
 
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

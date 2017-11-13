@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -57,6 +57,8 @@ For information about setting up password-based sign-on, see [Password vaulting 
 
 If you already have a single sign-on solution set up for your on-premises identities, choose **Linked sign-on**. This option enables Azure Active Directory to leverage existing SSO solutions, but still gives your users remote access to the application. 
 
+For information about linked sign-on (formally known as existing single sign-on), see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+
 ## Integrated Windows Authentication
 
 If your on-premises applications use Integrated Windows Authentication(IWA) or if you want to use Kerberos Constrained Delegation (KCD) for single sign-on, choose **Integrated Windows Authentication**. With this option, your users only need to authenticate to Azure Active Directory, and then the Application Proxy connector impersonates the user to get a Kerberos token and sign in to the application. 
@@ -65,7 +67,7 @@ For information about setting up Integrated Windows Authentication, see [Kerbero
 
 ## Header-based sign-on 
 
-If your applications use headers for authentication, choose **Header-based authentication**. With this option, your users only need to authentication the Azure Active Directory. Microsoft partners with a third-party authentication service called PingAccess, which translated the Azure Active Directory access token into a header format for the application. 
+If your applications use headers for authentication, choose **Header-based sign-on**. With this option, your users only need to authentication the Azure Active Directory. Microsoft partners with a third-party authentication service called PingAccess, which translated the Azure Active Directory access token into a header format for the application. 
 
 For information about setting up header-based authentication, see [Header-based authentication for single sign-on with Application Proxy](application-proxy-ping-access.md).
 

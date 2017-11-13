@@ -21,9 +21,11 @@ ms.custom:
 ---
 # Create a virtual network with multiple subnets
 
-In this tutorial, learn how to create a basic Azure virtual network that has separate public and private subnets. You can create Azure resources, like Virtual machines, App Service environments, Virtual machine scale sets, Azure HDInsight, and Cloud services in a subnet. Resources in virtual networks can communicate with each other and with resources in other networks connected to a virtual network.
+In this tutorial, learn how to create a basic Azure virtual network that has separate public and private subnets. Resources in virtual networks can communicate with each other, and with resources in other networks connected to a virtual network. You can create Azure resources, like Virtual machines, App Service environments, Virtual machine scale sets, Azure HDInsight, and Cloud services in the same, or different subnets within a virtual network. Creating resources in different subnets enables you to filter network traffic in and out of subnets independently with [network security groups](virtual-networks-create-nsg-arm-pportal.md), and to [route traffic between subnets](virtual-network-create-udr-arm-ps.md) through network virtual appliances, such as a firewall, if you choose to. 
 
-The following sections include steps that you can take to create a virtual network by using the [Azure portal](#portal), the Azure command-line interface ([Azure CLI](#azure-cli)), [Azure PowerShell](#powershell), and an [Azure Resource Manager template](#resource-manager-template). The result is the same, regardless of which tool you use to create the virtual network. Click a tool link to go to that section of the tutorial. To learn more about all virtual network and subnet settings, see [Manage virtual networks](virtual-network-manage-network.md) and [Manage virtual network subnets](virtual-network-manage-subnet.md).
+The following sections include steps that you can take to create a virtual network by using the [Azure portal](#portal), the Azure command-line interface ([Azure CLI](#azure-cli)), [Azure PowerShell](#powershell), and an [Azure Resource Manager template](#resource-manager-template). The result is the same, regardless of which tool you use to create the virtual network. Click a tool link to go to that section of the tutorial. Learn more about all [virtual network](virtual-network-manage-network.md) and [subnet](virtual-network-manage-subnet.md) settings.
+
+This article provides steps to create a virtual network through the Resource Manager deployment model, which is the deployment model we recommend using when creating new virtual networks. If you need to create a virtual network (classic), see [Create a virtual network (classic)](create-virtual-network-classic.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="portal"></a>Azure portal
 
@@ -47,13 +49,14 @@ To create the second subnet, in the **Search resources** box at the top of the p
 6. On the **myVnet - Subnets** blade, click **+Subnet**.
 7. On the **Add subnet** blade, for **Name**, enter **Private**. For **Address range**, enter **10.0.1.0/24**.  Click **OK**.
 8. On the **myVnet - Subnets** blade, review the subnets. You can see the **Public** and **Private** subnets that you created.
-9. **Optional:** To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-portal) in this article.
+9. **Optional:** Complete additional tutorials listed under [Next steps](#next-steps) to filter network traffic in and out of each subnet with network security groups, to route traffic between subnets through a network virtual appliance, or to connect the virtual network to other virtual networks or on-premises networks.
+10. **Optional:** Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-portal).
 
 ## Azure CLI
 
 Azure CLI commands are the same, whether you execute the commands from Windows, Linux, or macOS. However, there are scripting differences between operating system shells. The script in the following steps executes in a Bash shell. 
 
-1. [Install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`. Rather than installing the CLI and its pre-requisites, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Cloud Shell has the Azure CLI preinstalled and configured to use with your account. To use the Cloud Shell, click the Cloud Shell **>_** button at the top of the [portal](https://portal.azure.com) or just click the *Try it* button in the steps that follow. 
+1. [Install and configure the Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Ensure you have the most recent version of the Azure CLI installed. To get help for CLI commands, type `az <command> --help`. Rather than installing the CLI and its pre-requisites, you can use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Cloud Shell has the Azure CLI preinstalled and configured to use with your account. To use the Cloud Shell, click the Cloud Shell (**>_**) button at the top of the [portal](https://portal.azure.com) or just click the *Try it* button in the steps that follow. 
 2. If running the CLI locally, log in to Azure with the `az login` command. If using the Cloud Shell, you're already logged in.
 3. Review the following script and its comments. In your browser, copy the script and paste it into your CLI session:
 
@@ -85,7 +88,8 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
     ```
 
-5. **Optional**: To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-cli) in this article.
+5. **Optional:** Complete additional tutorials listed under [Next steps](#next-steps) to filter network traffic in and out of each subnet with network security groups, to route traffic between subnets through a network virtual appliance, or to connect the virtual network to other virtual networks or on-premises networks.
+6. **Optional**: Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-cli).
 
 ## PowerShell
 
@@ -123,13 +127,17 @@ Azure CLI commands are the same, whether you execute the commands from Windows, 
     $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
 
-5. **Optional**: To delete the resources that you create in this tutorial, complete the steps in [Delete resources](#delete-powershell) in this article.
+5. **Optional:** Complete additional tutorials listed under [Next steps](#next-steps) to filter network traffic in and out of each subnet with network security groups, to route traffic between subnets through a network virtual appliance, or to connect the virtual network to other virtual networks or on-premises networks.
+6. **Optional**: Delete the resources that you create in this tutorial by completing the steps in [Delete resources](#delete-powershell).
 
 ## Resource Manager template
 
 You can deploy a virtual network by using an Azure Resource Manager template. To learn more about templates, see [What is Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment). To access the template and to learn about its parameters, see the [Create a virtual network with two subnets](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/) template. You can deploy the template by using the [portal](#template-portal), [Azure CLI](#template-cli), or [PowerShell](#template-powershell).
 
-**Optional:** To delete the resources that you create in this tutorial, complete the steps in any subsections of [Delete resources](#delete) in this article.
+Optional steps after you deploy the template:
+
+1. Complete additional tutorials listed under [Next steps](#next-steps) to filter network traffic in and out of each subnet with network security groups, to route traffic between subnets through a network virtual appliance, or to connect the virtual network to other virtual networks or on-premises networks.
+2. Delete the resources that you create in this tutorial by completing the steps in any subsections of [Delete resources](#delete).
 
 ### <a name="template-portal"></a>Azure portal
 
@@ -222,7 +230,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ## Next steps
 
 - To learn about all virtual network and subnet settings, see [Manage virtual networks](virtual-network-manage-network.md#view-vnet) and [Manage virtual network subnets](virtual-network-manage-subnet.md#create-subnet). You have various options for using virtual networks and subnets in a production environment to meet different requirements.
-- To filter inbound and outbound subnet traffic, create and apply [network security groups](virtual-networks-nsg.md) to subnets.
-- Create a [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or a [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine, and then connect it to an existing virtual network.
-- To connect two virtual networks in the same Azure location, create a  [virtual network peering](virtual-network-peering-overview.md) between the virtual networks.
+- Filter inbound and outbound subnet traffic by creating and applying [network security groups](virtual-networks-nsg.md) to subnets.
+- Route traffic between subnets through a network virtual appliance, by creating [user-defined routes](virtual-network-create-udr-arm-ps.md) and apply the routes to each subnet.
+- Create a [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or a [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine in an existing virtual network.
+- Connect two virtual networks by creating a [virtual network peering](virtual-network-peering-overview.md) between the virtual networks.
 - Connect the virtual network to an on-premises network by using a [VPN Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuit.

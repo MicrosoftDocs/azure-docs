@@ -12,15 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 10/11/2017
 ms.author: bwren
 
 ---
 # Using regular expressions to filter log searches in Log Analytics
 
+>[!NOTE]
+> This article describes regular expressions using the legacy query language in Log Analytics.  If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then you should refer to [Regular expressions in the language documentation](https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax).
+
+
 [Log searches](log-analytics-log-searches.md) allow you to extract information from the Log Analytics repository.  [Filter expressions](log-analytics-search-reference.md#filter-expressions) allow you to filter the results of the search according to specific criteria.  The **RegEx** keyword allows you to specify a regular expression for this filter.  
 
 This article provides details on the regular expression syntax used by Log Analytics.
+
+> [!NOTE]
+> You can only use RegEx with searchable fields.  For more information on searchable fields, see **Field Types** in [Find data using log searches in Log Analytics](log-analytics-log-searches.md#use-additional-filters).
 
 
 ## RegEx keyword

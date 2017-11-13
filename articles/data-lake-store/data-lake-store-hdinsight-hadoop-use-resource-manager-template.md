@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/04/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 
 ---
@@ -136,3 +136,4 @@ You can also use the `hdfs dfs -put` command to upload some files to the Data La
 
 ## Next steps
 * [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-wasb-distcp.md)
+* [Use Data Lake Store with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)

@@ -207,3 +207,4 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 
 [lnk-c2d]: iot-hub-java-java-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-free-trial]: https://azure.microsoft.com/free/

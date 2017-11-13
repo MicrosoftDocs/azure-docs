@@ -1,4 +1,3 @@
-* If the unmanaged disk is in a storage account previously encrypted through Azure Storage Service Encryption, you can't convert it to a managed disk. For steps to copy and use these virtual hard disks (VHDs) in managed disks, see the [Managed disks and Azure Storage Service Encryption](#managed-disks-and-azure-storage-service-encryption) section later in this article.
 
 * The conversion requires a restart of the VM, so schedule the migration of your VMs during a pre-existing maintenance window. 
 

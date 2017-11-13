@@ -6,10 +6,12 @@
 | Disk free space (process server cache) | 600 GB
 | Disk free space (retention disk) | 600 GB|
 | **Software** | |
-| Operating system version | Windows Server 2012 R2 |
+| Operating system version | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Operating system locale | English (en-us)|
 | VMware vSphere PowerCLI version | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Windows Server roles | Do not enable the following roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
+| Group Policies| The following Group policies should not be enabled on the server <br> - Prevent access to the command prompt <br> - Prevent access to registry editing tools <br> - Trust logic for file attachments <br> - Turn on Script Execution <br> **Note:** More information about these group policies can be found [here](https://technet.microsoft.com/en-us/library/gg176671(v=ws.10).aspx)|
+| Internet Information Service(IIS) Configuration | - No pre-existing Default WebSite <br> - Enable  [Anonymous Authentication](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx) setting  <br> - No pre-existing websit/application should be listening on port 443<br>|
 | **Network** | |
 | Network interface card type | VMXNET3 |
 | IP address type | Static |

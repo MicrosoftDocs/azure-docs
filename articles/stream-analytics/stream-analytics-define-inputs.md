@@ -4,7 +4,7 @@ description: Learn about setting up a data connection to Stream Analytics called
 keywords: data stream, data connection, event stream
 services: stream-analytics
 documentationcenter: ''
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
-ms.author: jeffstok
+ms.author: samacha
 
 ---
 # Data connection: Learn about data stream inputs from events to Stream Analytics
@@ -31,6 +31,12 @@ A data stream is an unbounded sequence of events over time. Stream Analytics job
 Stream Analytics also supports input known as *reference data*. This is auxiliary data that is either static or that changes slowly. It's typically used for performing correlation and lookups. For example, you might join data in the data stream input to data in the reference data, much as you would perform a SQL join to look up static values. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 100 MB in size.
 
 To learn how to create reference data inputs, see [Use Reference Data](stream-analytics-use-reference-data.md).  
+
+## Compression
+
+Azure Stream Analytics supports compression across all data stream input sources (Event Hubs, IoT Hub, and Blob storage). This feature adds a new dropdown option to the **New input** blade in Azure Portal, allowing you to optionally choose to compress data streams. Supported types are currently None, GZip, and Deflate compression. 
+
+Compression is not supported in tandem with Avro serialization, and is not applicable to reference data. 
 
 ## Create data stream input from Event Hubs
 
@@ -53,6 +59,7 @@ The following table explains each property in the **New input** blade in the Azu
 | **Event hub consumer group** (optional) |The consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the default consumer group. We recommend that you use a distinct consumer group for each Stream Analytics job. |
 | **Event serialization format** |The serialization format (JSON, CSV, or Avro) of the incoming data stream. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
+| **Compression** (optional) | The compression type (None, GZip, or Deflate) of the incoming data stream. |
 
 When your data comes from an event hub, you have access to the following metadata fields in your Stream Analytics query:
 
@@ -71,6 +78,10 @@ SELECT
     PartitionId
 FROM Input
 ````
+
+> [!NOTE]
+> When using Event Hub as an endpoint for IoT Hub Routes, you can access to the IoT Hub medadata using the [GetMetadataPropertyValue function](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx).
+> 
 
 ## Create data stream input from IoT Hub
 Azure Iot Hub is a highly scalable publish-subscribe event ingestor optimized for IoT scenarios.
@@ -98,6 +109,7 @@ The following table explains each property in the **New input** blade in the Azu
 | **Consumer group** (optional) |The consumer group to use to ingest data from the IoT hub. If no consumer group is specified, a Stream Analytics job uses the default consumer group. We recommend that you use a different consumer group for each Stream Analytics job. |
 | **Event serialization format** |The serialization format (JSON, CSV, or Avro) of the incoming data stream. |
 | **Encoding** |UTF-8 is currently the only supported encoding format. |
+| **Compression** (optional) | The compression type (None, GZip, or Deflate) of the incoming data stream. |
 
 When your data comes from an IoT hub, you have access to the following metadata fields in your Stream Analytics query:
 
@@ -122,7 +134,7 @@ The default timestamp of Blob storage events in Stream Analytics is the timestam
 CSV-formatted inputs *require* a header row to define fields for the data set. In addition, all header row fields must be unique.
 
 > [!NOTE]
-> Stream Analytics does not support adding content to an existing blob. Stream Analytics will view a blob only once, and any changes that occur in the blob after the job has read the data are not processed. A best practice is to upload all the data once and then not add events to that blob store.
+> Stream Analytics does not support adding content to an existing blob file. Stream Analytics will view each file only once, and any changes that occur in the file after the job has read the data are not processed. Best practice is to upload all the data for a blob file at once and then add additional newer events to a different, new blob file.
 > 
 
 ### Configure Blob storage as a data stream input
@@ -140,6 +152,7 @@ The following table explains each property in the **New input** blade in the Azu
 | **Time format** (optional) |  If you use the time variable in the path, the time format in which the files are organized. Currently the only supported value is `HH`. |
 | **Event serialization format** | The serialization format (JSON, CSV, or Avro) for incoming data streams. |
 | **Encoding** | For CSV and JSON, UTF-8 is currently the only supported encoding format. |
+| **Compression** (optional) | The compression type (None, GZip, or Deflate) of the incoming data stream. |
 
 When your data comes from a Blob storage source, you have access to the following metadata fields in your Stream Analytics query:
 
@@ -161,7 +174,7 @@ FROM Input
 ````
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 You've learned about data connection options in Azure for your Stream Analytics jobs. To learn more about Stream Analytics, see:

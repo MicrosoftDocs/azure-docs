@@ -17,7 +17,7 @@ An intent represents a task or action the user wants to perform. It is a purpose
 
 All applications come with the predefined intent, **None**. You should teach it to recognize user statements that are irrelevant to the app. For example, if a user says "Get me a great cookie recipe" in a travel agent app, label that utterance with the **None** intent.
 
-You can add up to **80** intents in a single LUIS app. You add and manage your intents from the **Intents** page that is accessed by clicking **Intents** in your application's left panel. 
+You add and manage your intents from the **Intents** page that is accessed by clicking **Intents** in your application's left panel. 
 
 The following procedure demonstrates how to add the "Bookflight" intent in the TravelAgent app.
 

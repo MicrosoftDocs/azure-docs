@@ -27,63 +27,48 @@ Learn how to troubleshoot bad gateway (502) errors received when using applicati
 
 After configuring an application gateway, one of the errors that users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen due to the following main reasons:
 
-* Azure Application Gateway's [back-end pool is not configured or empty](#empty-backendaddresspool).
-* None of the VMs or instances in [VM Scale Set are healthy](#unhealthy-instances-in-backendaddresspool).
-* Back-end VMs or instances of VM Scale Set are [not responding to the default health probe](#problems-with-default-health-probe.md).
+* NSG, UDR or Custom DNS is blocking access to backend pool members.
+* Back-end VMs or instances of virtual machine scale set are [not responding to the default health probe](#problems-with-default-health-probe.md).
 * Invalid or improper [configuration of custom health probes](#problems-with-custom-health-probe.md).
-* [Request time out or connectivity issues](#request-time-out) with user requests.
+* Azure Application Gateway's [back-end pool is not configured or empty](#empty-backendaddresspool).
+* None of the VMs or instances in [virtual machine scale set are healthy](#unhealthy-instances-in-backendaddresspool).
+* [Request time-out or connectivity issues](#request-time-out) with user requests.
 
-## Empty BackendAddressPool
+## Network Security Group, User Defined Route, or Custom DNS issue
 
 ### Cause
 
-If the Application Gateway has no VMs or VM Scale Set configured in the back-end address pool, it cannot route any customer request and throws a bad gateway error.
+If access to backend is blocked due to presence of NSG, UDR or custom DNS, Application Gateway instances will not be able to reach the backend pool and would result in probe failures causing 502 errors. Note that the NSG/UDR could be present either in Application Gateway subnet or the subnet where the application VMs are deployed. Similarly presence of custom DNS in the VNET could also cause issues if FQDN is used for backend pool members and is not resolved correctly by the user configured DNS server for the VNET.
 
 ### Solution
 
-Ensure that the back-end address pool is not empty. This can be done either via PowerShell, CLI, or portal.
+Validate NSG, UDR, and DNS configuration by going through the following steps:
+* Check NSGs associated with Application Gateway subnet. Ensure that communication to backend is not blocked.
+* Check UDR associated with Application Gateway subnet. Ensure that UDR is not directing traffic away from backend subnet - for example check for routing to network virtual appliances or default routes being advertised to Application Gateway subnet via ExpressRoute/VPN.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
-The output from the preceding cmdlet should contain non-empty back-end address pool. Following is an example where two pools are returned which are configured with FQDN or IP addresses for backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
+* Check effective NSG and route with the backend VM
 
-BackendAddressPoolsText:
+```powershell
+Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+```
+
+* Check presence of custom DNS in the VNet. DNS can be checked by looking at details of the VNet properties in the output.
 
 ```json
-[{
-    "BackendAddresses": [{
-        "ipAddress": "10.0.0.10",
-        "ipAddress": "10.0.0.11"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool01",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
-}, {
-    "BackendAddresses": [{
-        "Fqdn": "xyx.cloudapp.net",
-        "Fqdn": "abc.cloudapp.net"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool02",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
-}]
+Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+DhcpOptions            : {
+                           "DnsServers": [
+                             "x.x.x.x"
+                           ]
+                         }
 ```
-
-## Unhealthy instances in BackendAddressPool
-
-### Cause
-
-If all the instances of BackendAddressPool are unhealthy, then Application Gateway would not have any back-end to route user request to. This could also be the case when back-end instances are healthy but do not have the required application deployed.
-
-### Solution
-
-Ensure that the instances are healthy and the application is properly configured. Check if the back-end instances are able to respond to a ping from another VM in the same VNet. If configured with a public end point, ensure that a browser request to the web application is serviceable.
+If present, ensure that the DNS server is able to resolve backend pool member's FQDN correctly.
 
 ## Problems with default health probe
 
@@ -134,7 +119,7 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 * If using an HTTPS probe, make sure that the backend server doesn't require SNI by configuring a fallback certificate on the backend server itself. 
 * Ensure that Interval, Time-out, and UnhealtyThreshold are within the acceptable ranges.
 
-## Request time out
+## Request time-out
 
 ### Cause
 
@@ -142,11 +127,63 @@ When a user request is received, Application Gateway applies the configured rule
 
 ### Solution
 
-Application Gateway allows users to configure this setting via BackendHttpSetting, which can be then applied to different pools. Different back-end pools can have different BackendHttpSetting and hence different request time out configured.
+Application Gateway allows users to configure this setting via BackendHttpSetting, which can be then applied to different pools. Different back-end pools can have different BackendHttpSetting and hence different request time-out configured.
 
 ```powershell
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
+
+## Empty BackendAddressPool
+
+### Cause
+
+If the Application Gateway has no VMs or virtual machine scale set configured in the back-end address pool, it cannot route any customer request and throws a bad gateway error.
+
+### Solution
+
+Ensure that the back-end address pool is not empty. This can be done either via PowerShell, CLI, or portal.
+
+```powershell
+Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+```
+
+The output from the preceding cmdlet should contain non-empty back-end address pool. Following is an example where two pools are returned which are configured with FQDN or IP addresses for backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
+
+BackendAddressPoolsText:
+
+```json
+[{
+    "BackendAddresses": [{
+        "ipAddress": "10.0.0.10",
+        "ipAddress": "10.0.0.11"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool01",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
+}, {
+    "BackendAddresses": [{
+        "Fqdn": "xyx.cloudapp.net",
+        "Fqdn": "abc.cloudapp.net"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool02",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
+}]
+```
+
+## Unhealthy instances in BackendAddressPool
+
+### Cause
+
+If all the instances of BackendAddressPool are unhealthy, then Application Gateway would not have any back-end to route user request to. This could also be the case when back-end instances are healthy but do not have the required application deployed.
+
+### Solution
+
+Ensure that the instances are healthy and the application is properly configured. Check if the back-end instances are able to respond to a ping from another VM in the same VNet. If configured with a public end point, ensure that a browser request to the web application is serviceable.
 
 ## Next steps
 

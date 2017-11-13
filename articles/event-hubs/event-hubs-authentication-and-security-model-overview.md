@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 08/30/2017
 ms.author: sethm;clemensv
 
 ---
 # Event Hubs authentication and security model overview
+
 The Azure Event Hubs security model meets the following requirements:
 
 * Only clients that present valid credentials can send data to an event hub.
@@ -25,6 +26,7 @@ The Azure Event Hubs security model meets the following requirements:
 * A rogue client can be blocked from sending data to an event hub.
 
 ## Client authentication
+
 The Event Hubs security model is based on a combination of [Shared Access Signature (SAS)](../service-bus-messaging/service-bus-sas.md) tokens and *event publishers*. An event publisher defines a virtual endpoint for an event hub. The publisher can only be used to send messages to an event hub. It is not possible to receive messages from a publisher.
 
 Typically, an event hub employs one publisher per client. All messages that are sent to any of the publishers of an event hub are enqueued within that event hub. Publishers enable fine-grained access control and throttling.
@@ -37,7 +39,7 @@ All tokens are signed with a SAS key. Typically, all tokens are signed with the 
 
 ### Create the SAS key
 
-When creating an Event Hubs namespace, the service generates a 256-bit SAS key named **RootManageSharedAccessKey**. This key grants send, listen, and manage rights to the namespace. You can also create additional keys. It is recommended that you produce a key that grants send permissions to the specific event hub. For the remainder of this topic, it is assumed that you named this key **EventHubSendKey**.
+When creating an Event Hubs namespace, the service automatically generates a 256-bit SAS key named **RootManageSharedAccessKey**. This rule has an associated pair of primary and secondary keys that grant send, listen, and manage rights to the namespace. You can also create additional keys. It is recommended that you produce a key that grants send permissions to the specific event hub. For the remainder of this topic, it is assumed that you named this key **EventHubSendKey**.
 
 The following example creates a send-only key when creating the event hub:
 
@@ -84,11 +86,13 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 Typically, the tokens have a lifespan that resembles or exceeds the lifespan of the client. If the client has the capability to obtain a new token, tokens with a shorter lifespan can be used.
 
 ### Sending data
+
 Once the tokens have been created, each client is provisioned with its own unique token.
 
 When the client sends data into an event hub, it tags its send request with the token. To prevent an attacker from eavesdropping and stealing the token, the communication between the client and the event hub must occur over an encrypted channel.
 
 ### Blacklisting clients
+
 If a token is stolen by an attacker, the attacker can impersonate the client whose token has been stolen. Blacklisting a client renders that client unusable until it receives a new token that uses a different publisher.
 
 ## Authentication of back-end applications
@@ -100,6 +104,7 @@ The current version of Service Bus does not support SAS rules for individual sub
 In the absence of SAS authentication for individual consumer groups, you can use SAS keys to secure all consumer groups with a common key. This approach enables an application to consume data from any of the consumer groups of an event hub.
 
 ## Next steps
+
 To learn more about Event Hubs, visit the following topics:
 
 * [Event Hubs overview]
