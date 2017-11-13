@@ -180,13 +180,12 @@ Reference data (also known as a lookup table) is a finite data set that is stati
 
 In order to use reference data for ASA on Iot Edge, you need to follow these steps: 
 1. Create a new input for your job
-1.1. Choose **Reference data** as the **Source Type**.
-1.2 Set the file path. The file path should be an **absolute** file path on the device
-
+2. Choose **Reference data** as the **Source Type**.
+3. Set the file path. The file path should be an **absolute** file path on the device
 ![Reference data creation](media/stream-analytics-edge/ReferenceData.png)
+4. Enable **Shared Drives** in your Docker configuration, and make sure the drive is enabled before starting your deployment.
 
-2. Enable **Shared Drives** in your Docker configuration, and make sure the drive is enabled before starting your deployment.
-2.1. See more information in [Docker documentation for Windows here](https://docs.docker.com/docker-for-windows/#shared-drives).
+For more information, see [Docker documentation for Windows here](https://docs.docker.com/docker-for-windows/#shared-drives).
 
 > [!Note]
 > At the moment only local reference data is supported.
