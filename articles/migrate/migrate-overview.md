@@ -36,6 +36,7 @@ Azure Migrate helps you to do the following:
 ## Current limitations
 
 - Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs.
+- You can assess up to 1000 VMs in a single assessment. If you need to assess more, you need to split the discovery process, by creating different Azure Migrate projects, and scoping discovery to under 1000 machines in each project. Use a suitable scope for discovery in vCenter, for example by datacenter. We recommend that you avoid dependencies between machines across projects.
 - VM you want to assess must be managed by a vCenter server, version 5.5 or 6.0.
 - The Azure Migrate portal is currently available in English only.
 - You can only create an Azure Migrate project in the US and Europe geographical locations. However, you can assess VMs for a different target Azure location.
