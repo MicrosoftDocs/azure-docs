@@ -47,7 +47,7 @@ You can configure the default consistency level on your Cosmos DB account (and l
 
 In Cosmos DB, reads served at session, consistent prefix and eventual consistency are twice as cheap as reads with strong or bounded staleness consistency. Cosmos DB has industry leading comprehensive SLAs including consistency guarantees along with availability, throughput, and latency. Azure Cosmos DB employs a [linearizability checker](http://dl.acm.org/citation.cfm?id=1806634), which continuously operates over the service telemetry and openly reports any consistency violations to you. For bounded staleness, Azure Cosmos DB monitors and reports any violations to k and t bounds. For all five relaxed consistency levels, Azure Cosmos DB also reports the [probabilistically bounded staleness metric](http://dl.acm.org/citation.cfm?id=2212359) directly to you.  
 
-## Service Level Agreements
+## Service level agreements
 
 Azure Cosmos DB offers comprehensive 99.99% [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) which guarantee throughput, consistency, availability, and latency for Azure Cosmos DB database accounts scoped to a single Azure region configured with any of the five consistency levels, or database accounts spanning multiple Azure regions, configured with any of the four relaxed consistency levels. Furthermore, independent of the choice of a consistency level, Azure Cosmos DB offers a 99.999% SLA for read availability for database accounts spanning two or more Azure regions.
 
