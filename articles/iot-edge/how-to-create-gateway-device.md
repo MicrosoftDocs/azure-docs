@@ -73,9 +73,6 @@ This will result in a solution that enables all devices to use any IoT Edge devi
 
 You can use the sample Powershell and Bash scripts described in [Managing CA Certificate Sample][lnk-ca-scripts] to generate a self-signed **IoT hub owner CA** and device certificates signed with it.
 
->[!IMPORTANT]
->This sample is meant only for test purposes. For production scenarios, refer to [Secure your IoT deployment][lnk-iothub-secure-deployment] for the Azure IoT guidelines on how to secure your IoT solution, and provision your certificate accordingly.
-
 1. Follow step 1 to install the scripts.
 2. Follow step 2 to generate the **IoT hub owner CA**, this file will be used by the downstream devices to validate the connection.
 
@@ -92,6 +89,10 @@ Use the following instructions to generate a certificate for your gateway device
 
 * Run `New-CACertsEdgeDevice myGateway` to create the new device certificate.
   This will create files myEdgeDevice* that contain the public key, private key, and PFX of this certificate.  When prompted to enter a password during the signing process, enter "123".
+
+
+>[!IMPORTANT]
+>This sample is meant only for test purposes. For production scenarios, refer to [Secure your IoT deployment][lnk-iothub-secure-deployment] for the Azure IoT guidelines on how to secure your IoT solution, and provision your certificate accordingly.
 
 ### Configure an IoT Edge device as a gateway
 
