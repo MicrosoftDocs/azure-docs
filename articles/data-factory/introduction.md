@@ -72,7 +72,7 @@ Azure Data Factory version 2 builds on the original Azure Data Factory data move
 
 Following the version 1 release, we recognized that customers need to design complex hybrid data integration scenarios that require data movement and processing in the cloud, on-premises, and in cloud VMs. These requirements brought a need to transfer and process data within secured virtual network environments and to scale out with on-demand processing power.
 
-As data pipelines become a critical part of a business analytics strategy, we've seen that these critical data activities require flexible scheduling to support incremental data loads and event-triggered executions. Finally, as as these operations become more complex, so does the requirement for the service to support common workflow paradigms including branching, looping and conditional processing.
+As data pipelines become a critical part of a business analytics strategy, we've seen that these critical data activities require flexible scheduling to support incremental data loads and event-triggered executions. Finally, as these operations become more complex, so does the requirement for the service to support common workflow paradigms including branching, looping and conditional processing.
 
 With version 2, you can also migrate existing SSIS packages to the cloud. You can lift and shift SSIS as an Azure service that's managed within ADF, utilizing the new feature “Integration Runtimes” (IR). By spinning-up an SSIS IR in version 2, you have the ability to execute, manage, monitor, and build SSIS packages in the cloud.
 
