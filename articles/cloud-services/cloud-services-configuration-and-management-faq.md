@@ -188,7 +188,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-* Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](https://docs.microsoft.com/en-us/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
+* Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
 * Ability to monitor metrics at the instance level. Additional monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
 
 
