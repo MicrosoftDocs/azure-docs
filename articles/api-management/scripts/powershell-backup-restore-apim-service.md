@@ -18,7 +18,7 @@ ms.custom: mvc
 
 # Backup and restore service
 
-This sample script backups and restores the API Management service instance. 
+This sample shown in this article shows how to backup and restore the API Management service instance. 
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
