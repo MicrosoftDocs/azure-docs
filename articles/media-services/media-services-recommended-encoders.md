@@ -31,6 +31,7 @@ Azure Media Services recommends using one of following live encoders that have R
 - Telestream Wirecast
 - Teradek
 - TriCaster
+- Tricaster Mini
 
 Azure Media Services recommends using one of the following live encoders that have multi-bitrate Smooth Streaming as output:
 - Ateme
@@ -41,7 +42,7 @@ Azure Media Services recommends using one of the following live encoders that ha
 - Media Excel
 
 > [!NOTE]
-> A live encoder can also send a single-bitrate stream to a channel that is not enabled for live encoding, but this configuration is not recommended.
+> A live encoder can send a single-bitrate stream to a pass through channel, but this configuration is not recommended because it does not allow for adaptive bitrate streaming to the client.
 
 # Azure Media Services encoder partners
 As an Azure Media Services on-prem encoder partner, Media Services promotes your product by:
@@ -49,16 +50,39 @@ As an Azure Media Services on-prem encoder partner, Media Services promotes your
 - Add your live encoder to the list of recommended encoders on the [sales marketing page](https://azure.microsoft.com/en-us/services/media-services/)
 
 ## How to become an on-prem encoder partner
-To become an on-prem encoder partner, you must verify compatibility of your on-prem encoder with Media Services. To do so, complete the following steps:
+To become an on-prem encoder partner, you must verify compatibility of your on-prem encoder with Media Services. To do so, complete the following verfications:
 
-1. Create an Azure Media Services account
+Pass through channel verification
+1. Create or visit your Azure Media Services account
 2. Create and start a **pass-through** channel
-3. For each of the configuration settings for your on-prem encoder:
-    - Create a published live event
-    - Run your live encoder for approximately 10 minutes
-    - Stop the live event
-    - Record the Asset ID, published streaming URL for the live archive, and the settings used from your live encoder
-    - Reset the channel state after creating each sample
-4. Send your recorded settings and live archive parameters to Media Services by emailing amsstreaming@microsoft.com.
+3. Configure your encoder to push a multi-bitrate live stream.
+4. Create a published live event
+5. Run your live encoder for approximately 10 minutes
+6. Stop the live event
+7. Record the Asset ID, published streaming URL for the live archive, and the settings used from your live encoder
+8. Reset the channel state after creating each sample
+9. Repeat steps three through eight for all configurations supported by your encoder (with and without ad signaling/captions/different encoding speeds)
 
-Upon receipt, Media Services performs verification tests on the samples from your live encoder. After successful verification, Media Services can add your encoder to the list of recommendations or marketing materials.
+Live encoding channel verification1. Create or visit your Azure Media Services account
+1. Create or visit your Azure Media Services account
+2. Create and start a **live encoding** channel
+3. Configure your encoder to push a single-bitrate live stream.
+4. Create a published live event
+5. Run your live encoder for approximately 10 minutes
+6. Stop the live event
+7. Record the Asset ID, published streaming URL for the live archive, and the settings used from your live encoder
+8. Reset the channel state after creating each sample
+9. Repeat steps three through eight for all configurations supported by your encoder (with and without ad signaling/captions/various encoding speeds)
+
+Longevity verification
+1. Create or visit your Azure Media Services account
+2. Create and start a **pass-through** channel
+3. Configure your encoder to push a multi-bitrate live stream.
+4. Create a published live event
+5. Run your live encoder for one week or longer
+6. Stop the live event
+7. Record the Asset ID, published streaming URL for the live archive, and the settings used from your live encoder
+
+Lastly, send your recorded settings and live archive parameters to Media Services by emailing amsstreaming@microsoft.com.
+
+Upon receipt, Media Services performs verification tests on the samples from your live encoder. After successful verification, Media Services can add your encoder to the list of recommendations.

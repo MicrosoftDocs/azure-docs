@@ -56,3 +56,24 @@ Azure Media Clipper is built using modern HTML5 technologies and supports the fo
 
 > [!NOTE]
 > Only HTML5 playback of streams from Azure Media Services is currently supported.
+
+## Language support
+The Clipper widget is available in the following 18 languages:
+- Chinese (Simplified)
+- Chinese (Traditional)
+- Czech
+- Dutch, Flemish
+- English
+- French
+- German
+- Hungarian
+- Italian
+- Japanese
+- Korean
+- Polish
+- Portuguese (Brazil)
+- Portuguese (Portugal)
+- Russian
+- Spanish
+- Swedish
+- Turkish
