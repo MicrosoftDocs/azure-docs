@@ -19,14 +19,14 @@ ms.author: barclayn
 ---
 # Get started with Azure Key Vault
 This article helps you get started with Azure Key Vault using PowerShell and walks you through the following activities:
-- It shows you how to create a hardened container (a vault) in Azure.
+- How to create a hardened container (a vault) in Azure.
 - How to use KeyVault to store and manage cryptographic keys and secrets in Azure.
 - How an application can use that key or password.
 
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
 > [!NOTE]
-> This article does not include instructions for how to write an Azure application mentioned in one of the steps below. 
+> This article does not include instructions on how to write an Azure application. You can use the [Azure Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343) for these steps.
 
 For Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli2.md).
 
@@ -120,17 +120,26 @@ Your Azure account is now authorized to perform any operations on this key vault
 >
 
 ## <a id="add"></a>Add a key or secret to the key vault
-If you want Azure Key Vault to create a software-protected key for you, use the [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet, and type the following:
+There are a couple of different ways that you may need to interact with Key Vault and keys or secrets.
+
+### Azure Key Vault generates a software protected key
+
+If you want Azure Key Vault to create a software-protected key for you, use the [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet, and type:
 
 ```powershell
 $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 ```
+### Importing an existing PFX file into Azure Key Vault
 
-In the case of existing keys stored the steps are different. 
-- if you have an existing software-protected key in a .PFX file saved to your C:\ drive in a file named softkey.pfx that you want to upload to Azure Key Vault, type the following to set the variable **securepfxpwd** for a password of **123** for the .PFX file:
+In the case of existing keys stored in a pfx file that you want to upload to Azure Key Vault the steps are different. For example:
+- If you have an existing software-protected key in a .PFX file
+- The pfx file is named softkey.pfx 
+- The file is stored in the C drive.
+
+You can type:
 
 ```powershell
-$securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
+$securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force  // This stores the password 123 in the variable $securepfxpwd
 ```
 
 Then type the following to import the key from the .PFX file, which protects the key by software in the Key Vault service:
@@ -146,6 +155,9 @@ To display the URI for this key, type:
 ```powershell
 $Key.key.kid
 ```
+To view your key, type: `Get-AzureKeyVaultKey –VaultName 'ContosoKeyVault'`
+
+### To add a secret to Azure Key Vault
 
 To add a secret to the vault, which is a password named SQLPassword and has the value of Pa$$w0rd to Azure Key Vault, first convert the value of Pa$$w0rd to a secure string by typing:
 
@@ -167,11 +179,7 @@ To display the URI for this secret, type:
 ```powershell
 $secret.Id
 ```
-
-Let’s view the key or secret that you just created:
-
-* To view your key, type: `Get-AzureKeyVaultKey –VaultName 'ContosoKeyVault'`
-* To view your secret, type: `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`
+To view your secret, type: `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`
 
 Now, your key vault and key or secret is ready for applications to use. You must authorize applications to use them.  
 
@@ -267,9 +275,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 ## <a id="other"></a>Other Azure PowerShell Cmdlets
 Other commands that you might find useful for managing Azure Key Vault:
 
-- ```powershell
-$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'
-```: This command gets a tabular display of all keys and selected properties.
+- `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: This command gets a tabular display of all keys and selected properties.
 - `$Keys[0]`: This command displays a full list of properties for the specified key
 - `Get-AzureKeyVaultSecret`: This command lists a tabular display of all secret names and selected properties.
 - `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: Example how to remove a specific key.
