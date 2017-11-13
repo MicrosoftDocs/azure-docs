@@ -267,11 +267,13 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 ## <a id="other"></a>Other Azure PowerShell Cmdlets
 Other commands that you might find useful for managing Azure Key Vault:
 
-* `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: This command gets a tabular display of all keys and selected properties.
-* `$Keys[0]`: This command displays a full list of properties for the specified key
-* `Get-AzureKeyVaultSecret`: This command lists a tabular display of all secret names and selected properties.
-* `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: Example how to remove a specific key.
-* `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: Example how to remove a specific secret.
+- ```powershell
+$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'
+```: This command gets a tabular display of all keys and selected properties.
+- `$Keys[0]`: This command displays a full list of properties for the specified key
+- `Get-AzureKeyVaultSecret`: This command lists a tabular display of all secret names and selected properties.
+- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: Example how to remove a specific key.
+- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: Example how to remove a specific secret.
 
 ## Next steps
 
