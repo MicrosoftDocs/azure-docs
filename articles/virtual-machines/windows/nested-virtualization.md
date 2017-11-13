@@ -1,6 +1,6 @@
 ---
-title: How to Enable Nested Virtualization in Azure Virtual Machines | Microsoft Docs 
-description: How To - Enable Nested Virtualization in Azure Virtual Machines
+title: How to enable nested virtualization in Azure Virtual Machines | Microsoft Docs 
+description: How to enable nested virtualization in Azure Virtual Machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: philmea
@@ -12,7 +12,7 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.author: philmea
+
 
 ---
 # How to enable nested virtualization in an Azure VM
@@ -25,7 +25,7 @@ This article steps through enabling nested virtualization on an Azure VM and con
 
 Create a new Windows Server 2016 Azure VM and choose a size from the Dv3 or Ev3 series. Ensure you choose a size large enough to support the demands of a guest virtual machine. In this example, we are using a D3_v3 size Azure VM. 
 
-You can view the regional availability of Dv3 or Ev3 series virtual machines [here](https://azure.microsoft.com/en-us/regions/services/).
+You can view the regional availability of Dv3 or Ev3 series virtual machines [here](https://azure.microsoft.com/regions/services/).
 
 >[!NOTE]
 >
@@ -43,7 +43,7 @@ Create a remote desktop connection to the virtual machine.
 
 4. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
 
-## Enable the Hyper-V Feature on the Azure VM
+## Enable the Hyper-V feature on the Azure VM
 You can configure these settings manually or we have provided a PowerShell script to automate the configuration.
 
 ### Option 1: Use a PowerShell script to configure nested virtualization
@@ -66,7 +66,7 @@ Check out the Azure blog post with a live video demonstration on nested virtuali
     
 3. After the Azure VM restarts, reconnect to your VM using RDP.
 
-## Set up Internet connectivity for the guest virtual machine
+## Set up internet connectivity for the guest virtual machine
 Create a new virtual network adapter for the guest virtual machine and configure a NAT Gateway to enable Internet connectivity.
 
 ### Create a NAT virtual network switch
@@ -102,13 +102,13 @@ In order to configure the gateway, you need some information about your network:
     New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 13
     ```
 
-### Create the NAT network.
+### Create the NAT network
 
 In order to configure the gateway, you will need to provide information about the network and NAT Gateway:
   * Name - This is the name of the NAT network. 
   * InternalIPInterfaceAddressPrefix - The NAT subnet prefix describes both the NAT Gateway IP prefix from above as well as the NAT Subnet Prefix Length from above. The generic form will be a.b.c.0/NAT Subnet Prefix Length. 
 
-1. In PowerShell, create a new NAT network.
+In PowerShell, create a new NAT network.
 
     ```powershell
     New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
@@ -144,7 +144,7 @@ Follow the steps below to configure DHCP on the host virtual machine for dynamic
   
 4. Click **Install**.
 
-#### Configure a new DHCP Scope
+#### Configure a new DHCP scope
 
 1. Open DHCP Manager.
   
@@ -171,10 +171,11 @@ If you did not configure DHCP to dynamically assign an IP address toe the guest 
 
 5. Configure the network adapter for an address within the range of the NAT network you created in the previous section.
 
-    In this example you will use an address in the 192.168.0.0/24 range.
+In this example you will use an address in the 192.168.0.0/24 range.
 
 ## Test connectivity in guest virtual machine
 
-1. In the guest virtual machine, open your browser and navigate to a web page.
+In the guest virtual machine, open your browser and navigate to a web page.
     
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
+
