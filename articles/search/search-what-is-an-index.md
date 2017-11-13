@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Search index | Microsoft Azure | Hosted cloud search service
-description: What is an index in Azure Search and how is it used?
+title: Indexes in Azure Search | Microsoft Docs
+description: Learn about index concepts in Azure Search and how indexes are used.
 services: search
 documentationcenter: ''
 author: ashmaka
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 11/08/2017
 ms.author: ashmaka
 
 ---
-# Create an Azure Search index
+# Indexes in Azure Search
 > [!div class="op_single_selector"]
 > * [Overview](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
@@ -24,8 +24,7 @@ ms.author: ashmaka
 > 
 > 
 
-## What is an index?
-An *index* is a persistent store of *documents* and other constructs used by an Azure Search service. A document is a single unit of searchable data in your index. For example, an e-commerce retailer might have a document for each item they sell, a news organization might have a document for each article, etc. Mapping these concepts to more familiar database equivalents: an *index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+In Azure Search, an *index* is a persistent store of *documents* and other constructs used by an Azure Search service. A document is a single unit of searchable data in your index. For example, an e-commerce retailer might have a document for each item they sell, a news organization might have a document for each article, etc. Mapping these concepts to more familiar database equivalents: an *index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
 When you add/upload documents and submit search queries to Azure Search, you submit your requests to a specific index in your search service.
 
