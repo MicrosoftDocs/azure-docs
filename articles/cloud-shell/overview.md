@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/9/2017
+ms.date: 11/13/2017
 ms.author: juluk
 ---
 # Overview of Azure Cloud Shell
@@ -38,15 +38,18 @@ Leverage Cloud Shell to work untethered from a local machine in a way only the c
 
 ### Choice of preferred shell experience
 Azure Cloud Shell gives you the flexibility of choosing the shell experience that best suits the way you work.
-Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
+Linux users can opt for Bash in Cloud Shell, while Windows users can opt for PowerShell in Cloud Shell (Preview).
 
-### Pre-configured Azure workstation
-Cloud Shell comes managed by Microsoft so it is pre-installed with popular command-line tools and language support so you can work faster.
+### Authenticated and configured Azure workstation
+Cloud Shell comes managed by Microsoft so it is pre-installed with popular command-line tools and language support so you can work faster. Additionally, Cloud Shell securely authenticates automatically for instant access to your resources through the Azure CLI 2.0 or Azure PowerShell cmdlets.
 
 View the full tooling list for the [Bash experience](features.md#tools) and [PowerShell (Preview) experience.](features-powershell.md#tools)
 
-### Automatic authentication
-Cloud Shell securely authenticates automatically on each session for instant access to your resources through the Azure CLI 2.0 or Azure PowerShell cmdlets.
+### Multiple access points
+In addition to Cloud Shell being available from the Azure portal, it can also be accessed from:
+* [Azure CLI 2.0 "Try It" documentation](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+* [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/)
+* [Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### Connect your Azure Files storage
 Cloud Shell machines are temporary and as a result require an Azure Files share to be mounted as `clouddrive` to persist your $Home directory.
@@ -94,6 +97,6 @@ Try out these examples in quickstarts for [Bash in Cloud Shell](quickstart.md) a
 ## Pricing
 The machine hosting Cloud Shell is free, with a pre-requisite of a mounted Azure Files share. Regular storage costs apply.
 
-## Supported browsers
-Cloud Shell is recommended for Chrome, Edge, and Safari.
-While Cloud Shell is supported for Chrome, Firefox, Safari, IE, and Edge, Cloud Shell is subject to specific browser settings.
+## Next steps
+[Bash in Cloud Shell quickstart](quickstart.md)
+[PowerShell in Cloud Shell (Preview) quickstart](quickstart-powershell.md)

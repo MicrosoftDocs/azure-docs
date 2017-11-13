@@ -88,6 +88,6 @@ justin@Azure:~$
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## Next steps
-[Cloud Shell Quickstart](quickstart.md) <br>
+[Bash in Cloud Shell Quickstart](quickstart.md) <br>
 [Learn about Microsoft Azure Files storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Learn about storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

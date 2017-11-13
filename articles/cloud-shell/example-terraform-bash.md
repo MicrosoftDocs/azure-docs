@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.author: juluk
 ---
 
-# About Terraform
+# Terraform and Bash in Cloud Shell
 This article walks you through creating a resource group with the [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
 [Hashicorp Terraform](https://www.terraform.io/) is an open source tool that codifies APIs into declarative configuration files that can be shared amongst team members to be edited, reviewed, and versioned. The Microsoft AzureRM provider is used to interact with resources supported by Azure Resource Manager via the AzureRM APIs. 
 
-# Terraform and Bash in Cloud Shell
+## Automatic authentication
 Terraform is installed in Bash in Cloud Shell by default. Additionally, Cloud Shell automatically authenticates your default Azure CLI 2.0 subscription to deploy resources through the Terraform Azure modules.
 
 Terraform uses the default Azure CLI 2.0 subscription that is set. To update default subscriptions, run:
@@ -31,19 +31,31 @@ az account set --subscription mySubscriptionName
 ```
 
 ## Walkthrough
+### Launch Bash in Cloud Shell
+1. Launch Cloud Shell from your preferred location
+2. Verify your preferred subscription is set
+
+```azurecli-interactive
+az account show
+```
+
 ### Create the template
 Create a new Terraform template named main.tf
-1. Create a new main.tf file
-```azurecli-interactive
+1. Create a new main.tf file with your preferred text editor
+
+```
 vim main.tf
 ```
+
 2. Copy/paste the following code into Cloud Shell
+
 ```
 resource "azurerm_resource_group" "myterraformgroup" {
     name = "myRgName"
     location = "West US"
 }
 ```
+
 4. Save your file
 
 ### Terraform init
@@ -131,6 +143,10 @@ The [terraform apply command](https://www.terraform.io/docs/commands/apply.html)
 
 ### Verify deployment with Azure CLI 2.0
 Run `az group show -n myRgName` to verify the resource has succeeded provisioning.
+
+```azcliinteractive
+az group show -n myRgName
+```
 
 ### Clean up with terraform destroy
 Clean up the resource group created with the [Terraform destroy command](https://www.terraform.io/docs/commands/destroy.html) to clean up Terraform-created infrastructure.
