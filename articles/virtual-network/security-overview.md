@@ -149,7 +149,7 @@ Application security groups are available in preview release. Before using appli
 Features in preview do not have the same level of availability and reliability as features in general release. Before using application security groups, you must first register to use them. The features are available only in the following regions: West Central US.
 
 
-## Special considerations
+## Azure platform considerations
 
 - **Virtual IP of the host node**: Basic infrastructure services such as DHCP, DNS, and health monitoring are provided through the virtualized host IP addresses 168.63.129.16 and 169.254.169.254. These public IP addresses belong to Microsoft and are the only virtualized IP addresses used in all regions for this purpose. The addresses map to the physical IP address of the server machine (host node) hosting the virtual machine. The host node acts as the DHCP relay, the DNS recursive resolver, and the probe source for the load balancer health probe and the machine health probe. Communication to these IP addresses is not an attack. If you block traffic to or from these IP addresses, a virtual machine may not function properly.
 - **Licensing (Key Management Service)**: Windows images running in virtual machines must be licensed. To ensure licensing, a request is sent to the Key Management Service host servers that handle such queries. The request is made outbound through port 1688.
