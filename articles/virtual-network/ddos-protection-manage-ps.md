@@ -20,10 +20,10 @@ ms.author: jdial
 ---
 # Manage Azure DDoS Protection Standard using Azure PowerShell
 
-Learn how to enable and disable distributed denial of service (DDoS) protection, and use telemetry to mitigate a DDoS attack with Azure DDoS Protection Standard. DDoS Protection Standard protects Azure resources such as virtual machines, load balancers, and application gateways that have an Azure [public IP address](virtual-network-public-ip-address.md) assigned to it. To learn more about DDoS Protection Standard and its capabilities, see [DDoS Protection Standard overview](ddos-protection-overview-md). 
+Learn how to enable and disable distributed denial of service (DDoS) protection, and use telemetry to mitigate a DDoS attack with Azure DDoS Protection Standard. DDoS Protection Standard protects Azure resources such as virtual machines, load balancers, and application gateways that have an Azure [public IP address](virtual-network-public-ip-address.md) assigned to it. To learn more about DDoS Protection Standard and its capabilities, see [DDoS Protection Standard overview](ddos-protection-overview.md). 
 
 >[!IMPORTANT]
->Azure DDoS Protection Standard (DDoS Protection) is currently in preview. A limited number of Azure resources support DDoS Protection, and it's available only in a select number of regions. For a list of available regions, see [DDoS Protection Standard overview](ddos-protection-overview-md). You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get DDoS Protection enabled for your subscription. After registering, you are contacted by the Azure DDoS team who will guide you through the enablement process.
+>Azure DDoS Protection Standard (DDoS Protection) is currently in preview. A limited number of Azure resources support DDoS Protection, and it's available only in a select number of regions. For a list of available regions, see [DDoS Protection Standard overview](ddos-protection-overview.md). You need to [register for the service](http://aka.ms/ddosprotection) during the limited preview to get DDoS Protection enabled for your subscription. After registering, you are contacted by the Azure DDoS team who will guide you through the enablement process.
 
 
 ## Log in to Azure
