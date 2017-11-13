@@ -49,7 +49,7 @@ In Cosmos DB, reads served at session, consistent prefix and eventual consistenc
 
 ## Service Level Agreements
 
-Azure Cosmos DB offers comprehensive 99.99% [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) which guarantee throughput, consistency, availability, and latency for Azure Cosmos DB database accounts scoped to a single Azure region configured with any of the five consistency levels, or database accounts spanning multiple Azure regions, configured with any of the four relaxed consistency levels. Furthermore, independent of the choice of a consistency Level, Azure Cosmos DB offers a 99.999% SLA for read availability for database accounts spanning two or more Azure regions.
+Azure Cosmos DB offers comprehensive 99.99% [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) which guarantee throughput, consistency, availability, and latency for Azure Cosmos DB database accounts scoped to a single Azure region configured with any of the five consistency levels, or database accounts spanning multiple Azure regions, configured with any of the four relaxed consistency levels. Furthermore, independent of the choice of a consistency level, Azure Cosmos DB offers a 99.999% SLA for read availability for database accounts spanning two or more Azure regions.
 
 ## Scope of consistency
 The granularity of consistency is scoped to a single user request. A write request may correspond to an insert, replace, upsert, or delete transaction. As with writes, a read/query transaction is also scoped to a single user request. The user may be required to paginate over a large result-set, spanning multiple partitions, but each read transaction is scoped to a single page and served from within a single partition.
