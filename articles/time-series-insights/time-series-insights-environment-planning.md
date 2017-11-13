@@ -29,7 +29,7 @@ Consider the following attributes to best plan the environment for long-term suc
 - Data retention period
 - Ingress capacity 
 
-## Understand overall storage capacity
+## Understand storage capacity
 By default, Time Series Insights retains data based on the amount of storage you have provisioned (units times amount of storage per unit) and ingress.
 
 ## Understand data retention
