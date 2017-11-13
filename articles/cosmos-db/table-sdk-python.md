@@ -36,13 +36,12 @@ ms.custom:
 
 
 ## Release notes
+
+### <a name="1.0.0"/>1.0.0
+* General availability release
+
 ### <a name="0.37.1"/>0.37.1
 * Pre-release SDK
-
-<br/>
-| Version | Release Date | Retirement Date |
-| --- | --- | --- |
-| [0.37.1](#0.37.1) |October 05, 2017 |--- |
 
 ## Release and retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
@@ -53,6 +52,7 @@ New features and functionality and optimizations are only added to the current S
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.0.0](#1.0.0) |November 15, 2017 |--- |
 | [0.37.1](#0.37.1) |October 05, 2017 |--- |
 
 
