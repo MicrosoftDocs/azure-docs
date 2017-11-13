@@ -21,9 +21,9 @@ ms.custom: it-pro
 ---
 # Deploy password reset without requiring end-user registration
 
-To deploy Azure Active Directory (Azure AD) Self-Service Password Reset (SSPR), authentication data needs to be present. Some organizations have their users enter their authentication data themselves, but many organizations prefer to synchronize with existing data in Active Directory. The synced data is made available to Azure AD and SSPR with no user interaction required if you:
+To deploy Azure Active Directory (Azure AD) self-service password reset (SSPR), authentication data needs to be present. Some organizations have their users enter their authentication data themselves, but many organizations prefer to synchronize with data that already exists in Active Directory. The synced data is made available to Azure AD and SSPR with without requiring user interaction if you:
    * Properly format the data in your on-premises directory.
-   * Configure [Azure AD Connect by using the express settings](./connect/active-directory-aadconnect-get-started-express.md), without requiring user interaction.
+   * Configure [Azure AD Connect by using the express settings](./connect/active-directory-aadconnect-get-started-express.md).
 
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
 
@@ -104,7 +104,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 To get started, you need to [download and install the Azure AD version 2 PowerShell module](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). After you have it installed, you can use the steps that follow to configure each field.
 
-To install quickly from recent versions of PowerShell that support Install-Module, run the following commands (the first line simply checks to see if the module is already installed):
+To install quickly from recent versions of PowerShell that support Install-Module, run the following commands (the first line checks to see if the module is already installed):
 
 ```
 Get-Module AzureADPreview

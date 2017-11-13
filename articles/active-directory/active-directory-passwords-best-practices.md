@@ -21,7 +21,7 @@ ms.custom: it-pro
 ---
 # How to successfully roll out self-service password reset
 
-Most customers follow these steps to ensure a smooth roll out of the self-service password reset (SSPR) functionality:
+Most customers follow these steps to ensure a smooth roll out of the Azure Active directory (Azure AD) self-service password reset (SSPR) functionality:
 
 1. [Enable password reset in your directory](active-directory-passwords-getting-started.md).
 2. [Configure on-premises Active Directory permissions for password writeback](active-directory-passwords-writeback.md#active-directory-permissions).
@@ -40,11 +40,11 @@ Most customers follow these steps to ensure a smooth roll out of the self-servic
 
 ## Email-based rollout
 
-Many customers find that the easiest way to get users to use SSPR is with an email campaign that includes simple-to-use instruction. [We have created three simple emails that you can use as templates to help in your rollout](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16):
+Many customers find that the easiest way to get users to use SSPR is with an email campaign that includes simple-to-use instructions. [We have created three simple emails that you can use as templates to help in your rollout](https://onedrive.live.com/?authkey=%21AD5ZP%2D8RyJ2Cc6M&id=A0B59A91C740AB16%2125063&cid=A0B59A91C740AB16):
 
 * **Coming Soon**: An email template that you use in the weeks or days before the rollout to let users know they need to do something.
 * **Available Now**: An email template that you use the day of the program launch to drive users to register and confirm their authentication data, so they can use SSPR when they need it.
-* **Sign up Reminder**: An email template for a few days to a few weeks after deployment to remind users to register and confirm their authentication data.
+* **Sign-up Reminder**: An email template for a few days to a few weeks after deployment to remind users to register and confirm their authentication data.
 
 ![Email][Email]
 
@@ -57,7 +57,7 @@ Many of our larger customers choose to host a webpage and create a root DNS entr
 * [Azure AD password change portal](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Other organization-specific information
 
-In any email communications or fliers you send out, you can then include a branded, memorable URL that users can go to when they need to use the services. For your benefit, we have created a sample page that you can use and customize to your organization’s needs. You can download the sample password reset page from [GitHub](https://github.com/ajamess/password-reset-page).
+In any email communications or fliers you send out, you can include a branded, memorable URL that users can go to when they need to use the services. For your benefit, we have created a sample page that you can use and customize to your organization’s needs. You can download the [sample password reset page](https://github.com/ajamess/password-reset-page) from GitHub.
 
 ## Use enforced registration
 
@@ -65,11 +65,11 @@ If you want your users to register for password reset, you can require that they
 
 Administrators can require users to re-register after a specific period of time. They can set the **Number of days before users are asked to reconfirm their authentication information** option to be between 0 to 730 days.
 
-After you enable this option, when users sign in they see a message that informs them their administrator has required them to verify their authentication information.
+After you enable this option, when users sign in they see a message that informs them that their administrator has required them to verify their authentication information.
 
 ## Populate authentication data
 
-You should [populate the authentication data for your users](active-directory-passwords-data.md). That way users don't need to register for password reset before being able to use SSPR. As long as users have provided the authentication data that meets the password reset policy you have defined, they are able to reset their passwords.
+You should [populate the authentication data for your users](active-directory-passwords-data.md). That way users don't need to register for password reset before they are able to use SSPR. As long as users have provided the authentication data that meets the password reset policy you have defined, they are able to reset their passwords.
 
 ## Disable self-service password reset
 

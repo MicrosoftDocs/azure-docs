@@ -25,7 +25,11 @@ IT professionals who want to deploy self-service password reset (SSPR) in Azure 
 
 ## Customize the "Contact your administrator" link
 
-Even if SSPR is not enabled, users still have a "Contact your administrator" link on the password reset portal. If a user selects this link, it emails your administrators and asks for assistance in changing the user's password or sends your users to a URL that you specify. We recommend that you set this contact to something like an email address or website that your users already use for support questions.
+Even if SSPR is not enabled, users still have a "Contact your administrator" link on the password reset portal. If a user selects this link, it either:
+   * Emails your administrators and asks them for assistance in changing the user's password. 
+   * Sends your users to a URL that you specify for assistance. 
+
+We recommend that you set this contact to something like an email address or website that your users already use for support questions.
 
 ![Contact][Contact]
 
@@ -41,7 +45,7 @@ To find out more about the different administrator roles and how to assign them,
 
 ### Disable "Contact your administrator" emails
 
-If your organization does not want administrators notified about password reset requests, you can enable the following configuration:
+If your organization does not want to notify administrators about password reset requests, you can enable the following configuration:
 
 * Enable self-service password reset for all end users. This option is under **Password Reset** > **Properties**.
   
@@ -56,7 +60,7 @@ To add a link to the AD FS sign-in page, use the following command on your AD FS
 
 ``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
 
-## Customize the sign-in and access panel look and feel
+## Customize the sign-in page and access panel look and feel
 
 You can customize the sign-in page. You can add a logo that appears along with the image that fits your company branding.
 
@@ -71,10 +75,10 @@ The graphics you choose are shown in the following circumstances:
 
 The following settings allow you to change the visual characteristics of the sign-in page. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**:
 
-* The sign-in page image should be a .png or .jpg file, 1420x1200 pixels, and no larger than 500 KB. For the best results, we recommend it to be around 200 KB.
+* The sign-in page image should be a .png or .jpg file, 1420x1200 pixels, and no larger than 500 KB. For the best results, we recommend that you keep it around 200 KB.
 * The sign-in page background color is used on high-latency connections and must be in RGB hexadecimal format.
 * The banner image should be a .png or .jpg file, 60x280 pixels, and be no larger than 10 KB.
-* The square logo (normal and dark theme) should be a .png or .jpg, 240x240 (resizable), and no larger than 10 KB.
+* The square logo (normal and dark theme) should be a .png or .jpg file, 240x240 (resizable) pixels, and no larger than 10 KB.
 
 ### Sign-in text options
 
@@ -85,13 +89,13 @@ The following settings allow you to add text to the sign-in page that's relevant
 
 ### The "Keep me signed in disabled" setting
 
-The option "Keep me signed in disabled" allows users to remain signed in when they close and reopen their browser window. This option does not impact session lifetimes. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**.
+The option **Keep me signed in disabled** allows users to remain signed in when they close and reopen their browser window. This option does not impact session lifetimes. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**.
 
 Some features of SharePoint Online and Office 2010 have a dependency on users being able to select this check box. If you hide this option, users can get additional and unexpected sign-in prompts.
 
 ### Directory name
 
-You can change the directory name attribute under **Azure Active Directory** > **Properties**. You can show a friendly organization name that is seen in the portal and the automated communications. This option is the most visible in automated emails in the forms that follow:
+You can change the directory name attribute under **Azure Active Directory** > **Properties**. You can show a friendly organization name that is seen in the portal and in the automated communications. This option is the most visible in automated emails in the forms that follow:
 
 * The friendly name in the email, for example “Microsoft on behalf of CONTOSO demo.”
 * The subject line in the email, for example “CONTOSO demo account email verification code.”
