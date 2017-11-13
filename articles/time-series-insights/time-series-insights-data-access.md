@@ -63,6 +63,6 @@ Follow these steps to grant data access for a user principal:
    ![Manage the Time Series Insights source - results](media/data-access/getstarted-grant-data-access5.png)
 
 ## Next steps
-* [Create an event source](time-series-insights-add-event-source.md)
-* [Send events](time-series-insights-send-events.md) to the event source
-* View your environment in [Time Series Insights explorer](https://insights.timeseries.azure.com)
+* Learn [how to add an Event Hub event source to your Azure Time Series Insights environment](time-series-insights-how-to-add-an-event-source-eventhub.md).
+* [Send events](time-series-insights-send-events.md) to the event source.
+* View your environment in [Time Series Insights explorer](https://insights.timeseries.azure.com).
