@@ -23,7 +23,7 @@ Azure Platform as a Service (PaaS) resources, like Azure SQL and Web Sites (Web 
 Today, there is no way to enable metrics logging for PaaS resources through the Azure portal. Therefore, you need to use a PowerShell script. This native metrics logging capability along with Log Analytics monitoring, enable you to monitor Azure resources at scale. 
 
 ## Prerequisites
-Verify you have the following AzureARM modules installed on your computer before proceeding:
+Verify you have the following Azure Resource Manager modules installed on your computer before proceeding:
 
 - AzureRM.Insights
 - AzureRM.OperationalInsights
@@ -33,7 +33,7 @@ Verify you have the following AzureARM modules installed on your computer before
 >[!NOTE]
 >We recommend that all your Azure Resource Manager modules are the same version to ensure compatibility when you run Azure Resource Manager commands from PowerShell.
 >
-To install the latest version of the Azure ARM modules on your computer, see [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
+To install the latest version of the Azure Resource Manager modules on your computer, see [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
 
 ## Enable Azure Diagnostics  
 Configuring Azure Diagnostics for PaaS resources is accomplished by executing the script, **Enable-AzureRMDiagnostics.ps1**, which is available from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  The script supports the following scenarios:
