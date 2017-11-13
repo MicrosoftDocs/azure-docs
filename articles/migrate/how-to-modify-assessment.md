@@ -1,5 +1,5 @@
 ---
-title: Modify Azure Migrate assessment settings | Microsoft Docs
+title: Customize Azure Migrate assessment settings | Microsoft Docs
 description: Describes how to set up and run an assessment for migrating VMware VMs to Azure using the Azure Migration Planner
 services: migrate
 documentationcenter: ''
@@ -13,37 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/26/2017
+ms.date: 11/13/2017
 ms.author: raynew
 
 ---
-# Modify assessment settings
+# Customize an assessment
 
-[Azure Migration Planner](migrate-overview.md) runs assessments for migration to Azure using default settings.
-
-After running an assessment, follow the instructions in this article if you want to modify those defaults.
+[Azure Migrate](migrate-overview.md) creates assessments with default settings. After creating an assessment, you can modify those default settings using the instructions in this article.
 
 
 ## Edit assessment values
 
-1. In the Migration Planner project > **Assessments**, select the assessment, and click **Settings**.
-2. In the **Settings** tab, modify the values in accordance with the table below.
+1. In Azure Migrate project **Assessments** page, select the assessment, and click **Edit properties**.
+2. Modify the settings in accordance with the table below.
 
-## Assessment values
+    **Setting** | **Details** | **Default**
+    --- | --- | ---
+    **Target location** | The Azure location to which you want to migrate. | West US if the project location is US. NorthEurope if the project location is in Europe.
+    **Storage redundancy** | The type of storage that the Azure VMs will use after migration. | Only [Locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) is currently supported.
+    **Comfort factor** | Comfort factor is a buffer that is used during assessment. Use it to account for things such as seasonal usage, short performance history, likely increase in future usage. | Default setting is 1.3.
+    **Perfomance history** | Time used in evaluating performance history. | Default is one month.
+    **Percentile utilization** | Percentile value to consider for perfomance history. | Default is 95%.
+    **Pricing tier** | You can specify the [pricing tier](https://azure.microsoft.com/blog/basic-tier-virtual-machines-2/) for a VM.  | By default the [Standard](../virtual-machines/windows/sizes-general.md) tier is used.
+    **Offer** | [Azure offers](https://azure.microsoft.com/support/legal/offer-details/) that apply. | [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) is the default.
+    **Currency** | Billing currency. | Default is US dollars.
+    **Discount (%)** | Any subscription-specific discount you receive on top of any offer. | The default setting is 0%.
+    **Azure Hybrid Use Benefit** | Indicates whether you're enrolled in the [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If set to Yes, non-Windows Azure prices are consider for Windows VMs. | Default is Yes.
 
-**Value** | **Details** | **Default**
---- | --- | ---
-**Target location** | The Azure location to which you migrate. | By default this is the location in which you create the migration project you created.
-**Storage redundancy** | The type of storage that the Azure VMs will use after migration. | Only [Locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) is currently available.
-**Size** | Azure VM size | This is the size that Migration Planner recommends for the machine in Azure.
-**Comfort factor** | Comfort factor to consider during assessment. It accounts for things such as seasonal usage, short performance history, likely increase in future usage.<br/><br/> For example, normally a 10-core VM with 20% utilization will result in a 2-core VM. But if it has a comfort factor of 2.0, the result will be a 4-core VM. | Default setting is 1.3.
-**Perfomance history** | Time used in evaluating performance history. | Default is one month.
-**Percentile utilization** | Percentile value of perfomance history. | Default used is 95%.
-**Software assurance** | Indicates whether you're enrolled in [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If set to **Yes**, non-Windows Azure prices are considered for Windows VMs. | Set by default to Yes.
-**Pricing tier** | VMs are offered on a [tier system](../virtual-machines/windows/sizes-general.md), to meet exact requirements. | By default the [Standard](../virtual-machines/windows/sizes-general.md) tier is used.
-**Offer** | Azure offers that apply. | Only [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) is currently available.
-**Currency** | Billing currency | Only US dollars are currently supported.
-**Stage** | Indicates whether you want to maintain the assessment status in order to review it with stakeholders. | The default setting is **In progress**. You can move it to **Under review** after you start the review, and then to **Approved** after the review is done.
+3. Click **Save** to update the assessment.
 
 
 ## Next steps

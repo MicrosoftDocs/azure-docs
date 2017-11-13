@@ -6,37 +6,33 @@
     href: migrate-overview.md
 - name: Tutorials
   items:
-  - name: Azure VMs
+  - name: Assess VMware VMs
     href: tutorial-assessment-vmware.md
 - name: Concepts
   items:
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
+  - name: Dependency visualization
+    href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
-  - name: Create an assessment group
+  - name: Scale machine assessment
+    href: how-to-scale-assessment.md
+  - name: Create a group
     href: how-to-create-a-group.md
-  - name: Create an assessment using machine dependencies
+  - name: Create a group using machine dependencies
     href: how-to-create-group-machine-dependencies.md
-  - name: Create an assessment using group dependencies
-    href: how-to-create-group-dependencies.md
-  - name: Modify assessment settings
-    href: how-to-modify-assessment.md
-  - name: Tag VMs in vCenter
+  - name: Create a group using VMware tagging
     href: how-to-tag-v-center.md
+  - name: Refine a group using group dependencies
+    href: how-to-create-group-dependencies.md
+  - name: Customize an assessment
+    href: how-to-modify-assessment.md
+  - name: Migrate machines after assessment
+    href: how-to-get-migration-tool.md
   - name: Troubleshoot Azure Migrate
     href: troubleshooting-general.md
-  - name: Set up REST APIs
-    href: how-to-set-up-rest-api.md
-- name: Reference
-  items:
-  - name: PowerShell
-    href: /powershell/module/azurerm.siterecovery
-  - name: REST
-    href: https://msdn.microsoft.com/library/mt750497
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
