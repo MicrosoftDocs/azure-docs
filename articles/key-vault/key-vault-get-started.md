@@ -115,7 +115,7 @@ The output of this cmdlet shows properties of the key vault that you created. Th
 Your Azure account is now authorized to perform any operations on this key vault. As yet, nobody else is.
 
 > [!NOTE]
-> When you try to create your new key vault you may see the error **The subscription is not registered to use namespace 'Microsoft.KeyVault'**. If that message appears run `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"`. After the registration successfully completes, you can rerun your New-AzureRmKeyVault command. For more information, see [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider).
+> When you try to create your new key vault you may see the error **The subscription is not registered to use namespace 'Microsoft.KeyVault'**. If that message appears run `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"`. After the registration successfully completes, you can rerun the New-AzureRmKeyVault command. For more information, see [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider).
 >
 >
 
@@ -184,7 +184,10 @@ This step would usually be done by a developer, on a separate computer. It is no
 
 Applications that use a key vault must authenticate by using a token from Azure Active Directory. To do this, the owner of the application must first register the application in their Azure Active Directory. At the end of registration, the application owner gets the following values:
 
-* An **Application ID** (also known as a Client ID) and **authentication key** (also known as the shared secret). The application must present both these values to Azure Active Directory, to get a token. How the application is configured to do this depends on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
+- An **Application ID** (also known as a Client ID)
+- An **authentication key** (also known as the shared secret). 
+
+The application must present both these values to Azure Active Directory, to get a token. How the application is configured to do this depends on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
 
 For detailed steps on registering an application with Azure Active Directory you should review the article titled [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)
 To register the application in Azure Active Directory:
