@@ -507,7 +507,7 @@ Yes, all attributes of an entity are indexed by default by Azure Cosmos DB. For 
 Yes, Azure Cosmos DB provides automatic indexing of all attributes without any schema definition. This automation frees developers to focus on the application rather than on index creation and management. For more information, see [Azure Cosmos DB: Indexing policies](indexing-policies.md).
 
 ### Can I change the indexing policy?
-Yes, you can change the indexing policy by providing the index definition. For more information, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). You need to properly encode and escape the settings. For more information, send email to [askcosmosdbcassandra@microsoft.com](askcosmosdbcassandra@microsoft.com). 
+Yes, you can change the indexing policy by providing the index definition. For more information, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). You need to properly encode and escape the settings. For more information, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com). 
 
 Here's a sample in string json format in the app.config file:
 
