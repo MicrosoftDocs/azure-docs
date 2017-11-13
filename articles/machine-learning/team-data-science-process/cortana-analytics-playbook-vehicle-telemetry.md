@@ -17,7 +17,7 @@ ms.date: 03/24/2017
 ms.author: bradsev
 
 ---
-# Vehicle telemetry analytics solution playbook
+# Vehicle Telemetry Analytics Solution playbook
 This **menu** links to the chapters in this playbook. 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
@@ -30,7 +30,7 @@ Cortana Intelligence is a fully managed big data and advanced analytics suite th
 The solution is implemented as a [lambda architecture pattern](https://en.wikipedia.org/wiki/Lambda_architecture), which shows the full potential of the Cortana Intelligence platform for real-time and batch processing.
 
 ## Architecture
-Vehicle telemetry analytics solution architecture is illustrated in the following diagram:
+Vehicle Telemetry Analytics Solution architecture is illustrated in this diagram:
 
 ![Solution architecture diagram](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
 

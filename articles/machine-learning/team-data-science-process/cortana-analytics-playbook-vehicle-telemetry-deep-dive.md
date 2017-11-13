@@ -17,7 +17,7 @@ ms.date: 03/24/2017
 ms.author: bradsev
 
 ---
-# Vehicle telemetry analytics solution playbook: Deep dive into the solution
+# Vehicle Telemetry Analytics Solution playbook: Deep dive into the solution
 This **menu** links to the sections of this playbook: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
@@ -120,12 +120,12 @@ The following Stream Analytics query is used to persist the data into Blob stora
 ### Batch analysis
 An additional volume of simulated vehicle signals and diagnostic data set is also generated for richer batch analytics. This additional volume is required to ensure a good representative data volume for batch processing. For this purpose, PrepareSampleDataPipeline is used in the Data Factory workflow to generate one year's worth of simulated vehicle signals and diagnostic data set. To download the Data Factory custom .NET activity Visual Studio solution for customizations based on your requirements, go to the [Data Factory custom activity](http://go.microsoft.com/fwlink/?LinkId=717077) webpage. 
 
-The following workflow shows sample data prepared for batch processing:
+This workflow shows sample data prepared for batch processing.
 
-![Prepare sample data for batch processing workflow](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
+![Sample data prepared for batch processing workflow](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig7-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
 
 
-The pipeline consists of a custom Data Factory .NET activity, as shown here:
+The pipeline consists of a custom Data Factory .NET activity.
 
 ![PrepareSampleDataPipeline activity](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-pipeline.png) 
 
@@ -134,7 +134,7 @@ After the pipeline executes successfully and the RawCarEventsTable data set is m
 ![PrepareSampleDataPipeline output](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig9-vehicle-telematics-prepare-sample-data-pipeline-output.png) 
 
 ## Partition the data set
-The raw semi-structured vehicle signals and diagnostic data set are partitioned in the data preparation step into a YEAR/MONTH format. This partitioning promotes more efficient querying and scalable long-term storage by enabling fault-over. For example, as the first blob account fills up, it faults over to the next account. 
+In the data preparation step, the raw semi-structured vehicle signals and diagnostic data set are partitioned into a YEAR/MONTH format. This partitioning promotes more efficient querying and scalable long-term storage by enabling fault-over. For example, as the first blob account fills up, it faults over to the next account. 
 
 >[!NOTE] 
 >This step in the solution applies only to batch processing.
@@ -144,7 +144,7 @@ Input and output data management:
 * **Output data** (labeled PartitionedCarEventsTable) is kept for a long period of time as the foundational/"rawest" form of data in the customer's data lake. 
 * **Input data** to this pipeline is typically discarded because the output data has full fidelity to the input. It's just stored (partitioned) better for subsequent use.
 
-The following illustration shows the partition car events workflow:
+The partition car events workflow.
 
 ![Partition car events workflow](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig10-vehicle-telematics-partition-car-events-workflow.png)
 
@@ -297,7 +297,7 @@ After the pipeline executes successfully, you see the following partitions gener
 
 ![Partitioned output](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partitioned-output.png)
 
-The data is now optimized, is more manageable, and is ready for further processing to gain rich batch insights. 
+The data is now optimized, more manageable, and ready for further processing to gain rich batch insights. 
 
 ## Data analysis
 In this section, you see how to combine Stream Analytics, Azure Machine Learning, Data Factory, and HDInsight for rich advanced analytics on vehicle health and driving habits.
@@ -316,42 +316,42 @@ The goal here is to predict the vehicles that require maintenance or recall base
   * The engine temperature is high, but the outside temperature is low.
   * The engine temperature is low, but the outside temperature is high.
 
-Based on the previous requirements, two separate models detect anomalies. One model is for vehicle maintenance detection, and one model is for vehicle recall detection. In both of these models, the built-in principal component analysis (PCA) algorithm is used for anomaly detection. 
+Based on the previous requirements, two separate models detect anomalies. One model is for vehicle maintenance detection, and one model is for vehicle recall detection. In both models, the built-in principal component analysis (PCA) algorithm is used for anomaly detection. 
 
 #### **Maintenance detection model**
 
-If one of three indicators--tire pressure, engine oil, or engine temperature--satisfies its respective condition, the maintenance detection model reports an anomaly. As a result, we only need to consider these three variables in building the model. In the experiment in machine learning, we first use a **Select Columns in Dataset** module to extract these three variables. Next, we use the PCA-based anomaly detection module to build the anomaly detection model. 
+If one of three indicators--tire pressure, engine oil, or engine temperature--satisfies its respective condition, the maintenance detection model reports an anomaly. As a result, we need to consider only these three variables in building the model. In the experiment in machine learning, we first use a **Select Columns in Dataset** module to extract these three variables. Next, we use the PCA-based anomaly detection module to build the anomaly detection model. 
 
-PCA is an established technique in machine learning that can be applied to feature selection, classification, and anomaly detection. PCA converts a set of cases that contain possibly correlated variables into a set of values called principal components. The key idea of PCA-based modeling is to project data onto a lower-dimensional space to more easily identifiy features and anomalies.
+PCA is an established technique in machine learning that can be applied to feature selection, classification, and anomaly detection. PCA converts a set of cases that contain possibly correlated variables into a set of values called principal components. The key idea of PCA-based modeling is to project data onto a lower-dimensional space to more easily identify features and anomalies.
 
 For each new input to the detection model, the anomaly detector first computes its projection on the eigenvectors. It then computes the normalized reconstruction error. This normalized error is the anomaly score: the higher the error, the more anomalous the instance. 
 
-In the maintenance detection problem, each record can be considered as a point in a three-dimensional space defined by tire pressure, engine oil, and engine temperature coordinates. To capture these anomalies, we can project the original data in the three-dimensional space onto a two-dimensional space by using PCA. Thus, we set the parameter number of components to use in PCA to be two. This parameter plays an important role in applying PCA-based anomaly detection. After projecting data by using PCA, we can identify these anomalies more easily.
+In the maintenance detection problem, each record can be considered as a point in a three-dimensional space defined by tire pressure, engine oil, and engine temperature coordinates. To capture these anomalies, we can use PCA to project the original data in the three-dimensional space onto a two-dimensional space. Thus, we set the parameter number of components to use in PCA to two. This parameter plays an important role in applying PCA-based anomaly detection. After using PCA to project data, we can identify these anomalies more easily.
 
 #### **Recall anomaly detection model**
 
-In the recall anomaly detection model, we use the **Select Columns in Dataset** and PCA-based anomaly detection modules in a similar way. Specifically, we first extract three variables--engine temperature, outside temperature, and speed--by using the **Select Columns in Dataset** module. We also include the speed variable, because the engine temperature typically is correlated to the speed. Next, we use the PCA-based anomaly detection module to project the data from the three-dimensional space onto a two-dimensional space. The recall criteria are satisfied, and so the vehicle requires recall when engine temperature and outside temperature are highly negatively correlated. Using the PCA-based anomaly detection algorithm, we can capture the anomalies after we perform PCA. 
+In the recall anomaly detection model, we use the **Select Columns in Dataset** and PCA-based anomaly detection modules in a similar way. Specifically, we first extract three variables--engine temperature, outside temperature, and speed--by using the **Select Columns in Dataset** module. We also include the speed variable, because the engine temperature typically correlates to the speed. Next, we use the PCA-based anomaly detection module to project the data from the three-dimensional space onto a two-dimensional space. The recall criteria are satisfied. The vehicle requires recall when engine temperature and outside temperature are highly negatively correlated. After we perform PCA, we use the PCA-based anomaly detection algorithm to capture the anomalies. 
 
-When training either model, we need to use normal data as the input data to train the PCA-based anomaly detection model. (Normal data doesn't require maintenance or recall.) In the scoring experiment, we use the trained anomaly detection model to detect whether or not the vehicle requires maintenance or recall. 
+When training either model, we use normal data as the input data to train the PCA-based anomaly detection model. (Normal data doesn't require maintenance or recall.) In the scoring experiment, we use the trained anomaly detection model to detect whether the vehicle requires maintenance or recall. 
 
 ### Real-time analysis
 The following Stream Analytics SQL query is used to get the average of all the important vehicle parameters. These parameters include vehicle speed, fuel level, engine temperature, odometer reading, tire pressure, engine oil level, and others. The averages are used to detect anomalies, issue alerts, and determine the overall health conditions of vehicles operated in a specific region. The averages are then correlated to demographics. 
 
 ![Stream Analytics query for real-time processing](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig13-vehicle-telematics-stream-analytics-query-for-real-time-processing.png)
 
-All the averages are calculated over a 3-second tumbling window. We use a tumbling window in this case because we require non-overlapping and contiguous time intervals. 
+All the averages are calculated over a three-second tumbling window. We use a tumbling window because we require non-overlapping and contiguous time intervals. 
 
 To learn more about the windowing capabilities in Stream Analytics, see [Windowing (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 #### **Real-time prediction**
 
-An application is included as part of the solution to operationalize the machine learning model in real time. The application RealTimeDashboardApp is created and configured as part of the solution deployment. The application performs the following tasks:
+An application is included as part of the solution to operationalize the machine learning model in real time. The application RealTimeDashboardApp is created and configured as part of the solution deployment. The application:
 
-* Listens to an event hub instance where Stream Analytics publishes the events in a pattern continuously. 
+* Listens to an event hub instance where Stream Analytics publishes the events in a pattern continuously.
 
     ![Stream Analytics query for publishing the data](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig14-vehicle-telematics-stream-analytics-query-for-publishing.png) 
 
-* For every event that this application receives: 
+* Receives events. For every event that this application receives: 
    
    * The data is processed by using a machine learning request-response scoring (RRS) endpoint. The RRS endpoint is automatically published as part of the deployment.
    * The RRS output is published to a Power BI data set by using the push APIs.
@@ -367,16 +367,16 @@ To download the RealtimeDashboardApp Visual Studio solution for customizations, 
 
 2. Execute the application RealtimeDashboardApp.exe.
 
-3. Provide valid Power BI credentials, and select **Sign in**.  
+3. Enter your valid Power BI credentials, and select **Sign in**.  
 
-    ![Real-time dashboard app sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+    ![Real-time dashboard app sign-in window](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
     
 4. Select **Accept**.
 
-    ![Real-time dashboard app finish sign-in to Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
+    ![Real-time dashboard app final sign-in window](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) 
 
 >[!NOTE] 
->If you want to flush the Power BI data set, execute the RealtimeDashboardApp with the "flushdata" parameter: 
+>If you want to flush the Power BI data set, execute the RealtimeDashboardApp with the "flushdata" parameter. 
 
     RealtimeDashboardApp.exe -flushdata
 
@@ -389,8 +389,8 @@ The goal here is to show how Contoso Motors utilizes the Azure compute capabilit
 
 In this solution, we target the following metrics:
 
-* **Aggressive driving behavior**: Identifies the trend of the models, locations, driving conditions, and time of the year to gain insights on aggressive driving patterns. Contoso Motors can use these insights for marketing campaigns to introduce new personalized features and usage-based insurance.
-* **Fuel-efficient driving behavior**: Identifies the trend of the models, locations, driving conditions, and time of the year to gain insights on fuel-efficient driving patterns. Contoso Motors can use these insights for marketing campaigns to introduce new features and proactive reporting to drivers for cost-effective and environment-friendly driving habits.
+* **Aggressive driving behavior**: Identifies the trend of the models, locations, driving conditions, and time of year to gain insights on aggressive driving patterns. Contoso Motors can use these insights for marketing campaigns to introduce new personalized features and usage-based insurance.
+* **Fuel-efficient driving behavior**: Identifies the trend of the models, locations, driving conditions, and time of year to gain insights on fuel-efficient driving patterns. Contoso Motors can use these insights for marketing campaigns to introduce new features and proactive reporting to drivers for cost-effective and environment-friendly driving habits.
 * **Recall models**: Identifies models that require recalls by operationalizing the anomaly detection machine learning experiment.
 
 Let's look into the details of each of these metrics.
@@ -403,7 +403,7 @@ The partitioned vehicle signals and diagnostic data are processed in AggresiveDr
 
 ***Aggressive driving pattern Hive query***
 
-The Hive script aggresivedriving.hql that's used to analyze aggressive driving condition patterns is located in the \demo\src\connectedcar\scripts folder of the downloaded zip file. 
+The Hive script aggresivedriving.hql is used to analyze aggressive driving condition patterns. It's located in the \demo\src\connectedcar\scripts folder of the downloaded zip file. 
 
     DROP TABLE IF EXISTS PartitionedCarEvents; 
     CREATE EXTERNAL TABLE PartitionedCarEvents
@@ -478,7 +478,7 @@ The partitioned vehicle signals and diagnostic data are processed in FuelEfficie
 
 ***Fuel-efficient driving pattern Hive query***
 
-The Hive script fuelefficientdriving.hql that's used to analyze aggressive driving condition patterns is located in the \demo\src\connectedcar\scripts folder of the downloaded zip file. 
+The Hive script fuelefficientdriving.hql is used to analyze fuel-efficient driving condition patterns. It's located in the \demo\src\connectedcar\scripts folder of the downloaded zip file. 
 
     DROP TABLE IF EXISTS PartitionedCarEvents; 
     CREATE EXTERNAL TABLE PartitionedCarEvents
@@ -556,11 +556,11 @@ The registered linked service is used in DetectAnomalyPipeline to score the data
 
 A few steps are performed in this pipeline for data preparation so that it can be operationalized with the batch scoring web service. 
 
-![DetectAnomalyPipeline for predicting vehicles that require recalls](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-pipeline-predicting-recalls.png)  
+![DetectAnomalyPipeline for recall prediction](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-pipeline-predicting-recalls.png)  
 
 ***Anomaly detection Hive query***
 
-After the scoring is finished, an HDInsight activity is used to process and aggregate the data that are categorized as anomalies by the model with a probability score of 0.60 or higher.
+After the scoring is finished, an HDInsight activity processes and aggregates the data that the model categorized as anomalies. The model uses a probability score of 0.60 or higher.
 
     DROP TABLE IF EXISTS CarEventsAnomaly; 
     CREATE EXTERNAL TABLE CarEventsAnomaly 
@@ -629,7 +629,7 @@ After the pipeline executes successfully, you see the following partitions gener
 ### Real-time analysis
 One of the queries in the Stream Analytics job publishes the events to an output event hub instance. 
 
-![Stream Analytics job publishes to an output event hub instance](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
+![Stream Analytics job published to an output event hub instance](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
 
 The following Stream Analytics query is used to publish to the output event hub instance:
 
@@ -640,27 +640,27 @@ This stream of events is consumed by the RealTimeDashboardApp that's included in
 ### Batch analysis
 The results of the batch and real-time processing are published to Azure SQL Database tables for consumption. The SQL server, the database, and the tables are created automatically as part of the setup script. 
 
-The batch processing results are copied to the following data mart workflow:
+The batch processing results are copied to the data mart workflow.
 
-![Batch processing results copy to data mart workflow](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
+![Batch processing results copied to data mart workflow](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
 
-The Stream Analytics job is published to the following data mart:
+The Stream Analytics job is published to the data mart.
 
-![Stream Analytics job publishes to data mart](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
+![Stream Analytics job published to data mart](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
 
-The data mart setting in the Stream Analytics job:
+The data mart setting is in the Stream Analytics job.
 
 ![Data mart setting in Stream Analytics job](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig29-vehicle-telematics-data-mart-setting-in-stream-analytics-job.png)
 
 ## Consume
 Power BI gives this solution a rich dashboard for real-time data and predictive analytics visualizations. 
 
-The final dashboard looks like this:
+The final dashboard looks like this example:
 
 ![Power BI dashboard](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-powerbi-dashboard.png)
 
 ## Summary
-This document contains a detailed drill-down of the vehicle telemetry analytics solution. The lambda architecture pattern is used for real-time and batch analytics with predictions and actions. This pattern applies to a wide range of use cases that require hot path (real-time) and cold path (batch) analytics. 
+This document contains a detailed drill-down of the Vehicle Telemetry Analytics Solution. The lambda architecture pattern is used for real-time and batch analytics with predictions and actions. This pattern applies to a wide range of use cases that require hot path (real-time) and cold path (batch) analytics. 
 
 ### References
 
