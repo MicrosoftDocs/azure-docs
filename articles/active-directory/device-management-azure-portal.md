@@ -30,21 +30,17 @@ This topic:
 - Provides you with information about managing your devices using the Azure portal
 
 
-To manage devices in the Azure portal, you need to click **Devices** in the **Manage** section of the the **Azure Active Directory** blade.
-
-![Manage an Intune device](./media/device-management-azure-portal/11.png)
-
-
-
 
 ## Configure device settings
 
-To manage your devices using the Azure portal, they need to be either registered or joined to Azure AD. As an administrator, you can fine-tune the process of registering and joining devices by configuring the device settings.
+To manage your devices using the Azure portal, your devices need to be either registered or joined to Azure AD. As an administrator, you can fine-tune the process of registering and joining devices by configuring the device settings. 
 
-![Manage an Intune device](./media/device-management-azure-portal/22.png)
+![Configure device settings](./media/device-management-azure-portal/22.png)
 
+The device settings page enables you to configure:
 
-The device settings blade enables you to configure:
+![Manage an Intune device](./media/device-management-azure-portal/21.png)
+
 
 - **Users may join devices to Azure AD** - This settings enables you to select the users who can join devices to Azure AD. The default is **All**.
 
@@ -60,14 +56,13 @@ This option is a premium edition capability available through products such as A
 - **Users may sync settings and app data across devices** - By default, this setting is set to **NONE**. Selecting specific users or groups or ALL allows the user’s settings and app data to sync across their Windows 10 devices. Learn more on how sync works in Windows 10.
 This option is a premium capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS).
  
-    ![Manage an Intune device](./media/device-management-azure-portal/21.png)
 
 
 
 
 ## Locate devices
 
-As an administrator, in the Azure portal, you have two options to locate registered and joined devices:
+You have two options to locate registered and joined devices:
 
 - **All devices** in the **Manage** section of the **Devices** blade  
 
@@ -98,45 +93,73 @@ With both options, you can get to a view that:
 As an administrator, you can manage the registered or joined devices. This section provides you with information about common device management tasks.
 
 
-**Manage an Intune device** - If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. An administrator can see additional device 
+### Manage an Intune device
+
+If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. An administrator can see additional device 
 
 ![Manage an Intune device](./media/device-management-azure-portal/31.png)
 
 
-**Enable / disable an Azure AD device**
+### Enable / disable an Azure AD device
 
-To enable or disable a device, you need to be a global administrator in Azure  AD. Disabling a device prevents a device from accessing your Azure AD resources.  To disable the device, you can either click *…* click the device for additional details.
+To enable / disable a device, you have two options:
+
+- The tasks menu ("...") on the **All devices** page
+
+    ![Manage an Intune device](./media/device-management-azure-portal/71.png)
+
+- The toolbar on the **Devices** page
+
+    ![Manage an Intune device](./media/device-management-azure-portal/32.png)
+
+
+**Remarks:**
+
+- You need to be a global administrator in Azure  AD to enable / disable a device. 
+- Disabling a device prevents a device from accessing your Azure AD resources. 
+
+
+
+### Delete an Azure AD device
+
+To delete a device, you have two options:
+
+- The tasks menu ("...") on the **All devices** page
+
+    ![Manage an Intune device](./media/device-management-azure-portal/72.png)
+
+- The toolbar on the **Devices** page
+
+    ![Delete a device](./media/device-management-azure-portal/34.png)
+
+
+**Remarks:**
+
+- You need to be a global administrator in Azure AD to delete a device.  
+
+- Deleting a device:
+ 
+    - Prevents a device from accessing your Azure AD resources. 
+
+    - Removes all details that are attached to the device, for example, BitLocker keys for Windows devices.  
+
+    - Represents a non-recoverable activity and is not recommended unless it is required.
+
+If a device is managed by another management authority (for example, Microsoft Intune), please make sure that the device has been wiped / retired before deleting the device in Azure AD.
 
  
-![Manage an Intune device](./media/device-management-azure-portal/33.png)
-
-Disabling a device changes the state in the **ENABLED** column to **No**.
-
-![Disable a device](./media/device-management-azure-portal/32.png)
 
 
-**Delete an Azure AD device** - To delete a device, you need to be a global administrator in Azure AD.  
-Deleting a device:
- 
-- Prevents a device from accessing your Azure AD resources 
+### View or copy device ID
 
-- Removes all details that are attached to the device, for example, BitLocker keys for Windows devices  
-
-- Represents a non-recoverable activity and is not recommended unless it is required
-
-If a device is managed by another management authority (e.g. Microsoft Intune), please make sure that the device has been wiped / retired before deleting the device in Azure AD.
-
-You can either select “…” to delete the device or click on the device for additional details
- 
-![Delete a device](./media/device-management-azure-portal/34.png)
-
-
-**View or copy device ID** - You can use a device ID to verify the device ID details on the device or using PowerShell during troubleshooting. To access the copy option, click the device.
+You can use a device ID to verify the device ID details on the device or using PowerShell during troubleshooting. To access the copy option, click the device.
 
 ![View a device ID](./media/device-management-azure-portal/35.png)
   
 
-**View or copy BitLocker keys** - If you are an administrator, you can view and copy the BitLocker keys to help users to recover their encrypted drive. These keys are only available for Windows devices that are encrypted and have their keys stored in Azure AD. You can copy these keys when accessing details of the device.
+### View or copy BitLocker keys
+
+If you are an administrator, you can view and copy the BitLocker keys to help users to recover their encrypted drive. These keys are only available for Windows devices that are encrypted and have their keys stored in Azure AD. You can copy these keys when accessing details of the device.
  
 ![View BitLocker keys](./media/device-management-azure-portal/36.png)
 
@@ -160,13 +183,13 @@ Your entry point to the auditing data is **Audit logs** in the **Activity** sect
 
 An audit log has a default list view that shows:
 
-- the date and time of the occurrence
+- The date and time of the occurrence
 
-- the targets
+- The targets
 
-- the initiator / actor (who) of an activity
+- The initiator / actor (who) of an activity
 
-- the activity (what)
+- The activity (what)
 
 ![Audit logs](./media/device-management-azure-portal/63.png)
 
