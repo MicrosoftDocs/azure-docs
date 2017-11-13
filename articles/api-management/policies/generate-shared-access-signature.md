@@ -18,7 +18,7 @@ ms.author: apimpm
 
 # Generate Shared Access Signature
 
-This article shows an Azure API management policy sample that demonstrates how to generate [Shared Access Signature](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) using expressions and forward the request to Azure storage with rewrite-uri policy. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). 
+This article shows an Azure API management policy sample that demonstrates how to generate [Shared Access Signature](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) using expressions and forward the request to Azure storage with rewrite-uri policy. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](../policy-samples.md).
 
 ## Policy
 
@@ -28,5 +28,8 @@ Paste the code into the **inbound** block.
 
 ## Next steps
 
-[Transformation policies](../api-management-transformation-policies.md)
+Learn more about APIM policies:
+
++ [Transformation policies](../api-management-transformation-policies.md)
++ [Policy samples](../policy-samples.md)
 

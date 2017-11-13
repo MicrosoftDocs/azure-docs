@@ -18,7 +18,7 @@ ms.author: apimpm
 
 # Use OAuth2 for authorization between the gateway and a backend
 
-This article shows an Azure API management policy sample that demonstrates how to use OAuth2 for authorization between the gateway and a backend. It shows how to obtain an access token from AAD and forward it to the backend. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md).  
+This article shows an Azure API management policy sample that demonstrates how to use OAuth2 for authorization between the gateway and a backend. It shows how to obtain an access token from AAD and forward it to the backend. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](../policy-samples.md).
 
 ## Policy
 
@@ -28,5 +28,8 @@ Paste the code into the **inbound** block.
 
 ## Next steps
 
-[Transformation policies](../api-management-transformation-policies.md)
+Learn more about APIM policies:
+
++ [Transformation policies](../api-management-transformation-policies.md)
++ [Policy samples](../policy-samples.md)
 
