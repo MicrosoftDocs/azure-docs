@@ -46,24 +46,6 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. Make sure you install it on the computer that you run VS Code on.
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
-## Bug bash configuration steps
-The steps in this section are only required until Azure IoT Edge goes public. They walk you through setting up VS Code with dependencies that will not be public until we release Azure IoT Edge. 
- 
-1. Install version 3 or later of the [NuGet CLI](https://docs.microsoft.com/en-us/nuget/guides/install-nuget#nuget-cli). The module code depends on a couple of NuGet packages that won't be made public until we release Azure IoT Edge. For the time being, we have placed them on `myget`. You need the NuGet CLI to reference these packages. 
-2. Open Visual Studio Code. 
-3. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
-4. In integrated terminal, add a NuGet source for the **AzureIotEdgeModule** template NuGet package.  
-
-    ```cmd/sh
-    nuget sources add -name AzureIoTEdgeModule -source https://www.myget.org/F/dotnet-template-azure-iot-edge-module/api/v3/index.json 
-    ``` 
-
-3. The preview version of the **Microsoft.Azure.Devices.Client** package used in this tutorial is not yet available in the public gallery. To ensure that your IoT Edge module will build correctly, add a NuGet source that contains the correct package version. 
-
-    ```cmd/sh
-    nuget sources Add -Name "Edge Private Preview" -source https://www.myget.org/F/aziot-device-sdk/api/v3/index.json
-    ```
-
 ## Choose or sign up for a Docker registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a [Docker image](https://docs.docker.com/glossary/?term=image). Then you push this Docker image to a [Docker repository](https://docs.docker.com/glossary/?term=repository) hosted on a [Docker registry](https://docs.docker.com/glossary/?term=registry). Finally, you deploy your Docker image packaged as a [Docker container](https://docs.docker.com/glossary/?term=container) from your registry to your IoT Edge device.  
 
@@ -273,7 +255,7 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 
 ## Run the solution
 
-1. In the **Azure portal**, [https://df.onecloud.azure-test.net/](https://df.onecloud.azure-test.net/), navigate to your IoT hub.
+1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 2. Go to **IoT Edge Explorer** and select your IoT Edge device.
 3. Select **Set Modules**. 
 2. Add the **tempSensor** module. This step is only required if you have not previously deployed the **tempSensor** module to your IoT Edge device.
