@@ -1,5 +1,6 @@
 ﻿If your virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be a failed application update that prevents the VM from booting successfully. This article describes how to use Azure portal to connect your virtual hard disk to another VM to fix any errors and then re-create your original VM.
 
+
 ## Recovery process overview
 The troubleshooting process is as follows:
 
@@ -53,9 +54,9 @@ Once any errors are resolved, unmount and detach the existing virtual hard disk 
 
 ## Create a VM from the original hard disk
 
-To create a VM from your original virtual hard disk, use [Azure classic portal](https://manage.windowsazure.com).
+To create a VM from your original virtual hard disk, use [Azure portal](https://portal.azure.com).
 
-1. Sign into [Azure classic portal](https://manage.windowsazure.com).
-2. At the bottom of the portal, select **New** > **Compute** > **Virtual Machine** > **From Gallery**.
+1. Sign into [Azure portal](https://portal.azure.com).
+2. At the top left of the portal, select **New** > **Compute** > **Virtual Machine** > **From Gallery**.
 3. In the **Choose an Image** section, select **My disks**, and then select the original virtual hard disk. Check the location information. This is the region where the VM must be deployed. Select the next button.
 4. In the **Virtual machine configuration** section, type the VM name and select a size for the VM.

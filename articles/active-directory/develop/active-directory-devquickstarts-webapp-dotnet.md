@@ -106,7 +106,7 @@ In this step, you configure the OWIN middleware to use the OpenID Connect authen
 ## Step 3: Use OWIN to issue sign-in and sign-out requests to Azure AD
 The app is now properly configured to communicate with Azure AD by using the OpenID Connect authentication protocol. OWIN has handled all of the details of crafting authentication messages, validating tokens from Azure AD, and maintaining user sessions. All that remains is to give your users a way to sign in and sign out.
 
-1. You can use authorize tags in your controllers to require users to sign in before they access certain pages. To do so, open Controllers\HomeController.cs, and then add the `[Authorize]` tag to the About controller.
+1. You can use authorize tags in your controllers to require users to sign in before they access certain pages. To do so, open Controllers\HomeController.cs, and then add the `[Authorize]` tag to the About action.
 
      ```C#
      [Authorize]

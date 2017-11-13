@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/18/2017
 ms.author: billmath
 ---
 
@@ -22,12 +22,14 @@ ms.author: billmath
 
 Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Azure AD, and usually, even type in their usernames. This feature provides your users easy access to your cloud-based applications without needing any additional on-premises components.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+
 Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods.
 
 ![Seamless Single Sign-On](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->Seamless SSO is currently in preview. This feature is _not_ applicable to Active Directory Federation Services (ADFS).
+>Seamless SSO is _not_ applicable to Active Directory Federation Services (ADFS).
 
 ## Key benefits
 
@@ -51,7 +53,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](act
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Yes|Yes|Yes|Yes\*|N/A
+|Windows 10|Yes|No|Yes|Yes\*|N/A
 |Windows 8.1|Yes|N/A|Yes|Yes\*|N/A
 |Windows 8|Yes|N/A|Yes|Yes\*|N/A
 |Windows 7|Yes|N/A|Yes|Yes\*|N/A

@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/31/2017
+ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
 
 ---
 # Restore System State to Windows Server
 
-This article explains how to restore Windows Server System State backups from an Azure Recovery Services vault. To restore System State, you must have a System State backup (created using the instructions in [Back up System State](backup-azure-system-state.md#back-up-windows-server-system-state-preview)), and make sure you have installed the [latest version of the Microsoft Azure Recovery Services (MARS) agent](http://aka.ms/azurebackup_agent). Recovering Windows Server System State data from an Azure Recovery Services vault is a two-step process:
+This article explains how to restore Windows Server System State backups from an Azure Recovery Services vault. To restore System State, you must have a System State backup (created using the instructions in [Back up System State](backup-azure-system-state.md#back-up-windows-server-system-state), and make sure you have installed the [latest version of the Microsoft Azure Recovery Services (MARS) agent](http://aka.ms/azurebackup_agent). Recovering Windows Server System State data from an Azure Recovery Services vault is a two-step process:
 
 1. Restore System State as files from Azure Backup. When restoring System State as files from Azure Backup, you can either:
   * Restore System State to the same server where the backups were taken, or
@@ -174,7 +174,7 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 System State backup includes Active Directory data. Use the following steps to restore Active Directory Domain Service (AD DS) from its current state to a previous state.
 
 1. Restart the domain controller in Directory Services Restore Mode (DSRM).
-2. Follow the steps here to use Windows Server Backup cmdlets to recover AD DS.
+2. Follow the steps [here](https://technet.microsoft.com/en-us/library/cc794755(v=ws.10).aspx) to use Windows Server Backup cmdlets to recover AD DS.
 
 
 ## Troubleshoot failed System State restore

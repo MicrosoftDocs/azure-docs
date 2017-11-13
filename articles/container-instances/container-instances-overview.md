@@ -1,28 +1,28 @@
 ---
 title: Azure Container Instances Overview | Azure Docs
 description: Understand Azure Container Instances
-services: container-service
+services: container-instances
 documentationcenter: ''
 author: seanmck
 manager: timlt
 editor: ''
-tags: 
+tags:
 keywords: ''
 
-ms.assetid: 
-ms.service: 
+ms.assetid:
+ms.service: container-instances
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2017
 ms.author: seanmck
-ms.custom: 
+ms.custom: mvc
 ---
 
 # Azure Container Instances
 
-Containers are quickly becoming the preferred way to package, deploy, and manage cloud applications. Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service. 
+Containers are quickly becoming the preferred way to package, deploy, and manage cloud applications. Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
 
 Azure Container Instances is a great solution for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs. For scenarios where you need full container orchestration, including service discovery across multiple containers, automatic scaling, and coordinated application upgrades, we recommend the [Azure Container Service](https://docs.microsoft.com/azure/container-service/).
 

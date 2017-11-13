@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -48,6 +48,31 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="1.19.0"/>1.19.0
+
+* Branding change from Azure DocumentDB to Azure Cosmos DB in the API Reference documentation, metadata information in assemblies, and the NuGet package. 
+* Expose diagnostic information and latency from the response of requests sent with direct connectivity mode. The property names are RequestDiagnosticsString and RequestLatency on ResourceResponse class.
+* This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator. 
+
+### <a name="1.18.1"/>1.18.1 
+
+* Internal changes for Microsoft friends assemblies.
+
+### <a name="1.18.0"/>1.18.0 
+
+* Added several reliability fixes and improvements.
+
+### <a name="1.17.0"/>1.17.0 
+
+* Added support for PartitionKeyRangeId as a FeedOption for scoping query results to a specific partition key range value. 
+* Added support for StartTime as a ChangeFeedOption to start looking for the changes after that time.
+
+### <a name="1.16.1"/>1.16.1
+* Fixed an issue in the JsonSerializable class that may cause a stack overflow exception.
+
+### <a name="1.16.0"/>1.16.0
+*	Fixed an issue that required recompiling of the application due to the introduction of JsonSerializerSettings as an optional parameter in the DocumentClient constructor.
+* Marked the DocumentClient constructor obsolete that required JsonSerializerSettings as the last parameter to allow for default values of ConnectionPolicy and ConsistencyLevel parameters when passing in JsonSerializerSettings parameter.
 
 ### <a name="1.15.0"/>1.15.0
 *	Added support for specifying custom JsonSerializerSettings while instantiating [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
@@ -56,7 +81,6 @@ ms.custom: H1Hack27Feb2017
 *	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running Azure Cosmos DB DocumentDB API queries.
 
 ### <a name="1.14.0"/>1.14.0
-*	Added support for the request unit per minute (RU/m) feature.
 *	Added support for a new consistency level called ConsistentPrefix.
 *	Added support for query metrics for individual partitions.
 *	Added support for limiting the size of the continuation token for queries.
@@ -243,6 +267,12 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.19.0](#1.19.0) |November 10, 2017 |--- |
+| [1.18.1](#1.18.1) |November 07, 2017 |--- |
+| [1.18.0](#1.18.0) |October 17, 2017 |--- |
+| [1.17.0](#1.17.0) |August 10, 2017 |--- |
+| [1.16.1](#1.16.1) |August 07, 2017 |--- |
+| [1.16.0](#1.16.0) |August 02, 2017 |--- |
 | [1.15.0](#1.15.0) |June 30, 2017 |--- |
 | [1.14.1](#1.14.1) |May 23, 2017 |--- |
 | [1.14.0](#1.14.0) |May 10, 2017 |--- |

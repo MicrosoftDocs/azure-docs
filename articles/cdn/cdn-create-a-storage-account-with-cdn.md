@@ -25,7 +25,7 @@ Use the following procedure to create a new storage account for a
 Azure subscription. A storage account gives access to
 Azure storage services. The storage account represents the highest level
 of the namespace for accessing each of the Azure storage service
-components: Blob services, Queue services, and Table services. For more information, refer to the [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
+components: Blob services, Queue services, and Table services. For more information, refer to the [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 To create a storage account, you must be either the service
 administrator or a co-administrator for the associated subscription.
@@ -116,7 +116,7 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 If you no longer wish to cache an object in the Azure Content
 Delivery Network (CDN), you can take one of the following steps:
 
-* You can make the container private instead of public. See [Manage anonymous read access to containers and blobs](../storage/storage-manage-access-to-resources.md) for more information.
+* You can make the container private instead of public. See [Manage anonymous read access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md) for more information.
 * You can disable or delete the CDN endpoint using the Management Portal.
 * You can modify your hosted service to no longer respond to requests for the object.
 

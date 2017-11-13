@@ -59,7 +59,7 @@ To specify the subscription, run the following command. In the following example
     # New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
     # Register the ARM provider idempotently. This must be done once per subscription
-    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search" -Force
+    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Search"
 
     # Create a new search service
     # This command will return once the service is fully created

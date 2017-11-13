@@ -44,7 +44,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 ### <a name="values"></a>Example values
 
-The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article.
+The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article. For more information about VPN Gateway settings in general, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 * **VNet Name:** TestVNet1
 * **Address Space:** 
@@ -114,11 +114,11 @@ Create the Site-to-Site VPN connection between your virtual network gateway and 
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## How to reset a VPN gateway
+## <a name="reset"></a>How to reset a VPN gateway
 
 Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. For steps, see [Reset a VPN gateway](vpn-gateway-resetgw-classic.md).
 
-## How to change a gateway SKU (resize a gateway)
+## <a name="resize"></a>How to change a gateway SKU (resize a gateway)
 
 For the steps to change a gateway SKU, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
@@ -127,3 +127,5 @@ For the steps to change a gateway SKU, see [Gateway SKUs](vpn-gateway-about-vpn-
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-forced-tunneling-rm.md).
 * For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
+* For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
+* For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

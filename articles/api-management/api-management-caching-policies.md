@@ -3,7 +3,7 @@ title: Azure API Management caching policies | Microsoft Docs
 description: Learn about the caching policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 

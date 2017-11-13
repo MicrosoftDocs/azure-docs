@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -26,10 +26,9 @@ Currently, Azure Active Directory detects six types of risk events:
 - [Users with leaked credentials](#leaked-credentials) 
 - [Sign-ins from anonymous IP addresses](#sign-ins-from-anonymous-ip-addresses) 
 - [Impossible travel to atypical locations](#impossible-travel-to-atypical-locations) 
-- [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations)
 - [Sign-ins from infected devices](#sign-ins-from-infected-devices) 
 - [Sign-ins from IP addresses with suspicious activity](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-
+- [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations) (exclusive to **Azure Active Directory Premium P2** editions)
 
 ![Risk event](./media/active-directory-reporting-risk-events/91.png)
 
@@ -46,7 +45,14 @@ Microsoft's continuous investments into the detection process lead to:
 
 ### Leaked credentials
 
-Leaked credentials are found posted publicly in the dark web by Microsoft security researchers. These credentials are usually found in plain text. They are checked against Azure AD credentials, and if there is a match, they are reported as “Leaked credentials” in Identity Protection.
+When cybercriminals compromise valid passwords of legitimate users, the criminals often share those credentials. This is usually done by posting them publicly on the dark web or paste sites or by trading or selling the credentials on the black market. The Microsoft leaked credentials service acquires username / password pairs by monitoring public and dark web sites and by working with:
+
+- Researchers
+- Law enforcement
+- Security teams at Microsoft
+- Other trusted sources 
+
+When the service acquires username / password pairs, they are checked against AAD users' current valid credentials. When a match is found, it means that a user's password has been compromised, and a *leaked credentials risk event* is created.
 
 ### Sign-ins from anonymous IP addresses
 

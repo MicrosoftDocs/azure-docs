@@ -1,6 +1,6 @@
 ---
-title: Rate Limiting for SMS, Emails and Webhooks | Microsoft Docs
-description: Be notified via SMS, webhook, and email when certain events occur in the Activity log.
+title: Rate limiting for SMS, emails, and webhooks | Microsoft Docs
+description: Understand how Azure limits the number of possible SMS, email, or webhook notifications from an action group.
 author: anirudhcavale
 manager: orenr
 editor: ''
@@ -18,22 +18,23 @@ ms.author: ancav
 
 ---
 
-# Rate Limiting for SMS, Emails and Webhooks
-Rate limiting is a suspension of notifications that occurs when too many are sent to a particular phone number or email. Rate limiting ensures that alerts and manageable and actionable
+# Rate limiting for SMS messages, emails, and webhook posts
+Rate limiting is a suspension of notifications that occurs when too many notifications are sent to a particular phone number or email address. Rate limiting ensures that alerts are manageable and actionable.
 
-The rules for SMS and Email are the same. The rate limit threshold for
- - SMS - 10 messages in an hour
- - Email - 100 messages in an hour
+The rules for SMS and email are the same. The rate limit threshold is:
 
-## Rate Limit rules
-- A particular phone number or email is rate limited when it receives more than the threshold
-- A phone number or email can be part of action groups across many subscriptions. Rate limiting applies across all subscriptions, that is, it applies as soon as the threshold is reached even if sent from multiple subscriptions.  
+ - **SMS**: 10 messages in an hour.
+ - **Email**: 100 messages in an hour.
+
+## Rate limit rules
+- A particular phone number or email is rate limited when it receives more messages than the threshold allows.
+- A phone number or email can be part of action groups across many subscriptions. Rate limiting applies across all subscriptions. It applies as soon as the threshold is reached, even if messages are sent from multiple subscriptions.  
 - When a phone number or email is rate limited, an additional notification is sent to communicate the rate limiting. The notification states when the rate limiting expires.
 
-## Rate Limit of Webhooks ##
-There is no rate limiting in place for webhooks today.
+## Rate limit of webhooks ##
+There is no rate limiting in place for webhooks.
 
-## Next Steps ##
-Learn more on [SMS alert behavior](monitoring-sms-alert-behavior.md)  
-Get an [overview of activity log alerts](monitoring-overview-alerts.md) and learn how to get alerted  
-How to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md)
+## Next steps ##
+* Learn more about [SMS alert behavior](monitoring-sms-alert-behavior.md).
+* Get an [overview of activity log alerts](monitoring-overview-alerts.md), and learn how to receive alerts.  
+* Learn how to [configure alerts whenever a service health notification is posted](monitoring-activity-log-alerts-on-service-notifications.md).

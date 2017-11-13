@@ -95,7 +95,7 @@ If an IPv6 address is assigned to a network interface, the PowerShell output ret
 |Tool|Command|
 |---|---|
 |CLI|[az network nic list](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#list) to view network interfaces in the subscription; [az network nic show](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#show) to view settings for a network interface|
-|PowerShell|[Get-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) to view network interfaces in the subscription or view settings for a network interface|
+|PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) to view network interfaces in the subscription or view settings for a network interface|
 
 ## Change DNS servers
 
@@ -115,7 +115,7 @@ The DNS server is assigned by the Azure DHCP server to the network interface wit
 |Tool|Command|
 |---|---|
 |CLI|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## Enable or disable IP forwarding
 
@@ -137,7 +137,7 @@ The setting must be enabled for every network interface that is attached to the 
 |Tool|Command|
 |---|---|
 |CLI|[az network nic update](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## Change subnet assignment
 
@@ -158,7 +158,7 @@ You can change the subnet, but not the virtual network, that a network interface
 |Tool|Command|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 
 ## Delete a network interface
@@ -177,7 +177,7 @@ When you delete a network interface, any MAC or IP addresses assigned to it are 
 |Tool|Command|
 |---|---|
 |CLI|[az network nic delete](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmNetworkInterface](/powershell/resourcemanager/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## Next steps
 To create a virtual machine with multiple network interfaces or IP addresses, read the following articles:

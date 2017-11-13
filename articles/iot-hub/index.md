@@ -2,7 +2,7 @@
 title: Azure IoT Hub Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to use IoT Hub to connect, monitor, and control billions of Internet of Things assets. Tutorials, API references, videos and other documentation.
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid:
@@ -44,7 +44,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_video.svg" alt="" />
+                            <img src="media/common/i_video.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -62,7 +62,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -80,7 +80,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -98,7 +98,7 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_road-map.svg" alt="" />
+                            <img src="media/common/i_road-map.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -127,6 +127,18 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
             </div>
         </div>
     </li>
+	<li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Code samples</h3>
+                        <p><a href="https://azure.microsoft.com/resources/samples/?service=iot-hub">Code samples</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
     <li>
         <div class="cardSize">
             <div class="cardPadding">
@@ -138,7 +150,8 @@ Learn how to use IoT Hub to connect, monitor, and control billions of Internet o
                         <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">C device SDK</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (Service)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Devices)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdk-node/">Node.js SDKs</a></p>
+                        <p><a href="/javascript/api/azure-iot-device/">Node.js (Devices)</a></p>
+						<p><a href="/javascript/api/azure-iothub">Node.js (Service)</a></p>
                         <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>

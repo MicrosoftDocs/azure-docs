@@ -3,7 +3,7 @@ title: Secure APIs using client certificate authentication in API Management - A
 description: Learn how to secure access to APIs using client certificates
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: ''
 

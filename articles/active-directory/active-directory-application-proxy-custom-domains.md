@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
-ms.author: kgremban
+ms.date: 10/11/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
@@ -66,8 +66,6 @@ When you have those three requirements ready, follow these steps to set up your 
 There is no restriction on the certificate signature methods. Elliptic Curve Cryptography (ECC), Subject Alternative Name (SAN), and other common certificate types are all supported. 
 
 You can use a wildcard certificate as long as the wildcard matches the desired external URL. 
-
-You can use self-signed certificates, as well. If you’re using a private certificate authority, the CDP (certificate revocation point distribution point) for the certificate should be public.
 
 ### Changing the domain
 All verified domains appear in the External URL dropdown list for your application. To change the domain, just update that field for the application. If the domain you want isn't in the list, [add it as a verified domain](active-directory-domains-add-azure-portal.md). If you select a domain that doesn't have an associated certificate yet, follow steps 5-7 to add the certificate. Then, make sure you update the DNS record to redirect from the new external URL. 

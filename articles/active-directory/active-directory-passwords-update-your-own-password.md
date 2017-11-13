@@ -2,9 +2,9 @@
 title: 'Azure AD: Reset Your Password | Microsoft Docs'
 description: Use self-service password reset to regain access to your Work or School user account
 services: active-directory
-keywords: 
+keywords:
 documentationcenter: ''
-author: MicrosoftGuyJFlo
+author: barlanmsft
 manager: femila
 ms.reviewer: gahug
 
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: joflore
+ms.date: 11/13/2017
+ms.author: barlan
 ms.custom: end-user
 
 ---
-# Help, I forgot my Azure AD password
+# Reset your work or school password
 
-If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change it, we can help. If you know your password and just need to change it continue down to the section [Change my password](#change-my-password) below.
+If you forgot your password, never received one from your company support, been locked out of your account, or want to change it, we can help. If you know your password and just need to change it continue down to the section [Change my password](#change-my-password) below.
 
    > [!NOTE]
    > If you are trying to get back into your personal account like Xbox, hotmail.com, or outlook.com try the [suggestions found in this article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
@@ -44,11 +44,11 @@ Follow the steps that follow to access Azure AD self-service password reset, SSP
 
    > [!NOTE]
    > If your IT staff has not enabled this functionality, a "contact your administrator" link appears so your IT staff can help, via email or a web portal of their own.
-   > 
+   >
    > If you need to unlock your account, at this point choose the option "I know my password, but still can't sign in".
-   > 
+   >
 
-3. Depending on how your IT staff has configured SSPR you see one or more of the following. Either you or your IT staff have populated some of this information before using the article [Register for self-service password reset](active-directory-passwords-reset-register.md).
+3. Depending on how your IT staff has configured SSPR you see one or more of the following authentication methods. Either you or your IT staff have populated some of this information before using the article [Register for self-service password reset](active-directory-passwords-reset-register.md).
 
    * **Email my alternate email**
    * **Text my mobile phone**
@@ -61,7 +61,7 @@ Follow the steps that follow to access Azure AD self-service password reset, SSP
    ![Verify your authentication data][Verification]
 
 4. Your IT staff may need more verification and you may have to repeat step 3 again with a different choice.
-5. On the **Choose a new password** page, enter a new password, confirm your password, and then click **Finish**. We suggest your password be 8-16 characters with uppercase and lowercase characters, numbers, and special characters.
+5. On the **Choose a new password** page, enter a new password, confirm your password, and then click **Finish**. Your work or school password may have certain requirements; we suggest your password be 8-16 characters with uppercase and lowercase characters, numbers, and special characters.
 6. When you see, **Your password has been reset**, you can sign in with your new password.
 
     ![Your password has been reset][Complete]

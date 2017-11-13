@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/20/2017
 ms.author: genli
 
 ---
@@ -51,7 +51,7 @@ To check the sizes available in your region, see [Microsoft Azure: Products avai
 ## Why does deploying a cloud service sometime fail due to limits/quotas/constraints on my subscription or service?
 Deployment of a cloud service may fail if the resources that are required to be allocated exceed the default or maximum quota allowed for your service at the region/datacenter level. For more information, see [Cloud Services limits](../azure-subscription-service-limits.md#cloud-services-limits).
 
-You could also track the current usage/quota for your subscription at the portal: Azure Portal => Subscriptions => \<appropriate subscription> => “Usage + quota”.
+You could also track the current usage/quota for your subscription at the portal: Azure portal => Subscriptions => \<appropriate subscription> => “Usage + quota”.
 
 Resource usage/consumption-related information can also be retrieved via the Azure Billing APIs. See [Azure Resource Usage API (Preview)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
@@ -60,4 +60,15 @@ You cannot change the VM size of a deployed cloud service without redeploying it
 
 For more information, see [How to update a cloud service](cloud-services-update-azure-service.md).
 
+## Why am I not able to deploy Cloud Services through Service Management APIs or PowerShell when using Azure Resource Manager Storage account? 
+
+Since the Cloud Service is a Classic resource which is not directly compatible with the Azure Resource Manager model, you can't associate it with the Azure Resource Manager Storage accounts. Here are few options: 
+ 
+- Deploying through REST API.
+
+    When you deploy through Service Management REST API, you could get around the limitation by specifying a SAS URL to the blob storage, which will work with both Classic and Azure Resource Manager Storage account. Read more about the 'PackageUrl' property [here](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+  
+- Deploying through [Azure portal](https://portal.azure.com).
+
+    This will work from the [Azure portal](https://portal.azure.com) as the call goes through a proxy/shim which allows communication between Azure Resource Manager and Classic resources. 
  

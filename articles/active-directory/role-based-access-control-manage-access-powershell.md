@@ -1,9 +1,9 @@
-﻿---
+---
 title: Manage Role-Based Access Control (RBAC) with Azure PowerShell | Microsoft Docs
 description: How to manage RBAC with Azure PowerShell, including listing roles, assigning roles, and deleting role assignments.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: andredm7
 manager: femila
 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
-ms.author: kgremban
+ms.author: andredm
 ms.reviewer: rqureshi
 ---
 # Manage Role-Based Access Control with Azure PowerShell

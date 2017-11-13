@@ -1,4 +1,21 @@
+---
+title: Azure AD v2 iOS Getting Started - Configure | Microsoft Docs
+description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
+services: active-directory
+documentationcenter: dev-center-name  
+author: andretms
+manager: mbaldwin
+editor: ''
 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article  
+ms.tgt_pltfrm: na 
+ms.workload: identity   
+ms.date: 05/09/2017
+ms.author: andret
+
+---
 ## Create an application (Express)
 Now you need to register your application in the *Microsoft Application Registration Portal*:
 1. Register your application via the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)

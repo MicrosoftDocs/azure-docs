@@ -8,22 +8,22 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 09/15/2017
 ---
 
 # How to connect applications to Azure Database for MySQL
-This document lists the connection string types that are supported by Azure Database for MySQL, together with templates and examples. You might have different parameters and different settings in your connection string.
+This topic lists the connection string types that are supported by Azure Database for MySQL, together with templates and examples. You might have different parameters and settings in your connection string.
 
 - To obtain the certificate, see [How to configure SSL](./howto-configure-ssl.md).
 - {your_host} = <servername>.mysql.database.azure.com
-- {your_user}@{servername} = userID format for authentication correctly.  Using just the userID will cause the authentication to fail.
+- {your_user}@{servername} = userID format for authentication correctly.  If you only use the userID, the authentication will fail.
 
 ## ADO.NET
 ```ado.net
 Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password};[SslMode=Required;]
 ```
 
-In this example, the server name is `myserver4demo`, database name is `wpdb`, user name is `WPAdmin`, and password is `mypassword!2`. Then, the connection string should be:
+In this example, the server name is `myserver4demo`, the database name is `wpdb`, the user name is `WPAdmin`, and the password is `mypassword!2`. As a result, the connection string should be:
 
 ```ado.net
 Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@myserver4demo"; Pwd="mypassword!2"; SslMode=Required;
@@ -60,10 +60,10 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## Get the connection string details from the Azure portal
-In the [Azure portal](https://portal.azure.com), go to your Azure Database for MySQL server, and then click **Connection strings** to get your string list for your instance:
+In the [Azure portal](https://portal.azure.com), go to your Azure Database for MySQL server, and then click **Connection strings** to get the string list for your instance:
 ![The Connection strings pane in the Azure portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
-The string provides details such as the driver, server, and other database connection parameters. Modify these examples by using your own parameters, such as database name, password, and so on. You can then use this string to connect to the server from your code and applications.
+The string provides details such as the driver, server, and other database connection parameters. Modify these examples to use your own parameters, such as database name, password, and so on. You can then use this string to connect to the server from your code and applications.
 
 ## Next steps
 - For more information about connection libraries, see [Concepts - Connection libraries](./concepts-connection-libraries.md).
