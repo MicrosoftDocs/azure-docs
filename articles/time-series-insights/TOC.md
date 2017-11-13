@@ -12,8 +12,8 @@
 ## Develop
 ### [Authenticate and authorize](time-series-insights-authentication-and-authorization.md)
 ### [Query data using C#](time-series-insights-query-data-csharp.md)
-### [Create reference data in C#](time-series-insights-manage-reference-data-csharp.md)
-### [Share a custom view](time-series-insights-parameteried-urls.md)
+### [Manage reference data in C#](time-series-insights-manage-reference-data-csharp.md)
+### [Share a custom view](time-series-insights-parameterized-urls.md)
 # How-to guides
 ## [Create an environment](time-series-insights-get-started.md)
 ## [Grant data access](time-series-insights-data-access.md)
