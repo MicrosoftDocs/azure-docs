@@ -15,14 +15,14 @@ ms.service: iot-edge
 
 # Securing Azure IoT Edge - preview
 
-Securing the intelligent edge is necessary to confer confidence in the operation of an end to end IoT solution. Azure IoT Edge is designed for security that is extensible to different risk profiles, deployment scenarios, and  offers the same protection that you expect from all Azure services.
+Securing the intelligent edge is necessary to confer confidence in the operation of an end to end IoT solution. Azure IoT Edge is designed for security that is extensible to different risk profiles, deployment scenarios, and offers the same protection that you expect from all Azure services.
 
 Azure IoT Edge runs on different hardware, supports both Linux and Windows, and is applicable to diverse deployment scenarios.  Assessed risk depends on many considerations including solution ownership, deployment geography, data sensitivity, privacy, application vertical, and regulatory requirements.  Rather than offering concrete solutions to specific scenarios, it makes sense to design an extensible security framework based on well-grounded principles designed for scale. 
  
 This article provides an overview of the security framework. For more information, see [Securing the intelligent edge][lnk-edge-blog].
 
 [!NOTE]
-The security framework described below is being add to the product now and will be available at the general avaibility release of Azure IoT Edge. The product is currently in public preview, a realease  intened to allow development and prototyping of edge solutions, not full production deploymets that need the full security framework.  
+The security framework described below is being add to the product now and will be available at the general availability release of Azure IoT Edge. The product is currently in public preview, a release intended to allow development and prototyping of edge solutions, not full production deployments that need the full security framework.   
 
 ## Standards
 
