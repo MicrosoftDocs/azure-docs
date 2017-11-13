@@ -435,7 +435,7 @@ Grant log-on-as-a-service credentials to the user account.
 
 2. Find and click the **Log on as a service** entry.
 
-3. Add the user account in the **Log on as a service Properties** dialog.
+3. Add the user account in the **Log on as a service** **Properties** dialog box.
 
 4. Click **Apply** then **OK**.
 

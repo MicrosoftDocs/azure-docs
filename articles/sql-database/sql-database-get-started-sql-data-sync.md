@@ -204,8 +204,7 @@ After you export a database as a `.bacpac` file and import the file to create a 
 
 ### Does SQL Data Sync fully create and provision tables?
 
-If the sync schema tables are not already created in the destination database, SQL Data Sync (Preview) creates them with the columns that you selected. However, this does not result in a full fidelity
-schema, for the following reasons:
+If the sync schema tables are not already created in the destination database, SQL Data Sync (Preview) creates them with the columns that you selected. However, this behavior does not result in a full fidelity schema, for the following reasons:
 
 -   Only the columns that you selected are created in the destination table. If some columns in the source tables are not part of the sync group, those columns are not provisioned in the destination tables.
 
@@ -226,56 +225,48 @@ Because of these limitations, we recommend the following things:
 
 ### Is my data convergent after a sync?
 
-Not necessarily. In a sync group with a hub and three spokes (A, B, and C), the synchronizations are Hub to A, Hub to B, and Hub to C. If a change is made to database A *after* the Hub to A sync, that change is not written to
-either database B or database C until the next sync task.
+Not necessarily. In a sync group with a hub and three spokes (A, B, and C), the synchronizations are Hub to A, Hub to B, and Hub to C. If a change is made to database A *after* the Hub to A sync, that change is not written to either database B or database C until the next sync task.
 
 ### How do I get schema changes into a sync group?
 
-You must manually perform schema changes.
+You have to perform schema changes manually.
 
 ## FAQ about the Client Agent
 
 ### Why do I need a Client Agent?
 
-The SQL Data Sync (Preview) service communicates with SQL Server databases via the client agent. This security feature prevents direct communication with databases behind a firewall. When the SQL Data Sync (Preview) service communicates with the agent it does so using encrypted connections and a unique token or “agent key”. The SQL Server databases authenticate the agent using the connection string and agent key. This
-design provides a high level of security for your data. For more information in SQL Data Sync (Preview) security measures see the article [Data Security in SQL Data Sync](#zfb2713fa27634aeba5364fcffa8a1b48).
+The SQL Data Sync (Preview) service communicates with SQL Server databases via the client agent. This security feature prevents direct communication with databases behind a firewall. When the SQL Data Sync (Preview) service communicates with the agent, it does so using encrypted connections and a unique token or *agent key*. The SQL Server databases authenticate the agent using the connection string and agent key. This
+design provides a high level of security for your data.
 
 ### How many instances of the local agent UI can be run?
 
 Only one instance of the UI can be run.
 
-### How do I upgrade to the latest version?
-
-SQL Data Sync (Preview) Preview is not backward compatible with CTP2. See the article [How to Upgrade a Client Agent](#z7b0a7b7e4dae441b9a60fce9b23e2bb6) for complete instructions on
-how to upgrade.
-
 ### How can I change my service account?
 
-Once you install an client agent the only way to change the service account is to uninstall it and install a new client agent with the new service account.
+After you install a client agent, the only way to change the service account is to uninstall it and install a new client agent with the new service account.
 
 ### How do I change my agent key?
 
-An agent key can only be used once by an agent. It cannot be reused when you remove then reinstall a new agent, nor can it be used by multiple agents. If you need to create a new key for an existing agent
-you must be sure that the same key is recorded with the client agent and with the SQL Data Sync (Preview) service.
+An agent key can only be used once by an agent. It cannot be reused when you remove then reinstall a new agent, nor can it be used by multiple agents. If you need to create a new key for an existing agent, you must be sure that the same key is recorded with the client agent and with the SQL Data Sync (Preview) service.
 
 ### How do I retire a client agent?
 
-To immediately invalidate or retire an agent regenerate it's key in the portal but do not submit it in the Agent UI.Regenerating a key invalidates the previous key irrespective if the corresponding agent is
-online or offline.
+To immediately invalidate or retire an agent, regenerate its key in the portal but do not submit it in the Agent UI. Regenerating a key invalidates the previous key irrespective if the corresponding agent is online or offline.
 
 ### How do I move a client agent to another computer?
 
-If you would like to run the local agent from a different computer than it is currently on, please follow steps below:
+If you want to run the local agent from a different computer than it is currently on, do the following things:
 
 1. Install the agent on desired computer.
 
-2. Log onto the SQL Data Sync (Preview) portal and regenerate agent key for the new agent.
+2. Log in to the SQL Data Sync (Preview) portal and regenerate an agent key for the new agent.
 
-3. Use the new agent’s UI to submit the new agent key.
+3. Use the new agent's UI to submit the new agent key.
 
 4. Wait while the client agent downloads the list of on-premise databases that were registered earlier.
 
-5. Provide database credentials for all databases that display as unreachable. Of course, these database must be reachable from the new computer on which agent is installed.
+5. Provide database credentials for all databases that display as unreachable. These databases must be reachable from the new computer on which the agent is installed.
 
 ## Next steps
 Congratulations. You have created a sync group that includes both a SQL Database instance and a SQL Server database.

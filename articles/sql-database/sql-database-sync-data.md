@@ -78,7 +78,7 @@ Data Sync is not appropriate for the following scenarios:
 
 ### General requirements
 
--   Each table must have a primary key. Don't change the value of the primary key in any row. If you have to do this, delete the row and recreate it with the new primary key value. 
+-   Each table must have a primary key. Don't change the value of the primary key in any row. If you have to change a primary key value, delete the row and recreate it with the new primary key value. 
 
 -   A table cannot have an identity column that is not the primary key.
 
@@ -124,8 +124,7 @@ Data Sync uses insert, update, and delete triggers to track changes. It creates 
 
 ### How much does the SQL Data Sync (Preview) service cost?
 
-During the Preview, there is no charge for the SQL Data Sync (Preview) service itself.  However, you still accrue data transfer charges for data movement in and out of your SQL Database instance. For more
-details about pricing, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+During the Preview, there is no charge for the SQL Data Sync (Preview) service itself.  However, you still accrue data transfer charges for data movement in and out of your SQL Database instance. For more info, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### What regions support Data Sync?
 
@@ -141,17 +140,17 @@ Not directly. You can sync between SQL Server on-premises databases indirectly, 
 ### Can I use Data Sync to seed data from my production database to an empty database, and then keep them synchronized? 
 Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
 
-### Should I use SQL Data Sync to backup and restore my databases?
+### Should I use SQL Data Sync to back up and restore my databases?
 
-It is not recommended to use SQL Data Sync (Preview) to create a backup of your data. You cannot backup and restore to a specific point in time because SQL Data Sync (Preview) does not version synchronizations. Furthermore, SQL Data Sync (Preview) does not back up other SQL objects, such as stored procedures, and does not do the equivalent of a restore operation quickly.
+It is not recommended to use SQL Data Sync (Preview) to create a backup of your data. You cannot back up and restore to a specific point in time because SQL Data Sync (Preview) synchronizations are not versioned. Furthermore, SQL Data Sync (Preview) does not back up other SQL objects, such as stored procedures, and does not do the equivalent of a restore operation quickly.
 
-For one recommeneded backup technique, see [Copy an Azure SQL database](sql-database-copy.md).
+For one recommended backup technique, see [Copy an Azure SQL database](sql-database-copy.md).
 
 ### Is collation supported in SQL Data Sync?
 
 Yes. SQL Data Sync supports collation in the following scenarios:
 
--   If the selected sync schema tables are not already in your hub or member databases, then when you deploy the sync group, the service automatically creates the corresponding tables and columns with the  collation settings selected in the empty destination databases.
+-   If the selected sync schema tables are not already in your hub or member databases, then when you deploy the sync group, the service automatically creates the corresponding tables and columns with the collation settings selected in the empty destination databases.
 
 -   If the tables to be synced already exist in both your hub and member databases, SQL Data Sync requires that the primary key columns have the same collation between hub and member databases to successfully deploy the sync group. There are no collation restrictions on columns other than the primary key columns.
 
