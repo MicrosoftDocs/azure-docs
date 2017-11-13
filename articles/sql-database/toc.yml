@@ -338,7 +338,7 @@
   - name: Multi-tenant SaaS
     items:
     - name: Welcome to Wingtips
-      items: saas-tenancy-welcome-wingtip-tickets-app.md
+      href: saas-tenancy-welcome-wingtip-tickets-app.md
     - name: Database per tenant
       items:
       - name: Tutorial intro
