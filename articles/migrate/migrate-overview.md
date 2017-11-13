@@ -71,6 +71,21 @@ Azure Migrate assessments are based on the settings summarized in the table.
 
 
   ![Azure Planner architecture](./media/migration-planner-overview/overview-1.png)
+  
+## What happens after assessment?
+
+After you finish assessing on-premises machines for migration to Azure using the Azure Migrate service, you can use a couple of tools to perform the migration:
+
+- **Azure Site Recovery**: You can use Azure Site Recovery to migrate to Azure, as follows:
+  - Prepare Azure resources, including an Azure subscription, an Azure virtual network, and a storage account.
+  - Prepare your on-premises VMware servers for migration. This includes verifying VMware support requirements for Site Recovery, preparing an account on VMware servers so that Site Recovery can discover machines you want to migrate, and preparing an account so that the Site Recovery Mobility service can be automatically installed on VMware VMs that you want to migrate. 
+  - Set up migration. You set up an Recovery Services vault, set up source and target migration settings, set up a replication policy, and enable replication. You can run a disaster recovery drill to check that migration of a VM to Azure is working correctly.
+  - Run a failover to migrate on-premises machines to Azure. 
+  - [Learn more](../site-recovery/tutorial-migrate-on-premises-to-azure.md) in the Site Recovery migration tutorial.
+
+- **Azure Database Migration**: If your on-premises machines are running a SQL Server or Oracle database, use the Azure Database Migration Service to migrate them to Azure. [Learn more](https://azure.microsoft.com/campaigns/database-migration/).
+
+
 
 ## Next steps 
 [Follow a tutorial](tutorial-assessment-vmware.md) to create an assessment for an on-premises VMware VM.
