@@ -73,7 +73,7 @@ This will result in a solution that enables all devices to use any IoT Edge devi
 
 You can use the sample Powershell and Bash scripts described in [Managing CA Certificate Sample][lnk-ca-scripts] to generate a self-signed **IoT hub owner CA** and device certificates signed with it.
 
-1. Follow step 1 to install the scripts.
+1. Follow step 1 of [Managing CA Certificate Sample][lnk-ca-scripts] to install the scripts.
 2. Follow step 2 to generate the **IoT hub owner CA**, this file will be used by the downstream devices to validate the connection.
 
 Use the following instructions to generate a certificate for your gateway device.
