@@ -20,7 +20,7 @@ ms.author: tarcher
 
 # Manage basic policies for a lab in Azure DevTest Labs
 
-Azure DevTest Labs enables you to control cost and minimize waste in your labs by managing policies (settings) for each lab. In this article, you get started with policies by learning how to set two of the most critical policies - limiting the number of virtual machines (VM) that can be created or claimed by a single user, and configuring auto-shutdown. To view how to set every lab policy, see the article, [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
+Azure DevTest Labs enables you to control cost and minimize waste in your labs by managing policies (settings) for each lab. In this article, you get started with policies by learning how to set two of the most critical policies - limiting the number of virtual machines (VM) that can be created or claimed by a single user, and configuring auto-shutdown. To view how to set every lab policy, see [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
 ## Accessing a lab's policies in Azure DevTest Labs
 The following steps guide you through setting up policies for a lab in Azure DevTest Labs:
@@ -35,9 +35,9 @@ To view (and change) the policies for a lab, follow these steps:
 
 1. Select **Configuration and policies**.
 
-    ![Policy settings blade](./media/devtest-lab-set-lab-policy/policies-menu.png)
+    ![Policy settings pane](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. The **Configuration and policies** blade contains a menu of settings that you can specify. This article covers only the settings for **Virtual machines per user**, **Auto-shutdown**, and **Auto-start**. To learn about the remaining settings, see [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
+1. The **Configuration and policies** pane contains a menu of settings that you can specify. This article covers only the settings for **Virtual machines per user**, **Auto-shutdown**, and **Auto-start**. To learn about the remaining settings, see [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
    
 ## Set virtual machines per user
 The policy for **Virtual machines per user** allows you to specify the maximum number of VMs that can be created by an individual user. If a user attempts to create or claim a VM when the user limit has been met, an error message indicates that the VM cannot be created/claimed. 
@@ -55,7 +55,7 @@ The policy for **Virtual machines per user** allows you to specify the maximum n
 ## Set auto-shutdown
 The auto-shutdown policy helps to minimize lab waste by allowing you to specify the time that this lab's VMs shut down.
 
-1. On the lab's **Configuration and policies** blade, select **Auto-shutdown**.
+1. On the lab's **Configuration and policies** pane, select **Auto-shutdown**.
    
     ![Auto-shutdown](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -67,12 +67,12 @@ The auto-shutdown policy helps to minimize lab waste by allowing you to specify 
 
 1. Select **Save**.
 
-	By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's blade and change its **Auto-shutdown** setting 
+	By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's management pane and change its **Auto-shutdown** setting.
 
 ## Set auto-start
 The auto-start policy allows you to specify when the VMs in the current lab should be started.  
 
-1. On the lab's **Configuration and policies** blade, select **Auto-start**.
+1. On the lab's **Configuration and policies** pane, select **Auto-start**.
    
     ![Auto-start](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -82,8 +82,8 @@ The auto-start policy allows you to specify when the VMs in the current lab shou
 
 4. Select **Save**.
 
-	Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's blade and change its **Auto-start** setting 
+	Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's management pane and change its **Auto-start** setting.
 
 ## Next steps
 
-- [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md) - Learn how to modify other lab policies 
+- [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md) - Learn how to modify other lab policies.
