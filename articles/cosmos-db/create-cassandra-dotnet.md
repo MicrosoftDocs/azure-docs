@@ -148,7 +148,11 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and verify the output](./media/create-cassandra-dotnet/output.png)
 
-    You can now go back to Data Explorer and see query, modify, and work with this new data. 
+    Press CTRL + C to stop exection of the program and close the console window. 
+    
+    You can now open Data Explorer in the Azure portal to see query, modify, and work with this new data. 
+
+    ![View the data in Data Explorer](./media/create-cassandra-dotnet/data-explorer.png)
 
 ## Review SLAs in the Azure portal
 

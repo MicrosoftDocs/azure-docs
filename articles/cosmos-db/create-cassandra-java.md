@@ -18,7 +18,7 @@ ms.author: mimig
 
 ---
 
-#Quickstart: Build a Cassandra app with Java and Azure Cosmos DB
+# Quickstart: Build a Cassandra app with Java and Azure Cosmos DB
 
 This quickstart shows how to use Java and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also walks you through the creation of an Azure Cosmos DB account by using the web-based Azure portal.
 
@@ -195,8 +195,12 @@ Now go back to the Azure portal to get your connection string information and co
     ```
 
     The terminal window displays notifications that the keyspace and table are created. It then selects and returns all users in the table and displays the output, and then selects a row by id and displays the value.  
+
+    Press CTRL + C to stop exection of the program and close the console window. 
     
-    You can now go back to Data Explorer and see query, modify, and work with this new data. 
+    You can now open Data Explorer in the Azure portal to see query, modify, and work with this new data. 
+
+    ![View the data in Data Explorer](./media/create-cassandra-java/data-explorer.png)
 
 ## Review SLAs in the Azure portal
 
