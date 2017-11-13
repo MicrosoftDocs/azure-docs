@@ -18,7 +18,7 @@ ms.author: apimpm
 
 # Authorize access using Google OAuth token
 
-This article shows an Azure API management policy sample that demonstrates how to authorize access to your endpoints using Google as an OAuth token provider. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). 
+This article shows an Azure API management policy sample that demonstrates how to authorize access to your endpoints using Google as an OAuth token provider. To set or edit a policy code, follow the steps described in [Set or edit a policy](../set-edit-policies.md). To see other examples, see [policy samples](../policy-samples.md).
 
 ## Policy
 
@@ -28,6 +28,8 @@ Paste the code into the **inbound** block.
 
 ## Next steps
 
-[Transformation policies](../api-management-transformation-policies.md)
+Learn more about APIM policies:
 
++ [Transformation policies](../api-management-transformation-policies.md)
++ [Policy samples](../policy-samples.md)
 

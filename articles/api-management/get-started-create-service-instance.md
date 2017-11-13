@@ -16,7 +16,7 @@ ms.author: apimpm
 
 # Create a new Azure API Management service instance
 
-This tutorial describes the steps for creating a new API Management instance using the [Azure portal](https://portal.azure.com/).
+This tutorial describes the steps for creating a new API Management instance using the Azure portal.
 
 ## Prerequisites
 

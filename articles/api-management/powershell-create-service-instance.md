@@ -16,11 +16,9 @@ ms.author: apimpm
 
 # Create a new Azure API Management service instance
 
-This tutorial describes the steps for creating a new API Management instance using the PowerShell scripts. The quickstart shows you how to use the **Azure Cloud Shell** that you can run from [Azure portal](https://portal.azure.com/).
+This tutorial describes the steps for creating a new API Management instance using the PowerShell scripts. The quickstart shows you how to use the **Azure Cloud Shell** that you can run from Azure portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 

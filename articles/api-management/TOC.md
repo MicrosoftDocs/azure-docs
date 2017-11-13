@@ -14,7 +14,7 @@
 ## [8 - Add multiple versions](api-management-get-started-publish-versions.md)
 ## [9 - Customize the Developer portal](api-management-customize-styles.md)
 # Samples
-## [Policy](policy-samples.md)
+## [Policies](policy-samples.md)
 ## [Azure PowerShell](powershell-samples.md)
 # Concepts
 ## [Terminology](api-management-terminology.md)

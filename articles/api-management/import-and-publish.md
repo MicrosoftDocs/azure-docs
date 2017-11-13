@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-[Create an Azure API Management instance](get-started-create-service-instance.md).
+Please complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 ## <a name="create-api"> </a>Import and publish a back-end API
 
