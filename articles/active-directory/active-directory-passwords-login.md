@@ -30,8 +30,8 @@ To enable users to reset their Azure AD password from the Windows 10 login scree
 * Windows 10, version 1709, or newer client that is Azure AD Domain joined.
 * Azure AD self-service password reset must be enabled.
 * Configure and deploy the setting to enable the Reset password link via one of the following methods:
-   * Intune device configuration profile
-   * Registry key
+   * [Intune device configuration profile](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
+   * [Registry key](active-directory-passwords-login.md#configure-reset-password-link-using-the-registry)
 
 ## Configure Reset password link using Intune
 
