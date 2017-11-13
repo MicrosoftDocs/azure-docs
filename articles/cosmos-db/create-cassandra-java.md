@@ -18,7 +18,7 @@ ms.author: mimig
 
 ---
 
-#Quickstart: Build a Cassandra web app with Java and Azure Cosmos DB
+#Quickstart: Build a Cassandra app with Java and Azure Cosmos DB
 
 This quickstart shows how to use Java and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also walks you through the creation of an Azure Cosmos DB account by using the web-based Azure portal.
 
