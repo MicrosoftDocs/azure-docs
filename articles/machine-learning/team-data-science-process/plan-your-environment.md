@@ -1,10 +1,10 @@
-﻿---
+---
 title: Identify scenarios and plan your analytics process - Azure | Microsoft Docs
 description: Plan for advanced analytics by considering a series of key questions.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: bradsev
 
 ---

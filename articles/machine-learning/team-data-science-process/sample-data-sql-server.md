@@ -4,7 +4,7 @@ description: Sample Data in SQL Server on Azure
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgeonlun
 editor: cgronlun
 
 ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
 
 ---
