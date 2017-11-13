@@ -140,5 +140,5 @@ Discovery time depends on how many VMs you are discovering. Typically, for 100 V
 
 ## Next steps
 
-- Learn how to [create a group](how-to-create-group.md) for assessment
+- Learn how to [create a group](how-to-create-a-group.md) for assessment.
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
