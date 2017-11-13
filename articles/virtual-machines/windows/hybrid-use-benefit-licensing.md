@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/01/2017
+ms.date: 11/13/2017
 ms.author: kmouss
 
 ---
@@ -25,7 +25,7 @@ For customers with Software Assurance, Azure Hybrid Benefit for Windows Server a
 >
 
 > [!NOTE]
-> Azure Hybrid Benefit for Windows Server can't be used with VMs that are charged for additional software such as SQL Server or any of the third-party marketplace images. You get a 409 error such as: Changing property 'LicenseType' is not allowed; if you try to convert or deploy a new Windows Server VM that has additional software cost. 
+> Using Azure Hybrid Benefit for Windows Server with VMs that are charged for additional software such as SQL Server or any of the third-party marketplace images is also being rolled out. If you get a 409 error such as: Changing property 'LicenseType' is not allowed; then you are trying to convert or deploy a new Windows Server VM that has additional software cost which may not be supported in that region.
 >
 
 
