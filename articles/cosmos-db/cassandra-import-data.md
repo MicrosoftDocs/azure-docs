@@ -30,7 +30,6 @@ This tutorial covers the following tasks:
 # Prerequisites
 
 * Install Apache Cassandra and specifically ensure *cqlsh* is present   [Apache Cassandra Download location](http://cassandra.apache.org/download/).
-* Get your [Cassandra API connection string](connect-cassandra-account.md).
 * Increase throughput: The duration of your data migration depends on the amount of throughput you set up for your Tables. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Performance levels and pricing tiers in Azure Cosmos DB](performance-levels.md).
 * Enable SSL: Azure Cosmos DB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. When you use cql with ssh, you have an option to provide ssl information. 
 
