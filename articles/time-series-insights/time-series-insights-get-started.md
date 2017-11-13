@@ -6,31 +6,34 @@ ms.service: time-series-insights
 author: op-ravi
 ms.author: omravi
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
+editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
-ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article 
 ms.date: 11/15/2017
 ---
 
 # Create a new Time Series Insights environment in the Azure portal
-You can use the Azure portal in your web browser to create a new Time Series Insights environment. A Time Series Insights environment is an Azure resource with ingress and storage capacity.
+This article describes how to create a new Time Series Insights environment using the Azure portal.
+
+Time Series Insights allows you to get started visualizing and querying data flowing into Azure IoT Hubs and Event Hubs in minutes, enabling you to query large volumes of time series data in seconds.  It was designed for the internet-of-things (IoT) scale and can handle terabytes of data.
 
 ## Steps to create the environment
 Follow these steps to create an environment:
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 
-2.	Select the **+ Create a resource** button on the upper left of the portal.
+2.	Select the **+ New** button.
 
-3.	Search for **Time Series Insights** in the search box.
+3.	Select the **Internet of Things** category, and select **Time Series Insights**.
 
-  ![Create the Time Series Insights environment](media/get-started/getstarted-create-environment1.png)
+   ![Create the Time Series Insights environment](media/time-series-insights-get-started/1-new-tsi.png)
 
-4.	Select **Time Series Insights**, then click **Create**.
+4.	On the **Time Series Insights** page, select **Create**.
+
+5. Fill in the required parameters. The following table explains each parameter:
    
-   ![Create the Time Series Insights resource group](media/get-started/getstarted-create-environment2.png)
+   ![Create the Time Series Insights resource group](media/time-series-insights-get-started/2-create-tsi.png)
    
    Setting|Suggested value|Description
    ---|---|---
@@ -41,13 +44,15 @@ Follow these steps to create an environment:
    Pricing tier | S1 | Choose the throughput needed. For lowest costs and starter capacity, select S1.
    Capacity | 1 | Capacity is the multiplier applies to the ingress rate, storage capacity, and cost associated with the selected SKU.  You can change capacity of an environment after creation. For lowest costs, select a capacity of 1. 
   
-5. Check **Pin to dashboard** to best easily access your Time Series Environment in the future.
+6. Check **Pin to dashboard** to best easily access your Time Series Environment in the future.
 
-   ![Create the Time Series Insights pin to dashboard](media/get-started/getstarted-create-environment3.png)
-  
-6. Select **Create** to begin the provisioning process. It may take a couple of minutes.
+   ![Create the Time Series Insights pin to dashboard](media/time-series-insights-get-started/3-pin-create.png)
 
-7. On the topmost toolbar, select the **Notifications** symbol (bell icon) to monitor the deployment process. 
+7. Select **Create** to begin the provisioning process. It may take a couple of minutes.
+
+8. To monitor the deployment process, select the **Notifications** symbol (bell icon).
+
+   ![Watch the notifications](media/time-series-insights-get-started/4-notifications.png)
 
 When the deployment succeeds, you can select **Go to resource** to configure other properties, set security with data access policies, add event sources, and other actions.
 
