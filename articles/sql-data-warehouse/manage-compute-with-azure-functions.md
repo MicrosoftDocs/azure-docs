@@ -20,11 +20,11 @@ ms.author: elbutter
 ---
 # Use Azure Functions to automate SQL DW compute levels
 
-This tutorial will demonstrate how you can use Azure Functions to manage the compute levels of your Azure SQL Data Warehouse. This architecture is recommended for use with SQL Data Warehouse [Optimized for Elasticity][Performance Tiers]
+This tutorial will demonstrate how you can use Azure Functions to manage the compute levels of your Azure SQL Data Warehouse. These architectures are recommended for use with SQL Data Warehouse [Optimized for Elasticity][Performance Tiers].
 
-In order to use Azure Functions with SQL Data Warehouse, you must create a [Service Principal Account](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) with contributor access under the same subscription as your data warehouse instance. 
+In order to use Azure Function App with SQL Data Warehouse, you must create a [Service Principal Account](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) with contributor access under the same subscription as your data warehouse instance. 
 
-## Deploy Timer based DW scaler with an ARM Template
+## Deploy Timer based scaler with an Azure Resource Manager Template
 
 To deploy the template, you will need the following information:
 
@@ -44,7 +44,7 @@ Once you have the above information, deploy this template:
 
 Once you've deployed the template, you should find three new resources: a free Azure App Service Plan, a consumption based Function App plan, and a storage account which will handle the logging and the operations queue. Continue reading the other sections to see how to modify the deployed functions to fit your need.
 
-## Change the scale up or scale down compute level
+### Change the scale up or scale down compute level
 
 1. Navigate to your Function App service. If you deployed the template with the default values, this service should be named *DWOperations*. Once your Function App is open, you should notice there are five functions deployed to your Function App Service. 
 
@@ -61,15 +61,14 @@ Once you've deployed the template, you should find three new resources: a free A
   ![Change function schedule](media/manage-compute-with-azure-functions/change-schedule.png)
 
   The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes these six fields: 
-
   ```json
-  {second} {minute} {hour} {day} {month} {day-of-week} 
+  {second} {minute} {hour} {day} {month} {day-of-week}
   ```
 
-  For example *"0 30 9 * * 1-5"* would reflect a trigger every weekday at 9:30am. For more information, visit Azure Functions [schedule examples][schedule examples].
+  For example *"0 30 9 * * 1-5"* would reflect a trigger every weekday at  9:30am. For more information, visit Azure Functions [schedule examples][schedule examples].
 
 
-## Change the scale up or scale down time
+### Change the scale up or scale down time
 
 1. Navigate to your Function App service. If you deployed the template with the default values, this service should be named *DWOperations*. Once your Function App is open, you should notice there are five functions deployed to your Function App Service. 
 
@@ -79,7 +78,7 @@ Once you've deployed the template, you should find three new resources: a free A
 
 3. Change the value of *ServiceLevelObjective* to the level you would like and hit save. This is the compute level that your data warehouse instance will be scaled to based on the schedule defined in the Integrate section.
 
-## Use pause or resume instead of scale 
+### Use pause or resume instead of scale 
 
 Currently, the functions on by default are *DWScaleDownTrigger* and *DWScaleUpTrigger*. If you would like to use pause and resume functionality instead, you can enable *DWPauseTrigger* or *DWResumeTrigger*.
 
@@ -97,7 +96,7 @@ Currently, the functions on by default are *DWScaleDownTrigger* and *DWScaleUpTr
 
 
 
-## Add a new trigger function
+### Add a new trigger function
 
 Currently, there are only two scaling functions included within the template. This means that, over the course of a day, you can only scale down once and up once. For more granular control, such as scaling down multiple times per day or having different scaling behavior on the weekends, you will have to add another trigger.
 
@@ -138,13 +137,11 @@ Currently, there are only two scaling functions included within the template. Th
    ```
 
 
-
-
-## Complex scheduling
+### Complex scheduling
 
 This section will briefly demonstrate what is necessary to get more complex scheduling of pause, resume, and scaling capabilities.
 
-### Example 1:
+#### Example 1:
 
 Daily scale up at 8am to DW600 and scale down at 8pm to DW200.
 
@@ -153,9 +150,7 @@ Daily scale up at 8am to DW600 and scale down at 8pm to DW200.
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",	"ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
 
-
-
-### Example 2: 
+#### Example 2: 
 
 Daily scale up at 8am to DW1000, scale down once to DW600 at 4pm and scale down at 10pm to DW200.
 
@@ -165,7 +160,7 @@ Daily scale up at 8am to DW1000, scale down once to DW600 at 4pm and scale down 
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
 | Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
 
-### Example 3: 
+#### Example 3: 
 
 Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pauses Friday 11pm, resumes 7am Monday morning.
 
@@ -178,7 +173,7 @@ Scale up at 8am to DW1000 , scale down once to DW600 at 4pm on the weekdays. Pau
 
 
 
-## Next Steps
+## Next steps
 
 Learn more about [timer trigger](../azure-functions/functions-create-scheduled-function.md) Azure functions.
 
@@ -192,4 +187,3 @@ Checkout the SQL Data Warehouse [samples repository](https://github.com/Microsof
 [Add a new trigger function]: manage-compute-with-azure-functions.md#add-a-new-trigger-function
 
 [Performance Tiers]: performance-tiers.md
-
