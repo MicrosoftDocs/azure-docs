@@ -261,13 +261,15 @@ $access_token = $content.access_token
 echo "The MSI access token is $access_token"
 
 # Use the access token to get resource information for the VM
-(Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
+$vmInfoRest = (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
+echo "JSON returned from call to get VM info:"
+echo $vmInfo
 
 # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
 Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
 
 # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
-$vmInfo = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
+$vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
 $spID = $vmInfo.Identity.PrincipalId
 echo "The MSI service principal ID is $spID"
 ```
