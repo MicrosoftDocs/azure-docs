@@ -60,10 +60,17 @@ Now let's clone a Cassandra API app from github, set the connection string, and 
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `pyquickstart.py` file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-* User name and password  is set using the connection string page in the Azure portal.  
+* User name and password is set using the connection string page in the Azure portal. You replace the path\to\cert with the path to your X509 certificate.
 
    ```python
-   auth_provider = PlainTextAuthProvider(username=cfg.config['username'], password=cfg.config['password'])
+   	ssl_options = {
+                  'ca_certs': 'path\to\cert',
+                  'ssl_version': ssl.PROTOCOL_TLSv1_2
+        }
+    	auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
+    	cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_options)
+	session = cluster.connect()
+   
    ```
 
 * The `cluster` is initialized with contactPoint information. The contactPoint is retrieved from the Azure portal.
@@ -109,7 +116,7 @@ This step is optional. If you're interested in learning how the database resourc
     rows = session.execute('SELECT * FROM uprofile.user')
     ```  
     
- * Query to get a key-value.
+* Query to get a key-value.
 
     ```Python
     
@@ -148,6 +155,14 @@ Now go back to the Azure portal to get your connection string information and co
 
 6. Save the config.py file.
     
+## Create the X509 certificate
+
+1. Create an X509 certificate and save it locally.
+
+2. Open pyquickstart.py and change the 'path\to\cert' to point to your X509 certificate.
+
+3. Save pyquickstart.py.
+
 ## Run the app
 
 1. Use the cd command in the git terminal to change into the azure-cosmos-db-cassandra-python-getting-started folder. 
@@ -160,7 +175,7 @@ Now go back to the Azure portal to get your connection string information and co
     python -m pip install prettytable
     ```
 
-2. Run the following command to start your node application
+2. Run the following command to start your node application:
 
     ```
     python pyquickstart.py
