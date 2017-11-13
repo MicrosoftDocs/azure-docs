@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 11/13/2017
 ms.author: dobett
 
 ---
@@ -40,17 +40,17 @@ To complete this tutorial, you need the following:
 Sign in to your Azure account and select your subscription.
 
 1. At the command prompt, run the [login command][lnk-login-command]:
-    
+
     ```azurecli
     az login
     ```
 
     Follow the instructions to authenticate using the code and sign in to your Azure account through a web browser.
 
-2. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure accounts associated with your credentials. Use the following [command to list the Azure accounts][lnk-az-account-command] available for you to use:
-    
+1. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure accounts associated with your credentials. Use the following [command to list the Azure accounts][lnk-az-account-command] available for you to use:
+
     ```azurecli
-    az account list 
+    az account list
     ```
 
     Use the following command to select subscription that you want to use to run the commands to create your IoT hub. You can use either the subscription name or ID from the output of the previous command:
@@ -64,29 +64,24 @@ Sign in to your Azure account and select your subscription.
 Use the Azure CLI to create a resource group and then add an IoT hub.
 
 1. When you create an IoT hub, you must create it in a resource group. Either use an existing resource group, or run the following [command to create a resource group][lnk-az-resource-command]:
-    
+
     ```azurecli
      az group create --name {your resource group name} --location westus
     ```
 
     > [!TIP]
     > The previous example creates the resource group in the West US location. You can view a list of available locations by running the command `az account list-locations -o table`.
-    >
-    >
 
-2. Run the following [command to create an IoT hub][lnk-az-iot-command] in your resource group, using a globally unique name for your IoT hub:
-    
+1. Run the following [command to create an IoT hub][lnk-az-iot-command] in your resource group, using a globally unique name for your IoT hub:
+
     ```azurecli
     az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
     ```
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-
 > [!NOTE]
 > The previous command creates an IoT hub in the S1 pricing tier for which you are billed. For more information, see [Azure IoT Hub pricing][lnk-iot-pricing].
->
->
 
 ## Remove an IoT Hub
 
@@ -105,6 +100,7 @@ az group delete --name {your resource group name}
 ```
 
 ## Next steps
+
 To learn more about developing for IoT Hub, see the following articles:
 
 * [IoT Hub developer guide][lnk-devguide]
