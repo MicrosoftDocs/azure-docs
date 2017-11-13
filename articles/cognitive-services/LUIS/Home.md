@@ -29,30 +29,27 @@ A model starts with a list of general user intentions such as "Book Flight" or "
 
 [Pre-built domain models][pre-built-domains] include all these pieces for you and are a great way to start using LUIS quickly.
 
-After the model is designed, trained, and published, it is ready to receive and process utterances. The LUIS app receives the utterance as an HTTP request and responds with extracted user intentions. Your client application sends the utterance and receives LUIS's evaluation. Your app can then take appropriate action.
+After the model is designed, trained, and published, it is ready to receive and process utterances. The LUIS app receives the utterance as an HTTP request and responds with extracted user intentions. Your client application sends the utterance and receives LUIS's evaluation as a JSON object. Your app can then take appropriate action.
 
 ![LUIS recognizes user intent](./media/luis-overview/luis-overview-process.png)
 
 ## Key LUIS concepts
 
-* **Intents** An intent represents actions the user wants to perform. The intent is a purpose or goal expressed in a user's input, such as booking a flight, paying a bill, or finding a news article. You define and name intents that correspond to these actions. A travel app may define an intent named "BookFlight." 
+* **Intents** An [intent][add-intents] represents actions the user wants to perform. The intent is a purpose or goal expressed in a user's input, such as booking a flight, paying a bill, or finding a news article. You define and name intents that correspond to these actions. A travel app may define an intent named "BookFlight." 
 * **Utterances** An [utterance][add-example-utterances] is text input from the user that your app needs to understand. It may be a sentence, like "Book a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight." Utterances aren't always well-formed, and there can be many utterance variations for a particular intent. 
-* **Entities** An entity represents detailed information that is relevant in the utterance. For example, in the utterance "Book a ticket to Paris", "Paris" is a location. By recognizing and labeling the entities that are mentioned in the user’s utterance, LUIS helps you choose the specific action to take to answer a user's request. 
+* **Entities** An [entity][add-entities] represents detailed information that is relevant in the utterance. For example, in the utterance "Book a ticket to Paris", "Paris" is a location. By recognizing and labeling the entities that are mentioned in the user’s utterance, LUIS helps you choose the specific action to take to answer a user's request. 
 
-|Intent|Sample User Utterance|Entities|Type|
-|-----------|-----------|-----------|------|
-|BookFlight|"Book a flight to __Seattle__?"|Seattle|Destination|
-|StoreHoursAndLocation|"When does your store __open__?"|open|Time|
-|ScheduleMeeting|"Schedule a meeting at __1pm__ with __Bob__ in Distribution"|1pm, Bob|Time, Person|
+|Intent|Sample User Utterance|Entities|
+|-----------|-----------|-----------|
+|BookFlight|"Book a flight to __Seattle__?"|Seattle|
+|StoreHoursAndLocation|"When does your store __open__?"|open|
+|ScheduleMeeting|"Schedule a meeting at __1pm__ with __Bob__ in Distribution"|1pm, Bob|
 
-## Key Development concepts
+## Accessing LUIS
 
-LUIS has two sets of APIs: the authoring APIs and the endpoint APIs.
+LUIS has two ways to build a model: the [Authoring APIs][authoring-apis] and the [LUIS.ai][luis.ai] web app. Both methods give you and your collaborators control of your LUIS model definition. You can use either [LUIS.ai][luis.ai] or the Authoring APIs or a combination of both to build your model. This includes management of: models, versions, collaborators, external APIs, testing, and training. 
 
-* **Authoring APIs and LUIS.ai** The authoring APIs give you and your collaborators control of your LUIS model definition. This control includes management of: models, versions, collaborators, external APIs, Azure subscription keys, testing, and training. [LUIS.ai][luis.ai] is the authoring website that sits on top of the authoring APIS, making the API calls for you. You can use either [LUIS.ai][luis.ai] or the Authoring APIs or a combination of both to build your model.
-
-* **Endpoint APIs** The endpoint APIs allow users to pass a short, less than 500 character utterance phrase to LUIS. When you publish your LUIS app, the endpoint URL is created. 
-
+Once your model is built and published, you pass the utterance to LUIS and receive the JSON object results with the [Endpoint APIs][endpoint-apis].
 
 > [!NOTE]
 > * The Authoring APIs and LUIS.ai use the programmatic key found in your [LUIS.ai][luis.ai] account page.
@@ -77,7 +74,7 @@ For example, a "BookFlight" intent could trigger an API call to an external serv
 * **Regular Expressions and Phrase Features** LUIS provides [features](luis-concept-feature.md) such as regular expression patterns and phrase lists, which also help identify entities. 
 
 ## Improve performance using active learning
-Once your application is [published][publish-app] and real user utterances are entered, LUIS uses active learning to improve identification. In the active learning process, LUIS identifies the utterances that it is relatively unsure of. You can label them according to intent and entities, retrain, and republish.
+Once your application is [published][publish-app] and real user utterances are entered, LUIS uses [active learning][label-suggested-utterances] to improve identification. In the active learning process, LUIS identifies the utterances that it is relatively unsure of. You can label them according to intent and entities, retrain, and republish.
 
 This iterative process has tremendous advantages. LUIS knows what it is unsure of, and your help leads to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. LUIS is an active machine learning at its best. 
 
@@ -101,3 +98,7 @@ Watch this short [video tutorial][intro-video] on these steps.
 [speech]:../Speech/index.md
 [flow]:https://docs.microsoft.com/connectors/luis/
 [entity-concept]:luis-concept-entity-types.md
+[add-intents]:Add-intents.md
+[add-entities]:Add-entities.md
+[authoring-apis]:https://aka.ms/luis-authoring-api
+[endpoint-apis]:https://aka.ms/luis-endpoint-apis
