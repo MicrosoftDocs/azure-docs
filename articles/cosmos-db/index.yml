@@ -15,7 +15,7 @@ metadata:
   ms.date: 11/15/2017
   ms.author: carolz
 abstract:
-  description: Azure Cosmos DB is a globally distributed database service designed to enable you to elastically and independently scale throughput and storage across any number of geographical regions with a comprehensive SLA.  You can develop document, key/value, or graph databases with Cosmos DB using a series of popular APIs and programming models. Learn how to use Cosmos DB with our quickstarts, tutorials, and samples.
+  description: Azure Cosmos DB is a globally distributed, multi-model database service. Use these quickstarts, tutorials, and samples to develop document, key-value, wide-column, and graph databases by using popular APIs and programming models. Then learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage, while benefitting from comprehensive SLAs. 
   aside:
     image:
       alt: 
