@@ -25,7 +25,7 @@ For customers with Software Assurance, Azure Hybrid Benefit for Windows Server a
 >
 
 > [!NOTE]
-> Using Azure Hybrid Benefit for Windows Server with VMs that are charged for additional software such as SQL Server or any of the third-party marketplace images is also being rolled out. If you get a 409 error such as: Changing property 'LicenseType' is not allowed; then you are trying to convert or deploy a new Windows Server VM that has additional software cost which may not be supported in that region.
+> Using Azure Hybrid Benefit for Windows Server with VMs that are charged for additional software such as SQL Server or any of the third-party marketplace images is also being rolled out. If you get a 409 error such as: Changing property 'LicenseType' is not allowed; then you are trying to convert or deploy a new Windows Server VM that has additional software cost, which may not be supported in that region.
 >
 
 
@@ -39,7 +39,7 @@ There are few ways to use Windows virtual machines with the Azure Hybrid Benefit
 
 1. You can deploy VMs from one of the provided  [Windows Server images on the Azure Marketplace](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
 2. You can  [upload a custom VM](#upload-a-windows-vhd) and [deploy using a Resource Manager template](#deploy-a-vm-via-resource-manager) or [Azure PowerShell](#detailed-powershell-deployment-walkthrough)
-3. You can toggle and convert existing VM between running with Azure Hybrid Benefit or pay on demand cost for Windows Server
+3. You can toggle and convert existing VM between running with Azure Hybrid Benefit or pay on-demand cost for Windows Server
 4. You can also deploy a new virtual machine scale set with Azure Hybrid Benefit for Windows Server
 
 > [!NOTE]
