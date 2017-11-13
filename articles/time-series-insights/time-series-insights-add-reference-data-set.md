@@ -19,7 +19,7 @@ This article describes how to add a reference data set to your Azure Time Series
 
 A Reference Data Set is a collection of items that are augmented with the events from your event source. Time Series Insights ingress engine joins an event from your event source with an item in your reference data set. This augmented event is then available for query. This join is based on the keys defined in your reference data set.
 
-## Add a reference data set to your environment
+## Add a reference data set
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
