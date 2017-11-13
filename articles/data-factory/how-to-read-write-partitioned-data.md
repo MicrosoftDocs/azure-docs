@@ -77,7 +77,7 @@ Here is a sample dataset definition (that uses a parameter named: `date`):
   "type": "AzureBlob",
   "typeProperties": {
     "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.date, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.date, '%M'), '/dayno=', formatDateTime(pipeline().parameters.date, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledTime, '%d'), '/')",
       "type": "Expression"
     },
     "format": {
@@ -131,15 +131,15 @@ Pipeline definition:
 						"type": "Expression"
 					},
 					"Year": {
-						"value": "@formatDateTime(pipeline().parameters.date, 'yyyy')",
+						"value": "@formatDateTime(pipeline().parameters.scheduledTime, 'yyyy')",
 						"type": "Expression"
 					},
 					"Month": {
-						"value": "@formatDateTime(pipeline().parameters.date, '%M')",
+						"value": "@formatDateTime(pipeline().parameters.scheduledTime, '%M')",
 						"type": "Expression"
 					},
 					"Day": {
-						"value": "@formatDateTime(pipeline().parameters.date, '%d')",
+						"value": "@formatDateTime(pipeline().parameters.scheduledTime, '%d')",
 						"type": "Expression"
 					}
 				}
