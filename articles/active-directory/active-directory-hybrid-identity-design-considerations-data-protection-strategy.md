@@ -115,9 +115,9 @@ Each interaction in the diagram showed in Figure X represents one access control
 
 2. Access Control to the Azure portal:  Azure also lets you control access to the portal by using role-based access control (RBAC)). This method enables the company to restrict the number of operations that an individual can do in the Azure portal. By using RBAC to control access to the portal, IT Admins can delegate access by using the following access management approaches:
 
-* Group-based role assignment: You can assign access to Azure AD groups that can be synced from your local Active Directory. This lets you leverage the existing investments that your organization has made in tooling and processes for managing groups. You can also use the delegated group management feature of Azure AD Premium.
-* Use built-in roles in Azure: You can use three roles — Owner, Contributor, and Reader, to ensure that users and groups have permission to do only the tasks they need to do their jobs.
-* Granular access to resources: You can assign roles to users and groups for a particular subscription, resource  group, or an individual Azure resource such as a website or database. In this way, you can ensure that users have access to all the resources they need and no access to resources that they do not need to manage.
+    * Group-based role assignment: You can assign access to Azure AD groups that can be synced from your local Active Directory. This lets you leverage the existing investments that your organization has made in tooling and processes for managing groups. You can also use the delegated group management feature of Azure AD Premium.
+    * Use built-in roles in Azure: You can use three roles — Owner, Contributor, and Reader, to ensure that users and groups have permission to do only the tasks they need to do their jobs.
+    * Granular access to resources: You can assign roles to users and groups for a particular subscription, resource  group, or an individual Azure resource such as a website or database. In this way, you can ensure that users have access to all the resources they need and no access to resources that they do not need to manage.
 
 > [!NOTE]
 > If you are building applications and want to customize the access control for them, it is also possible to use Azure AD Application Roles for authorization. Review this [WebApp-RoleClaims-DotNet example](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) on how to build your app to use this capability.
