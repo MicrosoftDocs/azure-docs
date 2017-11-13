@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -48,6 +48,12 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="1.19.0"/>1.19.0
+
+* Branding change from Azure DocumentDB to Azure Cosmos DB in the API Reference documentation, metadata information in assemblies, and the NuGet package. 
+* Expose diagnostic information and latency from the response of requests sent with direct connectivity mode. The property names are RequestDiagnosticsString and RequestLatency on ResourceResponse class.
+* This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator. 
+
 ### <a name="1.18.1"/>1.18.1 
 
 * Internal changes for Microsoft friends assemblies.
@@ -261,6 +267,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.19.0](#1.19.0) |November 10, 2017 |--- |
 | [1.18.1](#1.18.1) |November 07, 2017 |--- |
 | [1.18.0](#1.18.0) |October 17, 2017 |--- |
 | [1.17.0](#1.17.0) |August 10, 2017 |--- |

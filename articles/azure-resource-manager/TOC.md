@@ -71,7 +71,6 @@
 
 ## Set resource policies
 ### [What are resource policies?](resource-manager-policy.md)
-### [Naming conventions](resource-manager-policy-naming-convention.md)
 
 ## Audit
 ### [View activity logs](resource-group-audit.md)
