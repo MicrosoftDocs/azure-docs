@@ -4,7 +4,7 @@ description: How to use Azure Data Lake to do data exploration and binary classi
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 91a8207f-1e57-4570-b7fc-7c5fa858ffeb
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 11/13/2017
 ms.author: bradsev;weig
 
 ---
