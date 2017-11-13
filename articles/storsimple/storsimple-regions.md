@@ -88,7 +88,7 @@ Microsoft can ship physical hardware and provide hardware spare parts replacemen
 
 ### StorSimple Cloud Appliance (Models 8010/8020)
 
-If using a StorSimple Cloud Appliance 8010 or 8020, then the device is supported and available in all the regions where the underlying VM is supported. The 8010 uses a Standard_A3 which is supported in all Azure reigons.
+If using a StorSimple Cloud Appliance 8010 or 8020, then the device is supported and available in all the regions where the underlying VM is supported. The 8010 uses a Standard_A3 which is supported in all Azure regions.
 
 The 8020 uses premium storage and Standard_DS3 VM to create a cloud appliance. The 8020 is supported in Azure regions that support Premium Storage and DS3 Azure VMs. Use [this list](https://azure.microsoft.com/regions/services/) to see if both **Virtual Machines > DS-series** and **Storage > Disk storage** are available in your region.
 
