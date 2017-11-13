@@ -13,16 +13,20 @@
     href: luis-get-started-create-app.md
   - name: Call a LUIS endpoint
     items:
-    - name: Call a LUIS app using Node.js
+    - name: Node.js
       href: luis-get-started-node-get-intent.md
-    - name: Call a LUIS app using client-side JavaScript
+    - name: JavaScript
       href: luis-get-started-js-get-intent.md
-    - name: Call a LUIS app using C#
+    - name: C#
       href: luis-get-started-cs-get-intent.md
-    - name: Call a LUIS app using Java
+    - name: Java
       href: luis-get-started-java-get-intent.md
-    - name: Call a LUIS app using Python
+    - name: Python
       href: luis-get-started-python-get-intent.md
+    - name: Ruby
+      href: luis-get-started-ruby-get-intent.md
+    - name: PHP
+      href: luis-get-started-php-get-intent.md
   - name: Call LUIS authoring API
     items:
     - name: Add Utterance and train using Node.js
@@ -33,7 +37,7 @@
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
   - name: Integrate LUIS with a bot using C#
     href: luis-csharp-tutorial-build-bot-framework-sample.md
-  - name: Import utterances from a log
+  - name: Build a LUIS app programmatically using Node.js
     href: luis-tutorial-node-import-utterances-csv.md
 - name: Samples
   items:
