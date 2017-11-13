@@ -116,7 +116,7 @@ This step is optional. If you're interested in learning how the database resourc
     rows = session.execute('SELECT * FROM uprofile.user')
     ```  
     
- * Query to get a key-value.
+* Query to get a key-value.
 
     ```Python
     
