@@ -1,14 +1,14 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Develop and deploy an Azure IoT Edge module | Microsoft Docs 
-description: Create an IoT Edge module and deploy it to an edge device
+title: Azure IoT Edge C# module | Microsoft Docs 
+description: Create an IoT Edge module with C# code and deploy it to an edge device
 services: iot-edge
 keywords: 
 author: JimacoMS2
 manager: timlt
 
 ms.author: v-jamebr
-ms.date: 11/08/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Develop and Deploy an IoT Edge module to your simulated device -- Public preview
+# Develop and deploy a C# IoT Edge module to your simulated device -- Public preview
 
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an  IoT Edge module that filters sensor data on the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. In this tutorial, you learn how to:    
 

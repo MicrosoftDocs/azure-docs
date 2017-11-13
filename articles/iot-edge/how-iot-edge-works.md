@@ -1,5 +1,5 @@
 ---
-title: How Azure IoT Edge works | Microsoft Docs
+title: What is Azure IoT Edge | Microsoft Docs
 description: Overview of the Azure IoT Edge service
 services: iot-Edge
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 11/15/2017
 ms.author: kgremban
 ms.custom: 
 ---
