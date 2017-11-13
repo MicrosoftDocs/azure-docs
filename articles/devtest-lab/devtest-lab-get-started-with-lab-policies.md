@@ -37,7 +37,7 @@ To view (and change) the policies for a lab, follow these steps:
 
     ![Policy settings blade](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. The **Configuration and policies** blade contains a menu of settings that you can specify. This article covers only the settings for **Virtual machines per user** and **Auto-shutdown**. To learn about the remaining settings, see [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
+1. The **Configuration and policies** blade contains a menu of settings that you can specify. This article covers only the settings for **Virtual machines per user**, **Auto-shutdown**, and **Auto-start**. To learn about the remaining settings, see [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
    
 ## Set virtual machines per user
 The policy for **Virtual machines per user** allows you to specify the maximum number of VMs that can be created by an individual user. If a user attempts to create or claim a VM when the user limit has been met, an error message indicates that the VM cannot be created/claimed. 
@@ -63,7 +63,7 @@ The auto-shutdown policy helps to minimize lab waste by allowing you to specify 
 
 1. If you enable this policy, specify the time (and time zone) to shut down all VMs in the current lab.
 
-1. Specify **Yes** or **No** for the option to send a notification 15 minutes prior to the specified auto-shutdown time. If you specify **Yes**, enter a webhook URL endpoint to receive the notification. For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Specify **Yes** or **No** for the option to send a notification 15 minutes prior to the specified auto-shutdown time. If you choose **Yes**, enter a webhook URL endpoint or email address specifying where you want the notification to be posted or sent. For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Select **Save**.
 
