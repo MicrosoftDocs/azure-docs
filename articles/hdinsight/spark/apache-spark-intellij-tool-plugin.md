@@ -165,7 +165,7 @@ For installation instructions, see [Install Azure Toolkit for IntelliJ](https://
       
       To learn how to access the job output, see the "Access and manage HDInsight Spark clusters by using Azure Toolkit for IntelliJ" section later in this article.
 
-## Run or debug a Spark Scala application on an HDInsight Spark cluster
+## Run or debug a Spark Scala application on an HDInsight Spark cluster and local
 We also recommend another way of submitting the Spark application to the cluster. You can do so by setting the parameters in the **Run/Debug configurations** IDE. For more information, see [Remotely debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 ## Access and manage HDInsight Spark clusters by using Azure Toolkit for IntelliJ
