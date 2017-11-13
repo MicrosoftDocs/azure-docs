@@ -2,7 +2,7 @@
 title: "Best Practices for Azure SQL Data Sync | Microsoft Docs"
 description: "Learn best practices for configuring and running Azure SQL Data Sync"
 services: sql-database
-ms.date: "11/2/2017"
+ms.date: "11/13/2017"
 ms.topic: "article"
 ms.service: "sql-database"
 author: "douglaslMS"
@@ -58,7 +58,7 @@ When you create a new SQL Database instance, set the maximum size so that it is 
 
 #### Selecting tables
 
-Not all tables in a database are required to be in a [sync group](#sync-group). The selection of which tables to include in a sync group and which to exclude (or include in a different Sync Group) can impact efficiency and costs. Include only those tables in a Sync Group that business needs demand and the tables upon which they are dependent.
+Not all tables in a database are required to be in a sync group. The selection of which tables to include in a sync group and which to exclude (or include in a different Sync Group) can impact efficiency and costs. Include only those tables in a Sync Group that business needs demand and the tables upon which they are dependent.
 
 #### Primary keys
 

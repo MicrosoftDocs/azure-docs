@@ -14,7 +14,7 @@ ms.workload: "Active"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
 ---
@@ -231,9 +231,9 @@ After you export a database as a `.bacpac` file and import the file to create a 
 1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). This script deletes all of the required Data Sync objects from the database.
 2.  Recreate the sync group with the new database. If you no longer need the old sync group, delete it.
 
-## FAQ about the Client Agent
+## FAQ about the client agent
 
-### Why do I need a Client Agent?
+### Why do I need a client agent?
 
 The SQL Data Sync (Preview) service communicates with SQL Server databases via the client agent. This security feature prevents direct communication with databases behind a firewall. When the SQL Data Sync (Preview) service communicates with the agent, it does so using encrypted connections and a unique token or *agent key*. The SQL Server databases authenticate the agent using the connection string and agent key. This
 design provides a high level of security for your data.

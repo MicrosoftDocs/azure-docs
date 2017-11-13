@@ -2,7 +2,7 @@
 title: "Troubleshoot Azure SQL Data Sync | Microsoft Docs"
 description: "Learn to troubleshoot common issues with Azure SQL Data Sync"
 services: sql-database
-ms.date: "11/2/2017"
+ms.date: "11/13/2017"
 ms.topic: "article"
 ms.service: "sql-database"
 author: "douglaslMS"
@@ -69,7 +69,7 @@ If tables with the same name but from different schemas in a database are involv
 
 The SQL Data Sync (Preview) provisioning process uses the same tracking tables for tables with the same name but in different schemas. As a result, changes from both tables are reflected in the same tracking table, and this behavior causing erroneous data changes during sync.
 
-#### Resolution or Workaround
+#### Resolution or workaround
 
 Ensure that the names of tables involved in sync are different even if they belong to different schemas.
 
@@ -83,7 +83,7 @@ After a synchronization that is reported as successful, and the log shows no fai
 
 This behavior is by design. Changes in any primary key column result in inconsistent data in the rows where the primary key was changed.
 
-#### Resolution or Workaround
+#### Resolution or workaround
 
 To prevent this issue, ensure that no data in a primary key column is changed.
 
@@ -99,7 +99,7 @@ Your performance degrades significantly, possibly to the point where you cannot 
 
 The most likely cause is a synchronization loop. A synchronization loop occurs when a synchronization by sync group A triggers a synchronization by sync group B, which in turn triggers a synchronization by sync group A. The actual situation may be more complex, involving more than two sync groups in the loop, but the significant factor is that there is a circular triggering of synchronizations caused by sync groups overlapping one another.
 
-#### Resolution or Workaround
+#### Resolution or workaround
 
 The best fix is prevention. Ensure that you do not have circular references in your sync groups. Any row that is synchronized by one sync group cannot be synchronized by another sync group.
 
@@ -111,7 +111,7 @@ This error message indicates one of the two following issues:
 ### How does Data Sync handle circular references? That is, when the same data is synced in multiple sync groups, and keeps changing as a result?
 Data Sync doesn’t handle circular references. Be sure to avoid them. 
 
-## Troubleshooting the Client Agent
+## Troubleshooting the client agent
 
 ### Install, uninstall, or repair fails
 
@@ -193,7 +193,7 @@ The solution depends upon the cause.
 
 You must have both the client agent and the sync group in the same data center. You can set up this configuration by doing one of the following things:
 
--   Create a new agent in the same data center as the sync group. Then register the database with that agent. See [How To: Install a SQL Data Sync (Preview) Client Agent](#install-a-sql-data-sync-client-agent) for more information.
+-   Create a new agent in the same data center as the sync group. Then register the database with that agent.
 
 -   Delete the current sync group. Then recreate it in the same data center as the agent.
 
@@ -306,7 +306,7 @@ If a local end point (that is, a database) that is registered with a SQL Data Sy
 
 The local agent cannot be deleted because the unreachable database is still registered with the agent. When you try to delete the agent, the deletion process tries to reach the database, which fails.
 
-#### Resolution or Workaround
+#### Resolution or workaround
 
 Use "force delete" to delete the unreachable database.
 
@@ -485,7 +485,7 @@ If a sync group's status is "Out-of-Date", you need to delete the sync group and
 
 You are not able to delete a sync group within three minutes of uninstalling/stopping the associated SQL Data Sync (Preview) client agent.
 
-#### Resolution or Workaround
+#### Resolution or workaround
 
 1. Remove a sync group while the associated sync agents are online (recommended).
 
