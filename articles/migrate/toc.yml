@@ -16,6 +16,8 @@
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
+  - name: Scale machine assessment
+    href: how-to-scale-assessment.md
   - name: Create a group
     href: how-to-create-a-group.md
   - name: Create a group using machine dependencies
@@ -26,6 +28,8 @@
     href: how-to-create-group-dependencies.md
   - name: Customize an assessment
     href: how-to-modify-assessment.md
+  - name: Migrate machines after assessment
+    href: how-to-get-migration-tool.md
   - name: Troubleshoot Azure Migrate
     href: troubleshooting-general.md
 - name: Resources

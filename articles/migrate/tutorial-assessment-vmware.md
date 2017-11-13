@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/26/2017
+ms.date: 11/13/2017
 ms.author: raynew
 
 ---
@@ -159,5 +159,6 @@ You can drill down to see costs for a specific machine.
 
 ## Next steps
 
+- If you need to set up an assessment for a large number of on-premises machines, read [How to scale assessment](how-to-scale-assessment.md)
 - Learn how to create more detailed assessment groups using [machine dependency mapping](how-to-create-group-machine-dependencies.md).
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
