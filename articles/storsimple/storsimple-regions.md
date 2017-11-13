@@ -51,6 +51,8 @@ StorSimple data is physically stored in Azure storage accounts and these account
 
 When you first create a StorSimple Device Manager service and associate a storage account with it, your StorSimple Device Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Device Manager and Azure storage account separately.
 
+In general, choose the nearest region to your service for your storage account. However, the nearest Microsoft Azure region might not actually be the region with the lowest latency. It is the latency that dictates network service performance and hence the performance of the solution. So if you are choosing a storage account in a different region, it is important to know what the latencies are between your service and the region associated with your storage account.
+
 If you are using a StorSimple Cloud Appliance, then we recommend that the service and the associated storage account are in the same region. Storage accounts in a different region  may result in poor performance.
 
 ## Availability of StorSimple device
