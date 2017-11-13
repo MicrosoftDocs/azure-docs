@@ -56,7 +56,7 @@ Monitoring agents are installed on multiple servers, both on-premises and in Azu
 4. Request to whitelist your NPM Workspace.
 5. Set up monitoring: Auto-Discover and manage which networks are visible in NPM.
 
-If you are already using Network Performance Monitor to monitor other objects or services, and you already have Workspace in one of the available regions, you can skip Step 1 and Step 2, and begin your configuration with Step 3.
+If you are already using Network Performance Monitor to monitor other objects or services, and you already have Workspace in one of the supported regions, you can skip Step 1 and Step 2, and begin your configuration with Step 3.
 
 ## <a name="configure"></a>Step 1: Create a Workspace
 
