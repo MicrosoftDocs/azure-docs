@@ -19,12 +19,12 @@ ms.author: juluk
 # About Terraform
 This article walks you through creating a resource group with the [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
-[Hashicorp Terraform](https://www.terraform.io/) is an open source tool that codifies APIs into declarative configuration files that can be shared amongst team members, treated as code, edited, reviewed, and versioned. The Microsoft AzureRM provider is used to interact with the many resources supported by Azure Resource Manager via the AzureRM APIs. 
+[Hashicorp Terraform](https://www.terraform.io/) is an open source tool that codifies APIs into declarative configuration files that can be shared amongst team members to be edited, reviewed, and versioned. The Microsoft AzureRM provider is used to interact with resources supported by Azure Resource Manager via the AzureRM APIs. 
 
 # Terraform and Bash in Cloud Shell
 Terraform is installed in Bash in Cloud Shell by default. Additionally, Cloud Shell automatically authenticates your default Azure CLI 2.0 subscription to deploy resources through the Terraform Azure modules.
 
-Terraform uses the default Azure CLI 2.0 subscription that is set. To update default subscriptions run:
+Terraform uses the default Azure CLI 2.0 subscription that is set. To update default subscriptions, run:
 
 ```azurecli-interactive
 az account set --subscription mySubscriptionName
@@ -133,7 +133,7 @@ The [terraform apply command](https://www.terraform.io/docs/commands/apply.html)
 Run `az group show -n myRgName` to verify the resource has succeeded provisioning.
 
 ### Clean up with terraform destroy
-Clean up the resource group created with the [Terraform destroy command](https://www.terraform.io/docs/commands/destroy.html) to cleanup Terraform-created infrastructure.
+Clean up the resource group created with the [Terraform destroy command](https://www.terraform.io/docs/commands/destroy.html) to clean up Terraform-created infrastructure.
 
 ```
 justin@Azure:~$ terraform destroy
