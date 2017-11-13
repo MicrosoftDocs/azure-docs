@@ -39,8 +39,8 @@ After deploying the app, explore the following tutorials that build upon the ini
 
 | Tutorial | Description |
 |:--|:--|
-| [Guidance and tips for Azure SQL Database multi-tenant SaaS app example](saas-dbpertenant-wingtip-app-guidance-tips.md)  |  |
-|[Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)| **START HERE!** Deploy and explore the Wingtip SaaS application to your Azure subscription. |
+| [Guidance and tips for Azure SQL Database multi-tenant SaaS app example](saas-dbpertenant-wingtip-app-guidance-tips.md) | **START HERE!** Download and run PowerShell scripts to prepare parts of the application. |
+|[Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)|  Deploy and explore the Wingtip SaaS application to your Azure subscription. |
 |[Provision and catalog tenants](saas-dbpertenant-provision-and-catalog.md)| Learn how the application connects to tenants using a catalog database, and how the catalog maps tenants to their data. |
 |[Monitor and manage performance](saas-dbpertenant-performance-monitoring.md)| Learn how to use monitoring features of SQL Database, and how to set alerts when performance thresholds are exceeded. |
 |[Monitor with Log Analytics (OMS)](saas-dbpertenant-log-analytics.md) | Learn about using [Log Analytics](../log-analytics/log-analytics-overview.md) to monitor large amounts of resources, across multiple pools. |

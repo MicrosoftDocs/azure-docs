@@ -341,7 +341,7 @@
       items:
       - name: Tutorial intro
         href: saas-dbpertenant-wingtip-app-overview.md
-      - name: App guidance and tips
+      - name: App guidance
         href: saas-dbpertenant-wingtip-app-guidance-tips.md
       - name: Deploy example app
         href: saas-dbpertenant-get-started-deploy.md
@@ -351,7 +351,7 @@
         href: saas-dbpertenant-performance-monitoring.md
       - name: Monitor with log analytics
         href: saas-dbpertenant-log-analytics.md
-      - name: Restore single tenant
+      - name: Restore one tenant
         href: saas-dbpertenant-restore-single-tenant.md
       - name: Manage tenant schema
         href: saas-tenancy-schema-management.md
