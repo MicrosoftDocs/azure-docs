@@ -21,7 +21,7 @@ ms.author: bryanla
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 A VM Managed Service Identity makes two important features available to client applications running on the VM:
 
-1. An MSI [**service principal**](develop/active-directory-dev-glossary.md#service-principal-object), which is [created upon enabling MSI](msi-overview.md#how-does-it-work) on the VM. The service principal can then be given access to Azure resources, and used by client applications that need to sign-in under their own identity. Traditionally, in order for a client to be able to access secured resources under its own identity, it must:  
+1. An MSI [**service principal**](develop/active-directory-dev-glossary.md#service-principal-object), which is [created upon enabling MSI](msi-overview.md#how-does-it-work) on the VM. The service principal can then be given access to Azure resources, and used as an identity by client applications during sign-in and resource access. Traditionally, in order for a client to be able to access secured resources under its own identity, it must:  
 
    - be registered with Azure AD as a confidential/web client application, and consented for use by a tenant's user(s)/admin
    - sign in under its service principal, using the ID+secret credentials generated during registration (which are likely embedded in the client code)
@@ -43,26 +43,27 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, y
 
 > [!IMPORTANT]
 > - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
-> - To prevent errors in the sign-in examples, the VM's identity must be given "Reader" access to itself (at the VM scope or higher) to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
+> - To prevent errors in the sign-in examples, the VM's MSI must be given "Reader" access to itself (at the VM scope or higher) to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
 
 ## Code examples
 
-As discussed previously, MSI offers both a service principal for sign-in identity, and an access token for secure resource access.
+As discussed previously, MSI offers a service principal for sign-in (and resource access), and an access token for resource access.
 
 The examples below show of variety of ways to do one or both functions:
 
 |         Client         |       Code snippets       |  Code samples  | 
 | ---------------------- | ------------------------- | ---------------|
-| [HTTP/REST](#httprest) | Acquire token             | N/A            |           
-| [.NET C#](#net-c)      | Acquire token             | TBD, TBD       | 
-| [Azure CLI](#azure-cli)| Sign-in                   | N/A            |
-| [Azure PowerShell](#azure-powershell) | Acquire token, Sign-in| N/A |               
-| [Bash/CURL](#bashcurl) | Acquire token | N/A |                             
-| [Go](#go) | Acquire token | TBD |                                          
-| [Java](#java) | N/A |  TBD | 
-| [PHP](#php) | N/A | TBD | 
-| [Python](#python) | N/A | TBD | 
-| [Ruby](#ruby) | N/A | TBD | 
+| [HTTP/REST](#httprest) | Acquire token             |                |
+| <br> Programming languages: |                      |                |           
+| [.NET C#](#net-c)      | Acquire token             | Deploy an ARM template from a Windows VM using Managed Service Identity (.NET)<br>Call Azure services from a Linux VM using Managed Service Identity (.NET Core)   | 
+| [Go](#go)              | Acquire token             |                |                                          
+| [Node](#php)           |                           | Manage resources using Managed Service Identity | 
+| [Python](#python)      |                           | Use MSI to authenticate simply from inside a VM | 
+| [Ruby](#ruby)          |                           | Manage resources from an MSI-enabled VM | 
+| <br>Scripting hosts / CLIs: |                      |                |           
+| [Azure PowerShell](#azure-powershell) | Acquire token, Sign-in |    |               
+| [Azure CLI](#azure-cli)| Sign-in                   |                |
+| [Bash/CURL](#bashcurl) | Acquire token             |                |                             
 
 ### HTTP/REST 
 
@@ -110,6 +111,8 @@ Content-Type: application/json
 
 ### .NET C#
 
+The following script demonstrates how to acquire an MSI access token for an Azure VM:
+
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -141,62 +144,16 @@ catch (Exception e)
 
 ```
 
-### Azure CLI
+For complete code samples, see:
 
-The following script demonstrates how to:
-
-1. Sign in to Azure AD under the VM's MSI service principal
-2. Call Azure Resource Manager and get the VM's service principal ID. CLI takes care of managing token acquisition/use for you automatically.
-
-Please note, if you're using interactive sign in via Azure Cloud Shell, you won't be sign-in under the MSI service principal.
-
-```azurecli-interactive
-az login --msi
-spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
-echo The MSI service principal ID is $spID
-```
-
-### Azure PowerShell
-
-The following script demonstrates how to:
-
-1. Acquire an MSI access token for an Azure VM.
-2. Use the access token to call Azure Resource Manager and get information about the VM. Be sure to substitute your subscription ID, resource group name, and virtual machine name for `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, and `<VM-NAME>`, respectively.
-2. Use the access token to sign in to Azure AD, under the corresponding MSI service principal. 
-3. Call Azure Resource Manager and get information about the VM. PowerShell takes care of managing token acquisition/use for you automatically.
-
-Please note, if you're using interactive sign in via Azure Cloud Shell, you won't be sign-in under the MSI service principal.
-
-```azurepowershell-interactive
-# Get an access token for the MSI
-$response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
-                              -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-$content =$response.Content | ConvertFrom-Json
-$access_token = $content.access_token
-echo "The MSI access token is $access_token"
-
-# Use the access token to get resource information for the VM
-(Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
-
-# Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
-
-# Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
-$vmInfo = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
-$spID = $vmInfo.Identity.PrincipalId
-echo "The MSI service principal ID is $spID"
-```
-
-### Bash/CURL
-
-```bash
-response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
-access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
-echo The MSI access token is $access_token
-```
+- [Deploy an ARM template from a Windows VM using Managed Service Identity](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) (.NET)
+- [Call Azure services from a Linux VM using Managed Service Identity](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) (.NET Core)
 
 ### Go
 
+The following script demonstrates how to acquire an MSI access token for an Azure VM:
+
+```
 package main
 
 import (
@@ -249,13 +206,81 @@ func main() {
     fmt.Println("resource: ", r.Resource)
     fmt.Println("token_type: ", r.Token_type)
 }
+```
 
-### Java
+### Node
 
-### PHP
+For complete code samples, see:
 
+- [Manage resources using Managed Service Identity](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/)
 
+### Python
 
+For complete code samples, see:
+
+- [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) 
+
+### Ruby
+
+For complete code samples, see:
+
+- [Manage resources from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) 
+
+### Azure CLI
+
+The following script demonstrates how to:
+
+1. Sign in to Azure AD under the VM's MSI service principal
+2. Call Azure Resource Manager and get the VM's service principal ID. CLI takes care of managing token acquisition/use for you automatically.
+
+Please note, if you're using interactive sign in via Azure Cloud Shell, you won't be sign-in under the MSI service principal.
+
+```azurecli-interactive
+az login --msi
+spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
+echo The MSI service principal ID is $spID
+```
+
+### Azure PowerShell
+
+The following script demonstrates how to:
+
+1. Acquire an MSI access token for an Azure VM.
+2. Use the access token to call Azure Resource Manager and get information about the VM. Be sure to substitute your subscription ID, resource group name, and virtual machine name for `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, and `<VM-NAME>`, respectively.
+2. Use the access token to sign in to Azure AD, under the corresponding MSI service principal. 
+3. Call Azure Resource Manager and get information about the VM. PowerShell takes care of managing token acquisition/use for you automatically.
+
+Please note, if you're using interactive sign in via Azure Cloud Shell, you won't be sign-in under the MSI service principal.
+
+```azurepowershell-interactive
+# Get an access token for the MSI
+$response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
+                              -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+$content =$response.Content | ConvertFrom-Json
+$access_token = $content.access_token
+echo "The MSI access token is $access_token"
+
+# Use the access token to get resource information for the VM
+(Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
+
+# Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
+Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+
+# Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
+$vmInfo = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
+$spID = $vmInfo.Identity.PrincipalId
+echo "The MSI service principal ID is $spID"
+```
+
+### Bash/CURL
+
+The following script demonstrates how to acquire an MSI access token for an Azure VM:
+
+```bash
+response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
+access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+echo The MSI access token is $access_token
+```
 
 ========================================== OLD ============================================================
 
