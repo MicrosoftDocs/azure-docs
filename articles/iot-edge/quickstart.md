@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
+# Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
 
 In this quickstart, use the Azure IoT Edge cloud interface to deploy prebuilt code remotely to an IoT Edge device. To accomplish this task, first use your Windows device to simulate an IoT Edge device, then you can deploy a module to it.
 
@@ -123,12 +123,11 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 
 * [Deploy Azure Function as a module](tutorial-deploy-function.md)
 * [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
-* [Deploy your own code as a module](tutorial-create-custom-module.md)
+* [Deploy your own code as a module](tutorial-csharp-module.md)
 
 
 <!-- Images -->
 [1]: ./media/quickstart/cloud-shell.png
-[2]: ./media/tutorial-install-iot-edge/view-module.png
 
 <!-- Links -->
 [lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 

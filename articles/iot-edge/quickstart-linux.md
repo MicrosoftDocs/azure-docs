@@ -8,13 +8,13 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
 
 ---
 
-# Deploy your first IoT Edge module from the Azure portal to a Linux device - preview
+# Quickstart: Deploy your first IoT Edge module from the Azure portal to a Linux device - preview
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this topic, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
 
@@ -109,12 +109,11 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 
 * [Deploy Azure Function as a module](tutorial-deploy-function.md)
 * [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
-* [Deploy your own code as a module](tutorial-create-custom-module.md)
+* [Deploy your own code as a module](tutorial-csharp-module.md)
 
 
 <!-- Images -->
 [1]: ./media/quickstart/cloud-shell.png
-[2]: ./media/tutorial-install-iot-edge/view-module.png
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 

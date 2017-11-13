@@ -15,4 +15,4 @@ One of the key capabilities of Azure IoT Edge is being able to deploy modules to
    ![View tempSensor in list of deployed modules][1]
 
 <!-- Images -->
-[1]: ../articles/iot-edge/media/tutorial-install-iot-edge/view-module.png
+[1]: ../articles/iot-edge/media/tutorial-simulate-device-windows/view-module.png

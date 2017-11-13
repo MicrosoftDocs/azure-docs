@@ -14,31 +14,33 @@ ms.service: iot-edge
 
 ---
 
-# Deploy Azure Machine Learning as an IoT Edge module
+# Deploy Azure Machine Learning as an IoT Edge module - preview
 
-You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on sensor data on the simulated IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md). You learn how to: 
+You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on sensor data on the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. You learn how to: 
 
 > [!div class="checklist"]
 > * Deploy an Azure Machine Learning module to your IoT Edge device
 > * View generated data
 
-The Azure Machine Learning module is a module hosted in DockerHub that contains a sample machine learning model.  When you want to use your own Azure Machine Learning model in your solution you will [deploy a model](https://docs.microsoft.com/en-us/azure/machine-learning/preview/tutorial-classifying-iris-part-3) for IoT Edge and host it in a container registry like [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/).
+This tutorial uses a sample Azure Machine Learning module hosted in DockerHub. 
+
+When you want to use your own [Azure Machine Learning][https://docs.microsoft.com/azure/machine-learning/preview/] model in your solution you will [deploy a model](https://aka.ms/aml-iot-edge-doc) for IoT Edge and host it in a container registry like [Azure Container Registry](../container-registry/index.yml) or Docker.
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md).
+* The Azure IoT Edge device that you created in the quickstart or first tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.  
 
 ## Run the solution
 
-1. On the [Azure portal](https://df.onecloud.azure-test.net/), navigate to your IoT hub.
-1. Go to **IoT Edge Explorer** and select your IoT Edge device.
-1. Select **Deploy modules.**
-1. Select **Add custom IoT Edge module.**
+1. On the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
+1. Go to **IoT Edge (preview)** and select your IoT Edge device.
+1. Select **Set modules**.
+1. Select **Add IoT Edge module**.
 1. In the **Name** field, enter `tempSensor`.
-1. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`.
+1. In the **Image URI** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`.
 1. Leave the other settings unchanged and select **Save**.
-1. From the **Add Modules** step, select **Add custom IoT Edge module** again.
+1. Still on the **Add Modules** step, select **Add IoT Edge module** again.
 1. In the **Name** field, enter `machinelearningmodule`.
 1. In the **Image URI** field, enter `microsoft/azureiotedge-sensor-anomaly-detection:latest`.
 1. Click **Save**.
@@ -67,5 +69,9 @@ The Azure Machine Learning module is a module hosted in DockerHub that contains 
 In this tutorial, you deployed an IoT Edge module powered by Azure Machine Learning. You can continue on to either of the following tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Develop and deploy a C# module](tutorial-create-custom-module.md)
+> [Develop and deploy a C# module](tutorial-csharp-module.md)
 > [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
+
+<!--Links-->
+[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
+[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
