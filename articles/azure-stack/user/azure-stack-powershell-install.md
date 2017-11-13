@@ -81,7 +81,7 @@ To confirm the installation, run the following command:
 
 ## Install PowerShell in a disconnected or in a partially connected scenario
 
-In a disconnected or partially connected scenarios, you must first download the PowerShell modules to a machine that has internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
+In a disconnected or partially connected scenario, you must first download the PowerShell modules to a machine that has internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
 
 > [!IMPORTANT]
 > The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.10 version, see the migration guide at [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
