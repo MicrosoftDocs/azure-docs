@@ -4,7 +4,7 @@ description: Down sampling data in Azure HDInsight  (Hadopop) Hive Tables
 services: machine-learning,hdinsight
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: f31e8d01-0fd4-4a10-b1a7-35de3c327521
@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: hangzh;bradsev
+ms.date: 11/13/2017
+ms.author: bradsev
 
 ---
 # Sample data in Azure HDInsight Hive tables
-In this article, we describe how to down-sample data stored in Azure HDInsight Hive tables using Hive queries. We cover three popularly used sampling methods:
+This article describes how to down-sample data stored in Azure HDInsight Hive tables using Hive queries to reduce it to a size more manageable for analysis. It cover three popularly used sampling methods:
 
 * Uniform random sampling
 * Random sampling by groups
@@ -29,15 +29,15 @@ The following **menu** links to topics that describe how to sample data from var
 [!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
 **Why sample your data?**
-If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Team Data Science Process is to enable fast prototyping of the data processing functions and machine learning models.
+If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. Down-sampling facilitates data understanding, exploration, and feature engineering. Its role in the Team Data Science Process is to enable fast prototyping of the data processing functions and machine learning models.
 
 This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## How to submit Hive queries
-Hive queries can be submitted from the Hadoop Command Line console on the head node of the Hadoop cluster. To do this, log into the head node of the Hadoop cluster, open the Hadoop Command Line console, and submit the Hive queries from there. For instructions on submitting Hive queries in the Hadoop Command Line console, see [How to Submit Hive Queries](move-hive-tables.md#submit).
+Hive queries can be submitted from the Hadoop Command-Line console on the head node of the Hadoop cluster. To do this, log into the head node of the Hadoop cluster, open the Hadoop Command-Line console, and submit the Hive queries from there. For instructions on submitting Hive queries in the Hadoop Command-Line console, see [How to Submit Hive Queries](move-hive-tables.md#submit).
 
 ## <a name="uniform"></a> Uniform random sampling
-Uniform random sampling means that each row in the data set has an equal chance of being sampled. This can be implemented by adding an extra field rand() to the data set in the inner "select" query, and in the outer "select" query that condition on that random field.
+Uniform random sampling means that each row in the data set has an equal chance of being sampled. It can be implemented by adding an extra field rand() to the data set in the inner "select" query, and in the outer "select" query that condition on that random field.
 
 Here is an example query:
 
@@ -55,8 +55,7 @@ Here is an example query:
 Here, `<sample rate, 0-1>` specifies the proportion of records that the users want to sample.
 
 ## <a name="group"></a> Random sampling by groups
-When sampling categorical data, you may want to either include or exclude all of the instances of some particular value of a categorical variable. This is what is meant by "sampling by group".
-For example, if you have a categorical variable "State", which has values NY, MA, CA, NJ, PA, etc, you want records of the same state be always together, whether they are sampled or not.
+When sampling categorical data, you may want to either include or exclude all of the instances for some value of the categorical variable. This sort of sampling is called "sampling by group". For example, if you have a categorical variable "*State*", which has values such as NY, MA, CA, NJ, and PA, you want records from each state to be together, whether they are sampled or not.
 
 Here is an example query that samples by group:
 
@@ -85,7 +84,7 @@ Here is an example query that samples by group:
     on b.catfield=c.catfield
 
 ## <a name="stratified"></a>Stratified sampling
-Random sampling is stratified with respect to a categorical variable when the samples obtained have values of that categorical that are in the same ratio as in the parent population from which the samples were obtained. Using the same example as above, suppose your data has sub-populations by states, say NJ has 100 observations, NY has 60 observations, and WA has 300 observations. If you specify the rate of stratified sampling to be 0.5, then the sample obtained should have approximately 50, 30, and 150 observations of NJ, NY, and WA respectively.
+Random sampling is stratified with respect to a categorical variable when the samples obtained have categorical values that are present in the same ratio as they were in the parent population. Using the same example as above, suppose your data has the following observations by states: NJ has 100 observations, NY has 60 observations, and WA has 300 observations. If you specify the rate of stratified sampling to be 0.5, then the sample obtained should have approximately 50, 30, and 150 observations of NJ, NY, and WA respectively.
 
 Here is an example query:
 

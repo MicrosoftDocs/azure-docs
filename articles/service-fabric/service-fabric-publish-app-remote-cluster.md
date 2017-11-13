@@ -3,7 +3,7 @@ title: Publish an app to a remote cluster with Visual Studio | Microsoft Docs
 description: Learn how to publish an application to a remote service fabric cluster by using Visual Studio.
 services: service-fabric
 documentationcenter: na
-author: cawams
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
-ms.author: cawa
+ms.author: ryanwi
 
 ---
 # Deploy and remove applications using Visual Studio
