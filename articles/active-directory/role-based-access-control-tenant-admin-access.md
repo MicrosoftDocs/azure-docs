@@ -23,6 +23,24 @@ Role-based Access Control helps tenant administrators get temporary elevations i
 
 This feature is important because it allows the tenant admin to see all the subscriptions that exist in an organization. It also allows for automation apps like invoicing and auditing to access all the subscriptions and provide an accurate view of the state of the organization for billing or asset management.  
 
+## Use elevateAccess for tenant access with Azure AD admin center
+
+1. Go to the [Azure Active Directory admin center](https://aad.portal.azure.com) and log in with you credentials.
+
+2. Choose **Properties** from the Azure AD left menu.
+
+3. In the **Properties** blade, find **Global admin can manage Azure Subscriptions**, choose **Yes**, then **Save**.
+	> [!IMPORTANT] 
+	> When you choose **Yes**, assigns the **User Access Administrator** role at the Root "/" (Root Scope) for the user with which you are currently logged into the Portal. **This allows the user to see all other Azure Subscriptions.**
+	
+	> [!NOTE] 
+	> When you choose **No**, removes the **User Access Administrator** role at the Root "/" (Root Scope) for the user with which you are currently logged into the Portal.
+
+> [!TIP] 
+> The impression is that this is a Global Property for Azure Active Directory, however, it functions on a per-user basis for the currently logged on user. When you have Global Administrator rights in Azure Active Directory, you can invoke the elevateAccess feature for the user which you are currently logged into Azure Active Directory Admin Center.
+
+![Azure AD Admin Center - Properties - Globaladmin can manage Azure Subscription - screenshot](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
 ## View role assignments at the "/" scope using PowerShell
 To view the **User Access Administrator** assignment at the **/** scope, use the `Get-AzureRmRoleAssignment` PowerShell cmdlet.
     
@@ -46,24 +64,6 @@ You can delete the assignment using following PowerShell cmdlet:
 ```
 Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
 ```
-
-## Use elevateAccess for tenant access with Azure AD admin center
-
-1. Go to the [Azure Active Directory admin center](https://aad.portal.azure.com) and log in with you credentials.
-
-2. Choose **Properties** from the Azure AD left menu.
-
-3. In the **Properties** blade, find **Global admin can manage Azure Subscriptions**, choose **Yes**, then **Save**.
-	> [!IMPORTANT] 
-	> When you choose **Yes**, assigns the **User Access Administrator** role at the Root "/" (Root Scope) for the user with which you are currently logged into the Portal. **This allows the user to see all other Azure Subscriptions.**
-	
-	> [!NOTE] 
-	> When you choose **No**, removes the **User Access Administrator** role at the Root "/" (Root Scope) for the user with which you are currently logged into the Portal.
-
-> [!TIP] 
-> The impression is that this is a Global Property for Azure Active Directory, however, it functions on a per-user basis for the currently logged on user. When you have Global Administrator rights in Azure Active Directory, you can invoke the elevateAccess feature for the user which you are currently logged into Azure Active Directory Admin Center.
-
-![Azure AD Admin Center - Properties - Globaladmin can manage Azure Subscription - screenshot](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
 ## Use elevateAccess to give tenant access with the REST API
 
