@@ -4,7 +4,7 @@ description: 'How to manage file and folder permissions for domain-joined HDInsi
 services: hdinsight
 documentationcenter: ''
 tags: azure-portal
-author: maxluk
+author: Blackmist
 manager: jhubbard
 editor: cgronlun
 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
-ms.author: maxluk
+ms.author: larryfr
 ---
 # Manage user permissions at the file and folder levels
 
-[Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md) use strong authentication with Azure Active Directory (Azure AD) users, and also *role-based access control* (RBAC) policies for various services, such as YARN and Hive. If your default data store for your cluster is Azure Storage, or Windows Azure Storage Blobs (WASB), you can also enforce file and folder-level permissions. You can use Apache Ranger to control access to the cluster's files for your synchronized Azure AD users and groups.
+[Domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md) use strong authentication with Azure Active Directory (Azure AD) users, and also *role-based access control* (RBAC) policies for various services, such as YARN and Hive. If your default data store for your cluster is Azure Storage, or Windows Azure Storage Blobs (WASB), you can also enforce file and folder-level permissions. You can use Apache Ranger to control access to the cluster's files for your synchronized Azure AD users and groups.
 <!-- [synchronized Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md). -->
 
 The Apache Ranger instance for HDInsight domain-joined clusters comes preconfigured with the Ranger-WASB service. The Ranger-WASB service is a policy management engine that is similar to Ranger-HDFS, but with a different enforcement of Ranger's access policies. In the Ranger-WASB service, if an incoming resource request does not have a matching Ranger policy, the default response is DENY. The Ranger service does not pass on permission checking to WASB.
@@ -65,7 +65,7 @@ When a wildcard (`*`) is present in the path for a policy, the wildcard applies 
 
 ## Manage file and folder-level permissions with Apache Ranger
 
-If you have not already done so, follow [these instructions](hdinsight-domain-joined-configure.md) to provision a new domain-joined cluster.
+If you have not already done so, follow [these instructions](./domain-joined/apache-domain-joined-configure.md) to provision a new domain-joined cluster.
 
 Open Ranger-WASB by browsing to `https://<YOUR CLUSTER NAME>.azurehdinsight.net/ranger/`. Enter the cluster administrator username and password that you defined when creating your cluster.
 
@@ -113,8 +113,8 @@ The Apache Ranger [policy evaluation flow](#permission-and-policy-model) lets yo
 
 ## Next steps
 
-* [Configure Hive policies in Domain-joined HDInsight](hdinsight-domain-joined-run-hive.md)
-* [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md)
+* [Configure Hive policies in Domain-joined HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
+* [Manage Domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-manage.md)
 * [Manage Ambari - Authorize Users to Ambari](hdinsight-authorize-users-to-ambari.md)
 
 <!-- * [Synchronize Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md) -->

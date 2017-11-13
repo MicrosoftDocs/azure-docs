@@ -67,12 +67,15 @@
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
-  - name: Government
+  - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
-  - name: Germany
+  - name: Azure Germany
     tocHref: /azure/germany/
     topicHref: /azure/germany/
+  - name: Azure China 21Vianet
+    tocHref: /azure/china/
+    topicHref: /azure/china/
   - name: Azure portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
@@ -201,6 +204,32 @@
   - name: HDInsight
     tocHref: /azure/hdinsight/
     topicHref: /azure/hdinsight/
+    items:
+      - name: Hadoop
+        tocHref: /azure/hdinsight/hadoop
+        topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
+      - name: HBase
+        tocHref: /azure/hdinsight/hbase
+        topicHref: /azure/hdinsight/hbase/apache-hbase-overview
+      - name: Interactive Query
+        tocHref: /azure/hdinsight/interactive-query
+        topicHref: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
+      - name: Kafka
+        tocHref: /azure/hdinsight/kafka
+        topicHref: /azure/hdinsight/kafka/apache-kafka-introduction
+      - name: Enterprise Security
+        tocHref: /azure/hdinsight/domain-joined
+        topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
+      - name: R Server
+        tocHref: /azure/hdinsight/r-server
+        topicHref: /azure/hdinsight/r-server-overview
+      - name: Spark
+        tocHref: /azure/hdinsight/spark
+        topicHref: /azure/hdinsight/spark/apache-spark-overview
+      - name: Storm
+        tocHref: /azure/hdinsight/storm
+        topicHref: /azure/hdinsight/storm/apache-storm-overview
+      
   - name: IoT Hub
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/

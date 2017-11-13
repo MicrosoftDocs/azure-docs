@@ -9,7 +9,7 @@ manager: jhubbard
 ms.service: postgresql
 ms.custom: 
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 11/01/2017
 ---
 # Configure SSL connectivity in Azure Database for PostgreSQL
 Azure Database for PostgreSQL prefers connecting your client applications to the PostgreSQL service using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
@@ -100,7 +100,7 @@ Installing OpenSSL on a Windows PC can be done in the following ways:
 The downloaded Root CA file is in encrypted format. Use OpenSSL to decode the certificate file. To do so, run this OpenSSL command:
 
 ```dos
-OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -text -out root.crt
+openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ```
 
 ### Connecting to Azure Database for PostgreSQL with SSL certificate authentication

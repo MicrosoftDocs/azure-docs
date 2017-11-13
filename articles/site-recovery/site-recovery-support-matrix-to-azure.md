@@ -170,7 +170,8 @@ NFS | No | N/A
 SMB 3.0 | No | No
 RDM | Yes<br/><br/> N/A for physical servers | N/A
 Disk > 1 TB | Yes<br/><br/>Upto 4095 GB | Yes<br/><br/>Upto 4095 GB
-Disk with 4K sector size | Yes | Yes, supported for Generation 1 VMs<br/><br/>Not supported for Generation 2 VMs.
+Disk with 4K logical and 4k physical sector size | Yes | Not supported for Generation 1 VMs<br/><br/>Not supported for Generation 2 VMs.
+Disk with 4K logical and 512 bytes physical sector size | Yes |  Yes
 Volume with striped disk > 1 TB<br/><br/> LVM-Logical Volume Management | Yes | Yes
 Storage Spaces | No | Yes
 Hot add/remove disk | No | No
@@ -229,10 +230,10 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 
 **Name** | **Description** | **Latest version** | **Details**
 --- | --- | --- | --- | ---
-**Azure Site Recovery Provider** | Coordinates communications between on-premises servers and Azure <br/><br/> Installed on on-premises Virtual Machine Manager servers, or on Hyper-V servers if there's no Virtual Machine Manager server | 5.1.19 ([available from portal](http://aka.ms/downloaddra)) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
-**Azure Site Recovery Unified Setup (VMware to Azure)** | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | 9.3.4246.1 (available from portal) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
-**Mobility service** | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate  | N/A (available from portal) | N/A
-**Microsoft Azure Recovery Services (MARS) agent** | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without a Virtual Machine Manager server) | Latest agent ([available from portal](http://aka.ms/latestmarsagent)) |
+**Azure Site Recovery Provider** | Coordinates communications between on-premises servers and Azure <br/><br/> Installed on on-premises Virtual Machine Manager servers, or on Hyper-V servers if there's no Virtual Machine Manager server | 5.1.2700.1 (available from portal) | [Latest features and fixes](https://aka.ms/latest_asr_updates)
+**Azure Site Recovery Unified Setup (VMware to Azure)** | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | 9.12.4653.1 (available from portal) | [Latest features and fixes](https://aka.ms/latest_asr_updates)
+**Mobility service** | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate  | 9.12.4653.1 (available from portal) | [Latest features and fixes](https://aka.ms/latest_asr_updates)
+**Microsoft Azure Recovery Services (MARS) agent** | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without a Virtual Machine Manager server) | Latest agent (available from portal) |
 
 
 

@@ -16,7 +16,7 @@ ms.date: 10/30/2017
 ms.author: elkuzmen
 ---
 
-# Use Managed Service Identity with a Linux VM to access Azure Resource Manager
+# Use a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
