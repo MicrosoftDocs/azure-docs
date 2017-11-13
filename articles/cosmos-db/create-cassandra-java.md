@@ -174,14 +174,6 @@ Now go back to the Azure portal to get your connection string information and co
 
 7. Save the config.properties file.
 
-## Create the X509 certificate
-
-1. Create an X509 certificate and save it locally.
-
-2. Open pyquickstart.py and change the 'path\to\cert' to point to your X509 certificate.
-
-3. Save pyquickstart.py.
-
 ## Run the app
 
 1. In the git terminal window, `cd` to the azure-cosmosdb-cassandra-java-getting-started\java-examples folder.
