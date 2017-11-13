@@ -84,11 +84,12 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 2. Click on the Power BI Button 
 
    ![PowerBI Button](./media/app-insights-export-power-bi/button.png)
+   
 3. In Power BI Desktop select **Get Data, Blank Query** and then  in the query editor, under **View** select **Advanced Query Editor**.
 
    ![Blank Query](./media/app-insights-export-power-bi/blankquery.png)
 
-Paste the exported M Language script into the Advanced Query Editor. 
+   Paste the exported M Language script into the Advanced Query Editor. 
 
    ![Advanced Query Editor](./media/app-insights-export-power-bi/advancedquery.png)
 
