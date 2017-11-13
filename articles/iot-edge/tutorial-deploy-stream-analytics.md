@@ -205,8 +205,8 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
-[lnk-module-tutorial]: tutorial-create-custom-module.md
-[lnk-next-tutorial2]: tutorial-create-custom-module.md
+[lnk-module-tutorial]: tutorial-csharp-module.md
+[lnk-next-tutorial2]: tutorial-csharp-module.md
 [lnk-function-tutorial]: tutorial-deploy-function.md
 
 [lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
