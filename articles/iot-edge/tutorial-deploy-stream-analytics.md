@@ -38,13 +38,10 @@ You learn how to:
 ## Prerequisites
 
 * An IoT Hub 
-* An IoT Edge runtime
+* The Azure IoT Edge device that you created in the quickstart or first tutorial
 * Docker
     * [Windows installation][lnk-docker-windows]
     * [Linux installation][lnk-docker-linux]
-
-> [!NOTE]
-> Note your IoT Hub connection string, device connection string, and edge device ID will be necessary for this tutorial. For a tutorial on installing IoT Hub and IoT Edge runtime see [Install Azure IoT Edge and deploy a module][lnk-first-tutorial]
 
 IoT Edge takes advantage of pre-built Azure Service IoT Edge modules for quick deployment and Azure Stream Analytics (ASA) is one such module. You can create an ASA job from its portal, then come to IoT Hub portal to deploy it as an IoT Edge Module.  
 
@@ -199,7 +196,6 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 
 
 <!-- Links -->
-[lnk-first-tutorial]: tutorial-install-iot-edge.md
 [lnk-what-is-iot-edge]: what-is-iot-edge.md
 [lnk-module-dev]: module-development.md
 [iot-hub-get-started-create-hub]: ../../includes/iot-hub-get-started-create-hub.md
@@ -207,7 +203,8 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 [azure-storage]: https://docs.microsoft.com/en-us/azure/storage/
 [azure-stream]: https://docs.microsoft.com/en-us/azure/stream-analytics/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-first-tutorial]: tutorial-install-iot-edge.md
+[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
+[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
 [lnk-module-tutorial]: tutorial-csharp-module.md
 [lnk-ml-tutorial]: tutorial-deploy-machine-learning.md
 

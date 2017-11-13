@@ -28,7 +28,7 @@ Azure IoT Edge devices follow a [device lifecycle][lnk-lifecycle] that is simila
 1. The devices are configured to run [IoT Edge modules][lnk-modules], and then monitored for health. 
 1. Finally, devices may be retired when they are replaced or become obsolete.  
 
-Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices: one for development and fast iterations (that you used in the tutorial [Install IoT Edge on a simulated device tutorial][lnk-tutorial1]), and one for managing large fleets of IoT Edge devices. Both of these approaches are available in the Azure Portal and programmatically.
+Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices: one for development and fast iterations on a single device (that you used in the Azure IoT Edge tutorials), and one for managing large fleets of IoT Edge devices. Both of these approaches are available in the Azure Portal and programmatically.
 
 This article focuses on the configuration and monitoring stages for fleets of devices, collectively referred to as IoT Edge deployments. The overall deployment steps are as follows:   
 
@@ -111,7 +111,6 @@ Perform rollbacks in the following sequence: 
 * Learn more about other IoT Edge concepts like the [IoT Edge runtime][lnk-runtime] and [IoT Edge modules][lnk-modules].
 
 <!-- Links -->
-[lnk-tutorial1]: tutorial-install-iot-edge.md
 [lnk-lifecycle]: ../iot-hub/iot-hub-device-management-overview.md
 [lnk-runtime]: iot-edge-runtime.md
 [lnk-modules]: iot-edge-modules.md

@@ -16,7 +16,7 @@ ms.service: iot-edge
 
 # Deploy Azure Machine Learning as an IoT Edge module
 
-You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on sensor data on the simulated IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md). You learn how to: 
+You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on sensor data on the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. You learn how to: 
 
 > [!div class="checklist"]
 > * Deploy an Azure Machine Learning module to your IoT Edge device
@@ -26,19 +26,19 @@ The Azure Machine Learning module is a module hosted in DockerHub that contains 
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the [Azure Install IoT Edge tutorial](./tutorial-install-iot-edge.md).
+* The Azure IoT Edge device that you created in the quickstart or first tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.  
 
 ## Run the solution
 
-1. On the [Azure portal](https://df.onecloud.azure-test.net/), navigate to your IoT hub.
-1. Go to **IoT Edge Explorer** and select your IoT Edge device.
-1. Select **Deploy modules.**
-1. Select **Add custom IoT Edge module.**
+1. On the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
+1. Go to **IoT Edge (preview)** and select your IoT Edge device.
+1. Select **Set modules**.
+1. Select **Add IoT Edge module**.
 1. In the **Name** field, enter `tempSensor`.
-1. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`.
+1. In the **Image URI** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`.
 1. Leave the other settings unchanged and select **Save**.
-1. From the **Add Modules** step, select **Add custom IoT Edge module** again.
+1. Still on the **Add Modules** step, select **Add IoT Edge module** again.
 1. In the **Name** field, enter `machinelearningmodule`.
 1. In the **Image** field, enter `microsoft/azureiotedge-sensor-anomaly-detection:latest`.
 1. Click **Save**.
@@ -69,3 +69,7 @@ In this tutorial, you deployed an IoT Edge module powered by Azure Machine Learn
 
 > [!div class="nextstepaction"]
 > [Deploy an Azure Function as a module](tutorial-deploy-function.md)
+
+<!--Links-->
+[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
+[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
