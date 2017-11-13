@@ -24,7 +24,7 @@ ms.author: sama
 In custom policies, language customization works the same as in built-in policies.  See the built-in [documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-language-customization) that describes the behavior in how a language is chosen based on the parameters and browser settings.
 
 ##Enable supported languages
-If ui-locales was not specified and the user's browser asks for one of these languages, supported languages are shown to the user .  
+If ui-locales was not specified and the user's browser asks for one of these languages, supported languages are shown to the user.  
 
 Supported languages are defined in `<BuildingBlocks>` in the following format:
 
@@ -67,7 +67,7 @@ In this sample, French (fr) and English (en) custom strings are added to the Uni
 
 ###Create the `<LocalizedResources>`
 
-Your overrides are contained in your `<BuildingBlocks>` and there is a `<LocalizedResources>` for each page and language you have specified in the `<ContentDefinition>` for each page.  Each override is specified as a `<LocalizedString>` such as in the following sample.
+Your overrides are contained in your `<BuildingBlocks>` and there is a `<LocalizedResources>` for each page and language you have specified in the `<ContentDefinition>` for each page.  Each override is specified as a `<LocalizedString>` such as in the following sample:
 
 ```XML
 <BuildingBlocks>
