@@ -51,7 +51,7 @@ By distributing queries across the tenant databases, Elastic Query provides imme
 
 ## Get the Wingtip application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](saas-dbpertenant-wingtip-app-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Create ticket sales data
 
@@ -67,7 +67,7 @@ The Wingtip SaaS application is built using a tenant-per-database model, so the 
 
 However, when querying across all databases, it's important that Elastic Query can treat the data as if it is part of a single logical database sharded by tenant. To simulate this pattern, a set of 'global' views are added to the tenant database that project a tenant id into each of the tables that are queried globally. For example, the *VenueEvents* view adds a computed *VenueId* to the columns projected from the *Events* table. By defining the external table in the head database over *VenueEvents* (rather than the underlying *Events* table), Elastic Query is able to push down joins based on *VenueId* so they can be executed in parallel on each remote database (rather than on the head database). This dramatically reduces the amount of data that is returned, which results in a substantial increase in performance for many queries. These global views have been pre-created in all tenant databases (and in *basetenantdb*).
 
-1. Open SSMS and [connect to the tenants1-&lt;USER&gt; server](saas-dbpertenant-wingtip-app-overview.md#explore-database-schema-and-execute-sql-queries-using-ssms).
+1. Open SSMS and [connect to the tenants1-&lt;USER&gt; server](saas-dbpertenant-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Expand **Databases**, right-click **contosoconcerthall**, and select **New Query**.
 3. Run the following queries to explore the difference between the single-tenant tables and the global views:
 
