@@ -8,10 +8,6 @@
     href: time-series-quickstart.md
 - name: Concepts
   items:
-  - name: Visualize your data with the explorer
-    href: time-series-insights-explorer.md
-  - name: Mitigate latency and throttling
-    href: time-series-insights-environment-mitigate-latency.md
   - name: Plan your environment
     href: time-series-insights-environment-planning.md
   - name: Visualize data in the explorer
