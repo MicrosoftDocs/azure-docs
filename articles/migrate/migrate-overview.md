@@ -1,6 +1,6 @@
 ---
 title: About Azure Migrate | Microsoft Docs
-description: Provides an overview of the Azure Migration Planner service.
+description: Provides an overview of the Azure Migrate service.
 services: migrate
 documentationcenter: ''
 author: rayne-wiselman
@@ -19,7 +19,7 @@ ms.author: raynew
 ---
 # About Azure Migrate
 
-The Azure Migrate service helps you to assess on-premises workloads for migration to Azure. The service assesses migration suitability, performance-based sizing, and cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in early assessment stages of migration, this service is for you.
+The Azure Migrate service helps you to assess on-premises workloads for migration to Azure. The service assesses migration suitability, performance-based sizing, and cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration to migrate the machines to Azure.
 
 > [!NOTE]
 > Azure Migrate is currently in preview.
@@ -38,7 +38,7 @@ Azure Migrate helps you to do the following:
 - Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs.
 - VM you want to assess must be managed by a vCenter server, version 5.5 or 6.0.
 - The Azure Migrate portal is currently available in English only.
-- You can only create an Azure Migrate project in West Central US. However, you can assess VMs for a different target Azure location.
+- You can only create an Azure Migrate project in the US and Europe geographical locations. However, you can assess VMs for a different target Azure location.
 - Azure Migrate currently supports only [Locally Redundant Storage (LRS)](../storage/common/storage-introduction.md#replication) replication.
 
 
