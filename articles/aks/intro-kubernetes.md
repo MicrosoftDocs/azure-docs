@@ -29,7 +29,7 @@ By using AKS, you can take advantage of the enterprise-grade features of Azure, 
 
 ## Managed Kubernetes in Azure
 
-AKS reduces the complexity and operational overhead of managing a Kubernetes cluster by offloading much of that responsibility to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you. In addition, you pay only only for the agent nodes within your clusters, not for the masters. As a managed Kubernetes service, AKS provides:
+AKS reduces the complexity and operational overhead of managing a Kubernetes cluster by offloading much of that responsibility to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you. In addition, you pay only for the agent nodes within your clusters, not for the masters. As a managed Kubernetes service, AKS provides:
 
 > [!div class="checklist"]
 > * Automated Kubernetes version upgrades and patching
@@ -40,7 +40,7 @@ AKS reduces the complexity and operational overhead of managing a Kubernetes clu
 With Azure handling the management of the nodes in your AKS cluster, you no longer need to perform many tasks manually, like cluster upgrades. Because Azure handles these critical maintenance tasks for you, AKS does not provide direct access (such as with SSH) to master nodes. You can connect to your agent nodes for direct tasks, however.
 
 ## Using Azure Container Service (AKS)
-Our goal with AKS is to provide a container hosting environment by using open-source tools and technologies that are popular among our customers today. To this end, we expose the standard Kubernetes API endpoints. By using these standard endpoints, you can leverage any software that is capable of talking to a Kubernetes cluster. For example, you might choose [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/), or [draft](https://github.com/Azure/draft).
+The goal of AKS is to provide a container hosting environment by using open-source tools and technologies that are popular among customers today. To this end, we expose the standard Kubernetes API endpoints. By using these standard endpoints, you can leverage any software that is capable of talking to a Kubernetes cluster. For example, you might choose [kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/), [helm](https://helm.sh/), or [draft](https://github.com/Azure/draft).
 
 ## Creating a Kubernetes cluster using Azure Container Service (AKS)
 To begin using AKS, deploy an AKS cluster with the [Azure CLI](./kubernetes-walkthrough.md) or via the portal (search the Marketplace for **Azure Container Service**). If you are an advanced user who needs more control over the Azure Resource Manager templates, you can use the open source [acs-engine](https://github.com/Azure/acs-engine) project to build your own custom Kubernetes cluster and deploy it via the `az` CLI.
