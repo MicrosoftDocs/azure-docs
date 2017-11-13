@@ -19,7 +19,7 @@ ms.custom: mvc
 
 # Verify throughput and latency metrics for a storage account
 
-This tutorial is part four and the final part of a series. In the previous tutorials you learned how to upload and download larges amounts of random data to an Azure storage account. This tutorial shows you how you can use metrics to view throughput and latency in the Azure portal.
+This tutorial is part four and the final part of a series. In the previous tutorials, you learned how to upload and download larges amounts of random data to an Azure storage account. This tutorial shows you how you can use metrics to view throughput and latency in the Azure portal.
 
 In part four of the series, you learn how to:
 
@@ -39,7 +39,7 @@ Choose Blob from the **SUB SERVICE** drop-down.
 
 Under **Metric**, select one of the metrics found in the following table:
 
-|Metric|Defintion|
+|Metric|Definition|
 |---|---|
 |Success E2E Latency|The average end-to-end latency of successful requests made to a storage service or the specified API operation. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|
 |Success Server Latency|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency. |
@@ -49,7 +49,7 @@ Under **Metric**, select one of the metrics found in the following table:
 
 Select **Last 24 hours (Automatic)** next to **Time**. Choose **Last hour** and **Minute** for **Time granularity**, then click **Apply**.
 
-The example in this tutorial takes around 5 minutes to upload and download the files, but choosing minute you get the minute averages of the metric results.
+The example in this tutorial takes around five minutes to upload and download the files, but choosing minute you get the minute averages of the metric results.
 
 ## Viewing metrics
 
@@ -57,7 +57,7 @@ The following screenshots show sample data from running the example.
 
 ### Transactions
 
-In the example chart below, there are 1k transactions. Each 100MB chuck of data transferred in this example is considered a transaction.
+In the following example chart, there are 1k transactions. Each 100-MB chunk of data transferred in this example is considered a transaction.
 
 ![Storage account metrics](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
 
@@ -69,7 +69,7 @@ Ingress and egress traffic are shown in the same chart. You can check the [scala
 
 ### Latency
 
-Both end-to-end latency and server latency are shown in the following example. Some things that can increase the latency are... 
+Both end-to-end latency and server latency are shown in the following example: Some things that can increase the latency are... 
 
 ![Storage account metrics](./media/storage-blob-scalable-app-verify-metrics/latency.png)
 
