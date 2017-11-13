@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/26/2017
+ms.date: 11/13/2017
 ms.author: raynew
 
 ---
@@ -100,21 +100,23 @@ To collect Event Tracing for Windows, do the following:
 1. On the collector VM, open a PowerShell command window.
 2. Run **Get-EventLog -LogName Application | export-csv eventlog.csv**.
 
-**How do I collect portal logs?**
+**How do I collect portal network traffic logs?**
 
-1. Open the browser and [navigate to the portal](http://aka.ms/migrate/prod).
-2. Press F12 to start the browser Developer Tools, and click the **Network** tab.
-3. Enable network traffic capturing:
- - In Chrome, click **Save as HAR with content**.the circle icon on the left side to enable. A red circle indicates traffic is being captured.
- - In Internet Explorer, click on the **Play** button to enable capturing.
+1. Open the browser and navigate and log in [to the portal](http://aka.ms/migrate/prod).
+2. Start the Developer Tools:
+ - In Chrome click **Tools** > **Developer Tools**.
+ - In Edge/IE, press F12. If needed, clear the setting **Clear entries on navigation**.
+3. Click the **Network** tab, and start capturing network traffic:
+ - In Chrome, select **Preserve log**. The recording should start automatically. A red circile indicates that traffic is being capture. If it doesn't appear, click the black circle to start
+ - In Edge, recording should start automatically. If it doesn't, click the green play button.
 4. Try to reproduce the error.
-5. Save the network logs:
- - In Chrome, right-click and click **Save as HAR with content**. This exports the logs as an .har file, and zips them.
- - In Internet Explorer, click the icon to export captured traffic, and zip the logs.
-6. Navigate to the **Console** tab.
-4. Save the console logs:
- - In Chrome, right-click > **Save as** to export and zip the logs.
- - In Internet Explorer, copy the logs, save the logs in Notepad, and zip the files.
+5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
+ - In Chrome, right-click and click **Save as HAR with content**. This zips and exports the logs as an .har file.
+ - In Internet Explorer, click the **Export captured traffic** icon. This zips and exports the log.
+6. Navigate to the **Console** tab to check for any warnings or errors. To save the console log:
+ - In Chrome, right-click anywhere in the console log. Select **Save as**, to export and zip the log.
+ - In Edge/IE, right-click on the errors and select **Copy all**. 
+7. Close Developer Tools.
  
 
 
