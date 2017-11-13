@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.author: babanisa
 ---
 
@@ -22,6 +22,30 @@ For the preview release, Event Grid supports **westus2** and **westcentralus** l
 This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
 
 ![Event Grid functional model](./media/overview/event-grid-functional-model.png)
+
+## Event publishers
+
+Currently, the following Azure services have built-in publisher support for event grid:
+
+* Resource Groups (management operations)
+* Azure Subscriptions (management operations)
+* Event Hubs
+* Storage Blob
+* Custom Topics
+
+Other Azure services will be added this year.
+
+## Event handlers
+
+Currently, the following Azure services have built-in handler support for Event Grid: 
+
+* Azure Functions
+* Logic Apps
+* Azure Automation
+* WebHooks
+* Microsoft Flow
+
+Other Azure services will be added this year.
 
 ## Concepts
 
@@ -49,34 +73,6 @@ Here are some of the key features of Azure Event Grid:
 * **Custom Events** - use Event Grid route, filter, and reliably deliver custom events in your app.
 
 For a comparison of Event Grid, Event Hubs, and Service Bus, see [Choose between Azure services that deliver messages](compare-messaging-services.md).
-
-## Built-in publisher and handler integration
-
-Azure offers built-in event support using numerous services, including both publishers and handlers.
-
-### Publishers
-
-Currently, the following Azure services have built-in publisher support for event grid:
-
-* Resource Groups (management operations)
-* Azure Subscriptions (management operations)
-* Event Hubs
-* Storage Blob
-* Custom Topics
-
-Other Azure services will be added this year.
-
-### Handlers
-
-Currently, the following Azure services have built-in handler support for Event Grid: 
-
-* Azure Functions
-* Logic Apps
-* Azure Automation
-* WebHooks
-* Microsoft Flow
-
-Other Azure services will be added this year.
 
 ## What can I do with Event Grid?
 

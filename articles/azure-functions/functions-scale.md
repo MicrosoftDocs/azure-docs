@@ -66,7 +66,7 @@ A VM decouples cost from number of executions, execution time, and memory used. 
 
 With an App Service plan, you can manually scale out by adding more VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service/web-sites-scale.md). 
 
-If you are planning to run JavaScript functions on an App Service plan, you should choose a plan that has fewer cores. For more information, see the [JavaScript reference for Functions](functions-reference-node.md#choose-single-core-app-service-plans).  
+If you are planning to run JavaScript functions on an App Service plan, you should choose a plan that has fewer vCPUs. For more information, see the [Choose single-core App Service plans](functions-reference-node.md#considerations-for-javascript-functions).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -91,7 +91,7 @@ When you use the Consumption hosting plan, function code files are stored on Azu
 > [!NOTE]
 > When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this initial delay, consider one of the following options:
 > - Host the function app on an App Service plan, with Always On enabled.
-> - Use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. For an example, see [Queue trigger with blob input binding](functions-bindings-storage-blob.md#input-sample).
+> - Use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. For an example, see the [C# script and JavaScript examples for the blob input and output bindings](functions-bindings-storage-blob.md#input--output---example).
 
 ### Runtime scaling
 

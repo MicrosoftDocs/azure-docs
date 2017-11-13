@@ -18,6 +18,10 @@ ms.author: abnarain
 ---
 
 # Azure Data Factory - Security considerations for data movement
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-data-movement-security-considerations.md)
+> * [Version 2 - Preview](data-movement-security-considerations.md)
+
 This article describes basic security infrastructure that data movement services in Azure Data Factory use to secure your data. Azure Data Factory management resources are built on Azure security infrastructure and use all possible security measures offered by Azure.
 
 > [!NOTE]
