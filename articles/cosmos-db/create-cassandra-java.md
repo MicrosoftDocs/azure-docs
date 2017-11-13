@@ -170,7 +170,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 5. On line 6, if you want to use a specific SSL certificate, then replace `<SSL key store file location>` with the location of the SSL certificate. If a value is not provided, the JDK certificate installed at <JAVA_HOME>/jre/lib/security/cacerts is used. 
 
-6. On line 7, replace `<SSL key store password>` with the SSL keyword. 
+6. If you changed line 6 to use a specific SSL certificate, update line 7 to use the password for that certificate. 
 
 7. Save the config.properties file.
 
