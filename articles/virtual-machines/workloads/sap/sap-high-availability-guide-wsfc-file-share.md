@@ -250,7 +250,7 @@ This architecture is specific in the following ways:
 * SAP ASCS/SCS instance is clustered and is accessible by using the \<ASCS/SCS virtual host name\> virtual host name.
 * SAP global files are placed on the SMB file share and are accessed by using the \<SAP global host\> host name:
  \\\\&lt;SAP global host&gt;\sapmnt\\&lt;SID&gt;\SYS\...
-* The SAP ASCS/SCS instance is installed on a local disk on both cluster nodes
+* The SAP ASCS/SCS instance is installed on a local disk on both cluster nodes.
 * The \<ASCS/SCS virtual host name\> network name is different from &lt;SAP global host&gt;.
 
 ![Figure 2: SAP ASCS/SCS HA architecture with SMB file share][sap-ha-guide-figure-8004]
@@ -307,12 +307,12 @@ To use a scale-out file share, your system must meet the following requirements:
 * You must use Azure Premium disks.
 * We recommend that you use Azure Managed Disks.
 * We recommend that you format volumes by using Resilient File System (ReFS).
-    * For more information, see [SAP Note 1869038 - SAP support for ReFs filesystem][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] chapter of the article Planning volumes in Storage Spaces Direct.
+    * For more information, see the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] chapter of the article Planning volumes in Storage Spaces Direct.
     * Be sure that you install [MS **KB4025334** cumulative update][kb4025334].
 * You can use DS-Series or DSv2-Series Azure VM sizes.
 * For good network performance between VMs, which is needed for Storage Spaces Direct disk sync, use a VM type that has at least a “high” network bandwidth.
     For more information, see the [DSv2-Series][dv2-series] and [DS-Series][ds-series] specifications.
-* We recommend that you reserve some unallocated capacity in the storage pool. Leaving some unallocated capacity in the storage pool gives volumes space to repair "in place" if a drive fail. This improves data safety and performance.  For more information, see [Choosing volume size][choosing-the-size-of-volumes-s2d].
+* We recommend that you reserve some unallocated capacity in the storage pool. Leaving some unallocated capacity in the storage pool gives volumes space to repair "in place" if a drive fails. This improves data safety and performance.  For more information, see [Choosing volume size][choosing-the-size-of-volumes-s2d].
 * Scale-out file share Azure VMs must be deployed in their own Azure availability set.
 * You don't need to configure the Azure internal load balancer for the scale-out file share network name, such as for \<SAP global host\>. This is done for the \<ASCS/SCS virtual host name\> of the SAP ASCS/SCS instance or for the DBMS. A scale-out file share scales out the load across all cluster nodes. \<SAP global host\> uses the local IP address for all cluster nodes.
 
@@ -349,7 +349,7 @@ _**Figure 5:** An SAP ASCS/SCS instance and a scale-out file share deployed in t
 
 A generic file share is another option for achieving a highly available file share.
 
-In this case, as a cluster shared disk, you can use a third-party SIOS solution.
+In this case, you can use a third-party SIOS solution as a cluster shared disk.
 
 ## Next steps
 
