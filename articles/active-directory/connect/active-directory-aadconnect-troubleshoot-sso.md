@@ -24,7 +24,7 @@ This article helps you find troubleshooting information about common problems re
 
 - In a few cases, enabling Seamless SSO can take up to 30 minutes.
 - Edge browser support is not available.
-- Launching Office clients, especially in shared computer scenarios, causes extra sign-in prompts for users. Users must enter their usernames frequently, but not their passwords.
+- Starting Office clients, especially in shared computer scenarios, causes extra sign-in prompts for users. Users must enter their usernames frequently, but not their passwords.
 - If Seamless SSO succeeds, the user does not have the opportunity to select "Keep me signed in." Due to this behavior, SharePoint and OneDrive mapping scenarios don't work.
 - Seamless SSO doesn't work in private browsing mode on Firefox.
 - Seamless SSO doesn't work in Internet Explorer when Enhanced Protection mode is turned on.
@@ -48,16 +48,16 @@ Browse to **Azure Active Directory** > **Sign-ins** on the [Azure Active Directo
 
 |Sign-in error code|Sign-in failure reason|Resolution
 | --- | --- | ---
-| 81001 | User's Kerberos ticket is too large. | Reduce user's group memberships and try again.
-| 81002 | Unable to validate user's Kerberos ticket. | See the [troubleshooting checklist](#troubleshooting-checklist).
-| 81003 | Unable to validate user's Kerberos ticket. | See the [troubleshooting checklist](#troubleshooting-checklist).
+| 81001 | User's Kerberos ticket is too large. | Reduce the user's group memberships and try again.
+| 81002 | Unable to validate the user's Kerberos ticket. | See the [troubleshooting checklist](#troubleshooting-checklist).
+| 81003 | Unable to validate the user's Kerberos ticket. | See the [troubleshooting checklist](#troubleshooting-checklist).
 | 81004 | Kerberos authentication attempt failed. | See the [troubleshooting checklist](#troubleshooting-checklist).
-| 81008 | Unable to validate user's Kerberos ticket. | See the [troubleshooting checklist](#troubleshooting-checklist).
-| 81009 | Unable to validate user's Kerberos ticket. | See the [troubleshooting checklist](#troubleshooting-checklist).
-| 81010 | Seamless SSO failed because the user's Kerberos ticket has expired or is invalid. | User needs to sign in from a domain-joined device inside your corporate network.
-| 81011 | Unable to find user object based on the information in the user's Kerberos ticket. | Use Azure AD Connect to synchronize the user information into Azure AD.
-| 81012 | The user trying to sign in to Azure AD is different from the user that signed in to the device. | Sign in from a different device.
-| 81013 | Unable to find user object based on the information in the user's Kerberos ticket. |Use Azure AD Connect to synchronize the user information into Azure AD. 
+| 81008 | Unable to validate the user's Kerberos ticket. | See the [troubleshooting checklist](#troubleshooting-checklist).
+| 81009 | Unable to validate the user's Kerberos ticket. | See the [troubleshooting checklist](#troubleshooting-checklist).
+| 81010 | Seamless SSO failed because the user's Kerberos ticket has expired or is invalid. | The user needs to sign in from a domain-joined device inside your corporate network.
+| 81011 | Unable to find the user object based on the information in the user's Kerberos ticket. | Use Azure AD Connect to synchronize the user's information into Azure AD.
+| 81012 | The user trying to sign in to Azure AD is different from the user that is signed in to the device. | The user needs to sign in from a different device.
+| 81013 | Unable to find the user object based on the information in the user's Kerberos ticket. |Use Azure AD Connect to synchronize the user's information into Azure AD. 
 
 ## Troubleshooting checklist
 
@@ -65,10 +65,10 @@ Use the following checklist to troubleshoot Seamless SSO problems:
 
 - Ensure the Seamless SSO feature is enabled in Azure AD Connect. If you can't enable the feature (for example, due to a blocked port), ensure that you have all the [prerequisites](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) in place.
 - Ensure that both these Azure AD URLs (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net) are part of the user's Intranet zone settings.
-- Ensure the corporate device is joined to the Azure AD domain.
-- Ensure the user is logged on to the device through an Azure AD domain account.
+- Ensure that the corporate device is joined to the Active Directory domain.
+- Ensure that the user is logged on to the device through an Active Directory domain account.
 - Ensure that the user's account is from an Active Directory forest where Seamless SSO has been set up.
-- Ensure the device is connected to the corporate network.
+- Ensure that the device is connected to the corporate network.
 - Ensure that the device's time is synchronized with the Active Directory's and the domain controllers' time and that they are within five minutes of each other.
 - List the existing Kerberos tickets on the device by using the **klist** command from a command prompt. Ensure that the tickets issued for the `AZUREADSSOACCT` computer account are present. Users' Kerberos tickets are typically valid for 12 hours. You might have different settings in your Active Directory.
 - Purge existing Kerberos tickets from the device by using the **klist purge** command, and try again.
@@ -116,4 +116,4 @@ If troubleshooting didn't help, you can manually reset the feature on your tenan
 
 ### Step 5. Enable the feature on your tenant
 
-Call `Enable-AzureADSSO` and enter "true" at the `Enable: ` prompt to turn on the feature in your tenant.
+Call `Enable-AzureADSSO` and enter "true" at the `Enable: ` prompt to turn on the feature on your tenant.

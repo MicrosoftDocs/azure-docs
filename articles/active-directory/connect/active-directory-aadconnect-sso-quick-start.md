@@ -20,7 +20,7 @@ ms.author: billmath
 
 ## Deploy Seamless Single Sign-On
 
-Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate desktops connected to your corporate network. It provides your users with easy access to your cloud-based applications without needing any additional on-premises components.
+Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate desktops that are connected to your corporate network. It provides your users with easy access to your cloud-based applications without needing any additional on-premises components.
 
 To deploy Seamless SSO, follow these steps:
 
@@ -47,9 +47,9 @@ If you're doing a fresh installation of Azure AD Connect, choose the [custom ins
 
 ![Azure AD Connect: User sign-in](./media/active-directory-aadconnect-sso/sso8.png)
 
-If you already have an installation of Azure AD Connect, select **Change user sign-in** page in Azure AD Connect, and then select **Next"**. Then select the **Enable single sign on** option.
+If you already have an installation of Azure AD Connect, select the **Change user sign-in** page in Azure AD Connect, and then select **Next**.
 
-![Azure AD Connect: Change the user sign-in](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
+![Azure AD Connect: Change the user sign in](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 Continue through the wizard until you get to the **Enable single sign on** page. Provide Domain Administrator credentials for each Active Directory forest that:
     * You synchronize to Azure AD through Azure AD Connect.
@@ -79,7 +79,7 @@ To roll out the feature to your users, you need to add the following Azure AD UR
 In addition, you need to enable an Intranet Zone policy setting called "Allow updates to status bar via script" through Group Policy. 
 
 >[!NOTE]
-> The following instructions only work for Internet Explorer and Google Chrome on Windows (if it shares set of trusted site URLs with Internet Explorer). Read the next section for instructions on how to set up Mozilla Firefox and Google Chrome on Mac.
+> The following instructions only work for Internet Explorer and Google Chrome on Windows (if it shares a set of trusted site URLs with Internet Explorer). Read the next section for instructions on how to set up Mozilla Firefox and Google Chrome on Mac.
 
 ### Why do you need to modify users' Intranet zone settings?
 
@@ -89,7 +89,7 @@ By default, the browser automatically calculates the correct zone, either Intern
 
 1. Open the Group Policy Management Editor tool.
 2. Edit the Group Policy that's applied to some or all your users. This example uses the **Default Domain Policy**.
-3. Browse to **User Configuration**>**Administrative Templates**>**Windows Components**>**Internet Explorer**>**Internet Control Panel**>**Security Page**, and then select **Site to Zone Assignment List**.
+3. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**, and then select **Site to Zone Assignment List**.
 ![Single sign on](./media/active-directory-aadconnect-sso/sso6.png)
 4. Enable the policy, and then enter the following values in the dialog box:
    - **Value name**: The Azure AD URLs where the Kerberos tickets are forwarded.
@@ -109,10 +109,15 @@ By default, the browser automatically calculates the correct zone, either Intern
 > If you want to disallow some users from using Seamless SSO, for instance, if these users sign in on shared kiosks, set the preceding values to **4**. This action adds the Azure AD URLs to the Restricted zone, and fails Seamless SSO all the time.
 
 5. Select **OK**, and then select **OK** again.
+
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
+
 6. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**, and then select **Allow updates to status bar via script**.
+
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso11.png)
-7. Enable the policy setting, and select **OK**.
+
+7. Enable the policy setting, and then select **OK**.
+
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso12.png)
 
 ### Browser considerations
@@ -123,8 +128,8 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 1. Run Firefox and enter `about:config` in the address bar. Dismiss any notifications that you see.
 2. Search for the **network.negotiate-auth.trusted-uris** preference. This preference lists Firefox's trusted sites for Kerberos authentication.
 3. Right-click and select **Modify**.
-4. Enter https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net** in the field.
-5. Select **OK** and reopen the browser.
+4. Enter https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net in the field.
+5. Select **OK** and then reopen the browser.
 
 #### Safari on Mac OS
 
@@ -152,15 +157,15 @@ To test the feature for a specific user, ensure that all the following condition
   - You have [rolled out the feature](##step-3-roll-out-the-feature) to this user through Group Policy.
 
 To test the scenario where the user enters only the username, but not the password:
-- Sign in to https://myapps.microsoft.com/ in a new private browser session.
+   - Sign in to https://myapps.microsoft.com/ in a new private browser session.
 
 To test the scenario where the user doesn't have to enter the username or the password: 
-- Sign in to https://myapps.microsoft.com/contoso.onmicrosoft.com in a new private browser session. Replace "*contoso*" with your tenant's name.
-- Or sign in to https://myapps.microsoft.com/contoso.com in a new private browser session. Replace "*contoso.com*" with a verified domain (not a federated domain) in your tenant.
+   - Sign in to https://myapps.microsoft.com/contoso.onmicrosoft.com in a new private browser session. Replace "*contoso*" with your tenant's name.
+   - Or sign in to https://myapps.microsoft.com/contoso.com in a new private browser session. Replace "*contoso.com*" with a verified domain (not a federated domain) on your tenant.
 
 ## Step 5: Key rollover
 
-In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in all the Active Directory forests on which you have enabled Seamless SSO. To learn more, see [Azure Active Directory Seamless Single Sign-On: Technical deep dive](active-directory-aadconnect-sso-how-it-works.md). For improved security, it's recommended that you periodically rollover the Kerberos decryption keys of these computer accounts. For instructions on how to rollover keys, see [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
+In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in all the Active Directory forests on which you have enabled Seamless SSO. To learn more, see [Azure Active Directory Seamless Single Sign-On: Technical deep dive](active-directory-aadconnect-sso-how-it-works.md). For improved security, it's recommended that you periodically roll over the Kerberos decryption keys of these computer accounts. For instructions on how to roll over keys, see [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
 
 >[!IMPORTANT]
 >You don't need to do this step _immediately_ after you have enabled the feature. Rollover the Kerberos decryption keys at least once every 30 days.
