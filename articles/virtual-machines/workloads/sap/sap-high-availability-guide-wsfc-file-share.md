@@ -199,6 +199,7 @@ ms.custom: H1Hack27Feb2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
+[1869038]:https://launchpad.support.sap.com/#/notes/1869038 
 
 # Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure
 
@@ -307,7 +308,7 @@ To use a scale-out file share, your system must meet the following requirements:
 * You must use Azure Premium disks.
 * We recommend that you use Azure Managed Disks.
 * We recommend that you format volumes by using Resilient File System (ReFS).
-    * For more information, see the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] chapter of the article Planning volumes in Storage Spaces Direct.
+    * For more information, see [SAP Note 1869038 - SAP support for ReFs filesystem][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] chapter of the article Planning volumes in Storage Spaces Direct.
     * Be sure that you install [MS **KB4025334** cumulative update][kb4025334].
 * You can use DS-Series or DSv2-Series Azure VM sizes.
 * For good network performance between VMs, which is needed for Storage Spaces Direct disk sync, use a VM type that has at least a “high” network bandwidth.
