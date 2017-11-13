@@ -39,7 +39,7 @@ In this tutorial you learn two data recovery patterns:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](sql-database-saas-tutorial.md)
+* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## Introduction to the SaaS tenant restore pattern
@@ -52,7 +52,7 @@ In the second pattern, which assumes that the tenant has suffered a loss or corr
 
 ## Get the Wingtip application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Simulate a tenant accidentally deleting data
 
@@ -68,11 +68,11 @@ Run the ticket generator script and create additional data. The ticket generator
 
 1. Open the *Events Hub* (http://events.wtp.&lt;user&gt;.trafficmanager.net) and click **Contoso Concert Hall**:
 
-   ![events hub](media/sql-database-saas-tutorial-restore-single-tenant/events-hub.png)
+   ![events hub](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 
 1. Scroll the list of events and make a note of the last event in the list:
 
-   ![last event](media/sql-database-saas-tutorial-restore-single-tenant/last-event.png)
+   ![last event](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
 
 ### Run the demo scenario to accidentally delete the last event
@@ -88,7 +88,7 @@ Run the ticket generator script and create additional data. The ticket generator
 
 1. The Contoso events page opens. Scroll down and verify the event is gone. If the event is still in the list, click refresh and verify it is gone.
 
-   ![last event](media/sql-database-saas-tutorial-restore-single-tenant/last-event-deleted.png)
+   ![last event](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
 
 
 ## Restore a tenant database in parallel with the production database
@@ -139,10 +139,10 @@ In this tutorial, you learned how to:
 > * Restore a database into a parallel database (side-by-side)
 > * Restore a database in place
 
-[Manage tenant database schema](sql-database-saas-tutorial-schema-management.md)
+[Manage tenant database schema](saas-tenancy-schema-management.md)
 
 ## Additional resources
 
-* Additional [tutorials that build upon the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md)
 * [Learn about SQL Database backups](sql-database-automated-backups.md)

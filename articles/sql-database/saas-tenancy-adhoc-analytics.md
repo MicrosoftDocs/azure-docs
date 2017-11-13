@@ -36,7 +36,7 @@ In this tutorial you learn:
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
-* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](sql-database-saas-tutorial.md)
+* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * SQL Server Management Studio (SSMS) is installed. To download and install SSMS, see [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -47,11 +47,11 @@ One of the great opportunities with SaaS applications is to use the vast amount 
 
 Accessing this data in a single multi-tenant database is easy, but not so easy when distributed at scale across potentially thousands of databases. One approach is to use [Elastic Query](sql-database-elastic-query-overview.md), which enables querying across a distributed set of databases with common schema. Elastic Query uses a single *head* database in which external tables are defined that mirror tables or views in the distributed (tenant) databases. Queries submitted to this head database are compiled to produce a distributed query plan, with portions of the query pushed down to the tenant databases as needed. Elastic Query uses the shard map in the catalog database to provide the location of the tenant databases. Setup and query are straightforward using standard [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference), and support ad-hoc querying from tools like Power BI and Excel.
 
-By distributing queries across the tenant databases, Elastic Query provides immediate insight into live production data. However, as Elastic Query pulls data from potentially many databases, query latency can sometimes be higher than for equivalent queries submitted to a single multi-tenant database. Be sure to design queries to minimize the data that is returned. Elastic Query is often best suited for querying small amounts of real-time data, as opposed to building frequently used or complex analytics queries or reports. If queries don't perform well, look at the [execution plan](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) to see what part of the query has been pushed down to the remote database and how much data is being returned. Queries that require complex analytical processing may be better served in some cases by extracting tenant data into a dedicated database or data warehouse optimized for analytics queries. This pattern is explained in the [tenant analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md). 
+By distributing queries across the tenant databases, Elastic Query provides immediate insight into live production data. However, as Elastic Query pulls data from potentially many databases, query latency can sometimes be higher than for equivalent queries submitted to a single multi-tenant database. Be sure to design queries to minimize the data that is returned. Elastic Query is often best suited for querying small amounts of real-time data, as opposed to building frequently used or complex analytics queries or reports. If queries don't perform well, look at the [execution plan](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) to see what part of the query has been pushed down to the remote database and how much data is being returned. Queries that require complex analytical processing may be better served in some cases by extracting tenant data into a dedicated database or data warehouse optimized for analytics queries. This pattern is explained in the [tenant analytics tutorial](saas-tenancy-tenant-analytics.md).
 
 ## Get the Wingtip application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Create ticket sales data
 
@@ -67,7 +67,7 @@ The Wingtip SaaS application is built using a tenant-per-database model, so the 
 
 However, when querying across all databases, it's important that Elastic Query can treat the data as if it is part of a single logical database sharded by tenant. To simulate this pattern, a set of 'global' views are added to the tenant database that project a tenant id into each of the tables that are queried globally. For example, the *VenueEvents* view adds a computed *VenueId* to the columns projected from the *Events* table. By defining the external table in the head database over *VenueEvents* (rather than the underlying *Events* table), Elastic Query is able to push down joins based on *VenueId* so they can be executed in parallel on each remote database (rather than on the head database). This dramatically reduces the amount of data that is returned, which results in a substantial increase in performance for many queries. These global views have been pre-created in all tenant databases (and in *basetenantdb*).
 
-1. Open SSMS and [connect to the tenants1-&lt;USER&gt; server](sql-database-wtp-overview.md#explore-database-schema-and-execute-sql-queries-using-ssms).
+1. Open SSMS and [connect to the tenants1-&lt;USER&gt; server](saas-dbpertenant-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Expand **Databases**, right-click **contosoconcerthall**, and select **New Query**.
 3. Run the following queries to explore the difference between the single-tenant tables and the global views:
 
@@ -91,7 +91,7 @@ To examine the definition of the *Venues* view:
 
 1. In **Object Explorer**, expand **contosoconcethall** > **Views**:
 
-   ![views](media/sql-database-saas-tutorial-adhoc-analytics/views.png)
+   ![views](media/saas-tenancy-adhoc-analytics/views.png)
 
 2. Right-click **dbo.Venues**.
 3. Select **Script View as** > **CREATE To** > **New Query Editor Window**
@@ -119,19 +119,19 @@ This exercise adds schema (the external data source and external table definitio
 
    Elastic Query uses a database-scoped credential to access each of the tenant databases. This credential needs to be available in all the databases and should normally be granted the minimum rights required to enable these ad-hoc queries.
 
-    ![create credential](media/sql-database-saas-tutorial-adhoc-analytics/create-credential.png)
+    ![create credential](media/saas-tenancy-adhoc-analytics/create-credential.png)
 
    The external data source, that is defined to use the tenant shard map in the catalog database. By using this as the external data source, queries are distributed to all databases registered in the catalog when the query is run. Because server names are different for each deployment, this initialization script gets the location of the catalog database by retrieving the current server (@@servername) where the script is executed.
 
-    ![create external data source](media/sql-database-saas-tutorial-adhoc-analytics/create-external-data-source.png)
+    ![create external data source](media/saas-tenancy-adhoc-analytics/create-external-data-source.png)
 
    The external tables that reference the global views described in the previous section, and defined with **DISTRIBUTION = SHARDED(VenueId)**. Because each *VenueId* maps to a single database, this improves performance for many scenarios as shown in the next section.
 
-    ![create external tables](media/sql-database-saas-tutorial-adhoc-analytics/external-tables.png)
+    ![create external tables](media/saas-tenancy-adhoc-analytics/external-tables.png)
 
    The local table *VenueTypes* that is created and populated. This reference data table is common in all tenant databases, so it can be represented here as a local table and populated with the common data. For some queries this may reduce the amount of data moved between the tenant databases and the *adhocanalytics* database.
 
-    ![create table](media/sql-database-saas-tutorial-adhoc-analytics/create-table.png)
+    ![create table](media/saas-tenancy-adhoc-analytics/create-table.png)
 
    If you include reference tables in this manner, be sure to update the table schema and data whenever you update the tenant databases.
 
@@ -156,7 +156,7 @@ Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when we d
 
    Inspect the plan and see that the entire cost is the remote query because we're simply going to each tenant database and selecting the venue information.
 
-   ![SELECT * FROM dbo.Venues](media/sql-database-saas-tutorial-adhoc-analytics/query1-plan.png)
+   ![SELECT * FROM dbo.Venues](media/saas-tenancy-adhoc-analytics/query1-plan.png)
 
 5. Select the next query, and press **F5**.
 
@@ -164,13 +164,13 @@ Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when we d
 
    Inspect the plan and see that the majority of cost is the remote query because we query each tenant's venue info (dbo.Venues), and then do a quick local join with the local *VenueTypes* table to display the friendly name.
 
-   ![Join on remote and local data](media/sql-database-saas-tutorial-adhoc-analytics/query2-plan.png)
+   ![Join on remote and local data](media/saas-tenancy-adhoc-analytics/query2-plan.png)
 
 6. Now select the *On which day were the most tickets sold?* query, and press **F5**.
 
    This query does a bit more complex joining and aggregation. What's important to note is that most of the processing is done remotely, and once again, we bring back only the rows we need, returning just a single row for each venue's aggregate ticket sale count per day.
 
-   ![query](media/sql-database-saas-tutorial-adhoc-analytics/query3-plan.png)
+   ![query](media/saas-tenancy-adhoc-analytics/query3-plan.png)
 
 
 ## Next steps
@@ -183,9 +183,9 @@ In this tutorial you learned how to:
 > * Deploy an ad-hoc analytics database and add schema to it to run distributed queries.
 
 
-Now try the [Tenant Analytics tutorial](sql-database-saas-tutorial-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
+Now try the [Tenant Analytics tutorial](saas-tenancy-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
 
 ## Additional resources
 
-* Additional [tutorials that build upon the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastic Query](sql-database-elastic-query-overview.md)
