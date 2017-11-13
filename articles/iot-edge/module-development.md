@@ -85,6 +85,6 @@ After you develop a module, learn how to [Deploy and monitor IoT Edge modules at
 [lnk-devicetwin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-iothub-messaging]: ../iot-hub/iot-hub-devguide-messaging.md
 [lnk-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-tutorial2]: tutorial-create-custom-module.md
+[lnk-tutorial2]: tutorial-csharp-module.md
 [lnk-module-comp]: module-composition.md
 [lnk-howto-deploy]: how-to-deploy-monitor.md
