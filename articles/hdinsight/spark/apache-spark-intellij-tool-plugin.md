@@ -209,50 +209,6 @@ By default, Azure Toolkit for IntelliJ lists the Spark clusters from all your Az
 
 2. In the dialog box, clear the check boxes next to the subscriptions that you don't want to access, and then select **Close**. You can also select **Sign Out** if you want to sign out of your Azure subscription.
 
-## Run a Spark Scala application locally
-You can use Azure Toolkit for IntelliJ to run Spark Scala applications locally on your workstation. The applications usually don't need access to cluster resources, such as storage containers, and you can run and test them locally.
-
-### Prerequisite
-While you're running the local Spark Scala application on a Windows computer, you might get an exception, as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). The exception occurs because WinUtils.exe is missing on Windows. 
-
-To resolve this error, [download the executable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location such as **C:\WinUtils\bin**. Then, add the environment variable **HADOOP_HOME**, and set the value of the variable to **C\WinUtils**.
-
-### Run a local Spark Scala application
-1. Start IntelliJ IDEA, and create a project. 
-
-2. In the **New Project** dialog box, do the following:
-   
-    a. Select **HDInsight** > **Spark on HDInsight Local Run Sample (Scala)**.
-
-    b. In the **Build tool** list, select either of the following, according to your need:
-
-      * **Maven**, for Scala project-creation wizard support
-      * **SBT**, for managing the dependencies and building for the Scala project
-
-    ![The New Project dialog box](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
-
-3. Select **Next**.
- 
-4. In the next window, do the following:
-   
-    a. Enter a project name and location.
-
-    b. In the **Project SDK** drop-down list, select a Java version that's later than version 1.7.
-
-    c. In the **Spark Version** drop-down list, select the version of Scala that you want to use: Scala 2.11.x for Spark 2.0 or Scala 2.10.x for Spark 1.6.
-
-    ![The New Project dialog box](./media/apache-spark-intellij-tool-plugin/Create-local-project.PNG)
-
-5. Select **Finish**.
-
-6. The template adds a sample code (**LogQuery**) under the **src** folder that you can run locally on your computer.
-   
-    ![Location of LogQuery](./media/apache-spark-intellij-tool-plugin/local-app.png)
-
-7. Right-click the **LogQuery** application, and then select **Run 'LogQuery'**. On the **Run** tab at the bottom, you see an output like the following:
-   
-   ![Spark application local run result](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
-
 ## Convert existing IntelliJ IDEA applications to use Azure Toolkit for IntelliJ
 You can convert the existing Spark Scala applications that you created in IntelliJ IDEA to be compatible with Azure Toolkit for IntelliJ. You can then use the plug-in to submit the applications to an HDInsight Spark cluster.
 

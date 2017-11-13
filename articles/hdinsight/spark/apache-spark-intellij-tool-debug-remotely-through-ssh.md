@@ -77,21 +77,21 @@ While you're running the local Spark Scala application on a Windows computer, yo
 To resolve this error, [download the executable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location such as **C:\WinUtils\bin**. Then, add the environment variable **HADOOP_HOME**, and set the value of the variable to **C\WinUtils**.
 
 ### Scenario 2: Perform local run and local debug
-1. Open the **SparkCore_wasbloTest** script, right-click the script editor, and then select the the option **Run '[Spark Job]XXX'** to perform local run.
+1. Open the **SparkCore_wasbloTest** script, right-click the script editor, and then select the option **Run '[Spark Job]XXX'** to perform local run.
 2. Once completed local run, you can see the output file save to your current project explorer **data** > **__default__**.
 
     ![Local run result](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
-3. We have set the default local run configuration automatically when you perform the local run and local debug. Open the configuration **[Spark Job] XXX** on the upper right corner, you can see the **[Spark Job]XXX** already created under **Azure HDInsight Spark Job**. 
+3. Our tools have set the default local run configuration automatically when you perform the local run and local debug. Open the configuration **[Spark Job] XXX** on the upper right corner, you can see the **[Spark Job]XXX** already created under **Azure HDInsight Spark Job**. 
 
     ![Local run configuration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
-    - [Enviroment variables](#Prerequisite-for-windows): If you already set the system environment variable **HADOOP_HOME** to **C\WinUtils**, it can auto detect that no need to manually add.
-    - [WinUtils.exe Location](#Prerequisite-for-windows): If you have not set the system environment variable, you can find the location by clicking its button.
-    - Just Choose either of two options and, they are not need on MacOS and Linux.
-4. You can also manual set the configuration before perform local run and local debug. In the picture above, select the plus sign (**+**). Then select the **Azure HDInsight Spark Job** option. Enter information for **Name**, **Main class name** to save, then click the local run button.
+    - [Environment variables](#prerequisite-for-windows): If you already set the system environment variable **HADOOP_HOME** to **C\WinUtils**, it can auto detect that no need to manually add.
+    - [WinUtils.exe Location](#prerequisite-for-windows): If you have not set the system environment variable, you can find the location by clicking its button.
+    - Just choose either of two options and, they are not needed on MacOS and Linux.
+4. You can also set the configuration manually before performing local run and local debug. In the preceding screenshot, select the plus sign (**+**). Then select the **Azure HDInsight Spark Job** option. Enter information for **Name**, **Main class name** to save, then click the local run button.
 
 ### Scenario 3: Perform local debugging
 1. Open the **SparkCore_wasbloTest** script, set breakpoints.
-2. Right-click the script editor, and then select the the option **Debug '[Spark Job]XXX'** to perform local debugging.   
+2. Right-click the script editor, and then select the option **Debug '[Spark Job]XXX'** to perform local debugging.   
 
 
 
@@ -105,7 +105,7 @@ To resolve this error, [download the executable](http://public-repo-1.hortonwork
 2. In the **Run/Debug Configurations** dialog box, select the plus sign (**+**). Then select the **Azure HDInsight Spark Job** option.
 
    ![Add new configuration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-3. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then select **Advanced configuration**. We support debug with **Executors**. The **numExectors**, the default value is 5. You'd better set not higher than 3.
+3. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then select **Advanced configuration**. Our tools support debug with **Executors**. The **numExectors**, the default value is 5. You'd better set not higher than 3.
 
    ![Run debug configurations](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
