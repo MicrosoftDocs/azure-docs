@@ -49,7 +49,7 @@ Now that you've taken care of the prerequisites, it's time to create your Logic 
 6. Add the XML **CONTENT** that you transform. You can use any XML data you receive in the HTTP request as the **CONTENT**. In this example, select the body of the HTTP request that triggered the Logic app.
 
    > [!NOTE]
-   > The **Content** to **Transform XML** should be in XML. If the content is base64 encoded or not in XML, you must specify an expression to process the content. For example, you can use [functions](logic-apps-workflow-definition-language.md#functions), like @base64ToBinary to decode the content or @xml to process the content as XML.
+   > The content to **Transform XML** action should be in XML. If the content is base64 encoded or not in XML, you must specify an expression to process the content. For example, you can use [functions](logic-apps-workflow-definition-language.md#functions), like @base64ToBinary to decode the content or @xml to process the content as XML.
  
 
 7. Select the name of the **MAP** that you want to use to perform the transformation. The map must already be in your integration account. In an earlier step, you already gave your Logic app access to your integration account that contains your map.      
