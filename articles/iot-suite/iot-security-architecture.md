@@ -86,7 +86,7 @@ In order to optimize security best practices, it is recommended that a typical I
 * Cloud gateways, and
 * Services.
 
-Zones are broad way to segment a solution; each zone often has its own data and authentication and authorization requirements. Zones can also be used to isolation damage and restrict the impact of low trust zones on higher trust zones.
+Zones are broad way to segment a solution; each zone often has its own data and authentication and authorization requirements. Zones can also be used to isolate damage and restrict the impact of low trust zones on higher trust zones.
 
 Each zone is separated by a Trust Boundary, which is noted as the dotted red line in the diagram below. It represents a transition of data/information from one source to another. During this transition, the data/information could be subject to Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service and Elevation of Privilege (STRIDE).
 

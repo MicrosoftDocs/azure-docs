@@ -1,6 +1,6 @@
 ---
 title: Monitor Apps in Azure App Service | Microsoft Docs
-description: Learn how to monitor Apps in Azure App Service by using the Azure Portal.
+description: Learn how to monitor Apps in Azure App Service by using the Azure portal.
 services: app-service
 documentationcenter: ''
 author: btardif
@@ -19,7 +19,7 @@ ms.author: byvinyal
 ---
 # How to: Monitor Apps in Azure App Service
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) provides
-built in monitoring functionality in the [Azure Portal](https://portal.azure.com).
+built in monitoring functionality in the [Azure portal](https://portal.azure.com).
 This includes the ability to review **quotas** and **metrics** for an app as
 well as the App Service plan, setting up **alerts** and even **scaling**
 automatically based on these metrics.
@@ -43,36 +43,36 @@ Medium, Large) and **instance count** (1, 2, 3, ...) of the **App Service plan**
 
 * **CPU(Short)**
   * Amount of CPU allowed for this application in a 5-minute interval. This
-    quota re-sets every 5 minutes.
+    quota resets every 5 minutes.
 * **CPU(Day)**
   * Total amount of CPU allowed for this application in a day. This quota
-    re-sets every 24 hours at midnight UTC.
+    resets every 24 hours at midnight UTC.
 * **Memory**
   * Total amount of memory allowed for this application.
 * **Bandwidth**
   * Total amount of outgoing bandwidth allowed for this application in a day.
-    This quota re-sets every 24 hours at midnight UTC.
+    This quota resets every 24 hours at midnight UTC.
 * **Filesystem**
   * Total amount of storage allowed.
 
 The only quota applicable to apps hosted on **Basic**, **Standard** and
 **Premium** plans is **Filesystem**.
 
-More information about the specific quotas, limits and features available to
+More information about the specific quotas, limits, and features available to
 the different App Service SKUs can be found here:
 [Azure Subscription Service Limits](../azure-subscription-service-limits.md#app-service-limits)
 
 #### Quota Enforcement
 If an application in its usage exceeds the **CPU (short)**, **CPU (Day)**, or
-**bandwidth** quota then the application will be stopped until the quota
-re-sets. During this time, all incoming requests will result in an **HTTP 403**.
+**bandwidth** quota then the application is stopped until the quota
+resets. During this time, all incoming requests result in an **HTTP 403**.
 ![][http403]
 
-If the application **memory** quota is exceeded, then the application will be
-re-started.
+If the application **memory** quota is exceeded, then the application is
+restarted.
 
-If the **Filesystem** quota is exceeded, then any write operation will fail, this
-includes writing to logs.
+If the **Filesystem** quota is exceeded, then any write operation fails, which
+includes any writes to logs.
 
 Quotas can be increased or removed from your app by upgrading your App Service plan.
 
@@ -87,15 +87,15 @@ For an **Application**, the available metrics are:
   * The average amount of memory in MiBs used by the app.
 * **CPU Time**
   * The amount of CPU in seconds consumed by the app. For more information
-    about this metric see: [CPU time vs CPU percentage](#cpu-time-vs-cpu-percentage)
+    about this metric, see: [CPU time vs CPU percentage](#cpu-time-vs-cpu-percentage)
 * **Data In**
   * The amount of incoming bandwidth consumed by the app in MiBs.
 * **Data Out**
   * The amount of outgoing bandwidth consumed by the app in MiBs.
 * **Http 2xx**
-  * Count of requests resulting in a http status code >= 200 but < 300.
+  * Count of requests resulting in an HTTP status code >= 200 but < 300.
 * **Http 3xx**
-  * Count of requests resulting in a http status code >= 300 but < 400.
+  * Count of requests resulting in an HTTP status code >= 300 but < 400.
 * **Http 401**
   * Count of requests resulting in HTTP 401 status code.
 * **Http 403**
@@ -105,9 +105,9 @@ For an **Application**, the available metrics are:
 * **Http 406**
   * Count of requests resulting in HTTP 406 status code.
 * **Http 4xx**
-  * Count of requests resulting in a http status code >= 400 but < 500.
+  * Count of requests resulting in an HTTP status code >= 400 but < 500.
 * **Http Server Errors**
-  * Count of requests resulting in a http status code >= 500 but < 600.
+  * Count of requests resulting in an HTTP status code >= 500 but < 600.
 * **Memory working set**
   * Current amount of memory used by the app in MiBs.
 * **Requests**
@@ -116,7 +116,7 @@ For an **Application**, the available metrics are:
 For an **App Service plan**, the available metrics are:
 
 > [!NOTE]
-> App Service plan metrics are only available for plans in **Basic**, **Standard** and **Premium** SKU.
+> App Service plan metrics are only available for plans in **Basic**, **Standard**, and **Premium** tiers.
 > 
 > 
 
@@ -140,12 +140,12 @@ For an **App Service plan**, the available metrics are:
 ### CPU time vs CPU percentage
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
 
-There are 2 metrics that reflect CPU usage. **CPU time** and **CPU percentage**
+There are two metrics that reflect CPU usage. **CPU time** and **CPU percentage**
 
 **CPU Time** is useful for apps hosted in **Free** or **Shared** plans since
 one of their quotas is defined in CPU minutes used by the app.
 
-**CPU percentage** on the other hand is useful for apps hosted in
+**CPU percentage** is useful for apps hosted in
 **basic**, **standard** and **premium** plans since they can be
 scaled out and this metric is a good indication of the overall usage across
 all instances.
@@ -158,17 +158,17 @@ the service with the following granularities and retention policies:
 * **Hour** granularity metrics are retained for **30 days**
 * **Day** granularity metrics are retained for **90 days**
 
-## Monitoring Quotas and Metrics in the Azure Portal.
+## Monitoring Quotas and Metrics in the Azure portal.
 You can review the status of the different **quotas** and **metrics**
-affecting an application in the [Azure Portal](https://portal.azure.com).
+affecting an application in the [Azure portal](https://portal.azure.com).
 
 ![][quotas]
 **Quotas** can be found under Settings>**Quotas**. The UX allows you to
-review: (1) the quotas name, (2) its reset interval, (3) its current limit
+review: (1) the quotas name, (2) its reset interval, (3) its current limit,
 and (4) current value.
 
 ![][metrics]
-**Metrics** can be access directly from the resource blade. You can also
+**Metrics** can be access directly from the resource page. You can also
 customize the chart by: (1) **click** on it, and select (2) **edit chart**.
 From here you can change the (3) **time range**, (4) **chart type**, and
 (5) **metrics** to display.  
@@ -176,10 +176,10 @@ From here you can change the (3) **time range**, (4) **chart type**, and
 You can learn more about metrics here: [Monitor service metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## Alerts and Autoscale
-Metrics for an App or App Service plan can be hooked up to alerts, to learn
-more about this, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+Metrics for an App or App Service plan can be hooked up to alerts. To learn
+more about it, see [Receive alert notifications](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-App Service apps hosted in basic, standard or premium App Service Plans
+App Service apps hosted in basic, standard, or premium App Service plans
 support **autoscale**. This allows you to configure rules that monitor the
 App Service plan metrics and can increase or decrease the instance count
 providing additional resources as needed, or saving money when the application
@@ -189,9 +189,6 @@ is over-provision. You can learn more about auto scale here: [How to Scale](../m
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
-
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169

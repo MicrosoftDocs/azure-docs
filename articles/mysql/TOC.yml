@@ -79,8 +79,8 @@
     href: concepts-monitoring.md
   - name: Development
     items:
-    - name: Connection libraries
-      href: concepts-connection-libraries.md
+    - name: Drivers and tools compatiblity
+      href: concepts-compatibility.md
     - name: Application development
       href: concepts-database-application-development.md
   - name: Migrate your database

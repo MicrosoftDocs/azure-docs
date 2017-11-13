@@ -31,7 +31,7 @@
   href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
 - name: Project execution
   href: project-execution.md
-- name: Tutorials
+- name: Examples
   href: walkthroughs.md
   items:
   - name: Azure Machine Learning
@@ -60,6 +60,12 @@
     href: walkthroughs-sql-server.md
   - name: T-SQL and Python with SQL DW
     href: walkthroughs-sql-data-warehouse.md
+- name: Training
+  items:
+  - name: TDSP for data scientists
+    href: team-data-science-process-for-data-scientists.md
+  - name: TDSP for DevOps
+    href: team-data-science-process-for-devops.md
 - name: How To
   items:
   - name: Use TDSP in Azure ML
@@ -73,13 +79,40 @@
       maintainContext: true
     - name: Platforms and tools
       href: platforms-and-tools.md
-    - name: Customize Hadoop
-      href: customize-hadoop-cluster.md
+    - name: R and Python on HDInsight clusters
+      items:
+      - name: Introduction to Spark on HDInsight
+        href: ../../hdinsight/spark/apache-spark-overview.md
+        maintainContext: true
+      - name: Create an Apache Spark cluster in Azure HDInsight
+        href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md
+        maintainContext: true
+      - name: PySpark kernels for Jupyter Notebook
+        href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md
+        maintainContext: true
+      - name: R Server on HDInsight
+        href: ../../hdinsight/r-server/r-server-overview.md
+        maintainContext: true
+      - name: Get started using R Server on HDInsight
+        href: ../../hdinsight/r-server/r-server-get-started.md
+        maintainContext: true
     - name: Azure Machine Learning workspace
       href: ../studio/create-workspace.md
       maintainContext: true
-    - name: Set up virtual machines
-      href: virtual-machines.md
+    - name: Set up a Data Science VM
+      items:
+      - name: Create a Windows Data Science VM
+        href: ../data-science-virtual-machine/provision-vm.md
+        maintainContext: true
+      - name: Create an Ubuntu Data Science VM
+        href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
+        maintainContext: true
+      - name: Create a CentOS Data Science VM
+        href: ../data-science-virtual-machine/linux-dsvm-intro.md
+        maintainContext: true
+      - name: Create a Deep Learning VM
+        href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
+        maintainContext: true
   - name: Analyze business needs
     items:
     - name: Identify your scenario
