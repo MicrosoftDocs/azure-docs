@@ -195,16 +195,16 @@ The following table summarizes the differences between the main tenancy models.
 
 [docu-elastic-db-client-library-536r]: sql-database-elastic-database-client-library.md
 [docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]: sql-database-saas-tutorial.md
-[docu-sql-db-automatic-tuning-771a]: sql-database/sql-database-automatic-tuning.md
+[docu-sql-db-automatic-tuning-771a]: sql-database-automatic-tuning.md
 
 
 <!--  Image references.  -->
 
-[image-standalone-app-st-db-111a]: media/sql-database-design-patterns-multi-tenancy-saas-applications/saas-standalone-app-single-tenant-database-11.png "Design of standalone app with exactly one single-tenant database."
+[image-standalone-app-st-db-111a]: media/saas-tenancy-app-design-patterns/saas-standalone-app-single-tenant-database-11.png "Design of standalone app with exactly one single-tenant database."
 
-[image-mt-app-db-per-tenant-132d]: media/sql-database-design-patterns-multi-tenancy-saas-applications/saas-multi-tenant-app-database-per-tenant-13.png "Design of multi-tenant app with database-per-tenant."
+[image-mt-app-db-per-tenant-132d]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-13.png "Design of multi-tenant app with database-per-tenant."
 
-[image-mt-app-db-per-tenant-pool-153p]: media/sql-database-design-patterns-multi-tenancy-saas-applications/saas-multi-tenant-app-database-per-tenant-pool-15.png "Design of multi-tenant app with database-per-tenant, using elastic pool."
+[image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "Design of multi-tenant app with database-per-tenant, using elastic pool."
 
-[image-mt-app-sharded-mt-db-174s]: media/sql-database-design-patterns-multi-tenancy-saas-applications/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "Design of multi-tenant app with sharded multi-tenant databases."
+[image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "Design of multi-tenant app with sharded multi-tenant databases."
 
