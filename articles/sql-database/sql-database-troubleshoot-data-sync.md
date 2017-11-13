@@ -331,8 +331,7 @@ Try the following steps:
 
 4. Restart the app.
 
-
-### Troubleshooting setup and maintenance
+## Troubleshooting setup and maintenance
 
 ### I get a "disk out of space" message
 
