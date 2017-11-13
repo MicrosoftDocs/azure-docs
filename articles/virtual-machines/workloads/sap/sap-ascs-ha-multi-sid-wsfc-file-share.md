@@ -234,13 +234,13 @@ The goal is to install multiple SAP Advanced Business Application Programming (A
 
 _**Figure 2:** SAP multi-SID configuration in two clusters_
 
-The installation of an additional **SAP <SID2>** system is identical to the installation of one <SID> system. Two additional preparation steps are required on the ASCS/SCS cluster as well as on the file share SOFS cluster.
+The installation of an additional **SAP \<SID2>** system is identical to the installation of one <SID> system. Two additional preparation steps are required on the ASCS/SCS cluster as well as on the file share SOFS cluster.
 
 ## Prepare the infrastructure for an SAP multi-SID scenario
 
 ### Prepare the infrastructure on the domain controller
 
-Create the domain group **\<Domain>\SAP_\<SID2>_GlobalAdmin**, for example, with \<SID2> = PR2. The domain group name is <Domain>\SAP_PR2_GlobalAdmin.
+Create the domain group **\<Domain>\SAP_\<SID2>_GlobalAdmin**, for example, with \<SID2> = PR2. The domain group name is \<Domain>\SAP_PR2_GlobalAdmin.
 
 ### Prepare the infrastructure on the ASCS/SCS cluster
 
