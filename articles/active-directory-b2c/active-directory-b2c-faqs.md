@@ -63,11 +63,11 @@ You can use the [company branding feature](../active-directory/active-directory-
 
 The email signature contains the B2C tenant's name that you provided when you first created the B2C tenant. You can change the name using these instructions:
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator.
-1. Navigate to your B2C tenant.
-1. Click the **Configure** tab.
-1. Change the **Name** field under the **Directory properties** section.
-1. Click **Save** at the bottom of the page.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator.
+1. Open the **Azure Active Directory** blade.
+1. Click the **Properties** tab.
+1. Change the **Name** field.
+1. Click **Save** at the top of the page.
 
 Currently there is no way to change the "From:" field on the email. Vote on [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) you are interested in customizing the body of the verification email.
 

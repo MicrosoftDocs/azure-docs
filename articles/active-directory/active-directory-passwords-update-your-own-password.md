@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
 
 ---
-# Help, I forgot my Azure AD password
+# Reset your work or school password
 
-If you forgot your password, never received one from your IT staff, been locked out of your account, or want to change it, we can help. If you know your password and just need to change it continue down to the section [Change my password](#change-my-password) below.
+If you forgot your password, never received one from your company support, been locked out of your account, or want to change it, we can help. If you know your password and just need to change it continue down to the section [Change my password](#change-my-password) below.
 
    > [!NOTE]
    > If you are trying to get back into your personal account like Xbox, hotmail.com, or outlook.com try the [suggestions found in this article](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
@@ -61,7 +61,7 @@ Follow the steps that follow to access Azure AD self-service password reset, SSP
    ![Verify your authentication data][Verification]
 
 4. Your IT staff may need more verification and you may have to repeat step 3 again with a different choice.
-5. On the **Choose a new password** page, enter a new password, confirm your password, and then click **Finish**. We suggest your password be 8-16 characters with uppercase and lowercase characters, numbers, and special characters.
+5. On the **Choose a new password** page, enter a new password, confirm your password, and then click **Finish**. Your work or school password may have certain requirements; we suggest your password be 8-16 characters with uppercase and lowercase characters, numbers, and special characters.
 6. When you see, **Your password has been reset**, you can sign in with your new password.
 
     ![Your password has been reset][Complete]

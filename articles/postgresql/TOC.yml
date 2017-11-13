@@ -97,6 +97,8 @@
       href: howto-migrate-using-export-and-import.md
   - name: Configure server parameters
     items:
+    - name: Azure portal
+      href: howto-configure-server-parameters-using-portal.md
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
   - name: Access server logs
