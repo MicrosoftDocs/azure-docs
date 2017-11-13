@@ -1,6 +1,10 @@
 # Overview
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
 ## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
+<<<<<<< HEAD
+=======
+## [Stream Analytics on IoT Edge(preview)](stream-analytics-edge.md)
+>>>>>>> parent of e0a8de23597... Adding TOC
 
 # Get started
 ## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
