@@ -6,7 +6,8 @@ ms.service: time-series-insights
 author: ankryach
 ms.author: ankryach
 manager: jhubbard
-editor: v-mamcge, jasonwhowell, kfile, tsidocs
+editor: MicrosoftDocs/tsidocs
+reviewer: v-mamcge, jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
