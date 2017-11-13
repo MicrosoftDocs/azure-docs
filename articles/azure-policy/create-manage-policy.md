@@ -362,7 +362,7 @@ With an initiative definition, you can group several policy definitions to achie
 
    After selecting the policy definitions from the list you'll see it under **Policies and parameters**, as shown above.
 
-5. Select **Create**.
+5. Select **Save**.
 
 ### Assign an initiative definition
 
