@@ -21,8 +21,8 @@ Azure IoT Edge runs on different hardware, supports both Linux and Windows, and 
  
 This article provides an overview of the security framework. For more information, see [Securing the intelligent edge][lnk-edge-blog].
 
-[!NOTE]
-The security framework described below is being add to the product now and will be available at the general availability release of Azure IoT Edge. The product is currently in public preview, a release intended to allow development and prototyping of edge solutions, not full production deployments that need the full security framework.   
+>[!NOTE]
+>The security framework described below is being add to the product now and will be available at the general availability release of Azure IoT Edge. The product is currently in public preview, a release intended to allow development and prototyping of edge solutions, not full production deployments that need the full security framework.   
 
 ## Standards
 
@@ -32,7 +32,7 @@ Standards promote ease of scrutiny and ease of implementation, which are the hal
 
 Knowing without a doubt what actors, devices, and components are participating in the delivery of value through an end to end IoT solution is paramount in building trust.  Such knowledge offers secure accountability of participants to enabling basis for admission.  Azure IoT Edge attains this knowledge through authentication.  The primary mechanism for authentication for the Azure IoT Edge platform is certificate-based authentication.  This mechanism derives from a set of standards governing Public Key Infrastructure (PKiX) by the Internet Engineering Task Force (IETF).     
 
-The Azure IoT Edge security framework calls for unique certificate identities for all devices, modules (containers that encapsulate logic within the device), and actors interacting with the Azure IoT edge device be it physically or through a network connection.  Not every scenario or component may lend itself to certificate-based authentication for which the extensibility of the security framework offers secure avenues for accommodation. 
+The Azure IoT Edge security framework calls for unique certificate identities for all devices, modules (containers that encapsulate logic within the device), and actors interacting with the Azure IoT Edge device be it physically or through a network connection.  Not every scenario or component may lend itself to certificate-based authentication for which the extensibility of the security framework offers secure avenues for accommodation. 
 
 ## Authorization
 
