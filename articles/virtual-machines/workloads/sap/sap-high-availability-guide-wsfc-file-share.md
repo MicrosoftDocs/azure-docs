@@ -309,7 +309,7 @@ To use a scale-out file share, your system must meet the following requirements:
 * We recommend that you use Azure Managed Disks.
 * We recommend that you format volumes by using Resilient File System (ReFS).
     * For more information, see [SAP Note 1869038 - SAP support for ReFs filesystem][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] chapter of the article Planning volumes in Storage Spaces Direct.
-    * Be sure that you install [MS **KB4025334** cumulative update][kb4025334].
+    * Be sure that you install [Microsoft KB4025334 cumulative update][kb4025334].
 * You can use DS-Series or DSv2-Series Azure VM sizes.
 * For good network performance between VMs, which is needed for Storage Spaces Direct disk sync, use a VM type that has at least a “high” network bandwidth.
     For more information, see the [DSv2-Series][dv2-series] and [DS-Series][ds-series] specifications.
