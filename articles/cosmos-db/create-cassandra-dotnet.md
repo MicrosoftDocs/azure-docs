@@ -62,7 +62,7 @@ Now let's switch to working with code. Let's clone a Cassandra API app from GitH
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `Program.cs` file installed in the C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string).
 
-* The session is initialized by connecting to a Cassandra cluster endpoint. The Cassandra API on Azure Cosmos DB supports only TLSv1.2. 
+* Initialize the session by connecting to a Cassandra cluster endpoint. The Cassandra API on Azure Cosmos DB supports only TLSv1.2. 
 
   ```csharp
    var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
@@ -70,25 +70,25 @@ This step is optional. If you're interested in learning how the database resourc
    ISession session = cluster.Connect();
    ```
 
-* A new keyspace is created.
+* Create a new keyspace.
 
     ```csharp
   session.Execute("CREATE KEYSPACE IF NOT EXISTS uprofile WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 }");
     ```
 
-* A new table is created.
+* Create a new table.
 
    ```csharp
   session.Execute("CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)");
    ```
 
-* User entities are inserted by using the IMapper object with a new session that connects to the uprofile keyspace.
+* Insert user entities by using the IMapper object with a new session that connects to the uprofile keyspace.
 
     ```csharp
     mapper.Insert<User>(new User(1, "Kanna", "Bangalore"));
     ```
     
-* Query to get get all user's information.
+* Query to get all user's information.
 
     ```csharp
    foreach (User user in mapper.Fetch<User>("Select * from user"))
@@ -105,13 +105,13 @@ This step is optional. If you're interested in learning how the database resourc
 
 ## Update your connection string
 
-Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database.
+Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string information enables your app to communicate with your hosted database.
 
 1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
     Use the ![Copy button](./media/create-cassandra-dotnet/copy.png) button on the right side of the screen to copy the USERNAME value.
 
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-cassandra-dotnet/keys.png)
+    ![View and copy an access key in the Azure portal, Connection String page](./media/create-cassandra-dotnet/keys.png)
 
 2. In Visual Studio 2017, open the Program.cs file. 
 
