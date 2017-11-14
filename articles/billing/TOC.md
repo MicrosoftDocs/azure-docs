@@ -18,7 +18,7 @@
 ### [Understand terms on your usage](billing-understand-your-usage.md)
 ### [Understand external service charges](billing-understand-your-azure-marketplace-charges.md)
 ### [Understand free service meter mapping](billing-understand-free-service-meter-mapping.md)
-### [Reserve VM Instances Windows costs](billing-reserved-Instance-windows-software-costs.md)
+### [Reserve VM Instances Windows costs](billing-reserved-instance-windows-software-costs.md)
 ### [Understand Reserved VM Instance discount application](billing-understand-vm-reservation-charges.md)
 ### [Understand spending limit](billing-spending-limit.md)
 ### [Set up billing alerts](billing-set-up-alerts.md)

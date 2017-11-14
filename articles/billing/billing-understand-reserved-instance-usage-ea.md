@@ -34,7 +34,7 @@ For the following section, assume that you are running a Standard_D1_v2 Windows 
 
 ## Reservation application
 
-The hardware portion of the VM is covered because the deployed VM matches the reservation attributes. To see what Windows software isn't covered by the Reserved Instance, go to Azure Reserved VM Instances software costs, go to [Azure Reserve VM Instances Windows software costs.](billing-reserved-Instance-windows-software-costs.md)
+The hardware portion of the VM is covered because the deployed VM matches the reservation attributes. To see what Windows software isn't covered by the Reserved Instance, go to Azure Reserved VM Instances software costs, go to [Azure Reserve VM Instances Windows software costs.](billing-reserved-instance-windows-software-costs.md)
 
 
 ### Reservation usage in csv
@@ -45,7 +45,7 @@ You can download the EA usage csv from EA portal. In the downloaded csv file, fi
 1. ReservationId in Additional Info field represents the reservation that was used to apply benefit to the VM.
 2. ConsumptionMeter is the MeterId for the VM.
 3. This is the ReservationMeter with $0 cost since cost of running VM is already paid by the reservation. 
-4. Standard_D1 is one vCPU VM and the VM is deployed without Azure Hybrid Benefit. Therefore, this meter covers the extra charge of Windows software. See [Azure Reserve VM Instances Windows software costs.](billing-reserved-Instance-windows-software-costs.md) to find the meter corresponding to D series 1 core VM. If Azure Hybrid Benefit is used, this extra charge will not be applied.
+4. Standard_D1 is one vCPU VM and the VM is deployed without Azure Hybrid Benefit. Therefore, this meter covers the extra charge of Windows software. See [Azure Reserve VM Instances Windows software costs.](billing-reserved-instance-windows-software-costs.md) to find the meter corresponding to D series 1 core VM. If Azure Hybrid Benefit is used, this extra charge will not be applied.
 
 ### Reservation usage in usage summary page in EA portal
 

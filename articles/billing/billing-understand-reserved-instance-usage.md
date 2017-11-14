@@ -37,7 +37,7 @@ For the following section, assume that you are running a Standard_DS1_v2 Windows
 
 ## Reservation application
 
-The hardware portion of the VM is covered because the deployed VM matches the reservation attributes. To see what Windows software isn't covered by the Reserved Instance, go to [Azure Reserve VM Instances Windows software costs.](billing-reserved-Instance-windows-software-costs.md)
+The hardware portion of the VM is covered because the deployed VM matches the reservation attributes. To see what Windows software isn't covered by the Reserved Instance, go to [Azure Reserve VM Instances Windows software costs.](billing-reserved-instance-windows-software-costs.md)
 
 ### Statement section of csv
 This section of your csv shows the total  usage for your reservation. Apply the filter on Meter Sub-category field that contains "Reservation-" and your data looks like the following screenshot:
@@ -54,7 +54,7 @@ Filter on additional info and type in your Reservation ID. The following screens
 2. ConsumptionMeter is the Meter Id for the VM.
 3. Reservation-Base VM Meter Sub-category line represents the $0 cost line in statement section. Cost of running this VM is already paid by the reservation.
 4. This is the Meter Id for Reservation. Cost of this meter is $0. Any VM that qualifies for Reserved Instance has this MeterId in the csv to account for the cost. 
-5. Standard_DS1_v2 is one vCPU VM and the VM is deployed without Azure Hybrid Benefit. Therefore, this meter covers the extra charge of Windows software. See [Azure Reserve VM Instances Windows software costs.](billing-reserved-Instance-Windows-software-costs.md) to find the meter corresponding to D series 1 core VM. If Azure Hybrid Benefit is used, this extra charge is not applied. 
+5. Standard_DS1_v2 is one vCPU VM and the VM is deployed without Azure Hybrid Benefit. Therefore, this meter covers the extra charge of Windows software. See [Azure Reserve VM Instances Windows software costs.](billing-reserved-instance-windows-software-costs.md) to find the meter corresponding to D series 1 core VM. If Azure Hybrid Benefit is used, this extra charge is not applied. 
 
 ## Need help? Contact support.
 
