@@ -8,13 +8,13 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
 
 ---
 
-# Deploy your first IoT Edge module from the Azure portal to a Linux device - preview
+# Quickstart: Deploy your first IoT Edge module from the Azure portal to a Linux device - preview
 
 Azure IoT Edge moves the power of the cloud to your Internet of Things devices. In this topic, learn how to use the cloud interface to deploy prebuilt code remotely to an IoT Edge device.
 

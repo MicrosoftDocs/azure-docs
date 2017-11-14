@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
+# Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
 
 In this quickstart, use the Azure IoT Edge cloud interface to deploy prebuilt code remotely to an IoT Edge device. To accomplish this task, first use your Windows device to simulate an IoT Edge device, then you can deploy a module to it.
 
@@ -29,10 +29,6 @@ If you don't have an active Azure subscription, create a [free account][lnk-acco
 ## Prerequisites
 
 This tutorial assumes that you're using a computer or virtual machine running Windows to simulate an Internet of Things device. If you're running Windows in a virtual machine, enable [nested virtualization][lnk-nested] and allocate at least 2GB memory. 
-
-Docker for Windows can run either Windows containers or Linux containers. The steps for the tutorial are the same regardless of which container type you use, but the software prerequisites are different. 
-
-### Linux containers in Docker
 
 1. Make sure you're using a supported Windows version:
    * Windows 10 
@@ -45,22 +41,16 @@ Docker for Windows can run either Windows containers or Linux containers. The st
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
-### Windows containers in Docker
-
-1. Make sure you're using a supported Windows version:
-   * Windows IoT Core (Build 16299) on a x64-based device
-   * Windows 10 Fall Creators Update
-   * Windows Server 1709 (Build 16299)
-1. Run the following command in an Admin PowerShell console to install and configure the prerequisites:
-
-   ```powershell
-   Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
-   ```
-
-   This script provides the following:
-   * Docker, configured to use Windows containers. If you already have Docker on your machine, go through the steps to [switch to Windows containers][lnk-docker-containers]. 
-   * Python 3.6
-   * The IoT Edge control script (iotedgectl.exe)
+> [!NOTE]
+> Azure IoT Edge can run either Windows containers or Linux containers. To use Windows containers, you have to run:
+>    * Windows 10 Fall Creators Update, or
+>    * Windows Server 1709 (Build 16299), or
+>    * Windows IoT Core (Build 16299) on a x64-based device
+>
+> For Windows IoT Core, follow the instructions in [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore]. Otherwise, simply [configure Docker to use Windows containers][lnk-docker-containers], and optionally validate your prerequisites with the following powershell command:
+>    ```
+>    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
+>    ```
 
 ## Create an IoT hub with Azure CLI
 

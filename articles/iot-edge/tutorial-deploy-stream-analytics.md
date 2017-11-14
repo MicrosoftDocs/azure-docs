@@ -38,10 +38,16 @@ You learn how to:
 ## Prerequisites
 
 * An IoT Hub 
-* The Azure IoT Edge device that you created in the quickstart or first tutorial
-* Docker
-    * [Windows installation][lnk-docker-windows]
-    * [Linux installation][lnk-docker-linux]
+* A device that has IoT Edge runtime installed. For a tutorial on installing IoT Edge runtime, see [Install Azure IoT Edge and deploy a module][lnk-first-tutorial].
+* Docker on your IoT Edge device
+    * [Install Docker on Windows][lnk-docker-windows] and make sure it's running.
+    * [Install Docker on Linux][lnk-docker-linux] and make sure it's running.
+* Python 2.7.x on your IoT Edge device
+    * [Install Python 2.7 on Windows][lnk-python].
+    * Most Linux distributions, including Ubuntu, already have Python 2.7 installed.  Use the following command to make sure pip is installed: `sudo apt-get install python-pip`.
+
+> [!NOTE]
+> Note your device connection string and IoT Edge device ID will be necessary for this tutorial.
 
 IoT Edge takes advantage of pre-built Azure Service IoT Edge modules for quick deployment and Azure Stream Analytics (ASA) is one such module. You can create an ASA job from its portal, then come to IoT Hub portal to deploy it as an IoT Edge Module.  
 
@@ -142,6 +148,8 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
 ## View data
 
+Now you can go to your IoT Edge device to check out the interaction between the ASA module and the tempSensor module.
+
 1. At a command prompt, configure the runtime with your IoT Edge device connection string:
 
     ```cmd/sh
@@ -210,3 +218,4 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 
 [lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
 [lnk-docker-linux]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
+[lnk-python]: https://www.python.org/downloads/

@@ -1,14 +1,14 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Develop and deploy an Azure IoT Edge module | Microsoft Docs 
-description: Create an IoT Edge module and deploy it to an edge device
+title: Azure IoT Edge C# module | Microsoft Docs 
+description: Create an IoT Edge module with C# code and deploy it to an edge device
 services: iot-edge
 keywords: 
 author: JimacoMS2
 manager: timlt
 
 ms.author: v-jamebr
-ms.date: 11/08/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -20,13 +20,13 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Develop and Deploy an IoT Edge module to your simulated device -- Public preview
+# Develop and deploy a C# IoT Edge module to your simulated device - preview
 
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an  IoT Edge module that filters sensor data on the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an IoT Edge module based on .NET core 2.0
-> * Use VS Code and Docker to create a docker image and publish it to your registry 
+> * Use Visual Studio Code and Docker to create a docker image and publish it to your registry 
 > * Deploy the module to your IoT Edge device
 > * View generated data
 
@@ -38,15 +38,11 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 * The Azure IoT Edge device that you created in the quickstart or previous tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* The following Visual Studio Code extensions: 
-  * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
-  * **Azure IoT Edge extension**
-
-    > [!IMPORTANT]
-    > The IoT Edge extension is not yet available in the Marketplace. Perform the following steps to install it and its dependencies:
-    > 1. Install the [Azure IoT Toolkit extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) from the extensions panel in VS Code.
-    > 2. Download the **Azure IoT Edge extension** VSIX here: [https://aka.ms/edge-extension](https://aka.ms/edge-extension). **Note**: If you use Microsoft Edge or Internet Explorer, the browser downloads the file with a ".zip" file extension. After the file downloads, you need to change the file extension back to ".vsix". 
-    > 3. Install the extension VSIX by using the **View | Command Palette... | Extensions: Install from VSIX...** menu command, navigating to the downloaded VSIX on your computer and clicking **Open**. (You can also install the extension by clicking **...** in the upper-right corner of the extension panel and selecting **Install from VSIX...**.)
+* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
+* Azure IoT Edge extension for Visual Studio Code. Perform the following steps to install it and its dependencies:
+   1. Install the [Azure IoT Toolkit extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) from the extensions panel in VS Code.
+   2. Download the **Azure IoT Edge extension** VSIX here: [https://aka.ms/edge-extension](https://aka.ms/edge-extension). **Note**: If you use Microsoft Edge or Internet Explorer, the browser downloads the file with a ".zip" file extension. After the file downloads, you need to change the file extension back to ".vsix". 
+   3. Install the extension VSIX by using the **View | Command Palette... | Extensions: Install from VSIX...** menu command, navigating to the downloaded VSIX on your computer and clicking **Open**. (You can also install the extension by clicking **...** in the upper-right corner of the extension panel and selecting **Install from VSIX...**.)
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. Make sure you install it on the computer that you run VS Code on.
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
@@ -208,7 +204,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
                 await deviceClient.SendEventAsync("output1", filteredMessage);
             }
 
-            // We need to indicate that we have completed the message treatment
+            // Indicate that the message treatment is completed
             return MessageResponse.Completed;
         }
         catch (AggregateException ex)
@@ -218,7 +214,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
                 Console.WriteLine();
                 Console.WriteLine("Error in sample: {0}", exception);
             }
-            // We need to indicate that we have not completed the message treatment
+            // Indicate that the message treatment is not completed
             DeviceClient deviceClient = (DeviceClient)userContext;
             return MessageResponse.Abandoned;
         }
@@ -226,7 +222,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
         {
             Console.WriteLine();
             Console.WriteLine("Error in sample: {0}", ex.Message);
-            // We need to indicate that we have not completed the message treatment
+            // Indicate that the message treatment is not completed
             DeviceClient deviceClient = (DeviceClient)userContext;
             return MessageResponse.Abandoned;
         }
