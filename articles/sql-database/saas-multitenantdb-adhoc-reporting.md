@@ -21,14 +21,14 @@ ms.author: billgib; sstein; AyoOlubeko
 ---
 # Run ad-hoc analytics queries across multiple Azure SQL databases
 
-In this tutorial, you run distributed queries across the entire set of tenant databases to enable ad-hoc interactive reporting. These queries can extract insights buried in the day-to-day operational data of the Wingtip Tickets SaaS app. To do this, you will deploy an additional analytics database to the catalog server and use Elastic Query to enable distributed queries.
+In this tutorial, you run distributed queries across the entire set of tenant databases to enable ad hoc interactive reporting. These queries can extract insights buried in the day-to-day operational data of the Wingtip Tickets SaaS app. To do this, you will deploy an additional analytics database to the catalog server and use Elastic Query to enable distributed queries.
 
 
 In this tutorial you learn:
 
 > [!div class="checklist"]
 
-> * How to deploy an ad-hoc reporting database
+> * How to deploy an ad hoc reporting database
 > * How to run distributed queries across all tenant databases
 
 
@@ -39,13 +39,13 @@ To complete this tutorial, make sure the following prerequisites are completed:
 * SQL Server Management Studio (SSMS) is installed. To download and install SSMS, see [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 
-## Ad-hoc reporting pattern
+## Ad hoc reporting pattern
 
 ![adhoc reporting pattern](media/saas-multitenantdb-adhoc-reporting/adhocreportingpattern_shardedmultitenantDB.png)
 
 One of the great opportunities with SaaS applications is the ability to use the vast amount of tenant data stored centrally in the cloud to gain insights into the operation and usage of your application. These insights can guide feature development, usability improvements, and other investments in your apps and services.
 
-Accessing this data in a single multi-tenant database is easy, but not so easy when distributed at scale across potentially thousands of databases. One approach is to use [Elastic Query](sql-database-elastic-query-overview.md), which enables querying across a distributed set of databases with common schema. These databases can be distributed across different resource groups and subscriptions, but need to share a common login that will be used to extract data. Elastic Query uses a single *head* database in which external tables are defined that mirror tables or views in the distributed (tenant) databases. Queries submitted to this head database are compiled to produce a distributed query plan, with portions of the query pushed down to the tenant databases as needed. Elastic Query uses the shard map in the catalog database to determine the location of all tenant databases. Setup and query are straightforward using standard [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference), and support ad-hoc querying from tools like Power BI and Excel.
+Accessing this data in a single multi-tenant database is easy, but not so easy when distributed at scale across potentially thousands of databases. One approach is to use [Elastic Query](sql-database-elastic-query-overview.md), which enables querying across a distributed set of databases with common schema. These databases can be distributed across different resource groups and subscriptions, but need to share a common login that will be used to extract data. Elastic Query uses a single *head* database in which external tables are defined that mirror tables or views in the distributed (tenant) databases. Queries submitted to this head database are compiled to produce a distributed query plan, with portions of the query pushed down to the tenant databases as needed. Elastic Query uses the shard map in the catalog database to determine the location of all tenant databases. Setup and query are straightforward using standard [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference), and support ad hoc querying from tools like Power BI and Excel.
 
 By distributing queries across the tenant databases, Elastic Query provides immediate insight into live production data. However, as Elastic Query pulls data from potentially many databases, query latency can sometimes be higher than for equivalent queries submitted to a single multi-tenant database. Be sure to design queries to minimize the data that is returned. Elastic Query is often best suited for querying small amounts of real-time data, as opposed to building frequently used or complex analytics queries or reports. If queries don't perform well, look at the [execution plan](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) to see what part of the query has been pushed down to the remote database and how much data is being returned. Queries that require complex analytical processing may be better served in some cases by extracting tenant data into a dedicated database or data warehouse optimized for analytics queries. This pattern is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md). 
 
@@ -59,7 +59,7 @@ To run queries against a more interesting data set, create ticket sales data by 
 
 1. In the *PowerShell ISE*, open the ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* script and set the following values:
    * **$DemoScenario** = 1, **Purchase tickets for events at all venues**.
-2. Press **F5** to run the script and generate ticket sales. While the script is running, continue the steps in this tutorial. The ticket data is queried in the *Run ad-hoc distributed queries* section, so wait for the ticket generator to complete.
+2. Press **F5** to run the script and generate ticket sales. While the script is running, continue the steps in this tutorial. The ticket data is queried in the *Run ad hoc distributed queries* section, so wait for the ticket generator to complete.
 
 ## Explore the tenant tables 
 
@@ -67,7 +67,7 @@ In the Wingtip Tickets SaaS Multi-tenant Database application, tenants are store
 
 To achieve this pattern, all tenant tables include a *VenueId* column that identifies which tenant the data belongs to. The *VenueId* is computed as a hash of the Venue name, but any approach could be used to introduce a unique value for this column. This approach is similar to the way the tenant key is computed for use in the catalog. Tables containing *VenueId* are used by Elastic Query to parallelize queries and push them down to the appropriate remote tenant database. This dramatically reduces the amount of data that is returned and results in an increase in performance especially when there are multiple tenants whose data is stored in single tenant databases.
 
-## Deploy the database used for ad-hoc distributed queries
+## Deploy the database used for ad hoc distributed queries
 
 This exercise deploys the *adhocreporting* database. This is the head database that contains the schema used for querying across all tenant databases. The database is deployed to the existing catalog server, which is the server used for all management-related databases in the sample app.
 
@@ -80,13 +80,13 @@ In the next section, you add schema to the database so it can be used to run dis
 
 ## Configure the 'head' database for running distributed queries
 
-This exercise adds schema (the external data source and external table definitions) to the ad-hoc reporting database that enables querying across all tenant databases.
+This exercise adds schema (the external data source and external table definitions) to the ad hoc reporting database that enables querying across all tenant databases.
 
 1. Open SQL Server Management Studio, and connect to the Adhoc reporting database you created in the previous step. The name of the database is *adhocreporting*.
 2. Open ...\Learning Modules\Operational Analytics\Adhoc Reporting\ *Initialize-AdhocReportingDB.sql* in SSMS.
 3. Review the SQL script and note the following:
 
-   Elastic Query uses a database-scoped credential to access each of the tenant databases. This credential needs to be available in all the databases and should normally be granted the minimum rights required to enable these ad-hoc queries.
+   Elastic Query uses a database-scoped credential to access each of the tenant databases. This credential needs to be available in all the databases and should normally be granted the minimum rights required to enable these ad hoc queries.
 
     ![create credential](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
@@ -108,7 +108,7 @@ This exercise adds schema (the external data source and external table definitio
 
 Now you can run distributed queries, and gather insights across all tenants!
 
-## Run ad-hoc distributed queries
+## Run ad hoc distributed queries
 
 Now that the *adhocreporting* database is set up, go ahead and run some distributed queries. Include the execution plan for a better understanding of where the query processing is happening. 
 
@@ -147,7 +147,7 @@ In this tutorial you learned how to:
 > [!div class="checklist"]
 
 > * Run distributed queries across all tenant databases
-> * Deploy an ad-hoc reporting database and add schema to it to run distributed queries.
+> * Deploy an ad hoc reporting database and add schema to it to run distributed queries.
 
 
 Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
