@@ -231,7 +231,7 @@ You can also view tagged resources through the Azure portal.
 The [usage report](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) for your subscription includes tag names and values, which enables you to break out costs by tags.
 
 > [!Note]
-> For more information about tags, see [Billing tags policy initiative](../azure-policy/scripts/billing-tags-policy-init).
+> For more information about tags, see [Billing tags policy initiative](../azure-policy/scripts/billing-tags-policy-init.md).
 
 The following limitations apply to tags:
 
