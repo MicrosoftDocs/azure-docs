@@ -166,51 +166,72 @@ import (
   "fmt"
   "io/ioutil"
   "net/http"
+  "net/url"
   "encoding/json"
 )
 
 type responseJson struct {
-  Access_token string
-  Refresh_token string
-  Expires_in string
-  Expires_on string
-  Not_before string
-  Resource string
-  Token_type string
+  AccessToken string `json:"access_token"`
+  RefreshToken string `json:"refresh_token"`
+  ExpiresIn string `json:"expires_in"`
+  ExpiresOn string `json:"expires_on"`
+  NotBefore string `json:"not_before"`
+  Resource string `json:"resource"`
+  TokenType string `json:"token_type"`
 }
 
 func main() {
+    
+// Create HTTP request for MSI token to access Azure Resource Manager
+var msi_endpoint *url.URL
+msi_endpoint, err := url.Parse("http://localhost:50342/oauth2/token")
+if err != nil {
+  fmt.Println("Error creating URL: ", err)
+  return 
+}
+msi_parameters := url.Values{}
+msi_parameters.Add("resource", "https://management.azure.com/")
+msi_endpoint.RawQuery = msi_parameters.Encode()
+req, err := http.NewRequest("GET", msi_endpoint.String(), nil)
+if err != nil {
+  fmt.Println("Error creating HTTP request: ", err)
+  return 
+}
+req.Header.Add("Metadata", "true")
 
-    // Create HTTP request client and call MSI /token endpoint
-    msi_endpoint := "http://localhost:50342/oauth2/token?resource=https://management.azure.com/"
-    client := &http.Client{}
-    req, err := http.NewRequest("GET", msi_endpoint, nil)
-    req.Header.Add("Metadata", "true")
-    resp, err := client.Do(req)
+// Call MSI /token endpoint
+client := &http.Client{}
+resp, err := client.Do(req) 
+if err != nil{
+  fmt.Println("Error calling token endpoint: ", err)
+  return
+}
 
-    // Pull out response body
-    responseBytes,err := ioutil.ReadAll(resp.Body)
-    resp.Body.Close()
-    if err != nil {
-      fmt.Println("Error:", err)
-    }
+// Pull out response body
+responseBytes,err := ioutil.ReadAll(resp.Body)
+defer resp.Body.Close()
+if err != nil {
+  fmt.Println("Error reading response body : ", err)
+  return
+}
 
-    // Unmarshall response body into struct
-    var r responseJson
-    errUnmarshal :=json.Unmarshal(responseBytes, &r)
-    if errUnmarshal != nil {
-      fmt.Println("Error:", errUnmarshal)
-    }
+// Unmarshall response body into struct
+var r responseJson
+err = json.Unmarshal(responseBytes, &r)
+if err != nil {
+  fmt.Println("Error unmarshalling the response:", err)
+  return
+}
 
-    // Print HTTP response, unmarshalled response body, and marshalled response body elements to console
-    fmt.Println("Response status:", resp.Status)
-    fmt.Println("access_token: ", r.Access_token)
-    fmt.Println("refresh_token: ", r.Refresh_token)
-    fmt.Println("expires_in: ", r.Expires_in)
-    fmt.Println("expires_on: ", r.Expires_on)
-    fmt.Println("not_before: ", r.Not_before)
-    fmt.Println("resource: ", r.Resource)
-    fmt.Println("token_type: ", r.Token_type)
+// Print HTTP response and marshalled response body elements to console
+fmt.Println("Response status:", resp.Status)
+fmt.Println("access_token: ", r.AccessToken)
+fmt.Println("refresh_token: ", r.RefreshToken)
+fmt.Println("expires_in: ", r.ExpiresIn)
+fmt.Println("expires_on: ", r.ExpiresOn)
+fmt.Println("not_before: ", r.NotBefore)
+fmt.Println("resource: ", r.Resource)
+fmt.Println("token_type: ", r.TokenType)
 }
 ```
 
