@@ -24,7 +24,7 @@ From your [Azure Automation](automation-offering-get-started.md) account, you ca
 - Onboard virtual machines.
 - Assess the status of available updates.
 - Schedule installation of required updates.
-- Review deployment results to verify that updates were applied successfully to all virtual machines for which Update management is enabled.
+- Review deployment results to verify that updates were applied successfully to all virtual machines for which update management is enabled.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ Linux agents must have access to an update repository.
 ## Enable update management for Azure virtual machines
 
 1. In the Azure portal, open the Automation account.
-2. On the left side of the window, select **Update management**.
+2. In the left pane, select **Update management**.
 3. At the top of the window, select **Add Azure VM**.
    ![Add Azure VM tab](./media/manage-update-multi/update-onboard-vm.png)
 4. Select a virtual machine to onboard. The **Enable Update Management** dialog box appears.
@@ -110,9 +110,9 @@ The following table describes the connected sources that this solution supports:
 
 ### Collection frequency
 
-For each managed Windows computer, a scan is performed twice per day. Every 15 minutes, the Windows API is called to query for the last update time to determine if status has changed. If so, a compliance scan starts. For each managed Linux computer, a scan is performed every 3 hours.
+For each managed Windows computer, a scan runs twice per day. Every 15 minutes, the Windows API is called to query for the last update time to determine if the status has changed. If so, a compliance scan starts. For each managed Linux computer, a scan runs every 3 hours.
 
-It can take from 30 minutes up to 6 hours for the dashboard to display updated data from managed computers.
+It can take 30 minutes to 6 hours for the dashboard to display updated data from managed computers.
 
 ## Schedule an update deployment
 
@@ -138,7 +138,7 @@ In the **New update deployment** pane, specify the following:
   * Tools
   * Updates
 * **Schedule settings**: You can accept the default date and time, which is 30 minutes after the current time. Or you can specify a different time.
-   You can also specify whether the deployment occurs once or set up a recurring schedule. To set up a recurring schedule, select the **Recurring** option under **Recurrence**.
+   You can also specify whether the deployment occurs once or on a recurring schedule. To set up a recurring schedule, select the **Recurring** option under **Recurrence**.
 
    ![Schedule Settings dialog box](./media/manage-update-multi/update-set-schedule.png)
 
@@ -151,16 +151,16 @@ After you finish configuring the schedule, return to the status dashboard by sel
 
 ## View results of an update deployment
 
-After the scheduled deployment is started, you can see the status for that deployment on the **Update deployments** tab in the **Update management** dialog box.
-If the deployment is currently running, its status shows as **In progress**. After it finishes successfully, it changes to **Succeeded**.
-If there is a failure with one or more updates in the deployment, the status is **Partially failed**.
+After the scheduled deployment starts, you can see the status for that deployment on the **Update deployments** tab in the **Update management** dialog box.
+If the deployment is currently running, its status shows as **In progress**. After the deployment finishes successfully, it changes to **Succeeded**.
+If one or more updates fail in the deployment, the status is **Partially failed**.
 
 ![Status of update deployment](./media/manage-update-multi/update-view-results.png)
 
 To see the dashboard for an update deployment, select the completed deployment.
 
-The **Update results** pane shows a summary of the total number of updates and the deployment results on the virtual machine.
-In the table to the right is a detailed breakdown of each update and the installation results. Installation results can be one of the following values:
+The **Update results** pane shows the total number of updates and the deployment results on the virtual machine.
+The table to the right gives a detailed breakdown of each update and the installation results. Installation results can be one of the following values:
 
 * Not attempted: The update was not installed because there was insufficient time available based on the defined maintenance window.
 * Succeeded: The update succeeded.
@@ -172,8 +172,6 @@ To see the job stream of the runbook that manages the update deployment on the t
 
 To see detailed information about any errors from the deployment, select **Errors**.
 
-For detailed information about the logs, output, and error information, see [Update Management](../operations-management-suite/oms-solution-update-management.md).
-
 ## Next steps
 
-* To learn more about update management, see [Update Management](../operations-management-suite/oms-solution-update-management.md).
+* To learn more about update management--including logs, output, and errors--see [Update Management solution in OMS](../operations-management-suite/oms-solution-update-management.md).
