@@ -1,6 +1,6 @@
 ---
 title: Encode an asset with Media Encoder Standard using .NET | Microsoft Docs
-description: This topic shows how to use .NET to encode an asset using Media Encoder Strandard.
+description: This article shows how to use .NET to encode an asset using Media Encoder Strandard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -18,13 +18,13 @@ ms.author: juliako;anilmur
 
 ---
 # Encode an asset with Media Encoder Standard using .NET
-Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third party encoders are available through the Azure Marketplace. 
+Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the Azure Marketplace. 
 
-This topic shows how to use .NET to encode your assets with Media Encoder Standard (MES). Media Encoder Standard is configured using one of the encoder presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+This article shows how to use .NET to encode your assets with Media Encoder Standard (MES). Media Encoder Standard is configured using one of the encoders presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 It is recommended to always encode your source files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md). 
 
-If your output asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
+If your output asset is storage encrypted, you must configure asset delivery policy. For more information, see [Configuring asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
 
 > [!NOTE]
 > MES produces an output file with a name that contains the first 32 characters of the input file name. The name is based on what is specified in the preset file. For example, "FileName": "{Basename}_{Index}{Extension}". {Basename} is replaced by the first 32 characters of the input file name.
@@ -35,7 +35,7 @@ If your output asset is storage encrypted, you must configure asset delivery pol
 [Formats and codecs](media-services-media-encoder-standard-formats.md)
 
 ### MES Presets
-Media Encoder Standard is configured using one of the encoder presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard is configured using one of the encoders presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### Input and output metadata
 When you encode an input asset (or assets) using MES, you get an output asset at the successful completion of that encode task. The output asset contains video, audio, thumbnails, manifest, etc. based on the encoding preset you use.
@@ -58,7 +58,7 @@ The following code example uses Media Services .NET SDK to perform the following
 * Specify to use the [Adaptive Streaming](media-services-autogen-bitrate-ladder-with-mes.md) preset. 
 * Add a single encoding task to the job. 
 * Specify the input asset to be encoded.
-* Create an output asset that will contain the encoded asset.
+* Create an output asset that contains the encoded asset.
 * Add an event handler to check the job progress.
 * Submit the job.
 

@@ -26,7 +26,7 @@ ms.author: juliako
 >
 
 ## Overview
-To deliver digital video over the Internet, you must compress the media. Digital video files are large and may be too big to deliver over the Internet, or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
+To deliver digital video over the Internet, you must compress the media. Digital video files are large and may be too large to deliver over the Internet, or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
 
 Encoding jobs are one of the most common processing operations in Azure Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in encoder (Media Encoder Standard). You can also use an encoder provided by a Media Services partner. Third-party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see [Task Presets for Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
 
