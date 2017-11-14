@@ -14,7 +14,7 @@ ms.workload: "Active"
 ms.tgt_pltfrm: "na"
 ms.devlang: "na"
 ms.topic: "article"
-ms.date: "11/12/2017"
+ms.date: "11/14/2017"
 ms.author: "billgib;genemi"
 ---
 # Welcome to the Wingtip Tickets sample SaaS Azure SQL Database tenancy app
@@ -33,9 +33,9 @@ You can install the Wingtip Tickets app in your own Azure subscription in five m
 
 Application code, and the management scripts, are all available on GitHub:
 
-- **Standalone app** model: *(Coming within days.)*
-- **Database per tenant** model: [WingtipSaaS repository](https://github.com/Microsoft/WingtipSaaS/).
-- **Sharded multi-tenant** model, the *hybrid*: *(Coming within days.)*
+- **Standalone app** model: [WingtipTicketsSaaS-StandaloneApp repository](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
+- **Database per tenant** model: [WingtipTicketsSaaS-DbPerTenant repository](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
+- **Sharded multi-tenant** model: [WingtipTicketsSaaS-MultiTenantDB repository](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB).
 
 The same one code base for the Wingtip Tickets app is reused for all of the preceding models listed. You can use the code from Github to start your own SaaS projects.
 
@@ -95,8 +95,7 @@ This model has multiple tenants in the instance of the application. This model a
 
 The schema of every database includes a tenant identifier. The tenant identifier is even in those databases that store only one tenant.
 
-- *(Tutorials for this model will be published here within a few days. A link will be here.)*
-
+- [Introduction to a SQL Database multi-tenant SaaS app example][saas-multitenantdb-get-started-deploy-89i]
 
 
 
@@ -145,4 +144,6 @@ The tutorial articles for each model cover the following management scenarios:
 [saas-dbpertenant-wingtip-app-overview-15d]: saas-dbpertenant-wingtip-app-overview.md
 
 [multi-tenant-saas-database-tenancy-patterns-60p]: saas-tenancy-app-design-patterns.md
+
+[saas-multitenantdb-get-started-deploy-89i]: saas-multitenantdb-get-started-deploy.md
 
