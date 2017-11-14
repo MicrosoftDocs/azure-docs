@@ -51,7 +51,7 @@ By distributing queries across the tenant databases, Elastic Query provides imme
 
 ## Get the Wingtip Tickets SaaS Multi-tenant Database application scripts
 
-The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB github repo](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). Make sure to follow unblock steps outlined in the readme.
+The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB github repo](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). Make sure to follow the unblock steps outlined in the readme.
 
 ## Create ticket sales data
 
@@ -98,7 +98,7 @@ This exercise adds schema (the external data source and external table definitio
 
     ![create external tables](media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 
-   The local table *VenueTypes* that is created and populated. This reference data table is common in all tenant databases, so it can be represented here as a local table and populated with the common data. For some queries this may reduce the amount of data moved between the tenant databases and the *adhocreporting* database.
+   The local table *VenueTypes* that is created and populated. This reference data table is common in all tenant databases, so it can be represented here as a local table and populated with the common data. For some queries, this may reduce the amount of data moved between the tenant databases and the *adhocreporting* database.
 
     ![create table](media/saas-multitenantdb-adhoc-reporting/create-table.png)
 
@@ -127,7 +127,7 @@ When inspecting the execution plan, hover over the plan icons for details.
 
 5. Select the next query, and press **F5**.
 
-   This query joins data from the tenant databases and the local *VenueTypes* table (local, as its a table in the *adhocreporting* database).
+   This query joins data from the tenant databases and the local *VenueTypes* table (local, as it's a table in the *adhocreporting* database).
 
    Inspect the plan and see that the majority of cost is the remote query because we query each tenant's venue info (dbo.Venues), and then do a quick local join with the local *VenueTypes* table to display the friendly name.
 
