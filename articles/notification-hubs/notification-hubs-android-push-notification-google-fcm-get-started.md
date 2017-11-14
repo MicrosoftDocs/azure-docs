@@ -111,7 +111,7 @@ Your notification hub is now configured to work with Firebase Cloud Messagin, an
                 <category android:name="<your package name>" />
             </intent-filter>
         </receiver>
-4. Add the following necessary FCM related permissions below the  `</application>` tag. Make sure to replace `<your package>` with the package name shown at the top of the `AndroidManifest.xml` file.
+4. Add the following necessary FCM related permissions below the  `</application>` tag.
    
     For more information on these permissions, see [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/android/client#manifest) and [Migrate a GCM Client App for Android to Firebase Cloud Messaging](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#remove_the_permissions_required_by_gcm).
    
