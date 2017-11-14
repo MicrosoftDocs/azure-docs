@@ -42,7 +42,7 @@ The device settings page enables you to configure:
 ![Manage an Intune device](./media/device-management-azure-portal/21.png)
 
 
-- **Users may join devices to Azure AD** - This setting enables you to select the users who can [join devices](device-management-introduction.m#azure-ad-joined-devices) to Azure AD. The default is **All**.
+- **Users may join devices to Azure AD** - This setting enables you to select the users who can [join devices](device-management-introduction.md#azure-ad-joined-devices) to Azure AD. The default is **All**.
 
 - **Additional local administrators on Azure AD joined devices** - You can select the users that are granted local administrator rights on a device. Users added here are added to the *Device Administrators* role in Azure AD. Global administrators in Azure AD and device owners are granted local administrator rights by default. 
 This option is a premium edition capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS). 
