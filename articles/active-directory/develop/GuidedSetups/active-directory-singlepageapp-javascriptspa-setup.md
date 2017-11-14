@@ -1,21 +1,21 @@
----     
-title: Azure AD v2 JS SPA Guided Setup - Setup | Microsoft Docs     
-description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2 endpoint       
-services: active-directory      
-documentationcenter: dev-center-name        
-author: andretms        
-manager: mbaldwin       
-editor: ''      
-       
-ms.service: active-directory        
-ms.devlang: na      
-ms.topic: article       
-ms.tgt_pltfrm: na       
-ms.workload: identity       
-ms.date: 06/01/2017     
-ms.author: andret       
 ---
+title: Azure AD v2 JS SPA Guided Setup - Setup | Microsoft Docs
+description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2 endpoint
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: ''
 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity 
+ms.date: 06/01/2017
+ms.author: andret
+
+---
 ## Setting up your web server or project
 
 > Prefer to download this sample's project instead? 
@@ -77,7 +77,7 @@ Instructions in this guide are based on both Python and Visual Studio 2017, but 
 
     <!-- This app uses cdn to reference msal.js (recommended). 
          You can also download it from: https://github.com/AzureAD/microsoft-authentication-library-for-js -->
-    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.1.1/js/msal.min.js"></script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.1.3/js/msal.min.js"></script>
 
     <!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>

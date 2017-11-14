@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 
 ---
@@ -49,7 +49,7 @@ In the table,
 - **Service principal** is the Azure Active Directory (AAD) service principal associated with the account.
 - **FINGRP** is a user group created in AAD that contains users from the Finance organization.
 
-For instructions on how to create an AAD application (that also creates a Service Principal), see [Create an AAD application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). For instructions on how to create a user group in AAD, see [Managing groups in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+For instructions on how to create an AAD application (that also creates a Service Principal), see [Create an AAD application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). For instructions on how to create a user group in AAD, see [Managing groups in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 Some key points to consider.
 

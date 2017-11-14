@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Application Insights Telemetry Data Model - Metric Telemetry | Microsoft Docs
 description: Application Insights data model for metric telemetry
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: sewhee
+ms.author: mbullwin
 
 ---
 # Metric telemetry: Application Insights data model
@@ -21,7 +21,7 @@ There are two types of metric telemetry supported by [Application Insights](app-
 
 Pre-aggregated metric telemetry assumes that aggregation period was one minute.
 
-There are several well-known metric names supported by Application Insights. 
+There are several well-known metric names supported by Application Insights. These metrics placed into performanceCounters table.
 
 Metric representing system and process counters:
 
@@ -62,6 +62,8 @@ Maximum value of the aggregated metric. Should not be set for a measurement.
 Standard deviation of the aggregated metric. Should not be set for a measurement.
 
 ## Custom properties
+
+Metric with the custom property `CustomPerfCounter` set to `true` indicate that the metric represents the windows performance counter. These metrics placed in performanceCounters table. Not in customMetrics. Also the name of this metric is parsed to extract category, counter, and instance names.
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 

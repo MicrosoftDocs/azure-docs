@@ -36,7 +36,7 @@ This article provides a guide for importing and exporting data with Azure Redis 
 Import can be used to bring Redis compatible RDB files from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon Web Services and others. Importing data is an easy way to create a cache with pre-populated data. During the import process, Azure Redis Cache loads the RDB files from Azure storage into memory and then inserts the keys into the cache.
 
 > [!NOTE]
-> Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page or block blobs in Azure storage, in the same region and subscription as your Azure Redis Cache instance. For more information, see [Get started with Azure Blob storage](../storage/storage-dotnet-how-to-use-blobs.md). If you exported your RDB file using the [Azure Redis Cache Export](#export) feature, your RDB file is already stored in a page blob and is ready for importing.
+> Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page or block blobs in Azure storage, in the same region and subscription as your Azure Redis Cache instance. For more information, see [Get started with Azure Blob storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md). If you exported your RDB file using the [Azure Redis Cache Export](#export) feature, your RDB file is already stored in a page blob and is ready for importing.
 >
 >
 
@@ -74,7 +74,7 @@ Export allows you to export the data stored in Azure Redis Cache to Redis compat
 2. Click **Choose Storage Container** and select the desired storage account. The storage account must be in the same subscription and region as your cache.
 
    > [!IMPORTANT]
-   > Export works with page blobs, which are supported by both classic and Resource Manager storage accounts, but are not supported by [Blob storage accounts](../storage/storage-blob-storage-tiers.md#blob-storage-accounts) at this time.
+   > Export works with page blobs, which are supported by both classic and Resource Manager storage accounts, but are not supported by [Blob storage accounts](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts) at this time.
    >
    >
 
@@ -152,7 +152,7 @@ If you remain on the **Import data** or **Export data** blade for longer than 15
 To resolve this, initiate the import or export operation before 15 minutes has elapsed.
 
 ### I got an error when exporting my data to Azure Blob Storage. What happened?
-Export works only with RDB files stored as page blobs. Other blob types are not currently supported, including blob storage accounts with hot and cool tiers. For more information, see [Blob storage accounts](../storage/storage-blob-storage-tiers.md#blob-storage-accounts).
+Export works only with RDB files stored as page blobs. Other blob types are not currently supported, including blob storage accounts with hot and cool tiers. For more information, see [Blob storage accounts](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts).
 
 ## Next steps
 Learn how to use more premium cache features.

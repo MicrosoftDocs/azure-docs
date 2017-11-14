@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory B2C: FAQs | Microsoft Docs'
+title: 'Frequently asked questions (FAQ) - Azure AD B2C | Microsoft Docs'
 description: Frequently asked questions about Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 08/16/2017
 ms.author: saeeda
 
 ---
-# Azure Active Directory B2C: FAQs
+# Azure AD B2C: Frequently asked questions (FAQ) 
 This page answers frequently asked questions about the Azure Active Directory (Azure AD) B2C. Keep checking back for updates.
 
 ### Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
@@ -51,10 +51,10 @@ No, but this feature is on our roadmap. The default scopes used for our supporte
 No, you can host your application anywhere (in the cloud or on-premises). All it needs to interact with Azure AD B2C is the ability to send and receive HTTP requests on publicly accessible endpoints.
 
 ### I have multiple Azure AD B2C tenants. How can I manage them on the Azure portal?
-Each Azure AD B2C tenant has its own B2C features blade on the Azure portal. See [Azure AD B2C: Register your application](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) to learn how you can navigate to a specific tenant's B2C features blade on the Azure portal. Switching between Azure AD B2C directories on the Azure portal does not keep your B2C features blade open on most browsers.
+Before opening 'Azure AD B2C' in the left side menu of the Azure portal, you must switch into the directory you want to manage.  Switch directories by clicking your identity in the upper right of the Azure portal, then choose a directory in the drop down that appears.  For a step-by-step with images, see [Navigate to Azure AD B2C settings](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
-You can use the [company branding feature](../active-directory/active-directory-add-company-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
+You can use the [company branding feature](../active-directory/customize-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
 
 * **Banner Logo**: Shown at the bottom-right.
 * **Background color**: Shown at the top.
@@ -63,11 +63,11 @@ You can use the [company branding feature](../active-directory/active-directory-
 
 The email signature contains the B2C tenant's name that you provided when you first created the B2C tenant. You can change the name using these instructions:
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator.
-1. Navigate to your B2C tenant.
-1. Click the **Configure** tab.
-1. Change the **Name** field under the **Directory properties** section.
-1. Click **Save** at the bottom of the page.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator.
+1. Open the **Azure Active Directory** blade.
+1. Click the **Properties** tab.
+1. Change the **Name** field.
+1. Click **Save** at the top of the page.
 
 Currently there is no way to change the "From:" field on the email. Vote on [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) you are interested in customizing the body of the verification email.
 
@@ -84,7 +84,7 @@ No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using t
 No, for security reasons, Azure AD B2C pages cannot be opened within an iFrame.  Our service communicates with the browser to prohibit iFrames.  The security community in general and the OAUTH2 specification, recommend against using iFrames for identity experiences due to the risk of click-jacking.
 
 ### Does Azure AD B2C work with CRM systems such as Microsoft Dynamics?
-Basic integration with Microsoft Dynamics 365 Portal is coming soon.
+Integration with Microsoft Dynamics 365 Portal is available.  See [Configuring Dynamics 365 Portal to use Azure AD B2C for authentication](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### Does Azure AD B2C work with SharePoint on-premises 2016 or earlier?
 Azure AD B2C is not meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) instead.
@@ -95,9 +95,9 @@ Read this article about [external identities](../active-directory/active-directo
 ### What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
 No, Azure AD B2C does not support the same set of reports as Azure AD Premium. However there are many commonalities:
 
-* The sign-in reports provide a record of each sign-in with reduced details.
-* Audit reports are available in the Azure portal, under Azure Active Directory> ACTIVITY-Audit logs>Choose B2C and apply filters as desired. Both admin activity as well as application activity are covered. 
-* A usage report, covering number of users, number of logins, and volume of MFA is available at [Usage Reporting API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
+* **Sign-in reports** are only available in the Azure portal (Azure Active Directory > Activity > Sign-ins) and are not available via the Graph API. They provide a record of each sign-in with reduced details.
+* **Audit reports** are only available in the Azure portal (Azure Active Directory > Activity > Audit logs) and are not available via the Graph API. They include both admin activity as well as application activity. 
+* **Usage reports** are only available via the [Usage Reporting API](active-directory-b2c-reference-usage-reporting-api.md) and are not available via the Azure portal. They include number of users, number of logins, and volume of MFA. 
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
 Yes!  Read about [language customization](active-directory-b2c-reference-language-customization.md), which is in public preview.  We provide translations for 36 languages, and you can override any string to suit your needs.
@@ -108,8 +108,8 @@ Not currently. This feature is on our roadmap. Verifying your domain in the **Do
 ### How do I delete my Azure AD B2C tenant?
 Follow these steps to delete your Azure AD B2C tenant:
 
-1. Follow these steps to [navigate to the B2C features blade](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
-1. Navigate to the **Applications**, **Identity providers**, and **All policies** blades and delete all the entries in each of them.
+1. Follow these steps to [navigate to Azure AD B2C settings](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) on the Azure portal.
+1. Navigate to the **Applications**, **Identity providers**, and **All policies** and delete all the entries in each of them.
 1. Now sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. (Use the same work or school account or the same Microsoft account that you used to sign up for Azure.)
 1. Navigate to the Active Directory extension on the left and click your B2C tenant.
 1. Click the **Users** tab.

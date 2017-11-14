@@ -31,7 +31,7 @@ The logger module only consumes messages from the broker, it never publishes new
 
 ![How the broker routes messages between modules in Azure IoT Edge][5]
 
-The figure above shows the architecture of the Hello World sample and the relative paths to the source files that implement different portions of the sample in the [repository][lnk-iot-edge]. Explore the code on your own, or use the code snippets below as a guide.
+The preceding figure shows the architecture of the Hello World sample and the relative paths to the source files that implement different portions of the sample in the [repository][lnk-iot-edge]. Explore the code on your own, or use the code snippets in this article as a guide.
 
 <!-- Images -->
 [4]: media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png

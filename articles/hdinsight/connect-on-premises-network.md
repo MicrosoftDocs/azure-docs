@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/11/2017
+ms.date: 09/21/2017
 ms.author: larryfr
 
 ---
 
 # Connect HDInsight to your on-premise network
 
-Learn how to connect HDInsight to your on-premises network by using Azure Virtual Networks and a VPN gateway. This document provides the following information:
+Learn how to connect HDInsight to your on-premises network by using Azure Virtual Networks and a VPN gateway. This document provides planning information on:
 
-* How to create an Azure Virtual Network that connects to your on-premises network.
+* Using HDInsight in an Azure Virtual Network that connects to your on-premises network.
 
-* How to enable DNS name resolution between the virtual network and your on-premises network.
+* Configuring DNS name resolution between the virtual network and your on-premises network.
 
-* How to use network security groups to restrict internet access to HDInsight.
+* Configuring network security groups to restrict internet access to HDInsight.
 
-* How to discover the ports provided by HDInsight on the virtual network.
+* Ports provided by HDInsight on the virtual network.
 
 ## Create the Virtual network configuration
 
@@ -67,13 +67,16 @@ In the following diagram, green lines are requests for resources that end in the
 To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) DNS software, use the following steps:
 
 > [!NOTE]
-> The following steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see the [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md) and [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md) documents.
+> The following steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see the following documents:
+>
+> * [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+> * [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
 1. From the [Azure portal](https://portal.azure.com), select __+__, __Compute__, and __Ubuntu Server 16.04 LTS__.
 
     ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. From the __Basics__ blade, enter the following information:
+2. From the __Basics__ section, enter the following information:
 
     * __Name__: A friendly name that identifies this virtual machine. For example, __DNSProxy__.
     * __User name__: The name of the SSH account.
@@ -85,9 +88,9 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 
     Leave other entries at the default values and then select __OK__.
 
-3. From the __Choose a size__ blade, select the VM size. For this tutorial, select the smallest and lowest cost option. To continue, use the __Select__ button.
+3. From the __Choose a size__ section, select the VM size. For this tutorial, select the smallest and lowest cost option. To continue, use the __Select__ button.
 
-4. From the __Settings__ blade, enter the following information:
+4. From the __Settings__ section, enter the following information:
 
     * __Virtual network__: Select the virtual network that you created earlier.
 
@@ -99,9 +102,9 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 
     Leave the other entries at the default value, then select __OK__ to continue.
 
-5. From the __Purchase__ blade, select the __Purchase__ button to create the virtual machine.
+5. From the __Purchase__ section, select the __Purchase__ button to create the virtual machine.
 
-6. Once the virtual machine has been created, its __Overview__ blade is displayed. From the list on the left, select __Properties__. Save the __Public IP address__ and __Private IP address__ values. It will be used in the next section.
+6. Once the virtual machine has been created, its __Overview__ section is displayed. From the list on the left, select __Properties__. Save the __Public IP address__ and __Private IP address__ values. It will be used in the next section.
 
     ![Public and private IP addresses](./media/connect-on-premises-network/vm-ip-addresses.png)
 
@@ -116,7 +119,7 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
     Replace `sshuser` with the SSH user account you specified when creating the cluster.
 
     > [!NOTE]
-	> There are a variety of ways to obtain the `ssh` utility. On Linux, Unix, and macOS, it is usually provided as part of the operating system. If you are using Windows, consider one of the following options:
+	> There are a variety of ways to obtain the `ssh` utility. On Linux, Unix, and macOS, it is provided as part of the operating system. If you are using Windows, consider one of the following options:
     >
     > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
     > * [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
@@ -293,6 +296,8 @@ Use the steps in the [Create an HDInsight cluster using the Azure portal](./hdin
 ## Connecting to HDInsight
 
 Most documentation on HDInsight assumes that you have access to the cluster over the internet. For example, that you can connect to the cluster at https://CLUSTERNAME.azurehdinsight.net. This address uses the public gateway, which is not available if you have used NSGs or UDRs to restrict access from the internet.
+
+Some documentation also references `headnodehost` when connecting to the cluster from an SSH session. This address is only available from nodes within a cluster, and is not usable on clients connected over the virtual network.
 
 To directly connect to HDInsight through the virtual network, use the following steps:
 

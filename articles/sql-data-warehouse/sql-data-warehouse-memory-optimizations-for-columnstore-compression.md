@@ -1,9 +1,9 @@
 ---
-title: Improve columnstore index performance in Azure SQL | Microsoft Docs
+title: Improve columnstore index performance - Azure SQL Data Warehouse | Microsoft Docs
 description: Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
+author: barbkess
 manager: jhubbard
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 6/2/2017
-ms.author: shigu;barbkess
+ms.date: 10/23/2017
+ms.author: barbkess
 
 ---
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 DWU size and the user resource class together determine how much memory is available for a user query. To increase the memory grant for a load query, you can either increase the number of DWUs or increase the resource class.
 
 - To increase the DWUs, see [How do I scale performance?](sql-data-warehouse-manage-compute-overview.md#scale-compute)
-- To change the resource class for a query, see [Change a user resource class example](sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
+- To change the resource class for a query, see [Change a user resource class example](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
 
 For example, on DWU 100 a user in the smallrc resource class can use 100 MB of memory for each distribution. For the details, see [Concurrency in SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
 

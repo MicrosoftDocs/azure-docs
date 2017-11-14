@@ -3,7 +3,7 @@ title: Manage pricing and data volume for Azure Application Insights | Microsoft
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
-ms.author: sewhee
+ms.author: mbullwin
 
 ---
 # Manage pricing and data volume in Application Insights
@@ -37,7 +37,7 @@ The Basic plan is the default when a new Application Insights resource is create
 
 * In the Basic plan, you are charged by data volume: number of bytes of telemetry received by Application Insights. 
 Data volume is measured as the size of the uncompressed JSON data package received by Application Insights from your application.
-For [tabular data imported into Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), the data volume is measured as the uncompressed size of files sent to Application Insights.  
+For [tabular data imported into Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), the data volume is measured as the uncompressed size of files sent to Application Insights.  
 * Your first 1 GB for each app is free, so if you're just experimenting or developing, you're unlikely to have to pay.
 * [Live Metrics Stream](app-insights-live-stream.md) data isn't counted for pricing purposes.
 * [Continuous Export](app-insights-export-telemetry.md) is available for an extra per-GB charge in the Basic plan.

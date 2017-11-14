@@ -43,7 +43,7 @@ Before you can decide on an Azure identity solution for your organization, you n
 |Azure AD directory | Each Azure tenant has a dedicated, trusted Azure AD directory that contains the tenant’s users, groups, and applications. It is used to perform identity and access management functions for tenant resources. Because a unique Azure AD directory is automatically provisioned to represent your organization when you sign up for a Microsoft cloud service like Azure, Microsoft Intune, or Office 365, you’ll sometimes see the terms *tenant*, *Azure AD*, and *Azure AD directory* used interchangeably. |
 |Custom domain | When you first sign up for a Microsoft cloud service subscription, your tenant (organization) uses an *.onmicrosoft.com* domain name. However, most organizations have one or more domain names that are used to do business and that end users use to access company resources. You can add your custom domain name to Azure AD so that the domain name is familiar to your users, such as *alice@contoso.com* instead of *alice@contoso.onmicrosoft.com*. |
 |Azure AD account | These are identities that are created by using Azure AD or another Microsoft cloud service such as Office 365. They are stored in Azure AD and accessible to any of the organization’s cloud service subscriptions. |
-|Azure subscription administrator| The account administrator is the person who signed up for or bought the Azure subscription. They can use the [Account Center](https://account.windowsazure.com/Home/Index) to perform various management tasks like create subscriptions, cancel subscriptions, change the billing for a subscription, or change the Service Administrator. |
+|Azure subscription administrator| The account administrator is the person who signed up for or bought the Azure subscription. They can use the [Account Center](https://account.azure.com/Subscriptions) to perform various management tasks like create subscriptions, cancel subscriptions, change the billing for a subscription, or change the Service Administrator. |
 |Azure AD Global administrator | Azure AD Global administrators have full access to all Azure AD administrative features. The person who signs up for a Microsoft cloud service subscription automatically becomes a global administrator by default. You can have more than one global administrator, but only global administrators can assign any of [the other administrator roles](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) to users. |
 |Microsoft account | Microsoft accounts (created by you for personal use) provide access to consumer-oriented Microsoft products and cloud services, like Outlook (Hotmail), OneDrive, Xbox LIVE, or Office 365. These identities are created and stored in the Microsoft consumer identity account system run by Microsoft.|
 |Work or school accounts | Work or school accounts (issued by an admin for business/academic use) provide access to enterprise business-level Microsoft cloud services, such as Azure, Intune, or Office 365.|
@@ -114,12 +114,12 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 * [Additional security for an ever connected world](../multi-factor-authentication/multi-factor-authentication.md)
 * [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [Getting started with Azure AD Reporting](active-directory-reporting-getting-started.md)
-* [Manage your passwords from anywhere](active-directory-passwords.md)
+* [Manage your passwords from anywhere](active-directory-passwords-update-your-own-password.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
 * [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
-* [What is Microsoft Azure Active Directory licensing?](active-directory-licensing-what-is.md)
+* [What is Microsoft Azure Active Directory licensing?](active-directory-licensing-whatis-azure-portal.md)
 * [How can I discover unsanctioned cloud apps that are used within my organization](active-directory-cloudappdiscovery-whatis.md)
 
 ## Next steps

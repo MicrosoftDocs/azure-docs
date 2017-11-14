@@ -12,17 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ---
 
 # Publish applications on separate networks and locations using connector groups
-> [!div class="op_single_selector"]
-> * [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
-> * [Azure classic portal](active-directory-application-proxy-connectors.md)
->
 
 Customers utilize Azure AD's Application Proxy for more and more scenarios and applications. So we've made App Proxy even more flexible by enabling more topologies. You can create Application Proxy connector groups so that you can assign specific connectors to serve specific applications. This capability gives you more control and ways to optimize your Application Proxy deployment. 
 
@@ -71,13 +67,13 @@ Connector groups allow you to install dedicated connectors for those networks th
 
 ### Applications installed on IaaS 
 
-For applications installed on IaaS for cloud access, connector groups provide a common service to secure the access to all the apps. Connector groups don't create additional dependency on your corporate network, or fragment the app experience. Connectors can be installed on every cloud datacenter and serve only applications that reside in this network. You can install several connectors to achieve high availability.
+For applications installed on IaaS for cloud access, connector groups provide a common service to secure the access to all the apps. Connector groups don't create additional dependency on your corporate network, or fragment the app experience. Connectors can be installed on every cloud datacenter and serve only applications that reside in that network. You can install several connectors to achieve high availability.
 
-In this case, the organization has number of virtual machines connected to their own IaaS hosted virtual network. To allow employees to use these applications, these private networks are connected to the corporate network using site-to-site VPN. This provides a good experience for employees that are located on-premises. But, it may not be ideal for remote employees, because it requires additional on-premises infrastructure, as you can see in the diagram below:
+Take as an example an organization that has several virtual machines connected to their own IaaS hosted virtual network. To allow employees to use these applications, these private networks are connected to the corporate network using site-to-site VPN. This provides a good experience for employees that are located on-premises. But, it may not be ideal for remote employees, because it requires additional on-premises infrastructure to route access, as you can see in the diagram below:
 
 ![AzureAD Iaas Network](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
-This can become an issue as many organizations use multiple cloud vendors, as their applications reside in numerous datacenters. With Azure AD Application Proxy connector groups, you can enable a common service to secure the access to all applications without creating additional dependency on your corporate network:
+With Azure AD Application Proxy connector groups, you can enable a common service to secure the access to all applications without creating additional dependency on your corporate network:
 
 ![AzureAD Iaas Multiple Cloud Vendors](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 

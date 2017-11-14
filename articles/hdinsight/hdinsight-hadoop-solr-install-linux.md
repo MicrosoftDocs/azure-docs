@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
 
 ---
@@ -55,7 +55,7 @@ A sample script to install Solr on an HDInsight cluster is available at the foll
 
 To create a cluster that has Solr installed, use the steps in the [Create HDInsight clusters](hdinsight-hadoop-create-linux-clusters-portal.md) document. During the creation process, use the following steps to install Solr:
 
-1. From the __Cluster summary__ blade, select__Advanced settings__, then __Script actions__. Use the following information to populate the form:
+1. From the __Cluster summary__ section, select__Advanced settings__, then __Script actions__. Use the following information to populate the form:
 
    * **NAME**: Enter a friendly name for the script action.
    * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -64,7 +64,7 @@ To create a cluster that has Solr installed, use the steps in the [Create HDInsi
    * **ZOOKEEPER**: Check this option to install on the Zookeeper node
    * **PARAMETERS**: Leave this field blank
 
-2. At the bottom of the **Script actions** blade, use the **Select** button to save the configuration. Finally, use the **Next** button to return to the __Cluster summary__
+2. At the bottom of the **Script actions** section, use the **Select** button to save the configuration. Finally, use the **Next** button to return to the __Cluster summary__
 
 3. From the __Cluster summary__ page, select __Create__ to create the cluster.
 

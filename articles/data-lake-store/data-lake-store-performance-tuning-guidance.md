@@ -50,7 +50,7 @@ Once you have addressed the source hardware and network connectivity bottlenecks
 | Powershell       | PerFileThreadCount, ConcurrentFileCount |	[Link](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell)	|
 | AdlCopy    | Azure Data Lake Analytics units	|	[Link](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
 | DistCp            | -m (mapper)	| [Link](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies	| [Link](../data-factory/data-factory-copy-activity-performance.md)                          |
+| Azure Data Factory| parallelCopies	| [Link](../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## Structure your data set

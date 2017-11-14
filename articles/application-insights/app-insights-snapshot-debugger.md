@@ -1,9 +1,9 @@
----
+﻿---
 title: Azure Application Insights Snapshot Debugger for .NET apps | Microsoft Docs
 description: Debug snapshots are automatically collected when exceptions are thrown in production .NET apps
 services: application-insights
 documentationcenter: ''
-author: qubitron
+author: pharring
 manager: carmonm
 
 ms.service: application-insights
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: sewhee
+ms.author: mbullwin
 
 ---
 # Debug snapshots on exceptions in .NET apps
 
 When an exception occurs, you can automatically collect a debug snapshot from your live web application. The snapshot shows the state of source code and variables at the moment the exception was thrown. The Snapshot Debugger (preview) in [Azure Application Insights](app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application, and optionally configure collection parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](app-insights-asp-net-exceptions.md) in the Application Insights portal.
 
-You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise by [downloading the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
+You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise by [downloading the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger). In Visual Studio you can also [set Snappoints to interactively take snapshots](https://aka.ms/snappoint) without waiting for an exception.
 
 Snapshot collection is available for:
 * .NET Framework and ASP.NET applications running .NET Framework 4.5 or later.
@@ -64,43 +64,61 @@ Snapshot collection is available for:
 
 1. [Enable Application Insights in your ASP.NET Core web app](app-insights-asp-net-core.md), if you haven't done it yet.
 
+> [!NOTE]
+> Be sure that your application references version 2.1.1, or newer, of the Microsoft.ApplicationInsights.AspNetCore package.
+
 2. Include the [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
-3. Modify the `ConfigureServices` method in your application's `Startup` class to add the Snapshot Collector's telemetry processor. The code you should add depends on the referenced version of the Microsoft.ApplicationInsights.ASPNETCore NuGet package.
+3. Modify your application's `Startup` class to add and configure the Snapshot Collector's telemetry processor.
 
-   For Microsoft.ApplicationInsights.AspNetCore 2.1.0 add:
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
-   ...
-   class Startup
-   {
-       // This method is called by the runtime. Use it to add services to the container.
-       public void ConfigureServices(IServiceCollection services)
-       {
-           services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
-           // TODO: Add any other services your application needs here.
-       }
-   }
-   ```
-
-   For Microsoft.ApplicationInsights.AspNetCore 2.1.1 add:
-   ```C#
-   using Microsoft.ApplicationInsights.SnapshotCollector;
+   using Microsoft.Extensions.Options;
    ...
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
        {
-           public ITelemetryProcessor Create(ITelemetryProcessor next) =>
-               new SnapshotCollectorTelemetryProcessor(next);
+           private readonly IServiceProvider _serviceProvider;
+
+           public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
+               _serviceProvider = serviceProvider;
+
+           public ITelemetryProcessor Create(ITelemetryProcessor next)
+           {
+               var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
+               return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
+           }
        }
 
-       // This method is called by the runtime. Use it to add services to the container.
+       public Startup(IConfiguration configuration) => Configuration = configuration;
+
+       public IConfiguration Configuration { get; }
+
+       // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
-            services.AddSingleton<ITelemetryProcessorFactory>(new SnapshotCollectorTelemetryProcessorFactory());
-           // TODO: Add any other services your application needs here.
+           // Configure SnapshotCollector from application settings
+           services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
+
+           // Add SnapshotCollector telemetry processor.
+           services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
+
+           // TODO: Add other services your application needs here.
        }
+   }
+   ```
+
+4. Configure the Snapshot Collector by adding a SnapshotCollectorConfiguration section to appsettings.json. For example:
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "IsEnabledInDeveloperMode": true
+     }
    }
    ```
 
@@ -171,7 +189,7 @@ The downloaded snapshot contains any symbol files that were found on your web ap
 
 ## How snapshots work
 
-When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10 to 20 minutes. The shadow process is then analyzed, and a snapshot is created while the main process continues to run and serve traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files that are needed to view the snapshot.
+When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10 to 20 milliseconds. The shadow process is then analyzed, and a snapshot is created while the main process continues to run and serve traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files that are needed to view the snapshot.
 
 ## Current limitations
 
@@ -268,6 +286,6 @@ If you still don't see an exception with that snapshot ID, then the exception te
 
 ## Next steps
 
-* [Set snappoints in your code](https://azure.microsoft.com/blog/snapshot-debugger-for-azure/) to get snapshots without waiting for an exception.
+* [Set snappoints in your code](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
 * [Diagnose exceptions in your web apps](app-insights-asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights. 
 * [Smart Detection](app-insights-proactive-diagnostics.md) automatically discovers performance anomalies.

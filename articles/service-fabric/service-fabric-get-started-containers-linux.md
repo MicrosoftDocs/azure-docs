@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
 
 ---
@@ -29,6 +29,7 @@ Running an existing application in a Linux container on a Service Fabric cluster
 * A development computer running:
   * [Service Fabric SDK and tools](service-fabric-get-started-linux.md).
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
+  * [Service Fabric CLI](service-fabric-cli.md)
 
 * A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
 
@@ -159,34 +160,46 @@ The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generato
 
 To create a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`.  
 
-Name your application (for example, "mycontainer"). 
+Name your application (for example, "mycontainer") and name the application service (for example, "myservice").
 
-Provide the URL for the container image in a container registry (for example, ""). 
+For the image name, provide the URL for the container image in a container registry (for example, "myregistry.azurecr.io/samples/helloworldapp"). 
 
-This image has a workload entry-point defined, so need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
+Since this image has a workload entry-point defined, you don't need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
 
 Specify an instance count of "1".
 
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
 ## Configure port mapping and container repository authentication
-Your containerized service needs an endpoint for communication.  Now add the protocol, port, and type to an `Endpoint` in the ServiceManifest.xml file. For this article, the containerized service listens on port 4000: 
+Your containerized service needs an endpoint for communication.  Now add the protocol, port, and type to an `Endpoint` in the ServiceManifest.xml file under the 'Resources' tag. For this article, the containerized service listens on port 4000: 
 
 ```xml
-<Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-```
+
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+    </Endpoints>
+  </Resources>
+ ```
+ 
 Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
 
-Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "myserviceTypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 4000 are mapped to port 80 on the container.  If your container needs to authenticate with a private repository, then add `RepositoryCredentials`.  For this article, add the account name and password for the myregistry.azurecr.io container registry. 
+Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file.  For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "myServiceTypeEndpoint" (the endpoint defined in the service manifest).  Incoming requests to the service on port 4000 are mapped to port 80 on the container.  If your container needs to authenticate with a private repository, then add `RepositoryCredentials`.  For this article, add the account name and password for the myregistry.azurecr.io container registry. Ensure the policy is added under the 'ServiceManifestImport' tag corresponding to the right service package.
 
 ```xml
-<Policies>
-    <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-    </ContainerHostPolicies>
-</Policies>
-```
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
+	<Policies>
+	    <ContainerHostPolicies CodePackageRef="Code">
+		<RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+		<PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+	    </ContainerHostPolicies>
+	</Policies>
+   </ServiceManifestImport>
+```	
 
 ## Build and package the Service Fabric application
 The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal. To build and package the application, run the following:
@@ -197,12 +210,12 @@ gradle
 ```
 
 ## Deploy the application
-Once the application is built, you can deploy it to the local cluster using the Azure CLI.
+Once the application is built, you can deploy it to the local cluster using the Service Fabric CLI.
 
 Connect to the local Service Fabric cluster.
 
 ```bash
-azure servicefabric cluster connect
+sfctl cluster select --endpoint http://localhost:19080
 ```
 
 Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
@@ -273,7 +286,7 @@ Here are the complete service and application manifests used in this article.
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -295,7 +308,7 @@ Here are the complete service and application manifests used in this article.
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>
@@ -370,7 +383,7 @@ For images that should not be deleted, you can specify them under the `Container
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
-* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
+* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png

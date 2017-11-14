@@ -14,10 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 09/29/2017
 ms.author: curtand
+ms.reviewer: piotrci
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017;it-pro
 
 ---
 # Create attribute-based rules for dynamic group membership in Azure Active Directory
@@ -28,28 +29,28 @@ When any attributes of a user or device change, the system evaluates all dynamic
 > [!NOTE]
 > - You can set up a rule for dynamic membership on security groups or Office 365 groups.
 >
-> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group.
+> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group. It is not mandatory to actually assign licenses to users for them to be members in dynamic groups, but you do need to have the minimum number of licenses in the tenant to cover all such users. For example: if you have a total of 1,000 unique users in all dynamic groups in your tenant, you need to have at least 1,000 licenses for Azure AD Premium P1, or above, to meet the license requirement.
 >
 > - You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
 
 > - At the moment it is not possible to create a device group based on owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
 
 ## To create an advanced rule
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is a global administrator or a user account administrator.
-2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator.
+2. Select **Users and groups**.
+3. Select **All groups**, and select **New group**.
 
-   ![Opening user management](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
-3. On the **Users and groups** blade, select **All groups**.
+   ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/new-group-creation.png)
 
-   ![Opening the groups blade](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. On the **Users and groups - All groups** blade, select the **Add** command.
-
-   ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
-5. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. For the attributes used for device rules, see [Using attributes to create rules for device objects](#using-attributes-to-create-rules-for-device-objects).
+4. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. You can use the rule builder to build a simple rule, or write an advanced rule yourself. This article contains more information about available user and device attributes as well as examples of advanced rules.
 
    ![Add dynamic membership rule](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
-6. On the **Dynamic membership rules** blade, enter your rule into the **Add dynamic membership advanced rule** box, press Enter, and then select **Create** at the bottom of the blade.
-7. Select **Create** on the **Group** blade to create the group.
+
+5. After creating the rule, select **Add query** at the bottom of the blade.
+6. Select **Create** on the **Group** blade to create the group.
+
+> [!TIP]
+> Group creation may fail if the advanced rule you entered was incorrect. A notification will be displayed in the upper-right hand corner of the portal; it contains an explanation of why the rule could not be accepted by the system. Read it carefully to understand how you need to adjust the rule to make it valid.
 
 ## Constructing the body of an advanced rule
 The advanced rule that you can create for the dynamic memberships for groups is essentially a binary expression that consists of three parts and results in a true or false outcome. The three parts are:
@@ -70,10 +71,8 @@ For the complete list of supported parameters and expression rule operators, see
 The total length of the body of your advanced rule cannot exceed 2048 characters.
 
 > [!NOTE]
-> String and regex operations are case insensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
+> String and regex operations are not case sensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
 > Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
->
->
 
 ## Supported expression rule operators
 The following table lists all the supported expression rule operators and their syntax to be used in the body of the advanced rule:
@@ -93,16 +92,15 @@ The following table lists all the supported expression rule operators and their 
 
 ## Operator precedence
 
-All Operators are listed below per precedence from lower to higher, operator in same line are in equal precedence
+All Operators are listed below per precedence from lower to higher. Operators on same line are in equal precedence:
+````
 -any -all
 -or
 -and
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
-
-All operators can be used with or without hyphen prefix.
-
-Note that parenthesis are not always needed, you only need to add parenthesis when precedence does not meet your requirements.
+````
+All operators can be used with or without the hyphen prefix. Parentheses are needed only when precedence does not meet your requirements.
 For example:
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
@@ -121,15 +119,13 @@ Note the use of the "[" and "]" at the beginning and end of the list of values. 
 
 
 ## Query error remediation
-The following table lists potential errors and how to correct them if they occur
+The following table lists common errors and how to correct them
 
 | Query Parse Error | Error Usage | Corrected Usage |
 | --- | --- | --- |
-| Error: Attribute not supported. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/>Property should match one from the [supported properties list](#supported-properties). |
-| Error: Operator is not supported on attribute. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/>Property is of type boolean. Use the supported operators (-eq or -ne) on boolean type from the above list. |
-| Error: Query compilation error. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Logical operator should match one from the supported properties list above.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error in regular expression. |
-| Error: Binary expression is not in right format. |(user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Query has multiple errors. Parenthesis not in right place. |
-| Error: Unknown error occurred during setting up dynamic memberships. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Query has multiple errors. Parenthesis not in right place. |
+| Error: Attribute not supported. |(user.invalidProperty -eq "Value") |(user.department -eq "value")<br/><br/>Make sure the attribute is on the [supported properties list](#supported-properties). |
+| Error: Operator is not supported on attribute. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true)<br/><br/>The operator used is not supported for the property type (in this example, -contains cannot be used on type boolean). Use the correct operators for the property type. |
+| Error: Query compilation error. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Missing operator. Use -and or -or two join predicates<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2.Error in regular expression used with -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), alternatively: (user.userPrincipalName -match "@domain.ext$")|
 
 ## Supported properties
 The following are all the user properties that you can use in your advanced rule:
@@ -274,29 +270,95 @@ You can create a group containing all direct reports of a manager. When the mana
 3. After saving the rule, all users with the specified Manager ID value will be added to the group.
 
 ## Using attributes to create rules for device objects
-You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:
+You can also create a rule that selects device objects for membership in a group. The following device attributes can be used.
 
-| Properties              | Allowed values                  | Usage                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
-| displayName             | any string value                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | any string value                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | any string value                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | any string value                | (device.deviceCategory -eq "")                              |
-| deviceManufacturer      | any string value                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | any string value                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | any string value                | (device.deviceOwnership -eq "")                             |
-| domainName              | any string value                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | any string value                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
-| managementType          | any string value                | (device.managementType -eq "")                              |
-| organizationalUnit      | any string value                | (device.organizationalUnit -eq "")                          |
-| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | a valid AAD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
-
-
+ Device attribute  | Values | Example
+ ----- | ----- | ----------------
+ accountEnabled | true false | (device.accountEnabled -eq true)
+ displayName | any string value |(device.displayName -eq "Rob Iphone”)
+ deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")
+ deviceOSVersion | any string value | (device.OSVersion -eq "9.1")
+ deviceCategory | a valid device category name | (device.deviceCategory -eq "BYOD")
+ deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
+ deviceModel | any string value | (device.deviceModel -eq "iPad Air")
+ deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
+ domainName | any string value | (device.domainName -eq "contoso.com")
+ enrollmentProfileName | Apple Device Enrollment Profile name | (device.enrollmentProfileName -eq "DEP iPhones")
+ isRooted | true false | (device.isRooted -eq true)
+ managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
+ organizationalUnit | any string value matching the name of the organizational unit set by an on-premises Active Directory | (device.organizationalUnit -eq "US PCs")
+ deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ objectId | a valid Azure AD object ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
 
+
+## Changing dynamic membership to static, and vice versa
+It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
+
+We are in the process of updating the Azure portal to support this functionality. In the meantime, you can use the [Azure classic portal](https://manage.windowsazure.com) (follow the instructions [here](active-directory-groups-dynamic-membership-azure-portal.md)) or use PowerShell cmdlets as shown below.
+
+> [!WARNING]
+> When changing an existing static group to a dynamic group, all existing members will be removed from the group, and then the membership rule will be processed to add new members. If the group is used to control access to apps or resources, the original members may lose access until the membership rule is fully processed.
+>
+> It is a recommended practice to test the new membership rule beforehand to make sure that the new membership in the group is as expected.
+
+**Using PowerShell to change membership management on a group**
+
+> [!NOTE]
+> To change dynamic group properties you will need to use cmdlets from **the preview version of** [Azure AD PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). You can install the preview from [here](https://www.powershellgallery.com/packages/AzureADPreview).
+
+Here is an example of functions that switch membership management on an existing group. Note that care is taken to correctly manipulate the GroupTypes property and preserve any values that may exist there, unrelated to dynamic membership.
+
+```
+#The moniker for dynamic groups as used in the GroupTypes property of a group object
+$dynamicGroupTypeString = "DynamicMembership"
+
+function ConvertDynamicGroupToStatic
+{
+    Param([string]$groupId)
+
+    #existing group types
+    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
+
+    if($groupTypes -eq $null -or !$groupTypes.Contains($dynamicGroupTypeString))
+    {
+        throw "This group is already a static group. Aborting conversion.";
+    }
+
+
+    #remove the type for dynamic groups, but keep the other type values
+    $groupTypes.Remove($dynamicGroupTypeString)
+
+    #modify the group properties to make it a static group: i) change GroupTypes to remove the dynamic type, ii) pause execution of the current rule
+    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "Paused"
+}
+
+function ConvertStaticGroupToDynamic
+{
+    Param([string]$groupId, [string]$dynamicMembershipRule)
+
+    #existing group types
+    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
+
+    if($groupTypes -ne $null -and $groupTypes.Contains($dynamicGroupTypeString))
+    {
+        throw "This group is already a dynamic group. Aborting conversion.";
+    }
+    #add the dynamic group type to existing types
+    $groupTypes.Add($dynamicGroupTypeString)
+
+    #modify the group properties to make it a static group: i) change GroupTypes to add the dynamic type, ii) start execution of the rule, iii) set the rule
+    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "On" -MembershipRule $dynamicMembershipRule
+}
+```
+To make a group static:
+```
+ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
+```
+To make a group dynamic:
+```
+ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
+```
 ## Next steps
 These articles provide additional information on groups in Azure Active Directory.
 

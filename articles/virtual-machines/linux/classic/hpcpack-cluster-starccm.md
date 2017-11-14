@@ -1,4 +1,4 @@
-﻿---
+---
 title: Run STAR-CCM+ with HPC Pack on Linux VMs | Microsoft Docs
 description: Deploy a Microsoft HPC Pack cluster on Azure and run an STAR-CCM+ job on multiple Linux compute nodes across an RDMA network.
 services: virtual-machines-linux
@@ -115,7 +115,7 @@ Now that all nodes are up and running in the cluster, there are additional infra
 ## Set up an Azure File share for Windows and Linux nodes
 You can use the Azure File service to store scripts, application packages, and data files. Azure File provides CIFS capabilities on top of Azure Blob storage as a persistent store. Be aware that this is not the most scalable solution, but it is the simplest one and doesn’t require dedicated VMs.
 
-Create an Azure File share by following the instructions in the article [Get started with Azure File storage on Windows](../../../storage/storage-dotnet-how-to-use-files.md).
+Create an Azure File share by following the instructions in the article [Get started with Azure File storage on Windows](../../../storage/files/storage-dotnet-how-to-use-files.md).
 
 Keep the name of your storage account as **saname**, the file share name as **sharename**, and the storage account key as **sakey**.
 

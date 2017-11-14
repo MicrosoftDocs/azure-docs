@@ -111,19 +111,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| |
 	|--|
 	| `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
-	| `https://<instancename>.sandboxcerner.com/session-api/protocol/saml2/metadata` |
 	| `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
-	| `https://sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
-	| `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
+	
 
-	b. In the **Reply URL** textbox, type a URL using the following patterns: 
+    b. In the **Reply URL** textbox, type a URL using the following patterns: 
 	| |
 	|--|
 	| `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
-	| `https://cernercentral.com/<instasncename>` |
-	| `https://sandboxcernercentral.com/<instancename>` |
-	| `https://sandboxcernercentral.com/<instancename>` |
-	| `https://<subdomain>.sandboxcernercentral.com/<instancename>` |
+	| `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
+	
 
 	> [!NOTE] 
 	> These values are not the real. Update these values with the actual Identifier and Reply URL. Contact [Cerner Central support team](https://wiki.ucern.com/display/CernerCentral/Contacting+Cloud+Operations) to get these values.

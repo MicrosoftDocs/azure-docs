@@ -1,21 +1,21 @@
----     
-title: Azure AD v2 JS SPA Guided Setup - Test | Microsoft Docs      
-description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2 endpoint       
-services: active-directory      
-documentationcenter: dev-center-name        
-author: andretms        
-manager: mbaldwin       
-editor: ''      
-       
-ms.service: active-directory        
-ms.devlang: na      
-ms.topic: article       
-ms.tgt_pltfrm: na       
-ms.workload: identity       
-ms.date: 06/01/2017     
-ms.author: andret
 ---
+title: Azure AD v2 JS SPA Guided Setup - Test | Microsoft Docs
+description: How JavaScript SPA applications can call an API that require access tokens by Azure Active Directory v2 endpoint
+services: active-directory
+documentationcenter: dev-center-name     
+author: andretms
+manager: mbaldwin
+editor: ''
 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 06/01/2017
+ms.author: andret
+
+---
 ## Test your code
 
 > ### Testing with Visual Studio
@@ -59,3 +59,5 @@ The Microsoft Graph API requires the `user.read` scope to read the user's profil
 If a backend API does not require a scope (not recommended), you can use the `clientId` as the scope in the `acquireTokenSilent` and/or `acquireTokenRedirect` calls.
 
 <!--end-collapse-->
+
+[!INCLUDE  [Help and Support Options](../../../../includes/active-directory-develop-help-support-include.md)]

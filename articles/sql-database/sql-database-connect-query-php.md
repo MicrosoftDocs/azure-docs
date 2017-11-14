@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 4e71db4a-a 22f-4f1c-83e5-4a34a036ecf3
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: drivers
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: php
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 08/08/2017
 ms.author: carlrab
 

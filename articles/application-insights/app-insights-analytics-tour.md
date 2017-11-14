@@ -3,7 +3,7 @@ title: A tour through Analytics in Azure Application Insights | Microsoft Docs
 description: Short samples of all the main queries in Analytics, the powerful search tool of Application Insights.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
-ms.author: sewhee
+ms.author: mbullwin
 
 ---
 # A tour of Analytics in Application Insights
@@ -53,9 +53,19 @@ Expand any item to see the detail:
 ![Choose Table, and use Configure Columns](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Sorting this way doesn't always show you the actual highest or lowest items. To sort items reliably, use the `top` or `sort` operator.
+> Click the header of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Sorting this way simply sorts the returned result set and doesn't always show you the actual highest or lowest items. To sort items reliably, use the `top` or `sort` operator.
 >
 >
+
+## Query across applications
+If you want to combine data from multiple Application Insights applications, use the **app** keyword to specify the application along with the table name.  This query combines the requests from two different applications using the **union** command.
+
+
+```AIQL
+
+	union app('fabrikamstage').requests, app('fabrikamprod').requests
+	
+```
 
 ## [Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) and [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
 `take` is useful to get a quick sample of a result, but it shows rows from the table in no particular order. To get an ordered view, use `top` (for a sample) or `sort` (over the whole table).
@@ -81,7 +91,7 @@ Show me the first n rows, ordered by a particular column:
 
 The result would be the same, but it would run a bit more slowly. (You could also write `order`, which is an alias of `sort`.)
 
-The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, you'll only re-order the records you've retrieved.
+The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, clicking on the column header will only re-order the records you've retrieved.
 
 ## [Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtering on a condition
 
@@ -104,8 +114,9 @@ The `where` operator takes a Boolean expression. Here are some key points about 
 
 <!---Read all about [scalar expressions]().--->
 
-### Getting the right type
-Find unsuccessful requests:
+### Find unsuccessful requests
+
+Convert a string value to an integer to use greater-than comparison:
 
 ```AIQL
 
@@ -229,7 +240,7 @@ Or we could separate the result into requests of different names:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` collects the data points in the stream into groups for which the `by` clause evaluates equally. Each value in the `by` expression - each operation name in the above example - results in a row in the result table.
+`Summarize` collects the data points in the stream into groups for which the `by` clause evaluates equally. Each value in the `by` expression - each unique operation name in the above example - results in a row in the result table.
 
 Or we could group results by time of day:
 
@@ -391,7 +402,7 @@ How many sessions are there of different lengths?
     | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-The last line is required to convert to datetime. Currently the x axis of a chart is displayed as a scalar only if it is a datetime.
+The last line is required to convert to datetime. Currently the x-axis of a chart is displayed as a scalar only if it is a datetime.
 
 The `where` clause excludes one-shot sessions (sessionDuration==0) and sets the length of the x-axis.
 

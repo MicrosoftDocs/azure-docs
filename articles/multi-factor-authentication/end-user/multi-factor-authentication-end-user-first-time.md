@@ -4,9 +4,9 @@ description: 'When your company configures Azure Multi-Factor Authentication, yo
 services: multi-factor-authentication
 keywords: how to use azure directory, active directory in the cloud, active directory tutorial
 documentationcenter: ''
-author: kgremban
+author: barlanmsft
 manager: femila
-editor: pblachar
+ms.reviewer: richagi
 
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication
@@ -15,8 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
+experimental: true
+experiment_id: 833be599-1785-4f
+
 ---
 # Set up my account for two-step verification
 Two-step verification is an additional security step that helps protect your account by making it harder for other people to break in. If you're reading this article, you probably got an email from your work or school admin about Multi-Factor Authentication. Or maybe you tried to sign in and got a message asking you to set up additional security verification. If that's the case, **you cannot sign in until you have completed the auto-enrollment process**.
@@ -25,13 +28,13 @@ This article helps you set up your **work or school account**. If you want to en
 
 ## Set up your account
 
-When your IT department requires you to start using two-step verification, you'll see a screen that says **Your admin has required that you set up this account for additional secuirty verification**:
+When your company support requires you to start using two-step verification, you'll see a screen that says **Your admin has required that you set up this account for additional security verification**:
 
 ![Setup](./media/multi-factor-authentication-end-user-first-time/first.png)
 
 To get started, select **Set it up now.**
 
-If you do not see a screen like this when you sign in, follow the directions in [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) to find the settings page where you can manage your verification options. 
+If you do not see a screen like this when you sign in, follow the directions in [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) to find the settings page where you can manage your verification options.
 
 ## Decide how you want to verify your sign-ins
 

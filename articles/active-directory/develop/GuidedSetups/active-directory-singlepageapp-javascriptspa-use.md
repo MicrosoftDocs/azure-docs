@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/01/2017
 ms.author: andret    
----
 
+---
 ## Use the Microsoft Authentication Library (MSAL) to sign-in the user
 
 1.	Create a file named `app.js`. If you are using Visual Studio, select the project (project root folder), right click and select: `Add` > `New Item` > `JavaScript File`:
@@ -93,7 +93,6 @@ function callGraphApi() {
                     userAgentApplication.acquireTokenRedirect(graphAPIScopes);
                 }
             });
-
     }
 }
 
@@ -102,7 +101,7 @@ function callGraphApi() {
  * @param {string} errorDesc - If error occur, the error message
  * @param {object} token - The token received from login
  * @param {object} error - The error string
- * @param {string} tokenType - the token type: usually id_token
+ * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
  */
 function loginCallback(errorDesc, token, error, tokenType) {
     if (errorDesc) {

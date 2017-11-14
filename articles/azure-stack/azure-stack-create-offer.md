@@ -1,6 +1,6 @@
 ---
 title: Create an offer in Azure Stack | Microsoft Docs
-description: As a cloud administrator, learn how to create an offer for your tenants in Azure Stack.
+description: As a cloud administrator, learn how to create an offer for your users in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -18,7 +18,10 @@ ms.author: erikje
 
 ---
 # Create an offer in Azure Stack
-[Offers](azure-stack-key-features.md) are groups of one or more plans that providers present to tenants to purchase or subscribe to. This document shows you how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
+[Offers](azure-stack-key-features.md) are groups of one or more plans that providers present to users to purchase or subscribe to. This document shows you how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
 
 1. Sign in to the Azure Stack administrator portal (https://adminportal.local.azurestack.external) > click **New** > **Tenant Offers + Plans** > **Offer**.
 
@@ -33,18 +36,18 @@ ms.author: erikje
 
    ![](media/azure-stack-create-offer/image03.png)
 
-Offers must be made public for tenants to get the full view when subscribing. Offers can be:
+Offers must be made public for users to get the full view when subscribing. Offers can be:
 
-* **Public**: Visible to tenants.
+* **Public**: Visible to users.
 * **Private**: Only visible to the cloud administrators. Useful while drafting the plan or offer, or if the cloud administrator wants to approve every subscription.
 * **Decommissioned**: Closed to new subscribers. The cloud administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
 
-Changes to the offer are not immediately visible to the tenant. To see the changes, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
+Changes to the offer are not immediately visible to the user. To see the changes, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
 
 > [!NOTE]
 >You can also create default offers, plans, and quotas by using PowerShell as explained in the [Azure Stack Service Administrator readme](https://github.com/Azure/AzureStack-Tools/tree/master/ServiceAdmin).
 >
 
 
-## Next steps
+### Next steps
 [Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)

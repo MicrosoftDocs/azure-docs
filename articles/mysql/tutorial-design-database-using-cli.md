@@ -5,10 +5,11 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
-ms.service: mysql-database
+editor: jasonwhowell
+ms.service: mysql
 ms.devlang: azure-cli
-ms.topic: article
-ms.date: 06/13/2017
+ms.topic: tutorial
+ms.date: 11/03/2017
 ms.custom: mvc
 ---
 
@@ -19,7 +20,7 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
 > * Load sample data
 > * Query data
 > * Update data
@@ -29,7 +30,7 @@ You may use the Azure Cloud Shell in the browser, or [Install Azure CLI 2.0]( /c
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#set) command.
 ```azurecli-interactive
@@ -37,7 +38,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## Create a resource group
-Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
+Create an [Azure resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) with [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command. A resource group is a logical container into which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group named `mycliresource` in the `westus` location.
 
@@ -98,7 +99,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 ```
 
 ## Connect to the server using mysql
-Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to establish a connection to your Azure Database for MySQL server. In this example, the command is:
+Use the [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to establish a connection to your Azure Database for MySQL server. In this example, the command is:
 ```cmd
 mysql -h mycliserver.database.windows.net -u myadmin@mycliserver -p
 ```
@@ -115,9 +116,9 @@ mysql> USE mysampledb;
 ```
 
 ## Create tables in the database
-Now that you know how to connect to the Azure Database for MySQL database, we can go over how to complete some basic tasks.
+Now that you know how to connect to the Azure Database for MySQL database, complete some basic tasks:
 
-First, we can create a table and load it with some data. Let's create a table that stores inventory information.
+First, create a table and load it with some data. Let's create a table that stores inventory information.
 ```sql
 CREATE TABLE inventory (
 	id serial PRIMARY KEY, 
@@ -127,7 +128,7 @@ CREATE TABLE inventory (
 ```
 
 ## Load data into the tables
-Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
+Now that you have a table, insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
@@ -154,7 +155,7 @@ SELECT * FROM inventory;
 ## Restore a database to a previous point in time
 Imagine you have accidentally deleted this table. This is something you cannot easily recover from. Azure Database for MySQL allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
 
-For the Restore you need the following information:
+For the restore, you need the following information:
 
 - Restore point: Select a point-in-time that occurs before the server was changed. Must be greater than or equal to the source database's Oldest backup value.
 - Target server: Provide a new server name you want to restore to
@@ -172,7 +173,7 @@ In this tutorial you learned to:
 > [!div class="checklist"]
 > * Create an Azure Database for MySQL
 > * Configure the server firewall
-> * Use [mysql command line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
+> * Use [mysql command-line tool](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) to create a database
 > * Load sample data
 > * Query data
 > * Update data

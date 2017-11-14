@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -43,7 +43,7 @@ You can easily identify whether you can't access a resource due to an unsupporte
 
 !["You can't get there from here" message for unsupported browsers](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
 
-The only remediation is to use a browser that the application supports for your device platform. For a complete list of supported browsers, see [supported browsers](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies).  
+The only remediation is to use a browser that the application supports for your device platform. For a complete list of supported browsers, see [supported browsers](active-directory-conditional-access-supported-apps.md).  
 
 
 ## Supported versions of Windows
@@ -155,5 +155,5 @@ If your device is not domain-joined and runs Windows 8.1, to do a Workplace Join
 
 
 ## Next steps
-[Azure Active Directory conditional access](active-directory-conditional-access.md)
+[Azure Active Directory conditional access](active-directory-conditional-access-azure-portal.md)
 

@@ -135,7 +135,7 @@ azure group create myResourceGroup --location "WestUS"
 ```
 
 ## Create a storage account
-VMs are stored as page blobs within a storage account. Read more about [Azure blob storage here](../../storage/storage-introduction.md#blob-storage). You create a storage account for your custom disk image and VMs. Any VMs that you create from your custom disk image need to be in the same storage account as that image.
+VMs are stored as page blobs within a storage account. Read more about [Azure blob storage here](../../storage/common/storage-introduction.md#blob-storage). You create a storage account for your custom disk image and VMs. Any VMs that you create from your custom disk image need to be in the same storage account as that image.
 
 The following example creates a storage account named `mystorageaccount` in the resource group previously created:
 
@@ -145,7 +145,7 @@ azure storage account create mystorageaccount --resource-group myResourceGroup \
 ```
 
 ## List storage account keys
-Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../../storage/storage-create-storage-account.md#manage-your-storage-account). You can view access keys with the `azure storage account keys list` command.
+Azure generates two 512-bit access keys for each storage account. These access keys are used when authenticating to the storage account, such as to carry out write operations. Read more about [managing access to storage here](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). You can view access keys with the `azure storage account keys list` command.
 
 View the access keys for the storage account you created:
 

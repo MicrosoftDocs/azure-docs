@@ -3,7 +3,7 @@ title: Create your first reliable Azure microservice in Java | Microsoft Docs
 description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
 services: service-fabric
 documentationcenter: java
-author: vturecek
+author: suhuruli
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
-ms.author: vturecek
+ms.date: 11/02/2017
+ms.author: suhuruli
 
 ---
 # Get started with Reliable Services
@@ -163,22 +163,17 @@ application. To run the application, first build the application with gradle:
 $ gradle
 ```
 
-This produces a Service Fabric application package that can be deployed using Service Fabric Azure CLI.
+This produces a Service Fabric application package that can be deployed using Service Fabric CLI.
 
-### Deploy with XPlat CLI
+### Deploy with Service Fabric CLI
 
-If using the XPlat CLI, the install.sh script contains the necessary Azure CLI commands to deploy the application 
-package. Run the install.sh script to deploy the application.
+The install.sh script contains the necessary Service Fabric CLI commands to deploy the application package. Run the
+install.sh script to deploy the application.
 
 ```bash
 $ ./install.sh
 ```
 
-### Deploy with Azure CLI 2.0
+## Next steps
 
-If using the Azure CLI 2.0, see the reference doc on managing an [application life cycle using the Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
-
-## Related articles
-
-* [Getting started with Service Fabric and Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [Getting started with Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* [Getting started with Service Fabric CLI](service-fabric-cli.md)

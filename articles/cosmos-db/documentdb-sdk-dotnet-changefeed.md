@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 10/31/2017
 ms.author: maquaran
 
 ---
@@ -28,21 +28,24 @@ ms.author: maquaran
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
 
-<table>
-
-<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)</td></tr>
-
-<tr><td>**API documentation**</td><td>[Change Feed Processor library API reference documentation](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the DocumentDB Change Feed Processor .NET SDK](change-feed.md)</td></tr>
-
-<tr><td>**Current supported framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
-</table></br>
+|   |   |
+|---|---|
+|**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**API documentation**|[Change Feed Processor library API reference documentation](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**Get started**|[Get started with the DocumentDB Change Feed Processor .NET SDK](change-feed.md)|
+|**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## Release notes
+
+### <a name="1.2.0"/>1.2.0
+* Adds support for .NET Standard 2.0. The package now supports `netstandard2.0` and `net451` framework monikers.
+* Compatible with [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) versions 1.17.0 and above.
+* Compatible with [DocumentDB .NET Core SDK](documentdb-sdk-dotnet-core.md) versions 1.5.1 and above.
+
+### <a name="1.1.1"/>1.1.1
+* Fixes an issue with the calculation of the estimate of remaining work when the Change Feed was empty or no work was pending.
+* Compatible with [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) versions 1.13.2 and above.
 
 ### <a name="1.1.0"/>1.1.0
 * Added a method to obtain an estimate of remaining work to be processed in the Change Feed.
@@ -63,6 +66,8 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.2.0](#1.2.0) |October 31, 2017 |--- |
+| [1.1.1](#1.1.1) |August 29, 2017 |--- |
 | [1.1.0](#1.1.0) |August 13, 2017 |--- |
 | [1.0.0](#1.0.0) |July 07, 2017 |--- |
 

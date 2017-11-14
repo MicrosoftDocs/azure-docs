@@ -1,4 +1,4 @@
-﻿---
+---
 title: Windows Virtual Machines Overview | Microsoft Docs
 description: Learn about creating and managing Windows virtual machines in Azure.
 services: virtual-machines-windows
@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Overview of Windows virtual machines in Azure
 
-Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](../../app-service-web/choose-web-site-cloud-service-vm.md) that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
+Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](../../app-service/choose-web-site-cloud-service-vm.md) that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
 
 An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. However, you still need to maintain the VM by performing tasks, such as configuring, patching, and installing the software that runs on it.
 
@@ -33,7 +33,7 @@ Azure virtual machines can be used in various ways. Some examples are:
 The number of VMs that your application uses can scale up and out to whatever is required to meet your needs.
 
 ## What do I need to think about before creating a VM?
-There are always a multitude of [design considerations](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
+There are always a multitude of [design considerations](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
 
 * The names of your application resources
 * The location where the resources are stored
@@ -44,7 +44,7 @@ There are always a multitude of [design considerations](/architecture/reference-
 * The related resources that the VM needs
 
 ### Naming
-A virtual machine has a [name](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
+A virtual machine has a [name](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) assigned to it and it has a computer name configured as part of the operating system. The name of a VM can be up to 15 characters.
 
 If you use Azure to create the operating system disk, the computer name and the virtual machine name are the same. If you [upload and use your own image](upload-generalized-managed.md) that contains a previously configured operating system and use it to create a virtual machine, the names can be different. We recommend that when you upload your own image file, you make the computer name in the operating system and the virtual machine name the same.
 
@@ -68,7 +68,7 @@ Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virt
 Your subscription has default [quota limits](../../azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by filing a support ticket requesting an increase.
 
 ### Operating system disks and images
-Virtual machines use [virtual hard disks (VHDs)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
+Virtual machines use [virtual hard disks (VHDs)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
 
 Azure provides many [marketplace images](https://azure.microsoft.com/marketplace/virtual-machines/) to use with various versions and types of Windows Server operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest). 
 
@@ -97,7 +97,7 @@ The resources in this table are used by the VM and need to exist or be created w
 | Resource | Required | Description |
 | --- | --- | --- |
 | [Resource group](../../azure-resource-manager/resource-group-overview.md) |Yes |The VM must be contained in a resource group. |
-| [Storage account](../../storage/storage-create-storage-account.md) |Yes |The VM needs the storage account to store its virtual hard disks. |
+| [Storage account](../../storage/common/storage-create-storage-account.md) |Yes |The VM needs the storage account to store its virtual hard disks. |
 | [Virtual network](../../virtual-network/virtual-networks-overview.md) |Yes |The VM must be a member of a virtual network. |
 | [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |The VM can have a public IP address assigned to it to remotely access it. |
 | [Network interface](../../virtual-network/virtual-network-network-interface.md) |Yes |The VM needs the network interface to communicate in the network. |

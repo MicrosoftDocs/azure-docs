@@ -3,7 +3,7 @@ title: Diagnose failures and exceptions in web apps with Azure Application Insig
 description: Capture exceptions from ASP.NET apps along with request telemetry.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
-ms.author: sewhee
+ms.date: 09/19/2017
+ms.author: mbullwin
 
 ---
 # Diagnose exceptions in your web apps with Application Insights
@@ -29,8 +29,8 @@ Exceptions in your live web app are reported by [Application Insights](app-insig
 * In some application frameworks or with some settings, you need to take some extra steps to catch more exceptions:
   * [Web forms](#web-forms)
   * [MVC](#mvc)
-  * [Web API 1.*](#web-api-1)
-  * [Web API 2.*](#web-api-2)
+  * [Web API 1.*](#web-api-1x)
+  * [Web API 2.*](#web-api-2x)
   * [WCF](#wcf)
 
 ## Diagnosing exceptions using Visual Studio
@@ -54,15 +54,22 @@ In the code, notice that CodeLens shows data about the exceptions:
 ![CodeLens notification of exceptions.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## Diagnosing failures using the Azure portal
-From the Application Insights overview of your app, the Failures tile shows you charts of exceptions and failed HTTP requests, together with a list of the request URLs that cause the most frequent failures.
+Application Insights comes with a curated APM experience to help you diagnose failures in your monitored applications. To start, click on the Failures option in the Application Insights resource menu located in the Investigate section. 
+You should see a full-screen view that shows you the failure rate trends for your requests, how many of them are failing, and how many users are impacted. On the right you'll see some of the most 
+useful distributions specific to the selected failing operation, including top 3 response codes, top 3 exception types, and top 3 failing depedency types. 
 
-![Select Settings, Failures](./media/app-insights-asp-net-exceptions/012-start.png)
+![Failures triage view (operations tab)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
-Click through one of the failed exception types in the list to get to individual occurrences of the exception, where you can see the details and stack trace:
+In a single click you can then review representative samples for each of these subsets of operations. In particular, to diagnose exceptions, you can click on the count of a particular exception to be presented with an Exceptions details blade,
+such as this one:
 
-![Select an instance of a failed request, and under exception details, get to instances of the exception.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![Exception details blade](./media/app-insights-asp-net-exceptions/ExceptionDetailsBlade.png)
 
-**Alternatively,** you can start from the list of requests and find exceptions related to it.
+**Alternatively,** instead of looking at exceptions of a specific failing operation, you can start from the overall view of exceptions, by switching to the Exceptions tab:
+
+![Failures triage view (exceptions tab)](./media/app-insights-asp-net-exceptions/FailuresTriageView_Exceptions.png)
+
+Here you can see all the exceptions collected for your monitored app.
 
 *No exceptions showing? See [Capture exceptions](#exceptions).*
 
@@ -427,13 +434,13 @@ Open a Metric Explorer blade, add a new chart, and select **Exception rate**, li
 
 The .NET framework calculates the rate by counting the number of exceptions in an interval and dividing by the length of the interval.
 
-Note that it will be different from the 'Exceptions' count calculated by the Application Insights portal by counting TrackException reports. The sampling intervals are different, and the SDK doesn't send TrackException reports for all handled and unhandled exceptions.
+This is different from the 'Exceptions' count calculated by the Application Insights portal counting TrackException reports. The sampling intervals are different, and the SDK doesn't send TrackException reports for all handled and unhandled exceptions.
 
 ## Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
 ## Next steps
-* [Monitor REST, SQL and other calls to dependencies](app-insights-asp-net-dependencies.md)
+* [Monitor REST, SQL, and other calls to dependencies](app-insights-asp-net-dependencies.md)
 * [Monitor page load times, browser exceptions, and AJAX calls](app-insights-javascript.md)
 * [Monitor performance counters](app-insights-performance-counters.md)

@@ -1,9 +1,9 @@
----
+﻿---
 title: Troubleshoot Analytics in Azure Application Insights | Microsoft Docs
 description: 'Problems with Application Insights analytics? Start here. '
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2016
-ms.author: sewhee
+ms.author: mbullwin
 
 ---
 # Troubleshoot Analytics in Application Insights

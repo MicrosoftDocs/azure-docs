@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 11/8/2017
 ms.author: negat
 ms.custom: na
 
@@ -326,7 +326,7 @@ We currently do not support .cer files. To use .cer files, export them into .pfx
 
 
 
-## Compliance
+## Compliance and Security
 
 ### Are virtual machine scale sets PCI-compliant?
 
@@ -336,9 +336,9 @@ From a compliance perspective, virtual machine scale sets are a fundamental part
 
 For more information, see [the Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
+### Does [Azure Managed Service Identity](https://docs.microsoft.com/azure/active-directory/msi-overview) work with VM scale sets?
 
-
-
+Yes. You can see some example MSI templates in Azure Quickstart templates. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## Extensions
@@ -458,11 +458,6 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension for Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
 
-
-
-
-
-
 ## Networking
  
 ### Is it possible to assign a Network Security Group (NSG) to a scale set, so that it will apply to all the VM NICs in the set?
@@ -507,7 +502,7 @@ Yes. A Network Security Group can be applied directly to a scale set by referenc
 
 ### How do I do a VIP swap for virtual machine scale sets in the same subscription and same region?
 
-If you have two virtual machine scale sets with Azure Load Balancer front-ends, and they are in the same subscription and region, you could deallocate the public IP addresses from each one, and assign to the other. See [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) for example. This does imply a delay though as the resources are deallocated/allocated at the network level. A faster option is to use Azure Application Gateway with two backend pools, and a routing rule. Alternatively, you could host your application with [Azure App service](https://azure.microsoft.com/en-us/services/app-service/) which provides support for fast switching between staging and production slots.
+If you have two virtual machine scale sets with Azure Load Balancer front-ends, and they are in the same subscription and region, you could deallocate the public IP addresses from each one, and assign to the other. See [VIP Swap: Blue-green deployment in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) for example. This does imply a delay though as the resources are deallocated/allocated at the network level. A faster option is to use Azure Application Gateway with two backend pools, and a routing rule. Alternatively, you could host your application with [Azure App service](https://azure.microsoft.com/services/app-service/) which provides support for fast switching between staging and production slots.
  
 ### How do I specify a range of private IP addresses to use for static private IP address allocation?
 
@@ -581,7 +576,7 @@ Another reason you might create a virtual machine scale set with fewer than two 
 
 ### How do I change the number of VMs in a virtual machine scale set?
 
-To change the number of VMs in a virtual machine scale set, see [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+To change the number of VMs in a virtual machine scale set in the Azure portal, from the VM scale set properties section, click on the "Scaling" blade and use the slider bar. For other ways to change the instance count, see [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
 ### How do I define custom alerts for when certain thresholds are reached?
 
@@ -647,7 +642,15 @@ Yes, you can use the reimage operation to reset a VM without changing the image.
 
 For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
+### Is it possible to integrate scale sets with Azure OMS (Operations Management Suite)?
 
+Yes, you can by installing the OMS extension on the scale set VMs. Here is an Azure CLI example:
+```
+az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
+```
+You can find the required workspaceId and workspaceKey in the OMS portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
+
+Note: if your scale set _upgradePolicy_ is set to Manual, you will need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be _az vmss update-instances_.
 
 ## Troubleshooting
 

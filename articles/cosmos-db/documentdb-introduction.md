@@ -45,6 +45,8 @@ Azure Cosmos DB, via the DocumentDB API, offers the following key capabilities a
 
 * **Automatic indexing:** By default, Azure Cosmos DB automatically indexes all the documents in the database and does not expect or require any schema or creation of secondary indices. Don't want to index everything? Don't worry, you can [opt out of paths in your JSON files](indexing-policies.md) too.
 
+* **Change feed support:** Change feed provides a sorted list of documents within an Azure Cosmos DB collection in the order in which they were modified. This feed can be used to listen for modifications to data in order to replicate data, trigger API calls or perform stream processing on updates. Change feed is automatically enabled and easy to use: [learn more about change feed](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
+
 ## <a name="data-management"></a>How do you manage data with the DocumentDB API?
 The DocumentDB API helps manage JSON data through well-defined database resources. These resources are replicated for high availability and are uniquely addressable by their logical URI. The DocumentDB API offers a simple HTTP based RESTful programming model for all resources. 
 

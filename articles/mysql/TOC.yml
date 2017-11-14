@@ -29,6 +29,8 @@
       href: connect-cpp.md
     - name: Go
       href: connect-go.md
+    - name: MySQL Workbench
+      href: connect-workbench.md
 - name: Tutorials
   items:
   - name: 1 - Design a Database
@@ -40,9 +42,9 @@
   - name: 2 - Create a Web App
     items:
     - name: Wordpress - Portal
-      href: ../app-service-web/app-service-web-create-web-app-from-marketplace.md?toc=%2fazure%2fmysql%2ftoc.json
+      href: https://portal.azure.com/#create/WordPress.WordPress
     - name: PHP - Azure CLI
-      href: ../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
+      href: ../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json
 - name: Samples
   items:
   - name: Azure CLI
@@ -55,6 +57,10 @@
       href: concepts-servers.md
     - name: Supported versions
       href: concepts-supported-versions.md
+    - name: Server logs
+      href: concepts-server-logs.md
+    - name: High availability
+      href: concepts-high-availability.md
   - name: Resources
     items:
     - name: Pricing tiers
@@ -69,10 +75,12 @@
       href: concepts-firewall-rules.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
+  - name: Monitor
+    href: concepts-monitoring.md
   - name: Development
     items:
-    - name: Connection libraries
-      href: concepts-connection-libraries.md
+    - name: Drivers and tools compatiblity
+      href: concepts-compatibility.md
     - name: Application development
       href: concepts-database-application-development.md
   - name: Migrate your database
@@ -97,6 +105,8 @@
     items:
     - name: Azure portal
       href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
   - name: Connect applications
     items:
     - name: Connection strings
@@ -109,6 +119,18 @@
     items:
     - name: Azure portal
       href: howto-server-parameters.md
+    - name: Azure CLI
+      href: howto-configure-server-parameters-using-cli.md
+  - name: Access server logs
+    items:
+    - name: Azure portal
+      href: howto-configure-server-logs-in-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-logs-in-cli.md
+  - name: Monitor
+    items:
+    - name: Create alerts on metrics
+      href: howto-alert-on-metric.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -117,6 +139,8 @@
     href: /rest/api/mysql
 - name: Resources
   items:
+  - name: Deployment templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
@@ -133,3 +157,5 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/
+  - name: Customer stories
+    href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"
