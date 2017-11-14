@@ -69,10 +69,10 @@ Understanding how consistently each tenant is using the service provides an oppo
 To complete this tutorial, make sure the following prerequisites are met:
 
 - The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
-- The Wingtip SaaS scripts and application [source code](https://github.com/Microsoft/WingtipSaaS) are downloaded from GitHub. See download instructions. Be sure to *unblock the zip file* before extracting its contents.
+- The Wingtip SaaS scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) are downloaded from GitHub. See download instructions. Be sure to *unblock the zip file* before extracting its contents.
 - Power BI Desktop is installed. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-- The batch of additional tenants has been provisioned, see the [**Provision Tenants tutorial**](saas-dbpertenant-provision-and-catalog.md).
-- A job account and job account database have been created. See the appropriate steps in the [**schema management tutorial**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
+- The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](saas-dbpertenant-provision-and-catalog.md).
+- A job account and job account database have been created. See the appropriate steps in the [**Schema management tutorial**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
 
 ### Create data for the demo
 
@@ -92,15 +92,15 @@ In the following steps, you deploy the analytics store, which is called **tenant
     - To use SQL database with column store, set **$DemoScenario** = **3**  
 3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics<XX>.ps1* script) which creates the tenant analytics store. 
 
-Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-&lt;User&gt;** and **catalog-&lt;User&gt;** servers using Login = *developer*, Password = *P@ssword1*. See the [introductory tutorial](saas-dbpertenant-wingtip-app-overview.md) for more guidance.
+Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-dpt-&lt;User&gt;** and **catalog-dpt-&lt;User&gt;** servers using Login = *developer*, Password = *P@ssword1*. See the [introductory tutorial](saas-dbpertenant-wingtip-app-overview.md) for more guidance.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
 In the Object Explorer, perform the following steps:
 
-1. Expand the *tenants1-&lt;User&gt;* server.
+1. Expand the *tenants1-dpt-&lt;User&gt;* server.
 2. Expand the Databases node, and see the list of tenant databases.
-3. Expand the *catalog-&lt;User&gt;* server.
+3. Expand the *catalog-dpt-&lt;User&gt;* server.
 4. Verify that you see the analytics store and the jobaccount database.
 
 See the following database items in the SSMS Object Explorer by expanding the analytics store node:
@@ -117,7 +117,7 @@ See the following database items in the SSMS Object Explorer by expanding the an
 
 Before proceeding, ensure you have deployed the job account and jobaccount database. In the next set of steps, Elastic Jobs is used to extract data from each tenant database, and to store the data in the analytics store. Then the second job shreds the data and stores it into tables in the star-schema. These two jobs run against two different target groups, namely **TenantGroup** and **AnalyticsGroup**. The extract job runs against the TenantGroup, which contains all the tenant databases. The shredding job runs against the AnalyticsGroup, which contains just the analytics store. Create the target groups by using the following steps:
 
-1. In SSMS, connect to the **jobaccount** database in catalog-&lt;User&gt;.
+1. In SSMS, connect to the **jobaccount** database in catalog-dpt-&lt;User&gt;.
 2. In SSMS, open *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
 3. Modify the @User variable at the top of the script, replacing <User> with the user value used when you deployed the Wingtip SaaS app.
 4. Press **F5** to run the script that creates the two target groups.
@@ -131,7 +131,7 @@ Extensive data modifications might occur more frequently for *ticket and custome
 
 Each job extracts its data, and posts it into the analytics store. There a separate job shreds the extracted data into the analytics star-schema.
 
-1. In SSMS, connect to the **jobaccount** database in catalog-<User>server.
+1. In SSMS, connect to the **jobaccount** database in catalog-dpt-&lt;User&gt; server.
 2. In SSMS, open *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
 3. Modify @User at the top of the script, and replace <User> with the user name used when you deployed the Wingtip SaaS app 
 4. Press F5 to run the script that creates and runs the job that extracts tickets and customers data from each tenant database. The job saves the data into the analytics store.
@@ -151,7 +151,7 @@ The next step is to shred the extracted raw data into a set of tables that are o
 
 In this section of the tutorial, you define and run a job that merges the extracted raw data with the data in the star-schema tables. After the merge job is finished, the raw data is deleted, leaving the tables ready to be populated by the next tenant data extract job.
 
-1. In SSMS, connect to the **jobaccount** database in catalog-&lt;User&gt;.
+1. In SSMS, connect to the **jobaccount** database in catalog-dpt-&lt;User&gt;.
 2. In SSMS, open *…\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql*.
 3. Press **F5** to run the script to define a job that calls the sp_ShredRawExtractedData stored procedure in the analytics store.
 4. Allow enough time for the job to run successfully.
@@ -159,39 +159,18 @@ In this section of the tutorial, you define and run a job that merges the extrac
 
 ![analyticsViews](media/saas-tenancy-tenant-analytics/shreddingJob.png)
 
-### Create views that aggregate data
-
-The data in the star-schema table provides all the ticket sales data needed for your analysis.  To make it easier to see trends in the data, you need to aggregate the data. You can define views that make it easier to query the data and provide useful insights. The upcoming steps create the following four views:
-
-- CumulativeDailySalesByEvent
-- TicketSalesDistribution
-- TicketsSoldVersusSaleDay
-- TotalSalesPerDay
-
-These views are used in the data visualization step. Pre-creating these views helps less-skilled users by making it easier for them to pull together useful data visualizations.
-
-1. In SSMS, connect to the **tenantanalytics** store in catalog-<User>
-2. In SSMS, *…\Learning Modules\Operational Analytics\Tenant Analytics\DailySales.sql*.
-3. Press **F5** to run the appropriate script, which creates the four views and queries their content.
-    - CumulativeDailySalesByEvent consists of aggregated sales for each day in the past two months for all events.
-    - TicketSalesDistribution shows the average as well as total sales for all venues.
-    - TicketsSoldVersusSaleDay shows total number of tickets sold on each sale day for 60 days before the event.
-    - TotalSalesPerDay shows total sales per day.
-
-![analyticsViews](media/saas-tenancy-tenant-analytics/analyticsViews.png)
-
 ## Data Exploration
 
 ### Visualize tenant data
 
-Graphs make it easier to see trends in large data sets. In this section, you learn how to use **Power BI** to manipulate and visualize the tenant data you have extracted and organized.
+The data in the star-schema table provides all the ticket sales data needed for your analysis. To make it easier to see trends in large data sets, you need to visualize it graphically.  In this section, you learn how to use **Power BI** to manipulate and visualize the tenant data you have extracted and organized.
 
 Use the following steps to connect to Power BI, and to import the views you created earlier:
 
 1. Launch Power BI desktop.
 2. From the Home ribbon, select **Get Data**, and select **More…** from the menu.
 3. In the **Get Data** window, select Azure SQL Database.
-4. In the database login window, enter your server name (catalog-&lt;User&gt;.database.windows.net). Select **Import** for **Data Connectivity Mode**, and then click OK. 
+4. In the database login window, enter your server name (catalog-dpt-&lt;User&gt;.database.windows.net). Select **Import** for **Data Connectivity Mode**, and then click OK. 
 
 ![analyticsViews](media/saas-tenancy-tenant-analytics/powerBISignIn.png)
 
@@ -199,7 +178,7 @@ Use the following steps to connect to Power BI, and to import the views you crea
 
 ![analyticsViews](media/saas-tenancy-tenant-analytics/DatabaseSignIn.png)
 
-6. In the **Navigator** pane, under the analytics database, select CumulativeDailySalesByEvent, TicketSalesDistribution, TicketsSoldVersusSaleDay, TotalSalesPerDay. Then select **Load**. 
+6. In the **Navigator** pane, under the analytics database, select the star-schema tables: fact_Tickets, dim_Events, dim_Venues, dim_Customers and dim_Dates. Then select **Load**. 
 
 Congratulations! You have successfully loaded the data into Power BI. Now you can start exploring interesting visualizations to help gain insights into your tenants. Next you walk through how analytics can enable you to provide data-driven recommendations to the Wingtip Tickets business team. The recommendations can help to optimize the business model and customer experience.
 
@@ -221,16 +200,22 @@ Next you want to further investigate the significance of these peak sale days. W
 
 The preceding plot shows that some venues sell a lot of tickets on the first day of sale. As soon as tickets go on sale at these venues, there seems to be a mad rush. This burst of activity by a few venues might impact the service for other tenants.
 
-You can drill into the data again to see if this mad rush is true for all events hosted by these venues. In previous plots, you observed that Contoso Concert Hall sells a lot of tickets, and that Contoso also has a spike in ticket sales on certain days. Select the following Power BI options to plot cumulative ticket sales for Contoso Concert Hall, focusing on sale trends for each of its events. 
- 
+You can drill into the data again to see if this mad rush is true for all events hosted by these venues. In previous plots, you observed that Contoso Concert Hall sells a lot of tickets, and that Contoso also has a spike in ticket sales on certain days. Play around with Power BI options to plot cumulative ticket sales for Contoso Concert Hall, focusing on sale trends for each of its events. Do all events follow the same sale pattern?
+
 ![ContosoSales](media/saas-tenancy-tenant-analytics/EventSaleTrends.png)
 
 The preceding plot for Contoso Concert Hall shows that the mad rush does not happen for all events. Play around with the filter options to see sale trends for other venues.
 
 The insights into ticket selling patterns might lead Wingtip Tickets to optimize their business model. Instead of charging all tenants equally, perhaps Wingtip should introduce service tiers with different performance levels. Larger venues that need to sell more tickets per day could be offered a higher tier with a higher service level agreement (SLA). Those venues could have their databases placed in pool with higher per-database resource limits. Each service tier could have an hourly sales allocation, with additional fees charged for exceeding the allocation. Larger venues that have periodic bursts of sales would benefit from the higher tiers, and Wingtip Tickets can monetize their service more efficiently.
 
-Meanwhile, some Wingtip Tickets customers complain that they struggle to sell enough tickets to justify the service cost. Perhaps in these insights there is an opportunity to boost ticket sales for underperforming venues. Higher sales would increase the perceived value of the service. Select the following visualization options to plot the percentage tickets sold by each venue to determine their relative success. 
- 
+Meanwhile, some Wingtip Tickets customers complain that they struggle to sell enough tickets to justify the service cost. Perhaps in these insights there is an opportunity to boost ticket sales for underperforming venues. Higher sales would increase the perceived value of the service. Right click fact_Tickets and select **New measure**. Enter the following expression for the new measure called **AverageTicketsSold**:
+
+```
+AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
+```
+
+Select the following visualization options to plot the percentage tickets sold by each venue to determine their relative success.
+
 ![analyticsViews](media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.png)
 
 The preceding plot shows that even though most venues sell more than 80% of their tickets, some are struggling to fill more than half the seats. Play around with the Values Well to select maximum or minimum percentage of tickets sold for each venue.
