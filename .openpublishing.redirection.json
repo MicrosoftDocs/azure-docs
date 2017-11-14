@@ -7393,12 +7393,12 @@
         },
 		{
             "source_path": "articles/site-recovery/azure-to-azure-walkthrough-network.md",
-            "redirect_url": "azure-to-azure-tutorial-enable-replication",
+            "redirect_url": "site-recovery-azure-to-azure-networking-guidance",
             "redirect_document_id": false
         },
 		{
             "source_path": "articles/site-recovery/azure-to-azure-walkthrough-overview.md",
-            "redirect_url": "site-recovery-azure-to-azure-networking-guidance",
+            "redirect_url": "azure-to-azure-quickstart",
             "redirect_document_id": false
         },
 		{
@@ -15143,6 +15143,11 @@
           "source_path": "articles/security-center/security-center-powerbi.md",
           "redirect_url": "https://docs.microsoft.com/en-us/azure/security-center",
           "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/service-fabric/service-fabric-set-up-continuous-integration.md",
+             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts",
+             "redirect_document_id": false
         }
     ]
 }
