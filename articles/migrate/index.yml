@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/23/2017
   ms.author: carolz
 abstract:
-  description: Azure Migrate helps you to assess the suitability of on-premises machines for migration to Azure, and provides sizing and cost estimations for running Azure VMs.
+  description: Azure Migrate helps you to assess the suitability of on-premises machines for migration to Azure, and provides sizing and cost estimates for running Azure VMs.
 sections:
 - title: Step-by-Step Tutorials
   items:
