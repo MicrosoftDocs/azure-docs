@@ -18,9 +18,6 @@
 ## [Azure PowerShell](powershell-samples.md)
 # Concepts
 ## [Terminology](api-management-terminology.md)
-## [What is an API?](api-management-howto-create-apis.md)
-## [What is a product?](api-management-product.md)
-## [What is an operation?](api-management-howto-add-operations.md)
 ## Policies
 ### [Overview](api-management-howto-policies.md)
 ### [Policy reference index](api-management-policy-reference.md)
@@ -32,13 +29,13 @@
 # How-to guides
 ## Define APIs 
 ### [Add an API manually](add-api-manually.md)
-### [Import an API from OpenAPI Specification](import-api-from-oas.md)
+### [Import an OpenAPI Specification](import-api-from-oas.md)
 ### [Import a SOAP API](import-soap-api.md)
 ### [Import a SOAP API and convert to REST](restify-soap-api.md)
-### [Import an API App as an API](import-api-app-as-api.md)
-### [Import a Function App as an API](import-function-app-as-api.md)
-### [Import a Logic App as an API](import-logic-app-as-api.md)
-### [Import a Service Fabric app as an API](import-service-fabric-app-as-api.md)
+### [Import an API App](import-api-app-as-api.md)
+### [Import a Function App](import-function-app-as-api.md)
+### [Import a Logic App](import-logic-app-as-api.md)
+### [Import a Service Fabric app](../iservice-fabric/service-fabric-tutorial-deploy-api-management.md)
 ### [Edit an API](edit-api.md)
 ## Provision and scale
 ### [Upgrade and scale](upgrade-and-scale.md)
