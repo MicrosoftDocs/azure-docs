@@ -6,7 +6,7 @@ Yes. Previously, only self-signed root certificates could be used. You can still
 
 ### What tools can I use to create certificates?
 
-You can use your Enterprise PKI solution (your internal PKI), Azure PowerShell, MakeCert], and OpenSSL.
+You can use your Enterprise PKI solution (your internal PKI), Azure PowerShell, MakeCert, and OpenSSL.
 
 ### <a name="certsettings"></a>Are there instructions for certificate settings and parameters?
 
