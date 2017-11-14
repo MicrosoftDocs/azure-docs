@@ -142,7 +142,7 @@ In the data preparation step, the raw semi-structured vehicle signals and diagno
 Input and output data management:
 
 * **Output data** (labeled PartitionedCarEventsTable) is kept for a long period of time as the foundational/"rawest" form of data in the customer's data lake. 
-* **Input data** to this pipeline is typically discarded because the output data has full fidelity to the input. It's just stored (partitioned) better for subsequent use.
+* **Input data** to this pipeline is typically discarded because the output data has full fidelity to the input. It's stored (partitioned) better for subsequent use.
 
 The partition car events workflow.
 
@@ -320,26 +320,26 @@ Based on the previous requirements, two separate models detect anomalies. One mo
 
 #### **Maintenance detection model**
 
-If one of three indicators--tire pressure, engine oil, or engine temperature--satisfies its respective condition, the maintenance detection model reports an anomaly. As a result, we need to consider only these three variables in building the model. In the experiment in machine learning, we first use a **Select Columns in Dataset** module to extract these three variables. Next, we use the PCA-based anomaly detection module to build the anomaly detection model. 
+If one of three indicators--tire pressure, engine oil, or engine temperature--satisfies its respective condition, the maintenance detection model reports an anomaly. As a result, only these three variables need to be consider in building the model. In the experiment in machine learning, the **Select Columns in Dataset** module is used to extract these three variables. Next, the PCA-based anomaly detection module is used to build the anomaly detection model. 
 
 PCA is an established technique in machine learning that can be applied to feature selection, classification, and anomaly detection. PCA converts a set of cases that contain possibly correlated variables into a set of values called principal components. The key idea of PCA-based modeling is to project data onto a lower-dimensional space to more easily identify features and anomalies.
 
 For each new input to the detection model, the anomaly detector first computes its projection on the eigenvectors. It then computes the normalized reconstruction error. This normalized error is the anomaly score: the higher the error, the more anomalous the instance. 
 
-In the maintenance detection problem, each record can be considered as a point in a three-dimensional space defined by tire pressure, engine oil, and engine temperature coordinates. To capture these anomalies, we can use PCA to project the original data in the three-dimensional space onto a two-dimensional space. Thus, we set the parameter number of components to use in PCA to two. This parameter plays an important role in applying PCA-based anomaly detection. After using PCA to project data, we can identify these anomalies more easily.
+In the maintenance detection problem, each record is considered as a point in a three-dimensional space defined by tire pressure, engine oil, and engine temperature coordinates. To capture these anomalies, PCA is used to project the original data in the three-dimensional space onto a two-dimensional space. Thus, the parameter number of components to use in PCA is set to two. This parameter plays an important role in applying PCA-based anomaly detection. After using PCA to project data, these anomalies are identified more easily.
 
 #### **Recall anomaly detection model**
 
-In the recall anomaly detection model, we use the **Select Columns in Dataset** and PCA-based anomaly detection modules in a similar way. Specifically, we first extract three variables--engine temperature, outside temperature, and speed--by using the **Select Columns in Dataset** module. We also include the speed variable, because the engine temperature typically correlates to the speed. Next, we use the PCA-based anomaly detection module to project the data from the three-dimensional space onto a two-dimensional space. The recall criteria are satisfied. The vehicle requires recall when engine temperature and outside temperature are highly negatively correlated. After we perform PCA, we use the PCA-based anomaly detection algorithm to capture the anomalies. 
+In the recall anomaly detection model, the **Select Columns in Dataset** and PCA-based anomaly detection modules are used in a similar way. Specifically, three variables--engine temperature, outside temperature, and speed--are extracted first by using the **Select Columns in Dataset** module. The speed variable also is included, because the engine temperature typically correlates to the speed. Next, the PCA-based anomaly detection module is used to project the data from the three-dimensional space onto a two-dimensional space. The recall criteria are satisfied. The vehicle requires recall when engine temperature and outside temperature are highly negatively correlated. After PCA is performed, the PCA-based anomaly detection algorithm is used to capture the anomalies. 
 
-When training either model, we use normal data as the input data to train the PCA-based anomaly detection model. (Normal data doesn't require maintenance or recall.) In the scoring experiment, we use the trained anomaly detection model to detect whether the vehicle requires maintenance or recall. 
+When training either model, normal data is used as the input data to train the PCA-based anomaly detection model. (Normal data doesn't require maintenance or recall.) In the scoring experiment, the trained anomaly detection model is used to detect whether the vehicle requires maintenance or recall. 
 
 ### Real-time analysis
 The following Stream Analytics SQL query is used to get the average of all the important vehicle parameters. These parameters include vehicle speed, fuel level, engine temperature, odometer reading, tire pressure, engine oil level, and others. The averages are used to detect anomalies, issue alerts, and determine the overall health conditions of vehicles operated in a specific region. The averages are then correlated to demographics. 
 
 ![Stream Analytics query for real-time processing](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig13-vehicle-telematics-stream-analytics-query-for-real-time-processing.png)
 
-All the averages are calculated over a three-second tumbling window. We use a tumbling window because we require non-overlapping and contiguous time intervals. 
+All the averages are calculated over a three-second tumbling window. A tumbling window is used because non-overlapping and contiguous time intervals are required. 
 
 To learn more about the windowing capabilities in Stream Analytics, see [Windowing (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
@@ -387,7 +387,7 @@ The goal here is to show how Contoso Motors utilizes the Azure compute capabilit
 * Improve the customer experience and make it cheaper by providing insights on driving habits and fuel-efficient driving behaviors.
 * Learn proactively about customers and their driving patterns to govern business decisions and provide best-in-class products and services.
 
-In this solution, we target the following metrics:
+In this solution, the following metrics are targeted:
 
 * **Aggressive driving behavior**: Identifies the trend of the models, locations, driving conditions, and time of year to gain insights on aggressive driving patterns. Contoso Motors can use these insights for marketing campaigns to introduce new personalized features and usage-based insurance.
 * **Fuel-efficient driving behavior**: Identifies the trend of the models, locations, driving conditions, and time of year to gain insights on fuel-efficient driving patterns. Contoso Motors can use these insights for marketing campaigns to introduce new features and proactive reporting to drivers for cost-effective and environment-friendly driving habits.
