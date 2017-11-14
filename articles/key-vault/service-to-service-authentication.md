@@ -16,11 +16,11 @@ ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 
 ---
 
-# Service-to-service authentication for Key Vault apps created with .NET
+# Service-to-service authentication to Azure Key Vault using .NET
 
 To authenticate to Azure Key Vault, you need an Azure Active Directory (AD) credential, either a shared secret or a certificate. Managing such credentials can be difficult and it's tempting to bundle credentials into an app by including them in source or configuration files.
 
-The `Microsoft.Azure.Services.AppAuthentication` for .NET library simplifies this problem. It uses the developer's credentials to authenticate during local development. When the solution is later deployed to Azure, the library automatically switches application credentials.  
+The `Microsoft.Azure.Services.AppAuthentication` for .NET library simplifies this problem. It uses the developer's credentials to authenticate during local development. When the solution is later deployed to Azure, the library automatically switches to application credentials.  
 
 Using developer credentials during local development is more secure because you do not need to create Azure AD credentials or share credentials between developers.
 
