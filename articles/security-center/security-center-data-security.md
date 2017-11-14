@@ -22,11 +22,6 @@ To help customers prevent, detect, and respond to threats, Azure Security Center
 
 This article explains how data is managed and safeguarded in Azure Security Center.
 
->[!NOTE] 
->Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. See [Azure Security Center Platform Migration](security-center-platform-migration.md) to learn more. The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
->
-
-
 ## Data sources
 Azure Security Center analyzes data from the following sources to provide visibility into your security state, identify vulnerabilities and recommend mitigations, and detect active threats:
 
@@ -68,7 +63,7 @@ Machine artifacts are stored centrally in the same region as the VM.
 ## Managing data collection from virtual machines
 
 When you enable Security Center in Azure, data collection is turned on for each of your Azure subscriptions. You can also turn on data collection for your subscriptions in the Security Policy section of Azure Security Center. When Data collection is turned on, Azure Security Center provisions the Microsoft Monitoring Agent on all existing supported Azure virtual machines and any new ones that are created. 
-The Microsoft Monitoring agent scans for various security related configurations and events it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system will raise event log events during the course of running the machine. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Microsoft Monitoring Agent reads event log entries and ETW traces and copies them to your workspace(s) for analysis. The Microsoft Monitoring Agent also copies crash dump files to your workspace(s), enable process creation events, and enable command line auditing.
+The Microsoft Monitoring agent scans for various security-related configurations and events it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system will raise event log events during the course of running the machine. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Microsoft Monitoring Agent reads event log entries and ETW traces and copies them to your workspace(s) for analysis. The Microsoft Monitoring Agent also copies crash dump files to your workspace(s), enable process creation events, and enable command line auditing.
 
 If you are using Azure Security Center Free, you can also disable data collection from virtual machines in the Security Policy. Data Collection is required for subscriptions on the Standard tier. VM disk snapshots and artifact collection will still be enabled even if data collection has been disabled.
 
