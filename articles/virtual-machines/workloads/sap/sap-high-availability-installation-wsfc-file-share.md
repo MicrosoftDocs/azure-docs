@@ -427,8 +427,8 @@ _**Figure 1**: SAPScripts.ps1 output_
 ## Update the \<sid>adm user environment variable
 
 1. Update the \<sid>adm user environment new GLOBALHOST UNC path on *both* ASCS/SCS cluster nodes.
-2. Log on as \<sid>adm user and start the Regedit.exe tool.
-3. Go to **HKEY_CURRENT_USER** > **Environment**, and then update variables to new value:
+2. Log on as \<sid>adm user, and then start the Regedit.exe tool.
+3. Go to **HKEY_CURRENT_USER** > **Environment**, and then update the variables to the new value:
 
 | Variable | Value |
 | --- | --- |
@@ -440,7 +440,7 @@ _**Figure 1**: SAPScripts.ps1 output_
 
 ## Install a new saprc.dll file
 
-1. Install a new version of the SAP cluster resource that supports the file share scenario.
+1. Install a new version of the SAP cluster resource that supports the file-share scenario.
 
 2. Download the latest NTCLUST.SAR package from the SAP Service Marketplace.
 
@@ -513,7 +513,7 @@ C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profi
 
 _**Figure 2**: Reinstall SAP service_
 
-Make sure that the parameters are correct, and select **Manual** as the **Startup Type**.
+Make sure that the parameters are correct, and then select **Manual** as the **Startup Type**.
 
 ## Stop the ASCS/SCS service
 
@@ -521,7 +521,7 @@ Stop the SAP ASCS/SCS service SAP\<SID>_\<InstanceNumber> on both ASCS/SCS clust
 
 ## Create a new SAP service and SAP instance resources
 
-Now, to finalize the creation of resources of the SAP SAP\<SID> cluster group, create the following resources:
+To finalize the creation of resources of the SAP SAP\<SID> cluster group, create the following resources:
 
 * SAP \<SID> \<InstanceNumber> service
 * SAP \<SID> \<InstanceNumber> instance
@@ -559,8 +559,7 @@ Set-ClusterResourceDependency -Resource $SAPASCSServiceClusterResource  -Depende
 
 ## Add a probe port
 
-Configure an SAP cluster resource, SAP-SID-IP probe port, by using PowerShell. Execute this configuration on one
-of the SAP ASCS/SCS cluster nodes, as described [in this article][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
+Configure an SAP cluster resource, the SAP-SID-IP probe port, by using PowerShell. Execute this configuration on one of the SAP ASCS/SCS cluster nodes, as described [in this article][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
 
 ## Install an ERS instance on both cluster nodes
 
