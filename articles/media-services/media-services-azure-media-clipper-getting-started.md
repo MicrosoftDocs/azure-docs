@@ -23,7 +23,6 @@ ms.service: media-services
 ---
 
 # Create clips with Azure Media Clipper
-## Getting started
 This section shows you the basic steps of getting started with Azure Media Clipper. Sections that follow provide the specifics on how to configure Azure Media Clipper.
 
 1. First, add the following links for Azure Media Player and Azure Media Clipper to your document's head. We recommend explicitly specifying a version of the Clipper and Azure Media Player in the URLs. Do not use the latest version of these resources in production as they are subject to change on demand.
@@ -33,7 +32,7 @@ This section shows you the basic steps of getting started with Azure Media Clipp
 <link href="//amp.azure.net/libs/amp/2.1.4/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
 <script src="//amp.azure.net/libs/amp/2.1.4/azuremediaplayer.min.js"></script>
 <!--Azure Media Clipper script and stylesheet-->
-<link href="//amp.azure.net/libs/amc/0.1.0/azuremediaclipper.min.css" rel="stylesheet">
+<link href="//amp.azure.net/libs/amc/0.1.0/azuremediaclipper.css" rel="stylesheet">
 <script src="//amp.azure.net/libs/amc/0.1.0/azuremediaclipper.min.js"></script>
 ```
 

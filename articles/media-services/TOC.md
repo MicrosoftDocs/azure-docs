@@ -105,8 +105,8 @@
 #### [Static packaging and encryption](media-services-static-packaging.md)
 
 ## [Stream live](media-services-manage-channels-overview.md)
-### [on-premises encoders](media-services-live-streaming-with-onprem-encoders.md)
-#### [Recommended on-prem encoders](media-services-recommended-encoders.md)
+### [On-premises encoders](media-services-live-streaming-with-onprem-encoders.md)
+#### [Recommended on-premises encoders](media-services-recommended-encoders.md)
 #### [Azure portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)

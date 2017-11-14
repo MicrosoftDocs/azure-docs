@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Learn about encoders recommended by media services | Microsoft Docs 
+title: Learn about encoders recommended by Azure Media Services | Microsoft Docs 
 description: Learn about encoders recommended by media services
 services: media-services
 keywords: encoding;encoders;media
@@ -22,7 +22,7 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
-# Recommended on-prem encoders
+# Recommended on-premises encoders
 When live streaming with Azure Media Services, you can specify how you want your channel to receive the input stream. If you choose to use an on-prem encoder with a live encoding channel, your encoder should push a high-quality single-bitrate stream as output. If you choose to use an on-prem encoder with a pass through channel, your encoder should push a multi-bitrate stream as output with all desired output qualities. For more information, see [Live streaming with on-prem encoders](media-services-live-streaming-with-onprem-encoders.md).
 
 Azure Media Services recommends using one of following live encoders that have RTMP as output:
@@ -44,11 +44,8 @@ Azure Media Services recommends using one of the following live encoders that ha
 > [!NOTE]
 > A live encoder can send a single-bitrate stream to a pass through channel, but this configuration is not recommended because it does not allow for adaptive bitrate streaming to the client.
 
-# Azure Media Services encoder partners
-As an Azure Media Services on-prem encoder partner, Media Services promotes your product by recommending your encoder to enterprise customers.
-
 ## How to become an on-prem encoder partner
-To become an on-prem encoder partner, you must verify compatibility of your on-prem encoder with Media Services. To do so, complete the following verifications:
+As an Azure Media Services on-prem encoder partner, Media Services promotes your product by recommending your encoder to enterprise customers. To become an on-prem encoder partner, you must verify compatibility of your on-prem encoder with Media Services. To do so, complete the following verifications:
 
 Pass through channel verification
 1. Create or visit your Azure Media Services account

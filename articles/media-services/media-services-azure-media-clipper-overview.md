@@ -23,7 +23,6 @@ ms.service: media-services
 ---
 
 # Create clips with Azure Media Clipper
-## Overview
 Azure Media Clipper is a free JavaScript library that enables web developers to provide their users with an interface for creating media clips. This tool can be integrated into any web page and provides APIs for loading assets and submitting clipping jobs.
 
 Azure Media Clipper enables you to:
@@ -36,9 +35,6 @@ Azure Media Clipper enables you to:
 - Produce encoding jobs against the assets in your media services account
 
 To request new features, provide ideas or feedback, submit to [UserVoice for Azure Media Services](http://aka.ms/amsvoice/). If you have and specific issues, questions or find any bugs, drop the Media Services team a line at amcinfo@microsoft.com.
-
-## Getting started
-To get started deploying the Clipper, read the [getting started](media-services-azure-media-clipper-getting-started.md) article for next steps.
 
 ## Release notes
 The following list describes various known issues and changelog for the latest release of the Clipper:
@@ -77,3 +73,6 @@ The Clipper widget is available in the following 18 languages:
 - Spanish
 - Swedish
 - Turkish
+
+## Next steps
+To get started using Azure Media Clipper, read the [getting started](media-services-azure-media-clipper-getting-started.md) article for details on how to deploy the widget.
