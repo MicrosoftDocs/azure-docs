@@ -172,11 +172,11 @@ Use the following steps to connect to Power BI, and to import the views you crea
 3. In the **Get Data** window, select Azure SQL Database.
 4. In the database login window, enter your server name (catalog-dpt-&lt;User&gt;.database.windows.net). Select **Import** for **Data Connectivity Mode**, and then click OK. 
 
-![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
+    ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
 5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P@ssword1*. Click **Connect**.  
 
-![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. In the **Navigator** pane, under the analytics database, select the star-schema tables: fact_Tickets, dim_Events, dim_Venues, dim_Customers and dim_Dates. Then select **Load**. 
 
