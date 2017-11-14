@@ -27,9 +27,9 @@ However, you might already have existing external notification system in place t
 This document shows you the most important parts of the webhook payload, and how you can create custom alerts to get notified when service issues affect you.
 
 If you want to use a preconfigured integration, see how to:
-* [Configure alerts with OpsGenie](service-health-alert-webhook-opsgenie.md)
-* [Configure alerts with PagerDuty](service-health-alert-webhook-pagerduty.md)
 * [Configure alerts with ServiceNow](service-health-alert-webhook-servicenow.md)
+* [Configure alerts with PagerDuty](service-health-alert-webhook-pagerduty.md)
+* [Configure alerts with OpsGenie](service-health-alert-webhook-opsgenie.md)
 
 ## Configuring a custom notification using the service health webhook payload
 If you want to set up your own custom webhook integration, you need to parse the JSON payload that is sent during Service Health notifications.
