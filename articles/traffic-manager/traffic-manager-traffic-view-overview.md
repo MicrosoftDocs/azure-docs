@@ -39,7 +39,7 @@ For example, you can use Traffic View to understand which regions have a large n
 Traffic View works by having Traffic Manager look at the incoming queries received in the past seven days against a profile that has this feature enabled. From the incoming queries information, Traffic View extracts the source IP of the DNS resolver that is used as a representation of the location of the users. These are then grouped together at a DNS resolver level granularity to create user base regions by using the geographic information of IP addresses maintained by Traffic Manager. Traffic Manager then looks at the Azure regions to which the query was routed and constructs a traffic flow map for users from those regions.  
 In the next step, Traffic Manager correlates the user base region to Azure region mapping with the network intelligence latency tables that it maintains for different end-user networks to understand the average latency experienced by users from those regions when connecting to Azure regions. All these calculations are then combined at a per local DNS resolver IP level before it is presented to you. You can consume the information in various ways.
 
->[NOTE!]
+>[!NOTE]
 >The latency described in Traffic View is a representative latency between the end user and the Azure regions to which they had connected to, and is not the DNS lookup latency.
 
 ## Visual overview
