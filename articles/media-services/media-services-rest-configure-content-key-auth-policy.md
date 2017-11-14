@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 11/14/2017
 ms.author: juliako
 
 ---
@@ -421,7 +421,7 @@ Add AuthorizationPolicy to the ContentKey as shown [here](#AddAuthorizationPolic
     public enum ContentKeyRestrictionType
     {
         Open = 0,
-        TokenRestricted = 1,
+        TokenRestricted = 1, // Not supported, reserved for future
         IPRestricted = 2,
     }
 
