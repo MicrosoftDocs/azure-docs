@@ -1,4 +1,4 @@
----
+--
 title: Azure CLI Samples - Azure Functions | Microsoft Docs
 description: Azure CLI Samples - Azure Functions
 services: functions
@@ -26,7 +26,7 @@ The following table includes links to bash scripts for Azure Functions that use 
 |-|-|
 |**Create app**||
 | [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Creates a function app in a Consumption plan.  |
-| [Create a function app in an App Service plan](scripts/functions-cli-create-app-service-plan.md) | Create a function app in an dedicated App Service plan. |
+| [Create a function app in an App Service plan](scripts/functions-cli-create-app-service-plan.md) | Create a function app in a dedicated App Service plan. |
 | | |
 |**Integrate**||
 | [Create a function app and connect to a storage account](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Create a function app and connect it to a storage account. |
