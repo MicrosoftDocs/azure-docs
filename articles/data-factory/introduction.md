@@ -72,7 +72,7 @@ Azure Data Factory version 2 builds on the original Azure Data Factory data move
 
 Following the version 1 release, we recognized that customers need to design complex hybrid data integration scenarios that require data movement and processing in the cloud, on-premises, and in cloud VMs. These requirements brought a need to transfer and process data within secured virtual network environments and to scale out with on-demand processing power.
 
-As data pipelines become a critical part of a business analytics strategy, we've seen that these critical data activities require flexible scheduling to support incremental data loads and event-triggered executions. Finally, as as these operations become more complex, so does the requirement for the service to support common workflow paradigms including branching, looping and conditional processing.
+As data pipelines become a critical part of a business analytics strategy, we've seen that these critical data activities require flexible scheduling to support incremental data loads and event-triggered executions. Finally, as these operations become more complex, so does the requirement for the service to support common workflow paradigms including branching, looping and conditional processing.
 
 With version 2, you can also migrate existing SSIS packages to the cloud. You can lift and shift SSIS as an Azure service that's managed within ADF, utilizing the new feature “Integration Runtimes” (IR). By spinning-up an SSIS IR in version 2, you have the ability to execute, manage, monitor, and build SSIS packages in the cloud.
 
@@ -169,11 +169,11 @@ For more information about Data Factory concepts, see the following articles:
 
 ## Supported regions
 
-Currently, you can create data factories in the East US and East US 2 regions. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services.
+Currently, you can create data factories in the East US, East US 2, West Europe regions. However, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services.
 
 Azure Data Factory itself does not store any data. It lets you create data-driven workflows to orchestrate the movement of data between supported data stores and the processing of data using compute services in other regions or in an on-premises environment. It also allows you to monitor and manage workflows by using both programmatic and UI mechanisms.
 
-Although Data Factory is available only in the East US and East US 2 regions, the service that powers the data movement in Data Factory is available globally in several regions. If a data store is behind a firewall, then a Data Management Gateway that's installed in your on-premises environment moves the data instead.
+Although Data Factory is available only in the East US, East US 2, and West Europe regions, the service that powers the data movement in Data Factory is available globally in several regions. If a data store is behind a firewall, then a Data Management Gateway that's installed in your on-premises environment moves the data instead.
 
 For an example, let's assume that your compute environments such as Azure HDInsight cluster and Azure Machine Learning are running out of the West Europe region. You can create and use an Azure Data Factory instance in North Europe and use it to schedule jobs on your compute environments in West Europe. It takes a few milliseconds for Data Factory to trigger the job on your compute environment, but the time for running the job on your computing environment does not change.
 

@@ -39,7 +39,7 @@ By default, your directory will not have self-service password reset turned on. 
 To test, use the "Run now" feature on any sign-in policy that has local accounts as an identity provider. On the local account sign-in page (where you enter an email address and password, or a username and password), click **Can't access your account?** to verify the consumer experience.
 
 > [!NOTE]
-> The self-service password reset pages can be customized by using the [company branding feature](../active-directory/active-directory-add-company-branding.md).
+> The self-service password reset pages can be customized by using the [company branding feature](../active-directory/customize-branding.md).
 > 
 > 
 
