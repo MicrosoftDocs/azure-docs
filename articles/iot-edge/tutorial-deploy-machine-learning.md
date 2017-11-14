@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -38,7 +38,7 @@ When you want to use your own [Azure Machine Learning][https://docs.microsoft.co
 1. Select **Set modules**.
 1. Select **Add IoT Edge module**.
 1. In the **Name** field, enter `tempSensor`.
-1. In the **Image URI** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`.
+1. In the **Image URI** field, enter `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
 1. Leave the other settings unchanged and select **Save**.
 1. Still on the **Add Modules** step, select **Add IoT Edge module** again.
 1. In the **Name** field, enter `machinelearningmodule`.
