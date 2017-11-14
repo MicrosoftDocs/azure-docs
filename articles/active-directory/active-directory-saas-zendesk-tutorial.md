@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type the value using the following pattern: `https://<subdomain>.zendesk.com`
 
-	b. In the **Identifier** textbox, type the value using the following pattern: `https://<subdomain>.zendesk.com`
+	b. In the **Identifier** textbox, type the value using the following pattern: `<subdomain>.zendesk.com`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-on URL and Identifier URL. Contact [Zendesk support team](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get these values. 
