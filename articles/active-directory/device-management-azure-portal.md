@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -64,12 +64,12 @@ This option is a premium capability available through products such as Azure AD 
 
 You have two options to locate registered and joined devices:
 
-- **All devices** in the **Manage** section of the **Devices** blade  
+- **All devices** in the **Manage** section of the **Devices** page  
 
     ![All devices](./media/device-management-azure-portal/41.png)
 
 
-- **Devices** in the **Manage** section of a **User** blade
+- **Devices** in the **Manage** section of a **User** page
  
     ![All devices](./media/device-management-azure-portal/43.png)
 
@@ -176,7 +176,7 @@ The device activities are available through the activity logs. This includes act
 
 - Device operations such as deleting or updating a device
  
-Your entry point to the auditing data is **Audit logs** in the **Activity** section of the **Devices* blade.
+Your entry point to the auditing data is **Audit logs** in the **Activity** section of the **Devices** page.
 
 ![Audit logs](./media/device-management-azure-portal/61.png)
 
