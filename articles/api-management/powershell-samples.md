@@ -25,9 +25,9 @@ The following table includes links to bash scripts built using the Azure PowerSh
 |**Provision and manage**||
 |[Add a user](./scripts/powershell-add-user-and-get-subscription-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a user in API Management and gets a subscription key.|
 |[Create an APIM service](./scripts/powershell-create-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Creates a Developer SKU API Management Service.|
+|[Restore service](./scripts/powershell-backup-restore-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Backups and restores an APIM service.|
 |[Scale an APIM service](./scripts/powershell-scale-and-addregion-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Scales and adds region to the APIM service.|
 |[Set up custom domain](./scripts/powershell-setup-custom-domain.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Sets up custom domain on proxy and portal endpoint of the API Management service.|
-|[Restore service](./scripts/powershell-backup-restore-apim-service.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Backups and restores an APIM service.|
 |**Define API**||
 |[Import API](./scripts/powershell-import-api-and-add-to-product.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Imports an API and adds to an APIM product.|
 |**Secure**||
