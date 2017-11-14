@@ -76,7 +76,10 @@ select the X12 flat file message to decode.
 	![Select X12 flat file message for decoding](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
 
    > [!NOTE]
-   > The actual message content or payload of the good or bad message array is base64 encoded, so you must specify an expression to process the content. Here is an example to process the content as xml in code view or using expression builder in designer.
+   > The actual message content or payload for the message array, good or bad, 
+   > is base64 encoded.So, you must specify an expression to processes the content. Here is an example that processes the 
+   > content as XML that you can enter in code view 
+   > or by using expression builder in the designer.
    > ``` json
    > "content": "@xml(base64ToBinary(item()?['Payload']))"
    > ```
