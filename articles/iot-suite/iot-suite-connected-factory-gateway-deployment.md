@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 11/14/2017
 ms.author: dobett
 
 ---
@@ -42,7 +42,7 @@ The steps in this article show you how to deploy a gateway using Docker on eithe
 ## Windows deployment
 
 > [!NOTE]
-> If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of our partners. Visit the [Azure IoT device catalog] for a list of gateway devices compatible with the connected factory solution. Follow the instructions that come with the device to set up the gateway. Alternatively, use the following instructions to manually set up one of your existing gateways.
+> If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. Visit the [Azure IoT device catalog] for a list of gateway devices compatible with the connected factory solution. Follow the instructions that come with the device to set up the gateway. Alternatively, use the following instructions to manually set up one of your existing gateways.
 
 ### Install Docker
 
@@ -101,7 +101,7 @@ You can also perform this step after installing docker from the **Settings** men
 ## Linux deployment
 
 > [!NOTE]
-> If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of our partners. Visit the [Azure IoT device catalog] for a list of gateway devices compatible with the connected factory solution. Follow the instructions that come with the device to set up the gateway. Alternatively, use the following instructions to manually set up one of your existing gateways.
+> If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. Visit the [Azure IoT device catalog] for a list of gateway devices compatible with the connected factory solution. Follow the instructions that come with the device to set up the gateway. Alternatively, use the following instructions to manually set up one of your existing gateways.
 
 [Install Docker] on your Linux gateway device.
 

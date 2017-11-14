@@ -98,7 +98,7 @@ IoT Hub provides an event source to Azure TSI. TSI stores data for 30 days based
 
 Currently, TSI does not allow customers to customize how long they wish to keep the data for.
 
-TSI queries against node data using a SearchSpan (Time.From, Time.To) and aggregates by OPC UA ApplicationUri or OPC UA NodeId or OPC UA DisplayName.
+TSI queries against node data using a **SearchSpan** (**Time.From**, **Time.To**) and aggregates by **OPC UA ApplicationUri** or **OPC UA NodeId** or **OPC UA DisplayName**.
 
 To retrieve the data for the OEE and KPI gauges, and the time series charts, data is aggregated by count of events, Sum, Avg, Min, and Max.
 
@@ -235,9 +235,9 @@ You can continue getting started with IoT Suite by reading the following article
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: iot-suite-permissions.md
+[lnk-permissions]: iot-suite-v1-permissions.md
