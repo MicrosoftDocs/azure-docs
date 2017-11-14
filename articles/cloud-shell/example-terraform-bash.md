@@ -56,7 +56,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-4. Save your file
+3. Save your file and exit your text editor
 
 ### Terraform init
 Begin by running `terraform init`.
