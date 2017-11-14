@@ -410,8 +410,8 @@ _**Figure 7:** In SIOS DataKeeper, replicate the local volume from cluster node 
 
   ```
 2.  Restart cluster node A within the Windows guest operating system. This initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B.  
-3.  Restart cluster node A from the Azure portal (this initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B).  
-4.  Restart cluster node A by using Azure PowerShell (this initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B).
+3.  Restart cluster node A from the Azure portal. This initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B.  
+4.  Restart cluster node A by using Azure PowerShell. This initiates an automatic failover of the SAP \<SID\> cluster group from node A to node B.
 
   After failover, the SAP \<SID\> cluster group is running on cluster node B. For example, it's running on pr1-ascs-1.
 
