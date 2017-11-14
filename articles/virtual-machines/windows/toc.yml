@@ -178,6 +178,8 @@
       href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
+    - name: Enable nested virtualization
+      href: nested-virtualization.md
   - name: Use Images
     items:
     - name: Find and use images
