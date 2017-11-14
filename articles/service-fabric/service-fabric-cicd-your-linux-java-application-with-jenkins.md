@@ -34,56 +34,66 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
-  ```
-2. Have the Service Fabric container application deployed on the cluster, by using the following steps:
+  ``` 
+
+   > [!NOTE]
+   > Ensure that the 8081 port is specified as a custom endpoint on the cluster.
+   >
+2. Clone the application, by using the following steps:
 
   ```sh
 git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
 ```
 
-3. You need the connect option details of the Azure storage file-share, where you want to persist the state of the Jenkins container instance. If you are using the Microsoft Azure portal for the same, please follow the steps - Create an Azure storage account, say ``sfjenkinsstorage1``. Create a **File Share** under that storage account, say ``sfjenkins``. Click on **Connect** for the file-share and note the values it displays under **Connecting from Linux**, say this would look like as follows -
+3. Persist the state of the Jenkins container in a file-share:
+  * Create an Azure storage account in the **same region** as your cluster with a name such as ``sfjenkinsstorage1``.
+  * Create a **File Share** under the storage Account with a name such as ``sfjenkins``.
+  * Click on **Connect** for the file-share and note the values it displays under **Connecting from Linux**, the value should look
+  similar to the one below:
 ```sh
 sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
-4. Update the placeholder values in the ```setupentrypoint.sh``` script with corresponding azure-storage details.
+> [!NOTE]
+> To mount cifs shares, you need to have the cifs-utils package installed in the cluster nodes. 		
+>
+
+4. Update the placeholder values in the ```setupentrypoint.sh``` script with the azure-storage details from step 3.
 ```sh
 vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
 ```
-Replace ``[REMOTE_FILE_SHARE_LOCATION]`` with the value ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` from the output of the connect in point 3 above.
-Replace ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` with the value ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` from point 3 above.
+  * Replace ``[REMOTE_FILE_SHARE_LOCATION]`` with the value ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` from the output of the connect in step 3 above.
+  * Replace ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` with the value ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` from step 3 above.
 
 5. Connect to the cluster and install the container application.
-```azurecli
+```sh
 sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 This installs a Jenkins container on the cluster, and can be monitored by using the Service Fabric Explorer.
 
-### Steps
-1. From your browser, go to ``http://PublicIPorFQDN:8081``. It provides the path of the initial admin password required to sign in. You can continue to use Jenkins as an admin user. Or you can create and change the user, after you sign in with the initial admin account.
-
    > [!NOTE]
-   > Ensure that the 8081 port is specified as the application endpoint port while you are creating the cluster.
+   > It may take a couple of minutes for the Jenkins image to be downloaded on the cluster.
    >
 
-2. Get the container instance ID by using ``docker ps -a``.
-3. Secure Shell (SSH) sign in to the container, and paste the path you were shown on the Jenkins portal. For example, if in the portal it shows the path `PATH_TO_INITIAL_ADMIN_PASSWORD`, run the following:
+### Steps
+1. From your browser, go to ``http://PublicIPorFQDN:8081``. It provides the path of the initial admin password required to sign in. 
+2. Look at the Service Fabric Explorer to determine on which node the Jenkins container is running. Secure Shell (SSH) sign in to this node.
+```sh
+ssh user@PublicIPorFQDN -p [port]
+``` 
+3. Get the container instance ID by using ``docker ps -a``.
+4. Secure Shell (SSH) sign in to the container, and paste the path you were shown on the Jenkins portal. For example, if in the portal it shows the path `PATH_TO_INITIAL_ADMIN_PASSWORD`, run the following:
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
-  cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
-
-4. Set up GitHub to work with Jenkins, by using the steps mentioned in [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
-	* Use the instructions provided by GitHub to generate the SSH key, and to add the SSH key to the GitHub account that is hosting your repository.
-	* Run the commands mentioned in the preceding link in the Jenkins Docker shell (and not on your host).
-	* To sign in to the Jenkins shell from your host, use the following command:
-
   ```sh
-  docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+  cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the pasword value
   ```
+5. On the Jenkins Gettting Started page, choose the Select plugins to install option, select the **None** checkbox, and click install.
+6. Create a user or select to continue as an admin.
 
 ## Set up Jenkins outside a Service Fabric cluster
 
@@ -126,7 +136,7 @@ Ensure that the cluster or machine where the Jenkins container image is hosted h
 
 1. Go to ``http://PublicIPorFQDN:8081``
 2. From the Jenkins dashboard, select **Manage Jenkins** > **Manage Plugins** > **Advanced**.
-Here, you can upload a plug-in. Select **Choose file**, and then select the **serviceFabric.hpi** file, which you downloaded under prerequisites. When you select **Upload**, Jenkins automatically installs the plug-in. Allow a restart if requested.
+Here, you can upload a plug-in. Select **Choose file**, and then select the **serviceFabric.hpi** file, which you downloaded under prerequisites or can download [here](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). When you select **Upload**, Jenkins automatically installs the plug-in. Allow a restart if requested.
 
 ## Create and configure a Jenkins job
 
@@ -134,7 +144,7 @@ Here, you can upload a plug-in. Select **Choose file**, and then select the **se
 2. Enter an item name (for example, **MyJob**). Select **free-style project**, and click **OK**.
 3. Go the job page, and click **Configure**.
 
-   a. In the general section, under **GitHub project**, specify your GitHub project URL. This URL hosts the Service Fabric Java application that you want to integrate with the Jenkins continuous integration, continuous deployment (CI/CD) flow (for example, ``https://github.com/sayantancs/SFJenkins``).
+   a. In the general section, select the checkbox for **GitHub project**, and specify your GitHub project URL. This URL hosts the Service Fabric Java application that you want to integrate with the Jenkins continuous integration, continuous deployment (CI/CD) flow (for example, ``https://github.com/sayantancs/SFJenkins``).
 
    b. Under the **Source Code Management** section, select **Git**. Specify the repository URL that hosts the Service Fabric Java application that you want to integrate with the Jenkins CI/CD flow (for example, ``https://github.com/sayantancs/SFJenkins.git``). Also, you can specify here which branch to build (for example, **/master**).
 4. Configure your *GitHub* (which is hosting the repository) so that it is able to talk to Jenkins. Use the following steps:
@@ -149,7 +159,7 @@ Here, you can upload a plug-in. Select **Choose file**, and then select the **se
 
    e. Under the **Build Triggers** section, select which build option you want. For this example, you want to trigger a build whenever some push to the repository happens. So you select **GitHub hook trigger for GITScm polling**. (Previously, this option was called **Build when a change is pushed to GitHub**.)
 
-   f. Under the **Build section**, from the drop-down **Add build step**, select the option **Invoke Gradle Script**. In the widget that comes, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified, and works accordingly. If you create a project named ``MyActor`` (using the Eclipse plug-in or Yeoman generator), the root build script should contain ``${WORKSPACE}/MyActor``. See the following screenshot for an example of what this looks like:
+   f. Under the **Build section**, from the drop-down **Add build step**, select the option **Invoke Gradle Script**. In the widget that comes open the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. If you create a project named ``MyActor`` (using the Eclipse plug-in or Yeoman generator), the root build script should contain ``${WORKSPACE}/MyActor``. See the following screenshot for an example of what this looks like:
 
     ![Service Fabric Jenkins Build action][build-step]
 

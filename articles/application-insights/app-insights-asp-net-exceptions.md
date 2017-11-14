@@ -3,7 +3,7 @@ title: Diagnose failures and exceptions in web apps with Azure Application Insig
 description: Capture exceptions from ASP.NET apps along with request telemetry.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: d1e98390-3ce4-4d04-9351-144314a42aa2
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Diagnose exceptions in your web apps with Application Insights
@@ -29,8 +29,8 @@ Exceptions in your live web app are reported by [Application Insights](app-insig
 * In some application frameworks or with some settings, you need to take some extra steps to catch more exceptions:
   * [Web forms](#web-forms)
   * [MVC](#mvc)
-  * [Web API 1.*](#web-api-1)
-  * [Web API 2.*](#web-api-2)
+  * [Web API 1.*](#web-api-1x)
+  * [Web API 2.*](#web-api-2x)
   * [WCF](#wcf)
 
 ## Diagnosing exceptions using Visual Studio

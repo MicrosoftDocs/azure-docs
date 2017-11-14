@@ -1,6 +1,5 @@
 # Overview
 ## [What is Azure Security Center?](security-center-intro.md)
-## [Get insights with Power BI](security-center-powerbi.md)
 ## [Data security](security-center-data-security.md)
 ## Scenarios
 ### [Incident response](security-center-incident-response.md)
@@ -13,14 +12,13 @@
 ## [Planning and operations](security-center-planning-and-operations-guide.md)
 ## [Permissions](security-center-permissions.md)
 ## [Supported platforms](security-center-os-coverage.md)
-## [Partner integration](security-center-partner-integration.md)
 ## [FAQ](security-center-faq.md)
 
 # How to
-
-## Security policy
+## [Security policy](security-center-policies-overview.md)
 ### [Data collection](security-center-enable-data-collection.md)
 ### [Security policy](security-center-policies.md)
+### [Security policy using Azure policy](security-center-azure-policy.md)
 ### [Email notifications](security-center-provide-security-contact-details.md)
 ### [Pricing tier](security-center-pricing.md)
 
@@ -29,6 +27,10 @@
 ## [Search](security-center-search.md)
 
 ## Prevent
+### [Security solutions](security-center-partner-integration.md)
+#### [Monitor connected solutions](security-center-partner-solutions.md)
+#### [Connect Microsoft ATA](security-center-ata-integration.md)
+#### [Connect Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [Implement security recommendations](security-center-recommendations.md)
 ### [Application recommendations](security-center-application-recommendations.md)
 #### [Add a web application firewall](security-center-add-web-application-firewall.md)
@@ -53,11 +55,9 @@
 #### [Install Endpoint Protection](security-center-install-endpoint-protection.md)
 #### [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md)
-#### [Resolve endpoint protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Update OS version](security-center-update-os-version.md)
 #### [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md)
 ### [Monitor security health](security-center-monitoring.md)
-### [Monitor partner solutions](security-center-partner-solutions.md)
 ### [Identity and Access](security-center-identity-access.md)
 
 ## Detect and Respond
@@ -74,6 +74,7 @@
 
 ## Cloud defenses
 ### [Just in time access](security-center-just-in-time.md)
+### [Adaptive application controls](security-center-adaptive-application.md)
 
 ## Automation and Orchestration
 ### [Playbooks](security-center-playbooks.md)

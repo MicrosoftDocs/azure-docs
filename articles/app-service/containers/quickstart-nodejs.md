@@ -1,6 +1,6 @@
 ---
-title: Create a Node.js web app in a Linux container in Azure | Microsoft Docs
-description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
+title: Create a Node.js in Azure App Service on Linux | Microsoft Docs
+description: Deploy your first Node.js Hello World in Azure App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/05/2017
-ms.author: cfowler;cephalin
+ms.author: cephalin
+ms.custom: mvc
 ---
-# Create a Node.js web app in a Linux container in Azure
+# Create a Node.js web app in Azure App Service on Linux
 
-[Web App for Containers](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Node.js app to Azure Web App for Containers. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Node.js code to the web app.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Node.js app to App Service on Linux using a built-in image. You create the web app with built-in image using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the Node.js code to the web app.
 
 ![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -73,11 +74,11 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## Create a web app
+## Create a web app with built-in image
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Browse to the site to see your newly created web app. Replace _&lt;app name>_ with a unique app name.
+Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -129,11 +130,11 @@ Browse to the deployed application using your web browser.
 http://<app_name>.azurewebsites.net
 ```
 
-The Node.js sample code is running in an Azure App Service web app.
+The Node.js sample code is running in a web app with built-in image.
 
 ![Sample app running in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-**Congratulations!** You've deployed your first Node.js app to App Service.
+**Congratulations!** You've deployed your first Node.js app to App Service on Linux.
 
 ## Update and redeploy the code
 

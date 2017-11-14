@@ -23,9 +23,9 @@ Azure Government has unique URLs and endpoints for managing your environment. It
 ## Connecting via the portal
 The portal is the primary way that most people connect to Azure Government.  To connect, browse to the portal at [https://portal.azure.us](https://portal.azure.us).  The legacy version of the Azure portal can be accessed via [https://manage.windowsazure.us](https://manage.windowsazure.us).
 
-Subscriptions can be created for your account by connecting to [https://account.windowsazure.us](https://account.windowsazure.us).
-
-
+Subscriptions can be created for your account:
+* Via the [Azure Government Account Portal](https://account.windowsazure.us) - Select the "Subscriptions" option in the top menu and then click on "add subscription".
+* Via the [Azure Government Portal](https://portal.azure.us) - Select the "Subscriptions" option in the left side navigation then click on "Add".
 
 ## Next steps
 If you are looking for more information, you can check out:

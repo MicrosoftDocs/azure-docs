@@ -3,7 +3,7 @@ title: Certificate assets in Azure Automation | Microsoft Docs
 description: Certificates can be stored securely in Azure Automation so they can be accessed by runbooks or DSC configurations to authenticate against Azure and third-party resources.  This article explains the details of certificates and how to work with them in both textual and graphical authoring.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 

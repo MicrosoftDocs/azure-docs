@@ -59,13 +59,11 @@ To lower the exposure time of privileges and increase your visibility into their
 ## Conditional access
 With conditional access control, Azure Active Directory checks the specific conditions you choose when authenticating a user, before allowing access to an application. Once those conditions are met, the user is authenticated and allowed access to the application.
 
-![Setting conditional access rules with MFA][4]
-
 ## Related articles
 * Enable [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * Enable [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Enable [Azure AD Identity Protection](../active-directory-identityprotection.md)
-* Enable [conditional access controls](../active-directory-conditional-access.md)
+* Enable [conditional access controls](../active-directory-conditional-access-azure-portal.md)
 
 For more information on building a complete security roadmap, see the “Customer responsibilities and roadmap” section of the [Microsoft Cloud Security for Enterprise Architects](http://aka.ms/securecustomer) document. For more information on engaging Microsoft services to assist with any of these topics, contact your Microsoft representative or visit our [Cybersecurity solutions page](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
@@ -73,4 +71,3 @@ For more information on building a complete security roadmap, see the “Custome
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png
 [2]: ../media/active-directory-privileged-identity-management-configure/PIM_Dash.png
 [3]: ../media/active-directory-identityprotection/29.png
-[4]: ../media/active-directory-conditional-access/conditionalaccess-saas-apps.png

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure Data Lake Analytics using Azure PowerShell | Microsoft Docs
 description: 'Use Azure PowerShell to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. '
 services: data-lake-analytics
@@ -96,7 +96,7 @@ OUTPUT @a
 Submit the script.
 
 ```
-$job = Submit-AdlJob -AccountName $adla –Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" –Script $script
 ```
 
 Alternatively, you could save the script as a file and submit with the following command:
@@ -104,14 +104,14 @@ Alternatively, you could save the script as a file and submit with the following
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -AccountName $adla –ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" –ScriptPath $filename
 ```
 
 
 Get the status of a specific job. Keep using this cmdlet until you see the job is done.
 
 ```
-$job = Get-AdlJob -AccountName $adla -JobId $job.JobId
+$job = Get-AdlJob -Account $adla -JobId $job.JobId
 ```
 
 Instead of calling Get-AdlAnalyticsJob over and over until a job finishes, you can use the Wait-AdlJob cmdlet.
@@ -123,7 +123,7 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 Download the output file.
 
 ```
-Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
+Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## See also

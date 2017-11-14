@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/25/2017
+ms.date: 10/10/2017
 ms.author: alkohli
 
 ---
@@ -21,13 +21,14 @@ ms.author: alkohli
 
 ## Overview
 
-This tutorial explains how to install Update 5 on a StorSimple device running an earlier software version via the Azure classic portal and using the hotfix method. The hotfix method is used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
+This tutorial explains how to install Update 5 on a StorSimple device running an earlier software version via the Azure classic portal and using the hotfix method. The hotfix method is used when you are trying to install Update 5 on a device running pre-Update 3 versions. The hotfix method is also used if a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
 
 Update 5 includes device software, Storport and Spaceport, OS security updates and OS updates, and disk firmware updates.  The device software, Spaceport, Storport, security, and other OS updates are non-disruptive updates. The non-disruptive or regular updates can be applied via the Azure classic portal or via the hotfix method. The disk firmware updates are disruptive updates and are applied when the device is in maintenance mode via the hotfix method using the Windows PowerShell interface of the device.
 
 > [!IMPORTANT]
 > * A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure  portal.
-> * We recommend that you install the software and other regular updates via the Azure classic portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. Depending upon the version you are updating from, the updates may take 4 hours (or greater) to install. The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these result in a down time for your device.
+> * If you are running a version prior to Update 3, we strongly recommend that you install Update 5 via the hotfix method. To help Support guide you through the update, [log a support ticket](storsimple-8000-contact-microsoft-support.md).
+> * If you are running Update 3 and later, we recommend that you install the software and other regular updates via the Azure classic portal. Depending upon the version you are updating from, the updates may take 4 hours (or greater) to install. The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these result in a down time for your device.
 > * If running the optional StorSimple Snapshot Manager, ensure that you have upgraded your Snapshot Manager version to Update 5 prior to updating the device.
 
 
@@ -45,7 +46,7 @@ Verify that your device is running **StorSimple 8000 Series Update 5 (6.3.9600.1
 
 * You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device.
 
-* Download the maintenance mode updates by using the steps listed in [to download hotfixes](#to-download-hotfixes) to search for and download KB4011837, which installs disk firmware updates (the other updates should already be installed by now). Follow the steps listed in [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates.
+* Download the maintenance mode updates by using the steps listed in [to download hotfixes](#to-download-hotfixes) to search for and download KB4037263, which installs disk firmware updates (the other updates should already be installed by now). Follow the steps listed in [install and verify maintenance mode hotfixes](#to-install-and-verify-maintenance-mode-hotfixes) to install the maintenance mode updates.
 
 ## Install Update 5 as a hotfix
 
@@ -59,7 +60,7 @@ The software versions that can be upgraded using the hotfix method are:
 * Update 4
 
 > [!NOTE]
-> The recommended method to install Update 5 is via the Azure classic portal. Use this procedure if you fail the gateway check when trying to install the updates through the Azure classic portal. The check fails when you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version earlier than Update 1.
+> The recommended method to install Update 5 is via the Azure classic portal. However, if you are running a version prior to Update 3, we strongly recommend that you use this method to install Update 5. You should also use this procedure if you fail the gateway check when trying to install the updates through the Azure classic portal. The check fails when you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version earlier than Update 1.
 
 The hotfix method involves the following three steps:
 

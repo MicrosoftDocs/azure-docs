@@ -378,7 +378,7 @@ For more information about the various technologies discussed in this article, s
 [Azure portal]: https://portal.azure.com/
 [Maven Plugin for Azure Web Apps]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
-[Using a custom Docker image for Azure Web App on Linux]: /azure/app-service-web/app-service-linux-using-custom-docker-image
+[Using a custom Docker image for Azure Web App on Linux]: tutorial-custom-docker-image.md
 [Docker]: https://www.docker.com/
 [Docker plugin for Maven]: https://github.com/spotify/docker-maven-plugin
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/

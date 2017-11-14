@@ -34,13 +34,13 @@ There are code snippets included in this article, and a link to a complete sampl
 
 ## Key features of RA-GRS
 
-Keep in mind these key points when designing your ppplication for RA-GRS:
+Keep in mind these key points when designing your application for RA-GRS:
 
 * Azure Storage maintains a read-only copy of the data you store in your primary region in a secondary region. As noted above, the storage service determines the location of the secondary region.
 
 * The read-only copy is [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency) with the data in the primary region.
 
-* For blobs, tables, and queues, you can query the secondary region for a *Last Sync Time* value that tells you when the last replication from the primary to the secondary region occurred. (This is not supported for Azure File storage, which doesn't have RA-GRS redundancy at this time.)
+* For blobs, tables, and queues, you can query the secondary region for a *Last Sync Time* value that tells you when the last replication from the primary to the secondary region occurred. (This is not supported for Azure Files, which doesn't have RA-GRS redundancy at this time.)
 
 * You can use the Storage Client Library to interact with the data in either the primary or secondary region. You can also redirect read requests automatically to the secondary region if a read request to the primary region times out.
 

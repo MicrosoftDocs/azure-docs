@@ -3,7 +3,7 @@ title: Introduction to Azure Blob storage | Microsoft Docs
 description:  Introduction to Azure Blob storage 
 services: storage
 documentationcenter: ''
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: robinsh
+ms.date: 09/28/2017
+ms.author: tamram
 
 ---
 # Introduction to Blob storage
@@ -44,7 +44,7 @@ a **General-purpose storage account** or a **Blob storage account** that is spec
   
     *Block blobs* are ideal for storing text or binary files, such as documents and media files. *Append blobs* are similar to block blobs in that they are made up of blocks, but they are optimized for append operations, so they are useful for logging scenarios. A single block blob can contain up to 50,000 blocks of up to 100 MB each, for a total size of slightly more than 4.75 TB (100 MB X 50,000). A single append blob can contain up to 50,000 blocks of up to 4 MB each, for a total size of slightly more than 195 GB (4 MB X 50,000).
   
-    *Page blobs* can be up to 1 TB in size, and are more efficient for frequent read/write operations. Azure Virtual Machines uses page blobs as OS and data disks.
+    *Page blobs* can be up to 8 TB in size, and are more efficient for frequent read/write operations. Azure Virtual Machines use page blobs as OS and data disks.
   
     For details about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
@@ -52,3 +52,5 @@ a **General-purpose storage account** or a **Blob storage account** that is spec
 
 * [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Getting started with Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
+* [Azure Storage samples using .NET](../common/storage-samples-dotnet.md)
+* [Azure Storage samples using Java](../common/storage-samples-java.md)

@@ -20,7 +20,7 @@ To use the Custom Vision Service you must first build a classifier.
 
 To build a classifier, you must first have:
 
-- A valid MSA, so you can sign into customvision.ai and get started. Note that you will be able to access your subscription keys once you have created your first project.
+- A valid [Microsoft Account](https://account.microsoft.com/account) or an Azure Active Directory OrgID ("work or school account"), so you can sign into customvision.ai and get started. Note that OrgID login for AAD users from [national clouds](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud) is not currently supported.
 - A series of images to train your classifier (minimum of 30 images per tag).
 - A few images to test your classifier after the classifier is trained.
 
@@ -28,7 +28,7 @@ To build a classifier, you must first have:
 
 Custom Vision Service can be found by clicking here: [https://customvision.ai](https://customvision.ai)
 
-After you log into Custom Vision Service, you will be presented with a list of projects.
+After you log into Custom Vision Service, you will be presented with a list of projects. You will be able to access your subscription keys once you have created your first project.
 
 1. Click **New Project** to create your first project.
 

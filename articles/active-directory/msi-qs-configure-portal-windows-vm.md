@@ -41,7 +41,7 @@ Then proceed to the next section for details on enabling MSI on the VM.
 
 If you have a VM that was originally provisioned without an MSI:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription under which you would like to deploy the VM.
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”.
 
 2. Navigate to the desired Virtual Machine.
 
@@ -53,7 +53,7 @@ If you have a VM that was originally provisioned without an MSI:
 
 If you have a Virtual Machine that no longer needs an MSI:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription under which you would like to deploy the VM.
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”.
 
 2. Navigate to the desired Virtual Machine.
 

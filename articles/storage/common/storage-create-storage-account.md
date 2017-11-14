@@ -3,7 +3,7 @@ title: How to create, manage, or delete a storage account in the Azure portal | 
 description: Create a new storage account, manage your account access keys, or delete a storage account in the Azure portal. Learn about standard and premium storage accounts.
 services: storage
 documentationcenter: ''
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 f1_keywords: 
   - "sql13.swb.windowsazurestorage.connect.f1"
-ms.date: 01/23/2017
-ms.author: robinsh
+ms.date: 10/11/2017
+ms.author: tamram
 
 ---
 # About Azure storage accounts
+
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -30,6 +31,7 @@ An Azure storage account provides a unique namespace to store and access your Az
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ## Storage account billing
+
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
@@ -59,7 +61,7 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 ## Create a storage account
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, select **New** -> **Storage** -> **Storage account**.
+2. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **More Services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 3. Enter a name for your storage account. See [Storage account endpoints](#storage-account-endpoints) for details about how the storage account name will be used to address your objects in Azure Storage.
    
    > [!NOTE]
@@ -75,7 +77,7 @@ You can also configure a custom domain name to use with your storage account. Fo
 
 5. Select the type of storage account: **General purpose** or **Blob storage**. **General purpose** is the default.
    
-    If **General purpose** was selected, then specify the performance tier: **Standard** or **Premium**. The default is **Standard**. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md).
+    If **General purpose** was selected, then specify the performance tier: **Standard** or **Premium**. The default is **Standard**. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md).
    
     If **Blob Storage** was selected, then specify the access tier: **Hot** or **Cool**. The default is **Hot**. See [Azure Blob Storage: Cool and Hot tiers](../blobs/storage-blob-storage-tiers.md) for more details.
 6. Select the replication option for the storage account: **LRS**, **GRS**, **RA-GRS**, or **ZRS**. The default is **RA-GRS**. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).

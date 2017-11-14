@@ -1,5 +1,5 @@
 ---
-title: Create a function in Azure triggered by queue messages | Microsoft Docs
+title: Add messages to an Azure Storage queue using Functions | Microsoft Docs
 description: Use Azure Functions to create a serverless function that is invoked by a messages submitted to an Azure Storage queue.
 services: azure-functions
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/17/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
 ---

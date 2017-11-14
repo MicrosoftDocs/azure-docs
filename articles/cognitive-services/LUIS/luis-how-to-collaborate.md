@@ -20,7 +20,7 @@ To allow collaborators to edit your LUIS app, in the **Collaborators** section o
 
 ![Add collaborator](./media/luis-how-to-collaborate/add-collaborator.png)
 
-* Collaborators can sign in and edit your LUIS app as the same time as you. If a collaborator edits the LUIS app by adding an intent or entity or labeling an utterance, you'll see a notication.
+* Collaborators can sign in and edit your LUIS app as the same time as you. If a collaborator edits the LUIS app by adding an intent or entity or labeling an utterance, you'll see a notification.
 
 ![Collaborator notification](./media/luis-how-to-collaborate/collaborator-notification.png)
 

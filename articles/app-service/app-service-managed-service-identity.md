@@ -26,6 +26,10 @@ This topic shows you how to create a managed app identity for App Service and Az
 
 Creating an app with an identity requires an additional property to be set on the application.
 
+> [!NOTE] 
+> Only the primary slot for a site will receive the identity. Managed service identities for deployment slots are not yet supported.
+
+
 ### Using the Azure portal
 
 To set up a managed service identity in the portal, you will first create an application as normal and then enable the feature.
@@ -42,7 +46,7 @@ To set up a managed service identity in the portal, you will first create an app
 
 ### Using an Azure Resource Manager template
 
-An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](../app-service-web/app-service-deploy-complex-application-predictably.md) and [Automating resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+An Azure Resource Manager template can be used to automate deployment of your Azure resources. To learn more about deploying to App Service and Functions, see [Automating resource deployment in App Service](../app-service/app-service-deploy-complex-application-predictably.md) and [Automating resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
 Any resource of type `Microsoft.Web/sites` can be created with an identity by including the following property in the resource definition:
 ```json
@@ -141,7 +145,11 @@ A successful 200 OK response includes a JSON body with the following properties:
 > |resource|The App ID URI of the receiving web service.|
 > |token_type|Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about bearer tokens, see [The OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
+
 This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
+
+> [!NOTE] 
+> Environment variables are set up when the process first starts, so after enabling Managed Service Identity for your application you may need to restart your application, or redeploy its code, before `MSI_ENDPOINT` and `MSI_SECRET` are available to your code.
 
 ### REST protocol examples
 An example request might look like the following:
@@ -188,4 +196,13 @@ const getToken = function(resource, apiver, cb) {
     rp(options)
         .then(cb);
 }
+```
+
+In PowerShell:
+```powershell
+$apiVersion = "2017-09-01"
+$resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
+$tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVersion"
+$tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
+$accessToken = $tokenResponse.access_token
 ```

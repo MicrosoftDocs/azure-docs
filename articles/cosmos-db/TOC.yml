@@ -99,12 +99,14 @@
       href: tutorial-functions-http-trigger.md
 - name: Samples
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: cli-samples.md
-  - name: Azure PowerShell
+  - name: PowerShell
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Serverless database
+    href: serverless-computing-database.md
   - name: Global distribution
     href: distribute-data-globally.md
   - name: Partitioning
@@ -137,6 +139,7 @@
   - name: Develop
     items:
     - name: DocumentDB API
+      href: documentdb-index.md
       items:
       - name: Resources
         href: documentdb-resources.md
@@ -211,6 +214,7 @@
         - name: Retire S1, S2, S3
           href: performance-levels.md
     - name: MongoDB API
+      href: mongodb-index.md
       items:
       - name: Connect to your MongoDB account
         href: connect-mongodb-account.md
@@ -240,38 +244,48 @@
         href: gremlin-support.md
     - name: Table API
       items:
-      - name: Table storage overview
-        href: table-storage-overview.md
-      - name: Table storage design guide
-        href: table-storage-design-guide.md
-      - name: Table storage REST APIs
-        href: /rest/api/storageservices/Table-Service-Concepts
-      - name: Tutorials
-        items:
-          - name: .NET
-            href: table-storage-how-to-use-dotnet.md
-          - name: F#
-            href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
-          - name: Node.js 
-            href: table-storage-cloud-service-nodejs.md
-          - name: Java
-            href: table-storage-how-to-use-java.md
-          - name: Node.js
-            href: table-storage-how-to-use-nodejs.md
-          - name: C++ 
-            href: table-storage-how-to-use-c-plus.md
-          - name: PHP
-            href: table-storage-how-to-use-php.md
-          - name: Python
-            href: table-storage-how-to-use-python.md
-          - name: Ruby
-            href: table-storage-how-to-use-ruby.md
+      - name: Table development
+        href: table-support.md
+      - name: Table API operations with PowerShell
+        href: table-powershell.md
+      - name: Azure Table storage
+        items:     
+        - name: Table storage overview
+          href: table-storage-overview.md
+        - name: Table storage design guide
+          href: table-storage-design-guide.md
+        - name: Table storage REST APIs
+          href: /rest/api/storageservices/Table-Service-Concepts
+        - name: Develop
+          items:
+            - name: .NET
+              href: table-storage-how-to-use-dotnet.md
+            - name: F#
+              href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+            - name: Node.js 
+              href: table-storage-cloud-service-nodejs.md
+            - name: Java
+              href: table-storage-how-to-use-java.md
+            - name: Node.js
+              href: table-storage-how-to-use-nodejs.md
+            - name: C++ 
+              href: table-storage-how-to-use-c-plus.md
+            - name: PHP
+              href: table-storage-how-to-use-php.md
+            - name: Python
+              href: table-storage-how-to-use-python.md
+            - name: Ruby
+              href: table-storage-how-to-use-ruby.md
+            - name: PowerShell
+              href: table-storage-how-to-use-powershell.md
     - name: Change feed
       href: change-feed.md
     - name: Geospatial
       href: geospatial.md
     - name: Indexing
       href: indexing-policies.md
+    - name: Connected Service in Visual Studio
+      href: connected-service.md
   - name: Manage
     items:
     - name: Cost-effective reads and writes
@@ -286,8 +300,14 @@
       href: set-throughput.md
     - name: Monitor SLAs
       href: monitor-accounts.md
+    - name: Use metrics
+      href: use-metrics.md
+    - name: Diagnostic logging
+      href: logging.md
     - name: Manage keys and consistency
       href: manage-account.md
+    - name: Azure Storage Explorer
+      href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
     - name: Security
       items:
       - name: Encryption at rest
@@ -313,7 +333,7 @@
     - name: Integrate with Azure Search
       href: ../search/search-howto-index-documentdb.md
     - name: Move data with Azure Data Factory
-      href: ../data-factory/data-factory-azure-documentdb-connector.md
+      href: ../data-factory/connector-azure-cosmos-db.md
     - name: Analyze real-time data with Azure Stream Analytics
       href: ../stream-analytics/stream-analytics-define-outputs.md#documentdb
     - name: Get changed HL7 FHIR record using Logic Apps
@@ -354,6 +374,8 @@
     items:
     - name: .NET
       href: table-sdk-dotnet.md
+    - name: Python
+      href: table-sdk-python.md  
   - name: Graph APIs
     items:
     - name: .NET

@@ -4,7 +4,7 @@
   items:
     - name: Search the web for videos
       href: search-the-web.md
-    - name: Upgrade from v5 to v7 Preview
+    - name: Upgrade from v5 to v7
       href: bing-video-upgrade-guide-v5-to-v7.md
     - name: Use and display requirements
       href: UseAndDisplayRequirements.md
@@ -13,6 +13,18 @@
   items:
   - name: Get started
     href: quick-start.md
+  - name: C#
+    href: csharp.md
+  - name: Java
+    href: java.md
+  - name: NodeJs
+    href: nodejs.md
+  - name: Php
+    href: php.md
+  - name: Python
+    href: python.md
+  - name: Ruby
+    href: ruby.md
 - name: How to
   items:
   - name: Get video insights
@@ -25,10 +37,10 @@
     href: resize-and-crop-thumbnails.md
 - name: Reference
   items:
-  - name: REST v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference
-  - name: REST v7 Preview
+  - name: REST v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference
+  - name: REST v5 
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference  
 - name: Resources
   items:
   - name: Azure Roadmap

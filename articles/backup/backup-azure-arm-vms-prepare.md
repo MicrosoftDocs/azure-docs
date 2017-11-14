@@ -55,6 +55,12 @@ Before you prepare your environment, please understand the limitations.
 
 * Backing up virtual machines with more than 16 data disks is not supported.
 * Backing up virtual machines with data disk sizes greater than 1023GB is not supported.
+
+> [!NOTE]
+> We have a private preview to support backups for VMs with >1TB unmanaged disks. For details refer to [Private preview for large disk VM backup support](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
+
 * Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 * Backup of VMs encrypted using just BEK is not supported. Backup of Linux VMs encrypted using LUKS encryption is not supported.
 * Backup of VMs containing Cluster Shared Volumes(CSV) or Scale out File Server configuration is not recommended as they require involving all VMs included in the cluster configuration during snapshot task. Azure Backup doesn't support multi-VM consistency. 
@@ -203,7 +209,13 @@ When deciding which option to use, the trade-offs are between manageability, gra
 | HTTP proxy |Granular control in the proxy over the storage URLs allowed.<br>Single point of Internet access to VMs.<br>Not subject to Azure IP address changes. |Additional costs for running a VM with the proxy software. |
 
 ### Whitelist the Azure datacenter IP ranges
-To whitelist the Azure datacenter IP ranges, please see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) for details on the IP ranges, and instructions.
+* To whitelist the Azure datacenter IP ranges, please see the [Azure website](http://www.microsoft.com/en-us/download/details.aspx?id=41653) for details on the IP ranges, and instructions.
+* You can use service tags to allow connections to storage of the specific region using [Service Tags](../virtual-network/security-overview.md#service-tags). Make sure that rule which allows access to storage account is having higher priority than rule blocking internet access. 
+
+  ![NSG with storage tags for a region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> Storage tags are available only in specific regions and are in preview. For list of regions, refer to [Service tags for Storage](../virtual-network/security-overview.md#service-tags)
 
 ### Using an HTTP proxy for VM backups
 When backing up a VM, the backup extension on the VM sends the snapshot management commands to Azure Storage using an HTTPS API. Route the backup extension traffic through the HTTP proxy since it is the only component configured for access to the public Internet.

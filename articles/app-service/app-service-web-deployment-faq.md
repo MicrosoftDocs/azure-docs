@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/03/2017
 ms.author: genli
 
 ---
@@ -42,7 +42,7 @@ To resolve this error, upgrade to the [latest SDK](https://azure.microsoft.com/d
 ## How do I deploy an ASP.NET application from Visual Studio to App Service?
 <a id="deployasp"></a>
 
-The tutorial [Create your first ASP.NET web app in Azure in five minutes](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started/) shows you how to deploy an ASP.NET web application to a web app in App Service by using Visual Studio 2015.
+The tutorial [Create your first ASP.NET web app in Azure in five minutes](app-service-web-get-started-dotnet.md) shows you how to deploy an ASP.NET web application to a web app in App Service by using Visual Studio 2017.
 
 ## What are the different types of deployment credentials?
 

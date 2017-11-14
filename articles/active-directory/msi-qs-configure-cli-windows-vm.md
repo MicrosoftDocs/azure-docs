@@ -40,7 +40,7 @@ To run the CLI script examples, you have three options:
 
 To create an MSI-enabled VM:
 
-1. If you're not using Azure Cloud Shell from the Azure portal, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
 
    ```azurecli-interactive
    az login
@@ -62,7 +62,7 @@ To create an MSI-enabled VM:
 
 If you need to enable MSI on an existing Virtual Machine:
 
-1. If you're not using Azure Cloud Shell from the Azure portal, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
 
    ```azurecli-interactive
    az login
@@ -78,7 +78,7 @@ If you need to enable MSI on an existing Virtual Machine:
 
 If you have a Virtual Machine that no longer needs an MSI:
 
-1. If you're not using Azure Cloud Shell from the Azure portal, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the VM:
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription that contains the VM. Also make sure your account belongs to a role that gives you write permissions on the VM, such as “Virtual Machine Contributor”:
 
    ```azurecli-interactive
    az login

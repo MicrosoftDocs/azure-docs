@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: billmath
 
 ---
@@ -27,7 +27,7 @@ The following documentation provides information on how to enable the device wri
 
 * Enable conditional access based on devices to ADFS (2012 R2 or higher) protected applications (relying party trusts).
 
-This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on conditional access, see [Managing Risk with Conditional Access](../active-directory-conditional-access.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../active-directory-conditional-access-automatic-device-registration-setup.md).
+This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on conditional access, see [Managing Risk with Conditional Access](../active-directory-conditional-access-azure-portal.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 > [!IMPORTANT]
 > <li>Devices must be located in the same forest as the users. Since devices must be written back to a single forest, this feature does not currently support a deployment with multiple user forests.</li>
@@ -42,19 +42,28 @@ This provides additional security and assurance that access to applications is g
 Use the following steps to prepare for using device writeback.
 
 1. From the machine where Azure AD Connect is installed, launch PowerShell in elevated mode.
-2. If the Active Directory PowerShell module is NOT installed, install it using the following command:
-   
-   `Add-WindowsFeature RSAT-AD-PowerShell`
-3. If the Azure Active Directory PowerShell module is NOT installed, then download and install it from [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297). This component has a dependency on the sign-in assistant, which is installed with Azure AD Connect.
+2. If the Active Directory PowerShell module is NOT installed, install the Remote Server Administration Tools which contains the AD PowerShell module and dsacls.exe which is required to run the script.  Run the following command:
+  
+   ``` powershell
+   Add-WindowsFeature RSAT-AD-Tools
+   ```
+
+3. If the Azure Active Directory PowerShell module is NOT installed, then download and install it from [Azure Active Directory Module for Windows PowerShell (64-bit version)](http://go.microsoft.com/fwlink/p/?linkid=236297). This component has a dependency on the sign-in assistant, which is installed with Azure AD Connect.  
 4. With enterprise admin credentials, run the following commands and then exit PowerShell.
    
-   `Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
-   
-   `Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
+   ``` powershell
+   Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+   ```
+
+   ``` powershell
+   Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}
+   ```
 
 Enterprise admin credentials are required since changes to the configuration namespace are needed. A domain admin will not have enough permissions.
 
 ![Powershell for enabling device writeback](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+d
+
 
 Description:
 
@@ -132,7 +141,7 @@ Verify configuration in Active Directory:
 ![Troubleshoot, verify permissions on Device Registration Configuration](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 
 ## Additional Information
-* [Managing Risk With Conditional Access](../active-directory-conditional-access.md)
+* [Managing Risk With Conditional Access](../active-directory-conditional-access-azure-portal.md)
 * [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../active-directory-device-registration-on-premises-setup.md)
 
 ## Next steps

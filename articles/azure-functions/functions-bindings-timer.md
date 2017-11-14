@@ -53,7 +53,7 @@ The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron
 >[!NOTE]   
 >Many of the cron expressions you find online omit the `{second}` field. If you copy from one of them, you need to adjust for the extra `{second}` field. For specific examples, see [Schedule examples](#examples) below.
 
-The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create a new app setting for your function app named `WEBSITE_TIME_ZONE`. Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://msdn.microsoft.com/library/ms912391.aspx). 
+The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create a new app setting for your function app named `WEBSITE_TIME_ZONE`. Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
 
 For example, *Eastern Standard Time* is UTC-05:00. To have your timer trigger fire at 10:00 AM EST every day, use the following CRON expression that accounts for UTC time zone:
 

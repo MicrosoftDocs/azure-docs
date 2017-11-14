@@ -3,7 +3,7 @@ title: Create standalone Azure Automation Account | Microsoft Docs
 description: Tutorial that walks you through the creation, testing, and example use of security principal authentication in Azure Automation.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: ''
 

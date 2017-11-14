@@ -54,7 +54,7 @@ PolyBase uses T-SQL external objects to define the location and attributes of th
 ###  Create a credential
 To access your Azure Data Lake Store, you will need to create a Database Master Key to encrypt your credential secret used in the next step.
 You then create a Database scoped credential, which stores the service principal credentials set up in AAD. For those of you who have used PolyBase to connect to Windows Azure Storage Blobs, note that the credential syntax is different.
-To connect to Azure Data Lake Store, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Azure Data Lake resource. Instrucitons to perform these steps are located [here](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+To connect to Azure Data Lake Store, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Azure Data Lake resource. Instructions to perform these steps are located [here](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.

@@ -3,7 +3,7 @@ title:  What is Azure Application Insights? | Microsoft Docs
 description: Application Performance Management and usage tracking of your live web application.  Detect, triage and diagnose problems, understand how people use your app.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 379721d1-0f82-445a-b416-45b94cb969ec
@@ -11,12 +11,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
+ms.custom: mvc
 ms.date: 05/14/2017
-ms.author: bwren
+ms.author: mbullwin
 ---
 # What is Application Insights?
-Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It  integrates with your devOps process, and has connection points to a variety of development tools.
+Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your DevOps process, and has connection points to a variety of development tools. It can monitor and analyze telemetry from mobile apps by integrating with Visual Studio Mobile Center and HockeyApp.
 
 ![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
@@ -112,6 +113,7 @@ There are several ways to get started. Begin with whichever works best for you. 
   * [Node.js](app-insights-nodejs.md)
   * [Other platforms](app-insights-platforms.md)
 * **[Instrument your web pages](app-insights-javascript.md)** for page view, AJAX and other client-side telemetry.
+* **[Analyze mobile app usage](app-insights-mobile-center-quickstart.md)** by integrating with Visual Studio Mobile Center.
 * **[Availability tests](app-insights-monitor-web-app-availability.md)** - ping your website regularly from our servers.
 
 
