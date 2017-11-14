@@ -21,7 +21,7 @@ ms.author: billgib; sstein
 ---
 # Manage Schema for multiple tenants in a multi-tenant application that uses Azure SQL Database
 
-The [first Wingtip SaaS tutorial](saas-dbpertenant-get-started-deploy.md) shows how the app can provision a tenant database and register it in the catalog. Like any application, the Wingtip SaaS app will evolve over time, and at times will require changes to the database. Changes may include new or changed schema, new or changed reference data, and routine database maintenance tasks to ensure optimal app performance. With a SaaS application, these changes need to be deployed in a coordinated manner across a potentially massive fleet of tenant databases. For these changes to be in future tenant databases, they need to be incorporated into the provisioning process.
+The [first Wingtip Tickets SaaS Database Per Tenant tutorial](saas-dbpertenant-get-started-deploy.md) shows how the app can provision a tenant database and register it in the catalog. Like any application, the Wingtip Tickets SaaS Database Per Tenant app will evolve over time, and at times will require changes to the database. Changes may include new or changed schema, new or changed reference data, and routine database maintenance tasks to ensure optimal app performance. With a SaaS application, these changes need to be deployed in a coordinated manner across a potentially massive fleet of tenant databases. For these changes to be in future tenant databases, they need to be incorporated into the provisioning process.
 
 This tutorial explores two scenarios - deploying reference data updates for all tenants, and retuning an index on the table containing the reference data. The [Elastic jobs](sql-database-elastic-jobs-overview.md) feature is used to execute these operations across all tenants, and the *golden* tenant database that is used as a template for new databases.
 
@@ -37,7 +37,7 @@ In this tutorial you learn how to:
 
 To complete this tutorial, make sure the following prerequisites are met:
 
-* The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
+* The Wingtip Tickets SaaS Database Per Tenant app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip Tickets SaaS Database Per Tenant application](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell is installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * The latest version of SQL Server Management Studio (SSMS) is installed. [Download and Install SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
@@ -58,9 +58,9 @@ There is a new version of Elastic Jobs that is now an integrated feature of Azur
 > [!NOTE]
 > *This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription id to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). This preview is limited, so contact SaaSFeedback@microsoft.com for related questions or support.*
 
-## Get the Wingtip application scripts
+## Get the Wingtip Tickets SaaS Database Per Tenant application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip Tickets SaaS Database Per Tenant scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)  github repo. [Steps to download the Wingtip Tickets SaaS Database Per Tenant scripts](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## Create a job account database and new job account
 
@@ -85,7 +85,7 @@ To create a new job, we use a set of jobs system stored procedures created in th
 1. Also connect to the tenant server: tenants1-\<user\>.database.windows.net
 1. Browse to the *contosoconcerthall* database on the *tenants1* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are not** in the results list.
 1. Open the file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modify the statement: SET @wtpUser = &lt;user&gt; and substitute the User value used when you deployed the Wingtip app
+1. Modify the statement: SET @wtpUser = &lt;user&gt; and substitute the User value used when you deployed the Wingtip Tickets SaaS Database Per Tenant app
 1. Ensure you are connected to the jobaccount database and press **F5** to run the script
 
 * **sp\_add\_target\_group** creates the target group name DemoServerGroup, now we need to add target members.
@@ -129,6 +129,6 @@ In this tutorial you learned how to:
 
 ## Additional resources
 
-* [Additional tutorials that build upon the Wingtip SaaS application deployment](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Additional tutorials that build upon the Wingtip Tickets SaaS Database Per Tenant application deployment](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Managing scaled-out cloud databases](sql-database-elastic-jobs-overview.md)
 * [Create and manage scaled-out cloud databases](sql-database-elastic-jobs-create-and-manage.md)
