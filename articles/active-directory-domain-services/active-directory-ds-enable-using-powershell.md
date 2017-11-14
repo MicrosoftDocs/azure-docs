@@ -20,7 +20,7 @@ ms.author: maheshu
 # Enable Azure Active Directory Domain Services using PowerShell
 This article shows you how to enable Azure Active Directory (AD) Domain Services using PowerShell.
 
-## Install the required PowerShell modules
+## Task 1: Install the required PowerShell modules
 
 ### Install and configure Azure AD PowerShell
 Follow the instructions in the article to [install the Azure AD PowerShell module and connect to Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
@@ -29,14 +29,14 @@ Follow the instructions in the article to [install the Azure AD PowerShell modul
 Follow the instructions in the article to [install the Azure PowerShell module and connect to your Azure subscription](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
-## Task 1: Create the required service principal in your Azure AD directory
+## Task 2: Create the required service principal in your Azure AD directory
 Type the following PowerShell command to create the service principal required for Azure AD Domain Services in your Azure AD directory.
 ```powershell
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
 ```
 
-## Task 2: Create and configure the 'AAD DC Administrators' group
+## Task 3: Create and configure the 'AAD DC Administrators' group
 The next task is to create the administrator group that will be used to delegate administration tasks on your managed domain.
 ```powershell
 # Create the delegated administration group for AAD Domain Services.
@@ -62,14 +62,129 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId -RefObjectId $UserObjectId
 ```
 
-## Register the Azure AD Domain Services resource provider
+## Task 4: Register the Azure AD Domain Services resource provider
 Type the following PowerShell command to register the resource provider for Azure AD Domain Services:
 ```powershell
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-## Create and configure the virtual network
+## Task 5: Create a resource group
+Type the following PowerShell command to create a resource group:
+```powershell
+$ResourceGroupName = "ContosoAaddsRg"
 
+# Create the resource group.
+New-AzureRmResourceGroup `
+  -Name $ResourceGroupName `
+  -Location westus
+```
+
+You can create the virtual network and the Azure AD Domain Services managed domain in this resource group.
+
+
+## Task 6: Create and configure the virtual network
+Now, create the virtual network in which you will enable Azure AD Domain Services. Ensure that you create a dedicated subnet for Azure AD Domain Services. Do not deploy workload VMs into this dedicated subnet.
+
+Type the following PowerShell commands to create a virtual network with a dedicated subnet for Azure AD Domain Services.
+
+```powershell
+$ResourceGroupName = "ContosoAaddsRg"
+$VnetName = "DomainServicesVNet_EUS"
+
+# Create the dedicated subnet for AAD Domain Services.
+$AaddsSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name DomainServices `
+  -AddressPrefix 10.0.0.0/24
+
+$WorkloadSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name Workloads `
+  -AddressPrefix 10.0.1.0/24
+
+# Create the virtual network in which you will enable Azure AD Domain Services.
+$Vnet=New-AzureRmVirtualNetwork `
+  -ResourceGroupName $ResourceGroupName `
+  -Location eastus `
+  -Name $VnetName `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $AaddsSubnet,$WorkloadSubnet
+```
+
+
+## Task 7: Provision the Azure AD Domain Services managed domain
+Type the following PowerShell command to enable Azure AD Domain Services for your directory:
+
+```powershell
+# Enable Azure AD Domain Services for the directory.
+New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+  -Location "westus" `
+  -Properties @{"DomainName"=$ManagedDomainName; `     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/$AaddsSubnet"} `
+  -ApiVersion 2017-06-01 -Force -Verbose
+```
 
 ## PowerShell script
+The PowerShell script used to perform all tasks listed in this article is below:
+
+```powershell
+# Change the following values to match your deployment.
+$AaddsAdminUserUpn = 'admin@contoso100.onmicrosoft.com'
+$AzureSubscriptionId = "fc3a3fb3-0eac-405e-a222-c65ba7c2ce96"
+$ManagedDomainName = "contoso100.com"
+$ResourceGroupName = "ContosoAaddsRg"
+$VnetName = "DomainServicesVNet_EUS"
+
+# Create the service principal for Azure AD Domain Services.
+New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
+
+# Create the delegated administration group for AAD Domain Services.
+New-AzureADGroup -DisplayName "AAD DC Administrators" `
+  -Description "Delegated group to administer Azure AD Domain Services" `
+  -SecurityEnabled $true -MailEnabled $false `
+  -MailNickName "AADDCAdministrators"
+
+# First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
+$GroupObjectId = Get-AzureADGroup `
+  -Filter "DisplayName eq 'AAD DC Administrators'" | `
+  Select-Object ObjectId
+
+# Now, retrieve the object ID of the user you'd like to add to the group.
+$UserObjectId = Get-AzureADUser `
+  -Filter "UserPrincipalName eq $AaddsAdminUserUpn" | `
+  Select-Object ObjectId
+
+# Add the user to the 'AAD DC Administrators' group.
+Add-AzureADGroupMember -ObjectId $GroupObjectId -RefObjectId $UserObjectId
+
+# Register the resource provider for Azure AD Domain Services with Resource Manager.
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
+
+# Create the resource group.
+New-AzureRmResourceGroup `
+  -Name $ResourceGroupName `
+  -Location westus
+
+# Create the dedicated subnet for AAD Domain Services.
+$AaddsSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name DomainServices `
+  -AddressPrefix 10.0.0.0/24
+
+$WorkloadSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name Workloads `
+  -AddressPrefix 10.0.1.0/24
+
+# Create the virtual network in which you will enable Azure AD Domain Services.
+$Vnet=New-AzureRmVirtualNetwork `
+  -ResourceGroupName $ResourceGroupName `
+  -Location eastus `
+  -Name $VnetName `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $AaddsSubnet,$WorkloadSubnet
+
+# Enable Azure AD Domain Services for the directory.
+New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+  -Location "westus" `
+  -Properties @{"DomainName"=$ManagedDomainName; `     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/$AaddsSubnet"} `
+  -ApiVersion 2017-06-01 -Force -Verbose
+```
+
+## Next steps
