@@ -26,7 +26,7 @@ You can use IoT Edge modules to deploy code that implements your business logic 
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an IoT Edge module based on .NET core 2.0
-> * Use VS Code and Docker to create a docker image and publish it to your registry 
+> * Use Visual Studio Code and Docker to create a docker image and publish it to your registry 
 > * Deploy the module to your IoT Edge device
 > * View generated data
 
@@ -204,7 +204,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
                 await deviceClient.SendEventAsync("output1", filteredMessage);
             }
 
-            // We need to indicate that we have completed the message treatment
+            // Indicate that the message treatment is completed
             return MessageResponse.Completed;
         }
         catch (AggregateException ex)
@@ -214,7 +214,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
                 Console.WriteLine();
                 Console.WriteLine("Error in sample: {0}", exception);
             }
-            // We need to indicate that we have not completed the message treatment
+            // Indicate that the message treatment is not completed
             DeviceClient deviceClient = (DeviceClient)userContext;
             return MessageResponse.Abandoned;
         }
@@ -222,7 +222,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
         {
             Console.WriteLine();
             Console.WriteLine("Error in sample: {0}", ex.Message);
-            // We need to indicate that we have not completed the message treatment
+            // Indicate that the message treatment is not completed
             DeviceClient deviceClient = (DeviceClient)userContext;
             return MessageResponse.Abandoned;
         }
