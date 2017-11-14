@@ -187,7 +187,7 @@ Now you can go to your IoT Edge device to check out the interaction between the 
 In this tutorial, you configured an Azure Storage container and a Streaming Analytics job to analyze data from your IoT Edge device.  You then loaded a custom ASA module to move data from your device, through the stream, into a BLOB for download.  You can continue on to other tutorials to further see how Azure IoT Edge can create solutions for your business.
 
 > [!div class="nextstepaction"] 
-> [Deploy an Azure Function as a module][lnk-function-tutorial]
+> [Deploy an Azure Machine Learning model as a module][lnk-ml-tutorial]
 
 <!-- Images. -->
 [1]: ./media/tutorial-deploy-stream-analytics/storage.png
@@ -214,9 +214,7 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
 [lnk-module-tutorial]: tutorial-csharp-module.md
-[lnk-next-tutorial2]: tutorial-csharp-module.md
-[lnk-function-tutorial]: tutorial-deploy-function.md
-[lnk-first-tutorial]: quickstart.md
+[lnk-ml-tutorial]: tutorial-deploy-machine-learning.md
 
 [lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
 [lnk-docker-linux]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
