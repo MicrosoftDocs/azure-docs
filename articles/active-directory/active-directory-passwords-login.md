@@ -101,6 +101,16 @@ Now that the policy is configured and assigned, what changes for the user? How d
 
 When users attempt to log in, they now see a Reset password link that opens the self-service password reset experience at the logon screen. This functionality allows users to reset their password without having to use another device to access a web browser.
 
+## Common issues
+
+When testing this functionality using Hyper-V the "Reset password" link does not appear.
+
+* Go to the VM you are using to test click on **View** and then uncheck **Enhanced session**.
+
+When testing this functionality using Remote Desktop the "Reset password" link does not appear
+
+* Password reset is not currently supported from a Remote Desktop.
+
 ## Next steps
 The following links provide additional information regarding password reset using Azure AD
 
