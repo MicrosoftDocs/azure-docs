@@ -25,9 +25,6 @@
 ###### [Simulated data](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Use real sensors](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implement firmware update](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### Connect your Intel NUC gateway
-##### [Simulated data](iot-suite-v1-gateway-kit-get-started-simulator.md)
-##### [Use real sensor](iot-suite-v1-gateway-kit-get-started-sensortag.md)
 
 ### How To
 #### Connect a simulated device
