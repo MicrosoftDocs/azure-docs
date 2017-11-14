@@ -1,5 +1,5 @@
 # Geocoding Coverage
-Azure Location Based Services (LBS) provides detailed geocoding information for looking up addresses, places and other geographic entities around the world. The following table provides coverage information for Azure LBS Search Geocoding.
+Azure Location Based Services (LBS) provides detailed geocoding information for looking up addresses, places, and other geographic entities around the world. The following table provides coverage information for Azure LBS Search Geocoding.
 
 
 |Region  |Address Points  |House Numbers |Street Level|
@@ -182,9 +182,9 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |Zambia     |         |         |✓        |
 |Zimbabwe     |         |         |✓         |
 
-Address Points are derived from the Point Address index in Online Search. This field is only supported when Search and Geocoding is supported. House Numbers are derived from the Address Interpolation index in Online Search. This field is only supported when Search and Geocoding is supported.
+Address Points are derived from the Point Address index in Online Search. This field is only supported when Search and Geocoding are supported. House Numbers are derived from the Address Interpolation index in Online Search. This field is only supported when Search and Geocoding are supported.
 
-Azure LBS will provide city-level accuracy when searching in the following regions: 
+Azure LBS provides city-level accuracy when searching in the following regions: 
 
 |Area  |Region  |
 |---------|---------|
@@ -194,13 +194,13 @@ Azure LBS will provide city-level accuracy when searching in the following regio
 |     |Aruba        |
 |     |Belize         |
 |     |Bolivia         |
-|     |Bonaire, Sint Eustatius and Saba         |
+|     |Bonaire, Sint Eustatius, and Saba         |
 |     |Clipperton Island         |
 |     |Falkland Islands         |
 |     |Montserrat         |
 |     |Paraguay         |
 |     |Saint Lucia         |
-|     |Saint Pierre and Miquelon, Overseas Collectivity of         |
+|     |Saint Pierre and Miquelon         |
 |     |Saint Vincent and the Grenadines         |
 |     |South Georgia and the South Sandwich Islands         |
 |     |Suriname         |
@@ -212,19 +212,19 @@ Azure LBS will provide city-level accuracy when searching in the following regio
 |     |Bhutan         |
 |     |British Indian Ocean Territory         |
 |     |Cambodia         |
-|     |China, People's Republic of         |
-|     |Cocos Islands         |
-|     |Comorros         |
+|     |China        |
+|     |Cocos (Keeling) Islands         |
+|     |Comoros         |
 |     |Cook Islands         |
 |     |Dokdo and Takeshima         |
-|     |East Timor         |
-|     |Fiji, Republic of         |
+|     |Timor-Leste         |
+|     |Fiji         |
 |     |French Polynesia         |
 |     |Heard Island and McDonald Islands         |
 |     |Japan        |
 |     |Kiribati         |
 |     |Laos         |
-|     |Micronesia, Federated States of         |
+|     |Micronesia       |
 |     |Mongolia         |
 |     |Nauru         |
 |     |Napal         |
@@ -232,7 +232,7 @@ Azure LBS will provide city-level accuracy when searching in the following regio
 |     |Niue         |
 |     |Norfolk Island         |
 |     |North Korea         |
-|     |Palau, Republic of         |
+|     |Palau        |
 |     |Pakistan         |
 |     |Papua New Guinea         |
 |     |Paracel Islands         |
@@ -249,7 +249,7 @@ Azure LBS will provide city-level accuracy when searching in the following regio
 |     |Turks and Caicos Islands         |
 |     |Tuvalu         |
 |     |Vanuatu         |
-|     |Wallis and Futuna Islands, Territory of the         |
+|     |Wallis and Futuna       |
 |     |         |
 |**Europe**     |        |
 |     |Armenia        |
@@ -267,15 +267,15 @@ Azure LBS will provide city-level accuracy when searching in the following regio
 |**Middle East & Africa**     |         |
 |     |Afghanistan         |
 |     |Bouvet Island         |
-|     |French Southern and Antarctic Lands         |
+|     |French Southern Territories         |
 |     |Gambia         |
 |     |Gaza         |
 |     |Iran         |
 |     |Israel         |
-|     |Maldives, Republic of         |
-|     |Marshall Islands, Republic of the         |
+|     |Maldives      |
+|     |Marshall Islands         |
 |     |Myanmar         |
-|     |Palestinian Territories         |
+|     |Palestinian Authority         |
 |     |Saint Helena         |
 |     |Somalia         |
 |     |Syria         |
