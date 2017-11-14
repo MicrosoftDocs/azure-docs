@@ -19,7 +19,7 @@ ms.author: "anjangsh; billgib; genemi"
 ---
 # Cross-tenant analytics using extracted data
 
-In this tutorial you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
+In this tutorial, you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
 
 1.	**Extract data** from each tenant database into an analytics store.
 2.	**Optimize the extracted data** for analytics processing.
@@ -49,7 +49,7 @@ Next, the aggregated data is shredded into a set of [star-schema](https://www.wi
 - The central fact table in the star-schema contains ticket data.
 - The dimension tables contain data about venues, events, customers, and purchase dates.
 
-Together the central and dimension tables enable efficient analytical processing. The star-schema used in this tutorial is displayed in the following image.
+Together the central and dimension tables enable efficient analytical processing. The star-schema used in this tutorial is displayed in the following image:
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
