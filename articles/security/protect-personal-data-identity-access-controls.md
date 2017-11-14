@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
 
@@ -125,24 +125,23 @@ To deploy MFA in the Azure cloud, you need to first enable it and then turn on t
 
 #### How do I enable Azure to use MFA?
 
-If your users have licenses that include Azure Multi-Factor Authentication, there's nothing that you need to do to turn on Azure MFA. If not, you need to create a Multi-Factor Auth provider in your directory. To do this, follow these
-steps:
+If your users have licenses that include Azure Multi-Factor Authentication, you simply need to configure Azure MFA on a per user or group basis. 
 
-1. Select **Active Directory** in the Azure classic portal (logged on as an administrator).
+![MFA enabled users](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-2. Select **Multi-Factor Authentication Providers.**
+If not, you need to create a Multi-Factor Authentication server. To do this, follow these steps:
 
-3. Select **New,** and then under **App Services,** select **Multi-Factor Auth Provider.**
+1. Select **Active Directory** in the Azure portal (logged on as an administrator).
 
-4. Select **Quick Create.**
+2. Select **MFA Server**
 
-5. Fill in the name field and select a usage model (per authentication or per enabled user).
+3. Specify a time out value. 
 
-6. Designate a directory with which the MFA Provider is associated.
+![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-7. Click the **Create** button.
+4. Click **Save**
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+In this window you also have the option to Download the MFA Server. 
 
 For more instructions on how to manage your Multi-Factor Auth Provider, see [Getting Started with an Azure Multi-Factor Auth
 Provider.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
@@ -164,7 +163,7 @@ To enable MFA by changing user state, do the following:
 5. Check the box next to the user’s name.
 6. On the right, under quick steps, choose **Enable**.
 
-   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/mfa-bulk.png)
 
 7. Confirm your selection in the pop-up window that opens.  Users for whom MFA has been enabled will be asked to register the next time they sign in.
 
