@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory B2C:Language customization in custom policies | Microsoft Docs'
-description: 
+description: Learn how to use localize content in custom policies for multiple languages
 services: active-directory-b2c
 documentationcenter: ''
 author: sammak
@@ -49,7 +49,7 @@ Creating custom language strings requires two steps:
 
 Keep in mind that you can put a `<ContentDefinition>` and `<BuildingBlock>` in both your extension file or the relying policy file depending on whether you want the changes to be in all your inheriting policies or not.
 
-###Edit the `<ContentDefinition>` for the page
+###Edit the ContentDefinition for the page
 
 For each page you want to localize, you can specify in the `<ContentDefinition>` what language resources to look for each language code.
 
@@ -65,7 +65,7 @@ For each page you want to localize, you can specify in the `<ContentDefinition>`
 In this sample, French (fr) and English (en) custom strings are added to the Unified sign-up or sign-in page.  The `LocalizedResourcesReferenceId` for each `LocalizedResourcesReference` is the same as their locale, but you could use any string as the ID.  For each language and page combination, you have to create a corresponding `<LocalizedResources>` shown in the following.
 
 
-###Create the `<LocalizedResources>`
+###Create the LocalizedResources
 
 Your overrides are contained in your `<BuildingBlocks>` and there is a `<LocalizedResources>` for each page and language you have specified in the `<ContentDefinition>` for each page.  Each override is specified as a `<LocalizedString>` such as in the following sample:
 
