@@ -266,7 +266,7 @@ Use the following procedure:
 
 3. Provide **Name** and **ShortName** for your action group. Select the **Resource Group** and **Subscription** where you want to create your action group.
 
-    ![Action Groups Detail](media/log-analytics-itsmc/action-groups-details.png)
+    ![Action Groups detail](media/log-analytics-itsmc/action-groups-details.png)
 
 4. In the Actions list, select **ITSM** from the drop-down menu for **Action Type**. Provide a **Name** for the action and click **Edit details**.
 5. Select the **Subscription** where your Log Analytics workspace is located. Select the **Connection** name (your ITSM Connector name) followed by your Workspace name. For example, "MyITSMMConnector(MyWorkspace)."
@@ -275,7 +275,7 @@ Use the following procedure:
 
 6. Select **Work Item** type from the drop-down menu.
    Choose to use an existing template or fill the fields required by your ITSM product.
-8. Click **OK**.
+7. Click **OK**.
 
 When creating/editing an Azure alert rule, use an Action group, which has an ITSM Action. When the alert triggers, work item is created in the ITSM tool.
 
