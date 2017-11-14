@@ -28,25 +28,25 @@ There are three levels of support:
 * **Preview** - Not yet supported but is expected to reach GA status in the future.
 * **Experimental** - Not supported and might be abandoned in the future; no guarantee of eventual preview or GA status.
 
-## Languages supported in v1 and v2
+## Languages in runtime 1.x and 2.x
 
-[Two versions of the Azure Functions runtime](functions-versions.md) are available. The v1 runtime is GA. It's the only runtime that is approved for production applications. The v2 runtime is currently in preview, so the languages it supports are in preview. The following table shows which languages are supported in each runtime version.
+[Two versions of the Azure Functions runtime](functions-versions.md) are available. The 1.x runtime is GA. It's the only runtime that is approved for production applications. The 2.x runtime is currently in preview, so the languages it supports are in preview. The following table shows which languages are supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 ### Experimental languages
 
-The experimental languages in v1 don't scale well and don't support all bindings. For example, Python is slow because the Functions runtime runs *python.exe* with each function invocation. And while Python supports HTTP bindings, it can't access the request object.
+The experimental languages in 1.x don't scale well and don't support all bindings. For example, Python is slow because the Functions runtime runs *python.exe* with each function invocation. And while Python supports HTTP bindings, it can't access the request object.
 
 Experimental support for PowerShell is limited to version 4.0 because that is what's installed on the VMs that Function apps run on. If you want to run PowerShell scripts, consider [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-The v2 runtime doesn't support experimental languages. In v2 we will add support for a language only when it scales well and supports advanced triggers.
+The 2.x runtime doesn't support experimental languages. In 2.x, we will add support for a language only when it scales well and supports advanced triggers.
 
-If you want to use one of the languages that are only available in v1, stay on the v1 runtime. But don't use experimental languages for anything that you rely on, as there is no official support for them. You can request help by [creating GitHub issues](https://github.com/Azure/azure-webjobs-sdk-script/issues), but support cases should not be opened for problems with experimental languages. 
+If you want to use one of the languages that are only available in 1.x, stay on the 1.x runtime. But don't use experimental languages for anything that you rely on, as there is no official support for them. You can request help by [creating GitHub issues](https://github.com/Azure/azure-webjobs-sdk-script/issues), but support cases should not be opened for problems with experimental languages. 
 
 ### Language extensibility
 
-The v2 runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Among the first languages to be based on this extensibility model is Java, which is in preview in v2.
+The 2.x runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Among the first languages to be based on this extensibility model is Java, which is in preview in 2.x.
 
 ## Next steps
 

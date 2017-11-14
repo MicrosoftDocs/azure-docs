@@ -17,14 +17,19 @@ ms.author: glenga
 ---
 # How to target Azure Functions runtime versions
 
-A function app runs on a specific version of the Azure Functions runtime. There are two major versions: 1.x and 2.x. This article explains how to choose which major version to use and how to configure a function app to run on the version you choose.
-
-This article doesn't cover setting the runtime version on your development computer. For information about how to do that, see [Code and test Azure Functions locally](functions-run-local.md).
+A function app runs on a specific version of the Azure Functions runtime. There are two major versions: 1.x and 2.x. This article explains how to choose which major version to use and how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
 
 ## Differences between runtime 1.x and 2.x
 
-> [!NOTE] 
-> Runtime 1.x is the only version approved for production use. Runtime 2.x is in preview. 
+> [!IMPORTANT] 
+> Runtime 1.x is the only version approved for production use.
+
+| Runtime | Status |
+|---------|---------|
+|1.x|Generally Available (GA)|
+|2.x|Preview|
+
+The following sections explain differences in languages, bindings, and cross-platform development support.
 
 ### Languages
 
