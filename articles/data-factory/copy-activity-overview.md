@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 11/14/2017
 ms.author: jingwang
 
 ---
@@ -62,6 +62,10 @@ For example, you can do the following copy activities:
 * Copy files in text (CSV) format from on-premises File System and write to Azure Blob in Avro format.
 * Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Store.
 * Copy data in GZip compressed text (CSV) format from Azure Blob and write to Azure SQL Database.
+
+## Supported regions
+
+The service that powers Copy Activity is available globally in the regions and geographies listed in [Azure Integration Runtime locations](concepts-integration-runtime.md#integration-runtime-location). The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Services by region](https://azure.microsoft.com/regions/#services) for availability of Data Factory and Data Movement in a region.
 
 ## Configuration
 
@@ -152,7 +156,7 @@ Copy activity execution details and performance characteristics are returned in 
 | sqlDwPolyBase | If PolyBase is used when copying data into SQL Data Warehouse. | Boolean |
 | redshiftUnload | If UNLOAD is used when copying data from Redshift. | Boolean |
 | hdfsDistcp | If DistCp is used when copying data from HDFS. | Boolean |
-| effectiveIntegrationRuntime | Show which Integration Runtime(s) is used to empower the activity run, in the format of "`<IR name> (<region if it's Azure IR>)`". | Text (string) |
+| effectiveIntegrationRuntime | Show which Integration Runtime(s) is used to empower the activity run, in the format of `<IR name> (<region if it's Azure IR>)`. | Text (string) |
 | usedCloudDataMovementUnits | The effective cloud data movement units during copy. | Int32 value |
 | redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure under "redirectIncompatibleRowSettings". See below example. | Text (string) |
 | billedDuration | The duration being billed for data movement. | Int32 value in seconds |

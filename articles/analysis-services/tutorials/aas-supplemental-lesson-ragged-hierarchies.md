@@ -4,7 +4,7 @@ description: Describes how to fix ragged hierarchies in the Azure Analysis Servi
 services: analysis-services
 documentationcenter: ''
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 

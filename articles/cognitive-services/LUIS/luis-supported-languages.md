@@ -21,16 +21,16 @@ You choose the culture when you start creating your LUIS app, and it cannot be m
 LUIS understands utterances in the following languages. Support for prebuilt entities varies. See [Prebuilt entities in LUIS](Pre-builtEntities.md) for details. 
 
 | Language |Locale  |  Prebuilt entity support | Notes |
-| ------- |------|  ------- | ------- |
+| ------- |------|  :------: | ------- |
 | American English |`en-US` | ✔  ||
 | Canadian French |`fr-CA` |   -   ||
-| French (France) |`fr-FR` | ✔ ||
+| French (France) |`fr-FR` | ✔ | Support for the **datetimeV2** prebuilt entity is expected in late November 2017.|
 | Italian |`it-IT` | ✔ ||
 | Dutch |`nl-NL` |  -   ||
-| German |`de-DE` | ✔ ||
+| German |`de-DE` | ✔ | Support for the **datetimeV2** prebuilt entity is expected in late December 2017.|
 | Spanish (Spain) |`es-ES` | ✔ ||
 | Spanish (Mexico)|`es-MX` |  -   ||
-| Portuguese (Brazil) |`pt-BR` | ✔ ||
+| Portuguese (Brazil) |`pt-BR` | ✔ | Support for the **datetimeV2** prebuilt entity is expected in late December 2017.|
 | Japanese |`ja-JP` | ✔ ||
 | Korean |`ko-KR` |   -   ||
 | Chinese |`zh-CN` | ✔ | See support notes listed below|

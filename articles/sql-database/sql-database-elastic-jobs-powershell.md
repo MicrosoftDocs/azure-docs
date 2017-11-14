@@ -65,7 +65,6 @@ The following table lists out all the object types of **Elastic Database jobs** 
   <tr>
     <td>DACPAC</td>
     <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">Data-tier application </a> package to be applied across databases.
-
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
@@ -76,7 +75,6 @@ The following table lists out all the object types of **Elastic Database jobs** 
   <tr>
     <td>Database Target</td>
     <td>Database and server name pointing to an Azure SQL Database.
-
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>

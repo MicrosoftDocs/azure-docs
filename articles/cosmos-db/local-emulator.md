@@ -83,7 +83,7 @@ The Azure Cosmos DB Emulator has the following hardware and software requirement
   *	10 GB available hard disk space
 
 ## Installation
-You can download and install the Azure Cosmos DB Emulator from the [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) or you can run the emulator on Docker for Windows. For instructions on using the Emulator on Docker for Windows, see [Running on Docker](#running-on-docer). 
+You can download and install the Azure Cosmos DB Emulator from the [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) or you can run the emulator on Docker for Windows. For instructions on using the Emulator on Docker for Windows, see [Running on Docker](#running-on-docker). 
 
 > [!NOTE]
 > To install, configure, and run the Azure Cosmos DB Emulator, you must have administrative privileges on the computer.

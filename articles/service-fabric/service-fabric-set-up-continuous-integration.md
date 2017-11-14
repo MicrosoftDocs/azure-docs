@@ -3,7 +3,7 @@ title: Set up continuous integration for Azure microservices | Microsoft Docs
 description: Get an overview of how to set up continuous integration and deployment for a Service Fabric application by using Visual Studio Team Services (VSTS).
 services: service-fabric
 documentationcenter: na
-author: mthalman-msft
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
-ms.author: mthalman;mikhegn
+ms.author: ryanwi
 
 ---
 # Set up Service Fabric continuous integration and deployment with Visual Studio Team Services
