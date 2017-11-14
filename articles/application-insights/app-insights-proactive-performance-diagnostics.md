@@ -64,7 +64,7 @@ Emails about Smart Detections performance anomalies are limited to one email per
 
 ## FAQ
 
-* *So, Microsoft staff looks at my data?*
+* *So, Microsoft staff look at my data?*
   * No. The service is entirely automatic. Only you get the notifications. Your data is [private](app-insights-data-retention-privacy.md).
 * *Do you analyze all the data collected by Application Insights?*
   * Not at present. Currently, we analyze request response time, dependency response time and page load time. Analysis of additional metrics is on our backlog looking forward.
