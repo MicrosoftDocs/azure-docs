@@ -205,7 +205,7 @@ If you also use the Service Map solution, you can view the service desk items cr
 ![ServiceMap Integration](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
 ## Create ITSM work items for OMS alerts
 
-With ITSMC solution in place, you can configure OMS Alerts to trigger the creation of work items in your connected ITSM tool, as follows:
+With ITSMC solution in place, you can configure OMS Alerts to trigger the creation of work items in your connected ITSM tool. Use the following procedure:
 
 1. From **Log Search** window, run a log search query to view data. Query results are the source for work items.
 2. In **Log Search**, click **Alert** to open the **Add Alert Rule** page.
@@ -228,7 +228,7 @@ The OMS alert you have created can be seen under **Settings**>**Alerts**. The co
 
 ## Create ITSM work items from OMS logs
 
-You can also create work items in the connected ITSM sources directly from a log record, as follows:
+You can also create work items in the connected ITSM sources directly from a log record. Use the following procedure:
 
 1. From **Log Search**,  search the required data, select the detail, and click **Create work item**.
 
@@ -252,10 +252,12 @@ You can also create work items in the connected ITSM sources directly from a log
 
 4. Provide the appropriate values in the **Contact Type**, **Impact**, **Urgency**, **Category**, and **Sub Category** text boxes, and then click **Create**.
 
-## Create ITSM work items from Azure Alerts
+## Create ITSM work items from Azure alerts
 ITSMC is integrated with Action Groups.
 
-[Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md) provide a modular and reusable way of triggering actions for your Azure Alerts. The ITSM Action in Action Groups creates work items in your ITSM product using an existing ITSM connector solution.
+[Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md) provide a modular and reusable way of triggering actions for your Azure Alerts. By using the ITSM Action in Action Groups, you can create work items in your ITSM product that has an  existing connection to ITSM connector solution.
+
+Use the following procedure:
 
 1. In Azure portal, click  **Monitor**.
 2. In the left pane, click  **Action groups**. The **Add action group** window appears.
@@ -292,8 +294,8 @@ When creating/editing an Azure alert rule, use an Action group, which has an ITS
 
 2.	If data from ServiceNow is not getting synced to Log Analytics, ensure that the ServiceNow instance is not sleeping. ServiceNow Dev Instances sometimes go to sleep when idle for a long period. Else, report the issue.
 3.	If OMS Alerts fire but work items are not created in ITSM product or configuration items are not created/linked to work items or for any other generic information, look in the following places:
- -  **IT Service Management Connector solution**: The solution shows a summary of connections/work items/computers etc. Click the tile showing **Connector Status**, which takes you to **Log Search**  with the relevant query. Look at the log records with LogType_S as ERROR for more information.
- - Or view the errors/related information directly in the **Log Search** page using the query *Type=ServiceDeskLog_CL*.
+ -  ITSMC: The solution shows a summary of connections/work items/computers etc. Click the tile showing **Connector Status**, which takes you to **Log Search**  with the relevant query. Look at the log records with LogType_S as ERROR for more information.
+ - **Log Search** page: view the errors/related information directly using the query *Type=ServiceDeskLog_CL*.
 
 ## Troubleshoot Service Manager Web App deployment
 1.	In case of any issues with web app deployment, ensure you have sufficient permissions in the subscription mentioned to create/deploy resources.
