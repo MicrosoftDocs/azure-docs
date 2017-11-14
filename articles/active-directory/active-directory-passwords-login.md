@@ -103,11 +103,11 @@ When users attempt to log in, they now see a Reset password link that opens the 
 
 ## Common issues
 
-When testing this functionality using Hyper-V the "Reset password" link does not appear.
+When testing this functionality using Hyper-V, the "Reset password" link does not appear.
 
 * Go to the VM you are using to test click on **View** and then uncheck **Enhanced session**.
 
-When testing this functionality using Remote Desktop the "Reset password" link does not appear
+When testing this functionality using Remote Desktop, the "Reset password" link does not appear
 
 * Password reset is not currently supported from a Remote Desktop.
 
