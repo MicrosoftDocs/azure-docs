@@ -84,13 +84,13 @@ You can create the virtual network and the Azure AD Domain Services managed doma
 
 
 ## Task 6: Create and configure the virtual network
-Now, create the virtual network in which you will enable Azure AD Domain Services. Ensure that you create a dedicated subnet for Azure AD Domain Services. Do not deploy workload VMs into this dedicated subnet.
+Now, create the virtual network in which you enable Azure AD Domain Services. Ensure that you create a dedicated subnet for Azure AD Domain Services. Do not deploy workload VMs into this dedicated subnet.
 
 Type the following PowerShell commands to create a virtual network with a dedicated subnet for Azure AD Domain Services.
 
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"
-$VnetName = "DomainServicesVNet_EUS"
+$VnetName = "DomainServicesVNet_WUS"
 
 # Create the dedicated subnet for AAD Domain Services.
 $AaddsSubnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -104,7 +104,7 @@ $WorkloadSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 # Create the virtual network in which you will enable Azure AD Domain Services.
 $Vnet=New-AzureRmVirtualNetwork `
   -ResourceGroupName $ResourceGroupName `
-  -Location eastus `
+  -Location westus `
   -Name $VnetName `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $AaddsSubnet,$WorkloadSubnet
@@ -123,15 +123,22 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 ```
 
 ## PowerShell script
-The PowerShell script used to perform all tasks listed in this article is below:
+The PowerShell script used to perform all tasks listed in this article is below. Copy the script and save it to a file with a '.ps1' extension. Execute the script in PowerShell or using the PowerShell Integrated Scripting Environment (ISE).
 
 ```powershell
 # Change the following values to match your deployment.
-$AaddsAdminUserUpn = 'admin@contoso100.onmicrosoft.com'
-$AzureSubscriptionId = "fc3a3fb3-0eac-405e-a222-c65ba7c2ce96"
+$AaddsAdminUserUpn = "admin@contoso100.onmicrosoft.com"
+$AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
 $ManagedDomainName = "contoso100.com"
 $ResourceGroupName = "ContosoAaddsRg"
-$VnetName = "DomainServicesVNet_EUS"
+$VnetName = "DomainServicesVNet_WUS"
+$AzureLocation = "westus"
+
+# Connect to your Azure AD directory.
+Connect-AzureAD
+
+# Login to your Azure subscription.
+Login-AzureRmAccount
 
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
@@ -149,11 +156,11 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq $AaddsAdminUserUpn" | `
+  -Filter "UserPrincipalName eq '$AaddsAdminUserUpn'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
-Add-AzureADGroupMember -ObjectId $GroupObjectId -RefObjectId $UserObjectId
+Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
@@ -161,7 +168,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
 # Create the resource group.
 New-AzureRmResourceGroup `
   -Name $ResourceGroupName `
-  -Location westus
+  -Location $AzureLocation
 
 # Create the dedicated subnet for AAD Domain Services.
 $AaddsSubnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -175,14 +182,14 @@ $WorkloadSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 # Create the virtual network in which you will enable Azure AD Domain Services.
 $Vnet=New-AzureRmVirtualNetwork `
   -ResourceGroupName $ResourceGroupName `
-  -Location eastus `
+  -Location $AzureLocation `
   -Name $VnetName `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $AaddsSubnet,$WorkloadSubnet
 
 # Enable Azure AD Domain Services for the directory.
 New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -Location "westus" `
+  -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/$AaddsSubnet"} `
   -ApiVersion 2017-06-01 -Force -Verbose
 ```
