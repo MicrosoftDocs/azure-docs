@@ -123,5 +123,3 @@ The following links provide additional information regarding password reset usin
 [CreateProfile]: ./media/active-directory-passwords-login/create-profile.png "Create Intune device configuration profile to enable Reset password link on the Windows 10 logon screen"
 [Assignment]: ./media/active-directory-passwords-login/profile-assignment.png "Assign Intune device configuration policy to a group of Windows 10 devices"
 [LoginScreen]: ./media/active-directory-passwords-login/logon-reset-password.png "Reset password link at the Windows 10 logon screen"
-
-https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/8737576-enable-self-service-password-reset-from-windows-10
