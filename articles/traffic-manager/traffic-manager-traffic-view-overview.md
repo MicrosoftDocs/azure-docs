@@ -24,7 +24,7 @@ ms.custom:
 >[!NOTE]
 >The Traffic View feature in Traffic Manager is in Public Preview and may not have the same level of availability and reliability as features that are in general availability release. The feature is not supported, may have constrained capabilities, and may not be available in all Azure locations. For the most up-to-date notifications on availability and status of this feature, check the [Azure Traffic Manager updates](https://azure.microsoft.com/updates/?product=traffic-manager) page.
 
-Traffic Manager provides you with DNS level routing so that your end users are directed to healthy endpoints based on the routing method specified when you created the profile. Traffic View provides Traffic Manager with a view of your user bases (at a DNs resolver granularity level) and their traffic pattern. When you enable Traffic View, this information is processed to provide you with actionable insights. 
+Traffic Manager provides you with DNS level routing so that your end users are directed to healthy endpoints based on the routing method specified when you created the profile. Traffic View provides Traffic Manager with a view of your user bases (at a DNS resolver granularity level) and their traffic pattern. When you enable Traffic View, this information is processed to provide you with actionable insights. 
 
 By using Traffic View, you can:
 - understand where your user bases are located (up to a local DNS resolver level granularity).
@@ -52,18 +52,18 @@ For those local DNS resolvers for which location information is available, they 
 
 If you hover over a DNS resolver location in the map, it shows:
 - the IP address of the DNS resolver
-- the volume of DNS query traffic from it
-- the endpoints to which traffic from the DNS resolver was routed 
-- the average latency from that location, represented as a color
+- the volume of DNS query traffic seen by Traffic Manager from it
+- the endpoints to which traffic from the DNS resolver was routed, as a line between the endpoint and the DNS resolver 
+- the average latency from that location to the endpoint, represented as the color of the line connecting them
 
 ### Endpoint information
 
-The Azure regions in which the endpoints reside are show as blue dots in the map. Click on any endpoint to see the different locations (based on the DNS resolver used) from where traffic was directed to that particular endpoint. The connections are shown as a line between the endpoint and the DNS resolver location and are colored according to the representative latency between that pair. In addition, you can see the name of the endpoint, the Azure region in which it runs, and the total volume of requests that were directed to it by this Traffic Manager profile.
+The Azure regions in which the endpoints reside are shown as blue dots in the map. Click on any endpoint to see the different locations (based on the DNS resolver used) from where traffic was directed to that endpoint. The connections are shown as a line between the endpoint and the DNS resolver location and are colored according to the representative latency between that pair. In addition, you can see the name of the endpoint, the Azure region in which it runs, and the total volume of requests that were directed to it by this Traffic Manager profile.
 
 
 ## Tabular listing and raw data download
 
-You can view the Traffic View data in a tabular format in Azure portal. There is an entry for each DNS resolver IP / end point pair that shows the geographic location of the DNS resolver (if available), name of the Azure region in which the endpoint is located, the volume of requests associated with that DNS resolver, and the representative latency associated with end users using that DNS resolver and the Azure region the endpoint is located. You can also download the Traffic View data as a CSV file that can be used as a part of an analytics workflow of your choice.
+You can view the Traffic View data in a tabular format in Azure portal. There is an entry for each DNS resolver IP / end point pair that shows the geographic location of the DNS resolver (if available), name of the Azure region in which the endpoint is located, the volume of requests associated with that DNS resolver, and the representative latency associated with end users using that DNS (where available). You can also download the Traffic View data as a CSV file that can be used as a part of an analytics workflow of your choice.
 
 ## Billing
 
