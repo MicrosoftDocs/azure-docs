@@ -34,7 +34,7 @@ Ensure that the following prerequisites are in place:
 ### On the Azure Active Directory admin center
 
 1. Create a cloud-only Global Administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md). Doing this step is critical to ensure that you don't get locked out of your tenant.
-2. Add one or more [custom domain name(s)](../active-directory-add-domain.md) to your Azure AD tenant. Your users sign in using one of these domain names.
+2. Add one or more [custom domain name(s)](../active-directory-domains-add-azure-portal.md) to your Azure AD tenant. Your users sign in using one of these domain names.
 
 ### In your on-premises environment
 
