@@ -134,6 +134,6 @@ You should now be able to access your account, if not you should contact your or
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Verify your authentication data"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Change your password"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Password has been reset"
-[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 Fall Creators Update login screen "Reset password" link"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 Fall Creators Update login screen Reset password link"
 [ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Verify your authentication data"
 [ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Change your password"
