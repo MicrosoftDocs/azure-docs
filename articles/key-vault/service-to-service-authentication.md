@@ -170,7 +170,7 @@ When you run your code on an Azure App Service or an Azure VM with MSI enabled, 
 
 It may be necessary to create an Azure AD Client credential to authenticate. Common examples include:
 
-1. Your code runs on a local development environment, but not under the developer's identity.  Service Fabric, for example, uses the [NetworkService account](https://msdn.microsoft.com/library/windows/desktop/ms684272(v=vs.85).aspx) for local development.
+1. Your code runs on a local development environment, but not under the developer's identity.  Service Fabric, for example, uses the [NetworkService account](/azure/service-fabric/service-fabric-application-secret-management) for local development.
  
 2. Your code runs on a local development environment and you authenticate to a custom service, so you can't use your developer identity. 
  
