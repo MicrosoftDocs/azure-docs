@@ -60,7 +60,7 @@ The Wingtip Tickets SaaS Database Per Tenant scripts and application source code
 
 ## Installing and configuring Log Analytics and the Azure SQL Analytics solution
 
-Log Analytics is a separate service that needs to be configured. Log Analytics collects log data and telemetry and metrics in a log analytics workspace. A workspace is a resource, just like other resources in Azure, and must be created. While the workspace doesn’t need to be created in the same resource group as the application(s) it is monitoring, this often makes the most sense. For the Wingtip Tickets SaaS Database Per Tenant SaaS app, this enables the workspace to be easily deleted with the application by simply deleting the resource group.
+Log Analytics is a separate service that needs to be configured. Log Analytics collects log data and telemetry and metrics in a log analytics workspace. A workspace is a resource, just like other resources in Azure, and must be created. While the workspace doesn’t need to be created in the same resource group as the application(s) it is monitoring, this often makes the most sense. For the Wingtip Tickets SaaS Database Per Tenant SaaS app, this enables the workspace to be easily deleted with the application by deleting the resource group.
 
 1. Open ...\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\*Demo-LogAnalytics.ps1* in the **PowerShell ISE**.
 1. To run the script, press **F5**.
@@ -96,7 +96,7 @@ In this exercise, open Log Analytics and the OMS portal to look at the telemetry
 
     ![chart](media/saas-dbpertenant-log-analytics/chart.png)
 
-1. Back on the solution blade, if you scroll to the far right you will see some saved queries that you can click on to open and explore. You can experiment with modifying these, and save any interesting queries you produce, which you can then re-open and use with other resources.
+1. Back on the solution blade, if you scroll to the far right you will see some saved queries that you can click on to open and explore. You can experiment with modifying these, and save any interesting queries you produce, which you can then reopen and use with other resources.
 
 1. Back on the Log Analytics workspace blade, select OMS Portal to open the solution there.
 
@@ -108,7 +108,7 @@ In this exercise, open Log Analytics and the OMS portal to look at the telemetry
 
     ![log search](media/saas-dbpertenant-log-analytics/log-search.png)
 
-1. If you click on Alert in the toolbar you will be able to see the alert configuration and can change it.
+1. If you click on Alert in the toolbar, you will be able to see the alert configuration and can change it.
 
     ![add alert rule](media/saas-dbpertenant-log-analytics/add-alert.png)
 

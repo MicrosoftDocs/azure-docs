@@ -52,11 +52,11 @@ Pools, and the databases in pools, should be monitored to ensure they stay withi
 * To avoid having to manually monitor performance, it’s most effective to **set alerts that trigger when databases or pools stray out of normal ranges**.
 * To respond to short-term fluctuations in the aggregate performance level of a pool, the **pool eDTU level can be scaled up or down**. If this fluctuation occurs on a regular or predictable basis, **scaling the pool can be scheduled to occur automatically**. For example, scale down when you know your workload is light, maybe overnight, or during weekends.
 * To respond to longer-term fluctuations, or changes in the number of databases, **individual databases can be moved into other pools**.
-* To respond to short term increases in *individual* database load **individual databases can be taken out of a pool and assigned an individual performance level**. Once the load is reduced, the database can then be returned to the pool. When this is known in advance, databases can be moved pre-emptively to ensure the database always has the resources it needs, and to avoid impact on other databases in the pool. If this requirement is predictable, such as a venue experiencing a rush of ticket sales for a popular event, then this management behavior can be integrated into the application.
+* To respond to short-term increases in *individual* database load **individual databases can be taken out of a pool and assigned an individual performance level**. Once the load is reduced, the database can then be returned to the pool. When this is known in advance, databases can be moved pre-emptively to ensure the database always has the resources it needs, and to avoid impact on other databases in the pool. If this requirement is predictable, such as a venue experiencing a rush of ticket sales for a popular event, then this management behavior can be integrated into the application.
 
 The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. For SQL Database, monitoring and alerting is available on databases and pools. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not very convenient when working with many resources.
 
-For high-volume scenarios where you're working with many reources, [Log Analytics (OMS)](saas-dbpertenant-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
+For high-volume scenarios, where you're working with many resources, [Log Analytics (OMS)](saas-dbpertenant-log-analytics.md) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
 
 ## Get the Wingtip Tickets SaaS Database Per Tenant application source code and scripts
 
@@ -129,9 +129,9 @@ Set an alert on the pool that triggers on \>75% utilization as follows:
 1. Provide a name, such as **High DTU**,
 1. Set the following values:
    * **Metric = eDTU percentage**
-   * **Condition = greater than**.
-   * **Threshold = 75**.
-   * **Period = Over the last 30 minutes**.
+   * **Condition = greater than**
+   * **Threshold = 75**
+   * **Period = Over the last 30 minutes**
 1. Add an email address to the *Additional administrator email(s)* box and click **OK**.
 
    ![set alert](media/saas-dbpertenant-performance-monitoring/alert-rule.png)
@@ -141,7 +141,7 @@ Set an alert on the pool that triggers on \>75% utilization as follows:
 
 If the aggregate load level increases on a pool to the point that it maxes out the pool and reaches 100% eDTU usage, then individual database performance is affected, potentially slowing query response times for all databases in the pool.
 
-**Short term**, consider scaling up the pool to provide additional resources, or removing databases from the pool (moving them to other pools, or out of the pool to a stand-alone service tier).
+**Short-term**, consider scaling up the pool to provide additional resources, or removing databases from the pool (moving them to other pools, or out of the pool to a stand-alone service tier).
 
 **Longer term**, consider optimizing queries or index usage to improve database performance. Depending on the application's sensitivity to performance issues its best practice to scale a pool up before it reaches 100% eDTU usage. Use an alert to warn you in advance.
 
@@ -200,12 +200,12 @@ This exercise simulates the effect of Contoso Concert Hall experiencing a high l
 1. Execute the script using **F5**.
 
 
-1. In the [Azure portal](https://portal.azure.com) browse to the list of databases on the *tenants1* server. 
+1. In the [Azure portal](https://portal.azure.com), browse to the list of databases on the *tenants1* server. 
 1. Click on the **contosoconcerthall** database.
 1. Click on the pool that **contosoconcerthall** is in. Locate the pool in the **Elastic database pool** section.
 
 1. Inspect the **Elastic pool monitoring** chart and look for the increased pool eDTU usage. After a minute or two, the higher load should start to kick in, and you should quickly see that the pool hits 100% utilization.
-2. Inspect the **Elastic database monitoring** display which shows the hottest databases in the past hour. The *contosoconcerthall* database should soon appear as one of the five hottest databases.
+2. Inspect the **Elastic database monitoring** display, which shows the hottest databases in the past hour. The *contosoconcerthall* database should soon appear as one of the five hottest databases.
 3. **Click on the Elastic database monitoring** **chart** and it opens the **Database Resource Utilization** page where you can monitor any of the databases. This lets you isolate the display for the *contosoconcerthall* database.
 4. From the list of databases, click **contosoconcerthall**.
 5. Click **Pricing Tier (scale DTUs)** to open the **Configure performance** page where you can set a stand-alone performance level for the database.
