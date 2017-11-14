@@ -141,6 +141,17 @@
       href: policy.md
     - name: Create a Key Vault
       href: key-vault-setup.md
+  - name: Protect VMs
+    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    items:
+      - name: Back up a single VM
+        items:
+        - name: Azure portal
+          href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Azure PowerShell
+          href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: Back up multiple VMs
+        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Manage VMs
     items:
     - name: Common PowerShell tasks
