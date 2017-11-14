@@ -20,7 +20,7 @@ ms.author: dastrock
 
 # Migrating from Azure Access Control Service (ACS)
 
-Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) is being retired on October 31, 2018.  Applications & services currently using ACS will need to fully migrate to a new cloud authentication service before this date. This document describes our recommendations for current customers as they plan to deprecate their use of ACS. It will be updated over time as we work with customers individually and discover effective migration patterns. If you are not currently using ACS, you do not need to take any action.
+Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) is being retired in November 2018.  Applications & services currently using ACS will need to fully migrate to a different authentication mechanism before this date. This document describes our recommendations for current customers as they plan to deprecate their use of ACS. It will be updated over time as we work with customers individually and discover effective migration patterns. If you are not currently using ACS, you do not need to take any action.
 
 
 ## Brief ACS Overview
@@ -41,9 +41,8 @@ Each of these use cases and their recommended migration strategies will be discu
 Architecturally, ACS is entirely comprised of the following components:
 
 - A secure token service (STS), which recieves authentication requests & issues security tokens in return.
-- Two management portals:
-    - The classic Azure portal, which is used for creating, managing, and deleting ACS namespaces.
-    - A dedicated ACS management portal, which is used for customizing & configuring the behavior of ACS.
+- The classic Azure portal, which is used for creating, deleting, and enabling/disabling ACS namespaces.
+- A separate ACS management portal, which is used for customizing & configuring the behavior of an ACS namespace.
 - A management service, which can be used to automate the functions of the above portals.
 - A token tranformation rule engine, which can be used to define complex logic for manipulating the output format of tokens issued by ACS.
 
@@ -57,13 +56,13 @@ All communication with the STS and management operations are done at this URL, w
 
 ## Retirement Schedule
 
-As of October 2017, all ACS components are fully supported & operational. The only restriction is that [new ACS namespaces cannot be created via the classic Azure Portal](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/).
+As of November 2017, all ACS components are fully supported & operational. The only restriction is that [new ACS namespaces cannot be created via the classic Azure Portal](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/).
 
 The timeline for deprecation of these components will follow this rough estimate:
 
-- **November 2017**:  The Azure AD admin experience in the classic Azure portal [will be retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for ACS will be made available at a new, dedicated URL. This is to allow you to view your existing namespaces, enable/disable them, and delete them entirely if you wish. The exact URL will be provided here in November.
+- **November 2017**:  The Azure AD admin experience in the classic Azure portal [will be retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for ACS will be made available at this new, dedicated URL: `http://manage.windowsazure.com?restoreClassic=true`. This is to allow you to view your existing namespaces, enable/disable them, and delete them entirely if you wish.
 - **April 2018**: ACS namespace management will no longer be available at this dedicated URL. At this point in time, you will not be able to disable/enable, delete, or enumerate your ACS namespaces. The ACS management portal, however, will be fully functional and located at `https://{namespace}.accesscontrol.windows.net`. All other components of ACS will continue to operate normally as well.
-- **October 2018**: All ACS components will be shut down permanently. This includes the ACS management portal, the management service, STS, and token tranformation rule engine. At this point, any requests sent to ACS (located at `*.accesscontrol.windows.net`) will fail. You should have migrated all existing apps & services to other technologies well before this time period.
+- **November 2018**: All ACS components will be shut down permanently. This includes the ACS management portal, the management service, STS, and token tranformation rule engine. At this point, any requests sent to ACS (located at `{namespace}.accesscontrol.windows.net`) will fail. You should have migrated all existing apps & services to other technologies well before this time period.
 
 
 ## Migration Strategies
@@ -158,7 +157,10 @@ Possible nameIdentifiers from ACS (via AAD or ADFS):
 
 -->
 
-An alternative approach is to follow [this code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), which gives slightly different instructions on how to set up Ws-Federation. This code sample does not use WIF, but rather, the ASP.NET 4.5 OWIN middelware. However, the instructions for app registration are valid for apps using WIF, and do not require an Azure AD Premium license.  If you choose this approach, you will need to understand [signing key rollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes.
+> [!NOTE]
+> Going with this approach requires an Azure AD Premium license. If you are an ACS customer and you require a premium license for setting up single-sign on for an application, please reach out to us and we'll be happy to provide developer licenses for your use.
+
+An alternative approach is to follow [this code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), which gives slightly different instructions on how to set up Ws-Federation. This code sample does not use WIF, but rather, the ASP.NET 4.5 OWIN middleware. However, the instructions for app registration are valid for apps using WIF, and do not require an Azure AD Premium license.  If you choose this approach, you will need to understand [signing key rollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes.
 
 If you are able to integrate with Azure AD via the OpenID Connect or OAuth protocols, we recommend doing so.  We have extensive documentation and guidance for how to integrate Azure AD into your web applciation available in our [Azure AD developer guide](http://aka.ms/aaddev).
 
@@ -247,4 +249,4 @@ For guidance on implementing server-to-server scenarios, please refer to the fol
 
 ## Questions, Concerns, & Feedback
 
-We understand that many ACS customers will not find a clear migration path after reading this article, and will need some assistance or guidance in determining a path forward. If you would like to discuss your migration scenarios & questions, please reach out to **acsfeedback@microsoft.com**. We will attempt to field all inquiries to this alias in a timely manner.
+We understand that many ACS customers will not find a clear migration path after reading this article, and will need some assistance or guidance in determining a path forward. If you would like to discuss your migration scenarios & questions, please leave a comment on this page, and we will attempt to field all inquiries to this alias in a timely manner.
