@@ -179,7 +179,6 @@ ServiceNow Admins must do the following in their ServiceNow instance:
 
 
 ### **Connection procedure**
-
 Use the following procedure to create a ServiceNow connection:
 
 1. Go to **OMS** > **Settings** > **Connected Sources**.
@@ -360,5 +359,5 @@ To generate the client ID/key for Cherwell, use the following procedure:
 ## Next steps
  - [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)
  - [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
- - [create ITSM work items from Azure alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [Create ITSM work items from Azure alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
  - [View log analytics for your connection](log-analytics-itsmc-overview.md#using-the-solution)
