@@ -261,14 +261,16 @@ To prepare the Azure infrastructure, complete the following:
 
 * [Change the ASCS/SCS default load balancing rules for the Azure internal load balancer][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
 
-* [Add Windows virtual machines to the domain Add registry entries on both cluster nodes of the SAP ASCS/SCS instance][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+* [Add Windows virtual machines to the domain][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+
+* [Add registry entries on both cluster nodes of the SAP ASCS/SCS instance]().
 
 * As you use Windows Server 2016, we recommend that you configure [Azure Cloud witness][deploy-cloud-witness].
 
 
 ## Deploy the Scale-Out File Server cluster manually 
 
-You can deploy the Microsoft Scale-Out File Server cluster manually, as described in the blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure]:  
+You can deploy the Microsoft Scale-Out File Server cluster manually, as described in the blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure], by executing the following code:  
 
 
 ```PowerShell
@@ -303,7 +305,7 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 ## Deploy Scale-Out File Server automatically
 
-You can also automate the deployment of Scale-Out File Server by using Azure Resource Manager templates in an existing virtual network and Active Directory environment:
+You can also automate the deployment of Scale-Out File Server by using Azure Resource Manager templates in an existing virtual network and Active Directory environment.
 
 > [!IMPORTANT]
 > We recommend that you have three or more cluster nodes for Scale-Out File Server with three-way mirroring.
@@ -335,7 +337,7 @@ The Azure Resource Manager template for deploying Scale-Out File Server with Sto
 
 _**Figure 2**: UI screen for the Scale-Out File Server Azure Resource Manager template without managed disks_
 
-In the **Storage Account Type** box, select **Premium Storage**. All other settings are the same as with managed disks.
+In the **Storage Account Type** box, select **Premium Storage**. All other settings are the same as the settings for managed disks.
 
 ## Next steps
 
