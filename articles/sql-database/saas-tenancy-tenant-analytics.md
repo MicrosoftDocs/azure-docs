@@ -68,8 +68,8 @@ Understanding how consistently each tenant is using the service provides an oppo
 
 To complete this tutorial, make sure the following prerequisites are met:
 
-- The Wingtip SaaS app is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
-- The Wingtip SaaS scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) are downloaded from GitHub. See download instructions. Be sure to *unblock the zip file* before extracting its contents.
+- The Wingtip Tickets SaaS Database Per Tenant application is deployed. To deploy in less than five minutes, see [Deploy and explore the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
+- The Wingtip Tickets SaaS Database Per Tenant scripts and application [source code](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) are downloaded from GitHub. See download instructions. Be sure to *unblock the zip file* before extracting its contents.
 - Power BI Desktop is installed. [Download Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - The batch of additional tenants has been provisioned, see the [**Provision tenants tutorial**](saas-dbpertenant-provision-and-catalog.md).
 - A job account and job account database have been created. See the appropriate steps in the [**Schema management tutorial**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
