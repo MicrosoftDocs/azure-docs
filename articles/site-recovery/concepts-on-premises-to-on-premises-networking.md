@@ -1,6 +1,6 @@
 ---
-title: Connecting to VMs after failover to a secondary site with Azure Site Recovery | Microsoft Docs
-description: Networking guidance for connecting to VMs after failover to a secondary site with Azure Site Recovery.
+title: Set up IP addressing to connect after failover to a secondary site with Azure Site Recovery | Microsoft Docs
+description: Describes how to set up IP addressing for connecting to VMs after failover to a secondary site with Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 11/23/2017
 ms.author: pratshar
 
 ---
-# Connecting to VMs after failover to a secondary site
+# Set up IP addressing to connect after failover to a secondary site
 
 After reviewing deployment prerequisites, read this article to plan networking when replicating Hyper-V virtual machines (VMs) managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](site-recovery-overview.md) in the Azure portal. 
 
