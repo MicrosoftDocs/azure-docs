@@ -24,7 +24,7 @@ You can use IoT Edge modules to deploy code that implements your business logic 
 
 This tutorial uses a sample Azure Machine Learning module hosted in DockerHub. 
 
-When you want to use your own [Azure Machine Learning][https://docs.microsoft.com/azure/machine-learning/preview/] model in your solution you will [deploy a model](https://aka.ms/aml-iot-edge-doc) for IoT Edge and host it in a container registry like [Azure Container Registry](../container-registry/index.yml) or Docker.
+When you want to use your own [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) model in your solution you will [deploy a model](https://aka.ms/aml-iot-edge-doc) for IoT Edge and host it in a container registry like [Azure Container Registry](../container-registry/index.yml) or Docker.
 
 ## Prerequisites
 

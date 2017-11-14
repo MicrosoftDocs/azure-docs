@@ -119,6 +119,7 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
+[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

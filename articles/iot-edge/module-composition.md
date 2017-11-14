@@ -138,7 +138,7 @@ This an example of a deployment manifest JSON document.
                     "edgeAgent": {
                         "type": "docker",
                         "settings": {
-                        "image": "edgepreview.azurecr.io/azureiotedge/edge-agent:1.0-preview",
+                        "image": "microsoft/azureiotedge-agent:1.0-preview",
                         "createOptions": ""
                         }
                     },
@@ -147,7 +147,7 @@ This an example of a deployment manifest JSON document.
                         "status": "running",
                         "restartPolicy": "always",
                         "settings": {
-                        "image": "edgepreview.azurecr.io/azureiotedge/edge-hub:1.0-preview",
+                        "image": "microsoft/azureiotedge-hub:1.0-preview",
                         "createOptions": ""
                         }
                     }

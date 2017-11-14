@@ -23,7 +23,7 @@ The Azure IoT Edge Runtime can run even on tiny Single Board Computer (SBC) devi
 1. Install [Windows 10 IoT Core Dashboard][lnk-core] on a host system.
 1. Follow the steps in [Set up your device][lnk-board] to configure your board with the MinnowBoard Turbot/MAX Build 16299 image. 
 1. Turn on the device, then [login remotely with PowerShell][lnk-powershell].
-1. In the PowerShell console, [install Docker binaries][lnk-docker].
+1. In the PowerShell console, [install Docker binaries][lnk-docker-install].
 1. Run the following command in the PowerShell console to install the IoT Edge runtime and verify your configuration:
 
    ```powershell
