@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Develop and deploy a C# IoT Edge module to your simulated device -- Public preview
+# Develop and deploy a C# IoT Edge module to your simulated device - preview
 
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an  IoT Edge module that filters sensor data on the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. In this tutorial, you learn how to:    
 
@@ -38,13 +38,10 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 * The Azure IoT Edge device that you created in the quickstart or previous tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* The following Visual Studio Code extensions: 
-  * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
-  * **Azure IoT Edge extension**
-
-    > [!IMPORTANT]
-    > The IoT Edge extension is not yet available in the Marketplace. Perform the following steps to install it and its dependencies:
-    > 1. Install the [Azure IoT Toolkit extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) from the extensions panel in VS Code.
+* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
+* Azure IoT Edge extension for Visual Studio Code
+    > 2. Download the **Azure IoT Edge extension** VSIX here: [https://aka.ms/edge-extension](https://aka.ms/edge-extension). **Note**: If you use Microsoft Edge or Internet Explorer, the browser downloads the file with a ".zip" file extension. After the file downloads, you need to change the file extension back to ".vsix". 
+    > 3. Install the extension VSIX by using the **View | Command Palette... | Extensions: Install from VSIX...** menu command, navigating to the downloaded VSIX on your computer and clicking **Open**. (You can also install the extension by clicking **...** in the upper-right corner of the extension panel and selecting **Install from VSIX...**.)
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. Make sure you install it on the computer that you run VS Code on.
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
