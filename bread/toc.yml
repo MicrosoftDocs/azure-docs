@@ -383,6 +383,9 @@
   - name: Stream Analytics
     tocHref: /azure/stream-analytics/
     topicHref: /azure/stream-analytics/
+  - name: Time Series Insights
+    tocHref: /azure/time-series-insights/
+    topicHref: /azure/time-series-insights/
   - name: Traffic Manager
     tocHref: /azure/traffic-manager/
     topicHref: /azure/traffic-manager/
