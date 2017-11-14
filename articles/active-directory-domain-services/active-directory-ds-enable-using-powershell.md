@@ -118,12 +118,26 @@ Type the following PowerShell command to enable Azure AD Domain Services for you
 # Enable Azure AD Domain Services for the directory.
 New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
   -Location "westus" `
-  -Properties @{"DomainName"=$ManagedDomainName; `     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/$AaddsSubnet"} `
+  -Properties @{"DomainName"=$ManagedDomainName; `
+    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/$AaddsSubnet"} `
   -ApiVersion 2017-06-01 -Force -Verbose
 ```
 
+> [!WARNING]
+> **Don't forget the additional configuration steps after provisioning your managed domain.**
+> After your managed domain is provisioned, you still need to complete the following tasks:
+> * **[Update DNS settings](active-directory-ds-getting-started-dns.md)** for the virtual network so virtual machines can find the managed domain for domain join or authentication.
+* **[Enable password synchronization to Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, so end-users can sign in to the managed domain using their corporate credentials.
+>
+
+
 ## PowerShell script
 The PowerShell script used to perform all tasks listed in this article is below. Copy the script and save it to a file with a '.ps1' extension. Execute the script in PowerShell or using the PowerShell Integrated Scripting Environment (ISE).
+
+> [!NOTE]
+> **Permissions required to run this script**
+> To enable Azure AD Domain Services, you need to be the global administrator for the Azure AD directory. Additionally, you need at least "Contributor" privileges on the virtual network in which enable Azure AD Domain Services.
+>
 
 ```powershell
 # Change the following values to match your deployment.
@@ -190,8 +204,20 @@ $Vnet=New-AzureRmVirtualNetwork `
 # Enable Azure AD Domain Services for the directory.
 New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
   -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; `     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/$AaddsSubnet"} `
+  -Properties @{"DomainName"=$ManagedDomainName; `
+    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/$AaddsSubnet"} `
   -ApiVersion 2017-06-01 -Force -Verbose
 ```
 
+> [!WARNING]
+> **Don't forget the additional configuration steps after provisioning your managed domain.**
+> After your managed domain is provisioned, you still need to complete the following tasks:
+> * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
+* Enable password synchronization to Azure AD Domain Services so end-users can sign in to the managed domain using their corporate credentials.
+>
+
 ## Next steps
+After your managed domain is created, perform the following configuration tasks so you can use the managed domain:
+
+* [Update the DNS server settings for the virtual network to point to your managed domain](active-directory-ds-getting-started-dns.md)
+* [Enable password synchronization to your managed domain](active-directory-ds-getting-started-password-sync.md)
