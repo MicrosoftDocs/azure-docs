@@ -195,6 +195,7 @@ There are some behavior differences that those coming from Azure Table storage w
 * CreateIfNotExists calls are throttled by a management throttle that is fixed and separate from other table operations which are covered by RUs. This means that those making large numbers of CreateIfNotExists will get throttled and won't be able to do anything about it because the limit is not coming from their RUs.
 * CORS is not currently supported
 * Table names in Azure Table storage are not case sensitive, but they are in Azure Cosmos DB Table API
+* Some of our internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full 1 Meg of a table entity to store binary data because the encoding increases the data's size.
 
 In terms of the REST API there are a number of endpoints/query options that are not supported by Azure Cosmos DB Table API:
 | Rest Method(s) | Rest Endpoint/Query Option | Doc URLs | Explanation |
