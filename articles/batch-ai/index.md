@@ -96,8 +96,7 @@ Azure Batch AI helps you experiment with your AI models using any framework and 
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.batchai">.NET</a></p><br/>
-			<p><a href="/python/api/overview/azure/batchai">Python</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.batchai">.NET</a></p><br/><p><a href="/python/api/overview/azure/batchai">Python</a></p>
                      </div>
                 </div>
             </div>
