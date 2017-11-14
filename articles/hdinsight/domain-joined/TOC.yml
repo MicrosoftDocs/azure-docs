@@ -13,6 +13,8 @@
   items:
   - name: Configure Domain-joined HDInsight
     href: apache-domain-joined-configure.md
+  - name: Configure Domain-joined HDInsight using Azure AD DS
+    href: apache-domain-joined-configure-using-azure-adds.md
   - name: Configure Hive policies
     href: apache-domain-joined-run-hive.md
   - name: Capacity planning
@@ -22,9 +24,6 @@
   items:
   - name: Manage clusters
     href: apache-domain-joined-manage.md
-  - name: Manage user permissions
-    href: ../hdinsight-add-acls-at-file-folder-levels.md
-    maintainContext: true
 - name: Reference
   items:
   - name: Code samples
