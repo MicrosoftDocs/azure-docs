@@ -18,7 +18,7 @@ ms.author: bradsev
 
 ---
 # Vehicle Telemetry Analytics Solution Template Power BI dashboard setup instructions
-This **menu** links to the chapters in this playbook. 
+This menu links to the chapters in this playbook: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
@@ -59,7 +59,7 @@ After the deployment is finished, follow the manual operation instructions.
 
 1. Download the real-time dashboard application RealtimeDashboardApp.zip, and unzip it.
 
-2.  In the unzipped folder, open the app config file RealtimeDashboardApp.exe.config. Replace appSettings for Eventhub, Azure Blob Storage, and Azure Machine Learning service connections with the values in the manual operation instructions. Save your changes.
+2.  In the unzipped folder, open the app config file RealtimeDashboardApp.exe.config. Replace appSettings for Event Hubs, Azure Blob storage, and Azure Machine Learning service connections with the values in the manual operation instructions. Save your changes.
 
 3. Run the application RealtimeDashboardApp.exe. On the sign-in window, enter your valid Power BI credentials. 
 
@@ -461,7 +461,7 @@ You have now configured all the reports that correspond to the batch processing 
 
    ![Dashboard organization](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard2.png) 
    
- 3. Move the charts around to look like the following dashboard example:
+3. Move the charts around to look like the following dashboard example:
 
     ![Rearranged dashboard](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard.png)
 
