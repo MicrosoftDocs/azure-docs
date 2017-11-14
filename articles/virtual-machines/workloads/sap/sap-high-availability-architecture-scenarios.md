@@ -312,7 +312,7 @@ SAP currently supports only premium managed disks. For more information, see SAP
 
 ## Utilizing Azure infrastructure high availability to achieve *higher availability* of SAP applications
 
-If you decide not to use functionalities such as Windows Server Failover Clustering (WSFC) or Pacemaker on Linux (currently supported only for SUSE Linux Enterprise Server [SLES] 12 and later), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
+If you decide not to use functionalities such as WSFC or Pacemaker on Linux (currently supported only for SUSE Linux Enterprise Server [SLES] 12 and later), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
 
 For more information about this approach, see [Utilize Azure infrastructure VM restart to achieve higher availability of the SAP system][sap-higher-availability].
 
@@ -364,16 +364,12 @@ For more information, see the [Azure availability sets][planning-guide-3.2.3] se
 > We strongly recommend that you use Azure managed disks for your SAP high-availability installations. Because managed disks automatically align with the availability set of the virtual machine they are attached to, they increase the availability of your virtual machine and the services that are running on it.  
 >
 
-
-### High-availability architecture for an SAP ASCS/SCS instance
-
 ### High-availability architecture for an SAP ASCS/SCS instance on Windows
-
 
 > ![Windows][Logo_Windows] Windows
 >
 
-You can use a Windows Server Failover Clustering (WSFC) solution to protect the SAP ASCS/SCS instance. The solution has two variants:
+You can use a WSFC solution to protect the SAP ASCS/SCS instance. The solution has two variants:
 
 * **Cluster the SAP ASCS/SCS instance by using clustered shared disks**: For more information about this architecture, see [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk][sap-high-availability-guide-wsfc-shared-disk].   
 
@@ -389,7 +385,7 @@ For more information about clustering the SAP ASCS/SCS instance by using the SLE
 
 > ![Windows][Logo_Windows] Windows
 >
->Currently, multi-SID is supported only with Windows Server Failover Cluster (WSFC). Multi-SID is supported using file share and shared disk.
+> Currently, multi-SID is supported only with WSFC. Multi-SID is supported using file share and shared disk.
 >
 For more information about multi-SID high-availability architecture, see:
 
