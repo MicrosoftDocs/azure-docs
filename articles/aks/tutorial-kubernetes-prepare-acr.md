@@ -1,5 +1,5 @@
----
-title: Kubernertes on Azure tutorial - Prepare ACR | Microsoft Docs
+﻿---
+title: Kubernetes on Azure tutorial - Prepare ACR | Microsoft Docs
 description: AKS tutorial - Prepare ACR
 services: container-service
 documentationcenter: ''
