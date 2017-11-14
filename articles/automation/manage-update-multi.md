@@ -148,7 +148,7 @@ After you finish configuring the schedule, return to the status dashboard by sel
 ## View results of an update deployment
 
 After the scheduled deployment starts, you can see the status for that deployment on the **Update deployments** tab in the **Update management** dialog box.
-If the deployment is currently running, its status shows as **In progress**. After the deployment finishes successfully, it changes to **Succeeded**.
+If the deployment is currently running, its status is **In progress**. After the deployment finishes successfully, it changes to **Succeeded**.
 If one or more updates fail in the deployment, the status is **Partially failed**.
 
 ![Status of update deployment](./media/manage-update-multi/update-view-results.png)
