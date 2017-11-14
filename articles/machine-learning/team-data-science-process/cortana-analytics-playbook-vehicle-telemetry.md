@@ -18,7 +18,7 @@ ms.author: bradsev
 
 ---
 # Vehicle Telemetry Analytics Solution playbook
-This **menu** links to the chapters in this playbook. 
+This menu links to the chapters in this playbook: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
