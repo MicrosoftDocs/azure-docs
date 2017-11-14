@@ -1,3 +1,5 @@
+- name: Azure Time Series Insights
+  href: index.yml
 - name: Overview
   items:
   - name: About Time Series Insights
