@@ -39,7 +39,7 @@ For more information about device twins and tags, see [Understand and use device
 ## Create a deployment
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
-1. Select **IoT Edge Explorer**.
+1. Select **IoT Edge (preview)**.
 1. Select **Create Edge Deployment**.
 
 There are five steps to create a deployment. The following sections walk through each one. 
@@ -104,7 +104,7 @@ Review your deployment information, then select **Submit**.
 To view the details of a deployment and monitor the devices running it, use the following steps:
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
-1. Select **IoT Edge Explorer**.
+1. Select **IoT Edge (preview)**.
 1. Select **IoT Edge deployments**. 
 
    ![View IoT Edge deployments][1]
@@ -136,7 +136,7 @@ If you update the target condition, the following updates occur:
 To modify a deployment, use the following steps: 
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
-1. Select **IoT Edge Explorer**.
+1. Select **IoT Edge (preview)**.
 1. Select **IoT Edge deployments**. 
 
    ![View IoT Edge deployments][1]
@@ -154,7 +154,7 @@ To modify a deployment, use the following steps:
 When you delete a deployment, any devices take on their next highest priority deployment. If your devices don't meet the target condition of any other deployment, then the modules are not removed when the deployment is deleted. 
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
-1. Select **IoT Edge Explorer**.
+1. Select **IoT Edge (preview)**.
 1. Select **IoT Edge deployments**. 
 
    ![View IoT Edge deployments][1]

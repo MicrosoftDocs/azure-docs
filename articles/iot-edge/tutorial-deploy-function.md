@@ -185,7 +185,7 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 ## Run the solution
 
 1. In the **Azure portal**, navigate to your IoT hub.
-2. Go to **IoT Edge Explorer** and select your IoT Edge device.
+2. Go to **IoT Edge (preview)** and select your IoT Edge device.
 1. Select **Set Modules**. 
 2. Add the **tempSensor** module. This step is only required if you have not previously deployed the **tempSensor** module to your IoT Edge device.
     1. Select **Add IoT Edge Module**.
