@@ -21,11 +21,11 @@ ms.author: bradsev;weig
 This walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi trip and fare dataset to predict whether or not a tip will be paid by a fare. It walks you through the steps of the [Team Data Science Process](http://aka.ms/datascienceprocess), end-to-end, from data acquisition to model training, and then to the deployment of a web service that publishes the model.
 
 ### Azure Data Lake Analytics
-The [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) has all the capabilities required to make it easy for data scientists to store data of any size, shape and speed, and to conduct data processing, advanced analytics, and machine learning modeling with high scalability in a cost-effective way.   You pay on a per-job basis, only when data is actually being processed. Azure Data Lake Analytics includes U-SQL, a language that blends the declarative nature of SQL with the expressive power of C# to provide scalable distributed query capability. It enables you to process unstructured data by applying schema on read, insert custom logic and user defined functions (UDFs), and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, see [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+The [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) has all the capabilities required to make it easy for data scientists to store data of any size, shape and speed, and to conduct data processing, advanced analytics, and machine learning modeling with high scalability in a cost-effective way.   You pay on a per-job basis, only when data is actually being processed. Azure Data Lake Analytics includes U-SQL, a language that blends the declarative nature of SQL with the expressive power of C# to provide scalable distributed query capability. It enables you to process unstructured data by applying schema on read, insert custom logic and user-defined functions (UDFs), and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, see [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 Data Lake Analytics is also a key part of Cortana Analytics Suite and works with Azure SQL Data Warehouse, Power BI, and Data Factory. This gives you a complete cloud big data and advanced analytics platform.
 
-This walkthrough begins by describing the prerequisites and resources that are needed to complete the tasks with Data Lake Analytics that form the data science process and how to install them. Then it outlines the data processing steps using U-SQL and concludes by showing how to use Python and Hive with Azure Machine Learning Studio to build and deploy the predictive models. 
+This walkthrough begins by describing how to install the prerequisites and resources that are needed to complete data science process tasks. Then it outlines the data processing steps using U-SQL and concludes by showing how to use Python and Hive with Azure Machine Learning Studio to build and deploy the predictive models. 
 
 ### U-SQL and Visual Studio
 This walkthrough recommends using Visual Studio to edit U-SQL scripts to process the dataset. The U-SQL scripts are described here and provided in a separate file. The process includes ingesting, exploring, and sampling the data. It also shows how to run a U-SQL scripted job from the Azure portal. Hive tables are created for the data in an associated HDInsight cluster to facilitate the building and deployment of a binary classification model in Azure Machine Learning Studio.  
@@ -60,7 +60,7 @@ To prepare the data science environment for this walkthrough, create the followi
 * Azure Machine Learning Studio account
 * Azure Data Lake Tools for Visual Studio (Recommended)
 
-This section provides instructions on how to create each of these resources. If you choose to use Hive tables with Azure Machine Learning, instead of Python, to build a model,you will also need to provision an HDInsight (Hadoop) cluster. This alternative procedure in described in the appropriate section below.
+This section provides instructions on how to create each of these resources. If you choose to use Hive tables with Azure Machine Learning, instead of Python, to build a model, you will also need to provision an HDInsight (Hadoop) cluster. This alternative procedure in described in the appropriate section below.
 
 
 > [!NOTE]
@@ -71,17 +71,17 @@ This section provides instructions on how to create each of these resources. If 
 ### Create an Azure Data Lake Store
 
 
-Create an ADLS from the [Azure Portal](http://portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there. 
+Create an ADLS from the [Azure portal](http://portal.azure.com). For details, see [Create an HDInsight cluster with Data Lake Store using Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Be sure to set up the Cluster AAD Identity in the **DataSource** blade of the **Optional Configuration** blade described there. 
 
  ![3](./media/data-lake-walkthrough/3-create-ADLS.PNG)
 
 ### Create an Azure Data Lake Analytics account
-Create an ADLA account from the [Azure Portal](http://portal.azure.com). For details, see [Tutorial: get started with Azure Data Lake Analytics using Azure Portal](../../data-lake-analytics/data-lake-analytics-get-started-portal.md). 
+Create an ADLA account from the [Azure portal](http://portal.azure.com). For details, see [Tutorial: get started with Azure Data Lake Analytics using Azure portal](../../data-lake-analytics/data-lake-analytics-get-started-portal.md). 
 
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### Create an Azure Blob storage account
-Create an Azure Blob storage account from the [Azure Portal](http://portal.azure.com). For details, see the Create a storage account section in [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
+Create an Azure Blob storage account from the [Azure portal](http://portal.azure.com). For details, see the Create a storage account section in [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -98,19 +98,22 @@ After the installation finishes successfully, open up Visual Studio. You should 
  ![7](./media/data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
 
 ## The NYC Taxi Trips dataset
-The data set we used here is a publicly available dataset -- the [NYC Taxi Trips dataset](http://www.andresmh.com/nyctaxitrips/). The NYC Taxi Trip data consists of about 20GB of compressed CSV files (~48GB uncompressed), recording more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and drop-off locations and times, anonymized hack (driver's) license number, and the medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
+The data set we used here is a publicly available dataset -- the [NYC Taxi Trips dataset](http://www.andresmh.com/nyctaxitrips/). The NYC Taxi Trip data consists of about 20GB of compressed CSV files (~48GB uncompressed), recording more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and drop-off locations and times, anonymized hack (driver's) license number, and the medallion (taxi’s unique ID) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
 
-* The 'trip_data' CSV contains trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
-  
-       medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count, trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
+The 'trip_data' CSV contains trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
+
+       medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-* The 'trip_fare' CSV contains details of the fare paid for each trip, such as payment type, fare amount, surcharge and taxes, tips and tolls, and the total amount paid. Here are a few sample records:
-  
-       medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
+
+
+
+The 'trip_fare' CSV contains details of the fare paid for each trip, such as payment type, fare amount, surcharge and taxes, tips and tolls, and the total amount paid. Here are a few sample records:
+
+	   medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-05 18:49:41,CSH,5.5,1,0.5,0,0,7
@@ -198,7 +201,7 @@ Since there are headers in the first row, we need to remove the headers and chan
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_trip.csv"
     USING Outputters.Csv();  
 
-Similarly we can read in the fare data sets. Right click Azure Data Lake Store, you can choose to look at your data in **Azure Portal --> Data Explorer** or **File Explorer** within Visual Studio. 
+Similarly we can read in the fare data sets. Right click Azure Data Lake Store, you can choose to look at your data in **Azure portal --> Data Explorer** or **File Explorer** within Visual Studio. 
 
  ![10](./media/data-lake-walkthrough/10-data-in-ADL-VS.PNG)
 
@@ -430,13 +433,13 @@ When you finish editing U-SQL scripts, you can submit them to the server using y
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)
 
-When the job is complied successfully, the status of your job will be displayed in Visual Studio for monitoring. After the job finishes running, you can even replay the job execution process and find out the bottleneck steps to improve your job efficiency. You can also go to Azure Portal to check the status of your U-SQL jobs.
+When the job is complied successfully, the status of your job will be displayed in Visual Studio for monitoring. After the job finishes running, you can even replay the job execution process and find out the bottleneck steps to improve your job efficiency. You can also go to Azure portal to check the status of your U-SQL jobs.
 
  ![13](./media/data-lake-walkthrough/13-USQL-running-v2.PNG)
 
  ![14](./media/data-lake-walkthrough/14-USQL-jobs-portal.PNG)
 
-Now you can check the output files in either Azure Blob storage or Azure Portal. We will use the stratified sample data for our modeling in the next step.
+Now you can check the output files in either Azure Blob storage or Azure portal. We will use the stratified sample data for our modeling in the next step.
 
  ![15](./media/data-lake-walkthrough/15-U-SQL-output-csv.PNG)
 
@@ -592,7 +595,7 @@ We want to operationalize the machine learning model after it has been built. He
 Azure Machine Learning Studio can read data directly from Azure Data Lake Store and then be used to create and deploy models. This approach uses a Hive table that points at the Azure Data Lake Store. This requires that a separate Azure HDInsight cluster be provisioned, on which the Hive table is created. The following sections show how to do this. 
 
 ### Create an HDInsight Linux Cluster
-Create an HDInsight Cluster (Linux) from the [Azure Portal](http://portal.azure.com).For details, see the **Create an HDInsight cluster with access to Azure Data Lake Store** section in [Create an HDInsight cluster with Data Lake Store using Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Create an HDInsight Cluster (Linux) from the [Azure portal](http://portal.azure.com).For details, see the **Create an HDInsight cluster with access to Azure Data Lake Store** section in [Create an HDInsight cluster with Data Lake Store using Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
@@ -652,7 +655,7 @@ We are now ready to build and deploy a model that predicts whether or not a tip 
 3. Paste the following Hive script in the **Hive database query** editor
    
         select * from nyc_stratified_sample;
-4. Enter the URI of HDInsight cluster (this can be found in Azure Portal), Hadoop credentials, location of output data, and Azure storage account name/key/container name.
+4. Enter the URI of HDInsight cluster (this can be found in Azure portal), Hadoop credentials, location of output data, and Azure storage account name/key/container name.
    
    ![23](./media/data-lake-walkthrough/23-reader-module-v3.PNG)  
 
