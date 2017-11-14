@@ -8,6 +8,10 @@ Yes. Previously, only self-signed root certificates could be used. You can still
 
 You can use your Enterprise PKI solution (your internal PKI), Azure PowerShell, MakeCert], and OpenSSL.
 
+### <a name="mkct"></a>If I want to use my internal PKI to create certificates, what are the required parameters?
+
+See the steps to [Generate certificates](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+
 ### <a name="ps"></a>If I want to use Azure PowerShell to create certificates, what are the required parameters?
 
 See the [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) article for steps.
