@@ -463,11 +463,10 @@ You have now configured all the reports that correspond to the batch processing 
    
  3. Move the charts around to look like the following dashboard example:
 
-
     ![Rearranged dashboard](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard.png)
 
 4. After you create all the reports mentioned in this document, the final finished dashboard looks like the following example: 
 
-    ![Final dashboard](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
+   ![Final dashboard](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-organize-dashboard3.png)
 
 You have successfully created the reports and the dashboard to gain real-time, predictive, and batch insights on vehicle health and driving habits.  
