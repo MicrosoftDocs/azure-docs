@@ -3,7 +3,7 @@ title: Load test your application by using Visual Studio Team Services | Microso
 description: Learn how to stress test your Azure Service Fabric applications by using Visual Studio Team Services.
 services: service-fabric
 documentationcenter: na
-author: cawams
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
-ms.author: cawa
+ms.author: ryanwi
 
 ---
 # Load test your application by using Visual Studio Team Services

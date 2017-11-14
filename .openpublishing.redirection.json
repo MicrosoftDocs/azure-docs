@@ -4847,7 +4847,12 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-multi-geo.md",
-            "redirect_url": "/azure/machine-learning/studio/multi-geo",
+            "redirect_url": "/azure/machine-learning/studio/faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/studio/multi-geo.md",
+            "redirect_url": "/azure/machine-learning/studio/faq",
             "redirect_document_id": false
         },
         {
