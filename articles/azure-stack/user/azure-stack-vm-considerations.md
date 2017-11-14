@@ -4,7 +4,7 @@ description: Learn about differences and considerations when working with virtua
 services: azure-stack
 documentationcenter: ''
 author: SnehaGunda
-manager: byronr
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 11/14/2017
 ms.author: sngun
 
 ---
@@ -44,12 +44,14 @@ The Azure Stack Development Kit supports the following sizes:
 
 | Type | Size | Range of supported sizes |
 | --- | --- | --- |
-|General purpose |Basic A|A0-A4|
-|General purpose |Standard A|A0-A7|
-|General purpose |Standard D|D1-D4|
-|General purpose |Standard Dv2|D1v2-D5v2|
-|Memory optimized|D-series|D11-D14|
-|Memory optimized |Dv2-series|D11v2-D14v2|
+|General purpose |Basic A|A0 - A4|
+|General purpose |Standard A|A0 - A7|
+|General purpose |Standard D|D1 - D4|
+|General purpose |Standard D_v2|D1_v2 - D5_v2|
+|General purpose |DS-series|DS1 - DS4|
+|General purpose |DS_v2-series|DS1_v2 - DS5_v2|
+|Memory optimized|DS-series|DS11 - DS14|
+|Memory optimized |DS_v2-series|DS11_v2 - DS14_v2|
 
 Virtual Machine sizes and their associated resource quantities are consistent between Azure Stack and Azure. For example, this includes the amount of memory, number of cores, and number/size of data disks that can be created. However, performance of the same VM size in Azure Stack depends on the underlying characteristics of a particular Azure Stack environment.
 
