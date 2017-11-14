@@ -213,7 +213,7 @@ ms.custom: H1Hack27Feb2017
 If you decide not to use functionalities such as Windows Server Failover Clustering (WSFC) or Pacemaker on Linux (currently supported only for SUSE Linux Enterprise Server [SLES] 12 and later), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
 
 > [!NOTE]
-> Azure VM restart primarily protects VMs and *not* applications. VM restart does not offer high availability for SAP applications, but it does offer a certain level of infrastructure availability and, therefore, indirectly offers “higher availability” of SAP systems. There is also no SLA for the time it will take to restart a VM after a planned or unplanned host outage. Therefore, this method of ‘high availability’ is not suitable for critical components of an SAP system such as an ASCS/SCS instance or a database management system (DBMS).
+> Azure VM restart primarily protects VMs and *not* applications. Although VM restart doesn't offer high availability for SAP applications, it does offer a certain level of infrastructure availability. It also indirectly offers “higher availability” of SAP systems. There is also no SLA for the time it takes to restart a VM after a planned or unplanned host outage, which makes this method of high availability unsuitable for the critical components of an SAP system. Examples of critical components might be an ASCS/SCS instance or a database management system (DBMS).
 >
 >
 
