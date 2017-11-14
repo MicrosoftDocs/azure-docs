@@ -41,23 +41,22 @@ This section shows how to import and publish an OpenAPI specification back-end A
 2. Select **APIs** from under **API MANAGEMENT**.
 3. Select **OpenAPI specification** from the list.
 
-    ![Add an API](./media/api-management-get-started/add-api.png)    
-4. Enter the  http://conferenceapi.azurewebsites.net?format=json URL in the **OpenAPI specification** field.
-5. Press tab.
-
-    The following fields get filled up with the info from the specified OpenAPI specification: Display name, Name, Description.
-6. Add an API URL suffix. In this case, *conference*.
-7. Publish the API by associating the API with a product. In this case, the "*Unlimited*" product is used.
-
-    Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.
-
-    By default, each API Management instance comes with two sample products:
-
-    * **Starter**
-    * **Unlimited**   
-8. Select **Create**.
-
     ![Create an API](./media/api-management-get-started/create-api.png)
+
+    You can set the API values during creation or later by going to the **Settings** tab.  
+
+    |Setting|Value|Description|
+    |---|---|---|
+    |**OpenAPI Specification**|http://conferenceapi.azurewebsites.net?format=json|References the service implementing the API. API management forwards requests to this address.|
+    |**Display name**|Demo Conference API|If you press tab after entering the service URL, APIM will fill out this field based on what is in the json. <br/>This name is displayed in the Developer portal.|
+    |**Name**|demo-conference-api|Provides a unique name for the API. <br/>If you press tab after entering the service URL, APIM will fill out this field based on what is in the json.|
+    |**Description**|Provide an optional description of the API.|If you press tab after entering the service URL, APIM will fill out this field based on what is in the json.|
+    |**API URL suffix**|conference|The suffix is appended to the base URL for the API management service. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API for a given publisher.|
+    |**URL scheme**|HTTPS|Determines which protocols can be used to access the API. |
+    |**Products**|Unlimited| Publish the API by associating the API with a product. To optionally add this new API to a product, type the product name. This step can be repeated multiple times to add the API to multiple products.<br/>Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.<br/> By default, each API Management instance comes with two sample products: **Starter** and **Unlimited**. |
+4. Select **Create**.
+
+
 
 ### Test the new APIM API in the administrative portal
 
