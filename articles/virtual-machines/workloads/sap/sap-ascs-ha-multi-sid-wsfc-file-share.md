@@ -321,7 +321,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### Prepare the infrastructure on the SOFS cluster by using a different SAP Global Host
 
-You can configure the second SOFS (for example, the second SOFS cluster role with **\<SAPGlobalHost2>** and a different **Volume2** for the second **\<SID2>)**.
+You can configure the second SOFS (for example, the second SOFS cluster role with **\<SAPGlobalHost2>** and a different **Volume2** for the second **\<SID2>**).
 
 ![Figure 4: Multi-SID SOFS is the same as the SAP GLOBAL host name 2][sap-ha-guide-figure-8015]
 
