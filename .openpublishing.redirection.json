@@ -7282,6 +7282,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-vso-load-test.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-api-management-quick-start.md",
             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-api-management",
             "redirect_document_id": false
