@@ -21,7 +21,7 @@ ms.author: jejiang
 
 # Use Azure HDInsight Tools for Visual Studio Code
 
-Learn how to use the Azure HDInsight Tools for Visual Studio Code (VSCode) to create and submit Hive batch jobs, interactive Hive queries, and pySpark scripts. The Azure HDInsight Tools can be installed on the platforms supported by VSCode including Windows, Linux, and MacOS. You can find the prerequisites for different platforms.
+Learn how to use the Azure HDInsight Tools for Visual Studio Code (VSCode) to create and submit Hive batch jobs, interactive Hive queries, and pySpark scripts. The Azure HDInsight Tools can be installed on the platforms that are supported by VSCode. These include Windows, Linux, and MacOS. You can find the prerequisites for different platforms.
 
 
 ## Prerequisites
@@ -40,7 +40,7 @@ After you have installed the prerequisites, you can install the Azure HDInsight 
 
 1. Open Visual Studio Code.
 2. In the left pane, select **Extensions**. In the search box, enter **HDInsight**.
-3. Next to **Azure HDInsight tools**, select **Install** After a few seconds, the **Install** button changes to **Reload**.
+3. Next to **Azure HDInsight tools**, select **Install**. After a few seconds, the **Install** button changes to **Reload**.
 4. Select **Reload** to activate the **Azure HDInsight tools** extension.
 5. Select **Reload Window** to confirm. You can see **Azure HDInsight tools** in the **Extensions** pane.
 
@@ -68,10 +68,10 @@ Before you can submit scripts to HDInsight clusters from VSCode, you need connec
 
 1. Create a new work folder and a new script file if you don't already have them.
 
-2. Right-click the script editor, and then, on the context men, select **HDInsight: Login**. You can also press **CTRL+SHIFT+P**, and then enter **HDInsight: Login**.
+2. Right-click the script editor, and then, on the context menu, select **HDInsight: Login**. You can also press **CTRL+SHIFT+P**, and then enter **HDInsight: Login**.
 
     ![HDInsight Tools for Visual Studio Code log in](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
-3. To sign in, gollow the sign-in instructions in the **OUTPUT** pane.
+3. To sign in, follow the sign-in instructions in the **OUTPUT** pane.
 
     **Azure:**
     ![HDInsight Tools for Visual Studio Code login info](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png)
@@ -176,7 +176,7 @@ HDInsight Tools for VSCode also enables you to submit interactive PySpark querie
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Highlight these scripts.  Then right-click the script editor and select **HDInsight: PySpark Interactive**.
+4. Highlight these scripts. Then right-click the script editor and select **HDInsight: PySpark Interactive**.
 5. Select the **Install** button as shown in the following illustration if you haven't already installed the **Python** extension in VSCode.
     ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
@@ -189,7 +189,7 @@ HDInsight Tools for VSCode also enables you to submit interactive PySpark querie
 8. Our tool also supports the **SQL Clause**  query.
 
    ![Submit Python job result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
-   The submission status displays on the left of the bottom status bar when you'rerunning queries. You cannot submit other queries when the status is **PySpark Kernel (busy)**. Otherwise, the running is hang.
+   The submission status displays on the left of the bottom status bar when you're running queries. You cannot submit other queries when the status is **PySpark Kernel (busy)**. Otherwise, the running is hang.
 9. Our clusters can maintain a session. For example, **a=100** already keep this session in cluster, now you only run **print a** to cluster.
  
 
@@ -222,7 +222,7 @@ HDInsight Tools for VSCode also enables you to submit interactive PySpark querie
 4. Right-click the script editor, and then select **HDInsight: PySpark Batch**. 
 5. Select a cluster to which to submit your PySpark job. 
 
-   ![submit Python job result](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
+   ![Submit Python job result](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
 After you submit a Python job, submission logs are shown in the **OUTPUT** window in VSCode. The **Spark UI URL** and **Yarn UI URL** are shown as well. You can open the URL in a web browser to track the job status.
 
