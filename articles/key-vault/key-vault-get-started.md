@@ -106,6 +106,7 @@ you would type:
 ```powershell
 New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
+![Output after Key Vault creation command completes](./media/key-vault-get-started/output-after-creating-keyvault.png)
 
 The output of this cmdlet shows properties of the key vault that you created. The two most important properties are:
 
@@ -165,7 +166,9 @@ To view your key, type:
 ```powershell
 Get-AzureKeyVaultKey –VaultName 'ContosoKeyVault'
 ```
+If you want to view the properties of the PFX file on the portal you would see something similar to the image shown below.
 
+![How a certificate looks in the portal](./media/key-vault-get-started/imported-pfx.png)
 ### To add a secret to Azure Key Vault
 
 To add a secret to the vault, which is a password named SQLPassword and has the value of Pa$$w0rd to Azure Key Vault, first convert the value of Pa$$w0rd to a secure string by typing:
@@ -189,6 +192,9 @@ To display the URI for this secret, type:
 $secret.Id
 ```
 To view your secret, type: `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`
+Or alternatively you may view the secret on the portal.
+
+![secret](./media/key-vault-get-started/secret-value.png)
 
 Now, your key vault and key or secret is ready for applications to use. You must authorize applications to use them.  
 
@@ -201,12 +207,12 @@ This step would usually be done by a developer, on a separate computer. It is no
 
 Applications that use a key vault must authenticate by using a token from Azure Active Directory. To do this, the owner of the application must first register the application in their Azure Active Directory. At the end of registration, the application owner gets the following values:
 
-- An **Application ID** (also known as a Client ID)
+- An **Application ID** 
 - An **authentication key** (also known as the shared secret). 
 
 The application must present both these values to Azure Active Directory, to get a token. How the application is configured to do this depends on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
 
-For detailed steps on registering an application with Azure Active Directory you should review the article titled [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md)
+For detailed steps on registering an application with Azure Active Directory you should review the article titled [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md) or [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 To register the application in Azure Active Directory:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -215,13 +221,16 @@ To register the application in Azure Active Directory:
 You must select the same directory that contains the Azure subscription with which you created your key vault. 
 3. Click **New application registration**.
 4. On the **Create** blade provide a name for your application, and then select **WEB APPLICATION AND/OR WEB API** (the default) and specify the **SIGN-ON URL** for your web application. If you don't have this information at this time, you can make it up for this step (for example, you could specify http://test1.contoso.com ). It does not matter if these sites exist. 
+    
+![New application registration](./media/key-vault-get-started/new-application-registration.png)
+
 5. Click the **Create** button.
 6. When the app registration is completed you can see the list of registered apps. Find the app that you just registered and click on it.
-7. Click on the **Registered app** blade copy the **Object ID**
+7. Click on the **Registered app** blade copy the **Application ID**
 8. Click on **All settings**
 9. On the **Settings** blade click on **keys**
-9. Type in a description in the **Key description** box and select a duration, and then click **SAVE**. The page refreshes and now shows a key value. You must configure your application with this key value and the **Client ID** (Object ID) value. (Instructions for this configuration are application-specific.)
-10. You will use the **Client ID** and the **Key** information in the next step to set permissions on your vault.
+9. Type in a description in the **Key description** box and select a duration, and then click **SAVE**. The page refreshes and now shows a key value. 
+10. You will use the **Application ID** and the **Key** information in the next step to set permissions on your vault.
 
 ## <a id="authorize"></a>Authorize the application to use the key or secret
 To authorize the application to access the key or secret in the vault, use the
