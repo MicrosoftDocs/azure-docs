@@ -68,7 +68,7 @@ While pools can be cost-effective with just two S3 databases, the more databases
 
 If you already provisioned a batch of tenants in a prior tutorial, skip to the [Simulate usage on all tenant databases](#simulate-usage-on-all-tenant-databases) section.
 
-1. Open …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1* in the *PowerShell ISE*. Keep this script open as you'll run several scenarios during this tutorial.
+1. In the **PowerShell ISE**, open …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*. Keep this script open as you'll run several scenarios during this tutorial.
 1. Set **$DemoScenario** = **1**, **Provision a batch of tenants**
 1. Press **F5** to run the script.
 
@@ -90,7 +90,7 @@ The *Demo-PerformanceMonitoringAndManagement.ps1* script is provided that simula
 
 The load generator applies a *synthetic* CPU-only load to every tenant database. The generator starts a job for each tenant database, which calls a stored procedure periodically that generates the load. The load levels (in eDTUs), duration, and intervals are varied across all databases, simulating unpredictable tenant activity.
 
-1. Open …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1* in the *PowerShell ISE*. Keep this script open as you'll run several scenarios during this tutorial.
+1. In the **PowerShell ISE**, open …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*. Keep this script open as you'll run several scenarios during this tutorial.
 1. Set **$DemoScenario** = **2**, *Generate normal intensity load*.
 1. Press **F5** to apply a load to all your tenant databases.
 
@@ -103,7 +103,7 @@ Wingtip Tickets SaaS Database Per Tenant is a SaaS app, and the real-world load 
 
 To monitor the resource usage that results from the load being applied, open the portal to the pool containing the tenant databases:
 
-1. Open the [Azure portal](https://portal.azure.com) and browse to the *tenants1-&lt;USER&gt;* server.
+1. Open the [Azure portal](https://portal.azure.com) and browse to the *tenants1-dpt-&lt;USER&gt;* server.
 1. Scroll down and locate elastic pools and click **Pool1**. This pool contains all the tenant databases created so far.
 
 Observe the **Elastic pool monitoring** and **Elastic database monitoring** charts.
@@ -121,7 +121,7 @@ Because there are additional databases in the pool beyond the top five, the pool
 
 Set an alert on the pool that triggers on \>75% utilization as follows:
 
-1. Open *Pool1* (on the *tenants1-\<user\>* server) in the [Azure portal](https://portal.azure.com).
+1. Open *Pool1* (on the *tenants1-dpt-\<user\>* server) in the [Azure portal](https://portal.azure.com).
 1. Click **Alert Rules**, and then click **+ Add alert**:
 
    ![add alert](media/saas-dbpertenant-performance-monitoring/add-alert.png)
@@ -166,7 +166,7 @@ Databases remain online and fully available throughout the process. At the last 
 
 As an alternative to scaling up the pool, create a second pool and move databases into it to balance the load between the two pools. To do this the new pool must be created on the same server as the first.
 
-1. In the [Azure portal](https://portal.azure.com), open the **tenants1-&lt;USER&gt;** server.
+1. In the [Azure portal](https://portal.azure.com), open the **tenants1-dpt-&lt;USER&gt;** server.
 1. Click **+ New pool** to create a pool on the current server.
 1. On the **Elastic database pool** template:
 
@@ -184,7 +184,7 @@ As an alternative to scaling up the pool, create a second pool and move database
 
 Creating the pool and moving the databases takes a few minutes. As databases are moved they remain online and fully accessible until the very last moment, at which point any open connections are closed. As long as you have some retry logic, clients will then connect to the database in the new pool.
 
-Browse to **Pool2** (on the *tenants1* server) to open the pool and monitor its performance. If you don't see it, wait for provisioning of the new pool to complete.
+Browse to **Pool2** (on the *tenants1-dpt-\<user\>* server) to open the pool and monitor its performance. If you don't see it, wait for provisioning of the new pool to complete.
 
 You now see that resource usage on *Pool1* has dropped and that *Pool2* is now similarly loaded.
 
@@ -194,13 +194,13 @@ If a single database in a pool experiences a sustained high load, depending on t
 
 This exercise simulates the effect of Contoso Concert Hall experiencing a high load when tickets go on sale for a popular concert.
 
-1. Open the …\\*Demo-PerformanceMonitoringAndManagement.ps1* script.
+1. In the **PowerShell ISE**, open the …\\*Demo-PerformanceMonitoringAndManagement.ps1* script.
 1. Set **$DemoScenario = 5, Generate a normal load plus a high load on a single tenant (approx. 95 DTU).**
 1. Set **$SingleTenantDatabaseName = contosoconcerthall**
 1. Execute the script using **F5**.
 
 
-1. In the [Azure portal](https://portal.azure.com), browse to the list of databases on the *tenants1* server. 
+1. In the [Azure portal](https://portal.azure.com), browse to the list of databases on the *tenants1-dpt-\<user\>* server. 
 1. Click on the **contosoconcerthall** database.
 1. Click on the pool that **contosoconcerthall** is in. Locate the pool in the **Elastic database pool** section.
 

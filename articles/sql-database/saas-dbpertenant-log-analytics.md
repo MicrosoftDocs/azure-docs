@@ -46,7 +46,7 @@ Log Analytics workspaces and analytics solutions can be opened both in the Azure
 
 ### Create data by starting the load generator 
 
-1. Open **Demo-PerformanceMonitoringAndManagement.ps1** in the **PowerShell ISE**. Keep this script open as you may want to run several of the load generation scenarios during this tutorial.
+1. In the **PowerShell ISE**, open **Demo-PerformanceMonitoringAndManagement.ps1**. Keep this script open as you may want to run several of the load generation scenarios during this tutorial.
 1. If you have fewer than five tenants, provision a batch of tenants to provide a more interesting monitoring context:
    1. Set **$DemoScenario = 1,** **Provision a batch of tenants**
    1. To run the script, press **F5**.
@@ -62,7 +62,7 @@ The Wingtip Tickets SaaS Database Per Tenant scripts and application source code
 
 Log Analytics is a separate service that needs to be configured. Log Analytics collects log data and telemetry and metrics in a log analytics workspace. A workspace is a resource, just like other resources in Azure, and must be created. While the workspace doesn’t need to be created in the same resource group as the application(s) it is monitoring, this often makes the most sense. For the Wingtip Tickets SaaS Database Per Tenant SaaS app, this enables the workspace to be easily deleted with the application by deleting the resource group.
 
-1. Open ...\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\*Demo-LogAnalytics.ps1* in the **PowerShell ISE**.
+1. In the **PowerShell ISE**, open ...\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\*Demo-LogAnalytics.ps1*.
 1. To run the script, press **F5**.
 
 At this point, you should be able open Log Analytics in the Azure portal (or the OMS portal). It takes a few minutes for telemetry to be collected in the Log Analytics workspace and to become visible. The longer you leave the system gathering data the more interesting the experience is. Now's a good time to grab a beverage - just make sure the load generator is still running!

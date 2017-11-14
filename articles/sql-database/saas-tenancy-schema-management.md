@@ -66,7 +66,7 @@ The Wingtip Tickets SaaS Database Per Tenant scripts and application source code
 
 This tutorial requires you use PowerShell to create the job account database and job account. Like MSDB and SQL Agent, Elastic Jobs uses an Azure SQL database to store job definitions, job status, and history. Once the job account is created, you can create and monitor jobs immediately.
 
-1. Open …\\Learning Modules\\Schema Management\\*Demo-SchemaManagement.ps1* in the **PowerShell ISE**.
+1. **In PowerShell ISE**, open …\\Learning Modules\\Schema Management\\*Demo-SchemaManagement.ps1*.
 1. Press **F5** to run the script.
 
 The *Demo-SchemaManagement.ps1* script calls the *Deploy-SchemaManagement.ps1* script to create an *S2* database named **jobaccount** on the catalog server. It then creates the job account, passing the jobaccount database as a parameter to the job account creation call.
@@ -81,20 +81,20 @@ Now let’s create a job to update the *VenueTypes* table in all the tenant data
 
 To create a new job, we use a set of jobs system stored procedures created in the jobaccount database when the job account was created.
 
-1. Open SSMS and connect to the catalog server: catalog-\<user\>.database.windows.net server
-1. Also connect to the tenant server: tenants1-\<user\>.database.windows.net
-1. Browse to the *contosoconcerthall* database on the *tenants1* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are not** in the results list.
-1. Open the file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
+1. Open SSMS and connect to the catalog server: catalog-dpt-\<user\>.database.windows.net server
+1. Also connect to the tenant server: tenants1-dpt-\<user\>.database.windows.net
+1. Browse to the *contosoconcerthall* database on the *tenants1-dpt-\<user\>* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are not** in the results list.
+1. In SSMS, open the file …\\Learning Modules\\Schema Management\\DeployReferenceData.sql
 1. Modify the statement: SET @wtpUser = &lt;user&gt; and substitute the User value used when you deployed the Wingtip Tickets SaaS Database Per Tenant app
 1. Ensure you are connected to the jobaccount database and press **F5** to run the script
 
 * **sp\_add\_target\_group** creates the target group name DemoServerGroup, now we need to add target members.
-* **sp\_add\_target\_group\_member** adds a *server* target member type, which deems all databases within that server (note this is the tenants1-&lt;User&gt; server containing the tenant databases) at time of job execution should be included in the job, the second is adding a *database* target member type, specifically the ‘golden’ database (basetenantdb) that resides on catalog-&lt;User&gt; server, and lastly another *database* target group member type to include the adhocanalytics database that is used in a later tutorial.
+* **sp\_add\_target\_group\_member** adds a *server* target member type, which deems all databases within that server (note this is the tenants1-dpt-&lt;User&gt; server containing the tenant databases) at time of job execution should be included in the job, the second is adding a *database* target member type, specifically the ‘golden’ database (basetenantdb) that resides on catalog-dpt-&lt;User&gt; server, and lastly another *database* target group member type to include the adhocanalytics database that is used in a later tutorial.
 * **sp\_add\_job** creates a job called “Reference Data Deployment”
 * **sp\_add\_jobstep** creates the job step containing T-SQL command text to update the reference table, VenueTypes
 * The remaining views in the script display the existence of the objects and monitor job execution. Use these queries to review the status value in the **lifecycle** column to determine when the job has successfully finished on all tenant databases and the two additional databases containing the reference table.
 
-1. In SSMS, browse to the *contosoconcerthall* database on the *tenants1* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are** now in the results list.
+1. In SSMS, browse to the *contosoconcerthall* database on the *tenants1-dpt-\<user\>* server and query the *VenueTypes* table to confirm that *Motorcycle Racing* and *Swimming Club* **are** now in the results list.
 
 
 ## Create a job to manage the reference table index
@@ -103,9 +103,9 @@ Similar to the previous exercise, this exercise creates a job to rebuild the ind
 
 Create a job using the same jobs 'system' stored procedures.
 
-1. Open SSMS and connect to the catalog-&lt;User&gt;.database.windows.net server
+1. Open SSMS and connect to the catalog-dpt-&lt;User&gt;.database.windows.net server
 1. Open the file …\\Learning Modules\\Schema Management\\OnlineReindex.sql
-1. Right click, select Connection, and connect to the catalog-&lt;User&gt;.database.windows.net server, if not already connected
+1. Right click, select Connection, and connect to the catalog-dpt-&lt;User&gt;.database.windows.net server, if not already connected
 1. Ensure you are connected to the jobaccount database and press F5 to run the script
 
 * sp\_add\_job creates a new job called “Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”
