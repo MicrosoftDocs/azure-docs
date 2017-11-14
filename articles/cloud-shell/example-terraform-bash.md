@@ -39,15 +39,14 @@ az account set --subscription mySubscriptionName
 az account show
 ```
 
-### Create the template
-Create a new Terraform template named main.tf
-1. Create a new main.tf file with your preferred text editor
+### Create a Terraform template
+Create a new Terraform template named main.tf with your preferred text editor.
 
 ```
 vim main.tf
 ```
 
-2. Copy/paste the following code into Cloud Shell
+Copy/paste the following code into Cloud Shell.
 
 ```
 resource "azurerm_resource_group" "myterraformgroup" {
@@ -56,7 +55,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-3. Save your file and exit your text editor
+Save your file and exit your text editor.
 
 ### Terraform init
 Begin by running `terraform init`.
