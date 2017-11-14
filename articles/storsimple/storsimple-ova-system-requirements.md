@@ -37,7 +37,7 @@ The software requirements include the information on the supported web browsers,
 | **Hypervisor** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 and later |
-| VMware ESXi |5.0, 5.5, and 6.0 |
+| VMware ESXi |5.0, 5.5, and 6.0 <br> (6.5 is not supported.) |
 
 ### Virtual device requirements
 | **Component** | **Requirement** |
