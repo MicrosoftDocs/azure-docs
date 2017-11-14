@@ -197,23 +197,23 @@ The [backend configuration for Service Fabric](/azure/api-management/api-managem
 
 **policyContent** is the Json escaped XML contents of the policy.  For this tutorial, create a backend policy to route requests directly to the .NET or Java stateless service deployed earlier. Add a `set-backend-service` policy under inbound policies.  Replace "service-name" with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service.
     
-    ```xml
-    <policies>
-      <inbound>
-        <base/>
-        <set-backend-service 
-           backend-id="servicefabric"
-           sf-service-instance-name="service-name"
-           sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
-      </inbound>
-      <backend>
-        <base/>
-      </backend>
-      <outbound>
-        <base/>
-      </outbound>
-    </policies>
-    ```
+```xml
+<policies>
+  <inbound>
+    <base/>
+    <set-backend-service 
+        backend-id="servicefabric"
+        sf-service-instance-name="service-name"
+        sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
+  </inbound>
+  <backend>
+    <base/>
+  </backend>
+  <outbound>
+    <base/>
+  </outbound>
+</policies>
+```
 
 For a full set of Service Fabric back-end policy attributes, refer to the [API Management back-end documentation](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService)
 
@@ -233,7 +233,9 @@ Fill in the following empty parameters in the *apim.parameters.json* for your de
 |clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.azure.com:19080|
 |inbound_policy|&lt;XML string&gt;|
 
-*certificatePassword* and *serviceFabricCertificateThumbprint* must match the cluster certificate used to set up the cluster.  *serviceFabricCertificate* is the certificate as a base-64 encoded string, which can be generated using the following script:
+*certificatePassword* and *serviceFabricCertificateThumbprint* must match the cluster certificate used to set up the cluster.  
+
+*serviceFabricCertificate* is the certificate as a base-64 encoded string, which can be generated using the following script:
 
 ```powershell
 $bytes = [System.IO.File]::ReadAllBytes("C:\mycertificates\sfclustertutorialgroup220171109113527.pfx");
