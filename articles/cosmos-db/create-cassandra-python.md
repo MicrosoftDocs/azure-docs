@@ -18,7 +18,7 @@ ms.date: 11/15/2017
 ms.author: govindk
 
 ---
-# Quickstart: Build a Cassandra web app with Python and Azure Cosmos DB
+# Quickstart: Build a Cassandra app with Python and Azure Cosmos DB
 
 This quickstart shows how to use Python and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also walks you through the creation of an Azure Cosmos DB account by using the web-based Azure portal.
 
@@ -60,10 +60,17 @@ Now let's clone a Cassandra API app from github, set the connection string, and 
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `pyquickstart.py` file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-* User name and password  is set using the connection string page in the Azure portal.  
+* User name and password is set using the connection string page in the Azure portal. You replace the path\to\cert with the path to your X509 certificate.
 
    ```python
-   auth_provider = PlainTextAuthProvider(username=cfg.config['username'], password=cfg.config['password'])
+   	ssl_options = {
+                  'ca_certs': 'path\to\cert',
+                  'ssl_version': ssl.PROTOCOL_TLSv1_2
+        }
+    	auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
+    	cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_options)
+	session = cluster.connect()
+   
    ```
 
 * The `cluster` is initialized with contactPoint information. The contactPoint is retrieved from the Azure portal.
@@ -109,7 +116,7 @@ This step is optional. If you're interested in learning how the database resourc
     rows = session.execute('SELECT * FROM uprofile.user')
     ```  
     
- * Query to get a key-value.
+* Query to get a key-value.
 
     ```Python
     
@@ -122,7 +129,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
-    Use the copy button on the right side of the screen to copy the top value, the CONTACT POINT.
+    Use the ![Copy button](./media/create-cassandra-python/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
 
     ![View and copy an access user name, password and contact point in the Azure portal, connection string blade](./media/create-cassandra-python/keys.png)
 
@@ -148,6 +155,14 @@ Now go back to the Azure portal to get your connection string information and co
 
 6. Save the config.py file.
     
+## Create the X509 certificate
+
+1. Create an X509 certificate and save it locally.
+
+2. Open pyquickstart.py and change the 'path\to\cert' to point to your X509 certificate.
+
+3. Save pyquickstart.py.
+
 ## Run the app
 
 1. Use the cd command in the git terminal to change into the azure-cosmos-db-cassandra-python-getting-started folder. 
@@ -160,7 +175,7 @@ Now go back to the Azure portal to get your connection string information and co
     python -m pip install prettytable
     ```
 
-2. Run the following command to start your node application
+2. Run the following command to start your node application:
 
     ```
     python pyquickstart.py
@@ -168,9 +183,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Verify the results as expected from the command line.
 
-    ![View and verify the output](./media/create-cassandra-dotnet/output.png)
+    Press CTRL + C to stop exection of the program and close the console window. 
+    
+    You can now open Data Explorer in the Azure portal to see query, modify, and work with this new data. 
 
-4. You can now go back to Data Explorer to see query, modify, and work with this new data. 
+    ![View the data in Data Explorer](./media/create-cassandra-python/data-explorer.png)
 
 ## Review SLAs in the Azure portal
 

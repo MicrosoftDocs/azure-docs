@@ -63,11 +63,11 @@ You can use the [company branding feature](../active-directory/active-directory-
 
 The email signature contains the B2C tenant's name that you provided when you first created the B2C tenant. You can change the name using these instructions:
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator.
-1. Navigate to your B2C tenant.
-1. Click the **Configure** tab.
-1. Change the **Name** field under the **Directory properties** section.
-1. Click **Save** at the bottom of the page.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator.
+1. Open the **Azure Active Directory** blade.
+1. Click the **Properties** tab.
+1. Change the **Name** field.
+1. Click **Save** at the top of the page.
 
 Currently there is no way to change the "From:" field on the email. Vote on [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) you are interested in customizing the body of the verification email.
 
@@ -95,9 +95,9 @@ Read this article about [external identities](../active-directory/active-directo
 ### What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
 No, Azure AD B2C does not support the same set of reports as Azure AD Premium. However there are many commonalities:
 
-* The sign-in reports provide a record of each sign-in with reduced details.
-* Audit reports are available in the Azure portal, under Azure Active Directory> ACTIVITY-Audit logs>Choose B2C and apply filters as desired. Both admin activity as well as application activity are covered. 
-* A usage report, covering number of users, number of logins, and volume of MFA is available at [Usage Reporting API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
+* **Sign-in reports** are only available in the Azure portal (Azure Active Directory > Activity > Sign-ins) and are not available via the Graph API. They provide a record of each sign-in with reduced details.
+* **Audit reports** are only available in the Azure portal (Azure Active Directory > Activity > Audit logs) and are not available via the Graph API. They include both admin activity as well as application activity. 
+* **Usage reports** are only available via the [Usage Reporting API](active-directory-b2c-reference-usage-reporting-api.md) and are not available via the Azure portal. They include number of users, number of logins, and volume of MFA. 
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
 Yes!  Read about [language customization](active-directory-b2c-reference-language-customization.md), which is in public preview.  We provide translations for 36 languages, and you can override any string to suit your needs.

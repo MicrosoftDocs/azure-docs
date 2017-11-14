@@ -18,7 +18,7 @@ ms.author: mimig
 
 ---
 
-#Quickstart: Build a Cassandra web app with Java and Azure Cosmos DB
+# Quickstart: Build a Cassandra app with Java and Azure Cosmos DB
 
 This quickstart shows how to use Java and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also walks you through the creation of an Azure Cosmos DB account by using the web-based Azure portal.
 
@@ -66,10 +66,10 @@ Now let's switch to working with code. Let's clone a Cassandra app from GitHub, 
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). These snippets are all taken from the src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.  
 
-* Cassandra Host, Port, User name and password are set using the connection string page in the Azure portal.
+* Cassandra host, port, user name, password, and SSL options are set. The connection string information comes from the connection string page in the Azure portal.
 
    ```java
-   this.cluster = Cluster.builder().addContactPoint(host).withPort(port).withCredentials(username, password).build();
+   cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
    ```
 
 * The `cluster` connects to the Azure Cosmos DB Cassandra API and returns a session to access.
@@ -78,7 +78,7 @@ This step is optional. If you're interested in learning how the database resourc
     return cluster.connect();
     ```
 
- The following snippets are from the src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java file.
+The following snippets are from the src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java file.
 
 * Create a new keyspace.
 
@@ -146,7 +146,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy a username from the Azure portal, Connection String page](./media/create-cassandra-java/keys.png)
 
-2. Use the ![Copy button](./media/create-cassandra-java/copy.png) Copy button on the right side of the screen to copy the CONTACT POINT value.
+2. Use the ![Copy button](./media/create-cassandra-java/copy.png) button on the right side of the screen to copy the CONTACT POINT value.
 
 3. Open the `config.properties` file from C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources folder. 
 
@@ -168,7 +168,11 @@ Now go back to the Azure portal to get your connection string information and co
 
     `cassandra_password=2Ggkr662ifxz2Mg...==`
 
-5. Save the config.properties file.
+5. On line 6, if you want to use a specific SSL certificate, then replace `<SSL key store file location>` with the location of the SSL certificate. If a value is not provided, the JDK certificate installed at <JAVA_HOME>/jre/lib/security/cacerts is used. 
+
+6. If you changed line 6 to use a specific SSL certificate, update line 7 to use the password for that certificate. 
+
+7. Save the config.properties file.
 
 ## Run the app
 
@@ -191,10 +195,12 @@ Now go back to the Azure portal to get your connection string information and co
     ```
 
     The terminal window displays notifications that the keyspace and table are created. It then selects and returns all users in the table and displays the output, and then selects a row by id and displays the value.  
-    
-    ![Console output](./media/create-cassandra-java/output.png)
 
-    You can now go back to Data Explorer and see query, modify, and work with this new data. 
+    Press CTRL + C to stop exection of the program and close the console window. 
+    
+    You can now open Data Explorer in the Azure portal to see query, modify, and work with this new data. 
+
+    ![View the data in Data Explorer](./media/create-cassandra-java/data-explorer.png)
 
 ## Review SLAs in the Azure portal
 

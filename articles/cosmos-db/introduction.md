@@ -39,7 +39,7 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
     * APIs for the following data models are supported with SDKs available in multiple languages:
         * [DocumentDB API](documentdb-introduction.md): A schema-less JSON database engine with SQL querying capabilities.
         * [MongoDB API](mongodb-introduction.md): A MongoDB database service built on top of Cosmos DB. Compatible with existing MongoDB libraries, drivers, tools and applications.
-        * [Table API](table-introduction.md): A key-value storage database service built to provide premium capabilities for Azure Table storage applications.
+        * [Table API](table-introduction.md): A key-value database service built to provide premium capabilities for Azure Table storage applications.
         * [Graph (Gremlin) API](graph-introduction.md): A graph database service built following the [Apache TinkerPop specification](http://tinkerpop.apache.org/).
         * [Cassandra API](cassandra-introduction.md): A key/value store built on the [Apache Cassandra](https://cassandra.apache.org/) implementation. 
         * Additional data models coming soon!
@@ -53,7 +53,7 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
     * For a typical 1-KB item, Cosmos DB guarantees end-to-end latency of reads under 10 ms and indexed writes under 15 ms at the 99th percentile, within the same Azure region. The median latencies are significantly lower (under 5 ms).
 
 * **Ensure "always on" availability**
-    * 99.99% availability within a single region, and 99.999% read availability for database accounts spanning two or more Azure regions.
+    * 99.99% availability SLA for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts.
     * Deploy to any number of [Azure regions](https://azure.microsoft.com/regions) for higher availability.
     * [Simulate a failure](regional-failover.md) of one or more regions with zero-data loss guarantees. 
 
