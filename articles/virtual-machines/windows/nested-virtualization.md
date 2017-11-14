@@ -109,10 +109,9 @@ In order to configure the gateway, you will need to provide information about th
   * InternalIPInterfaceAddressPrefix - The NAT subnet prefix describes both the NAT Gateway IP prefix from above as well as the NAT Subnet Prefix Length from above. The generic form will be a.b.c.0/NAT Subnet Prefix Length. 
 
 In PowerShell, create a new NAT network.
-
-    ```powershell
-    New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
-    ```
+```powershell
+New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
+```
 
 
 ## Create the guest virtual machine
@@ -176,6 +175,4 @@ In this example you will use an address in the 192.168.0.0/24 range.
 ## Test connectivity in guest virtual machine
 
 In the guest virtual machine, open your browser and navigate to a web page.
-    
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
-
