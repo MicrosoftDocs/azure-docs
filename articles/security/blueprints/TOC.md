@@ -52,8 +52,8 @@
 ##### [System and information integrity](fedramp-system-information-integrity-controls.md)
 ##### [System and services acquisition](fedramp-system-services-acquisition-controls.md)
 #### [Compliance - UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
-##### [Overview](uk-official-three-tier-applications-principles-overview.md)
-##### [Principles overview](uk-official-three-tier-applications-overview.md)
+##### [Overview](uk-official-three-tier-applications-overview.md)
+##### [Principles overview](uk-official-three-tier-applications-principles-overview.md)
 
 # Get Started
 ## [Getting started with Azure security](../azure-security-getting-started.md)
