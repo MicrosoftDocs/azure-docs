@@ -98,10 +98,10 @@ If your administrator has enabled the functionality you may now see a link to **
 
 ![LoginScreen][LoginScreen]
 
-Clicking the **Reset password** link will open up the SSPR expierience at the login screen so that you can reset your password without having to login to access the normal web based expierience.
+Clicking the **Reset password** link will open up the SSPR experience at the login screen so that you can reset your password without having to log in to access the normal web-based experience.
 
 1. Confirm your User ID and click **Next**
-2. Chose and confirm a contact method for verification. Your IT staff may need more verification and you may have to repeat this step again with a different choice.
+2. Choose and confirm a contact method for verification. Your IT staff may need more verification and you may have to repeat this step again with a different choice.
 
    ![ContactMethod][ContactMethod]
 
@@ -109,7 +109,7 @@ Clicking the **Reset password** link will open up the SSPR expierience at the lo
 
    ![ResetPassword][ResetPassword]
 
-4. When you see "Your password has been reset" click **Finish**
+4. When you see **Your password has been reset**, click **Finish**
 
 You should now be able to access your account, if not you should contact your organization's IT staff for further help.
 
