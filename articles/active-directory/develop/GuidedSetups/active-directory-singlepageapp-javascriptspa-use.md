@@ -93,7 +93,6 @@ function callGraphApi() {
                     userAgentApplication.acquireTokenRedirect(graphAPIScopes);
                 }
             });
-
     }
 }
 
@@ -102,7 +101,7 @@ function callGraphApi() {
  * @param {string} errorDesc - If error occur, the error message
  * @param {object} token - The token received from login
  * @param {object} error - The error string
- * @param {string} tokenType - the token type: usually id_token
+ * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
  */
 function loginCallback(errorDesc, token, error, tokenType) {
     if (errorDesc) {

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -70,6 +70,27 @@ Use the `docker build` command to create the container image, tagging it as *aci
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
+```
+
+Output from the `docker build` command is similar to the following (truncated for readability):
+
+```bash
+Sending build context to Docker daemon  119.3kB
+Step 1/6 : FROM node:8.2.0-alpine
+8.2.0-alpine: Pulling from library/node
+88286f41530e: Pull complete
+84f3a4bf8410: Pull complete
+d0d9b2214720: Pull complete
+Digest: sha256:c73277ccc763752b42bb2400d1aaecb4e3d32e3a9dbedd0e49885c71bea07354
+Status: Downloaded newer image for node:8.2.0-alpine
+ ---> 90f5ee24bee2
+...
+Step 6/6 : CMD node /usr/src/app/index.js
+ ---> Running in f4a1ea099eec
+ ---> 6edad76d09e9
+Removing intermediate container f4a1ea099eec
+Successfully built 6edad76d09e9
+Successfully tagged aci-tutorial-app:latest
 ```
 
 Use the `docker images` to see the built image:

@@ -20,7 +20,7 @@ ms.author: adegeo
 
 # Scale a Service Fabric cluster
 
-This tutorial is part three of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
+This tutorial is part two of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
 
 In this tutorial, you learn how to:
 
@@ -250,6 +250,6 @@ In this tutorial, you learned how to:
 
 Next, advance to the following tutorial to learn how to deploy an application and use API management.
 > [!div class="nextstepaction"]
-> [Deploy an application](service-fabric-tutorial-deploy-api-management.md)
+> [Deploy API Management](service-fabric-tutorial-deploy-api-management.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
