@@ -110,7 +110,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
   * If you are not using Premium Storage (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and use Disk Striping.
 
-* **Caching policy**: For Premium Storage data disks, enable read caching on the data disks hosting your data files and TempDB only. If you are not using Premium Storage, do not enable any caching on any data disks. For instructions on configuring disk caching, see the following topics: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) and [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
+* **Caching policy**: For Premium Storage data disks, enable read caching on the data disks hosting your data files and TempDB only. If you are not using Premium Storage, do not enable any caching on any data disks. For instructions on configuring disk caching, see the following topics: (For the classic (ASM) deployment model see: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) and [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx), for the Resource Manager (ARM) deployment model see: [Set-AzureRMOSDisk](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) and [Set-AzureRMVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1)..
 
   > [!WARNING]
   > Stop the SQL Server service when changing the cache setting of Azure VM disks to avoid the possibility of any database corruption.
