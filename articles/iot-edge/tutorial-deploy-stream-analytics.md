@@ -109,7 +109,7 @@ In this section, you create an Azure Stream Analytics job to take data from your
 
 You are now ready to deploy the ASA job on your IoT Edge device.
 
-1. In the Azure portal, in your IoT Hub, navigate to **IoT Edge Explorer** and open your *{deviceId}*'s blade.
+1. In the Azure portal, in your IoT Hub, navigate to **IoT Edge (preview)** and open your *{deviceId}*'s blade.
 
 1. Select **Set modules**, then select **Import Azure Service IoT Edge Module**.
 

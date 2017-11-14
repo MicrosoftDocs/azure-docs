@@ -105,7 +105,7 @@ docker ps
 
 ## View generated data
 
-You can monitor your new IoT Edge device's status by clicking on it in IoT Edge Explorer page of your IoT hub. 
+You can monitor your new IoT Edge device's status by clicking on it in IoT Edge page of your IoT hub. 
 
 You can view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer].
 
