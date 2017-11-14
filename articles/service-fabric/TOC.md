@@ -250,8 +250,6 @@
 ### [Debug a Java service in Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## [Deploy API Management and Service Fabric to Azure](service-fabric-api-management-quick-start.md)
-
 ## Migrate from Cloud Services
 ### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrate to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -265,7 +263,6 @@
 #### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Upgrade applications
@@ -283,9 +280,7 @@
 ##### [Using the node transition APIs](service-fabric-node-transition-apis.md)
 #### [Load test your application](service-fabric-vso-load-test.md)
 
-### Set up continuous integration
-#### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
-#### [Deploy your Linux Java application using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### [Deploy your Linux Java application using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## Create and manage clusters
 ### Clusters on Azure
@@ -319,21 +314,6 @@
 ### [Visualize a cluster](service-fabric-visualizing-your-cluster.md)
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
-
-### Manage and orchestrate cluster resources
-#### [Cluster Resource Manager overview](service-fabric-cluster-resource-manager-introduction.md)
-#### [Cluster Resource Manager architecture](service-fabric-cluster-resource-manager-architecture.md)
-#### [Describe a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Application groups overview](service-fabric-cluster-resource-manager-application-groups.md)
-#### [Configure Cluster Resource Manager settings](service-fabric-cluster-resource-manager-configure-services.md)
-#### [Resource consumption metrics](service-fabric-cluster-resource-manager-metrics.md)
-#### [Use service affinity](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [Service placement policies](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [Manage a cluster](service-fabric-cluster-resource-manager-management-integration.md)
-#### [Cluster defragmentation](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [Balance a cluster](service-fabric-cluster-resource-manager-balancing.md)
-#### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## Monitor and diagnose
 ### OMS

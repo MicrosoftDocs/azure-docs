@@ -101,7 +101,7 @@ Start Visual Studio as Administrator and create an ASP.NET Core service:
 
     This is the endpoint that you expose through API Management in Azure.
 
- 7. Finally, deploy the application to your cluster in Azure. [Using Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), right-click the Application project and select **Publish**. Provide your cluster endpoint (for example, `mycluster.southcentralus.cloudapp.azure.com:19000`) to deploy the application to your Service Fabric cluster in Azure.
+ 7. Finally, deploy the application to your cluster in Azure. In Visual Studio, right-click the Application project and select **Publish**. Provide your cluster endpoint (for example, `mycluster.southcentralus.cloudapp.azure.com:19000`) to deploy the application to your Service Fabric cluster in Azure.
 
 An ASP.NET Core stateless service named `fabric:/ApiApplication/WebApiService` should now be running in your Service Fabric cluster in Azure.
 

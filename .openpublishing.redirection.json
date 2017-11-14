@@ -381,12 +381,22 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-tags.md",
+            "redirect_url": "/azure/azure-policy/scripts/billing-tags-policy-init",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-network.md",
             "redirect_url": "/azure/azure-policy/json-samples",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-storage.md",
+            "redirect_url": "/azure/azure-policy/json-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-policy-naming-convention.md",
             "redirect_url": "/azure/azure-policy/json-samples",
             "redirect_document_id": false
         },
@@ -4837,7 +4847,12 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-multi-geo.md",
-            "redirect_url": "/azure/machine-learning/studio/multi-geo",
+            "redirect_url": "/azure/machine-learning/studio/faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/studio/multi-geo.md",
+            "redirect_url": "/azure/machine-learning/studio/faq",
             "redirect_document_id": false
         },
         {
@@ -5551,11 +5566,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/storage/blobs/storage-quickstart-blobs-java.md",
-            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md",
             "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory",
             "redirect_document_id": false
@@ -5587,7 +5597,62 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-build-multi-tenant-apps.md",
-            "redirect_url": "/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications",
+            "redirect_url": "/azure/sql-database/saas-tenancy-app-design-patterns",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md",
+            "redirect_url": "/azure/sql-database/saas-tenancy-app-design-patterns",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md",
+            "redirect_url": "/azure/sql-database/saas-tenancy-elastic-tools-multi-tenant-row-level-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-wtp-overview.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-wingtip-app-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-get-started-deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-provision-and-catalog.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-provision-and-catalog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-performance-monitoring.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-performance-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-log-analytics.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-log-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-restore-single-tenant.md",
+            "redirect_url": "/azure/sql-database/saas-dbpertenant-restore-single-tenant",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-schema-management.md",
+            "redirect_url": "/azure/sql-database/saas-tenancy-schema-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-adhoc-analytics.md",
+            "redirect_url": "/azure/sql-database/saas-tenancy-adhoc-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-saas-tutorial-tenant-analytics.md",
+            "redirect_url": "/azure/sql-database/saas-tenancy-tenant-analytics",
             "redirect_document_id": false
         },
         {
@@ -7217,6 +7282,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-api-management-quick-start.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-api-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-reliable-actors-get-started-java.md",
             "redirect_url": "/azure/service-fabric/service-fabric-create-your-first-linux-application-with-java",
             "redirect_document_id": false
@@ -7269,6 +7339,11 @@
         {
             "source_path": "articles/service-fabric/service-fabric-use-data-loss-api.md",
             "redirect_url": "/azure/service-fabric/service-fabric-testability-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
             "redirect_document_id": false
         },
 		{
@@ -14965,6 +15040,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/hdinsight/hdinsight-add-acls-at-file-folder-levels.md",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
+            "redirect_document_id": false,
+        },
+        {
             "source_path": "articles/hdinsight/r-server/r-server-install-r-studio.md",
             "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
             "redirect_document_id": false
@@ -15063,6 +15143,11 @@
           "source_path": "articles/security-center/security-center-powerbi.md",
           "redirect_url": "https://docs.microsoft.com/en-us/azure/security-center",
           "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/service-fabric/service-fabric-set-up-continuous-integration.md",
+             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts",
+             "redirect_document_id": false
         }
     ]
 }

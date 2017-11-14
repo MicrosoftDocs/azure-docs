@@ -19,7 +19,7 @@ ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
 ---
-# Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database
+# Use PowerShell to sync between a SQL Database and a SQL Server on-premises database
 
 This PowerShell example configures Data Sync to sync between an Azure SQL Database and a SQL Server on-premises database. 
 
@@ -389,7 +389,7 @@ Additional SQL Database PowerShell script samples can be found in [Azure SQL Dat
 For more info about SQL Data Sync, see:
 
 -   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md)
--   [Get Started with Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
+-   [Set up Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
 -   [Best practices for Azure SQL Data Sync](../sql-database-best-practices-data-sync.md)
 -   [Monitor Azure SQL Data Sync with OMS Log Analytics](../sql-database-sync-monitor-oms.md)
 -   [Troubleshoot issues with Azure SQL Data Sync](../sql-database-troubleshoot-data-sync.md)
