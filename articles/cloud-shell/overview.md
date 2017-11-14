@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell (Preview) overview | Microsoft Docs
+title: Azure Cloud Shell overview | Microsoft Docs
 description: Overview of the Azure Cloud Shell.
 services: 
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/13/2017
 ms.author: juluk
 ---
-# Overview of Azure Cloud Shell (Preview)
+# Overview of Azure Cloud Shell
 Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources.
 It gives you the flexibility of choosing the shell experience that best suits the way you work.
 Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
@@ -29,7 +29,7 @@ Leverage Bash or PowerShell from the shell selector dropdown:
 
 ![Bash in Cloud Shell](media/overview/overview-bash-pic.png)
 
-![PowerShell in Cloud Shell](media/overview/overview-ps-pic.png)
+![PowerShell in Cloud Shell (Preview)](media/overview/overview-ps-pic.png)
 
 ## Features
 ### Browser-based shell experience
@@ -38,19 +38,22 @@ Leverage Cloud Shell to work untethered from a local machine in a way only the c
 
 ### Choice of preferred shell experience
 Azure Cloud Shell gives you the flexibility of choosing the shell experience that best suits the way you work.
-Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
+Linux users can opt for Bash in Cloud Shell, while Windows users can opt for PowerShell in Cloud Shell (Preview).
 
-### Pre-configured Azure workstation
-Cloud Shell comes pre-installed with popular command-line tools and language support so you can work faster.
+### Authenticated and configured Azure workstation
+Cloud Shell comes managed by Microsoft so it is pre-installed with popular command-line tools and language support so you can work faster. Additionally, Cloud Shell securely authenticates automatically for instant access to your resources through the Azure CLI 2.0 or Azure PowerShell cmdlets.
 
-View the full tooling list for [Bash experience](features.md#tools) and [PowerShell experience.](features-powershell.md#tools)
+View the full tooling list for the [Bash experience](features.md#tools) and [PowerShell (Preview) experience.](features-powershell.md#tools)
 
-### Automatic authentication
-Cloud Shell securely authenticates automatically on each session for instant access to your resources through the Azure CLI 2.0 or Azure PowerShell cmdlets.
+### Multiple access points
+In addition to Cloud Shell being available from the Azure portal, it can also be accessed from:
+* [Azure CLI 2.0 "Try It" documentation](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
+* [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/)
+* [Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### Connect your Azure File storage
+### Connect your Azure Files storage
 Cloud Shell machines are temporary and as a result require an Azure Files share to be mounted as `clouddrive` to persist your $Home directory.
-On first launch Cloud Shell prompts to create a resource group, storage account, and file share on your behalf. This is a one-time step and will be automatically attached for all sessions. A single file share can be mapped and will be used by both Bash and PowerShell in Cloud Shell.
+On first launch Cloud Shell prompts to create a resource group, storage account, and file share on your behalf. This is a one-time step and will be automatically attached for all sessions. A single file share can be mapped and will be used by both Bash and PowerShell in Cloud Shell (Preview).
 
 #### Create new storage
 ![](media/overview/basic-storage.png)
@@ -82,18 +85,18 @@ Dropdowns are filtered for your assigned Cloud Shell region and locally/globally
 * Cloud Shell is assigned one machine per user account
 * Permissions are set as a regular Linux user (Bash)
 
-Learn more about features in [Bash in Cloud Shell](features.md) and [PowerShell in Cloud Shell](features-powershell.md).
+Learn more about features in [Bash in Cloud Shell](features.md) and [PowerShell in Cloud Shell (Preview)](features-powershell.md).
 
 ## Examples
 * Use scripts to automate Azure management tasks
 * Simultaneously manage Azure resources via Azure portal and Azure command-line tools
 * Test-drive Azure CLI 2.0 or Azure PowerShell cmdlets
 
-Try out these examples in quickstarts for [Bash in Cloud Shell](quickstart.md) and [PowerShell in Cloud Shell](quickstart-powershell.md).
+Try out these examples in quickstarts for [Bash in Cloud Shell](quickstart.md) and [PowerShell in Cloud Shell (Preview)](quickstart-powershell.md).
 
 ## Pricing
 The machine hosting Cloud Shell is free, with a pre-requisite of a mounted Azure Files share. Regular storage costs apply.
 
-## Supported browsers
-Cloud Shell is recommended for Chrome, Edge, and Safari.
-While Cloud Shell is supported for Chrome, Firefox, Safari, IE, and Edge, Cloud Shell is subject to specific browser settings.
+## Next steps
+[Bash in Cloud Shell quickstart](quickstart.md)
+[PowerShell in Cloud Shell (Preview) quickstart](quickstart-powershell.md)
