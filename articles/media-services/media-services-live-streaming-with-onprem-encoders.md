@@ -21,7 +21,7 @@ ms.author: cenkd;juliako
 ## Overview
 In Azure Media Services, a *channel* represents a pipeline for processing live-streaming content. A channel receives live input streams in one of two ways:
 
-* An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the channel that is not enabled to perform live encoding with Media Services. The ingested streams pass through channels without any further processing. This method is called *pass-through*. You can use the following live encoders that have multi-bitrate Smooth Streaming as output: Media Excel, Ateme, Imagine Communications, Envivio, Cisco, and Elemental. The following live encoders have RTMP as output: Adobe Flash Media Live Encoder, Telestream Wirecast, Haivision, Teradek, and TriCaster. A live encoder can also send a single-bitrate stream to a channel that is not enabled for live encoding, but we don't recommend that. Media Services delivers the stream to customers who request it.
+* An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the channel that is not enabled to perform live encoding with Media Services. The ingested streams pass through channels without any further processing. This method is called *pass-through*. A live encoder can also send a single-bitrate stream to a channel that is not enabled for live encoding, but we don't recommend that. Media Services delivers the stream to customers who request it.
 
   > [!NOTE]
   > Using a pass-through method is the most economical way to do live streaming.
@@ -37,7 +37,7 @@ Starting with the Media Services 2.10 release, when you create a channel, you ca
 > [!NOTE]
 > This article discusses attributes of channels that are not enabled to perform live encoding. For information about working with channels that are enabled to perform live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 >
->For information about recommended on-prem encoders to use with pass through channels, see [Recommended on-prem encoders](media-services-recommended-encoders.md).
+>For information about recommended on-prem encoders, see [Recommended on-prem encoders](media-services-recommended-encoders.md).
 
 The following diagram represents a live-streaming workflow that uses an on-premises live encoder to have multi-bitrate RTMP or fragmented MP4 (Smooth Streaming) streams as output.
 
