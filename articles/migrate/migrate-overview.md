@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/13/2017
+ms.date: 11/23/2017
 ms.author: raynew
 
 ---
 # About Azure Migrate
 
-The Azure Migrate service helps you to assess on-premises workloads for migration to Azure. The service assesses migration suitability, performance-based sizing, and cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration to migrate the machines to Azure.
+The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses migration suitability and performance-based sizing, and provides cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration, to migrate the machines to Azure.
 
 > [!NOTE]
 > Azure Migrate is currently in preview.
 
 ## Why use Azure Migrate?
 
-Azure Migrate helps you to do the following:
+Azure Migrate helps you to:
 
-- **Assess Azure readiness**: Whether your on-premises machines are suitable for running in Azure. To increase confidence when creating groups of machines for assessment, you can verify machine dependencies using dependency visualization.
+- **Assess Azure readiness**: Assess whether your on-premises machines are suitable for running in Azure. 
 - **Get size recommendations**: Recommended sizing for Azure VMs after migration, based on the performance history of on-premises VMs. 
 - **Estimate monthly costs**: Estimated costs for running on-premises machines in Azure.
-- **Migrate with high confidence**: When you gather on-premises machines into groups for assessment, you can visualize dependencies to accurately assess dependencies for a specific machine, or for all machines in a group.
+- **Migrate with high confidence**: As you group on-premises machines for assessment, you can increase assessment confidence by visualizing dependencies. You can accurately view dependencies for a specific machine, or for all machines in a group.
 
 ## Current limitations
 
 - Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs.
-- You can assess up to 1000 VMs in a single assessment. If you need to assess more, you need to split the discovery process, by creating different Azure Migrate projects, and scoping discovery to under 1000 machines in each project. Use a suitable scope for discovery in vCenter, for example by datacenter. We recommend that you avoid dependencies between machines across projects.
+- You can assess up to 1000 VMs in a single assessment, and up to 1500 machines in a single Azure Migrate project. If you need to assess more, you can increase the number of projects or assessments. [Learn more](how-to-scale-assessment.md).
 - VM you want to assess must be managed by a vCenter server, version 5.5 or 6.0.
 - The Azure Migrate portal is currently available in English only.
 - You can only create an Azure Migrate project in the US and Europe geographical locations. However, you can assess VMs for a different target Azure location.
@@ -55,7 +55,7 @@ Azure Migrate assessments are based on the settings summarized in the table.
 **Pricing plans** | The assessment takes into account whether you're enrolled in software assurance, and can use the [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). It also considers whether you have any Azure offers that should be applied, and allows you to specify any subscription-specific discount (in percentage), that you get on top of the offer. 
 **Pricing tier** | You can specify the [pricing tier (basic/standard)](../virtual-machines/windows/sizes-general.md) of Azure VMs. This helps you to migrate to a suitable Azure VM family, based on whether you're in a production environment. By default the [standard](../virtual-machines/windows/sizes-general.md) tier is used.
 **Performance history** | By default, Azure Migrate evaluates the performance of on-premises machines using a month of history, with a 95% percentile value. You can modify this setting.
-**Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, 10-core VM with 20% utilization will normally result in a 2-core VM. However, if we add a comfort factor of 2.0, the result will be a 4-core VM instead. The default comfort setting is 1.3.
+**Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, 10-core VM with 20% utilization will normally result in a 2-core VM. However, if we add a comfort factor of 2.0x, the result will be a 4-core VM instead. The default comfort setting is 1.3x.
 
 
 ## How does Azure Migrate work?
@@ -84,7 +84,7 @@ After you finish assessing on-premises machines for migration to Azure using the
   - Run a failover to migrate on-premises machines to Azure. 
   - [Learn more](../site-recovery/tutorial-migrate-on-premises-to-azure.md) in the Site Recovery migration tutorial.
 
-- **Azure Database Migration**: If your on-premises machines are running a SQL Server or Oracle database, use the Azure Database Migration Service to migrate them to Azure. [Learn more](https://azure.microsoft.com/campaigns/database-migration/).
+- **Azure Database Migration**: If your on-premises machines are running a database such as SQL Server, MySQL, or Oracle, you can use the Azure Database Migration Service to migrate them to Azure. [Learn more](https://azure.microsoft.com/campaigns/database-migration/).
 
 
 
