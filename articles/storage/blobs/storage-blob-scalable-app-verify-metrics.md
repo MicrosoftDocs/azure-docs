@@ -29,8 +29,6 @@ In part four of the series, you learn how to:
 
 [Azure storage metrics](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) uses Azure monitor to provide a unified view into the performance and availability of your storage account.
 
-![Storage account metrics](./media/storage-blob-scalable-app-verify-metrics/figure1.png)
-
 ## Configure metrics
 
 Navigate to **Metrics (preview)** under **SETTINGS** in your storage account.
@@ -41,37 +39,29 @@ Under **Metric**, select one of the metrics found in the following table:
 
 |Metric|Definition|
 |---|---|
-|Success E2E Latency|The average end-to-end latency of successful requests made to a storage service or the specified API operation. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|
-|Success Server Latency|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency. |
-|Transactions|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests that produced errors.|
-|Ingress|The amount of ingress data. This number includes ingress from an external client into Azure Storage as well as ingress within Azure. |
-|Egress|The amount of egress data. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress. |
+|**Success E2E Latency**|The average end-to-end latency of successful requests made to a storage service or the specified API operation. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|
+|**Success Server Latency**|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency. |
+|**Transactions**|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests that produced errors. In the example the block size was set to 100MB. In this case each 100MB block is considered a transaction.|
+|**Ingress**|The amount of ingress data. This number includes ingress from an external client into Azure Storage as well as ingress within Azure. |
+|**Egress**|The amount of egress data. This number includes egress from an external client into Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress. |
 
 Select **Last 24 hours (Automatic)** next to **Time**. Choose **Last hour** and **Minute** for **Time granularity**, then click **Apply**.
 
-The example in this tutorial takes around five minutes to upload and download the files, but choosing minute you get the minute averages of the metric results.
+![Storage account metrics](./media/storage-blob-scalable-app-verify-metrics/figure1.png)
 
-## Viewing metrics
+Charts can have more than one metric assigned to them, but by doing so disables the ability to group by dimensions.
 
-The following screenshots show sample data from running the example.
+## Dimensions
 
-### Transactions
+[Dimensions](../common/storage-metrics-in-azure-monitor?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) are used to look deeper into the charts and det more detailed information. Different metrics have different dimensions. One dimension that is available is the **API name** dimension. This dimension breaks out the chart into each seperate API call. The first image below shows an example chart of total transactions for a storage account. The second image shows the same chart but with the API name dimension selected. As you can see each transaction is listed giving more details into how many calls were made by API name.
 
-In the following example chart, there are 1k transactions. Each 100-MB chunk of data transferred in this example is considered a transaction.
+![Storage account metrics - transactions without a dimension](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 
-![Storage account metrics](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
+![Storage account metrics - transactions](./media/storage-blob-scalable-app-verify-metrics/transactions.png)
 
-### Throughput
+## Clean up resources
 
-Ingress and egress traffic are shown in the same chart. You can check the [scalability targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#scalability-targets-for-a-storage-account) of both ingress and egress traffic to get an understanding of the limits.
-
-![Storage account metrics](./media/storage-blob-scalable-app-verify-metrics/throughput.png)
-
-### Latency
-
-Both end-to-end latency and server latency are shown in the following example: Some things that can increase the latency are... 
-
-![Storage account metrics](./media/storage-blob-scalable-app-verify-metrics/latency.png)
+When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the VM and click Delete.
 
 ## Next steps
 

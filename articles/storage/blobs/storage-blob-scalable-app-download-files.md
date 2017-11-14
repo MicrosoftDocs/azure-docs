@@ -21,7 +21,7 @@ ms.custom: mvc
 
 This tutorial is part three of a series. This tutorial shows you can download larges amounts of data from Azure storage. When you're finished, you have a console application running on a virtual machine that you upload and download large amounts of data to and from a storage account.
 
-In part two of the series, you learn how to:
+In part three of the series, you learn how to:
 
 > [!div class="checklist"]
 > * Run the application
@@ -189,7 +189,7 @@ C:\>
 
 ## Next steps
 
-In part two of the series, you learned about downloading large amounts of random data from a storage account, such as how to:
+In part three of the series, you learned about downloading large amounts of random data from a storage account, such as how to:
 
 > [!div class="checklist"]
 > * Run the application

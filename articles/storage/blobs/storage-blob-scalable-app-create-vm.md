@@ -116,7 +116,7 @@ Run the following cmdlet to finalize configuration of the virtual machine. This 
 Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location EastUS `
-    -FileUri https://raw.githubusercontent.com/georgewallace/StoragePerfandScalabilityExample/master/script.ps1 `
+    -FileUri https://raw.githubusercontent.com/georgewallace/storage-dotnet-perf-scale-app/master/setup_env.ps1 `
     -Run 'setup_env.ps1' `
     -Name DemoScriptExtension
 ```
