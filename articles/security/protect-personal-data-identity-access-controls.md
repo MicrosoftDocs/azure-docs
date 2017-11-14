@@ -137,7 +137,7 @@ If you currently don't have licenses you need to go through the process of deter
 
 3. Specify a time out value. 
 
-![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
+    ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
 4. Click **Save**
 
