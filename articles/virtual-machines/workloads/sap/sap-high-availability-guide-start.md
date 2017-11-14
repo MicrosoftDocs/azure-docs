@@ -191,7 +191,7 @@ This series of articles covers:
   * ![Windows][Logo_Windows]  **Windows**, using **Windows Server Failover Cluster (WSFC)**
   * ![Linux][Logo_Linux] **Linux**, using **Linux Cluster Framework**
 
-In these articles, you learn how to help protect single point of failure (SPOF)** components, such as SAP Central Services (ASCS/SCS) and database management systems (DBMS). You also learn about redundant components in Azure, such as SAP application server.
+In these articles, you learn how to help protect single point of failure (SPOF) components, such as SAP Central Services (ASCS/SCS) and database management systems (DBMS). You also learn about redundant components in Azure, such as SAP application server.
 
 ## High-availability architecture and scenarios for SAP NetWeaver
 
