@@ -70,7 +70,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |Belgium     |✓         |✓         |✓         |
 |Bosnia And Herzegovina     |         |         |✓         |
 |Bulgaria     |         |✓         |✓         |
-|Byelorussia     |         |         |✓         |
+|Belerus     |         |         |✓         |
 |Croatia     |✓         |✓         |✓         |
 |Cyprus     |         |✓         |✓         |
 |Czech Republic     |✓         |✓         |✓         |
@@ -126,12 +126,12 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |Burkina Faso     |         |         |✓         |
 |Burundi     |         |         |✓         |
 |Cameroon     |         |         |✓         |
-|Cape Verde     |         |         |✓         |
+|Cabo Verde     |         |         |✓         |
 |Central African Republic     |         |         |✓         |
 |Chad     |         |         |✓         |
 |Congo     |         |         |✓         |
 |Côte d'Ivoire     |         |         |✓         |
-|Democratic Republic of Congo     |         |         |✓         |
+|Democratic Republic of the Congo     |         |         |✓         |
 |Djibouti     |         |         |✓         |
 |Egypt     |✓         | ✓        |✓         |
 |Equatorial Guinea, Republic of     |         |         |✓         |
@@ -148,7 +148,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |Lebanon     |         |         |✓         |
 |Lesotho     |         |         |✓         |
 |Liberia     |         |         |✓         |
-|Libyan Arab Jamahiriya     |         |         |✓         |
+|Libya     |         |         |✓         |
 |Madagascar     |         |         |✓         |
 |Malawi     |         |         |✓        |
 |Mali     |         |         |✓         |
@@ -162,7 +162,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |Nigeria     |         |         |✓         |
 |Oman     |         |         |✓         |
 |Qatar     |         |         |✓         |
-|Reunion     |         |✓         | ✓        |
+|Réunion     |         |✓         | ✓        |
 |Rwanda     |         |         | ✓        |
 |São Tomé and Príncipe, Democratic Republic of     |         |         |✓         |
 |Saudi Arabia     |         |         |✓         |
