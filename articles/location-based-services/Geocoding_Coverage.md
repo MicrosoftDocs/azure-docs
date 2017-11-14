@@ -216,7 +216,6 @@ Azure LBS provides city-level accuracy when searching in the following regions:
 |     |Cocos (Keeling) Islands         |
 |     |Comoros         |
 |     |Cook Islands         |
-|     |Dokdo and Takeshima         |
 |     |Timor-Leste         |
 |     |Fiji         |
 |     |French Polynesia         |
@@ -269,7 +268,6 @@ Azure LBS provides city-level accuracy when searching in the following regions:
 |     |Bouvet Island         |
 |     |French Southern Territories         |
 |     |Gambia         |
-|     |Gaza         |
 |     |Iran         |
 |     |Israel         |
 |     |Maldives      |
