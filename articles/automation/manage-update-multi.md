@@ -42,9 +42,8 @@ Update management is supported on the following operating systems.
 
 * Windows Server 2008 and later, and update deployments against Windows Server 2008 R2 SP1 and later. Server Core and Nano Server installation options are not supported.
 
-    > [!NOTE]
-    > Support for deploying updates to Windows Server 2008 R2 SP1 requires .NET Framework 4.5 and Windows Management Framework 5.0 or later.
-    > 
+  Support for deploying updates to Windows Server 2008 R2 SP1 requires .NET Framework 4.5 and Windows Management Framework 5.0 or later.
+
 * Windows client operating systems are not supported.
 
 Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.
@@ -65,9 +64,7 @@ Windows agents must either be configured to communicate with a Windows Server Up
 
 Linux agents must have access to an update repository.
 
-> [!NOTE]
-> This solution doesn't support an OMS Agent for Linux configured to report to multiple Operations Management Suite workspaces.  
->
+This solution doesn't support an OMS Agent for Linux configured to report to multiple Operations Management Suite workspaces.
 
 ## Enable update management for Azure virtual machines
 
@@ -92,7 +89,7 @@ For instructions on how to enable update management for non-Azure Linux virtual 
 
 After update management is enabled, the **Update management** dialog box appears. You can see a list of missing updates on the **Missing updates** tab.
 
-## Data collection
+## Collect data
 
 Agents installed on virtual machines and computers collect data about updates and send it to Azure update management.
 
@@ -109,7 +106,7 @@ The following table describes the connected sources that this solution supports:
 
 ### Collection frequency
 
-For each managed Windows computer, a scan runs twice per day. Every 15 minutes, the Windows API is called to query for the last update time to determine if the status has changed. If so, a compliance scan starts. For each managed Linux computer, a scan runs every 3 hours.
+For each managed Windows computer, a scan runs twice a day. Every 15 minutes, the Windows API is called to query for the last update time to determine if the status has changed. If so, a compliance scan starts. For each managed Linux computer, a scan runs every 3 hours.
 
 It can take 30 minutes to 6 hours for the dashboard to display updated data from managed computers.
 
@@ -161,7 +158,7 @@ To see the dashboard for an update deployment, select the completed deployment.
 The **Update results** pane shows the total number of updates and the deployment results on the virtual machine.
 The table to the right gives a detailed breakdown of each update and the installation results. Installation results can be one of the following values:
 
-* Not attempted: The update was not installed because there was insufficient time available based on the defined maintenance window.
+* Not attempted: The update was not installed because insufficient time was available, based on the defined maintenance window.
 * Succeeded: The update succeeded.
 * Failed: The update failed.
 
