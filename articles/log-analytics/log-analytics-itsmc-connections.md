@@ -163,7 +163,7 @@ The following image shows the details of a successful connection:
 
 ## Connect ServiceNow to IT Service Management Connector in OMS
 
-Use the following procedure to connect your ServiceNow product to ITSMC in OMS.
+The following sections provide details about how to connect your ServiceNow product to ITSMC in OMS.
 
 ### Prerequisites
 
@@ -256,7 +256,8 @@ Once the user is successfully created, the status of **Check Installation Checkl
 
 ## Connect Provance to IT Service Management Connector in OMS
 
-Use the following procedure to connect your Provance product to ITSMC in OMS.
+The following sections provide details about how to connect your Provance product to ITSMC in OMS.
+
 
 ### Prerequisites
 
@@ -302,7 +303,7 @@ More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-ov
 
 ## Connect Cherwell to IT Service Management Connector in OMS
 
-Use the following sections to connect your Cherwell product to ITSMC in OMS.
+The following sections provide details about how to connect your Cherwell product to ITSMC in OMS.
 
 ### Prerequisites
 
