@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/13/2017
+ms.date: 11/23/2017
 ms.author: raynew
 
 ---
@@ -103,16 +103,14 @@ To collect Event Tracing for Windows, do the following:
 **How do I collect portal network traffic logs?**
 
 1. Open the browser and navigate and log in [to the portal](http://aka.ms/migrate/prod).
-2. Start the Developer Tools:
- - In Chrome click **Tools** > **Developer Tools**.
- - In Edge/IE, press F12. If needed, clear the setting **Clear entries on navigation**.
+2. Press F12 to start the Developer Tools. If needed, clear the setting **Clear entries on navigation**.
 3. Click the **Network** tab, and start capturing network traffic:
- - In Chrome, select **Preserve log**. The recording should start automatically. A red circile indicates that traffic is being capture. If it doesn't appear, click the black circle to start
- - In Edge, recording should start automatically. If it doesn't, click the green play button.
+ - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
+ - In Edge/IE, recording should start automatically. If it doesn't, click the green play button.
 4. Try to reproduce the error.
 5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
  - In Chrome, right-click and click **Save as HAR with content**. This zips and exports the logs as an .har file.
- - In Internet Explorer, click the **Export captured traffic** icon. This zips and exports the log.
+ - In Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
 6. Navigate to the **Console** tab to check for any warnings or errors. To save the console log:
  - In Chrome, right-click anywhere in the console log. Select **Save as**, to export and zip the log.
  - In Edge/IE, right-click on the errors and select **Copy all**. 

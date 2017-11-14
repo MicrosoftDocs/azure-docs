@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/13/2017
+ms.date: 11/23/2017
 ms.author: raynew
 
 ---
 # Assess on-premises VMware VMs for migration to Azure
 
-[Azure Migration Planner](migrate-overview.md) assesses on-premises workloads for migration to Azure.
+The [Azure Migrate](migrate-overview.md) services assesses on-premises workloads for migration to Azure.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Migrate project.
-> * Set up an on-premises collector virtual machine (VM), to discover on-premises VMs for assessment.
+> * Set up an on-premises collector virtual machine (VM), to discover on-premises VMware VMs for assessment.
 > * Group VMs and create an assessment.
 
 
@@ -42,7 +42,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a project
 
-1. In the Azure Portal, click **New**.
+1. In the Azure Portal, click **Create a resource**.
 2. Search for **Azure Migrate**, and select the service (**Azure Migrate (preview)** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
@@ -100,7 +100,8 @@ will be hosted.
 
 1. In the vSphere Client console, right-click the VM > **Open Console**.
 2. Provide the language, time zone and password preferences for the appliance.
-3. In the Azure Migrate Collector, open **Set Up Prequisites**.
+3. On the desktop, click the **Run collector** shortcut.
+4. In the Azure Migrate Collector, open **Set Up Prequisites**.
     - Accept the license terms, and read the third-party information.
     - The collector checks that the VM has internet access.
     - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication.
@@ -108,8 +109,9 @@ will be hosted.
     - Download and install the VMware PowerCLI.
 . In **Discover Machines**, do the following:
     - Specify the name (FQDN) or IP address of the vCenter server.
-    - Specify the read-only account that the collector will use to discover VMs on the vCenter server.
-    - Select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1000 VMs. 
+    - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the vCenter server.
+    - In **Collection scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1000 VMs. 
+    - In **Tag category for grouping**, select **None**.
 1. In **Select Project**, specify the Azure Migrate project ID and key that you copied from the portal. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.  
 2. In **Complete Discovery**, monitor discovery, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
 
@@ -127,11 +129,12 @@ Discovery time depends on how many VMs you are discovering. Typically, for 100 V
 After VMs are discovered, you group them and create an assessment. 
 
 1. In the project **Overview** page, click **+Create assessment**.
-2. Create the group, and specify a name.
-3. Select the machines you want to add to the group.
-4. Click **Create Assessment**, to create the group and the assessment.
-5. After the assessment is created, view it in **Overview** > **Dashboard**.
-6. Click **Export assessment**, to download it as an Excel file.
+2. Click **View all** to review the assessment settings.
+3. Create the group, and specify a group name.
+4. Select the machines that you want to add to the group.
+5. Click **Create Assessment**, to create the group and the assessment.
+6. After the assessment is created, view it in **Overview** > **Dashboard**.
+7. Click **Export assessment**, to download it as an Excel file.
 
 ### Sample assessment
 
@@ -160,5 +163,5 @@ You can drill down to see costs for a specific machine.
 ## Next steps
 
 - If you need to set up an assessment for a large number of on-premises machines, read [How to scale assessment](how-to-scale-assessment.md)
-- Learn how to create more detailed assessment groups using [machine dependency mapping](how-to-create-group-machine-dependencies.md).
+- Learn how to create more detailed assessment groups using [machine dependency mapping](how-to-create-group-machine-dependencies.md)
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.

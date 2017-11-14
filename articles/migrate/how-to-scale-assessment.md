@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/13/2017
+ms.date: 11/23/2017
 ms.author: raynew
 ---
 
@@ -46,7 +46,7 @@ An Azure Migrate project can assess up to 1500 machines. A single discovery in a
 
 Create an Azure Migrate project in accordance with your requirements.
 
-1. In the Azure Portal, click **New**.
+1. In the Azure Portal, click **Create a resource**.
 2. Search for **Azure Migrate**, and select the service (**Azure Migrate (preview)** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
@@ -113,7 +113,8 @@ For each discovery you need to perform, you run the collector to discovery VMs i
 
 1. In the vSphere Client console, right-click the VM > **Open Console**.
 2. Provide the language, time zone and password preferences for the appliance.
-3. In the Azure Migrate Collector, open **Set Up Prequisites**.
+3. On the desktop, click the **Run collector** shortcut.
+4. In the Azure Migrate Collector, open **Set Up Prequisites**.
     - Accept the license terms, and read the third-party information.
     - The collector checks that the VM has internet access.
     - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication.
@@ -121,8 +122,9 @@ For each discovery you need to perform, you run the collector to discovery VMs i
     - Download and install the VMware PowerCLI.
 . In **Discover Machines**, do the following:
     - Specify the name (FQDN) or IP address of the vCenter server.
-    - Specify the read-only account that the collector will use to discover VMs on the vCenter server.
-    - Select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1000 VMs. 
+    - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the vCenter server.
+    - In **Collection scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1000 VMs. 
+    - n **Tag category for grouping**, select **None**.
 
         ![Select scope](./media/how-to-scale-assessment/select-scope.png)
 

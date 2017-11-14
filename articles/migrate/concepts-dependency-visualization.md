@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/13/2017
+ms.date: 11/23/2017
 ms.author: raynew
 
 ---
 # Dependency visualization
 
-[Azure Migrate](migrate-overview.md) assesses groups of on-premises machines for migration to Azure. To group machines together, you can use dependency visualization. This article provides information about this feature.
+The [Azure Migrate](migrate-overview.md) services assesses groups of on-premises machines for migration to Azure. To group machines together, you can use dependency visualization. This article provides information about this feature.
 
 
 ## Overview
@@ -50,4 +50,4 @@ You shouldn't delete the workspace created by Azure Migrate, unless you delete t
 
 ## Next steps
 
-[Create a group using machine dependencies](how-to-create-group-machine-dependencies.md)
+[Create an assessment group using machine dependencies](how-to-create-group-machine-dependencies.md)

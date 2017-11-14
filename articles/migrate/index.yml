@@ -11,10 +11,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/17/2017
+  ms.date: 11/23/2017
   ms.author: carolz
 abstract:
-  description: Azure Migrate helps you to assess the suitability of on-premises machines for migration to Azure, and provides cost estimations for running Azure VMs.
+  description: Azure Migrate helps you to assess the suitability of on-premises machines for migration to Azure, and provides sizing and cost estimates for running Azure VMs.
 sections:
 - title: Step-by-Step Tutorials
   items:
@@ -24,13 +24,4 @@ sections:
     style: unordered
     items:
     - html: <a href="tutorial-assessment-vmware">Assess on-premises VMware VMs</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/site-recovery/">REST API Reference</a></p>
+

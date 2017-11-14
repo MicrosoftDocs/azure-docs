@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/13/2017
+ms.date: 11/23/2017
 ms.author: raynew
 
 ---
@@ -25,22 +25,25 @@ ms.author: raynew
 
 ## Overview
 
-An Azure Migrate assessment has three stages. Azure Migrate starts with a suitability analysis, followed by performance-based sizing estimations, and lastly, a monthly cost estimation. A machine only moves along to a later stage if it passes the previous one. For example, if a machine fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing estimation won't be calculated. 
+An Azure Migrate assessment has three stages. Assessment starts with a suitability analysis, followed by performance-based sizing estimations, and lastly, a monthly cost estimation. A machine only moves along to a later stage if it passes the previous one. For example, if a machine fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing won't be calculated. 
 
 
 ## Azure suitability analysis
 
-VMs you want to migrate to Azure must meet Azure requirements and limitations. For example, if an on-premises VM disk is more than 4 TB, it can't be hosted on Azure. The compliance checks are summarized in the following table. 
+Machines that you want to migrate to Azure must meet Azure requirements and limitations. For example, if an on-premises VM disk is more than 4 TB, it can't be hosted on Azure. The Azure compliance checks are summarized in the following table. 
 
 **Check** | **Details**
 --- | ---
 **Boot type** | The boot type of the guest OS disk must be BIOS, and not UEFI.
 **Cores** | The number of cores in the machines must be equal to (or less than) the maximum number of cores (32) supported for an Azure VM.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If a comfort factor is specified in the assessment settings, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores, without applying the comfort factor.
 **Memory** | The machine memory size must be equal to (or less than) the maximum memory (448 GB) allowed for an Azure VM. <br/><br/> If performance history is available, Azure Migrate considers the utilized memory for comparison. If a comfort factor is specified, the utilized memory is multiplied by the comfort factor.<br/><br/> If there's no history the allocated memory is used, without applying the comfort factor.<br/><br/> 
-**OS: Windows Server 2003-2008** | 32-bit and 64-bit support.<br/><br/> Azure provides best effort support only.
-**OS: Windows Server 2008 R2 + SPs** | 64-bit support.<br/><br/> Azure provides full support.
-**OS: Windows Client 7 and later** | 64-bit support.<br/><br/> Azure provides support with Visual Studio subscription only.
-**OS: Linux** | 64-bit support.<br/><br/> Azure provides full support for these [operating systems](../virtual-machines/linux/endorsed-distros.md).
+**Windows Server 2003-2008 R2** | 32-bit and 64-bit support.<br/><br/> Azure provides best effort support only.
+**Windows Server 2008 R2 with all SPs** | 64-bit support.<br/><br/> Azure provides full support.
+**Windows Server 2012 & all SPs** | 64-bit support.<br/><br/> Azure provides full support.
+**Windows Server 2012 R2 & all SPs** | 64-bit support.<br/><br/> Azure provides full support.
+**Windows Server 2016 & all SPs** | 64-bit support.<br/><br/> Azure provides full support.
+**Windows Client 7 and later** | 64-bit support.<br/><br/> Azure provides support with Visual Studio subscription only.
+**Linux** | 64-bit support.<br/><br/> Azure provides full support for these [operating systems](../virtual-machines/linux/endorsed-distros.md).
 **Storage disk** | Allocated size of a disk must be 4 TB (4096 GB) or less.<br/><br/> The number of disks attached to the machine must be 65 or less, including the OS disk. 
 **Networking** | A machine must have 32 or less NICs attached to it.
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/13/2017
+ms.date: 11/23/2017
 ms.author: raynew
 
 ---
@@ -30,8 +30,8 @@ ms.author: raynew
     **Setting** | **Details** | **Default**
     --- | --- | ---
     **Target location** | The Azure location to which you want to migrate. | West US if the project location is US. NorthEurope if the project location is in Europe.
-    **Storage redundancy** | The type of storage that the Azure VMs will use after migration. | Only [Locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) is currently supported.
-    **Comfort factor** | Comfort factor is a buffer that is used during assessment. Use it to account for things such as seasonal usage, short performance history, likely increase in future usage. | Default setting is 1.3.
+    **Storage redundancy** | The type of storage that the Azure VMs will use after migration. | Only [Locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replication is currently supported.
+    **Comfort factor** | Comfort factor is a buffer that is used during assessment. Use it to account for things such as seasonal usage, short performance history, likely increase in future usage. | Default setting is 1.3x.
     **Perfomance history** | Time used in evaluating performance history. | Default is one month.
     **Percentile utilization** | Percentile value to consider for perfomance history. | Default is 95%.
     **Pricing tier** | You can specify the [pricing tier](https://azure.microsoft.com/blog/basic-tier-virtual-machines-2/) for a VM.  | By default the [Standard](../virtual-machines/windows/sizes-general.md) tier is used.
