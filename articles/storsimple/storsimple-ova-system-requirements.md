@@ -39,6 +39,9 @@ The software requirements include the information on the supported web browsers,
 | Hyper-V |Windows Server 2008 R2 SP1 and later |
 | VMware ESXi |5.0, 5.5, and 6.0 <br> (6.5 is not supported.) |
 
+> [!IMPORTANT]
+> Do not install VMware tools on your StorSimple Virtual Array; this will result in an unsupported configuration.
+
 ### Virtual device requirements
 | **Component** | **Requirement** |
 | --- | --- |
@@ -75,9 +78,8 @@ The following software requirements are for the SMB clients that access your Sto
 | SMB 3.02 |
 
 > [!IMPORTANT]
->  - Do not copy or store files protected by Windows Encrypting File System (EFS) to the StorSimple Virtual Array file server; this will result in an unsupported configuration.
->
->  - Do not install VMware tool on your StorSimple Virtual Array; this will result in an unsupported configuration.
+> Do not copy or store files protected by Windows Encrypting File System (EFS) to the StorSimple Virtual Array file server; this will result in an unsupported configuration.
+
 
 ### Supported storage format
 Only the Azure block blob storage is supported. Page blobs are not supported. More information [about block blobs and page blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
