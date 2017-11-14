@@ -56,7 +56,7 @@ For high-volume scenarios where you're working with many resources, [Log Analyti
 
 ## Get the Wingtip Tickets SaaS Multi-tenant Database application source code and scripts
 
-The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) github repo. [Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts](saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) github repo. Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts (*Tutorial link to come*). <!-- (saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
 
 ## Provision additional tenants
 
@@ -196,5 +196,6 @@ In this tutorial you learn how to:
 
 ## Additional resources
 
-* Additional [tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
+<!--(saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 * [Azure automation](../automation/automation-intro.md)

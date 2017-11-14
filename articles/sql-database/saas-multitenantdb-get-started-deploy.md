@@ -228,7 +228,7 @@ In this tutorial you learned:
 
 > [!div class="checklist"]
 
-> - How to deploy the Wingtip Tickets SaaS application
+> - How to deploy the Wingtip Tickets SaaS Multi-tenant Database application
 > - About the servers, and databases that make up the app
 > - Tenants are mapped to their data with the *catalog*
 > - How to provision new tenants, into a multi-tenant database and single-tenant database.
@@ -262,7 +262,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 [link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
 
-[link-github-wingtip-multitenantdb-55g]: https://github.com/Microsoft/wingtipsaas-multitenantdb/
+[link-github-wingtip-multitenantdb-55g]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB/
 
 
 

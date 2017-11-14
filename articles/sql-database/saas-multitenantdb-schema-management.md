@@ -59,7 +59,7 @@ There is a new version of Elastic Jobs that is now an integrated feature of Azur
 
 ## Get the Wingtip Tickets SaaS Multi-tenant Database application scripts
 
-The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub repository. See [steps to download the scripts](saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub repository. Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts (*Tutorial link to come*). <!-- (saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
 
 ## Create a job account database and new job account
 
@@ -120,11 +120,12 @@ In this tutorial you learned how to:
 > * Update data in all tenant databases
 > * Create an index on a table in all tenant databases
 
-[Ad-hoc analytics tutorial](saas-multitenantdb-adhoc-analytics.md)
+[Ad-hoc analytics tutorial](saas-multitenantdb-adhoc-reporting.md)
 
 
 ## Additional resources
 
-* [Additional tutorials that build upon the Wingtip Tickets SaaS application deployment](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
+<!--(saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 * [Managing scaled-out cloud databases](sql-database-elastic-jobs-overview.md)
 * [Create and manage scaled-out cloud databases](sql-database-elastic-jobs-create-and-manage.md)

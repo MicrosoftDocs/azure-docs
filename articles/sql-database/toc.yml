@@ -340,6 +340,7 @@
     - name: Welcome to Wingtips
       href: saas-tenancy-welcome-wingtip-tickets-app.md
     - name: Database per tenant
+      href: saas-dbpertenant-wingtip-app-overview.md
       items:
       - name: Tutorial intro
         href: saas-dbpertenant-wingtip-app-overview.md
@@ -368,9 +369,9 @@
       - name: Monitor database performance
         href: saas-multitenantdb-performance-monitoring.md
       - name: Run ad-hoc queries
-        href: saas-multitenantdb-adhoc-analytics.md
-      - name: ETL for analysis
-        href: saas-multitenantdb-tenant-analytics.md
+        href: saas-multitenantdb-adhoc-reporting.md
+      - name: Manage tenant schema
+        href: saas-multitenantdb-schema-management.md
   - name: Develop apps
     items:
     - name: C and C ++
