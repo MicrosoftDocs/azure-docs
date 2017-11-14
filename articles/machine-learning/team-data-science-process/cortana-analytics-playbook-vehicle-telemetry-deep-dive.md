@@ -18,7 +18,7 @@ ms.author: bradsev
 
 ---
 # Vehicle Telemetry Analytics Solution playbook: Deep dive into the solution
-This **menu** links to the sections of this playbook: 
+This menu links to the sections of this playbook: 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
@@ -30,7 +30,7 @@ The solution uses two different data sources:
 * Simulated vehicle signals and diagnostic data set
 * Vehicle catalog
 
-A vehicle telematics simulator is included as part of this solution, as shown in the following screenshot. It emits diagnostic information and signals that correspond to the state of the vehicle and to the driving pattern at a given point in time. To download the Vehicle Telematics Simulator Visual Studio Solution for customizations based on your requirements, go to the [Vehicle telematics simulator](http://go.microsoft.com/fwlink/?LinkId=717075) webpage. The vehicle catalog contains a reference data set that maps VINs to models.
+A vehicle telematics simulator is included as part of this solution, as shown in the following screenshot. It emits diagnostic information and signals that correspond to the state of the vehicle and to the driving pattern at a given point in time. To download the Vehicle Telematics Simulator Visual Studio Solution for customizations based on your requirements, go to the [Vehicle telematics simulator](http://go.microsoft.com/fwlink/?LinkId=717075) webpage. The vehicle catalog contains a reference data set that maps vehicle identification numbers (VINs) to models.
 
 ![Vehicle telematics simulator](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
@@ -39,7 +39,7 @@ This JSON-formatted data set contains the following schema.
 
 | Column | Description | Values |
 | --- | --- | --- |
-| VIN |Randomly generated vehicle identification number (VIN) |Obtained from a master list of 10,000 randomly generated VINs |
+| VIN |Randomly generated VIN |Obtained from a master list of 10,000 randomly generated VINs |
 | Outside temperature |The outside temperature where the vehicle is driving |Randomly generated number from 0 to 100 |
 | Engine temperature |The engine temperature of the vehicle |Randomly generated number from 0 to 500 |
 | Speed |The engine speed at which the vehicle is driving |Randomly generated number from 0 to 100 |
