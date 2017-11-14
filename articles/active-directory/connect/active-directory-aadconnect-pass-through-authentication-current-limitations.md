@@ -34,7 +34,7 @@ The following scenarios are fully supported:
 
 The following scenarios are _not_ supported:
 
-- User sign-ins into legacy Office client applications - Office 2010, and Office 2013 _without_ modern authentication). Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support but also helps you secure your user accounts using [conditional access](../active-directory-conditional-access.md) features such as Multi-Factor Authentication (MFA).
+- User sign-ins into legacy Office client applications - Office 2010, and Office 2013 _without_ modern authentication). Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support but also helps you secure your user accounts using [conditional access](../active-directory-conditional-access-azure-portal.md) features such as Multi-Factor Authentication (MFA).
 - User sign-ins into Skype for Business client applications, including Skype for Business 2016.
 - User sign-ins into PowerShell v1.0. It is recommended that you use PowerShell v2.0 instead.
 - Azure AD Domain Services.
