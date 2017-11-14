@@ -82,7 +82,11 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
 - RevoScalePy library is only supported on Windows and Linux (in Docker containers). It is not supported on macOS.
 
 ## Can't update Workbench
-When a new update is available, the Workbench app homepage displays a message informing you about the new update. You should see an update badge appearing on the lower left corner of the app on the bell icon. Click on the badge and follow the installer wizard to install the update. If you don't see the notification, try to restart the app. If you still don't see the update notification after restart, there might be a few causes.
+When a new update is available, the Workbench app homepage displays a message informing you about the new update. You should see an update badge appearing on the lower left corner of the app on the bell icon. Click on the badge and follow the installer wizard to install the update. 
+
+![update image](./media/known-issues-and-troubleshooting-guide/update.png)
+
+If you don't see the notification, try to restart the app. If you still don't see the update notification after restart, there might be a few causes.
 
 ### You are launching Workbench from a pinned shortcut on the task bar
 You may have already installed the update. But your pinned shortcut is still pointing to the old bits on disk. You can verify this by browsing to the `%localappdata%/AmlWorkbench` folder and see if you have latest version installed there, and examine the property of the pinned shortcut to see where it is pointing to. If verified, simply remove the old shortcut, launch Workbench from Start menu, and optionally create a new pinned shortcut on the task bar.
