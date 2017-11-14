@@ -179,6 +179,14 @@ Set up your development environment and populate the app.config file with connec
             }
         }
 
+
+## Advanced Encoding Features to explore
+* [How to generate thumbnails](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Generating thumbnails during encoding](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Crop videos during encoding](media-services-crop-video.md)
+* [Customizing encoding presets](media-services-custom-mes-presets-with-dotnet.md)
+* [Overlay or watermark a video with an image](media-services-advanced-encoding-with-mes.md#overlay)
+
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
