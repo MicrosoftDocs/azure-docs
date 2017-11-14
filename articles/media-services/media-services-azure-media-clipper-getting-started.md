@@ -25,7 +25,7 @@ ms.service: media-services
 # Create clips with Azure Media Clipper
 This section shows you the basic steps of getting started with Azure Media Clipper. Sections that follow provide the specifics on how to configure Azure Media Clipper.
 
-1. First, add the following links for Azure Media Player and Azure Media Clipper to your document's head. We recommend explicitly specifying a version of the Clipper and Azure Media Player in the URLs. Do not use the latest version of these resources in production as they are subject to change on demand.
+- First, add the following links for Azure Media Player and Azure Media Clipper to your document's head. We recommend explicitly specifying a version of the Clipper and Azure Media Player in the URLs. Do not use the latest version of these resources in production as they are subject to change on demand.
 
 ```javascript
 <!--Azure Media Player 2.1.4 or later is a prerequisite-->
@@ -36,7 +36,7 @@ This section shows you the basic steps of getting started with Azure Media Clipp
 <script src="//amp.azure.net/libs/amc/0.1.0/azuremediaclipper.min.js"></script>
 ```
 
-2. Next, add the following classes to the div element where you would like to instantiate the Clipper.
+- Next, add the following classes to the div element where you would like to instantiate the Clipper.
 
 ```javascript
 <div id="root" class="azure-subclipper" />
@@ -48,7 +48,7 @@ Optionally, to enable the dark theme, add the dark-skin class:
 <div id="root" class="azure-subclipper dark-skin" />
 ```
 
-3. Next, instantiate the Clipper with the following API call:
+- Next, instantiate the Clipper with the following API call:
 
 ```javascript
 var subclipper = new subclipper({
