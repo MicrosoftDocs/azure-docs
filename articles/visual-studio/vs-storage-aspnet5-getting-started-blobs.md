@@ -25,9 +25,9 @@ This article describes how to get started using Azure Blob storage in Visual Stu
 
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files. This article describes how to get started with blob storage after you create an Azure storage account by using the Visual Studio **Connected Services** in an ASP.NET Core project.
 
-Just as files live in folders, storage blobs live in containers. After you have created a storage, you create one or more containers in the storage. For example, in a storage called "Scrapbook," you can create containers in the storage called "images" to store pictures and another called "audio" to store audio files. After you create the containers, you can upload individual blob files to them. See [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) for more information on programmatically manipulating blobs.
+Just as files live in folders, storage blobs live in containers. After you have created a blob, you create one or more containers in that blob. For example, in an blob called "Scrapbook," you can create containers called "images" to store pictures and another called "audio" to store audio files. After you create the containers, you can upload individual files to them. See [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) for more information on programmatically manipulating blobs.
 
-Some of the Azure Storage APIs are asynchronous, and the code in this topic assumes async methods are being used. See [Asynchronous programming](https://docs.microsoft.com/dotnet/csharp/async) for more information.
+Some of the Azure Storage APIs are asynchronous, and the code in this article assumes async methods are being used. See [Asynchronous programming](https://docs.microsoft.com/dotnet/csharp/async) for more information.
 
 ## Access blob containers in code
 

@@ -26,7 +26,7 @@ Azure queue storage is a service for storing large numbers of messages that can 
 
 To get started, first create an Azure queue in your storage account. This article then shows how to create a queue in C# and how to perform basic queue operations such as adding, modifying, reading, and removing queue messages.  The code uses the Azure Storage Client Library for .NET. For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
 
-Some of the Azure Storage APIs are asynchronous, and the code in this topic assumes async methods are being used. See [Asynchronous programming](https://docs.microsoft.com/dotnet/csharp/async) for more information.
+Some of the Azure Storage APIs are asynchronous, and the code in this article assumes async methods are being used. See [Asynchronous programming](https://docs.microsoft.com/dotnet/csharp/async) for more information.
 
 ## Access queues in code
 
@@ -41,7 +41,7 @@ To access queues in ASP.NET Core projects, include the following items in any C#
     using LogLevel = Microsoft.Framework.Logging.LogLevel;
     ```
 
-1. Get a `CloudStorageAccount` object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration:
+1. Get a `CloudStorageAccount` object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration:
 
     ```cs
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -108,9 +108,9 @@ CloudQueueMessage retrievedMessage = await messageQueue.GetMessageAsync();
 await messageQueue.DeleteMessageAsync(retrievedMessage);
 ```
 
-## Leverage additional options for dequeuing messages
+## Additional options for dequeuing messages
 
-There are two ways to customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message. The following code example uses the `GetMessages` method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to 5 minutes for each message. Note that the 5 minutes start for all messages at the same time, so after 5 minutes have passed after the call to `GetMessages`, any messages which have not been deleted become visible again.
+There are two ways to customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message. The following code example uses the `GetMessages` method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. Note that the five minute timer starts for all messages at the same time, so after five minutes have passed, any messages that have not been deleted become visible again.
 
 ```cs
 // Retrieve 20 messages at a time, keeping those messages invisible for 5 minutes, 
@@ -140,7 +140,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## Use the Async-Await pattern with common queue APIs
 
-This example shows how to use the async-await pattern with common queue APIs ending with `Async`. When an async method is used, the async-await pattern suspends local execution until the call is completed. This behavior allows the current thread to do other work which helps avoid performance bottlenecks and improves the overall responsiveness of your application.
+This example shows how to use the async-await pattern with common queue APIs ending with `Async`. When an async method is used, the async-await pattern suspends local execution until the call is completed. This behavior allows the current thread to do other work that helps avoid performance bottlenecks and improves the overall responsiveness of your application.
 
 ```cs
 // Create a message to add to the queue.

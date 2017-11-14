@@ -21,19 +21,19 @@ ms.author: kraigb
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-This article describes how get started using Azure Table storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET Core project by using the Visual Studio **Connected Services** feature. The **Connected Services** operation installs the appropriate NuGet packages to access Azure storage in your project and adds the connection string for the storage account to your project configuration files. (See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.)
+This article describes how to get started using Azure Table storage in Visual Studio after you have created or referenced an Azure storage account in an ASP.NET Core project by using the Visual Studio **Connected Services** feature. The **Connected Services** operation installs the appropriate NuGet packages to access Azure storage in your project and adds the connection string for the storage account to your project configuration files. (See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.)
 
 The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL data store that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data. For more general information about using Azure Table storage, see [Get started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
 To get started, first create a table in your storage account. This article then shows how to create a table  in C# and how to perform basic table operations such as adding, modifying, reading, and removing table entries.  The code uses the Azure Storage Client Library for .NET. For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
 
-Some of the Azure Storage APIs are asynchronous, and the code in this topic assumes async methods are being used. See [Asynchronous programming](https://docs.microsoft.com/dotnet/csharp/async) for more information.
+Some of the Azure Storage APIs are asynchronous, and the code in this article assumes async methods are being used. See [Asynchronous programming](https://docs.microsoft.com/dotnet/csharp/async) for more information.
 
 ## Access tables in code
 
 To access tables in ASP.NET Core projects, you need to include the following items to any C# source files that access Azure table storage.
 
-1. Add the necessry `using` statements:
+1. Add the necessary `using` statements:
 
     ```cs
     using Microsoft.Framework.Configuration;
@@ -43,7 +43,7 @@ To access tables in ASP.NET Core projects, you need to include the following ite
     using LogLevel = Microsoft.Framework.Logging.LogLevel;
     ```
 
-1. Get a `CloudStorageAccount` object that represents your storage account information. Use the following code to get the your storage connection string and storage account information from the Azure service configuration:
+1. Get a `CloudStorageAccount` object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration:
 
     ```cs
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -75,7 +75,7 @@ await table.CreateIfNotExistsAsync();
 
 ## Add an entity to a table
 
-To add an entity to a table you create a class that defines the properties of your entity. The following code defines an entity class called `CustomerEntity` that uses the customer's first name as the row key and last name as the partition key.
+To add an entity to a table, you create a class that defines the properties of your entity. The following code defines an entity class called `CustomerEntity` that uses the customer's first name as the row key and last name as the partition key.
 
 ```cs
 public class CustomerEntity : TableEntity
