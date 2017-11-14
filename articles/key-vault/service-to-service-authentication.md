@@ -1,13 +1,13 @@
 ---
-title: Service-to-service authentication for Azure Key Vault apps created with .NET
-description: Use the Microsoft.Azure.Services.AppAuthentication library to easily and securely local development credentials while developing .NET apps using Key Vault and other Azure AD services.
-keywords: azure key vault service authentication local credentials
+title: Service-to-service authentication to Azure Key Vault using .NET
+description: Use the Microsoft.Azure.Services.AppAuthentication library to authenticate to Azure Key Vault using .NET.
+keywords: azure key-vault authentication local credentials
 author: lleonard-msft
 manager: mbaldwin
 services: key-vault
 
 ms.author: alleonar
-ms.date: 07/09/2017
+ms.date: 07/12/2017
 ms.topic: article
 ms.prod:
 ms.service: microsoft-keyvault
@@ -18,13 +18,15 @@ ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 
 # Service-to-service authentication for Key Vault apps created with .NET
 
-When developing .NET apps that rely on Microsoft Azure Key Vault and other Azure services that rely on Azure AD authentication, it can be difficult to manage local credentials safely and securely. It's tempting to bundle development credentials into an app by including them in source or configuration files.  
+To authenticate to Azure Key Vault, you need an Azure Active Directory (AD) credential, either a shared secret or a certificate. Managing such credentials can be difficult and it's tempting to bundle credentials into an app by including them in source or configuration files.
 
-The `Microsoft.Azure.Services.AppAuthentication` for .NET library simplifies this problem. It uses local credentials to authenticate during local development. When the solution is later deployed to Azure, either as a service or an Azure VM, the library automatically switches an OAuth 2.0 authentication flow.  
+The `Microsoft.Azure.Services.AppAuthentication` for .NET library simplifies this problem. It uses the developer's credentials to authenticate during local development. When the solution is later deployed to Azure, the library automatically switches application credentials.  
 
-Your development credentials are more secure because you are no longer tempted to include them in source code or configuration files. The `Microsoft.Azure.Services.AppAuthentication` library manages authentication automatically, which in turn allows you to focus on your solution, rather than your credentials.
+Using developer credentials during local development is more secure because you do not need to create Azure AD credentials or share credentials between developers.
 
-The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to Azure or an Azure virtual machine (VM), the library automatically uses [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). No code changes are required. The library also supports [service principals](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal) when MSI is not available or when the developer's security context cannot be determined during local development.
+The `Microsoft.Azure.Services.AppAuthentication` library manages authentication automatically, which in turn allows you to focus on your solution, rather than your credentials.
+
+The `Microsoft.Azure.Services.AppAuthentication` library supports local development with Microsoft Visual Studio, Azure CLI, or Azure AD Integrated Authentication. When deployed to Azure App Services or an Azure Virtual Machine (VM), the library automatically uses [Managed Service Identity](/azure/active-directory/msi-overview) (MSI). No code or configuration changes are required. The library also supports direct use of Azure AD [client credentials](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal) when MSI is not available or when the developer's security context cannot be determined during local development.
 
 <a name="asal"></a>
 ## Using the library
@@ -41,14 +43,14 @@ For .NET applications, the simplest way to work with a Managed Service Identity 
 
     // ...
 
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(
+    azureServiceTokenProvider.KeyVaultTokenCallback));
+
+    // or
+
     var azureServiceTokenProvider = new AzureServiceTokenProvider();
     string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(
        "https://management.azure.com/").ConfigureAwait(false);
-
-    // OR
-
-    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(
-       azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
 
 The `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. Consequently, you no longer have to check the expiration before calling the `GetAccessTokenAsync` method. Just call the method when you want to use the token. 
@@ -81,7 +83,7 @@ Here, you learn the requirements for each scenario and supported tools.
 
 ### Authenticating to Azure Services
 
-Local machines do not support Managed Service Identity (MSI).  As a result, the `Microsoft.Azure.Services.AppAuthentication` library uses your developer credentials to run in your local development environment. When the solution is deployed to Azure, the library uses MSI to switch to an OAuth 2.0 authentication flow.  This means you can test the same code locally and remotely without worry.
+Local machines do not support Managed Service Identity (MSI).  As a result, the `Microsoft.Azure.Services.AppAuthentication` library uses your developer credentials to run in your local development environment. When the solution is deployed to Azure, the library uses MSI to switch to an OAuth 2.0 client credential grant flow.  This means you can test the same code locally and remotely without worry.
 
 For local development, `AzureServiceTokenProvider` fetches tokens using **Visual Studio**, **Azure command-line interface** (CLI), or **Azure AD Integrated Authentication**. Each option is tried sequentially and the library uses the first option that succeeds. If no option works, an `AzureServiceTokenProviderException` exception is thrown with detailed information.
 
@@ -91,7 +93,7 @@ To use Visual Studio, verify:
 
 1. You've installed [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) or later.
 
-2. The [Azure Services Authentication extension](https://go.microsoft.com/fwlink/?linkid=862354) is installed.
+2. The [App Authentication extension for Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354) is installed.
  
 3. You signed in to Visual Studio and have selected an account to use for local development. Use **Tools**&nbsp;>&nbsp;**Options**&nbsp;>&nbsp;**Azure Service Authentication** to choose a local development account. 
 
@@ -123,7 +125,7 @@ This command generates output only on failure.  To verify the current account se
 az account list
 ```
 
-### Authenticating with Azure AD authentication
+### Authenticating with Azure AD Integrate authentication
 
 To use Azure AD authentication, verify that:
 
@@ -134,15 +136,15 @@ To use Azure AD authentication, verify that:
 
 ### Authenticating to custom services
 
-When custom services call Azure services, the previous steps work because Azure services allow access to both users and applications.  
+When a service calls Azure services, the previous steps work because Azure services allow access to both users and applications.  
 
-When creating a service that calls a custom service, use a service principal for local development authentication: 
+When creating a service that calls a custom service, use Azure AD client credentials for local development authentication.  There are two options: 
 
-1.  [Create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli).
+1.  Use a service principal to sign into Azure:
 
-2.  Use the service principal to sign in to Azure.  You can:
+    1.  [Create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli).
 
-    - Use Azure CLI to sign in.
+    2.  Use Azure CLI to sign in:
 
         ```
         az login --service-principal -u <principal-id> --password <password>
@@ -151,7 +153,7 @@ When creating a service that calls a custom service, use a service principal for
 
         Because the service principal may not have access to a subscription, use the `--allow-no-subscriptions` argument.
 
-    - Use environment variables to specify service principal details.  For details, see [Running the application using a service principal](#running-the-application-using-a-service-principal).
+2.  Use environment variables to specify service principal details.  For details, see [Running the application using a service principal](#running-the-application-using-a-service-principal).
 
 Once you've signed in to Azure, `AzureServiceTokenProvider` uses the service principal to retrieve a token for local development.
 
@@ -160,27 +162,25 @@ This applies only to local development. When your solution is deployed to Azure,
 <a name="msi"></a>
 ## Running the application using a Managed Service Identity 
 
-When you run your code in Azure that supports MSI or in an Azure VM, the library automatically uses Managed Service Identity to trigger an OAuth 2.0 workflow. No code changes are required. 
+When you run your code on an Azure App Service or an Azure VM with MSI enabled, the library automatically uses Managed Service Identity. No code changes are required. 
 
 
 <a name="sp"></a>
 ## Running the application using a Service Principal 
 
-It may be necessary to create a service principal and use it to authenticate. Common examples include:
+It may be necessary to create an Azure AD Client credential to authenticate. Common examples include:
 
-1. Your code runs on a local development environment, but not under the developer's identity.  Service Fabric, for example, uses a [NetworkService account](https://msdn.microsoft.com/library/windows/desktop/ms684272(v=vs.85).aspx) for local development.
+1. Your code runs on a local development environment, but not under the developer's identity.  Service Fabric, for example, uses the [NetworkService account](https://msdn.microsoft.com/library/windows/desktop/ms684272(v=vs.85).aspx) for local development.
  
 2. Your code runs on a local development environment and you authenticate to a custom service, so you can't use your developer identity. 
  
 3. Your code is running on an Azure compute resource that does not yet support Managed Service Identity, such as Azure Batch.
 
-You can use service principals to authenticate in these and similar situations.  Access to service principals can be managed using certificates or traditional passwords.
+To use a certificate to sign into Azure AD:
 
-To manage your service principal using a certificate:
+1. Create a [service principal certificate](/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
 
-1. Create a [service principal certificate].(/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
-
-2. Deploy the certificate to either the LocalMachine or CurrentUser store. 
+2. Deploy the certificate to either the _LocalMachine_ or _CurrentUser_ store. 
 
 3. Set an environment variable named **AzureServicesAuthConnectionString** to:
 
@@ -195,7 +195,7 @@ To manage your service principal using a certificate:
 
 4. Run the application. 
 
-To manage your service principal using a password:
+To sign in using an Azure AD shared secret credential:
 
 1. Create a [service principal with a password](/azure/azure-resource-manager/resource-group-authenticate-service-principal) and grant it access to the Key Vault. 
 
