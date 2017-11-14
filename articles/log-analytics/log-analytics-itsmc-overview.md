@@ -23,7 +23,7 @@ The IT Service Management Connector (ITSMC) provides a bi-directional integratio
 
 With ITSMC, you can:
 
-  - Integrate operational alerting with your incident management practices in the ITSM tool of your choice.
+  - Integrate operational alerts with your incident management practices in the ITSM tool of your choice.
     - Create work items (like alert, event, incident) in ITSM from OMS alerts and through log search.
     - Create work items based on your Azure Activity Log alerts through ITSM Action in Action Groups.
 
@@ -67,7 +67,7 @@ Use the following procedures as appropriate for you:
 
 ## Using the solution
 
-Once you have configured the connector, the connector starts gathering data from the connected ITSM product/service. Depending on the number of incidents and change requests in the ITSM product/service, initial sync should be completed in few minutes.
+Once you have configured the connector, it starts gathering the data from the connected ITSM product/service. Depending on the number of incidents and change requests in the ITSM product/service, initial sync should be completed in few minutes.
 
 > [!NOTE]
 > - Data imported from ITSM product by ITSMC solution appears in Log Analytics as log records of Type **ServiceDesk_CL**.
@@ -205,7 +205,7 @@ If you also use the Service Map solution, you can view the service desk items cr
 ![ServiceMap Integration](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
 ## Create ITSM work items for OMS alerts
 
-With ITSMC solution in place, you can configure OMS Alerts to trigger the creation of work items in your connected ITSM tool as follows:
+With ITSMC solution in place, you can configure OMS Alerts to trigger the creation of work items in your connected ITSM tool, as follows:
 
 1. From **Log Search** window, run a log search query to view data. Query results are the source for work items.
 2. In **Log Search**, click **Alert** to open the **Add Alert Rule** page.
@@ -232,7 +232,7 @@ You can also create work items in the connected ITSM sources directly from a log
 
 1. From **Log Search**,  search the required data, select the detail, and click **Create work item**.
 
-    The **Create ITSM Work item** window appears:
+    The **Create ITSM Work Item** window appears:
 
     ![Log Analytics screen](media/log-analytics-itsmc/itsmc-work-items-from-oms-logs.png)
 
@@ -244,7 +244,7 @@ You can also create work items in the connected ITSM sources directly from a log
   - **Select Connection**:  ITSM connection in which you want to create this work item.
   - **Work item**:  Type of work item.
 
-3. To use an existing work item template for an incident, click **Yes** under **Generate work item based on the template** option and then click **Create**.
+3. To use an existing work item template for an incident, click **Yes** under **Generate Work item based on Template** option and then click **Create**.
 
     Or,
 
@@ -258,37 +258,37 @@ ITSMC is integrated with Action Groups.
 [Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md) provide a modular and reusable way of triggering actions for your Azure Alerts. The ITSM Action in Action Groups creates work items in your ITSM product using an existing ITSM connector solution.
 
 1. In Azure portal, click  **Monitor**.
-2. In the left pane, click  **Action Groups**.
+2. In the left pane, click  **Action groups**. The **Add action group** window appears.
 
-    ![Action Groups](media/log-analytics-itsmc/ActionGroups.png)
+    ![Action Groups](media/log-analytics-itsmc/action-groups.png)
 
 3. Provide **Name** and **ShortName** for your action group. Select the **Resource Group** and **Subscription** where you want to create your action group.
 
-    ![Action Groups Detail](media/log-analytics-itsmc/ActionGroupsDetail.png)
+    ![Action Groups Detail](media/log-analytics-itsmc/action-groups-details.png)
 
 4. In the Actions list, select **ITSM** from the drop-down menu for **Action Type**. Provide a **Name** for the action and click **Edit details**.
 5. Select the **Subscription** where your Log Analytics workspace is located. Select the **Connection** name (your ITSM Connector name) followed by your Workspace name. For example, "MyITSMMConnector(MyWorkspace)."
 
-    ![ITSM Action details](./media/log-analytics-itsmc/ITSMActionDetails.png)
+    ![ITSM Action details](./media/log-analytics-itsmc/itsm-action-details.png)
 
 6. Select **Work Item** type from the drop-down menu.
-7. Choose to use an existing template or fill the fields required by your ITSM product.
-8. Click **OK**
+   Choose to use an existing template or fill the fields required by your ITSM product.
+8. Click **OK**.
 
-When creating/editing an Azure alert rule, use an Action Group, which has an ITSM Action. When the alert triggers, work item is created in the ITSM tool.
+When creating/editing an Azure alert rule, use an Action group, which has an ITSM Action. When the alert triggers, work item is created in the ITSM tool.
 
 >[!NOTE]
 
-> Currently, only Activity Log Alerts support the ITSM Action. This is not supported for other Azure alerts.
+> Currently, only Activity Log Alerts support the ITSM Action. ITSM action is not supported for other Azure alerts.
 
 
 ## Troubleshoot ITSM connections in OMS
 1.	If connection fails from connected source's UI with an **Error in saving connection** message, take the following steps:
  - For ServiceNow, Cherwell and Provance connections,
-    - ensure you correctly entered  the username, password, client ID, and client secret  for each of the connections.
-    - check if you have sufficient privileges in the corresponding ITSM product to make the connection.
+        - ensure you correctly entered  the username, password, client ID, and client secret  for each of the connections.
+        - check if you have sufficient privileges in the corresponding ITSM product to make the connection.
  - For Service Manager connections,
-     - ensure that the Web app is successfully deployed and hybrid connection is created. To verify the connection is successfully established with the on-prem Service Manager machine, visit the  Web app URL as detailed in the documentation for making the [hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+        - ensure that the Web app is successfully deployed and hybrid connection is created. To verify the connection is successfully established with the on-prem Service Manager machine, visit the  Web app URL as detailed in the documentation for making the [hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
 
 2.	If data from ServiceNow is not getting synced to Log Analytics, ensure that the ServiceNow instance is not sleeping. ServiceNow Dev Instances sometimes go to sleep when idle for a long period. Else, report the issue.
 3.	If OMS Alerts fire but work items are not created in ITSM product or configuration items are not created/linked to work items or for any other generic information, look in the following places:
@@ -296,7 +296,7 @@ When creating/editing an Azure alert rule, use an Action Group, which has an ITS
  - Or view the errors/related information directly in the **Log Search** page using the query *Type=ServiceDeskLog_CL*.
 
 ## Troubleshoot Service Manager Web App deployment
-1.	If you face issues with web app deployment, ensure you have sufficient permissions in the subscription mentioned to create/deploy resources.
+1.	In case of any issues with web app deployment, ensure you have sufficient permissions in the subscription mentioned to create/deploy resources.
 2.	If you get an **"Object reference not set to instance of an object"** error when you run the [script](log-analytics-itsmc-service-manager-script.md), ensure that you entered valid values  under **User Configuration** section.
 3.	If you fail to create service bus relay namespace, ensure that the required resource provider is registered in the subscription. If not registered, manually create service bus relay namespace from the Azure portal. You can also create it while [creating the hybrid connection](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) from the Azure portal.
 

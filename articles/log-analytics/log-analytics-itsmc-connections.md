@@ -62,13 +62,13 @@ Use the following procedure to connect your System Center Service Manager instan
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, OMS creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
-When successfully connected, and synced:
+**When successfully connected, and synced**:
 
 - Selected work items from Service Manager are imported into OMS **Log Analytics.** You can view the summary of these work items on the IT Service Management Connector tile.
 
 - From OMS, you can create incidents from OMS alerts or from log search, in this Service Manager instance.
 
-More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) and [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) and [create ITSM work items from Azure alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### Create and deploy Service Manager web app service
 
@@ -206,13 +206,13 @@ Use the following procedure to create a ServiceNow connection:
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, OMS creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
 
-When successfully connected, and synced:
+**When successfully connected, and synced**:
 
 - Selected work items from ServiceNow connection are imported into OMS Log Analytics.  You can view the summary of these work items on the IT Service Management Connector tile.
 - You can create incidents, alerts, and events from OMS Alerts or log search in this ServiceNow instance.  
 
 
-More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) and [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) and [create ITSM work items from Azure alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### Create integration user role in ServiceNow app
 
@@ -284,22 +284,22 @@ Use the following procedure to create a Provance connection:
 
 | **Field** | **Description** |
 | --- | --- |
-| **Name**   | Type a name for the Provance instance that you want to connect with ITMSC.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
+| **Name**   | Type a name for the Provance instance that you want to connect with ITSMC.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
 | **Select Connection type**   | Select **Provance**. |
-| **Username**   | Type the user name that can connect to ITMSC.    |
+| **Username**   | Type the user name that can connect to ITSMC.    |
 | **Password**   | Type the password associated with this user name. **Note:** User name and password are used for generating authentication tokens only, and are not stored anywhere within the OMS service._|
-| **Server URL**   | Type the URL of your Provance instance that you want to connect to ITMSC. |
+| **Server URL**   | Type the URL of your Provance instance that you want to connect to ITSMC. |
 | **Client ID**   | Type the client ID for authenticating this connection, which you generated in your Provance instance.  More information on client ID, see [how to configure active directory authentication](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
-| **Data Sync Scope**   | Select the Provance work items that you want to sync to OMS, through ITMSC.  These work items are imported into log analytics.   **Options:**   Incidents, Change Requests.|
+| **Data Sync Scope**   | Select the Provance work items that you want to sync to OMS, through ITSMC.  These work items are imported into log analytics.   **Options:**   Incidents, Change Requests.|
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, OMS creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled.|
 
-When successfully connected, and synced:
+**When successfully connected, and synced**:
 
 - Selected work items from Provance connection are imported into OMS **Log Analytics.**  You can view the summary of these work items on the IT Service Management Connector tile.
 - You can create incidents and events from OMS Alerts or Log Search in this Provance instance.
 
-More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) and [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) and [create ITSM work items from Azure alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## Connect Cherwell to IT Service Management Connector in OMS
 
@@ -309,7 +309,7 @@ The following sections provide details about how to connect your Cherwell produc
 
 Ensure the following prerequisites are met:
 
-- ITMSC installed. More information: [Adding the IT Service Management Connector Solution](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC installed. More information: [Adding the IT Service Management Connector Solution](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Client ID generated. More information: [Generate client ID for Cherwell](#generate-client-id-for-cherwell).
 - User role:  Administrator.
 
@@ -329,22 +329,22 @@ Use the following procedure to create a Cherwell connection:
 
 | **Field** | **Description** |
 | --- | --- |
-| **Name**   | Type a name for the Cherwell instance that you want to connect to ITMSC.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
+| **Name**   | Type a name for the Cherwell instance that you want to connect to ITSMC.  You use this name later in OMS when you configure work items in this ITSM/ view detailed log analytics. |
 | **Select Connection type**   | Select **Cherwell.** |
-| **Username**   | Type the Cherwell user name that can connect to ITMSC. |
+| **Username**   | Type the Cherwell user name that can connect to ITSMC. |
 | **Password**   | Type the password associated with this user name. **Note:** User name and password are used for generating authentication tokens only, and are not stored anywhere within the OMS service.|
-| **Server URL**   | Type the URL of your Cherwell instance that you want to connect to ITMSC. |
+| **Server URL**   | Type the URL of your Cherwell instance that you want to connect to ITSMC. |
 | **Client ID**   | Type the client ID for authenticating this connection, which you generated in your Cherwell instance.   |
-| **Data Sync Scope**   | Select the Cherwell work items that you want to sync through ITMSC.  These work items are imported into log analytics.   **Options:**  Incidents, Change Requests. |
+| **Data Sync Scope**   | Select the Cherwell work items that you want to sync through ITSMC.  These work items are imported into log analytics.   **Options:**  Incidents, Change Requests. |
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, OMS creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
-When successfully connected, and synced:
+**When successfully connected, and synced**:
 
 - Selected work items from this Cherwell connection are imported into OMS Log Analytics. You can view the summary of these work items  on the IT Service Management Connector tile.
 - You can create incidents and events in this Cherwell instance from OMS. More information: Create ITSM work items for OMS alerts and Create ITSM work items from OMS logs.
 
-More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts) and [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs).
+More information: [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts), [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs) and [create ITSM work items from Azure alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### Generate client ID for Cherwell
 
@@ -359,7 +359,6 @@ To generate the client ID/key for Cherwell, use the following procedure:
 
 ## Next steps
  - [Create ITSM work items for OMS alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)
-
  - [Create ITSM work items from OMS logs](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
-
-- [View log analytics for your connection](log-analytics-itsmc-overview.md#using-the-solution)
+ - [create ITSM work items from Azure alerts](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [View log analytics for your connection](log-analytics-itsmc-overview.md#using-the-solution)
