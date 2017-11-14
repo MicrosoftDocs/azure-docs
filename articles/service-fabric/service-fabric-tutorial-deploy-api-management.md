@@ -218,19 +218,48 @@ The [backend configuration for Service Fabric](/azure/api-management/api-managem
 For a full set of Service Fabric back-end policy attributes, refer to the [API Management back-end documentation](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService)
 
 ## Set parameters and deploy API Management
-Fill in the following empty parameters in the *apim.parameters.json* for your deployment.
+Fill in the following empty parameters in the *apim.parameters.json* for your deployment. 
 
-|Parameter|Value|Note|
-|---|---|---|
-|apimInstanceName|sf-apim||
-|apimPublisherEmail|myemail@contosos.com||
-|apimSku|Developer||
-|serviceFabricCertificateName|sfclustertutorialgroup320171031144217||
-|certificatePassword|q6D7nN%6ck@6|Password must match the cluster certificate password used to secure the cluster. |
-|serviceFabricCertificate|0C6CFFA0DE2573E8CD3C161A65E584B5BDAD65B1|The thumbprint of the cluster certificate password used to secure the cluster.|
-|url_path|/api/values|use `/api/values` if you added the .NET backend service or `getMessage` if you added the Java backend service.|
-|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.azure.com:19080||
-|inbound_policy|<policies><inbound><base /><set-backend-service backend-id=\"servicefabric\" sf-service-instance-name=\"service-name\" sf-resolve-condition=\"@((int)context.Response.StatusCode != 200)\" /></inbound><backend><base /></backend><outbound><base /></outbound><on-error>   <base /></on-error></policies>|Replace "service-name" with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service.|
+|Parameter|Value|
+|---|---|
+|apimInstanceName|sf-apim|
+|apimPublisherEmail|myemail@contosos.com|
+|apimSku|Developer|
+|serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
+|certificatePassword|q6D7nN%6ck@6| 
+|serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
+|serviceFabricCertificate|&lt;base-64 encoded string&gt;|
+|url_path|/api/values|
+|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.azure.com:19080|
+|inbound_policy|&lt;XML string&gt;|
+
+*certificatePassword* and *serviceFabricCertificateThumbprint* must match the cluster certificate used to set up the cluster.  *serviceFabricCertificate* is the certificate as a base-64 encoded string, which can be generated using the following script:
+
+```powershell
+$bytes = [System.IO.File]::ReadAllBytes("C:\mycertificates\sfclustertutorialgroup220171109113527.pfx");
+$b64 = [System.Convert]::ToBase64String($bytes);
+[System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
+```
+
+In *inbound_policy*, replace "service-name" with `fabric:/ApiApplication/WebApiService` if you previously deployed the .NET backend service, or `fabric:/EchoServerApplication/EchoServerService` if you deployed the Java service.
+
+```xml
+    <policies>
+      <inbound>
+        <base/>
+        <set-backend-service 
+           backend-id="servicefabric"
+           sf-service-instance-name="service-name"
+           sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
+      </inbound>
+      <backend>
+        <base/>
+      </backend>
+      <outbound>
+        <base/>
+      </outbound>
+    </policies>
+    ```
 
 Use the following script to deploy the Resource Manager template and parameter files for API Management:
 
