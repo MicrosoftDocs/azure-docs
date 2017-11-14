@@ -130,7 +130,7 @@
         href: site-recovery-failback-from-azure-to-hyper-v.md
     - name: Set up a Linux master target server for failback
       href: site-recovery-how-to-install-linux-master-target.md
-- name: Capacity and scaling
+  - name: Capacity and scaling
     items:
     - name: Capacity planning for VMware replication to Azure
       href: site-recovery-plan-capacity-vmware.md
