@@ -9,7 +9,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 11/14/2017
 ms.author: v-dotren
 
 ---
@@ -60,7 +60,7 @@ To access the Azure RDMA network, use VMs of the following sizes: A8, A9, H16r, 
 
 ## Limitations
 
-* Batch provides RDMA and MPI support only for containers running on Linux pools.
+* Batch provides RDMA support only for containers running on Linux pools.
 
 
 ## Authenticate using Azure Active Directory
@@ -227,7 +227,7 @@ string cmdLine = "<my-command-line>";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "tensorflow/tensorflow:latest-gpu",
-    containerRunOptions: "-rm -read-only"
+    containerRunOptions: "--rm --read-only"
     );
 
 CloudTask containerTask = new CloudTask (
