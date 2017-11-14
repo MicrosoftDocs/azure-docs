@@ -20,12 +20,12 @@ ms.author: kumud
 
 # High availability ports overview
 
-Azure Load Balancer helps you load balance TCP and UDP flows on all ports simultaneously, when you are using an internal Load Balancer. 
+Azure Load Balancer Standard helps you load balance TCP and UDP flows on all ports simultaneously, when you are using an internal Load Balancer. 
 
 >[!NOTE]
 > The high availability (HA) ports feature is available with Load Balancer Standard, and is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in the general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sign up for the Load Balancer Standard preview to use HA ports with Load Balancer Standard resources. Follow the instructions for sign-up to Load Balancer [Standard preview](https://aka.ms/lbpreview#preview-sign-up) as well.
 
-An HA ports rule is a variant of a load balancing rule, configured on an internal Load Balancer. You can simplify your use of Load Balancer by providing a single rule to load balance all TCP and UDP flows arriving on all ports of an internal Load Balancer. The load balancing decision is made per flow. This is based on the following five tuples: Source IP Address, Source Port, Destination IP Address, Destination Port, and Protocol.
+An HA ports rule is a variant of a load balancing rule, configured on an internal Load Balancer Standard. You can simplify your use of Load Balancer by providing a single rule to load balance all TCP and UDP flows arriving on all ports of an internal Load Balancer Standard. The load balancing decision is made per flow. This is based on the following five-tuple connection: Source IP Address, Source Port, Destination IP Address, Destination Port, and Protocol.
 
 The HA ports feature helps you with critical scenarios, such as high availability and scale for network virtual appliances (NVA) inside virtual networks. It can also help when a large number of ports must be load balanced. 
 
@@ -45,7 +45,7 @@ HA ports provide several advantages for NVA HA scenarios:
 - *N*-active and active-passive scenarios
 - Eliminating the need for complex solutions like Apache ZooKeeper nodes for monitoring appliances
 
-The following diagram presents a hub-and-spoke virtual network deployment. The spokes force-tunnel their traffic to the hub virtual network and through the NVA, before leaving the trusted space. The NVAs are behind an internal Load Balancer with an HA ports configuration. All traffic can be processed and forwarded accordingly.
+The following diagram presents a hub-and-spoke virtual network deployment. The spokes force-tunnel their traffic to the hub virtual network and through the NVA, before leaving the trusted space. The NVAs are behind an internal Load Balancer Standard with an HA ports configuration. All traffic can be processed and forwarded accordingly.
 
 ![Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode](./media/load-balancer-ha-ports-overview/nvaha.png)
 
@@ -54,7 +54,7 @@ The following diagram presents a hub-and-spoke virtual network deployment. The s
 
 ### Load balancing large numbers of ports
 
-You can also use HA ports for applications that require load balancing of large numbers of ports. You can simplify these scenarios by using an internal [Load Balancer](https://aka.ms/lbpreview) with HA ports. A single load balancing rule replaces multiple individual load balancing rules, one for every port.
+You can also use HA ports for applications that require load balancing of large numbers of ports. You can simplify these scenarios by using an internal [Load Balancer Standard](https://aka.ms/lbpreview) with HA ports. A single load balancing rule replaces multiple individual load balancing rules, one for every port.
 
 ## Region availability
 
