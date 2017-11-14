@@ -38,7 +38,7 @@ You learn how to:
 ## Prerequisites
 
 * An IoT Hub 
-* A device that has IoT Edge runtime installed. For a tutorial on installing IoT Edge runtime, see [Install Azure IoT Edge and deploy a module][lnk-first-tutorial].
+* The device that you created and configured in the quickstart or in Deploy Azure IoT Edge om a simulated device in [Windows][lnk-tutorial1-win] and [Linux][lnk-tutorial1-lin].
 * Docker on your IoT Edge device
     * [Install Docker on Windows][lnk-docker-windows] and make sure it's running.
     * [Install Docker on Linux][lnk-docker-linux] and make sure it's running.
@@ -51,7 +51,7 @@ You learn how to:
 
 IoT Edge takes advantage of pre-built Azure Service IoT Edge modules for quick deployment and Azure Stream Analytics (ASA) is one such module. You can create an ASA job from its portal, then come to IoT Hub portal to deploy it as an IoT Edge Module.  
 
-For more information on Azure Stream Analytics, see the **Overview** section of the [Stream Analytics Documentation][azure-stream].  If you want to learn how to create your solution-specific IoT Edge Module, instead of using Azure Service provider, see [Create an IoT Edge module][lnk-next-tutorial2]. 
+For more information on Azure Stream Analytics, see the **Overview** section of the [Stream Analytics Documentation][azure-stream].
 
 ## Create an ASA job
 
