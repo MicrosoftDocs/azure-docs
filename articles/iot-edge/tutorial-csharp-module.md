@@ -20,7 +20,7 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Develop and deploy a C# IoT Edge module to your simulated device - preview
+# Develop and deploy a C# IoT Edge module to your simulated device -- Public preview
 
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an  IoT Edge module that filters sensor data on the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorials. In this tutorial, you learn how to:    
 
@@ -38,31 +38,17 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 * The Azure IoT Edge device that you created in the quickstart or previous tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
-* Azure IoT Edge extension for Visual Studio Code. Perform the following steps to install it and its dependencies:
-   1. Install the [Azure IoT Toolkit extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) from the extensions panel in VS Code.
-   2. Download the **Azure IoT Edge extension** VSIX here: [https://aka.ms/edge-extension](https://aka.ms/edge-extension). **Note**: If you use Microsoft Edge or Internet Explorer, the browser downloads the file with a ".zip" file extension. After the file downloads, you need to change the file extension back to ".vsix". 
-   3. Install the extension VSIX by using the **View | Command Palette... | Extensions: Install from VSIX...** menu command, navigating to the downloaded VSIX on your computer and clicking **Open**. (You can also install the extension by clicking **...** in the upper-right corner of the extension panel and selecting **Install from VSIX...**.)
+* The following Visual Studio Code extensions: 
+  * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
+  * **Azure IoT Edge extension**
+
+    > [!IMPORTANT]
+    > The IoT Edge extension is not yet available in the Marketplace. Perform the following steps to install it and its dependencies:
+    > 1. Install the [Azure IoT Toolkit extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) from the extensions panel in VS Code.
+    > 2. Download the **Azure IoT Edge extension** VSIX here: [https://aka.ms/edge-extension](https://aka.ms/edge-extension). **Note**: If you use Microsoft Edge or Internet Explorer, the browser downloads the file with a ".zip" file extension. After the file downloads, you need to change the file extension back to ".vsix". 
+    > 3. Install the extension VSIX by using the **View | Command Palette... | Extensions: Install from VSIX...** menu command, navigating to the downloaded VSIX on your computer and clicking **Open**. (You can also install the extension by clicking **...** in the upper-right corner of the extension panel and selecting **Install from VSIX...**.)
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. Make sure you install it on the computer that you run VS Code on.
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
-
-## Bug bash configuration steps
-The steps in this section are only required until Azure IoT Edge goes public. They walk you through setting up VS Code with dependencies that will not be public until we release Azure IoT Edge. 
- 
-1. Install version 3 or later of the [NuGet CLI](https://docs.microsoft.com/en-us/nuget/guides/install-nuget#nuget-cli). The module code depends on a couple of NuGet packages that won't be made public until we release Azure IoT Edge. For the time being, we have placed them on `myget`. You need the NuGet CLI to reference these packages. 
-2. Open Visual Studio Code. 
-3. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
-4. In integrated terminal, add a NuGet source for the **AzureIotEdgeModule** template NuGet package.  
-
-    ```cmd/sh
-    nuget sources add -name AzureIoTEdgeModule -source https://www.myget.org/F/dotnet-template-azure-iot-edge-module/api/v3/index.json 
-    ``` 
-
-3. The preview version of the **Microsoft.Azure.Devices.Client** package used in this tutorial is not yet available in the public gallery. To ensure that your IoT Edge module will build correctly, add a NuGet source that contains the correct package version. 
-
-    ```cmd/sh
-    nuget sources Add -Name "Edge Private Preview" -source https://www.myget.org/F/aziot-device-sdk/api/v3/index.json
-    ```
 
 ## Choose or sign up for a Docker registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a [Docker image](https://docs.docker.com/glossary/?term=image). Then you push this Docker image to a [Docker repository](https://docs.docker.com/glossary/?term=repository) hosted on a [Docker registry](https://docs.docker.com/glossary/?term=registry). Finally, you deploy your Docker image packaged as a [Docker container](https://docs.docker.com/glossary/?term=container) from your registry to your IoT Edge device.  
@@ -273,7 +259,7 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 
 ## Run the solution
 
-1. In the **Azure portal**, [https://df.onecloud.azure-test.net/](https://df.onecloud.azure-test.net/), navigate to your IoT hub.
+1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 2. Go to **IoT Edge Explorer** and select your IoT Edge device.
 3. Select **Set Modules**. 
 2. Add the **tempSensor** module. This step is only required if you have not previously deployed the **tempSensor** module to your IoT Edge device.

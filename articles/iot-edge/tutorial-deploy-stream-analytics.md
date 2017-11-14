@@ -8,7 +8,7 @@ author: msebolt
 manager: timlt
 
 ms.author: v-masebo
-ms.date: 10/05/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -62,18 +62,16 @@ In this section, you create an Azure Stream Analytics job to take data from your
 
 1. In the Azure portal, navigate to **Create a resource -> Storage**, click **See all**, and click **Storage account - blob, file, table, queue**.
 
-2. Enter a name and use the remaining default values.  Click **Create**. Note the name for later.
+2. Enter a name for your storage account, and select the same location where your IoT Hub is stored. Click **Create**. Note the name for later.
 
     ![new storage account][1]
 
-    > [!NOTE]
-    > Make sure the **Location** you use is the same as your IoT Hub **Location** or else additional fees may apply.
-
-3. In the Azure portal, navigate to the storage account that you just created. Click **Browse blobs** under **Blob Service**. Create a new container for the ASA module to store data. Set the access level to _Container_. Click **OK**.
+3. In the Azure portal, navigate to the storage account that you just created. Click **Browse blobs** under **Blob Service**. 
+1. Create a new container for the ASA module to store data. Set the access level to _Container_. Click **OK**.
 
     ![storage settings][10]
 
-1. In the Azure portal, navigate to **Create a resource -> Internet of Things** and click **Stream Analytics Job**.
+1. In the Azure portal, navigate to **Create a resource** > **Internet of Things** and select **Stream Analytics Job**.
 
 1. Enter a name, **choose "Edge" as Hosting environment** and use the remaining default values.  Click **Create**.
 
@@ -81,7 +79,7 @@ In this section, you create an Azure Stream Analytics job to take data from your
 
 2. Go into the created job, under **Job Topology**, select **Inputs**, click **Add**.
 
-3. Enter name "temperature", choose **Data stream** as "Source Type" and use defaults for the other parameters, click **Create**.
+3. Enter name `temperature`, choose **Data stream** as the source type, and use defaults for the other parameters. Click **Create**.
 
     ![ASA input][2]
 
@@ -90,7 +88,7 @@ In this section, you create an Azure Stream Analytics job to take data from your
 
 4. Under **Job Topology**, select **Outputs**, click **Add**.
 
-5. Enter name "alert" and use defaults. Click **Create**.
+5. Enter name `alert` and use defaults. Click **Create**.
 
     ![ASA output][3]
 
