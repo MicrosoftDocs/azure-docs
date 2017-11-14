@@ -58,7 +58,7 @@ Pass through channel verification
 8. Reset the channel state after creating each sample
 9. Repeat steps 3 through 8 for all configurations supported by your encoder (with and without ad signaling/captions/different encoding speeds)
 
-Live encoding channel verification1. Create or visit your Azure Media Services account
+Live encoding channel verification
 1. Create or visit your Azure Media Services account
 2. Create and start a **live encoding** channel
 3. Configure your encoder to push a single-bitrate live stream.
