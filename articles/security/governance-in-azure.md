@@ -224,14 +224,14 @@ Resources do not need to reside in the same resource group to share a tag. You c
 Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values.
 
 > [!Note]
-> For more information, see [Apply resource policies for tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags).
+> For more information, see [Billing tags policy initiative](../azure-policy/scripts/billing-tags-policy-init.md).
 
 You can also view tagged resources through the Azure portal.
 
 The [usage report](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) for your subscription includes tag names and values, which enables you to break out costs by tags.
 
 > [!Note]
-> For more information about tags, see [Using tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+> For more information about tags, see [Billing tags policy initiative](../azure-policy/scripts/billing-tags-policy-init.md).
 
 The following limitations apply to tags:
 
