@@ -1,6 +1,6 @@
 ---
-title: Configure health alerts with OpsGenie | Microsoft Docs
-description: Learn how to get personalized notifications about service health events to your OpsGenie instance.
+title: Configure Azure service health alerts with OpsGenie | Microsoft Docs
+description: Get personalized notifications about service health events to your OpsGenie instance.
 author: shawntabrizi
 manager: scotthit
 editor: ''
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
-ms.author: shawntabrizi
+ms.date: 11/14/2017
+ms.author: shtabriz
 
 ---
-# Configure health alerts with OpsGenie
+# Configure service health alerts with OpsGenie
 
-By using [OpsGenie](https://www.opsgenie.com/)’s Azure Service Health Integration: you can forward Azure Service Health alerts to OpsGenie. OpsGenie can determine the right people to notify based on on-call schedules, using email, text messages (SMS), phone calls, iOS & Android push notifications, and escalating alerts until the alert is acknowledged or closed.
+This article shows you how to set up Azure service health alerts with OpsGenie using a webhook. By using [OpsGenie](https://www.opsgenie.com/)'s Azure Service Health Integration, you can forward Azure Service Health alerts to OpsGenie. OpsGenie can determine the right people to notify based on on-call schedules, using email, text messages (SMS), phone calls, iOS & Android push notifications, and escalating alerts until the alert is acknowledged or closed.
 
 ## Creating a service health integration URL in OpsGenie
 1.  Make sure you have signed up for and are signed into your [OpsGenie](https://www.opsgenie.com/) account.
@@ -28,7 +28,7 @@ By using [OpsGenie](https://www.opsgenie.com/)’s Azure Service Health Integratio
 
     ![The "Integrations" section in OpsGenie](./media/webhook-alerts/opsgenie-integrations-section.png)
 
-3.  Click the **Azure Service Health** integration button.
+3.  Select the **Azure Service Health** integration button.
 
     ![The "Azure Service Health button" in OpsGenie](./media/webhook-alerts/opsgenie-azureservicehealth-button.png)
 
@@ -40,9 +40,9 @@ By using [OpsGenie](https://www.opsgenie.com/)’s Azure Service Health Integratio
 
     ![The "Integration URL" in OpsGenie](./media/webhook-alerts/opsgenie-integration-url.png)
 
-7.  Click **Save Integration**
+7.  Select **Save Integration**
 
-## Create a health alert using OpsGenie's integration URL in the Azure portal
+## Create an alert using OpsGenie in the Azure portal
 ### For a new action group:
 1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 
@@ -52,7 +52,7 @@ By using [OpsGenie](https://www.opsgenie.com/)’s Azure Service Health Integratio
 
     b. **Details:** The OpsGenie **Integration URL** you previously saved.
 
-    c. **Name:** Webhook’s name, alias, or identifier.
+    c. **Name:** Webhook's name, alias, or identifier.
 
 3. Select **Save** when done to create the alert.
 
@@ -69,7 +69,7 @@ By using [OpsGenie](https://www.opsgenie.com/)’s Azure Service Health Integratio
 
     b. **Details:** The OpsGenie **Integration URL** you previously saved.
 
-    c. **Name:** Webhook’s name, alias, or identifier.
+    c. **Name:** Webhook's name, alias, or identifier.
 
 5. Select **Save** when done to update the action group.
 

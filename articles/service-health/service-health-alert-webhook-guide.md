@@ -1,6 +1,6 @@
 ---
-title: Configure health notifications for existing problem management systems via webhook | Microsoft Docs
-description: Learn how to get personalized notifications about service health events to your existing problem management system.
+title: Configure health notifications for existing problem management systems using a webhook | Microsoft Docs
+description: Get personalized notifications about service health events to your existing problem management system.
 author: shawntabrizi
 manager: scotthit
 editor: ''
@@ -13,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
-ms.author: shawntabrizi
+ms.date: 11/14/2017
+ms.author: shtabriz
 
 ---
 
-# Configure health notifications for existing problem management systems via webhook
+# Configure health notifications for existing problem management systems using a webhook
 
 This article shows you how to configure your Service Health alerts to send data through Webhooks to your existing notification system.
 

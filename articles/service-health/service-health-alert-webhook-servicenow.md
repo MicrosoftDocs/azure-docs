@@ -1,9 +1,7 @@
 ---
-title: Configure health alerts with ServiceNow | Microsoft Docs
-description: Learn how to get personalized notifications about service health events to your ServiceNow instance.
+title: Configure Azure service health alerts with ServiceNow | Microsoft Docs
+description: Get personalized notifications about service health events to your ServiceNow instance.
 author: shawntabrizi
-manager: scotthit
-editor: ''
 services: service-health
 documentationcenter: service-health
 
@@ -13,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
-ms.author: shawntabrizi
+ms.date: 11/14/2017
+ms.author: shtabriz
 
 ---
-# Configure health alerts with ServiceNow
+# Configure service health alerts with ServiceNow
 
-After setting up webhook integration with your ServiceNow instance, you get alerts through your existing notification infrastructure when Azure service issues affect you. Every time an Azure Service Health alert fires, it invokes a webhook through ServiceNow's Scripted REST API.
+This article shows you how to integrate Azure service health alerts with ServiceNow using a webhook. After setting up webhook integration with your ServiceNow instance, you get alerts through your existing notification infrastructure when Azure service issues affect you. Every time an Azure Service Health alert fires, it calls a webhook through ServiceNow's Scripted REST API.
 
 ## Creating a scripted REST API in ServiceNow
 1.  Make sure you have signed up for and are signed into your [ServiceNow](https://www.servicenow.com/) account.
@@ -28,13 +26,13 @@ After setting up webhook integration with your ServiceNow instance, you get aler
 
     ![The "Scripted Web Service" section in ServiceNow](./media/webhook-alerts/servicenow-sws-section.png)
 
-3.  Click **New** to create a new Scripted REST service.
+3.  Select **New** to create a new Scripted REST service.
  
     ![The "New Scripted REST API" button in ServiceNow](./media/webhook-alerts/servicenow-new-button.png)
 
 4.  Add a **Name** to your REST API and set the **API ID** to `azureservicehealth`.
 
-5.  Click **Submit**.
+5.  Select **Submit**.
 
     ![The "REST API Settings" in ServiceNow](./media/webhook-alerts/servicenow-restapi-settings.png)
 
@@ -52,7 +50,7 @@ After setting up webhook integration with your ServiceNow instance, you get aler
     >* `<group>` should be the ServiceNow group you want to assign the incident to
     >* `<email>` should be the specific person you want to assign the incident to (optional)
     >
-    >
+
     ```javascript
     (function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
         var apiKey = request.queryParams['apiKey'];
@@ -136,7 +134,8 @@ After setting up webhook integration with your ServiceNow instance, you get aler
         }
     })(request, response);
     ```
-9.  In the security tab, uncheck **Requires authentication** and press **Submit**. The `<secret>` you set protects this API instead.
+
+9.  In the security tab, uncheck **Requires authentication** and select **Submit**. The `<secret>` you set protects this API instead.
 
     ![The "Requires Authentication" checkbox in ServiceNow](./media/webhook-alerts/servicenow-resource-settings.png)
 
@@ -149,9 +148,9 @@ After setting up webhook integration with your ServiceNow instance, you get aler
          https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
 
-## Create a health alert using ServiceNow's integration URL in the Azure portal
+## Create an alert using ServiceNow in the Azure portal
 ### For a new action group:
-1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+1. Follow steps 1 through 8 in [this article](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) to create an alert with a new action group.
 
 2. Define in the list of **Actions**:
 
@@ -159,7 +158,7 @@ After setting up webhook integration with your ServiceNow instance, you get aler
 
     b. **Details:** The ServiceNow **Integration URL** you previously saved.
 
-    c. **Name:** Webhook’s name, alias, or identifier.
+    c. **Name:** Webhook's name, alias, or identifier.
 
 3. Select **Save** when done to create the alert.
 
@@ -176,7 +175,7 @@ After setting up webhook integration with your ServiceNow instance, you get aler
 
     b. **Details:** The ServiceNow **Integration URL** you previously saved.
 
-    c. **Name:** Webhook’s name, alias, or identifier.
+    c. **Name:** Webhook's name, alias, or identifier.
 
 5. Select **Save** when done to update the action group.
 
