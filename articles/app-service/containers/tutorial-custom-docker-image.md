@@ -339,7 +339,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 The command reveals output similar to the following JSON string, showing that the configuration change succeeded:
 
-```
+```json
 [
   {
     "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
@@ -501,7 +501,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 The command reveals output similar to the following JSON string, showing that the configuration change succeeded:
 
-```
+```json
 [
   {
     "name": "DOCKER_CUSTOM_IMAGE_NAME",
