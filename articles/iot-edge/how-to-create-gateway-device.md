@@ -56,7 +56,7 @@ When you connect devices to a IoT Edge gateway using the Azure IoT device SDK, y
 * Set up the downstream device with a connection string referring to the gateway device hostname; and
 * Make sure that the downstream device trusts the certificate used to accept the connection by the gateway device.
 
-When you install the Azure IoT Edge runtime using the control script, a certificate is created for the Edge hub, as you did in the tutorial [Install IoT Edge on a simulated device][lnk-tutorial1]. This certificate is used by the Edge hub to accept incoming TLS connections, and has to be trusted by the downstream device when connecting to the gateway device.
+When you install the Azure IoT Edge runtime using the control script, a certificate is created for the Edge hub, as you did in the tutorial Install IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] and [Linux][lnk-tutorial1-lin]. This certificate is used by the Edge hub to accept incoming TLS connections, and has to be trusted by the downstream device when connecting to the gateway device.
 
 You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security][lnk-iothub-x509] in IoT Hub, which involves a X.509 CA certificate associated to a specific IoT hub (the *IoT hub owner CA*), and a series of certificates, signed with this CA, installed in the IoT Edge devices.
 
