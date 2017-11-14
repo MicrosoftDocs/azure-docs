@@ -1,8 +1,27 @@
+---
+title: Configure health alerts with OpsGenie | Microsoft Docs
+description: Learn how to get personalized notifications about service health events to your OpsGenie instance.
+author: shawntabrizi
+manager: scotthit
+editor: ''
+services: service-health
+documentationcenter: service-health
+
+ms.assetid:
+ms.service: service-health
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/13/2017
+ms.author: shawntabrizi
+
+---
 # Configure health alerts with OpsGenie
 
 By using [OpsGenie](https://www.opsgenie.com/)’s Azure Service Health Integration: you can forward Azure Service Health alerts to OpsGenie. OpsGenie can determine the right people to notify based on on-call schedules, using email, text messages (SMS), phone calls, iOS & Android push notifications, and escalating alerts until the alert is acknowledged or closed.
 
-## Creating a Service Health Integration URL in OpsGenie
+## Creating a service health integration URL in OpsGenie
 1.  Make sure you have signed up for and are signed into your [OpsGenie](https://www.opsgenie.com/) account.
 2.  Navigate to the **Integrations** section in OpsGenie.
 
@@ -17,7 +36,7 @@ By using [OpsGenie](https://www.opsgenie.com/)’s Azure Service Health Integratio
     ![The "Integration URL" in OpsGenie](./media/webhook-alerts/opsgenie-integration-url.png)
 7.  Click **Save Integration**
 
-## Create a health alert using OpsGenie's Integration URL in the Azure portal
+## Create a health alert using OpsGenie's integration URL in the Azure portal
 ### For a new action group:
 1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 2. Define in the list of **Actions**:
@@ -40,7 +59,7 @@ By using [OpsGenie](https://www.opsgenie.com/)’s Azure Service Health Integratio
 
 5. Select **Save** when done to update the action group.
 
-## Testing your Webhook Integration via an HTTP POST request
+## Testing your webhook integration via an HTTP POST request
 
 1. Create the Service Health payload you want to send. You can find an example Service Health webhook payload at [Webhooks for Azure activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 2. Create an HTTP POST request as follows:

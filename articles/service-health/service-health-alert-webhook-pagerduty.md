@@ -1,13 +1,32 @@
+---
+title: Configure health alerts with PagerDuty | Microsoft Docs
+description: Learn how to get personalized notifications about service health events to your PagerDuty instance.
+author: shawntabrizi
+manager: scotthit
+editor: ''
+services: service-health
+documentationcenter: service-health
+
+ms.assetid:
+ms.service: service-health
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/13/2017
+ms.author: shawntabrizi
+
+---
 # Configure health alerts with PagerDuty
 
 By using [PagerDuty](https://www.pagerduty.com/)’s custom Microsoft Azure integration type, you can effortlessly add Service Health alerts to your new or existing PagerDuty services.
 
-## Creating a Service Health Integration URL in PagerDuty
+## Creating a service health integration URL in PagerDuty
 1.  Make sure you have signed up for and are signed into your [PagerDuty](https://www.pagerduty.com/) account.
 2.  Navigate to the **Services** section in PagerDuty.
 
     ![The "Services" section in PagerDuty](./media/webhook-alerts/pagerduty-services-section.png)
-3.  Click **Add [a] New Service** or open an existing service you have set up.
+3.  Click **Add New Service** or open an existing service you have set up.
 4.  In the **Integration Settings**, select the following:
 
        a. **Integration Type**: Microsoft Azure
@@ -20,7 +39,7 @@ By using [PagerDuty](https://www.pagerduty.com/)’s custom Microsoft Azure integr
 
     ![The "Integration URL" in PagerDuty](./media/webhook-alerts/pagerduty-integration-url.png)
 
-## Create a health alert using PagerDuty's Integration URL in the Azure portal
+## Create a health alert using PagerDuty's integration URL in the Azure portal
 ### For a new action group:
 1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 2. Define in the list of **Actions**:
@@ -43,7 +62,7 @@ By using [PagerDuty](https://www.pagerduty.com/)’s custom Microsoft Azure integr
 
 5. Select **Save** when done to update the action group.
 
-## Testing your Webhook Integration via an HTTP POST request
+## Testing your webhook integration via an HTTP POST request
 
 1. Create the Service Health payload you want to send. You can find an example Service Health webhook payload at [Webhooks for Azure activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 2. Create an HTTP POST request as follows:

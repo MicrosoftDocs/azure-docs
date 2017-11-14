@@ -3,7 +3,7 @@ title: Understand the webhook schema used in activity log alerts | Microsoft Doc
 description: Learn about the schema of the JSON that is posted to a webhook URL when an activity log alert activates.
 author: johnkemnetz
 manager: orenr
-editor: ''
+editor: shawntabrizi
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 

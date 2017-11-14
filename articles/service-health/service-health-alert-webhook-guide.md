@@ -1,3 +1,23 @@
+---
+title: Configure webhook notifications for existing problem management systems | Microsoft Docs
+description: Learn how to get personalized notifications about service health events to your existing problem management system.
+author: shawntabrizi
+manager: scotthit
+editor: ''
+services: service-health
+documentationcenter: service-health
+
+ms.assetid:
+ms.service: service-health
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/13/2017
+ms.author: shawntabrizi
+
+---
+
 # Configure webhook notifications for existing problem management systems
 
 This article shows you how to configure your Service Health alerts to send data through Webhooks to your existing notification system.
@@ -26,22 +46,22 @@ You can detect this is a Service Health alert by looking at `context.eventSource
  * `data.context.activityLog.properties.impactedServices`
  * `data.context.activityLog.properties.trackingId`
 
-#### Creating a Direct Link to Azure Service Health for an Incident
+## Creating a direct link to Azure service health for an incident
 You can create a direct link to your personalized Azure Service Health incident on desktop or mobile by generating a specialized URL. Use the `trackingId`, as well as the first and last three digits of your `subscriptionId`, to form:
 ```
 https://app.azure.com/h/<trackingId>/<first and last three digits of subscriptionId>
 ```
 
-For example, if your `subscriptionId` is `45529734-0ed9-4895-a0df-44b59a5a07f9` and your `trackingId` is `0NIH-U2O`, then your personalized Azure Service Health URL is:
+For example, if your `subscriptionId` is `bba14129-e895-429b-8809-278e836ecdb3` and your `trackingId` is `0DET-URB`, then your personalized Azure Service Health URL is:
 
 ```
-https://app.azure.com/h/0NIH-U2O/4557f9
+https://app.azure.com/h/0DET-URB/bbadb3
 ```
 
-#### Using the level to detect the severity of the issue
+## Using the level to detect the severity of the issue
 From lowest severity to highest severity, the `level` property in the payload can be any of `Informational`, `Warning`, `Error`, and `Critical`.
 
-#### Parsing the Impacted Services to understand the full scope of the Incident
+## Parsing the impacted services to understand the full scope of the incident
 Service Health Alerts can inform you about issues across multiple Regions and services. To get the full details, you need to parse the value of `impactedServices`.
 The content inside is a [JSON escaped](http://json.org/) string, when unescaped, contains another JSON object that can be parsed regularly.
 
@@ -78,3 +98,17 @@ Becomes:
 This shows that there are problems with "Alerts & Metrics" in both Australia East and Southeast, as well as problems with "App Service" in Australia Southeast.
 
 
+## Testing your webhook integration via an HTTP POST request
+
+1. Create the Service Health payload you want to send. You can find an example Service Health webhook payload at [Webhooks for Azure activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+2. Create an HTTP POST request as follows:
+
+    ```
+    POST        https://your.webhook.endpoint
+
+    HEADERS     Content-Type: application/json
+
+    BODY        <Service Health payload>
+    ```
+3. You should receive a `2XX - Successful` response.
+4. Go to [PagerDuty](https://www.pagerduty.com/) to confirm that your integration was set up successfully.
