@@ -196,6 +196,10 @@ Or alternatively you may view the secret on the portal.
 
 ![secret](./media/key-vault-get-started/secret-value.png)
 
+To view the value contained in the secret as plain text:
+```powershell
+(get-azurekeyvaultsecret -vaultName "Contosokeyvault" -name "SQLPassword").SecretValueText
+```
 Now, your key vault and key or secret is ready for applications to use. You must authorize applications to use them.  
 
 ## <a id="register"></a>Register an application with Azure Active Directory
