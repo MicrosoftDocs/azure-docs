@@ -51,8 +51,8 @@
 ##### [System and communications protection](fedramp-system-communications-protection-controls.md)
 ##### [System and information integrity](fedramp-system-information-integrity-controls.md)
 ##### [System and services acquisition](fedramp-system-services-acquisition-controls.md)
-#### [Compliance - Three-Tier Web Apps for UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
-##### [Overview](uk-official-three-tier-applications-overview.md)
+#### [Compliance - UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+##### [Overview](uk-official-three-tier-applications-principles-overview.md)
 ##### [Principles overview](uk-official-three-tier-applications-overview.md)
 
 # Get Started

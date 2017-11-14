@@ -51,9 +51,9 @@
 ##### [System and communications protection](./blueprints/fedramp-system-communications-protection-controls.md)
 ##### [System and information integrity](./blueprints/fedramp-system-information-integrity-controls.md)
 ##### [System and services acquisition](./blueprints/fedramp-system-services-acquisition-controls.md)
-#### [Compliance - Three-Tier Web Apps for UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
+#### [Compliance - UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Overview](./blueprints/uk-official-three-tier-applications-overview.md)
-##### [Principles overview](./blueprints/uk-official-three-tier-applications-overview.md)
+##### [Principles overview](./blueprints/uk-official-three-tier-applications-principles-overview.md)
 
 # Get Started
 ## [Getting started with Azure security](azure-security-getting-started.md)
