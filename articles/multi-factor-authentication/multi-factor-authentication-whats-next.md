@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
+ms.reviewer: richagi
 
 ---
 # Configure Azure Multi-Factor Authentication settings - Public preview
