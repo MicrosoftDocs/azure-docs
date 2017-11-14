@@ -8,25 +8,19 @@ Yes. Previously, only self-signed root certificates could be used. You can still
 
 You can use your Enterprise PKI solution (your internal PKI), Azure PowerShell, MakeCert], and OpenSSL.
 
-### Are there instructions for certificate settings and parameters?
+### <a name="certsettings"></a>Are there instructions for certificate settings and parameters?
 
-#### <a name="mkct"></a>Internal PKI/Enterprise PKI solution
+* **Internal PKI/Enterprise PKI solution:** See the steps to [Generate certificates](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 
-See the steps to [Generate certificates](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+* **Azure PowerShell:** See the [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) article for steps.
 
-### <a name="ps"></a>Azure PowerShell
+* **MakeCert:** See the [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) article for steps.
 
-See the [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) article for steps.
+* **OpenSSL:** 
 
-### <a name="mkct"></a>MakeCert
+    * When exporting certificates, be sure to convert the root certificate to Base64.
 
-See the [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) article for steps.
+    * For the client certificate:
 
-### <a name="openssl"></a>OpenSSL
-
-For the client certificate:
-
-  * When creating the private key, specify the length as 4096.
-  * When creating the certificate, for the *-extensions* parameter, specify *usr_cert*.
-
-When exporting certificates, be sure to convert the root certificate to Base64.
+      * When creating the private key, specify the length as 4096.
+      * When creating the certificate, for the *-extensions* parameter, specify *usr_cert*.
