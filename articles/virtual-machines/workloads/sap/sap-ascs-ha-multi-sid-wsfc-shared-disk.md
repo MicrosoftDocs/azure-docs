@@ -282,8 +282,6 @@ The new host name and IP address are displayed in DNS Manager, as shown in the f
 
 ![DNS Manager list highlighting the defined DNS entry for the new SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-6004]
 
-The procedure for creating a DNS entry is also described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9.1.1].
-
 > [!NOTE]
 > The new IP address that you assign to the virtual host name of the additional ASCS/SCS instance must be the same as the new IP address that you assigned to the SAP Azure load balancer.
 >
