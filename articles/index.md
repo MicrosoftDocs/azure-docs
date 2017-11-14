@@ -1102,7 +1102,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                            <a href="/azure/active-directory/develop">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Azure Active Directory for Developers</p>
                                             </a>
@@ -3173,7 +3173,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Active Directory for Developers</h3>
-                                                    <p>Scalable, cross-platform authentication for your mobile apps and websites</p>
+                                                    <p>Secure, cross-platform authentication for web, mobile, and backend APIs</p>
                                                 </div>
                                             </div>
                                         </div>
