@@ -55,10 +55,12 @@
     href: concepts-integration-runtime.md
 - name: How-to guides
   items:
-  - name: Move data
+  - name: Copy data
     items: 
-    - name: Copy Activity overview
+    - name: Copy data from supported sources to destinations
       href: copy-activity-overview.md
+    - name: Read or write partitioned data
+      href: how-to-read-write-partitioned-data.md
     - name: Connectors
       items: 
       - name: Amazon Redshift
@@ -182,12 +184,12 @@
       href: control-flow-execute-pipeline-activity.md     
     - name: For Each Activity
       href: control-flow-for-each-activity.md  
+    - name: Wait Activity
+      href: control-flow-wait-activity.md               
     - name: Expression Language         
       href: control-flow-expression-language-functions.md
     - name: System variables         
       href: control-flow-system-variables.md     
-    - name: Wait Activity
-      href: control-flow-wait-activity.md          
   - name: Security
     items: 
     - name: Data movement security considerations

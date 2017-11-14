@@ -4,7 +4,7 @@ description: How to explore data stored in various Azure enviromnents.
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 80a9dfae-e3a6-4cfb-aecc-5701cfc7e39d
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
 
 ---
