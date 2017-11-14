@@ -180,6 +180,9 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 Your virtual machine is now provisioned. The next step is to power on this machine and get the IP address.
 
+> [!NOTE]
+> We recommend that you do not install VMware tools on your virtual array (provisioned with this VM). Installation of VMware tools will result in an unsupported configuration.
+
 ## Step 3: Start the virtual device and get the IP
 Perform the following steps to start your virtual device and connect to it.
 
