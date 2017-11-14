@@ -7336,6 +7336,11 @@
             "redirect_url": "/azure/service-fabric/service-fabric-testability-overview",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
+            "redirect_document_id": false
+        },
 		{
             "source_path": "articles/site-recovery/site-recovery-azure-to-azure-prereq.md",
             "redirect_url": "site-recovery-support-matrix-azure-to-azure",
