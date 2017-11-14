@@ -190,7 +190,7 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 2. Add the **tempSensor** module. This step is only required if you have not previously deployed the **tempSensor** module to your IoT Edge device.
     1. Select **Add IoT Edge Module**.
     2. In the **Name** field, enter `tempSensor`.
-    3. In the **Image** field, enter `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview`.
+    3. In the **Image URI** field, enter `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
     4. Leave the other settings unchanged and click **Save**.
 1. Add the **filterfunction** module.
     1. Select **Add IoT Edge Module** again.

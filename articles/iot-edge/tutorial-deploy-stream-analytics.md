@@ -117,7 +117,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
     ![set module][6]
 
-1. Click **Add IoT Edge Module** to add the temperature sensor module. Enter _tempSensor_ for name, `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:1.0-preview` for Image URL. Leave the other settings unchanged, and click **Save**.
+1. Click **Add IoT Edge Module** to add the temperature sensor module. Enter _tempSensor_ for name, `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` for Image URL. Leave the other settings unchanged, and click **Save**.
 
     ![temperature module][11]
 

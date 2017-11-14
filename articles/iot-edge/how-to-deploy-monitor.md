@@ -7,7 +7,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -65,7 +65,7 @@ To add a module from an Azure service follow these steps:
 To add custom code as a module, or to manually add an Azure service module, follow these steps:
 1. Select **Add custom IoT Edge module**.
 1. Give your module a **Name**.
-1. For the **Image** field, enter the Docker container image for this module. For example, `edgepreview.azurecr.io/azureiotedge/simulated-temperature-sensor:latest`.
+1. For the **Image** field, enter the Docker container image for this module: `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
 1. Use the drop-down menus under **OS** and **Architecture** to identify the properties of the Docker container that represents this module. 
 1. Specify any **Create options** that should be passed to the container. For more information, see [docker create][lnk-docker-create].
 1. Use the drop-down menu to select a **Restart policy**. Choose from the following options: 
