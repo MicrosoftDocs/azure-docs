@@ -75,7 +75,7 @@ For new or existing connection strings, select **...*** on the right of the **Va
 1. Selecting **Manually entered credentials** lets you specify the account name and key directly using information from the Azure portal. To copy the account key:
     a. Navigate to the storage account on the Azure portal and select **Manage Keys**.
     2. On the **Manage Keys Access** page, select the text of the primary access key and press Ctrl+C to copy.
-1. Select one of the connection options. **Specify custom endpoints** asks you to specify specific URLs for blobs, tables, and queues. Custom endpoints allow you to use [custom domains]((storage/blobs/storage-custom-domain-name.md)) and to control access more exactly. See [Configure Azure Storage Connection Strings](storage/common/storage-configure-connection-string.md).
+1. Select one of the connection options. **Specify custom endpoints** asks you to specify specific URLs for blobs, tables, and queues. Custom endpoints allow you to use [custom domains]((storage/blobs/storage-custom-domain-name.md)) and to control access more exactly. See [Configure Azure Storage Connection Strings](./storage/common/storage-configure-connection-string.md).
 1. Select **OK**, then **File > Save** to update the configuration with the new connection string.
 
 Again, when you publish your application to Azure, choose the service configuration that contains the Azure storage account for the connection string. After your application is published, verify that the application works as expected against the Azure storage services.

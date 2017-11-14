@@ -69,7 +69,7 @@ If you created a cloud service from Visual Studio using the **Add Connected Serv
 
 If you created a cloud service through the Azure portal, follow the same steps in [Create a storage account from Visual Studio](#create-a-storage-account-from-visual-studio) but select the existing account rather than creating a new one. Visual Studio then updates the configuration for you.
 
-To configure settings manually, use the property pages in Visual Studio for the applicable role in your cloud service project (right-click the role and select **Properties**). For more information, see [Configuring a connection string for a storage account](vs-azure-tools-multiple-services-project-configurations.md#configuring-a-connection-string-for-a-storage account).
+To configure settings manually, use the property pages in Visual Studio for the applicable role in your cloud service project (right-click the role and select **Properties**). For more information, see [Configuring a connection string to a storage account](vs-azure-tools-multiple-services-project-configurations.md#configuring-a-connection-string-to-a-storage-account).
 
 ### About access keys
 
