@@ -263,7 +263,7 @@ To prepare the Azure infrastructure, complete the following:
 
 * [Add Windows virtual machines to the domain][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* [Add registry entries on both cluster nodes of the SAP ASCS/SCS instance]().
+* [Add registry entries on both cluster nodes of the SAP ASCS/SCS instance][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
 * As you use Windows Server 2016, we recommend that you configure [Azure Cloud witness][deploy-cloud-witness].
 
