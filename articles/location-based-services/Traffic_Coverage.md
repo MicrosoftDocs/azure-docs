@@ -23,7 +23,7 @@ Azure Location Based Services (LBS) provides rich traffic information in the for
 |+Åland Islands      |✓         |✓         |
 |France     |✓         |✓         |
 |+Monaco     |✓         |✓         |
-|Germany     |✓         ✓         |
+|Germany     |✓         |✓         |
 |Greece     |✓         |✓         |
 |Hong Kong SAR     |✓         |✓         |
 |Hungary     |✓         |✓         |
