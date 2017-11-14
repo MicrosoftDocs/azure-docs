@@ -1,5 +1,5 @@
 ---
-title: Configure webhook notifications for existing problem management systems | Microsoft Docs
+title: Configure health notifications for existing problem management systems via webhook | Microsoft Docs
 description: Learn how to get personalized notifications about service health events to your existing problem management system.
 author: shawntabrizi
 manager: scotthit
@@ -18,7 +18,7 @@ ms.author: shawntabrizi
 
 ---
 
-# Configure webhook notifications for existing problem management systems
+# Configure health notifications for existing problem management systems via webhook
 
 This article shows you how to configure your Service Health alerts to send data through Webhooks to your existing notification system.
 
@@ -31,7 +31,7 @@ If you want to use a preconfigured integration, see how to:
 * [Configure alerts with PagerDuty](service-health-alert-webhook-pagerduty.md)
 * [Configure alerts with ServiceNow](service-health-alert-webhook-servicenow.md)
 
-## Configuring a custom service health alert using the webhook payload
+## Configuring a custom notification using the service health webhook payload
 If you want to set up your own custom webhook integration, you need to parse the JSON payload that is sent during Service Health notifications.
 
 Look [here to see an example](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) of what the `Service Health` webhook payload looks like.
@@ -99,8 +99,8 @@ This shows that there are problems with "Alerts & Metrics" in both Australia Eas
 
 
 ## Testing your webhook integration via an HTTP POST request
-
 1. Create the Service Health payload you want to send. You can find an example Service Health webhook payload at [Webhooks for Azure activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+
 2. Create an HTTP POST request as follows:
 
     ```
@@ -111,4 +111,10 @@ This shows that there are problems with "Alerts & Metrics" in both Australia Eas
     BODY        <Service Health payload>
     ```
 3. You should receive a `2XX - Successful` response.
+
 4. Go to [PagerDuty](https://www.pagerduty.com/) to confirm that your integration was set up successfully.
+
+## Next steps
+- Review the [activity log alert webhook schema](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Learn about [service health notifications](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Learn more about [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).

@@ -100,7 +100,7 @@ After you create an alert, it's visible in the **Alerts** section of **Monitor**
 * Disable or enable it, if you want to temporarily stop or resume receiving notifications for the alert.
 
 ## Next steps
-- Learn how to [Configure webhook notifications for existing problem management systems](../service-health/service-health-alert-webhook-guide.md)
+- Learn how to [configure webhook notifications for existing problem management systems](../service-health/service-health-alert-webhook-guide.md).
 - Learn about [service health notifications](monitoring-service-notifications.md).
 - Learn about [notification rate limiting](monitoring-alerts-rate-limiting.md).
 - Review the [activity log alert webhook schema](monitoring-activity-log-alerts-webhook.md).
