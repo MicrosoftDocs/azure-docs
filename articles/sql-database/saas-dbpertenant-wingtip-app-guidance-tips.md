@@ -18,22 +18,22 @@ ms.author: "genemi"
 # Guidance and tips for Azure SQL Database multi-tenant SaaS app example
 
 
-## Download and unblock the Wingtip SaaS scripts
+## Download and unblock the Wingtip Tickets SaaS Database per Tenant scripts
 
 Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the scripts from a zip file, ***follow the steps below to unblock the .zip file before extracting***. This ensures the scripts are allowed to run.
 
-1. Browse to [the Wingtip SaaS github repo](https://github.com/Microsoft/WingtipSaaS).
+1. Browse to [the Wingtip Tickets SaaS Database per Tenant GitHub repo](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
 2. Click **Clone or download**.
 3. Click **Download ZIP** and save the file.
-4. Right-click the **WingtipSaaS-master.zip** file, and select **Properties**.
+4. Right-click the **WingtipTicketsSaaS-DbPerTenant-master.zip** file, and select **Properties**.
 5. On the **General** tab, select **Unblock**.
 6. Click **OK**.
 7. Extract the files.
 
-Scripts are located in the *..\\WingtipSaaS-master\\Learning Modules* folder.
+Scripts are located in the *..\\Learning Modules* folder.
 
 
-## Working with the Wingtip SaaS PowerShell Scripts
+## Working with the Wingtip Tickets SaaS Database per Tenant PowerShell Scripts
 
 To get the most out of the sample you need to dive into the provided scripts. Use breakpoints and step through the scripts, examining the details of how the different SaaS patterns are implemented. To easily step through the provided scripts and modules for the best understanding, we recommend using the [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
 
@@ -69,10 +69,10 @@ Tips for exploring and stepping through PowerShell scripts:
 
 Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect and browse the application servers and databases.
 
-The deployment initially has two SQL Database servers to connect to - the *tenants1-&lt;User&gt;* server, and the *catalog-&lt;User&gt;* server. To ensure a successful demo connection, both servers have a [firewall rule](sql-database-firewall-configure.md) allowing all IPs through.
+The deployment initially has two SQL Database servers to connect to - the *tenants1-dpt-&lt;User&gt;* server, and the *catalog-dpt-&lt;User&gt;* server. To ensure a successful demo connection, both servers have a [firewall rule](sql-database-firewall-configure.md) allowing all IPs through.
 
 
-1. Open *SSMS* and connect to the *tenants1-&lt;User&gt;.database.windows.net* server.
+1. Open *SSMS* and connect to the *tenants1-dpt-&lt;User&gt;.database.windows.net* server.
 2. Click **Connect** > **Database Engine...**:
 
    ![catalog server](media/saas-dbpertenant-wingtip-app-guidance-tips/connect.png)
@@ -81,7 +81,7 @@ The deployment initially has two SQL Database servers to connect to - the *tenan
 
    ![connection](media/saas-dbpertenant-wingtip-app-guidance-tips/tenants1-connect.png)
 
-4. Repeat steps 2-3 and connect to the *catalog-&lt;User&gt;.database.windows.net* server.
+4. Repeat steps 2-3 and connect to the *catalog-dpt-&lt;User&gt;.database.windows.net* server.
 
 
 After successfully connecting you should see both servers. Your list of databases might be different, depending on the tenants you have provisioned.
@@ -92,5 +92,5 @@ After successfully connecting you should see both servers. Your list of database
 
 ## Next steps
 
-[Deploy the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
+[Deploy the Wingtip Tickets SaaS Database per Tenant application](saas-dbpertenant-get-started-deploy.md)
 
