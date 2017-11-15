@@ -1,5 +1,5 @@
 ---
-title: Create an Azure data factory using PowerShell | Microsoft Docs
+title: Copy data in Blob Storage using Azure Data Factory | Microsoft Docs
 description: Create an Azure data factory to copy data from one folder to another folder in an Azure Blob Storage to another location in the same Blob Storage.
 services: data-factory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 11/14/2017
 ms.author: jingwang
 
 ---
-# Create an Azure data factory and pipeline using PowerShell
+# Create an Azure data factory using PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version 2 - Preview](quickstart-create-data-factory-powershell.md)
