@@ -14,14 +14,14 @@ ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/12/2017
 ms.author: ddove
 
 ---
 # Building scalable cloud databases
 Scaling out databases can be easily accomplished using scalable tools and features for Azure SQL Database. In particular, you can use the **Elastic Database client library** to create and manage scaled-out databases. This feature lets you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases. [Elastic jobs](sql-database-elastic-jobs-powershell.md) can then be used to help ease management of these databases.
 
-To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+To install the library, go to NuGet at [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
 ## Documentation
 1. [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md)
@@ -51,22 +51,32 @@ Scaling out applications using *sharding* presents challenges for both the devel
 
 In general, customers using elastic database tools can expect to get full T-SQL functionality when submitting shard-local operations as opposed to cross-shard operations that have their own semantics.
 
+
+
 ## Next steps
-Try the [sample app](sql-database-elastic-scale-get-started.md) which demonstrates the client functions. 
 
-To install the library, go to [Elastic Database Client Library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+- [Elastic Database Client Library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) - to **install** the library by using NuGet.
 
-For instructions on using the split-merge tool, see the [split-merge tool overview](sql-database-elastic-scale-overview-split-and-merge.md).
+- [Get started with elastic database tools](sql-database-elastic-scale-get-started.md) - to try the **sample app** that demonstrates client functions.
 
-[Elastic database client library is now open sourced!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+- [Github, Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools) - the library is open source software.
+    - Elastic database tools client library allows ADO.NET developers to create applications that implement and use the pattern known as database sharding in Azure SQL Database.
 
-Use [Elastic queries](sql-database-elastic-query-overview.md).
+- [Elastic database client library is now open sourced!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) - a **blog post** about Elastic Database Client Library, dated 2015/09/09.
 
-The library is available as open source software on [GitHub](https://github.com/Azure/elastic-db-tools). 
+- [Azure SQL Database elastic query overview](sql-database-elastic-query-overview.md) - to use elastic queries.
+
+- [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md) - for instructions on using the **split-merge tool**.
+
+
+
+<!-- Additional resources H2 -->
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
