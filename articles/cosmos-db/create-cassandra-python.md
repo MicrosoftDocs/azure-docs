@@ -185,6 +185,8 @@ Now go back to the Azure portal to get your connection string information and co
 3. Verify the results as expected from the command line.
 
     Press CTRL + C to stop exection of the program and close the console window. 
+
+    ![View and verify the output](./media/create-cassandra-python/output.png)
     
     You can now open Data Explorer in the Azure portal to see query, modify, and work with this new data. 
 
