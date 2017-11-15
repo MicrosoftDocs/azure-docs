@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.frontapp.com/sso/saml/callback`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL which are explained later in tutorial or contact [Front Client support team](mailto:support@frontapp.com) to get these values. 
+	> These values are not real. Update these values with the actual Identifier and Reply URL which are explained later in tutorial or contact [Front Client support team](mailto:support@frontapp.com) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
