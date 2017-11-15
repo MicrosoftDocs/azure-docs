@@ -9,7 +9,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 11/15/2017
 ms.author: v-dotren
 
 ---
@@ -36,7 +36,7 @@ This article assumes familiarity with Docker container concepts and how to creat
 
 * A supported VM image. Containers are only supported in pools created with the Virtual Machine Configuration from images detailed in the following section, "Supported virtual machine images."
 
-* If you provide a custom image, your application must use Azure Active Directory (Azure AD) authentication in order to run container-based workloads. If you use an Azure Marketplace image, you don't need AAD authentication; shared key authentication will work. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+* If you provide a custom image, your application must use Azure Active Directory (Azure AD) authentication in order to run container-based workloads. If you use an Azure Marketplace image, you don't need Azure AD authentication; shared key authentication will work. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
 
 ## Supported virtual machine images
@@ -67,7 +67,7 @@ To access the Azure RDMA network, use VMs of the following sizes: A8, A9, H16r, 
 
 If you use a custom VM image to create the Batch pool, your client application must authenticate using Azure AD integrated authentication (shared key authentication does not work). Before running the application, make sure you register it in Azure AD to establish an identity for it and to specify its permissions to other applications.
 
-Also, when you use a custom VM image, you need to grant IAM access control to the application to access the VM image. In Azure Portal, open **All resources**, select the container image, and from the **Access control (IAM)** section of the image blade, and click **Add**. In the **Add permissions** blade, specify a **Role**, in **Assign access to**, select **Azure AD user, group, or application**, then in **Select** enter the application name.
+Also, when you use a custom VM image, you need to grant IAM access control to the application to access the VM image. In Azure portal, open **All resources**, select the container image, and from the **Access control (IAM)** section of the image blade, and click **Add**. In the **Add permissions** blade, specify a **Role**, in **Assign access to**, select **Azure AD user, group, or application**, then in **Select** enter the application name.
 
 In your application, pass an Azure AD authentication token when you create the Batch client using [BatchClient.Open](/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_), as described in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
@@ -76,14 +76,14 @@ In your application, pass an Azure AD authentication token when you create the B
 
 In your application code, provide a reference to the VM image to use in creating the compute nodes of the pool. You do this by creating an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) object. You can specify the image to use in one of the following ways:
 
-* If you are using a custom image, provide an ARM resource identifier for the virtual machine image. The image identifier has a path format as shown in the following example:
+* If you are using a custom image, provide an Azure Resource Manager resource identifier for the virtual machine image. The image identifier has a path format as shown in the following example:
 
   ```csharp
   // Provide a reference to a custom image using an image ID
   ImageReference imageReference = new ImageReference("/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.Compute/images/<imageName>");
   ```
 
-    To obtain this image ID from the Azure Portal, open **All resources**, select the custom image, and from the **Overview** section of the image blade, copy the path in **Resource ID**.
+    To obtain this image ID from the Azure portal, open **All resources**, select the custom image, and from the **Overview** section of the image blade, copy the path in **Resource ID**.
 
 * If you are using an [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) image, provide a group of parameters describing the image: the offer type, publisher, SKU, and version of the image, as listed in [List of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images):
 
