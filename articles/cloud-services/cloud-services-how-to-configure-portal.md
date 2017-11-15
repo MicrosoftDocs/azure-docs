@@ -68,7 +68,7 @@ Instead of using **Settings** > **Alert Rules**, you can click on one of the met
 From here you can customize the chart used with the tile, or add an alert rule.
 
 ## Reboot, reimage, or remote desktop
-You can set up remote desktop through the [Azure portal (setup remote desktop)](cloud-services-role-enable-remote-desktop-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), or through [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+You can set up remote desktop through the [Azure portal (setup remote desktop)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), or through [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
 To reboot, reimage, or remote into a Cloud Service, click on the cloud service instance.
 
