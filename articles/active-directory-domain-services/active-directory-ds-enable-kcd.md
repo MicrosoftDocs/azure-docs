@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 11/15/2017
 ms.author: maheshu
 
 ---
@@ -43,7 +43,7 @@ Resource-based KCD is configured using PowerShell. You use the Set-ADComputer or
 ### Configure resource-based KCD for a computer account on a managed domain
 Assume you have a web app running on the computer 'contoso100-webapp.contoso100.com'. It needs to access the resource (a web API running on 'contoso100-api.contoso100.com') in the context of domain users. Here's how you would set up resource-based KCD for this scenario.
 
-```
+```powershell
 $ImpersonatingAccount = Get-ADComputer -Identity contoso100-webapp.contoso100.com
 Set-ADComputer contoso100-api.contoso100.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
@@ -51,7 +51,7 @@ Set-ADComputer contoso100-api.contoso100.com -PrincipalsAllowedToDelegateToAccou
 ### Configure resource-based KCD for a user account on a managed domain
 Assume you have a web app running as a service account 'appsvc' and it needs to access the resource (a web API running as a service account - 'backendsvc') in the context of domain users. Here's how you would set up resource-based KCD for this scenario.
 
-```
+```powershell
 $ImpersonatingAccount = Get-ADUser -Identity appsvc
 Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
