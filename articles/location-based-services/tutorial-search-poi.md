@@ -20,7 +20,7 @@ ms.custom: mvc
 In the previous tutorial, you learned how to set up a device to connect to your Device Provisioning service. In this tutorial, you will learn how to use this service to provision your device to a single IoT hub, using **_enrollment lists_**. This tutorial shows you how to:
 
 > [!div class="checklist"]
-> * Create an account and authenticate to Azure LBS
+> * Create an account with Location Based Services
 > * Create new website or mobile app
 > * Embed the Azure Map Control
 > * Use Search Service to find nearby charging station with pushpins
@@ -30,8 +30,8 @@ In the previous tutorial, you learned how to set up a device to connect to your 
 <!--- Before you proceed, make sure to configure your device and its *Hardware Security Module* as discussed in the tutorial [Set up a device to provision using Azure IoT Hub Device Provisioning Service](./tutorial-set-up-device.md).
 -->
 
-<a id="enrolldevice"></a>
-## Enroll the device
+<a id="createaccount"></a>
+## Create an account with Location Based Services
 
 This step involves adding the device's unique security artifacts to the Device Provisioning Service. These security artifacts are as follows:
 

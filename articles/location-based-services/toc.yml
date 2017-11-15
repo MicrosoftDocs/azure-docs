@@ -1,9 +1,9 @@
 - name: Azure Location Based Services Documentation 
-  href: index.yml
+#  href: index.yml
 - name: Overview
   items:
-  - name: About Azure Location Based Services
-    href: about-lbs.md
+#  - name: About Azure Location Based Services
+#    href: about-lbs.md
 - name: Quickstarts
   expanded: true
   items:
@@ -15,8 +15,8 @@
     href: tutorial-search-poi.md
   - name: 2 - Route to point of interest
     href: tutorial-poi-route.md
-  - name: 3 - Routes based on mode of travel
-    href: tutorial-prioritized-routes.md
+#  - name: 3 - Routes based on mode of travel
+    #href: tutorial-prioritized-routes.md
 - name: Concepts
   items:
 - name: How-to guides

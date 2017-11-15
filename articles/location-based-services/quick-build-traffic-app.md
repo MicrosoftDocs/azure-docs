@@ -65,7 +65,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 3. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
 4. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
-<!--- 
+ 
 5. Under the **Add enrollment list entry**, enter the following information:
     - Select **TPM** as the identity attestation *Mechanism*.
     - Enter the *Registration ID* and *Endorsement key* for your TPM device. 
@@ -73,11 +73,10 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     - Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
     - Update the **Initial device twin state** with the desired initial configuration for the device.
     - Once complete, click the **Save** button. 
-
-    ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)  
-
+    <!---
+    ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)   -->
    On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
--->
+
 
 <a id="firstbootsequence"></a>
 ## Simulate first boot sequence for the device
