@@ -30,15 +30,9 @@ Solution Templates are designed to accelerate the process of building an
 E2E demo on top of Cortana Intelligence Suite. A deployed template provisions your subscription with necessary Cortana Intelligence components
 and build the relationships between them. It also seeds the data pipeline with sample data generated from a data generator application,  which you download and install on your local machine after you deploy the solution template. The data generated from the generator hydrates the data pipeline and start generating machine learning predictions, which can then be visualized on the Power BI dashboard. The deployment process guides you through several steps to set up your solution credentials. Make sure you record credentials such as solution name, username, and password you provide during the deployment.  
 
-The goal of this document is to explain the reference architecture and
-different components provisioned in your subscription as part of this
-solution template. The document also talks about how to replace the
-sample data with real data of your own to be able to see insights and
-predictions from your own data. This document also discusses the
-parts of the Solution Template to modify if you
-want to customize the solution with your own data. Instructions on how
-to build the Power BI dashboard for this Solution Template are provided
-at the end.
+The goal of this document is to explain the reference architecture, and components provisioned in your subscription as part of this
+solution template, shows how to replace the
+sample data with your own data, and how to modify the Solution Template.  
 
 > [!TIP]
 > You can download and print a [PDF version of this document](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
@@ -48,14 +42,14 @@ at the end.
 ## **Overview**
 ![Predictive maintenance architecture](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
-When the solution is deployed, various Azure services within Cortana
-Analytics Suite are activated (Event Hub, Stream Analytics,
+Deploying the solution activates Azure services within the Cortana
+Analytics Suite (Event Hub, Stream Analytics,
 HDInsight, Data Factory, Machine Learning, *etc.*). The architecture
-diagram shows, at a high level, how the Predictive Maintenance for
-Aerospace Solution Template is constructed from end to end. You are able to investigate these services in the Azure portal by clicking on them on the solution template diagram created with the deployment of the solution with the exception of HDInsight as this service is provisioned on demand when the related pipeline activities are required to run and deleted afterwards.
-You can download a [full-size version of the diagram](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+diagram shows how the Predictive Maintenance for
+Aerospace Solution Template is constructed from end to end. You can investigate these services in the Azure portal by clicking on them on the solution template diagram created with the solution deployment (With the exception of HDInsight, which is provisioned on demand when the related pipeline activities are required to run and deleted afterwards).
+Download a [full-size version of the diagram](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
-The following sections describe each piece.
+The following sections describe the solution parts.
 
 ## **Data source and ingestion**
 ### Synthetic data source
