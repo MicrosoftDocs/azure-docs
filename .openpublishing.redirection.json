@@ -3,7 +3,7 @@
          {
 	    "source_path": "articles/cognitive-services/Video/Home.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
-	    "redirect_document_id": false 
+	    "redirect_document_id": false
 	},
     {
         "source_path": "articles/active-directory/active-directory-manage-o365-subscription.md",
@@ -18,22 +18,22 @@
     {
 	    "source_path": "articles/cognitive-services/Video/Glossary.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
-	    "redirect_document_id": false 
+	    "redirect_document_id": false
 	},
 	{
 	    "source_path": "articles/cognitive-services/Video/GetStarted.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
-	    "redirect_document_id": false 
+	    "redirect_document_id": false
 	},
 	{
 	    "source_path": "articles/cognitive-services/Video/How-To/HowtoAnalyzeVideo_Video.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
-	    "redirect_document_id": false 
+	    "redirect_document_id": false
 	},
 	{
 	    "source_path": "articles/cognitive-services/Video/How-To/HowtoCallVideoAPIs.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
-	    "redirect_document_id": false 
+	    "redirect_document_id": false
 	},
 	{
         "source_path": "articles/active-directory/cloudappdiscovery-overview.md",
@@ -850,6 +850,12 @@
             "redirect_url": "/azure/marketplace/cloud-partner-portal/cloud-partner-portal-update-existing-offer",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md",
+            "redirect_url": "/azure/marketplace/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal",
+            "redirect_document_id": false
+        },
+
         {
             "source_path": "articles/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md",
             "redirect_url": "/azure/marketplace/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal",
@@ -15123,7 +15129,7 @@
              "redirect_url": "/azure/active-directory/active-directory-application-proxy-connectors-azure-portal",
              "redirect_document_id": false
         },
-        {  
+        {
           "source_path": "articles/billing/billing-troubleshoot-azure-sign-up-issues.md",
           "redirect_url": "https://support.microsoft.com/help/4042959",
           "redirect_document_id": false
@@ -15142,8 +15148,8 @@
             "source_path": "articles/time-series-insights/time-series-insights-add-event-source.md",
             "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
             "redirect_document_id": true
-          },
-	 {
+        },
+	      {
           "source_path": "articles/security-center/security-center-powerbi.md",
           "redirect_url": "https://docs.microsoft.com/en-us/azure/security-center",
           "redirect_document_id": false
@@ -15151,6 +15157,66 @@
         {
              "source_path": "articles/service-fabric/service-fabric-set-up-continuous-integration.md",
              "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-csp-incentive.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-data-service-creation-odata-mapping-examples.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-data-service-creation-odata-mapping-nodes.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-data-service-creation-odata-mapping.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-data-service-creation-prerequisites.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-data-service-creation.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-data-service-test-in-staging.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-get-publisher-support.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-report-payout.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-report-seller-insights-user-guide.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-report-seller-insights.md",
+             "redirect_url": "https://cloudpartner.azure.com",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/marketplace-publishing/marketplace-publishing-support-common-issues.md",
+             "redirect_url": "https://cloudpartner.azure.com",
              "redirect_document_id": false
         }
     ]
