@@ -381,6 +381,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-manager-policy.md",
+            "redirect_url": "/azure/azure-policy/azure-policy-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-tags.md",
             "redirect_url": "/azure/azure-policy/scripts/billing-tags-policy-init",
             "redirect_document_id": false
@@ -6520,16 +6525,6 @@
             "redirect_url": "text-analytics/quick-start",
             "redirect_document_id": false
         },
-        {
-            "source_path": "articles/cognitive-services/Bing-News-Search/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-News-Search/search-the-web",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/Bing-Video-Search/index.md",
-            "redirect_url": "/azure/cognitive-services/Bing-Video-Search/search-the-web",
-            "redirect_document_id": false
-        },
 		{
             "source_path": "articles/cognitive-services/Speech/index.md",
             "redirect_url": "/azure/cognitive-services/Speech/Home",
@@ -7282,6 +7277,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-vso-load-test.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-api-management-quick-start.md",
             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-api-management",
             "redirect_document_id": false
@@ -7393,12 +7393,12 @@
         },
 		{
             "source_path": "articles/site-recovery/azure-to-azure-walkthrough-network.md",
-            "redirect_url": "azure-to-azure-tutorial-enable-replication",
+            "redirect_url": "site-recovery-azure-to-azure-networking-guidance",
             "redirect_document_id": false
         },
 		{
             "source_path": "articles/site-recovery/azure-to-azure-walkthrough-overview.md",
-            "redirect_url": "site-recovery-azure-to-azure-networking-guidance",
+            "redirect_url": "azure-to-azure-quickstart",
             "redirect_document_id": false
         },
 		{
@@ -15138,7 +15138,11 @@
           "redirect_url": "https://support.microsoft.com/help/4042960",
           "redirect_document_id": false
         },
-
+        {
+            "source_path": "articles/time-series-insights/time-series-insights-add-event-source.md",
+            "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
+            "redirect_document_id": true
+          },
 	 {
           "source_path": "articles/security-center/security-center-powerbi.md",
           "redirect_url": "https://docs.microsoft.com/en-us/azure/security-center",
