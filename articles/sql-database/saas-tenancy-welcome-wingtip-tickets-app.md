@@ -75,8 +75,6 @@ This model uses a single-tenant application. Therefore, this model needs only on
 
 You might use this model when you sell instances of your app to many different clients, for each client to run on its own. The client is then the only tenant. While the database stores data for only one client, the database stores data for many customers of the client.
 
-- [Introduction to a SQL Database multi-tenant SaaS app example][saas-dbpertenant-wingtip-app-overview-15d] - has more information about this model.
-
 #### Database per tenant
 
 ![Database per tenant model][database-per-tenant-model-35d]
