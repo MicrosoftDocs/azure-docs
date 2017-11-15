@@ -20,7 +20,7 @@ ms.author: alkohli
 
 > [!IMPORTANT]
 > - Migration is currently an assisted operation. If you intend to migrate data from your StorSimple 5000-7000 series device to an 8000 series device, you need to schedule migration with Microsoft Support. Microsoft Support will then enable your subscription for migration. For more information, see how to [Open a Support ticket](storsimple-8000-contact-microsoft-support.md).
-> - After you file the service request, it may take days to weeks to actually initiate the migration.
+> - After you file the service request, it may take couple of weeks to execute the migration plan and actually start the migration.
 > - Before you contact Microsoft Support, be sure to reivew and complete the [Migration prerequisites](#migration-prerequisites) indicated in the article.
 
 ## Overview
