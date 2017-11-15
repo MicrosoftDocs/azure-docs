@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 11/14/2017
 ms.author: dastrock
 ---
 
@@ -205,6 +205,22 @@ If you decide that Azure AD B2C is the proper path forward for your applications
 - [Azure AD B2C Custom Policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Azure AD B2C Pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory-b2c/)
 
+#### Migrating to Ping Identity or Auth0
+
+In some cases, you may find that neither Azure AD nor Azure AD B2C is sufficient to replace ACS in your web applications without making major code changes.  Some common examples might include:
+
+- web applications using WIF and/or WS-Federation for sign-in with social identity providers such as Google or Facebook.
+- web applications performing direct federation to an enterprise IDP over the Ws-Federation protocol.
+- web applications that require the access token issued by a social identity provider (such as Google or Facebook) as a claim in the tokens issued by ACS.
+- web applications with complex token tranformation rules that Azure AD or Azure AD B2C cannot reproduce.
+
+In these cases, you may want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options, as each provides capabilities similar to ACS:
+
+- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of ACS](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of ACS vs. Auth0.
+- Enterprise customers should consider [Ping Identity](https://www.pingidentity.com) as well. Please reach out to us and we can connect you with a representative from Ping who is prepared to help identify potential solutions.
+
+Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customers have a path forward for their apps & services that minimizes the amount of work required to move off of ACS.
+
 
 <!--
 
@@ -227,7 +243,11 @@ For web services secured with tokens issued by ACS, ACS provided the following f
 - Support for the following token formats: JSON web token (JWT), SAML 1.1, SAML 2.0, and Simple web token (SWT).
 - Simple token transformation rules
 
-Service identities in ACS are typically used for implementing server-to-server (S2S) like authentication.  Our recommendation for this type of authentication flow is to migrate to [**Azure Active Directory**](https://azure.microsoft.com/develop/identity/signin/) (Azure AD). Azure AD is the cloud based identity provider for Microsoft work & school accounts - it is the identity provider for Office 365, Azure, and much more. But it can also be used to server to server authentication using Azure AD's implementation of the OAuth client credentials grant.  The following table compares the capabilities of ACS in server to server authentication with those available in Azure AD.
+Service identities in ACS are typically used for implementing server-to-server (S2S) like authentication.  
+
+#### Migrating to Azure Active Directory
+
+Our recommendation for this type of authentication flow is to migrate to [**Azure Active Directory**](https://azure.microsoft.com/develop/identity/signin/) (Azure AD). Azure AD is the cloud based identity provider for Microsoft work & school accounts - it is the identity provider for Office 365, Azure, and much more. But it can also be used to server to server authentication using Azure AD's implementation of the OAuth client credentials grant.  The following table compares the capabilities of ACS in server to server authentication with those available in Azure AD.
 
 | Capability | ACS Support | Azure AD Support |
 | ---------- | ----------- | ---------------- |
@@ -245,7 +265,20 @@ For guidance on implementing server-to-server scenarios, please refer to the fol
 - [Daemon code sample using simple password client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Daemon code sample using certificate client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
-<!-- TODO: Should we just point to Auth0? Auth0 can do all of this -->
+#### Migrating to Ping Identity or Auth0
+
+In some cases, you may find that neither Azure AD's client credentials OAuth grant implementation is not sufficient to replace ACS in your architecture without major code changes.  Some common examples might include:
+
+- server-to-server authentication using token formats other than JWTs.
+- server-to-server authentication using an input token provided by an external identity provider.
+- server-to-server authentication with token tranformation rules that Azure AD cannot reproduce.
+
+In these cases, you may want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options, as each provides capabilities similar to ACS:
+
+- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of ACS](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of ACS vs. Auth0.
+- Enterprise customers should consider [Ping Identity](https://www.pingidentity.com) as well. Please reach out to us and we can connect you with a representative from Ping who is prepared to help identify potential solutions.
+
+Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customers have a path forward for their apps & services that minimizes the amount of work required to move off of ACS.
 
 ## Questions, Concerns, & Feedback
 
