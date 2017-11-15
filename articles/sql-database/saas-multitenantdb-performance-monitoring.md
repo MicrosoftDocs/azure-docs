@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 11/14/2017
 ms.author: sstein
 
 ---
@@ -52,11 +52,11 @@ Managing database performance consists of compiling and analyzing performance da
 
 The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. For SQL Database, monitoring and alerting is available on databases. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not very convenient when working with many resources.
 
-For high-volume scenarios where you're working with many resources, [Log Analytics (OMS)](https://azure.microsoft.com/en-us/services/log-analytics/) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
+For high-volume scenarios where you're working with many resources, [Log Analytics (OMS)](https://azure.microsoft.com/services/log-analytics/) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
 
 ## Get the Wingtip Tickets SaaS Multi-tenant Database application source code and scripts
 
-The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) github repo. Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts (*Tutorial link to come*). <!-- (saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) github repo. <!--Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts(saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
 
 ## Provision additional tenants
 
@@ -174,7 +174,7 @@ This exercise simulates the effect of Salix Salsa experiencing a high load when 
 
 Go to portal and navigate to **salixsalsa** > **Overview** to view the monitoring charts. 
 
-## Other Performance Management Patterns
+## Other performance management patterns
 
 **Tenant self-service scaling**
 
@@ -196,6 +196,5 @@ In this tutorial you learn how to:
 
 ## Additional resources
 
-* Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
-<!--(saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
+<!--* [Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 * [Azure automation](../automation/automation-intro.md)

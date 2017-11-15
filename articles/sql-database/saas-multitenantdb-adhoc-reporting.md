@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: billgib; sstein; AyoOlubeko
+ms.author: AyoOlubeko
 
 ---
 # Run ad hoc analytics queries across multiple Azure SQL databases
