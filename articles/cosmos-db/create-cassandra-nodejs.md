@@ -86,7 +86,7 @@ This step is optional. If you're interested in learning how the database resourc
 
     ```nodejs
     function createKeyspace(next) {
-    	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
+    	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
     	client.execute(query, next);
     	console.log("created keyspace");    
   }
@@ -106,9 +106,9 @@ This step is optional. If you're interested in learning how the database resourc
 
     ```nodejs
     ...
-    {
+       {
           query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
-          params: [5, 'SubbannaG', 'Belgaum', '2017-10-3136']
+          params: [5, 'IvanaV', 'Belgaum', '2017-10-3136']
         }
     ];
     client.batch(queries, { prepare: true}, next);
