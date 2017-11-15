@@ -32,7 +32,7 @@ Every Azure AD directory comes with an initial domain name in the form of *domai
 3. Select **Add custom domain**.
    
    ![Select the Add command](./media/add-custom-domain/add-custom-domain.png)
-5. On **Domain name**, enter the name of your custom domain in the box, such as 'contoso.com', and then select **Add custom domain**. Be sure to include the .com, .net, or other top-level extension.
+5. On **Custom domain names**, enter the name of your custom domain in the box, such as 'contoso.com', and then select **Add Domain**. Be sure to include the .com, .net, or other top-level extension.
 6. On ***domainname*** (that is, your new domain name is the title), gather the DNS entry information to use later to verify the custom domain name in Azure AD.
    
    ![get DNS entry information](./media/active-directory-domains-add-azure-portal/get-dns-info.png)
