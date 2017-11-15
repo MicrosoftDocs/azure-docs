@@ -19,7 +19,7 @@ ms.author: barclayn
 ---
 # Manage Key Vault using CLI
 
-Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure. Azure Key vault is used to store and manage cryptographic keys and secrets. This article walks you through the process of using Azure Cross-Platform Command-Line Interface to create a vault. You will then go through the process of interacting with the vault to perform various common actions. 
+Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure. Azure Key vault is used to store and manage cryptographic keys and secrets. This article walks you through the process of using Azure Cross-Platform Command-Line Interface to create a vault. You will then interact with the vault to perform various common operations. 
 
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
