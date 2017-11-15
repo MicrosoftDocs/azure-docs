@@ -58,6 +58,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
  
  * Branding change from Azure DocumentDB to Azure Cosmos DB in the API Reference documentation, metadata information in assemblies, and the NuGet package. 
  * Expose diagnostic information and latency from the response of requests sent with direct connectivity mode. The property names are RequestDiagnosticsString and RequestLatency on ResourceResponse class.
+ * This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
  
 ### <a name="1.6.0"/>1.6.0
 
