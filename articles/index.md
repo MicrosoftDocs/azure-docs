@@ -4087,10 +4087,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="https://www.visualstudio.com/vs/python">Python Tools</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Get Started with Visual Studio</a>
+                                                    <a href="https://docs.microsoft.com/visualstudio/python/python-in-visual-studio">Get Started with Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Get Started with Visual Studio Code</a>
+                                                    <a href="https://code.visualstudio.com/docs/languages/python">Get Started with Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>
