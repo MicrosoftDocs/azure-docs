@@ -53,26 +53,9 @@ Individual enrollments may use either X.509 certificates or SAS tokens (in a rea
     
     6. Once the action is completed, you will see your entry removed from the list of device enrollments.  
 
-    
-
-## Blacklist specific devices in an enrollment group
-
-The Device Provisioning Service first looks for an individual enrollment matching a device's credentials before searching enrollment groups. The provisioning service stops searching when it finds the first match. If the service finds a disabled individual enrollment for the device, it prevents the device from connecting, even if an enabled enrollment group for the device's signing certificate exists. To blacklist an individual device in an enrollment group, follow these steps:
-
-1. Log in to the Azure portal and click **All resources** from the left hand menu.
-2. From the list of resources, click the Device Provisioning Service that contains the enrollment group for the device you want to blacklist.
-3. In your provisioning service, click **Manage enrollments**, then select **Individual Enrollments** tab.
-4. Click the **Add** button at the top. 
-5. Select `**X.509** as the security mechanism for the device and upload the signed certificate used by the device.
-6. Enter the **IoT Hub device ID** for the device. (This device ID should match the device ID used for the device in the enrollment group.)
-7. To disable the enrollment entry, select **Disable** on the **Enable entry** switch. 
-8. Click **Save**. On successful creation of your enrollment, you should see your device appear under the **Individual Enrollments** tab. 
-
-    ![Disable individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
-
 ## Blacklist a signing certificate (enrollment group)
 
-Using signing certificates to produce leaf (device) certificates is an excellent way to scale production and simplify device provisioning. An enrollment group is an entry for devices that share a common attestation mechanism of X.509 certificates signed by the same root certificate authority (CA), as well as the same initial configuration. To blacklist a signing certificate, you can either disable or delete its enrollment group:
+Using signing certificates to produce leaf (device) certificates is an excellent way to scale production and to simplify device provisioning. An enrollment group is an entry for devices that share a common attestation mechanism of X.509 certificates signed by the same root certificate authority (CA). The enrollment group entry contains the signing certificate as well as any initialization values, such as twin state or IoT hub connection, shared by devices configured with leaf certificates. To blacklist a signing certificate, you can either disable or delete its enrollment group:
 
 - To temporarily blacklist the signing certificate, you can disable its enrollment group. 
 
@@ -97,5 +80,22 @@ Using signing certificates to produce leaf (device) certificates is an excellent
         ![Delete enrollment group entry in the portal](./media/how-to-revoke-device-access-portal/delete-enrollment-group.png)
 
     6. Once the action is completed, you will see your entry removed from the list of enrollment groups.  
+
+## Blacklist specific devices in an enrollment group
+
+The Device Provisioning Service first looks for an individual enrollment matching a device's credentials before searching enrollment groups. The provisioning service stops searching when it finds the first match. If the service finds a disabled individual enrollment for the device, it prevents the device from connecting, even if an enabled enrollment group for the device's signing certificate exists. To blacklist an individual device in an enrollment group, follow these steps:
+
+1. Log in to the Azure portal and click **All resources** from the left hand menu.
+2. From the list of resources, click the Device Provisioning Service that contains the enrollment group for the device you want to blacklist.
+3. In your provisioning service, click **Manage enrollments**, then select **Individual Enrollments** tab.
+4. Click the **Add** button at the top. 
+5. Select `**X.509** as the security mechanism for the device and upload the signed leaf certificate used by the device.
+6. Enter the **IoT Hub device ID** for the device. (This device ID should match the device ID used for the device in the enrollment group.)
+7. To disable the enrollment entry, select **Disable** on the **Enable entry** switch. 
+8. Click **Save**. On successful creation of your enrollment, you should see your device appear under the **Individual Enrollments** tab. 
+
+    ![Disable individual enrollment entry in the portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+
+
 
 
