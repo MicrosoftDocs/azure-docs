@@ -2,7 +2,7 @@
 title: Introduction to the Azure Cosmos DB Table API | Microsoft Docs
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of key-value data with low latency by using the popular OSS MongoDB APIs.
 services: cosmos-db
-author: bhanupr
+author: mimig
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.author: arramac
+ms.author: mimig1
 
 ---
 # Introduction to Azure Cosmos DB Table API
@@ -52,6 +52,12 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 ## Get started
 
 Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com). Then get started with our [Quick Start for Table API by using .NET](create-table-dotnet.md). 
+
+## Migrating from Table API preview
+
+With the GA release of the Table API it is time to migrate both clients and tables to the GA Table API. For more information, please see Migrate from Table API preview to Table API 1.0.0.
+
+If you are using the [WindowsAzure.Storage-PremiumTable Nuget package](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable) from the Table API preview period, and want to move to the generally available [Microsoft.Azure.CosmosDB.Table NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), you need to migrate your data. For more information, see [Migrate from Table API preview to Table API 1.0.0]().
 
 ## Next steps
 
