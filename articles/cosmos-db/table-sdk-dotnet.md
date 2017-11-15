@@ -37,10 +37,7 @@ ms.author: mimig
 ### <a name="1.0.0"/>1.0.0
 * General availability release
 
-### <a name="0.1.0-preview"/>0.1.0-preview
-* Update to initial preview release
-
-### <a name="0.0.1-preview"/>0.0.1-preview
+### <a name="0.1.0-preview"/>0.9.0-preview
 * Initial preview release
 
 ## Release and Retirement dates
@@ -54,8 +51,7 @@ Any request to Azure Cosmos DB using a retired SDK will be rejected by the servi
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |November 15, 2017|--- |
-| [0.1.0-preview](#0.1.0-preview) |May 10, 2017 |--- |
-| [0.0.1-preview](#0.0.1-preview) |May 09, 2017 |--- |
+| [0.9.0-preview](#0.1.0-preview) |November 11, 2017 |--- |
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
