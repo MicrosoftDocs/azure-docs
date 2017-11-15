@@ -1,5 +1,5 @@
 ---
-title: Scalability and performance targets for VM Disks on Windows - Microsoft Azure | Microsoft Docs 
+title: Scalability and performance targets for VM disks on Windows - Microsoft Azure | Microsoft Docs 
 description: Learn about scalability and performance targets for virtual machine disks attached to VMs running Windows.
 services: virtual-machines 
 author: tamram
@@ -11,7 +11,7 @@ ms.service: virtual-machines
 ms.tgt_pltfrm: windows
 ---
 
-# Scalability and performance targets for VM Disks on Linux
+# Scalability and performance targets for VM disks on Windows
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
@@ -26,4 +26,6 @@ See [Windows VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvi
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
+## See also
 
+[Azure subscription and service limits, quotas, and constraints](../../../azure-subscription-service-limits.md)
