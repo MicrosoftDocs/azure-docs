@@ -125,7 +125,7 @@
       href: ps-template.md
     - name: Connect to a VM
       href: connect-logon.md
-    - name: Use AHUB licensing
+    - name: Use Azure Hybrid Benefit license
       href: hybrid-use-benefit-licensing.md
     - name: Use Multitenant Hosting Rights for Windows 10
       href: windows-desktop-multitenant-hosting-deployment.md
@@ -178,6 +178,8 @@
       href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
+    - name: Enable nested virtualization
+      href: nested-virtualization.md
   - name: Use Images
     items:
     - name: Find and use images

@@ -1,5 +1,5 @@
 ---
-title: Bash in Azure Cloud Shell (Preview) features | Microsoft Docs
+title: Bash in Azure Cloud Shell features | Microsoft Docs
 description: Overview of features of Bash in Azure Cloud Shell
 services: Azure
 documentationcenter: ''
