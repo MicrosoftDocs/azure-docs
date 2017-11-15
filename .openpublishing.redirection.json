@@ -15147,11 +15147,16 @@
             "source_path": "articles/time-series-insights/time-series-insights-add-event-source.md",
             "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
             "redirect_document_id": true
-          },
-	 {
+        },
+        {
           "source_path": "articles/security-center/security-center-powerbi.md",
           "redirect_url": "https://docs.microsoft.com/en-us/azure/security-center",
           "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create.md",
+            "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create-cli",
+            "redirect_document_id": false
         },
         {
              "source_path": "articles/service-fabric/service-fabric-set-up-continuous-integration.md",
