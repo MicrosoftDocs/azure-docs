@@ -28,7 +28,7 @@ Kerberos delegation enables an account to impersonate another security principal
 
 Kerberos constrained delegation (KCD) restricts the services/resources to which the specified server can act on the behalf of a user. Traditional KCD requires domain administrator privileges to configure a domain account for a service and it restricts the account to a single domain.
 
-Traditional KCD also has a few issues associated with it. In earlier operating systems where the domain administrator configured the service, the service administrator had no useful way to know which front-end services delegated to the resource services they owned. And any front-end service that could delegate to a resource service represented a potential attack point. If a server that hosted a front-end service was compromised, and it was configured to delegate to resource services, the resource services could also be compromised.
+Traditional KCD also has a few issues associated with it. In earlier operating systems, if the domain administrator configured account based KCD for the service, the service administrator had no useful way to know which front-end services delegated to the resource services they owned. And any front-end service that could delegate to a resource service represented a potential attack point. If a server that hosted a front-end service was compromised, and it was configured to delegate to resource services, the resource services could also be compromised.
 
 > [!NOTE]
 > On an Azure AD Domain Services managed domain, you do not have domain administrator privileges. Therefore, **traditional KCD cannot be configured on a managed domain**. Use resource-based KCD as described in this article. This mechanism is also more secure.
@@ -36,7 +36,7 @@ Traditional KCD also has a few issues associated with it. In earlier operating s
 >
 
 ## Resource-based kerberos constrained delegation
-In Windows Server 2012 R2 and Windows Server 2012, the ability to configure constrained delegation for the service has been transferred from the domain administrator to the service administrator. In this way, the back-end service administrator can allow or deny front-end services. This model is known as **resource-based kerberos constrained delegation**.
+From Windows Server 2012 onwards, service administrators gain the ability to configure constrained delegation for their service. In this model, the back-end service administrator can allow or deny specific front-end services from using KCD. This model is known as **resource-based kerberos constrained delegation**.
 
 Resource-based KCD is configured using PowerShell. You use the Set-ADComputer or Set-ADUser cmdlets, depending on whether the impersonating account is a computer account or a user account/service account.
 
