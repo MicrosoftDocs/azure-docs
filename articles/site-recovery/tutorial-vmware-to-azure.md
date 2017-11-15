@@ -100,10 +100,11 @@ setup fails.
 
 Make sure that the configuration server can access these URLs:
 
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
     - Any IP address-based firewall rules should allow communication to Azure.
-    - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
+
+- Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
     - Allow IP address ranges for the Azure region of your subscription, and for West US (used for access control and identity management).
 
 Any IP address-based firewall rules should allow communication to [Azure Datacenter IP
