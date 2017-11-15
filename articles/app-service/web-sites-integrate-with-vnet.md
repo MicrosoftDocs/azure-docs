@@ -36,7 +36,7 @@ The VNet Integration feature:
 * requires a Standard, Premium, or Isolated pricing plan 
 * works with Classic or Resource Manager VNet 
 * supports TCP and UDP
-* works with Web, Mobile, and API apps
+* works with Web, Mobile, API apps and Function apps
 * enables an app to connect to only 1 VNet at a time
 * enables up to five VNets to be integrated with in an App Service Plan 
 * allows the same VNet to be used by multiple apps in an App Service Plan
