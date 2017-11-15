@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/15/2017
 ms.author: anandy
 
 ---    
@@ -22,6 +22,9 @@ ms.author: anandy
 
 ## Overview
 This article describes how you can use Azure AD Connect to update the SSL certificate for an Active Directory Federation Services (AD FS) farm. You can use the Azure AD Connect tool to easily update the SSL certificate for the AD FS farm even if the user sign-in method selected is not AD FS.
+
+>[!NOTE]
+>To use the feature without selecting user sign-in method as AD FS upgrade to version 1.1.553.0 or higher
 
 You can perform the whole operation of updating SSL certificate for the AD FS farm across all federation and Web Application Proxy (WAP) servers in three simple steps:
 
