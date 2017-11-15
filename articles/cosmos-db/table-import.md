@@ -30,7 +30,7 @@ This tutorial covers the following tasks:
 
 ## Data Migration tool
 
-The command line Azure Cosmos DB Data Migration tool (dt.exe) can be used to import your existing Azure Table storage data to a Table API GA account, or migrate data from a Table API (preview) account into a Table API GA account. 
+The command line Azure Cosmos DB Data Migration tool (dt.exe) can be used to import your existing Azure Table storage data to a Table API GA account, or migrate data from a Table API (preview) account into a Table API GA account. Other sources are not currently supported.
 
 To perform a migration of table data, complete the following tasks:
 
@@ -52,15 +52,15 @@ Options for the command are:
 
 Use the following source options when defining Azure Table Storage or Table API preview as the source of the migration.
 
-    AzureTable: Reads data from Azure Table storage
+    /s:AzureTable: Reads data from Azure Table storage
     /s.ConnectionString: Connection string for the table endpoint. This can be retrieved from the Azure portal
     /s.LocationMode: Optional, default is PrimaryOnly. Specifies which location mode to use when connecting to Azure Table storage: PrimaryOnly, PrimaryThenSecondary, SecondaryOnly, SecondaryThenPrimary
     /s.Table: Name of the Azure Table
-    /s.InternalFields: Optional, default All. Specifies which internal Azure Table fields should be preserve in the output: None, RowKey, All
+    /s.InternalFields: Set to All for table migration as RowKey and PartitionKey are required for import.
     /s.Filter: Optional. Filter string to apply
     /s.Projection: Optional. List of columns to select
 
-To retreive the source connection string when importing from Azure Table storage, open the Azure portal and click **Storage accounts** > **Account** > **Access keys**, and then use the copy button to copy the **Connection string**.
+To retrieve the source connection string when importing from Azure Table storage, open the Azure portal and click **Storage accounts** > **Account** > **Access keys**, and then use the copy button to copy the **Connection string**.
 
 ![Screenshot of HBase source options](./media/table-import/storage-table-access-key.png)
 
@@ -76,7 +76,7 @@ To retrieve the source connection string when importing from an Azure Cosmos DB 
 
 Use the following target options when defining Azure Cosmos DB Table API as the target of the migration.
 
-    TableAPIBulk: Uploads data into Azure CosmosDB Table in batches
+    /t:TableAPIBulk: Uploads data into Azure CosmosDB Table in batches
     /t.ConnectionString: Connection string for the table endpoint
     /t.TableName: Specifies the name of the table to write to
     /t.Overwrite: Optional, default is false. Specifies if existing values should be overwritten
@@ -90,7 +90,7 @@ Use the following target options when defining Azure Cosmos DB Table API as the 
 Here is a command line sample showing how to import from Azure Table storage to Table API:
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey==<Account Key>;EndpointSuffix=core.windows.net/s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.windows.net:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey==<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
 ### Sample command: Source is Azure Cosmos DB Table API (preview)
@@ -98,7 +98,7 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 Here is a command line sample to import from Table API preview to Table API GA:
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:<Table name> /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.windows.net:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 
 ## AzCopy command
