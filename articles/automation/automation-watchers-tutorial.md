@@ -50,7 +50,7 @@ To complete this tutorial, the following are required.
 ![List variables from UI](media/automation-watchers-tutorial/WatcherVariableList.png)
 2.	Enter “Watch-NewFileTimestamp” for the name
 3.	Select Type as DateTime and then click on the “Create” button.
-![left | Create watermark variable from UI](media/automation-watchers-tutorial/WatcherWatermarkVariable.png)
+![Create watermark variable from UI](media/automation-watchers-tutorial/WatcherWatermarkVariable.png)
 
 ## Create an action runbook that is called when the watcher runbook finds a new file.
 1.	Click on the Runbooks page under the “PROCESS AUTOMATION” category.
@@ -67,7 +67,7 @@ To complete this tutorial, the following are required.
 3.	Select “Configure watcher” and select the “Watch-NewFile” runbook.
 ![Configure watcher from UI](media/automation-watchers-tutorial/ConfigureWatcher.png)
 4.	Enter the following values for parameters:
-*	FOLDERPATH. A folder on the hybrid worker where new files get created
+> *	FOLDERPATH. A folder on the hybrid worker where new files get created
 > *	EXTENSION. Leave blank to process all file extensions.
 > *	RECURSE. Leave the default.
 > *	RUN SETTINGS. Pick the hybrid worker.
