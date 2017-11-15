@@ -319,30 +319,48 @@ If you cache the token in your code, you should be prepared to handle scenarios 
 
 See [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of services that support MSI, and their respective resource IDs.
 
-## Troubleshooting
+### HTTP error handling guidance
 
-### Sign-in or token acquisition fails
+The MSI endpoint signals errors via the status code field of the HTTP response message header, as either 4xx or 5xx errors:
 
-Verify that the MSI has been enabled correctly. Go back to the Azure VM in the [Azure portal](https://portal.azure.com) and:
+| Status Code | Error Reason | How To Handle |
+| ----------- | ------------ | ------------- |
+| 4xx Error in request. | One or more of the request parameters was incorrect. | Do not retry.  Examine the error details for more information.  4xx errors are design-time errors.|
+| 5xx Transient error from service. | The MSI sub-system or Azure Active Directory returned a transient error. | It is safe to retry after waiting for at least 1 second.  If you retry too quickly or too often, Azure AD may return a rate limit error (429).|
 
-- Look at the "Configuration" page and ensure MSI enabled = "Yes."
-- Look at the "Extensions" page and ensure the MSI extension deployed successfully.
+If an error occurs, the corresponding HTTP response body contains JSON with the error details:
 
-If either is incorrect, you may need to redeploy the MSI on your resource again, or troubleshoot the deployment failure.
+| Element | Description |
+| ------- | ----------- |
+| error   | Error identifier. |
+| error_description | Verbose description of error. **Error descriptions can change at any time. Do not write code that branches based on values in the error description.**|
 
-### HTTP request error responses
+#### HTTP response reference
 
-- *bad_request_102: Required metadata header not specified*
+This section documents the possible error responses. A "200 OK" status is a successful response, and the access token is contained in the response body JSON, in the access_token element.
 
-  Either the `Metadata` request header field is missing from your request, or is formatted incorrectly. The value must be specified as `true`, in all lower case. See the "Sample request" in the [preceding REST section](#rest) for an example.
+| Status code | Error | Error Description | Solution |
+| ----------- | ----- | ----------------- | -------- |
+| 400 Bad Request | invalid_resource | AADSTS50001: The application named *\<URI\>* was not found in the tenant named *\<TENANT-ID\>*. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.\ | (Linux only) |
+| 400 Bad Request | bad_request_102 | Required metadata header not specified | Either the `Metadata` request header field is missing from your request, or is formatted incorrectly. The value must be specified as `true`, in all lower case. See the "Sample request" in the [preceding REST section](#rest) for an example.|
+| 401 Unauthorized | unknown_source | Unknown Source *\<URI\>* | Verify that your HTTP GET request URI is formatted correctly. The `scheme:host/resource-path` portion must be specified as `http://localhost:50342/oauth2/token`. See the "Sample request" in the [preceding REST section](#rest) for an example.|
+| 500 Internal server error | unknown | Failed to retrieve token from the Active directory. For details see logs in *\<file path\>* | Verify that MSI has been enabled on the VM. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.<br><br>Also verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the [preceding REST section](#rest) for an example, or [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of services and their respective resource IDs.
+| n/a | n/a | The connection to 'localhost' failed.<br/>Error: ConnectionRefused (0x274d). <br/>System.Net.Sockets.SocketException No connection could be made because the target machine actively refused it 127.0.0.1:50342 | Verify that MSI has been enabled on the VM. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration. |
 
-- *unknown: Failed to retrieve token from the Active directory. For details see logs in \<file path\>*
+### PowerShell/CLI error handling guidance 
 
-  Verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the [preceding REST section](#rest) for an example, or [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of services and their respective resource IDs.
+Responses such as the following may indicate that the VM's MSI has not been correctly configured:
 
-- *unknown_source: Unknown Source \<URI\>*
+- PowerShell: *Invoke-WebRequest : Unable to connect to the remote server*
+- CLI: *MSI: Failed to retrieve a token from 'http://localhost:50342/oauth2/token' with an error of 'HTTPConnectionPool(host='localhost', port=50342)* 
 
-  Verify that your HTTP GET request URI is formatted correctly. The `scheme:host/resource-path` portion must be specified as `http://localhost:50342/oauth2/token`. See the "Sample request" in the [preceding REST section](#rest) for an example.
+If you receive one of these errors, return to the Azure VM in the [Azure portal](https://portal.azure.com) and:
+
+- Go to the **Configuration** page and ensure "Managed service identity" is set to "Yes."
+- Go to the **Extensions** page and ensure the MSI extension deployed successfully.
+
+If either is incorrect, you may need to redeploy the MSI on your resource again, or troubleshoot the deployment failure. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.
+
 
 ## Related content
 
@@ -350,4 +368,11 @@ If either is incorrect, you may need to redeploy the MSI on your resource again,
 - To enable MSI on an Azure VM, see [Configure an Azure VM Managed Service Identity (MSI) using PowerShell](msi-qs-configure-powershell-windows-vm.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
+
+
+
+
+
+
+
 
