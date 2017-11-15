@@ -65,7 +65,12 @@ This cmdlet expects the following required parameters:
 The following example creates a service named *MyDMS* in the resource group *MyDMSResourceGroup*, which is located in *East US* region using a virtual subnet called *MySubnet*.
 
 ```powershell
-$service = New-AzureRmDms -ResourceGroupName myResourceGroup -ServiceName MyDMS -Location EastUS -Sku Basic_2vCores -VirtualSubnetId $vnet.Id`
+$service = New-AzureRmDms -ResourceGroupName myResourceGroup `
+  -ServiceName MyDMS `
+  -Location EastUS `
+  -Sku Basic_2vCores `  
+  -VirtualSubnetId
+$vnet.Id`
 ```
 
 ## Create a migration project
@@ -81,13 +86,19 @@ You can create a Database Connection Info object by using the `New-AzureRmDmsCon
 THe following example creates Connection Info object for source SQL Server called MySQLSourceServer using sql authentication 
 
 ```powershell
-$sourceConnInfo = New-AzureRmDmsConnInfo -ServerType SQL -DataSource MySQLSourceServer -AuthType SqlAuthentication -TrustServerCertificate:$true
+$sourceConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
+  -DataSource MySQLSourceServer `
+  -AuthType SqlAuthentication `
+  -TrustServerCertificate:$true
 ```
 
 Next example shows creation of Connection Info for SQL Azure database server called MySQLAzureTarget using sql authentication
 
 ```powershell
-`$targetConnInfo = New-AzureRmDmsConnInfo -ServerType SQL -DataSource "mysqlazuretarget.database.windows.net"  -AuthType SqlAuthentication -TrustServerCertificate:$false`
+$targetConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
+  -DataSource "mysqlazuretarget.database.windows.net" `
+  -AuthType SqlAuthentication `
+  -TrustServerCertificate:$false
 ```
 
 ### Provide databases for the migration project
@@ -105,7 +116,15 @@ $dbList = @($dbInfo1)
 Finally you can create Azure Database Migration project called *MyDMSProject* located in *East US* using `New-AzureRmDataMigrationProject` and adding the previously created source and target connections and the list of databases to migrate.
 
 ```powershell
-$project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup -ServiceName $service.Name -ProjectName MyDMSProject -Location EastUS -SourceType SQL -TargetType SQLDB -SourceConnection $sourceConnInfo -TargetConnection $targetConnInfo -DatabaseInfos $dbList
+$project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
+  -ServiceName $service.Name `
+  -ProjectName MyDMSProject `
+  -Location EastUS `
+  -SourceType SQL `
+  -TargetType SQLDB `
+  -SourceConnection $sourceConnInfo `
+  -TargetConnection $targetConnInfo `
+  -DatabaseInfos $dbList
 ```
 
 ## Create and start a migration task
@@ -118,7 +137,6 @@ Connection security credentials can be created as [PSCredential](https://docs.mi
 
 The following example shows the creation of *PSCredential* objects for both source and target connections providing passwords as string variables *$sourcePassword* and *$targetPassword*. 
 
-
 ```powershell
 secpasswd = ConvertTo-SecureString -String $sourcePassword -AsPlainText -Force
 $sourceCred = New-Object System.Management.Automation.PSCredential ($sourceUserName, $secpasswd)
@@ -127,7 +145,6 @@ $targetCred = New-Object System.Management.Automation.PSCredential ($targetUserN
 ```
 
 ### Create a table map and select source and target parameters for migration
-
 Another parameter needed for migration is mapping of tables from source to target to be migrated. Create dictionary of tables that provides a mapping between source and target tables for migration. The following example illustrates mapping between source and target tables Human Resources schema for the AdventureWorks 2016 database.
 
 ```powershell
@@ -143,7 +160,9 @@ $tableMap.Add("HumanResources.Shift","HumanResources.Shift")
 The next step is to select the source and target databases and provide table mapping to migrate as a parameter by using the `New-AzureRmDmsSqlServerSqlDbSelectedDB` cmdlet, as shown in the following example:
 
 ```powershell
-$selectedDbs = New-AzureRmDmsSqlServerSqlDbSelectedDB -Name AdventureWorks2016 -TargetDatabaseName AdventureWorks2016 -TableMap $tableMap
+$selectedDbs = New-AzureRmDmsSqlServerSqlDbSelectedDB -Name AdventureWorks2016 `
+  -TargetDatabaseName AdventureWorks2016 `
+  -TableMap $tableMap
 ```
 
 ### Create and start a migration task
@@ -163,7 +182,16 @@ Use the `New-AzureRmDataMigrationTask` cmdlet to create and start a migration ta
 The following example creates and starts a migration task named myDMSTask:
 
 ```powershell
-$migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDb -ResourceGroupName myResourceGroup -ServiceName $service.Name -ProjectName $project.Name -TaskName myDMSTask -SourceConnection $sourceConnInfo -SourceCred $sourceCred -TargetConnection $targetConnInfo -TargetCred $targetCred -SelectedDatabase  $selectedDbs`
+$migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDb `
+  -ResourceGroupName myResourceGroup `
+  -ServiceName $service.Name `
+  -ProjectName $project.Name `
+  -TaskName myDMSTask `
+  -SourceConnection $sourceConnInfo `
+  -SourceCred $sourceCred `
+  -TargetConnection $targetConnInfo `
+  -TargetCred $targetCred `
+  -SelectedDatabase  $selectedDbs`
 ```
 
 ## Monitor the migration
