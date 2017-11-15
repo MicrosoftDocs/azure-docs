@@ -16,21 +16,21 @@ ms.date: 11/09/2017
 ms.author: vikdesai
 ---
 # Save money on virtual machines with Reserved Virtual Machine Instances 
-Reserved Virtual Machine Instances allow you to pre-pay for one-year or three-years of compute capacity to get a discount on the virtual machines you use. It significantly reduces your virtual machine costs compared to pay-as-you-go prices – with one-year or three-year upfront commitment. Reserved Virtual Machine Instances is a billing discount and does not affect the runtime state of virtual machines.
+Reserved Virtual Machine Instances allow you to pre-pay for one-year or three-years of compute capacity to get a discount on the virtual machines you use. It significantly reduces your virtual machine costs—up to 72 percent on pay-as-you-go prices–with one-year or three-year upfront commitment. Reserved Virtual Machine Instances is a billing discount and does not affect the runtime state of virtual machines.
 
-You can buy a Reserved Virtual Machine Instance in the [Azure portal](https://portal.azure.com). For more information, see [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](https://go.microsoft.com/fwlink/?linkid=861721).
+You can buy a Reserved Virtual Machine Instance in the [Azure portal](https://aka.ms/reservations). For more information, see [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](https://go.microsoft.com/fwlink/?linkid=861721).
 
 ## Why should I buy a Reserved Virtual Machine Instance?
 If you have virtual machines that run for long periods of time, purchasing a Reserved Virtual Machine Instance gives you the best effective price. For example, if you continuously run four instances of Standard D2 in West US region, without a reservation you are charged at pay-as-go-you rates. If you purchase a Reserved Virtual Machine Instance for those four VMs, the VMs immediately get the billing benefit. They are no longer charged at the pay-as-you go rates. 
 
 ## What charges does a Reserved Virtual Machine Instance cover?
-A reservation only covers the virtual machine infrastructure charges for your Windows or Linux virtual machines. A reservation does not cover additional software, networking, or storage charges. For Windows virtual machines, you can cover the Windows licensing costs with Azure Hybrid Benefit.
+A reservation only covers the virtual machine infrastructure charges for your Windows or Linux virtual machines. A reservation does not cover additional software, networking, or storage charges. For Windows virtual machines, you can cover the Windows licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 ## Who’s eligible to purchase a Reserved Virtual Machine Instance?
-Azure customers with these subscriptions types that can purchase a Reserved Virtual Machine Instance:
+Azure customers with these subscriptions types can purchase a Reserved Virtual Machine Instance:
 -	Enterprise agreement subscription offer type (MS-AZR-0017P).
--	Pay-As-You-Go subscription offer type (MS-AZR-003P).
-You must be in the role “Owner” on the subscription to buy a Reserved Instance. For purchasing reservations in an enterprise enrollment, the enterprise administrator must enable reservation purchases in the EA portal, by default the setting is enabled for all enrollments.
+-	[Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription offer type (MS-AZR-003P).
+You must be in the role “Owner” on the subscription to buy a Reserved Instance. For purchasing reservations in an enterprise enrollment, the enterprise administrator must enable reservation purchases in the EA portal, by default the setting is enabled.
 
 ## How is a Reserved Virtual Machine Instances purchase billed?
 The reservation purchase is charged to the payment method tied to the subscription. 
@@ -52,7 +52,7 @@ At the end of the reservation term, the billing discount expires, and the virtua
 Reservations are available for most VM sizes with some exceptions:
 - Preview VM sizes – Any size that is in preview are not available for Reserved Virtual Machine Instance purchase.
 - Clouds – Reserved Virtual Machine Instances are not available for purchase in the Azure US Government, Germany, or China regions. 
-- Insufficient quota – A Reserved VM Instance that is scoped to a single subscription must have vCPU quota available in the subscription for the new RI. For example, if the target subscription had a quota limit of 10 vCPUs for D-Series family, then you can't buy a Reserved VM Instance for 11 Standard_D1 instances. The quota check for reservations includes the VMs already deployed in the subscription. For example, if the subscription had a quota of 10 vCPUs for D-Series Family. If this subscription has two standard_D1 instances deployed, then you can buy a Reserved VM instance for 10 standard_D1 instances in this subscription. 
+- Insufficient quota – A Reserved VM Instance that is scoped to a single subscription must have vCPU quota available in the subscription for the new RI. For example, if the target subscription has a quota limit of 10 vCPUs for D-Series family, then you can't buy a Reserved VM Instance for 11 Standard_D1 instances. The quota check for reservations includes the VMs already deployed in the subscription. For example, if the subscription has a quota of 10 vCPUs for D-Series Family. If this subscription has two standard_D1 instances deployed, then you can buy a Reserved VM instance for 10 standard_D1 instances in this subscription. 
 - Capacity restrictions – In rare circumstances, Azure limits purchase of new reservations for subset of VM sizes, due to low capacity in a region.
 
 ## Next steps
