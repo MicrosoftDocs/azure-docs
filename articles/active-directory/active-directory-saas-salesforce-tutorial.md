@@ -196,7 +196,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png)
 
-16. In the **Authentication Configuration** section, select the friendly name of your SAML SSO configuration, and then click **Save**.
+16. In the **Authentication Configuration** section, Check the **Login Page** as **Authentication Servie** of your SAML SSO configuration, and then click **Save**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png)
 
