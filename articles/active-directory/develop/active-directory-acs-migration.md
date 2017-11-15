@@ -52,17 +52,17 @@ To use these components, you must create one or more ACS **namespaces**. A names
 https://mynamespace.accesscontrol.windows.net
 ```
 
-All communication with the STS and management operations are done at this URL, with different paths for different purposes. To determine if your applications or services use ACS, monitor for any traffic to `https://{namespace}.accesscontrol.windows.net`.  Any traffic to this URL is traffic that is handled by ACS and needs to be discontinued.  The one exception is any traffic to `https://accounts.accesscontrol.windows.net` - traffic to this URL is already handled by a different service and will not be affected by ACS deprecation.  You should also be sure to login to the Azure classic portal and check for any ACS namespaces in the subscriptions that you own.  ACS namespaces are listed in the **Active Directory** service, under the **Access Control Namespaces** tab.
+All communication with the STS and management operations are done at this URL, with different paths for different purposes. To determine if your applications or services use ACS, monitor for any traffic to `https://{namespace}.accesscontrol.windows.net`.  Any traffic to this URL is traffic that is handled by ACS and needs to be discontinued.  The one exception is any traffic to `https://accounts.accesscontrol.windows.net` - traffic to this URL is already handled by a different service and is not affected by ACS deprecation.  You should also be sure to login to the Azure classic portal and check for any ACS namespaces in the subscriptions that you own.  ACS namespaces are listed in the **Active Directory** service, under the **Access Control Namespaces** tab.
 
-For additional details on ACS, refer to [this archived documentation on MSDN](https://msdn.microsoft.com/en-us/library/hh147631.aspx).
+For more information on ACS, refer to [this archived documentation on MSDN](https://msdn.microsoft.com/en-us/library/hh147631.aspx).
 
 ## Retirement Schedule
 
 As of November 2017, all ACS components are fully supported & operational. The only restriction is that [new ACS namespaces cannot be created via the classic Azure portal](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/).
 
-The timeline for deprecation of these components will follow this schedule:
+The timeline for deprecation of these components follows this schedule:
 
-- **November 2017**:  The Azure AD admin experience in the classic Azure portal [will be retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for ACS will be made available at this new, dedicated URL: `http://manage.windowsazure.com?restoreClassic=true`. This is to allow you to view your existing namespaces, enable/disable them, and delete them entirely if you wish.
+- **November 2017**:  The Azure AD admin experience in the classic Azure portal [will be retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for ACS will be available at this new, dedicated URL: `http://manage.windowsazure.com?restoreClassic=true`. This is to allow you to view your existing namespaces, enable/disable them, and delete them entirely if you wish.
 - **April 2018**: ACS namespace management will no longer be available at this dedicated URL. At this point in time, you will not be able to disable/enable, delete, or enumerate your ACS namespaces. The ACS management portal, however, will be fully functional and located at `https://{namespace}.accesscontrol.windows.net`. All other components of ACS will continue to operate normally as well.
 - **November 2018**: All ACS components will be shut down permanently. This includes the ACS management portal, the management service, STS, and token transformation rule engine. At this point, any requests sent to ACS (located at `{namespace}.accesscontrol.windows.net`) will fail. You should have migrated all existing apps & services to other technologies well before this time period.
 
@@ -73,7 +73,7 @@ The following sections describe high level recommendations for migrating off of 
 
 ### Clients of Microsoft cloud services
 
-Each of the Microsoft cloud services that accept tokens issued by ACS now supports at least one alternate form of authentication. The correct authentication mechanism varies for each service, so we recommend referring to the specific documentation of each service for official guidance. For convenience, we have collected the following information:
+Each of the Microsoft cloud services that accept tokens issued by ACS now supports at least one alternate form of authentication. The correct authentication mechanism varies for each service, so we recommend referring to the specific documentation of each service for official guidance. For convenience, each set of documentation is provided here:
 
 | Service | Guidance |
 | ------- | -------- |
@@ -107,11 +107,11 @@ For web applications using ACS for user authentication, ACS provided the followi
     - adding additional custom claims
     - simple if-then logic to issue claims under certain conditions
 
-Unfortunately, there is not one service that provides all of these equivalent capabilities.  Our recommendation is to evaluate which capabilities of ACS you need, and then choose between using [**Azure Active Directory**](https://azure.microsoft.com/develop/identity/signin/) (Azure AD) or [**Azure AD B2C**](https://azure.microsoft.com/services/active-directory-b2c/).
+Unfortunately, there is not one service that provides all of these equivalent capabilities.  You should evaluate which capabilities of ACS you need, and then choose between using [**Azure Active Directory**](https://azure.microsoft.com/develop/identity/signin/) (Azure AD), [**Azure AD B2C**](https://azure.microsoft.com/services/active-directory-b2c/), or another cloud authentication service.
 
 #### Migrating to Azure Active Directory
 
-One path to consider is integrating your apps & services directly with Azure Active Directory. Azure AD is the cloud based identity provider for Microsoft work & school accounts - it is the identity provider for Office 365, Azure, and much more. It provides similar federated authentication capabilities to ACS, but does not support all ACS features. The primary example is federation with social identity providers, such as Facebook, Google, and Yahoo. If your users sign in with these types of credentials, Azure AD is not for you. It also does not necessarily support the exact same authentication protocols as ACS - while both ACS & Azure AD support OAuth, for instance, there will be subtle differences between each implementation that will require you to modify code as part of migration.
+One path to consider is integrating your apps & services directly with Azure Active Directory. Azure AD is the cloud based identity provider for Microsoft work & school accounts - it is the identity provider for Office 365, Azure, and much more. It provides similar federated authentication capabilities to ACS, but does not support all ACS features. The primary example is federation with social identity providers, such as Facebook, Google, and Yahoo. If your users sign in with these types of credentials, Azure AD is not for you. It also does not necessarily support the exact same authentication protocols as ACS - while both ACS & Azure AD support OAuth, for instance, there are subtle differences between each implementation that require you to modify code as part of migration.
 
 Azure AD does however provide several potential advantages to customers of ACS. It natively supports Microsoft work & school accounts hosted in the cloud, which are commonly used by ACS customers.  An Azure AD tenant can also be federated to one or more instances of on-prem Active Directory via ADFS, allowing your app to authenticate both cloud-based users and users hosted on premises.  It also supports the Ws-Federation protocol, which makes it relatively straightforward to integrate with a web application using Windows Identity Foundation (WIF).
 
@@ -144,9 +144,9 @@ The following table compares the features of ACS relevant to web applications wi
 
 If you decide that Azure AD is the proper path forward for your applications & services, you should be aware of two ways to integrate your app with Azure AD.
 
-To use Ws-Federation/WIF to integrate with Azure AD, we recommend following [the approach described in this article](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). The article refers to configuring Azure AD for SAML-based single sign-on, but will work for configuring Ws-Federation as well. Following this approach requires an Azure AD Premium license, but has two advantages:
+To use Ws-Federation/WIF to integrate with Azure AD, we recommend following [the approach described in this article](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). The article refers to configuring Azure AD for SAML-based single sign-on, but works for configuring Ws-Federation as well. Following this approach requires an Azure AD Premium license, but has two advantages:
 
-- You will get the full flexibility of Azure AD token customization. This allows you to customize the claims issued by Azure AD to match those issued by ACS, especially including the user ID or Name Identifier claim. You will need to ensure that the user IDs issued by Azure AD match those issued by ACS, so that you continue to receive consistent user IDentifiers for your users even after changing technologies.
+- You get the full flexibility of Azure AD token customization. This allows you to customize the claims issued by Azure AD to match those issued by ACS, especially including the user ID or Name Identifier claim. You need to ensure that the user IDs issued by Azure AD match those issued by ACS, so that you continue to receive consistent user IDentifiers for your users even after changing technologies.
 - You will be able to configure a token signing certificate specific to your application, whose lifetime you control.
 
 <!--
