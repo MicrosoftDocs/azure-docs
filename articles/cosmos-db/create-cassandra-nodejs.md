@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Cassandra API with Node.js - Azure Cosmos DB | Microsoft Docs'
-description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Node.js
+description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with Node.js
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -64,7 +64,7 @@ This step is optional. If you're interested in learning how the database resourc
    ```nodejs
    var ssl_option = {
         cert : fs.readFileSync("path\to\cert"),
-        rejectUnauthorized : false,
+        rejectUnauthorized : true,
         secureProtocol: 'TLSv1_2_method'
         };
    const authProviderLocalCassandra = new cassandra.auth.PlainTextAuthProvider(config.username, config.password);
@@ -86,7 +86,7 @@ This step is optional. If you're interested in learning how the database resourc
 
     ```nodejs
     function createKeyspace(next) {
-    	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
+    	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
     	client.execute(query, next);
     	console.log("created keyspace");    
   }
@@ -106,9 +106,9 @@ This step is optional. If you're interested in learning how the database resourc
 
     ```nodejs
     ...
-    {
+       {
           query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
-          params: [5, 'SubbannaG', 'Belgaum', '2017-10-3136']
+          params: [5, 'IvanaV', 'Belgaum', '2017-10-3136']
         }
     ];
     client.batch(queries, { prepare: true}, next);
@@ -175,11 +175,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 6. Save the config.js file.
     
-## Create the X509 certificate 
+## Use the X509 certificate 
 
-1. Create an X509 certificate and save it locally. 
+1. If you need to add the Baltimore CyberTrust Root, it has serial number 02:00:00:b9 and SHA1 fingerprint d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. It can be downloaded from https://cacert.omniroot.com/bc2025.crt, saved to a local file with extension .cer. 
 
-2. Open uprofile.js and change the 'path\to\cert' to point to your X509 certificate. 
+2. Open uprofile.js and change the 'path\to\cert' to point to your new certificate. 
 
 3. Save uprofile.js. 
 

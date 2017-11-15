@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Cassandra API with Python - Azure Cosmos DB | Microsoft Docs'
-description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Python
+description: This quickstart shows how to use the Azure Cosmos DB's Apache Cassandra API to create a profile application  with Python
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -63,12 +63,12 @@ This step is optional. If you're interested in learning how the database resourc
 * User name and password is set using the connection string page in the Azure portal. You replace the path\to\cert with the path to your X509 certificate.
 
    ```python
-   	ssl_options = {
-                  'ca_certs': 'path\to\cert',
-                  'ssl_version': ssl.PROTOCOL_TLSv1_2
-        }
-    	auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
-    	cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_options)
+	ssl_opts = {
+		    'ca_certs': 'path\to\cert',
+		    'ssl_version': ssl.PROTOCOL_TLSv1_2
+		    }
+    auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
+    cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_opts)
 	session = cluster.connect()
    
    ```
@@ -88,7 +88,7 @@ This step is optional. If you're interested in learning how the database resourc
 * A new keyspace is created.
 
     ```python
-   session.execute('CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'SimpleStrategy\', \'replication_factor\': \'3\' }')
+   session.execute('CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }')
     ```
 
 * A new table is created.
@@ -102,10 +102,10 @@ This step is optional. If you're interested in learning how the database resourc
     ```Python
     insert_data = session.prepare("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)")
     batch = BatchStatement()
-    batch.add(insert_data, (1, 'VinodS', 'Dubai'))
-    batch.add(insert_data, (2, 'MohammedS', 'Toronto'))
-    batch.add(insert_data, (3, 'SiddeshV', 'Mumbai'))
-    batch.add(insert_data, (4, 'KirilG', 'Seattle'))
+    batch.add(insert_data, (1, 'LyubovK', 'Dubai'))
+    batch.add(insert_data, (2, 'JiriK', 'Toronto'))
+    batch.add(insert_data, (3, 'IvanH', 'Mumbai'))
+    batch.add(insert_data, (4, 'YuliaT', 'Seattle'))
     ....
     session.execute(batch)
     ```
@@ -155,11 +155,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 6. Save the config.py file.
     
-## Create the X509 certificate
+## Use the X509 certificate
 
-1. Create an X509 certificate and save it locally.
+1. If you need to add the Baltimore CyberTrust Root, it has serial number 02:00:00:b9 and SHA1 fingerprint d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. It can be downloaded from https://cacert.omniroot.com/bc2025.crt, saved to a local file with extension .cer
 
-2. Open pyquickstart.py and change the 'path\to\cert' to point to your X509 certificate.
+2. Open pyquickstart.py and change the 'path\to\cert' to point to your new certificate.
 
 3. Save pyquickstart.py.
 
@@ -171,8 +171,9 @@ Now go back to the Azure portal to get your connection string information and co
 
     ```python
     python -m pip install cassandra-driver
-    
     python -m pip install prettytable
+    python -m pip install requests
+    python -m pip install pyopenssl
     ```
 
 2. Run the following command to start your node application:
