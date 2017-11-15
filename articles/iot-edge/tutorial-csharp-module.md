@@ -40,8 +40,6 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
 * Azure IoT Edge extension for Visual Studio Code
-    > 2. Download the **Azure IoT Edge extension** VSIX here: [https://aka.ms/edge-extension](https://aka.ms/edge-extension). **Note**: If you use Microsoft Edge or Internet Explorer, the browser downloads the file with a ".zip" file extension. After the file downloads, you need to change the file extension back to ".vsix". 
-    > 3. Install the extension VSIX by using the **View | Command Palette... | Extensions: Install from VSIX...** menu command, navigating to the downloaded VSIX on your computer and clicking **Open**. (You can also install the extension by clicking **...** in the upper-right corner of the extension panel and selecting **Install from VSIX...**.)
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. Make sure you install it on the computer that you run VS Code on.
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
@@ -215,9 +213,10 @@ The following steps show you how to create an IoT Edge module based on .NET core
 ## Create a Docker image and publish it to your registry
 
 1. Build the Docker image.
-    1. In VS Code explorer, click the **Docker** folder to open it. Then click the **linux-x64** folder, right-click the **Dockerfile** file and click **Build IoT Edge module Docker image**. 
-    2. In the **Select Folder** box, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
-    3. In the pop-up text box at the top of the VS Code window, enter the image name. For example:`<docker registry address>/filtermodule:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or similar to `<your registry name>.azurecr.io`, if you are using Azure Container Registry.
+    1. In VS Code explorer, click the **Docker** folder to open it. Then select the folder for your container platform, either **linux-x64** or **windows-nano**. 
+    2. Right-click the **Dockerfile** file and click **Build IoT Edge module Docker image**. 
+    3. In the **Select Folder** box, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
+    4. In the pop-up text box at the top of the VS Code window, enter the image name. For example:`<docker registry address>/filtermodule:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or similar to `<your registry name>.azurecr.io`, if you are using Azure Container Registry.
  
 4. Sign in to Docker. In integrated terminal, enter the following command: 
 
