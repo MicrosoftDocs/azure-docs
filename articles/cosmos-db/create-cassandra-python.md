@@ -67,8 +67,8 @@ This step is optional. If you're interested in learning how the database resourc
 		    'ca_certs': DEFAULT_CA_BUNDLE_PATH,
 		    'ssl_version': PROTOCOL_TLSv1_2,
 		    }
-    	auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
-    	cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_opts)
+    auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
+    cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_opts)
 	session = cluster.connect()
    
    ```
@@ -88,7 +88,7 @@ This step is optional. If you're interested in learning how the database resourc
 * A new keyspace is created.
 
     ```python
-   session.execute('CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter\' : \'1\' }')
+   session.execute('CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }')
     ```
 
 * A new table is created.
