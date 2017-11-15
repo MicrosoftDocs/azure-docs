@@ -4,7 +4,7 @@ description: Build a scalable application using Azure blob storage
 services: storage
 documentationcenter: 
 author: georgewallace
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: storage
@@ -12,18 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 11/13/2017
+ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
 ---
 
 # Download large amounts of random data from Azure storage
 
-This tutorial is part three of a series. This tutorial shows you can download larges amounts of data from Azure storage. When you're finished, you have a console application running on a virtual machine that you upload and download large amounts of data to and from a storage account.
+This tutorial is part three of a series. This tutorial shows you can download large amounts of data from Azure storage.
 
 In part three of the series, you learn how to:
 
 > [!div class="checklist"]
+> * Update the application
 > * Run the application
 > * Validate the number of connections
 
@@ -33,7 +34,7 @@ To complete this tutorial, you must have completed the previous Storage tutorial
 
 ## Remote into your virtual machine
 
- To create a remote desktop session with the virtual machine use the following command on your local machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+ To create a remote desktop session with the virtual machine, use the following command on your local machine. Replace the IP address with the publicIPAddress of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -46,6 +47,7 @@ In the previous tutorial, you only uploaded files to the storage account. Open `
 ```csharp
 public static void Main(string[] args)
 {
+    Console.WriteLine("Azure Blob storage performance and scalability sample");
     // Set threading and default connection limit to 100 to ensure multiple threads and connections can be opened.
     // This is in addition to parallelism with the storage client library that is defined in the functions below.
     ThreadPool.SetMinThreads(100, 4);
@@ -53,11 +55,11 @@ public static void Main(string[] args)
     try
     {
         // Call the UploadFilesAsync function.
-        // UploadFilesAsync().Wait();
+        UploadFilesAsync().Wait();
 
         // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
-        // initially to support the tutorial at http://inserturlhere.
-        DownloadFilesAsync().Wait();
+        // initially to support the tutorial at https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scaleable-app-download-files.
+        // DownloadFilesAsync().Wait();
     }
     catch (AggregateException ae)
     {
@@ -77,18 +79,16 @@ public static void Main(string[] args)
     }
     finally
     {
+        // The following function will delete the container and all files contained in them.  This is commented out initialy
+        // As the tutorial at https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scaleable-app-download-files has you upload only for one tutorial and download for the other. 
+        // DeleteExistingContainersAsync().Wait();
         Console.WriteLine("Application complete. Press any key to exit");
         Console.ReadKey();
-
-        // The following function will delete the container and all files contained in them.  This is commented out initialy
-        // As the tutorial at http://inserturlhere has you upload only for one tutorial and download for the other. 
-        DeleteExistingContainersAsync().Wait();
     }
-}
 }
 ```
 
-After the application has been updated, the application needs to be rebuilt. Open a `Command Prompt` and navigate to `D:\git\storage-dotnet-perf-scale-app`. Rebuild the application by running `dotnet build` as seen in the following example:
+After the application has been updated, you need to build the application again. Open a `Command Prompt` and navigate to `D:\git\storage-dotnet-perf-scale-app`. Rebuild the application by running `dotnet build` as seen in the following example:
 
 ```
 dotnet build
@@ -96,7 +96,7 @@ dotnet build
 
 ## Run the application
 
-Now that the application has been rebuilt it is time to run the application. If not already open, open a `Command Prompt` and navigate to `D:\git\storage-dotnet-perf-scale-app`.
+Now that the application has been rebuilt it is time to run the application with the updated code. If not already open, open a `Command Prompt` and navigate to `D:\git\storage-dotnet-perf-scale-app`.
 
 Type `dotnet run` to run the application.
 
@@ -104,13 +104,13 @@ Type `dotnet run` to run the application.
 dotnet run
 ```
 
-The application reads the containers located in the storage account as specified in the `Config.json` file. It iterates through the blobs in the containers and downloads them to the local machine using the [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method.
+The application reads the containers located in the storage account specified in the **storageconnectionstring**. It iterates through the blobs 10 at a time using the [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method in the containers and downloads them to the local machine using the [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method.
 The following table shows the [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) that are defined for each blob as it is downloaded.
 
 |Property|Value|Description|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| This property disables checking the MD5 hash of the content uploaded. Disabling MD5 validation produces a faster transfer. |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| This property determines if an MD5 hash is calculated and stored   |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| This property disables checking the MD5 hash of the content uploaded. Disabling MD5 validation produces a faster transfer. But does not confirm the validity or integrity of the files being transferred. |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| This property determines if an MD5 hash is calculated and stored.   |
 
 The `DownloadFilesAsync` task is shown in the following example:
 
@@ -134,36 +134,38 @@ private static async Task DownloadFilesAsync()
     BlobResultSegment resultSegment = null;
     Stopwatch time = Stopwatch.StartNew();
 
-    // download thee blob
+    // download the blobs
     try
     {
         List<Task> tasks = new List<Task>();
 
-        // Iterate throung the containers
-        foreach (CloudBlobContainer container in containers)
-        {
-            do
+            // Iterate throung the containers
+            foreach (CloudBlobContainer container in containers)
             {
-                // Return the blobs from the container lazily 10 at a time.
-                resultSegment = await container.ListBlobsSegmentedAsync(string.Empty, true, BlobListingDetails.All, 10, continuationToken, null, null);
+                do
                 {
-                    foreach (var blobItem in resultSegment.Results)
+                    // Return the blobs from the container lazily 10 at a time.
+                    resultSegment = await container.ListBlobsSegmentedAsync(null, true, BlobListingDetails.All, 10, continuationToken, null, null);
+                    continuationToken = resultSegment.ContinuationToken;
                     {
-                        if (((CloudBlob)blobItem).Properties.BlobType == BlobType.BlockBlob)
+                        foreach (var blobItem in resultSegment.Results)
                         {
-                            // Get the blob and add a task to download the blob asynchronously from the storage account.
-                            CloudBlockBlob blockBlob = container.GetBlockBlobReference(((CloudBlockBlob)blobItem).Name);
-                            Console.WriteLine("Starting download of {0} from container {1}", blockBlob.Name, container.Name);
-                            tasks.Add(blockBlob.DownloadToFileAsync(directory.FullName + "\\" + blockBlob.Name, FileMode.Create, null, new BlobRequestOptions() { DisableContentMD5Validation = true, StoreBlobContentMD5 = false }, null));
+
+                            if (((CloudBlob)blobItem).Properties.BlobType == BlobType.BlockBlob)
+                            {
+                                // Get the blob and add a task to download the blob asynchronously from the storage account.
+                                CloudBlockBlob blockBlob = container.GetBlockBlobReference(((CloudBlockBlob)blobItem).Name);
+                                Console.WriteLine("Downloading {0} from container {1}", blockBlob.Name, container.Name);
+                                tasks.Add(blockBlob.DownloadToFileAsync(directory.FullName + "\\" + blockBlob.Name, FileMode.Create, null, new BlobRequestOptions() { DisableContentMD5Validation = true, StoreBlobContentMD5 = false }, null));
+                            }
                         }
                     }
                 }
+                while (continuationToken != null);
             }
-            while (continuationToken != null);
-        }
 
-        // Creates an asynchonous task that completes when all the downloads complete.
-        await Task.WhenAll(tasks);
+            // Creates an asynchonous task that completes when all the downloads complete.
+            await Task.WhenAll(tasks);
     }
     catch (Exception e)
     {
@@ -178,7 +180,7 @@ private static async Task DownloadFilesAsync()
 
 ### Validate the connections
 
-While the files are being downloaded, you can verify the number of concurrent connections to your storage account. Open a `Command Prompt` and type `netstat -a | find /c "blob:https"`. This shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example, over 280 connections were open when downloading the random files from the storage account.
+While the files are being downloaded, you can verify the number of concurrent connections to your storage account. Open a `Command Prompt` and type `netstat -a | find /c "blob:https"`. This command shows the number of connections that are currently opened using `netstat`. The following example shows a similar output to what you see when running the tutorial yourself. As you can see from the example, over 280 connections were open when downloading the random files from the storage account.
 
 ```
 C:\>netstat -a | find /c "blob:https"

@@ -4,7 +4,7 @@ description: Build a scalable application using Azure blob storage
 services: storage
 documentationcenter: 
 author: georgewallace
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: storage
@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 11/13/2017
+ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
 ---
 
 # Create a virtual machine and storage account for a scalable application
 
-This tutorial is part one of a series. This tutorial shows you deploy an application that uploads large amount of random data and download data with an Azure storage account. When you're finished, you have a console application running on a virtual machine that you upload and download large amounts of data to a storage account.
+This tutorial is part one of a series. This tutorial shows you deploy an application that uploads and download large amounts of random data with an Azure storage account. When you're finished, you have a console application running on a virtual machine that you upload and download large amounts of data to a storage account.
 
 In part one of the series, you learn how to:
 
@@ -28,13 +28,15 @@ In part one of the series, you learn how to:
 > * Create a virtual machine
 > * Configure a custom script extension
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Create resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
+Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -48,7 +50,7 @@ In the following command, substitute your own globally unique name for the Blob 
 
 ```powershell-interactive
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName myResourceGroup `
-  -Name "mystorageaccount" `
+  -Name "<blob_storage_account>" `
   -Location EastUS `
   -SkuName Standard_LRS `
   -Kind Storage `
@@ -99,7 +101,7 @@ Write-host "Your public IP address is $($pip.IpAddress)"
 
 ## Deploy configuration
 
-For this tutorial, there are pre-requisites that must be installed on the virtual machine. The custom script extension is used to run a PowerShell script that does the following tasks:
+For this tutorial, there are pre-requisites that must be installed on the virtual machine. The custom script extension is used to run a PowerShell script that completes the following tasks:
 
 > [!div class="checklist"]
 > * Install .NET core 2.0
@@ -107,9 +109,9 @@ For this tutorial, there are pre-requisites that must be installed on the virtua
 > * Install GIT
 > * Clone the sample repo
 > * Restore NuGet packages
-> * Creates 32 1-GB files with random data
+> * Creates 50 1-GB files with random data
 
-Run the following cmdlet to finalize configuration of the virtual machine. This step takes 5-10 minutes to complete.
+Run the following cmdlet to finalize configuration of the virtual machine. This step takes 5-15 minutes to complete.
 
 ```azurepowershell-interactive
 # Start a CustomScript extension to use a simple PowerShell script to instal .NET core, dependancies, and pre-create the files to upload.
