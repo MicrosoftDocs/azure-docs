@@ -16,7 +16,7 @@
 ### [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
 ### [Stream Analytics on IoT Edge (preview)](stream-analytics-edge.md)
 ### [Anomaly detection in Azure usage guide (preview)](stream-analytics-machine-learning-anomaly-detection.md)
-
+### [High frequency trading simulation with Stream Analytics](stream-analytics-high-frequency-trading.md)
 
 ## Create jobs
 ### [Create inputs](stream-analytics-define-inputs.md)
