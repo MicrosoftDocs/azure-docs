@@ -22,14 +22,16 @@ You can use IoT Edge modules to deploy code that implements your business logic 
 > * Deploy an Azure Machine Learning module to your IoT Edge device
 > * View generated data
 
-This tutorial uses a sample Azure Machine Learning module hosted in DockerHub. 
-
 When you want to use your own [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) model in your solution you will [deploy a model](https://aka.ms/aml-iot-edge-doc) for IoT Edge and host it in a container registry like [Azure Container Registry](../container-registry/index.yml) or Docker.
 
 ## Prerequisites
 
 * The Azure IoT Edge device that you created in the quickstart or first tutorial.
-* The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.  
+* The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.
+* The Azure ML container
+
+## Create the Azure ML container
+Follow the instructions [here](https://aka.ms/aml-iot-edge-anomaly-detection) to create the Azure ML container.
 
 ## Run the solution
 
@@ -38,11 +40,11 @@ When you want to use your own [Azure Machine Learning](https://docs.microsoft.co
 1. Select **Set modules**.
 1. Select **Add IoT Edge module**.
 1. In the **Name** field, enter `tempSensor`.
-1. In the **Image URI** field, enter `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
+1. In the **Image URI** field, enter the image URI (click [here](https://aka.ms/aml-iot-edge-anomaly-detection) for help finding the image URI).
 1. Leave the other settings unchanged and select **Save**.
 1. Still on the **Add Modules** step, select **Add IoT Edge module** again.
-1. In the **Name** field, enter `machinelearningmodule`.
-1. In the **Image** field, enter `microsoft/azureiotedge-sensor-anomaly-detection:latest`.
+1. In the **Name** field, enter the name (click [here](https://aka.ms/aml-iot-edge-anomaly-detection) for help finding the name).
+1. In the **Image** field, enter the image (click [here](https://aka.ms/aml-iot-edge-anomaly-detection) for help finding the image).
 1. Click **Save**.
 1. Back in the **Add Modules** step, click **Next**.
 1. Update routes for your module:
