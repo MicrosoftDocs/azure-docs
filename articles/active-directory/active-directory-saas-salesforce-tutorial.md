@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 11/15/2017
 ms.author: jeedes
 
 ---
@@ -133,21 +133,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Salesforce Configuration](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_configure.png) 
 
-7.  Open a new tab in your browser and log in to your Salesforce administrator account.
+7. Open a new tab in your browser and log in to your Salesforce administrator account.
 
 8. Click on the **Setup** under **settings icon** on the top right corner of the page.
 
 	![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/configure1.png)
 
-9.  Scroll down to the **SETTINGS** in the navigation pane, click **Identity** to expand the related section. Then click **Single Sign-On Settings**.
+9. Scroll down to the **SETTINGS** in the navigation pane, click **Identity** to expand the related section. Then click **Single Sign-On Settings**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png)
 
-10.  On the **Single Sign-On Settings** page, click the **Edit** button.
-    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png)
+10. On the **Single Sign-On Settings** page, click the **Edit** button.
 
-      > [!NOTE]
-      > If you are unable to enable Single Sign-On settings for your Salesforce account, you may need to contact [Salesforce Client support team](https://help.salesforce.com/support). 
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso-edit.png)
+    
+    > [!NOTE]
+    > If you are unable to enable Single Sign-On settings for your Salesforce account, you may need to contact [Salesforce Client support team](https://help.salesforce.com/support). 
 
 11. Select **SAML Enabled**, and then click **Save**.
 
@@ -162,28 +163,28 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. For the **Name** field, type in a friendly name for this configuration. Providing a value for **Name** automatically populate the **API Name** textbox.
 
-    b. Paste **SMAL Entity ID** value, which you have copied from the Azure portal into the **Issuer** field in Salesforce.
+    b. In the **Issuer** field, paste the value of **SAML Entity ID** which you have copied from Azure portal.
 
     c. In the **Entity Id textbox**, type your Salesforce domain name using the following pattern:
       
       * Enterprise account: `https://<subdomain>.my.salesforce.com`
       * Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
       
-    d. Click **Browse** or **Choose File** to open the **Choose File to Upload** dialog, select your Salesforce certificate, and then click **Open** to upload the certificate.
+    d. To upload the **Identity Provider Certificate**, click **Choose File** to browse and select the certificate file which you have downloaded from Azure Portal.
 
-    e. As **SAML Identity Type**, choose option as per your requirement.
-	
-	  * Select **Assertion contains the User's Salesforce username** if Assertion contains the User's Salesforce username.
+    e. As **SAML Identity Type**, choose one of the following options:
+    
+      * Select **Assertion contains the User's Salesforce username**, if user's Salesforce Username is being passed in SAML assertion
 
-	  * Select **Assertion contains the Federation ID from the User object** if Assertion contains the Federation ID from the User object.
+      * Select **Assertion contains the Federation ID from the User object**, if Federation ID from the User object is being passed in SAML assertion
 
-	  * Select **Assertion contains the User ID from the User object** if Assertion contains the User ID from the User object.
+      * Select **Assertion contains the Use ID from the User object**, if User ID from the User object is being passed in SAML assertion
 
     f. For **SAML Identity Location**, select **Identity is in the NameIdentifier element of the Subject statement**.
 
     g. For **Service Provider Initiated Request Binding**, select **HTTP Redirect**.
 
-    h. Paste **Single Sign-On Service URL** value, which you have copied from the Azure portal into the **Identity Provider Login URL** field in Salesforce.
+    h. In **Identity Provider Login URL** textbox, paste the value of **Single Sign-On Service URL** which you have copied from Azure Portal
     
     i. Finally, click **Save** to apply your SAML single sign-on settings.
 
@@ -195,7 +196,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png)
 
-16. In the **Authentication Service** section, select the friendly name of your SAML SSO configuration, and then click **Save**.
+16. In the **Authentication Configuration** section, select the friendly name of your SAML SSO configuration, and then click **Save**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png)
 

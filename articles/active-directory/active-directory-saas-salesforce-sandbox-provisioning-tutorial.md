@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 11/15/2017
 ms.author: jeedes
 
 ---
@@ -62,7 +62,8 @@ The objective of this section is to outline how to enable user provisioning of A
 
 3. Select your instance of Salesforce Sandbox, then select the **Provisioning** tab.
 
-4. Set the **Provisioning Mode** to **Automatic**. 
+4. Set the **Provisioning Mode** to **Automatic**.
+
     ![provisioning](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 5. Under the **Admin Credentials** section, provide the following configuration settings:
@@ -71,16 +72,20 @@ The objective of this section is to outline how to enable user provisioning of A
    
     b. In the **Admin Password** textbox, type the password for this account.
 
-6. To get your Salesforce Sandbox security token, open a new tab and sign into the same Salesforce Sandbox admin account. On the top right corner of the page, click your name, and then click **My Settings**.
+6. To get your Salesforce Sandbox security token, open a new tab and sign into the same Salesforce Sandbox admin account. On the top right corner of the page, click your name, and then click **Settings**.
 
      ![Enable automatic user provisioning](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Enable automatic user provisioning")
-7. On the left navigation pane, click **Personal** to expand the related section, and then click **Reset My Security Token**.
+
+7. On the left navigation pane, click **My Personal Information** to expand the related section, and then click **Reset My Security Token**.
   
     ![Enable automatic user provisioning](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Enable automatic user provisioning")
-8. On the **Reset My Security Token** page, click the **Reset Security Token** button.
+
+8. On the **Reset Security Token** page, click the **Reset Security Token** button.
 
     ![Enable automatic user provisioning](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Enable automatic user provisioning")
+
 9. Check the email inbox associated with this admin account. Look for an email from Salesforce Sandbox.com that contains the new security token.
+
 10. Copy the token, go to your Azure AD window, and paste it into the **Socket Token** field.
 
 11. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Salesforce Sandbox app.

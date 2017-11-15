@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 11/15/2017
 ms.author: jeedes
 
 ---
@@ -149,25 +149,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Name** textbox, type the name of the configuration (e.g.: *SPSSOWAAD_Test*). 
 
-    b. Paste **SMAL Entity ID** value, which you have copied from the Azure portal into the **Issuer** textbox.
+    b. In the **Issuer** field, paste the value of **SAML Entity ID** which you have copied from Azure portal
 
     c. In the **Entity Id** textbox, type **https://test.salesforce.com** if it is the first Salesforce Sandbox instance that you are adding to your directory. If you have already added an instance of Salesforce Sandbox, then for the **Entity ID** type in the **Sign On URL**, which should be in this format: `http://company.my.salesforce.com`  
  
-    d. Click **Browse** to upload the downloaded certificate from the Azure  portal.  
+    d. To upload the **Identity Provider Certificate**, click **Choose File** to browse and select the certificate file which you have downloaded from Azure Portal.  
 
-    e. As **SAML Identity Type**, choose option as per your requirement.
-	
-	  * Select **Assertion contains the User's Salesforce username** if Assertion contains the User's Salesforce username.
+    e. As **SAML Identity Type**, choose one of the following options:
+    
+      * Select **Assertion contains the User's Salesforce username**, if user's Salesforce Username is being passed in SAML assertion
 
-	  * Select **Assertion contains the Federation ID from the User object** if Assertion contains the Federation ID from the User object.
+      * Select **Assertion contains the Federation ID from the User object**, if Federation ID from the User object is being passed in SAML assertion
 
-	  * Select **Assertion contains the User ID from the User object** if Assertion contains the User ID from the User object.
+      * Select **Assertion contains the Use ID from the User object**, if User ID from the User object is being passed in SAML assertion
  
 	f. As **SAML Identity Location**, select **Identity is in the NameIdentifier element of the Subject statement**.
 
 	g. As **Service Provider Initiated Request Binding**, select **HTTP POST**. 
 
-    h. Paste **Single Sign-On Service URL** value, which you have copied from the Azure portal into the **Identity Provider Login URL** textbox. 
+    h. In **Identity Provider Login URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure Portal. 
 
     i. SFDC does not support SAML logout.  As a workaround, paste `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` it into the **Identity Provider Logout URL** textbox.
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 11/15/2017
 ms.author: jeedes
 
 ---
@@ -72,15 +72,15 @@ The objective of this section is to outline how to enable user provisioning of A
    
     b. In the **Admin Password** textbox, type the password for this account.
 
-6. To get your Salesforce security token, open a new tab and sign into the same Salesforce admin account. On the top right corner of the page, click your name, and then click **My Settings**.
+6. To get your Salesforce security token, open a new tab and sign into the same Salesforce admin account. On the top right corner of the page, click your name, and then click **Settings**.
 
      ![Enable automatic user provisioning](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-my-settings.png "Enable automatic user provisioning")
 
-7. On the left navigation pane, click **Personal** to expand the related section, and then click **Reset My Security Token**.
+7. On the left navigation pane, click **My Personal Information** to expand the related section, and then click **Reset My Security Token**.
   
     ![Enable automatic user provisioning](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-personal-reset.png "Enable automatic user provisioning")
 
-8. On the **Reset My Security Token** page, click **Reset Security Token** button.
+8. On the **Reset Security Token** page, click **Reset Security Token** button.
 
     ![Enable automatic user provisioning](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-reset-token.png "Enable automatic user provisioning")
 
