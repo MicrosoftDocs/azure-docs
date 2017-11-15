@@ -71,6 +71,11 @@ If you are already using Network Performance Monitor to monitor other objects or
   * Resource group - Create a resource group, or use an existing one.
   * Location - You must select a [supported region](#regions).
   * Pricing tier - Select 'Free'
+  
+  >[!NOTE]
+  >The ExpressRoute circuit could be anywhere in the world and does not have to be in the same region as the Workspace.
+  >
+
 
   ![workspace](.\media\how-to-npm\4.png)<br><br>
 4. Click **OK** to save and deploy the settings template. Once the template validates, click **Create** to deploy the Workspace.
@@ -171,7 +176,7 @@ For more information about NSG, see [Network Security Groups](../virtual-network
 >
 >
 
-Before you can start using the ExpressRoute monitoring feature of NPM, you must request to have your Workspace whitelisted. [Click here to go to the page and fill out the request form](https://go.microsoft.com/fwlink/?linkid=862263). (Hint: You may want to open this link in a new window or tab). The whitelisting process may take a business day or more. Once the whitelisting is complete, you will receive an email.
+Before you can start using the ExpressRoute monitoring feature of NPM, you must request to have your Workspace whitelisted. [Click here to go to the page and fill out the request form](https://aka.ms/npmcohort). (Hint: You may want to open this link in a new window or tab). The whitelisting process may take a business day or more. Once the whitelisting is complete, you will receive an email.
 
 ## <a name="setupmonitor"></a>Step 5: Configure NPM for ExpressRoute monitoring
 

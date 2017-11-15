@@ -37,7 +37,7 @@ The Azure Function that you create in this tutorial filters the temperature data
 * The Azure IoT Edge device that you created in the quickstart or previous tutorial.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
-* The Azure IoT Edge extension for Visual Studio Code. 
+* [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). (You can install the extension from the extensions panel in Visual Studio Code.)
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. 
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
@@ -144,10 +144,10 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 ## Publish a Docker image
 
 1. Build the Docker image.
-  
-    1. In VS Code explorer, click the **Docker** folder to open it. Then click the **linux-x64** folder, right-click the **Dockerfile** file, and click **Build IoT Edge module Docker image**. 
-    2. In the **Select Folder** box, navigate to the **Docker/linux-x64** folder, and click **Select Folder as EXE_DIR**. 
-    3. In the pop-up text box at the top of the VS Code window, enter the image name. For example, `<docker registry address>/filterfunction:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or is similar to `<your registry name>.azurecr.io`, if you are using Azure Container Registry.
+    1. In VS Code explorer, click the **Docker** folder to open it. Then select the folder for your container platform, either **linux-x64** or **windows-nano**. 
+    2. Right-click the **Dockerfile** file and click **Build IoT Edge module Docker image**. 
+    3. In the **Select Folder** box, navigate to the **Docker/linux-x64** folder, and click **Select Folder as EXE_DIR**. 
+    4. In the pop-up text box at the top of the VS Code window, enter the image name. For example, `<docker registry address>/filterfunction:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or is similar to `<your registry name>.azurecr.io`, if you are using Azure Container Registry.
  
 4. Sign in to Docker. In integrated terminal, enter the following command: 
 
