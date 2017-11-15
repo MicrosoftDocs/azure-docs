@@ -98,7 +98,7 @@ On the configuration server VM, make sure that the system clock is synchronized 
 Time must be synchronized to within 15 minutes. If the time difference is greater than 15 minutes,
 setup fails.
 
-Make sure the configuration server VM can access these URLs:
+Make sure that the configuration server can access these URLs:
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
