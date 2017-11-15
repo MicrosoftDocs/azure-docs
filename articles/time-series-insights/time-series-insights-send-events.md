@@ -23,7 +23,7 @@ This article explains how to create and configure event hub and run a sample app
 
 3. Select your event hub by clicking on its name.
 
-4. Under Entities in the middle configuration window, click **Event Hubs** again.
+4. Under **Entities** in the middle configuration window, click **Event Hubs** again.
 
 5. Select the name of the event hub to configure it.
 
@@ -34,7 +34,7 @@ This article explains how to create and configure event hub and run a sample app
 7. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
 
    > [!IMPORTANT]
-   > Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
+   > Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If the consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
 
 8. Under the **Settings** heading, select **Share access policies**.
 
