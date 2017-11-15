@@ -1,3 +1,24 @@
+---
+title: Multi-tenant SaaS tutorial - Azure SQL Database | Microsoft Docs
+description: "Deploy and explore a standalone single-tenant SaaS application, that uses Azure SQL Database."
+keywords: sql database tutorial
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: craigg
+editor: ''
+ms.assetid:
+ms.service: sql-database
+ms.custom: scale out apps
+ms.workload: "Inactive"
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/14/2017
+ms.author: sstein
+---
+
+
 # Deploy and explore a standalone single-tenant application that uses Azure SQL Database
 
 In this tutorial, you deploy and explore the Wingtip Tickets SaaS Standlone Application. The application is designed to showcase features of Azure SQL Database that simplify enabling SaaS scenarios.
@@ -25,16 +46,14 @@ Additional tutorials will be released in due course that will allow you to explo
 
 Deploy the app for the three provided tenants:
 
-1. Click each **Deploy to Azure** button to open the deployment template in the Azure portal. Each template requires two parameter values; a name for a new resource group, and a user name that distinguishes this deployment from other deployments of the app. The next step provides details for setting these values.
+1. Click each **Deploy to Azure** button to open the deployment template in the Azure portal. Each template requires two parameter values; a name for a new resource group, and a user name that distinguishes this deployment from other deployments of the app. The next step provides details for setting these values.<br><br>
+    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>     &nbsp;&nbsp;**Contoso Concert Hall**
+<br><br>
+    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp;&nbsp;**Dogwood Dojo**
+<br><br>
+    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>    &nbsp;&nbsp;**Fabrikam Jazz Club**
 
-
-   <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>     &nbsp;&nbsp;**Contoso Concert Hall**
-
-   <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp;&nbsp;**Dogwood Dojo**
-
-   <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>    &nbsp;&nbsp;**Fabrikam Jazz Club**
-
-1. Enter required parameter values for each deployment.
+2. Enter required parameter values for each deployment.
 
     > [!IMPORTANT]
     > Some authentication, and server firewalls are intentionally unsecured for demonstration purposes. **Create a new resource group** for each application deployment.  Do not use an existing resource group. Do not use this application, or any resources it creates, for production. Delete all the resource groups when you are finished with the applications to stop related billing.
