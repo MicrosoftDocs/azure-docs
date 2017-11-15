@@ -35,9 +35,9 @@ New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 
 
 ## Create load balancer
-An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high availability by distributing incoming traffic among healthy VMs. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational VM.
+The VM instances in a scale set are connected to a load balancer. An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high availability by distributing incoming traffic among healthy VMs. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational VM.
 
-Create a load balancer that has a public IP address and distributes web traffic on port 80:
+Create a virtual network, and a load balancer that has a public IP address and distributes web traffic on port 80. To create these resources, copy and paste the following PowerShell cmdlets:
 
 ```azurepowershell-interactive
 # Create a virtual network subnet
@@ -115,7 +115,7 @@ $ipConfig = New-AzureRmVmssIpConfig `
 
 
 ## Create a scale set
-Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a scale set named *myScaleSet*:
+Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The *vmssConfig* object creates 2 VM instances in East US, with the credentials as specificed in *adminUsername* and *securePassword*. Provide your own credentials as follows:
 
 ```azurepowershell-interactive
 # Provide your own secure password for use with the VM instances
@@ -185,7 +185,7 @@ Once the IIS install is complete, disconnect from your RDP session.
 
 
 ## View the IIS welcome page
-To see your web server in action, enter the public IP address in to a web browser. The default IIS web page on your first VM instance is displayed, as shown in the following example:
+To see your web server in action, enter the public IP address of the load balancer in to a web browser. The default IIS web page on your first VM instance is displayed, as shown in the following example:
 
 ![Running IIS site](./media/virtual-machine-scale-sets-create-powershell/default-iis.png)
 
