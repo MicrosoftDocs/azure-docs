@@ -27,7 +27,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 
 ## Create a resource group
-Before you can create a scale set, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroupAutomate* in the *EastUS* location:
+Before you can create a scale set, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroup* in the *EastUS* location:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -66,6 +66,7 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 
+# Create a Network Address Translation (NAT) pool
 $inboundNATPool = New-AzureRmLoadBalancerInboundNatPoolConfig `
   -Name myRDPRule `
   -FrontendIpConfigurationId $frontendIP.Id `
@@ -159,7 +160,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Connect to VM instance
-To connect to one of your VM scale set instances, obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address created in the *myResourceGroup* resource group:
+To connect to one of the VM instances in your scale set, obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address created in the *myResourceGroup* resource group:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
@@ -174,7 +175,7 @@ mstsc /v:<publicIpAddress>:50001
 ```
 
 ## Install IIS via PowerShell
-Now that you have logged in to the VM instance, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
+Now that you have logged in to the VM instance, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt on the VM instance and run the following command:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
