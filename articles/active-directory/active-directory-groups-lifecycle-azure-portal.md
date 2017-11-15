@@ -28,7 +28,7 @@ You can now manage the lifecycle of Office 365 groups by setting expiration for 
 > Setting expiration for O365 groups requires that an Azure AD Premium license is assigned to
 >  - The administrator who configures the expiration settings for the tenant
 >  - All members of the groups selected for this setting
-> For AAD_BASIC_EDU licensed customers: the first time you configure this policy, use the Azure Active Directory PowerShell cmdlets. After that, you can update the expiration settings using either PowerShell or the Azure AD portal, with an account that'ss a global administrator in your Azure AD tenant.
+> For AAD_BASIC_EDU licensed customers: the first time you configure this policy, use the Azure Active Directory PowerShell cmdlets. After that, you can update the expiration settings using either PowerShell or the Azure AD portal, with an account that's a global administrator in your Azure AD tenant.
 
 
 ## Set group expiration
