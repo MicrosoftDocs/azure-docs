@@ -44,7 +44,7 @@ Also, complete the following tutorial: [Import and publish your first API](impor
 5. Select **+ Add Revision**
 
     > [!TIP]
-    > You can also choose **Add Revision** in the context menu (**...**) on the API.
+    > You can also choose **Add Revision** in the context menu (**...**) of the API.
     
     ![Revisions menu near top of screen](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
