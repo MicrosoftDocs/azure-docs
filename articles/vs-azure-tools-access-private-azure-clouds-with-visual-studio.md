@@ -45,7 +45,3 @@ By default, Visual Studio supports Azure cloud REST endpoints. In this article, 
 
     The certificates are imported from the publish-settings file into Visual Studio, and you can now interact with your private cloud resources.
 
-## Next steps
-
-- [Publishing to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
-- [How to: Download and Import Publish Settings and Subscription Information](https://msdn.microsoft.com/library/dn385850\(v=nav.70\).aspx)
