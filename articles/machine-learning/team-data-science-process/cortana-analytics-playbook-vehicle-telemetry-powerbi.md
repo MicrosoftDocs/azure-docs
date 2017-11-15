@@ -356,10 +356,8 @@ The following steps take about 10 to 15 minutes to complete.
 
     ![Source](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/11-set-powerbi-source.png)
 
-4. Update the server connection string with the Azure SQL server that got provisioned as part of the deployment. Look in the manual operation instructions under:
+4. Update the server connection string with the Azure SQL server that got provisioned as part of the deployment. Look in the manual operation instructions under Azure SQL database:
 
-    a. Azure SQL database
-    
     * Server: somethingsrv.database.windows.net
     * Database: connectedcar
     * Username: username
@@ -449,7 +447,7 @@ You have now configured all the reports that correspond to the batch processing 
 
 10. From **Page 6**, pin the following content:  
 
-    a. **Contoso Motors logo**
+    * **Contoso Motors logo**
 
     ![Contoso Motors logo](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard9.png)
 
