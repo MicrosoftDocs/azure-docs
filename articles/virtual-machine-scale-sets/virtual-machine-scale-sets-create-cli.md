@@ -57,7 +57,7 @@ az vmss list-instance-connection-info \
     --name myScaleSet
 ```
 
-Each VM instance has a high-range network port mapped to the local connection port on the VM. These ports start at 50001 and increment for each VM instance. The output is similar to the following example:
+Load balancer network address translation (NAT) rules were created that allow you to connect to each VM instance in the scale set. Each VM instance has a high-range network port mapped to the local connection port on the VM. These ports start at 50001 and increment for each VM instance. The output is similar to the following example:
 
 ```json
 {

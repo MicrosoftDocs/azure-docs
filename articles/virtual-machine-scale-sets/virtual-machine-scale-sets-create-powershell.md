@@ -29,17 +29,30 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 ## Create a resource group
 Before you can create a scale set, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroupAutomate* in the *EastUS* location:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
 
-## Create scale load balancer
+## Create load balancer
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high availability by distributing incoming traffic among healthy VMs. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational VM.
 
 Create a load balancer that has a public IP address and distributes web traffic on port 80:
 
-```powershell
+```azurepowershell-interactive
+# Create a virtual network subnet
+$subnet = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name "mySubnet" `
+  -AddressPrefix 10.0.0.0/24
+
+# Create a virtual network
+$vnet = New-AzureRmVirtualNetwork `
+  -ResourceGroupName "myResourceGroup" `
+  -Name "myVnet" `
+  -Location "EastUS" `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $subnet
+
 # Create a public IP address
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroup `
@@ -53,13 +66,22 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 
+$inboundNATPool = New-AzureRmLoadBalancerInboundNatPoolConfig `
+  -Name myRDPRule `
+  -FrontendIpConfigurationId $frontendIP.Id `
+  -Protocol TCP `
+  -FrontendPortRangeStart 50001 `
+  -FrontendPortRangeEnd 50010 `
+  -BackendPort 3389
+
 # Create the load balancer
 $lb = New-AzureRmLoadBalancer `
   -ResourceGroupName myResourceGroup `
   -Name myLoadBalancer `
   -Location EastUS `
   -FrontendIpConfiguration $frontendIP `
-  -BackendAddressPool $backendPool
+  -BackendAddressPool $backendPool `
+  -InboundNatPool $inboundNATPool
 
 # Create a load balancer health probe on port 80
 Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
@@ -81,13 +103,24 @@ Add-AzureRmLoadBalancerRuleConfig `
 
 # Update the load balancer configuration
 Set-AzureRmLoadBalancer -LoadBalancer $lb
+
+# Create IP address configurations
+$ipConfig = New-AzureRmVmssIpConfig `
+  -Name "myIPConfig" `
+  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
+  -LoadBalancerInboundNatPoolsId $inboundNATPool.Id `
+  -SubnetId $vnet.Subnets[0].Id
 ```
 
 
 ## Create a scale set
 Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a scale set named *myScaleSet*:
 
-```powershell
+```azurepowershell-interactive
+# Provide your own secure password for use with the VM instances
+$securePassword = "P@ssword!"
+$adminUsername = "azureuser"
+
 # Create a config object
 $vmssConfig = New-AzureRmVmssConfig `
     -Location EastUS `
@@ -104,24 +137,9 @@ Set-AzureRmVmssStorageProfile $vmssConfig `
 
 # Set up information for authenticating with the virtual machine
 Set-AzureRmVmssOsProfile $vmssConfig `
-  -AdminUsername azureuser `
-  -AdminPassword P@ssword! `
+  -AdminUsername $adminUsername `
+  -AdminPassword $securePassword `
   -ComputerNamePrefix myVM
-
-# Create the virtual network resources
-$subnet = New-AzureRmVirtualNetworkSubnetConfig `
-  -Name "mySubnet" `
-  -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName "myResourceGroup" `
-  -Name "myVnet" `
-  -Location "EastUS" `
-  -AddressPrefix 10.0.0.0/16 `
-  -Subnet $subnet
-$ipConfig = New-AzureRmVmssIpConfig `
-  -Name "myIPConfig" `
-  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
-  -SubnetId $vnet.Subnets[0].Id
 
 # Attach the virtual network to the config object
 Add-AzureRmVmssNetworkInterfaceConfiguration `
@@ -140,16 +158,43 @@ New-AzureRmVmss `
 It takes a few minutes to create and configure all the scale set resources and VMs.
 
 
-## Test your app
-To see your IIS website in action, obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for *myPublicIP* created as part of the scale set:
+## Connect to VM instance
+To connect to one of your VM scale set instances, obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address created in the *myResourceGroup* resource group:
 
-```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIP | select IpAddress
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Enter the public IP address in to a web browser. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to:
+Load balancer network address translation (NAT) rules were created that allow you to connect to each VM instance in the scale set. Each VM instance has a high-range network port mapped to the local connection port on the VM. These ports start at 50001 and increment for each VM instance.
 
-![Running IIS site](./media/virtual-machine-scale-sets-create-powershell/running-iis.png)
+Use the following command, on your local machine, to create a remote desktop session to the first VM instance in your scale set. Replace the IP address with the *publicIPAddress* of your load balancer. When prompted, enter the credentials used when you created the scale set
+
+```powershell
+mstsc /v:<publicIpAddress>:50001
+```
+
+## Install IIS via PowerShell
+Now that you have logged in to the VM instance, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
+
+```powershell
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+```
+
+Once the IIS install is complete, disconnect from your RDP session.
+
+
+## View the IIS welcome page
+To see your web server in action, enter the public IP address in to a web browser. The default IIS web page on your first VM instance is displayed, as shown in the following example:
+
+![Running IIS site](./media/virtual-machine-scale-sets-create-powershell/default-iis.png)
+
+
+## Clean up resources
+When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group, scale set, and all related resources as follows:
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup
+```
 
 
 ## Next steps
