@@ -18,7 +18,7 @@ ms.author: cawa
 
 ---
 
-# Securely saving secret application settings for a web application
+# Securely save secret application settings for a web application
 
 ## Overview
 This article describes how to securely save secret application configuration settings for Azure applications.
@@ -37,7 +37,7 @@ If you are doing a quick prototype or you don't have internet access, start with
 If you are running .NET core console application, use Key Vault to save your secret securely.
 
 ### Save secret settings in Azure Key Vault
-If you are developing a team project and need to share source code securely, use [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
+If you are developing a team project and need to share source code securely, use [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 1. Create a Key Vault in your Azure subscription. Fill out all required fields on the UI and click *Create* on the bottom of the blade
 
@@ -90,7 +90,7 @@ If you are developing a team project and need to share source code securely, use
 ## ASP.NET and .NET applications
 
 .NET 4.7.1 supports Key Vault and Secret configuration builders, which ensures secrets can be moved outside of source control folder without code changes.
-To proceed, [download .NET 4.7.1](https://www.microsoft.com/en-us/download/details.aspx?id=56115) and migrate your application if it's using an older version of .NET framework.
+To proceed, [download .NET 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115) and migrate your application if it's using an older version of .NET framework.
 
 ### Save secret settings in a secret file that is outside of source control folder
 If you are writing a quick prototype and don't want to provision Azure resources, go with this option.
