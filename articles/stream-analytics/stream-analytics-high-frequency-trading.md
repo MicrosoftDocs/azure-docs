@@ -18,10 +18,10 @@ ms.date: 11/05/2017
 ms.author: zhongc
 ---
 
-# High Frequency Trading Simulation With Stream Analytics
+# High frequency trading simulation with Stream Analytics
 The combination of Azure Stream Analytics' SQL language and JavaScript UDF and UDA is a powerful combination that allows users to perform advanced analytics, including online machine learning training and scoring, as well as stateful process simulation. This article describes how to perform linear regression in an Azure Stream Analytics job that does continuous training and scoring in a high frequency trading scenario.
 
-## High Frequency Trading
+## High frequency trading
 The logical flow of high frequency trading is about getting real-time quotes from a security exchange, build a predictive model around the quotes, so we can anticipate the price movement, and place buy or sell orders accordingly in order to make money off the successful prediction of the price movements. As a result, we need the following
 * Real-time quote feed
 * A predictive model that can operate on the real-time quotes
@@ -58,14 +58,15 @@ Here are some sample events generated.
     {"symbol":"FB","marketPercent":0.0121,"bidSize":100,"bidPrice":169.9,"askSize":100,"askPrice":170.7,"volume":39042,"lastSalePrice":170.67,"lastSaleSize":100,"lastSaleTime":1506953351912,"lastUpdated":1506953362205,"sector":"softwareservices","securityType":"commonstock"}
     {"symbol":"GOOG","marketPercent":0.04795,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953362629,"sector":"softwareservices","securityType":"commonstock"}
 
-Note, the timestamp of the event is **lastUpdated**, in epoch time.
+>[!NOTE]
+>The timestamp of the event is **lastUpdated**, in epoch time.
 
 ### Predictive model for high frequency trading
 For the purpose of demonstration, we use a linear model described by Darryl Shen in his paper. http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf.
 
 Volume Order Imbalance (VOI) is a function of current bid/ask price and volume, and bid/ask price/volume from the last tick. The paper identifies correlation between VOI and future price movement, and builds a linear model between the past 5 VOI values and the price change in the next 10 ticks. The model is trained using previous day's data with linear regression. The trained model is then used to make price change predictions on quotes in the current trading day in real time. When a large enough price change is predicted, a trade is executed. Depending on the threshold setting, thousands of trades can be expected for a single stock during a trading day.
 
-![VOI definition](./media/stream-analytics-high-frequency-trading/VOI.png)
+![VOI definition](./media/stream-analytics-high-frequency-trading/voi-formula.png)
 
 Now, let's express the training and prediction operations in an Azure Stream Analytics job.
 
@@ -428,7 +429,6 @@ Finally we output to Power BI dashboard for visualization.
 
 
 ## Summary
-As you can see, a realistic high frequency trading model can be implemented with a moderately complex query in Azure Stream Analytics. We have to simplify the model from five input variables to two, because of the lack of built-in linear regression function. However, for a determined user, algorithms with higher dimensions and sophistication can possibly be implemented as JavaScript UDA as well. What's worth noting is that most of the query, other than the JavaScript UDA, can be tested and debugged within Visual Studio with  
-[Azure Stream Analytics Tool for Visual Studio](stream-analytics-tools-for-visual-studio.md). After the initial query was written, the author spent less than 30 minutes testing and debugging the query in Visual Studio. Currently, UDA cannot be debugged in Visual Studio. We are working on enabling that with the ability to step through JavaScript code. In addition, please note the fields reaching the UDA have field names all lower cased. This was not an obvious behavior during query testing. However, with Azure Stream Analytics compatibility level 1.1, we allow the field name casing to be preserved, so the behavior is more natural.
+As you can see, a realistic high frequency trading model can be implemented with a moderately complex query in Azure Stream Analytics. We have to simplify the model from five input variables to two, because of the lack of built-in linear regression function. However, for a determined user, algorithms with higher dimensions and sophistication can possibly be implemented as JavaScript UDA as well. What's worth noting is that most of the query, other than the JavaScript UDA, can be tested and debugged within Visual Studio with [Azure Stream Analytics Tool for Visual Studio](stream-analytics-tools-for-visual-studio.md). After the initial query was written, the author spent less than 30 minutes testing and debugging the query in Visual Studio. Currently, UDA cannot be debugged in Visual Studio. We are working on enabling that with the ability to step through JavaScript code. In addition, please note the fields reaching the UDA have field names all lower cased. This was not an obvious behavior during query testing. However, with Azure Stream Analytics compatibility level 1.1, we allow the field name casing to be preserved, so the behavior is more natural.
 
 I hope this article serves as an inspiration for all Azure Stream Analytics users, who can use our service to perform advanced analytics in near real time, continuously. Let us know any feedback you have to make it easier to implement queries for advance analytics scenarios.
