@@ -21,15 +21,15 @@ ms.author: twooley
 
 *Applies to: Azure Stack integrated systems*
 
-For external monitoring of the Azure Stack infrastructure, you need to monitor the Azure Stack software, the physical computers, and the physical network switches. With the use of software-defined technologies like Storage Spaces Direct, storage health and alerts are monitored as part of software monitoring. Each of these areas offers a method to retrieve health and alert information.
+For external monitoring of the Azure Stack infrastructure, you need to monitor the Azure Stack software, the physical computers, and the physical network switches. Each of these areas offers a method to retrieve health and alert information.
 
-- Azure Stack software offers a REST-based API to retrieve health and alerts.
+- Azure Stack software offers a REST-based API to retrieve health and alerts. (With the use of software-defined technologies like Storage Spaces Direct, storage health and alerts are part of software monitoring.)
 - Physical computers communicate with the baseboard management controllers (BMCs) to gather health and alerts.
 - Physical network devices can make health and alert information available via the SNMP protocol.
 
 Each Azure Stack solution ships with a hardware lifecycle host. This host runs the Original Equipment Manufacturer (OEM) hardware vendor’s monitoring software for the physical servers and network devices. If desired, you can bypass these monitoring solutions and directly integrate with existing monitoring solutions in your datacenter.
 
-The following diagram shows traffic flow between Azure Stack, an external monitoring solution and the hardware lifecycle host, and a ticketing/data collection system.
+The following diagram shows traffic flow between an Azure Stack integrated system, the hardware lifecycle host, an external monitoring solution, and an external ticketing/data collection system.
 
 ![Diagram showing traffic between Azure Stack, monitoring, and ticketing solution.](/media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
@@ -124,7 +124,7 @@ You can use PowerShell to retrieve health and alerts in Azure Stack. To use Powe
    Get-AzsInfrastructureRoleHealths -location [Region]
    ```
 
-## Use REST API calls to monitor health and alerts
+## Use the REST API to monitor health and alerts
 
 You can use REST API calls to get alerts, close alerts, and get the health of resource providers.
 
