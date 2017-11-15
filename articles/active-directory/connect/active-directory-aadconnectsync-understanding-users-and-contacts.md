@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect sync: Understanding Users and Contacts | Microsoft Docs'
-description: Explains users and contacts in Azure AD Connect sync.
+title: 'Azure AD Connect sync: Understanding Users, Groups and Contacts | Microsoft Docs'
+description: Explains users, groups and contacts in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,18 +16,38 @@ ms.date: 10/17/2017
 ms.author: markvi;andkjell
 
 ---
-# Azure AD Connect sync: Understanding Users and Contacts
+# Azure AD Connect sync: Understanding Users, Groups and Contacts
 There are several different reasons why you would have multiple Active Directory forests and there are several different deployment topologies. Common models include an account-resource deployment and GAL sync’ed forests after a merger & acquisition. But even if there are pure models, hybrid models are common as well. The default configuration in Azure AD Connect sync does not assume any particular model but depending on how user matching was selected in the installation guide, different behaviors can be observed.
 
 In this topic, we will go through how the default configuration behaves in certain topologies. We will go through the configuration and the Synchronization Rules Editor can be used to look at the configuration.
 
 There are a few general rules the configuration assumes:
-
 * Regardless of which order we import from the source Active Directories, the end result should always be the same.
 * An active account will always contribute sign-in information, including **userPrincipalName** and **sourceAnchor**.
 * A disabled account will contribute userPrincipalName and sourceAnchor, unless it is a linked mailbox, if there is no active account to be found.
 * An account with a linked mailbox will never be used for userPrincipalName and sourceAnchor. It is assumed that an active account will be found later.
 * A contact object might be provisioned to Azure AD as a contact or as a user. You don’t really know until all source Active Directory forests have been processed.
+
+## Groups
+Important points to be aware of when synchronizing groups from Active Directory to Azure AD:
+
+* Azure AD Connect excludes built-in security groups from directory synchronization.
+
+* Azure AD Connect does not support synchronizing [Primary Group memberships](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx) to Azure AD.
+
+* Azure AD Connect does not support synchronizing [Dynamic Distribution Group memberships](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx) to Azure AD.
+
+* To synchronize an Active Directory group to Azure AD as a mail-enabled group:
+
+    * If the group's *proxyAddress* attribute is empty, its *mail* attribute must have a value, OR 
+
+    * If the group's *proxyAddress* attribute is non-empty, it must also contain a primary SMTP proxy address value. Here are some examples:
+    
+      * An Active Directory group with proxyAddress attribute containing value *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* will not become a mail-enabled group in Azure AD. It does not have a primary SMTP address.
+      
+      * An Active Directory group with proxyAddress attribute containing values *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* will not become a mail-enabled group in Azure AD. It has an smtp address but it is not primary.
+      
+      * be provisioned as a mail-enabled group in Azure AD. An Active Directory group with proxyAddress attribute containing values *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* will become mail-enabled in Azure AD.
 
 ## Contacts
 Having contacts representing a user in a different forest is common after a merger & acquisition where a GALSync solution is bridging two or more Exchange forests. The contact object is always joining from the connector space to the metaverse using the mail attribute. If there is already a contact object or user object with the same mail address, the objects are joined together. This is configured in the rule **In from AD – Contact Join**. There is also a rule named **In from AD – Contact Common** with an attribute flow to the metaverse attribute **sourceObjectType** with the constant **Contact**. This rule has very low precedence so if any user object is joined to the same metaverse object, then the rule **In from AD – User Common** will contribute the value User to this attribute. With this rule, this attribute will have the value Contact if no user has been joined and the value User if at least one user has been found.
