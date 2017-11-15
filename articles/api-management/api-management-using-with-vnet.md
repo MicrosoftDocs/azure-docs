@@ -35,12 +35,9 @@ To perform the steps described in this article, you must have:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
-+ VNET connectivity is available in the **Premium** and **Developer** tiers, switch to one of this tiers as described in the [upgrade and scale](upgrade-and-scale.md#upgrade-and-scale) topic.
++ VNET connectivity is available in the Premium and Developer tiers only. Switch to one of these tiers by following the directions in the [upgrade and scale](upgrade-and-scale.md#upgrade-and-scale) topic.
 
 ## <a name="enable-vpn"> </a>Enable VNET connection
-
-> [!NOTE]
->  VNET connectivity is available in the **Premium** and **Developer** tiers, switch to one of this tiers as described in the [upgrade and scale](upgrade-and-scale.md#upgrade-and-scale) topic.
 
 ### Enable VNET connectivity using the Azure portal
 
@@ -101,24 +98,27 @@ Following is a list of common misconfiguration issues that can occur while deplo
 
 > [!IMPORTANT]
 > It is recommended that, if you are using a Custom DNS Server(s) for the VNET, you set that up **before** deploying an API Management service into it. Otherwise you need to 
-> update the API Management service each time you change the DNS Servers(s) by running the [Apply Network Configuration Operation](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservice#ApiManagementService_ApplyNetworkConfigurationUpdates)
+> update the API Management service each time you change the DNS Servers(s) by running the [Apply Network Configuration Operation](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group][Network Security Group]. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
 
 When an API Management service instance is hosted in a VNET, the ports in the following table are used.
 
-| Source / Destination Port(s) | Direction | Transport protocol | Purpose | Source / Destination | Access type |
+| Source / Destination Port(s) | Direction | Transport protocol | Source / Destination | Purpose (*) | Virtual Network type |
 | --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |Inbound |TCP |Client communication to API Management |INTERNET / VIRTUAL_NETWORK |External |
-| * / 3443 |Inbound |TCP |Management endpoint for Azure portal and Powershell |INTERNET / VIRTUAL_NETWORK |External & Internal |
-| * / 80, 443 |Outbound |TCP |Dependency on Azure Storage and Azure Service Bus |VIRTUAL_NETWORK / INTERNET |External & Internal |
-| * / 1433 |Outbound |TCP |Dependency on Azure SQL |VIRTUAL_NETWORK / INTERNET |External & Internal |
-| * / 11000 - 11999 |Outbound |TCP |Dependency on Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |External & Internal |
-| * / 14000 - 14999 |Outbound |TCP |Dependency on Azure SQL V12 |VIRTUAL_NETWORK / INTERNET |External & Internal |
-| * / 5671 |Outbound |AMQP |Dependency for Log to Event Hub policy and monitoring agent |VIRTUAL_NETWORK / INTERNET |External & Internal |
-| * / 6381 - 6383 |Inbound & Outbound |TCP |Dependency on Redis Cache |VIRTUAL_NETWORK / VIRTUAL_NETWORK |External & Internal |
-| * / 445 |Outbound |TCP |Dependency on Azure File Share for GIT |VIRTUAL_NETWORK / INTERNET |External & Internal |
-| * / * | Inbound |TCP |Azure Infrastructure Load Balancer | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |External & Internal |
+| * / 80, 443 |Inbound |TCP |INTERNET / VIRTUAL_NETWORK|Client communication to API Management|External |
+| * / 3443 |Inbound |TCP |INTERNET / VIRTUAL_NETWORK|Management endpoint for Azure portal and Powershell |Internal |
+| * / 80, 443 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|**Access to Azure Storage endpoints** |External & Internal |
+| * / 1433 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|**Access to Azure SQL endpoints** |External & Internal |
+| * / 11000 - 11999 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|**Access to Azure SQL V12** |External & Internal |
+| * / 14000 - 14999 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|**Access to Azure SQL V12** |External & Internal |
+| * / 5671 |Outbound |AMQP |VIRTUAL_NETWORK / INTERNET|Dependency for Log to Event Hub policy and monitoring agent |External & Internal |
+| * / 445 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Dependency on Azure File Share for GIT |External & Internal |
+| * / 6381 - 6383 |Inbound & Outbound |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Access Redis Cache Instances between RoleInstances |External & Internal |
+| * / * | Inbound |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure Infrastructure Load Balancer |External & Internal |
+
+>[!IMPORTANT]
+> * The Ports for which the *Purpose* is **bold** are required for API Management service to be deployed successfully. Blocking the other ports however will cause degradation in the ability to use and monitor the running service.
 
 * **SSL functionality**: To enable SSL certificate chain building and validation the API Management service needs Outbound network connectivity to ocsp.msocsp.com, mscrl.microsoft.com and crl.microsoft.com. This dependency is not required, if any certificate you upload to API Management contain the full chain to the CA root.
 
@@ -137,14 +137,27 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 
 ## <a name="troubleshooting"> </a>Troubleshooting
-When making changes to your network, refer to [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus), to validate if the API Management service has not lost access to any of the critical resources which it depends upon. The connectivity status should be updated every 15 minutes.
+* **Initial Setup**: When the initial deployment of API Management service into a subnet does not succeed, it is advised to first deploy a virtual machine into the same subnet. Next remote desktop into the virtual machine and validate that there is connectivity to one of each resource below in your azure subscription 
+    * Azure Storage blob
+    * Azure SQL Database
+
+ > [!IMPORTANT]
+ > After you have validated the connectivity, make sure to remove all the resources deployed in the subnet, before deploying API Management into the subnet.
+
+* **Incremental Updates**: When making changes to your network, refer to [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus), to verify that the API Management service has not lost access to any of the critical resources which it depends upon. The connectivity status should be updated every 15 minutes.
+
+* **Resource Navigation Links**: When deploying into Resource Manager style vnet subnet, API Management reserves the subnet, by creating a resource navigation Link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you move an API Management service to a different subnet or delete it, we will remove that resource navigation link. 
+
+## <a name="routing"> </a> Routing
++ A load balanced public IP address (VIP) will be reserved to provide access to all service endpoints.
++ An IP address from a subnet IP range (DIP) will be used to access resources within the vnet and a public IP address (VIP) will be used to access resources outside the vnet.
++ Load balanced public IP address can be found on the Overview/Essentials blade in the Azure portal.
 
 ## <a name="limitations"> </a>Limitations
 * A subnet containing API Management instances cannot contain any other Azure resource types.
 * The subnet and the API Management service must be in the same subscription.
 * A subnet containing API Management instances cannot be moved across subscriptions.
-* When using an internal virtual network, only an internal IP address will be available from the range stated in [RFC 1918](https://tools.ietf.org/html/rfc1918), a public IP address cannot be provided.
-* For multi-region API Management deployments, with Internal virtual networks configured, users are responsible for managing their own load balancing as they own the DNS.
+* For multi-region API Management deployments configured in Internal virtual network mode, users are responsible for managing the load balancing across multiple regions, as they own the routing.
 
 
 ## <a name="related-content"> </a>Related content

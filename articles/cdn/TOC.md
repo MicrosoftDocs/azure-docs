@@ -10,8 +10,8 @@
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin resource sharing](cdn-cors.md)
-### [Map a custom domain to CDN](cdn-map-content-to-custom-domain.md)
-### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)
+### [Add a custom domain to your CDN endpoint](cdn-map-content-to-custom-domain.md)
+### [Configure HTTPS on a custom domain](cdn-custom-ssl.md)
 ## Optimize content
 ### [Optimization overview](cdn-optimization-overview.md)
 ####[Large file optimization](cdn-large-file-optimization.md)
@@ -39,6 +39,7 @@
 ## Analyze
 ### [Analyze Azure CDN usage patterns](cdn-log-analysis.md)
 #### [Core reports from Verizon](cdn-analyze-usage-patterns.md)
+#### [Custom reports from Verizon](cdn-verizon-custom-reports.md)
 #### [Azure diagnostics logs](cdn-azure-diagnostic-logs.md)
 ### Analytics tools for Azure CDN from Verizon
 #### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)

@@ -13,24 +13,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/25/2017
 ms.author: damaerte
 ---
 
-# Features & tools for PowerShell in Azure Cloud Shell
+# Features & tools for PowerShell in Azure Cloud Shell (Preview)
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Features & tools for [Bash](features.md) is also available.
 
-PowerShell in Cloud Shell runs on `Windows Server 2016`.
+PowerShell in Cloud Shell (Preview) runs on `Windows Server 2016`.
 
 ## Features
 
 ### Secure automatic authentication
 
-PowerShell in Cloud Shell securely and automatically authenticates account access for the Azure PowerShell.
+PowerShell in Cloud Shell (Preview) securely and automatically authenticates account access for the Azure PowerShell.
 
 ### Files persistence across sessions
 
@@ -42,7 +42,7 @@ Since each request for Cloud Shell is allocating a temporary machine, files outs
 
 ### Azure drive (Azure:)
 
-PowerShell in Cloud Shell starts you in Azure drive (`Azure:`).
+PowerShell in Cloud Shell (Preview) starts you in Azure drive (`Azure:`).
 Azure drive enables easy discovery and navigation of Azure resources such as Compute, Network, Storage etc. similar to filesystem navigation.
 You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azure) to manage these resources.
 Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are instantly reflected in the Azure drive.
@@ -88,7 +88,7 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 
 |**Category**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure tools     |[Azure PowerShell (4.3.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1) |
+|Azure tools     |[Azure PowerShell (4.4.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1)<br> [Azure CLI (2.0.20)](https://docs.microsoft.com/en-us/cli/azure/overview)|
 |Text editors    |vim<br> nano                             |
 |Package Manager |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Source control  |git                                      |
@@ -106,5 +106,6 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 
 ## Next steps
 
-[Quickstart with PowerShell in Cloud Shell](quickstart-powershell.md) <br>
+[Quickstart with PowerShell in Cloud Shell (Preview)](quickstart-powershell.md)
+
 [Learn about Azure PowerShell](https://docs.microsoft.com/powershell/azure/)

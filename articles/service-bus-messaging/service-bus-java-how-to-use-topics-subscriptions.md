@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 10/17/2017
 ms.author: sethm
 
 ---
@@ -21,8 +21,7 @@ ms.author: sethm
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and
-**deleting topics and subscriptions**.
+This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**.
 
 ## What are Service Bus topics and subscriptions?
 Service Bus topics and subscriptions support a *publish/subscribe*
@@ -52,7 +51,7 @@ applications.
 
 ## Create a service namespace
 To begin using Service Bus topics and subscriptions in Azure,
-you must first create a namespace, which provides
+you must first create a *namespace*, which provides
 a scoping container for addressing Service Bus resources within your
 application.
 
@@ -121,7 +120,7 @@ topicInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
 CreateTopicResult result = service.createTopic(topicInfo);
 ```
 
-Note that you can use the **listTopics** method on
+You can use the **listTopics** method on
 **ServiceBusContract** objects to check if a topic with a specified name
 already exists within a service namespace.
 
@@ -202,7 +201,7 @@ message by passing any serializable object into the constructor of the
 The following example demonstrates how to send five test messages to the
 `TestTopic` **MessageSender** we obtained in the previous code snippet.
 Note how the **MessageNumber** property value of each message varies on
-the iteration of the loop (this determines which subscriptions receive it):
+the iteration of the loop (this value determines which subscriptions receive it):
 
 ```java
 for (int i=0; i<5; i++)  {
@@ -231,7 +230,7 @@ operation - that is, when Service Bus receives a read request for a
 message, it marks the message as being consumed and returns it to the
 application. **ReceiveAndDelete** mode is the simplest model and works
 best for scenarios in which an application can tolerate not processing a
-message in the event of a failure. To understand this, consider a
+message if a failure occurs. For example, consider a
 scenario in which the consumer issues the receive request and then
 crashes before processing it. Because Service Bus has marked the
 message as being consumed, then when the application restarts and begins
@@ -323,7 +322,7 @@ received again.
 
 In the event that the application crashes after processing the message
 but before the **deleteMessage** request is issued, then the message
-is redelivered to the application when it restarts. This is often
+is redelivered to the application when it restarts. This process is often
 called **At Least Once Processing**; that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing,
 then application developers should add additional logic to their
 application to handle duplicate message delivery. This is often achieved
@@ -332,7 +331,7 @@ constant across delivery attempts.
 
 ## Delete topics and subscriptions
 The primary way to delete topics and subscriptions is to use a
-**ServiceBusContract** object. Deleting a topic will also delete any subscriptions that are registered
+**ServiceBusContract** object. Deleting a topic also deletes any subscriptions that are registered
 with the topic. Subscriptions can also be deleted independently.
 
 ```java
@@ -351,8 +350,8 @@ Now that you've learned the basics of Service Bus queues, see [Service Bus queue
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter 
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png

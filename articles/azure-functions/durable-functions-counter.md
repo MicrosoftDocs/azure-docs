@@ -63,12 +63,12 @@ One unique characteristic of this orchestrator function is that it effectively h
 > [!NOTE]
 > The `ContinueAsNew` method has other use-cases besides eternal orchestrations. For more information, see [Eternal Orchestrations](durable-functions-eternal-orchestrations.md).
 
-## Running the sample
+## Run the sample
 
-Using the HTTP-triggered functions included in the sample, you can start the orchestration using the following HTTP POST request. To allow `counterState` to start at zero (the default value for `int`), there is no content in this request.
+You can start the orchestration by sending the following HTTP POST request. To allow `counterState` to start at zero (the default value for `int`), there is no content in this request.
 
 ```
-POST http://{host}/orchestrators/E3_Counter HTTP/1.1
+POST http://{host}/orchestrators/E3_Counter
 Content-Length: 0
 ```
 
@@ -78,13 +78,17 @@ Content-Length: 719
 Content-Type: application/json; charset=utf-8
 Location: http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
-{"id":"bcf6fb5067b046fbb021b52ba7deae5a","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
+{
+  "id":"bcf6fb5067b046fbb021b52ba7deae5a",
+  "statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}",
+  "sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}",
+  "terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
 The **E3_Counter** instance starts and then immediately waits for an event to be sent to it using `RaiseEventAsync` or using the **sendEventUrl** HTTP POST webhook referenced in the 202 response. Valid `eventName` values include *incr*, *decr*, and *end*.
 
 ```
-POST http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey} HTTP/1.1
+POST http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 Content-Type: application/json
 Content-Length: 6
 
@@ -124,14 +128,9 @@ You can continue sending new operations to this instance and observe that its st
 > [!WARNING]
 > At the time of writing, there are known race conditions when calling `ContinueAsNew` while concurrently processing messages, such as external events or termination requests. For the latest information on these race conditions, see this [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/67).
 
-## Wrapping up
-
-At this point, you have a better understanding of some of the advanced capabilities of Durable Functions, notably `WaitForExternalEvent` and `ContinueAsNew`. These tools enable you to write various forms of "stateful singletons," such as counters and aggregators.
-
 ## Next steps
+
+This sample has demonstrated how to handle [external events](durable-functions-external-events.md) and implement [eternal orchestrations](durable-functions-eternal-orchestrations.md) in [stateful singletons](durable-functions-singletons.md). The next sample shows how to use external events and [durable timers](durable-functions-timers.md) to handle human interaction.
 
 > [!div class="nextstepaction"]
 > [Run the human interaction sample](durable-functions-phone-verification.md)
-
-
-

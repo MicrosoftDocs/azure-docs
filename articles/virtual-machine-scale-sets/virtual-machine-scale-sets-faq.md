@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/14/2017
+ms.date: 11/8/2017
 ms.author: negat
 ms.custom: na
 
@@ -458,11 +458,6 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension for Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
 
-
-
-
-
-
 ## Networking
  
 ### Is it possible to assign a Network Security Group (NSG) to a scale set, so that it will apply to all the VM NICs in the set?
@@ -581,7 +576,7 @@ Another reason you might create a virtual machine scale set with fewer than two 
 
 ### How do I change the number of VMs in a virtual machine scale set?
 
-To change the number of VMs in a virtual machine scale set, see [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+To change the number of VMs in a virtual machine scale set in the Azure portal, from the VM scale set properties section, click on the "Scaling" blade and use the slider bar. For other ways to change the instance count, see [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
 ### How do I define custom alerts for when certain thresholds are reached?
 
@@ -647,7 +642,15 @@ Yes, you can use the reimage operation to reset a VM without changing the image.
 
 For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
+### Is it possible to integrate scale sets with Azure OMS (Operations Management Suite)?
 
+Yes, you can by installing the OMS extension on the scale set VMs. Here is an Azure CLI example:
+```
+az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
+```
+You can find the required workspaceId and workspaceKey in the OMS portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
+
+Note: if your scale set _upgradePolicy_ is set to Manual, you will need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be _az vmss update-instances_.
 
 ## Troubleshooting
 

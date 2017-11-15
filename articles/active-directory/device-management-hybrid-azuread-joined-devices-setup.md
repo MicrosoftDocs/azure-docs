@@ -291,12 +291,11 @@ The definition helps you to verify whether the values are present or if you need
 
 In the claim above,
 
-- `$<domain>` is the AD FS service URL
-- `<verified-domain-name>` is a placeholder you need to replace with one of your verified domain names in Azure AD
+- `<verified-domain-name>` is a placeholder you need to replace with one of your verified domain names in Azure AD. For example, Value = "http://contoso.com/adfs/services/trust/"
 
 
 
-For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-add-domain.md).  
+For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md).  
 To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)

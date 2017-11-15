@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 10/17/2017
 ms.author: markscu
 
 ---
@@ -19,8 +19,8 @@ ms.author: markscu
 
 Using the Azure CLI it is possible to run Batch jobs without writing code.
 
-Template files can be created and used with the Azure CLI that allow Batch
-pools, jobs, and tasks to be created. Job input files can be easily uploaded to
+Create and use template files with the Azure CLI to create Batch
+pools, jobs, and tasks. Job input files can be easily uploaded to
 the storage account associated with the Batch account and job output files
 downloaded.
 
@@ -63,7 +63,7 @@ ffmpeg to transcode source video files to different resolutions.
     the ffmpeg application and its requirements; they specify the appropriate
     OS, VM size, how ffmpeg is installed (from an application package or
     using a package manager, for example), and other pool property values. Parameters are
-    created so when the template is used, only the pool id and number of VMs
+    created so when the template is used, only the pool ID and number of VMs
     need to be specified.
 
 -   A job template is created. The user creating the template knows how ffmpeg
@@ -72,9 +72,9 @@ ffmpeg to transcode source video files to different resolutions.
     containing the source video files, with a task required per input file.
 
 -   An end user with a set of video files to transcode first creates a pool
-    using the pool template, specifying only the pool id and number of VMs
+    using the pool template, specifying only the pool ID and number of VMs
     required. They can then upload the source files to transcode. A job can then
-    be submitted using the job template, specifying only the pool id and
+    be submitted using the job template, specifying only the pool ID and
     location of the source files uploaded. The Batch job is created, with
     one task per input file being generated. Finally, the transcoded output
     files can be download.
@@ -86,11 +86,11 @@ installed.
 
 For instructions on how to install the Azure CLI see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Once the Azure CLI has been installed, the Batch extension can be installed using the
+Once the Azure CLI has been installed, the latest version of the Batch extension can be installed using the
 following CLI command:
 
 ```azurecli
-az component update --add batch-extensions --allow-third-party
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
 ```
 
 For more information about the Batch extension, see [Microsoft Azure Batch CLI Extensions for Windows, Mac and Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
@@ -113,7 +113,7 @@ the following main concepts:
     -   Allow property values to be specified in a body section, with only
         parameter values needing to be supplied when the template is used. For
         example, the complete definition for a pool could be placed in the body
-        and only one parameter defined for pool id; only a pool id string
+        and only one parameter defined for pool id; only a pool ID string
         therefore needs to be supplied to create a pool.
         
     -   The template body can be authored by someone with knowledge of Batch and
@@ -151,13 +151,13 @@ the following higher-level constructs are supported by the pool template:
 -   **Package references**
 
     -   Optionally allows software to be copied to pool nodes by using package
-        managers. The package manager and package id are specified. Being able
+        managers. The package manager and package ID are specified. Being able
         to declare one or more packages avoids the need to create a script that
         gets the required packages, install the script, and run the script on
         each pool node.
 
 The following is an example of a template that creates a pool of Linux VMs with
-ffmpeg installed and only requires a pool id string and the number of VMs to be
+ffmpeg installed and only requires a pool ID string and the number of VMs to be
 supplied to use:
 
 ```json
@@ -172,7 +172,7 @@ supplied to use:
         "poolId": {
             "type": "string",
             "metadata": {
-                "description": "The pool id "
+                "description": "The pool ID "
             }
         }
     },

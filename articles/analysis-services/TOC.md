@@ -20,6 +20,7 @@
 ## [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
 ## [Get client libraries](analysis-services-data-providers.md)
 ## [Backup and restore](analysis-services-backup.md)
+## [Configure query replica scale-out](analysis-services-scale-out.md)
 ## [Connect with Excel](analysis-services-connect-excel.md)
 ## [Connect with Power BI](analysis-services-connect-pbi.md)
 ## [Create an .odc file](analysis-services-odc.md)
@@ -50,9 +51,7 @@
 ## [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Resources
-## [Analysis Services code samples on GitHub](https://github.com/Microsoft/Analysis-Services)
-## [Sample Tabular 1400 model project and database on GitHub](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services)
-## [Adventure Works sample databases on GitHub](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks2014)
+## [Samples](analysis-services-samples.md)
 ## [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)

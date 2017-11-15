@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -53,8 +53,8 @@ Currently, conditional access policies are selectively enforced on users of iOS 
 
 ## How do conditional access policies work for Microsoft Teams?
 
-Microsoft Teams relies heavily on Exchange Online and SharePoint Online for core productivity scenarios, like meetings, calendars, and file sharing. Conditional access policies that are set for these cloud apps apply to Microsoft Teams when a user signs in.
+Microsoft Teams relies heavily on Exchange Online and SharePoint Online for core productivity scenarios, like meetings, calendars, and file sharing. Conditional access policies that are set for these cloud apps apply to Microsoft Teams when a user signs directly into Microsoft Teams.
 
-Microsoft Teams also is supported separately as a cloud app in Azure Active Directory conditional access policies. Conditional access policies that are set for a cloud app apply to Microsoft Teams when a user signs in.
+Microsoft Teams also is supported separately as a cloud app in Azure Active Directory conditional access policies. Conditional access policies that are set for a cloud app apply to Microsoft Teams when a user signs in. However, without the correct policies on other apps like Exchange Online and SharePoint Online users may still be able to access those resources directly.
 
-Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms. 
+Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms.

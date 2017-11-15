@@ -14,8 +14,8 @@ ms.custom: "VNet Service endpoints"
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: ''
-ms.date: 10/09/2017
+ms.workload: "On Demand"
+ms.date: 11/13/2017
 ms.author: genemi
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database
@@ -23,6 +23,13 @@ ms.author: genemi
 *Virtual network rules* are one firewall security feature that controls whether your Azure SQL Database server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database.
 
 To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
+
+
+> [!NOTE]
+> For Azure SQL Database, this feature is available in Preview for the following Azure regions:
+>
+> - WestCentralUS, WestUS2, and EastUS.
+
 
 #### How to create a virtual network rule
 
@@ -122,11 +129,17 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 
 For Azure SQL Database, the virtual network rules feature has the following limitations:
 
+- At present, an Azure Web App in a subnet that has **Service Endpoints** turned on does not yet function as expected. We are working on enabling this functionality.
+    - Until this feature is fully implemented, we recommend that you move your Web App to a different subnet that does not have service endpoints turned on for SQL.
+
 - In the firewall for your SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the SQL Database.
 
 - Each Azure SQL Database server can have up to 128 ACL entries for any given virtual network.
 
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
+
+- Turning ON virtual network service endpoints to Azure SQL Database also enables the endpoints for the MySQL and PostGres Azure services. However, with endpoints ON, attempts to connect from the endpoints to your MySQL or Postgres instances will fail.
+    - The underlying reason is that MySQL and PostGres do not presently support ACLing.
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
@@ -284,9 +297,6 @@ The Microsoft Azure Virtual Network service endpoints feature, and the virtual n
 
 <!-- ??2
 #### Syntax related articles
-
-- PowerShell cmdlets
-
 - REST API Reference, including JSON
 
 - Azure CLI

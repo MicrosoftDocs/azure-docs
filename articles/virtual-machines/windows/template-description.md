@@ -279,7 +279,7 @@ Several profile elements are used when defining a virtual machine resource. Some
 - [size](sizes.md)
 - [name](/architecture/best-practices/naming-conventions) and credentials
 - disk and [operating system settings](cli-ps-findimage.md)
-- [network interface](../../virtual-network/virtual-networks-multiple-nics.md) 
+- [network interface](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - boot diagnostics
 
 ## Disks and images

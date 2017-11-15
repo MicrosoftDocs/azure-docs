@@ -23,7 +23,7 @@ ms.author: aelnably
 Using the commands in this article you are able to create and manage a Web App for Containers using Azure CLI 2.0.
 You can start using the new version of the CLI in two ways:
 
-* [Installing Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) on your machine.
+* [Installing Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) on your machine.
 * Using [Azure Cloud Shell (Preview)](../../cloud-shell/overview.md)
 
 ## Create a Linux App Service Plan
@@ -31,7 +31,7 @@ You can start using the new version of the CLI in two ways:
 To create a Linux App Service Plan, you can use the following command:
 
 ```azurecli-interactive
-az appservice plan create -n appname -g rgname --islinux -l "South Central US" --sku S1 --number-of-workers 1
+az appservice plan create -n appname -g rgname --is-linux -l "South Central US" --sku S1 --number-of-workers 1
 ```
 
 ## Create a custom Docker container Web App
@@ -100,8 +100,8 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 
 ## Next steps
 
-* [What is Azure Web App for Containers?](app-service-linux-intro.md)
-* [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* [What is Azure App Service on Linux?](app-service-linux-intro.md)
+* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (Preview)](../../cloud-shell/overview.md)
 * [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Continuous Deployment with Azure Web App for Containers](app-service-linux-ci-cd.md)
+* [Continuous Deployment with Web App for Containers](app-service-linux-ci-cd.md)

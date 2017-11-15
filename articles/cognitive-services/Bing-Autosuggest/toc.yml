@@ -1,29 +1,52 @@
-- name: Bing AutoSuggest Documentation
-  href: ../index.md
+- name: Bing Autosuggest Documentation
+  href: index.yml
 - name: Overview
   items:
-  - name: Get suggested search terms
+  - name: About Bing Autosuggest API
     href: get-suggested-search-terms.md
-  - name: Upgrade from v5 to v7 Preview
+  - name: Supported languages
+    href: bing-autosuggest-supported-languages.md
+- name: Quickstarts
+  items:
+  - name: C#
+    href: quickstarts/csharp.md
+  - name: Java
+    href: quickstarts/java.md
+  - name: Node
+    href: quickstarts/nodejs.md
+  - name: Python
+    href: quickstarts/python.md
+  - name: PHP
+    href: quickstarts/php.md
+  - name: Ruby
+    href: quickstarts/ruby.md
+- name: Tutorials
+  items:
+  - name: Single-page Web app
+    href: tutorials/autosuggest.md
+  - name: Single-page Web app (source code)
+    href: tutorials/autosuggest-source.md
+- name: How-to guides
+  items: 
+  - name: Upgrade from v5 to v7
     href: bing-autosuggest-upgrade-guide-v5-to-v7.md
   - name: Use and display requirements
     href: UseAndDisplayRequirements.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Get started
-    href: quick-start.md
 - name: Reference
   items:
-  - name: REST v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference
-  - name: REST v7 Preview
+  - name: REST v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference
+  - name: REST v5 (Old version)
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Frequently Asked Questions
+    href: bing-autosuggest-resource-faq.md
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
   - name: Try it!
-    href: https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2
+    href: https://azure.microsoft.com/en-us/services/cognitive-services/autosuggest/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=bing+autosuggest
+  - name: User Voice
+    href: https://cognitive.uservoice.com/forums/598198-bing-autosuggest

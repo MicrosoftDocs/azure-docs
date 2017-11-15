@@ -1,5 +1,5 @@
 ### Is BGP supported on all Azure VPN Gateway SKUs?
-No, BGP is supported on Azure **Standard** and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
+No, BGP is supported on Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
 
 ### Can I use BGP with Azure Policy-Based VPN gateways?
 No, BGP is supported on Route-Based VPN gateways only.
