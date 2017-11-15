@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 # How Azure Multi-Factor Authentication works

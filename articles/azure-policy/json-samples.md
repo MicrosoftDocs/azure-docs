@@ -64,6 +64,7 @@ The following table includes links to json templates for Azure Policy. These sam
 | [Audit DB level threat detection setting](scripts/audit-db-threat-det-setting.md) | Audits SQL database security alert policies if those policies are not set to specified state. You specify a value that indicates whether threat detection is enabled or disabled.  |
 | [Audit SQL Server Level Audit Setting](scripts/audit-sql-ser-leve-audit-setting.md) | Audits SQL server audit settings if those settings do not match a specified setting. You specify a value that indicates whether audit settings should be enabled or disabled. |
 | [Audit Server level threat detection setting](scripts/audit-sql-ser-threat-det-setting.md) | Audits SQL database security alert policies if those policies are not set to specified state. You specify a value that indicates whether threat detection is enabled or disabled.  |
+| [Audit no Azure Active Directory administrator](scripts/audit-no-aad-admin.md) | Audit when there is no Azure Active Directory administrator assigned to the SQL server. |
 | [Allowed SQL DB SKUs](scripts/allowed-sql-db-skus.md) | Requires SQL databases use an approved SKU. You specify an array of allowed SKU IDs or an array of allowed SKU names. |
 |**Storage**||
 | [Allowed SKUs for Storage Accounts and Virtual Machines](scripts/allowed-skus-storage.md) | Requires that storage accounts and virtual machines use approved SKUs. Uses built-in policies to ensure approved SKUs. You specify an array of approved virtual machines SKUs, and an array of approved storage account SKUs. |

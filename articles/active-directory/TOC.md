@@ -73,7 +73,6 @@
 ## [Manage groups and members](active-directory-manage-groups.md)
 ### Manage groups
 #### [Azure portal](active-directory-groups-create-azure-portal.md)
-#### [Classic portal](active-directory-accessmanagement-manage-groups.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Manage group members](active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
@@ -94,7 +93,6 @@
 #### [Cmdlets](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [Classic portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
 ### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
 ### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
 
@@ -135,6 +133,7 @@
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
 ### [SSPR How it works](active-directory-passwords-how-it-works.md)
 ### [SSPR Deployment guide](active-directory-passwords-best-practices.md)
+### [SSPR and Windows 10](active-directory-passwords-login.md)
 ### [SSPR Policies ](active-directory-passwords-policy.md)
 ### [SSPR Customization](active-directory-passwords-customize.md)
 ### [SSPR Data requirements](active-directory-passwords-data.md)
@@ -209,8 +208,8 @@
 #### Use the classic portal
 ##### [Download connectors](application-proxy-enable-classic-portal.md)
 ##### [Publish apps](active-directory-application-proxy-publish.md)
-##### [Use connectors](active-directory-application-proxy-connectors.md)
-##### [Conditional access](active-directory-application-proxy-conditional-access.md)
+##### [Use connectors](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Conditional access](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Manage enterprise apps
 #### [Assign users](active-directory-coreapps-assign-user-azure-portal.md)
@@ -249,9 +248,8 @@
 ## Manage your directory
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Custom domain names
-#### [Overview](active-directory-add-domain-concepts.md)
+#### [Overview](active-directory-domains-manage-azure-portal.md)
 #### [Manage domain names](active-directory-domains-manage-azure-portal.md)
-##### [Classic portal](active-directory-add-manage-domain-names.md)
 ### [Administer your directory](active-directory-administer.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
 ### [Self-service signup](active-directory-self-service-signup.md)

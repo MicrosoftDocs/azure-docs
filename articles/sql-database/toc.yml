@@ -339,7 +339,12 @@
     items:
     - name: Welcome to Wingtips
       href: saas-tenancy-welcome-wingtip-tickets-app.md
+    - name: Standalone application
+      items:
+      - name: Deploy example app
+        href: saas-standaloneapp-get-started-deploy.md
     - name: Database per tenant
+      href: saas-dbpertenant-wingtip-app-overview.md
       items:
       - name: Tutorial intro
         href: saas-dbpertenant-wingtip-app-overview.md
@@ -361,6 +366,16 @@
         href: saas-tenancy-adhoc-analytics.md
       - name: ETL for analysis
         href: saas-tenancy-tenant-analytics.md
+    - name: Multi-tenant database
+      items:
+      - name: Deploy example app
+        href: saas-multitenantdb-get-started-deploy.md
+      - name: Monitor database performance
+        href: saas-multitenantdb-performance-monitoring.md
+      - name: Run ad-hoc queries
+        href: saas-multitenantdb-adhoc-reporting.md
+      - name: Manage tenant schema
+        href: saas-multitenantdb-schema-management.md
   - name: Develop apps
     items:
     - name: C and C ++
@@ -438,4 +453,3 @@
     href: /azure/architecture/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-  

@@ -15,6 +15,8 @@
 ### [HSM-protected keys](key-vault-hsm-protected-keys.md)
 ### [Migrate to .NET 2.0](key-vault-dotnet2api-release-notes.md)
 ### [Save Web App secrets](vs-secure-secret-appsettings.md)
+### [Service authentication using .NET](service-to-service-authentication.md)
+
 ### Overviews
 #### [Security worlds](key-vault-ovw-security-worlds.md)
 #### [Soft-delete](key-vault-ovw-soft-delete.md)
