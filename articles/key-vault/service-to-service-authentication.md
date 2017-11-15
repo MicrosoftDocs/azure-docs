@@ -7,7 +7,7 @@ manager: mbaldwin
 services: key-vault
 
 ms.author: alleonar
-ms.date: 07/12/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.prod:
 ms.service: microsoft-keyvault
