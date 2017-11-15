@@ -105,17 +105,14 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
 
-7. In the **InitEdgeModule** method, replace the code in the **try** block with the following code. This code creates and configures a **DeviceClient** object, which allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string parameter used in the **InitEdgeModule** method is supplied to the module by IoT Edge runtime in an environment variable - **EdgeHubConnectionString**. After creating the **DeviceClient**, the code registers a callback for desired properties updates on the module twin and registers the **FilterHandler** method as the handler for messages from the Edge Hub via the "input1" endpoint.
+1. In the **Init** method, the code creates and configures a **DeviceClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string parameter used in the **Init** method is supplied to the module by IoT Edge runtime in the environment variable **EdgeHubConnectionString**. After creating the **DeviceClient**, the code registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the method used as callback for handling messages with a new one, and attach a callback for desired properties updates on the module twin. To make this change, replace the last line of the **Init** method with the following code:
 
     ```csharp
-    // Open a connection to the Edge runtime using MQTT transport and
-    // the connection string provided as an environment variable
-    DeviceClient ioTHubModuleClient = DeviceClient.CreateFromConnectionString(Environment.GetEnvironmentVariable("EdgeHubConnectionString"), TransportType.Mqtt_Tcp_Only);
-    await ioTHubModuleClient.OpenAsync();
-    Console.WriteLine("IoT Hub module client initialized.");
+    // Register callback to be called when a message is received by the module
+    // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
 
     // Attach callback for Twin desired properties updates
-    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync (onDesiredPropertiesUpdate, null);
+    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
 
     // Register callback to be called when a message is received by the module
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
