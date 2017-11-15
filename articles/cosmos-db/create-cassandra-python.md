@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Cassandra API with Python - Azure Cosmos DB | Microsoft Docs'
-description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and Python
+description: This quickstart shows how to use the Azure Cosmos DB's Apache Cassandra API to create a profile application  with Python
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -155,11 +155,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 6. Save the config.py file.
     
-## Create the X509 certificate
+## Use the X509 certificate
 
-1. Create an X509 certificate and save it locally.
+1. If you need to add the Baltimore CyberTrust Root, it has serial number 02:00:00:b9 and SHA1 fingerprint d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. It can be downloaded from https://cacert.omniroot.com/bc2025.crt, saved to a local file with extension .cer
 
-2. Open pyquickstart.py and change the 'path\to\cert' to point to your X509 certificate.
+2. Open pyquickstart.py and change the 'path\to\cert' to point to your new certificate.
 
 3. Save pyquickstart.py.
 
