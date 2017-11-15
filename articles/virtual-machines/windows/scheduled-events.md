@@ -50,7 +50,7 @@ Azure Metadata service exposes information about running Virtual Machines using 
 Scheduled events are surfaced to all Virtual Machines in a cloud service or to all Virtual Machines in an Availability Set. As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
 
 ## Discovering the endpoint
-For VNET enabled VMs, the full endpoint for the latest scheduled events version is: 
+For VNET enabled VMs, the full endpoint for the latest version of Scheduled Events is: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
