@@ -18,14 +18,19 @@ ms.author: apimpm
 ---
 # Edit an API
 
-The steps in this tutorial show you how to use API Management (APIM) to edit an API.
+The steps in this tutorial show you how to use API Management (APIM) to edit an API. 
+
++ You can do it by adding, deleting, renaming operations in the APIM instance. 
++ You can edit your API's swagger.
 
 ## Prerequisites
 
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
 + [Import and publish your first API](import-and-publish.md)
 
-## Edit an API
+## Edit an API in APIM
+
+![Edit an api](./media/edit-api/edit-api001.png)
 
 To edit an API, follow the following steps:
 
@@ -36,7 +41,22 @@ To edit an API, follow the following steps:
 5. Select the **Design** tab.
 6. Select an operation to which you want to edit.
 7. To rename the operation, select a **pencil** in the **Frontend** window.
-8. To apply policies to the operation, follow steps described in [How to set or edit Azure API Management policies](set-edit-policies.md).
+
+## Update the swagger
+
+You can update your backbend API from the Azure portal by following these steps:
+
+1. Select **All operations**
+2. Click pencil in the **Frontend** window.
+
+    ![Edit an api](./media/edit-api/edit-api002.png)
+
+    Your API's swagger appears.
+
+    ![Edit an api](./media/edit-api/edit-api003.png)
+
+3. Update the swagger.
+4. Press **Save**.
 
 ## Next steps
 
