@@ -45,7 +45,7 @@ Capacities scale linearly, so an S1 SKU with capacity 2 supports 2 GB (2 million
 
    ![configure.png](media/scale-your-environment/configure.png)
 
-3. Adjust the **Capacity** slider to select the capacity that meets the requirements for your ingress rates and storage capacity. Notice the Ingress rate, Storage capacity, and Estimate costs updates dynamically to show the impact of the change. 
+3. Adjust the **Capacity** slider to select the capacity that meets the requirements for your ingress rates and storage capacity. Notice the **Ingress rate**, **Storage capacity**, and **Estimated cost** update dynamically to show the impact of the change. 
 
    ![Slider](media/scale-your-environment/slider.png)
 
