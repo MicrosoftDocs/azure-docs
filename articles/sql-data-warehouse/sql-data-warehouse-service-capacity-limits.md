@@ -3,7 +3,7 @@ title: SQL Data Warehouse capacity limits | Microsoft Docs
 description: Maximum values for connections, databases, tables and queries for SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: kevinvngo
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess;jrj
+ms.custom: reference
+ms.date: 11/10/2017
+ms.author: kevin;barbkess
 
 ---
 # SQL Data Warehouse capacity limits
@@ -23,12 +24,12 @@ The following tables contain the maximum values allowed for various components o
 ## Workload management
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |Max DWU for a single SQL Data Warehouse |6000 |
-| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |Max DWU for a single SQL server |6000 by default<br/><br/> By default, each SQL server (e.g. myserver.database.windows.net) has a DTU Quota of 45,000 which allows up to 6000 DWU. This quota is simply a safety limit. You can increase your quota by [creating a support ticket][creating a support ticket] and selecting *Quota* as the request type.  To calculate your DTU needs, multiply the 7.5 by the total DWU needed. You can view your current DTU consumption from the SQL server blade in the portal. Both paused and un-paused databases count toward the DTU quota. |
-| Database connection |Concurrent open sessions |1024<br/><br/>We support a maximum of 1024 active connections, each of which can submit requests to a SQL Data Warehouse database at the same time. Note, that there are limits on the number of queries that can actually execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed. |
+| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |Max DWU for a single SQL Data Warehouse | Optimized for Elasticity [performance tier](performance-tiers.md): DW6000<br></br>Optimized for Compute [performance tier](performance-tiers.md): DW30000c |
+| [Data Warehouse Units (DWU)][Data Warehouse Units (DWU)] |Default DTU per server |54,000<br></br>By default, each SQL server (for example, myserver.database.windows.net) has a DTU Quota of 54,000, which allows up to DW6000c. This quota is simply a safety limit. You can increase your quota by [creating a support ticket][creating a support ticket] and selecting *Quota* as the request type.  To calculate your DTU needs, multiply the 7.5 by the total DWU needed, or multiply 9.0 by the total cDWU needed. For example:<br></br>DW6000 x 7.5 = 45,000 DTUs<br></br>DW600c x 9.0 = 54,000 DTUs.<br></br>You can view your current DTU consumption from the SQL server option in the portal. Both paused and unpaused databases count toward the DTU quota. |
+| Database connection |Concurrent open sessions |1024<br/><br/>Each of the 1024 active sessions can submit requests to a SQL Data Warehouse database at the same time. Note, there are limits on the number of queries that can execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed. |
 | Database connection |Maximum memory for prepared statements |20 MB |
-| [Workload management][Workload management] |Maximum concurrent queries |32<br/><br/> By default, SQL Data Warehouse can execute a maximum of 32 concurrent queries and queues remaining queries.<br/><br/>The concurrency level may decrease when users are assigned to a higher resource class or when SQL Data Warehouse is configured with low DWU. Some queries, like DMV queries, are always allowed to run. |
-| [Tempdb][Tempdb] |Max size of Tempdb |399 GB per DW100. Therefore at DWU1000 Tempdb is sized to 3.99 TB |
+| [Workload management][Workload management] |Maximum concurrent queries |32<br/><br/> By default, SQL Data Warehouse can execute a maximum of 32 concurrent queries and queues remaining queries.<br/><br/>The number of concurrent queries can descrease when users are assigned to higher resource classes or when SQL Data Warehouse has a lower [service level](performance-tiers.md#service-levels). Some queries, like DMV queries, are always allowed to run. |
+| [tempdb][Tempdb] |Maximum GB |399 GB per DW100. Therefore at DWU1000, tempdb is sized to 3.99 TB |
 
 ## Database objects
 | Category | Description | Maximum |
@@ -38,7 +39,7 @@ The following tables contain the maximum values allowed for various components o
 | Table |Tables per database |2 billion |
 | Table |Columns per table |1024 columns |
 | Table |Bytes per column |Dependent on column [data type][data type].  Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types. |
-| Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, SQL Data Warehouse supports row-overflow storage which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see the [Row-Overflow Data Exceeding 8 KB][Row-Overflow Data Exceeding 8 KB] MSDN article. |
+| Table |Bytes per row, defined size |8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, SQL Data Warehouse supports row-overflow storage, which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see the [Row-Overflow Data Exceeding 8-KB][Row-Overflow Data Exceeding 8 KB]. |
 | Table |Partitions per table |15,000<br/><br/>For high performance, we recommend minimizing the number of partitions you need while still supporting your business requirements. As the number of partitions grows, the overhead for Data Definition Language (DDL) and Data Manipulation Language (DML) operations grows and causes slower performance. |
 | Table |Characters per partition boundary value. |4000 |
 | Index |Non-clustered indexes per table. |999<br/><br/>Applies to rowstore tables only. |
@@ -54,7 +55,7 @@ The following tables contain the maximum values allowed for various components o
 ## Loads
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Polybase Loads |Bytes per row |32,768<br/><br/>Polybase loads are limited to loading rows both smaller than 32K and cannot load to VARCHR(MAX), NVARCHAR(MAX) or VARBINARY(MAX).  While this limit exists today, it will be removed fairly soon.<br/><br/> |
+| Polybase Loads |MB per row |1<br/><br/>Polybase loads only to rows that are smaller than 1 MB, and cannot load to VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX).<br/><br/> |
 
 ## Queries
 | Category | Description | Maximum |
@@ -90,7 +91,7 @@ For more reference information, see [SQL Data Warehouse reference overview][SQL 
 <!--Image references-->
 
 <!--Article references-->
-[Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md
 [SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
 [Workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md

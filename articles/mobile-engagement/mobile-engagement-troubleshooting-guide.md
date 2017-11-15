@@ -4,7 +4,7 @@ description: Troubleshooting Guide for Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 31134a29-a513-4e5e-b626-f6cf6fe04769

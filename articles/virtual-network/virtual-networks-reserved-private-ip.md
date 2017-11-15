@@ -1,10 +1,10 @@
 ---
-title: How to set a static internal private IP
+title: Static internal private IP - Azure VM - Classic
 description: Understanding static internal IPs (DIPs) and how to manage them
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
@@ -37,7 +37,7 @@ To verify if the IP address *10.0.0.7* is available in a vnet named *TestVnet*, 
     OperationStatus      : Succeeded
 
 > [!NOTE]
-> If you want to test the command above in a safe environment follow the guidelines in [Create a Virtual Network](virtual-networks-create-vnet-classic-portal.md) to create a vnet named *TestVnet* and ensure it uses the *10.0.0.0/8* address space.
+> If you want to test the command above in a safe environment follow the guidelines in [Create a virtual network (classic)](virtual-networks-create-vnet-classic-pportal.md) to create a vnet named *TestVnet* and ensure it uses the *10.0.0.0/8* address space.
 > 
 > 
 

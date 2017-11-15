@@ -3,7 +3,7 @@ title: Load data into Azure SQL Data Warehouse | Microsoft Docs
 description: Learn the common scenarios for data loading into SQL Data Warehouse. These include using PolyBase, Azure blob storage, flat files, and disk shipping. You can also use third-party tools.
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
+author: ckarst
 manager: jhubbard
 editor: ''
 
@@ -13,8 +13,10 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: loading
 ms.date: 10/31/2016
-ms.author: barbkess
+ms.author: cakarst;barbkess
+
 
 ---
 # Load data into Azure SQL Data Warehouse
@@ -30,10 +32,9 @@ The fastest way to import data into SQL Data Warehouse is to use PolyBase to loa
 ### 1. Use PolyBase and T-SQL
 Summary of loading process:
 
-1. Format your data as UTF-8 since PolyBase does not currently support UTF-16.
-2. Move your data to Azure blob storage and store it in text files.
-3. Configure external objects in SQL Data Warehouse to define the location and format of the data
-4. Run a T-SQL command to load the data in parallel into a new database table.
+1. Move your data to Azure blob storage or Azure Data Lake Store and store it in text files.
+2. Configure external objects in SQL Data Warehouse to define the location and format of the data
+3. Run a T-SQL command to load the data in parallel into a new database table.
 
 <!-- 5. Schedule and run a loading job. --> 
 
@@ -44,9 +45,8 @@ For a simpler way to use PolyBase, you can create an Azure Data Factory pipeline
 
 Summary of loading process:
 
-1. Format your data as UTF-8 since PolyBase does not currently support UTF-16.
-2. Move your data to Azure blob storage and store it in text files.
-3. Create an Azure Data Factory pipeline to ingest the data. Use the PolyBase option.
+1. Move your data to Azure blob storage and store it in text files. Azure Data Factory does not currently support ADLS connectivity with PolyBase).
+2. Create an Azure Data Factory pipeline to ingest the data. Use the PolyBase option.
 4. Schedule and run the pipeline.
 
 For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)][Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)].
@@ -105,10 +105,9 @@ loading data from Azure Blob Storage - using PolyBase to connect to HDInsight to
 ### 1. Use PolyBase and T-SQL
 Summary of loading process:
 
-1. Format your data as UTF-8 since PolyBase does not currently support UTF-16.
-2. Move your data to HDInsight and store it in text files, ORC or Parquet format.
-3. Configure external objects in SQL Data Warehouse to define the location and format of the data.
-4. Run a T-SQL command to load the data in parallel into a new database table.
+1. Move your data to HDInsight and store it in text files, ORC or Parquet format.
+2. Configure external objects in SQL Data Warehouse to define the location and format of the data.
+3. Run a T-SQL command to load the data in parallel into a new database table.
 
 For a tutorial, see [Load data from Azure blob storage to SQL Data Warehouse (PolyBase)][Load data from Azure blob storage to SQL Data Warehouse (PolyBase)].
 

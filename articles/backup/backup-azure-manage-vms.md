@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: markgal; trinadhk
+ms.author: trinadhk;markgal
 
 ---
 # Manage Azure virtual machine backups
@@ -29,10 +29,10 @@ This article provides guidance on managing VM backups, and explains the backup a
 ## Manage vaults and protected virtual machines
 In the Azure portal, the Recovery Services vault dashboard provides access to information about the vault including:
 
-* the most recent backup snapshot, which is also the latest restore point <br\>
-* the backup policy <br\>
-* total size of all backup snapshots <br\>
-* number of virtual machines that are protected with the vault <br\>
+* the most recent backup snapshot, which is also the latest restore point
+* the backup policy
+* total size of all backup snapshots
+* number of virtual machines that are protected with the vault
 
 Many management tasks with a virtual machine backup begin with opening the vault in the dashboard. However, because vaults can be used to protect multiple items (or multiple VMs), to view details about a particular VM, open the vault item dashboard. The following procedure shows you how to open the *vault dashboard* and then continue to the *vault item dashboard*. There are "tips" in both procedures that point out how to add the vault and vault item to the Azure dashboard by using the Pin to dashboard command. Pin to dashboard is a way of creating a shortcut to the vault or item. You can also execute common commands from the shortcut.
 
@@ -47,11 +47,11 @@ Many management tasks with a virtual machine backup begin with opening the vault
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vault**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+    ![Create Recovery Services Vault step 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
     The list of Recovery Services vaults are displayed.
 
-    ![List of Recovery Services vaults ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+    ![List of Recovery Services vaults ](./media/backup-azure-manage-vms/list-o-vaults.png)
 
    > [!TIP]
    > If you pin a vault to the Azure Dashboard, that vault is immediately accessible when you open the Azure portal. To pin a vault to the dashboard, in the vault list, right-click the vault, and select **Pin to dashboard**.
@@ -86,13 +86,13 @@ In the previous procedure you opened the vault dashboard. To open the vault item
 
     From the vault item dashboard, you can accomplish many key management tasks, such as:
 
-   * change policies or create a new backup policy<br\>
-   * view restore points, and see their consistency state <br\>
-   * on-demand backup of a virtual machine <br\>
-   * stop protecting virtual machines <br\>
-   * resume protection of a virtual machine <br\>
-   * delete a backup data (or recovery point) <br\>
-   * [restore a backup (or recovery point)](backup-azure-arm-restore-vms.md#restore-a-recovery-point)  <br\>
+   * change policies or create a new backup policy
+   * view restore points, and see their consistency state
+   * on-demand backup of a virtual machine
+   * stop protecting virtual machines
+   * resume protection of a virtual machine
+   * delete a backup data (or recovery point)
+   * [restore backup disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
 
 For the following procedures, the starting point is the vault item dashboard.
 
@@ -107,7 +107,7 @@ For the following procedures, the starting point is the vault item dashboard.
     ![Backup policy blade](./media/backup-azure-manage-vms/backup-policy-blade.png)
 3. From the **Choose backup policy** menu:
 
-   * To change policies, select a different policy and click **Save**. The new policy is immediately applied to the vault. <br\>
+   * To change policies, select a different policy and click **Save**. The new policy is immediately applied to the vault.
    * To create a policy, select **Create New**.
 
      ![Virtual machine backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
@@ -115,6 +115,11 @@ For the following procedures, the starting point is the vault item dashboard.
      For instructions on creating a backup policy, see [Defining a backup policy](backup-azure-manage-vms.md#defining-a-backup-policy).
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
+
+> [!NOTE]
+> While managing backup policies, make sure to follow the [best practices](backup-azure-vms-introduction.md#best-practices) for optimal backup performance
+>
+>
 
 ## On-demand backup of a virtual machine
 You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending, on-demand backup creates a full copy of the virtual machine in the Recovery Services vault. If the initial backup is completed, an on-demand backup will only send changes from the previous snapshot, to the Recovery Services vault. That is, subsequent backups are always incremental.
@@ -140,7 +145,7 @@ To trigger an on-demand backup of a virtual machine:
 If you choose to stop protecting a virtual machine, you are asked if you want to retain the recovery points. There are two ways to stop protecting virtual machines:
 
 * stop all future backup jobs and delete all recovery points, or
-* stop all future backup jobs but leave the recovery points <br/>
+* stop all future backup jobs but leave the recovery points
 
 There is a cost associated with leaving the recovery points in storage. However, the benefit of leaving the recovery points is you can restore the virtual machine later, if desired. For information about the cost of leaving the recovery points, see the  [pricing details](https://azure.microsoft.com/pricing/details/backup/). If you choose to delete all recovery points, you cannot restore the virtual machine.
 

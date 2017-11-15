@@ -1,9 +1,9 @@
 ---
-title: Get started with Relay Hybrid Connections | Microsoft Docs
-description: How to write a C# console application for Hybrid Connections
+title: Get started with Azure Relay Hybrid Connections in .NET | Microsoft Docs
+description: Write a C# console application for Azure Relay Hybrid Connections.
 services: service-bus-relay
 documentationcenter: .net
-author: jtaubensee
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,34 +13,40 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub,sethm
+ms.date: 07/07/2017
+ms.author: sethm
 
 ---
+
 # Get started with Relay Hybrid Connections
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
+This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections), and shows how to use .NET to create a client application that sends messages to a corresponding listener application. 
+
 ## What will be accomplished
-Since Hybrid Connections requires both a client and a server component, we will create two console applications in this tutorial. Here are the steps:
+Because Hybrid Connections requires both a client and a server component, the tutorial creates two console applications. Here are the steps:
 
 1. Create a Relay namespace, using the Azure portal.
-2. Create a Hybrid Connection, using the Azure portal.
-3. Write a server console application to receive messages.
-4. Write a client console application to send messages.
+2. Create a hybrid connection in that namespace, using the Azure portal.
+3. Write a server (listener) console application to receive messages.
+4. Write a client (sender) console application to send messages.
 
 ## Prerequisites
-1. [Visual Studio 2013 or Visual Studio 2015](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015.
+
+To complete this tutorial, you'll need the following prerequisites:
+
+1. [Visual Studio 2015 or higher](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
 2. An Azure subscription.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## 1. Create a namespace using the Azure portal
-If you already have a Relay namespace created, jump to the [Create a Hybrid Connection using the Azure portal](#2-create-a-hybrid-connection-using-the-azure-portal) section.
+If you have already created a Relay namespace, jump to the [Create a hybrid connection using the Azure portal](#2-create-a-hybrid-connection-using-the-azure-portal) section.
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## 2. Create a Hybrid Connection using the Azure portal
-If you already have a Hybrid Connection created, jump to the [Create a server application](#3-create-a-server-application-listener) section.
+## 2. Create a hybrid connection using the Azure portal
+If you have already created a hybrid connection, jump to the [Create a server application](#3-create-a-server-application-listener) section.
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 

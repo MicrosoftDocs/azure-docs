@@ -4,7 +4,7 @@ description: This topic shows how to configure different asset delivery policies
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: dwrede
+manager: cfowler
 editor: ''
 
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 08/10/2017
 ms.author: juliako
 
 ---
@@ -24,12 +24,10 @@ If you plan to deliver dynamically encrypted assets, one of the steps in the Med
 
 This topic discusses why and how to create and configure asset delivery policies.
 
-> [!NOTE]
-> To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md).
-> 
-> Also, your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
-> 
-> 
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>
+>Also, to be able to use dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
 
 You could apply different policies to the same asset. For example, you could apply PlayReady encryption to Smooth Streaming and AES Envelope encryption to MPEG DASH and HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
 
@@ -60,14 +58,16 @@ For instructions on how to publish an asset and build a streaming URL, see [Buil
 * You can have multiple asset delivery policies associated with a single asset but you can only specify one way to handle a given AssetDeliveryProtocol.  Meaning if you try to link two delivery policies that specify the AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because the system does not know which one you want it to apply when a client makes a Smooth Streaming request.
 * If you have an asset with an existing streaming locator, you cannot link a new policy to the asset, unlink an existing policy from the asset, or update a delivery policy associated with the asset.  You first have to remove the streaming locator, adjust the policies, and then re-create the streaming locator.  You can use the same locatorId when you recreate the streaming locator but you should ensure that won’t cause issues for clients since content can be cached by the origin or a downstream CDN.
 
-> [!NOTE]
-> When working with the Media Services REST API, the following considerations apply:
-> 
-> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
-> 
-> After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md).
-> 
-> 
+>[!NOTE]
+
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+
+## Connect to Media Services
+
+For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+
+>[!NOTE]
+>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI.
 
 ## Clear asset delivery policy
 ### <a id="create_asset_delivery_policy"></a>Create asset delivery policy
@@ -272,10 +272,11 @@ For example:
 See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)
 
 ## <a id="types"></a>Types used when defining AssetDeliveryPolicy
+
 ### AssetDeliveryProtocol
-    /// <summary>
-    /// Delivery protocol for an asset delivery policy.
-    /// </summary>
+
+The following enum describes values you can set for the asset delivery protocol.
+
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -299,6 +300,8 @@ See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_poli
         /// </summary>
         HLS = 0x4,
 
+        ProgressiveDownload = 0x10, 
+ 
         /// <summary>
         /// Include all protocols.
         /// </summary>
@@ -306,9 +309,9 @@ See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_poli
     }
 
 ### AssetDeliveryPolicyType
-    /// <summary>
-    /// Policy type for dynamic encryption of assets.
-    /// </summary>
+
+The following enum describes values you can set for the asset delivery policy type.  
+
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -339,10 +342,9 @@ See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_poli
         }
 
 ### ContentKeyDeliveryType
-    /// <summary>
-    /// Delivery method of the content key to the client.
-    ///
-    </summary>
+
+The following enum describes values you can use to configure the delivery method of the content key to the client.
+    
     public enum ContentKeyDeliveryType
     {
         /// <summary>
@@ -373,9 +375,8 @@ See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_poli
 
 
 ### AssetDeliveryPolicyConfigurationKey
-    /// <summary>
-    /// Keys used to get specific configuration for an asset delivery policy.
-    /// </summary>
+
+The following enum describes values you can set to configure keys used to get specific configuration for an asset delivery policy.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -419,7 +420,6 @@ See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_poli
         /// </summary>
         WidevineLicenseAcquisitionUrl
     }
-
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

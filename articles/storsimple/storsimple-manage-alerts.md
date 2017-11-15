@@ -4,7 +4,7 @@ description: Describes StorSimple alert conditions and severity, how to configur
 services: storsimple
 documentationcenter: NA
 author: SharS
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: bee49253-9ac7-4131-95f6-6bf0e72b8438
@@ -13,11 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2016
+ms.date: 11/03/2017
 ms.author: anbacker
 
 ---
 # Use the StorSimple Manager service to view and manage StorSimple alerts
+> [!NOTE]
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. To view the version of this article for the new Azure portal, go to [Use the StorSimple Manager service to view and manage StorSimple alerts](storsimple-8000-manage-alerts.md). For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## Overview
 The **Alerts** tab in the StorSimple Manager service provides a way for you to review and clear StorSimple device–related alerts on a real-time basis. From this tab, you can centrally monitor the health issues of your StorSimple devices and the overall Microsoft Azure StorSimple solution.
 
@@ -110,7 +113,6 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 * [Performance alerts](#performance-alerts)
 * [Security alerts](#security-alerts)
 * [Support package alerts](#support-package-alerts)
-* [Update alerts](#update-alerts)
 
 ### Cloud connectivity alerts
 | Alert text | Event | More information / recommended actions |
@@ -152,6 +154,7 @@ If cloud connectivity fails on your StorSimple production device, then depending
 |:--- |:--- |:--- |
 | Hardware component <*component ID*> reports status as <*status*>. | |Sometimes temporary conditions can cause these alerts. If so, this alert will be automatically cleared after some time. If the issue persists, contact Microsoft Support. |
 | Passive controller malfunctioning. |The passive (secondary) controller is not functioning. |Your device is operational, but one of your controllers is malfunctioning. Try restarting that controller. If the issue is not resolved, contact Microsoft Support. |
+| Impending drive failure detected. | Impending drive failure detected. |We have detected an impending drive failure for the hardware component ‘Drive in slot <*slot ID*>, Enclosure <*enclosure ID*>’. Consider replacing your drive. <br> Before you begin the disk replacement, review the following information.<br><br>If your device has more than one failed disk, do not remove more than one SSD or HDD at any time. Doing so could result in loss of data.<br><br>Make sure that you place a replacement SSD in a slot that previously contained an SSD. The same is true for an HDD.<br><br>Slots are numbered from 0 to 11. A failed disk in slot 2 maps to a failed disk in slot 3 of the device (from the top left).<br><br>For more information about disk replacement, go to https://go.microsoft.com/fwlink/?linkid=838653. If issue persists, contact Microsoft support via https://go.microsoft.com/fwlink/?linkid=838654. |
 
 ### Job failure alerts
 | Alert text | Event | More information / recommended actions |
@@ -196,17 +199,6 @@ If cloud connectivity fails on your StorSimple production device, then depending
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
 | Creation of support package failed. |StorSimple couldn't generate the package. |Retry this operation. If the issue persists, contact Microsoft Support. After you have resolved the issue, clear this alert from the alerts page. |
-
-### Update alerts
-| Alert text | Event | More information / recommended actions |
-|:--- |:--- |:--- |
-| Hotfix installed. |Software/firmware update completed. |The hotfix has been successfully installed on your device. |
-| Manual updates available. |Notification of available updates. |Use the Windows PowerShell Interface for StorSimple on your device to install these updates. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md). |
-| New updates available. |Notification of available updates. |You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md). |
-| Failed to install updates. |Updates were not successfully installed. |Your system was not able to install the updates. You can install these updates either from the **Maintenance** page or by using the Windows PowerShell Interface for StorSimple on your device. If the issue persists, contact Microsoft Support. <br>For more information, go to [Update your StorSimple 8000 Series device](storsimple-update-device.md). |
-| Unable to automatically check for new updates. |Automatic check failed. |You can manually check for new updates from the **Maintenance** page. |
-| New WUA agent available. |Notification of available update. |Download the latest Windows Update Agent and install it from the Windows PowerShell interface. |
-| Version of firmware component <*component ID*> does not match with hardware. |Firmware update(s) were not successfully installed. |Contact Microsoft Support. |
 
 ## Next steps
 Learn more about [StorSimple errors and troubleshooting an operational device](storsimple-troubleshoot-operational-device.md).

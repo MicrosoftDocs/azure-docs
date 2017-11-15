@@ -1,19 +1,8 @@
----
-services: virtual-machines
-title: How to Log on to a Virtual Machine Running Windows Server
-author: cynthn
-solutions: ''
-manager: timlt
-editor: tysonn
-
-{}
-
----
 1. Clicking **Connect** creates and downloads a Remote Desktop Protocol file (.rdp file). Click **Open** to use this file.
-2. You will get a warning that the .rdp is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
+2. You get a warning that the `.rdp` file is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
    
     ![Screenshot of a warning about an unknown publisher.](./media/virtual-machines-log-on-win-server/rdp-warn.png)
-3. In the **Windows Security** window, type the credentials for an account on the virtual machine and then click **OK**.
+3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the credentials for an account on the virtual machine and then click **OK**.
    
      **Local account** - this is usually the local account user name and password that you specified when you created the virtual machine. In this case, the domain is the name of the virtual machine and it is entered as *vmname*&#92;*username*.  
    

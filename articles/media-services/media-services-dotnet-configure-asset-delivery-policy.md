@@ -4,7 +4,7 @@ description: This topic shows how to configure different asset delivery policies
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
-manager: dwrede
+manager: cfowler
 editor: ''
 
 ms.assetid: 3ec46f58-6cbb-4d49-bac6-1fd01a5a456b
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 07/13/2017
 ms.author: juliako;mingfeiy
 
 ---
@@ -25,12 +25,11 @@ If you plan to delivery encrypted assets, one of the steps in the Media Services
 
 This topic discusses why and how to create and configure asset delivery policies.
 
-> [!NOTE]
-> To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md).
-> 
-> Also, your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
-> 
-> 
+>[!NOTE]
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>
+>Also, to be able to use dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
+
 
 You could apply different policies to the same asset. For example, you could apply PlayReady encryption to Smooth Streaming and AES Envelope encryption to MPEG DASH and HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
 
@@ -194,10 +193,11 @@ For information on what values you can specify when creating an AssetDeliveryPol
 
 
 ## <a id="types"></a>Types used when defining AssetDeliveryPolicy
+
 ### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol
-    /// <summary>
-    /// Delivery protocol for an asset delivery policy.
-    /// </summary>
+
+The following enum describes values you can set for the asset delivery protocol.
+
     [Flags]
     public enum AssetDeliveryProtocol
     {
@@ -221,6 +221,8 @@ For information on what values you can specify when creating an AssetDeliveryPol
         /// </summary>
         HLS = 0x4,
 
+        ProgressiveDownload = 0x10, 
+ 
         /// <summary>
         /// Include all protocols.
         /// </summary>
@@ -228,9 +230,9 @@ For information on what values you can specify when creating an AssetDeliveryPol
     }
 
 ### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
-    /// <summary>
-    /// Policy type for dynamic encryption of assets.
-    /// </summary>
+
+The following enum describes values you can set for the asset delivery policy type.  
+
     public enum AssetDeliveryPolicyType
     {
         /// <summary>
@@ -258,27 +260,30 @@ For information on what values you can specify when creating an AssetDeliveryPol
         /// Apply Dynamic Common encryption.
         /// </summary>
         DynamicCommonEncryption
-    }
+        }
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
-    /// <summary>
-    /// Delivery method of the content key to the client.
-    /// </summary>
+
+The following enum describes values you can use to configure the delivery method of the content key to the client.
+    
     public enum ContentKeyDeliveryType
     {
         /// <summary>
         /// None.
-        /// </summary>
+        ///
+        </summary>
         None = 0,
 
         /// <summary>
         /// Use PlayReady License acquistion protocol
-        /// </summary>
+        ///
+        </summary>
         PlayReadyLicense = 1,
 
         /// <summary>
         /// Use MPEG Baseline HTTP key protocol.
-        /// </summary>
+        ///
+        </summary>
         BaselineHttp = 2,
 
         /// <summary>
@@ -290,9 +295,9 @@ For information on what values you can specify when creating an AssetDeliveryPol
     }
 
 ### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
-    /// <summary>
-    /// Keys used to get specific configuration for an asset delivery policy.
-    /// </summary>
+
+The following enum describes values you can set to configure keys used to get specific configuration for an asset delivery policy.
+
     public enum AssetDeliveryPolicyConfigurationKey
     {
         /// <summary>

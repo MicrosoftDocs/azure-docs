@@ -38,7 +38,7 @@ These command examples use the following variables:
 
 $FriendlyName"<Describe value>"
 
-<!-- if it makes more sense to present this in a table, use this. Otherwise, delete. The table won't render until it's in Github or published to Sandbox.-->
+<!-- if it makes more sense to present this in a table, use this. Otherwise, delete. The table won't render until it's in GitHub or published to Sandbox.-->
 
 | Service Management | Resource Manager |
 | --- | --- |
@@ -90,7 +90,7 @@ Here's an example that uses [cmdlet names)] to [task]. It includes commands that
 ## Additional Resources
 <!--At a minimum, include a link back to the migration task list article. Use the formats shown below. See create-links-markdown.md for more info -->
 <!--use this format for links to other articles, such as the migration task list. -->
-[Manage Availability](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Manage Availability](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 <!--To link to an ACOM page outside the /documentation/ subdomain (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale:
 

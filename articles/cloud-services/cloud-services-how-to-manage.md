@@ -1,4 +1,4 @@
----
+﻿---
 title: Common cloud service management tasks (classic) | Microsoft Docs
 description: Learn how to manage cloud services in the Azure classic portal.
 services: cloud-services
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2016
+ms.date: 05/18/2017
 ms.author: adegeo
 
 ---
@@ -74,7 +74,7 @@ There are two key prerequisites for a successful deployment swap:
 
 - If you would like to use a static IP address for your production slot, you must reserve one for your staging slot as well. Otherwise, the swap will fail.
 
-- All instances of your roles must be running before you can perform the swap. You can check the status of your instances in the Azure classic portal or by using [the Get-AzureRole command in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
+- All instances of your roles must be running before you can perform the swap. You can check the status of your instances in the Azure classic portal or by using [the Get-AzureRole command in Windows PowerShell](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0).
 
 Note that guest OS updates and service healing operations can also cause deployment swaps to fail. See [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md) for more details.
 
@@ -108,7 +108,7 @@ The following procedure describes how to link a new SQL Database instance, deplo
     ![Link Page1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
 4. Click **Create a new resource** or **Link an existing resource**.
-5. Choose the type of resource to link. In the [Azure classic portal](http://manage.windowsazure.com/), click **SQL Database**. (The Preview Azure classic portal does not support linking a storage account to a cloud service.)
+5. Choose the type of resource to link. In the [Azure classic portal](http://manage.windowsazure.com/), click **SQL Database**. (Only the Azure classic portal supports linking a storage account to a cloud service.)
 6. To complete the database configuration, follow instructions in help for the **SQL Databases** area of the Azure classic portal.
 
     You can follow the progress of the linking operation in the message area.

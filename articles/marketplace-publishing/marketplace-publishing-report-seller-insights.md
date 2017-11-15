@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2016
+ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
 
 ---
@@ -26,7 +26,7 @@ All VM and usage-based billing developer services publishers receive monthly rep
 
 * **Welcome email:** As a new publisher, you will receive a welcome email to notify you that you will begin receiving the seller insights monthly reports.
 * **Monthly sales reports:**  If you have usage, you will receive a second email that contains your reports and instructions on how to access your password:
-  
+
   * If you have a VM or usage-based billing developer services SKU that is generating usage, your monthly report will show you details about the orders, usage, markets, and customer details for your offers.
   * Reports are locked with a password that only you and Microsoft know in order to protect your customers’ data.
   * Microsoft will not send a report if none of your offers have generated usage during the month.

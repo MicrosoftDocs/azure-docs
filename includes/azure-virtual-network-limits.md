@@ -1,12 +1,12 @@
-The following limits apply only for networking resources managed through the classic deployment model per subscription.
+<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the classic deployment model per subscription.
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Virtual networks per subscription |50 |100 |
-| Local network sites per subscription |20 |contact support |
+| Virtual networks |50 |100 |
+| Local network sites |20 |contact support |
 | DNS Servers per virtual network |20 |100 |
 | Private IP Addresses per virtual network |4096 |4096 |
-| Concurrent TCP connections for a virtual machine or role instance |500K |500K |
+| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
 | Network Security Groups (NSG) |100 |200 |
 | NSG rules per NSG |200 |400 |
 | User defined route tables |100 |200 |
@@ -22,23 +22,41 @@ The following limits apply only for networking resources managed through Azure R
 
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
-| Virtual networks per subscription |50 |500 |
-| Subnets per virtual network |1,000 |contact support |
+| Virtual networks |50 |1000 |
+| Subnets per virtual network |1000 |10000 |
+| Virtual network peerings per Virtual Network |10 |50 |
 | DNS Servers per virtual network |9 |25 |
-| Private IP Addresses per virtual network |4096 |4096 |
-| Concurrent TCP connections for a virtual machine or role instance |500K |500K |
-| Network Interfaces (NIC) |300 |10000 |
-| Network Security Groups (NSG) |100 |400 |
+| Private IP Addresses per virtual network |4096 |8192 |
+| Private IP Addresses per network interface |256 |1024 |
+| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
+| Network Interfaces (NIC) |350 |20000 |
+| Network Security Groups (NSG) |100 |5000 |
 | NSG rules per NSG |200 |500 |
+| IP addresses and ranges specified for source or destination in a security rule |2000 |4000 |
+| Application security groups |200 |500 |
+| Application security groups per IP configuration, per NIC |10 |20 |
+| IP configurations per application security group |1000 |4000 |
+| Application security groups that can be specified within all security rules of a network security group |50 |100 |
 | User defined route tables |100 |200 |
 | User defined routes per route table |100 |400 |
-| Public IP addresses (dynamic) |60 |contact support |
-| Public IP addresses (Static) |20 |contact support |
-| Load balancers (internal and internet facing) |100 |contact support |
-| Load balancer rules per load balancer |150 |150 |
-| Public front end IP per load balancer |5 |contact support |
-| Private front end IP per load balancer |30 |contact support |
-| VNets peerings per Virtual Network |10 |50 |
+| Public IP addresses - dynamic |(Basic) 60 |contact support |
+| Public IP addresses - static |(Basic) 20 |contact support |
+| Public IP addresses - static |(Standard) 20 |contact support |
+| Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 
-Contact support in case you need to increase limits from default.
+#### <a name="load-balancer"></a>Load Balancer limits
+
+| Resource | Default limit | Maximum Limit |
+| --- | --- | --- |
+| Load Balancers | 100 | 1000 |
+| Rules per resource, Basic | 150 | 250 |
+| Rules per resource, Standard | 1250 | 1500 |
+| Rules per IP configuration | 299 |299 |
+| Frontend IP configurations, Basic | 10 | contact support |
+| Frontend IP configurations, Standard | 10 | 600 |
+| Backend pool, Basic | 100, single Availability Set | - |
+| Backend pool, Standard | 1000, single VNet | contact support |
+| HA Ports, Standard | 1 per internal frontend | - |
+
+[Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 

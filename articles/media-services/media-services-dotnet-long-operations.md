@@ -4,7 +4,7 @@ description: This topic shows how to poll long-running operations.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
@@ -13,12 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 07/18/2017
 ms.author: juliako
 
 ---
 # Delivering Live Streaming with Azure Media Services
+
 ## Overview
+
 Microsoft Azure Media Services offers APIs that send requests to Media Services to start operations (for example: create, start, stop, or delete a channel). These operations are long-running.
 
 The Media Services .NET SDK provides APIs that send the request and wait for the operation to complete (internally, the APIs are polling for operation progress at some intervals). For example, when you call channel.Start(), the method returns after the channel is started. You can also use the asynchronous version: await channel.StartAsync() (for information about Task-based Asynchronous Pattern, see [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). APIs that send an operation request and then poll for the status until the operation is complete are called “polling methods”. These methods (especially the Async version) are recommended for rich client applications and/or stateful services.
@@ -30,12 +32,24 @@ Currently, the following classes support non-polling methods:  **Channel**, **St
 
 To poll for the operation status, use the **GetOperation** method on the **OperationBaseCollection** class. Use the following intervals to check the operation status: for **Channel** and **StreamingEndpoint** operations, use 30 seconds; for **Program** operations, use 10 seconds.
 
+## Create and configure a Visual Studio project
+
+Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).
+
 ## Example
+
 The following example defines a class called **ChannelOperations**. This class definition could be a starting point for your web service class definition. For simplicity, the following examples use the non-async versions of methods.
 
 The example also shows how the client might use this class.
 
 ### ChannelOperations class definition
+
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Net;
+
     /// <summary> 
     /// The ChannelOperations class only implements 
     /// the Channel’s creation operation. 
@@ -43,21 +57,21 @@ The example also shows how the client might use this class.
     public class ChannelOperations
     {
         // Read values from the App.config file.
-        private static readonly string _mediaServicesAccountName =
-            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-        private static readonly string _mediaServicesAccountKey =
-            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
-        private static MediaServicesCredentials _cachedCredentials = null;
 
         public ChannelOperations()
         {
-                _cachedCredentials = new MediaServicesCredentials(_mediaServicesAccountName,
-                    _mediaServicesAccountKey);
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-                _context = new CloudMediaContext(_cachedCredentials);    }
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+        }
 
         /// <summary>  
         /// Initiates the creation of a new channel.  
@@ -115,7 +129,6 @@ The example also shows how the client might use this class.
             return completed;
         }
 
-
         private static ChannelInput CreateChannelInput()
         {
             return new ChannelInput
@@ -124,14 +137,14 @@ The example also shows how the client might use this class.
                 AccessControl = new ChannelAccessControl
                 {
                     IPAllowList = new List<IPRange>
-                    {
-                        new IPRange
                         {
-                            Name = "TestChannelInput001",
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
+                            new IPRange
+                            {
+                                Name = "TestChannelInput001",
+                                Address = IPAddress.Parse("0.0.0.0"),
+                                SubnetPrefixLength = 0
+                            }
                         }
-                    }
                 }
             };
         }
@@ -143,14 +156,14 @@ The example also shows how the client might use this class.
                 AccessControl = new ChannelAccessControl
                 {
                     IPAllowList = new List<IPRange>
-                    {
-                        new IPRange
                         {
-                            Name = "TestChannelPreview001",
-                            Address = IPAddress.Parse("0.0.0.0"),
-                            SubnetPrefixLength = 0
+                            new IPRange
+                            {
+                                Name = "TestChannelPreview001",
+                                Address = IPAddress.Parse("0.0.0.0"),
+                                SubnetPrefixLength = 0
+                            }
                         }
-                    }
                 }
             };
         }

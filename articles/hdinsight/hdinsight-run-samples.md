@@ -1,5 +1,5 @@
 ---
-title: Run the Hadoop samples in HDInsight | Microsoft Docs
+title: Run the Hadoop samples in HDInsight - Azure | Microsoft Docs
 description: Get started using the Azure HDInsight service with the samples provided. Use PowerShell scripts that run MapReduce programs on data clusters.
 services: hdinsight
 documentationcenter: ''
@@ -14,51 +14,52 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2016
+ms.date: 05/25/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 
 ---
 # Run Hadoop MapReduce samples in Windows-based HDInsight
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-A set of samples are provided to help you get started running MapReduce jobs on Hadoop clusters using Azure HDInsight. These samples are made available on each of the HDInsight managed clusters that you create. Running these samples will familiarize you with using Azure PowerShell cmdlets to run jobs on Hadoop clusters.
+A set of samples are provided to help you get started running MapReduce jobs on Hadoop clusters using Azure HDInsight. These samples are made available on each of the HDInsight managed clusters that you create. Running these samples familiarize you with using Azure PowerShell cmdlets to run jobs on Hadoop clusters.
 
 * [**Word count**][hdinsight-sample-wordcount]: Counts word occurrences in a text file.
 * [**C# streaming word count**][hdinsight-sample-csharp-streaming]: Counts word occurrences in a text file using the Hadoop streaming interface.
 * [**Pi estimator**][hdinsight-sample-pi-estimator]: Uses a statistical (quasi-Monte Carlo) method to estimate the value of pi.
-* [**10-GB Graysort**][hdinsight-sample-10gb-graysort]: Run a general purpose GraySort on a 10 GB file by using HDInsight. There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm that the data has been properly sorted.
+* [**10-GB Graysort**][hdinsight-sample-10gb-graysort]: Run a general-purpose GraySort on a 10 GB file by using HDInsight. There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm that the data has been properly sorted.
 
 > [!NOTE]
 > The source code can be found in the Appendix.
 
 Much additional documentation exists on the web for Hadoop-related technologies, such as Java-based MapReduce programming and streaming, and documentation about the cmdlets that are used in Windows PowerShell scripting. For more information about these resources, see:
 
-* [Develop Java MapReduce programs for Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
-* [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
+* [Develop Java MapReduce programs for Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Submit Hadoop jobs in HDInsight](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Introduction to Azure HDInsight][hdinsight-introduction]
 
-Nowadays, a lot of people choose Hive and Pig over MapReduce.  For more information, see :
+Nowadays, many people choose Hive and Pig over MapReduce.  For more information, see:
 
-* [Use Hive in HDInsight](hdinsight-use-hive.md)
-* [Use Pig in HDInsight](hdinsight-use-pig.md)
+* [Use Hive in HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Pig in HDInsight](hadoop/hdinsight-use-pig.md)
 
 **Prerequisites**:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **an HDInsight cluster**. For instructions on the various ways in which such clusters can be created, see [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
+* **an HDInsight cluster**. For instructions on the various ways in which such clusters can be created, see [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **A workstation with Azure PowerShell**.
 
     > [!IMPORTANT]
     > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and will be removed by January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
     >
-    > Please follow the steps in [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
+    > Follow the steps in [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="hdinsight-sample-wordcount"></a>Word count - Java
-To submit a MapReduce project, you first create a MapReduce job definition. In the job definition, you specify the MapReduce program jar file and the location of the jar file, which is **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, the class name, and the arguments.  The wordcount MapReduce program takes two arguments: the source file that will be used to count words, and the location for output.
+To submit a MapReduce project, you first create a MapReduce job definition. In the job definition, you specify the MapReduce program jar file and the location of the jar file, which is **wasb:///example/jars/hadoop-mapreduce-examples.jar**, the class name, and the arguments.  The wordcount MapReduce program takes two arguments: the source file that is used to count words, and the location for output.
 
 The source code can be found in the [Appendix A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-For the procedure of developing a Java MapReduce program, see - [Develop Java MapReduce programs for Hadoop in HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
+For the procedure of developing a Java MapReduce program, see - [Develop Java MapReduce programs for Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 **To submit a word count MapReduce job**
 
@@ -74,9 +75,9 @@ For the procedure of developing a Java MapReduce program, see - [Develop Java Ma
 
     # Define the MapReduce job
     $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+                                -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "wordcount" `
-                                -Arguments "wasbs:///example/data/gutenberg/davinci.txt", "wasbs:///example/data/WordCountOutput1"
+                                -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     # Submit the job and wait for job completion
     $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:"
@@ -116,16 +117,16 @@ For the procedure of developing a Java MapReduce program, see - [Develop Java Ma
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
     ```
 
-    The MapReduce job produces a file named *part-r-00000*, which contains words and the counts. The script uses the **findstr** command to list all of the words that contains *"there"*.
-3. Set the first 3 variables, and run the script.
+    The MapReduce job produces a file named *part-r-00000*, which contains words and the counts. The script uses the **findstr** command to list all the words that contains *"there"*.
+3. Set the first three variables, and run the script.
 
 ## <a name="hdinsight-sample-csharp-streaming"></a>Word count - C# streaming
 Hadoop provides a streaming API to MapReduce, which enables you to write map and reduce functions in languages other than Java.
 
 > [!NOTE]
-> The steps in this tutorial apply only to Windows-based HDInsight clusters. For an example of streaming for Linux-based HDInsight clusters, see [Develop Python streaming programs for HDInsight](hdinsight-hadoop-streaming-python.md).
+> The steps in this tutorial apply only to Windows-based HDInsight clusters. For an example of streaming for Linux-based HDInsight clusters, see [Develop Python streaming programs for HDInsight](hadoop/apache-hadoop-streaming-python.md).
 
-In the example, the mapper and the reducer are executables that read the input from [stdin][stdin-stdout-stderr] (line-by-line) and emit the output to [stdout][stdin-stdout-stderr]. The program counts all of the words in the text.
+In the example, the mapper and the reducer are executables that read the input from [stdin][stdin-stdout-stderr] (line-by-line) and emit the output to [stdout][stdin-stdout-stderr]. The program counts all the words in the text.
 
 When an executable is specified for **mappers**, each mapper task launches the executable as a separate process when the mapper is initialized. As the mapper task runs, it converts its input into lines, and feeds the lines to the [stdin][stdin-stdout-stderr] of the process.
 
@@ -135,11 +136,9 @@ When an executable is specified for **reducers**, each reducer task launches the
 
 In the meantime, the reducer collects the line-oriented output from the [stdout][stdin-stdout-stderr] of the process. It converts each line to a key/value pair, which is collected as the output of the reducer. By default, the prefix of a line up to the first Tab character is the key, and the remainder of the line (excluding the Tab character) is the value.
 
-For more information about the Hadoop Streaming interface, see [Hadoop Streaming][hadoop-streaming].
-
 **To submit a C# streaming word count job**
 
-* Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following:
+* Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following line:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -161,11 +160,11 @@ The script provided for this sample submits a Hadoop jar job and is set up to ru
 
 **To submit a pi estimator job**
 
-* Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following:
+* Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following line:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-                                -JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
+                                -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "pi" `
                                 -Arguments "16", "10000000"
     ```
@@ -216,7 +215,6 @@ From this article and the articles in each of the samples, you learned how to ru
 * [Use Hive with Hadoop on HDInsight][hdinsight-use-hive]
 * [Submit Hadoop Jobs in HDInsight][hdinsight-submit-jobs]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
-* [Debug Hadoop in HDInsight: Error messages][hdinsight-errors]
 
 ## Appendix A - The Word count source code
 
@@ -311,9 +309,14 @@ namespace cat
             }
 
             string line;
+            char[] separators = { ' ', '\n'};
             while ((line = Console.ReadLine()) != null)
             {
-                Console.WriteLine(line);
+                string[] words = line.Split(separators);
+                foreach (var word in words)
+                {
+                    Console.WriteLine("{0}\t1", word);
+                }
             }
         }
     }
@@ -328,6 +331,7 @@ The mapper code in the cat.cs file uses a [StreamReader][streamreader] object to
 using System;
 using System.IO;
 using System.Linq;
+using System.Collections;
 
 namespace wc
 {
@@ -336,16 +340,33 @@ namespace wc
         static void Main(string[] args)
         {
             string line;
-            var count = 0;
 
-            if (args.Length > 0){
+            if (args.Length > 0)
+            {
                 Console.SetIn(new StreamReader(args[0]));
             }
 
-            while ((line = Console.ReadLine()) != null) {
-                count += line.Count(cr => (cr == ' ' || cr == '\n'));
+            Hashtable wordCount = new Hashtable();
+            while ((line = Console.ReadLine()) != null)
+            {
+                string[] words = line.Split('\t');
+
+                string key = words[0];
+
+                if (wordCount.ContainsKey(key) == true)
+                {
+                    int n = Convert.ToInt32(wordCount[key]);
+                    wordCount[key] = Convert.ToString(n + 1);
+                }
+                else
+                {
+                    wordCount[key] = words[1];
+                }
             }
-            Console.WriteLine(count);
+            foreach (var key in wordCount.Keys)
+            {
+                Console.WriteLine("{0} {1}", key, wordCount[key]);
+            }
         }
     }
 }
@@ -612,7 +633,7 @@ FileOutputFormat.setOutputPath(jobConf, outDir);
 final FileSystem fs = FileSystem.get(jobConf);
 if (fs.exists(TMP_DIR)) {
 throw new IOException("Tmp directory " + fs.makeQualified(TMP_DIR)
-+ " already exists. Please remove it first.");
++ " already exists. Remove it first.");
 }
 if (!fs.mkdirs(inDir)) {
 throw new IOException("Cannot create input directory " + inDir);
@@ -960,16 +981,14 @@ public class TeraSort extends Configured implements Tool {
 }
 ```
 
-[hdinsight-errors]: hdinsight-debug-jobs.md
-
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-introduction]: hdinsight-hadoop-introduction.md
+[hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
+[hdinsight-introduction]:hadoop/apache-hadoop-introduction.md
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 
 [hdinsight-samples]: hdinsight-run-samples.md
 [hdinsight-sample-10gb-graysort]: #hdinsight-sample-10gb-graysort
@@ -977,8 +996,8 @@ public class TeraSort extends Configured implements Tool {
 [hdinsight-sample-pi-estimator]: #hdinsight-sample-pi-estimator
 [hdinsight-sample-wordcount]: #hdinsight-sample-wordcount
 
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-hive]: hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]: hadoop/hdinsight-use-pig.md
 
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline

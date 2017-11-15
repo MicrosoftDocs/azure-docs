@@ -1,10 +1,10 @@
 ---
-title: Create a VM (Classic) with multiple NICs using PowerShell | Microsoft Docs
-description: Learn how to create a VM with multiple NICs through the classic deployment model using PowerShell.
+title: Create a VM (Classic) with multiple NICs - Azure PowerShell | Microsoft Docs
+description: Learn how to create a VM (Classic) with multiple NICs using PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+ms.custom: H1Hack27Feb2017
 
 ---
 # Create a VM (Classic) with multiple NICs using PowerShell
@@ -25,7 +26,7 @@ ms.author: jdial
 You can create virtual machines (VMs) in Azure and attach multiple network interfaces (NICs) to each of your VMs. Multiple NICs enable separation of traffic types across NICs. For example, one NIC might communicate with the Internet, while another communicates only with internal resources not connected to the Internet. The ability to separate network traffic across multiple NICs is required for many network virtual appliances, such as application delivery and WAN optimization solutions.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to perform these steps using the [Resource Manager deployment model](virtual-network-deploy-multinic-arm-ps.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. Learn how to perform these steps using the [Resource Manager deployment model](../virtual-machines/windows/multiple-nics.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -131,7 +132,7 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 	```powershell
 	Add-AzureProvisioningConfig -VM $vmConfig -Windows `
 		-AdminUsername $cred.UserName `
-		-Password $cred.Password
+		-Password $cred.GetNetworkCredential().Password
 	```
 
 4. Set the default NIC and assign it a static IP address.
@@ -149,7 +150,7 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 	-StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
 	-VM $vmConfig
 	```
-
+	
 6. Create to data disks for each VM.
 
 	```powershell
@@ -177,18 +178,21 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 	```
 
 ### Step 4 - Run the script
-Now that you downloaded and changed the script based on your needs, runt he script to create the back end database VMs with multiple NICs.
+Now that you downloaded and changed the script based on your needs, runt the script to create the back-end database VMs with multiple NICs.
 
 1. Save your script and run it from the **PowerShell** command prompt, or **PowerShell ISE**. You will see the initial output, as shown below.
 
-        OperationDescription    OperationId                          OperationStatus
-        --------------------    -----------                          ---------------
-        New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
-        New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
+		OperationDescription    OperationId                          OperationStatus
 
-        WARNING: No deployment found in service: 'IaaSStory-Backend'.
-2. Fill out the information needed in the credentials prompt and click **OK**. The output below will be displayed.
+		New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+		New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+		
+		WARNING: No deployment found in service: 'IaaSStory-Backend'.
+2. Fill out the information needed in the credentials prompt and click **OK**. The following output is returned.
 
-        New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-        New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
+### Step 5 - Configure routing within the VM's operating system
+
+Azure DHCP assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. To configure routing for secondary network interfaces, see [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces).

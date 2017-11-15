@@ -13,7 +13,7 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: sdanie
 
 ---
@@ -29,7 +29,7 @@ ms.author: sdanie
 
 Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
-This topic shows you how to get started with Azure Redis Cache using Node.js. For another example of using Azure Redis Cache with Node.js, see [Build a Node.js Chat Application with Socket.IO on an Azure Website](../app-service-web/web-sites-nodejs-chat-app-socketio.md).
+This topic shows you how to get started with Azure Redis Cache using Node.js. 
 
 ## Prerequisites
 Install [node_redis](https://github.com/mranney/node_redis):
@@ -52,6 +52,10 @@ The latest builds of [node_redis](https://github.com/mranney/node_redis) provide
       // Add your cache name and access key.
     var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
+> [!NOTE]
+> The non-SSL port is disabled for new Azure Redis Cache instances. If you are using a different client that doesn't support SSL, see [How to enable the non-SSL port](cache-configure.md#access-ports).
+> 
+> 
 
 ## Add something to the cache and retrieve it
 The following example shows you how to connect to an Azure Redis Cache instance, and store and retrieve an item from the cache. For more examples of using Redis with the [node_redis](https://github.com/mranney/node_redis) client, see [http://redis.js.org/](http://redis.js.org/).

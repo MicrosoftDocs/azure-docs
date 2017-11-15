@@ -18,6 +18,9 @@ ms.author: mandia
 
 ---
 # Migrating BizTalk Server EDI Solutions to BizTalk Services: Technical Guide
+
+> [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
 Author: Tim Wieman and Nitin Mehrotra
 
 Reviewers: Karthik Bharthy

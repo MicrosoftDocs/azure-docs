@@ -1,5 +1,5 @@
 ---
-title: Loops in SQL Data Warehouse | Microsoft Docs
+title: Leverage T-SQL loops in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips for Transact-SQL loops and replacing cursors in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -13,6 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
+ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 

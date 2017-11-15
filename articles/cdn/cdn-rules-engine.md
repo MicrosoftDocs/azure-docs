@@ -1,9 +1,9 @@
 ---
-title: Override default HTTP behavior using the Azure Content Delivery Network (CDN) Rules Engine| Microsoft Docs
+title: Override HTTP behavior using the Azure CDN rules engine | Microsoft Docs
 description: The rules engine allows you to customize how HTTP requests are handled by Azure CDN, such as blocking the delivery of certain types of content, define a caching policy, and modify HTTP headers.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
-# Override default HTTP behavior using the Azure Content Delivery Network (CDN) Rules Engine
+# Override HTTP behavior using the Azure CDN rules engine
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## Overview

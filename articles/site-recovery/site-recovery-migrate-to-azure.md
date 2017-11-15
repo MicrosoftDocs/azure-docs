@@ -1,69 +1,77 @@
 ---
-title: Migrate to Azure with Site Recovery | Microsoft Docs
-description: This article provides an overview of migrating VMs and physical servers to Azure with Azure Site Recovery
+title: Migrate on-premises VMs and physical servers to Azure with Site Recovery | Microsoft Docs
+description: This article describes how to migrate on-premises VMs and physical servers to Azure with Azure Site Recovery
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: ''
 
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
-ms.workload: backup-recovery
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2017
+ms.date: 10/30/2017
 ms.author: raynew
 
 ---
-# Migrate to Azure with Site Recovery?
+# Migrate to Azure with Site Recovery
 
-Read this article for an overview of using the Azure Site Recovery service for migration of virtual machines and physical servers.
+Read this article to learn about using the [Azure Site Recovery](site-recovery-overview.md) service to migrate on-premises virtual machines (VMs) and physical servers, to Azure VMs.
 
-Organizations need a BCDR strategy that determines how apps, workloads, and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy should keep business data safe and recoverable, and ensure that workloads remain continuously available when disaster occurs.
+## Before you start
 
-Site Recovery is an Azure service that contributes to your BCDR strategy, by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Site Recovery?](site-recovery-overview.md)
-
-This article describes deployment in the [Azure portal](https://portal.azure.com). The [Azure classic portal](https://manage.windowsazure.com/) can be used to maintain existing Site Recovery vaults, but you can't create new vaults.
-
-Post any comments at the bottom of this article. Ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Watch this video for a quick overview of the steps required to migrate to Azure.
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
 
 
 ## What do we mean by migration?
 
-You can deploy Site Recovery for full replication of on-premises VMs and physical servers, to Azure or to a secondary site.You replicate machines, fail them over from the primary site when outages occur, and fail them back to the primary site when it recovers. In addition to full replication, you can use Site Recovery to migrate VMs and physical servers to Azure, so that users can access the machine workload from Azure VMs. Migration entails replication, and failover from the primary site to Azure. However, unlike full replication, it does not include a failback mechanism.
+You can deploy Site Recovery to replication on-premises VMs and physical servers, and to migrate them.
+
+- When you replicate, you configure on-premises machines to replicate on a regular basis to Azure. Then when an outage occurs, you fail the machines over from the on-premises site to Azure, and access them from there. When the on-premises site is available again, you fail back from Azure.
+- When you use Site Recovery for migration, you replicate on-premises machines to Azure. Then you fail them over from your on-premises site to Azure, and finish up the migration process. There's no failback involved.  
 
 ## What can Site Recovery migrate?
 
 You can:
 
-- Migrate workloads running on on-premises Hyper-V VMs, VMware VMs, and physical servers, to run on Azure VMs. You can also do full replication and failback in this scenario.
-- Migrate [Azure IaaS VMs](site-recovery-migrate-azure-to-azure.md) between Azure regions. Currently only migration is supported in this scenario, which means failback isn't supported.
-- Migrate [AWS Windows instances](site-recovery-migrate-aws-to-azure.md) to Azure IaaS VMs. Currently only migration is supported in this scenario, which means failback isn't supported.
+- **Migrate from on-premises**: Migrate on-premises Hyper-V VMs, VMware VMs, and physical servers to Azure. After the migration, workloads running on the on-premises machines will be running on Azure VMs. 
+- **Migrate within Azure**: Migrate Azure VMs between Azure regions. 
+- **Migrate AWS**: Migrate AWS Windows instances to Azure IaaS VMs. 
 
-## Migrate on-premises VMs and physical servers
+## Migrate from on-premises to Azure
 
-To migrate on-premises Hyper-V VMs, VMware VMs, and physical servers, you follow almody the same steps as those used for regular replication. You set up a Recovery Services vault, configure the required management servers (depending on what you want to migrate), add them to the vault, and specify replication settings. You enable replication for the machines you want to migrate, and run a quick test failover to ensure that everything's working as it should.
+To migrate on-premises VMware VMs, Hyper-V VMs, and physical servers, you follow almost the same steps as you would for full replication. 
 
-After you verify that your replication environment is working, you use a planned or unplanned failover depending on [what's supported](site-recovery-failover.md#failover-and-failback) for your scenario. For migration, you don't need to commit a failover or delete anything. Instead, you select the **Complete Migration** option for each machine you want to migrate. The **Complete Migration** action finishes up the migration process, removes replication for the machine, and stops Site Recovery billing for the machine.
 
 ## Migrate between Azure regions
 
-You can migrate Azure VMs between regions using Site Recovery. In this scenario only migration is supported. In other words, you can replicate the Azure VMs and fail them over to anothe region, but you can't fail back. In this scenario you set up a Recovery Services vault, deploy an on-premises configuration server to manage replication, add it to the vault, and specify replication settings. You enable replication for the machines you want to migrate, and run a quick test failover. Then you run an unplanned failover with the **Complete Migration** option.
+To migrate Azure VMs between regions, you follow almost the same steps as you would for full migration.
+
+1. You [enable replication](azure-to-azure-tutorial-enable-replication.md)) for the machines you want to migrate.
+2. You [run a quick test failover](azure-to-azure-tutorial-dr-drill.md) to make sure everything's working.
+3. Then, you [run an unplanned failover](azure-to-azure-tutorial-failover-failback.md) with the **Complete Migration** option.
+4. After you've completed the migration, you can [set up replication for disaster recovery](site-recovery-azure-to-azure-after-migration.md), from the Azure region to which you migrated, to a secondary region.
+
+
 
 ## Migrate AWS to Azure
 
-You can migrate AWS instances to Azure VMs. In this scenario only migration is supported. In other words, you can replicate the AWS instances and fail them over to Azure, but you can't fail back. AWS instances are handled in the same way as physical servers for migration purposes. You set up a Recovery Services vault, deploy an on-premises configuration server to manage replication, add it to the vault, and specify replication settings. You enable replication for the machines you want to migrate, and run a quick test failover. Then you run an unplanned failover with the **Complete Migration** option.
+You can migrate AWS instances to Azure VMs.
+- In this scenario only migration is supported. In other words, you can replicate the AWS instances and fail them over to Azure, but you can't fail back.
+- AWS instances are handled in the same way as physical servers for migration purposes. You set up a Recovery Services vault, deploy an on-premises configuration server to manage replication, add it to the vault, and specify replication settings.
+- You enable replication for the machines you want to migrate, and run a quick test failover. Then you run an unplanned failover with the **Complete Migration** option.
+
+
 
 
 
 
 ## Next steps
 
-- [Migrate VMware VMs to Azure](site-recovery-vmware-to-azure.md)
-- [Migrate physical servers to Azure](site-recovery-vmware-to-azure.md)
-- [Migrate Hyper-V VMs in VMM clouds to Azure](site-recovery-vmm-to-azure.md)
-- [Migrate Hyper-V VMs without VMM to Azure](site-recovery-hyper-v-site-to-azure.md)
-- [Migrate Azure VMs between Azure regions](site-recovery-migrate-azure-to-azure.md)
-- [Migrate AWS instances to Azure](site-recovery-migrate-aws-to-azure.md)
+- [Migrate on-premises machines to Azure](tutorial-migrate-on-premises-to-azure.md)
+- [Migrate VMs from one Azure region to another](site-recovery-migrate-azure-to-azure.md)
+- [Migrate AWS to Azure](tutorial-migrate-aws-to-azure.md)

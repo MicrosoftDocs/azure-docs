@@ -1,9 +1,9 @@
 ---
-title: Troubleshoot Azure Automation  | Microsoft Docs
+title: Troubleshooting common Azure Automation issues | Microsoft Docs
 description: This article provides information to help troubleshoot and fix common Azure Automation errors.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 09/22/2017
 ms.author: sngun; v-reagie
 
 ---
-# Troubleshoot Azure Automation 
+# Troubleshooting common issues in Azure Automation 
 This article provides help troubleshooting common errors you might experience in Azure Automation and suggests possible solutions to resolve them.
 
 ## Authentication errors when working with Azure Automation runbooks
@@ -70,6 +70,25 @@ If you have multi-factor authentication on your Azure account, you can't use an 
 To use a certificate with the Azure Service Management cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## Common errors when working with runbooks
+### Scenario: The runbook job start was attempted three times, but it failed to start each time
+**Error:**
+Your runbook fails with the error "“The job was tried three times but it failed."
+
+**Reason for the error:**
+This error can be caused by the following reasons:  
+
+1. Memory Limit.  We have documented limits on how much memory allocated to a Sandbox  [Automation service limits](../azure-subscription-service-limits.md#automation-limits) so a job may fail it if is using more than 400 MB of memory. 
+
+2. Module Incompatible.  This can occur if module dependencies are not correct and if they are not, your runbook will typically return a “Command not found” or "Cannot bind parameter" message. 
+
+**Troubleshooting tips:**
+Any of the following solutions will fix the problem:  
+
+* Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell workflow runbooks.  
+
+* You need to update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).  
+
+
 ### Scenario: Runbook fails because of deserialized object
 **Error:**
 Your runbook fails with the error "Cannot bind parameter ``<ParameterName>``. Cannot convert the ``<ParameterType>`` value of type Deserialized ``<ParameterType>`` to type ``<ParameterType>``".
@@ -96,8 +115,8 @@ If you want to use more than 500 minutes of processing per month you will need t
 
 1. Sign in to your Azure subscription  
 2. Select the Automation account you wish to upgrade  
-3. Click on **Settings** > **Pricing tier and Usage** > **Pricing tier**  
-4. On the **Choose your pricing tier** blade, select **Basic**    
+3. Click on **Settings** > **Pricing**.
+4. Click **Enable** on page bottom to upgrade your account to the **Basic** tier.
 
 ### Scenario: Cmdlet not recognized when executing a runbook
 **Error:**
@@ -116,10 +135,10 @@ Any of the following solutions will fix the problem:
 
 ### Scenario: A long running runbook consistently fails with the exception: "The job cannot continue running because it was repeatedly evicted from the same checkpoint".
 **Reason for the error:**
-This is by design behavior due to the "Fair Share" monitoring of processes within Azure Automation, which automatically suspends a runbook if it executes longer than 3 hours. However, the error message returned does not provide "what next" options. A runbook can be suspended for a number of reasons. Suspends happen mostly due to errors. For example, an uncaught exception in a runbook, a network failure, or a crash on the Runbook Worker running the runbook, will all cause the runbook to be suspended and start from its last checkpoint when resumed.
+This behavior is by design due to the "Fair Share" monitoring of processes within Azure Automation, which automatically suspends a runbook if it executes longer than three hours. However, the error message returned does not provide "what next" options. A runbook can be suspended for a number of reasons. Suspends happen mostly due to errors. For example, an uncaught exception in a runbook, a network failure, or a crash on the Runbook Worker running the runbook, will all cause the runbook to be suspended and start from its last checkpoint when resumed.
 
 **Troubleshooting tips:**
-The documented solution to avoid this issue is to use Checkpoints in a workflow.  To learn more refer to [Learning PowerShell Workflows](automation-powershell-workflow.md#checkpoints).  A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
+The documented solution to avoid this issue is to use Checkpoints in a workflow.  To learn more, refer to [Learning PowerShell Workflows](automation-powershell-workflow.md#checkpoints).  A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
 ## Common errors when importing modules
 ### Scenario: Module fails to import or cmdlets can't be executed after importing
@@ -135,7 +154,7 @@ Some common reasons that a module might not successfully import to Azure Automat
 * The **New-AzureRmAutomationModule** cmdlet is being used to upload the module, and you have not given the full storage path or have not loaded the module by using a publicly accessible URL.  
 
 **Troubleshooting tips:**  
-Any of the following solutions will fix the problem:  
+Any of the following solutions fix the problem:  
 
 * Make sure that the module follows the following format:  
   ModuleName.Zip **->** ModuleName or Version Number **->** (ModuleName.psm1, ModuleName.psd1)
@@ -148,14 +167,14 @@ Any of the following solutions will fix the problem:
 The node has a report with **Failed** status and containing the error "The attempt to get the action from server https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid>`` cannot be found.”
 
 **Reason for the error:**
-This error typically occurs when the node is assigned to a configuration name (e.g. ABC) instead of a node configuration name (e.g. ABC.WebServer).  
+This error typically occurs when the node is assigned to a configuration name (for example, ABC) instead of a node configuration name (for example, ABC.WebServer).  
 
 **Troubleshooting tips:**  
 
 * Make sure that you are assigning the node with "node configuration name" and not the "configuration name".  
 * You can assign a node configuration to a node using Azure portal or with a PowerShell cmdlet.
 
-  * In order to assign a node configuration to a node using Azure portal, open the **DSC Nodes** blade, then select a node and click on **Assign node configuration** button.  
+  * In order to assign a node configuration to a node using Azure portal, open the **DSC Nodes** page, then select a node and click on **Assign node configuration** button.  
   * In order to assign a node configuration to a node using PowerShell cmdlet, use **Set-AzureRmAutomationDscNode** cmdlet
 
 ### Scenario:  No node configurations (MOF files) were produced when a configuration is compiled
@@ -163,10 +182,10 @@ This error typically occurs when the node is assigned to a configuration name (e
 Your DSC compilation job suspends with the error: “Compilation completed successfully, but no node configuration .mofs were generated”.
 
 **Reason for the error:**
-When the expression following the **Node** keyword in the DSC configuration evaluates to $null then no node configurations will be produced.    
+When the expression following the **Node** keyword in the DSC configuration evaluates to $null then no node configurations are produced.    
 
 **Troubleshooting tips:**  
-Any of the following solutions will fix the problem:  
+Any of the following solutions fix the problem:  
 
 * Make sure that the expression next to the **Node** keyword in the configuration definition is not evaluating to $null.  
 * If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](automation-dsc-compile.md#configurationdata).

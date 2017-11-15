@@ -3,7 +3,7 @@ title: Using API Management service to generate HTTP requests
 description: Learn to use request and response policies in API Management to call external services from your API
 services: api-management
 documentationcenter: ''
-author: darrelmiller
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
-ms.author: darrmi
+ms.author: apimpm
 
 ---
 # Using external services from the Azure API Management service

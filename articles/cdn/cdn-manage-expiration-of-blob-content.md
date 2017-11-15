@@ -1,9 +1,9 @@
 ---
-title: Manage expiration of Azure Storage blob content in Azure CDN | Microsoft Docs
+title: Manage expiration of Azure Blob storage in Azure Content Delivery Network | Microsoft Docs
 description: Learn about the options for controlling time-to-live for blobs in Azure CDN caching.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,32 +13,31 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/15/2016
-ms.author: casoper
+ms.date: 11/10/2017
+ms.author: mazha
 
 ---
-# Manage expiration of Azure Storage blob content in Azure CDN
+# Manage expiration of Azure Blob storage in Azure Content Delivery Network
 > [!div class="op_single_selector"]
 > * [Azure Web Apps/Cloud Services, ASP.NET, or IIS](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Azure Storage blob service](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob storage](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-The [blob service](../storage/storage-introduction.md#blob-storage) in [Azure Storage](../storage/storage-introduction.md) is one of several Azure-based origins integrated with Azure CDN.  Any publicly accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses.  The TTL is determined by the [*Cache-Control* header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) in the HTTP response from Azure Storage.
+The [blob service](../storage/common/storage-introduction.md#blob-storage) in [Azure Storage](../storage/common/storage-introduction.md) is one of several Azure-based origins integrated with Azure Content Delivery Network (CDN). Any publicly accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses. The TTL is determined by the [`Cache-Control` header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) in the HTTP response from Azure Storage.
 
 > [!TIP]
-> You may choose to set no TTL on a blob.  In this case, Azure CDN automatically applies a default TTL of seven days.
+> You can choose to set no TTL on a blob. In this case, Azure CDN automatically applies a default TTL of seven days.
 > 
-> For more information about how Azure CDN works to speed up access to blobs and other files, see the [Azure CDN Overview](cdn-overview.md).
+> For more information about how Azure CDN works to speed up access to blobs and other files, see [Overview of the Azure Content Delivery Network](cdn-overview.md).
 > 
-> For more details on the Azure Storage blob service, see [Blob Service Concepts](https://msdn.microsoft.com/library/dd179376.aspx). 
-> 
-> 
+> For more information about Azure Blob storage, see [Introduction to Blob storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+ 
 
 This tutorial demonstrates several ways that you can set the TTL on a blob in Azure Storage.  
 
 ## Azure PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs) is one of the quickest, most powerful ways to administer your Azure services.  Use the `Get-AzureStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
+[Azure PowerShell](/powershell/azure/overview) is one of the quickest, most powerful ways to administer your Azure services.  Use the `Get-AzureStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
 
 ```powershell
 # Create a storage context
@@ -60,7 +59,7 @@ $blob.ICloudBlob.SetProperties()
 > 
 
 ## Azure Storage Client Library for .NET
-To set a blob's TTL using .NET, use the [Azure Storage Client Library for .NET](../storage/storage-dotnet-how-to-use-blobs.md) to set the [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) property.
+To set a blob's TTL using .NET, use the [Azure Storage Client Library for .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) to set the [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) property.
 
 ```csharp
 class Program
@@ -90,14 +89,14 @@ class Program
 ```
 
 > [!TIP]
-> There are many more .NET code samples available in the [Azure Blob Storage Samples for .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
+> There are many more .NET code samples available in [Azure Blob Storage Samples for .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
 > 
 > 
 
 ## Other methods
-* [Azure Command-Line Interface](../xplat-cli-install.md)
+* [Azure Command-Line Interface](../cli-install-nodejs.md)
   
-    When uploading the blob, set the *cacheControl* property using the `-p` switch.  This example sets the TTL to one hour (3600 seconds).
+    When uploading the blob, set the *cacheControl* property by using the `-p` switch. This example sets the TTL to one hour (3600 seconds).
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
@@ -109,10 +108,10 @@ class Program
   
     Some third-party Azure Storage management tools allow you to set the *CacheControl* property on blobs. 
 
-## Testing the *Cache-Control* header
-You can easily verify the TTL of your blobs.  Using your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your blob is including the *Cache-Control* response header.  You can also use a tool like **wget**, [Postman](https://www.getpostman.com/), or [Fiddler](http://www.telerik.com/fiddler) to examine the response headers.
+## Testing the Cache-Control header
+You can easily verify the TTL of your blobs.  Using your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your blob includes the `Cache-Control` response header. You can also use a tool such as **wget**, [Postman](https://www.getpostman.com/), or [Fiddler](http://www.telerik.com/fiddler) to examine the response headers.
 
 ## Next Steps
-* [Read about the *Cache-Control* header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [Read about the `Cache-Control` header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Learn how to manage expiration of Cloud Service content in Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
 

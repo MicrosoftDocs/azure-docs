@@ -4,7 +4,7 @@ description: Learn about how to create advanced encoding workflows with Workflow
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 004815f2-0761-4706-87a1-675ba36e0322
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 07/19/2017
 ms.author: juliako;johndeu;anilmur
 
 ---
@@ -51,7 +51,7 @@ Day 1 video covers:
 * Basic Workflows – "Hello World"
 * Creating multiple output MP4 files for use with Azure Media Services streaming
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
 > 
 
@@ -62,7 +62,7 @@ Day 2 video covers:
 * Workflows with advanced Logic
 * Graph stages
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
 > 
 > 
 
@@ -73,7 +73,7 @@ Day 3 video covers:
 * Restrictions with the current Encoder
 * Q&A
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 
 > 
 

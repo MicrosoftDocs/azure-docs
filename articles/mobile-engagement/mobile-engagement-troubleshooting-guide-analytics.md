@@ -4,7 +4,7 @@ description: Troubleshooting Analytics, Monitoring, Segmentation, and Dashboard 
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 04a7020a-ad74-4491-be69-0bd574890029

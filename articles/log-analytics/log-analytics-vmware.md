@@ -12,11 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 08/11/2017
 ms.author: banders
 ---
 
 # VMware Monitoring (Preview) solution in Log Analytics
+
+![VMware symbol](./media/log-analytics-vmware/vmware-symbol.png)
+
 The VMware Monitoring solution in Log Analytics is a solution that helps you create a centralized logging and monitoring approach for large VMware logs. This article describes how you can troubleshoot, capture, and manage the ESXi hosts in a single location using the solution. With the solution, you can see detailed data for all your ESXi hosts in a single location. You can see top event counts, status, and trends of VM and ESXi hosts provided through the ESXi host logs. You can troubleshoot by viewing and searching centralized ESXi host logs. And, you can create alerts based on log search queries.
 
 The solution uses native syslog functionality of the ESXi host to push data to a target VM, which has OMS Agent. However, the solution doesn't write files into syslog within the target VM. The OMS agent opens port 1514 and listens to this. Once it receives the data, the OMS agent pushes the data into OMS.
@@ -72,7 +75,7 @@ The following table shows data collection methods and other details about how da
 
 | platform | OMS Agent for Linux | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Linux |![Yes](./media/log-analytics-vmware/oms-bullet-green.png) |![No](./media/log-analytics-vmware/oms-bullet-red.png) |![No](./media/log-analytics-vmware/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-vmware/oms-bullet-red.png) |every 3 minutes |
+| Linux |&#8226; |  |  |  |  |every 3 minutes |
 
 The following table show examples of data fields collected by the VMware Monitoring solution:
 
@@ -142,7 +145,10 @@ If you want to see additional ESXi host VM creation data, click an ESXi host nam
 #### Common search queries
 The solution includes other useful queries that can help you manage your ESXi hosts, such as high storage space, storage latency, and path failure.
 
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 ![queries](./media/log-analytics-vmware/queries.png)
+
 
 #### Save queries
 Saving search queries is a standard feature in OMS and can help you keep any queries that you’ve found useful. After you create a query that you find useful, save it by clicking the **Favorites**. A saved query lets you easily reuse it later from the [My Dashboard](log-analytics-dashboards.md) page where you can create your own custom dashboards.

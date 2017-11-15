@@ -3,7 +3,7 @@ title: Create table as select (CTAS) in SQL Data Warehouse | Microsoft Docs
 description: Tips for coding with the create table as select (CTAS) statement in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 documentationcenter: NA
-author: jrowlandjones
+author: shivaniguptamsft
 manager: jhubbard
 editor: ''
 
@@ -13,12 +13,50 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
+ms.custom: queries
+ms.date: 01/30/2017
+ms.author: shigu;barbkess
 
 ---
 # Create Table As Select (CTAS) in SQL Data Warehouse
-Create table as select or `CTAS` is one of the most important T-SQL features available. It is a fully parallelized operation that creates a new table based on the output of a SELECT statement. `CTAS` is the simplest and fastest way to create a copy of a table. You can consider it to be a supercharged version of `SELECT..INTO` if you would like. This document provides both examples and best practices for `CTAS`.
+Create table as select or `CTAS` is one of the most important T-SQL features available. It is a fully parallelized operation that creates a new table based on the output of a SELECT statement. `CTAS` is the simplest and fastest way to create a copy of a table. This document provides both examples and best practices for `CTAS`.
+
+## SELECT..INTO vs. CTAS
+You can consider `CTAS` as a super-charged version of `SELECT..INTO`.
+
+Below is an example of a simple `SELECT..INTO` statement:
+
+```sql
+SELECT *
+INTO    [dbo].[FactInternetSales_new]
+FROM    [dbo].[FactInternetSales]
+```
+
+In the example above `[dbo].[FactInternetSales_new]` would be created as ROUND_ROBIN distributed table with a CLUSTERED COLUMNSTORE INDEX on it as these are the table defaults in Azure SQL Data Warehouse.
+
+`SELECT..INTO` however does not allow you to change either the distribution method or the index type as part of the operation. This is where `CTAS` comes in.
+
+To convert the above to `CTAS` is quite straight-forward:
+
+```sql
+CREATE TABLE [dbo].[FactInternetSales_new]
+WITH
+(
+    DISTRIBUTION = ROUND_ROBIN
+,	CLUSTERED COLUMNSTORE INDEX
+)
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+;
+```
+
+With `CTAS` you are able to change both the distribution of the table data as well as the table type. 
+
+> [!NOTE]
+> If you are only trying to change the index in your `CTAS` operation and the source table is hash distributed then your `CTAS` operation will perform best if you maintain the same distribution column and data type. This will avoid cross distribution data movement during the operation which is more efficient.
+> 
+> 
 
 ## Using CTAS to copy a table
 Perhaps one of the most common uses of `CTAS` is creating a copy of a table so that you can change the DDL. If for example you originally created your table as `ROUND_ROBIN` and now want change it to a table distributed on a column, `CTAS` is how you would change the distribution column. `CTAS` can also be used to change partitioning, indexing, or column types.
@@ -92,43 +130,12 @@ DROP TABLE FactInternetSales_old;
 ## Using CTAS to work around unsupported features
 `CTAS` can also be used to work around a number of the unsupported features listed below. This can often prove to be a win/win situation as not only will your code be compliant but it will often execute faster on SQL Data Warehouse. This is as a result of its fully parallelized design. Scenarios that can be worked around with CTAS include:
 
-* SELECT..INTO
 * ANSI JOINS on UPDATEs
 * ANSI JOINs on DELETEs
 * MERGE statement
 
 > [!NOTE]
 > Try to think "CTAS first". If you think you can solve a problem using `CTAS` then that is generally the best way to approach it - even if you are writing more data as a result.
-> 
-> 
-
-## SELECT..INTO
-You may find `SELECT..INTO` appears in a number of places in your solution.
-
-Below is an example of a `SELECT..INTO` statement:
-
-```sql
-SELECT *
-INTO    #tmp_fct
-FROM    [dbo].[FactInternetSales]
-```
-
-To convert the above to `CTAS` is quite straight-forward:
-
-```sql
-CREATE TABLE #tmp_fct
-WITH
-(
-    DISTRIBUTION = ROUND_ROBIN
-)
-AS
-SELECT  *
-FROM    [dbo].[FactInternetSales]
-;
-```
-
-> [!NOTE]
-> CTAS currently requires a distribution column be specified.  If you are not intentionally trying to change the distribution column, your `CTAS` will perform the fastest if you select a distribution column that is the same as the underlying table as this strategy avoids data movement.  If you are creating a small table where performance is not a factor, then you can specify `ROUND_ROBIN` to avoid having to decide on a distribution column.
 > 
 > 
 

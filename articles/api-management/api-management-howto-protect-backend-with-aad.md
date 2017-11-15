@@ -1,9 +1,9 @@
 ---
-title: How to protect a Web API backend with Azure Active Directory and API Management
+title: Protect a Web API backend with Azure Active Directory and API Management | Microsoft Docs
 description: Learn how to protect a Web API backend with Azure Active Directory and API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
+author: vladvino
 manager: erikre
 editor: ''
 
@@ -13,9 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
-ms.author: sdanie
-
+ms.date: 01/23/2017
+ms.author: apimpm
 ---
 # How to protect a Web API backend with Azure Active Directory and API Management
 The following video shows how to build a Web API backend and protect it using OAuth 2.0 protocol with Azure Active Directory and API Management.  This article provides an overview and additional information for the steps in the video. This 24 minute video shows you how to:
@@ -497,7 +496,7 @@ The final procedure in the video starts at 20:48 and shows you how to use the [V
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-    <openid-config url="https://login.windows.net/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
+    <openid-config url="https://login.microsoftonline.com/DemoAPIM.onmicrosoft.com/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
             <value>https://DemoAPIM.NOTonmicrosoft.com/APIMAADDemo</value>
@@ -510,7 +509,7 @@ For another demonstration of configuring and using this policy, see [Cloud Cover
 
 ## Next steps
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
-* For other ways to secure your backend service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md) and [Connect via VPN or ExpressRoute](api-management-howto-setup-vpn.md).
+* For other ways to secure your backend service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md).
 
 [api-management-management-console]: ./media/api-management-howto-protect-backend-with-aad/api-management-management-console.png
 

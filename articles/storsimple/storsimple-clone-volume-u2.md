@@ -1,5 +1,5 @@
 ---
-title: Clone your StorSimple volume | Microsoft Docs
+title: Clone StorSimple 8000 series volume | Microsoft Docs
 description: Describes the different clone types and when to use them, and explains how you can use a backup set to clone an individual volume.
 services: storsimple
 documentationcenter: NA
@@ -13,11 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/27/2016
+ms.date: 11/02/2017
 ms.author: alkohli
 
 ---
 # Use the StorSimple Manager service to clone a volume (Update 2)
+> [!NOTE]
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. To view the version of this article for the new Azure portal, go to [Use the StorSimple Manager service to clone a volume (Update 2)](storsimple-8000-clone-volume-u2.md). For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
 [!INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
 
 ## Overview
@@ -83,7 +86,7 @@ You can create a clone on the same device, another device, or even a virtual mac
 > 
 > 
 
-A clone that is created this way is a transient clone. For more information about clone types, see [Transient vs. permanent clones](#transient-vs.-permanent-clones).
+A clone that is created this way is a transient clone. For more information about clone types, see [Transient vs. permanent clones](#transient-vs-permanent-clones).
 
 This clone is now a regular volume, and any operation that is possible on a volume will be available for the clone. You will need to configure this volume for any backups.
 

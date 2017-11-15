@@ -65,7 +65,7 @@ The recommended way to install Azure PowerShell and the Azure Emulators is to us
 For information about how to use Azure PowerShell, see [How to Use Azure PowerShell][powershell-tools].
 
 ## Azure CLI
-The Azure CLI is a set of commands for deploying and managing Azure services, such as Azure Websites and Azure Virtual Machines. For information about installing Azure CLI, see [Install the Azure CLI](xplat-cli-install.md).
+The Azure CLI is a set of commands for deploying and managing Azure services, such as Azure Websites and Azure Virtual Machines. For information about installing Azure CLI, see [Install the Azure CLI](cli-install-nodejs.md).
 
 ## Next steps
 For more information, see the [PHP Developer Center](/develop/php/).

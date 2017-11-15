@@ -1,0 +1,16 @@
+- name: Web Language Model Documentation
+  href: ../index.md
+- name: Overview
+  items: 
+  - name: Learn about the Web Language Model
+    href: Home.md
+- name: Reference
+  items: 
+  - name: API Reference Content
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51
+  - name: Windows SDK
+    href: https://github.com/Microsoft/Cognitive-WebLM-Windows
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

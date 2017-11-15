@@ -12,30 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 04/12/2017
 ms.author: banders
 
 ---
 # Connect Configuration Manager to Log Analytics
-You can connect System Center Configuration Manager to Log Analytics in OMS to sync device collection data. This makes data from your Configuration Manager deployment available in OMS.
+You can connect System Center Configuration Manager to Log Analytics in OMS to sync device collection data. This makes data from your Configuration Manager hierarchy available in OMS.
 
-There are a number of steps needed to connect Configuration Manager to OMS, so here's a quick rundown of the overall process:
+## Prerequisites
+
+Log Analytics supports System Center Configuration Manager current branch, version 1606 and higher.  
+
+## Configuration overview
+The following steps summarizes the process to connect Configuration Manager to Log Analytics.  
 
 1. In the Azure Management Portal, register Configuration Manager as a Web Application and/or Web API app, and ensure that you have the client ID and client secret key from the registration from Azure Active Directory. See [Use portal to create Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md) for detailed information about how accomplish this step.
 2. In the Azure Management Portal, [provide Configuration Manager (the registered web app) with permission to access OMS](#provide-configuration-manager-with-permissions-to-oms).
 3. In Configuration Manager, [add a connection using the Add OMS Connection Wizard](#add-an-oms-connection-to-configuration-manager).
-4. In Configuration Manager, you can [update the connection properties](#update-oms-connection-properties) if the password or client secret key ever expires or is lost.
+4. In Configuration Manager, [update the connection properties](#update-oms-connection-properties) if the password or client secret key ever expires or is lost.
 5. With information from the OMS portal, [download and install the Microsoft Monitoring Agent](#download-and-install-the-agent) on the computer running the Configuration Manager service connection point site system role. The agent sends Configuration Manager data to OMS.
-6. In OMS, [import collections from Configuration Manager](#import-collections) as computer groups.
-7. In OMS, view data from Configuration Manager as [computer groups](log-analytics-computer-groups.md).
+6. In Log Analytics, [import collections from Configuration Manager](#import-collections) as computer groups.
+7. In Log Analytics, view data from Configuration Manager as [computer groups](log-analytics-computer-groups.md).
 
 You can read more about connecting Configuration Manager to OMS at [Sync data from Configuration Manager to the Microsoft Operations Management Suite](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## Provide Configuration Manager with permissions to OMS
-The following procedure provides the Azure Management Portal with permissions to access OMS. Specifically, you must grant the *Contributor role* to users in the resource group. In turn, that allows the Azure Management Portal to connect Configuration Manager to OMS.
+The following procedure provides the Azure Management Portal with permissions to access OMS. Specifically, you must grant the *Contributor role* to users in the resource group in order to allow the Azure Management Portal to connect Configuration Manager to OMS.
 
 > [!NOTE]
-> You must specify permissions to OMS for Configuration Manager. Otherwise, you'll receive an error message when you use the configuration wizard in Configuration Manager.
+> You must specify permissions in OMS for Configuration Manager. Otherwise, you'll receive an error message when you use the configuration wizard in Configuration Manager.
 >
 >
 
@@ -121,7 +126,7 @@ After the collections are imported, you can see how many computers with collecti
 
 ![Computer Groups - SCCM tab](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-When you click either one, Search opens, displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](log-analytics-log-searches.md), you can start in-depth analysis for Configuration Manager data.
+When you click either one, Search opens, displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](log-analytics-log-searches.md), you can start in-depth analysis of Configuration Manager data.
 
 ## Next steps
 * Use [Log Search](log-analytics-log-searches.md) to view detailed information about your Configuration Manager data.

@@ -1,5 +1,5 @@
 ---
-title: Create an Internet-facing load balancer in Resource Manager using the Azure portal | Microsoft Docs
+title: Create an Internet-facing load balancer - Azure portal | Microsoft Docs
 description: Learn how to create an Internet-facing load balancer in Resource Manager using the Azure portal
 services: load-balancer
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 09/25/2017
 ms.author: annahar
 ---
 
@@ -26,11 +26,13 @@ ms.author: annahar
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the Resource Manager deployment model. You can also [Learn how to create an Internet-facing load balancer using classic deployment](load-balancer-get-started-internet-classic-portal.md)
+This article covers the Resource Manager deployment model.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -58,7 +60,7 @@ You can get more information about load balancer components with Azure Resource 
 3. In the **Create load balancer** blade, type a name for your load balancer. Here it is called **myLoadBalancer**.
 4. Under **Type**, select **Public**.
 5. Under **Public IP address**, create a new public IP called **myPublicIP**.
-6. Under Resource Group, select **myRG**. Then select an appropriate **Location**, and then click **OK**. The load balancer will then start to deploy and will take a few minutes to successfully complete deployment.
+6. Under Resource Group, select **myRG**. Then select an appropriate **Location**, and then click **OK**. The load balancer then starts to deploy and takes a few minutes to successfully complete deployment.
 
     ![Updating resource group of load balancer](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
@@ -78,7 +80,7 @@ You can get more information about load balancer components with Azure Resource 
     Under Settings of your load balancer, select Probes. Then click **Add** located at the top of the blade.
 
     There are two ways to configure a probe: HTTP or TCP. This example shows HTTP, but TCP can be configured in a similar manner.
-    Update the necessary information. As mentioned, **myLoadBalancer** will load balance traffic on Port 80. The path selected is HealthProbe.aspx, Interval is 15 seconds, and Unhealthy threshold is 2. Once finished, click **OK** to create the probe.
+    Update the necessary information. As mentioned, **myLoadBalancer** load balances traffic on Port 80. The path selected is HealthProbe.aspx, Interval is 15 seconds, and Unhealthy threshold is 2. Once finished, click **OK** to create the probe.
 
     Hover your pointer over the 'i' icon to learn more about these individual configurations and how they can be changed to cater to your requirements.
 

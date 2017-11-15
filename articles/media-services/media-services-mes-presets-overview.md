@@ -1,9 +1,9 @@
 ---
-title: Task Presets for MES (Media Encoder Standard) | Microsoft Docs
-description: The topic gives and overview of Task Presets for MES (Media Encoder Standard).
+title: Task Presets for Media Encoder Standard (MES) | Microsoft Docs
+description: The topic gives and overview of the service-defined sample presets for Media Encoder Standard (MES).
 author: Juliako
-manager: erikre
-editor: ''
+manager: cfow
+editor: johndeu
 services: media-services
 documentationcenter: ''
 
@@ -13,24 +13,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 10/01/2017
 ms.author: juliako
 
 ---
 
-# Task Presets for MES (Media Encoder Standard)
+# Sample Presets for Media Encoder Standard (MES)
 
-`Media Encoder Standard` defines a set of encoding presets you can use when creating encoding jobs  
-  
- The XML or JSON present strings should be based on the presets shown in the files below. You can pass presets with custom values to the encoder (the values must be valid.) For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.  
+**Media Encoder Standard** defines a set of pre-defined system encoding presets you can use when creating encoding jobs. It is recommended to use the "Adaptive Streaming" preset if you want to encode a video for streaming with Media Services. When you specify this preset, Media Encoder Standard will [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md). 
+
+### Creating Custom Presets from Samples
+Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. If you need to customize an encoding preset, you should start with one of the below system presets that are provided in this section as a template for your custom configuration. For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.  
   
 > [!NOTE]
->  When using a preset for 4k encodes, you should get the `S3` reserved unit type. For more information, see [How to Scale Encoding](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
-  
- When working with Media Encoder Standard, rotation is enabled by default. If your video has been recorded on a smartphone or other mobile device in Portrait mode, then these presets will, by default, rotate them to Landscape mode prior to encoding (unlike, when you work with Azure Media Encoder, where video rotation is a manual operation, as documented in [this](http://azure.microsoft.com/blog/2014/08/21/advanced-encoding-features-in-azure-media-encoder/) blog, under “Video Rotation”).  
-  
- The preset names map to presets shown in the following topics.  
-  
+>  When using a preset for 4k encodes, you should get the `S3` reserved unit type. For more information, see [How to Scale Encoding](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+
+#### Video Rotation Default Setting in Presets:
+When working with Media Encoder Standard, video rotation is enabled by default. If your video has been recorded on a mobile device in Portrait mode, then these presets will rotate them to Landscape mode prior to encoding.
+ 
+## Available presets: 
+
  [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md) produces a set of 8 GOP-aligned MP4 files, ranging from 6000 kbps to 400 kbps, and AAC 5.1 audio.  
   
  [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md) produces a set of 8 GOP-aligned MP4 files, ranging from 6000 kbps to 400 kbps, and stereo AAC audio.  

@@ -1,10 +1,10 @@
 ---
-title: Set up your environment | Microsoft Docs
+title: Set up your Azure Media Services development environment | Microsoft Docs
 description: Set up your environment for developing with Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 0258a633-8b42-4853-acc7-3b5162d1d8cd
@@ -13,18 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 10/24/2017
 ms.author: juliako
 
 ---
-# Set up your environment
-> [!div class="op_single_selector"]
-> * [Portal](media-services-portal-create-account.md)
-> * [PowerShell](media-services-manage-with-powershell.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
->   <a id="create_account"></a>
-> 
-> 
+# Set up your Media Services development environment
 
 The following steps describe prerequisites required for developing with Azure Media Services.
 
@@ -34,18 +27,21 @@ Use the Azure portal, the .NET SDK, or the REST API to create an Azure Media Ser
 <a id="setup_dev_env"></a>
 
 ## Set up the development environment
-Choose .NET or the REST API for your development environment.
 
-[!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+To set up .NET dev environment, see [this](media-services-dotnet-how-to-use.md) topic.  
+
+To set up REST dev environment, see [this](media-services-rest-how-to-use.md) topic.  
 
 <a id="connect"></a>
 
 ## Connect programmatically
-Choose .NET or the REST API to programmatically connect to Azure Media Services.
 
-[!INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
+To connect to the Azure Media Services API, see [access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).  
 
-## Next steps: Azure Media Services learning paths
+## Next steps
+
+Find multiple code samples in the **Azure Code Samples** gallery: [Azure Media Services code samples](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback

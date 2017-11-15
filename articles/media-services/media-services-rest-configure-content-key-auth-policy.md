@@ -1,10 +1,10 @@
 ---
-title: Configure Content Key Authorization Policy using Media Services REST API | Microsoft Docs
+title: Configure content key authorization policy with REST - Azure | Microsoft Docs
 description: Learn how to configure an authorization policy for a content key using Media Services REST API.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 7af5f9e2-8ed8-43f2-843b-580ce8759fd4
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 11/14/2017
 ms.author: juliako
 
 ---
@@ -33,14 +33,14 @@ Media Services does not provide Secure Token Services. You can create a custom S
 
 For more information, see
 
-[JWT token authenitcation](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+[JWT token authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
 [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [Use Azure ACS to issue tokens](http://mingfeiy.com/acs-with-key-services).
 
 ### Some considerations apply:
-* To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one  streaming reserved unit. For more information, see [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md).
+* To be able to use dynamic packaging and dynamic encryption, make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
 * Your asset must contain a set of adaptive bitrate MP4s or  adaptive bitrate Smooth Streaming files. For more information, see [Encode an asset](media-services-encode-asset.md).
 * Upload and encode your assets using **AssetCreationOptions.StorageEncrypted** option.
 * If you plan to have multiple content keys that require the same policy configuration, it is strongly recommended to create a single authorization policy and reuse it with multiple content keys.
@@ -54,7 +54,7 @@ For more information, see
 > 
 > When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 > 
-> After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md).
+> After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 > 
 
@@ -182,6 +182,10 @@ This section describes how to create a content key authorization policy and asso
 
 To configure the token restriction option, you need to use an XML to describe the token’s authorization requirements. The token restriction configuration XML must conform to the following XML schema.
 
+> [!NOTE]
+> Token restriction on content key authorization policies is not yet available in the service.
+
+
 #### <a id="schema"></a>Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -282,7 +286,7 @@ Add AuthorizationPolicy to the ContentKey as shown [here](#AddAuthorizationPolic
 ## PlayReady Dynamic Encryption
 Media Services enables you to configure the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to play back protected content. 
 
-When protecting your content with PlayReady, one of the things you need to specify in your authorization policy is an XML string that defines the [PlayReady license template](https://msdn.microsoft.com/library/azure/dn783459.aspx). 
+When protecting your content with PlayReady, one of the things you need to specify in your authorization policy is an XML string that defines the [PlayReady license template](media-services-playready-license-template-overview.md). 
 
 ### Open Restriction
 Open restriction means the system will deliver the key to anyone who makes a key request. This restriction might be useful for testing purposes.
@@ -421,7 +425,7 @@ Add AuthorizationPolicy to the ContentKey as shown [here](#AddAuthorizationPolic
     public enum ContentKeyRestrictionType
     {
         Open = 0,
-        TokenRestricted = 1,
+        TokenRestricted = 1, // Not supported, reserved for future
         IPRestricted = 2,
     }
 

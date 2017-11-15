@@ -2,8 +2,8 @@
 title: Offline Data Sync in Azure Mobile Apps | Microsoft Docs
 description: Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps
 documentationcenter: windows
-author: adrianhall
-manager: dwrede
+author: ggailey777
+manager: syntaxc4
 editor: ''
 services: app-service\mobile
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: adrianha
+ms.author: glenga
 
 ---
 # Offline Data Sync in Azure Mobile Apps
@@ -137,5 +137,5 @@ the local store is populated with new data only when there is a call to *pull* d
 [Android: Enable offline sync]: app-service-mobile-android-get-started-offline-data.md
 [iOS: Enable offline sync]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: Enable offline sync]: app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Xamarin Android: Enable offline sync]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android: Enable offline sync]: app-service-mobile-xamarin-android-get-started-offline-data.md
 [Universal Windows Platform: Enable offline sync]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

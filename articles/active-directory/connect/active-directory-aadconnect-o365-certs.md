@@ -1,19 +1,18 @@
 ---
-title: Certificate renewal guidance for Office 365 and Azure Active Directory users | Microsoft Docs
+title: Certificate renewal for Office 365 and Azure AD users | Microsoft Docs
 description: This article explains to Office 365 users how to resolve issues with emails that notify them about renewing a certificate.
 services: active-directory
 documentationcenter: ''
 author: billmath
 manager: femila
 editor: curtand
-
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 10/20/2017
 ms.author: billmath
 
 ---
@@ -60,7 +59,8 @@ On your AD FS server, open PowerShell. Check that the AutoCertificateRollover va
 
 ![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
 
-[AZURE.NOTE] If you are using AD FS 2.0, first run Add-Pssnapin Microsoft.Adfs.Powershell.
+>[!NOTE] 
+>If you are using AD FS 2.0, first run Add-Pssnapin Microsoft.Adfs.Powershell.
 
 ### Step 2: Confirm that AD FS and Azure AD are in sync
 On your AD FS server, open the Azure AD PowerShell prompt, and connect to Azure AD.
@@ -154,9 +154,18 @@ Update Office 365 with the new token signing certificates to be used for the tru
 > [!NOTE]
 > If you need to support multiple top-level domains, such as contoso.com and fabrikam.com, you must use the **SupportMultipleDomain** switch with any cmdlets. For more information, see [Support for Multiple Top Level Domains](active-directory-aadconnect-multiple-domains.md).
 >
->
+
 
 ## Repair Azure AD trust by using Azure AD Connect <a name="connectrenew"></a>
 If you configured your AD FS farm and Azure AD trust by using Azure AD Connect, you can use Azure AD Connect to detect if you need to take any action for your token signing certificates. If you need to renew the certificates, you can use Azure AD Connect to do so.
 
 For more information, see [Repairing the trust](active-directory-aadconnect-federation-management.md).
+
+## AD FS and Azure AD certificate update steps
+Token signing certificates are standard X509 certificates that are used to securely sign all tokens that the federation server issues. Token decryption certificates are standard X509 certificates that are used to decrypt any incoming tokens. 
+
+By default, AD FS is configured to generate token signing and token decryption certificates automatically, both at the initial configuration time and when the certificates are approaching their expiration date.
+
+Azure AD tries to retrieve a new certificate from your federation service metadata 30 days before the expiry of the current certificate. In case a new certificate is not available at that time, Azure AD will continue to monitor the metadata on regular daily intervals. As soon as the new certificate is available in the metadata, the federation settings for the domain are updated with the new certificate information. You can use `Get-MsolDomainFederationSettings` to verify if you see the new certificate in the NextSigningCertificate / SigningCertificate.
+
+For more information on Token Signing certificates in AD FS see [Obtain and Configure Token Signing and Token Decryption Certificates for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)

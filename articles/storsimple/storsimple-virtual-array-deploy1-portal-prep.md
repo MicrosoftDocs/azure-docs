@@ -1,10 +1,10 @@
 ---
-title: Deploy Microsoft Azure StorSimple Virtual Array 1 - Portal Preparation| Microsoft Docs
+title: Portal prep for StorSimple Virtual Array | Microsoft Docs
 description: First tutorial to deploy StorSimple virtual array involves preparing the Azure portal
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
@@ -13,15 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 11/14/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Deploy StorSimple Virtual Array - Prepare the portal
+# Deploy StorSimple Virtual Array - Prepare the Azure portal
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 ## Overview
 
-This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server using the Resource Manager model. This article describes the preparation required to create and configure your StorSimple Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist and configuration prerequisites.
+This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server using the Resource Manager model. This article describes the preparation required to create and configure your StorSimple Device Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist and configuration prerequisites.
 
 You need administrator privileges to complete the setup and configuration process. We recommend that you review the deployment configuration checklist before you begin. The portal preparation takes less than 10 minutes.
 
@@ -32,12 +33,12 @@ The deployment workflow consists of preparing the portal, provisioning a virtual
 
 #### Deployment articles
 
-To deploy your StorSimple Virtual Array, refer to the following articles in the prescribed sequence .
+To deploy your StorSimple Virtual Array, refer to the following articles in the prescribed sequence.
 
 | **#** | **In this step** | **You do this …** | **And use these documents.** |
 | --- | --- | --- | --- |
 | 1. |**Set up the Azure portal** |Create and configure your StorSimple Device Manager service prior to provisioning a StorSimple Virtual Array. |[Prepare the portal](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Provision the Virtual Array** |For Hyper-V, provision and connect to a StorSimple Virtual Array on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2. <br></br> <br></br> For VMware, provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above.<br></br> |[Provision a virtual array in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Provision the Virtual Array** |For Hyper-V, provision and connect to a StorSimple Virtual Array on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2. <br></br> <br></br> For VMware, provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.0, 5.5, or 6.0.<br></br> |[Provision a virtual array in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Set up the Virtual Array** |For your file server, perform initial setup, register your StorSimple file server, and complete the device setup. You can then provision SMB shares. <br></br> <br></br> For your iSCSI server, perform initial setup, register your StorSimple iSCSI server, and complete the device setup. You can then provision iSCSI volumes. |[Set up virtual array as file server](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Set up virtual array as iSCSI server](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 You can now begin to set up the Azure portal.
@@ -65,11 +66,11 @@ Before you begin, make sure that:
 
 Before you deploy a virtual array, make sure that:
 
-* You have access to a host system running Hyper-V on Windows Server 2008 R2 or later or VMware (ESXi 5.5 or later) that can be used to a provision a device.
+* You have access to a host system running Hyper-V on Windows Server 2008 R2 or later or VMware (ESXi 5.0, 5.5 or 6.0) that can be used to a provision a device.
 * The host system is able to dedicate the following resources to provision your virtual array:
   
   * A minimum of 4 cores.
-  * At least 8 GB of RAM.
+  * At least 8 GB of RAM. If you plan to configure the virtual array as file server, 8 GB supports 2 million files. You need 16 GB RAM to support 2 - 4 million files.
   * One network interface.
   * A 500 GB virtual disk for system data.
 
@@ -131,14 +132,14 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/).
    
    * VHDX for Hyper-V on Windows Server 2012 and later
    * VHD for Hyper-V on Windows Server 2008 R2 and later
-   * VMDK for VMWare ESXi 5.5 and later
+   * VMDK for VMWare ESXi 5.0, 5.5 or 6.0
 5. Download and unzip the file to a local drive, making a note of where the unzipped file is located.
 
 ## Optional step: Configure a new storage account for the service
 
 This step is optional and should be performed only if you did not enable the automatic creation of a storage account with your service.
 
-If you need to create an Azure storage account in a different region, see [How to create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for step-by-step instructions.
+If you need to create an Azure storage account in a different region, see [How to create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for step-by-step instructions.
 
 Perform the following steps in the [Azure portal](https://ms.portal.azure.com/) on the StorSimple Device Manager service page to add an existing Microsoft Azure storage account.
 

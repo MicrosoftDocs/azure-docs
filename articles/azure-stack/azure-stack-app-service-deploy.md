@@ -1,5 +1,5 @@
 ---
-title: Add an App Service Resource Provider to Azure Stack | Microsoft Docs
+title: 'Deploy App Services: Azure Stack | Microsoft Docs'
 description: Detailed guidance for deploying App Service in Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -7,161 +7,185 @@ author: apwestgarth
 manager: stefsch
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2016
+ms.date: 10/17/2017
 ms.author: anwestg
 
 ---
-
 # Add an App Service resource provider to Azure Stack
 
-Adding an App Service Resource Provider to Azure Stack has eight steps:
+As an Azure Stack cloud operator, you can give your users the ability to create web and API applications. To do this, you must first add the [App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment as described in this article. After you have installed the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
 
-1.	Download required components.
-2.	Create certificates to be used by App Service on Azure Stack.
-3.	Use the installer to download, stage and, install App Service. 
-4.	Validate App Service Installation.
-5.	Create DNS records for the Front-End and Management Server load balancers.
-6.	Register the newly deployed App Service resource provider with Azure Resource Manager.
-7.  Register the App Service Gallery Items in the Azure Stack Gallery.
-8.	Test Drive the App Service Resource Provider.
+> [!IMPORTANT]
+> Prior to running the installer, make sure that you have followed the guidance in [Before you get started](azure-stack-app-service-before-you-get-started.md).
+> 
+>
 
-## Download Required Components
 
-1.	Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmastp2installer). 
-2.	Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmastp2helper). 
-3.	Extract the files from the helper scripts zip file, there should be four scripts:
-	- Create-AppServiceCerts.ps1
-	- Create-AppServiceDnsRecords.ps1
-	- Register-AppServiceResourceProvider.ps1 
-	- Register-AppServiceGalleryItems.ps1
 
-## Create certificates to be used by App Service on Azure Stack
+## Run the App Service resource provider installer
 
-This first script works with the Azure Stack certificate authority to create three certificates that are needed by App Service. Run the script on the ClientVM ensuring you are running PowerShell as azurestack\administrator:
-1.	In a PowerShell session running as **azurestack\administrator**, execute the **Create-AppServiceCerts.ps1** script.  The script creates three certificates, in the same folder as the create certificates script, that are needed by App Service.
-2.	Enter a password to secure the pfx files and make a note of it as you will need to enter it in the App Service on Azure Stack Installer.
+Installing the App Service resource provider into your Azure Stack environment can take up to an hour. During this process, the installer will:
 
-## Use the installer to download and install App Service on Azure Stack
+* Create a blob container in the specified Azure Stack storage account.
+* Create a DNS zone and entries for App Service.
+* Register the App Service resource provider.
+* Register the App Service gallery items.
 
-The appservice.exe installer will:
-1.	Prompt you to accept the Microsoft and third-party EULAs.
-2.	Collect Azure Stack deployment information.
-3.	Create a blob container in the Azure Stack storage account specified.
-4.	Download the files needed to install the App Service resource provider.
-5.	Prepare the install to deploy the App Service resource provider in the Azure Stack environment.
-6.	Upload the files to the App Service storage account.
-7.	Present information needed to kick off the Azure Resource Manager template.
+To deploy App Service resource provider, follow these steps:
 
-The following steps guide you through the installation stages:
+1. Run appservice.exe as an administrator (azurestack\CloudAdmin).
 
-> [!NOTE] 
-> You MUST use an elevated account (local or domain administrator) to execute the installer. If you sign in as azurestack\azurestackuser, you will be prompted for elevated credentials. 
+2. Click **Deploy App Service on your Azure Stack cloud**.
 
-1.	Run appservice.exe as **azurestack\administrator**. 
-2.  Click **Deploy using Azure Resource Manager**.![App Service on Azure Stack Technical Preview 2 Installer][1]
-3.  Review and accept the Microsoft Software Pre-Release License Terms, and then click **Next**.
-4.  Review and accept the third-party license terms, and then click **Next**.
-5.	Review the App Cloud Service configuration information and click **Next**.![App Service on Azure Stack Technical Preview 2 App Service Cloud Configuration][2]
-6.  Click **Connect** (Next to the Azure Stack Subscriptions box).![App Service on Azure Stack Technical Preview 2 App Service Cloud Configuration Screen Two][3]
-7.	In the Azure Stack Authentication window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.  You **must** enter the Azure Active Directory account that you provided when you deployed Azure Stack.
-8.  Click the **Down Arrow** on the right side of the box next to **Azure Stack Subscriptions** and then select your subscription.![App Service on Azure Stack Technical Preview 2 Subscription Selection][5]
-9.	Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**.
-	- Select **Local**.
-10. Enter the **Name** for your administrator.
-11.	Enter a **Password** for the administrator.
-12.	Review the **SQL Server details** and make changes if necessary.
-13.	Review the **SysAdmin Login Account** and make changes if necessary.
-14.	Enter the **SysAdmin Password**.
-15.	Click **Next**.  At this point, the installer will verify the connection details for SQL Server provided.![App Service on Azure Stack Technical Preview 2 Subscription Selection][4]	
-16.	Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.appservice.AzureStack.Local** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
-17.	Enter the **certificate password** that you set when you created the certificates.
-18.	Click **Browse** next to the **Resource Provider SSL Certificate File** and navigate to the **api.appservice.AzureStack.Local** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
-19.	Enter the **certificate password** that you set when you created the certificates.
-20.	Click **Browse** next to the **Resource Provider Root Certificate File** and navigate to the **AzureStackCertificationAuthority** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
-21.	Click **Next** the installer will verify the certificate password provided.![App Service on Azure Stack Technical Preview 2 Certificate Details][6]
-22. The deployment will take about 45-60 minutes to complete.![App Service on Azure Stack Technical Preview 2 Installation Progress][7]
-23. After the installer successfully completes, click **Exit**.
+    ![App Service Installer](media/azure-stack-app-service-deploy/image01.png)
 
-## Validate App Service on Azure Stack Installation
+3. Review and accept the Microsoft Software License Terms and then click **Next**.
 
-1.	On your **Azure Stack Host Machine** open **Hyper-V Manager**.
-2.	Locate the **CN0-VM** and **connect** to the VM.
-![App Service on Azure Stack Technical Preview 2 Hyper-V Manager][8]
-3.	On the desktop of this VM, double-click the **Web Cloud Management Console**.
-![App Service on Azure Stack Technical Preview 2 Management Console][9]
-4.	Navigate to **Managed Servers**.
-5.	When all the machines are **Ready**, proceed to the next step. 
-![App Service on Azure Stack Technical Preview 2 Managed Servers Status][10]
- 
-## Create DNS records for the Management Server and Front-End load balancers
-1.	Open a PowerShell instance as **azurestack\administrator**.
-2.	Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
-3.	Run the **Create-AppServiceDnsRecords.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example myazurestack.onmicrosoft.com.  This script creates DNS entries to enable the portal and web app requests to be routed to the Front-End Servers.  During Azure Resource Manager deployment of App Service, two Software Load Balancers (SLBs), were created in the network resource provider. They point to the Management Servers and the Front-End servers. The portal and Azure Resource Manager based requests to the Azure Stack App Service resource provider go to the Management Server.
+4. Review and accept the third-party license terms and then click **Next**.
 
-## Register the newly deployed App Service provider with Azure Resource Manager
-1.	Open a PowerShell instance as **azurestack\administrator**.
-2.	Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
-3.	Run the **Register-AppServiceResourceProvider.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example myazurestack.onmicrosoft.com.
-4. 	In the Azure Stack Authentication window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.
+5. Make sure that the App Service cloud configuration information is correct. If you used the default settings during Azure Stack Development Kit deployment, you can accept the default values here. However, if you customized the options when you deployed Azure Stack, you must edit the values in this window to reflect that. For example, if you use the domain suffix mycloud.com, your endpoint must change to management.mycloud.com. After you confirm your information, click **Next**.
+
+    ![App Service Installer](media/azure-stack-app-service-deploy/image02.png)
+
+6. On the next page:
+    1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
+        - If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Click **Sign In**.
+        - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
+    2. In the **Azure Stack Subscriptions** box, select your subscription.
+    3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
+    4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE\<REGION\>**.
+    5. Enter the **Storage Account Name** that you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
+    6. Click **Next**.
+
+    ![App Service Installer](media/azure-stack-app-service-deploy/image03.png)
+
+7. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name of your File Server, for example \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or the IP Address, for example \\\10.0.0.1\websites.
+
+    ![App Service Installer](media/azure-stack-app-service-deploy/image04.png)
+
+8. On the next page:
+    1. In the **Identity Application ID** box, enter the GUID for the application you’re using for identity.
+    2. In the **Identity Application certificate file** box, enter (or browse to) the location of the certificate file.
+    3. In the **Identity Application certificate password** box, enter the password for the certificate. This password is the one that you made note of when you used the script to create the certificates.
+    4. In the **Azure Resource Manager root certificate file** box, enter (or browse to) the location of the certificate file.
+    5. Click **Next**.
+
+    ![App Service Installer](media/azure-stack-app-service-deploy/image05.png)
+
+9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-the-required-certificates). Click **Next** after entering all the information.
+
+    | Box | Certificate file name example |
+    | --- | --- |
+    | **App Service default SSL certificate file** | \_.appservice.local.AzureStack.external.pfx |
+    | **App Service API SSL certificate file** | api.appservice.local.AzureStack.external.pfx |
+    | **App Service Publisher SSL certificate file** | ftp.appservice.local.AzureStack.external.pfx |
+
+    If you used a different domain suffix when you created the certificates, your certificate file names don’t use *local.AzureStack.external*. Instead, use your custom domain information.
+
+    ![App Service Installer](media/azure-stack-app-service-deploy/image06.png)    
+
+10. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then click **Next**. The installer validates the SQL connection properties.
+
+    ![App Service Installer](media/azure-stack-app-service-deploy/image07.png)    
+
+11. Review the role instance and SKU options. The defaults are populated with the minimum number of instance and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
+
+    > [!NOTE]
+    > For production deployments, following the guidance in [Capacity planning for Azure App Service server roles in Azure Stack](azure-stack-app-service-capacity-planning.md).
+    > 
+    >
+
+    | Role | Minimum instances | Minimum SKU | Notes |
+    | --- | --- | --- | --- |
+    | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Manages and maintains the health of the App Service cloud. |
+    | Management | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Manages the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. To support failover, increased the recommended instances to 2. |
+    | Publisher | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publishes content via FTP and web deployment. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Routes requests to App Service applications. |
+    | Shared Worker | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosts web or API applications and Azure Functions apps. You might want to add more instances. As an operator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one vCPU. |
+
+    ![App Service Installer](media/azure-stack-app-service-deploy/image08.png)    
+
+    > [!NOTE]
+    > **Windows Server 2016 Core is not a supported platform image for use with Azure App Service on Azure Stack**.
+
+12. In the **Select Platform Image** box, choose your deployment Windows Server 2016 virtual machine image from those available in the compute resource provider for the App Service cloud. Click **Next**.
+
+13. On the next page:
+     1. Enter the Worker Role virtual machine administrator user name and password.
+     2. Enter the Other Roles virtual machine administrator user name and password.
+     3. Click **Next**.
+
+    ![App Service Installer](media/azure-stack-app-service-deploy/image09.png)    
+
+14. On the summary page:
+    1. Verify the selections you made. To make changes, use the **Previous** buttons to visit previous pages.
+    2. If the configurations are correct, select the check box.
+    3. To start the deployment, click **Next**.
+
+    ![App Service Installer](media/azure-stack-app-service-deploy/image10.png)    
+
+15. On the next page:
+    1. Track the installation progress. App Service on Azure Stack takes about 60 minutes to deploy based on the default selections.
+    2. After the installer successfully finishes, click **Exit**.
+
+    ![App Service Installer](media/azure-stack-app-service-deploy/image11.png)    
+
+
+## Validate the App Service on Azure Stack installation
+
+1. In the Azure Stack admin portal, go to **Administration - App Service**.
+
+2. In the overview under status, check to see that the **Status** shows **All roles are ready**.
+
+    ![App Service Management](media/azure-stack-app-service-deploy/image12.png)    
+
+## Test drive App Service on Azure Stack
+
+After you deploy and register the App Service resource provider, test it to make sure that users can deploy web and API apps.
 
 > [!NOTE]
-> Enter the Azure Active Directory account that you provided when you deployed Azure Stack.
+> You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
+>
+You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
+>
+As of the third technical preview, to create web, API, and Azure Functions apps, you must use the tenant portal and have a tenant subscription.
 
-## Register the App Service Gallery Items in the Azure Stack Gallery.
-1.  Open a PowerShell instance as **azurestack\administrator**.
-2.  Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
-3.  Run the **Register-AppServiceGalleryItems.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example myazurestack.onmicrosoft.com.
-4.  In the Azure Stack Authentication window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.
+1. In the Azure Stack tenant portal, click **New** > **Web + Mobile** > **Web App**.
 
-> [!NOTE]
-> Enter the Azure Active Directory account that you provided when you deployed Azure Stack.
+2. On the **Web App** blade, type a name in the **Web app** box.
 
-## Test Drive App Service on Azure Stack
+3. Under **Resource Group**, click **New**. Type a name in the **Resource Group** box.
 
-Now that you have deployed and registered the App Service resource provider, you can test it to make sure that tenants can deploy Web, Mobile, and API apps.
+4. Click **App Service plan/Location** > **Create New**.
 
-1.	In the Azure Stack portal, click New, click Web + Mobile, and click Web App.
-2.	In the Web App blade, type a name in the Web app box.
-3.	Under Resource Group, click New, and then type a name in the Resource Group box. 
-4.	Click App Service plan/Location and click Create New.
-5.	In the App Service plan blade, type a name in the App Service plan box.
-6.	Click Pricing tier, click Free-Shared or Shared-Shared, click Select, click OK, and then click Create.
-7.	In under a minute, a tile for the new web app will appear on the Dashboard. Click the tile.
-8.	In the web app blade, click Browse to view the default website for this app.
+5. On the **App Service plan** blade, type a name in the **App Service plan** box.
 
+6. Click **Pricing tier** > **Free-Shared** or **Shared-Shared** > **Select** > **OK** > **Create**.
 
-**Deploy a WordPress, DNN, or Django website (optional)**
+7. In under a minute, a tile for the new web app appears on the dashboard. Click the tile.
 
-1. In the Azure Stack portal, click “+”, go to the Azure Marketplace, deploy a Django website, and wait for successful completion. The Django web platform uses a file system-based database and doesn’t require any additional resource providers like SQL or MySQL.  
+8. On the **Web App** blade, click **Browse** to view the default website for this app.
 
-2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, input the user name as *User1@Server1* (with the user name and server name of your choice).
+## Deploy a WordPress, DNN, or Django website (optional)
 
-3. If you also deployed a SQL Server resource provider, you can deploy a DNN website from the Marketplace. When you're prompted for database parameters, pick a database in the computer running SQL Server that is connected to your resource provider.
+1. In the Azure Stack tenant portal, click **+**, go to the Azure Marketplace, deploy a Django website, and wait for successful completion. The Django web platform uses a file system-based database. It doesn’t require any additional resource providers, such as SQL or MySQL.
+
+2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, enter the user name as *User1@Server1*, with the user name and server name of your choice.
+
+3. If you also deployed a SQL Server resource provider, you can deploy a DNN website from the Marketplace. When you're prompted for database parameters, choose a database in the computer running SQL Server that's connected to your resource provider.
 
 ## Next steps
 
-You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md)
-*  [SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md) 
-*  [MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md).
+You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md).
 
-<!--Image references-->
-[1]: ./media/azure-stack-app-service-deploy/AppService_exe_Start.png
-[2]: ./media/azure-stack-app-service-deploy/AppService_exe_DefaultEntriesStep1.png
-[3]: ./media/azure-stack-app-service-deploy/AppService_exe_DefaultEntriesStep2.png
-[4]: ./media/azure-stack-app-service-deploy/AppService_exe_DefaultEntriesStep2_populated.png
-[5]: ./media/azure-stack-app-service-deploy/AppService_exe_DefaultEntriesStep2_SubscriptionSelection.png
-[6]: ./media/azure-stack-app-service-deploy/AppService_exe_DefaultEntriesStep3_Certificates.png
-[7]: ./media/azure-stack-app-service-deploy/AppService_exe_InstallationProgress.png
-[8]: ./media/azure-stack-app-service-deploy/HyperV.png
-[9]: ./media/azure-stack-app-service-deploy/MMC.png
-[10]: ./media/azure-stack-app-service-deploy/ManagedServers.png
-
+- [SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md)
+- [MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531

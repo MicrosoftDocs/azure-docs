@@ -3,7 +3,7 @@ title: Troubleshooting Azure CDN endpoints returning 404 status | Microsoft Docs
 description: Troubleshoot 404 response codes with Azure CDN endpoints.
 services: cdn
 documentationcenter: ''
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 
 ---
 # Troubleshooting CDN endpoints returning 404 statuses

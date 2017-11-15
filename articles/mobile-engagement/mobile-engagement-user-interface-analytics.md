@@ -4,7 +4,7 @@ description: Learn how to analyze historical data about your application using A
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c

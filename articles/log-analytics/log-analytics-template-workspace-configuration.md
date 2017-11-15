@@ -1,5 +1,3 @@
-
-
 ---
 title: Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace | Microsoft Docs
 description: You can use Azure Resource Manager templates to create and configure Log Analytics workspaces.
@@ -15,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 10/16/2017
 ms.author: richrund
 
 ---
@@ -35,6 +33,17 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/resourc
 * Configure log analytics to index data collected using Azure diagnostics
 
 This article provides a template samples that illustrate some of the configuration that you can perform from templates.
+
+## API versions
+The example in this article is for an [upgraded Log Analytics workspace](log-analytics-log-search-upgrade.md).  To use a legacy workspace, you would need to change the syntax of the queries to the legacy language and change the API version for each resource.  The following table lists the API version for the resources used in this example.
+
+| Resource | Resource type | Legacy API version | Upgraded API version |
+|:---|:---|:---|:---|
+| Workspace   | workspaces    | 2015-11-01-preview | 2017-03-15-preview |
+| Search      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| Data source | datasources   | 2015-11-01-preview | 2015-11-01-preview |
+| Solution    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
+
 
 ## Create and configure a Log Analytics Workspace
 The following template sample illustrates how to:
@@ -121,7 +130,7 @@ The following template sample illustrates how to:
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -129,11 +138,11 @@ The following template sample illustrates how to:
         "sku": {
           "Name": "[parameters('serviceTier')]"
         },
-    "retentionInDays": "[parameters('dataRetention')]"
+    "retention": "[parameters('dataRetention')]"
       },
       "resources": [
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2017-03-15-preview",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -143,7 +152,7 @@ The following template sample illustrates how to:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Type:Event Source=ServiceFabricNodeBootstrapAgent | dedup Computer | measure count () by Computer",
+            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -417,9 +426,33 @@ The following template sample illustrates how to:
     }
   ],
   "outputs": {
-    "workspaceOutput": {
-      "value": "[reference(concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName')), '2015-11-01-preview')]",
-      "type": "object"
+    "workspaceName": {
+      "type": "string",
+      "value": "[parameters('workspaceName')]"
+    },
+    "provisioningState": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').provisioningState]"
+    },
+    "source": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').source]"
+    },
+    "customerId": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
+    },
+    "pricingTier": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
+    },
+    "retentionInDays": {
+      "type": "int",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
+    },
+    "portalUrl": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
     }
   }
 }

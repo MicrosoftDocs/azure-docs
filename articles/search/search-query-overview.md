@@ -1,5 +1,5 @@
 ---
-title: Query your Azure Search Index | Microsoft Docs
+title: Queries in Azure Search | Microsoft Docs
 description: Build a search query in Azure search and use search parameters to filter and sort search results.
 services: search
 manager: jhubbard
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 11/13/2017
 ms.author: ashmaka
 
 ---
-# Query your Azure Search index
+# Queries in Azure Search
 > [!div class="op_single_selector"]
 > * [Overview](search-query-overview.md)
 > * [Portal](search-explorer.md)
@@ -25,7 +25,7 @@ ms.author: ashmaka
 > 
 > 
 
-When submitting search requests to Azure Search, there are a number of parameters that can be specified alongside the actual words that are typed into the search box of your application. These query parameters allow you to achieve some deeper control of the full-text search experience.
+When submitting search requests to Azure Search, there are a number of parameters that can be specified alongside the actual words that are typed into the search box of your application. These query parameters allow you to achieve some deeper control of the [full-text search experience](search-lucene-query-architecture.md).
 
 Below is a list that briefly explains common uses of the query parameters in Azure Search. For full coverage of query parameters and their behavior, please see the detailed pages for the [REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) and [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary).
 
@@ -58,3 +58,10 @@ You can learn more about paging search results in the article [How to page searc
 ## Hit highlighting
 In Azure Search, emphasizing the exact portion of search results that match the search query is made easy by using the `highlight`, `highlightPreTag`, and `highlightPostTag` parameters. You can specify which *searchable* fields should have their matched text emphasized as well as specifying the exact string tags to append to the start and end of the matched text that Azure Search returns.
 
+## Try out query syntax
+
+The best way to understand syntax differences is by submitting queries and reviewing results.
+
++ Use [Search Explorer](search-explorer.md) in the Azure portal. By deploying [the sample index](search-get-started-portal.md), you can query the index in minutes using tools in the portal.
+
++ Use Telerik Fiddler or Chrome Postman to submit queries to an index that you have uploaded to your search service. Both tools support REST calls to an HTTP endpoint. 

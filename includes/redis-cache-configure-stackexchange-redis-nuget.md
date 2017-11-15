@@ -25,3 +25,8 @@ The NuGet package downloads and adds the required assembly references for your c
 > 
 > 
 
+You can also install the StackExchange.Redis NuGet package by clicking **NuGet Package Manager**, **Package Manager Console** from the **Tools** menu, and running the following command from the **Package Manager Console** window.
+    
+```
+Install-Package StackExchange.Redis
+```

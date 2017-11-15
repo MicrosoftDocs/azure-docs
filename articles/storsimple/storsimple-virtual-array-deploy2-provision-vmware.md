@@ -1,10 +1,10 @@
 ---
-title: Deploy Microsoft Azure StorSimple Virtual Array - Provision in VMware| Microsoft Docs
+title: Provision StorSimple Virtual Array in VMware | Microsoft Docs
 description: This second tutorial in StorSimple Virtual Array deployment series involves provisioning a virtual device in VMware.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
@@ -13,19 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 11/14/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 ---
-# Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware
+# Deploy StorSimple Virtual Array - Provision in VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## Overview
-This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above. This article applies to the deployment of StorSimple Virtual Arrays in Azure portal and the Microsoft Azure Government Cloud.
+This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.0, 5.5, or 6.0. This article applies to the deployment of StorSimple Virtual Arrays in Azure portal and the Microsoft Azure Government Cloud.
 
 You need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
 ## Provisioning prerequisites
-The prerequisites to provision a virtual device on a host system running VMware ESXi 5.5 and above, are as follows.
+The prerequisites to provision a virtual device on a host system running VMware ESXi 5.0, 5.5 or 6.0, are as follows.
 
 ### For the StorSimple Device Manager service
 Before you begin, make sure that:
@@ -40,7 +41,7 @@ Before you deploy a virtual device, make sure that:
 * The host system is able to dedicate the following resources to provision your virtual device:
 
   * A minimum of 4 cores.
-  * At least 8 GB of RAM.
+  * At least 8 GB of RAM. If you plan to configure the virtual array as file server, 8 GB supports less than 2 million files. You need 16 GB RAM to support 2 - 4 million files.
   * One network interface.
   * A 500 GB virtual disk for system data.
 
@@ -59,11 +60,11 @@ To provision and connect to a virtual device, you need to perform the following 
 ## Step 1: Ensure host system meets minimum virtual device requirements
 To create a virtual device, you will need:
 
-* Access to a host system running VMware ESXi Server 5.5 and above.
+* Access to a host system running VMware ESXi Server 5.0, 5.5 or 6.0.
 * VMware vSphere client on your system to manage the ESXi host.
 
   * A minimum of 4 cores.
-  * At least 8 GB of RAM.
+  * At least 8 GB of RAM. If you plan to configure the virtual array as file server, 8 GB supports less than 2 million files. You need 16 GB RAM to support 2 - 4 million files.
   * One network interface connected to the network capable of routing traffic to Internet. The minimum Internet bandwidth should be 5 Mbps to allow for optimal working of the device.
   * A 500 GB virtual disk for data.
 
@@ -74,6 +75,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
    1. Ensure that you have downloaded the latest image file. If you downloaded the image earlier, download it again to ensure you have the latest image. The latest image has two files (instead of one).
    2. Make a note of the location where you copied the image as you are using this image later in the procedure.
+
 2. Log in to the ESXi server using the vSphere client. You need to have administrator privileges to create a virtual machine.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image1.png)
@@ -160,7 +162,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 30. On the **Select a Disk** page, choose **Create a new virtual disk**. Click **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. On the **Create a Disk** page, change the **Disk Size** to 500 GB (or more). Under **Disk Provisioning**, select **Thin Provision**. Click **Next**.
+31. On the **Create a Disk** page, change the **Disk Size** to 500 GB (or more). While 500 GB is the minimum requirement, you can always provision a larger disk. Note that you cannot expand or shrink the disk once provisioned. For more information on the size of disk to provision, review the sizing section in the [best practices document](storsimple-ova-best-practices.md). Under **Disk Provisioning**, select **Thin Provision**. Click **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. On the **Advanced Options** page, accept the default.
@@ -177,6 +179,9 @@ Perform the following steps to provision a virtual device in your hypervisor.
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 Your virtual machine is now provisioned. The next step is to power on this machine and get the IP address.
+
+> [!NOTE]
+> We recommend that you do not install VMware tools on your virtual array (as provisioned above). Installation of VMware tools will result in an unsupported configuration.
 
 ## Step 3: Start the virtual device and get the IP
 Perform the following steps to start your virtual device and connect to it.
@@ -217,7 +222,7 @@ Perform the following steps to start your virtual device and connect to it.
 
     1. To enable the FIPS mode, run the following cmdlet:
 
-        `Enter-HcsFIPSMode`
+        `Enable-HcsFIPSMode`
     2. Reboot your device after you have enabled the FIPS mode so that the cryptographic validations take effect.
 
        > [!NOTE]

@@ -4,7 +4,7 @@ description: Laern how to create and manage push notification campaigns using Az
 services: mobile-engagement
 documentationcenter: ''
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a

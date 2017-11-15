@@ -1,10 +1,10 @@
 ---
-title: Add Application Insights SDK to monitor your Node.js app | Microsoft Docs
-description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.
+title: Monitor Node.js services with Azure Application Insights | Microsoft Docs
+description: Monitor performance and diagnose problems in Node.js services with Application Insights.
 services: application-insights
-documentationcenter: ''
-author: alancameronwills
-manager: douge
+documentationcenter: nodejs
+author: mrbullwinkle
+manager: carmonm
 
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
@@ -12,185 +12,207 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
-ms.author: awills
+ms.date: 05/01/2017
+ms.author: mbullwin
 
 ---
-# Add Application Insights SDK to monitor your Node.js app
 
+# Monitor your Node.js services and apps with Application Insights
 
-[Azure Application Insights](app-insights-overview.md) monitors your live application to help you [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md), and [discover how your app is used](app-insights-overview-usage.md). It works for apps that are hosted on your own on-premises IIS servers or on Azure VMs, as well as Azure web apps.
+[Azure Application Insights](app-insights-overview.md) monitors your backend services and components after deployment, to help you [discover and rapidly diagnose performance and other issues](app-insights-detect-triage-diagnose.md). You can use Application Insights for Node.js services that are hosted in your datacenter, in Azure VMs and web apps, and even in other public clouds.
 
-The SDK provides automatic collection of incoming HTTP request rates and responses, performance counters (CPU, memory, RPS), and unhandled exceptions. In addition, you can add custom calls to track dependencies, metrics, or other events.
+To receive, store, and explore your monitoring data, include the SDK in your code, and then set up a corresponding Application Insights resource in Azure. The SDK sends data to that resource for further analysis and exploration.
+
+The Node.js SDK can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the SDK also can monitor some common third-party packages, like MongoDB, MySQL, and Redis. All events related to an incoming HTTP request are correlated for faster troubleshooting.
+
+You can use the TelemetryClient API to manually instrument and monitor additional aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
 
 ![Example performance monitoring charts](./media/app-insights-nodejs/10-perf.png)
 
-#### Before you start
-You need:
+## Get started
 
-* Visual Studio 2013 or later. Later is better.
-* A subscription to [Microsoft Azure](http://azure.com). If your team or organization has an Azure subscription, the owner can add you to it, using your [Microsoft account](http://live.com).
+Complete the following tasks to set up monitoring for an app or service.
 
-## <a name="add"></a>Create an Application Insights resource
-Sign in to the [Azure portal][portal], and create a new Application Insights resource. A [resource][roles] in Azure is an instance of a service. This resource is where telemetry from your app will be analyzed and presented to you.
+### Prerequisites
 
-![Click New, Application Insights](./media/app-insights-nodejs/01-new-asp.png)
+Before you begin, make sure that you have an Azure subscription, or [get a new one for free][azure-free-offer]. If your organization already has an Azure subscription, an administrator can follow [these instructions][add-aad-user] to add you to it.
 
-Choose Other as the application type. The choice of application type sets the default content of the resource blades and the properties visible in [Metrics Explorer][metrics].
+[azure-free-offer]: https://azure.microsoft.com/en-us/free/
+[add-aad-user]: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-create-azure-portal
 
-#### Copy the Instrumentation Key
-The key identifies the resource, and you'll install it soon in the SDK to direct data to the resource.
 
-![Click Properties, select the key, and press ctrl+C](./media/app-insights-nodejs/02-props-asp.png)
+### <a name="resource"></a> Set up an Application Insights resource
 
-## <a name="sdk"></a> Install the SDK in your application
-```
-npm install applicationinsights --save
-```
 
-## Usage
-This will enable request monitoring, unhandled exception tracking, and system performance monitoring (CPU/Memory/RPS).
+1. Sign in to the [Azure portal][portal].
+2. Select **New** > **Developer tools** > **Application Insights**. The resource includes an endpoint for receiving telemetry data, storage for this data, saved reports and dashboards, rule and alert configuration, and more.
 
-```javascript
+  ![Create an Application Insights resource](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 
-var appInsights = require("applicationinsights");
-appInsights.setup("<instrumentation_key>").start();
-```
+3. On the resource creation page, in the **Application Type** box, select **Node.js Application**. The app type determines the default dashboards and reports that are created. (Any Application Insights resource can collect data from any language and platform.)
 
-The instrumentation key can also be set in the environment variable APPINSIGHTS_INSTRUMENTATIONKEY. If this is done, no argument is required when calling `appInsights.setup()` or `appInsights.getClient()`.
+  ![New Application Insights resource form](./media/app-insights-nodejs/04-create_appinsights_resource.png)
 
-You can try the SDK without sending telemetry: set the instrumentation key to a non-empty string.
+### <a name="sdk"></a> Set up the Node.js SDK
 
-## <a name="run"></a> Run your project
-Run your application and try it out: open different pages to generate some telemetry.
+Include the SDK in your app, so it can gather data. 
 
-## <a name="monitor"></a> View your telemetry
-Return to the [Azure portal](https://portal.azure.com) and browse to your Application Insights resource.
+1. Copy your resource's Instrumentation Key (also called an *ikey*) from the Azure portal. Application Insights uses the ikey to map data to your Azure resource. Before the SDK can use your ikey, you must specify the ikey in an environment variable or in your code.  
 
-Look for data in the Overview page. At first, you'll just see one or two points. For example:
+  ![Copy instrumentation key](./media/app-insights-nodejs/05-appinsights_ikey_portal.png)
 
-![Click through to more data](./media/app-insights-nodejs/12-first-perf.png)
+2. Add the Node.js SDK library to your app's dependencies via package.json. From the root folder of your app, run:
 
-Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
+  ```bash
+  npm install applicationinsights --save
+  ```
+
+3. Explicitly load the library in your code. Because the SDK injects instrumentation into many other libraries, load the library as early as possible, even before other `require` statements. 
+
+  At the top of your first .js file, add the following code. The `setup` method configures the ikey (and thus, the Azure resource) to be used by default for all tracked items.
+
+  ```javascript
+  const appInsights = require("applicationinsights");
+  appInsights.setup("<instrumentation_key>");
+  appInsights.start();
+  ```
+   
+  You also can provide an ikey via the environment variable APPINSIGHTS\_INSTRUMENTATIONKEY, instead of passing it manually to  `setup()` or `new appInsights.TelemetryClient()`. This practice lets you keep ikeys out of committed source code, and you can specify different ikeys for different environments.
+
+  For additional configuration options, see the following sections.
+
+  You can try the SDK without sending telemetry by setting `appInsights.defaultClient.config.disableAppInsights = true`.
+
+### <a name="monitor"></a> Monitor your app
+
+The SDK automatically gathers telemetry about the Node.js runtime and about some common third-party modules. Use your application to generate some of this data.
+
+Then, in the [Azure portal][portal] go to the Application Insights resource that you created earlier. In the **Overview timeline**, look for your first few data points. To see more detailed data, select different components in the charts.
+
+![First data points](./media/app-insights-nodejs/12-first-perf.png)
+
+To view the topology that is discovered for your app, select the **Application map** button. Select components in the map to see more details.
+
+![Simple app map](./media/app-insights-nodejs/06-appinsights_appmap.png)
+
+To learn more about your app, and to troubleshoot problems, in the **INVESTIGATE** section, select the other views that are available.
+
+![Investigate section](./media/app-insights-nodejs/07-appinsights_investigate_blades.png)
 
 #### No data?
-* Use the application, opening different pages so that it generates some telemetry.
-* Open the [Search](app-insights-diagnostic-search.md) tile, to see individual events. Sometimes it takes events a little while longer to get through the metrics pipeline.
-* Wait a few seconds and click **Refresh**. Charts refresh themselves periodically, but you can refresh manually if you're waiting for some data to show up.
-* See [Troubleshooting][qna].
 
-## Publish your app
-Now deploy your application to IIS or to Azure and watch the data accumulate.
+Because the SDK batches data for submission, there might be a delay before items are displayed in the portal. If you don't see data in your resource, try some of the following fixes:
 
-#### No data after you publish to your server?
-Open these ports for outgoing traffic in your server's firewall:
+* Continue to use the application. Take more actions to generate more telemetry.
+* Click **Refresh** in the portal resource view. Charts periodically refresh on their own, but manually refreshing forces them to refresh immediately.
+* Verify that [required outgoing ports](app-insights-ip-addresses.md) are open.
+* Use [Search](app-insights-diagnostic-search.md) to look for specific events.
+* Check the [FAQ][FAQ].
 
-* `dc.services.visualstudio.com:443`
-* `f5.services.visualstudio.com:443`
 
-#### Trouble on your build server?
-Please see [this Troubleshooting item](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
+## SDK configuration
 
-## Customized Usage
-### Disabling auto-collection
+The SDK's configuration methods and default values are listed in the following code example.
+
+To fully correlate events in a service, be sure to set `.setAutoDependencyCorrelation(true)`. With this option set, the SDK can track context across asynchronous callbacks in Node.js.
+
 ```javascript
-import appInsights = require("applicationinsights");
+const appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
-    .setAutoCollectRequests(false)
-    .setAutoCollectPerformance(false)
-    .setAutoCollectExceptions(false)
-    // no telemetry will be sent until .start() is called
+    .setAutoDependencyCorrelation(true)
+    .setAutoCollectRequests(true)
+    .setAutoCollectPerformance(true)
+    .setAutoCollectExceptions(true)
+    .setAutoCollectDependencies(true)
+    .setAutoCollectConsole(true)
+    .setUseDiskRetryCaching(true)
     .start();
 ```
 
-### Custom monitoring
-```javascript
-import appInsights = require("applicationinsights");
-var client = appInsights.getClient();
+## TelemetryClient API
 
-client.trackEvent("custom event", {customProperty: "custom property value"});
-client.trackException(new Error("handled exceptions can be logged with this method"));
-client.trackMetric("custom metric", 3);
-client.trackTrace("trace message");
+For a full description of the TelemetryClient API, see [Application Insights API for custom events and metrics](app-insights-api-custom-events-metrics.md).
+
+You can track any request, event, metric, or exception by using the Application Insights Node.js SDK. The following code example demonstrates some of the APIs that you can use:
+
+```javascript
+let appInsights = require("applicationinsights");
+appInsights.setup().start(); // assuming ikey is in env var
+let client = appInsights.defaultClient;
+
+client.trackEvent({name: "my custom event", properties: {customProperty: "custom property value"}});
+client.trackException({exception: new Error("handled exceptions can be logged with this method")});
+client.trackMetric({name: "custom metric", value: 3});
+client.trackTrace({message: "trace message"});
+client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL"});
+client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true});
+
+let http = require("http");
+http.createServer( (req, res) => {
+  client.trackNodeHttpRequest({request: req, response: res}); // Place at the beginning of your request handler
+});
 ```
 
-[Learn more about the telemetry API](app-insights-api-custom-events-metrics.md).
+### Track your dependencies
 
-### Using multiple instrumentation keys
+Use the following code to track your dependencies:
+
 ```javascript
-import appInsights = require("applicationinsights");
+let appInsights = require("applicationinsights");
+let client = appInsights.defaultClient;
 
-// configure auto-collection with one instrumentation key
-appInsights.setup("<instrumentation_key>").start();
+var success = false;
+let startTime = Date.now();
+// Execute dependency call here...
+let duration = Date.now() - startTime;
+success = true;
 
-// get a client for another instrumentation key
-var otherClient = appInsights.getClient("<other_instrumentation_key>");
-otherClient.trackEvent("custom event");
+client.trackDependency({dependencyTypeName: "dependency name", name: "command name", duration: duration, success: success});
 ```
 
-## Examples
-### Tracking dependency
+### Add a custom property to all events
+
+Use the following code to add a custom property to all events:
+
 ```javascript
-import appInsights = require("applicationinsights");
-var client = appInsights.getClient();
-
-var startTime = Date.now();
-// execute dependency call
-var endTime = Date.now();
-
-var elapsedTime = endTime - startTime;
-var success = true;
-client.trackDependency("dependency name", "command name", elapsedTime, success);
-```
-
-
-
-### Manual request tracking of all "GET" requests
-```javascript
-var http = require("http");
-var appInsights = require("applicationinsights");
-appInsights.setup("<instrumentation_key>")
-    .setAutoCollectRequests(false) // disable auto-collection of requests for this example
-    .start();
-
-// assign common properties to all telemetry sent from the default client
-appInsights.client.commonProperties = {
-    environment: process.env.SOME_ENV_VARIABLE
+appInsights.defaultClient.commonProperties = {
+	environment: process.env.SOME_ENV_VARIABLE
 };
+```
 
-// track a system startup event
-appInsights.client.trackEvent("server start");
+### Track HTTP GET requests
 
-// create server
-var port = process.env.port || 1337
-var server = http.createServer(function (req, res) {
-    // track all "GET" requests
-    if(req.method === "GET") {
-        appInsights.client.trackRequest(req, res);
-    }
+Use the following code to track HTTP GET requests:
 
-    res.writeHead(200, { "Content-Type": "text/plain" });
-    res.end("Hello World\n");
-}).listen(port);
+```javascript
+var server = http.createServer((req, res) => {
+	if ( req.method === "GET" ) {
+			appInsights.defaultClient.trackNodeHttpRequest({request: req, response: res});
+	}
+	// Other work here...
+	res.end();
+});
+```
 
-// track startup time of the server as a custom metric
-var start = +new Date;
+### Track server startup time
+
+Use the following code to track server startup time:
+
+```javascript
+let start = Date.now();
 server.on("listening", () => {
-    var end = +new Date;
-    var duration = end - start;
-    appInsights.client.trackMetric("StartupTime", duration);
+	let duration = Date.now() - start;
+	appInsights.defaultClient.trackMetric({name: "server startup time", value: duration});
 });
 ```
 
 ## Next steps
+
 * [Monitor your telemetry in the portal](app-insights-dashboards.md)
 * [Write Analytics queries over your telemetry](app-insights-analytics-tour.md)
 
-<!--Link references-->
+<!--references-->
 
-[knowUsers]: app-insights-overview-usage.md
-[metrics]: app-insights-metrics-explorer.md
-[perf]: app-insights-web-monitor-performance.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[roles]: app-insights-resources-roles-access-control.md
+[portal]: https://portal.azure.com/
+[FAQ]: app-insights-troubleshoot-faq.md
+

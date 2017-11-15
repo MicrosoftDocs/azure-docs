@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 12/22/2016
+ms.date: 04/25/2017
 ms.author: robmcm
 
 ---
@@ -23,7 +23,7 @@ The following steps show you how to add a certificate authority (CA) certificate
 You can use keytool to add the CA certificate prior to zipping your JDK and adding it to your Azure project's **approot** folder, or you could run an Azure start-up task that uses keytool to add the certificate. This example assumes you will add a CA certificate prior to the JDK being zipped. Also, a specific CA certificate will be used in the example, but the steps of obtaining a different CA certificate and importing it into the cacerts store would be similar.
 
 ## To add a certificate to the cacerts store
-1. At a command prompt that is set to your JDK's **jdk\jre\lib\security** folder, run the following to see what certificates are installed:
+1. At an Administrator command prompt that is set to your JDK's **jdk\jre\lib\security** folder, run the following to see what certificates are installed:
    
     `keytool -list -keystore cacerts`
    
@@ -51,5 +51,5 @@ If you need to add the Baltimore CyberTrust Root, it has serial number 02:00:00:
 ## Next steps
 For more information about the root certificates used by Azure, see [Azure Root Certificate Migration](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-For more information about Java, see the [Java Developer Center](/develop/java/).
+For more information about Java, see [Azure for Java developers](/java/azure).
 

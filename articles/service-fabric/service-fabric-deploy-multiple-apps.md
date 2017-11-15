@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/22/2016
-ms.author: mfussell;mikhegn
+ms.date: 07/02/2017
+ms.author: msfussell;mikhegn
 
 ---
 # Deploy multiple guest executables
@@ -22,7 +22,11 @@ This article shows how to package and deploy multiple guest executables to Azure
 
 While this walkthrough shows how to deploy an application with a Node.js front end that uses MongoDB as the data store, you can apply the steps to any application that has dependencies on another application.   
 
-You can use Visual Studio to produce the application package that contains multiple guest executables. See [Using Visual Studio to package an existing application](service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable). After you have added the first guest executable, right click on the application project and select the **Add->New Service Fabric service** to add the second guest executable project to the solution. Note: If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. 
+You can use Visual Studio to produce the application package that contains multiple guest executables. See [Using Visual Studio to package an existing application](service-fabric-deploy-existing-app.md). After you have added the first guest executable, right click on the application project and select the **Add->New Service Fabric service** to add the second guest executable project to the solution. Note: If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. 
+
+## Samples
+* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Sample of two guest executables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## Manually package the multiple guest executable application
 Alternatively you can manually package the guest executable. For the manual packaging, this article uses the Service Fabric packaging tool, which is available at [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
@@ -65,7 +69,7 @@ Below is a description of the parameters that are being used:
 * **/target** defines the directory in which the package should be created. This directory has to be different from the source directory.
 * **/appname** defines the application name of the existing application. It's important to understand that this translates to the service name in the manifest, and not to the Service Fabric application name.
 * **/exe** defines the executable that Service Fabric is supposed to launch, in this case `node.exe`.
-* **/ma** defines the argument that is being used to launch the executable. As Node.js is not installed, Service Fabric needs to launch the Node.js web server by executing `node.exe bin/www`.  `/ma:'bin/www'` tells the packaging tool to use `bin/ma` as the argument for node.exe.
+* **/ma** defines the argument that is being used to launch the executable. As Node.js is not installed, Service Fabric needs to launch the Node.js web server by executing `node.exe bin/www`.  `/ma:'bin/www'` tells the packaging tool to use `bin/www` as the argument for node.exe.
 * **/AppType** defines the Service Fabric application type name.
 
 If you browse to the directory that was specified in the /target parameter, you can see that the tool has created a fully functioning Service Fabric package as shown below:
@@ -207,7 +211,7 @@ To add another service to an application already created using `yo`, perform the
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
 2. Run `yo azuresfguest:AddService` and provide the necessary details.
 
-
-
 ## Next steps
 * Learn about deploying containers with [Service Fabric and containers overview](service-fabric-containers-overview.md)
+* [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Sample of two guest executables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-containers)

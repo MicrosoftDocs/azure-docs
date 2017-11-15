@@ -4,7 +4,7 @@ description: How to use Emoji emoticons within your push notifications
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 663317d7-3c93-4e8f-b13d-c6fb342124ee

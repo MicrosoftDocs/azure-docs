@@ -4,7 +4,7 @@ description: Describes the StorSimple Manager service device dashboard and how t
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: 6c213969-a385-461f-b698-78ef5b8a79cc
@@ -13,11 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/21/2016
+ms.date: 11/03/2017
 ms.author: alkohli
+ms.custom: H1Hack27Feb2017
 
 ---
-# Use the StorSimple Manager device dashboard
+# Use the device dashboard in StorSimple Manager service  
+> [!NOTE]
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. To view the version of this article for the new Azure portal, go to [Use the device dashboard in StorSimple Manager service  ](storsimple-8000-device-dashboard.md). For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
+
 ## Overview
 The StorSimple Manager device dashboard gives you an overview of information for a specific  StorSimple device, in contrast to the service dashboard, which gives you information about all of the devices included in your Microsoft Azure StorSimple solution.
 

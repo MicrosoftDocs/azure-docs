@@ -4,7 +4,7 @@ description: Explains how to remove and replace one or both controller modules o
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: carmonm
+manager: timlt
 editor: ''
 
 ms.assetid: e25b52b7-60f5-47f3-bffc-6c157d57ab5d
@@ -13,11 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 11/02/2017
 ms.author: alkohli
 
 ---
 # Replace a controller module on your StorSimple device
+> [!NOTE]
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. To view the version of this article for the new Azure portal, go to [Replace a controller module on your StorSimple device](storsimple-8000-controller-replacement.md). For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## Overview
 This tutorial explains how to remove and replace one or both controller modules in a StorSimple device. It also discusses the underlying logic for the single and dual controller replacement scenarios.
 
@@ -103,7 +106,8 @@ Complete the following steps if one of the controllers in your Microsoft Azure S
 
 > [!NOTE]
 > If you are monitoring the device through the serial console, you may see multiple restarts while the controller is recovering from the replacement procedure. When the serial console menu is presented, then you know that the replacement is complete. If the menu does not appear within two hours of starting the controller replacement, please [contact Microsoft Support](storsimple-contact-microsoft-support.md).
-> 
+>
+> Starting Update 4, you can also use the cmdlet `Get-HCSControllerReplacementStatus` in the Windows PowerShell interface of the device to monitor the status of the controller replacement process.
 > 
 
 ## Replace both controllers

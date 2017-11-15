@@ -13,17 +13,20 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 11/03/2017
 ms.author: alkohli
 
 ---
 # Deploy your on-premises StorSimple device (Update 2)
+
+> [!NOTE]
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. To view the version of this article for the new Azure portal, go to [Deploy your on-premises StorSimple device (Update 2)](storsimple-8000-deployment-walkthrough-u2.md). For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
+
 > [!div class="op_single_selector"]
 > * [Update 2 & later ](storsimple-deployment-walkthrough-u2.md)
 > * [Update 1](storsimple-deployment-walkthrough-u1.md)
 > * [GA Release](storsimple-deployment-walkthrough.md)
-> 
-> 
 
 ## Overview
 Welcome to Microsoft Azure StorSimple device deployment. These deployment tutorials apply to StorSimple 8000 Series Update 2. This series of tutorials includes a configuration checklist, configuration prerequisites, and detailed configuration steps for your StorSimple device.
@@ -174,7 +177,7 @@ You can take a manual backup at any time. For procedures, go to [Create a manual
 ## Configure a new storage account for the service
 This is an optional step that you need to perform only if you did not enable the automatic creation of a storage account with your service. A Microsoft Azure storage account is required to create a StorSimple volume container.
 
-If you need to create an Azure storage account in a different region, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md) for step-by-step instructions.
+If you need to create an Azure storage account in a different region, see [About Azure Storage Accounts](../storage/common/storage-create-storage-account.md) for step-by-step instructions.
 
 Perform the following steps in the Management Portal, on the **StorSimple Manager service** page.
 

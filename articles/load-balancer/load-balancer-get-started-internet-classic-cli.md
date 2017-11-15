@@ -1,9 +1,9 @@
 ---
-title: Get started creating an Internet facing load balancer in classic deployment model using the Azure CLI | Microsoft Docs
+title: Create an Internet-facing load balancer - Azure CLI classic | Microsoft Docs
 description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure CLI
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
+ms.date: 01/23/2017
 ms.author: kumud
 ---
 
@@ -32,11 +32,11 @@ ms.author: kumud
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Step by step creating an Internet facing load balancer using CLI
+## Create an Internet facing load balancer using CLI
 
 This guide shows how to create an Internet load balancer based on the scenario above.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 
     ```azurecli
@@ -60,7 +60,7 @@ Create the first endpoint and load balancer set using `azure network vm endpoint
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## Step 2
+### Step 2
 
 Add a second virtual machine "web2" to the load balancer set.
 
@@ -68,7 +68,7 @@ Add a second virtual machine "web2" to the load balancer set.
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## Step 3
+### Step 3
 
 Verify the load balancer configuration using `azure vm show` .
 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2016
+ms.date: 02/10/2017
 ms.author: jeedes
 
 ---
@@ -27,17 +27,18 @@ After completing this tutorial, the Azure AD users you have assigned to Cisco We
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
-1. Enabling the application integration for Cisco Webex
-2. Configuring single sign-on
-3. Configuring user provisioning
-4. Assigning users
+* Enabling the application integration for Cisco Webex
+* Configuring single sign-on (SSO)
+* Configuring user provisioning
+* Assigning users
 
 ![Scenario](./media/active-directory-saas-cisco-webex-tutorial/IC777614.png "Scenario")
 
-## Enabling the application integration for Cisco Webex
+## Enable the application integration for Cisco Webex
 The objective of this section is to outline how to enable the application integration for Cisco Webex.
 
-### To enable the application integration for Cisco Webex, perform the following steps:
+**To enable the application integration for Cisco Webex, perform the following steps:**
+
 1. In the Azure classic portal, on the left navigation pane, click **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-cisco-webex-tutorial/IC700993.png "Active Directory")
@@ -58,14 +59,15 @@ The objective of this section is to outline how to enable the application integr
    
    ![Cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/IC777616.png "Cisco Webex")
    
-   ## Configuring single sign-on
+## Configure single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to Cisco Webex with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **Cisco Webex** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+As part of this procedure, you are required to create a base-64 encoded certificate. If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+
+**To configure single sign-on, perform the following steps:**
+
+1. In the Azure classic portal, on the **Cisco Webex** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
    ![Configure single sign-on](./media/active-directory-saas-cisco-webex-tutorial/IC777617.png "Configure single sign-on")
 2. On the **How would you like users to sign on to Cisco Webex** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
@@ -73,8 +75,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    ![Configure single sign-on](./media/active-directory-saas-cisco-webex-tutorial/IC777618.png "Configure single sign-on")
 3. On the **Configure App URL** page, perform the following steps, and then click **Next**.
    
-   ![Configure app URL](./media/active-directory-saas-cisco-webex-tutorial/IC777619.png "Configure app URL")
-   
+   ![Configure app URL](./media/active-directory-saas-cisco-webex-tutorial/IC777619.png "Configure app URL")   
    1. In the **Sing On URL** textbox, type your Cisco Webex tenant URL (e.g.: *http://contoso.webex.com*).
    2. In the **Cisco Webex Reply URL** textbox, type your **Cisco Webex AssertionConsumerService URL** (e.g.: *https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*).
 4. On the **Configure single sign-on at Cisco Webex** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
@@ -89,15 +90,12 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    ![SSO Configuration](./media/active-directory-saas-cisco-webex-tutorial/IC777622.png "SSO Configuration")
 8. In the Federated Web SSO Configuration section, perform the following steps:
    
-   ![Federated SSO Configuration](./media/active-directory-saas-cisco-webex-tutorial/IC777623.png "Federated SSO Configuration")
-   
+   ![Federated SSO Configuration](./media/active-directory-saas-cisco-webex-tutorial/IC777623.png "Federated SSO Configuration")  
    1. From the **Federation Protocol** list, select **SAML 2.0**.
    2. Create a **Base-64 encoded** file from your downloaded certificate.  
-      
-      > [!TIP]
-      > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-      > 
-      > 
+    >[!TIP]
+    >For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+    >  
    3. Open your base-64 encoded certificate in notepad, and then copy the content of it.
    4. Click **Import SAML Metadata**, and then paste your base-64 encoded certificate.
    5. In the Azure classic portal, on the **Configure single sign-on at Cisco Webex** dialog page, copy the **Issuer URL** value, and then paste it into the **Issuer for SAML (IdP ID)** textbox.
@@ -110,35 +108,36 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    
    ![Configure single sign-on](./media/active-directory-saas-cisco-webex-tutorial/IC777624.png "Configure single sign-on")
    
-   ## Configuring user provisioning
+## Configure user provisioning
 
 In order to enable Azure AD users to log into Cisco Webex, they must be provisioned into Cisco Webex.  
-In the case of Cisco Webex, provisioning is a manual task.
 
-### To provision a user accounts, perform the following steps:
+* In the case of Cisco Webex, provisioning is a manual task.
+
+**To provision a user accounts, perform the following steps:**
+
 1. Log in to your **Cisco Webex** tenant.
 2. Go to **Manage Users \> Add User**.
    
    ![Add users](./media/active-directory-saas-cisco-webex-tutorial/IC777625.png "Add users")
 3. On the Add User section, perform the following steps:
    
-   ![Add user](./media/active-directory-saas-cisco-webex-tutorial/IC777626.png "Add user")
-   
+   ![Add user](./media/active-directory-saas-cisco-webex-tutorial/IC777626.png "Add user")   
    1. As **Account Type**, select **Host**.
    2. Type the information of an existing Azure AD user into the following textboxes: **First name, Last name**, **User name**, **Email**, **Password**, **Confirm Password**.
    3. Click **Add**.
 
-> [!NOTE]
-> You can use any other Cisco Webex user account creation tools or APIs provided by Cisco Webex to provision AAD user accounts.
-> 
+>[!NOTE]
+>You can use any other Cisco Webex user account creation tools or APIs provided by Cisco Webex to provision AAD user accounts. 
 > 
 
-## Assigning users
+## Assign users
 To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
 
-### To assign users to Cisco Webex, perform the following steps:
+**To assign users to Cisco Webex, perform the following steps:**
+
 1. In the Azure classic portal, create a test account.
-2. On the **Cisco Webex **application integration page, click **Assign users**.
+2. On the **Cisco Webex** application integration page, click **Assign users**.
    
    ![Assign users](./media/active-directory-saas-cisco-webex-tutorial/IC777627.png "Assign users")
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.

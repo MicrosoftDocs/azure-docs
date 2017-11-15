@@ -4,7 +4,7 @@ description: Media Services Release Notes
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 10/18/2017
 ms.author: juliako
 
 ---
@@ -31,15 +31,75 @@ These release notes summarize changes from previous releases and known issues.
 | --- | --- |
 | Several common HTTP headers are not provided in the REST API. |If you develop Media Services applications using the REST API, you find that some common HTTP header fields (including CLIENT-REQUEST-ID, REQUEST-ID, and RETURN-CLIENT-REQUEST-ID) are not supported. The headers will be added in a future update. |
 | Percent-encoding is not allowed. |Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension. |
-| The ListBlobs method that is part of the Azure Storage SDK version 3.x fails. |Media Services generates SAS URLs based on the [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx) version. If you want to use Azure Storage SDK to list blobs in a blob container, use the [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) method that is part of Azure Storage SDK version 2.x. The ListBlobs method that is part of the Azure Storage SDK version 3.x will fail. |
-| Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code. |For more information, see the description of the 503 HTTP status code in the [Azure Media Services Error Codes](http://msdn.microsoft.com/library/azure/dn168949.aspx) topic. |
+| The ListBlobs method that is part of the Azure Storage SDK version 3.x fails. |Media Services generates SAS URLs based on the [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) version. If you want to use Azure Storage SDK to list blobs in a blob container, use the [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) method that is part of Azure Storage SDK version 2.x. The ListBlobs method that is part of the Azure Storage SDK version 3.x will fail. |
+| Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code. |For more information, see the description of the 503 HTTP status code in the [Azure Media Services Error Codes](media-services-encoding-error-codes.md) article. |
 | When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. |You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Some clients can come across a repeat tag issue in the Smooth Streaming manifest. |For more information, see [this](media-services-deliver-content-overview.md#known-issues) section. |
 | Azure Media Services .NET SDK objects cannot be serialized and as a result do not work with Azure Caching. |If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown. |
-| Encoding jobs fail with a message string "Stage: DownloadFile. Code: System.NullReferenceException". |The typical encoding workflow is to upload input video file(s) to an input Asset, and submit one or more encoding jobs for that input Asset, without further modifying that input Asset. However, if you modify the input Asset (for example by adding/deleting/renaming files within the Asset), then subsequent jobs may fail with a DownloadFile error. The workaround is to delete the input Asset, and re-upload input file(s) to a new Asset. |
+
 
 ## <a id="rest_version_history"></a>REST API Version History
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+## October 2017 Release
+> [!IMPORTANT] 
+> Reminder: Azure Media Services is going to be deprecating support for ACS authentication keys.  On June 1, 2018, you will no longer be able to authenticate with the AMS backend via code using ACS keys. You must update your code to use Azure Active Directory (AAD) per the article [Azure Active Directory (Azure AD)-based authentication](media-services-use-aad-auth-to-access-ams-api.md). You will also receive warnings in the Azure portal of this change.
+
+### Updates for October 2017 include:
+#### SDKs
+* .NET SDK Updated to support AAD authentication.  We have removed support for ACS authentication from the latest .NET SDK on Nuget.org to encourage faster migration to AAD. 
+* JAVA SDK Updated to support AAD authentication.  We have added support for AAD authentication to our Java SDK. You can read details on how to use the Java SDK with AMS in the article [Get started with the Java client SDK for Azure Media Services](media-services-java-how-to-use.md)
+
+#### File Based Encoding
+1.	You can now use the Premium Encoder to encode your content to H.265(HEVC) video codec. There is no pricing impact for choosing H.265 over other codecs like H.264. Please refer to the [Online Services Terms](https://azure.microsoft.com/support/legal/) for an important note regarding HEVC patent license(s).
+2.	If you have source video that is encoded with H.265(HEVC) video codec, such as video captured using iOS11 or GoPro Hero 6, you can now use either the Premium Encoder or the Standard Encoder to encode those videos. Please refer to the [Online Services Terms](https://azure.microsoft.com/support/legal/) for an important note about patent license(s).
+3.	If you have content that contains multiple language audio tracks, then as long as the language values are correctly labeled according to the corresponding file format specification (e.g. ISO MP4), then you can use the Standard Encoder to encode that content for streaming. The resultant streaming locator will list the available audio languages.
+4.	The Standard Encoder now supports two new audio-only system presets, “AAC Audio” and “AAC Good Quality Audio”. Both produce stereo AAC output, at bit rates of 128 kbps and 192 kbps, respectively.
+5.	The Premium Encoder now supports QuickTime/MOV file formats as input as long as the video codec is either one of the [Apple ProRes flavors listed here](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats), and the audio is either AAC or PCM.
+
+> [!NOTE]
+> The Premium Encoder does not support, for example, DVC/DVCPro video wrapped in QuickTime/MOV files, as input.  However, the Standard Encoder does support these video codecs.
+>
+>
+
+6.	Bug fixes in Encoders:
+    * You can now submit Jobs using an Input Asset, and after these complete, modify the Asset (for example by adding/deleting/renaming files within the Asset), and submit additional Jobs. 
+    * Improved quality of JPEG thumbnails produced by the Standard Encoder
+    * Improvements to Standard Encoder for short-duration videos. Better handling of input metadata and thumbnail generation in very short duration videos.
+    * Improvements to the H.264 decoder used in the Standard Encoder, eliminates certain rare artifacts. 
+
+#### Media Analytics
+* GA of Azure Media Redactor - This Media Processor (MP) will perform anonymization by blurring the faces of selected individuals, and is ideal for use in public safety and news media scenarios. For an overview on this new processor see the blog post [here](https://azure.microsoft.com/blog/azure-media-redactor/). For detailed documentation and settings, see [Redact faces with Azure Media Analytics](media-services-face-redaction.md).
+
+
+
+## June 2017 Release
+
+Media Services now supports [Azure Active Directory (Azure AD)-based authentication](media-services-use-aad-auth-to-access-ams-api.md).
+
+> [!IMPORTANT]
+> Currently, Media Services supports the Azure Access Control service authentication model. However, Access Control authorization will be deprecated on June 1, 2018. We recommend that you migrate to the Azure AD authentication model as soon as possible.
+
+## March 2017 Release
+
+You can now use Azure Media Standard to [auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) by specifying the "Adaptive Streaming" preset string when creating an encoding task. "Adaptive Streaming" is the recommended preset if you want to encode a video for streaming with Media Services. If you need to customize an encoding preset for your specific scenario, you can begin with [these](media-services-mes-presets-overview.md) presets.
+
+You can now use Azure Media Standard or Media Encoder Premium Workflow to [create an encoding task that generates fMP4 chunks](media-services-generate-fmp4-chunks.md). 
+
+
+## February 2017 Release
+
+Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. If you need to archive the job/task information, you can use the code described [here](media-services-dotnet-manage-entities.md).
+
+## January 2017 Release
+
+In Microsoft Azure Media Services (AMS), a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, a video on demand, or progressive download of your asset in your Media Services account. Each Azure Media Services account includes a default StreamingEndpoint. Additional StreamingEndpoints can be created under the account. There are two versions of StreamingEndpoints, 1.0 and 2.0. Starting with January 10th 2017, any newly created AMS accounts will include version 2.0 **default** StreamingEndpoint. Additional streaming endpoints that you add to this account will also be version 2.0. This change will not impact the existing accounts; existing StreamingEndpoints will be version 1.0 and can be upgraded to version 2.0. With this change there will be behavior, billing and feature changes (for more information, see [this](media-services-streaming-endpoints-overview.md) article).
+
+In addition, starting with the 2.15 version, Azure Media Services added the following properties to the Streaming Endpoint entity: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. For detailed overview of these properties, see [this](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+
+## December 2016 Release
+
+Azure Media Services now enables you to access telemetry/metrics data for its services. The current version of AMS lets you collect telemetry data for live Channel, StreamingEndpoint, and live Archive entities. For more information, see [this](media-services-telemetry-overview.md) article.
 
 ## <a id="july_changes16"></a>July 2016 Release
 ### Updates to manifest file (*.ISM) generated by encoding tasks
@@ -61,11 +121,11 @@ Starting with the latest service release, after the completion of an encoding ta
 For more information, see [this](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/) blog.
 
 ### Known issues
-Some clients can come aross a repeat tag issue in the Smooth Streaming manifest. For more information, see [this](media-services-deliver-content-overview.md#known-issues) section.
+Some clients can come across a repeat tag issue in the Smooth Streaming manifest. For more information, see [this](media-services-deliver-content-overview.md#known-issues) section.
 
 ## <a id="apr_changes16"></a>April 2016 Release
 ### Azure Media Analytics
-Azure Media Servces introduced Azure Media Analytics for powerful video intelligence. For detailed information, see [Azure Media Services Analytics Overview](media-services-analytics-overview.md).
+Azure Media Services introduced Azure Media Analytics for powerful video intelligence. For detailed information, see [Azure Media Services Analytics Overview](media-services-analytics-overview.md).
 
 ### Apple FairPlay (Preview)
 Azure Media Services now enables you to dynamically encrypt your HTTP Live Streaming (HLS) content with  Apple FairPlay. You can also use AMS license delivery service to deliver FairPlay licenses to clients. For more detailed information, see [Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay ](media-services-protect-hls-with-fairplay.md).
@@ -83,9 +143,15 @@ The latest version of Azure Media Services SDK for .NET (3.5.3) contains a Widev
 ## <a id="jan_changes_16"></a>January 2016 Release
 Encoding Reserved Units renamed to reduce confusion with Encoder names.
 
-The Basic, Standard, and Premium encoding reserved units are renamed to S1, S2, and S3  reserved units, respectively.  Customers using Basic Encoding RUs today will see S1 as the label in Azure Portal (and in the bill), while Standard and Premium will see the labels S2 and S3 respectively. 
+The Basic, Standard, and Premium encoding reserved units are renamed to S1, S2, and S3  reserved units, respectively.  Customers using Basic Encoding RUs today will see S1 as the label in Azure portal (and in the bill), while Standard and Premium will see the labels S2 and S3 respectively. 
 
 ## <a id="dec_changes_15"></a>December 2015 Release
+
+### Azure Media Encoder deprecation announcement
+
+Azure Media Encoder will be deprecated starting in approximately 12 months from the release of Media Encoder Standard.
+
+### Azure SDK for PHP
 The Azure SDK team published a new release of the [Azure SDK for PHP](http://github.com/Azure/azure-sdk-for-php) package that contains updates and new features for Microsoft Azure Media Services. In particular, the Azure Media Services SDK for PHP now supports the latest [content protection](media-services-content-protection-overview.md) features: dynamic encryption with AES and DRM (PlayReady and Widevine) with and without Token restriction. It also supports scaling [Encoding Units](media-services-dotnet-encoding-units.md).
 
 For more information, see:
@@ -99,7 +165,7 @@ For more information, see:
 ## <a id="nov_changes_15"></a>November 2015 Release
 Azure Media Services now offers Google Widevine license delivery service in the cloud. For more details, refer to [this announcement blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Also, see [this tutorial](media-services-protect-with-drm.md) and [GitHub repository](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
 
-Note that Widevine license delivery services provided by Azure Media Sevices is in preview. For more information see [this blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+Note that Widevine license delivery services provided by Azure Media Services is in preview. For more information see [this blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>October 2015 Release
 Azure Media Services (AMS) is now live in the following data centers: Brazil South,  India West, India South and India Central. You can now use the Azure portal to [create Media Service accounts](media-services-portal-create-account.md) and perform various tasks described [here](https://azure.microsoft.com/documentation/services/media-services/). However, Live Encoding is not enabled in these data centers. Further, not all types of Encoding Reserved Units are available in these data centers.
@@ -153,7 +219,7 @@ Azure Media Services .NET SDK is now version 3.3.0.0. The following functionalit
 * support for OpenId Connect Discovery spec,
 * support for handling keys rollover on identity provider side. 
 
-If you are using an identity provider which exposes OpenID Connect discovery document (as the following providers do: Azure Active Directory, Google, Salesforce ), you can instruct Azure Media Services to obtain signing keys for validation of JWT token from OpenID connect discovery spec. 
+If you are using an identity provider which exposes OpenID Connect discovery document (as the following providers do: Azure Active Directory, Google, Salesforce), you can instruct Azure Media Services to obtain signing keys for validation of JWT token from OpenID connect discovery spec. 
 
 For more information, see [Using Json Web Keys from OpenID Connect discovery spec to work with JWT token authentication in Azure Media Services](http://gtrifonov.com/2015/06/07/using-json-web-keys-from-openid-connect-discovery-spec-to-work-with-jwt-token-authentication-in-azure-media-services/).
 
@@ -186,7 +252,7 @@ The following are some of the customer facing updates:
 
 ## <a id="march_changes_15"></a>March 2015 Release
 ### General Media Services Updates
-* Media Services now provides Azure CDN integration. To support the integration, the **CdnEnabled** property was added to **StreamingEndpoint**.  **CdnEnabled** can be used with REST APIs starting with version 2.9 (for more information, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx)).  **CdnEnabled** can be used with .NET SDK starting with version 3.1.0.2 (for more information, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx)).
+* Media Services now provides Azure CDN integration. To support the integration, the **CdnEnabled** property was added to **StreamingEndpoint**.  **CdnEnabled** can be used with REST APIs starting with version 2.9 (for more information, see [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)).  **CdnEnabled** can be used with .NET SDK starting with version 3.1.0.2 (for more information, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint\(v=azure.10\).aspx)).
 * Announcement of **Media Encoder Premium Workflow**. For more information, see [Introducing Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/).
 
 ## <a id="february_changes_15"></a>February 2015 Release
@@ -208,24 +274,23 @@ This release marked the default Microsoft.WindowsAzure.MediaServices.Client.Cont
 ## <a id="december_changes_14"></a>December 2014 Release
 ### General Media Services Updates
 * Some updates and new features were added to the Azure Indexer Media processor. For more information, see [Azure Media Indexer Version 1.1.6.7 Release Notes](https://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
-* Added a new REST API that enables you to update encoding reserved units: [EncodingReservedUnitType with REST](http://msdn.microsoft.com/library/azure/dn859236.aspx).
+* Added a new REST API that enables you to update encoding reserved units: [EncodingReservedUnitType with REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype).
 * Added CORS support for key delivery service.
 * Performance improvements of querying authorization policy options were done.
-* In China data center, the [Key Delivery URL](http://msdn.microsoft.com/library/azure/ef4dfeeb-48ae-4596-ab28-44d6b36d8769#get_delivery_service_url) is now per customer (just like in other data centers).
+* In China data center, the [Key Delivery URL](https://docs.microsoft.com/rest/api/media/operations/contentkey#get_delivery_service_url) is now per customer (just like in other data centers).
 * Added HLS auto target duration. When doing live streaming, HLS is always packaged dynamically. By default, Media Services automatically calculates HLS segment packaging ratio (FragmentsPerSegment) based on the keyframe interval (KeyFrameInterval ), also referred to as Group of Pictures – GOP, that is received from the Live encoder. For more information, see [Working with Azure Media Services Live Streaming].
 
 ### Media Services .NET SDK Updates
 * [Azure Media Services .NET SDK](http://www.nuget.org/packages/windowsazure.mediaservices/) is now version 3.1.0.0.
 * Upgraded the .Net SDK dependency to .NET 4.5 Framework.
-* Added a new API that enables you to update encoding reserved units. For more information, see [Updating Reserved Unit Type and Increasing Encoding RUs using .NET](http://msdn.microsoft.com/library/azure/jj129582.aspx).
+* Added a new API that enables you to update encoding reserved units. For more information, see [Updating Reserved Unit Type and Increasing Encoding RUs using .NET](media-services-dotnet-encoding-units.md).
 * Added JWT (JSON Web Token) support for token authentication. For more information, see [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 * Added relative offsets for BeginDate and ExpirationDate in the PlayReady license template.
 
 ## <a id="november_changes_14"></a>November 2014 Release
-* Media Services now enables you to ingest a live Smooth Streaming (FMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS.  For more information about live streaming, see [Working with Azure Media Services Live Streaming].
-* Note that currently, you cannot ingest an RTMP live stream over an SSL connection.
-* You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
-* Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). Use URLs created based on the new streaming endpoint to stream your content over SSL.
+* Media Services now enables you to ingest a live Smooth Streaming (FMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS.  Note that, currently, AMS doesn’t support SSL with custom domains.  For more information about live streaming, see [Working with Azure Media Services Live Streaming].
+* Currently, you cannot ingest an RTMP live stream over an SSL connection.
+* You can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). Use URLs created based on the new streaming endpoint to stream your content over SSL.
 
 ## <a id="october_changes_14"></a>October 2014 Release
 ### <a id="new_encoder_release"></a>Media Services Encoder Release
@@ -256,7 +321,7 @@ Media Services SDK for .NET is now version 3.0.0.7
 * **Origin** was renamed to [StreamingEndpoint].
 * A change in the default behavior when using the **Azure portal** to encode and then publish MP4 files.
 
-Previously, when using the Azure Classic Portal to publish a single-file MP4 video asset a SAS URL would be created (SAS URLs allow you to download the video from a blob storage). Currently, when you use the Azure Classic Portal to encode and then publish a single-file MP4 video asset, the generated URL points to an Azure Media Services streaming endpoint.  This change does not affect MP4 videos that are directly uploaded to Media Services and published without being encoded by Azure Media Services.
+Previously, when using the Azure Classic portal to publish a single-file MP4 video asset a SAS URL would be created (SAS URLs allow you to download the video from a blob storage). Currently, when you use the Azure Classic portal to encode and then publish a single-file MP4 video asset, the generated URL points to an Azure Media Services streaming endpoint.  This change does not affect MP4 videos that are directly uploaded to Media Services and published without being encoded by Azure Media Services.
 
 Currently, you have the following two options to solve the problem.
 
@@ -272,10 +337,10 @@ Currently, you have the following two options to solve the problem.
     The following considerations apply:
   
   * You must have the ownership of the custom domain name.
-  * The ownership of the domain name must be validated by Azure Media Services. To validate the domain, create a CName that maps <MediaServicesAccountId>.<parent domain> to verifydns.<mediaservices-dns-zone>. 
+  * The ownership of the domain name must be validated by Azure Media Services. To validate the domain, create a CName that maps <MediaServicesAccountId>.<parent domain> to verify dns.<mediaservices-dns-zone>. 
   * You must create another CName  that maps the custom host name (for example,  sports.contoso.com) to your Media Services StreamingEndpont’s host name (for example,  amstest.streaming.mediaservices.windows.net).
 
-    For more information, see the **CustomHostNames** property in the [StreamingEndpoint] topic.
+    For more information, see the **CustomHostNames** property in the [StreamingEndpoint] article.
 
 ### <a id="sept_14_preview_changes"></a>New features/scenarios that are part of the public preview release
 * Live Streaming Preview. For more information, see [Working with Azure Media Services Live Streaming].
@@ -287,7 +352,7 @@ Currently, you have the following two options to solve the problem.
 * Streaming storage encrypted assets. For more information, see [Streaming Storage Encrypted Content].
 
 ## <a id="august_changes_14"></a>August 2014 Release
-When you encode an asset, an output asset is produced upon completion of the encoding job. Until this release, Azure Media Services Encoder produced metadata about output assets. Starting with this release the encoder also produces metadata about input assets. For more information, see the [Input Metadata] and [Output Metadata] topics.
+When you encode an asset, an output asset is produced upon completion of the encoding job. Until this release, Azure Media Services Encoder produced metadata about output assets. Starting with this release the encoder also produces metadata about input assets. For more information, see the [Input Metadata] and [Output Metadata] articles.
 
 ## <a id="july_changes_14"></a>July 2014 Release
 The following bug fixes were made for the Azure Media Services Packager and Encryptor:
@@ -343,7 +408,7 @@ The following changes were made in 3.0.0.3:
 
 The latest version of the Media Services SDK is now 3.0.0.0. You can download the latest package from Nuget or get the bits from [GitHub].
 
-Starting with the Media Services SDK version 3.0.0.0, you can reuse the [Azure Active Directory Access Control Service (ACS)] tokens. For more information, see the “Reusing Access Control Service Tokens” section in the [Connecting to Media Services with the Media Services SDK for .NET] topic.
+Starting with the Media Services SDK version 3.0.0.0, you can reuse the [Azure Active Directory Access Control Service (ACS)] tokens. For more information, see the “Reusing Access Control Service Tokens” section in the [Connecting to Media Services with the Media Services SDK for .NET] article.
 
 ### <a name="dec_13_donnet_ext_changes"></a>Azure Media Services .NET SDK Extensions 2.0.0.0
 The Azure Media Services .NET SDK Extensions is a set of extension methods and helper functions that will simplify your code and make it easier to develop with Azure Media Services. You can get the latest bits from [Azure Media Services .NET SDK Extensions].
@@ -353,7 +418,7 @@ The Azure Media Services .NET SDK Extensions is a set of extension methods and h
 Starting with this version, the Media Services SDK for .NET handles transient fault errors that may occur when making calls to the Media Services REST API layer.
 
 ## <a id="august_changes_13"></a>August 2013 Release
-### <a name="aug_13_powershell_changes"></a>Media Services PowerShell Cmdlets included in Azure Sdk Tools
+### <a name="aug_13_powershell_changes"></a>Media Services PowerShell Cmdlets included in Azure SDK Tools
 The following Media Services PowerShell cmdlets are now included in [azure-sdk-tools].
 
 * Get-AzureMediaServices 
@@ -489,7 +554,7 @@ The following functionality was new in the November release of the SDK.
 
 <!--- URLs. --->
 [Azure Media Services MSDN Forum]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
-[Azure Media Services REST API Reference]: http://msdn.microsoft.com/library/azure/hh973617.aspx 
+[Azure Media Services REST API Reference]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services Pricing Details]: http://azure.microsoft.com/pricing/details/media-services/
 [Input Metadata]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [Output Metadata]: http://msdn.microsoft.com/library/azure/dn783217.aspx

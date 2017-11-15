@@ -56,7 +56,7 @@ After you have added an offer, you need to define and identify your SKUs. You ca
 
 ## 2. Create an Azure-compatible VHD (Linux-based)
 This section focuses on best practices for creating a Linux-based VM image for the Azure Marketplace. For a step-by-step walkthrough, refer to the following documentation:
-[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+[Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## 3. Create an Azure-compatible VHD (Windows-based)
 This section focuses on the steps to create a SKU based on Windows Server for the Azure Marketplace.
@@ -172,7 +172,7 @@ All images in the Azure Marketplace must be reusable in a generic fashion. In ot
 
         sysprep.exe /generalize /oobe /shutdown
 
-  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  Guidance on how to sysprep the operating system is provided in Step of the following MSDN article: [Create and upload a Windows Server VHD to Azure](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## 4. Deploy a VM from your VHDs
 After you have uploaded your VHDs (the generalized operating system VHD and zero or more data disk VHDs) to an Azure storage account, you can register them as a user VM image. Then you can test that image. Note that because your operating system VHD is generalized, you cannot directly deploy the VM by providing the VHD URL.
@@ -184,23 +184,23 @@ To learn more about VM images, review the following blog posts:
 * [About VM images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
 ### Set up the necessary tools, PowerShell and Azure CLI
-* [How to setup PowerShell](/powershell/azureps-cmdlets-docs)
-* [How to setup Azure CLI](../xplat-cli-install.md)
+* [How to setup PowerShell](/powershell/azure/overview)
+* [How to setup Azure CLI](../cli-install-nodejs.md)
 
 ### 4.1 Create a user VM image
 #### Capture VM
 Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
 * [API](https://msdn.microsoft.com/library/mt163560.aspx)
-* [PowerShell](../virtual-machines/virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Azure CLI](../virtual-machines/virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure CLI](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### Generalize Image
 Please read the links given below for guidance on capturing the VM using API/PowerShell/Azure CLI.
 
 * [API](https://msdn.microsoft.com/library/mt269439.aspx)
-* [PowerShell](../virtual-machines/virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Azure CLI](../virtual-machines/virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure CLI](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### 4.2 Deploy a VM from a user VM image
 To deploy a VM from a user VM image, you can use the current [Azure portal](https://manage.windowsazure.com) or PowerShell.
@@ -291,6 +291,8 @@ During the publishing process, you specify the uniform resource identifiers (URI
 
 The shared access signature URI created should adhere to the following requirements:
 
+Note:The following instructions are applicable only for unmanaged disks which are the only kind supported.
+
 * When generating shared access signature URIs for your VHDs, List and Read­ permissions are sufficient. Do not provide Write or Delete access.
 * The duration for access should be a minimum of three (3) weeks from when the shared access signature URI is created.
 * To safeguard for UTC time, select the day before the current date. For example, if the current date is October 6, 2014, select 10/5/2014.
@@ -355,9 +357,9 @@ Following are the steps for generating SAS URL by using Azure Storage Explorer
 
     f. In **Generated Shared Access Signature URI of this container**, check for the following as highlighted above:
 
-        - Make sure that your image file name and **".vhd"** are in the URI.
-        - At the end of the signature, make sure that **"=rl"** appears. This demonstrates that Read and List access was provided successfully.
-        - In middle of the signature, make sure that **"sr=c"** appears. This demonstrates that you have container level access
+       - Make sure that your image file name and **".vhd"** are in the URI.
+       - At the end of the signature, make sure that **"=rl"** appears. This demonstrates that Read and List access was provided successfully.
+       - In middle of the signature, make sure that **"sr=c"** appears. This demonstrates that you have container level access
 
 11.	To ensure that the generated shared access signature URI works, click **Test in Browser**. It should start the download process.
 
@@ -433,7 +435,7 @@ Following are the steps for generating SAS URL by using Azure CLI
 
 2.	Once it is downloaded, please install
 
-3.	Create a PowerShell file with following code and save it in local
+3.	Create a PowerShell (or other script executable) file with following code and save it locally
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -445,9 +447,9 @@ Following are the steps for generating SAS URL by using Azure CLI
 
     b. **`<Storage Account Key>`**: Give your storage account key
 
-    c. **`<Permission Start Date>`**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 26, 2016, then value should be 10/25/2016
+    c. **`<Permission Start Date>`**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 26, 2016, then value should be 10/25/2016. If using Azure CLI 2.0 (az command), provide both the date and time in the Start and End Dates, for example: 10-25-2016T00:00:00Z.
 
-    d. **`<Permission End Date>`**: Select a date that is at least 3 weeks after the **Start Date**. Then value should be **11/02/2016**.
+    d. **`<Permission End Date>`**: Select a date that is at least 3 weeks after the **Start Date**. The value should be **11/02/2016**. If using Azure CLI 2.0 (az command), provide both the date and time in the Start and End Dates, for example: 11-02-2016T00:00:00Z.
 
     Following is the example code after updating proper parameters
 
@@ -455,7 +457,7 @@ Following are the steps for generating SAS URL by using Azure CLI
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.	Open Powershell editor with “Run as Administrator” mode and open file in step #3.
+4.	Open Powershell editor with “Run as Administrator” mode and open file in step #3. You can use any script editor that is available on your OS.
 
 5.	Run the script and it will provide you the SAS URL for container level access
 
@@ -519,7 +521,7 @@ After you have created your offer and SKU, you should enter the image details as
 |Failure in copying images - “sp=rl” not in SAS url|Failure: Copying Images. Not able to download blob using provided SAS Uri|Update the SAS Url with permissions set as “Read” & “List|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Failure in copying images - SAS url have white spaces in vhd name|Failure: Copying Images. Not able to download blob using provided SAS Uri.|Update the SAS Url without white spaces|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Failure in copying images – SAS Url Authorization error|Failure: Copying Images. Not able to download blob due to authorization error|Regenerate the SAS Url|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-
+|Failure in copying images – SAS Url "st" and "se" parameters do not have full date-time specification|Failure: Copying Images. Not able to download blob due to incorrect SAS Url |SAS Url Start and End Date parameters ("st", "se") are required to have full date-time specification, such as 11-02-2017T00:00:00Z, and not only the date or shortened versions for the time. It is possible to encounter this scenario using Azure CLI 2.0 (az command). Be sure to provide the full date-time specification and regenerate the SAS Url.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## Next step
 After you are done with the SKU details, you can move forward to the [Azure Marketplace marketing content guide][link-pushstaging]. In that step of the publishing process, you provide the marketing content, pricing, and other information necessary prior to **Step 3: Testing your VM offer in staging**, where you test various use-case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  
@@ -549,8 +551,8 @@ After you are done with the SKU details, you can move forward to the [Azure Mark
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
 [link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
-[link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2.md
-[link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[link-azure-2]:../storage/blobs/storage-dotnet-shared-access-signature-part-2.md
+[link-azure-1]:../storage/common/storage-dotnet-shared-access-signature-part-1.md
 [link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299
 [link-technet-3]:https://technet.microsoft.com/library/hh846766.aspx
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx

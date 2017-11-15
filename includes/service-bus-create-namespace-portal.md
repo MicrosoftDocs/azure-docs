@@ -1,3 +1,7 @@
+To begin using Service Bus messaging entities in Azure, you must first create a namespace with a name that is unique across Azure. A namespace provides a scoping container for addressing Service Bus resources within your application.
+
+To create a namespace:
+
 1. Log on to the [Azure portal][Azure portal].
 2. In the left navigation pane of the portal, click **New**, then click **Enterprise Integration**, and then click **Service Bus**.
 3. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
@@ -10,6 +14,8 @@
 8. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
 ### Obtain the management credentials
+Creating a new namespace will automatically generate an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that grants full control over all aspects of the namespace. Refer to [Service Bus authentication and authorization](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) for how to create further rules with more constrained rights for regular senders and receivers. To copy the initial rule, follow these steps: 
+
 1. In the list of namespaces, click the newly created namespace name.
 2. In the namespace blade, click **Shared access policies**.
 3. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
@@ -19,11 +25,11 @@
    
     ![connection-string][connection-string]
 
+5. Repeat the previous step, copying and pasting the value of **Primary key** to a temporary location for later use.
+
 <!--Image references-->
 
 [create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
 [connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure portal]: https://portal.azure.com

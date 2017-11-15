@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD and Applications: Guiding Developers | Microsoft Docs'
+title: Develop apps for Azure AD | Microsoft Docs'
 description: Written for the IT Pro, this article provides guidelines for integrating Azure applications with Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 05/07/2017
 ms.author: kgremban
 
+ms.custom: H1Hack27Feb2017
 ---
-# Azure AD and applications: Develop line-of-business apps
+# Develop line-of-business apps for Azure Active Directory
 This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Office 365 global administrators.
 
 ## Overview
-Building applications integrated with Azure AD gives users in your organization single sign-on with Office 365. Having the application in Azure AD gives you control over the authentication policy for the application. To learn more about conditional access and how to protect apps with multi-factor authentication (MFA) see [Configuring access rules](active-directory-conditional-access-azuread-connected-apps.md).
+Building applications integrated with Azure AD gives users in your organization single sign-on with Office 365. Having the application in Azure AD gives you control over the authentication policy for the application. To learn more about conditional access and how to protect apps with multi-factor authentication (MFA) see [Configuring access rules](active-directory-conditional-access-azure-portal-get-started.md).
 
 Register your application to use Azure Active Directory. Registering the application means that your developers can use Azure AD to authenticate users and request access to user resources such as email, calendar, and documents.
 
@@ -33,18 +34,18 @@ Registering an application allows any user to do the following:
 * Get one or more secrets/keys that the application can use to authenticate itself to AD
 * Brand the application in the Azure portal with a custom name, logo, etc.
 * Apply Azure AD authorization features to their app, including:
-  
+
   * Role-Based Access Control (RBAC)
   * Azure Active Directory as oAuth authorization server (secure an API exposed by the application)
 * Declare required permissions necessary for the application to function as expected, including:
-  
+
       - App permissions (global administrators only). For example: Role membership in another Azure AD application or role membership relative to an Azure Resource, Resource Group, or Subscription
       - Delegated permissions (any user). For example: Azure AD, Sign-in, and Read Profile
 
 > [!NOTE]
-> By default, any member can register an application. To learn how to restrict permissions for registering applications to specific members, see [How applications are added to Azure AD](active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
-> 
-> 
+> By default, any member can register an application. To learn how to restrict permissions for registering applications to specific members, see [How applications are added to Azure AD](develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+>
+>
 
 Here’s what you, the global administrator, need to do to help developers make their application ready for production:
 
@@ -53,7 +54,7 @@ Here’s what you, the global administrator, need to do to help developers make 
 * Suppress the default user consent experience
 
 ## Configure access rules
-Configure per-application access rules to your SaaS apps. For example, you can require MFA or only allow access to users on trusted networks. The details for this are available in the document [Configuring access rules](active-directory-conditional-access-azuread-connected-apps.md).
+Configure per-application access rules to your SaaS apps. For example, you can require MFA or only allow access to users on trusted networks. The details for this are available in the document [Configuring access rules](active-directory-conditional-access-azure-portal-get-started.md).
 
 ## Configure the app to require user assignment and assign users
 By default, users can access applications without being assigned. However, if the application exposes roles or if you want the application to appear on a user’s access panel, you should require user assignment.
@@ -74,7 +75,6 @@ For more information about user consent and the consent experience in Azure, see
 
 ## Related Articles
 * [Enable secure remote access to on-premises applications with Azure AD Application Proxy](active-directory-application-proxy-get-started.md)
-* [Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)
+* [Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azure-portal-get-started.md)
 * [Managing access to apps with Azure AD](active-directory-managing-access-to-apps.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-

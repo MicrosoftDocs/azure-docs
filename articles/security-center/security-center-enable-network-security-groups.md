@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 02/02/2017
 ms.author: terrylan
 
 ---
 # Enable Network Security Groups in Azure Security Center
-Azure Security Center will recommend that you enable a network security group (NSG) if one is not already enabled. NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM. To learn more see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
+Azure Security Center recommends that you enable a network security group (NSG) if one is not already enabled. NSGs contain a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM. To learn more see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
 
-If you do not have NSGs enabled, Security Center will present two recommendations to you: Enable Network Security Groups on subnets and Enable Network Security Groups on virtual machines. You choose which level, subnet or VM, to apply NSGs.
+If you do not have NSGs enabled, Security Center presents two recommendations to you: Enable Network Security Groups on subnets and Enable Network Security Groups on virtual machines. You choose which level, subnet or VM, to apply NSGs.
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations** blade, select **Enable Network Security Groups** on subnets or on virtual machines.
    ![Enable Network Security Groups][1]
-2. This opens the blade **Configure Missing Network Security Groups** for subnets or for virtual machines, depending on the recommendation that you selected. Select a subnet or a virtual machine to configure a NSG on.
-   
+2. This opens the blade **Configure Missing Network Security Groups** for subnets or for virtual machines, depending on the recommendation that you selected. Select a subnet or a virtual machine to configure an NSG on.
+
    ![Configure NSG for subnet][2]
-   
+
    ![Configure NSG for VM][3]
-3. On the **Choose network security group** blade select an existing NSG or select to create a new NSG.
-   
+3. On the **Choose network security group** blade, select an existing NSG or select **Create new** to create an NSG.
+
    ![Choose Network Security Group][4]
 
-If you create a new NSG, follow the steps in [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) to create a NSG and set security rules.
+If you create an NSG, follow the steps in [How to manage NSGs using the Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) to create an NSG and set security rules.
 
 ## See also
 This article showed you how to implement the Security Center recommendation "Enable Network Security Groups" for subnets or virtual machines. To learn more about enabling NSGs, see the following:

@@ -1,6 +1,6 @@
 ---
-title: Replacing the Start Node and Stop Node APIs with the Azure Service Fabric Node Transition API | Microsoft Docs
-description: Replacing the Start Node and Stop Node APIs with the Azure Service Fabric Node Transition API
+title: Start and stop cluster nodes to test Azure microservices | Microsoft Docs
+description: Learn how to use fault injection to test a Service Fabric application by starting and stopping cluster nodes.
 services: service-fabric
 documentationcenter: .net
 author: LMWF
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/19/2016
+ms.date: 6/12/2017
 ms.author: lemai
 
 ---

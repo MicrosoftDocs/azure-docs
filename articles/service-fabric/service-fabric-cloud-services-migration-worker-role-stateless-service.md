@@ -1,5 +1,5 @@
 ---
-title: Guide to converting Web and Worker Roles to Service Fabric stateless services | Microsoft Docs
+title: Convert Azure Cloud Services apps to microservices | Microsoft Docs
 description: This guide compares Cloud Services Web and Worker Roles and Service Fabric stateless services to help migrate from Cloud Services to Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 11/02/2017
 ms.author: vturecek
 
 ---
@@ -23,7 +23,7 @@ This article describes how to migrate your Cloud Services Web and Worker Roles t
 ## Cloud Service project to Service Fabric application project
  A Cloud Service project and a Service Fabric Application project have a similar structure and both represent the deployment unit for your application - that is, they each define the complete package that is deployed to run your application. A Cloud Service project contains one or more Web or Worker Roles. Similarly, a Service Fabric Application project contains one or more services. 
 
-The difference is that the Cloud Service project couples the application deployment with a VM deployment and thus contains VM configuration settings in it, whereas the Service Fabric Application project only defines an application that will be deployed to a set of existing VMs in a Service Fabric cluster. The Service Fabric cluster itself is only deployed once, either through an ARM template or through the Azure Portal, and multiple Service Fabric applications can be deployed to it.
+The difference is that the Cloud Service project couples the application deployment with a VM deployment and thus contains VM configuration settings in it, whereas the Service Fabric Application project only defines an application that will be deployed to a set of existing VMs in a Service Fabric cluster. The Service Fabric cluster itself is only deployed once, either through an Resource Manager template or through the Azure portal, and multiple Service Fabric applications can be deployed to it.
 
 ![Service Fabric and Cloud Services project comparison][3]
 
@@ -35,7 +35,7 @@ Conceptually, a Worker Role represents a stateless workload, meaning every insta
 ## Web Role to stateless service
 Similar to Worker Role, a Web Role also represents a stateless workload, and so conceptually it too can be mapped to a Service Fabric stateless service. However, unlike Web Roles, Service Fabric does not support IIS. To migrate a web application from a Web Role to a stateless service requires first moving to a web framework that can be self-hosted and does not depend on IIS or System.Web, such as ASP.NET Core 1.
 
-| **Application ** | **Supported** | **Migration path** |
+| **Application** | **Supported** | **Migration path** |
 | --- | --- | --- |
 | ASP.NET Web Forms |No |Convert to ASP.NET Core 1 MVC |
 | ASP.NET MVC |With Migration |Upgrade to ASP.NET Core 1 MVC |

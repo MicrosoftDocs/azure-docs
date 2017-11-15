@@ -3,7 +3,7 @@ title: 'Azure AD B2C: Secure a web API by using Node.js | Microsoft Docs'
 description: How to build a Node.js web API that accepts tokens from a B2C tenant
 services: active-directory-b2c
 documentationcenter: ''
-author: xerners
+author: dstrockis
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 08/30/2016
-ms.author: brandwe
+ms.date: 01/07/2017
+ms.author: xerners
 
 ---
 # Azure AD B2C: Secure a web API by using Node.js
@@ -32,7 +32,7 @@ With Azure Active Directory (Azure AD) B2C, you can secure a web API by using OA
 To do this sample, you need to:
 
 1. Register an application with Azure AD.
-2. Set up your application to use Passport's `azure-ad-passport` plug-in.
+2. Set up your application to use Passport's `passport-azure-ad` plug-in.
 3. Configure a client application to call the "to-do list" web API.
 
 ## Get an Azure AD B2C directory
@@ -277,7 +277,7 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 `policyName`: The policy that you want to validate the tokens coming in to your server. This policy should be the same policy that you use on the client application for sign-in.
 
 > [!NOTE]
-> For our B2C preview, use the same policies across both client and server setup. If you have already completed a walk-through and created these policies, you don't need to do so again. Because you completed the walk-through, you shouldn't need to set up new policies for client walk-throughs on the site.
+> For now, use the same policies across both client and server setup. If you have already completed a walk-through and created these policies, you don't need to do so again. Because you completed the walk-through, you shouldn't need to set up new policies for client walk-throughs on the site.
 >
 >
 
@@ -546,7 +546,7 @@ Restify and Express provide deep customization for a REST API server, but we use
 
 ```Javascript
 
-**
+/**
  * Our Server
  */
 

@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of monitoring your job pr
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: bb4e3ee3-1ab9-46d0-9ae7-848d945bc0b8
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 07/20/2017
 ms.author: juliako
 
 ---

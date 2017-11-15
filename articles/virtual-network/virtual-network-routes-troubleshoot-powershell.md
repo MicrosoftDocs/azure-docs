@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshoot routes - PowerShell | Microsoft Docs
 description: Learn how to troubleshoot routes in the Azure Resource Manager deployment model using Azure PowerShell.
 services: virtual-network
@@ -31,7 +31,7 @@ Route tables are associated with subnets and are effective on all network interf
 
 * **System routes:** By default, every subnet created in an Azure Virtual Network (VNet) has system route tables that allow local VNet traffic, on-premises traffic via VPN gateways, and Internet traffic. System routes also exist for peered VNets.
 * **BGP routes:** Propagated to network interfaces through ExpressRoute or site-to-site VPN connections. Learn more about BGP routing by reading the [BGP with VPN gateways](../vpn-gateway/vpn-gateway-bgp-overview.md) and [ExpressRoute overview](../expressroute/expressroute-introduction.md) articles.
-* **User-defined routes (UDR):** If you are using network virtual appliances or are forced-tunneling traffic to an on-premises network via a site-to-site VPN, you may have user-defined routes (UDRs) associated with your subnet route table. If you're not familiar with UDRs, read the [user-defined routes](virtual-networks-udr-overview.md#user-defined-routes) article.
+* **User-defined routes (UDR):** If you are using network virtual appliances or are forced-tunneling traffic to an on-premises network via a site-to-site VPN, you may have user-defined routes (UDRs) associated with your subnet route table. If you're not familiar with UDRs, read the [user-defined routes](virtual-networks-udr-overview.md#user-defined) article.
 
 With the various routes that can be applied to a network interface, it can be difficult to determine which aggregate routes are effective. To help troubleshoot VM network connectivity, you can view all the effective routes for a network interface in the Azure Resource Manager deployment model.
 
@@ -54,7 +54,7 @@ To see the aggregate routes that are applied to a VM, complete the following ste
 ### View effective routes for a network interface
 To see the aggregate routes that are applied to a network interface, complete the following steps:
 
-1. Start an Azure PowerShell session and login to Azure. If you’re not familiar with Azure PowerShell, read the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article.
+1. Start an Azure PowerShell session and login to Azure. If you’re not familiar with Azure PowerShell, read the [How to install and configure Azure PowerShell](/powershell/azure/overview) article.
 2. The following command returns all routes applied to a network interface named *VM1-NIC1* in the resource group *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

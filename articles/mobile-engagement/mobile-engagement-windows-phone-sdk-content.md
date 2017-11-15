@@ -4,7 +4,7 @@ description: Learn about the contents of the Windows Phone Silverlight SDK for A
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
-manager: dwrede
+manager: erikre
 editor: ''
 
 ms.assetid: 4820d010-2bdd-4b17-88b0-9583bf0b95fb
