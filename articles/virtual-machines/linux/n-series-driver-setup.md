@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 11/09/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -68,11 +68,11 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 5. Download and install the GRID driver:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 
 6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
@@ -137,11 +137,11 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 5. Download and install the GRID driver:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
 
@@ -163,7 +163,7 @@ To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and 
 
 To query the GPU device state, SSH to the VM and run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
 
-Output similar to the following appears:
+Output similar to the following appears. Your driver version and GPU details may be different from the ones shown.
 
 ![NVIDIA device status](./media/n-series-driver-setup/smi-nv.png)
  
@@ -227,7 +227,7 @@ Then run installation commands specific for your distribution.
 
 1. Download and install the CUDA drivers.
   ```bash
-  CUDA_REPO_PKG=cuda-9-0_9.0.176-1_amd64.deb
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -348,8 +348,9 @@ Deploy NC24r VMs from one of the following images in the Azure Marketplace that 
 
 ## Troubleshooting
 
-* There is a known issue with CUDA drivers on Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. If you are upgrading from an earlier kernel version, upgrade to at least kernel version 4.4.0-77. 
+* There is a known issue with CUDA drivers on Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. If you are upgrading from an earlier kernel version, upgrade to at least kernel version 4.4.0-77.
 
+* You can set persistence mode using `nvidia-smi` so the output of the command is faster when you need to query cards. To set persistence mode, execute `nvidia-smi -pm 1`. Note that if the VM is restarted, the  mode setting will go away. You can always script the mode setting to execute upon startup.
 
 
 ## Next steps

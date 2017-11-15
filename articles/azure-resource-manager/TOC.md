@@ -69,12 +69,6 @@
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
 ### [Lock resources](resource-group-lock-resources.md)
 
-## Set resource policies
-### [What are resource policies?](resource-manager-policy.md)
-### Examples
-#### [Tags](resource-manager-policy-tags.md)
-#### [Naming conventions](resource-manager-policy-naming-convention.md)
-
 ## Audit
 ### [View activity logs](resource-group-audit.md)
 ### [View deployment operations](resource-manager-deployment-operations.md)
@@ -89,6 +83,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Virtual Machine deployment errors

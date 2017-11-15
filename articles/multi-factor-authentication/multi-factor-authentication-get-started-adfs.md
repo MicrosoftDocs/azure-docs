@@ -5,7 +5,7 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 
 ms.assetid: 44fbba68-6cf9-46c1-a9df-736580b68ae3
 ms.service: multi-factor-authentication

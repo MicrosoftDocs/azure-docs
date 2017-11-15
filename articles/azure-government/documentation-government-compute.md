@@ -58,17 +58,15 @@ The DNS for the Cloud Services is different:
 | Batch | *.cloudapp.net | *.usgovcloudapp.net |
 
 ## Azure Functions
-The [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) service is now available (General Availability) for the Azure Government environment, with some differences, which you can read about below. 
+The [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) service is now available (General Availability) for the Azure Government environment, with some differences, which you can read about below. 
 
 ### Variations
 The following Functions features are not currently available in Azure Government:
 
-- Functions access through the Azure Government Portal
-- Consumption Plan
-    -   The [App Service plan](../azure-functions/functions-scale.md#app-service-plan) is available in Azure Government. To learn more about the two hosting plans, click [here](../azure-functions/functions-scale.md)
-    .
+- Provisioning and management of Azure Functions is available through PowerShell, CLI and Visual Studio. There is no portal support yet.
+- The [App Service plan](../azure-functions/functions-scale.md#app-service-plan) is available in Azure Government. The Consumption plan is not available yet. To learn more about the two hosting plans, click [here](../azure-functions/functions-scale.md)
 
-The URLs once the Function apps have been created are different:
+The URLs for Function are different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |

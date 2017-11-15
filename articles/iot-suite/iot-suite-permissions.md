@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 11/10/2017
 ms.author: dobett
 
 ---
@@ -99,7 +99,7 @@ To continue learning about IoT Suite, see how you can [customize a preconfigured
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
+[lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles-azure-portal.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md
