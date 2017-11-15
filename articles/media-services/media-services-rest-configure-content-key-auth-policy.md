@@ -182,9 +182,6 @@ This section describes how to create a content key authorization policy and asso
 
 To configure the token restriction option, you need to use an XML to describe the token’s authorization requirements. The token restriction configuration XML must conform to the following XML schema.
 
-> [!NOTE]
-> Token restriction on content key authorization policies is not yet available in the service.
-
 
 #### <a id="schema"></a>Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
@@ -425,9 +422,14 @@ Add AuthorizationPolicy to the ContentKey as shown [here](#AddAuthorizationPolic
     public enum ContentKeyRestrictionType
     {
         Open = 0,
-        TokenRestricted = 1, // Not supported, reserved for future
-        IPRestricted = 2,
+        TokenRestricted = 1, 
+        IPRestricted = 2, // Not supported, reserved for future
     }
+
+
+> [!NOTE]
+> IP restriction on content key authorization policies is not yet available in the service.
+
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType
