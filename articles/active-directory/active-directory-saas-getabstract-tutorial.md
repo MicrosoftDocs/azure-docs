@@ -102,7 +102,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-getabstract-tutorial/tutorial_getabstract_samlbase.png)
 
-3. On the **Getabstract Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
+3. On the **Getabstract Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Getabstract Domain and URLs single sign-on information](./media/active-directory-saas-getabstract-tutorial/tutorial_getabstract_url.png)
 
@@ -224,8 +224,6 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 
