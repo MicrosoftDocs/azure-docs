@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create Azure Databricks workspace by using the Azure portal | Microsoft Docs'
-description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace and Apache Spark cluster.
+title: 'Quickstart: Run a first Spark job on Azure Databricks using Azure portal | Microsoft Docs'
+description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -17,7 +17,7 @@ ms.author: nitinme
 
 ---
 
-# Quickstart: Get started with Azure Databricks using the Azure portal
+# Quickstart: Run a Spark job on Azure Databricks using the Azure portal
 
 This quickstart shows how to create an Azure Databricks workspace and an Apache Spark cluster within that workspace. Finally, you learn how to run a Spark job on the Databricks cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
 
