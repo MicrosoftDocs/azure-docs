@@ -34,7 +34,7 @@
   - name: Manage device enrollments
     href: how-to-manage-enrollments.md
   - name: Revoke device access
-    href: how-to-revoke-device-access.md
+    href: how-to-revoke-device-access-portal.md
   - name: Use HSM with SDK
     href: use-hsm-with-sdk.md
 - name: Reference

@@ -25,8 +25,6 @@ To learn about revoking device access to an IoT hub after the device has been pr
 > [!NOTE] 
 > Be aware of how devices that you revoke access for implement retry logic. For example, some devices might infinitely ping the provisioning service attempting to register, consuming service resources and possibly impacting performance.
 
-
-
 ## Blacklist devices with an individual enrollment
 
 Individual enrollments may use either X.509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. To blacklist individual devices, you can either disable or delete their individual enrollment entry: 
@@ -90,7 +88,7 @@ The Device Provisioning Service first looks for an individual enrollment matchin
 3. In your provisioning service, click **Manage enrollments**, then select **Individual Enrollments** tab.
 4. Click the **Add** button at the top. 
 5. Select `**X.509** as the security mechanism for the device and upload the signed leaf certificate used by the device.
-6. Enter the **IoT Hub device ID** for the device. (This device ID should match the device ID used for the device in the enrollment group.)
+6. Enter the **IoT Hub device ID** for the device. 
 7. To disable the enrollment entry, select **Disable** on the **Enable entry** switch. 
 8. Click **Save**. On successful creation of your enrollment, you should see your device appear under the **Individual Enrollments** tab. 
 
