@@ -1,5 +1,5 @@
 ---
-title: 'How it works? Azure AD SSPR | Microsoft Docs'
+title: 'How Azure AD SSPR works | Microsoft Docs'
 description: Azure AD self-service password reset deep dive
 services: active-directory
 keywords: 
@@ -25,7 +25,7 @@ How does self-service password reset (SSPR) work? What does that option mean in 
 
 ## How does the password reset portal work?
 
-When a user navigates to the password reset portal, a workflow is kicked off to determine:
+When a user goes to the password reset portal, a workflow is kicked off to determine:
 
    * How should the page be localized?
    * Is the user account valid?
@@ -36,7 +36,7 @@ When a user navigates to the password reset portal, a workflow is kicked off to 
 Read through the following steps to learn about the logic behind the password reset page:
 
 1. The user selects the **Can't access your account** link or goes directly to [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
-   * Based on the browser locale the experience is rendered in the appropriate language. The password reset experience is localized into the same languages that Office 365 supports.
+   * Based on the browser locale, the experience is rendered in the appropriate language. The password reset experience is localized into the same languages that Office 365 supports.
 2. The user enters a user ID and passes a captcha.
 3. Azure AD verifies that the user is able to use this feature by doing the following checks:
    * Checks that the user has this feature enabled and has an Azure AD license assigned.
@@ -64,18 +64,18 @@ If SSPR is enabled, you must select at least one of the following options for th
 
 ### What fields are used in the directory for the authentication data?
 
-* **Office phone**: Corresponds to Office phone.
-    * Users are unable to set this field themselves, it must be defined by an administrator.
-* **Mobile phone**: Corresponds to either Authentication Phone (not publicly visible) or Mobile phone (publicly visible).
-    * The service looks for the Authentication Phone first, then falls back to the Mobile phone if the Authentication Phone is not present.
-* **Alternate email address**: Corresponds to either the Authentication Email (not publicly visible) or the Alternate email.
-    * The service looks for the Authentication Email first, then fails back to the Alternate email.
+* **Office phone**: Corresponds to the office phone.
+    * Users are unable to set this field themselves. It must be defined by an administrator.
+* **Mobile phone**: Corresponds to either the authentication phone (not publicly visible) or the mobile phone (publicly visible).
+    * The service looks for the authentication phone first, and then falls back to the mobile phone if the authentication phone is not present.
+* **Alternate email address**: Corresponds to either the authentication email (not publicly visible) or the alternate email.
+    * The service looks for the authentication email first, and then fails back to the alternate email.
 
-By default, only the cloud attributes Office phone and Mobile phone are synchronized to your cloud directory from your on-premises directory for authentication data.
+By default, only the cloud attributes office phone and mobile phone are synchronized to your cloud directory from your on-premises directory for authentication data.
 
 Users can only reset their password if they have data present in the authentication methods that the administrator has enabled and requires.
 
-If users don't want their mobile phone number to be visible in the directory, but would still like to use it for password reset, administrators should not populate it in the directory and the user should then populate their **Authentication Phone** attribute via the [password reset registration portal](http://aka.ms/ssprsetup). Administrators can see this information in the user's profile, but it's not published elsewhere.
+If users don't want their mobile phone number to be visible in the directory, but they still want to use it for password reset, administrators should not populate it in the directory. Users should then populate their **Authentication Phone** attribute via the [password reset registration portal](http://aka.ms/ssprsetup). Administrators can see this information in the user's profile, but it's not published elsewhere.
 
 ### The number of authentication methods required
 
@@ -87,7 +87,7 @@ If a user does not have the minimum required methods registered, they see an err
 
 #### Change authentication methods
 
-If you start with a policy that has only one required authentication method for reset or unlock registered and you change that to two methods what happens?
+If you start with a policy that has only one required authentication method for reset or unlock registered and you change that to two methods, what happens?
 
 | Number of methods registered | Number of methods required | Result |
 | :---: | :---: | :---: |
@@ -104,7 +104,7 @@ Example:
 
 ### How secure are my security questions?
 
-If you use security questions, we recommend them in use in conjunction with another method. Security questions can be less secure than other methods because some people might know the answers to another user's questions.
+If you use security questions, we recommend using them in conjunction with another method. Security questions can be less secure than other methods because some people might know the answers to another user's questions.
 
 > [!NOTE] 
 > Security questions are stored privately and securely on a user object in the directory and can only be answered by users during registration. There is no way for an administrator to read or modify a user's questions or answers.
@@ -169,7 +169,7 @@ The maximum length of a custom security question is 200 characters.
 
 ### Require users to register when they sign in
 
-To enable this option, a user that is enabled for password reset has to complete the password reset registration if they log in to applications by using Azure AD to sign in. This includes the following:
+To enable this option, a user who is enabled for password reset has to complete the password reset registration if they sign in to applications by using Azure AD. This includes the following:
 
 * Office 365
 * Azure portal
@@ -180,15 +180,15 @@ To enable this option, a user that is enabled for password reset has to complete
 When requiring registration is disabled, users can still manually register their contact information. They can either visit [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) or select the **Register for password reset** link under the **Profile** tab in the Access Panel.
 
 > [!NOTE]
-> Users can dismiss the password reset registration portal by selecting **cancel** or by closing the window, but they will be prompted to register each time they sign in until they complete their registration.
+> Users can dismiss the password reset registration portal by selecting **cancel** or by closing the window. But they will be prompted to register each time they sign in until they complete their registration.
 >
 > This doesn't break the user's connection if they are already signed in.
 
 ### Set the number of days before users are asked to reconfirm their authentication information
 
-This option determines the period of time between setting and reconfirming authentication information and is only available if you enable the **Require users to register when signing in** option.
+This option determines the period of time between setting and reconfirming authentication information and is available only if you enable the **Require users to register when signing in** option.
 
-Valid values are between 0 to 730 days with "0" meaning users are never asked to reconfirm their authentication information.
+Valid values are 0 to 730 days, with "0" meaning users are never asked to reconfirm their authentication information.
 
 ## Notifications
 
@@ -204,7 +204,7 @@ Example: There are four administrators in an environment. Administrator A resets
 
 ## On-premises integration
 
-If you install, configure, and enable Azure AD Connect, you have the following additional options for on-premises integrations. If these options are grayed-out, then writeback has not been properly configured. For more information, see [Configuring password writeback](active-directory-passwords-writeback.md#configuring-password-writeback).
+If you install, configure, and enable Azure AD Connect, you have the following additional options for on-premises integrations. If these options are grayed out, then writeback has not been properly configured. For more information, see [Configuring password writeback](active-directory-passwords-writeback.md#configuring-password-writeback).
 
 ### Write back passwords to your on-premises directory
 
@@ -215,7 +215,7 @@ This control determines whether password writeback is enabled for this directory
 
 ### Allow users to unlock accounts without resetting their password
 
-This control designates whether users who visit the password reset portal should be given the option to unlock their on-premises Active Directory accounts without having to reset their password. By default, Azure AD unlocks accounts when it performs a password reset. This setting allows you to separate those two operations. 
+This control designates whether users who visit the password reset portal should be given the option to unlock their on-premises Active Directory accounts without having to reset their password. By default, Azure AD unlocks accounts when it performs a password reset. You use this setting to separate those two operations. 
 
 * If set to **Yes**, then users are given the option to reset their password and unlock the account, or to unlock their account without having to reset the password.
 * If set to **No**, then users are only be able to perform a combined password reset and account unlock operation.
@@ -224,10 +224,10 @@ This control designates whether users who visit the password reset portal should
 Password reset and change are fully supported on all business-to-business (B2B) configurations. B2B user password reset is supported in the following three cases:
 
    * **Users from a partner organization with an existing Azure AD tenant**: If the organization you're partnering with has an existing Azure AD tenant, we *respect whatever password reset policies are enabled on that tenant*. For password reset to work, the partner organization just needs to make sure that Azure AD SSPR is enabled. There is no additional charge for Office 365 customers, and it can be enabled by following the steps in our [Get started with password management](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guide.
-   * **Users who sign up through** [self-service sign-up](active-directory-self-service-signup.md): If the organization you're partnering with used the [self-service sign-up](active-directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
+   * **Users who sign up through** self-service sign-up: If the organization you're partnering with used the [self-service sign-up](active-directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
    * **B2B users**: Any new B2B users created by using the new [Azure AD B2B capabilities](active-directory-b2b-what-is-azure-ad-b2b.md) will also be able to reset their passwords with the email they registered during the invite process.
 
-To test this scenario, go to http://passwordreset.microsoftonline.com with one of these partner users. If they have an Alternate email or Authentication Email defined, password reset works as expected.
+To test this scenario, go to http://passwordreset.microsoftonline.com with one of these partner users. If they have an alternate email or authentication email defined, password reset works as expected.
 
 > [!NOTE]
 > Microsoft accounts that have been granted guest access to your Azure AD tenant, such as those from Hotmail.com, Outlook.com, or other personal email addresses, are not able to use Azure AD SSPR. They will need to reset their password by using the information found in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
