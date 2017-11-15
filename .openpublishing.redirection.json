@@ -13619,11 +13619,6 @@
              "source_path": "articles/api-management/api-management-howto-add-operations.md",
              "redirect_url": "/azure/api-management/mock-api-responses",
              "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/api-management/index.md",
-            "redirect_url": "/azure/api-management/index",
-            "redirect_document_id": false
         }
     ]
 }
