@@ -206,6 +206,17 @@ Example: There are four administrators in an environment. Administrator A resets
 
 If you install, configure, and enable Azure AD Connect, you have the following additional options for on-premises integrations. If these options are grayed out, then writeback has not been properly configured. For more information, see [Configuring password writeback](active-directory-passwords-writeback.md#configuring-password-writeback).
 
+![Writeback][Writeback]
+
+This page will provide you a quick status of the on-premises writeback client one of the following messages are displayed based on the current configuration:
+
+* Your On-premises writeback client is up and running.
+* Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
+* Unfortunately, we can’t check your on-premises writeback client status because the installed version of Azure AD Connect is out-of-date. [Upgrade Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) to be able to check your connection status.
+* Unfortunately, it looks like we can't connect to your on-premises writeback client right now. [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
+* Unfortunately, we can't connect to your on-premises writeback client because password writeback has not been properly configured. [Configure password writeback](active-directory-passwords-writeback.md#configuring-password-writeback) to restore the connection.
+* Unfortunately, it looks like we can't connect to your on-premises writeback client right now. This may be due to temporary issues on our end. If the problem persists, [Troubleshoot Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) to restore the connection.
+
 ### Write back passwords to your on-premises directory
 
 This control determines whether password writeback is enabled for this directory. If writeback is on, it indicates the status of the on-premises writeback service. This is useful if you want to temporarily disable password writeback without having to reconfigure Azure AD Connect.
@@ -250,3 +261,4 @@ The following articles provide additional information regarding password reset t
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Azure AD authentication methods available and quantity required"
+[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "On-premises integration password writeback configuration and troubleshooting information"
