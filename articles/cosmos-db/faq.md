@@ -449,23 +449,23 @@ When you exceed this capacity you get overloaded error message indicating your c
 Metrics are available [here](https://docs.microsoft.com/azure/cosmos-db/use-metrics) which tell you how is throughput over hour, day and 7days across partitions or in aggregate.
 Diagnostic logs are explained [here](https://docs.microsoft.com/azure/cosmos-db/logging).
 
-### Does primary key map to the partition key concept of Azure Cosmos DB ?
+### Does primary key map to the partition key concept of Azure Cosmos DB?
 Yes - partition key is used to place the entity in right location. In Azure Cosmos DB it is used to find right logical partition which will be stored on a physical partition. The partitioning concept is well explained [here](https://docs.microsoft.com/azure/cosmos-db/partition-data). Essential take away here is that logical partition should not exceed the 10 GB limit today. 
 
-### What happens when I get a “quota full" notification indicating that a partition is full ?
+### What happens when I get a “quota full" notification indicating that a partition is full?
 Azure Cosmos DB is a SLA-based system that provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. It's Cassandra API too allows unlimited storage of data. This unlimited storage is based on horizontal scaleout of data using partitioning as the key concept.  The partitioning concept is well explained [here](https://docs.microsoft.com/azure/cosmos-db/partition-data).
  The 10-GB limit on the number of entities or items per logical partition you should adhere to. To ensure that your application scales well, we recommend that you *not* create a hot partition by storing all information in one partition and querying it. This error can only come if you data is skewed - that is you have lot of data for one partition key - i.e., more than 10 GB. You can find the distribution of data using the storage portal. Way to fix this error is to recrete the table and choose a granular primary(partition key) which allows better distribution of data.
 
-### Is it possible to use Cassandra API as key value store with millions or billions of individual partition keys ?
+### Is it possible to use Cassandra API as key value store with millions or billions of individual partition keys?
 Azure Cosmos DB can store unlimited data by scaling out the storage. This is independent of the throughput. Yes you can always just use Cassandra API to store and retrieve key/values by specifying right primary/partition key.  These individual keys get their own logical partition and sit atop physical partition without issues. 
 
-### Is it possible to create multiple tables with Apache Cassandra API of Azure Cosmos DB ?
+### Is it possible to create multiple tables with Apache Cassandra API of Azure Cosmos DB?
  Yes it is possible to crete multiple tables with Apache Cassandra API. Each of those tables is treated as unit for throughput, storage. 
 
-### Is it possible to create multiple tables in succession ?
+### Is it possible to create multiple tables in succession?
 Azure Cosmos DB is resource governed system for both data and control plane activities. Containers like collections, tables are runtime entities which are provisioned for given throughput capacity. The creation of these containers in quick succession is not expected activity and throttled. If you have tests which drop/create tables immediately - please try to space them out.
 
-### What is maximum number of tables which can be created ?
+### What is maximum number of tables which can be created?
 There is no physical limit on number of tables, please send an email at askcosmosdbcassandra@microsoft.com if you have very large number of tables(total steady size exceeding 10 TB of data) that need to be created from usual 10s or 100s. 
 
 ### What is the maximum # of keyspace which we can create? 
@@ -477,14 +477,14 @@ The storage capacity is automatically managed and increases as you push in more 
 ### Is it possible to supply yaml file settings to configure Apache Casssandra API of Azure Cosmos DB behavior?
 Apache Cassandra API of Azure Cosmos DB is a platform service. It provides protocol level compatibilty for executing operations. It hides away the complexity of management, monitoring and configuration. As a developer/user you do not need to worry about availability, tombstones, key cache, row cache, bloom filter and multitude of other settings. Azure Cosmos DB's Apache Cassandra API focuses on providing read and write performance that you require without the overhead of configuration and management.
 
-### Will Apache Cassandra API for Azure Cosmos DB support node addition/cluster status/node status commands ?
+### Will Apache Cassandra API for Azure Cosmos DB support node addition/cluster status/node status commands?
 Apache Cassandra API is a platform service which makes capacity planning, responding to the elasticity demands for throughput & storage a breeze. With Azure Cosmos DB you provision throughput you need. Then you can scale it up and down any number of times through the day without worrying about adding/deleting nodes or managing them. This implies you do not need to use the node, cluster management tool too. 
 
-### What happens wrt various config settings for keyspace creation like simple/network etc ?
+### What happens with respect to various config settings for keyspace creation like simple/network etc?
 Azure Cosmos DB provides global distribution out of the box for availability and low latency reasons. You do not need to setup replicas etc. All writes are always durably quorum committed in a any region where you write while providing performance guarantees.  
 
-### What happens wrt various settings for table metadata like bloom filter, caching, read repair change, gc_grace, compression memtable_flush_period etc?
-Azure cosmos DB provides performance for reads/writes and throughput without need for touching any of the configuration settings and accidently manipulating them.  
+### What happens with respect to various settings for table metadata like bloom filter, caching, read repair change, gc_grace, compression memtable_flush_period etc?
+Azure Cosmos DB provides performance for reads/writes and throughput without need for touching any of the configuration settings and accidently manipulating them.  
 
 ### Is TTL supported for Table? 
 In Private preview this is supported for Table. 
