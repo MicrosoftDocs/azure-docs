@@ -63,7 +63,7 @@ The previous example showed a standard sign-in, which requires the client to con
     }
     ```
 
-5. In the *ToDoActivity.java* file, replace the `authenticate` method with the following method, which uses a token cache. Change the login provider if you want to use an account other than Google.
+5. In the *ToDoActivity.java* file, replace the `authenticate` and `onActivityResult` methods with the following ones, which uses a token cache. Change the login provider if you want to use an account other than Google.
 
     ```java
     private void authenticate() {
@@ -76,22 +76,28 @@ The previous example showed a standard sign-in, which requires the client to con
         else
         {
             // Login using the Google provider.
-            ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
+            mClient.login(MobileServiceAuthenticationProvider.Google, "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
+        }
+    }
 
-            Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-                @Override
-                public void onFailure(Throwable exc) {
-                    createAndShowDialog("You must log in. Login Required", "Error");
-                }
-                @Override
-                public void onSuccess(MobileServiceUser user) {
-                    createAndShowDialog(String.format(
-                            "You are now logged in - %1$2s",
-                            user.getUserId()), "Success");
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // When request completes
+        if (resultCode == RESULT_OK) {
+            // Check the request code matches the one we send in the login request
+            if (requestCode == GOOGLE_LOGIN_REQUEST_CODE) {
+                MobileServiceActivityResult result = mClient.onActivityResult(data);
+                if (result.isLoggedIn()) {
+                    // login succeeded
+                    createAndShowDialog(String.format("You are now logged in - %1$2s", mClient.getCurrentUser().getUserId()), "Success");
                     cacheUserToken(mClient.getCurrentUser());
                     createTable();
+                } else {
+                    // login failed, check the error message
+                    String errorMessage = result.getErrorMessage();
+                    createAndShowDialog(errorMessage, "Error");
                 }
-            });
+            }
         }
     }
     ```

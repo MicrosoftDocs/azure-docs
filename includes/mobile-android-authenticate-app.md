@@ -23,7 +23,7 @@
 
     private void authenticate() {
         // Login using the Google provider.
-        mClient.login("Google", "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
+        mClient.login(MobileServiceAuthenticationProvider.Google, "{url_scheme_of_your_app}", GOOGLE_LOGIN_REQUEST_CODE);
     }
 
     @Override
