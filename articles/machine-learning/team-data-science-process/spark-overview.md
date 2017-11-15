@@ -4,7 +4,7 @@ description: The Spark MLlib toolkit brings considerable machine learning modeli
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: a4e1de99-a554-4240-9647-2c6d669593c8
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 11/13/2017
 ms.author: deguhath;bradsev;gokuma
 
 

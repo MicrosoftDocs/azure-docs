@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.reviewer: alexwe
+ms.reviewer: richagi
 
 ---
 # Reports in Azure Multi-Factor Authentication
