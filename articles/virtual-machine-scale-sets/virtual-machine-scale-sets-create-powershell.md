@@ -149,7 +149,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroup -Name myPublicIP |
 
 Enter the public IP address in to a web browser. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to:
 
-![Running IIS site](./media/tutorial-create-vmss/running-iis-site.png)
+![Running IIS site](./media/virtual-machine-scale-sets-create-powershell/running-iis.png)
 
 
 ## Next steps
