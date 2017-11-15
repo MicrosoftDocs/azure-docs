@@ -21,7 +21,7 @@ ms.author: sstein
 
 # Deploy and explore a standalone single-tenant application that uses Azure SQL Database
 
-In this tutorial, you deploy and explore the Wingtip Tickets SaaS Standlone Application. The application is designed to showcase features of Azure SQL Database that simplify enabling SaaS scenarios.
+In this tutorial, you deploy and explore the Wingtip Tickets SaaS Standalone Application. The application is designed to showcase features of Azure SQL Database that simplify enabling SaaS scenarios.
 
 The Standalone Application pattern deploys an Azure resource group containing a single-tenant application and a single-tenant database for each tenant.  Multiple instances of the application can be provisioned to provide a multi-tenant solution.
 
