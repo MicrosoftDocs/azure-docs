@@ -53,12 +53,6 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 
 Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com). Then get started with our [Quick Start for Table API by using .NET](create-table-dotnet.md). 
 
-## Migrating from Table API preview
-
-With the GA release of the Table API it is time to migrate both clients and tables to the GA Table API. For more information, please see Migrate from Table API preview to Table API 1.0.0.
-
-If you are using the [WindowsAzure.Storage-PremiumTable Nuget package](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable) from the Table API preview period, and want to move to the generally available [Microsoft.Azure.CosmosDB.Table NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), you need to migrate your data. For more information, see [Migrate from Table API preview to Table API 1.0.0]().
-
 ## Next steps
 
 Here are a few pointers to get you started:
