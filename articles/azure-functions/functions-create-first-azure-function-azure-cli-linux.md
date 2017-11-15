@@ -25,7 +25,6 @@ The following steps are supported on a Mac, Windows, or Linux computer.
 
 To complete this quickstart, you need:
 
-+ An active [GitHub](https://github.com) account. 
 + An active Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
