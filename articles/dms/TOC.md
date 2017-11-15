@@ -7,6 +7,9 @@
 # Tutorials
 ## [Migrate SQL Server to Azure SQL DB](tutorial-sql-server-to-azure-sql.md)
 
+# How-to guides
+## [Use PowerShell to Migrate SQL Server](howto-sql-server-to-azure-sql-powershell.md)
+
 # Resources
 ## [User Voice Feedback](https://feedback.azure.com/forums/906100-azure-database-migration-service)
 ## [Azure Roadmap](https://azure.microsoft.com/en-us/roadmap/)
