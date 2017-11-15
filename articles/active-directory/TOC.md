@@ -247,12 +247,12 @@
 ## Manage your directory
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Custom domain names
-#### [Overview](active-directory-domains-manage-azure-portal.md)
-#### [Manage domain names](active-directory-domains-manage-azure-portal.md)
+#### [Quickstart](add-custom-domain.md)
+#### [Add custom domain names](active-directory-domains-manage-azure-portal.md)
 ### [Administer your directory](active-directory-administer.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
 ### [Self-service signup](active-directory-self-service-signup.md)
-#### [Take over an unmanaged directory](domains-admin-takeover.md)
+### [Take over an unmanaged directory](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Enable](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
