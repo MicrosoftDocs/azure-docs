@@ -81,8 +81,25 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
 
 - RevoScalePy library is only supported on Windows and Linux (in Docker containers). It is not supported on macOS.
 
-## Delete Experimentation Account
-You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first.
+## Can't update Workbench
+When a new update is available, the Workbench app homepage displays a message informing you about the new update. You should see an update badge appearing on the lower left corner of the app on the bell icon. Click on the badge and follow the installer wizard to install the update. 
+
+![update image](./media/known-issues-and-troubleshooting-guide/update.png)
+
+If you don't see the notification, try to restart the app. If you still don't see the update notification after restart, there might be a few causes.
+
+### You are launching Workbench from a pinned shortcut on the task bar
+You may have already installed the update. But your pinned shortcut is still pointing to the old bits on disk. You can verify this by browsing to the `%localappdata%/AmlWorkbench` folder and see if you have latest version installed there, and examine the property of the pinned shortcut to see where it is pointing to. If verified, simply remove the old shortcut, launch Workbench from Start menu, and optionally create a new pinned shortcut on the task bar.
+
+### You installed Workbench using the "install Azure ML Workbench" link on a Windows DSVM
+Unfortunately there is no easy fix on this one. You have to perform the following steps to remove the installed bits, and download the latest installer to fresh-install the Workbench: 
+   - remove the folder `C:\Users\<Username>\AppData\Local\amlworkbench`
+   - remove script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - remove desktop shortcut that launches the above script
+   - download the installer https://aka.ms/azureml-wb-msi and reinstall.
+
+## Can't delete Experimentation Account
+You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first. Otherwise, you see an error.
 
 ```azure-cli
 # delete a project
@@ -97,9 +114,11 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 
 You can also delete the projects and workspaces from within the Workbench app.
 
+## Can't open file if project is in OneDrive
+If you have Windows 10 Fall Creators Update, and your project is created in a local folder mapped to OneDrive, you might find that you cannot open any file in Workbench. This is due to a bug introduced by the Fall Creators Update that causes node.js code to fail in a OneDrive folder. The bug will be fixed soon by Windows update, but until then, please do not create projects in a OneDrive folder.
 
 ## File name too long on Windows
-If you uses Workbench on Windows, you might run into the default maximum 260-character file name length limit, which could surface as a somewhat misleading "system cannot find the path specified" error. You can modify a registry key setting to allow much longer file path name. Review [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) for more details on how to set the _MAX_PATH_ registry key.
+If you use Workbench on Windows, you might run into the default maximum 260-character file name length limit, which could surface as a "system cannot find the path specified" error. You can modify a registry key setting to allow much longer file path name. Review [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) for more details on how to set the _MAX_PATH_ registry key.
 
 ## Docker error "read: connection refused"
 When executing against a local Docker container, sometimes you might see the following error: 
