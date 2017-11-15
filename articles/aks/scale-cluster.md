@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2017
+ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
 
@@ -30,7 +30,7 @@ It is easy to scale an AKS cluster to a different number of nodes.  Select the d
 Use the `az aks scale` command to scale the cluster nodes. The following example scales a cluster named *myK8SCluster* to a single node.
 
 ```azurecli-interactive
-az aks scale --name myK8sCluster --resource-group myResourceGroup --agent-count 1
+az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
 ```
 
 Output:
