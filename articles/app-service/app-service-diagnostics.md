@@ -15,7 +15,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.documentid: cf226eae-ed17-4346-bf67-eebf7695ceeb
 
 ---
 # Azure App Service diagnostics overview 
