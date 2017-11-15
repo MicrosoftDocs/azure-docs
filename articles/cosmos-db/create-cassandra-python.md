@@ -64,9 +64,9 @@ This step is optional. If you're interested in learning how the database resourc
 
    ```python
    	ssl_options = {
-                  'ca_certs': 'path\to\cert',
-                  'ssl_version': ssl.PROTOCOL_TLSv1_2
-        }
+                          'ca_certs': 'path\to\cert',
+                          'ssl_version': ssl.PROTOCOL_TLSv1_2
+                         }
     	auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
     	cluster = Cluster([cfg.config['contactPoint']], port = cfg.config['port'], auth_provider=auth_provider, ssl_options=ssl_options)
 	session = cluster.connect()
@@ -88,7 +88,7 @@ This step is optional. If you're interested in learning how the database resourc
 * A new keyspace is created.
 
     ```python
-   session.execute('CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'SimpleStrategy\', \'replication_factor\': \'3\' }')
+   session.execute('CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter\' : \'1\' }')
     ```
 
 * A new table is created.
@@ -102,10 +102,10 @@ This step is optional. If you're interested in learning how the database resourc
     ```Python
     insert_data = session.prepare("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)")
     batch = BatchStatement()
-    batch.add(insert_data, (1, 'VinodS', 'Dubai'))
-    batch.add(insert_data, (2, 'MohammedS', 'Toronto'))
-    batch.add(insert_data, (3, 'SiddeshV', 'Mumbai'))
-    batch.add(insert_data, (4, 'KirilG', 'Seattle'))
+    batch.add(insert_data, (1, 'LyubovK', 'Dubai'))
+    batch.add(insert_data, (2, 'JiriK', 'Toronto'))
+    batch.add(insert_data, (3, 'IvanH', 'Mumbai'))
+    batch.add(insert_data, (4, 'YuliaT', 'Seattle'))
     ....
     session.execute(batch)
     ```
@@ -173,6 +173,10 @@ Now go back to the Azure portal to get your connection string information and co
     python -m pip install cassandra-driver
     
     python -m pip install prettytable
+    
+    python -m pip install requests
+    
+    python -m pip install pyopenssl
     ```
 
 2. Run the following command to start your node application:
