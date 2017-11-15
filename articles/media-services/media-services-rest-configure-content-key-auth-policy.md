@@ -423,7 +423,7 @@ Add AuthorizationPolicy to the ContentKey as shown [here](#AddAuthorizationPolic
     {
         Open = 0,
         TokenRestricted = 1, 
-        IPRestricted = 2, // Not supported, reserved for future
+        IPRestricted = 2, // IP restriction on content key is not currently supported, reserved for future.
     }
 
 
