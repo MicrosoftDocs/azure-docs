@@ -33,13 +33,13 @@ The files from any publicly accessible origin web server can be cached in Azure 
 > 
 
 ## Setting Cache-Control headers by using configuration files
-For static content, such as images and style sheets, you can control the update frequency by modifying the **applicationHost.config** or **web.config** configuration files for your web application. The **system.webServer\staticContent\clientCache** element in either file sets the `Cache-Control` header for your content.
+For static content, such as images and style sheets, you can control the update frequency by modifying the **applicationHost.config** or **Web.config** configuration files for your web application. The `<system.webServer>/<staticContent>/<clientCache>` element in either file sets the `Cache-Control` header for your content.
 
-# Using applicationHost.config files
-The **applicationHost.config** file is the root file of the IIS configuration system. The configuration settings in an **applicationHost.config** file affect all applications on the site, but are overridden by the settings of any **web.config** files that exist for a web application.
+# Using ApplicationHost.config files
+The **ApplicationHost.config** file is the root file of the IIS configuration system. The configuration settings in an **ApplicationHost.config** file affect all applications on the site, but are overridden by the settings of any **Web.config** files that exist for a web application.
 
-# Using web.config files
-With a web.config file, you can customize the way your entire web application or a specific directory on your web application behaves. Typically, you have at least one **web.config** file in the root folder of your web application. For each **web.config** file in a specific folder, the configuration settings affect everything in that folder and all its subfolders, unless they are overridden at the subfolder level by another **web.config** file. For example, you can set a `<clientCache>` element in a **web.config** file in the root folder of your web application to cache all static content on your web application for three days. You can also add a **web.config** file in a subfolder with more variable content (for example, `\frequent`) and set its `<clientCache>` element to cache the subfolder's content for six hours. The net result is that content on the entire web site will be cached for three days, except for any content in the `\frequent` directory, which will be cached for only six hours.  
+# Using Web.config files
+With a **Web.config** file, you can customize the way your entire web application or a specific directory on your web application behaves. Typically, you have at least one **Web.config** file in the root folder of your web application. For each **Web.config** file in a specific folder, the configuration settings affect everything in that folder and all its subfolders, unless they are overridden at the subfolder level by another **Web.config** file. For example, you can set a `<clientCache>` element in a **Web.config** file in the root folder of your web application to cache all static content on your web application for three days. You can also add a **Web.config** file in a subfolder with more variable content (for example, `\frequent`) and set its `<clientCache>` element to cache the subfolder's content for six hours. The net result is that content on the entire web site will be cached for three days, except for any content in the `\frequent` directory, which will be cached for only six hours.  
 
 The following XML example shows how to set the `<clientCache>` element in a configuration file to specify a maximum age of three days:  
 

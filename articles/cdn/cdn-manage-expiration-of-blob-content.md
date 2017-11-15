@@ -24,7 +24,7 @@ ms.author: mazha
 > 
 > 
 
-The [Blob storage service](../storage/common/storage-introduction.md#blob-storage) in Azure Storage is one of several Azure-based origins integrated with Azure Content Delivery Network (CDN). Any publicly accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses. The TTL is determined by the `Cache-Control` header in the HTTP response from the origin server. This article describes how to set `Cache-Control` headers on a blob in Azure Storage.
+The [Blob storage service](../storage/common/storage-introduction.md#blob-storage) in Azure Storage is one of several Azure-based origins integrated with Azure Content Delivery Network (CDN). Any publicly accessible blob content can be cached in Azure CDN until its time-to-live (TTL) elapses. The TTL is determined by the `Cache-Control` header in the HTTP response from the origin server. This article describes several ways that you can set the `Cache-Control` header on a blob in Azure Storage.
 
 > [!TIP]
 > You can choose to set no TTL on a blob. In this case, Azure CDN automatically applies a default TTL of seven days.
@@ -33,8 +33,6 @@ The [Blob storage service](../storage/common/storage-introduction.md#blob-storag
 > 
 > For more information about Azure Blob storage, see [Introduction to Blob storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
  
-
-This tutorial demonstrates several ways that you can set the `Cache-Control` header on a blob in Azure Storage.  
 
 ## Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) is one of the quickest and most powerful ways to administer your Azure services. Use the `Get-AzureStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property. 
