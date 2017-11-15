@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 11/14/2017
 ms.author: juliako
 
 ---
@@ -181,6 +181,10 @@ Response:
 This section describes how to create a content key authorization policy and associate it with the content key. The authorization policy describes what authorization requirements must be met to determine if the user is authorized to receive the key (for example, does the “verification key” list contain the key that the token was signed with).
 
 To configure the token restriction option, you need to use an XML to describe the token’s authorization requirements. The token restriction configuration XML must conform to the following XML schema.
+
+> [!NOTE]
+> Token restriction on content key authorization policies is not yet available in the service.
+
 
 #### <a id="schema"></a>Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
@@ -421,7 +425,7 @@ Add AuthorizationPolicy to the ContentKey as shown [here](#AddAuthorizationPolic
     public enum ContentKeyRestrictionType
     {
         Open = 0,
-        TokenRestricted = 1,
+        TokenRestricted = 1, // Not supported, reserved for future
         IPRestricted = 2,
     }
 

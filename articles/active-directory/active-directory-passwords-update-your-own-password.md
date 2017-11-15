@@ -92,6 +92,27 @@ Use this method if you normally access your applications from the Azure Access P
 3. Click **Change password**
 4. Enter your old password, set and confirm your new password, and then click **Submit**
 
+## Reset password at login
+
+If your administrator has enabled the functionality you may now see a link to **Reset password** at your Windows 10 Fall Creators Update login screen.
+
+![LoginScreen][LoginScreen]
+
+Clicking the **Reset password** link will open up the SSPR experience at the login screen so that you can reset your password without having to log in to access the normal web-based experience.
+
+1. Confirm your User ID and click **Next**
+2. Choose and confirm a contact method for verification. Your IT staff may need more verification and you may have to repeat this step again with a different choice.
+
+   ![ContactMethod][ContactMethod]
+
+3. On the **Create a new password** page, enter a new password, confirm your password, and then click **Next**. We suggest your password be 8-16 characters with uppercase and lowercase characters, numbers, and special characters.
+
+   ![ResetPassword][ResetPassword]
+
+4. When you see **Your password has been reset**, click **Finish**
+
+You should now be able to access your account, if not you should contact your organization's IT staff for further help.
+
 ## Common problems and their solutions
 
  Here are some common error cases and their solutions:
@@ -113,3 +134,6 @@ Use this method if you normally access your applications from the Azure Access P
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Verify your authentication data"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Change your password"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Password has been reset"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 Fall Creators Update login screen Reset password link"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Verify your authentication data"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Change your password"
