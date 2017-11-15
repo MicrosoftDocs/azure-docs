@@ -41,11 +41,18 @@ az provider register -n Microsoft.ContainerService
 
 After registering, you are now ready to create a Kubernetes cluster with AKS.
 
+You may need to register other providers depending on if you have used them previously
+
+```azurecli-interactive
+az provider register -n Microsoft.Compute
+az provider register -n Microsoft.Network
+```
+
 ## Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location. [Read more about available locations during preview.](https://github.com/Azure/AKS/blob/master/preview_regions.md)
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -71,7 +78,7 @@ Output:
 The following example creates a cluster named *myK8sCluster* with one node.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --location eastus --name myK8sCluster --agent-count 1 --generate-ssh-keys
 ```
 
 After several minutes, the command completes and returns JSON-formatted information about the cluster.
