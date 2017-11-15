@@ -1,8 +1,9 @@
-# Overview
 ## [Azure IoT Edge documentation](index.yml)
+
+# Overview
 ## [About Azure IoT Edge](how-iot-edge-works.md)
 
-# Quickstart
+# Quickstarts
 ## [Deploy to the edge - Windows](quickstart.md)
 ## [Deploy to the edge - Linux](quickstart-linux.md)
 
@@ -13,7 +14,6 @@
 ## [Deploy Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
 ## [Deploy Azure Machine Learning](tutorial-deploy-machine-learning.md)
 ## [Deploy Azure Functions](tutorial-deploy-function.md)
-
 
 # How-to guides
 ## [Create a gateway device](how-to-create-gateway-device.md)
