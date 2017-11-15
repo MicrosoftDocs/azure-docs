@@ -172,6 +172,7 @@
 
 ### Migrate
 #### [Subscriptions and storage accounts](storsimple-8000-migrate-classic-azure-portal.md)
+#### [From 5000/7000 series devices](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update
