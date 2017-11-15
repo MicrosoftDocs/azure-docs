@@ -855,12 +855,6 @@
             "redirect_url": "/azure/marketplace/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal",
             "redirect_document_id": false
         },
-
-        {
-            "source_path": "articles/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md",
-            "redirect_url": "/azure/marketplace/cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal",
-            "redirect_document_id": false
-        },
         {
             "source_path": "articles/java/index.md",
             "redirect_url": "/java/azure/",
