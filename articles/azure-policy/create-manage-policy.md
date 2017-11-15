@@ -116,7 +116,7 @@ Now that we've assigned the policy definition, we're going to create a new polic
 
 <!-- Update the following link to the top level samples page
 -->
-   To view samples of json code, look at this article  - [Resource policy overview](../azure-resource-manager/resource-manager-policy.md)
+   To view samples of json code, look at this article  - [Templates for Azure Policy](json-samples.md)
 
 4. Select **Save**.
 
