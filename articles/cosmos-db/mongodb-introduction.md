@@ -26,7 +26,7 @@ ms.author: anhoh
 
 Azure Cosmos DB databases can be used as the data store for apps written for [MongoDB](https://docs.mongodb.com/manual/introduction/). This means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/), your application written for MongoDB can now communicate with Azure Cosmos DB and use Azure Cosmos DB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to Azure Cosmos DB by simply changing a connection string. Using this functionality, you can easily build and run MongoDB database applications in the Azure cloud with Azure Cosmos DB's global distribution and [comprehensive industry leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db), while continuing to use familiar skills and tools for MongoDB.
 
-**MongoDB compatibility**: You can use your existing MongoDB expertise, application code, and tooling as Azure Cosmos DB implements the MongoDB 3.4 (version 5) wire protocol and supports the MongoDB aggregation pipeline. You can develop applications using MongoDB and deploy them to production using the fully managed, and globally distributed Azure Cosmos DB service.
+**MongoDB compatibility**: You can use your existing MongoDB expertise, application code, and tooling as Azure Cosmos DB implements the MongoDB 3.4 (version 5) wire protocol and supports the [MongoDB aggregation pipeline](mongodb-feature-support.md#aggregation-pipeline). You can develop applications using MongoDB and deploy them to production using the fully managed, and globally distributed Azure Cosmos DB service.
 
 ## What is the benefit of using Azure Cosmos DB for MongoDB applications?
 
