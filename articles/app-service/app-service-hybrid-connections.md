@@ -20,28 +20,26 @@ ms.author: ccompy
 
 # Azure App Service Hybrid Connections #
 
-## Overview ##
+Hybrid Connections is both a service in Azure and a feature in the Azure App Service. As a service, it has uses and capabilities beyond those that are used in Azure App Service. To learn more about Hybrid Connections and their usage outside of the Azure App Service, see [Azure Relay Hybrid Connections][HCService].
 
-Hybrid Connections is both a service in Azure as well as a feature in the Azure App Service.  As a service it has uses and capabilities beyond those that are leveraged in Azure App Service.  To learn more about Hybrid Connections and their usage outside of the Azure App Service you can start here, [Azure Relay Hybrid Connections][HCService]
-
-Within Azure App Service, Hybrid Connections can be used to access application resources in other networks. It provides access FROM your app TO an application endpoint.  It does not enable an alternate capability to access your application.  As used in App Service, each Hybrid Connection correlates to a single TCP host and port combination.  This means that the Hybrid Connection endpoint can be on any operating system and any application, provided you are hitting a TCP listening port. Hybrid Connections do not know or care what the application protocol is or what you are accessing.  They are simply providing network access.  
+Within Azure App Service, Hybrid Connections can be used to access application resources in other networks. It provides access from your app to an application endpoint. It does not enable an alternate capability to access your application. As used in App Service, each hybrid connection correlates to a single TCP host and port combination. This means that the hybrid connection endpoint can be on any operating system and any application, provided you are accessing a TCP listening port. The Hybrid Connections feature does not know or care what the application protocol is, or what you are accessing. It is simply providing network access.  
 
 
 ## How it works ##
-The Hybrid Connections feature consists of two outbound calls to Service Bus Relay.  There is a connection from a library on the host where your app is running in App Service and there is a connection from the Hybrid Connection Manager (HCM) to Service Bus Relay.  The HCM is a relay service that you deploy within the network hosting the resource you are trying to access. 
+The Hybrid Connections feature consists of two outbound calls to Azure Service Bus Relay. There is a connection from a library on the host where your app is running in App Service. There is also a connection from the Hybrid Connection Manager (HCM) to Service Bus Relay. The HCM is a relay service that you deploy within the network hosting the resource you are trying to access. 
 
-Through the two joined connections, your app has a TCP tunnel to a fixed host:port combination on the other side of the HCM.  The connection uses TLS 1.2 for security and SAS keys for authentication/authorization.    
+Through the two joined connections, your app has a TCP tunnel to a fixed host:port combination on the other side of the HCM. The connection uses TLS 1.2 for security and shared access signature (SAS) keys for authentication and authorization.    
 
 ![Hybrid connection high level flow][1]
 
-When your app makes a DNS request that matches a configured Hybrid Connection endpoint, the outbound TCP traffic will be redirected through the Hybrid Connection.  
+When your app makes a DNS request that matches a configured hybrid connection endpoint, the outbound TCP traffic will be redirected through the hybrid connection.  
 
 > [!NOTE]
-> This means that you should try to always use a DNS name for your Hybrid Connection.  Some client software does not do a DNS lookup if the endpoint uses an IP address instead.
+> This means that you should try to always use a DNS name for your hybrid connection. Some client software does not do a DNS lookup if the endpoint uses an IP address instead.
 >
 >
 
-There are two types of Hybrid Connections: the new Hybrid Connections that are offered as a service under Azure Relay and the older BizTalk Hybrid Connections.  The older BizTalk Hybrid Connections are referred to as Classic Hybrid Connections in the portal.  There is more information later in this document about them.
+The Hybrid Connections feature has two types: the Hybrid Connections that are offered as a service under Service Bus Relay, and the older Azure BizTalk Services Hybrid Connections. The latter are referred to as Classic Hybrid Connections in the portal. There is more information about them later in this article.
 
 ### App Service Hybrid Connection benefits ###
 
