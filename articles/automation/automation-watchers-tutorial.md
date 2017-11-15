@@ -50,7 +50,7 @@ To complete this tutorial, the following are required.
 ![List variables from UI](media/automation-watchers-tutorial/WatcherVariableList.png)
 2.	Enter “Watch-NewFileTimestamp” for the name
 3.	Select Type as DateTime and then click on the “Create” button.
-![Create watermark variable from UI](media/automation-watchers-tutorial/WatcherWatermarkVariable.png)
+![left | Create watermark variable from UI](media/automation-watchers-tutorial/WatcherWatermarkVariable.png)
 
 ## Create an action runbook that is called when the watcher runbook finds a new file.
 1.	Click on the Runbooks page under the “PROCESS AUTOMATION” category.
