@@ -1,5 +1,5 @@
 ---
-title: 'Copy on-premises data to cloud using Azure Data Factory | Microsoft Docs'
+title: 'Copy data from SQL Server to BLob Storage using Azure Data Factory | Microsoft Docs'
 description: 'Learn how to copy data from an on-premises data store to Azure cloud by using self-hosted integration runtime in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: jingwang
 ---
-# Tutorial: Copy data between on-premises and cloud
+# Tutorial: Copy data from on-premises SQL Server to Azure Blob Storage
 In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that copies data from an on-premises SQL Server database to an Azure Blob storage. You create and use a self-hosted integration runtime (IR) of Azure Data Factory/ It allows integration of on-premises data stores and cloud data stores.  To learn about using other tools/SDKs to create data factory, see [Quickstarts](quickstart-create-data-factory-dot-net.md).
 
 This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md). 
