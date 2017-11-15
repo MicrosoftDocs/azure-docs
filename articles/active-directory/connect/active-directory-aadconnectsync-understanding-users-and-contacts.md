@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect sync: Understanding Users, Groups and Contacts | Microsoft Docs'
-description: Explains users, groups and contacts in Azure AD Connect sync.
+title: 'Azure AD Connect sync: Understanding Users, Groups, and Contacts | Microsoft Docs'
+description: Explains users, groups, and contacts in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,7 +16,7 @@ ms.date: 10/17/2017
 ms.author: markvi;andkjell
 
 ---
-# Azure AD Connect sync: Understanding Users, Groups and Contacts
+# Azure AD Connect sync: Understanding Users, Groups, and Contacts
 There are several different reasons why you would have multiple Active Directory forests and there are several different deployment topologies. Common models include an account-resource deployment and GAL sync’ed forests after a merger & acquisition. But even if there are pure models, hybrid models are common as well. The default configuration in Azure AD Connect sync does not assume any particular model but depending on how user matching was selected in the installation guide, different behaviors can be observed.
 
 In this topic, we will go through how the default configuration behaves in certain topologies. We will go through the configuration and the Synchronization Rules Editor can be used to look at the configuration.
@@ -41,13 +41,13 @@ Important points to be aware of when synchronizing groups from Active Directory 
 
     * If the group's *proxyAddress* attribute is empty, its *mail* attribute must have a value, OR 
 
-    * If the group's *proxyAddress* attribute is non-empty, it must also contain a primary SMTP proxy address value. Here are some examples:
+    * If the group's *proxyAddress* attribute is non-empty, it must also contain a primary SMTP proxy address value (as denoted by upper-case **SMTP** prefix). Here are some examples:
     
-      * An Active Directory group with proxyAddress attribute containing value *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* will not become a mail-enabled group in Azure AD. It does not have a primary SMTP address.
+      * An Active Directory group whose proxyAddress attribute has value *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* will not be mail-enabled in Azure AD. It does not have a primary SMTP address.
       
-      * An Active Directory group with proxyAddress attribute containing values *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* will not become a mail-enabled group in Azure AD. It has an smtp address but it is not primary.
+      * An Active Directory group whose proxyAddress attribute has values *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* will not be mail-enabled in Azure AD. It has an smtp address but it is not primary.
       
-      * be provisioned as a mail-enabled group in Azure AD. An Active Directory group with proxyAddress attribute containing values *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* will become mail-enabled in Azure AD.
+      * An Active Directory group whose proxyAddress attribute has values *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* will be mail-enabled in Azure AD.
 
 ## Contacts
 Having contacts representing a user in a different forest is common after a merger & acquisition where a GALSync solution is bridging two or more Exchange forests. The contact object is always joining from the connector space to the metaverse using the mail attribute. If there is already a contact object or user object with the same mail address, the objects are joined together. This is configured in the rule **In from AD – Contact Join**. There is also a rule named **In from AD – Contact Common** with an attribute flow to the metaverse attribute **sourceObjectType** with the constant **Contact**. This rule has very low precedence so if any user object is joined to the same metaverse object, then the rule **In from AD – User Common** will contribute the value User to this attribute. With this rule, this attribute will have the value Contact if no user has been joined and the value User if at least one user has been found.
@@ -57,7 +57,7 @@ It is possible that an object is promoted from Contact to User when more source 
 
 For example, in a GALSync topology we will find contact objects for everyone in the second forest when we import the first forest. This will stage new contact objects in the AAD Connector. When we later import and synchronize the second forest, we will find the real users and join them to the existing metaverse objects. We will then delete the contact object in AAD and create a new user object instead.
 
-If you have a topology where users are represented as contacts, make sure you select to match users on the mail attribute in the installation guide. If you select another option, then you will have an order dependent configuration. Contact objects will always join on the mail attribute, but user objects will only join on the mail attribute if this option was selected in the installation guide. You could then end up with two different objects in the metaverse with the same mail attribute if the contact object was imported before the user object. During export to Azure AD, an error will be thrown. This behavior is by design and would indicate bad data or that the topology was not correctly identified during the installation.
+If you have a topology where users are represented as contacts, make sure you select to match users on the mail attribute in the installation guide. If you select another option, then you will have an order-dependent configuration. Contact objects will always join on the mail attribute, but user objects will only join on the mail attribute if this option was selected in the installation guide. You could then end up with two different objects in the metaverse with the same mail attribute if the contact object was imported before the user object. During export to Azure AD, an error will be thrown. This behavior is by design and would indicate bad data or that the topology was not correctly identified during the installation.
 
 ## Disabled accounts
 Disabled accounts are synchronized as well to Azure AD. Disabled accounts are common to represent resources in Exchange, for example conference rooms. The exception is users with a linked mailbox; as previously mentioned, these will never provision an account to Azure AD.
