@@ -31,7 +31,7 @@ When you want to use your own [Azure Machine Learning](https://docs.microsoft.co
 * The Azure ML container
 
 ## Create the Azure ML container
-Follow the instructions [here](https://aka.ms/aml-iot-edge-anomaly-detection) to create the Azure ML container.
+To create your Azure ML container, follow the instructions in the [AI toolkit for Azure IoT Edge](https://aka.ms/aml-iot-edge-anomaly-detection).
 
 ## Run the solution
 
@@ -40,11 +40,11 @@ Follow the instructions [here](https://aka.ms/aml-iot-edge-anomaly-detection) to
 1. Select **Set modules**.
 1. Select **Add IoT Edge module**.
 1. In the **Name** field, enter `tempSensor`.
-1. In the **Image URI** field, enter the image URI (click [here](https://aka.ms/aml-iot-edge-anomaly-detection) for help finding the image URI).
+1. In the **Image URI** field, enter `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
 1. Leave the other settings unchanged and select **Save**.
 1. Still on the **Add Modules** step, select **Add IoT Edge module** again.
-1. In the **Name** field, enter the name (click [here](https://aka.ms/aml-iot-edge-anomaly-detection) for help finding the name).
-1. In the **Image** field, enter the image (click [here](https://aka.ms/aml-iot-edge-anomaly-detection) for help finding the image).
+1. In the **Name** field, enter the name of the container you made in the previous section. Refer to the [AI toolkit for Azure IoT Edge](https://aka.ms/aml-iot-edge-anomaly-detection) for help finding the name.
+1. In the **Image** field, enter the image URI of the container that you made in the previous section. Refer to the [AI toolkit for Azure IoT Edge](https://aka.ms/aml-iot-edge-anomaly-detection) for help finding the image.
 1. Click **Save**.
 1. Back in the **Add Modules** step, click **Next**.
 1. Update routes for your module:
