@@ -246,6 +246,8 @@
         href: mongodb-mongochef.md
       - name: Using Robomongo
         href: mongodb-robomongo.md
+      - name: MongoDB feature support
+        href: mongodb-feature-support.md
       - name: Angular tutorial series
         items:
         - name: Part 2 - Create Node app
