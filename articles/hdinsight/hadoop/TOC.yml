@@ -227,9 +227,6 @@
     - name: Authorize users for Ambari Views
       href: ../hdinsight-authorize-users-to-ambari.md
       maintainContext: true
-    - name: Manage user permissions at the file and folder levels
-      href: ../hdinsight-add-acls-at-file-folder-levels.md
-      maintainContext: true
   - name: Manage
     items:
     - name: Create Linux clusters
