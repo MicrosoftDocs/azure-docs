@@ -30,12 +30,12 @@ This tutorial covers the following tasks:
 
 ## Data Migration tool
 
-The command line Azure Cosmos DB Data Migration tool (dt.exe) can be used to import your existing Azure Table storage data to a Table API GA account, or migrate data from a Table API (preview) account into a Table API GA account. Other sources are not currently supported.
+The command-line Azure Cosmos DB Data Migration tool (dt.exe) can be used to import your existing Azure Table storage data to a Table API GA account, or migrate data from a Table API (preview) account into a Table API GA account. Other sources are not currently supported.
 
 To perform a migration of table data, complete the following tasks:
 
 1. Download the migration tool from the [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) or from [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
-2. Run `dt.exe` using the command line arguments for your scenario.
+2. Run `dt.exe` using the command-line arguments for your scenario.
 
 dt.exe takes a command in the following format:
 
@@ -48,7 +48,7 @@ Options for the command are:
     /ProgressUpdateInterval: Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress
     /ErrorDetails: Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All
 
-### Command line source settings
+### Command-line source settings
 
 Use the following source options when defining Azure Table Storage or Table API preview as the source of the migration.
 
@@ -72,7 +72,7 @@ To retrieve the source connection string when importing from an Azure Cosmos DB 
 
 [Sample Azure Cosmos DB Table API (preview) command](#table-api-preview)
 
-### Command line target settings
+### Command-line target settings
 
 Use the following target options when defining Azure Cosmos DB Table API as the target of the migration.
 
@@ -87,7 +87,7 @@ Use the following target options when defining Azure Cosmos DB Table API as the 
 <a id="azure-table-storage"></a>
 ### Sample command: Source is Azure Table storage
 
-Here is a command line sample showing how to import from Azure Table storage to Table API:
+Here is a command-line sample showing how to import from Azure Table storage to Table API:
 
 ```
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey==<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
@@ -95,7 +95,7 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 <a id="table-api-preview"></a>
 ### Sample command: Source is Azure Cosmos DB Table API (preview)
 
-Here is a command line sample to import from Table API preview to Table API GA:
+Here is a command-line sample to import from Table API preview to Table API GA:
 
 ```
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
@@ -103,9 +103,9 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 
 ## AzCopy command
 
-Using the AzCopy command line utility is the other option for migrating data from Azure Table storage to the Azure Cosmos DB Table API. To use AzCopy, you first export your data as described in [Export data from Table storage](../storage/common/storage-use-azcopy.md#export-data-from-table-storage), then import the data to Azure Cosmos DB as described in [Azure Cosmos DB Table API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage).
+Using the AzCopy command-line utility is the other option for migrating data from Azure Table storage to the Azure Cosmos DB Table API. To use AzCopy, you first export your data as described in [Export data from Table storage](../storage/common/storage-use-azcopy.md#export-data-from-table-storage), then import the data to Azure Cosmos DB as described in [Azure Cosmos DB Table API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage).
 
-When performing the import into Azure Cosmos DB, refer to the example below. Note that the /Dest value uses cosmosdb, not core.
+When performing the import into Azure Cosmos DB, refer to the following sample. Note that the /Dest value uses cosmosdb, not core.
 
 Example import command:
 
@@ -119,9 +119,9 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.windows.net/m
 > If you want to immediately enjoy the benefits of the generally available tables then please migrate your existing preview tables as specified in this section, otherwise we will be performing auto-migrations for existing preview customers in the coming weeks, note however that auto-migrated preview tables will have certain restrictions to them that newly created tables will not.
 > 
 
-The Table API is now generally available (GA). There are differences between the preview and GA versions of tables both in the code that runs in the cloud as well as in code that runs at the client. Therefore it is not advised to try and mix a preview SDK client with a GA Table API account, and vice versa. Table API preview customers who want to continue to use their existing tables but in a production environment need to migrate from the preview to the GA environment, or wait for auto-migration. If you wait for auto-migration, you will be notified of the restrictions on the migrated tables. After migration, you will be able to create new tables on your existing account without restrictions (only migrated tables will have restrictions).
+The Table API is now generally available (GA). There are differences between the preview and GA versions of tables both in the code that runs in the cloud as well as in code that runs at the client. Therefore it is not advised to try to mix a preview SDK client with a GA Table API account, and vice versa. Table API preview customers who want to continue to use their existing tables but in a production environment need to migrate from the preview to the GA environment, or wait for auto-migration. If you wait for auto-migration, you will be notified of the restrictions on the migrated tables. After migration, you will be able to create new tables on your existing account without restrictions (only migrated tables will have restrictions).
 
-To migrate from Table API (preview) to the generally avaiable Table API:
+To migrate from Table API (preview) to the generally available Table API:
 
 1. Create a new Azure Cosmos DB account and set its API type to Azure Table as described in [Create a database account](create-table-dotnet.md#create-a-database-account).
 
@@ -142,6 +142,3 @@ You can now proceed to the next tutorial and learn how to query data using the A
 
 > [!div class="nextstepaction"]
 >[How to query data?](../cosmos-db/tutorial-query-table.md)
-
-
-
