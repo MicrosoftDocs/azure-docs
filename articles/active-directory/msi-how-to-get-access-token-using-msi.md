@@ -36,10 +36,7 @@ This article shows you various ways a client application can use the MSI service
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
 
-If you plan to use the Azure PowerShell or Azure CLI examples in this article, you have three options:
-- Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
-- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of code blocks.
-- Install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local command prompt. 
+If you plan to use the Azure PowerShell or Azure CLI examples in this article, be sure to install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
@@ -51,25 +48,22 @@ As discussed previously, MSI offers a service principal for sign-in (and resourc
 
 The examples below show of variety of ways to do one or both functions, starting from concrete to more abstract methods:
 
-|      Client type       |       Code snippets       |  Code samples  | 
-| ---------------------- | ------------------------- | ---------------|
-| [HTTP/REST](#httprest) | Acquire token             |                |
-| <br> Programming languages: |                      |                |           
-| [.NET C#](#net-c)      | Acquire token             |                | 
-| [Go](#go)              | Acquire token             |                |                                          
-| [Node](#php)           |                           | Manage resources using Managed Service Identity | 
-| [Python](#python)      |                           | Use MSI to authenticate simply from inside a VM | 
-| [Ruby](#ruby)          |                           | Manage resources from an MSI-enabled VM | 
-| <br>SDKs and samples:  |                           |                |    
-| .NET                   |                           | [Deploy an ARM template from a Windows VM using Managed Service Identity](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
-| .NET Core              |                           | [Call Azure services from a Linux VM using Managed Service Identity](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |  
-| Node.js                |                           | [Manage resources using Managed Service Identity](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |   
-| Python                 |                           | [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |   
-| Ruby                   |                           | [Manage resources from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) |     
-| <br>Scripting hosts / CLIs: |                      |                |           
-| [Azure PowerShell](#azure-powershell) | Acquire token, Sign-in |    |               
-| [Azure CLI](#azure-cli)| Sign-in                   |                |
-| [Bash/CURL](#bashcurl) | Acquire token             |                |                             
+|      Client type       |       Demonstration       |  
+| ---------------------- | ------------------------- | 
+| [HTTP/REST](#httprest) | Acquire token             | 
+| <br>Language snippets: |                           |             
+| [.NET C#](#net-c)      | Acquire token             |                 
+| [Go](#go)              | Acquire token             |                                                          
+| <br>SDKs and samples:  |                           |                   
+| .NET                   | [Deploy an ARM template from a Windows VM using Managed Service Identity](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
+| .NET Core              | [Call Azure services from a Linux VM using Managed Service Identity](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |  
+| Node.js                | [Manage resources using Managed Service Identity](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |   
+| Python                 | [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |   
+| Ruby                   | [Manage resources from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) |     
+| <br>Scripting hosts / CLIs: |                      |           
+| [Azure PowerShell](#azure-powershell) | Acquire token, Sign-in |               
+| [Azure CLI](#azure-cli)| Sign-in                   |        
+| [Bash/CURL](#bashcurl) | Acquire token             |                                     
 
 ### HTTP/REST 
 
@@ -262,7 +256,7 @@ The following script demonstrates how to:
 
 Please note, if you're using interactive sign in via Azure Cloud Shell, you won't be sign-in under the MSI service principal.
 
-```azurecli-interactive
+```azurecli
 az login --msi
 spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
 echo The MSI service principal ID is $spID
@@ -279,7 +273,7 @@ The following script demonstrates how to:
 
 Please note, if you're using interactive sign in via Azure Cloud Shell, you won't be sign-in under the MSI service principal.
 
-```azurepowershell-interactive
+```azurepowershell
 # Get an access token for the MSI
 $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
                               -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
