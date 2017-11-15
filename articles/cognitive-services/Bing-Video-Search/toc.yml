@@ -1,5 +1,5 @@
 - name: Bing Video Search Documentation
-  href: ../index.md
+  href: index.yml
 - name: Overview        
   items:
     - name: Search the web for videos
@@ -19,7 +19,7 @@
     href: java.md
   - name: NodeJs
     href: nodejs.md
-  - name: Php
+  - name: PHP
     href: php.md
   - name: Python
     href: python.md
@@ -35,6 +35,12 @@
     href: paging-videos.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+- name: Tutorials
+  items:
+  - name: Single-page Video Search app
+    href: tutorial-bing-video-search-single-page-app.md
+  - name: Single-page Video Search app (source code)
+    href: tutorial-bing-video-search-single-page-app-source.md
 - name: Reference
   items:
   - name: REST v7

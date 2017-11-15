@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/14/2017
 ms.author: tomfitz
 
 ---
@@ -248,7 +248,7 @@ The following example shows a policy that ensures tag consistency by specifying 
 }
 ```
 
-There are many more types of policies you can create. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+There are many more types of policies you can create. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md).
 
 ## SDKs
 Azure SDKs are available for multiple languages and platforms. Each of these language implementations is available through its ecosystem package manager and GitHub.

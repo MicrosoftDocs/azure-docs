@@ -54,7 +54,7 @@ Learn more:
 
 * [Overview of Single Sign-On](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [What is application access and single sign-on with Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
-* [Integrate Azure Active Directory single sign-on with SaaS apps](../active-directory/active-directory-sso-integrate-saas-apps.md)
+* [Integrate Azure Active Directory single sign-on with SaaS apps](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## Reverse proxy
 Azure AD Application Proxy lets you publish on-premises applications, such as [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), and [IIS](http://www.iis.net/)-based apps inside your private network and provides secure access to users outside your network. Application Proxy provides remote access and single sign-on (SSO) for many types of on-premises web applications with the thousands of SaaS applications that Azure AD supports. Employees can log in to your apps from home on their own devices and authenticate through this cloud-based proxy.
@@ -64,7 +64,7 @@ Learn more:
 * [Enabling Azure AD Application Proxy](../active-directory/active-directory-application-proxy-enable.md)
 * [Publish applications using Azure AD Application Proxy](../active-directory/active-directory-application-proxy-publish.md)
 * [Single-sign-on with Application Proxy](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Working with conditional access](../active-directory/active-directory-application-proxy-conditional-access.md)
+* [Working with conditional access](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
 
 ## Multi-factor authentication
 Azure Multi-factor authentication (MFA) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions. MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification options—phone call, text message, or mobile app notification or verification code and third party OAuth tokens.

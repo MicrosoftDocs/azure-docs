@@ -125,7 +125,7 @@
       href: ps-template.md
     - name: Connect to a VM
       href: connect-logon.md
-    - name: Use AHUB licensing
+    - name: Use Azure Hybrid Benefit license
       href: hybrid-use-benefit-licensing.md
     - name: Use Multitenant Hosting Rights for Windows 10
       href: windows-desktop-multitenant-hosting-deployment.md
@@ -141,6 +141,17 @@
       href: policy.md
     - name: Create a Key Vault
       href: key-vault-setup.md
+  - name: Protect VMs
+    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    items:
+      - name: Back up a single VM
+        items:
+        - name: Azure portal
+          href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Azure PowerShell
+          href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: Back up multiple VMs
+        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Manage VMs
     items:
     - name: Common PowerShell tasks
@@ -167,6 +178,8 @@
       href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
+    - name: Enable nested virtualization
+      href: nested-virtualization.md
   - name: Use Images
     items:
     - name: Find and use images

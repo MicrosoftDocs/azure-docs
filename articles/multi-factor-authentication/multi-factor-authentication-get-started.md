@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
+ms.reviewer: richagi
 
 ---
 # Choose the Azure Multi-Factor Authentication solution for you
