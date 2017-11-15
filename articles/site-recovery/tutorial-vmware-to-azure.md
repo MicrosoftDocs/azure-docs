@@ -100,18 +100,11 @@ setup fails.
 
 Make sure the configuration server VM can access these URLs:
 
-- *.accesscontrol.windows.net. Used for access control and identity management.
-- *.backup.windowsazure.com. Used for replication data transfer and coordination.
-- *.blob.core.windows.net. Used for access to the storage account that stores replicated data.
-- *.hypervrecoverymanager.windowsazure.com. Used for replication management operations and coordination.
-- time.nist.gov and time.windows.com. Used to check time synchronization between system and global time.
-
-URLs for the Azure Government cloud:
-
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    
+    - Any IP address-based firewall rules should allow communication to Azure.
+    - Allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and the HTTPS (443) port.
+    - Allow IP address ranges for the Azure region of your subscription, and for West US (used for access control and identity management).
 
 Any IP address-based firewall rules should allow communication to [Azure Datacenter IP
 Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653), and ports 443 (HTTPS) and
