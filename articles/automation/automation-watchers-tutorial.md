@@ -83,7 +83,8 @@ To complete this tutorial, the following are required.
 ## Trigger a watcher by adding a new file to a directory.
 1.	Remote into the hybrid worker
 2.	Add a new text file to the folder that is being monitored by the watcher task.
-Inspect the output from the action runbook that shows information on the new file.
+
+## Inspect the output from the action runbook that shows information on the new file.
 1.	Click on the watcher task for “Watch new files”
 2.	Click on the “View watcher streams” to see that the watcher found the new file and started the action runbook.
 3.	Click on the “View watcher action jobs” to see the action runbook job.
