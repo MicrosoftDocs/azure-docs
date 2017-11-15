@@ -56,10 +56,10 @@ If you want to see how to do an in-place upgrade from DirSync to Azure AD Connec
 The notification was also sent to customers using Azure AD Connect with a build number 1.0.\*.0 (using a pre-1.1 release). Microsoft recommends customers to stay current with Azure AD Connect releases. The [automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) feature introduced in 1.1 makes it easy to always have a recent version of Azure AD Connect installed.
 
 **Q: Will DirSync/Azure AD Sync stop working on April 13, 2017?**  
-DirSync/Azure AD Sync will continue to work on April 13th 2017.  However, Azure AD will no longer accept communications from DirSync/Azure AD Sync on December 31st 2017.
+DirSync/Azure AD Sync will continue to work on April 13th 2017.  However, Azure AD will no longer accept communications from DirSync/Azure AD Sync after December 31st 2017.
 
 **Q: Which DirSync versions can I upgrade from?**  
-It is supported to upgrade from any DirSync release currently being used.
+It is supported to upgrade from any DirSync release currently being used. Please note that in place upgrade from DirSync to Azure AD Connect is not supported after December 31st 2017. Customers who are using DirSync after that data and want to move to Azure AD Connect may have to do a fresh installation of Azure AD Connect instead.
 
 **Q: What about the Azure AD Connector for FIM/MIM?**  
 The Azure AD Connector for FIM/MIM has **not** been announced as deprecated. It is at **feature freeze**; no new functionality is added and it receives no bug fixes. Microsoft recommends customers using it to plan to move from it to Azure AD Connect. It is strongly recommended to not start any new deployments using it. This Connector will be announced deprecated in the future.
