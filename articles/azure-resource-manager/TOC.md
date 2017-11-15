@@ -69,9 +69,6 @@
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
 ### [Lock resources](resource-group-lock-resources.md)
 
-## Set resource policies
-### [What are resource policies?](resource-manager-policy.md)
-
 ## Audit
 ### [View activity logs](resource-group-audit.md)
 ### [View deployment operations](resource-manager-deployment-operations.md)

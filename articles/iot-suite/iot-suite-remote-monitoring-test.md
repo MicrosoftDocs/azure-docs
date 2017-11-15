@@ -35,6 +35,10 @@ The following table shows the data the ligthbulb reports to the cloud as a data 
 | Name   | Values      |
 | ------ | ----------- |
 | Status | "on", "off" |
+| online | true, false |
+
+> [!NOTE]
+> The **online** telemetry value is mandatory for all simulated types.
 
 *Methods*
 
@@ -263,7 +267,11 @@ To test the **Lightbulb** device type, you can first test your device type behav
 
 To test and debug your changes locally, see [Device simulation overview](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md).
 
-Configure the project to copy the new **Lightbulb** device files to the output directory.
+Configure the project to copy the new **Lightbulb** device files to the output directory:
+
+* If you are using Visual Studio, make sure you add the three new lightbulb files you created in the previous section to the **Services** project in the solution. Then use **Solution explorer** to mark them to be copied to the output directory.
+
+* If you are using Visual Studio Code, open the **Services.csproj** file and add the three new lightbulb files you created in the previous section. See the existing device model file entries in the **Services.csproj** file as examples.
 
 To test the new device in a deployed solution, see one of:
 
