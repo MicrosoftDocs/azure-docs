@@ -239,4 +239,5 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## Next steps
-View your environment in [Time Series Insights explorer](https://insights.timeseries.azure.com).
+> [!div class="nextstepaction"]
+> [View your environment in Time Series Insights explorer](https://insights.timeseries.azure.com).
