@@ -1,5 +1,5 @@
 ---
-title: Branching in Azure Data Factory pipeline | Microsoft Docs
+title: 'Branching in Azure Data Factory pipeline | Microsoft Docs'
 description: 'Learn how to control flow of data in Azure Data Factory by branching and chaining activities.'
 services: data-factory
 documentationcenter: ''
@@ -12,13 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 10/06/2017
 ms.author: shlo
-
 ---
-
 # Branching and chaining activities in a Data Factory pipeline
-Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
+
+[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
+
+#### This tutorial
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, you want to send details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, you want to send details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
@@ -94,34 +98,37 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-2. Add the following code to the **Main** method that sets variables. Replace place-holders with your own values.
+2. Add these static variables to the **Program class**. Replace place-holders with your own values. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
     ```csharp
-    // Set variables
-    string tenantID = "<your tenant ID>";
-    string applicationId = "<your application ID>";
-    string authenticationKey = "<your authentication key for the application>";
-    string subscriptionId = "<your subscription ID to create the factory>";
-    string resourceGroup = "<your resource group to create the factory>";
+        // Set variables
+        static string tenantID = "<tenant ID>";
+        static string applicationId = "<application ID>";
+        static string authenticationKey = "<Authentication key for your application>";
+        static string subscriptionId = "<Azure subscription ID>";
+        static string resourceGroup = "<Azure resource group name>";
 
-    // Note that the data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
-    string region = "East US";
-    string dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
+        static string region = "East US";
+        static string dataFactoryName = "<Data factory name>";
 
-    // Specify the source Azure Blob information
-    string storageAccount = "<your storage account name to copy data>";
-    string storageKey = "<your storage account key>";
-    string inputBlobPath = "adfv2branch/";
-    string inputBlobName = "input.txt";
+        // Specify the source Azure Blob information
+        static string storageAccount = "<Azure Storage account name>";
+        static string storageKey = "<Azure Storage account key>";
+        // confirm that you have the input.txt file placed in th input folder of the adfv2branch container. 
+        static string inputBlobPath = "adfv2branch/input";
+        static string inputBlobName = "input.txt";
+        static string outputBlobPath = "adfv2branch/output";
+        static string emailReceiver = "<specify email address of the receiver>";
 
-    string storageLinkedServiceName = "AzureStorageLinkedService";
-    string blobSourceDatasetName = "SourceStorageDataset";
-    string blobSinkDatasetName = "SinkStorageDataset";
-    string pipelineName = "Adfv2TutorialBranchCopy";
+        static string storageLinkedServiceName = "AzureStorageLinkedService";
+        static string blobSourceDatasetName = "SourceStorageDataset";
+        static string blobSinkDatasetName = "SinkStorageDataset";
+        static string pipelineName = "Adfv2TutorialBranchCopy";
 
-    string copyBlobActivity = "CopyBlobtoBlob";
-    string sendFailEmailActivity = "SendFailEmailActivity";
-    string sendSuccessEmailActivity = "SendSuccessEmailActivity";    
+        static string copyBlobActivity = "CopyBlobtoBlob";
+        static string sendFailEmailActivity = "SendFailEmailActivity";
+        static string sendSuccessEmailActivity = "SendSuccessEmailActivity";
+    
     ```
 
 3. Add the following code to the **Main** method that creates an instance of **DataFactoryManagementClient** class. You use this object to create data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details.
@@ -329,7 +336,7 @@ Make a note of your HTTP Post request URL for your success email workflow:
 
 ```
 //Success Request Url
-https://prodxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
+https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
 
 ## Fail email workflow 
@@ -348,10 +355,10 @@ You should now have two workflow URL’s:
 
 ```
 //Success Request Url
-https://prod-31.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
+https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 
 //Fail Request Url
-https://prod-31.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
+https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
 ## Create a pipeline
 Add the following code to the Main method that creates a pipeline with a copy activity and dependsOn property. In this tutorial, the pipeline contains one activity: copy activity, which takes in the Blob dataset as a source and another Blob dataset as a sink. Upon the copy activity succeeding and failing, it calls different email tasks.
@@ -405,7 +412,7 @@ static PipelineResource PipelineDefinition(DataFactoryManagementClient client)
                     {
                         Name = sendSuccessEmailActivity,
                         Method = WebActivityMethod.POST,
-                        Url = "https://prod-16.eastus.logic.azure.com:443/workflows/a26fe68279694e99bb951794def0f367/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=JhIdDPfDxPWyogfUMOOt_Wa02eRmoxzCPyqHsAWYFMw",
+                        Url = "https://prodxxx.eastus.logic.azure.com:443/workflows/00000000000000000000000000000000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0000000000000000000000000000000000000000000000",
                         Body = new EmailRequest("@{activity('CopyBlobtoBlob').output.dataWritten}", "@{pipeline().DataFactory}", "@{pipeline().Pipeline}", "@pipeline().parameters.receiver"),
                         DependsOn = new List<ActivityDependency>
                         {
@@ -420,7 +427,7 @@ static PipelineResource PipelineDefinition(DataFactoryManagementClient client)
                     {
                         Name = sendFailEmailActivity,
                         Method =WebActivityMethod.POST,
-                        Url = "https://prod-31.eastus.logic.azure.com:443/workflows/a2ee1dfc90144a3aa36c63e503e2fa59/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=U4vmawgJH6lI8yVXl9ligDASBAEFMreJQKZEOSzcpr8",
+                        Url = "https://prodxxx.eastus.logic.azure.com:443/workflows/000000000000000000000000000000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=0000000000000000000000000000000000000000000",
                         Body = new EmailRequest("@{activity('CopyBlobtoBlob').error.message}", "@{pipeline().DataFactory}", "@{pipeline().Pipeline}", "@pipeline().parameters.receiver"),
                         DependsOn = new List<ActivityDependency>
                         {
@@ -466,7 +473,7 @@ The Web Activity allows a call to any REST endpoint. For more information about 
         {
             Name = sendCopyEmailActivity,
             Method = WebActivityMethod.POST,
-            Url = "https://prod-16.eastus.logic.azure.com:443/workflows/12345",
+            Url = "https://prodxxx.eastus.logic.azure.com:443/workflows/12345",
             Body = new EmailRequest("@{activity('CopyBlobtoBlob').output.dataWritten}", "@{pipeline().DataFactory}", "@{pipeline().Pipeline}", "@pipeline().parameters.receiver"),
             DependsOn = new List<ActivityDependency>
             {

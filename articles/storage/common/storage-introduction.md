@@ -3,7 +3,7 @@ title: Introduction to Azure Storage | Microsoft Docs
 description: Introduction to Azure Storage, Microsoft's data storage in the cloud.
 services: storage
 documentationcenter: ''
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
-ms.author: robinsh
+ms.date: 11/10/2017
+ms.author: tamram
 ---
 
 # Introduction to Microsoft Azure Storage
@@ -77,7 +77,7 @@ For example, say you want your customers to be able to upload pictures, and you 
 
 ## Table storage
 
-Standard Azure Table Storage is now part of Cosmos DB. To see that documentation, see the [Azure Table Storage Overview](../../cosmos-db/table-storage-overview.md). Also available is Premium Tables for Azure Table storage, offering throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, please check out [Azure Cosmos DB: Table API](https://aka.ms/premiumtables).
+Azure Table storage is now part of Azure Cosmos DB. To see Azure Table storage documentation, see the [Azure Table Storage Overview](../../cosmos-db/table-storage-overview.md). In addition to the existing Azure Table storage service, there is a new Azure Cosmos DB Table API offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, please check out [Azure Cosmos DB Table API](https://aka.ms/premiumtables).
 
 ## Disk storage
 

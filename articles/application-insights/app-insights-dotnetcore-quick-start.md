@@ -122,4 +122,4 @@ If you plan to continue on to work with subsequent quickstarts or with the tutor
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Find and diagnose performance problems](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Find and diagnose run-time exceptions](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-tutorial-runtime-exceptions)

@@ -14,8 +14,8 @@ ms.custom: "VNet Service endpoints"
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: ''
-ms.date: 09/27/2017
+ms.workload: "On Demand"
+ms.date: 11/13/2017
 ms.author: genemi
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database
@@ -23,6 +23,13 @@ ms.author: genemi
 *Virtual network rules* are one firewall security feature that controls whether your Azure SQL Database server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database.
 
 To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
+
+
+> [!NOTE]
+> For Azure SQL Database, this feature is available in Preview for the following Azure regions:
+>
+> - WestCentralUS, WestUS2, and EastUS.
+
 
 #### How to create a virtual network rule
 
@@ -113,13 +120,26 @@ The roles of Network Admin and Database Admin have more capabilities than are ne
 
 You have the option of using [role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
 
-#### Limitations
+
+
+
+
+
+## Limitations
 
 For Azure SQL Database, the virtual network rules feature has the following limitations:
+
+- At present, an Azure Web App in a subnet that has **Service Endpoints** turned on does not yet function as expected. We are working on enabling this functionality.
+    - Until this feature is fully implemented, we recommend that you move your Web App to a different subnet that does not have service endpoints turned on for SQL.
+
+- In the firewall for your SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the SQL Database.
 
 - Each Azure SQL Database server can have up to 128 ACL entries for any given virtual network.
 
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
+
+- Turning ON virtual network service endpoints to Azure SQL Database also enables the endpoints for the MySQL and PostGres Azure services. However, with endpoints ON, attempts to connect from the endpoints to your MySQL or Postgres instances will fail.
+    - The underlying reason is that MySQL and PostGres do not presently support ACLing.
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
@@ -141,9 +161,36 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 
 
+## Errors 40914 and 40615
+
+Connection error 40914 relates to *virtual network rules*, as specified on the Firewall pane in the Azure portal. Error 40615 is similar, except it relates to *IP address rules* on the Firewall.
+
+#### Error 40914
+
+*Message text:* Cannot open server '*[server-name]*' requested by the login. Client is not allowed to access the server.
+
+*Error description:* The client is in a subnet that has virtual network server endpoints. But the Azure SQL Database server has no virtual network rule that grants to the subnet the right to communicate with the SQL Database.
+
+*Error resolution:* On the Firewall pane of the Azure portal, use the virtual network rules control to [add a virtual network rule](#anchor-how-to-by-using-firewall-portal-59j) for the subnet.
+
+#### Error 40615
+
+*Message text:* Cannot open server '{0}' requested by the login. Client with IP address '{1}' is not allowed to access the server.
+
+*Error description:* The client is trying to connect from an IP address that is not authorized to connect to the Azure SQL Database server. The server firewall has no IP address rule that allows a client to communicate from the given IP address to the SQL Database.
+
+*Error resolution:* Enter the client's IP address as an IP rule. Do this by using the Firewall pane in the Azure portal.
+
+
+A list of several SQL Database error messages is documented [here][sql-database-develop-error-messages-419g].
+
+
+
+
+
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
-## How to create a virtual network rule by using the portal
+## Portal can create a virtual network rule
 
 This section illustrates how you can use the [Azure portal][http-azure-portal-link-ref-477t] to create a *virtual network rule* in your Azure SQL Database. The rule tells your SQL Database to accept communication from a particular subnet that has been tagged as being a *Virtual Network service endpoint*.
 
@@ -227,6 +274,8 @@ The Microsoft Azure Virtual Network service endpoints feature, and the virtual n
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 
+[sql-database-develop-error-messages-419g]: sql-database-develop-error-messages.md
+
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]: sql-database-vnet-service-endpoint-rule-powershell.md
 
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
@@ -248,9 +297,6 @@ The Microsoft Azure Virtual Network service endpoints feature, and the virtual n
 
 <!-- ??2
 #### Syntax related articles
-
-- PowerShell cmdlets
-
 - REST API Reference, including JSON
 
 - Azure CLI

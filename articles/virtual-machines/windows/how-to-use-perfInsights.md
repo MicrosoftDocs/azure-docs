@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/18/2017
+ms.date: 11/03/2017
 ms.author: genli
 
 ---
 # How to use PerfInsights 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) is an automated script that collects useful diagnostic information, runs I/O stress loads, and provides an analysis report to help troubleshoot Windows VM performance problems in Microsoft Azure. 
+[PerfInsights](http://aka.ms/perfinsightsdownload) is an automated script that collects useful diagnostic information, runs I/O stress loads, and provides an analysis report to help troubleshoot Windows VM performance problems in Microsoft Azure. This can be run on the virtual machines as a standalone script or directly from the portal by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
 
 We recommend that you run this script before you open a Support ticket with Microsoft for VM performance issues.
 
@@ -189,7 +189,16 @@ Diskspd IO workload tests [OS Disk (write) and pool drives (read/write)]
 
 ### How do I run PerfInsights? 
 
-To run the script, follow these steps:
+You can run PerfInsights on a virtual machine by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md) or run it as a standalone script. 
+
+**Install and run PerfInsights from the Azure portal**
+
+PerfInsights now can be run using a VM extension called Azure Performance Diagnostics Extension. For more information, see [Install Azure Performance Diagnostics extension](performance-diagnostics-vm-extension.md#install-the-extension).  
+
+**Run PerfInsights script in standalone mode**
+
+To run the PerfInsights script, follow these steps:
+
 
 1. Download [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
 

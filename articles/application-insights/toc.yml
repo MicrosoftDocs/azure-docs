@@ -17,6 +17,8 @@
     href: app-insights-nodejs-quick-start.md
   - name: Java
     href: app-insights-java-quick-start.md
+  - name: Mobile
+    href: app-insights-mobile-center-quickstart.md
 - name: Tutorials
   items:
   - name: Find run-time exceptions
@@ -89,10 +91,12 @@
     items:
     - name: Azure
       items:
+      - name: Add continuous monitoring
+        href: app-insights-vsts-continuous-monitoring.md
       - name: Profiler
         href: app-insights-profiler.md
       - name: Enable the Profiler
-        href: enable-profiler-cloud-services.md
+        href: enable-profiler-compute.md
       - name: Diagnostics
         href: app-insights-azure-diagnostics.md
       - name: Previews
@@ -184,14 +188,8 @@
       items:
       - name: Overview
         href: app-insights-analytics.md
-      - name: Tour
-        href: app-insights-analytics-tour.md
-      - name: Using
-        href: app-insights-analytics-using.md
-      - name: Import
+      - name: Import custom logs
         href: app-insights-analytics-import.md
-      - name: Diagnostics
-        href: app-insights-analytics-diagnostics.md
   - name: Automate
     items:
     - name: Azure PowerShell configuration
@@ -255,7 +253,7 @@
       href: app-insights-java-troubleshoot.md
 - name: Reference
   items:
-  - name: Analytics
+  - name: Analytics query language
     href: https://docs.loganalytics.io/
   - name: .NET
     href: https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights

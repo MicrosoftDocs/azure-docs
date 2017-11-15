@@ -11,11 +11,11 @@ editor: ''
 ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: drivers
+ms.workload: "Active"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/28/2017
 ms.author: sstein
 
 ---
@@ -176,7 +176,7 @@ The following errors do not fall into any previous categories.
 | 40607 |16 |Windows logins are not supported in this version of SQL Server. |
 | 40611 |16 |Servers can have at most 128 firewall rules defined. |
 | 40614 |16 |Start IP address of firewall rule cannot exceed End IP address. |
-| 40615 |16 |Cannot open server '{0}' requested by the login. Client with IP address '{1}' is not allowed to access the server.  To enable access, use the SQL Database Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect. |
+| 40615 |16 |Cannot open server '{0}' requested by the login. Client with IP address '{1}' is not allowed to access the server.<br /><br />To enable access, use the SQL Database Portal or run sp\_set\_firewall\_rule on the master database to create a firewall rule for this IP address or address range. It may take up to five minutes for this change to take effect. |
 | 40617 |16 |The firewall rule name that starts with (rule name) is too long. Maximum length is 128. |
 | 40618 |16 |The firewall rule name cannot be empty. |
 | 40620 |16 |The login failed for user "%.&#x2a;ls". The password change failed. Password change during login is not supported in this version of SQL Server. |
@@ -201,7 +201,8 @@ The following errors do not fall into any previous categories.
 | 40651 |16 |Failed to create server because the subscription (subscription-id) is disabled. |
 | 40652 |16 |Cannot move or create server. Subscription (subscription-id) will exceed server quota. |
 | 40671 |17 |Communication failure between the gateway and the management service. Please retry later. |
-| 40852 |16 |Cannot open database '%.*ls' on server '%.*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain ‘secure’ in the server FQDN  -  'server name'.database.windows.net should be modified to 'server name'.database.`secure`.windows.net. |
+| 40852 |16 |Cannot open database '%.\*ls' on server '%.\*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain ‘secure’ in the server FQDN  -  'server name'.database.windows.net should be modified to 'server name'.database.`secure`.windows.net. |
+| 40914 | 16 | Cannot open server '*[server-name]*' requested by the login. Client is not allowed to access the server.<br /><br />To fix, consider adding a [virtual network rule](sql-database-vnet-service-endpoint-rule-overview.md). |
 | 45168 |16 |The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later. |
 | 45169 |16 |The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later. |
 

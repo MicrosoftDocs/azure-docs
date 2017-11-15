@@ -22,8 +22,8 @@ sections:
     text: Learn how to register your Azure agreement or subscription information with Cost Management and start viewing cost data.
   - type: list
     style: icon48
-    items: 
-    - image: 
+    items:
+    - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
       text: View Cost Data
       href: quick-register-azure-sub
@@ -36,3 +36,5 @@ sections:
     items:
     - html: <a href="tutorial-review-usage">Review usage and costs to detect anomalies and efficiencies</a>
     - html: <a href="tutorial-user-access">Assign access to Cost Management data</a>
+    - html: <a href="tutorial-forecast-spending">Forecast future spending</a>
+    - html: <a href="tutorial-manage-costs">Manage costs with cost allocation and showback and chargeback reports</a>

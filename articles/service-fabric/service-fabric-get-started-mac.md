@@ -45,7 +45,7 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    This steps downloads the file `Vagrantfile` containing the VM configuration along with the location the VM is downloaded from.  The file points to a stock Ubuntu image.
+    This steps bring downs the file `Vagrantfile` containing the VM configuration along with the location the VM is downloaded from.  The file points to a stock Ubuntu image.
 
 2. Navigate to the local clone of the repo
 
@@ -93,7 +93,7 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
 
     ![Service Fabric Explorer viewed from the host Mac][sfx-mac]
 
-## Install the necessary Java artifacts on Vagrant to use Service Fabric Java programming model
+## Install the necessary Java artifacts on Vagrant (optional, if you want to use the Java programming models)
 
 To build Service Fabric services using Java, ensure you have JDK 1.8 installed along with Gradle which is used for running build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
 

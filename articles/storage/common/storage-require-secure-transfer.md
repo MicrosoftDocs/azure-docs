@@ -25,7 +25,7 @@ When you use the Azure Files service, any connection without encryption fails wh
 By default, the "Secure transfer required" option is disabled.
 
 > [!NOTE]
-> Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when you're using a custom domain name.
+> Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when you're using a custom domain name. And classic storage accounts are not supported.
 
 ## Enable "Secure transfer required" in the Azure portal
 
@@ -58,55 +58,62 @@ To require secure transfer programmatically, use the setting _supportsHttpsTraff
 * [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (version: 1.1.0)
 * [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) (version: 0.11.0)
 
-### Enable "Secure transfer required" setting with REST API
+### Enable "Secure transfer required" setting with PowerShell
 
-To simplify testing with REST API, use [ArmClient](https://github.com/projectkudu/ARMClient) to call from the command line.
+This sample requires the Azure PowerShell module version 4.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
- Use the following command line to check the setting with the REST API:
+Run `Login-AzureRmAccount` to create a connection with Azure.
+
+ Use the following command line to check the setting:
+
+```powershell
+> Get-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+StorageAccountName     : {StorageAccountName}
+Kind                   : Storage
+EnableHttpsTrafficOnly : False
+...
 
 ```
-# Login Azure and proceed with your credentials
-> armclient login
 
-> armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
+Use the following command line to enable the setting:
+
+```powershell
+> Set-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+StorageAccountName     : {StorageAccountName}
+Kind                   : Storage
+EnableHttpsTrafficOnly : True
+...
+
 ```
 
-In the response, find the _supportsHttpsTrafficOnly_ setting. For example:
+### Enable "Secure transfer required" setting with CLI
 
-```Json
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+ Use the following command line to check the setting:
+
+```azurecli-interactive
+> az storage account show -g {ResourceGroupName} -n {StorageAccountName}
 {
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
-  "kind": "Storage",
-  ...
-  "properties": {
-    ...
-    "supportsHttpsTrafficOnly": false
-  },
+  "name": "{StorageAccountName}",
+  "enableHttpsTrafficOnly": false,
   "type": "Microsoft.Storage/storageAccounts"
+  ...
 }
 
 ```
 
-Use the following command line to enable the setting with the REST API:
+Use the following command line to enable the setting:
 
-```
-
-# Login Azure and proceed with your credentials
-> armclient login
-
-> armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01 < Input.json
-
-```
-
-The following is an Input.json example:
-```Json
-
+```azurecli-interactive
+> az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
 {
-  "location": "westus",
-  "properties": {
-    "supportsHttpsTrafficOnly": true
-  }
+  "name": "{StorageAccountName}",
+  "enableHttpsTrafficOnly": true,
+  "type": "Microsoft.Storage/storageAccounts"
+  ...
 }
 
 ```

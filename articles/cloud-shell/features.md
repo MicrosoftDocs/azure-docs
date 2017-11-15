@@ -1,5 +1,5 @@
 ---
-title: Bash in Azure Cloud Shell (Preview) features | Microsoft Docs
+title: Bash in Azure Cloud Shell features | Microsoft Docs
 description: Overview of features of Bash in Azure Cloud Shell
 services: Azure
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ms.author: juluk
 ---
 
@@ -49,8 +49,8 @@ Files outside of `$Home` and machine state are not persisted across sessions.
 
 |Category   |Name   |
 |---|---|
-|Linux shell interpreter|Bash<br> sh               |
-|Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br>    |
+|Linux tools            |bash<br> sh<br> tmux<br> dig<br>               |
+|Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br>    |
 |Text editors           |vim<br> nano<br> emacs       |
 |Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
@@ -62,11 +62,11 @@ Files outside of `$Home` and machine state are not persisted across sessions.
 
 |Language   |Version   |
 |---|---|
-|.NET       |1.01       |
+|.NET       |2.0.0       |
 |Go         |1.7        |
 |Java       |1.8        |
 |Node.js    |6.9.4      |
-|PowerShell  |[6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 and 3.5 (default)|
 
 ## Next steps

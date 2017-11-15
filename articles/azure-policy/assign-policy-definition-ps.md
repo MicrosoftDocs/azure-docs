@@ -1,11 +1,11 @@
 ---
-title: Use PowerShell to create a policy assignment to identify non-compliant resources in your Azure environment | Microsoft Docs 
+title: Use PowerShell to create a policy assignment to identify non-compliant resources in your Azure environment | Microsoft Docs
 description: Use PowerShell to create an Azure Policy assignment to identify non-compliant resources.
-services: azure-policy 
-keywords: 
-author: niniikhena
+services: azure-policy
+keywords:
+author: Jim-Parker
 ms.author: jimpark
-ms.date: 09/20/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
@@ -13,7 +13,10 @@ ms.custom: mvc
 
 # Create a policy assignment to identify non-compliant resources in your Azure environment using PowerShell
 
-The first step in understanding compliance in Azure is knowing where you stand with your current resources. This quickstart steps you through the process of creating a policy assignment to identify non-compliant resources with the policy definition – *Require SQL Server version 12.0*. At the end of this process, you have successfully identified what servers are of a different version, or non-compliant.
+The first step in understanding compliance in Azure is knowing where you stand with your own current resources. This quickstart steps you through the process of creating a policy assignment to identify virtual machines that are not using managed disks.
+
+At the end of this process, you will have successfully identified what virtual machines are not using managed disks, and are therefore *non-compliant*.
+
 
 PowerShell is used to create and manage Azure resources from the command line or in scripts. This guide details using PowerShell to create a policy assignment to identify non-compliant resources in your Azure environment.
 
@@ -25,7 +28,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Opt in to Azure Policy
 
-Azure Policy is now available in Limited Preview, so you need to register to request access.
+Azure Policy is now available in Public Preview and you need to register to request access.
 
 1. Go to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
 
@@ -35,11 +38,11 @@ Azure Policy is now available in Limited Preview, so you need to register to req
 
    ![Opt in to use Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   It may take a couple of days for us to accept your registration request, based on demand. Once your request gets accepted, you will be notified via email that you can begin using the service.
+   Your request is automatically approved for Preview. Please allow up to 30 minutes for the system to process your registration.
 
 ## Create a policy assignment
 
-In this quickstart, we create a policy assignment and assign the *Require SQL Server Version 12.0* definition. This policy definition will identify resources that do not comply with the conditions set in the policy definition.
+In this quickstart, we create a policy assignment and assign the *Audit Virtual Machines without Managed Disks* definition. This policy definition will identify resources that do not comply with the conditions set in the policy definition.
 
 Follow these steps to create a new policy assignment.
 
@@ -58,15 +61,15 @@ Azure Policy comes with already built-in policy definitions you can use. You wil
 Next, assign the policy definition to the desired scope by using the `New-AzureRmPolicyAssignment` cmdlet.
 
 For this tutorial, we are providing the following information for the command:
-- Display **Name** for the policy assignment. In this case, let’s use Require SQL Server version 12.0 Assignment.
-- **Policy** – This is the policy definition, based off which you’re using to create the assignment. In this case, it is the policy definition – *Require SQL Server version 12.0*
+- Display **Name** for the policy assignment. In this case, let’s use Audit Virtual Machines without Managed Disks.
+- **Policy** – This is the policy definition, based off which you’re using to create the assignment. In this case, it is the policy definition – *Audit Virtual Machines without Managed Disks*
 - A **scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. In this example, we are assigning the policy definition to the **FabrikamOMS** resource group.
-- **$definition** – You need to provide the resource ID of the policy definition – In this case, we’re using the ID for the policy definition - *Require SQL Server 12.0*.
+- **$definition** – You need to provide the resource ID of the policy definition – In this case, we’re using the ID for the policy definition - *Audit Virtual Machines without Managed Disks*.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "FabrikamOMS"
 $definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
-New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 You’re now ready to identify non-compliant resources to understand the compliance state of your environment.
@@ -85,7 +88,7 @@ You’re now ready to identify non-compliant resources to understand the complia
 Other guides in this collection build upon this quickstart. If you plan to continue to work with subsequent tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, delete the assignment you created by running this command:
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name “Require SQL Server version 12.0 Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
+Remove-AzureRmPolicyAssignment -Name “Audit Virtual Machines without Managed Disks Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
 ## Next steps

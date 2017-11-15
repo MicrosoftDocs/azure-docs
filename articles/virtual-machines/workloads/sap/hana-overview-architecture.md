@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -59,6 +59,10 @@ Several common definitions are widely used in the Architecture and Technical Dep
 - **SAP HANA on Azure (Large Instances):** Official name for the offer in Azure to run HANA instances in on SAP HANA TDI certified hardware that is deployed in Large Instance stamps in different Azure regions. The related term **HANA Large Instance** is short for SAP HANA on Azure (Large Instances) and is widely used this technical deployment guide.
 - **Cross-Premises:** Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multi-site, or ExpressRoute connectivity between the on-premises datacenter(s) and Azure. In common Azure documentation, these kinds of deployments are also described as Cross-Premises scenarios. The reason for the connection is to extend on-premises domains, on-premises Active Directory/OpenLDAP, and on-premises DNS into Azure. The on-premises landscape is extended to the Azure assets of the Azure  subscription(s). Having this extension, the VMs can be part of the on-premises domain. Domain users of the on-premises domain can access the servers and can run services on those VMs (like DBMS services). Communication and name resolution between VMs deployed on-premises and Azure deployed VMs is possible. Such is the typical scenario in which most SAP assets are deployed. See the guides of  [Planning and design for VPN Gateway](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a VNet with a Site-to-Site connection using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more detailed information.
 - **Tenant:** A customer deployed in HANA Large Instances stamp gets isolated into a "tenant." A tenant is isolated in the networking, storage, and compute layer from other tenants. So, that storage and compute units assigned to the different tenants cannot see each other or communicate with each other on the HANA Large Instance stamp level. A customer can choose to have deployments into different tenants. Even then, there is no communication between tenants on the HANA Large Instance stamp level.
+- **SKU Category:** For the HANA Large Instances, the following two categories of SKUs are offered.
+    - **Type I Class:** S72, S72m, S144, S144m, S192, and S192m
+    - **Type II Class:** S384, S384m, S384xm, S576, S768, and S960
+
 
 There are a variety of additional resources that have been published on the topic of deploying SAP workload on Microsoft Azure public cloud. It is highly recommended that anyone planning and executing a deployment of SAP HANA in Azure is experienced and aware of the principals of Azure IaaS, and the deployment of SAP workloads on Azure IaaS. The following resources provide more information and should be referenced before continuing:
 
@@ -119,7 +123,7 @@ Within the multi-tenant infrastructure of the Large Instance stamp, customers ar
 
 As with Azure VMs, SAP HANA on Azure (Large Instances) is offered in multiple Azure regions. In order to offer Disaster Recovery capabilities, you can choose to opt in. Different Large Instance stamps within one geo-political region are connected to each other. For example, HANA Large Instance Stamps in US West and US East are connected through a dedicated network link for the purpose of DR replication. 
 
-Just as you can choose between different VM types with Azure Virtual Machines, you can choose from different SKUs of HANA Large Instances that are tailored for different workload types of SAP HANA. SAP applies memory to processor socket ratios for varying workloads based on the Intel processor generations—there are four different SKU types offered:
+Just as you can choose between different VM types with Azure Virtual Machines, you can choose from different SKUs of HANA Large Instances that are tailored for different workload types of SAP HANA. SAP applies memory to processor socket ratios for varying workloads based on the Intel processor generations. The following table shows the SKU types offered.
 
 As of July 2017, SAP HANA on Azure (Large Instances) is available in several configurations in the Azure Regions of US West and US East, Australia East, Australia Southeast, West Europe, and North Europe:
 
@@ -179,7 +183,7 @@ Some examples of running multiple SAP HANA instances could look like:
 | SKU | Memory Size | Storage Size | Sizes with multiple databases |
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | 1x768 GB HANA Instance<br /> or 1x512 GB Instance + 1x256 GB Instance<br /> or 3x256 GB Instances | 
-| S72m | 768 GB | 3 TB | 3x512GB HANA Instances<br />or 1x512 GB Instance + 1x1 TB Instance<br />or 6x256 GB Instances<br />or 1x1.5 TB instance | 
+| S72m | 1.5 TB | 6 TB | 3x512GB HANA Instances<br />or 1x512 GB Instance + 1x1 TB Instance<br />or 6x256 GB Instances<br />or 1x1.5 TB instance | 
 | S192m | 4 TB | 16 TB | 8x512 GB Instances<br />or 4x1 TB Instances<br />or 4x512 GB Instances + 2x1 TB Instances<br />or 4x768 GB Instances + 2x512 GB Instances<br />or 1x4 TB Instance |
 | S384xm | 8 TB | 22 TB | 4x2 TB Instances<br />or 2x4 TB Instances<br />or 2x3 TB Instances + 1x2 TB Instances<br />or 2x2.5 TB Instances + 1x3 TB Instances<br />or 1x8 TB Instance |
 
@@ -354,7 +358,7 @@ You as a customer can choose to use storage snapshots for backup/restore and dis
 ### Encryption of data at rest
 The storage used for HANA Large Instances allows a transparent encryption of the data as it is stored on the disks. At deployment time of a HANA Large Instance Unit, you have the option to have this kind of encryption enabled. You also can choose to change to encrypted volumes after the deployment already. The move from non-encrypted to encrypted volumes is transparent and does not require a downtime. 
 
-With the Type I class SKUs, the volume the boot LUN is stored on, is encrypted. In case of the type II class of  SKUs of HANA Large Instances, you need to encrypt the boot LUN with OS methods. 
+With the Type I class SKUs, the volume the boot LUN is stored on, is encrypted. In case of the type II class of  SKUs of HANA Large Instances, you need to encrypt the boot LUN with OS methods. For more information, contact the Microsoft Service Management team.
 
 
 ## Networking

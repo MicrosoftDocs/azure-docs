@@ -1,6 +1,6 @@
 ---
-title: Schedule tasks that run regularly - Azure Logic Apps | Microsoft Docs
-description: Create and schedule tasks, actions, workflows, processes, and workloads that run regularly in logic apps
+title: Schedule tasks and regularly running workflows - Azure Logic Apps | Microsoft Docs
+description: Create and schedule regularly running tasks, actions, workflows, processes, and workloads with logic apps
 services: logic-apps
 documentationcenter: ''
 author: ecfan
@@ -18,7 +18,7 @@ ms.date: 09/25/2017
 ms.author: LADocs; estfan
 ---
 
-# Create and schedule regularly running tasks with logic apps
+# Schedule tasks and workflows that run regularly with logic apps
 
 To schedule tasks, actions, workloads, or processes that run regularly, 
 you can create a logic app workflow that starts with the 
@@ -181,7 +181,7 @@ Here is an example recurrence trigger definition:
 | Run at 8:30 AM every day (no start date and time) | 1 | Day | {none} | {unavailable} | 8 | 30 | This schedule runs at 8:30 AM every day, based on the specified schedule. | 
 | Run at 8:30 AM every day (with start date and time) | 1 | Day | *startDate*T08:30:00Z | {unavailable} | {none} | {none} | This schedule starts on the specified start date at 8:30 AM. | 
 | Run at 8:30 AM and 4:30 PM every day | 1 | Day | {none} | {unavailable} | 8, 16 | 30 | | 
-| Run at 8:30 AM and 4:45 every day | 1 | Day | {none} | {unavailable} | 8, 16 | 30, 45 | | 
+| Run at 8:30 AM, 8:45 AM, 4:30 PM, and 4:45 PM every day | 1 | Day | {none} | {unavailable} | 8, 16 | 30, 45 | | 
 | Run every Saturday at 5 PM (no start date and time) | 1 | Week | {none} | "Saturday" | 17 | 00 | This schedule runs every Saturday at 5:00 PM. | 
 | Run every Saturday at 5 PM (with start date and time) | 1 | Week | *startDate*T17:00:00Z | "Saturday" | {none} | {none} | This schedule doesn't start *any sooner* than the specified start date and time, in this case, September 9, 2017 at 5:00 PM. Future recurrences run every Saturday at 5:00 PM. | 
 | Run every Tuesday, Thursday at 5 PM | 1 | Week | {none} | "Tuesday", "Thursday" | 17 | {none} | This schedule runs every Tuesday and Thursday at 5:00 PM. | 

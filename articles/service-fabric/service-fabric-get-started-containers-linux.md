@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
 
 ---
@@ -160,11 +160,11 @@ The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generato
 
 To create a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`.  
 
-Name your application (for example, "mycontainer"). 
+Name your application (for example, "mycontainer") and name the application service (for example, "myservice").
 
-Provide the URL for the container image in a container registry (for example, "myregistry.azurecr.io/samples/helloworldapp"). 
+For the image name, provide the URL for the container image in a container registry (for example, "myregistry.azurecr.io/samples/helloworldapp"). 
 
-This image has a workload entry-point defined, so need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
+Since this image has a workload entry-point defined, you don't need to explicitly specify input commands (commands run inside the container, which will keep the container running after startup). 
 
 Specify an instance count of "1".
 
@@ -383,7 +383,7 @@ For images that should not be deleted, you can specify them under the `Container
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
-* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-dotnet-containers) on GitHub.
+* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
