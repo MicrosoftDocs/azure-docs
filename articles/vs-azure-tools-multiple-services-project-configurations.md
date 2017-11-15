@@ -27,7 +27,7 @@ The Azure Tools for Microsoft Visual Studio provide property pages that you can 
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-For information about the underlying schemas for the service definition and service configuration files, see the [Schema Reference](https://msdn.microsoft.com/library/azure/dd179398.aspx). For more information about service configuration, see [How to Configure Cloud Services](cloud-services/cloud-services-how-to-configure.md).
+For information about the underlying schemas for the service definition and service configuration files, see the [.csdef XML Schema](schema-csdef-file.md) and [.cscfg XML Schema](schema-cscfg-file.md) articles. For more information about service configuration, see [How to Configure Cloud Services](cloud-services/cloud-services-how-to-configure-portal.md).
 
 ## Configuring role properties
 The property pages for a web role and a worker role are similar, although there are a few differences, pointed out in the following sections.
@@ -85,7 +85,7 @@ You can use the **Local Storage** property page to reserve one or more local sto
 ## Certificates page
 On the **Certificates** page, you can associate certificates with your role. The certificates that you add can be used to configure your HTTPS endpoints on the **Endpoints** property page.
 
-The **Certificates** property page adds information about your certificates to your service configuration. Note that your certificates are not packaged with your service; you must upload your certificates separately to Azure through the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+The **Certificates** property page adds information about your certificates to your service configuration. Note that your certificates are not packaged with your service; you must upload your certificates separately to Azure through the [Azure portal](http://portal.azure.com).
 
 To associate a certificate with your role, provide a name for the certificate. You use this name to refer to the certificate when you configure an HTTPS endpoint on the **Endpoints** property page. Next, specify whether the certificate store is **Local Machine** or **Current User** and the name of the store. Finally, enter the certificate's thumbprint. If the certificate is in the Current User\Personal (My) store, you can enter the certificate's thumbprint by selecting the certificate from a populated list. If it resides in any other location, enter the thumbprint value by hand.
 
