@@ -133,6 +133,7 @@
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
 ### [SSPR How it works](active-directory-passwords-how-it-works.md)
 ### [SSPR Deployment guide](active-directory-passwords-best-practices.md)
+### [SSPR and Windows 10](active-directory-passwords-login.md)
 ### [SSPR Policies ](active-directory-passwords-policy.md)
 ### [SSPR Customization](active-directory-passwords-customize.md)
 ### [SSPR Data requirements](active-directory-passwords-data.md)
