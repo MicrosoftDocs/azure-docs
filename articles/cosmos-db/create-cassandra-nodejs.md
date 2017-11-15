@@ -191,6 +191,8 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Verify the results as expected from the command line.
 
+    ![View and verify the output](./media/create-cassandra-nodejs/output.png)
+
     Press CTRL + C to stop exection of the program and close the console window. 
 
     You can now open Data Explorer in the Azure portal to see query, modify, and work with this new data. 
