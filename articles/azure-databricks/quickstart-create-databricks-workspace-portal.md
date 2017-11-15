@@ -70,7 +70,7 @@ Before you begin with this section, you must complete the following:
 
 * [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
 * Download a sample JSON file [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Upload the sample JSON file to the Azure storage account you create. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
+* Upload the sample JSON file to the Azure storage account you created. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
 
 Perform the following steps to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
 
@@ -84,7 +84,7 @@ Perform the following steps to create a notebook in Databricks, configure the no
 
     Click **Create**.
 
-3. In the following snippet, replace {YOUR STORAGE ACCOUNT NAME} with the  Azure storage account name you created and {YOUR STORAGE ACCOUNT ACCESS KEY} with your storage account access key. Paste the snippet in an empty cell in the notebook and then press SHIFT + ENTER to run the code cell. This snippet configures the notebook to read data from an Azure blob storage.
+3. In the following snippet, replace `{YOUR STORAGE ACCOUNT NAME}` with the  Azure storage account name you created and `{YOUR STORAGE ACCOUNT ACCESS KEY}` with your storage account access key. Paste the snippet in an empty cell in the notebook and then press SHIFT + ENTER to run the code cell. This snippet configures the notebook to read data from an Azure blob storage.
 
        spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
     
