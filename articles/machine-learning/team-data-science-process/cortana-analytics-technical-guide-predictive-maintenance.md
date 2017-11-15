@@ -141,7 +141,7 @@ easily send events or data to an Azure Event Hub using the Event Hub
 APIs.
 
 ### Azure Stream Analytics
-Use the Azure Stream Analytics service to provide near real-time
+Use the Azure Stream Analytics service to provide near real time
 analytics by reading from data streams and outputting data to any number
 of sources.
 
@@ -169,7 +169,7 @@ in the [Stream Analytics Query
 Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 on MSDN.
 
-In this solution, the queries output three datasets with near real-time
+In this solution, the queries output three datasets with near real time
 analytics information about the incoming data stream to a Power BI
 dashboard provided as part of this solution template. Because
 there's implicit knowledge about the incoming data format, these queries
@@ -408,7 +408,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
    * You must follow the instructions in
      [Azure Stream Analytics & Power BI: A real time analytics dashboard for real time visibility of streaming data](../../stream-analytics/stream-analytics-power-bi-dashboard.md)
      to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
-   * The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you need to add an output to ASA. When you add the first output ( **aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message ("Starting Stream Analytics job maintenancesa02asapbi succeeded").
+   * The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you need to add an output to ASA. When you add the first output (**aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message ("Starting Stream Analytics job maintenancesa02asapbi succeeded").
 2. Log in to [Power BI online](http://www.powerbi.com)
    
    * On the left panel Datasets section in My Workspace, the
