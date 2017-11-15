@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -88,7 +88,7 @@ Use the following instructions to generate a certificate for your gateway device
 #### Powershell
 
 * Run `New-CACertsEdgeDevice myGateway` to create the new device certificate.
-  This will create files myEdgeDevice* that contain the public key, private key, and PFX of this certificate.  When prompted to enter a password during the signing process, enter "123".
+  This will create files myEdgeDevice* that contain the public key, private key, and PFX of this certificate.  When prompted to enter a password during the signing process, enter "1234".
 
 
 >[!IMPORTANT]
@@ -100,35 +100,38 @@ In order to configure your IoT Edge device as a gateway you just need to configu
 
 We assume the following file names from the sample scripts above:
 
-| Output | Bash script |
-| ------ | ----------- |
-| Device certificate | `certs/new-edge-device.cert.pem` |
-| Device private key | `private/new-edge-device.cert.pem` |
-| Device certificate chain | `certs/new-edge-device-full-chain.cert.pem` |
-| IoT hub owner CA | `certs/azure-iot-test-only.root.ca.cert.pem` |
+| Output | Bash script | Powershell |
+| ------ | ----------- | ---------- |
+| Device certificate | `certs/new-edge-device.cert.pem` | `certs/new-edge-device.cert.pem` |
+| Device private key | `private/new-edge-device.cert.pem` | `private/new-edge-device.cert.pem` |
+| Device certificate chain | `certs/new-edge-device-full-chain.cert.pem` | `certs/new-edge-device-full-chain.cert.pem` |
+| IoT hub owner CA | `certs/azure-iot-test-only.root.ca.cert.pem` | `RootCA.pem` |
 
  Analogously to the installation described in Deploy Azure IoT Edge on a simulated device in [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin], you have to provide the above information to the IoT Edge runtime. 
  
  In Linux:
+
         sudo iotedgectl setup --connection-string {device connection string}
             --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
             --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
             --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem
-            --device-ca-private-key-file {full path}/private/new-edge-device.cert.pem
+            --device-ca-private-key-file {full path}/private/new-edge-device.key.pem
             --owner-ca-cert-file {full path}/certs/azure-iot-test-only.root.ca.cert.pem
 
 In Windows:
+
         iotedgectl setup --connection-string {device connection string}
             --edge-hostname {gateway hostname, e.g. mygateway.contoso.com}
             --device-ca-cert-file {full path}/certs/new-edge-device.cert.pem
             --device-ca-chain-cert-file {full path}/certs/new-edge-device-full-chain.cert.pem
-            --device-ca-private-key-file {full path}/private/new-edge-device.cert.pem
-            --owner-ca-cert-file {full path}/certs/azure-iot-test-only.root.ca.cert.pem
+            --device-ca-private-key-file {full path}/private/new-edge-device.key.pem
+            --owner-ca-cert-file {full path}/RootCA.pem
 
 By default the sample scripts do not set a passphrase to the device private key. If you set a passphrase, add the following parameter:
 
-        --device-ca-private-key-passphrase {passphrase}
+        --device-ca-passphrase {passphrase}
 
+The script will prompt to set a passphrase for the Edge Agent certificate.
 You have to restart the IoT Edge runtime after this command.
 
 ### Configure an IoT Hub device application as a downstream device
@@ -193,4 +196,4 @@ When implementing a transparent gateway, the module creates multiple instances o
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 [lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md
+[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/CACertToolEdge/tools/CACertificates/CACertificateOverview.md
