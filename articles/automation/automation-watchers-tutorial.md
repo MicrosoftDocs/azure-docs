@@ -55,7 +55,7 @@ To complete this tutorial, the following are required.
 ## Create an action runbook that is called when the watcher runbook finds a new file.
 1.	Click on the Runbooks page under the “PROCESS AUTOMATION” category.
 2.	Click on the “Browse gallery” button.
-3.	Search for “Process-Watcher” and import the runbook into the Automation account.
+3.	Search for “Process-NewFile” and import the runbook into the Automation account.
 4.	Click on “Edit” to view the Runbook source and click on the “Publish” button.
 ![Process watcher from UI](media/automation-watchers-tutorial/Watch-ProcessNewFile.png)
 
@@ -67,16 +67,16 @@ To complete this tutorial, the following are required.
 3.	Select “Configure watcher” and select the “Watch-NewFile” runbook.
 ![Configure watcher from UI](media/automation-watchers-tutorial/ConfigureWatcher.png)
 4.	Enter the following values for parameters:
-a.	FOLDERPATH. A folder on the hybrid worker where new files get created
-b.	EXTENSION. Leave blank to process all file extensions.
-c.	RECURSE. Leave the default.
-d.	RUN SETTINGS. Pick the hybrid worker.
+*	FOLDERPATH. A folder on the hybrid worker where new files get created
+> *	EXTENSION. Leave blank to process all file extensions.
+> *	RECURSE. Leave the default.
+> *	RUN SETTINGS. Pick the hybrid worker.
 5.	Click OK, and then Select
-6.	Select “Configure action” and select “Process-Watcher” runbook.
+6.	Select “Configure action” and select “Process-NewFile” runbook.
 ![Configure watcher action from UI](media/automation-watchers-tutorial/ConfigureAction.png)
 7.	Enter the following values for parameters:
-a.	EVENTDATA. Leave blank. Data is passed in from the watcher runbook.
-b.	Run Settings. Leave as Azure as this runbook runs in the Automation service.
+> *	EVENTDATA. Leave blank. Data is passed in from the watcher runbook.
+> *	Run Settings. Leave as Azure as this runbook runs in the Automation service.
 8.	Click OK, and then Select
 9.	Click OK to create the watcher task.
 
