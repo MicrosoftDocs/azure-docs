@@ -76,3 +76,4 @@ Now that you completed this basic authentication tutorial, consider continuing o
 
 <!-- URLs. -->
 [Get started with Mobile Apps]: app-service-mobile-android-get-started.md
+[Azure portal]: https://portal.azure.com/
