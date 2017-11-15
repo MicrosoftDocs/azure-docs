@@ -100,11 +100,11 @@
     android {
         buildTypes {
             release {
-                // … …
+                // ...
                 manifestPlaceholders = ['redirectUriScheme': '{url_scheme_of_your_app}://easyauth.callback']
             }
             debug {
-                // … …
+                // ...
                 manifestPlaceholders = ['redirectUriScheme': '{url_scheme_of_your_app}://easyauth.callback']
             }
         }
