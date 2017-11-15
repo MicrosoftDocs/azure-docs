@@ -339,6 +339,10 @@
     items:
     - name: Welcome to Wingtips
       href: saas-tenancy-welcome-wingtip-tickets-app.md
+    - name: Standalone application
+      items:
+      - name: Deploy example app
+        href: saas-standaloneapp-get-started-deploy.md
     - name: Database per tenant
       items:
       - name: Tutorial intro
@@ -438,4 +442,3 @@
     href: /azure/architecture/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-  
