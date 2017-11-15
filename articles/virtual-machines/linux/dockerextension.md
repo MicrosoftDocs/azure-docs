@@ -4,7 +4,7 @@ description: Learn how to use the Docker VM extension to quickly and securely de
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 
 ---
@@ -26,18 +26,18 @@ The Azure Docker VM extension installs and configures the Docker daemon, Docker 
 For more information about the different deployment methods, including using Docker Machine and Azure Container Services, see the following articles:
 
 * To quickly prototype an app, you can create a single Docker host using [Docker Machine](docker-machine.md).
-* To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../../container-service/container-service-deployment.md).
+* To build production-ready, scalable environments that provide additional scheduling and management tools, you can deploy a [Docker Swarm cluster on Azure Container Services](../../container-service/dcos-swarm/container-service-deployment.md).
 
 ## Deploy a template with the Azure Docker VM extension
 Let's use an existing quickstart template to create an Ubuntu VM that uses the Azure Docker VM extension to install and configure the Docker host. You can view the template here: [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). You need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
-First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *westus* location:
+First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Next, deploy a VM with [az group deployment create](/cli/azure/group/deployment#create) that includes the Azure Docker VM extension from [this Azure Resource Manager template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Provide your own values for *newStorageAccountName*, *adminUsername*, *adminPassword*, and *dnsNameForPublicIP* as follows:
+Next, deploy a VM with [az group deployment create](/cli/azure/group/deployment#create) that includes the Azure Docker VM extension from [this Azure Resource Manager template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Provide your own unique values for *newStorageAccountName*, *adminUsername*, *adminPassword*, and *dnsNameForPublicIP* as follows:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -64,20 +64,31 @@ az vm show \
 
 When this command returns *Succeeded*, the deployment has finished and you can SSH to the VM in the following step.
 
-## Deploy your first nginx container
-To view details of your VM, including the DNS name, use `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`. SSH to your new Docker host from your local computer as follows:
+## Deploy your first NGINX container
+To view details of your VM, including the DNS name, use [az vm show](/cli/azure/vm#show):
 
-```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+```azurecli
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --show-details \
+    --query [fqdns] \
+    --output tsv
 ```
 
-Once logged in to the Docker host, let's run an nginx container:
+SSH to your new Docker host. Provide your own DNS name as follows:
+
+```bash
+ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
+```
+
+Once logged in to the Docker host, let's run an NGINX container:
 
 ```bash
 sudo docker run -d -p 80:80 nginx
 ```
 
-The output is similar to the following example as the nginx image is downloaded and a container started:
+The output is similar to the following example as the NGINX image is downloaded and a container started:
 
 ```bash
 Unable to find image 'nginx:latest' locally
@@ -97,7 +108,7 @@ Check the status of the containers running on your Docker host as follows:
 sudo docker ps
 ```
 
-The output is similar to the following example, showing that the nginx container is running and TCP ports 80 and 443 and being forwarded:
+The output is similar to the following example, showing that the NGINX container is running and TCP ports 80 and 443 and being forwarded:
 
 ```bash
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES
@@ -140,5 +151,5 @@ Read more information about the additional Docker deployment options in Azure:
 
 * [Use Docker Machine with the Azure driver](docker-machine.md)  
 * [Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine](docker-compose-quickstart.md).
-* [Deploy an Azure Container Service cluster](../../container-service/container-service-deployment.md)
+* [Deploy an Azure Container Service cluster](../../container-service/dcos-swarm/container-service-deployment.md)
 

@@ -3,7 +3,7 @@ title: Customize styles in the developer portal in Azure API Management | Micros
 description: Learn how to modify the styles used for any page in the developer portal in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vladvino
 manager: vlvinogr
 editor: ''
 

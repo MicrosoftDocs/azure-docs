@@ -1,4 +1,4 @@
----
+﻿---
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 services: application-insights
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 # Sampling in Application Insights
@@ -35,9 +35,10 @@ Sampling reduces traffic and data costs, and helps you avoid throttling.
 ## Types of sampling
 There are three alternative sampling methods:
 
-* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET app. Default from SDK v 2.0.0-beta3. Currently available for ASP.NET server-side telemetry only. 
+* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET app. Beginning with SDK v 2.0.0-beta3 this is the default sampling method. Adaptive sampling is currently only available for ASP.NET server-side telemetry. 
 * **Fixed-rate sampling** reduces the volume of telemetry sent from both your ASP.NET server and from your users' browsers. You set the rate. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
-* **Ingestion sampling** works in the Azure portal. It discards some of the telemetry that arrives from your app, at a rate that you set. It doesn't reduce telemetry traffic, but helps you keep within your monthly quota. The big advantage of ingestion sampling is that you can set it without redeploying your app, and it works uniformly for all servers and clients. 
+* **Ingestion sampling** 
+works in the Azure portal. It discards some of the telemetry that arrives from your app, at a sampling rate that you set. It doesn't reduce telemetry traffic sent from your app, but helps you keep within your monthly quota. The main advantage of ingestion sampling is that you can set the sampling rate without redeploying your app, and it works uniformly for all servers and clients. 
 
 If Adaptive or Fixed rate sampling are in operation, Ingestion sampling is disabled.
 
@@ -54,7 +55,7 @@ Like other types of sampling, the algorithm retains related telemetry items. For
 
 Data points that are discarded by sampling are not available in any Application Insights feature such as [Continuous Export](app-insights-export-telemetry.md).
 
-Ingestion sampling doesn't operate while SDK-based adaptive or fixed-rate sampling is in operation. If the sampling rate at the SDK is less than 100%, then the ingestion sampling rate that you set is ignored.
+Ingestion sampling doesn't operate while SDK-based adaptive or fixed-rate sampling is in operation. Note that adaptive sampling is enabled by default when ASP.NET SDK is enabled in Visual Studio or by using Status Monitor, and ingestion sampling is disabled. If the sampling rate at the SDK is less than 100%, then the ingestion sampling rate that you set is ignored.
 
 > [!WARNING]
 > The value shown on the tile indicates the value that you set for ingestion sampling. It doesn't represent the actual sampling rate if SDK sampling is in operation.
@@ -64,15 +65,19 @@ Ingestion sampling doesn't operate while SDK-based adaptive or fixed-rate sampli
 ## Adaptive sampling at your web server
 Adaptive sampling is available for the Application Insights SDK for ASP.NET v 2.0.0-beta3 and later, and is enabled by default. 
 
-Adaptive sampling affects the volume of telemetry sent from your web server app to the Application Insights service. The volume is adjusted automatically to keep within a specified maximum rate of traffic.
+Adaptive sampling affects the volume of telemetry sent from your web server app to the Application Insights service endpoint. The volume is adjusted automatically to keep within a specified maximum rate of traffic.
 
 It doesn't operate at low volumes of telemetry, so an app in debugging or a website with low usage won't be affected.
 
-To achieve the target volume, some of the telemetry generated is discarded. But like other types of sampling, the algorithm retains related telemetry items. For example, when you're inspecting the telemetry in Search, you'll be able to find the request related to a particular exception. 
+To achieve the target volume, some of the generated telemetry is discarded. But like other types of sampling, the algorithm retains related telemetry items. For example, when you're inspecting the telemetry in Search, you'll be able to find the request related to a particular exception. 
 
 Metric counts such as request rate and exception rate are adjusted to compensate for the sampling rate, so that they show approximately correct values in Metric Explorer.
 
-**Update your project's NuGet** packages to the latest *pre-release* version of Application Insights: Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
+### Update NuGet packages ###
+
+Update your project's NuGet packages to the latest *pre-release* version of Application Insights. In Visual Studio, right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
+
+### Configuring adaptive sampling ###
 
 In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), you can adjust several parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
 
@@ -113,7 +118,7 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 **To switch off** adaptive sampling, remove the AdaptiveSamplingTelemetryProcessor node from applicationinsights-config.
 
 ### Alternative: configure adaptive sampling in code
-Instead of adjusting sampling in the .config file, you can use code. This allows you to specify a callback function that is invoked whenever the sampling rate is re-evaluated. You could use this, for example, to find out what sampling rate is being used.
+Instead of setting the sampling parameter in the .config file, you can programmatically set these values. This allows you to specify a callback function that is invoked whenever the sampling rate is re-evaluated. You could use this, for example, to find out what sampling rate is being used.
 
 Remove the `AdaptiveSamplingTelemetryProcessor` node from the .config file.
 
@@ -165,7 +170,7 @@ Remove the `AdaptiveSamplingTelemetryProcessor` node from the .config file.
 ## Sampling for web pages with JavaScript
 You can configure web pages for fixed-rate sampling from any server. 
 
-When you [configure the web pages for Application Insights](app-insights-javascript.md), modify the snippet that you get from the Application Insights portal. (In ASP.NET apps, the snippet typically goes in _Layout.cshtml.)  Insert a line like `samplingPercentage: 10,` before the instrumentation key:
+When you [configure the web pages for Application Insights](app-insights-javascript.md), modify the JavaScript snippet that you get from the Application Insights portal. (In ASP.NET apps, the snippet typically goes in _Layout.cshtml.)  Insert a line like `samplingPercentage: 10,` before the instrumentation key:
 
     <script>
     var appInsights= ... 
@@ -188,13 +193,15 @@ For the sampling percentage, choose a percentage that is close to 100/N where N 
 If you also enable fixed-rate sampling at the server, the clients and server will synchronize so that, in Search, you can  navigate between related page views and requests.
 
 ## Fixed-rate sampling for ASP.NET web sites
-Fixed rate sampling reduces the traffic sent from your web server and web browsers. Unlike adaptive sampling, it reduces telemetry at a fixed rate decided by you. It also synchronizes the client and server sampling so that related items are retained - for example, so that if you look at a page view in Search, you can find its related request.
+Fixed rate sampling reduces the traffic sent from your web server and web browsers. Unlike adaptive sampling, it reduces telemetry at a fixed rate decided by you. It also synchronizes the client and server sampling so that related items are retained - for example, when  you look at a page view in Search, you can find its related request.
 
-The sampling algorithm retains related items. For each HTTP request event, it and its related events are either discarded or transmitted. 
+The sampling algorithm retains related items. For each HTTP request event, the request and its related events are either discarded or transmitted together. 
 
 In Metrics Explorer, rates such as request and exception counts are multiplied by a factor to compensate for the sampling rate, so that they are approximately correct.
 
-1. **Update your project's NuGet packages** to the latest *pre-release* version of Application Insights. Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
+### Configuring fixed-rate sampling ###
+
+1. **Update your project's NuGet packages** to the latest *pre-release* version of Application Insights. In Visual Studio, right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
 2. **Disable adaptive sampling**: In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), remove or comment out the `AdaptiveSamplingTelemetryProcessor` node.
    
     ```xml
@@ -230,7 +237,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 > 
 
 ### Alternative: enable fixed-rate sampling in your server code
-Instead of setting the sampling parameter in the .config file, you can use code. 
+Instead of setting the sampling parameter in the .config file, you can programmatically set these values. 
 
 *C#*
 
@@ -253,9 +260,9 @@ Instead of setting the sampling parameter in the .config file, you can use code.
 ([Learn about telemetry processors](app-insights-api-filtering-sampling.md#filtering).)
 
 ## When to use sampling?
-Adaptive sampling is automatically enabled if you use the ASP.NET SDK version 2.0.0-beta3 or later. No matter what SDK version you use, you can use ingestion sampling (at our server).
+Adaptive sampling is automatically enabled if you use the ASP.NET SDK version 2.0.0-beta3 or later. Regardless of which version of the SDK you use, you can enable ingestion sampling to allow Application Insights to sample the collected data.
 
-You don’t need sampling for most small and medium size applications. The most useful diagnostic information and most accurate statistics are obtained by collecting data on all your user activities. 
+In general, for most small and medium size applications you don’t need sampling. The most useful diagnostic information and most accurate statistics are obtained by collecting data on all your user activities. 
 
 The main advantages of sampling are:
 
@@ -278,7 +285,7 @@ The main advantages of sampling are:
 
 **Use adaptive sampling:**
 
-Otherwise, we recommend adaptive sampling. This is enabled by default in the ASP.NET server SDK, version 2.0.0-beta3 or later. It doesn't reduce traffic until a certain minimum rate, so it won't affect a low-use site.
+If the conditions to use the other forms of sampling do not apply, we recommend adaptive sampling. This is enabled by default in the ASP.NET server SDK, version 2.0.0-beta3 or later. It will not reduce traffic until a certain minimum rate is reached, therefore, low-use sites will not be affected.
 
 ## How do I know whether sampling is in operation?
 To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](app-insights-analytics.md) such as this:
@@ -327,7 +334,7 @@ The client-side (JavaScript) SDK participates in fixed-rate sampling in conjunct
 
 * One way is to start with adaptive sampling, find out what rate it settles on (see the above question), and then switch to fixed-rate sampling using that rate. 
   
-    Otherwise, you have to guess. Analyze your current telemetry usage in AI, observe any throttling that is occurring, and estimate the volume of the collected telemetry. These three inputs, together with your selected pricing tier, suggest how much you might want to reduce the volume of the collected telemetry. However, an increase in the number of your users or some other shift in the volume of telemetry might invalidate your estimate.
+    Otherwise, you have to guess. Analyze your current telemetry usage in Application Insights, observe any throttling that is occurring, and estimate the volume of the collected telemetry. These three inputs, together with your selected pricing tier, suggest how much you might want to reduce the volume of the collected telemetry. However, an increase in the number of your users or some other shift in the volume of telemetry might invalidate your estimate.
 
 *What happens if I configure sampling percentage too low?*
 

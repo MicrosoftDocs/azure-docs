@@ -4,7 +4,7 @@ description: This articles give an overview of content protection with Media Ser
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 06/29/2017
 ms.author: juliako
 
 ---

@@ -12,10 +12,10 @@ editor: ''
 ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/20/2017
 ms.author: carlrab
 
@@ -56,7 +56,7 @@ No special configuration needed.
 
 No special configuration needed.
 
-## Get connection information
+## SQL server connection information
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
@@ -64,7 +64,7 @@ Get the connection information needed to connect to the Azure SQL database. You 
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. On the **Overview** page for your database, review the fully qualified server name as shown in the following image. You can hover over the server name to bring up the **Click to copy** option.
 
-   ![connection information](./media/sql-database-get-started-portal/server-name.png) 
+   ![connection information](./media/sql-database-connect-query-dotnet/server-name.png) 
 
 4. If you have forgotten the login information for your Azure SQL Database server, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password. 
 
@@ -186,4 +186,5 @@ Use the following code to delete the new product that you previously added using
 ## Next steps
 
 - To connect and query using SQL Server Management Studio, see [Connect and query with SSMS](sql-database-connect-query-ssms.md).
+- To connect and query using the Azure portal, see [Connect and query with the Azure Portal SQL query editor](sql-database-connect-query-portal.md).
 - For an MSDN magazine article on using Visual Studio Code, see [Create a database IDE with MSSQL extension blog post](https://msdn.microsoft.com/magazine/mt809115).

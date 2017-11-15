@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2017
+ms.date: 07/19/2017
 ms.author: yurid
 
 ---
@@ -44,7 +44,7 @@ The article examines the following VM security best practices:
 
 ## VM authentication and access control
 
-The first step in protecting your VM is to ensure that only authorized users are able to set up new VMs. You can use [Azure Resource Manager policies](../azure-resource-manager/resource-manager-policy.md) to establish conventions for resources in your organization, create customized policies, and apply these policies to resources, such as [resource groups](../azure-resource-manager/resource-group-overview.md).
+The first step in protecting your VM is to ensure that only authorized users are able to set up new VMs. You can use [Azure policies](../azure-policy/azure-policy-introduction.md) to establish conventions for resources in your organization, create customized policies, and apply these policies to resources, such as [resource groups](../azure-resource-manager/resource-group-overview.md).
 
 VMs that belong to a resource group naturally inherit its policies. Although we recommend this approach to managing VMs, you can also control access to individual VM policies by using [role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
 
@@ -61,7 +61,7 @@ Organizations that do not enforce data-access control by taking advantage of cap
 
 ## VM availability and network access
 
-If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, create at least two VMs in the [availability set](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md).
+If your VM runs critical applications that need to have high availability, we strongly recommend that you use multiple VMs. For better availability, create at least two VMs in the [availability set](../virtual-machines/windows/tutorial-availability-sets.md).
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) also requires that load-balanced VMs belong to the same availability set. If these VMs must be accessed from the Internet, you must configure an [Internet-facing load balancer](../load-balancer/load-balancer-internet-overview.md).
 

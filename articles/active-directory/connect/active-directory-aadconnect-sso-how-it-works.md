@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Technical deep dive
 
-This article gives you technical details into how the Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) feature works.
+This article gives you technical details into how the Azure Active Directory Seamless Single Sign-On (Seamless SSO) feature works.
 
-## How does Azure AD Seamless SSO work?
+## How does Seamless SSO work?
 
 This section has two parts to it:
 1. The setup of the Seamless SSO feature.
@@ -29,12 +29,15 @@ This section has two parts to it:
 ### How does set up work?
 
 Seamless SSO is enabled using Azure AD Connect as shown [here](active-directory-aadconnect-sso-quick-start.md). While enabling the feature, the following steps occur:
-- A computer account named `AZUREADSSOACCT` (which represents Azure AD) is created in your on-premises Active Directory (AD).
+- A computer account named `AZUREADSSOACC` (which represents Azure AD) is created in your on-premises Active Directory (AD).
 - The computer account's Kerberos decryption key is shared securely with Azure AD.
 - In addition, two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
 
 >[!NOTE]
-> The computer account and the Kerberos SPNs are created in each AD forest you synchronize to Azure AD (using Azure AD Connect) and for whose users you want Seamless SSO. Move the `AZUREADSSOACCT` computer account to an Organization Unit (OU) where other computer accounts are stored to ensure that it is managed in the same way and is not deleted.
+> The computer account and the Kerberos SPNs are created in each AD forest you synchronize to Azure AD (using Azure AD Connect) and for whose users you want Seamless SSO. Move the `AZUREADSSOACC` computer account to an Organization Unit (OU) where other computer accounts are stored to ensure that it is managed in the same way and is not deleted.
+
+>[!IMPORTANT]
+>We highly recommend that you [roll over the Kerberos decryption key](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) of the `AZUREADSSOACC` computer account at least every 30 days.
 
 ### How does sign-in with Seamless SSO work?
 
@@ -48,7 +51,7 @@ Once the set-up is complete, Seamless SSO works the same way as any other sign-i
 
 3. The user types in their user name into the Azure AD sign-in page.
 4. Using JavaScript in the background, Azure AD challenges the browser, via a 401 Unauthorized response, to provide a Kerberos ticket.
-5. The browser, in turn, requests a ticket from Active Directory for the `AZUREADSSOACCT` computer account (which represents Azure AD).
+5. The browser, in turn, requests a ticket from Active Directory for the `AZUREADSSOACC` computer account (which represents Azure AD).
 6. Active Directory locates the computer account and returns a Kerberos ticket to the browser encrypted with the computer account's secret.
 7. The browser forwards the Kerberos ticket it acquired from Active Directory to Azure AD (on one of the [Azure AD URLs previously added to the browser's Intranet zone settings](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature)).
 8. Azure AD decrypts the Kerberos ticket, which includes the identity of the user signed into the corporate device, using the previously shared key.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 06/29/2017
 ms.author: anoopkv
 ---
 
@@ -28,11 +28,15 @@ This article describes how to set up your on-premises environment to start repli
 
 The article assumes that you have already created:
 - A Recovery Services Vault in the [Azure portal](http://portal.azure.com "Azure portal").
-- A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md#vmware-account-permissions).
+- A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md).
 - A virtual machine on which to install the configuration server.
 
 ## Configuration server minimum requirements
-The configuration server software should be deployed on a highly available VMware virtual machine. The following table lists the minimum hardware, software, and network requirements for a configuration server.
+The following table lists the minimum hardware, software, and network requirements for a configuration server.
+
+> [!IMPORTANT]
+> When deploying a Configuration Server for protecting VMware virtual machines, we recommend that you deploy it as a **Highly Available (HA)** virtual machine.
+
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 > [!NOTE]

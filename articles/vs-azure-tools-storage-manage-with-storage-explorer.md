@@ -3,18 +3,18 @@ title: Get started with Storage Explorer (Preview) | Microsoft Docs
 description: Manage Azure storage resources with Storage Explorer (Preview)
 services: storage
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: cawa
+manager: paulyuk
 editor: ''
 
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
-ms.author: tarcher
+ms.date: 07/17/2017
+ms.author: cawa
 
 ---
 # Get started with Storage Explorer (Preview)
@@ -39,6 +39,7 @@ In addition, you can work with storage accounts in global and national Azure:
 * [Attach to external storage](#attach-or-detach-an-external-storage-account): Manage storage resources that belong to another Azure subscription or that are under national Azure clouds by using the storage account's name, key, and endpoints.
 * [Attach a storage account by using an SAS](#attach-storage-account-using-sas): Manage storage resources that belong to another Azure subscription by using a shared access signature (SAS).
 * [Attach a service by using an SAS](#attach-service-using-sas): Manage a specific storage service (blob container, queue, or table) that belongs to another Azure subscription by using an SAS.
+* [Connect to an Azure Cosmos DB account by using a connection string](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Manage Cosmos DB account by using a connection string.
 
 ## Connect to an Azure subscription
 > [!NOTE]
@@ -64,80 +65,7 @@ In addition, you can work with storage accounts in global and national Azure:
 
 ## Connect to an Azure Stack subscription
 
-You need a VPN connection for Storage Explorer to access the Azure Stack subscription remotely. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack/azure-stack-connect-azure-stack.md#connect-with-vpn).
-
-For Azure Stack Proof of Concept (POC), you need to export the Azure Stack authority root certificate. To do so:
-
-1. Open `mmc.exe` on MAS-CON01, an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
-
-2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **Computer account** of **Local Computer**.
-
-    ![Load the Azure Stack root certificate through mmc.exe][25]   
-
-3. Find **AzureStackCertificationAuthority** under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates**. 
-
-4. Right-click the item, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.  
-
-    The exported certificate will be used in the next step.   
-
-    ![Export the root Azure Stack authority root certificate][26]   
-
-5. In Storage Explorer (Preview), on the **Edit** menu, point to **SSL Certificates**, and then select **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.  
-
-    After importing, you are prompted to restart Storage Explorer.
-
-    ![Import the certificate into Storage Explorer (Preview)][27]
-
-6. After Storage Explorer (Preview) restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
-
-    ![Ensure Target Azure Stack is selected][28]
-
-7. In the left pane, select **Manage Accounts**.  
-    All the Microsoft accounts that you are signed in to are displayed.
-
-8. To connect to the Azure Stack account, select **Add an account**.
-
-    ![Add an Azure Stack account][29]
-
-9. In the **Add new account** dialog box, under **Azure environment**, select **Create Custom Environment**, and then click **Next**.
-
-10. Enter all required information for the Azure Stack custom environment, and then click **Sign in**. 
-
-11. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to a Custom Cloud environment** dialog box.  
-
-    The details for each field are as follows:
-
-    * **Environment name**: The field can be customized by user.
-    * **Authority**: The value should be https://login.windows.net. For Azure China, use https://login.chinacloudapi.cn.
-    * **Sign in resource id**: Retrieve the value by executing one of the following PowerShell scripts:
-
-        If you are a cloud administrator:
-
-        ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://adminmanagement.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-        ```
-
-        If you are a tenant:
-
-        ```powershell
-        PowerShell (Invoke-RestMethod -Uri https://management.local.azurestack.external/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
-        ```
-
-    * **Graph endpoint**: The value should be https://graph.windows.net. For Azure China, use https://graph.chinacloudapi.cn.
-    * **ARM resource id**: Use the same value as **Sign in resource id**.
-    * **ARM resource endpoint**: The samples of Azure Resource Manager resource endpoints:
-
-        * For cloud administrator: https://adminmanagement.local.azurestack.external   
-        * For tenant: https://management.local.azurestack.external
- 
-    * **Tenant Ids**: Optional. The value is given only when the directory must be specified.
-
-12. After you successfully sign in with an Azure Stack account, the left pane is populated with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions that you want to work with, and then select **Apply**. (Selecting or clearing the **All subscriptions** check box toggles selecting all or none of the listed Azure Stack subscriptions.)
-
-    ![Select the Azure Stack subscriptions after filling out the Custom Cloud Environment dialog box][30]  
-    The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
-
-    ![List of storage accounts including Azure Stack subscription accounts][31]
+For information about connecting to an Azure Stack subscription, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack/user/azure-stack-storage-connect-se.md).
 
 ## Work with local development storage
 With Storage Explorer (Preview), you can work against local storage by using the Azure Storage Emulator. This approach lets you write code against and test storage without necessarily having a storage account deployed on Azure, because the storage account is being emulated by the Azure Storage Emulator.
@@ -225,7 +153,7 @@ To attach to an external storage account, you need the account's name and key. T
 2. In the confirmation message, select **Yes** to confirm the detachment from the external storage account.
 
 ## Attach a storage account by using an SAS
-An [SAS](storage/storage-dotnet-shared-access-signature-part-1.md) lets the admin of an Azure subscription grant temporary access to a storage account without having to provide Azure subscription credentials.
+An [SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) lets the admin of an Azure subscription grant temporary access to a storage account without having to provide Azure subscription credentials.
 
 To illustrate this scenario, let's say that UserA is an admin of an Azure subscription, and UserA wants to allow UserB to access a storage account for a limited time with certain permissions:
 
@@ -292,6 +220,17 @@ In this context, a service can be a blob container, queue, or table. To generate
 
     ![Result of attaching to a shared service by using an SAS][20]
 
+## Connect to an Azure Cosmos DB account by using a connection string
+Besides manage Azure Cosmos DB accounts through Azure subscription, an alternative way of connecting to an Azure Cosmos DB is to use a connection string. Use the following steps to connect using a connection string.
+
+1. Find **Local and Attached** in the left tree, right-click **Azure Cosmos DB Accounts**, choose **Connect to Azure Cosmos DB...**
+
+    ![connect to Azure Cosmos DB by connection string][33]
+
+2. Choose Azure Cosmos DB API, paste your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+
+    ![connection-string][32]
+
 ## Search for storage accounts
 If you have a long list of storage accounts, a quick way to locate a particular storage account is to use the search box at the top of the left pane.
 
@@ -301,6 +240,7 @@ As you type in the search box, the left pane displays the storage accounts that 
 
 ## Next steps
 * [Manage Azure Blob Storage resources with Storage Explorer (Preview)](vs-azure-tools-storage-explorer-blobs.md)
+* [Manage Azure Cosmos DB in Azure Storage Explorer  (Preview)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -329,3 +269,5 @@ As you type in the search box, the left pane displays the storage accounts that 
 [29]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-azure-stack-account.png
 [30]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/select-accounts-azure-stack.png
 [31]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/azure-stack-storage-account-list.png
+[32]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.PNG
+[33]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-db-by-connection-string.PNG

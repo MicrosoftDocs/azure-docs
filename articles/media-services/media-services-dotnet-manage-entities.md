@@ -2,7 +2,7 @@
 title: Managing Assets and Related Entities with Media Services .NET SDK
 description: Learn how to manage assets and related entities with the Media Services SDK for .NET.
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2017
+ms.date: 07/17/2017
 ms.author: juliako
 
 ---
@@ -30,7 +30,8 @@ This topic shows how to manage Azure Media Services entities with .NET.
 > Starting April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. For example, on April 1, 2017, any Job record in your account older than December 31, 2016, will be automatically deleted. If you need to archive the job/task information, you can use the code described in this topic.
 
 ## Prerequisites
-See [Set up your environment](media-services-set-up-computer.md)
+
+Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 
 ## Get an Asset Reference
 A frequent task is to get a reference to an existing asset in Media Services. The following code example shows how you can get an asset reference from the Assets collection on the server context object, based on an asset Id.

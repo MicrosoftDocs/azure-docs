@@ -1,6 +1,6 @@
 ---
 title: Apply performance recommendations - Azure SQL Database | Microsoft Docs
-description: You can use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database or to correct some issue identified in your workload.
+description: Use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database.
 services: sql-database
 documentationcenter: ''
 author: stevestein
@@ -13,8 +13,8 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.date: 09/30/2016
+ms.workload: "On Demand"
+ms.date: 07/05/2017
 ms.author: sstein
 
 
@@ -25,7 +25,7 @@ You can use the Azure portal to find performance recommendations that can optimi
 
 ## Viewing recommendations
 
-To view and apply performance recommendations, you need the correct [role-based access control](../active-directory/role-based-access-control-configure.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
+To view and apply performance recommendations, you need the correct [role-based access control](../active-directory/role-based-access-control-what-is.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
 
 Use the following steps to find performance recommendations on Azure portal:
 
@@ -33,7 +33,7 @@ Use the following steps to find performance recommendations on Azure portal:
 2. Go to **More services** > **SQL databases**, and select your database.
 3. Navigate to **Performance recommendation** to view available recommendations for the selected database.
 
-Performance recommendations are shonw in the table similar to the one shown on the following figure:
+Performance recommendations are shown in the table similar to the one shown on the following figure:
 
 ![Recommendations](./media/sql-database-advisor-portal/recommendations.png)
 
@@ -47,7 +47,7 @@ Recommendations are sorted by their potential impact on performance into the fol
 
 
 > [!NOTE]
-> Azure SQL Database needs to monitor activities at least for a day in order to identify some recommendations. The Azure SQL Database can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not corrently available, the **Performance recommendation** page provides a message explaining why.
+> Azure SQL Database needs to monitor activities at least for a day in order to identify some recommendations. The Azure SQL Database can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not currently available, the **Performance recommendation** page provides a message explaining why.
 > 
 
 You can also view the status of the historical operations. Select a recommendation or status to see  more details.
@@ -70,30 +70,30 @@ The database remains online while the recommendation is applied -- using perform
 ### Apply an individual recommendation
 You can review and accept recommendations one at a time.
 
-1. On the **Recommendations** blade, select a recommendation.
-2. On the **Details** blade click **Apply** button.
+1. On the **Recommendations** page, select a recommendation.
+2. On the **Details** page, click **Apply** button.
    
     ![Apply recommendation](./media/sql-database-advisor-portal/apply.png)
 
-Selected recommendation will be applied on the database.
+Selected recommendation are applied on the database.
 
 ### Removing recommendations from the list
 If your list of recommendations contains items that you want to remove from the list, you can discard the recommendation:
 
 1. Select a recommendation in the list of **Recommendations** to open the details.
-2. Click **Discard** on the **Details** blade.
+2. Click **Discard** on the **Details** page.
 
 If desired, you can add discarded items back to the **Recommendations** list:
 
-1. On the **Recommendations** blade click **View discarded**.
+1. On the **Recommendations** page, click **View discarded**.
 2. Select a discarded item from the list to view its details.
 3. Optionally, click **Undo Discard** to add the index back to the main list of **Recommendations**.
 
 
 ### Enable automatic tuning
-You can set the Azure SQL Database to implement recommendations automatically. As recommendations become available they will automatically be applied. As with all recommendations managed by the service if the performance impact is negative the recommendation will be reverted.
+You can set the Azure SQL Database to implement recommendations automatically. As recommendations become available, they are automatically applied. As with all recommendations managed by the service, if the performance impact is negative, the recommendation is reverted.
 
-1. On the **Recommendations** blade, click **Automate**:
+1. On the **Recommendations** page, click **Automate**:
    
     ![Advisor settings](./media/sql-database-advisor-portal/settings.png)
 2. Select actions to automate:
@@ -108,7 +108,7 @@ Select any recommendation and then click **View script**. Run this script agains
 ### Canceling recommendations
 Recommendations that are in a **Pending**, **Verifying**, or **Success** status can be canceled. Recommendations with a status of **Executing** cannot be canceled.
 
-1. Select a recommendation in the **Tuning History** area to open the **recommendations details** blade.
+1. Select a recommendation in the **Tuning History** area to open the **recommendations details** page.
 2. Click **Cancel** to abort the process of applying the recommendation.
 
 ## Monitoring operations
@@ -129,23 +129,23 @@ Click an in-process recommendation from the list to see more details:
 ![Recommended Indexes](./media/sql-database-advisor-portal/operations.png)
 
 ### Reverting a recommendation
-If you used the performance recommendations to apply the recommendation (meaning you did not manually run the T-SQL script) it will automatically revert it if it finds the performance impact to be negative. If for any reason you simply want to revert a recommendation you can do the following:
+If you used the performance recommendations to apply the recommendation (meaning you did not manually run the T-SQL script), it automatically reverts the change if it finds the performance impact to be negative. If for any reason you simply want to revert a recommendation, you can do the following:
 
 1. Select a successfully applied recommendation in the **Tuning history** area.
-2. Click **Revert** on the **recommendation details** blade.
+2. Click **Revert** on the **recommendation details** page.
 
 ![Recommended Indexes](./media/sql-database-advisor-portal/details.png)
 
 ## Monitoring performance impact of index recommendations
-After recommendations are successfully implemented (currently, index operations and parameterize queries recommendations only) you can click **Query Insights** on the recommendation details blade to open [Query Performance Insights](sql-database-query-performance.md) and see the performance impact of your top queries.
+After recommendations are successfully implemented (currently, index operations and parameterize queries recommendations only), you can click **Query Insights** on the recommendation details page to open [Query Performance Insights](sql-database-query-performance.md) and see the performance impact of your top queries.
 
 ![Monitor performance impact](./media/sql-database-advisor-portal/query-insights.png)
 
 ## Summary
-Azure SQL Database provides recommendations for improving SQL database performance. By providing T-SQL scripts, as well as individual and fully-automatic, you get a helpful assistance in optimizing your database and ultimately improving query performance.
+Azure SQL Database provides recommendations for improving SQL database performance. By providing T-SQL scripts, you get assistance in optimizing your database and ultimately improving query performance.
 
 ## Next steps
-Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. Azure SQL Database will continue to monitor and provide recommendations that can potentially improve your database's performance. 
+Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. Azure SQL Database continues to monitor and provide recommendations that can potentially improve your database's performance. 
 
 * See [Automatic tuning](sql-database-automatic-tuning.md) to learn more about the automatic tuning in Azure SQL Database.
 * See [Performance recommendations](sql-database-advisor.md) for an overview of Azure SQL Database performance recommendations.
@@ -154,5 +154,5 @@ Monitor your recommendations and continue to apply them to refine performance. D
 ## Additional resources
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Role-based access control](../active-directory/role-based-access-control-configure.md)
+* [Role-based access control](../active-directory/role-based-access-control-what-is.md)
 

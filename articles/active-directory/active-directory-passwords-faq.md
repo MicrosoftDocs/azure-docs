@@ -6,7 +6,7 @@ keywords: Active directory password management, password management, Azure AD se
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-editor: gahug
+ms.reviewer: sahenry
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -34,6 +34,7 @@ This FAQ is split into the following sections:
 * [**Questions about password writeback**](#password-writeback)
 
 ## Password reset registration
+
 * **Q:  Can my users register their own password reset data?**
 
   > **A:** Yes, as long as password reset is enabled and they are licensed, they can go to the Password Reset Registration portal at http://aka.ms/ssprsetup to register their authentication information. Users can also register by going to the access panel at http://myapps.microsoft.com, clicking the profile tab, and clicking the Register for Password Reset option.
@@ -52,10 +53,6 @@ This FAQ is split into the following sections:
 * **Q:  Can my users register data in such a way that other users cannot see this data?**
 
   > **A:** Yes, when users register data using the Password Reset Registration Portal it is saved into private authentication fields that are only visible by Global Administrators and the user.
-    >
-    > [!NOTE]
-    > If an **Azure Administrator account** registers their authentication phone number it is also populated into the mobile phone field and is visible.
-    >
   >
   >
 * **Q:  Do my users have to be registered before they can use password reset?**
@@ -78,7 +75,9 @@ This FAQ is split into the following sections:
   > **A:** A user is considered registered for SSPR when they have registered at least the **Number of methods required to reset** that you have set in the [Azure portal](https://portal.azure.com).
   >
   >
+
 ## Password reset
+
 * **Q:  How long should I wait to receive an email, SMS, or phone call from password reset?**
 
   > **A:** Email, SMS messages, and phone calls should arrive in under one minute, with the normal case being 5-20 seconds.
@@ -101,7 +100,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  How can I educate my users about where to go to reset their passwords?**
 
-  > **A:** You can send your users to https://passwordreset.microsoftonline.com directly, or you can instruct them to click the **Can’t access your account link** found on any Work or School sign-in page. You can also publish these links in a place easily accessible to your users.
+  > **A:** Try some of the suggestions in our [SSPR deployment article](active-directory-passwords-best-practices.md#email-based-rollout)
   >
   >
 * **Q:  Can I use this page from a mobile device?**
@@ -154,6 +153,11 @@ This FAQ is split into the following sections:
   > **A:** Yes, one limit can be set for registration and another for reset. 3-5 security questions may be required for registration and 3-5 may be required for reset.
   >
   >
+* **Q:  I configured my policy to require users to use security questions for reset but Azure administrators seem to be configured differently.**
+
+  > **A:** This is the expected behavior. Microsoft enforces a strong default two gate password reset policy for any Azure administrator role. This disables administrators from using security questions. More information about this policy can be found in the article [Password policies and restrictions in Azure Active Directory](active-directory-passwords-policy.md#administrator-password-policy-differences)
+  >
+  >
 * **Q:  If a user has registered more than the maximum number of questions required to reset, how are security questions selected during reset?**
 
   > **A:** N security questions are selected at random out of the total number of questions a user has registered for, where N is the **Number of questions required to reset**. For example, if a user has 5 security questions registered, but only 3 are required to reset, 3 of the 5 are selected randomly and presented at reset. If the user gets the answers to the questions wrong, the selection process reoccurs to prevent question hammering.
@@ -166,11 +170,17 @@ This FAQ is split into the following sections:
   >
 * **Q:  For how long are the email and SMS one-time passcode valid?**
 
-  > **A:** The session lifetime for password reset is 105 minutes. From the beginning of the password reset operation, the user has 105 minutes to reset their password. The email and SMS one-time passcode are invalid after this time period expires.
+  > **A:** The session lifetime for password reset is 15 minutes. From the beginning of the password reset operation, the user has 15 minutes to reset their password. The email and SMS one-time passcode are invalid after this time period expires.
+  >
+  >
+* **Q:  Can I block users from resetting their password?**
+
+  > **A:** Yes, if you are using a group to enable self-service password reset you can remove them from the group that allows them this ability.
   >
   >
 
 ## Password change
+
 * **Q:  Where should my users go to change their passwords?**
 
   > **A:** Users may change their passwords anywhere they see their profile picture or icon (like in the upper right corner of their [Office 365](https://portal.office.com) or [Access Panel](https://myapps.microsoft.com) experiences. Users may change their passwords from the [Access Panel profile page](https://account.activedirectory.windowsazure.com/r#/profile). Users may also be asked to change their passwords automatically at the Azure AD sign-in screen if their passwords have expired. Finally, users may navigate to the [Azure AD Password Change Portal](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) directly if they wish to change their passwords.
@@ -181,8 +191,14 @@ This FAQ is split into the following sections:
   > **A:** This is possible today if you are using ADFS by following the instructions here: [Sending Password Policy Claims with ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). If you are using password hash synchronization, this is not possible today. This is because we do not sync password policies from on-premises, so it is not possible for us to post expiry notifications to cloud experiences. In either case, it is also possible to [notify users whose passwords are about to expire by using PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
+* **Q:  Can I block users from changing their password?**
+
+  > **A:** For cloud-only users this cannot be blocked. For on-premises users you can set `User cannot change password` to checked and those users will not be able to change their password.
+  >
+  >
 
 ## Password management reports
+
 * **Q:  How long does it take for data to show up on the password management reports?**
 
   > **A:** Data should appear on the password management reports within 5-10 minutes. It some instances it may take up to an hour to appear.
@@ -215,6 +231,7 @@ This FAQ is split into the following sections:
   >
 
 ## Password writeback
+
 * **Q:  How does password writeback work behind the scenes?**
 
   > **A:** See [How password writeback works](active-directory-passwords-writeback.md) for an explanation of what happens when you enable password writeback, and how data flows through the system back into your on-premises environment.
@@ -227,7 +244,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  If my on-premises account is disabled, how is my cloud account/access affected?**
 
-  > **A:** If your on-premises ID is disabled, your cloud ID/access will also be disabled at the next sync interval via AAD Connect byt default this is every 30 minutes.
+  > **A:** If your on-premises ID is disabled, your cloud ID/access will also be disabled at the next sync interval via AAD Connect by default this is every 30 minutes.
   >
   >
 * **Q:  If my on-premises account is constrained by an on-premises Active Directory password policy, does SSPR obey this policy when I change the password?**
@@ -253,15 +270,14 @@ This FAQ is split into the following sections:
 
 ## Next steps
 
-The following links provide additional information regarding password reset using Azure AD
-
-* [**Quick Start**](active-directory-passwords-getting-started.md) - Get up and running with Azure AD self service password management 
-* [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
-* [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
-* [**Rollout**](active-directory-passwords-best-practices.md) - Plan and deploy SSPR to your users using the guidance found here
-* [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
-* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
-* [**Policy**](active-directory-passwords-policy.md) - Understand and set Azure AD password policies
-* [**Password Writeback**](active-directory-passwords-writeback.md) - How does password writeback work with your on-premises directory
-* [**Technical Deep Dive**](active-directory-passwords-how-it-works.md) - Go behind the curtain to understand how it works
-* [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
+* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
+* [Reset or change your password](active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](active-directory-passwords-reset-register.md).
+* [Do you have a Licensing question?](active-directory-passwords-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
+* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
+* [What is password writeback and why do I care about it?](active-directory-passwords-writeback.md)
+* [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
+* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)

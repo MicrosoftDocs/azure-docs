@@ -7,14 +7,13 @@ documentationcenter: ''
 author: anandyadavmsft
 manager: femila
 editor: ''
-
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/27/2017
+ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
 ---
@@ -159,7 +158,7 @@ To deploy an ILB, select Load Balancers in the Azure portal and click on add (+)
 * **Scheme**: Since this load balancer will be placed in front of the AD FS servers and is meant for internal network connections ONLY, select “Internal”
 * **Virtual Network**: Choose the virtual network where you are deploying your AD FS
 * **Subnet**: Choose the internal subnet here
-* **IP Address assignment**: Dynamic
+* **IP Address assignment**: Static
 
 ![Internal load balancer](./media/active-directory-aadconnect-azure-adfs/ilbdeployment1.png)
 

@@ -4,7 +4,7 @@ description: This topic shows how to insert ads on the client side.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 65c9c747-128e-497e-afe0-3f92d2bf7972

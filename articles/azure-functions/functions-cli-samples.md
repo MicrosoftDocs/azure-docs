@@ -1,21 +1,21 @@
----
+--
 title: Azure CLI Samples - Azure Functions | Microsoft Docs
 description: Azure CLI Samples - Azure Functions
 services: functions
 documentationcenter: functions
 author: syntaxc4
-manager: erikre
+manager: cfowler
 editor: ggailey777
 tags: azure-service-management
 
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.service: functions
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: functions
 ms.date: 04/11/2017
-ms.author: cfowler, glenga
+ms.author: glenga
 ms.custom: mvc
 ---
 # Azure CLI Samples
@@ -25,8 +25,8 @@ The following table includes links to bash scripts for Azure Functions that use 
 | | |
 |-|-|
 |**Create app**||
-| [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Creates an function app in a Consumption plan.  |
-| [Create a function app in an App Service plan](scripts/functions-cli-create-app-service-plan.md) | Create an function app in an dedicated App Service plan. |
+| [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Creates a function app in a Consumption plan.  |
+| [Create a function app in an App Service plan](scripts/functions-cli-create-app-service-plan.md) | Create a function app in a dedicated App Service plan. |
 | | |
 |**Integrate**||
 | [Create a function app and connect to a storage account](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Create a function app and connect it to a storage account. |

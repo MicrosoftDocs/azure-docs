@@ -3,7 +3,7 @@ title:  What's new in Enterprise Application management in Azure Active Director
 description: Learn what's new in Enterprise Application management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: asteen
+author: ajamess
 manager: femila
 editor: ''
 
@@ -13,8 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 07/13/2017
 ms.author: asteen
+
+ms.reviewer: asteen
 
 ---
 # What's new in Enterprise Application management in Azure Active Directory 

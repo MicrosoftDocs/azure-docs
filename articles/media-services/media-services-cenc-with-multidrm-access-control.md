@@ -4,7 +4,7 @@ description: Learn about how to licensing the Microsoft® Smooth Streaming Clien
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 7814739b-cea9-4b9b-8370-538702e5c615
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
 
 ---
@@ -53,7 +53,7 @@ The following table summarizes the native platform/native app, and browsers supp
 | --- | --- | --- | --- |
 | **Smart TVs, operator STBs, OTT STBs** |PlayReady primarily, and/or Widevine, and/or other |Linux, Opera, WebKit, Other |Various formats |
 | **Windows 10 devices (Windows PC, Windows Tablets, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>UWP |DASH (For HLS, PlayReady is not supported)<br/><br/>DASH, Smooth Streaming (For HLS, PlayReady is not supported) |
-| **Android devices (Phone, Tablet, TV)** |Widevine |Chrome/EME |DASH |
+| **Android devices (Phone, Tablet, TV)** |Widevine |Chrome/EME |DASH,HLS |
 | **iOS (iPhone, iPad), OS X clients and Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
 
@@ -204,7 +204,7 @@ The implementation will include the following steps:
 
 George Trifonov of Azure Media Services Team has written a blog providing detailed steps in setting up Azure Active Directory for an ASP.NET MVC player app: [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-George has also written a blog on [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). And here is his [sample on Azure AD integration with Azure Media Services key delivery](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
+George has also written a blog on [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).  
 
 For information on Azure Active Directory:
 
@@ -271,7 +271,7 @@ Azure AD uses industry standard to establish trust between itself and applicatio
 
 Detailed info on Azure AD key rollover can be found in the document: [Important Information about Signing Key Rollover in Azure AD](../active-directory/active-directory-signing-key-rollover.md).
 
-Between the [public-private key pair](https://login.windows.net/common/discovery/keys/),
+Between the [public-private key pair](https://login.microsoftonline.com/common/discovery/keys/),
 
 * The private key is used by Azure Active Directory to generate a JWT token;
 * The public key is used by an application such as DRM License Delivery Services in AMS to verify the JWT token;

@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 11/15/2017
 ms.author: arramac
 
 ---
-# How to distribute data globally with Azure Cosmos DB?
+# How to distribute data globally with Azure Cosmos DB
 Azure is ubiquitous - it has a global footprint across 30+ geographical regions and is continuously expanding. With its worldwide presence, one of the differentiated capabilities Azure offers to its developers is the ability to build, deploy, and manage globally distributed applications easily. 
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](../cosmos-db/partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. As a cloud-born service, Azure Cosmos DB is carefully engineered with multi-tenancy and global distribution from the ground up.
+[Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides turnkey global distribution, [elastic scaling of throughput and storage](../cosmos-db/partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models. As a cloud-born service, Azure Cosmos DB is carefully engineered with multi-tenancy and global distribution from the ground up.
 
-**A single Azure Cosmos DB collection partitioned and distributed across three Azure regions**
+**A single Azure Cosmos DB collection partitioned and distributed across multiple Azure regions**
 
 ![Azure Cosmos DB collection partitioned and distributed across three regions](./media/distribute-data-globally/global-apps.png)
 
@@ -32,15 +32,11 @@ With Azure Cosmos DB's turnkey global distribution, developers do not have to bu
 
 In this article, we provide an overview of Azure Cosmos DB's global distribution capabilities. We also describe Azure Cosmos DB's unique approach to providing comprehensive SLAs. 
 
-## <a id="EnableGlobalDistribution"></a>Enabling turn-key global distribution
+## <a id="EnableGlobalDistribution"></a>Enabling turnkey global distribution
 Azure Cosmos DB provides the following capabilities to enable you to easily write planet scale applications. These capabilities are available via the Azure Cosmos DB's resource provider-based [REST APIs](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) as well as the Azure portal.
 
 ### <a id="RegionalPresence"></a>Ubiquitous regional presence 
-Azure is constantly growing its geographical presence by bringing new regions online. Azure Cosmos DB is available in all new Azure regions by default. This allows you to associate a geographical region with your Azure Cosmos DB database account as soon as Azure opens the new region for business.
-
-**Azure Cosmos DB is available in all Azure regions by default**
-
-![Azure Cosmos DB available on all Azure regions](./media/distribute-data-globally/azure-regions.png)
+Azure is constantly growing its geographical presence by bringing [new regions](https://azure.microsoft.com/regions/) online. Azure Cosmos DB is available in all new Azure regions by default. This allows you to associate a geographical region with your Azure Cosmos DB database account as soon as Azure opens the new region for business.
 
 ### <a id="UnlimitedRegionsPerAccount"></a>Associating an unlimited number of regions with your Azure Cosmos DB database account
 Azure Cosmos DB allows you to associate any number of Azure regions with your Azure Cosmos DB database account. Outside of geo-fencing restrictions (for example, China, Germany), there are no limitations on the number of regions that can be associated with your Azure Cosmos DB database account. The following figure shows a database account configured to span across 25 Azure regions.  
@@ -61,9 +57,6 @@ To control exact sequence of regional failovers when there is a multi-regional o
 **A tenant of Azure Cosmos DB can configure the failover priority order (right pane) for regions associated with a database account**
 
 ![Configuring failover priorities with Azure Cosmos DB](./media/distribute-data-globally/failover-priorities.png)
-
-### <a id="OfflineRegions"></a>Dynamically taking a region "offline"
-Azure Cosmos DB enables you to take your database account offline in a specific region and bring it back online later. Regions marked offline do not actively participate in replication and are not part of the failover sequence. This enables you to freeze the last known good database image in one of the read regions before rolling out potentially risky upgrades to your application.
 
 ### <a id="ConsistencyLevels"></a>Multiple, well-defined consistency models for globally replicated databases
 Azure Cosmos DB exposes [multiple well-defined consistency levels](consistency-levels.md) backed by SLAs. You can choose a specific consistency model (from the available list of options) depending on the workload/scenarios. 
@@ -104,7 +97,7 @@ As a globally distributed database service, Azure Cosmos DB offers well-defined 
 The key benefit of a globally distributed database service like Azure Cosmos DB is to offer low latency access to your data anywhere in the world. Azure Cosmos DB offers guaranteed low latency at P99 for various database operations. The replication protocol that Azure Cosmos DB employs ensures that the database operations (ideally, both reads and writes) are always performed in the region local to that of the client. The latency SLA of Azure Cosmos DB includes P99 for both reads, (synchronously) indexed writes and queries for various request and response sizes. The latency guarantees for writes include durable majority quorum commits within the local datacenter.
 
 ### <a id="LatencyAndConsistency"></a>Latency's relationship with consistency 
-For a globally distributed service to offer strong consistency in a globally distributed setup, it needs to synchronously replicate the writes or synchronous perform cross-region reads – the speed of light and the wide area network reliability dictate that strong consistency results in high latencies and low availability of database operations. Hence, in order to offer guaranteed low latencies at P99 and 99.99 availability, the service must employ asynchronous replication. This in-turn requires that the service must also offer [well-defined, relaxed consistency choice(s)](consistency-levels.md) – weaker than strong (to offer low latency and availability guarantees) and ideally stronger than "eventual" consistency (to offer an intuitive programming model).
+For a globally distributed service to offer strong consistency in a globally distributed setup, it needs to synchronously replicate the writes or synchronous perform cross-region reads – the speed of light and the wide area network reliability dictate that strong consistency results in higher latencies and reduced availability of database operations. Hence, in order to offer guaranteed low latencies at P99 and 99.99% availability for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts, the service must employ asynchronous replication. This in-turn requires that the service must also offer [well-defined, relaxed consistency choice(s)](consistency-levels.md) – weaker than strong (to offer low latency and availability guarantees) and ideally stronger than "eventual" consistency (to offer an intuitive programming model).
 
 Azure Cosmos DB ensures that a read operation is not required to contact replicas across multiple regions to deliver the specific consistency level guarantee. Likewise, it ensures that a write operation does not get blocked while the data is being replicated across all the regions (i.e. writes are asynchronously replicated across regions). For multi-region database accounts multiple relaxed consistency levels are available. 
 
@@ -117,7 +110,7 @@ To distinguish high latency from unavailability, Azure Cosmos DB provides an abs
 Azure Cosmos DB does not make you choose between latency and throughput. It honors the SLA for both latency at P99 and deliver the throughput that you have provisioned. 
 
 ## <a id="ConsistencyGuarantees"></a>Consistency guarantees
-While the [strong consistency model](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) is the gold standard of programmability, it comes at the steep price of high latency (in steady state) and loss of availability (in the face of failures). 
+While the [strong consistency model](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) is the gold standard of programmability, it comes at the steep price of higher latency (in steady state) and reduced availability (in the face of failures). 
 
 Azure Cosmos DB offers a well-defined programming model to you to reason about replicated data's consistency. In order to enable you to build multi-homed applications, the consistency models exposed by Azure Cosmos DB are designed to be region-agnostic and not depend on the region from where the reads and writes are served. 
 
@@ -170,13 +163,13 @@ Azure Cosmos DB's consistency SLA guarantees that 100% of read requests will mee
 </table>
 
 ### <a id="ConsistencyAndAvailability"></a>Consistency's relationship with availability
-The [impossibility result](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) of the [CAP theorem](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) proves that it is indeed impossible for the system to remain available and offer linearizable consistency in the face of failures. The database service must choose to be either CP or AP - CP systems forgo availability in favor of linearizable consistency while the AP systems forgo [linearizable consistency](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) in favor of availability. Azure Cosmos DB never violates the requested consistency level, which formally makes it a CP system. However, in practice consistency is not an all or nothing proposition – there are multiple well-defined consistency models along the consistency spectrum between linearizable and eventual consistency. In Azure Cosmos DB, we have tried to identify several of the relaxed consistency models with real world applicability and an intuitive programming model. Azure Cosmos DB navigates the consistency-availability tradeoffs by offering 99.99 availability SLA along with [multiple relaxed yet well-defined consistency levels](consistency-levels.md). 
+The [impossibility result](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) of the [CAP theorem](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) proves that it is indeed impossible for the system to remain available and offer linearizable consistency in the face of failures. The database service must choose to be either CP or AP - CP systems forgo availability in favor of linearizable consistency while the AP systems forgo [linearizable consistency](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) in favor of availability. Azure Cosmos DB never violates the requested consistency level, which formally makes it a CP system. However, in practice consistency is not an all or nothing proposition – there are multiple well-defined consistency models along the consistency spectrum between linearizable and eventual consistency. In Azure Cosmos DB, we have tried to identify several of the relaxed consistency models with real world applicability and an intuitive programming model. Azure Cosmos DB navigates the consistency-availability tradeoffs by offering a [multiple relaxed yet well-defined consistency levels](consistency-levels.md) and a 99.99% availability for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts. 
 
 ### <a id="ConsistencyAndAvailability"></a>Consistency's relationship with latency
 A more comprehensive variation of CAP was proposed by Prof. Daniel Abadi and it is called [PACELC](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf), which also accounts for latency and consistency tradeoffs in steady state. It states that in steady state, the database system must choose between consistency and latency. With multiple relaxed consistency models (backed by asynchronous replication and local read, write quorums), Azure Cosmos DB ensures that all reads and writes are local to the read and write regions respectively.  This allows Azure Cosmos DB to offer low latency guarantees within the region for the consistency levels.  
 
 ### <a id="ConsistencyAndThroughput"></a>Consistency's relationship with throughput
-Since the implementation of a specific consistency model depends on the choice of a [quorum type](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), the throughput also varies based on the choice of consistency. For instance, in Azure Cosmos DB, the throughput with strongly consistent reads is roughly half to that of eventually consistent reads. 
+Since the implementation of a specific consistency model depends on the choice of a [quorum type](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), the throughput also varies based on the choice of consistency. For instance, in Azure Cosmos DB, the RU charge for strongly consistent reads is roughly double that of eventually consistent reads. In this case you will need to provision double the RUs on your collection to achieve the same throughput.
  
 **Relationship of read capacity for a specific consistency level in Azure Cosmos DB**
 
@@ -207,7 +200,7 @@ Same as [Consistency's relationship with throughput](#ConsistencyAndThroughput).
 Azure Cosmos DB continues to maintain its availability when the changes are made to the throughput. Azure Cosmos DB transparently manages partitions (for example, split, merge, clone operations) and ensures that the operations do not degrade performance or availability, while the application elastically increases or decreases throughput. 
 
 ## <a id="AvailabilityGuarantees"></a>Availability guarantees
-Azure Cosmos DB offers a 99.99% uptime availability SLA for each of the data and control plane operations. As described earlier, Azure Cosmos DB's availability guarantees include an absolute upper bound on latency for every data and control plane operations. The availability guarantees are steadfast and do not change with the number of regions or geographical distance between regions. Availability guarantees apply with both manual as well as, automatic failover. Azure Cosmos DB offers transparent multi-homing APIs that ensure that your application can operate against logical endpoints and can transparently route the requests to the new region in case of failover. Put differently, your application does not need to be redeployed upon regional failover and the availability SLAs are maintained.
+Azure Cosmos DB offers a 99.99% availability SLA for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts. As described earlier, Azure Cosmos DB's availability guarantees include an absolute upper bound on latency for every data and control plane operations. The availability guarantees are steadfast and do not change with the number of regions or geographical distance between regions. Availability guarantees apply with both manual as well as, automatic failover. Azure Cosmos DB offers transparent multi-homing APIs that ensure that your application can operate against logical endpoints and can transparently route the requests to the new region in case of failover. Put differently, your application does not need to be redeployed upon regional failover and the availability SLAs are maintained.
 
 ### <a id="AvailabilityAndConsistency"></a>Availability's relationship with consistency, latency, and throughput
 Availability’s relationship with consistency, latency, and throughput is described in  [Consistency's relationship with availability](#ConsistencyAndAvailability), [Latency's relationship with availability](#LatencyAndAvailability) and [Throughput's relationship with availability](#ThroughputAndAvailability). 
@@ -215,15 +208,15 @@ Availability’s relationship with consistency, latency, and throughput is descr
 ## <a id="GuaranteesAgainstDataLoss"></a>Guarantees and system behavior for "data loss"
 In Azure Cosmos DB, each partition (of a collection) is made highly available by a number of replicas, which are spread across at least 10-20 fault domains. All writes are synchronously and durably committed by a majority quorum of replicas before they are acknowledged to the client. Asynchronous replication is applied with coordination across partitions spread across multiple regions. Azure Cosmos DB guarantees that there is no data loss for a tenant-initiated manual failover. During automatic failover, Azure Cosmos DB guarantees an upper bound of the configured bounded staleness interval on the data loss window as part of its SLA.
 
-## <a id="CustomerFacingSLAMetrics"></a>Customer facing SLA Metrics
+## <a id="CustomerFacingSLAMetrics"></a>Customer-facing SLA metrics
 Azure Cosmos DB transparently exposes the throughput, latency, consistency and availability metrics. These metrics are accessible programmatically and via the Azure portal (see following figure). You can also set up alerts on various thresholds using Azure Application Insights.
  
 **Consistency, Latency, Throughput, and Availability metrics are transparently available to each tenant**
 
 ![Azure Cosmos DB customer-visible SLA metrics](./media/distribute-data-globally/customer-slas.png)
 
-## <a id="Next Steps"></a>Next Steps
-* To implement global replication on your Azure Cosmos DB account using the Azure portal, see [How to perform Azure Cosmos DB global database replication using the Azure portal](../cosmos-db/tutorial-global-distribution-documentdb.md).
+## <a id="Next Steps"></a>Next steps
+* To implement global replication on your Azure Cosmos DB account using the Azure portal, see [How to perform Azure Cosmos DB global database replication using the Azure portal](tutorial-global-distribution-documentdb.md).
 * To learn about how to implement multi-master architectures with Azure Cosmos DB, see [Multi-master database architectures with Azure Cosmos DB](multi-region-writers.md).
 * To learn more about how automatic and manual failovers work in Azure Cosmos DB, see [Regional Failovers in Azure Cosmos DB](regional-failover.md).
 

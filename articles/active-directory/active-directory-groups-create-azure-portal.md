@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/04/2017
 ms.author: curtand
 
 ms.custom: H1Hack27Feb2017                          
@@ -22,7 +22,6 @@ ms.custom: H1Hack27Feb2017
 # Create a group and add members in Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-groups-create-azure-portal.md)
-> * [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
@@ -48,6 +47,7 @@ This article explains how to create and populate a new group in Azure Active Dir
 8. When you finish adding members to the group, select **Create** on the **Group** blade.    
 
    ![Create group confirmation](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
+
 
 ## Next steps
 These articles provide additional information on Azure Active Directory.

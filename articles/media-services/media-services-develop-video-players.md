@@ -2,7 +2,7 @@
 title: Develop video player applications
 description: The topic provides links to Player Frameworks and plugins that you can use to develop your own client applications that can consume streaming media from Media Services.
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 07/17/2017
 ms.author: juliako
 
 ---

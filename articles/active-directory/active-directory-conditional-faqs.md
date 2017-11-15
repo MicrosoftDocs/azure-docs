@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 10/17/2017
 ms.author: markvi
+ms.reviewer: calebb
 
 ---
 # Azure Active Directory conditional access FAQs
@@ -26,11 +27,12 @@ For information about applications that work with conditional access policies, s
 
 Policies are enforced for business-to-business (B2B) collaboration users. However, in some cases, a user might not be able to satisfy the policy requirements. For example, a guest user's organization might not support multi-factor authentication. 
 
-Currently, conditional access policies are not enforced for SharePoint guest users. The guest relationship is maintained in SharePoint. Guest user accounts in SharePoint are not subject to access polices at the authentication server. You can manage guest access in SharePoint.
+
 
 ## Does a SharePoint Online policy also apply to OneDrive for Business?
 
 Yes. A SharePoint Online policy also applies to OneDrive for Business.
+
 
 ## Why can’t I set a policy on client apps, like Word or Outlook?
 
@@ -49,10 +51,10 @@ Currently, no.
 Currently, conditional access policies are selectively enforced on users of iOS and Android devices. Applications on other device platforms are, by default, not affected by the conditional access policy for iOS and Android devices. A tenant admin can choose to override the global policy to disallow access to users on platforms that are not supported.
 
 
-## How do conditional access policies work for Microsoft Teams?  
+## How do conditional access policies work for Microsoft Teams?
 
-Microsoft Teams relies heavily on Exchange Online and SharePoint Online for core productivity scenarios, like meetings, calendars, and file sharing. Conditional access policies that are set for these cloud apps apply to Microsoft Teams when a user signs in.
+Microsoft Teams relies heavily on Exchange Online and SharePoint Online for core productivity scenarios, like meetings, calendars, and file sharing. Conditional access policies that are set for these cloud apps apply to Microsoft Teams when a user signs directly into Microsoft Teams.
 
-Microsoft Teams also is supported separately as a cloud app in Azure Active Directory conditional access policies. Certificate authority policies that are set for a cloud app apply to Microsoft Teams when a user signs in.
+Microsoft Teams also is supported separately as a cloud app in Azure Active Directory conditional access policies. Conditional access policies that are set for a cloud app apply to Microsoft Teams when a user signs in. However, without the correct policies on other apps like Exchange Online and SharePoint Online users may still be able to access those resources directly.
 
-Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms. 
+Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms.

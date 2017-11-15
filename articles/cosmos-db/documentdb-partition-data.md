@@ -38,7 +38,9 @@ To get started with code, download the project from [Azure Cosmos DB Performance
 <a name="partition-keys"></a>
 <a name="single-partition-and-partitioned-collections"></a>
 <a name="migrating-from-single-partition"></a>
+
 ## Partition keys
+
 In the DocumentDB API, you specify the partition key definition in the form of a JSON path. The following table shows examples of partition key definitions and the values corresponding to each. The partition key is specified as a path, e.g. `/department` represents the property department. 
 
 <table border="0" cellspacing="0" cellpadding="0">
@@ -73,7 +75,7 @@ In the DocumentDB API, you specify the partition key definition in the form of a
 
 Let's look at how the choice of partition key impacts the performance of your application.
 
-## Working with the DocumentDB SDKs
+## Working with the Azure Cosmos DB SDKs
 Azure Cosmos DB added support for automatic partitioning with [REST API version 2015-12-16](/rest/api/documentdb/). In order to create partitioned containers, you must download SDK versions 1.6.0 or newer in one of the supported SDK platforms (.NET, Node.js, Java, Python, MongoDB). 
 
 ### Creating containers
@@ -203,7 +205,7 @@ You can manage parallel query execution by tuning the following parameters:
 * By setting `MaxDegreeOfParallelism`, you can control the degree of parallelism i.e., the maximum number of simultaneous network connections to the container's partitions. If you set this to -1, the degree of parallelism is managed by the SDK. If the `MaxDegreeOfParallelism` is not specified or set to 0, which is the default value, there will be a single network connection to the container's partitions.
 * By setting `MaxBufferedItemCount`, you can trade off query latency and client-side memory utilization. If you omit this parameter or set this to -1, the number of items buffered during parallel query execution is managed by the SDK.
 
-Given the same state of the collection, a parallel query will return results in the same order as in serial execution. When performing a cross-partition query that includes sorting (ORDER BY and/or TOP), the DocumentDB SDK issues the query in parallel across partitions and merges partially sorted results in the client side to produce globally ordered results.
+Given the same state of the collection, a parallel query will return results in the same order as in serial execution. When performing a cross-partition query that includes sorting (ORDER BY and/or TOP), the Azure Cosmos DB SDK issues the query in parallel across partitions and merges partially sorted results in the client side to produce globally ordered results.
 
 ### Executing stored procedures
 You can also execute atomic transactions against documents with the same device ID, e.g. if you're maintaining aggregates or the latest state of a device in a single item. 
@@ -218,9 +220,9 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 In the next section, we look at how you can move to partitioned containers from single-partition containers.
 
 ## Next steps
-In this article, we provided an overview of how to work with partitioning of Cosmos DB containers with the DocumentDB API. Also see [partitioning and horizontal scaling](../cosmos-db/partition-data.md) for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
+In this article, we provided an overview of how to work with partitioning of Azure Cosmos DB containers with the DocumentDB API. Also see [partitioning and horizontal scaling](../cosmos-db/partition-data.md) for an overview of concepts and best practices for partitioning with any Azure Cosmos DB API. 
 
-* Perform scale and performance testing with Cosmos DB. See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) for a sample.
+* Perform scale and performance testing with Azure Cosmos DB. See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) for a sample.
 * Get started coding with the [SDKs](documentdb-sdk-dotnet.md) or the [REST API](/rest/api/documentdb/)
 * Learn about [provisioned throughput in Azure Cosmos DB](request-units.md)
 

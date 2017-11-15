@@ -6,16 +6,14 @@ documentationcenter: ''
 author: karavar
 manager: samueld
 editor: curtand
-
 ms.assetid: 82798ea6-5cd3-4f30-93ae-d56536f8d8e3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/10/2017
-ms.author: vakarand
-
+ms.date: 07/18/2017
+ms.author: billmath
 ---
 # Monitor your on-premises identity infrastructure and synchronization services in the cloud
 Azure Active Directory (Azure AD) Connect Health helps you monitor and gain insights into your on-premises identity infrastructure and the synchronization services. It enables you to maintain a reliable connection to Office 365 and Microsoft Online Services by providing monitoring capabilities for your key identity components such as Active Directory Federation Services (AD FS) servers, Azure AD Connect servers (also known as Sync Engine), Active Directory domain controllers, etc. It also makes the key data points about these components easily accessible so that you can get usage and other important insights to make informed decisions.
@@ -24,8 +22,8 @@ The information is presented in the [Azure AD Connect Health portal](https://aka
 
 ![What is Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
 
-As the features in Azure AD Connect Health increase, the portal provides a single dashboard through the lens of identity. You get an even more robust, healthy, and integrated environment for your users to increase their ability to get things done.
 
+As the features in Azure AD Connect Health increase, the portal provides a single dashboard through the lens of identity. You get an even more robust, healthy, and integrated environment for your users to increase their ability to get things done.
 ## Why use Azure AD Connect Health?
 When you integrate your on-premises directories with Azure AD, your users are more productive because there's a common identity to access both cloud and on-premises resources. However, this integration creates the challenge of ensuring that this environment is healthy so that users can reliably access resources both on premises and in the cloud from any device. Azure AD Connect Health helps you monitor and gain insights into your on-premises identity infrastructure that is used to access Office 365 or other Azure AD applications. It is as simple as installing an agent on each of your on-premises identity servers.
 
@@ -37,11 +35,14 @@ Azure AD Connect Health for AD FS supports AD FS 2.0 on Windows Server 2008 R2, 
 * Trends in performance data, which are useful for capacity planning of AD FS
 * Usage analytics for AD FS sign-ins with pivots (apps, users, network location etc.), which are useful to understand how AD FS is getting utilized
 * Reports for AD FS such as top 50 users who have bad username/password attempts and their last IP address
+  
+Read more here about [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 
 The following video provides an overview of Azure AD Connect Health for AD FS.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Connect-Health--Monitor-you-identity-bridge/player]
 >
+
 >
 
 ## [Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
@@ -52,6 +53,8 @@ Azure AD Connect Health for sync monitors and provides information about the syn
 * Sync operational insights, which include latency charts for sync operations and trends in different operations such as adds, updates, deletes
 * Quick glance information about sync properties and last successful export to Azure AD
 * Reports about object-level sync errors \(does not require Azure AD Premium\)
+
+Read more here about [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
 
 The following video provides an overview of Azure AD Connect Health for sync.
 
@@ -66,6 +69,8 @@ Azure AD Connect Health for Active Directory Domain Services (AD DS) provides mo
 * The Domain Controllers dashboard, which provides a quick view of the health and operational status of your domain controllers
 * The Replication Status dashboard that has the latest replication information and links to troubleshooting guides when errors are detected
 * Quick anywhere access to performance data graphs of popular performance counters, which are necessary for troubleshooting and monitoring purposes
+
+Read more here about [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 
 The following video provides an overview of Azure AD Connect Health for AD DS.
 

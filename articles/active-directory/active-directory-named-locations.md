@@ -12,8 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 09/20/2017
 ms.author: markvi
+ms.reviewer: dhanyahk
 
 ---
 # Named locations in Azure Active Directory
@@ -47,7 +48,7 @@ To configure a named location:
 
 6. On the **New** blade, do the following:
 
-	![The New blade](./media/active-directory-named-locations/08.png)
+	![The New blade](./media/active-directory-named-locations/56.png)
 
     a. In the **Name** box, type a name for your named location.
 

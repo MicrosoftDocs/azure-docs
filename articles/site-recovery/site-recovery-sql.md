@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/11/2017
 ms.author: pratshar
 
 ---
@@ -51,6 +51,7 @@ Site Recovery can protect SQL Server as summarized in the table.
 ### Supported SQL Server versions
 These SQL Server versions are supported, for the supported scenarios:
 
+* SQL Server 2016 Enterprise and Standard
 * SQL Server 2014 Enterprise and Standard
 * SQL Server 2012 Enterprise and Standard
 * SQL Server 2008 R2 Enterprise and Standard

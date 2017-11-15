@@ -23,6 +23,7 @@ Apache Tomcat (or simply Tomcat, also formerly called Jakarta Tomcat) is an open
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../../../resource-manager-deployment-model.md). This article covers how to use the classic deployment model. We recommend that most new deployments use the Resource Manager model. To use a Resource Manager template to deploy an Ubuntu VM with Open JDK and Tomcat, see [this article](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 In this article, you will install Tomcat7 on a Linux image and deploy it in Azure.  
 

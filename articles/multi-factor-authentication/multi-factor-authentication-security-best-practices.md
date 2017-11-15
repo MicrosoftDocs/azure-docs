@@ -3,7 +3,7 @@ title: Security best practices for MFA | Microsoft Docs
 description: This document provides best practices around using Azure MFA with Azure accounts
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 
 ms.assetid: 3be7d968-96bb-4320-8701-869fd04a2595
@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.author: joflore
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 

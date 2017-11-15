@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Disk Encryption for Windows and Linux IaaS VMs | Microsoft Docs
 description: This article provides an overview of Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 11/01/2017
 ms.author: kakhan
 
 ---
@@ -32,42 +32,40 @@ Azure disk encryption for Windows and Linux IaaS VMs is now in **General Availab
 The Azure Disk Encryption solution supports the following customer scenarios:
 
 * Enable encryption on new IaaS VMs created from pre-encrypted VHD and encryption keys
-* Enable encryption on new IaaS VMs created from the Azure Gallery images
+* Enable encryption on new IaaS VMs created from the supported Azure Gallery images
 * Enable encryption on existing IaaS VMs running in Azure
 * Disable encryption on Windows IaaS VMs
 * Disable encryption on data drives for Linux IaaS VMs
 * Enable encryption of managed disk VMs
-* Update encryption settings of an existing encrypted non-premium storage VM
-* Backup and restore of encrypted VMs, encrypted with key encryption key
+* Update encryption settings of an existing encrypted premium and non-premium storage VM
+* Backup and restore of encrypted VMs
 
 The solution supports the following scenarios for IaaS VMs when they are enabled in Microsoft Azure:
 
 * Integration with Azure Key Vault
 * Standard tier VMs: [A, D, DS, G, GS, F, and so forth series IaaS VMs](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* Enable encryption on Windows and Linux IaaS VMs and managed disk VMs
+* Enable encryption on Windows and Linux IaaS VMs and managed disk VMs from the supported Azure Gallery images
 * Disable encryption on OS and data drives for Windows IaaS VMs and managed disk VMs
 * Disable encryption on data drives for Linux IaaS VMs and managed disk VMs
 * Enable encryption on IaaS VMs running Windows Client OS
 * Enable encryption on volumes with mount paths
 * Enable encryption on Linux VMs configured with disk striping (RAID) using mdadm
 * Enable encryption on Linux VMs using LVM for data disks
+* Enable encryption on Linux LVM 7.3 for OS and data disks 
 * Enable encryption on Windows VMs configured with Storage Spaces
-* Update encryption settings of an existing encrypted non-premium storage VM
+* Update encryption settings of an existing encrypted premium and non-premium storage VM
+* Backup and restore of encrypted VMs, for both no-KEK and KEK scenarios (KEK - Key Encryption Key)
 * All Azure Public and AzureGov regions are supported
 
 The solution does not support the following scenarios, features, and technology:
 
 * Basic tier IaaS VMs
 * Disabling encryption on an OS drive for Linux IaaS VMs
+* Disabling encryption on a data drive if the OS drive is encrypted for Linux Iaas VMs
 * IaaS VMs that are created by using the classic VM creation method
+* Enable encryption on Windows and Linux IaaS VMs customer custom images is NOT supported.
 * Integration with your on-premises Key Management Service
 * Azure Files (shared file system), Network File System (NFS), dynamic volumes, and Windows VMs that are configured with software-based RAID systems
-* Backup and restore of encrypted VMs, encrypted without key encryption key.
-* Update encryption settings of an existing encrypted premium storage VM.
-
-> [!NOTE]
-> Backup and restore of encrypted VMs is supported only for VMs that are encrypted with the KEK configuration. It is not supported on VMs that are encrypted without KEK. KEK is an optional parameter that enables VM encryption. This support is coming soon.
-> Update encryption settings of an existing encrypted premium storage VM are not supported. This support is coming soon.
 
 ### Encryption features
 When you enable and deploy Azure Disk Encryption for Azure IaaS VMs, the following capabilities are enabled, depending on the configuration provided:
@@ -75,14 +73,11 @@ When you enable and deploy Azure Disk Encryption for Azure IaaS VMs, the followi
 * Encryption of the OS volume to protect the boot volume at rest in your storage
 * Encryption of data volumes to protect the data volumes at rest in your storage
 * Disabling encryption on the OS and data drives for Windows IaaS VMs
-* Disabling encryption on the data drives for Linux IaaS VMs
+* Disabling encryption on the data drives for Linux IaaS VMs (only if OS drive IS NOT encrypted)
 * Safeguarding the encryption keys and secrets in your key vault subscription
 * Reporting the encryption status of the encrypted IaaS VM
 * Removal of disk-encryption configuration settings from the IaaS virtual machine
 * Backup and restore of encrypted VMs by using the Azure Backup service
-
-> [!NOTE]
-> Backup and restore of encrypted VMs is supported only for VMs that are encrypted with the KEK configuration. It is not supported on VMs that are encrypted without KEK. KEK is an optional parameter that enables VM encryption.
 
 Azure Disk Encryption for IaaS VMS for Windows and Linux solution includes:
 
@@ -125,12 +120,13 @@ To disable disk encryption for IaaS VMs, complete the following high-level steps
 
 1. Choose to disable encryption (decryption) on a running IaaS VM in Azure via the Azure Disk Encryption Resource Manager template or PowerShell cmdlets, and specify the decryption configuration.
 
- This step disables encryption of the OS or the data volume or both on the running Windows IaaS VM. However, as mentioned in the previous section, disabling OS disk encryption for Linux is not supported. The decryption step is allowed only for data drives on Linux VMs.
+ This step disables encryption of the OS or the data volume or both on the running Windows IaaS VM. However, as mentioned in the previous section, disabling OS disk encryption for Linux is not supported. The decryption step is allowed only for data drives on Linux VMs as long as the OS disk is not encrypted.
 2. Azure updates the VM service model, and the IaaS VM is marked decrypted. The contents of the VM are no longer encrypted at rest.
 
 > [!NOTE]
 > The disable-encryption operation does not delete your key vault and the encryption key material (BitLocker encryption keys for Windows systems or Passphrase for Linux).
  > Disabling OS disk encryption for Linux is not supported. The decryption step is allowed only for data drives on Linux VMs.
+Disabling data disk encryption for Linux is not supported if the OS drive is encrypted.
 
 ## Prerequisites
 Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scenarios that were discussed in the "Overview" section, see the following prerequisites:
@@ -142,7 +138,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 > [!NOTE]
 > For Windows Server 2008 R2, you must have .NET Framework 4.5 installed before you enable encryption in Azure. You can install it from Windows Update by installing the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Azure Disk Encryption is supported on the following Linux server distributions and versions:
+* Azure Disk Encryption is supported on the following Azure Gallery based Linux server distributions and versions:
 
 | Linux Distribution | Version | Volume Type Supported for Encryption|
 | --- | --- |--- |
@@ -151,6 +147,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 | Ubuntu | 12.10 | Data disk |
 | Ubuntu | 12.04 | Data disk |
 | RHEL | 7.3 | OS and Data disk |
+| RHEL | LVM 7.3 | OS and Data disk |
 | RHEL | 7.2 | OS and Data disk |
 | RHEL | 6.8 | OS and Data disk |
 | RHEL | 6.7 | Data disk |
@@ -195,7 +192,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
       *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * To enable the Azure Disk Encryption feature, the IaaS VMs must meet the following network endpoint configuration requirements:
-  * To get a token to connect to your key vault, the IaaS VM must be able to connect to an Azure Active Directory endpoint, \[Login.windows.net\].
+  * To get a token to connect to your key vault, the IaaS VM must be able to connect to an Azure Active Directory endpoint, \[login.microsoftonline.com\].
   * To write the encryption keys to your key vault, the IaaS VM must be able to connect to the key vault endpoint.
   * The IaaS VM must be able to connect to an Azure storage endpoint that hosts the Azure extension repository and an Azure storage account that hosts the VHD files.
 
@@ -221,7 +218,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 * Bitlocker policy on domain joined virtual machines with custom group policy must include the following setting: `Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key`  Azure Disk Encryption will fail when custom group policy settings for Bitlocker are incompatible. On machines that did not have the correct policy setting, applying the new policy, forcing the new policy to update (gpupdate.exe /force), and then restarting may be required.  
 * To create an Azure AD application, create a key vault, or set up an existing key vault and enable encryption, see the [Azure Disk Encryption prerequisite PowerShell script](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 * To configure disk-encryption prerequisites using the Azure CLI, see [this Bash script](https://github.com/ejarvi/ade-cli-getting-started).
-* To use the Azure Backup service to back up and restore encrypted VMs, when encryption is enabled with Azure Disk Encryption, encrypt your VMs by using the Azure Disk Encryption key configuration. The Backup service supports VMs that are encrypted using KEK configuration only. See [How to back up and restore encrypted virtual machines with Azure Backup  encryption](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+* To use the Azure Backup service to back up and restore encrypted VMs, when encryption is enabled with Azure Disk Encryption, encrypt your VMs by using the Azure Disk Encryption key configuration. The Backup service supports VMs that are encrypted using no-KEK or KEK configurations. See [How to back up and restore encrypted virtual machines with Azure Backup  encryption](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
 
 * When encrypting a Linux OS volume, note that a VM restart is currently required at the end of the process. This can be done via the portal, powershell, or CLI.   To track the progress of encryption, periodically poll the status message returned by Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Once encryption is complete, the the status message returned by this command will indicate this.  For example, "ProgressMessage: OS disk successfully encrypted, please reboot the VM"  At this point the VM can be restarted and used.  
 
@@ -229,10 +226,9 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 
 * Recursively mounted data disks are not supported by the Azure Disk Encryption for Linux. For example, if the target system has mounted a disk on /foo/bar and then another on /foo/bar/baz, the encryption of /foo/bar/baz will succeed, but encryption of /foo/bar will fail. 
 
-* Azure Disk Encryption is only supported on gallery images that meet the aforementioned prerequisites.  Custom images are not supported due to custom partition schemes and process behaviors that may exist on these images.  Further, even gallery image based VM's that initially met prerequisites but have been modified after creation may be incompatible.  For that reason, the suggested procedure for encrypting a Linux VM is to start from a clean gallery image, encrypt the VM, and then add custom software or data to the VM as needed.  
+* Azure Disk Encryption is only supported on Azure gallery supported images that meet the aforementioned prerequisites. Customer custom images are not supported due to custom partition schemes and process behaviors that may exist on these images. Further, even gallery image based VM's that initially met prerequisites but have been modified after creation may be incompatible.  For that reason, the suggested procedure for encrypting a Linux VM is to start from a clean gallery image, encrypt the VM, and then add custom software or data to the VM as needed.  
 
-> [!NOTE]
-> Backup and restore of encrypted VMs is supported only for VMs that are encrypted with the KEK configuration. It is not supported on VMs that are encrypted without KEK. KEK is an optional parameter that enables VM.
+* Azure Disk Encryption and local data volume - Bek Volume for Windows and /mnt/azure_bek_disk for Linux IaaS VMs to securely hold the encryption key. Do not delete or edit any contents in this disk. Do not unmount the disk since the encryption key presence is needed for any encryption operations on the IaaS VM. README file included in the volume contains additional details.
 
 #### Set up the Azure AD application in Azure Active Directory
 When you need encryption to be enabled on a running VM in Azure, Azure Disk Encryption generates and writes the encryption keys to your key vault. Managing encryption keys in your key vault requires Azure AD authentication.
@@ -245,15 +241,15 @@ The sections that follow can help you configure a client secret-based authentica
 ##### Create an Azure AD application by using Azure PowerShell
 Use the following PowerShell cmdlet to create an Azure AD application:
 
-    $aadClientSecret = “yourSecret”
+    $aadClientSecret = "yourSecret"
     $azureAdApplication = New-AzureRmADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password $aadClientSecret
     $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
 
 > [!NOTE]
 > $azureAdApplication.ApplicationId is the Azure AD ClientID and $aadClientSecret is the client secret that you should use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately.
 
-##### Setting up the Azure AD client ID and secret from the Azure classic portal
-You can also set up your Azure AD client ID and secret by using the [Azure classic portal]( https://manage.windowsazure.com). To perform this task, do the following:
+##### Setting up the Azure AD client ID and secret from the Azure portal
+You can also set up your Azure AD client ID and secret by using the Azure Portal. To perform this task, do the following:
 
 1. Click the **Active Directory** tab.
 
@@ -275,8 +271,6 @@ You can also set up your Azure AD client ID and secret by using the [Azure class
 
  ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
 
- > [!NOTE]
- > The preceding flow is not supported on the Azure classic portal.
 
 ##### Use an existing application
 To execute the following commands, obtain and use the [Azure AD PowerShell module](https://technet.microsoft.com/library/jj151815.aspx).
@@ -602,7 +596,7 @@ The following table lists Resource Manager template parameters for existing or r
 | AADClientSecret | Client secret of the Azure AD application that has permissions to write secrets to your key vault. |
 | keyVaultName | Name of the key vault that the BitLocker key should be uploaded to. You can get it by using the cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname`. |
 |  keyEncryptionKeyURL | URL of the key encryption key that's used to encrypt the generated BitLocker key. This parameter is optional if you select **nokek** in the UseExistingKek drop-down list. If you select **kek** in the UseExistingKek drop-down list, you must enter the _keyEncryptionKeyURL_ value. |
-| volumeType | Type of volume that the encryption operation is performed on. Valid supported values are _OS_ or _All_ (for RHEL 7.2, CentOS 7.2, and Ubuntu 16.04), and _Data_ (for all other distributions). |
+| volumeType | Type of volume that the encryption operation is performed on. Valid supported values are _OS_ or _All_ (see supported Linux distros and their versions for OS and data disks in prerequisiteis section earlier). |
 | sequenceVersion | Sequence version of the BitLocker operation. Increment this version number every time a disk-encryption operation is performed on the same VM. |
 | vmName | Name of the VM that the encryption operation is to be performed on. |
 | passPhrase | Type a strong passphrase as the data encryption key. |
@@ -639,12 +633,12 @@ You can enable disk encryption on your encrypted VHD by installing and using the
  ```
 
 ### Get the encryption status of an encrypted IaaS VM
-You can get the encryption status by using Azure Resource Manager, [PowerShell cmdlets](/powershell/azure/overview), or CLI commands. The following sections explain how to use the Azure classic portal and CLI commands to get the encryption status.
+You can get the encryption status by using Azure Resource Manager, [PowerShell cmdlets](/powershell/azure/overview), or CLI commands. The following sections explain how to use the Azure Portal and CLI commands to get the encryption status.
 
 #### Get the encryption status of an encrypted Windows VM by using Azure Resource Manager
 You can get the encryption status of the IaaS VM from Azure Resource Manager by doing the following:
 
-1. Sign in to the [Azure classic portal](https://portal.azure.com/), and then click **Virtual machines** in the left pane to see a summary view of the virtual machines in your subscription. You can filter the virtual machines view by selecting the subscription name in the **Subscription** drop-down list.
+1. Sign in to the [Azure Portal](https://portal.azure.com/), and then click **Virtual machines** in the left pane to see a summary view of the virtual machines in your subscription. You can filter the virtual machines view by selecting the subscription name in the **Subscription** drop-down list.
 
 2. At the top of the **Virtual machines** page, click **Columns**.
 
@@ -699,7 +693,7 @@ You can disable encryption on a running Windows or Linux IaaS VM via the Azure D
 The disable-encryption step disables encryption of the OS, the data volume, or both on the running Windows IaaS VM. You cannot disable the OS volume and leave the data volume encrypted. When the disable-encryption step is performed, the Azure classic deployment model updates the VM service model, and the Windows IaaS VM is marked decrypted. The contents of the VM are no longer encrypted at rest. The decryption does not delete your key vault and the encryption key material (BitLocker encryption keys for Windows and Passphrase for Linux).
 
 ##### Linux VM
-The disable-encryption step disables encryption of the data volume on the running Linux IaaS VM.
+The disable-encryption step disables encryption of the data volume on the running Linux IaaS VM. This step only works if the OS disk is not encrypted.
 
 > [!NOTE]
 > Disabling encryption on the OS disk is not allowed on Linux VMs.
@@ -747,7 +741,7 @@ Use the Azure Managed Disk ARM template to create a new encrypted Linux IaaS VM 
   >It is mandatory to snapshot and/or backup a managed disk based VM instance outside of and prior to enabling Azure Disk Encryption.  A snapshot of the managed disk can be taken from the portal, or Azure Backup can be used.  Backups ensure that a recovery option is possible in the case of any unexpected failure during encryption.  Once a backup is made, the Set-AzureRmVMDiskEncryptionExtension cmdlet can be used to encrypt managed disks by specifying the -skipVmBackup parameter.  This command will fail against managed disk based VM's until a backup has been made and this parameter has been specified.    
  
 ### Update encryption settings of an existing encrypted non-premium VM
-  Use the existing Azure disk encryption supported interfaces for running VM [PS cmdlets, CLI or ARM templates] to update the encryption settings like AAD client ID/secret, Key encryption key [KEK], BitLocker encryption key for Windows VM or Passphrase for Linux VM etc. The update encryption setting is supported only for VMs backed by non-premium storage. It is NNOT supported for VMs backed by premium storage.
+  Use the existing Azure disk encryption supported interfaces for running VM [PS cmdlets, CLI or ARM templates] to update the encryption settings like AAD client ID/secret, Key encryption key [KEK], BitLocker encryption key for Windows VM or Passphrase for Linux VM etc. The update encryption setting is supported for both premium and non-premium storage VMs.
 
 ## Appendix
 ### Connect to your subscription

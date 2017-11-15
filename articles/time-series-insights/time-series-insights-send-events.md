@@ -1,55 +1,62 @@
 ---
-title: Send events to Azure Time Series Insights environment | Microsoft Docs
-description: This tutorial covers how to push events to your Time Series Insights environment
-keywords:
+title: How to send events to an Azure Time Series Insights environment | Microsoft Docs
+description: This tutorial explains how to create and configure event hub and run a sample application to push events to be shown in Azure Time Series Insights.
 services: time-series-insights
-documentationcenter:
-author: venkatgct
-manager: almineev
-editor: cgronlun
-
-ms.assetid:
 ms.service: time-series-insights
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/21/2017
+author: venkatgct
 ms.author: venkatja
+manager: jhubbard
+editor: MarkMcGeeAtAquent
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
 ---
-# Send events to a Time Series Insights environment via event hub
-
-This tutorial explains how to create and configure event hub and run a sample application to push events. If you have an existing event hub that already has events in JSON format, you can skip this tutorial and view your environment in [time series explorer](https://insights.timeseries.azure.com).
+# Send events to a Time Series Insights environment using event hub
+This article explains how to create and configure event hub and run a sample application to push events. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [time series insights](https://insights.timeseries.azure.com).
 
 ## Configure an event hub
-1. To create an event hub, follow instructions from the Event Hub [documentation](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+1. To create an event hub, follow instructions from the Event Hub [documentation](../event-hubs/event-hubs-create.md).
 
-2. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
+2. Search for **event hub** in the search bar. Click **Event Hubs** in the returned list.
 
-  > [!IMPORTANT]
-  > Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
+3. Select your event hub by clicking on its name.
+
+4. Under Entities in the middle configuration window, click **Event Hubs** again.
+
+5. Select the name of the event hub to configure it.
 
   ![Select event hub consumer group](media/send-events/consumer-group.png)
 
-3. On the event hub, create “MySendPolicy” that is used to send events in the sample below.
+6. Under **Entities**, select **Consumer groups**.
+ 
+7. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
+
+   > [!IMPORTANT]
+   > Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
+
+8. Under the **Settings** heading, select **Share access policies**.
+
+9. On the event hub, create **MySendPolicy** that is used to send events in the csharp sample.
 
   ![Select Shared access policies and click Add button](media/send-events/shared-access-policy.png)  
 
   ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
 
 ## Create Time Series Insights event source
-1. If you haven't created event source, follow instructions specified [here](time-series-insights-add-event-source.md) to create an event source.
+1. If you haven't created an event source, follow [these instructions](time-series-insights-how-to-add-an-event-source-eventhub.md) to create an event source.
 
-2. Specify “deviceTimestamp” as the timestamp property name – this property is used as the actual timestamp in the sample below. The timestamp property name is case-sensitive and values should have the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the time at which the event was enqueued to event hub is used.
+2. Specify **deviceTimestamp** as the timestamp property name – this property is used as the actual timestamp in the C# sample. The timestamp property name is case-sensitive and values must follow the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the event hub enqueued time is used.
 
   ![Create event source](media/send-events/event-source-1.png)
 
-## Run sample code to push events
-1. Go to the event hub policy “MySendPolicy” and copy the connection string with the policy key.
+## Sample code to push events
+1. Go to the event hub policy named **MySendPolicy**. Copy the **connection string** with the policy key.
 
   ![Copy MySendPolicy connection string](media/send-events/sample-code-connection-string.png)
 
-2. Run the following code that will send 600 events per each of the three devices. Update `eventHubConnectionString` with your connection string.
+2. Run the following code that to send 600 events per each of the three devices. Update `eventHubConnectionString` with your connection string.
 
 ```csharp
 using System;
@@ -127,13 +134,13 @@ A simple JSON object.
 
 ```json
 {
-    "deviceId":"device1",
-    "deviceTimestamp":"2016-01-08T01:08:00Z"
+    "id":"device1",
+    "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
 #### Output - 1 event
 
-|deviceId|deviceTimestamp|
+|id|timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
@@ -144,21 +151,22 @@ A JSON array with two JSON objects. Each JSON object will be converted to an eve
 ```json
 [
     {
-        "deviceId":"device1",
-        "deviceTimestamp":"2016-01-08T01:08:00Z"
+        "id":"device1",
+        "timestamp":"2016-01-08T01:08:00Z"
     },
     {
-        "deviceId":"device2",
-        "deviceTimestamp":"2016-01-17T01:17:00Z"
+        "id":"device2",
+        "timestamp":"2016-01-17T01:17:00Z"
     }
 ]
 ```
 #### Output - 2 Events
 
-|deviceId|deviceTimestamp|
+|id|timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
+
 ### Sample 3
 
 #### Input
@@ -169,12 +177,12 @@ A JSON object with a nested JSON array containing two JSON objects.
     "location":"WestUs",
     "events":[
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z"
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z"
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z"
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z"
         }
     ]
 }
@@ -183,7 +191,7 @@ A JSON object with a nested JSON array containing two JSON objects.
 #### Output - 2 Events
 Note that the property "location" is copied over to each of the event.
 
-|location|events.deviceId|events.deviceTimestamp|
+|location|events.id|events.timestamp|
 |--------|---------------|----------------------|
 |WestUs|device1|2016-01-08T01:08:00Z|
 |WestUs|device2|2016-01-08T01:17:00Z|
@@ -197,24 +205,24 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
 ```json
 {
     "location":"WestUs",
-    "manufacturerInfo":{
+    "manufacturer":{
         "name":"manufacturer1",
         "location":"EastUs"
     },
     "events":[
         {
-            "deviceId":"device1",
-            "deviceTimestamp":"2016-01-08T01:08:00Z",
-            "deviceData":{
+            "id":"device1",
+            "timestamp":"2016-01-08T01:08:00Z",
+            "data":{
                 "type":"pressure",
                 "units":"psi",
                 "value":108.09
             }
         },
         {
-            "deviceId":"device2",
-            "deviceTimestamp":"2016-01-17T01:17:00Z",
-            "deviceData":{
+            "id":"device2",
+            "timestamp":"2016-01-17T01:17:00Z",
+            "data":{
                 "type":"vibration",
                 "units":"abs G",
                 "value":217.09
@@ -225,11 +233,10 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
 ```
 #### Output - 2 Events
 
-|location|manufacturerInfo.name|manufacturerInfo.location|events.deviceId|events.deviceTimestamp|events.deviceData.type|events.deviceData.units|events.deviceData.value|
+|location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## Next steps
-
-* View your environment in [Time Series Insights Portal](https://insights.timeseries.azure.com)
+View your environment in [Time Series Insights explorer](https://insights.timeseries.azure.com).

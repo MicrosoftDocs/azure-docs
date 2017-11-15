@@ -132,38 +132,89 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 ### Shell script for Linux
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
-sh InstallDependencyAgent-Linux64.bin -s
+sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
+
+## Azure VM Extension
+You can easily deploy the Dependency Agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  With the Azure VM Extension, you can deploy the Dependency Agent to your VMs via a PowerShell script or directly in the VM's Azure Resource Manager template.  There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux).  If you deploy via the Azure VM Extension, your agents can be automatically updated to the latest versions.
+
+To deploy the Azure VM Extension via PowerShell, you can use the following example:
+```PowerShell
+#
+# Deploy the Dependency Agent to every VM in a Resource Group
+#
+
+$version = "9.1"
+$ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
+$OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
+$rmgroup = "<Your Resource Group Here>"
+
+Get-AzureRmVM -ResourceGroupName $rmgroup |
+ForEach-Object {
+	""
+	$name = $_.Name
+	$os = $_.StorageProfile.OsDisk.OsType
+	$location = $_.Location
+	$vmRmGroup = $_.ResourceGroupName
+	"${name}: ${os} (${location})"
+	Date -Format o
+	$ext = $OsExtensionMap.($os.ToString())
+	$result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+	-Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
+	$result.IsSuccessStatusCode
+}
+```
+
+An even easier way to ensure the the Dependency Agent is on each of your VMs is to include the agent in your Azure Resource Manager template.  Note that the Dependency Agent still depends on the OMS Agent, so the [OMS Agent VM Extension](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) must be deployed first.  The following snippet of JSON can be added to the *resources* section of your template.
+```JSON
+"type": "Microsoft.Compute/virtualMachines/extensions",
+"name": "[concat(parameters('vmName'), '/DependencyAgent')]",
+"apiVersion": "2017-03-30",
+"location": "[resourceGroup().location]",
+"dependsOn": [
+"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+],
+"properties": {
+	"publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+	"type": "DependencyAgentWindows",
+	"typeHandlerVersion": "9.1",
+	"autoUpgradeMinorVersion": true
+}
+
+```
+
 
 ## Desired State Configuration
 To deploy the Dependency Agent via Desired State Configuration, you can use the xPSDesiredStateConfiguration module and a bit of code like the following:
 ```
+configuration ServiceMap {
+
 Import-DscResource -ModuleName xPSDesiredStateConfiguration
 
 $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
 
-
-Node $NodeName 
+Node localhost
 { 
-	# Download and install the Dependency Agent
-	xRemoteFile DAPackage 
-	{
-		Uri = "https://aka.ms/dependencyagentwindows"
-		DestinationPath = $DAPackageLocalPath
-		DependsOn = "[Package]OI"
-	}
+    # Download and install the Dependency Agent
+    xRemoteFile DAPackage 
+    {
+        Uri = "https://aka.ms/dependencyagentwindows"
+        DestinationPath = $DAPackageLocalPath
+    }
 
-	xPackage DA
-	{
-		Ensure="Present"
-		Name = "Dependency Agent"
-		Path = $DAPackageLocalPath
-		Arguments = '/S'
-		ProductId = ""
-		InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
-		InstalledCheckRegValueName = "DisplayName"
-		InstalledCheckRegValueData = "Dependency Agent"
-	}
+    xPackage DA
+    {
+        Ensure="Present"
+        Name = "Dependency Agent"
+        Path = $DAPackageLocalPath
+        Arguments = '/S'
+        ProductId = ""
+        InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+        InstalledCheckRegValueName = "DisplayName"
+        InstalledCheckRegValueData = "Dependency Agent"
+        DependsOn = "[xRemoteFile]DAPackage"
+    }
+  }
 }
 ```
 
@@ -174,10 +225,15 @@ An administrator can uninstall the Dependency Agent for Windows through Control 
 An administrator can also run %Programfiles%\Microsoft Dependency Agent\Uninstall.exe to uninstall the Dependency Agent.
 
 ### Uninstall the Dependency Agent on Linux
-To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the connector, which is installed automatically with the agent. You can uninstall both by using the following single command:
-
-	rpm -e dependency-agent dependency-agent-connector
-
+To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the connector, which is installed automatically with the agent. You can uninstall both by using the following single command.
+<br>RHEL, CentOs, or Oracle:
+```
+sudo rpm -e dependency-agent dependency-agent-connector
+```
+Ubuntu:
+```
+sudo dpkg --purge dependency-agent dependency-agent-connector
+```
 ## Troubleshooting
 If you have any problems installing or running Service Map, this section can help you. If you still can't resolve your problem, please contact Microsoft Support.
 
@@ -229,6 +285,7 @@ Service Map is currently available in the following Azure regions:
 - East US
 - West Europe
 - West Central US
+- Southeast Asia
 
 
 ## Supported operating systems
@@ -261,6 +318,7 @@ The following sections list the supported operating systems for the Dependency A
 | 7.1 | 3.10.0-229 |
 | 7.2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
+| 7.4 | 3.10.0-693 |
 
 #### Red Hat Linux 6
 | OS version | Kernel version |
@@ -274,6 +332,7 @@ The following sections list the supported operating systems for the Dependency A
 | 6.6 | 2.6.32-504 |
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
+| 6.9 | 2.6.32-696 |
 
 #### Red Hat Linux 5
 | OS version | Kernel version |
@@ -281,10 +340,17 @@ The following sections list the supported operating systems for the Dependency A
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
 | 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419 |
+| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
 
-#### Oracle Enterprise Linux with Unbreakable Enterprise Kernel
+### Ubuntu Server
+- Custom kernels, including recompiles of standard kernels, are not supported.
 
+| OS version | Kernel version |
+|:--|:--|
+| 16.04 | 4.4.0-98 |
+| 14.04 | 3.13.0-135<br>4.4.0-98 |
+
+### Oracle Enterprise Linux with Unbreakable Enterprise Kernel
 #### Oracle Linux 6
 | OS version | Kernel version
 |:--|:--|
