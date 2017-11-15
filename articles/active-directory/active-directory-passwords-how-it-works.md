@@ -180,7 +180,7 @@ To enable this option, a user who is enabled for password reset has to complete 
 When requiring registration is disabled, users can still manually register their contact information. They can either visit [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) or select the **Register for password reset** link under the **Profile** tab in the Access Panel.
 
 > [!NOTE]
-> Users can dismiss the password reset registration portal by selecting **cancel** or by closing the window. But they will be prompted to register each time they sign in until they complete their registration.
+> Users can dismiss the password reset registration portal by selecting **cancel** or by closing the window. But they are prompted to register each time they sign in until they complete their registration.
 >
 > This doesn't break the user's connection if they are already signed in.
 
@@ -208,7 +208,7 @@ If you install, configure, and enable Azure AD Connect, you have the following a
 
 ![Writeback][Writeback]
 
-This page will provide you a quick status of the on-premises writeback client one of the following messages are displayed based on the current configuration:
+This page provides you a quick status of the on-premises writeback client one of the following messages are displayed based on the current configuration:
 
 * Your On-premises writeback client is up and running.
 * Azure AD is online and is connected to your on-premises writeback client. However, it looks like the installed version of Azure AD Connect is out-of-date. Consider [Upgrading Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) to ensure that you have the latest connectivity features and important bug fixes.
@@ -241,7 +241,7 @@ Password reset and change are fully supported on all business-to-business (B2B) 
 To test this scenario, go to http://passwordreset.microsoftonline.com with one of these partner users. If they have an alternate email or authentication email defined, password reset works as expected.
 
 > [!NOTE]
-> Microsoft accounts that have been granted guest access to your Azure AD tenant, such as those from Hotmail.com, Outlook.com, or other personal email addresses, are not able to use Azure AD SSPR. They will need to reset their password by using the information found in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
+> Microsoft accounts that have been granted guest access to your Azure AD tenant, such as those from Hotmail.com, Outlook.com, or other personal email addresses, are not able to use Azure AD SSPR. They need to reset their password by using the information found in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
 
 ## Next steps
 
