@@ -27,7 +27,7 @@ The Azure Tools for Microsoft Visual Studio provide property pages that you can 
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-For information about the underlying schemas for the service definition and service configuration files, see the [.csdef XML Schema](schema-csdef-file.md) and [.cscfg XML Schema](schema-cscfg-file.md) articles. For more information about service configuration, see [How to Configure Cloud Services](cloud-services/cloud-services-how-to-configure-portal.md).
+For information about the underlying schemas for the service definition and service configuration files, see the [.csdef XML Schema](cloud-services/schema-csdef-file.md) and [.cscfg XML Schema](cloud-services/schema-cscfg-file.md) articles. For more information about service configuration, see [How to Configure Cloud Services](cloud-services/cloud-services-how-to-configure-portal.md).
 
 ## Configuring role properties
 The property pages for a web role and a worker role are similar, although there are a few differences, pointed out in the following sections.
