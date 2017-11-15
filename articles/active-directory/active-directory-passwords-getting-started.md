@@ -24,7 +24,7 @@ ms.custom: it-pro
 > [!IMPORTANT]
 > **Are you here because you're having problems signing in?** If so, see [Help, I forgot my Azure AD password](active-directory-passwords-update-your-own-password.md).
 
-Self-service password reset (SSPR) offers a simple means for IT administrators to give users the ability to reset or unlock their passwords or accounts. The system includes detailed reporting that tracks when users access the system, along with notifications to alert you to misuse or abuse.
+Self-service password reset (SSPR) offers a simple means for IT administrators to empower users to reset or unlock their passwords or accounts. The system includes detailed reporting that tracks when users access the system, along with notifications to alert you to misuse or abuse.
 
 This guide assumes you already have a working trial or licensed Azure Active Directory (Azure AD) tenant. If you need help setting up Azure AD, see [Getting started with Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
 
@@ -32,21 +32,20 @@ This guide assumes you already have a working trial or licensed Azure Active Dir
 
 1. From your existing Azure AD tenant, select **Password reset**.
 
-2. From the **Properties** page, under the option **Self Service Password Reset Enabled** choose one of the following:
+2. From the **Properties** page, under the option **Self Service Password Reset Enabled**, choose one of the following:
     * **None**: No one can use the SSPR functionality.
     * **Selected**: Only members of a specific Azure AD group that you choose can use the SSPR functionality. We recommend that you define a group of users and use this setting when you deploy this functionality for a proof of concept.
-    * **All**: All users with accounts in your Azure AD tenant can use the SSPR functionality. We recommend that use this setting when you're ready to deploy this functionality to your entire tenant after you have completed a proof of concept.
+    * **All**: All users with accounts in your Azure AD tenant can use the SSPR functionality. We recommend that you use this setting when you're ready to deploy this functionality to your entire tenant after you have completed a proof of concept.
 
-3. From the **Authentication methods** page choose the following:
+3. From the **Authentication methods** page, choose the following:
     * **Number of methods required to reset**: We support a minimum of one or a maximum of two.
     * **Methods available to users**: We need at least one, but it never hurts to have an extra choice available.
         * **Email**: Sends an email with a code to the user's configured authentication email address.
         * **Mobile phone**: Gives the user the choice to receive a call or text with a code to their configured mobile phone number.
         * **Office phone**: Calls the user with a code to their configured office phone number.
         * **Security questions**: Requires you to choose:
-            * **Number of questions required to register**: The minimum for successful registration. A user can choose to answer more questions to create a pool of questions to pull from. This option can be set to three to five questions and must be greater than or equal to the number of questions required to reset their password.
-                * The user can add custom questions if they select the **Custom** button when they select their security questions.
-            * **Number of questions required to reset**: Can be set from three to five questions to be answered correctly before you allow a users' password to be reset or unlocked.
+            * **Number of questions required to register**: The minimum for successful registration. A user can choose to answer more questions to create a pool of questions to pull from. This option can be set to three to five questions and must be greater than or equal to the number of questions required to reset their password. The user can add custom questions if they select the **Custom** button when they select their security questions.
+            * **Number of questions required to reset**: Can be set from three to five questions to be answered correctly before you allow a user's password to be reset or unlocked.
             
     ![Authentication][Authentication]
 
@@ -60,10 +59,10 @@ This guide assumes you already have a working trial or licensed Azure Active Dir
     * Notify users on password resets.
     * Notify all admins when other admins reset their password.
 
-At this point, you have configured SSPR for your Azure AD tenant. Your users can now use the instructions found in the articles [Register for self-service password reset](active-directory-passwords-reset-register.md) and [Reset or change your password](active-directory-passwords-update-your-own-password.md) to update their password without administrator intervention. You can stop here if you're cloud-only or you can continue to the next section to configure the synchronization of passwords to an on-premises Active Directory domain.
+At this point, you have configured SSPR for your Azure AD tenant. Your users can now use the instructions found in the articles [Register for self-service password reset](active-directory-passwords-reset-register.md) and [Reset or change your password](active-directory-passwords-update-your-own-password.md) to update their password without administrator intervention. You can stop here if you're cloud-only. Or you can continue to the next section to configure the synchronization of passwords to an on-premises Active Directory domain.
 
 > [!IMPORTANT]
-> Test SSPR with a user rather than an administrator as Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](active-directory-passwords-policy.md#administrator-password-policy-differences) article.
+> Test SSPR with a user rather than an administrator, because Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](active-directory-passwords-policy.md#administrator-password-policy-differences) article.
 
 ## Configure synchronization to an existing identity source
 
@@ -71,7 +70,7 @@ To enable on-premises identity synchronization to Azure AD, you need to install 
 
 * [Upgrade from DirSync or Azure AD Sync to Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Get started with Azure AD Connect by using express settings](./connect/active-directory-aadconnect-get-started-express.md)
-* [Configure password writeback](active-directory-passwords-writeback.md#configuring-password-writeback) to write passwords from Azure AD back to your on-premises directory.
+* [Configure password writeback](active-directory-passwords-writeback.md#configuring-password-writeback) to write passwords from Azure AD back to your on-premises directory
 
 ### On-premises policy change
 
@@ -87,7 +86,7 @@ This security setting determines the period of time, in days, that a password mu
 
 ## Disable self-service password reset
 
-It is easy to disable self-service password reset. Open your Azure AD tenant and go to **Password Reset** > **Properties**, then select **None** under **Self Service Password Reset Enabled**.
+It's easy to disable self-service password reset. Open your Azure AD tenant and go to **Password Reset** > **Properties**, and then select **None** under **Self Service Password Reset Enabled**.
 
 ### Learn more
 The following articles provide additional information regarding password reset through Azure AD:
