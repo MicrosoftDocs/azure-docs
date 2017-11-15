@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: API Management Documentation
+title: API Management documentation
 metadata:
-  title: API Management Documentation - Tutorials, API Reference | Microsoft Docs
+  title: Azure API Management documentation - Tutorials, API Reference | Microsoft Docs
   description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Tutorials, API references, and other documentation show you how to create and manage modern API gateways for existing back-end services hosted anywhere.
   services: api-management
   author: czeumault
@@ -11,12 +11,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/9/2017
+  ms.date: 11/15/2017
   ms.author: carolz
 abstract:
   description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Tutorials, API references, and other documentation show you how to create and manage modern API gateways for existing back-end services hosted anywhere.
 sections:
-- title: 5-Minute Quickstarts
+- title: 5-minute quickstarts
   items:
   - type: paragraph
     text: Create an API Management instance.
@@ -31,7 +31,7 @@ sections:
         src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
       text: Create an instance - PowerShell
       href: /azure/api-management/powershell-create-service-instance
-- title: Step-by-Step Tutorials
+- title: Step-by-step tutorials
   items:
   - type: paragraph
     text: Learn how to manage API Management.
