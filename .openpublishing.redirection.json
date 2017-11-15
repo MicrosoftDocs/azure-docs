@@ -376,6 +376,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-manager-samples-powershell-deploy.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-template-deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-samples-cli-deploy.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-template-deploy-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-portal.md",
             "redirect_url": "/azure/azure-policy/assign-policy-definition",
             "redirect_document_id": false
