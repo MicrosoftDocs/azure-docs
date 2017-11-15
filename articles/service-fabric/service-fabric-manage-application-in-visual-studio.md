@@ -29,7 +29,7 @@ By default, deploying an application combines the following steps into one simpl
 4. Removing any running application instances
 5. Creating an application instance
 
-In Visual Studio, pressing **F5** deploys your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile. For more information, see [Publish an application to a remote cluster by using Visual Studio](service-fabric-publish-app-remote-cluster.md).
+In Visual Studio, pressing **F5** deploys your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile. 
 
 ### Application Debug Mode
 Visual Studio provide a property called **Application Debug Mode**, which controls how you want Visual Studios to handle Application deployment as part of debugging.

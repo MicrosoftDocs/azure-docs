@@ -37,6 +37,8 @@
     href: container-instances-mounting-azure-files-volume.md
   - name: Deploy from Azure Container Registry
     href: container-instances-using-azure-container-registry.md
+  - name: Run containerized tasks
+    href: container-instances-restart-policy.md
   - name: Troubleshoot deployments
     href: container-instances-troubleshooting.md
 - name: Reference
