@@ -163,14 +163,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. For the **Name** field, type in a friendly name for this configuration. Providing a value for **Name** automatically populate the **API Name** textbox.
 
-    b. In the **Issuer** field, paste the value of **SAML Entity ID** which you have copied from Azure portal.
+    b. In the **Issuer** field, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
 
     c. In the **Entity Id textbox**, type your Salesforce domain name using the following pattern:
       
       * Enterprise account: `https://<subdomain>.my.salesforce.com`
       * Developer account: `https://<subdomain>-dev-ed.my.salesforce.com`
       
-    d. To upload the **Identity Provider Certificate**, click **Choose File** to browse and select the certificate file which you have downloaded from Azure Portal.
+    d. To upload the **Identity Provider Certificate**, click **Choose File** to browse and select the certificate file, which you have downloaded from Azure portal.
 
     e. As **SAML Identity Type**, choose one of the following options:
     
@@ -184,7 +184,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     g. For **Service Provider Initiated Request Binding**, select **HTTP Redirect**.
 
-    h. In **Identity Provider Login URL** textbox, paste the value of **Single Sign-On Service URL** which you have copied from Azure Portal
+    h. In **Identity Provider Login URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal
     
     i. Finally, click **Save** to apply your SAML single sign-on settings.
 

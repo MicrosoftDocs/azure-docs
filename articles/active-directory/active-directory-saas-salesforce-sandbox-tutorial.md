@@ -147,13 +147,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-saml-config.png)
 
-    a. In the **Name** textbox, type the name of the configuration (e.g.: *SPSSOWAAD_Test*). 
+    a. In the **Name** textbox, type the name of the configuration (for example: *SPSSOWAAD_Test*). 
 
-    b. In the **Issuer** field, paste the value of **SAML Entity ID** which you have copied from Azure portal
+    b. In the **Issuer** field, paste the value of **SAML Entity ID**, which you have copied from Azure portal
 
     c. In the **Entity Id** textbox, type **https://test.salesforce.com** if it is the first Salesforce Sandbox instance that you are adding to your directory. If you have already added an instance of Salesforce Sandbox, then for the **Entity ID** type in the **Sign On URL**, which should be in this format: `http://company.my.salesforce.com`  
  
-    d. To upload the **Identity Provider Certificate**, click **Choose File** to browse and select the certificate file which you have downloaded from Azure Portal.  
+    d. To upload the **Identity Provider Certificate**, click **Choose File** to browse and select the certificate file, which you have downloaded from Azure portal.  
 
     e. As **SAML Identity Type**, choose one of the following options:
     
@@ -167,7 +167,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	g. As **Service Provider Initiated Request Binding**, select **HTTP POST**. 
 
-    h. In **Identity Provider Login URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure Portal. 
+    h. In **Identity Provider Login URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal. 
 
     i. SFDC does not support SAML logout.  As a workaround, paste `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` it into the **Identity Provider Logout URL** textbox.
 
