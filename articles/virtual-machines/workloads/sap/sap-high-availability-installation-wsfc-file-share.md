@@ -281,7 +281,7 @@ Create the following volume and file share on the SOFS cluster:
     * The \<DOMAIN>\SAP_\<SID>_GlobalAdmin user group
     * The SAP ASCS/SCS cluster node computer objects \<DOMAIN>\ClusterNode1$ and \<DOMAIN>\ClusterNode2$
 
-To create a CSV volume with mirror resiliency, as defined in the "SAP prerequisites for SOFS in Azure  - ADD LINK" section, execute the following PowerShell cmdlet on one of the SOFS cluster nodes:
+To create a CSV volume with mirror resiliency, execute the following PowerShell cmdlet on one of the SOFS cluster nodes:
 
 
 ```PowerShell
@@ -570,9 +570,9 @@ Install an Enqueue Replication Server (ERS) instance on *both* nodes of the ASCS
 ## Install a DBMS instance and SAP application servers
 
 Finalize your SAP system installation by installing:
-* A DBMS instance
-* A primary SAP application server
-* An additional SAP application server
+* A DBMS instance.
+* A primary SAP application server.
+* An additional SAP application server.
 
 ## Next steps
 
