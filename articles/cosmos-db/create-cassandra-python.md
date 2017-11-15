@@ -64,7 +64,7 @@ This step is optional. If you're interested in learning how the database resourc
 
    ```python
 	ssl_opts = {
-		    'ca_certs': DEFAULT_CA_BUNDLE_PATH,
+		    'ca_certs': 'path\to\cert',
 		    'ssl_version': PROTOCOL_TLSv1_2,
 		    }
     auth_provider = PlainTextAuthProvider( username=cfg.config['username'], password=cfg.config['password'])
