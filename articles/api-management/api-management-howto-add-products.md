@@ -18,6 +18,7 @@ ms.author: apimpm
 
 ---
 # Create and publish a product  
+
 In Azure API Management, a product contains one or more APIs as well as a usage quota and the terms of use. Once a product is published, developers can subscribe to the product and begin to use the product's APIs. The topic provides a guide to creating a product, adding an API, and publishing it for developers.
 
 ![added product](media/api-management-howto-add-products/added-product.png)
