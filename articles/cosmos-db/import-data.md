@@ -230,7 +230,7 @@ Here is a command-line sample for CSV import:
 ## <a id="AzureTableSource"></a>Import from Azure Table storage
 The Azure Table storage source importer option allows you to import from an individual Azure Table storage table. Optionally, you can filter the table entities to be imported. 
 
-Data imported from Azure Table Storage can be output to Azure Cosmos DB tables and entities, for use with the Table API, or to collections and documents, for use with the DocumentDB API.  
+Data imported from Azure Table Storage can be output to Azure Cosmos DB tables and entities, for use with the Table API, or to collections and documents, for use with the DocumentDB API. However; Table API is only available as a target in the command-line utility, you cannot export to Table API by using the Data Migration tool user interface. For more information, see [Import data for use with the Azure Cosmos DB Table API](table-import.md). 
 
 ![Screenshot of Azure Table storage source options](./media/import-data/azuretablesource.png)
 
@@ -550,20 +550,6 @@ You may optionally choose to prettify the resulting JSON, which will increase th
       }
     ]
     }]
-
-## <a id="tableapibulkexport"></a>Export to Table API (Bulk import)
-
-The Azure Cosmos DB Table API exporter enables you to export information from an Azure Table storage source to an Azure Cosmos DB Table API database. 
-
-The Connection String for the Azure Cosmos DB Table API account in which to export to can be retrieved from the Azure portal, in the Connection String page. Use the Copy button ![Screenshot of connection string in the Azure portal](./media/import-data/copy-button.png) on the right side of the screen to copy the entire string.
-
-![Screenshot of connection string in the Azure portal](./media/import-data/connection-string.png)
-
-## <a id="tableapiseqtarget"></a>Export to Table API (Sequential Record Import)
-
-The Azure Cosmos DB Table API exporter enables you to export information from an Azure Table storage source to an Azure Cosmos DB Table API database.
-
-The Connection String for the Azure Cosmos DB Table API account in which to export to can be retrieved from the Azure portal, in the Connection String page, as shown in the image in [Export to Table API (Bulk import)](#tableapibulkexport) above.
 
 ## Advanced configuration
 In the Advanced configuration screen, specify the location of the log file to which you would like any errors written. The following rules apply to this page:
