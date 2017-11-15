@@ -65,7 +65,7 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
    
    ![Choosing ASP.NET web service in the new service dialog](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web Application**. 
+6. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web Application (MVC)**. 
    
    ![Choose ASP.NET project type](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 

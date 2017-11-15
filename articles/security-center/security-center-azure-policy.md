@@ -57,7 +57,7 @@ You can edit the default security policy for each of your Azure subscriptions in
 	![Available policy definitions](./media/security-center-policies/security-center-policies-fig11.png)
 
     * For a detailed explanation of a policy, select it.  
-    A definition **Preview** window opens. It displays a description of the definition and a link to the JSON code that provides the [policy definition](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure) structure.
+    A definition **Preview** window opens. It displays a description of the definition and a link to the JSON code that provides the [policy definition](../azure-policy/policy-definition.md) structure.
 
 	![The definition Preview window](./media/security-center-policies/security-center-policies-fig14.png)
 

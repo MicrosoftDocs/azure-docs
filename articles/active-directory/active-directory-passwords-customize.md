@@ -35,9 +35,9 @@ We recommend that you set this contact to something like an email address or web
 
 The contact email is sent to the following recipients in the following order:
 
-1. If the **Password administrator** role is assigned, administrators with this role are notified.
-2. If no Password administrators are assigned, then administrators with the **User administrator** role are notified.
-3. If neither of the previous roles are assigned, then the **Global administrators** are notified.
+1. If the **password administrator** role is assigned, administrators with this role are notified.
+2. If no password administrators are assigned, then administrators with the **user administrator** role are notified.
+3. If neither of the previous roles are assigned, then the **global administrators** are notified.
 
 In all cases, a maximum of 100 recipients are notified.
 
@@ -52,11 +52,11 @@ If your organization does not want to notify administrators about password reset
   If you don't wish users to reset their own passwords, you can scope access to an empty group. *We don't recommend this option.*
 * Customize the helpdesk link to provide a web URL or mailto: address that users can use to get assistance. This option is under **Password Reset** > **Customization** > **Custom helpdesk email or URL**.
 
-## Customize the ADFS sign-in page for SSPR
+## Customize the AD FS sign-in page for SSPR
 
 Active Directory Federation Services (AD FS) administrators can add a link to their sign-in page by using the guidance found in the [Add sign-in page description](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-sign-in-page-description) article.
 
-To add a link to the AD FS sign-in page, use the following command on your AD FS server. Users can use this page to enter the self-service password reset workflow.
+To add a link to the AD FS sign-in page, use the following command on your AD FS server. Users can use this page to enter the SSPR workflow.
 
 ``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
 
@@ -66,30 +66,34 @@ You can customize the sign-in page. You can add a logo that appears along with t
 
 The graphics you choose are shown in the following circumstances:
 
-* After a user types their username.
+* After a user enters their username.
 * If the user accesses the customized URL:
     * By passing the *whr* parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com."
     * By passing the *username* parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com".
 
 ### Graphics details
 
-The following settings allow you to change the visual characteristics of the sign-in page. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**:
+Use the following settings to change the visual characteristics of the sign-in page. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**:
 
-* The sign-in page image should be a .png or .jpg file, 1420x1200 pixels, and no larger than 500 KB. For the best results, we recommend that you keep it around 200 KB.
+* The sign-in page image should be a .png or .jpg file, 1420 x 1200 pixels, and no larger than 500 KB. For the best results, we recommend that you keep it around 200 KB.
 * The sign-in page background color is used on high-latency connections and must be in RGB hexadecimal format.
-* The banner image should be a .png or .jpg file, 60x280 pixels, and be no larger than 10 KB.
-* The square logo (normal and dark theme) should be a .png or .jpg file, 240x240 (resizable) pixels, and no larger than 10 KB.
+* The banner image should be a .png or .jpg file, 60 x 280 pixels, and be no larger than 10 KB.
+* The square logo (normal and dark theme) should be a .png or .jpg file, 240 x 240 (resizable) pixels, and no larger than 10 KB.
 
 ### Sign-in text options
 
-The following settings allow you to add text to the sign-in page that's relevant to your organization. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**:
+Use the following settings to add text to the sign-in page that's relevant to your organization. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**:
 
 * **User name hint**: Replaces the example text of *someone@example.com* with something more appropriate for your users. We recommended that you leave the default hint when you support internal and external users.
-* **Sign-in page text**: Can be a maximum of 256 characters in length. This text appears anywhere your users sign in online and in the Azure AD Workplace Join experience on Windows 10. Use this text for the terms of use, instructions, and tips for your users. *Anyone can see your sign-in page, so don't provide any sensitive information here.*
+* **Sign-in page text**: Can be a maximum of 256 characters in length. This text appears anywhere your users sign in online and in the Azure AD Workplace Join experience on Windows 10. Use this text for the terms of use, instructions, and tips for your users. 
+
+   >[!IMPORTANT]
+   >Anyone can see your sign-in page, so don't provide any sensitive information here.
+   >
 
 ### The "Keep me signed in disabled" setting
 
-The option **Keep me signed in disabled** allows users to remain signed in when they close and reopen their browser window. This option does not impact session lifetimes. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**.
+With the **Keep me signed in disabled** option, users can remain signed in when they close and reopen their browser window. This option does not impact the session lifetime. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**.
 
 Some features of SharePoint Online and Office 2010 have a dependency on users being able to select this check box. If you hide this option, users can get additional and unexpected sign-in prompts.
 
