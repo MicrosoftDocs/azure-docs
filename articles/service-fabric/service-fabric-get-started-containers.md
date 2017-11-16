@@ -293,7 +293,7 @@ Windows supports two isolation modes for containers: process and Hyper-V. With t
 ```
    > [!NOTE]
    > The hyperv isolation mode is available on Ev3 and Dv3 Azure SKUs which have nested virtualization support. 
-   >
+   > Ensure the hyperv role in installed on the hosts. Verify this by connecting to the hosts.
    >
 
 ## Configure resource governance
