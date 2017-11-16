@@ -77,7 +77,7 @@ Before you install the NPS extension, you want to prepare you environment to han
 
 ### Enable the NPS role on a domain-joined server
 
-The NPS server connects to Azure Active Directory and authenticates the MFA requests. Choose one server for this role. We recommend choosing a server that doesn't handle requests from other services, because the NPS extension throws errors for any requests that aren't RADIUS.
+The NPS server connects to Azure Active Directory and authenticates the MFA requests. Choose one server for this role. We recommend choosing a server that doesn't handle requests from other services, because the NPS extension throws errors for any requests that aren't RADIUS. The NPS server must be set up as the primary and secondary authentication server for your environment; it cannot proxy RADIUS requests to another server.
 
 1. On your server, open the **Add Roles and Features Wizard** from the Server Manager Quickstart menu.
 2. Choose **Role-based or feature-based installation** for your installation type.
