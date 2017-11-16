@@ -19,6 +19,9 @@ ms.author: joflore
 ---
 # Building Multi-Factor Authentication into Custom Apps (SDK)
 
+> [!IMPORTANT]
+> The deprecation of the Azure Multi-Factor Authentication Software Development Kit (SDK) has been announced. This feature will no longer be supported for new customers. Current customers can continue using the SDK until November 15, 2018. After that time, calls to the SDK will fail. 
+
 The Azure Multi-Factor Authentication Software Development Kit (SDK) lets you build two-step verification directly into the sign-in or transaction processes of applications in your Azure AD tenant.
 
 The Multi-Factor Authentication SDK is available for C#, Visual Basic (.NET), Java, Perl, PHP, and Ruby. The SDK provides a thin wrapper around two-step verification. It includes everything you need to write your code, including commented source code files, example files, and a detailed ReadMe file. Each SDK also includes a certificate and private key for encrypting transactions that are unique to your Multi-Factor Authentication Provider. As long as you have a provider, you can download the SDK in as many languages and formats as you need.
@@ -32,30 +35,7 @@ Because the APIs do not have access to users registered in Azure Active Director
 
 
 ## Download the SDK
-Downloading the Azure Multi-Factor SDK requires an [Azure Multi-Factor Auth Provider](multi-factor-authentication-get-started-auth-provider.md).  This requires a full Azure subscription, even if Azure MFA, Azure AD Premium, or Enterprise Mobility Suite licenses are owned.  To download the SDK, navigate to the Multi-Factor Management Portal. You can reach the portal either by managing the Multi-Factor Auth Provider directly, or by clicking the **"Go to the portal"** link on the MFA service settings page.
-
-### Download from the Azure classic portal
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an Administrator.
-2. On the left, select **Active Directory**.
-3. On the Active Directory page, at the top select **Multi-Factor Auth Providers**
-4. At the bottom select **Manage**. A new page opens.
-5. On the left, at the bottom, click **SDK**.
-   <center>![Download](./media/multi-factor-authentication-sdk/download.png)</center>
-6. Select the language you want and click one the associated download links.
-7. Save the download.
-
-### Download from the service settings
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an Administrator.
-2. On the left, select **Active Directory**.
-3. Double-click your instance of Azure AD.
-4. At the top click **Configure**
-5. Under multi-factor authentication, select **Manage service settings**
-   ![Download](./media/multi-factor-authentication-sdk/download2.png)
-6. On the services settings page, at the bottom of the screen click **Go to the portal**. A new page opens.
-   ![Download](./media/multi-factor-authentication-sdk/download3a.png)
-7. On the left, at the bottom, click **SDK**.
-8. Select the language you want and click one the associated download links.
-9. Save the download.
+Downloading the Azure Multi-Factor SDK requires an [Azure Multi-Factor Auth Provider](multi-factor-authentication-get-started-auth-provider.md).  This requires a full Azure subscription, even if Azure MFA, Azure AD Premium, or Enterprise Mobility Suite licenses are owned. The public methods of downloading the SDK have been decomissioned since the SDK has been deprecated. You should open a support case with Microsoft if you need to download the SDK.
 
 ## What's in the SDK
 The SDK includes the following items:
