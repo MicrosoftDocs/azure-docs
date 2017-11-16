@@ -6,7 +6,7 @@ The Ls-series offers up to 32 vCPUs, using the [Intel® Xeon® processor E5 v3 f
 
 ACU: 180-240
  
-| Size          | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network performance (Mbps) | 
+| Size          | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) | 
 |---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
 | Standard_L4s   | 4    | 32   | 678   | 8    | 20,000 / 200   | 10,000 / 250        | 2 / 4,000  | 
 | Standard_L8s   | 8    | 64   | 1,388 | 16   | 40,000 / 400   | 20,000 / 500       | 4 / 8,000  | 
