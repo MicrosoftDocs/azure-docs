@@ -251,7 +251,7 @@ For complete code samples, see:
 The following script demonstrates how to:
 
 1. Sign in to Azure AD under the VM's MSI service principal
-2. Call Azure Resource Manager and get the VM's service principal ID. CLI takes care of managing token acquisition/use for you automatically.
+2. Call Azure Resource Manager and get the VM's service principal ID. CLI takes care of managing token acquisition/use for you automatically. Be sure to substitute your virtual machine name for `<VM-NAME>`.
 
 ```azurecli
 az login --msi
@@ -263,10 +263,10 @@ echo The MSI service principal ID is $spID
 
 The following script demonstrates how to:
 
-1. Acquire an MSI access token for an Azure VM.
-2. Use the access token to call Azure Resource Manager and get information about the VM. Be sure to substitute your subscription ID, resource group name, and virtual machine name for `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, and `<VM-NAME>`, respectively.
+1. Acquire an MSI access token for the VM.
+2. Use the access token to call an Azure Resource Manager REST API and get information about the VM. Be sure to substitute your subscription ID, resource group name, and virtual machine name for `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, and `<VM-NAME>`, respectively.
 2. Use the access token to sign in to Azure AD, under the corresponding MSI service principal. 
-3. Call Azure Resource Manager and get information about the VM. PowerShell takes care of managing token acquisition/use for you automatically.
+3. Call an Azure Resource Manager cmdlet to get information about the VM. PowerShell takes care of managing token acquisition/use for you automatically.
 
 ```azurepowershell
 # Get an access token for the MSI
@@ -279,14 +279,14 @@ echo "The MSI access token is $access_token"
 # Use the access token to get resource information for the VM
 $vmInfoRest = (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
 echo "JSON returned from call to get VM info:"
-echo $vmInfo
+echo $vmInfoRest
 
 # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
 Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
 
 # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
 $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
-$spID = $vmInfo.Identity.PrincipalId
+$spID = $vmInfoPs.Identity.PrincipalId
 echo "The MSI service principal ID is $spID"
 ```
 
@@ -312,7 +312,7 @@ If you cache the token in your code, you should be prepared to handle scenarios 
 
 ### Resource IDs for Azure services
 
-See [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of services that support MSI, and their respective resource IDs.
+See [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with MSI, and their respective resource IDs.
 
 ### HTTP error handling guidance
 
@@ -339,8 +339,12 @@ This section documents the possible error responses. A "200 OK" status is a succ
 | 400 Bad Request | invalid_resource | AADSTS50001: The application named *\<URI\>* was not found in the tenant named *\<TENANT-ID\>*. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.\ | (Linux only) |
 | 400 Bad Request | bad_request_102 | Required metadata header not specified | Either the `Metadata` request header field is missing from your request, or is formatted incorrectly. The value must be specified as `true`, in all lower case. See the "Sample request" in the [preceding REST section](#rest) for an example.|
 | 401 Unauthorized | unknown_source | Unknown Source *\<URI\>* | Verify that your HTTP GET request URI is formatted correctly. The `scheme:host/resource-path` portion must be specified as `http://localhost:50342/oauth2/token`. See the "Sample request" in the [preceding REST section](#rest) for an example.|
+| TBD          | invalid_request | The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed. | TBD |
+| TBD          | unauthorized_client | The client is not authorized to request an access token using this method. | Caused by a request that didn’t use local loopback to call the extension, or on a VM that doesn’t have an MSI configured correctly. |
+| TBD          | access_denied | The resource owner or authorization server denied the request. | TBD |
+| TBD          | unsupported_response_type | The authorization server does not support obtaining an access token using this method. | TBD |
+| TBD          | invalid_scope | The requested scope is invalid, unknown, or malformed. | TBD |
 | 500 Internal server error | unknown | Failed to retrieve token from the Active directory. For details see logs in *\<file path\>* | Verify that MSI has been enabled on the VM. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.<br><br>Also verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the [preceding REST section](#rest) for an example, or [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of services and their respective resource IDs.
-| n/a | n/a | The connection to 'localhost' failed.<br/>Error: ConnectionRefused (0x274d). <br/>System.Net.Sockets.SocketException No connection could be made because the target machine actively refused it 127.0.0.1:50342 | Verify that MSI has been enabled on the VM. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration. |
 
 ### PowerShell/CLI error handling guidance 
 
