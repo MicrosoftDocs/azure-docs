@@ -4,7 +4,7 @@ description: Learn about the Azure SQL Database service high availability capabi
 keywords: 
 services: sql-database
 documentationcenter: ''
-author: CarlRabeler
+author: anosov1960
 manager: jhubbard
 ms.assetid: 
 ms.service: sql-database
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Inactive"
-ms.date: 10/20/2017
-ms.author: carlrab
+ms.date: 11/16/2017
+ms.author: sashan
 ms.reviewer: carlrab
 ---
 # High-availability and Azure SQL Database
@@ -52,7 +52,7 @@ The high availability solution in SQL Database is based on [AlwaysON](/sql/datab
 
 ### Local storage
 
-In the LS case, each database is brought online by the management service (MS) within the control ring One primary replica and at least two secondary replicas (quorum-set) are located within a tenant ring that spans three independent physical subsystems within the same datacenter. All reads and writes are sent to the primary replica and the writes are asynchronously replicated to the secondary replicas. SQL Database uses a quorum-based commit scheme where data is written to the primary and at least one secondary replica before the transaction commits.
+In the LS case, each database is brought online by the management service (MS) within the control ring. One primary replica and at least two secondary replicas (quorum-set) are located within a tenant ring that spans three independent physical subsystems within the same datacenter. All reads and writes are sent by the gateway (GW) to the primary replica and the writes are asynchronously replicated to the secondary replicas. SQL Database uses a quorum-based commit scheme where data is written to the primary and at least one secondary replica before the transaction commits.
 
 The [Service Fabric](/azure/service-fabric/service-fabric-overview.md) failover system automatically rebuilds replicas as nodes fail and maintains quorum-set membership as nodes depart and join the system. Planned maintenance is carefully coordinated to prevent the quorum-set going down below a minimum replica count (generally 2). This model works well for Premium databases, but it requires redundancy of both compute and storage components, and results in a higher cost.
 
@@ -74,7 +74,7 @@ When a secondary replica fails, the database is down to a minimal quorum-set, wi
 For the remote storage configurations, SQL Database uses AlwaysON functionality to failover databases during the upgrades. To do that, a new SQL instance is spun off in advance as part of the planned upgrade event, and it attaches and recovers the database file from remote storage. In case of process crashes or other unplanned events, Windows Fabric manages the instance availability and, as a last step of recovery, attaches the remote database file.
 
 ## Availability Zones
-By default, the quorum-set replicas for the local storage configurations are created in the same datacenter. With the introduction of [Azure Availability Zones](/azure/availability-zones/az-overview.md), Microsoft added the ability to place the different replicas in the quorum-sets to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by [Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) (ATM). There is no additional cost for customers for the use of Availability Zones in the Premium service tier. By selecting a zone redundant database, you can make your Premium databases resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic. You can also convert any existing Premium database or pool to the zone redundant configuration.
+By default, the quorum-set replicas for the local storage configurations are created in the same datacenter. With the introduction of [Azure Availability Zones](/azure/availability-zones/az-overview.md), Microsoft added the ability to place the different replicas in the quorum-sets to different availability zones in the same region. To eliminate a single point of failure, the control ring also spans multiple zones. The routing to a specific instance of GW or MS on the control ring is managed by  [Azure Traffic Manager](/traffic-manager/traffic-manager-overview.md) (ATM). There is no additional cost for customers for the use of Availability Zones in the Premium service tier. By selecting a zone redundant database, you can make your Premium databases resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic. You can also convert any existing Premium database or pool to the zone redundant configuration.
 
 [!INCLUDE availability-zones-preview-statement.md]
 
