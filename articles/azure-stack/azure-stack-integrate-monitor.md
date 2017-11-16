@@ -40,22 +40,20 @@ This article explains how to integrate Azure Stack with external monitoring solu
 
 ## Integrate with Operations Manager
 
-You can use Operations Manager for external monitoring of Azure Stack. The System Center Management Pack for Microsoft Azure Stack enables you to monitor multiple Azure Stack deployments with a single Operations Manager instance. The management pack provides the following capabilities:
+You can use Operations Manager for external monitoring of Azure Stack. The System Center Management Pack for Microsoft Azure Stack enables you to monitor multiple Azure Stack deployments with a single Operations Manager instance. The management pack uses the Health resource provider and Update resource provider REST APIs to communicate with Azure Stack. You can also install vendor management packs to monitor physical servers, and use Operations Manager network device discovery to monitor network switches.
+
+The management pack for Azure Stack provides the following capabilities:
 
 - You can manage multiple Azure Stack deployments.
 - There's support for Azure Active Directure (Azure AD) and Active Directory Federation Services (AD FS).
 - You can retrieve and close alerts.
 - There's a Health and a Capacity dashboard.
-- Auto Maintenance Mode detection when patch and update (P&U) is in progress.
-- Force Update for deployment and region.
-- You can add custom information to region.
+- Includes Auto Maintenance Mode detection for when patch and update (P&U) is in progress.
+- Includes Force Update tasks for deployment and region.
+- You can add custom information to a region.
 - Supports notification and reporting.
 
 You can download the System Center Management Pack for Microsoft Azure Stack and the associated user guide [here](https://www.microsoft.com/en-us/download/details.aspx?id=55184), or directly from Operations Manager.
-
-You can install vendor management packs to monitor physical servers, and use Operations Manager network device discovery to monitor network switches.
-
-The management pack uses the Health resource provider and Update resource provider REST APIs to communicate with Azure Stack. 
 
 For a ticketing solution, you can integrate Operations Manager with System Center Service Manager. The integrated product connector enables bi-directional communication that allows you to close an alert in Azure Stack and Operations Manager after you resolve a service request in Service Manager.
 
@@ -99,7 +97,7 @@ You can use PowerShell to retrieve health and alerts in Azure Stack. To use Powe
 
    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
-3. Import the Infrastructure module:
+3. Change to the directory where you installed the Azure Stack tools, change to the Infrastructure directory, and then import the Infrastructure module:
 
    ```PowerShell
    Import-Module .\AzureStack.Infra.psm1
