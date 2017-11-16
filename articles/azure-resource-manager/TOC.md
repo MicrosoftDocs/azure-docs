@@ -9,14 +9,6 @@
 ## [VS Code extension for templates](resource-manager-vscode-extension.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Samples
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Deploy template](resource-manager-samples-powershell-deploy.md)
-
-## Azure CLI
-### [Deploy template](resource-manager-samples-cli-deploy.md)
-
 # How to
 ## Create templates
 ### [Template sections](resource-group-authoring-templates.md)
