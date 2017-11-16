@@ -36,7 +36,7 @@ This tutorial requires that you are running the Azure CLI version 2.0.20 or late
 
 ## Create a Batch account
 
-If you haven't already done so, you need to create a resource group, a storage account, and a Batch account in your subscription. 
+If you haven't already, create a resource group, a Batch account, and a linked storage account in your subscription. 
 
 Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 

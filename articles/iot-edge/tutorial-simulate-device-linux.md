@@ -87,9 +87,15 @@ Manage your Azure IoT Edge device from the cloud to deploy a module which will s
 
 ## View generated data
 
-You can monitor your new IoT Edge device's status by clicking on it in IoT Edge page of your IoT hub. 
+In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to push an IoT Edge module to run on the device without having to make changes to the device itself. In this case, the module that you pushed creates environmental data that you can use for the tutorials. 
 
-You can view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer].
+View the messages being sent from the tempSensor module:
+
+```cmd/sh
+docker logs -f tempSensor
+```
+
+You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer]. 
 
 ## Next steps
 
