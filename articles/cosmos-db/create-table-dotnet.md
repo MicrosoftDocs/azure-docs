@@ -105,15 +105,27 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 1. In Visual Studio, right-click on the **TableStorage** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-2. In the NuGet **Browse** box, type *.
+2. In the NuGet **Browse** box, type *Microsoft.Azure.CosmosDB.Table*.
 
 3. From the results, install the **Microsoft.Azure.CosmosDB.Table** library. This installs the Azure Cosmos DB Table API package as well as all dependencies.
 
-4. Click CTRL + F5 to run the application.
+4. Open BasicSamples.cs and add a breakpoint to line 30 and line 52.
 
-    The console window displays the table data being added to the new table database in Azure Cosmos DB.
+5. Click CTRL + F5 to run the application.
 
-    You can now go back to Data Explorer and see query, modify, and work with this new data.
+    The console window displays the table data being added to the new table database in Azure Cosmos DB. 
+
+    When you hit the first breakpoint, go back to Data Explorer in the Azure portal and expand the demo* table and click **Entities**. The **Entities** tab on the right shows the new entity that was added, note that phone number for the user is 425-555-0101.
+    
+6. Close the Entities tab in Data Explorer.
+    
+7. Continue to run the app to the next breakpoint.
+
+    When you hit the breakpoint, switch back to the portal, click Entities again to open the Entities tab, and note that the phone number has been updated to 425-555-0105.
+
+8. Back in the console window, press CTRL + C to end the execution of the app. 
+
+    You can now go back to Data Explorer and add or modify the entitites, and query the data.
 
 ## Review SLAs in the Azure portal
 
