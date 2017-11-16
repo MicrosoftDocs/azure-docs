@@ -53,7 +53,7 @@ The scenario that's outlined in this tutorial consists of two main building bloc
 
 Before you dive into the technical details, it's vital to understand the concepts you're going to look at. The SAP Cloud Platform Identity Authentication and Active Directory Federation Services enable you to implement SSO across applications or services that are protected by Azure AD (as an IdP) with SAP applications and services that are protected by SAP Cloud Platform Identity Authentication.
 
-Currently, SAP Cloud Platform Identity Authentication acts as a Proxy Identity Provider to SAP-applications. Azure Active Directory in turn acts as the leading Identity Provider in this setup. 
+Currently, SAP Cloud Platform Identity Authentication acts as a Proxy Identity Provider to SAP applications. Azure Active Directory in turn acts as the leading Identity Provider in this setup. 
 
 The following diagram illustrates this relationship:
 
@@ -65,7 +65,7 @@ All SAP applications and services that you want to protect this way are subseque
 
 Therefore, the authorization for granting access to SAP applications and services needs to take place in SAP Cloud Platform Identity Authentication (as opposed to Azure Active Directory).
 
-By configuring SAP Cloud Platform Identity Authentication as an application through the Azure Active Directory Marketplace, you don't need to configure individual claims, SAML assertions.
+By configuring SAP Cloud Platform Identity Authentication as an application through the Azure Active Directory Marketplace, you don't need to configure individual claims or SAML assertions.
 
 >[!NOTE] 
 >Currently only Web SSO has been tested by both parties. The flows that are necessary for App-to-API or API-to-API communication should work but have not been tested yet. They will be tested during subsequent activities.
@@ -76,7 +76,7 @@ To configure the integration of SAP Cloud Platform Identity Authentication in Az
 
 **To add SAP Cloud Platform Identity Authentication from the gallery, take the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select the **Azure Active Directory** icon. 
+1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, select the **Azure Active Directory** icon. 
 
 	![The Azure Active Directory button][1]
 
@@ -104,11 +104,11 @@ In SAP Cloud Platform Identity Authentication, give the value **Username** the s
 
 To configure and test Azure AD single sign-on with SAP Cloud Platform Identity Authentication, complete the following building blocks:
 
-1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
-3. **[Create an SAP Cloud Platform Identity Authentication test user](#create-an-sap-cloud-platform-identity-authentication-test-user)** to have a counterpart of Britta Simon in SAP Cloud Platform Identity Authentication that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
+1. [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use this feature.
+2. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
+3. [Create an SAP Cloud Platform Identity Authentication test user](#create-an-sap-cloud-platform-identity-authentication-test-user) to have a counterpart of Britta Simon in SAP Cloud Platform Identity Authentication that is linked to the Azure AD representation of user.
+4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
+5. [Test single sign-on](#test-single-sign-on) to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
 
