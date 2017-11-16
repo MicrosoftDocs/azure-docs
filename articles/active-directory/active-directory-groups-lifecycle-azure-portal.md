@@ -22,13 +22,17 @@ ms.custom: it-pro
 
 # Configure expiration for Office 365 groups (preview)
 
-You can now manage the lifecycle of Office 365 groups by setting expiration for your Office 365 groups. Once this expiration is set, owners of those groups are notified to renew their groups as the expiration nears. Any Office 365 group that is not renewed is deleted. However, any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator. You can set expiration for only Office 365 groups.
+You can now manage the lifecycle of Office 365 groups by setting expiration features for them.  You can set expiration for only Office 365 groups in Azure AD. Once you set a group to expire:
+-	Owners of the group are notified to renew the group as the expiration nears
+-	Any group that is not renewed is deleted
+-	Any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator
+
+For AAD_BASIC_EDU licensed customers: the first time you configure this policy, use the Azure Active Directory PowerShell cmdlets. After that, you can update the expiration settings using either PowerShell or the Azure AD portal, with an account that's a global administrator in your Azure AD tenant.
 
 > [!NOTE]
-> Setting expiration for O365 groups requires that an Azure AD Premium license is assigned to
+> Setting expiration for Office 365 groups requires that an Azure AD Premium license is assigned to
 >  - The administrator who configures the expiration settings for the tenant
 >  - All members of the groups selected for this setting
-> For AAD_BASIC_EDU licensed customers: the first time you configure this policy, use the Azure Active Directory PowerShell cmdlets. After that, you can update the expiration settings using either PowerShell or the Azure AD portal, with an account that's a global administrator in your Azure AD tenant.
 
 
 ## Set group expiration
@@ -67,7 +71,8 @@ The group can be restored by selecting **Restore group** or by using PowerShell 
 If the group you're restoring contains documents, SharePoint sites, or other persistent objects, it might take up to 24 hours to fully restore the group and its contents.
 
 > [!NOTE]
-> * When deploying the expiration settings, there might be some groups that are older than the expiration window. These groups are not be immediately deleted, but are set to 30 days until expiration. The first renewal notification email is sent out within a day. For example, Group A was created 400 days ago, and the expiration interval is set to 180 days. When you apply expiration settings, Group A has 30 days before it is deleted, unless the owner renews it.
+> * When you first set up expiration, any groups that are older than the expiration interval are set to 30 days until expiration. The first renewal notification email is sent out within a day. 
+>   For example, Group A was created 400 days ago, and the expiration interval is set to 180 days. When you apply expiration settings, Group A has 30 days before it is deleted, unless the owner renews it.
 > * When a dynamic group is deleted and restored, it is seen as a new group and re-populated according to the rule. This process might take up to 24 hours.
 
 ## Next steps
