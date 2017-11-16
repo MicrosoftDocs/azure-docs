@@ -23,7 +23,7 @@ ms.custom: it-pro
 
 The following are some frequently asked questions (FAQ) for all things related to password reset.
 
-If you have a general question about Azure Active Directory (Azure AD) and self-service password reset (SSPR) that's not answered here, you can ask the community for assistance on the [Azure Ad forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
+If you have a general question about Azure Active Directory (Azure AD) and self-service password reset (SSPR) that's not answered here, you can ask the community for assistance on the [Azure AD forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
 
 This FAQ is split into the following sections:
 
@@ -37,7 +37,7 @@ This FAQ is split into the following sections:
 
 * **Q:  Can my users register their own password reset data?**
 
-  > **A:** Yes, as long as password reset is enabled and they are licensed, users can go to the password reset registration portal (http://aka.ms/ssprsetup) to register their authentication information. Users can also register through the Access Panel (http://myapps.microsoft.com). To register through the Access Panel, they need to select their profile picture, select **Profile**, and then select the **Register for password reset** option.
+  > **A:** Yes. As long as password reset is enabled and they are licensed, users can go to the password reset registration portal (http://aka.ms/ssprsetup) to register their authentication information. Users can also register through the Access Panel (http://myapps.microsoft.com). To register through the Access Panel, they need to select their profile picture, select **Profile**, and then select the **Register for password reset** option.
   >
   >
 * **Q:  Can I define password reset data on behalf of my users?**
@@ -52,12 +52,12 @@ This FAQ is split into the following sections:
   >
 * **Q:  Can my users register data in such a way that other users can't see this data?**
 
-  > **A:** Yes, when users register data by using the password reset registration portal the data is saved into private authentication fields that are only visible by Global administrators and the user.
+  > **A:** Yes. When users register data by using the password reset registration portal, the data is saved into private authentication fields that are visible only to global administrators and the user.
   >
   >
 * **Q:  Do my users have to be registered before they can use password reset?**
 
-  > **A:** No, if you define enough authentication information on their behalf, users don't have to register. Password reset works as long as you have properly formatted the data stored in the appropriate fields in the directory.
+  > **A:** No. If you define enough authentication information on their behalf, users don't have to register. Password reset works as long as you have properly formatted the data stored in the appropriate fields in the directory.
   >
   >
 * **Q:  Can I synchronize or set the authentication phone, authentication email, or alternate authentication phone fields on behalf of my users?**
@@ -67,7 +67,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  How does the registration portal determine which options to show my users?**
 
-  > **A:** The password reset registration portal only shows the options that you have enabled for your users. These options are found under the **User Password Reset Policy** section of your directory’s **Configure** tab. For example, if you don't enable security questions, then users are not able to register for that option.
+  > **A:** The password reset registration portal shows only the options that you have enabled for your users. These options are found under the **User Password Reset Policy** section of your directory’s **Configure** tab. For example, if you don't enable security questions, then users are not able to register for that option.
   >
   >
 * **Q:  When is a user considered registered?**
@@ -80,7 +80,7 @@ This FAQ is split into the following sections:
 
 * **Q:  How long should I wait to receive an email, SMS, or phone call from password reset?**
 
-  > **A:** Emails, SMS messages, and phone calls should arrive in under a minute, with the normal case being between 5 to 20 seconds.
+  > **A:** Emails, SMS messages, and phone calls should arrive in under a minute. The normal case is 5 to 20 seconds.
     >If you don't receive the notification in this time frame:
         > * Check your junk folder.
         > * Check that the number or email being contacted is the one you expect.
@@ -109,7 +109,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Do you support unlocking local Active Directory accounts when users reset their passwords?**
 
-  > **A:** Yes, when a user resets their password, if password writeback has been deployed through Azure AD Connect, that user’s account is automatically unlocked when they reset their password.
+  > **A:** Yes. When a user resets their password, if password writeback has been deployed through Azure AD Connect, that user’s account is automatically unlocked when they reset their password.
   >
   >
 * **Q:  How can I integrate password reset directly into my user’s desktop sign-in experience?**
@@ -144,17 +144,17 @@ This FAQ is split into the following sections:
   >
 * **Q:  Can a user register the same security question more than once?**
 
-  > **A:** No, after a user registers a particular question, they can't register for that question a second time.
+  > **A:** No. After a user registers a particular question, they can't register for that question a second time.
   >
   >
 * **Q:  Is it possible to set a minimum limit of security questions for registration and reset?**
 
-  > **A:** Yes, one limit can be set for registration and another for reset. Three to five security questions can be required for registration and three to five questions can be required for reset.
+  > **A:** Yes, one limit can be set for registration and another for reset. Three to five security questions can be required for registration, and three to five questions can be required for reset.
   >
   >
 * **Q:  I configured my policy to require users to use security questions for reset, but the Azure administrators seem to be configured differently.**
 
-  > **A:** This is the expected behavior. Microsoft enforces a strong default two-gate password reset policy for any Azure administrator role. This disables administrators from using security questions. More information about this policy can be found in the [Password policies and restrictions in Azure Active Directory](active-directory-passwords-policy.md#administrator-password-policy-differences) article.
+  > **A:** This is the expected behavior. Microsoft enforces a strong default two-gate password reset policy for any Azure administrator role. This prevents administrators from using security questions. You can find more information about this policy in the [Password policies and restrictions in Azure Active Directory](active-directory-passwords-policy.md#administrator-password-policy-differences) article.
   >
   >
 * **Q:  If a user has registered more than the maximum number of questions required to reset, how are the security questions selected during reset?**
@@ -164,7 +164,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Do you prevent users from multiple attempts to reset a password in a short period of time?**
 
-  > **A:** Yes, there are security features built into password reset to protect it from misuse. Users can only try 5 password reset attempts within an hour before they're locked out for 24 hours. Users can only try to validate a phone number 5 times within an hour before they're locked out for 24 hours. Users can only try a single authentication method 5 times within an hour before they're locked out for 24 hours.
+  > **A:** Yes, there are security features built into password reset to protect it from misuse. Users can try only five password reset attempts within an hour before they're locked out for 24 hours. Users can try to validate a phone number only five times within an hour before they're locked out for 24 hours. Users can try only a single authentication method five times within an hour before they're locked out for 24 hours.
   >
   >
 * **Q:  How long are the email and SMS one-time passcodes valid?**
@@ -182,7 +182,7 @@ This FAQ is split into the following sections:
 
 * **Q:  Where should my users go to change their passwords?**
 
-  > **A:** Users can change their passwords anywhere they see their profile picture or icon, like in the upper-right corner of their [Office 365](https://portal.office.com) portal or [Access Panel](https://myapps.microsoft.com) experiences. Users can change their passwords from the [Access Panel Profile page](https://account.activedirectory.windowsazure.com/r#/profile). Users can also be asked to change their passwords automatically at the Azure AD sign-in page if their passwords have expired. Finally, users can browse to the [Azure AD password change portal](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) directly if they wish to change their passwords.
+  > **A:** Users can change their passwords anywhere they see their profile picture or icon, like in the upper-right corner of their [Office 365](https://portal.office.com) portal or [Access Panel](https://myapps.microsoft.com) experiences. Users can change their passwords from the [Access Panel Profile page](https://account.activedirectory.windowsazure.com/r#/profile). Users can also be asked to change their passwords automatically at the Azure AD sign-in page if their passwords have expired. Finally, users can browse to the [Azure AD password change portal](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) directly if they want to change their passwords.
   >
   >
 * **Q:  Can my users be notified in the Office portal when their on-premises password expires?**
@@ -200,7 +200,7 @@ This FAQ is split into the following sections:
 
 * **Q:  How long does it take for data to show up on the password management reports?**
 
-  > **A:** Data should appear on the password management reports within 5 to 10 minutes. In some instances, it might take up to an hour to appear.
+  > **A:** Data should appear on the password management reports in 5 to 10 minutes. In some instances, it might take up to an hour to appear.
   >
   >
 * **Q:  How can I filter the password management reports?**
@@ -215,17 +215,17 @@ This FAQ is split into the following sections:
   >
 * **Q:  How far back do the password management reports go?**
 
-  > **A:** The password management reports show operations occurring within the last 30 days. For now, if you need to archive this data, you can download the reports periodically and save them in a separate location.
+  > **A:** The password management reports show operations that occurred within the last 30 days. For now, if you need to archive this data, you can download the reports periodically and save them in a separate location.
   >
   >
 * **Q:  Is there a maximum number of rows that can appear on the password management reports?**
 
-  > **A:** Yes, a maximum of 75,000 rows can appear on either of the password management reports, whether they are shown in the UI or are downloaded.
+  > **A:** Yes. A maximum of 75,000 rows can appear on either of the password management reports, whether they are shown in the UI or are downloaded.
   >
   >
 * **Q:  Is there an API to access the password reset or registration reporting data?**
 
-  > **A:** Yes, to learn how you can access the password reset reporting data stream, see [Learn how to access password reset reporting events programmatically](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **A:** Yes. To learn how you can access the password reset reporting data stream, see [Learn how to access password reset reporting events programmatically](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
   >
   >
 
@@ -248,7 +248,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  If my on-premises account is constrained by an on-premises Active Directory password policy, does SSPR obey this policy when I change my password?**
 
-  > **A:** Yes, SSPR relies on and abides by the on-premises Active Directory password policy. This policy includes the typical Active Directory domain password policy, as well as any defined, fine-grained password policies that are targeted to a given user.
+  > **A:** Yes, SSPR relies on and abides by the on-premises Active Directory password policy. This policy includes the typical Active Directory domain password policy, as well as any defined, fine-grained password policies that are targeted to a user.
   >
   >
 * **Q:  What types of accounts does password writeback work for?**
@@ -258,7 +258,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Does password writeback enforce my domain’s password policies?**
 
-  > **A:** Yes, password writeback enforces password age, history, complexity, filters, and any other restriction you might put in place on passwords in your local domain.
+  > **A:** Yes. Password writeback enforces password age, history, complexity, filters, and any other restriction you might put in place on passwords in your local domain.
   >
   >
 * **Q:  Is password writeback secure?  How can I be sure I won’t get hacked?**
