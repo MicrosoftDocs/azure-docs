@@ -56,6 +56,7 @@ The Cassandra API enables you to interact with data stored in Azure Cosmos DB us
 
 **Enterprise grade**: Secure and compliant by default – Azure cosmos DB provides [compliance certifications](https://www.microsoft.com/trustcenter) to ensure users can use the platform without worrying about compliance issues. Azure Cosmos DB also provides encryption at rest and in motion, IP firewall, and audit logs for control plane activities.  
 
+<a id="sign-up-now"></a>
 ## Sign up now 
 
 If you already have an Azure subscription, you can sign up to join the Cassandra API (preview) program in the [Azure portal](https://aka.ms/cosmosdb-cassandra-signup).  If you’re new to Azure, sign up for a [free trial](https://azure.microsoft.com/free) where you get 12 months of free access to Azure Cosmos DB. Complete the following steps to request access to the Cassandra API (preview) program.
