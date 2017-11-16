@@ -66,6 +66,7 @@ This step is optional. If you're interested in learning how the database resourc
 
   ```csharp
    var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
+   options.SetHostNameResolver((ipAddress) => CassandraContactPoint);
    Cluster cluster = Cluster.Builder().WithCredentials(UserName, Password).WithPort(CassandraPort).AddContactPoint(CassandraContactPoint).WithSSL(options).Build();
    ISession session = cluster.Connect();
    ```
@@ -73,7 +74,7 @@ This step is optional. If you're interested in learning how the database resourc
 * Create a new keyspace.
 
     ```csharp
-  session.Execute("CREATE KEYSPACE IF NOT EXISTS uprofile WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 }");
+    session.Execute("CREATE KEYSPACE uprofile WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 };"); 
     ```
 
 * Create a new table.
@@ -85,7 +86,7 @@ This step is optional. If you're interested in learning how the database resourc
 * Insert user entities by using the IMapper object with a new session that connects to the uprofile keyspace.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "Kanna", "Bangalore"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * Query to get all user's information.
@@ -131,7 +132,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     Line 15 of Program.cs should now look similar to 
 
-    `private const string CassandraContactPoint = "cassandra_host=cosmos-db-quickstarts.documents.azure.com"; //  DnsName`
+    `private const string CassandraContactPoint = "cosmos-db-quickstarts.documents.azure.com"; //  DnsName`
 
 5. Save the Program.cs file.
     

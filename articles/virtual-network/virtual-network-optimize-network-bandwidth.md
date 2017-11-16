@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 11/15/2017
 ms.author: steveesp
 
 ---
@@ -31,7 +31,7 @@ If your Windows VM is supported with [Accelerated Networking](virtual-network-cr
 	```powershell
 	Name					: Ethernet
 	InterfaceDescription	: Microsoft Hyper-V Network Adapter
-	Enabled				 : False
+	Enabled				 	: False
 	```
 2. Enter the following command to enable RSS:
 
@@ -42,7 +42,7 @@ If your Windows VM is supported with [Accelerated Networking](virtual-network-cr
 3. Confirm that RSS is enabled in the VM by entering the `Get-NetAdapterRss` command again. If successful, the following example output is returned:
 
 	```powershell
-	Name					:Ethernet
+	Name					: Ethernet
 	InterfaceDescription	: Microsoft Hyper-V Network Adapter
 	Enabled				 : True
 	```
@@ -53,26 +53,35 @@ RSS is always enabled by default in an Azure Linux VM. Linux kernels released si
 
 ### Ubuntu for new deployments
 
-In order to get the optimization, first install latest supported version of 16.04-LTS, like this:
+The Ubuntu Azure kernel provides the best network performance on Azure and has been the default kernel since September 21, 2017. In order to get this kernel, first install latest supported version of 16.04-LTS, as described below:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
-After the update is complete, enter the following commands to get the latest kernel:
+After the creation is complete, enter the following commands to get the latest updates. These steps also work for VMs currently running the Ubuntu Azure kernel.
 
 ```bash
+#run as root or preface with sudo
+apt-get -y update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+```
+
+The following optional command set may be helpful for existing Ubuntu deployments that already have the Azure kernel but that have failed to further updates with errors.
+
+```bash
+#optional steps may be helpful in existing deployments with the Azure kernel
+#run as root or preface with sudo
 apt-get -f install
 apt-get --fix-missing install
 apt-get clean
 apt-get -y update
 apt-get -y upgrade
+apt-get -y dist-upgrade
 ```
 
-Optional command:
-
-`apt-get -y dist-upgrade`
 #### Ubuntu Azure kernel upgrade for existing VMs
 
 Significant throughput performance can be achieved by upgrading to the Azure Linux kernel. To verify whether you have this kernel, check your kernel version.
@@ -85,7 +94,7 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-Then run these commands as root.
+If your VM does not have the Azure kernel, the version number will usually begin with "4.4". In those cases, run the following commands as root.
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -97,14 +106,14 @@ reboot
 
 ### CentOS
 
-In order to get the latest optimizations, first update to the latest supported version, like this:
+In order to get the latest optimizations, it is best to create a VM with the latest supported version by specifying the following parameters:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-After the update is complete, install the latest Linux Integration Services (LIS).
+New and existing VMs can benefit from installing the latest Linux Integration Services (LIS).
 The throughput optimization is in LIS, starting from 4.2.2-2, although later versions contain further improvements. Enter the following
 commands to install the latest LIS:
 
@@ -116,14 +125,14 @@ sudo yum install microsoft-hyper-v
 
 ### Red Hat
 
-In order to get the optimization, first update to the latest supported version like this:
+In order to get the optimizations, it is best to create a VM with the latest supported version by specifying the following parameters:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-After the update is complete, install the latest Linux Integration Services (LIS).
+New and existing VMs can benefit from installing the latest Linux Integration Services (LIS).
 The throughput optimization is in LIS, starting from 4.2. Enter the following commands to download and install LIS:
 
 ```bash
