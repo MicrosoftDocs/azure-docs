@@ -1,5 +1,5 @@
 ---
-title: Set up VMware vCenter tagging | Microsoft Docs
+title: Group VMs with VMware vCenter tagging | Microsoft Docs
 description: Describes how to create a group before you run an assessment with the Azure Migrate service.
 services: migration-planner
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 11/21/2017
 ms.author: raynew
 ---
 
-# Create a group with vCenter tagging
+# Group VMs with vCenter tagging
 
 This article describes how to create a group of machines for [Azure Migrate](migrate-overview.md) assessment using tagging in VMware vCenter. You specify the tag category you want to use when you create a group. 
 

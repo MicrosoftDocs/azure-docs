@@ -1,6 +1,6 @@
 ---
-title: Assess on-premises VMware VMs for migration to Azure with Azure Migrate | Microsoft Docs
-description: Describes how to set up and run an assessment for migrating VMware VMs to Azure using the Azure Migration Planner
+title: Discover and assess on-premises VMware VMs for migration to Azure with Azure Migrate | Microsoft Docs
+description: Describes how to discover and assess on-premises VMware VMs for migration to Azure, using the Azure Migrate service. 
 services: migration-planner
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 11/21/2017
 ms.author: raynew
 
 ---
-# Assess on-premises VMware VMs for migration to Azure
+# Discover and assess on-premises VMware VMs for migration to Azure
 
 The [Azure Migrate](migrate-overview.md) services assesses on-premises workloads for migration to Azure.
 
@@ -162,6 +162,6 @@ You can drill down to see costs for a specific machine.
 
 ## Next steps
 
-- If you need to set up an assessment for a large number of on-premises machines, read [How to scale assessment](how-to-scale-assessment.md)
+- [Learn](how-to-scale-assessment.md) how to set up an assessment for a large number of on-premises machines.
 - Learn how to create more detailed assessment groups using [machine dependency mapping](how-to-create-group-machine-dependencies.md)
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
