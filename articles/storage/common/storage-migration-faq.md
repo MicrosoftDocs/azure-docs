@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 06/03/2017
+ms.date: 11/16/2017
 ms.author: genli
 
 ---
