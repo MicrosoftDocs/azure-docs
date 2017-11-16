@@ -71,10 +71,10 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Browse to the site to see your newly created web app with built-in image. Replace _&lt;app name>_ with a unique app name.
+Browse to the site to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 ![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
