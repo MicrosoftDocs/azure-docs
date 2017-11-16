@@ -23,7 +23,7 @@ ms.custom: it-pro;
 This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to create and update groups. This content applies only to Office 365 groups. 
 
 > [!IMPORTANT]
-> This feature requires an Azure Active Directory Premium P1 license.
+> Some features require an Azure Active Directory Premium P1 license.
 
 For more information on how to allow users to create security groups, set `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` as described in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
@@ -85,11 +85,11 @@ Upon successful completion, the cmdlet returns the ID of the new settings object
   --                                   ----------- ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
-Here are the settings defined in the Group.Unified SettingsTemplate.
+Here are the settings defined in the Group.Unified SettingsTemplate. Unless otherwise indicated, these features require an Azure Active Directory Premium P1 license. 
 
 | **Setting** | **Description** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True |The flag indicating whether Unified Group creation is allowed in the directory by non-admin users. |
+|  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True |The flag indicating whether Unified Group creation is allowed in the directory by non-admin users. This feature does not require an Azure Active Directory Premium P1 license.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Default: “” |GUID of the security group for which the members are allowed to create Unified Groups even when EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Default: “” |A link to the Group Usage Guidelines. |
 |  <ul><li>ClassificationDescriptions<li>Type: String<li>Default: “” | A comma-delimited list of classification descriptions. |
@@ -98,7 +98,7 @@ Here are the settings defined in the Group.Unified SettingsTemplate.
 | <ul><li>CustomBlockedWordsList<li>Type: String<li>Default: “” | Do not use. Not implemented. |
 | <ul><li>EnableMSStandardBlockedWords<li>Type: Boolean<li>Default: “False” | Do not use
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Boolean<li>Default: False | Boolean indicating whether or not a guest user can be an owner of groups. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean<li>Default: True | Boolean indicating whether or not a guest user can have access to Unified groups' content. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean<li>Default: True | Boolean indicating whether or not a guest user can have access to Unified groups' content.  This feature does not require an Azure Active Directory Premium P1 license.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Default: “” | The url of a link to the guest usage guidelines. |
 |  <ul><li>AllowToAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory.|
 |  <ul><li>ClassificationList<li>Type: String<li>Default: “” |A comma-delimited list of valid classification values that can be applied to Unified Groups. |
