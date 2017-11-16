@@ -79,7 +79,9 @@ On your Windows computer, open a new PowerShell window as **Administrator** and 
 
 ```powershell
 $lifetime=Get-Date
-New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
+New-SelfSignedCertificate -Subject *.contoso100.com `
+  -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
+  -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```
 
 In the preceding sample, replace '*.contoso100.com' with the DNS domain name of your managed domain. For example, if you created a managed domain called 'contoso100.onmicrosoft.com', replace '*.contoso100.com' in the preceding script with '*.contoso100.onmicrosoft.com').
