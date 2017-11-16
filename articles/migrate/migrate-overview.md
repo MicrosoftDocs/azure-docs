@@ -72,6 +72,16 @@ Azure Migrate assessments are based on the settings summarized in the table.
 
 
   ![Azure Planner architecture](./media/migration-planner-overview/overview-1.png)
+
+## What are the port requirements?
+
+The table summarizes the ports needed for Azure Migrate communications.
+
+|Component          |To communicate with     |Port required  |Reason   |
+|-------------------|------------------------|---------------|---------|
+|Collector          |Azure Migrate service   |TCP 443        |Collector should be able to communicate with the service over the SSL port 443|
+|Collector          |vCenter Server          |Default 9443   |Collector should be able to communicate with the vCenter server. It connects to vCenter on 9443 by default. If the vCenter listens on a different port, that port should be available as outgoing port on the collector |
+|On-premises VM     | OMS Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |The MMA agent needs to use TCP 443 to connect over to OMS. This port is required if and only if you are using the dependency visualization feature and are installing the MMA agent on the machines |
   
 ## What happens after assessment?
 
