@@ -30,6 +30,7 @@ The following table includes links to PowerShell scripts samples that create and
 | [Create a cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Creates an Azure Service Fabric cluster. |
 | **Manage cluster** ||
 | [Add an application certificate](./scripts/service-fabric-powershell-add-application-certificate.md)| Adds an application X.509 certificate to all nodes in a cluster. |
+|[Change the RDP port range](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Changes the RDP port range in a deployed cluster.|
 | **Manage applications** ||
 | [Deploy an application](./scripts/service-fabric-powershell-deploy-application.md)| Deploy an application to a cluster.|
 | [Upgrade an application](./scripts/service-fabric-powershell-upgrade-application.md)| Upgrade an application |
