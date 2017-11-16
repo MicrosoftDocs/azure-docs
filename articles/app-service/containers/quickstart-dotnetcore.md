@@ -85,7 +85,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
+Browse to your newly created web app. Replace _&lt;app name>_ with your web app name.
 
 ```bash
 http://<app name>.azurewebsites.net
