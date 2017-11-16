@@ -52,4 +52,4 @@ sections:
     - title: Command line
       html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
     - title: REST
-      html: <p><a href="/rest/api/container-service">REST API</a></p>
+      html: <p><a href="/rest/api/aks">REST API</a></p>

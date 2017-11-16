@@ -26,7 +26,7 @@ ms.author: juliako
 >
 
 ## Overview
-To deliver digital video over the Internet, you must compress the media. Digital video files are large and may be too big to deliver over the Internet, or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
+To deliver digital video over the Internet, you must compress the media. Digital video files are large and may be too large to deliver over the Internet, or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
 
 Encoding jobs are one of the most common processing operations in Azure Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in encoder (Media Encoder Standard). You can also use an encoder provided by a Media Services partner. Third-party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see [Task Presets for Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
 
@@ -262,6 +262,12 @@ If successful, the following response is returned:
     . . .
 
 
+## Advanced Encoding Features to explore
+* [How to generate thumbnails](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Generating thumbnails during encoding](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Crop videos during encoding](media-services-crop-video.md)
+* [Customizing encoding presets](media-services-custom-mes-presets-with-dotnet.md)
+* [Overlay or watermark a video with an image](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

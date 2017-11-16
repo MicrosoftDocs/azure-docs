@@ -43,7 +43,7 @@ If needed, create an Azure Container registry with the [az acr create](/cli/azur
 The following example creates a registry with a randomly generate name. The registry is also configured with an admin account using the `--admin-enabled` argument.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic --admin-enabled true
+az acr create --resource-group myResourceGroup --name myContainerRegistry$RANDOM --sku Basic
 ```
 
 Once the registry has been created, the Azure CLI outputs data similar to the following. Take note of the `name` and `loginServer`, these are used in later steps.

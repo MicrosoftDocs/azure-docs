@@ -46,13 +46,8 @@ These links will be useful for exploring the platform in depth:
 * [Scopes and Consent in the v2.0 endpoint](active-directory-v2-scopes.md)
 * [The Microsoft Graph](https://graph.microsoft.io)
 
-## Help & Support
-These are the best places to get help with developing on Azure Active Directory.
-
-* [Stack Overflow's `azure-active-directory` and `adal` tags](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)
-* [Feedback on Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)
-
-
 > [!NOTE]
 > If you only need to sign in work and school accounts from Azure Active Directory, you should start with our [Azure AD developer's guide](active-directory-developers-guide.md).  The v2.0 endpoint is intended for use by developers who explicitly need to sign in Microsoft personal accounts.
 
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

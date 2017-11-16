@@ -4,7 +4,7 @@ description: Troubleshooting guide for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 11/15/2017
 ms.author: maheshu
 
 ---
@@ -21,7 +21,7 @@ ms.author: maheshu
 This article provides troubleshooting hints for issues you may encounter when setting up or administering Azure Active Directory (AD) Domain Services.
 
 ## You cannot enable Azure AD Domain Services for your Azure AD directory
-This section helps you troubleshoot errors when you try to enable Azure AD Domain Services for your directory and it fails or gets toggled back to 'Disabled'.
+This section helps you troubleshoot errors when you try to enable Azure AD Domain Services for your directory.
 
 Pick the troubleshooting steps that correspond to the error message you encounter.
 
@@ -78,7 +78,7 @@ Use the following PowerShell script to find the application and delete it.
 >
 >
 
-```
+```powershell
 $InformationPreference = "Continue"
 $WarningPreference = "Continue"
 
@@ -148,7 +148,7 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
 ## Users removed from your Azure AD tenant are not removed from your managed domain
 Azure AD protects you from accidental deletion of user objects. When you delete a user account from your Azure AD tenant, the corresponding user object is moved to the Recycle Bin. When this delete operation is synchronized to your managed domain, it causes the corresponding user account to be marked disabled. This feature helps you recover or undelete the user account later.
 
-The user account remains in the disabled state in your managed domain, even if you re-create a user account with the same UPN in your Azure AD directory. To remove the user account from your managed domain, you need to force delete it from your Azure AD tenant.
+The user account remains in the disabled state in your managed domain, even if you re-create a user account with the same UPN in your Azure AD directory. To remove the user account from your managed domain, you need to forcibly delete it from your Azure AD tenant.
 
 To remove the user account fully from your managed domain, delete the user permanently from your Azure AD tenant. Use the Remove-MsolUser PowerShell cmdlet with the '-RemoveFromRecycleBin' option, as described in this [MSDN article](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
