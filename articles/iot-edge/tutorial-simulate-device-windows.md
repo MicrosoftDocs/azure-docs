@@ -41,13 +41,13 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
    ```
 
 > [!NOTE]
-> Azure IoT Edge can run either Windows containers or Linux containers. To use Windows containers, you have to run:
->    * Windows 10 Fall Creators Update, or
->    * Windows Server 1709 (Build 16299), or
+> Azure IoT Edge can run either Windows containers or Linux containers. If you're running one of the following Windows versions, you can use Windows containers:
+>    * Windows 10 Fall Creators Update
+>    * Windows Server 1709 (Build 16299)
 >    * Windows IoT Core (Build 16299) on a x64-based device
 >
-> For Windows IoT Core, follow the instructions in [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore]. Otherwise, simply [configure Docker to use Windows containers][lnk-docker-containers], and optionally validate your prerequisites with the following powershell command:
->    ```
+> For Windows IoT Core, follow the instructions in [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore]. Otherwise, simply [configure Docker to use Windows containers][lnk-docker-containers]. Use the following command to validate your prerequisites:
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
