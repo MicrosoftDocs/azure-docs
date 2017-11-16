@@ -25,8 +25,8 @@ This article describes the details of configuring Service Map and onboarding age
 ## Dependency Agent downloads
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.2.0 | E1D6BD285A79AFE10781F49B0922DB2A1D7925E998FEADA5483F93D6F3D1DCE5 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.2.0 | 1134AA13B2467A6CF39BAF2B680CEE2AC903E899DDBA241A88CEB726C005322E |
 
 
 ## Connected sources
