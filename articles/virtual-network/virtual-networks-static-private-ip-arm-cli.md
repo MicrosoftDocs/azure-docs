@@ -1,11 +1,11 @@
 ---
-title: Configure private IP addresses for VMs - Azure CLI 2.0 | Microsoft Docs
-description: Learn how to configure private IP addresses for virtual machines using the Azure command-line interface (CLI) 2.0.
+title: Configure private IP addresses for VMs - Azure CLI | Microsoft Docs
+description: Learn how to configure private IP addresses for virtual machines using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
@@ -19,17 +19,9 @@ ms.author: jdial
 ms.custom: H1Hack27Feb2017
 
 ---
-# Configure private IP addresses for a virtual machine using the Azure CLI 2.0
+# Configure private IP addresses for a virtual machine using the Azure CLI
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
-
-
-## CLI versions to complete the task 
-
-You can complete the task using one of the following CLI versions: 
-
-- [Azure CLI 1.0](virtual-networks-static-private-ip-cli-nodejs.md) – our CLI for the classic and resource management deployment models 
-- [Azure CLI 2.0](#specify-a-static-private-ip-address-when-creating-a-vm) - our next generation CLI for the resource management deployment model (this article)
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
@@ -40,7 +32,7 @@ This article covers the Resource Manager deployment model. You can also [manage 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> The sample Azure CLI 2.0 commands below expect a simple environment already created. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-arm-cli.md).
+> The following sample Azure CLI commands expect an existing simple environment. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-arm-cli.md).
 
 ## Specify a static private IP address when creating a VM
 

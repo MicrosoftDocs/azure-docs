@@ -1,10 +1,10 @@
 ---
-title: Manage network security groups - Azure CLI 2.0 | Microsoft Docs
-description: Learn how to manage network security groups using the Azure command-line interface (CLI) 2.0.
+title: Manage network security groups - Azure CLI | Microsoft Docs
+description: Learn how to manage network security groups using the Azure command-line interface.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -19,17 +19,9 @@ ms.author: jdial
 ms.custom: H1Hack27Feb2017
 
 ---
-# Manage network security groups using the Azure CLI 2.0
+# Manage network security groups using the Azure CLI
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
-
-## CLI versions to complete the task 
-
-You can complete the task using one of the following CLI versions: 
-
-- [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md) – our CLI for the classic and resource management deployment models 
-- [Azure CLI 2.0](#View-existing-NSGs) - our next generation CLI for the resource management deployment model (this article)
-
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -41,7 +33,6 @@ You can complete the task using one of the following CLI versions:
 
 ## Prerequisite
 If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
-
 
 ## View existing NSGs
 To view the list of NSGs in a specific resource group, run the [az network nsg list](/cli/azure/network/nsg#list) command with a `-o table` output format:
