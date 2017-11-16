@@ -412,8 +412,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 ### Section Name: UpgradeOrchestrationService
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, default is 0 |Static|The TargetReplicaSetSize for UpgradeOrchestrationService. |
-| MinReplicaSetSize |Int, default is 0 |Static|The MinReplicaSetSize for UpgradeOrchestrationService.
+| TargetReplicaSetSize |Int, default is 0 |Static |The TargetReplicaSetSize for UpgradeOrchestrationService. |
+| MinReplicaSetSize |Int, default is 0 |Static |The MinReplicaSetSize for UpgradeOrchestrationService.
 | ReplicaRestartWaitDuration | Time in seconds, default is 60 minutes|Static| Specify timespan in seconds. The ReplicaRestartWaitDuration for UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue |Static| Specify timespan in seconds. The QuorumLossWaitDuration for UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Time in seconds, default is 60*24*7 minutes |Static| Specify timespan in seconds. The StandByReplicaKeepDuration for UpgradeOrchestrationService. |
