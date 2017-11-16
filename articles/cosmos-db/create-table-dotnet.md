@@ -1,4 +1,4 @@
---
+---
 title: 'Quickstart: Table API with .NET - Azure Cosmos DB | Microsoft Docs'
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and .NET 
 services: cosmos-db
