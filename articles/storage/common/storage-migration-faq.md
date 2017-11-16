@@ -67,8 +67,8 @@ how to use AzCopy to move the container:
 2.  After installing AzCopy on Windows by using the installer, open a
     Command POromprt window and navigate to the AzCopy installation
     directory on your computer. By default, AzCopy is installed to
-    "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy" or
-    "%ProgramFiles%\Microsoft SDKs\Azure\AzCopy".
+    **%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy** or
+    **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
 3.   Run the following command to move the container. You must replace
     the bold text with the real value.   
