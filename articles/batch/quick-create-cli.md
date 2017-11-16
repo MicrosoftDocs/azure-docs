@@ -4,7 +4,7 @@ description: Quickly learn to run a Batch job with the Azure CLI.
 services: batch
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/01/2017
+ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
 ---
 
-# Create a Batch account and pool with the Azure CLI
+# Run your first Batch job with the Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs a set of parallel *tasks* on the pool. This example is very basic but introduces you to the key concepts of the Batch service.
 
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.?? or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Create a resource group
 
@@ -39,17 +39,26 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
+## Create a storage account
+
+As shown in this quickstart, you can optionally associate an Azure general purpose storage account with your Batch account. The storage account is useful to deploy applications and store input and output data. Create a storage acccount in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+
+```azurecli-interactive
+az storage account create --resource-group myResourceGroup --name myStorageAccount --location eastus --sku Standard_LRS
+```
+
+
 ## Create a Batch account
 
 Create a Batch account with the [az batch account create](/cli/azure/batch/account#az_batch_account_create) command. You create compute resources (pools of compute nodes) and Batch jobs in an account.
 
-The following example creates a Batch account named *myBatchAccount* in *myResourceGroup*.  
+The following example creates a Batch account named *myBatchAccount* in *myResourceGroup*, and links the storage account you created.  
 
 ```azurecli-interactive 
-az batch account create --name myBatchAccount --resource-group myResourceGroup --location eastus
+az batch account create --name myBatchAccount --storage-account myStorageAccount --resource-group myResourceGroup --location eastus
 ```
 
-Log in to the account with the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. This example uses shared key authentication, based on the Batch account key.
+Log in to the account with the [az batch account login](/cli/azure/batch/account#az_batch_account_login) command. This example uses shared key authentication, based on the Batch account key. After you log in, you create and manage resources in that account.
 
 ```azurecli-interactive 
 az batch account login --name myBatchAccount --resource-group myResourceGroup --shared-key-auth
@@ -73,62 +82,6 @@ It can take a few minutes to provision the pool resources. To see the status of 
 
 ```azurecli-interactive
 az batch pool show --pool-id mypool-linux -o table
-```
-
-Output is similar to the following:
-
-```JSON
-{
-  "allocationState": "steady",
-  "allocationStateTransitionTime": "2017-10-26T22:37:42.162124+00:00",
-  "applicationLicenses": null,
-  "applicationPackageReferences": null,
-  "autoScaleEvaluationInterval": null,
-  "autoScaleFormula": null,
-  "autoScaleRun": null,
-  "certificateReferences": null,
-  "cloudServiceConfiguration": null,
-  "creationTime": "2017-10-26T22:35:56.500992+00:00",
-  "currentDedicatedNodes": 4,
-  "currentLowPriorityNodes": 0,
-  "displayName": null,
-  "eTag": "0x8D51CC1EC822005",
-  "enableAutoScale": false,
-  "enableInterNodeCommunication": false,
-  "id": "mypool-linux",
-  "lastModified": "2017-10-26T22:35:56.500992+00:00",
-  "maxTasksPerNode": 1,
-  "metadata": null,
-  "networkConfiguration": null,
-  "resizeErrors": null,
-  "resizeTimeout": "0:15:00",
-  "startTask": null,
-  "state": "active",
-  "stateTransitionTime": "2017-10-26T22:35:56.500992+00:00",
-  "stats": null,
-  "targetDedicatedNodes": 4,
-  "targetLowPriorityNodes": 0,
-  "taskSchedulingPolicy": {
-    "nodeFillType": "spread"
-  },
-  "url": "https://mybatchaccount.eastus.batch.azure.com/pools/mypool-linux",
-  "userAccounts": null,
-  "virtualMachineConfiguration": {
-    "containerConfiguration": null,
-    "dataDisks": null,
-    "imageReference": {
-      "offer": "ubuntuserver",
-      "publisher": "canonical",
-      "sku": "16.04.0-LTS",
-      "version": "latest",
-      "virtualMachineImageId": null
-    },
-    "licenseType": null,
-    "nodeAgentSkuId": "batch.node.ubuntu 16.04",
-    "osDisk": null,
-    "windowsConfiguration": null
-  },
-  "vmSize": "standard_a1_v2"
 ```
 
 You can go ahead and schedule a job while the pool is resizing. The pool is completely provisioned when the `allocationState` is `Steady`. 
@@ -177,67 +130,9 @@ Use the [az batch task show](/cli/azure/batch/task#az_batch_task_show) command t
 az batch task show --job-id myjob-linux --task-id mytask3
 ```
 
-Output is similar to the following. An `exitCode` of 0 indicates that the task completed successfully. The `nodeId` indicates the ID of the pool node on which the task ran.
+The command output includes many details, but take note of the `exitCode` and the `nodeId`. An `exitCode` of 0 indicates that the task completed successfully. The `nodeId` indicates the ID of the pool node on which the task ran.
 
-```JSON
-{
-  "affinityInfo": null,
-  "applicationPackageReferences": null,
-  "authenticationTokenSettings": null,
-  "commandLine": "/bin/bash -c \"printenv\"",
-  "constraints": {
-    "maxTaskRetryCount": 0,
-    "maxWallClockTime": "10675199 days, 2:48:05.477581",
-    "retentionTime": "10675199 days, 2:48:05.477581"
-  },
-  "containerSettings": null,
-  "creationTime": "2017-10-27T20:01:21.215678+00:00",
-  "dependsOn": null,
-  "displayName": null,
-  "eTag": "0x8D51D757E6BA775",
-  "environmentSettings": null,
-  "executionInfo": {
-    "containerInfo": null,
-    "endTime": "2017-10-27T20:01:25.199188+00:00",
-    "exitCode": 0,
-    "failureInfo": null,
-    "lastRequeueTime": null,
-    "lastRetryTime": null,
-    "requeueCount": 0,
-    "result": "success",
-    "retryCount": 0,
-    "startTime": "2017-10-27T20:01:24.625964+00:00"
-  },
-  "exitConditions": null,
-  "id": "mytask3",
-  "lastModified": "2017-10-27T20:01:21.215678+00:00",
-  "multiInstanceSettings": null,
-  "nodeInfo": {
-    "affinityId": "TVM:tvm-1392786932_2-20171026t223740z",
-    "nodeId": "tvm-1392786932_2-20171026t223740z",
-    "nodeUrl": "https://mybatchaccount.eastus.batch.azure.com/pools/mypool-linux/nodes/tvm-1392786932_2-20171026t223740z",
-    "poolId": "mypool-linux",
-    "taskRootDirectory": "workitems/myjob-linux/job-1/mytask3",
-    "taskRootDirectoryUrl": "https://mybatchaccount.eastus.batch.azure.com/pools/mypool-linux/nodes/tvm-1392786932_2-20171026t223740z/files/workitems/myjob-linux/job-1/mytask3"
-  },
-  "outputFiles": null,
-  "previousState": "running",
-  "previousStateTransitionTime": "2017-10-27T20:01:24.625827+00:00",
-  "resourceFiles": null,
-  "state": "completed",
-  "stateTransitionTime": "2017-10-27T20:01:25.199188+00:00",
-  "stats": null,
-  "url": "https://mybatchaccount.eastus.batch.azure.com/jobs/myjob-linux/tasks/mytask3",
-  "userIdentity": {
-    "autoUser": {
-      "elevationLevel": "nonAdmin",
-      "scope": null
-    },
-    "userName": null
-  }
-}
 
-```
 
 ## View task output
 
@@ -306,4 +201,4 @@ In this quick start, you created a Batch account, a Batch pool, and a Batch job.
 
 
 > [!div class="nextstepaction"]
-> [Azure Batch tutorials](> [Azure Batch tutorials](./tutorial-parallel-dotnet.md)
+> [Azure Batch tutorials](./tutorial-parallel-dotnet.md)

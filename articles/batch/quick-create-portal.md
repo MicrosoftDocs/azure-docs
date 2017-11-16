@@ -4,7 +4,7 @@ description:  Quickly learn to run a Batch job with the Azure portal.
 services: batch
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: batch
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/01/2017
+ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
 ---
 
-# Create a Batch account and pool in the portal
+# Run your first Batch job in the portal
 
-This quickstart shows how to use the Azure portal to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs a  *task* on the pool. This example is very basic but introduces you to the key concepts of the Batch service.
+This quickstart shows how to use the Azure portal to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs a *task* on the pool. This example is very basic but introduces you to the key concepts of the Batch service.
 
 ## Log in to Azure 
 
@@ -27,14 +27,18 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create Batch account
 
-Follow these steps to create a sample Batch account for test purposes. You create compute resources (pools of compute nodes) and Batch jobs in an account.
+Follow these steps to create a sample Batch account for test purposes. You create compute resources (pools of compute nodes) and Batch jobs in an account. As shown in this example, you can optionally associate an Azure storage account with the Batch account, which is useful to deploy applications and store input and output data.
 
 
 1. Select **New** > **Compute** > **Batch Service**. 
 
   ![Batch in the Marketplace][marketplace_portal]
 
-3. Enter values for **Account name** and **Resource group**. The account name must be unique within the Azure **Location** selected, use only lowercase characters or numbers, and contain 3-24 characters. Keep the defaults for remaining settings, and click **Create** to create the account.
+2. Enter values for **Account name** and **Resource group**. The account name must be unique within the Azure **Location** selected, use only lowercase characters or numbers, and contain 3-24 characters. 
+
+3. In **Storage account**, select an existing general purpose storage account or create a new one.
+
+4. Keep the defaults for remaining settings, and click **Create** to create the account.
 
   ![Create a Batch account][account_portal]  
 
