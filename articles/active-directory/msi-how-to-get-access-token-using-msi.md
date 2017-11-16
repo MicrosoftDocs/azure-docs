@@ -28,7 +28,7 @@ A VM Managed Service Identity makes two important features available to client a
 
   With MSI, your client application no longer needs to do either, as it can sign in under the MSI service principal. 
 
-2. An [**app-only access token**](develop/active-directory-dev-glossary.md#access-token), which is issued for the MSI service principal and used for secured access to a given resource's API(s). As such, there is also no need for the client to authenticate and obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
+2. An [**app-only access token**](develop/active-directory-dev-glossary.md#access-token), which is issued to a client [based on the MSI service principal](msi-overview.md#how-does-it-work) for access a given resource's API(s). As such, there is also no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
 
 This article shows you various ways a client application can use the MSI service principal and/or access token, in order to access secured resources.
 
@@ -45,7 +45,7 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, b
 
 ## Code examples
 
-As discussed previously, MSI offers a service principal and access token for resource access. The examples below show of variety of ways to do one or both functions, starting from concrete to more abstract methods:
+As discussed previously, MSI offers a service principal and access token for resource access. The examples below show a variety of ways to perform these functions, starting from the most primitive HTTP/REST layer:
 
 |      Client type       |       Demonstration       |  
 | ---------------------- | ------------------------- | 
@@ -60,13 +60,13 @@ As discussed previously, MSI offers a service principal and access token for res
 | [Python](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) | Use MSI to authenticate simply from inside a VM |   
 | [Ruby](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) | Manage resources from an MSI-enabled VM |     
 | <br>Scripting hosts / CLIs: |                      |           
-| [Azure PowerShell](#azure-powershell) | Acquire token, Sign-in, Access Azure Resource Manager |               
-| [Azure CLI](#azure-cli)| Sign-in, Access Azure Resource Manager |        
+| [Azure CLI](#azure-cli)| Sign-in, access Azure Resource Manager |        
+| [Azure PowerShell](#azure-powershell) | Acquire token, sign-in, access Azure Resource Manager |               
 | [Bash/CURL](#bashcurl) | Acquire token             |                                     
 
 ### HTTP/REST 
 
-REST provides a fundamental interface for acquiring an access token, accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs and Azure AD endpoint).
+REST provides a fundamental interface for acquiring an access token, accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs an Azure AD endpoint).
 
 Sample request:
 
@@ -100,7 +100,7 @@ Content-Type: application/json
 
 | Element | Description |
 | ------- | ----------- |
-| `access_token` | The requested access token. When calling a REST API, the token is embedded in the `Authorization` request header field as a "bearer" token, allowing the API to authenticate the caller. | 
+| `access_token` | The requested access token. When calling a secured REST API, the token is embedded in the `Authorization` request header field as a "bearer" token, allowing the API to authenticate the caller. | 
 | `refresh_token` | Not used by MSI. |
 | `expires_in` | The number of seconds the access token continues to be valid, before expiring, from time of issuance. Time of issuance can be found in the token's `iat` claim. |
 | `expires_on` | The timespan when the access token expires. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC"  (corresponds to the token's `exp` claim). |
@@ -266,7 +266,7 @@ The following script demonstrates how to:
 1. Acquire an MSI access token for the VM.
 2. Use the access token to call an Azure Resource Manager REST API and get information about the VM. Be sure to substitute your subscription ID, resource group name, and virtual machine name for `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, and `<VM-NAME>`, respectively.
 2. Use the access token to sign in to Azure AD, under the corresponding MSI service principal. 
-3. Call an Azure Resource Manager cmdlet to get information about the VM. PowerShell takes care of managing token acquisition/use for you automatically.
+3. Call an Azure Resource Manager cmdlet to get information about the VM. PowerShell takes care of managing token use for you automatically.
 
 ```azurepowershell
 # Get an access token for the MSI
@@ -340,7 +340,7 @@ This section documents the possible error responses. A "200 OK" status is a succ
 | 400 Bad Request | bad_request_102 | Required metadata header not specified | Either the `Metadata` request header field is missing from your request, or is formatted incorrectly. The value must be specified as `true`, in all lower case. See the "Sample request" in the [preceding REST section](#rest) for an example.|
 | 401 Unauthorized | unknown_source | Unknown Source *\<URI\>* | Verify that your HTTP GET request URI is formatted correctly. The `scheme:host/resource-path` portion must be specified as `http://localhost:50342/oauth2/token`. See the "Sample request" in the [preceding REST section](#rest) for an example.|
 | TBD          | invalid_request | The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed. | TBD |
-| TBD          | unauthorized_client | The client is not authorized to request an access token using this method. | Caused by a request that didn’t use local loopback to call the extension, or on a VM that doesn’t have an MSI configured correctly. |
+| TBD          | unauthorized_client | The client is not authorized to request an access token using this method. | Caused by a request that didn’t use local loopback to call the extension, or on a VM that doesn’t have an MSI configured correctly. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration. |
 | TBD          | access_denied | The resource owner or authorization server denied the request. | TBD |
 | TBD          | unsupported_response_type | The authorization server does not support obtaining an access token using this method. | TBD |
 | TBD          | invalid_scope | The requested scope is invalid, unknown, or malformed. | TBD |
