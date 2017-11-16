@@ -83,12 +83,16 @@
   - name: Storage
     href: about-disks-and-vhds.md
     items:
+    - name: Managed Disks
+      href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
       href: standard-storage.md
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -241,8 +245,6 @@
         href: excel-cluster-hpcpack.md
   - name: Manage storage
     items:
-    - name: Learn about Managed Disks
-      href: managed-disks-overview.md
     - name: Disks FAQs
       href: faq-for-disks.md
     - name: Add a disk
@@ -255,8 +257,6 @@
       href: detach-disk.md
     - name: Resize a disk
       href: expand-os-disk.md
-    - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
     - name: Back up unmanaged disks

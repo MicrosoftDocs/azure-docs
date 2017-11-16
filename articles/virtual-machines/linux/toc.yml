@@ -89,14 +89,18 @@
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Storage
-    href: azure-vm-storage-overview.md
+    href: about-disks-and-vhds.md
     items:
+    - name: Managed Disks
+      href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
       href: standard-storage.md
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -312,8 +316,6 @@
         href: n-series-driver-setup.md
   - name: Manage storage
     items:
-    - name: Learn about Managed Disks
-      href: managed-disks-overview.md
     - name: Disks FAQs
       href: faq-for-disks.md
     - name: Add a disk
@@ -328,8 +330,6 @@
       href: expand-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
-    - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
     - name: Convert to Managed Disks
