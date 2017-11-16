@@ -30,7 +30,7 @@ The Hybrid Connections feature consists of two outbound calls to Azure Service B
 
 Through the two joined connections, your app has a TCP tunnel to a fixed host:port combination on the other side of the HCM. The connection uses TLS 1.2 for security and shared access signature (SAS) keys for authentication and authorization.    
 
-![Hybrid connection high level flow][1]
+![Diagram of hybrid connection high level flow][1]
 
 When your app makes a DNS request that matches a configured hybrid connection endpoint, the outbound TCP traffic will be redirected through the hybrid connection.  
 
@@ -45,11 +45,11 @@ The Hybrid Connections feature has two types: the Hybrid Connections that are of
 
 There are a number of benefits to the Hybrid Connections capability, including:
 
-- Apps can securely access on-premises systems and services securely.
-- The feature does not require an Internet-accessible endpoint.
+- Apps can access on-premises systems and services securely.
+- The feature does not require an internet-accessible endpoint.
 - It is quick and easy to set up. 
-- Each Hybrid Connection matches to a single host:port combination, which is an excellent security aspect.
-- It normally does not require firewall holes as the connections are all outbound over standard web ports.
+- Each Hybrid Connection matches to a single host:port combination, helpful for security.
+- It normally does not require firewall holes. The connections are all outbound over standard web ports.
 - Because the feature is network level, it is agnostic to the language used by your app and the technology used by the endpoint.
 - It can be used to provide access in multiple networks from a single app. 
 
@@ -57,40 +57,40 @@ There are a number of benefits to the Hybrid Connections capability, including:
 
 There are a few things you cannot do with Hybrid Connections, including:
 
-- Mounting a drive
-- Using UDP
-- Accessing TCP based services that use dynamic ports, such as FTP Passive Mode or Extended Passive Mode
-- LDAP support, as it sometimes requires UDP
-- Active Directory support
+- Mounting a drive.
+- Using UDP.
+- Accessing TCP-based services that use dynamic ports, such as FTP Passive Mode or Extended Passive Mode.
+- Supporting LDAP, as it sometimes requires UDP.
+- Supporting Active Directory.
 
-## Adding and Creating a Hybrid Connection in your App ##
+## Add and Create Hybrid Connections in your app ##
 
-Hybrid Connections can be created through your App Service app in the Azure portal or from Azure Relay in the Azure portal.  It is highly recommended that you create Hybrid Connections through the App Service app that you wish to use with the Hybrid Connection.  To create a Hybrid Connection, go to the [Azure portal][portal] and select your app.  Select **Networking > Configure your Hybrid Connection endpoints**.  From here you can see the Hybrid Connections that are configured for your app.  
+You can create Hybrid Connections through your App Service app in the Azure portal, or from Azure Relay in the Azure portal. We recommend that you create Hybrid Connections through the App Service app that you wish to use with the hybrid connection. To create a hybrid connection, go to the [Azure portal][portal] and select your app. Select **Networking > Configure your Hybrid Connection endpoints**. From here you can see the hybrid connections that are configured for your app.  
 
-![Hybrid connection list][2]
+![Screenshot of hybrid connection list][2]
 
-To add a new Hybrid Connection, click Add Hybrid Connection.  The UI that opens up lists the Hybrid Connections that you have already created.  To add one or more of them to your app, click on the ones you want and hit **Add selected Hybrid Connection**.  
+To add a new hybrid connection, select **Add hybrid connection**.  You'll see a list of the hybrid connections that you have already created. To add one or more of them to your app, select the ones you want, and then select **Add selected Hybrid Connection**.  
 
-![Hybrid connection portal][3]
+![Screenshot of hybrid connection portal][3]
 
-If you want to create a new Hybrid Connection, click **Create new Hybrid Connection**.  From here, you specify the: 
+If you want to create a new hybrid connection, select **Create new hybrid connection**. Specify the: 
 
 - Endpoint name
 - Endpoint hostname
 - Endpoint port
 - Service Bus namespace you wish to use
 
-![Create a hybrid connection][4]
+![Screenshot of Create new hybrid connection dialog box][4]
 
-Every Hybrid Connection is tied to a Service Bus namespace, and each Service Bus namespace is in an Azure region.  It is important to try and use a Service Bus namespace in the same region as your app so as to avoid network induced latency.
+Every hybrid connection is tied to a Service Bus namespace, and each Service Bus namespace is in an Azure region. It's important to try and use a Service Bus namespace in the same region as your app, to avoid network induced latency.
 
-If you want to remove your Hybrid Connection from your app, right click on it and select **Disconnect**.  
+If you want to remove your hybrid connection from your app, right click on it, and select **Disconnect**.  
 
-Once a Hybrid Connection is added to your app, you can see details on it by simply clicking on it. 
+Once a hybrid connection is added to your app, you can see details on it simply by selecting it. 
 
-![Hybrid Connection details][5]
+![Screenshot of Hybrid connections details][5]
 
-### Creating a Hybrid Connection in the Azure Relay portal ###
+### Create a hybrid connection in the Azure Relay portal ###
 
 In addition to the portal experience from within your app, there is also an ability to create Hybrid Connections from within the Azure Relay portal. In order for a Hybrid Connection to be used by the Azure App Service it must satisfy two criteria. It must:
 
