@@ -95,8 +95,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 1. In the git terminal window, `cd` to the storage-table-java-getting-started folder.
 
     ```git
-    cd "C:\git-samples\
-storage-table-java-getting-started"
+    cd "C:\git-samples\storage-table-java-getting-started"
     ```
 
 2. In the git terminal window, run the following commands to run start the Java application.

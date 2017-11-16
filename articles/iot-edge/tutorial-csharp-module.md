@@ -38,10 +38,9 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 * The Azure IoT Edge device that you created in the quickstart or previous tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
+* [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). (You can install the extension from the extensions panel in Visual Studio Code.)
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
 * Azure IoT Edge extension for Visual Studio Code
-    > 2. Download the **Azure IoT Edge extension** VSIX here: [https://aka.ms/edge-extension](https://aka.ms/edge-extension). **Note**: If you use Microsoft Edge or Internet Explorer, the browser downloads the file with a ".zip" file extension. After the file downloads, you need to change the file extension back to ".vsix". 
-    > 3. Install the extension VSIX by using the **View | Command Palette... | Extensions: Install from VSIX...** menu command, navigating to the downloaded VSIX on your computer and clicking **Open**. (You can also install the extension by clicking **...** in the upper-right corner of the extension panel and selecting **Install from VSIX...**.)
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. Make sure you install it on the computer that you run VS Code on.
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
@@ -107,17 +106,14 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
 
-7. In the **InitEdgeModule** method, replace the code in the **try** block with the following code. This code creates and configures a **DeviceClient** object, which allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string parameter used in the **InitEdgeModule** method is supplied to the module by IoT Edge runtime in an environment variable - **EdgeHubConnectionString**. After creating the **DeviceClient**, the code registers a callback for desired properties updates on the module twin and registers the **FilterHandler** method as the handler for messages from the Edge Hub via the "input1" endpoint.
+1. In the **Init** method, the code creates and configures a **DeviceClient** object. This object allows the module to  connect to the local Azure IoT Edge runtime to send and receive messages. The connection string parameter used in the **Init** method is supplied to the module by IoT Edge runtime in the environment variable **EdgeHubConnectionString**. After creating the **DeviceClient**, the code registers a callback for receiving messages from the IoT Edge hub via the **input1** endpoint. Replace the method used as callback for handling messages with a new one, and attach a callback for desired properties updates on the module twin. To make this change, replace the last line of the **Init** method with the following code:
 
     ```csharp
-    // Open a connection to the Edge runtime using MQTT transport and
-    // the connection string provided as an environment variable
-    DeviceClient ioTHubModuleClient = DeviceClient.CreateFromConnectionString(Environment.GetEnvironmentVariable("EdgeHubConnectionString"), TransportType.Mqtt_Tcp_Only);
-    await ioTHubModuleClient.OpenAsync();
-    Console.WriteLine("IoT Hub module client initialized.");
+    // Register callback to be called when a message is received by the module
+    // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
 
     // Attach callback for Twin desired properties updates
-    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync (onDesiredPropertiesUpdate, null);
+    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
 
     // Register callback to be called when a message is received by the module
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
@@ -215,9 +211,10 @@ The following steps show you how to create an IoT Edge module based on .NET core
 ## Create a Docker image and publish it to your registry
 
 1. Build the Docker image.
-    1. In VS Code explorer, click the **Docker** folder to open it. Then click the **linux-x64** folder, right-click the **Dockerfile** file and click **Build IoT Edge module Docker image**. 
-    2. In the **Select Folder** box, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
-    3. In the pop-up text box at the top of the VS Code window, enter the image name. For example:`<docker registry address>/filtermodule:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or similar to `<your registry name>.azurecr.io`, if you are using Azure Container Registry.
+    1. In VS Code explorer, click the **Docker** folder to open it. Then select the folder for your container platform, either **linux-x64** or **windows-nano**. 
+    2. Right-click the **Dockerfile** file and click **Build IoT Edge module Docker image**. 
+    3. In the **Select Folder** box, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
+    4. In the pop-up text box at the top of the VS Code window, enter the image name. For example:`<docker registry address>/filtermodule:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or similar to `<your registry name>.azurecr.io`, if you are using Azure Container Registry.
  
 4. Sign in to Docker. In integrated terminal, enter the following command: 
 
