@@ -46,7 +46,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 2. Search for **Azure Migrate**, and select the service (**Azure Migrate (preview)** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
-5. Specify the region in which to create the project, then click **Create**. Metadata gathered from on-premises VMs will be stored in this region.
+5. Specify the region in which to create the project, then click **Create**. Metadata gathered from on-premises VMs will be stored in this region. You can only create an Azure Migrate project in the East US region for this preview. However, you can assess VMs for a different location.
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
