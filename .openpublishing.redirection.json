@@ -376,6 +376,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-resource-manager/resource-manager-samples-powershell-deploy.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-template-deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-resource-manager/resource-manager-samples-cli-deploy.md",
+            "redirect_url": "/azure/azure-resource-manager/resource-group-template-deploy-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-resource-manager/resource-manager-policy-portal.md",
             "redirect_url": "/azure/azure-policy/assign-policy-definition",
             "redirect_document_id": false
@@ -11297,6 +11307,41 @@
         {
             "source_path": "articles/active-directory/active-directory-reporting-guide-classic-portal.md",
             "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-role-enable-remote-desktop.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-role-enable-remote-desktop-new-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-how-to-create-deploy.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-how-to-create-deploy-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-custom-domain-name.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-custom-domain-name-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-how-to-manage.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-how-to-manage-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-how-to-configure.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-how-to-configure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-how-to-scale.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-how-to-scale-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-configure-ssl-certificate.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-configure-ssl-certificate-portal",
             "redirect_document_id": false
         },
         {
