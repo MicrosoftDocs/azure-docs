@@ -83,13 +83,12 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Uncomment the StorageConnectionString on line 8 and comment out the StorageConnectionString on line 7 as this tutorial does not use the Storage Emulator. Line 7 and 8 should now look like this:
 
-
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-3. Paste the PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value on line 8. Paste the string inside the quotes. If your Endpoint uses documents.azure.com, change that portion to table.cosmosdb.azure.com. 
+4. Paste the PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value on line 8. Paste the string inside the quotes. If your Endpoint uses documents.azure.com, change that portion to table.cosmosdb.azure.com. 
 
     Line 8 should now look similar to:
 
