@@ -67,13 +67,16 @@ In this section, you create an Azure Stream Analytics job to take data from your
     ![new storage account][1]
 
 3. In the Azure portal, navigate to the storage account that you just created. Click **Browse blobs** under **Blob Service**. 
-1. Create a new container for the ASA module to store data. Set the access level to _Container_. Click **OK**.
+4. Create a new container for the ASA module to store data. Set the access level to _Container_. Click **OK**.
 
     ![storage settings][10]
 
-1. In the Azure portal, navigate to **Create a resource** > **Internet of Things** and select **Stream Analytics Job**.
+5. In the Azure portal, navigate to **Create a resource** > **Internet of Things** and select **Stream Analytics Job**.
 
-1. Enter a name, **choose "Edge" as Hosting environment** and use the remaining default values.  Click **Create**.
+6. Enter a name, choose **Edge** as the Hosting environment, and use the remaining default values.  Click **Create**.
+
+    >[!NOTE]
+    >Currently, there are a limited number of regions that support ASA jobs on IoT Edge. Select one of the following as the location: Central US, West Central US, North Central US, East US, Canada East, Japan East, East Asia, North Europe, UK South, Australia East, Brazil South. 
 
     ![ASA create][5]
 
