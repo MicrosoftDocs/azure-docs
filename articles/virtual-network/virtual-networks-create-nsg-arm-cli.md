@@ -1,11 +1,11 @@
 ---
-title: Create network security groups - Azure CLI 2.0 | Microsoft Docs
-description: Learn how to create and deploy network security groups using the Azure CLI 2.0.
+title: Create network security groups - Azure CLI | Microsoft Docs
+description: Learn how to create and deploy network security groups using the Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
@@ -19,22 +19,15 @@ ms.author: jdial
 ms.custom: H1Hack27Feb2017
 
 ---
-# Create network security groups using the Azure CLI 2.0
+# Create network security groups using the Azure CLI
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
-
-## CLI versions to complete the task 
-
-You can complete the task using one of the following CLI versions: 
-
-- [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md) – our CLI for the classic and resource management deployment models 
-- [Azure CLI 2.0](#Create-the-nsg-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-The sample Azure CLI 2.0 commands following expect a simple environment already created based on the scenario preceding. 
+The following sample Azure CLI commands expect an existing simple environment based on the previous scenario. 
 
 ## Create the NSG for the `FrontEnd` subnet
 
