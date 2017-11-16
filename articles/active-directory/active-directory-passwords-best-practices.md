@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -34,6 +34,7 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
 9. Determine when you want to enforce registration. You can choose to enforce registration at any point. You can also require users to reconfirm their authentication information after a certain period of time.
 10. Use the reporting capability. Over time, you can review the users registration and usage with the [reporting capability that Azure AD provides](active-directory-passwords-reporting.md).
 11. Enable password reset. When you're ready, enable password reset for all users by setting the **Self Service Password Reset Enabled** switch to **All**. 
+12. [Enable Windows 10 users to reset their password at the login screen](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
    > Test SSPR with a user, rather than an administrator, as Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](active-directory-passwords-policy.md#administrator-password-policy-differences) article.
