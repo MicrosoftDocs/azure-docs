@@ -19,7 +19,9 @@ ms.author: genli
 ---
 # Frequently asked questions about Azure Storage migration
 
-This article answers common questions about Azure Storage migration. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
+This article answers common questions about Azure Storage migration. 
+
+## FAQ
 
 **How do I create a script to copy files from one container to
 another?**
@@ -433,3 +435,7 @@ If you simply want to download data without needing Storage
 Explorer or a similar application, they may be able to use a SAS Token.
 For more information, see [Using shared access signatures
 (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+
+## Need help? Contact support.
+
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
