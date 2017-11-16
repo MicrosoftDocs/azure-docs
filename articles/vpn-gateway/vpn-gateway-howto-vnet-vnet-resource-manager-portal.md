@@ -158,11 +158,11 @@ Next, create a connection from TestVNet4 to TestVNet1. In the portal, locate the
 
 ## <a name="VerifyConnection"></a>9. Verify your connections
 
-Locate the virtual network gateway in the portal. On the virtual network gateway page, click **Connections** to view the connections page for the virtual network gateway. Once the connection is established, you see the Status values change to **Succeeded** and **Connected**.
+Locate the virtual network gateway in the portal. On the virtual network gateway page, click **Connections** to view the connections page for the virtual network gateway. Once the connection is established, you see the Status values change to **Succeeded** and **Connected**. You can double-click a connection to open the **Essentials** page and view more information.
 
 ![Succeeded](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Succeeded")
 
-You can double-click each connection individually to view more information about the connection. When data begins flowing, you see values for Data in and Data out.
+When data begins flowing, you see values for Data in and Data out.
 
 ![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
