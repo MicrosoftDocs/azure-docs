@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/17/2017
+ms.date: 11/16/2017
 ms.author: sethm
 
 ---
@@ -25,7 +25,7 @@ This article discusses some common scenarios in writing code using Azure Event H
 
 You send events to an event hub either using HTTP POST or via an AMQP 1.0 connection. The choice of which to use and when depends on the specific scenario being addressed. AMQP 1.0 connections are metered as brokered connections in Service Bus and are more appropriate in scenarios with frequent higher message volumes and lower latency requirements, as they provide a persistent messaging channel.
 
-You create and manage Event Hubs using the [NamespaceManager][] class. When using the .NET managed APIs, the primary constructs for publishing data to Event Hubs are the [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) and [EventData][] classes. [EventHubClient][] provides the AMQP communication channel over which events are sent to the event hub. The [EventData][] class represents an event, and is used to publish messages to an event hub. This class includes the body, some metadata, and header information about the event. Other properties are added to the [EventData][] object as it passes through an event hub.
+You can create and manage Event Hubs using the [NamespaceManager][] class. When using the .NET managed APIs, the primary constructs for publishing data to Event Hubs are the [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) and [EventData][] classes. [EventHubClient][] provides the AMQP communication channel over which events are sent to the event hub. The [EventData][] class represents an event, and is used to publish messages to an event hub. This class includes the body, some metadata, and header information about the event. Other properties are added to the [EventData][] object as it passes through an event hub.
 
 ## Get started
 
@@ -108,7 +108,7 @@ Given these availability considerations, in these scenarios you might choose one
 For more information and a discussion about the trade-offs between availability and consistency, see [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md). 
 
 ## Batch event send operations
-Sending events in batches can dramatically increase throughput. The [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) method takes an **IEnumerable** parameter of type [EventData][] and sends the entire batch as an atomic operation to the event hub.
+Sending events in batches can help increase throughput. The [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) method takes an **IEnumerable** parameter of type [EventData][] and sends the entire batch as an atomic operation to the event hub.
 
 ```csharp
 public void SendBatch(IEnumerable<EventData> eventDataList);
@@ -129,10 +129,10 @@ var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[
 [CreatePartitionedSender](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_CreatePartitionedSender_System_String_) returns an [EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender) object that you can use to publish events to a specific event hub partition.
 
 ## Event consumers
-Event Hubs has two primary models for event consumption: direct receivers and higher-level abstractions, such as [EventProcessorHost][]. Direct receivers are responsible for their own coordination of access to partitions within a consumer group.
+Event Hubs has two primary models for event consumption: direct receivers and higher-level abstractions, such as [EventProcessorHost][]. Direct receivers are responsible for their own coordination of access to partitions within a *consumer group*. A consumer group is a view (state, position, or offset) into a partitioned event hub.
 
 ### Direct consumer
-The most direct way to read from a partition within a consumer group is to use the [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver) class. To create an instance of this class, you must use an instance of the [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup) class. In the following example, the partition ID must be specified when creating the receiver for the consumer group.
+The most direct way to read from a partition is to use the [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver) class. To create an instance of this class, you must use an instance of the [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup) class. In the following example, the partition ID must be specified when creating the receiver for the consumer group.
 
 ```csharp
 EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
