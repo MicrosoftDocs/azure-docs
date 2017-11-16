@@ -18,21 +18,22 @@ ms.author: barclayn
 
 ---
 # Manage Key Vault using CLI 2.0
-Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## Introduction
-Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure. It walks you through the process of using Azure Cross-Platform Command-Line Interface to create a vault that contains a key or password that you can then use with an Azure application. It then shows you how an application can then use that key or password.
+This article covers how to get started working with Azure Key Vault using the Azure CLI 2.0. You can see information on:
+- How to create a hardened container (a vault) in Azure
+- How to store and manage cryptographic keys and secrets in Azure. 
+- The process of using Azure Cross-Platform Command-Line Interface to create a vault that contains a key or password that you can then use with an Azure application. 
+- How an application can then use that key or password.
+
+Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
 **Estimated time to complete:** 20 minutes
 
 > [!NOTE]
 > This tutorial does not include instructions on how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
 >
-> This tutorial uses the latest Azure CLI 2.0.
->
->
 
-For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
+For an overview of Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
 ## Prerequisites
 To complete this tutorial, you must have the following:
@@ -95,18 +96,25 @@ az group create -n 'ContosoResourceGroup' -l 'East Asia'
 The first parameter is resource group name and the second parameter is the location. For location, use the command `az account list-locations` to identify how to specify an alternative location to the one in this example. If you need more information, type: `az account list-locations -h`.
 
 ## Register the Key Vault resource provider
-Make sure that Key Vault resource provider is registered in your subscription:
+When you try to create a new key vault you may see the error "The subscription is not registered to use namespace 'Microsoft.KeyVault'". If that message appears make sure that Key Vault resource provider is registered in your subscription:
 
 ```azurecli-interactive
 az provider register -n Microsoft.KeyVault
 ```
 
+>[!NOTE]
 This only needs to be done once per subscription.
 
 ## Create a key vault
 Use the `az keyvault create` command to create a key vault. This script has three mandatory parameters: a resource group name, a key vault name, and the geographic location.
 
-For example, if you use the vault name of ContosoKeyVault, the resource group name of ContosoResourceGroup, and the location of East Asia, type:
+For example:
+
+- if you use the vault name of **ContosoKeyVault**
+- The resource group name of **ContosoResourceGroup**
+- The location of **East Asia**
+
+You would type:
 ```azurecli-interactive
 az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --location 'East Asia'
 ```
@@ -147,7 +155,7 @@ Let's view the key or secret that you just created:
     ```
 
 ## Register an application with Azure Active Directory
-This step would usually be done by a developer, on a separate computer. It is not specific to Azure Key Vault but is included here, for completeness.
+This step would usually be done by a developer, on a separate computer. It is not specific to Azure Key Vault but is included here, for awareness.
 
 > [!IMPORTANT]
 > To complete the tutorial, your account, the vault, and the application that you will register in this step must all be in the same Azure directory.
@@ -156,24 +164,31 @@ This step would usually be done by a developer, on a separate computer. It is no
 
 Applications that use a key vault must authenticate by using a token from Azure Active Directory. To do this, the owner of the application must first register the application in their Azure Active Directory. At the end of registration, the application owner gets the following values:
 
-* An **Application ID** (also known as a Client ID) and **authentication key** (also known as the shared secret). The application must present both of these values to Azure Active Directory, to get a token. How the application is configured to do this depends on the application. For the Key Vault sample application, the application owner sets these values in the app.config file.
+- An **Application ID** 
+- An **authentication key** (also known as the shared secret). 
 
+The application must present both these values to Azure Active Directory, to get a token. How the application is configured to do this depends on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
+
+For detailed steps on registering an application with Azure Active Directory you should review the article titled [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md) or [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 To register the application in Azure Active Directory:
 
-1. Sign in to the Azure portal.
-2. On the left, click **Azure Active Directory**, and then select the directory in which you will register your application. <br> <br> 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the left, click **App registrations**. If you don't see app registrations you click on **more services** and find it there.  
+>[!NOTE]
+You must select the same directory that contains the Azure subscription with which you created your key vault. 
+3. Click **New application registration**.
+4. On the **Create** blade provide a name for your application, and then select **WEB APPLICATION AND/OR WEB API** (the default) and specify the **SIGN-ON URL** for your web application. If you don't have this information at this time, you can make it up for this step (for example, you could specify http://test1.contoso.com ). It does not matter if these sites exist. 
 
-> [!Note] 
-> You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click **Settings**, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.
+    ![New application registration](./media/key-vault-manage-with-cli2/new-application-registration.png)
 
-3. Click **APPLICATIONS**. If no apps have been added to your directory, this page will show only the **Add an App** link. Click the link, or alternatively, you can click the **ADD** on the command bar.
-4. In the **ADD APPLICATION** wizard, on the **What do you want to do?** page, click **Add an application my organization is developing**.
-5. On the **Tell us about your application** page, specify a name for your application and select **WEB APPLICATION AND/OR WEB API** (the default). Click the Next icon.
-6. On the **App properties** page, specify the **SIGN-ON URL** and **APP ID URI** for your web application. If your application does not have these values, you can make them up for this step (for example, you could specify http://test1.contoso.com for both boxes). It does not matter if these sites exist; what is important is that the app ID URI for each application is different for every application in your directory. The directory uses this string to identify your app.
-7. Click the Complete icon to save your changes in the wizard.
-8. On the Quick Start page, click **CONFIGURE**.
-9. Scroll to the **keys** section, select the duration, and then click **SAVE**. The page refreshes and now shows a key value. You must configure your application with this key value and the **CLIENT ID** value. (Instructions for this configuration will be application-specific.)
-10. Copy the client ID value from this page, which you will use in the next step to set permissions on your vault.
+5. Click the **Create** button.
+6. When the app registration is completed you can see the list of registered apps. Find the app that you just registered and click on it.
+7. Click on the **Registered app** blade copy the **Application ID**
+8. Click on **All settings**
+9. On the **Settings** blade click on **keys**
+9. Type in a description in the **Key description** box and select a duration, and then click **SAVE**. The page refreshes and now shows a key value. 
+10. You will use the **Application ID** and the **Key** information in the next step to set permissions on your vault.
+
 
 ## Authorize the application to use the key or secret
 To authorize the application to access the key or secret in the vault, use the `az keyvault set-policy` command.
