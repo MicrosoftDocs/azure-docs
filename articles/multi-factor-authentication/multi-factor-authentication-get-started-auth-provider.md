@@ -53,7 +53,7 @@ Use the following steps to create an Azure Multi-Factor Authentication Provider 
       * The Provider must be associated with an Azure AD directory to take advantage of the advanced features.
       * Only one Provider can be associated with any one Azure AD directory.
 
-## Create an MFA Provider
+## Create an MFA Provider - Classic Portal
 Use the following steps to create an Azure Multi-Factor Authentication Provider in the classic portal:
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator.
