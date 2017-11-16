@@ -1,0 +1,76 @@
+---
+title: 'Azure Databricks: Common questions and help | Microsoft Docs'
+description: Get answers to common questions and troubleshooting information about Azure Databricks.
+services: azure-databricks
+documentationcenter: ''
+author: nitinme
+manager: cgronlun
+editor: cgronlun
+
+ms.service: azure-databricks
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/15/2017
+ms.author: nitinme
+
+---
+# Azure Databricks Preview: Common questions and help
+
+This article lists the top queries you might have relate to Azure Databricks. It also lists some common issues you might run into while using Azure Databricks. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md) 
+
+## Common questions
+
+This section lists the common questions related to Azure Databricks.
+
+### Can I use my own keys for local encryption? 
+In the current release, using your own keys from Azure Keyvault is not supported. 
+
+### Can I use Azure VNETs with Azure Databricks?
+A new VNET is created as part of Azure Databricks provisioning. As part of this release, you cannot use your own Azure VNET.
+
+### How do I access Azure Data Lake Store from a notebook? 
+
+1. In Azure Active Directory, provision a Service Principal and record its key.
+2. Assign the necessary permissions to the Service Principal in Azure Data Lake Store.
+3. To access a file in Azure Data Lake Store, use the Service Principal credentials in notebook.
+
+For more information, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
+
+## Troubleshooting
+
+This section describes how to troubleshoot common issues with Azure Databricks.
+
+### Issue: Your account {email} does not have Owner or Contributor role on the Databricks workspace resource in the Azure portal.
+
+**Error message**
+
+Your account {email} does not have Owner or Contributor role on the Databricks workspace resource in the Azure portal. This error can also occur if you are a guest user in the tenant. Ask your administrator to grant you access or add you as A user directly in the Databricks workspace. 
+
+**Solution**
+
+To initialize the tenant, you must be logged in as a regular user of the tenant, not a guest user. You must also have Contributor role on the Databricks workspace resource. You can grant a user access from the **Access control (IAM)** tab within your Azure Databricks workspace in the Azure portal.
+
+### Issue: Your account {email} has not been registered in Databricks 
+
+**Solution**
+
+If you did not create the workspace and you are added as a user of the workspace, contact the person that created the workspace to add you using the Azure Databricks Admin Console. For instructions, see [Adding and managing users](https://docs.azuredatabricks.net/administration-guide/admin-settings/users.html). If you created the workspace and still you get this error, try clicking “Initialize Workspace” again from the Azure portal.
+
+### Issue: Cloud Provider Launch Failure: A cloud provider error was encountered while setting up the cluster.
+
+**Error message**
+
+Cloud Provider Launch Failure: A cloud provider error was encountered while setting up the cluster. See the Databricks guide for more information. Azure error code: PublicIPCountLimitReached. Azure error message: Cannot create more than 60 public IP addresses for this subscription in this region.
+
+**Solution**
+
+Azure Databricks clusters use one public IP Address per node. If your subscription has already used all its public IPs, you should [request to increase the quota](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Choose **Quota** as the **Issue Type**, **Networking ARM** as the **Quota Type**, and request a Public IP Address quota increase in **Details** (for example, if your limit is currently 60 and you want to create a 100 node cluster, request a limit increase to 160).
+
+## Next steps
+For step-by-step instructions to create a data factory of version 2, see the following tutorials:
+
+- [Quickstart: Get started with Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+- [What is Azure Databricks?](what-is-azure-databricks.md)
+

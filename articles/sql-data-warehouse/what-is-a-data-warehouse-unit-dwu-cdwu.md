@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
 
 ---
@@ -49,16 +49,8 @@ Both DWUs and cDWUs support scaling compute up or down, and pausing compute when
 As you increase data warehouse units, you are linearly increasing computing resources. The optimized for compute performance tier provides the best query performance and highest scale but has a higher entry price. It is designed for businesses that have a constant demand for performance. These systems make the most use of the cache. 
 
 ### Capacity limits
-By default, each Server (for example, myserver.database.windows.net) has a quota that limits the size and scale of the databases on that instance. A server can host SQL DW and SQL DB databases all of which must fit within the quota. This quota is measured in Database Transaction Units (DTU) and by default is set to 54,000 to allow up to 6000 cDWU. This quota is simply a safety limit. You can increase your quota by creating a support ticket and selecting "Quota" as the request type. 
+Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../sql-database/sql-database-what-is-a-dtu.md) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
-To calculate your DTU requirement, apply the following multipliers to your DTU calculation:
-
-| Performance Tier | Unit of Measure | DTU Multiplier | Example                   |
-|:----------------:|----------------:|---------------:|--------------------------:|
-| Elasticity       |  DWU            | 7.5            | DW6000 x 7.5 = 45,000 DTU |
-| Compute          | cDWU            | 9              | DW6000 x 7.5 = 54,000 DTU |
-
-You can view your current DTU consumption see SQL server properties in the portal.
 
 ## How many data warehouse units do I need?
 The ideal number of data warehouse units depends very much on your workload and the amount of data you have loaded into the system.
