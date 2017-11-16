@@ -49,7 +49,7 @@ If your organization does not want to notify administrators about password reset
 
 * Enable self-service password reset for all end users. This option is under **Password Reset** > **Properties**.
   
-  If you don't wish users to reset their own passwords, you can scope access to an empty group. *We don't recommend this option.*
+  If you don't want users to reset their own passwords, you can scope access to an empty group. *We don't recommend this option.*
 * Customize the helpdesk link to provide a web URL or mailto: address that users can use to get assistance. This option is under **Password Reset** > **Customization** > **Custom helpdesk email or URL**.
 
 ## Customize the AD FS sign-in page for SSPR
@@ -66,10 +66,10 @@ You can customize the sign-in page. You can add a logo that appears along with t
 
 The graphics you choose are shown in the following circumstances:
 
-* After a user enters their username.
+* After a user enters their username
 * If the user accesses the customized URL:
-    * By passing the *whr* parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com."
-    * By passing the *username* parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com".
+    * By passing the *whr* parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com"
+    * By passing the *username* parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com"
 
 ### Graphics details
 
@@ -95,14 +95,14 @@ Use the following settings to add text to the sign-in page that's relevant to yo
 
 With the **Keep me signed in disabled** option, users can remain signed in when they close and reopen their browser window. This option does not impact the session lifetime. Go to **Azure Active Directory** > **Company branding** > **Edit company branding**.
 
-Some features of SharePoint Online and Office 2010 have a dependency on users being able to select this check box. If you hide this option, users can get additional and unexpected sign-in prompts.
+Some features of SharePoint Online and Office 2010 have a dependency on users' ability to select this check box. If you hide this option, users can get additional and unexpected sign-in prompts.
 
 ### Directory name
 
 You can change the directory name attribute under **Azure Active Directory** > **Properties**. You can show a friendly organization name that is seen in the portal and in the automated communications. This option is the most visible in automated emails in the forms that follow:
 
-* The friendly name in the email, for example “Microsoft on behalf of CONTOSO demo.”
-* The subject line in the email, for example “CONTOSO demo account email verification code.”
+* The friendly name in the email, for example “Microsoft on behalf of CONTOSO demo”
+* The subject line in the email, for example “CONTOSO demo account email verification code”
 
 ## Next steps
 
