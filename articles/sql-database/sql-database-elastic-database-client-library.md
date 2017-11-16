@@ -57,7 +57,7 @@ In general, customers using elastic database tools can expect to get full T-SQL 
 
 ## Next steps
 
-- Elastic Database Client Library([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) - to **download** the library.
+- Elastic Database Client Library ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) - to **download** the library.
 
 - [Get started with elastic database tools](sql-database-elastic-scale-get-started.md) - to try the **sample app** that demonstrates client functions.
 
