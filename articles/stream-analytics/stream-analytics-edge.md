@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: jeanb
 ---
 
@@ -23,14 +23,14 @@ ms.author: jeanb
 > [!IMPORTANT]
 > This functionality is in preview. We do not recommend use in production.
  
-Azure Stream Analytics (ASA) on IoT Edge empowers developers to deploy near-real-time analytical intelligence closer to IoT devices so that they can unlock the full value of device-generated data. Designed for customers requiring low latency, resiliency, efficient use of bandwidth and compliance, enterprises can now deploy control logic close to the industrial operations and complement Big Data analytics done in the cloud.  
-Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework, and deployment and management of ASA jobs can be done using IoT Hub once the job is created in ASA.
+Azure Stream Analytics (ASA) on IoT Edge empowers developers to deploy near-real-time analytical intelligence closer to IoT devices so that they can unlock the full value of device-generated data. Designed for low latency, resiliency, efficient use of bandwidth and compliance, enterprises can now deploy control logic close to the industrial operations, and complement Big Data analytics done in the cloud.  
+Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Once the job is created in ASA, deploym and manage ASA jobs using IoT Hub.
 This feature is in preview, if you have any question or feedback you can use [this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) to contact the product team. 
 
 ## Scenarios
 ![High-level diagram](media/stream-analytics-edge/ASAedge_highlevel.png)
-Here's few typical scenarios for which running ASA on the edge is particularly interesting:
-* **Low-latency command and control**: For example, manufacturing safety systems are required to respond to operational data with ultra-low latency. With ASA on IoT Edge, you can analyze sensor data in near real time and issue commands when you detect anomalies to stop a machine or trigger alerts.
+
+* **Low-latency command and control**: For example, manufacturing safety systems must respond to operational data with ultra-low latency. With ASA on IoT Edge, you can analyze sensor data in near real-time, and issue commands when you detect anomalies to stop a machine or trigger alerts.
 *	**Limited connectivity to the cloud**: Mission critical systems, such as remote mining equipment, connected vessels or offshore drilling, need to analyze and react to data even when cloud connectivity is intermittent. With ASA, your streaming logic runs independently of the network connectivity and you can choose what you send to the cloud for further processing or storage.
 * **Limited bandwidth**: The volume of data produced by jet engines or connected cars can be so large that data must be filtered or pre-processed before sending it to the cloud. Using ASA, you can filter or aggregate the data that need to be sent to the cloud.
 * **Compliance**: Regulatory compliance may require some data to be locally anonymized or aggregated before being sent to the cloud. With ASA, you 
