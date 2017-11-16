@@ -55,8 +55,7 @@ Select **Change App Service plan** to start the process.
 
 **Change App Service plan** opens the **App Service plan** selector. Select an existing plan to move this app into. 
 
-> [!IMPORTANT] 
-> The **Select App Service plan** page is filtered by the following criteria: 
+> [!IMPORTANT] > The **Select App Service plan** page is filtered by the following criteria: 
 > - Exists in the same resource group 
 > - Exists in the same geographical region 
 > - Exists in the same webspace  
@@ -79,7 +78,7 @@ You can find **Clone App** in the **Development Tools** section of the menu.
 
 ## Scale an App Service plan
 
-To scale up ah App Service plan's pricing tier, see [Scale up an app in Azure](web-sites-scale.md).
+To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](web-sites-scale.md).
 
 To scale out an app's instance count, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
