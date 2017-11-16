@@ -26,7 +26,7 @@ This article answers common questions about Azure Storage migration.
 **How do I create a script to copy files from one container to
 another?**
 
-To copy files within containers, you can use *AzCopy*. See the following
+To copy files within containers, you can use **AzCopy**. See the following
 example:
 
     AzCopy /Source:https://xxx.blob.core.windows.net/xxx
