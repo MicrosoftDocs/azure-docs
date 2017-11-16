@@ -2,8 +2,8 @@
 #  href: index.yml
 - name: Overview
   items:
-#  - name: About Azure Location Based Services
-#    href: about-lbs.md
+  - name: Introduction to Azure Location Based Services
+    href: introduction-to-location-based-services.md
 - name: Quickstarts
   expanded: true
   items:
@@ -23,6 +23,10 @@
   items:
 - name: Reference
   items:
+  - name: Geocoding Coverage
+    href: geocoding-coverage.md
+  - name: Traffic Coverage
+    href: traffic-coverage.md
 - name: Resources
   items:
   - name: Azure IoT Developer Center
