@@ -89,6 +89,8 @@
       href: premium-storage-performance.md
     - name: Standard storage
       href: standard-storage.md
+    - name: Scalability targets for disks
+      href: disk-scalability-targets.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications

@@ -3,8 +3,8 @@ title: Deploy with Terraform with Bash in Azure Cloud Shell | Microsoft Docs
 description: Deploy Azure resources with Terraform in Bash
 services: Azure
 documentationcenter: ''
-author: jluk
-manager: timlt
+author: tomarcher
+manager: routlaw
 tags: azure-cloud-shell
 
 ms.service: azure
@@ -12,8 +12,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
-ms.author: juluk
+ms.date: 11/15/2017
+ms.author: tarcher
 ---
 
 # Terraform and Bash in Cloud Shell
