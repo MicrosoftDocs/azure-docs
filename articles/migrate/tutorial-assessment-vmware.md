@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - **VMware**: You need at least one VMware VM located on an ESXi host or cluster running version 5.0 or higher. The host or cluster must be managed by a vCenter server running version 5.5 or 6.0.
 - **vCenter account**: You need a read-only account with administrator credentials for the vCenter server. Azure Migrate uses this account to discover VMs.
 - **Permissions**: On the vCenter server, you need permissions to create a VM by importing a file in .OVA format. 
-- **Statistics settings**: The statistics settings for the vCenter server should be set to level 2 before you start deployment.
+- **Statistics settings**: The statistics settings for the vCenter server should be set to level 3 before you start deployment.
 
 
 ## Create a project
