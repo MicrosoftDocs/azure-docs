@@ -58,7 +58,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ## Azure data disks
 
-Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 1 terabyte. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, two data disks can be attached. 
+Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 1 terabyte. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM vCPU, two data disks can be attached. 
 
 ### Max data disks per VM
 

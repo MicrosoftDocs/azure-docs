@@ -24,8 +24,8 @@ ms.author: guybo
 ## Troubleshooting steps
 Some things to consider include:
 
-* How many cores does each VM have, and are you loading each core?
-  The example Azure Quickstart template above has a do_work.php script, which loads a single core. If you’re using a VM bigger than a single core VM size like Standard_A1 or D1 then you’d need to run this load multiple times. Check how many cores your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* How many vCPUs does each VM have, and are you loading each vCPU?
+  The example Azure Quickstart template above has a do_work.php script, which loads a single vCPU. If you’re using a VM bigger than a single-vCPU VM size like Standard_A1 or D1, you’d need to run this load multiple times. Check how many vCPUs for your VMs by reviewing [Sizes for Windows virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * How many VMs in the VM Scale Set, are you doing work on each one?
   
     A scale out event will only take place when the average CPU across **all** the VMs in a scale set exceeds the threshold value, over the time internal defined in the autoscale rules.
