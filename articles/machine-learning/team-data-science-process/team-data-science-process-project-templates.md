@@ -39,7 +39,7 @@ When you open the plan, click the link to the far left for the TDSP. Change the 
 
 ![1](./media/team-data-science-process-project-templates/ms-project-templates.png)
 
-Each task has a note. Open those to see what resources have already been created for you.
+Each task has a note. Open those tasks to see what resources have already been created for you.
 
 ![2](./media/team-data-science-process-project-templates/ms-project-template-task.png)
 
