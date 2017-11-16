@@ -35,11 +35,11 @@ AzCopy uses [Copy Blob
 API](https://docs.microsoft.com/rest/api/storageservices/copy-blob) to
 do the copy for each file in the container.  
   
-You can use anyvirtual machine or local compuater that has Internet access to run
+You can use any virtual machine or local machine that has Internet access to run
 AzCopy. You can also use Azure Batch Schedule to do this automatically,
 but it's more complicated.  
   
-The Automation script is designed for ARM resource deployment instead of
+The Automation script is designed for Azure Resource Manager deployment instead of
 storage content manipulation. For more information, see [Deploy
 resources with Resource Manager templates and Azure
 PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
@@ -77,7 +77,7 @@ how to use AzCopy to move the container:
 
 - /source: provide source storage account URI (up to container)  
 - /dest: provide target storage account URI (up to container)  
-- /sourcekey: provide source storage account primary key , you can copy
+- /sourcekey: provide source storage account primary key, you can copy
 this key from the portal by selecting the storage account.  
 - /destkey: provide target storage account primary key , you can copy
 this key from the portal by selecting the storage account.
@@ -88,7 +88,7 @@ target storage account.
 **The AzCopy CLI does not work with the ‘Pattern’ switch when copying
 from one Azure Blob to another.**
 
-You can directly copy and edit the AzCopy cmd, and cross check Pattern
+You can directly copy and edit the AzCopy cmd, and cross-check Pattern
 is matching in the Source. Also make sure that **/S** wildcards are in
 effect. For more information, see [AzCopy Parameters](storage-use-azcopy.md).
 
@@ -129,7 +129,7 @@ service](../../cloud-services/cloud-services-startup-tasks.md).
 
 **How do I move my storage account between subscriptions?**
 
-Use AzCopy to move your storage account bewteem subscriptions. For more
+Use AzCopy to move your storage account between subscriptions. For more
 information, see [Transfer data with the AzCopy on
 Windows](storage-use-azcopy.md) and [Transfer
 data with AzCopy on
@@ -149,7 +149,7 @@ do this?**
 
 Use AzCopy to copy the data. For more information, see [Transfer data
 with the AzCopy on
-Windows](storage-use-azcopy) and [Transfer
+Windows](storage-use-azcopy.md) and [Transfer
 data with AzCopy on
 Linux](storage-use-azcopy-linux.md).
 
@@ -158,7 +158,7 @@ do this?**
 
 Use AzCopy to move data. For more information, For more information, see [Transfer data
 with the AzCopy on
-Windows](storage-use-azcopy) and [Transfer
+Windows](storage-use-azcopy.md) and [Transfer
 data with AzCopy on
 Linux](storage-use-azcopy-linux.md).
 
@@ -170,11 +170,11 @@ Use azure file share.
 
 There is no backup solution. However Azure Files also support async
 copy. So, you can copy files from a share to another share (within a
-storage accaount or to a different storage account) or to a blob
+storage account or to a different storage account) or to a blob
 container (within a storage account or to a different storage account).
-For more information, see [AzCopy](storage-use-azcopy.md#file-copy).
+For more information, see [AzCopy](storage-use-azcopy.md).
 
-**How do move managed disks to another storage account?**
+**How do I move managed disks to another storage account?**
 
 To do this, follow these steps:
 
@@ -223,7 +223,7 @@ see [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-dis
 
 Use AzCopy to download the data. For more information, For more information, see [Transfer data
 with the AzCopy on
-Windows](storage-use-azcopy) and [Transfer
+Windows](storage-use-azcopy.md) and [Transfer
 data with AzCopy on
 Linux](storage-use-azcopy-linux.md).
 
@@ -250,7 +250,7 @@ See the following articles:
 
 Use AzCopy to download the data. For more information, For more information, see [Transfer data
 with the AzCopy on
-Windows](storage-use-azcopy) and [Transfer
+Windows](storage-use-azcopy.md) and [Transfer
 data with AzCopy on
 Linux](storage-use-azcopy-linux.md).
 
@@ -331,10 +331,10 @@ Storage Account?**
 
 3.  If you have Virtual Machines as well, there are several additional
     steps you must take prior to migrating the storage account. For more
-    informaiton, see [Migrating to Azure Premium Storage
+    information, see [Migrating to Azure Premium Storage
     (Unmanaged Disks)](storage-migration-to-premium-storage.md).
 
-**How do I move from a Classic Storage Account to an ARM Storage
+**How do I move from a Classic Storage Account to an Azure Resource Manager Storage
 Account?**
 
 1.  You can use the Move-AzureStorageAccount cmdlet.
@@ -381,7 +381,7 @@ resources:
 **Where is AzCopy installed?**
 
 -   If you access AzCopy from the "Microsoft Azure Storage command
-    line," you simply need to type 'AzCopy.' This command line is
+    line," you simply need to type 'AzCopy.' This command-line is
     installed alongside AzCopy.
 
 -   If you installed the 32-bit version, it will be located
@@ -429,7 +429,7 @@ However, you can set up an Azure VM, then install an FTP server on the
 VM. You can have the FTP server store files in a data disk that is
 present to the VM, or in an Azure Files share.  
   
-If the you simply wants to download data without needing Storage
+If you simply want to download data without needing Storage
 Explorer or a similar application, they may be able to use a SAS Token.
 For more information, see [Using shared access signatures
 (SAS)](storage-dotnet-shared-access-signature-part-1.md).
