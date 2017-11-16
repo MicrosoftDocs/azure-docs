@@ -15,10 +15,8 @@ ms.date: 09/20/2017
 # Azure Machine Learning Workbench - Known Issues And Troubleshooting Guide 
 This article helps you find and correct errors or failures encountered as a part of using the Azure Machine Learning Workbench application. 
 
-> [!IMPORTANT]
-> When communicating with the support team, it is important to have the build number. You can find out the build number of the app by clicking on the **Help** menu. Clicking on the build number copies it to your clipboard. You can paste it into emails or support forums to help report issues.
-
-![check version number](media/known-issues-and-troubleshooting-guide/buildno.png)
+## Find the Workbench build number
+When communicating with the support team, it is important to include the build number of the Workbench app. On Windows, you can find out the build number by clicking on the **Help** menu and choose **About Azure ML Workbench**. On macOS, you can click on the **Azure ML Workbench** menu and choose **About Azure ML Workbench**.
 
 ## Machine Learning MSDN Forum
 We have an MSDN Forum that you can post questions. The product team monitors the forum actively. 
