@@ -144,7 +144,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### Resolution
 
-We are working to update Hybrid Connection Manager to fix this issue. For workarounds, see [Hybrid Connections error with SQL Server: System.OverflowException: Arithmetic operation resulted in an overflow](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/).
+This was caused by an issue with the Hybrid Connection Manager that has since been fixed. Please [update your Hybrid Connection Manager](https://go.microsoft.com/fwlink/?LinkID=841308) to resolve this issue.
 
 ## How do I add or edit a URL rewrite rule?
 
