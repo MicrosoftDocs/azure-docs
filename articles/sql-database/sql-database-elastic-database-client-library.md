@@ -61,8 +61,7 @@ In general, customers using elastic database tools can expect to get full T-SQL 
 
 - [Get started with elastic database tools](sql-database-elastic-scale-get-started.md) - to try the **sample app** that demonstrates client functions.
 
-- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) - to make contributions to the code, follow instructions provided in their respective GitHub repositories.
-
+- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) - to make contributions to the code.
 - [Azure SQL Database elastic query overview](sql-database-elastic-query-overview.md) - to use elastic queries.
 
 - [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md) - for instructions on using the **split-merge tool**.
