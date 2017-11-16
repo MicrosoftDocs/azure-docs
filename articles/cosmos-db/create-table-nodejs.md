@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: arramac
 
 ---
@@ -81,7 +81,9 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-nodejs/connection-string.png)
 
-2. Open the app.config file, and copy the required connection string properties into the config file.
+2. Copy the PRIMARY CONNECTION STRING using the copy button on the right-side.
+
+3. Open the app.config file, and paste the value into the connectionString on line 3. If the Endpoint portion of your connection string uses documents.azure.com, correct that portion to use table.cosmosdb.azure.com instead.
 
 3. Save the app.config file.
 
@@ -91,14 +93,13 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 1. In the git terminal window, `cd` to the storage-table-java-getting-started folder.
 
-    ```git
-    cd "C:\git-samples\
-storage-table-node-getting-started"
+    ```
+    cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
 2. In the git terminal window, run the following commands to run start the Java application.
 
-    ```git
+    ```
     node ./tableSample.js 
     ```
 
