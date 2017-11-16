@@ -76,6 +76,8 @@ fsutil behavior set DisableDeleteNotify 0
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## Next steps
-* [Attach a disk](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to add additional storage for your VM.
-* [Change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) so your application can use the D: drive for data.
+* [Attach a disk](attach-disk-portal.md) to add additional storage for your VM.
+* [Create a snapshot](snapshot-copy-managed-disk.md).
+* [Convert to managed disks](convert-unmanaged-to-managed-disks.md).
+
 

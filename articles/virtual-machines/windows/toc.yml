@@ -80,7 +80,7 @@
       href: sizes-general.md          
   - name: Maintenance and updates
     href: maintenance-and-updates.md
-  - name: Storage
+  - name: Disk storage
     href: about-disks-and-vhds.md
     items:
     - name: Managed Disks
