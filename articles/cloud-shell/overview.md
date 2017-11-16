@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 11/16/2017
 ms.author: juluk
 ---
 # Overview of Azure Cloud Shell
@@ -78,12 +78,12 @@ Dropdowns are filtered for your assigned Cloud Shell region and locally/globally
 [Learn about Cloud Shell storage, updating file shares, and uploading/downloading files.](persisting-shell-storage.md)
 
 ## Concepts
-* Cloud Shell runs on a temporary machine provided on a per-session, per-user basis
+* Cloud Shell runs on a temporary host provided on a per-session, per-user basis
 * Cloud Shell times out after 20 minutes without interactive activity
-* Cloud Shell can only be accessed with a file share attached
-* Cloud Shell uses a the same file share for both Bash and PowerShell
+* Cloud Shell requires a file share to be mounted
+* Cloud Shell uses the same file share for both Bash and PowerShell
 * Cloud Shell is assigned one machine per user account
-* Permissions are set as a regular Linux user (Bash)
+* Permissions are set as a regular Linux user in Bash
 
 Learn more about features in [Bash in Cloud Shell](features.md) and [PowerShell in Cloud Shell (Preview)](features-powershell.md).
 
@@ -98,5 +98,5 @@ Try out these examples in quickstarts for [Bash in Cloud Shell](quickstart.md) a
 The machine hosting Cloud Shell is free, with a pre-requisite of a mounted Azure Files share. Regular storage costs apply.
 
 ## Next steps
-[Bash in Cloud Shell quickstart](quickstart.md)
+[Bash in Cloud Shell quickstart](quickstart.md) <br>
 [PowerShell in Cloud Shell (Preview) quickstart](quickstart-powershell.md)

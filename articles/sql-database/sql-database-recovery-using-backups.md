@@ -51,7 +51,14 @@ The recovery time to restore a database using automated database backups is impa
 * The number of concurrent restore requests being processed in the target region. 
   
   For a very large and/or active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of geo-restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. Most database restores complete within 12 hours.
-  
+
+For a single subscription, there’re some limitations on number of concurrent restore requests (including point in time restore, geo restore and restore from long term retention backup) being submitted and proceeded:
+|  | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
+| :--- | --: | --: |
+|Single database (per subscription)|10|60|
+|Elastic pool (per pool)|4|200|
+||||
+
 There is no built-in functionality to do bulk restore. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task.
 
 > [!IMPORTANT]
