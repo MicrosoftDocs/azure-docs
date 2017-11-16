@@ -53,7 +53,7 @@ Azure AD paid services like Enterprise Mobility + Security complement other web 
 If others need to sign in and access services by using the same subscription, you can add them as co-admins. This role has the same access privileges as the service admin, but can’t change the association of subscriptions to Azure directories.  For additional information on subscription admins, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) and [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure classic portal. The admin's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
+Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure classic portal. The admin's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Additionally, Azure AD paid services like Enterprise Mobility + Security complement other web services, such as Office 365 and Microsoft Azure, with comprehensive enterprise-scale management and security solutions.
 
@@ -129,7 +129,6 @@ For Office 365 users, your admin can reset the password by using the steps outli
 For Azure AD accounts, admins can reset passwords by using one of the following:
 
 - [Reset accounts in the Azure portal](active-directory-users-reset-password-azure-portal.md)
-- [Reset accounts in the classic portal](active-directory-create-users-reset-password.md)
 - [Using PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
@@ -196,7 +195,7 @@ For more information, see [How to provide secure remote access to on-premises ap
 
 **A:** With Azure AD conditional access, you can assign a unique access policy for each application. In your policy, you can require multi-factor authentication always, or when users are not connected to the local network.  
 
-For more information, see [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md).
+For more information, see [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 - - -
 **Q: What is automated user provisioning for SaaS apps?**
