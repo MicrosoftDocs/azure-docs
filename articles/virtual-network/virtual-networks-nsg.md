@@ -4,7 +4,7 @@ description: Learn how to isolate and control traffic flow within your virtual n
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 
 ms.assetid: 20e850fc-6456-4b5f-9a3f-a8379b052bc9
@@ -122,7 +122,7 @@ You can implement NSGs in the Resource Manager or classic deployment models usin
 | --- | --- | --- |
 | Azure portal   | Yes | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI **V1**   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-cli-nodejs.md) |
+| Azure CLI **V1**   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-arm-cli.md) |
 | Azure CLI **V2**   | No | [Yes](virtual-networks-create-nsg-arm-cli.md) |
 | Azure Resource Manager template   | No  | [Yes](virtual-networks-create-nsg-arm-template.md) |
 
