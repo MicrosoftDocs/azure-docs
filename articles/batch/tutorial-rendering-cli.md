@@ -44,7 +44,7 @@ Create a resource group with the [az group create](/cli/azure/group#az_group_cre
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a standard storage acccount in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. In this tutorial, you use the storage account to store input 3ds Max scenes and the rendered output.
+Create a standard storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. In this tutorial, you use the storage account to store input 3ds Max scenes and the rendered output.
 
 ```azurecli-interactive
 az storage account create --resource-group myResourceGroup --name myStorageAccount --location eastus --sku Standard_LRS
