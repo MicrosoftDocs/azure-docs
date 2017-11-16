@@ -289,7 +289,7 @@ created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature 
 ## **Monitor Progress**
 Once the Data Generator is launched, the pipeline begins to dehydrate, and the different components of your solution start kicking into action following the commands issued by the data factory. There are two ways to monitor the pipeline.
 
-1. One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel, you see the **rawdata** folder. Inside the rawdata folder, you see folders with names such as hour=17, hour=18 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see csv files that should have finite sizes in MB in those folders.
+1. One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel is the **rawdata** folder. Inside the rawdata folder are folders with names such as hour=17, and hour=18. The presence of these folders indicate that the raw data is being generated on your computer and stored in blob storage. You should see csv files with finite sizes in MB in those folders.
 2. The last step of the pipeline is to write data (for example predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through the [Azure portal](https://portal.azure.com/). On the left panel locate SQL DATABASES ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
    
     ![Manage icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
@@ -297,20 +297,19 @@ Once the Data Generator is launched, the pipeline begins to dehydrate, and the d
     Here, you can click on New Query and query for the number of rows (for example select count(*) from PMResult). As your database grows, the number of rows in the table should  increase.
 
 ## **Power BI Dashboard**
-### Overview
-This section describes how to set up Power BI dashboard to visualize
-your data from Azure Stream Analytics (hot path), as well as
-batch prediction results from Azure machine learning (cold path).
 
-### Setup cold path dashboard
-In the cold path data pipeline, the essential goal is to get the
+Set up a Power BI dashboard to visualize
+your Azure Stream Analytics data (hot path) and batch prediction results from Azure machine learning (cold path).
+
+### Set up the cold path dashboard
+In the cold path data pipeline, the goal is to get the
 predictive RUL (remaining useful life) of each aircraft engine once it
 finishes a flight (cycle). The prediction result is updated every 3
 hours for predicting the aircraft engines that have finished a flight
 during the past 3 hours.
 
 Power BI connects to an Azure SQL database as its data source, where the
-prediction results are stored. Note: 1) Upon deploying your
+prediction results are stored. Note: 1) On deploying your
 solution, a real prediction will appear in the database within 3 hours.
 The pbix file that came with the Generator download contains some seed
 data so that you may create the Power BI dashboard right away. 2) In
