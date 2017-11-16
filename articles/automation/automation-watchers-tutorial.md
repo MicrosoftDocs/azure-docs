@@ -77,7 +77,7 @@ To complete this tutorial, the following are required.
 7.	Enter the following values for parameters:
     *	EVENTDATA. Leave blank. Data is passed in from the watcher runbook.
     *	Run Settings. Leave as Azure as this runbook runs in the Automation service.
-8.	Click OK, and then Select
+8.	Click OK, and then Select to return to the watcher page.
 9.	Click OK to create the watcher task.
 
 ## Trigger a watcher by adding a new file to a directory
