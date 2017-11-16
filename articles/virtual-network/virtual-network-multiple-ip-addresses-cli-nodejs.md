@@ -3,7 +3,7 @@ title: VM with multiple IP addresses using the Azure CLI 1.0 | Microsoft Docs
 description: Learn how to assign multiple IP addresses to a virtual machine using the Azure CLI 1.0 | Resource Manager.
 services: virtual-network
 documentationcenter: na
-author: anavinahar
+author: jimdial
 manager: narayan
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: annahar
+ms.author: jdial
 
 ---
 # Assign multiple IP addresses to virtual machines using Azure CLI 1.0

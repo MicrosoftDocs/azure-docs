@@ -15188,10 +15188,40 @@
             "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
             "redirect_document_id": true
           },
-	 {
+	    {
           "source_path": "articles/security-center/security-center-powerbi.md",
           "redirect_url": "https://docs.microsoft.com/en-us/azure/security-center",
           "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
+            "redirect_document_id": false
+          },
+        {
+            "source_path": "articles/virtual-network/virtual-network-manage-nsg-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-manage-nsg-arm-cli",
+            "redirect_document_id": false
+        },  
+        {
+            "source_path": "articles/virtual-network/virtual-networks-create-nsg-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-create-nsg-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-networks-create-vnet-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-create-vnet-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-networks-static-private-ip-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-static-private-ip-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-create-udr-arm-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-create-udr-arm-cli",
+            "redirect_document_id": false
         },
         {
              "source_path": "articles/service-fabric/service-fabric-set-up-continuous-integration.md",
