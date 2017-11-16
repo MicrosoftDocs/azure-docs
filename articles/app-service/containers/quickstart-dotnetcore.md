@@ -81,7 +81,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## Create a web app with built-in image
+## Create a web app
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 

@@ -14,7 +14,7 @@ ms.date: 10/13/2017
 ---
 
 # Create Azure Machine Learning Preview accounts and install Azure Machine Learning Workbench
-Azure Machine Learning is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
+Azure Machine Learning services (preview) is an integrated, end-to-end data science and advanced analytics solution. It helps professional data scientists to prepare data, develop experiments, and deploy models at cloud scale.
 
 This Quickstart shows you how to create experimentation and model management accounts in Azure Machine Learning Preview. It also shows you how to install the Azure Machine Learning Workbench desktop application and CLI tools. Next, you take a quick tour of Azure Machine Learning Preview features by using the [Iris flower dataset](https://en.wikipedia.org/wiki/iris_flower_data_set) to build a model that predicts the type of iris based on some of its physical characteristics.  
 
