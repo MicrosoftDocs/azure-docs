@@ -53,22 +53,22 @@ Install and start the Azure IoT Edge runtime on your device.
 The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. When you configure the runtime on your new device, only the IoT Edge agent will start at first. The IoT Edge hub comes later when you deploy a module. 
 
 On the machine where you'll run the IoT Edge device, download the IoT Edge control script:
-```
+```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Configure the runtime with your IoT Edge device connection string from the previous section:
-```
+```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Start the runtime:
-```
+```cmd
 sudo iotedgectl start
 ```
 
 Check Docker to see that the IoT Edge agent is running as a module:
-```
+```cmd
 sudo docker ps
 ```
 
