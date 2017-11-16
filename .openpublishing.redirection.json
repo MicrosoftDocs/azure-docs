@@ -7152,11 +7152,6 @@
           "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
-          "redirect_url": "/azure/iot-suite",
-          "redirect_document_id": false
-        },
-        {
             "source_path": "articles/marketplace/cloud-partner-portal/cloud-partner-portal-delete-an-offer.md",
             "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
             "redirect_document_id": false
