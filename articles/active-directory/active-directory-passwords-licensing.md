@@ -24,7 +24,7 @@ ms.custom: it-pro
 In order for Azure Active Directory (Azure AD) password reset to function, you *must have at least one license assigned in your organization*. We don't enforce per-user licensing on the password reset experience. To maintain compliance with your Microsoft licensing agreement, you need to assign licenses to any users that use premium features.
 
 * **Cloud-only users**: Office 365 any paid SKU, or Azure AD Basic
-* **Cloud** and/or **on-premises users**: Azure AD Premium P1 or P2, Enterprise Mobility + Security (EMS), or Secure Productive Enterprise (SPE)
+* **Cloud** or **on-premises users**: Azure AD Premium P1 or P2, Enterprise Mobility + Security (EMS), or Secure Productive Enterprise (SPE)
 
 ## Licenses required for password writeback
 
@@ -45,11 +45,11 @@ Additional licensing information, including costs, can be found on the following
 * [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Azure Active Directory features and capabilities](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
-* [Microsoft 365](https://www.microsoft.com/microsoft-365/enterprise)
+* [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
 
 ## Enable group or user-based licensing
 
-Azure AD now supports group-based licensing. This allows administrators to assign licenses in bulk to a group of users, rather than assigning them one at a time. For more information, see [Assign, verify, and resolve problems with licenses](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).
+Azure AD now supports group-based licensing. Administrators can assign licenses in bulk to a group of users, rather than assigning them one at a time. For more information, see [Assign, verify, and resolve problems with licenses](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).
 
 Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator must specify the **Usage location** property on the user. Assignment of licenses can be done under the **User** > **Profile** > **Settings** section in the Azure portal. *When you use group license assignment, any users without a usage location specified inherit the location of the directory.*
 
