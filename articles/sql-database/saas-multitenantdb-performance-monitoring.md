@@ -32,7 +32,7 @@ In this tutorial you learn how to:
 > * Simulate usage on a sharded multi-tenant database by running a provided load generator
 > * Monitor the database as it responds to the increase in load
 > * Scale up the database in response to the increased database load
-> * Provision a new tenant in its own database
+> * Provision a tenant into a single-tenant database
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
@@ -192,7 +192,7 @@ In this tutorial you learn how to:
 > * Simulate usage on a sharded multi-tenant database by running a provided load generator
 > * Monitor the database as it responds to the increase in load
 > * Scale up the database in response to the increased database load
-> * Provision a new tenant in its own database
+> * Provision a tenant into a single-tenant database
 
 ## Additional resources
 
