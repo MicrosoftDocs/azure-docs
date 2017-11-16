@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 11/16/2017
 ms.author: raiye
 
 ---
@@ -108,7 +108,7 @@ Due to a security bug, we are disabling the following December 2016 and January 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.47_201710-01 |November 8, 2017 |Post 4.49 |TBD |
+| WA-GUEST-OS-4.47_201710-02 |November 8, 2017 |Post 4.49 |TBD |
 | WA-GUEST-OS-4.46_201709-01 |October 6, 2017 |Post 4.48 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |August 24, 2017 |Post 4.47 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |August 3, 2017 |November 8, 2017 |TBD |
