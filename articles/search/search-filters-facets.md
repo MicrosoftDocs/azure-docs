@@ -47,6 +47,7 @@ Any [field type](https://docs.microsoft.com/rest/api/searchservice/supported-dat
 + Edm.DateTimeOffset
 + Edm.Boolean
 + Edm.Collections (see [How to facet complex data types](#facet-complex-fields) later in this article.)
+<!---Loc Comment:  This article does not have such a section as mentioned---->
 + Numeric field types: Edm.Int32, Edm.Int64, Edm.Double
 
 You cannot use Edm.GeographyPoint in faceted navigation. Facets are constructed from human readable text or numbers. As such, facets are not supported for geo-coordinates. You would need a city or region field to facet by location.
