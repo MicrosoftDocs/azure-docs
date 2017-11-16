@@ -29,8 +29,16 @@
     href: project-ic-tasks.md
 - name: Project structure
   href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
-- name: Project execution
-  href: project-execution.md
+- name: Project planning and execution
+  items:
+  - name: Project planning
+    items:
+    - name: Project templates
+      href: team-data-science-process-project-templates.md
+  - name: Project execution
+    items:
+    - name: Data science projects
+      href: project-execution.md  
 - name: Examples
   href: walkthroughs.md
   items:
