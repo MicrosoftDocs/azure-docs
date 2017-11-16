@@ -40,7 +40,8 @@ Use the following steps to configure Azure AD Terms of Use:
 2. Ensure that the directory has an Azure AD Premium P1, P2, EMS E3, or EMS E5 subscription.  If you do not [Get Azure AD Premium](active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. View the Azure AD Terms of User dashboard at [https://aka.ms/catou](https://aka.ms/catou).
 
-
+>[!IMPORTANT]
+>Conditional access policy controls (including terms of use) does not support enforcemnet on service accounts.  We recommend excluding all service accounts from the conditional access policy.
 
 ## Add Company Terms of Use
 Once you have finalized your Terms of Use, use the following procedure to add it.
@@ -89,7 +90,6 @@ Users, who are in scope, will see the following once a terms of use is created a
 
 ## Additional information
 The following information is something to be aware of and can assist with using terms of use.
-
 
 Users in scope will need to sign-out and sign-in in order to satisfy a new policy if:
  - a conditional access policy is enabled on a terms of use
