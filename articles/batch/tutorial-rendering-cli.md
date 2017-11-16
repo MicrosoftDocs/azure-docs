@@ -138,7 +138,9 @@ az storage container create --public-access blob --name job-myrenderjob
 
 To write output files to the container, Batch needs to use a Shared Access Signature (SAS) token. For this example, create the token with the [az storage account generate-sas](/cli/azure/storage/account#az_storage_account_generate_sas) command. This example creates a token to use to write to any blob containers in the account, and the token expires on November 15, 2018:
 
+```azurecli-interactive
 az storage account generate-sas --permissions w --resource-types co --services b --expiry 2018-11-15
+```
 
 Take note of the token returned by the command, which looks similar to the following:
 
