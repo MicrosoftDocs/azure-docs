@@ -24,7 +24,7 @@ ms.service: iot-edge
 
 IoT devices can produce large quantities of data. Sometimes this data has to be analyzed or processed before reaching the cloud to reduce the size of uploaded data or to eliminate the round-trip latency of an actionable insight.
 
-[Azure Stream Analytics][azure-stream] (ASA) provides a richly structured query syntax for data analysis both in the cloud and on IoT Edge devices. For more information about ASA on IoT Edge, see [ASA documentation](https://go.microsoft.com/fwlink/?linkid=862381).
+[Azure Stream Analytics][azure-stream] (ASA) provides a richly structured query syntax for data analysis both in the cloud and on IoT Edge devices. For more information about ASA on IoT Edge, see [ASA documentation](../stream-analytics/stream-analytics-edge.md).
 
 This tutorial walks you through the creation of an Azure Stream Analytics job, and its deployment on an IoT Edge device in order to process a local telemetry stream directly on the device, and generate alerts to drive immediate action on the device.  There are two modules involved in this tutorial. A simulated temperature sensor module (tempSensor) that generates temperature data from 20 to 120 degrees, incremented by 1 every 5 seconds, and an ASA module that filters out temperatures greater than 100 degrees. The ASA module also resets the tempSensor when the 30 seconds average reaches 100.
 
@@ -67,13 +67,16 @@ In this section, you create an Azure Stream Analytics job to take data from your
     ![new storage account][1]
 
 3. In the Azure portal, navigate to the storage account that you just created. Click **Browse blobs** under **Blob Service**. 
-1. Create a new container for the ASA module to store data. Set the access level to _Container_. Click **OK**.
+4. Create a new container for the ASA module to store data. Set the access level to _Container_. Click **OK**.
 
     ![storage settings][10]
 
-1. In the Azure portal, navigate to **Create a resource** > **Internet of Things** and select **Stream Analytics Job**.
+5. In the Azure portal, navigate to **Create a resource** > **Internet of Things** and select **Stream Analytics Job**.
 
-1. Enter a name, **choose "Edge" as Hosting environment** and use the remaining default values.  Click **Create**.
+6. Enter a name, choose **Edge** as the Hosting environment, and use the remaining default values.  Click **Create**.
+
+    >[!NOTE]
+    >Currently, there are a limited number of regions that support ASA jobs on IoT Edge. Select one of the following as the location: Central US, West Central US, North Central US, East US, Canada East, Japan East, East Asia, North Europe, UK South, Australia East, Brazil South. 
 
     ![ASA create][5]
 
