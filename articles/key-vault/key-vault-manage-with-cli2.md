@@ -138,7 +138,7 @@ az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' -
 You can now reference the key that you created or uploaded to Azure Key Vault, by using its URI. Use  **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** to always get the current version, and use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** to get this specific version.
 
 To add a secret to the vault, which is a password named SQLPassword and that has the value of Pa$$w0rd to Azure Key Vault, type the following:
-```
+```azurecli-interactive
 az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --value 'Pa$$w0rd'
 ```
 You can now reference this password that you added to Azure Key Vault, by using its URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** to always get the current version, and use **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** to get this specific version.
@@ -146,13 +146,16 @@ You can now reference this password that you added to Azure Key Vault, by using 
 Let's view the key or secret that you just created:
 
 * To view your key, type: 
-    ```azurecli-interactive
-    az keyvault key list --vault-name 'ContosoKeyVault'
-    ```
+
+```azurecli-interactive
+az keyvault key list --vault-name 'ContosoKeyVault'
+```
+
 * To view your secret, type: 
-    ```azurecli-interactive
-    az keyvault secret list --vault-name 'ContosoKeyVault'
-    ```
+
+```azurecli-interactive
+az keyvault secret list --vault-name 'ContosoKeyVault'
+```
 
 ## Register an application with Azure Active Directory
 This step would usually be done by a developer, on a separate computer. It is not specific to Azure Key Vault but is included here, for awareness.
