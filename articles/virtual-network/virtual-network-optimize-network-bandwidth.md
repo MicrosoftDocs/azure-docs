@@ -20,7 +20,7 @@ ms.author: steveesp
 
 # Optimize network throughput for Azure virtual machines
 
-Azure virtual machines (VM) have default network settings that can be further optimized for network throughput. This article describes how to optimize network throughput for Microsoft Azure Windows and Linux VMs, including major distributions such as Ubuntu, CentOS and Red Hat.
+Azure virtual machines (VM) have default network settings that can be further optimized for network throughput. This article describes how to optimize network throughput for Microsoft Azure Windows and Linux VMs, including major distributions such as Ubuntu, CentOS, and Red Hat.
 
 ## Windows VM
 
@@ -49,11 +49,11 @@ If your Windows VM is supported with [Accelerated Networking](virtual-network-cr
 
 ## Linux VM
 
-RSS is always enabled by default in an Azure Linux VM. Linux kernels released since January, 2017 include new network optimization options that enable a Linux VM to achieve higher network throughput.
+RSS is always enabled by default in an Azure Linux VM. Linux kernels released since October 2017 include new network optimizations options that enable a Linux VM to achieve higher network throughput.
 
-### Ubuntu
+### Ubuntu for new deployments
 
-In order to get the optimization, first update to the latest supported version, as of June 2017, which is:
+In order to get the optimization, first install latest supported version of 16.04-LTS, like this:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
@@ -73,37 +73,40 @@ apt-get -y upgrade
 Optional command:
 
 `apt-get -y dist-upgrade`
-#### Ubuntu Azure Preview kernel
-> [!WARNING]
-> This Azure Linux Preview kernel may not have the same level of availability and reliability as Marketplace images and kernels that are in general
-> availability release. The feature is not supported, may have constrained capabilities, and may not be as reliable as the default kernel. Do not use this kernel for production workloads.
+#### Ubuntu Azure kernel upgrade for existing VMs
 
-Significant throughput performance can be achieved by installing the proposed Azure Linux kernel. To try this kernel, add this line to /etc/apt/sources.list
+Significant throughput performance can be achieved by upgrading to the Azure Linux kernel. To verify whether you have this kernel, check your kernel version.
 
 ```bash
-#add this to the end of /etc/apt/sources.list (requires elevation)
-deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+#Azure kernel name ends with "-azure"
+uname -r
+
+#sample output on Azure kernel:
+#4.11.0-1014-azure
 ```
 
 Then run these commands as root.
 ```bash
+#run as root or preface with sudo
 apt-get update
+apt-get upgrade -y
+apt-get dist-upgrade -y
 apt-get install "linux-azure"
 reboot
 ```
 
 ### CentOS
 
-In order to get the optimization, first update to the latest supported version, as of July 2017, which is:
+In order to get the latest optimizations, first update to the latest supported version, like this:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.3",
+"Sku": "7.4",
 "Version": "latest"
 ```
 After the update is complete, install the latest Linux Integration Services (LIS).
-The throughput optimization is in LIS, starting from 4.2.2-2. Enter the following
-commands to install LIS:
+The throughput optimization is in LIS, starting from 4.2.2-2, although later versions contain further improvements. Enter the following
+commands to install the latest LIS:
 
 ```bash
 sudo yum update
@@ -113,21 +116,21 @@ sudo yum install microsoft-hyper-v
 
 ### Red Hat
 
-In order to get the optimization, first update to the latest supported version, as of July 2017, which is:
+In order to get the optimization, first update to the latest supported version like this:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
-"Sku": "7.3"
-"Version": "7.3.2017071923"
+"Sku": "7-RAW"
+"Version": "latest"
 ```
 After the update is complete, install the latest Linux Integration Services (LIS).
 The throughput optimization is in LIS, starting from 4.2. Enter the following commands to download and install LIS:
 
 ```bash
-mkdir lis4.2.2-2
-cd lis4.2.2-2
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
-tar xvzf lis-rpms-4.2.2-2.tar.gz
+mkdir lis4.2.3-1
+cd lis4.2.3-1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
+tar xvzf lis-rpms-4.2.3-1.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

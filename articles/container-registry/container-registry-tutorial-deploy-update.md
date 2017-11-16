@@ -37,7 +37,7 @@ If you've not yet configured the two *Web App for Containers* regional deploymen
 
 In this step, make a change to the web application that will be highly visible once you push the updated container image to Azure Container Registry.
 
-Find the `AcrHelloworld/Views/Home/Index.cshtml` file in the application source you [cloned from GitHub](container-registry-tutorial-prepare-registry.md#get-application-code) in a previous tutorial and open it in your favorite text editor. Add the following line above the `<img>` line:
+Find the `AcrHelloworld/Views/Home/Index.cshtml` file in the application source you [cloned from GitHub](container-registry-tutorial-prepare-registry.md#get-application-code) in a previous tutorial and open it in your favorite text editor. Add the following line below the existing `<h1>` line:
 
 ```html
 <h1>MODIFIED</h1>
@@ -49,15 +49,27 @@ Your modified `Index.cshtml` should look similar to:
 @{
     ViewData["Title"] = "Azure Container Registry :: Geo-replication";
 }
+<style>
+    body {
+        background-image: url('images/azure-regions.png');
+        background-size: cover;
+    }
+    .footer {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+    }
+</style>
+
+<h1 style="text-align:center;color:blue">Hello World from:  @ViewData["REGION"]</h1>
 <h1>MODIFIED</h1>
-<img width="700" src="~/images/@ViewData["MAPIMAGE"]" />
-<ul>
-<li>Registry URL: @ViewData["REGISTRYURL"]</li>
-<li>Registry IP: @ViewData["REGISTRYIP"]</li>
-<li>HostEntry: @ViewData["HOSTENTRY"]</li>
-<li>Region: @ViewData["REGION"]</li>
-<li>Map: @ViewData["MAPIMAGE"]</li>
-</ul>
+<div class="footer">
+    <ul>
+        <li>Registry URL: @ViewData["REGISTRYURL"]</li>
+        <li>Registry IP: @ViewData["REGISTRYIP"]</li>
+        <li>Registry Region: @ViewData["REGION"]</li>
+    </ul>
+</div>
 ```
 
 ## Rebuild the image
@@ -67,18 +79,6 @@ Now that you've updated the web application, rebuild its container image. As bef
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
 ```
-
-## Run the container locally
-
-Before deploying to Azure Container Registry, run the image locally to verify the build was successful.
-
-```bash
-docker run -d -p 8080:80 <acrName>.azurecr.io/acr-helloworld:v1
-```
-
-Navigate to http://localhost:8080 in your web browser to confirm that the container is up and running, and your modification is displayed.
-
-![LOCAL CONTAINER IMAGE][local-container-01]
 
 ## Push image to Azure Container Registry
 
@@ -92,14 +92,14 @@ Output should appear similar to the following:
 
 ```bash
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
-c003ed6fc8b8: Pushed
-02b11afef3fd: Layer already exists
-cf17b6f921be: Layer already exists
-c93ae914d31e: Layer already exists
-2eea44510cee: Layer already exists
-670f809bd6d5: Layer already exists
+5b9454e91555: Pushed
+d6803756744a: Layer already exists
+b7b1f3a15779: Layer already exists
+a89567dff12d: Layer already exists
+59c7b561ff56: Layer already exists
+9a2f9413d9e4: Layer already exists
 a75caa09eb1f: Layer already exists
-v1: digest: sha256:e44c0956a21c91e1f5f7bc83f23f1de710c798246df1e0e508c0c88025449646 size: 1792
+v1: digest: sha256:4c3f2211569346fbe2d1006c18cbea2a4a9dcc1eb3a078608cef70d3a186ec7a size: 1792
 ```
 
 ## View the webhook logs

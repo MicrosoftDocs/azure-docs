@@ -72,22 +72,7 @@ To protect VMware VMs you'll need a vSphere hypervisor, and virtual machines run
 Yes. When you use Site Recovery to orchestrate replication and failover in your branch offices, you'll get a unified orchestration and view of all your branch office workloads in a central location. You can easily run failovers and administer disaster recovery of all branches from your head office, without visiting the branches.
 
 ## Pricing
-
-### What charges do I incur while using Azure Site Recovery?
-When you use Site Recovery, you incur charges for the Site Recovery license, Azure storage, storage transactions, and outbound data transfer. [Learn more](https://azure.microsoft.com/pricing/details/site-recovery).
-
-The Site Recovery license is per protected instance, where an instance is a VM, or a physical server.
-
-- If a VM disk replicates to a standard storage account, the Azure storage charge is for the storage consumption. For example, if the source disk size is 1 TB, and 400 GB is used, Site Recovery creates a 1 TB VHD in Azure, but the storage charged is 400 GB (plus the amount of storage space used for replication logs).
-- If a VM disk replicates to a premium storage account, the Azure storage charge is for the provisioned storage size, rounded out for the nearest premium storage disk option. For example, if the source disk size is 50 GB, Site Recovery creates a 50 GB disk in Azure, and Azure maps this to the nearest premium storage disk (P10).  Costs are calculated on P10, and not on the 50 GB disk size.  [Learn more](https://aka.ms/premium-storage-pricing).  If you're using premium storage, a standard storage account for replication logging is also required, and the amount of standard storage space used for these logs is also billed.
-- No disks are created till a test failover or a failover. In the replication state, storage charges under the category of "Page blob and disk" as per the [Storage pricing calculator](https://azure.microsoft.com/en-in/pricing/calculator/) are incurred. These charges are based on the storage type of premium/standard and the data redundancy type -LRS, GRS,RA-GRS etc.
-- If the option to use managed disks on a failover is selected, [charges for managed disks](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) apply after a failover/test failover. Managed disks charges do not apply during replication.
-- If the option to use managed disks on a failover is not selected, storage charges under the category of "Page blob and disk" as per the [Storage pricing calculator](https://azure.microsoft.com/en-in/pricing/calculator/) are incurred after failover. These charges are based on the storage type of premium/standard and the data redundancy type -LRS,GRS,RA-GRS etc.
-- Storage transactions are charged during steady-state replication and for regular VM operations after a failover / test failover. But these charges are negligible.
-
-Costs are also incurred during test failover, where the VM, storage, egress, and storage transactions costs will be applied.
-
-
+For pricing related questions, please refer to the FAQ at [Azure Site Recovery pricing](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
 
 ## Security
 ### Is replication data sent to the Site Recovery service?

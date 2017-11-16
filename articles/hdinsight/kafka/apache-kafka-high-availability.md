@@ -13,10 +13,10 @@ ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 11/07/2017
 ms.author: larryfr
 ---
-# High availability of your data with Apache Kafka (preview) on HDInsight
+# High availability of your data with Apache Kafka on HDInsight
 
 Learn how to configure partition replicas for Kafka topics to take advantage of underlying hardware rack configuration. This configuration ensures the availability of data stored in Apache Kafka on HDInsight.
 

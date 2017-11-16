@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
@@ -45,10 +45,10 @@ After registering, you are now ready to create a Kubernetes cluster with AKS.
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the *westus2* location.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 Output:
@@ -56,7 +56,7 @@ Output:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westus2",
+  "location": "eastus",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {

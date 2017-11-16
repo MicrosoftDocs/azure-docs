@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/11/2017
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -116,20 +116,19 @@ Control browser access by using the **Browser** option in your conditional acces
 In your conditional access policy, the following browsers are supported: 
 
 
-| OS                     | Browsers                    | Support     |
-| :--                    | :--                         | :-:         |
-| Windows 10             | Internet Explorer, Edge     | ![Check][1] |
-| Windows 10             | Chrome                      | ![Check][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome   | ![Check][1] |
-| Windows 7              | Internet Explorer, Chrome   | ![Check][1] |
-| iOS                    | Safari, Intune Managed Browser                      | ![Check][1] |
-| Android                | Chrome, Intune Managed Browser                      | ![Check][1] |
-| Windows Phone          | Internet Explorer, Edge     | ![Check][1] |
-| Windows Server 2016    | Internet Explorer, Edge     | ![Check][1] |
-| Windows Server 2016    | Chrome                      | Coming soon |
-| Windows Server 2012 R2 | Internet Explorer, Chrome   | ![Check][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome   | ![Check][1] |
-| macOS                  | Chrome, Safari              | ![Check][1] |
+| OS                     | Browsers                            | Support     |
+| :--                    | :--                                 | :-:         |
+| Windows 10             | Internet Explorer, Edge, Chrome     | ![Check][1] |
+| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Check][1] |
+| Windows 7              | Internet Explorer, Chrome           | ![Check][1] |
+| iOS                    | Safari, Intune Managed Browser      | ![Check][1] |
+| Android                | Chrome, Intune Managed Browser      | ![Check][1] |
+| Windows Phone          | Internet Explorer, Edge             | ![Check][1] |
+| Windows Server 2016    | Internet Explorer, Edge             | ![Check][1] |
+| Windows Server 2016    | Chrome                              | Coming soon |
+| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Check][1] |
+| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Check][1] |
+| macOS                  | Chrome, Safari                      | ![Check][1] |
 
 
 > [!NOTE]
