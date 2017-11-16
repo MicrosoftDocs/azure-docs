@@ -17,7 +17,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
   "geoRegion": "West Europe",
   "hostingEnvironmentProfile": null,
   "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
-  "kind": "app",
+  "kind": "linux",
   "location": "West Europe",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
