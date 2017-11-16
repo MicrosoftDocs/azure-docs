@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 11/16/2017
 ms.author: alkohli
 
 ---
@@ -81,7 +81,7 @@ If using a StorSimple 8100 or 8600 physical device, the device is available in t
 | 14 | Germany        | 29 | Mexico      | 44 | Slovakia     | 59 | Vietnam              |
 | 15 | Greece         | 30 | Netherlands | 45 | Slovenia     | 60 | Croatia              |
 
-This list changes as more countries are added. For a most up-to-date list of the geographies, go to the [Appendix - Storage Array Terms in the Product terms](https://www.microsoft.com/Licensing/product-licensing/products.aspx).
+This list changes as more countries are added. For a most up-to-date list of the geographies, go to the Storage Array Terms Appendix in the [Product terms](https://www.microsoft.com/Licensing/product-licensing).
 
 Microsoft can ship physical hardware and provide hardware spare parts replacement for StorSimple to the geographies in the preceding list.
 
