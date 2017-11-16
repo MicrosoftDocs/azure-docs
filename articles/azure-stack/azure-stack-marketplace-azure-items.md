@@ -172,4 +172,3 @@ Microsoft Azure Stack supports the following Azure marketplace items:
 
 ### Next steps
 [Download a marketplace item](azure-stack-download-azure-marketplace-item.md)
-

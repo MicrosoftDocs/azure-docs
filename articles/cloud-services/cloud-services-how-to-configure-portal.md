@@ -18,12 +18,6 @@ ms.author: adegeo
 
 ---
 # How to Configure Cloud Services
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-how-to-configure-portal.md)
-> * [Azure classic portal](cloud-services-how-to-configure.md)
->
->
-
 You can configure the most commonly used settings for a cloud service in the Azure portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
 
 You can also manage the instances of your cloud service roles, or remote desktop into them.
@@ -74,9 +68,9 @@ Instead of using **Settings** > **Alert Rules**, you can click on one of the met
 From here you can customize the chart used with the tile, or add an alert rule.
 
 ## Reboot, reimage, or remote desktop
-At this time you cannot configure remote desktop using the **Azure portal**. However, you can set it up through the [Azure classic portal](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), or through [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+You can set up remote desktop through the [Azure portal (setup remote desktop)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), or through [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-First, click on the cloud service instance.
+To reboot, reimage, or remote into a Cloud Service, click on the cloud service instance.
 
 ![Cloud Service Instance](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

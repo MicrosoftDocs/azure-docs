@@ -3,7 +3,7 @@ title: Debugging an Azure cloud service or virtual machine in Visual Studio | Mi
 description: Debugging a Cloud Service or Virtual Machine in Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: kraigb
+ms.author: mikejo
 
 ---
 # Debugging an Azure cloud service or virtual machine in Visual Studio

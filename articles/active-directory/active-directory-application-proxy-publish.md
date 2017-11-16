@@ -94,7 +94,7 @@ To delete an application, select an application in the list and then click **Del
 ## Next steps
 * [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
 * [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
-* [Enable conditional access](active-directory-application-proxy-conditional-access.md)
+* [Enable conditional access](application-proxy-enable-remote-access-sharepoint.md)
 * [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
 
 For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)

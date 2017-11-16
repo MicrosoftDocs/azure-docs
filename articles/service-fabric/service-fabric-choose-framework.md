@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
+ms.date: 11/02/2017
 ms.author: vturecek
 
 ---
@@ -39,6 +39,11 @@ Reliable Services can also be stateful, exclusive to Service Fabric, where state
 
 [Learn more about Reliable Services](service-fabric-reliable-services-introduction.md) or get started by [writing your first Reliable Service](service-fabric-reliable-services-quick-start.md).
 
+## ASP.NET Core
+ASP.NET Core is a new open-source and cross-platform framework for building modern cloud-based Internet-connected applications, such as web apps, IoT apps, and mobile backends. Service Fabric integrates with ASP.NET Core so you can write both stateless and stateful ASP.NET Core applications that take advantage of Reliable Collections and Service Fabric's advanced orchestration capabilities.
+
+[Learn more about ASP.NET Core in Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) or get started by [writing your first ASP.NET Core Service Fabric application](service-fabric-add-a-web-frontend.md).
+
 ## Reliable Actors
 Built on top of Reliable Services, the Reliable Actor framework is an application framework that implements the Virtual Actor pattern, based on the actor design pattern. The Reliable Actor framework uses independent units of compute and state with single-threaded execution called actors. The Reliable Actor framework provides built-in communication for actors and pre-set state persistence and scale-out configurations.
 
@@ -46,8 +51,6 @@ As Reliable Actors itself is an application framework built on Reliable Services
 
 [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md) or get started by [writing your first Reliable Actor service](service-fabric-reliable-actors-get-started.md)
 
-## ASP.NET Core
-Service Fabric integrates with [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) for building Web and API services that can be included as part of your application. 
 
 [Build a front end service using ASP.NET Core](service-fabric-add-a-web-frontend.md)
 
@@ -56,7 +59,7 @@ Service Fabric integrates with [ASP.NET Core](service-fabric-reliable-services-c
 
 [Reliable Services overview](service-fabric-reliable-services-introduction.md)
 
-[Reliable Services overview](service-fabric-reliable-actors-introduction.md)
+[Reliable Actors overview](service-fabric-reliable-actors-introduction.md)
 
 [Service Fabric and ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
 

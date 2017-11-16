@@ -27,7 +27,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Azure Cosmos DB connnector in V1](v1/data-factory-azure-documentdb-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from Azure Cosmos DB to any supported sink data store, or copy data from any supported source data store to Azure Cosmos DB. For a list of data stores supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -162,7 +162,7 @@ To copy data from Azure Cosmos DB, set the sink type in the copy activity to **D
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **DocumentDbCollectionSink** |Yes |
+| type | The type property of the copy activity sink must be set to: **DocumentDbCollectionSink** |Yes |
 | nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example, `Name.First` in the output dataset structure generates the following JSON structure in the Cosmos DB document:`"Name": {"First": "[value maps to this column from source]"}` when the nestedSeparator is dot. |No (default is dot `.`) |
 | writeBatchTimeout |Wait time for the operation to complete before it times out.<br/><br/>Allowed values are: timespan. Example: "00:30:00" (30 minutes). |No |
 

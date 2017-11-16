@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
 
@@ -44,10 +44,17 @@ ms.custom: H1Hack27Feb2017
 
 <tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](documentdb-java-application.md)</td></tr>
 
-<tr><td>**Current supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**Minimum supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## Release Notes
+
+### <a name="1.15.0"/>1.15.0
+* Improved Json Serialization performance.
+* This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
+
+### <a name="1.14.0"/>1.14.0
+* Internal changes for Microsoft friends libraries.
 
 ### <a name="1.13.0"/>1.13.0
 * Fixed an issue in reading single partition key ranges.
@@ -171,6 +178,8 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.15.0](#1.15.0) |Nov 14, 2017 |--- |
+| [1.14.0](#1.14.0) |Oct 28, 2017 |--- |
 | [1.13.0](#1.13.0) |August 25, 2017 |--- |
 | [1.12.0](#1.12.0) |July 11, 2017 |--- |
 | [1.11.0](#1.11.0) |May 10, 2017 |--- |

@@ -1,12 +1,11 @@
 ---
-
 title: Monitor your on-premises identity infrastructure in the cloud.
 description: This is the Azure AD Connect Health page that describes what it is and why you would use it.
 services: active-directory
 documentationcenter: ''
 author: karavar
-manager: samueldeditor: curtand
-
+manager: samueld
+editor: curtand
 ms.assetid: 82798ea6-5cd3-4f30-93ae-d56536f8d8e3
 ms.service: active-directory
 ms.workload: identity
@@ -15,7 +14,6 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-
 ---
 # Monitor your on-premises identity infrastructure and synchronization services in the cloud
 Azure Active Directory (Azure AD) Connect Health helps you monitor and gain insights into your on-premises identity infrastructure and the synchronization services. It enables you to maintain a reliable connection to Office 365 and Microsoft Online Services by providing monitoring capabilities for your key identity components such as Active Directory Federation Services (AD FS) servers, Azure AD Connect servers (also known as Sync Engine), Active Directory domain controllers, etc. It also makes the key data points about these components easily accessible so that you can get usage and other important insights to make informed decisions.

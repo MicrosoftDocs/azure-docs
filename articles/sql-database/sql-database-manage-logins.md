@@ -15,7 +15,7 @@ ms.custom: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: "Active"
 ms.date: 01/23/2017
 ms.author: rickbyh
 
