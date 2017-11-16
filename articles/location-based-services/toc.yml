@@ -1,0 +1,45 @@
+- name: Azure Location Based Services Documentation 
+#  href: index.yml
+- name: Overview
+  items:
+#  - name: About Azure Location Based Services
+#    href: about-lbs.md
+- name: Quickstarts
+  expanded: true
+  items:
+#  - name: Build traffic app with Location Based Services
+#    href: quick-build-traffic-app.md
+- name: Tutorials
+  items:
+  - name: 1 - Search for point of interest
+    href: tutorial-search-location.md
+#  - name: 2 - Route to point of interest
+#    href: tutorial-poi-route.md
+#  - name: 3 - Routes based on mode of travel
+    #href: tutorial-prioritized-routes.md
+- name: Concepts
+  items:
+- name: How-to guides
+  items:
+- name: Reference
+  items:
+- name: Resources
+  items:
+  - name: Azure IoT Developer Center
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=internet-of-things
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/iot-hub/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=iot-hub
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-iot-hub
+  - name: Technical case studies
+    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
