@@ -36,7 +36,7 @@ This article covers the Resource Manager deployment model. You can also [manage 
 
 ## Specify a static private IP address when creating a VM
 
-To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, follow the steps below:
+To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, complete the following steps:
 
 1. If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
 
@@ -120,10 +120,10 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
     Parameters:
 
     * `--private-ip-address`: Static private IP address for the NIC.
-    * `--vnet-name`: Name of the VNet in wihch to create the NIC.
+    * `--vnet-name`: Name of the VNet in which to create the NIC.
     * `--subnet`: Name of the subnet in which to create the NIC.
 
-4. Run the [azure vm create](/cli/azure/vm/nic#create) command to create the VM using the public IP and NIC created above. The list shown after the output explains the parameters used.
+4. Run the [azure vm create](/cli/azure/vm/nic#create) command to create the VM using the public IP and NIC created previously. The list shown after the output explains the parameters used.
    
     ```azurecli
     az vm create \
@@ -158,7 +158,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 
 ## Retrieve static private IP address information for a VM
 
-To view the static private IP address that you created, run the following Azure CLI command and observe the values for *Private IP alloc-method* and *Private IP address*:
+Run the following Azure CLI command to observe the values for *Private IP alloc-method* and *Private IP address*:
 
 ```azurecli
 az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'
@@ -193,13 +193,13 @@ The output is something like:
 
 ## Remove a static private IP address from a VM
 
-You cannot remove a static private IP address from a NIC in Azure CLI for resource manager deployments. You must:
+You cannot remove a static private IP address from a NIC in Azure CLI for Azure Resource Manager deployments. You must:
 - Create a new NIC that uses a dynamic IP
 - Set the NIC on the VM do the newly created NIC. 
 
-To change the NIC for the VM used in the commands above, follow the steps below.
+To change the NIC for the VM used in the previous commands, complete the following steps:
 
-1. Run the **azure network nic create** command to create a new NIC using dynamic IP allocation with a new IP address. Note that because no IP address is specified, the allocation method is **Dynamic**.
+1. Run the **azure network nic create** command to create a new NIC using dynamic IP allocation with a new IP address. Because no IP address is specified, the allocation method is **Dynamic**.
 
     ```azurecli
     az network nic create     \
