@@ -120,7 +120,7 @@ You can implement NSGs in the Resource Manager or classic deployment models usin
 
 | Deployment tool | Classic | Resource Manager |
 | --- | --- | --- |
-| Azure portal   | Yes | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure portal   | No | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](virtual-networks-create-nsg-arm-ps.md) |
 | Azure CLI **V1**   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-cli-nodejs.md) |
 | Azure CLI **V2**   | No | [Yes](virtual-networks-create-nsg-arm-cli.md) |
