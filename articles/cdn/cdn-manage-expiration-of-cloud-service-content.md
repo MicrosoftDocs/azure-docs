@@ -23,10 +23,12 @@ ms.author: mazha
 > * [Azure Blob storage](cdn-manage-expiration-of-blob-content.md)
 > 
 
-The files from any publicly accessible origin web server can be cached in Azure Content Delivery Network (CDN) until their time-to-live (TTL) elapses. The TTL is determined by the `Cache-Control` header in the HTTP response from the origin server. This article describes how to set `Cache-Control` headers for the Web Apps feature of Microsoft Azure App Service, Azure Cloud Services, ASP.NET applications, and Internet Information Services (IIS) sites, all of which are configured similarly. You can set the `Cache-Control` header either by using configuration files or programmatically.
+The files from any publicly accessible origin web server can be cached in Azure Content Delivery Network (CDN) until their time-to-live (TTL) elapses. The TTL is determined by the `Cache-Control` header in the HTTP response from the origin server. This article describes how to set `Cache-Control` headers for the Web Apps feature of Microsoft Azure App Service, Azure Cloud Services, ASP.NET applications, and Internet Information Services (IIS) sites, all of which are configured similarly. You can set the `Cache-Control` header either by using configuration files or programmatically. 
+
+You can also control cache settings from the Azure portal by setting [CDN caching rules](cdn-caching-rules.md). If you set up one or more caching rules and set their caching behavior to **Override** or **Bypass cache**, the origin-provided caching settings discussed in this article are ignored. For information about general caching concepts, see [How caching works](cdn-how-caching-works.md).
 
 > [!TIP]
-> You can choose to set no TTL on a file. In this case, Azure CDN automatically applies a default TTL of seven days.
+> You can choose to set no TTL on a file. In this case, Azure CDN automatically applies a default TTL of seven days, unless you have set up caching rules in the Azure portal.
 > 
 > For more information about how Azure CDN works to speed up access to files and other resources, see [Overview of the Azure Content Delivery Network](cdn-overview.md).
 > 
@@ -79,5 +81,5 @@ You can easily verify the TTL settings of your web content. With your browser's 
 ## Next Steps
 * [Read details about the **clientCache** element](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Read the documentation for the **HttpResponse.Cache** Property](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Read the documentation for the **HttpCachePolicy Class**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
-
+* [Read the documentation for the **HttpCachePolicy Class**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Learn about caching concepts](cdn-how-caching-works.md)
