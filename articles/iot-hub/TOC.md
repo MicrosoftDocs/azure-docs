@@ -3,7 +3,7 @@
 ## [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Overview of device management](iot-hub-device-management-overview.md)
 
-# [Get Started](iot-hub-get-started.md)
+# [Get started](iot-hub-get-started.md)
 
 ## Set up your device
 ### [Simulate a device on your PC](iot-hub-get-started-simulated.md)
@@ -37,7 +37,7 @@
 ### [Device management with iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 ### [Remote monitoring and notifications with ​Logic ​Apps](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-# How To
+# How-to guides
 ## Plan
 ### [Comparison of IoT Hub to Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Scale your solution](iot-hub-scaling.md)

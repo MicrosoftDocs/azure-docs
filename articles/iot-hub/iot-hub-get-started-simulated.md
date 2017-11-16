@@ -28,7 +28,7 @@ These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorial
 | [Node.js][Sim_Nd]    |
 | [Python][Sim_Pyth]   |
 
-In addition, you can use an IoT Edge to deploy AI to devices
+In addition, you can use an IoT Edge to deploy AI to devices:
 
 | Platform           |
 |------------------- |

@@ -254,7 +254,7 @@ In this tutorial, you used a job to schedule a direct method to a device and the
 
 To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, read [Tutorial: How to do a firmware update][lnk-fwupdate].
 
-To continue learn about deploying AI to edge devices with Azure IoT Edge, see [Getting started with IoT Edge][lnk-iot-edge].
+To learn about deploying AI to edge devices with Azure IoT Edge, see [Getting started with IoT Edge][lnk-iot-edge].
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png
