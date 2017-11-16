@@ -155,7 +155,7 @@ while(receive)
 
 With respect to a specific partition, the messages are received in the order in which they were sent to the event hub. The offset is a string token used to identify a message in a partition.
 
-Note that a single partition within a consumer group cannot have more than 5 concurrent readers connected at any time. As readers connect or become disconnected, their sessions might stay active for several minutes before the service recognizes that they have disconnected. During this time, reconnecting to a partition may fail. For a complete example of writing a direct receiver for Event Hubs, see the [Event Hubs Direct Receivers](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) sample.
+Note that a single partition cannot have more than 5 concurrent readers connected at any time. As readers connect or become disconnected, their sessions might stay active for several minutes before the service recognizes that they have disconnected. During this time, reconnecting to a partition may fail. For a complete example of writing a direct receiver for Event Hubs, see the [Event Hubs Direct Receivers](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) sample.
 
 ### Event processor host
 The [EventProcessorHost][] class processes data from Event Hubs. You should use this implementation when building event readers on the .NET platform. [EventProcessorHost][] provides a thread-safe, multi-process, safe runtime environment for event processor implementations that also provides checkpointing and partition lease management.
