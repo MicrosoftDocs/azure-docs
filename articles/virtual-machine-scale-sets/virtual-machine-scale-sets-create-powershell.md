@@ -159,35 +159,38 @@ New-AzureRmVmss `
 It takes a few minutes to create and configure all the scale set resources and VMs.
 
 
-## Connect to VM instance
-To connect to one of the VM instances in your scale set, obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address created in the *myResourceGroup* resource group:
+## Install IIS webserver
+To test your scale set, use the Custom Script Extension to download and run a script that installs IIS on the VM instances. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
+
+Apply the Custom Script Extension that installs IIS as follows:
+
+```azurepowershell-interactive
+# Define the script for your Custom Script Extension to run
+$publicSettings = @{
+    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
+    "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
+}
+
+# Use Custom Script Extension to install IIS and configure basic website
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig `
+    -Name "customScript" `
+    -Publisher "Microsoft.Compute" `
+    -Type "CustomScriptExtension" `
+    -TypeHandlerVersion 1.8 `
+    -Setting $publicSettings
+```
+
+
+## Test your web server
+To see your web server in action, obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address created in the *myResourceGroup* resource group:
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Load balancer network address translation (NAT) rules were created that allow you to connect to each VM instance in the scale set. Each VM instance has a high-range network port mapped to the local connection port on the VM. These ports start at 50001 and increment for each VM instance.
+Enter the public IP address of the load balancer in to a web browser. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
 
-Use the following command, on your local machine, to create a remote desktop session to the first VM instance in your scale set. Replace the IP address with the *publicIPAddress* of your load balancer. When prompted, enter the credentials used when you created the scale set
-
-```powershell
-mstsc /v:<publicIpAddress>:50001
-```
-
-## Install IIS via PowerShell
-Now that you have logged in to the VM instance, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt on the VM instance and run the following command:
-
-```powershell
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
-```
-
-Once the IIS install is complete, disconnect from your RDP session.
-
-
-## View the IIS welcome page
-To see your web server in action, enter the public IP address of the load balancer in to a web browser. The default IIS web page on your first VM instance is displayed, as shown in the following example:
-
-![Running IIS site](./media/virtual-machine-scale-sets-create-powershell/default-iis.png)
+![Running IIS site](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 
 
 ## Clean up resources
@@ -199,7 +202,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 
 ## Next steps
-In this getting started article, you created a basic scale set and manually installed a web server on one of the VM instances. For greater scalability and automation, expand your scale set with the following how-to articles:
+In this getting started article, you created a basic scale set and used the Custom Script Extension to install a basic IIS web server on the VM instances. For greater scalability and automation, expand your scale set with the following how-to articles:
 
 - [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md)
 - Automatically scale with [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), the [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md), or the [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)

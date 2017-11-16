@@ -48,42 +48,19 @@ az vmss create \
 It takes a few minutes to create and configure all the scale set resources and VMs.
 
 
-## Get connection info
-To obtain connection information about the VMs in your scale sets, use [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info). This command outputs the public IP address and port for each VM that allows you to connect with SSH:
+## Install NGINX webserver
+To test your scale set, use the Custom Script Extension to download and run a script that installs NGINX on the VM instances. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. For more information, see the [Custom Script Extension overview](../virtual-machines/windows/extensions-customscript.md).
 
-```azurecli-interactive 
-az vmss list-instance-connection-info \
-    --resource-group myResourceGroup \
-    --name myScaleSet
-```
+Apply the Custom Script Extension that installs NGINX as follows:
 
-Load balancer network address translation (NAT) rules were created that allow you to connect to each VM instance in the scale set. Each VM instance has a high-range network port mapped to the local connection port on the VM. These ports start at 50001 and increment for each VM instance. The output is similar to the following example:
-
-```json
-{
-  "instance 1": "13.82.234.238:50001",
-  "instance 2": "13.82.234.238:50002"
-}
-```
-
-To connect to a VM instance, SSH to the public IP address and specify the individual port. The following example connects to *instance 1* with the public IP address of *13.82.234.238* on port *50001*:
-
-```bash
-ssh azureuser@13.82.234.238 -p 50001
-```
-
-
-## Install NGINX web server
-To see the scale set in action, install a basic web server. From the SSH connection to your VM, install NGINX with `apt-get` as follows:
-
-```bash
-sudo apt-get install nginx
-```
-
-Once the NGINX install is complete, disconnect from the session as follows:
-
-```bash
-exit
+```azurecli-interactive
+az vmss extension set \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.0 \
+  --name CustomScript \
+  --resource-group myResourceGroup \
+  --vmss-name myScaleSet \
+  --settings '{"fileUris":["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],"commandToExecute":"./automate_nginx.sh"}'
 ```
 
 
@@ -108,16 +85,15 @@ To see your web server in action, obtain the public IP address of your load bala
 
 ```azurecli-interactive 
 az network public-ip show \
-    --resource-group myResourceGroup \
-    --name myScaleSetLBPublicIP \
-    --query [ipAddress] \
-    --output tsv
+  --resource-group myResourceGroup \
+  --name myScaleSetLBPublicIP \
+  --query [ipAddress] \
+  --output tsv
 ```
 
-Enter the public IP address in to a web browser. The default NGINX web page on your first VM instance is displayed, as shown in the following example:
+Enter the public IP address of the load balancer in to a web browser. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
 
-![Default web page in NGINX](media/virtual-machine-scale-sets-create-cli/default-nginx.png)
-
+![Default web page in NGINX](media/virtual-machine-scale-sets-create-cli/running-nginx-site.png)
 
 
 ## Clean up resources
