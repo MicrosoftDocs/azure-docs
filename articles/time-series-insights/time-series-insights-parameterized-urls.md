@@ -4,7 +4,7 @@ description: This article describes how to develop parameterized URLs in Azure T
 services: time-series-insights
 ms.service: time-series-insights
 author: kfile
-ms.author: kfile
+ms.author: MarkMcGeeAtAquent
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
