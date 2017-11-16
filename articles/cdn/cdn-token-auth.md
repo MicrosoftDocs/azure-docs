@@ -61,7 +61,15 @@ The following flowchart describes how Azure CDN validates client request when to
 
 2. Hover over **HTTP Large**, and then click **Token Auth** in the flyout. You can then set up the encryption key and encryption parameters as follows:
 
-    1. Create one or more encryption keys. An encryption key is case-sensitive and can contain any combination of alphanumeric characters. Any other types of characters, including spaces, are not allowed. The maximum length is 250 characters. To ensure that your encryption keys are random, it is recommended that you create them by using the OpenSSL tool. The OpenSSL tool has the following syntax: `rand -hex <key length>`. For example, `OpenSSL> rand -hex 32`. To avoid downtime, create both a primary and a backup key. A backup key provides uninterrupted access to your content when your primary key is being updated.
+    1. Create one or more encryption keys. An encryption key is case-sensitive and can contain any combination of alphanumeric characters. Any other types of characters, including spaces, are not allowed. The maximum length is 250 characters. To ensure that your encryption keys are random, it is recommended that you create them by using the OpenSSL tool. The OpenSSL tool has the following syntax: 
+
+       ```rand -hex <key length>```. 
+
+       For example:
+
+       ```OpenSSL> rand -hex 32``` 
+
+       To avoid downtime, create both a primary and a backup key. A backup key provides uninterrupted access to your content when your primary key is being updated.
     
 	2. Enter a unique encryption key in the **Primary Key** box and optionally enter a backup key in the **Backup Key** box.
 
@@ -77,31 +85,30 @@ The following flowchart describes how Azure CDN validates client request when to
 
        Enter values for one or more of the following encryption parameters in the **Encrypt Tool** section: 
 
-       | Parameter name   | Description                                                                            |
-       | ---------------- | ---------------------------------------------------------------------------------------| 
-       | **ec_expire**    | Assigns an expiration time to a token, after which the token expires. Requests submitted after the expiration time are denied. This parameter uses a Unix timestamp, which is based on the number of seconds since the standard epoch of `1/1/1970 00:00:00 GMT`. (You can use online tools to convert between standard time and Unix time.) For example, if you want the token to expire at `12/31/2016 12:00:00 GMT`, use the Unix timestamp value, `1483185600`, as follows. ![CDN ec_expire example](./media/cdn-token-auth/cdn-token-auth-expire2.png)|
-       | **ec_url_allow** | Allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. URLs are case-sensitive. Input multiple paths by separating each path with a comma. Depending on your requirements, you can set up different values to provide different level of access. 
-
-       For example, for the URL `http://www.mydomain.com/pictures/city/strasbourg.png`, these requests are allowed for the following input values:
-	      - Input value `/`: All requests are allowed.
-	      - Input value `/pictures`, the following requests are allowed:
-		     - `http://www.mydomain.com/pictures.png`
-			 - `http://www.mydomain.com/pictures/city/strasbourg.png`
-			 - `http://www.mydomain.com/picturesnew/city/strasbourgh.png`
-	      - Input value `/pictures/`: Only requests containing the `/pictures/` path are allowed. For example, `http://www.mydomain.com/pictures/city/strasbourg.png`.
-		  - Input value `/pictures/city/strasbourg.png`: Only requests for this specific path and asset are allowed. |
-	   | **ec_country_allow** | Only allows requests that originate from one or more specified countries. Requests that originate from all other countries are denied. Use country codes and separate each one with a comma. For example, if you want to allow access from only the United States and France, input US, FR in the box as follows. ![CDN ec_country_allow example](./media/cdn-token-auth/cdn-token-auth-country-allow.png)|
-       | **ec_country_deny** | Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. Use country codes and separate each one with a comma. For example, If you want to deny access from the United States and France, input US, FR in the box. |
+       | Parameter name   | Description                                                                            | Example |
+       | ---------------- | ---------------------------------------------------------------------------------------| ----|
+       | **ec_expire**    | Assigns an expiration time to a token, after which the token expires. Requests submitted after the expiration time are denied. This parameter uses a Unix timestamp, which is based on the number of seconds since the standard epoch of `1/1/1970 00:00:00 GMT`. (You can use online tools to convert between standard time and Unix time.) | For example, if you want the token to expire at `12/31/2016 12:00:00 GMT`, use the Unix timestamp value, `1483185600`, as follows. ![CDN ec_expire example](./media/cdn-token-auth/cdn-token-auth-expire2.png)|
+       | **ec_url_allow** | Allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. URLs are case-sensitive. Input multiple paths by separating each path with a comma. Depending on your requirements, you can set up different values to provide different level of access. | For example, for the URL `http://www.mydomain.com/pictures/city/strasbourg.png`, these requests are allowed for the following input values: <ul>
+<li> Input value `/`: All requests are allowed.</li>
+<li> Input value `/pictures`, the following requests are allowed: <ul>
+`http://www.mydomain.com/pictures.png`
+`http://www.mydomain.com/pictures/city/strasbourg.png`
+`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</ul>
+</li>
+<li>Input value `/pictures/`: Only requests containing the `/pictures/` path are allowed. For example, `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+<li>Input value `/pictures/city/strasbourg.png`: Only requests for this specific path and asset are allowed.</li>
+</ul> |
+| **ec_country_deny** | Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. Use country codes and separate each one with a comma. | For example, If you want to deny access from the United States and France, input US, FR in the box. |
        | **ec_ref_allow** | Only allows requests from the specified referrer. A referrer identifies the URL of the web page that is linked to the resource being requested. Do not include the protocol in the referrer parameter value. The following types of input are allowed for the parameter value:
           - A hostname or a hostname and a path.
 	      - Multiple referrers. To add multiple referrers, separate each referrer with a comma. If you specify a referrer value, but the referrer information is not sent in the request due to the browser configuration, the request is denied by default. 
           - Requests with missing referrer information. To allow these types of requests, enter the text "missing" or enter a blank value. 
-          - Subdomains. To allow subdomains, enter an asterisk (\*). For example, to allow all subdomains of `consoto.com`, enter `*.consoto.com`. 
+          - Subdomains. To allow subdomains, enter an asterisk (\*). For example, to allow all subdomains of `consoto.com`, enter `*.consoto.com`. |
        The following example shows the input to allow access for requests from `www.consoto.com`, all subdomains under `consoto2.com`, and requests with blank or missing referrers. ![CDN ec_ref_allow example](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)|
-       | **ec_ref_deny** | Denies requests from the specified referrer. The implementation is the same as the ec_ref_allow parameter. |
-       | **ec_proto_allow** | Only allows requests from the specified protocol. For example, HTTP or HTTPS. |
-       | **ec_proto_deny** | Denies requests from the specified protocol. For example, HTTP or HTTPS. |
-       | **ec_clientip** | Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify either a single request IP address or an IP subnet. ![CDN ec_clientip example](./media/cdn-token-auth/cdn-token-auth-clientip.png)|
+       | **ec_ref_deny** | Denies requests from the specified referrer. The implementation is the same as the ec_ref_allow parameter. ||
+       | **ec_proto_allow** | Only allows requests from the specified protocol. | For example, HTTP or HTTPS. |
+       | **ec_proto_deny** | Denies requests from the specified protocol. |For example, HTTP or HTTPS. |
+       | **ec_clientip** | Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify either a single request IP address or an IP subnet. |![CDN ec_clientip example](./media/cdn-token-auth/cdn-token-auth-clientip.png)|
 
     5. After you have finished entering encryption parameter values, select a key to encrypt (if you have created both a primary and a backup key) from the **Key To Encrypt** list.
     
