@@ -1,6 +1,6 @@
 ---
 title: How to manage your Azure Location Based Services account and keys | Microsoft Docs 
-description: You can use the Azure portal to manager your Azure Location Based Services account and manage your access keys.
+description: You can use the Azure portal to manage your Azure Location Based Services account and manage your access keys.
 services: location-based-services
 keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: philmea
