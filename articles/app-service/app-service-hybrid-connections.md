@@ -165,30 +165,30 @@ HCM supports both new Hybrid Connections, and BizTalk Hybrid Connections.
 
 ### Redundancy ###
 
-Each HCM can support multiple Hybrid Connections.  Also, any given Hybrid Connection can be supported by multiple HCMs.  The default behavior is to round robin traffic across the configured HCMs for any given endpoint.  If you want high availability on your Hybrid Connections from your network, simply instantiate multiple HCMs on separate machines. 
+Each HCM can support multiple hybrid connections. Also, any given hybrid connection can be supported by multiple HCMs. The default behavior is to route traffic across the configured HCMs for any given endpoint. If you want high availability on your hybrid connections from your network, run multiple HCMs on separate machines. 
 
-### Manually adding a Hybrid Connection ###
+### Manually add a hybrid connection ###
 
-If you wish somebody outside of your subscription to host an HCM instance for a given Hybrid Connection, you can share the gateway connection string for the Hybrid Connection with them.  You can see this in the properties for a Hybrid Connection in the [Azure portal][portal]. To use that string, click the **Enter Manually** button in the HCM and paste in the gateway connection string.
+To enable someone outside of your subscription to host an HCM instance for a given hybrid connection, share the gateway connection string for the hybrid connection with them. You can see this in the properties for a hybrid connection in the [Azure portal][portal]. To use that string, select **Enter Manually** in the HCM, and paste in the gateway connection string.
 
 
 ## Troubleshooting ##
 
-The connection status for a Hybrid Connection means that at least one HCM is configured with that Hybrid Conneciton and is able to reach Azure.  If the status for your Hybrid Connection does not say **Connected**, then your Hybrid Connection is not configured on any HCM that has access to Azure.
+The status of "Connected" means that at least one HCM is configured with that hybrid connection, and is able to reach Azure. If the status for your Hybrid Connection does not say **Connected**, your hybrid connection is not configured on any HCM that has access to Azure.
 
-The primary reason that clients cannot connect to their endpoint is because the endpoint was specified using an IP address instead of a DNS name.  If your app cannot reach the desired endpoint and you used an IP address, switch to using a DNS name that is valid on the host where the HCM is running.  Other things to check are that the DNS name resolves properly on the host where the HCM is running and that there is connectivity from the host where the HCM is running to the Hybrid Connection endpoint.  
+The primary reason that clients cannot connect to their endpoint is because the endpoint was specified by using an IP address instead of a DNS name. If your app cannot reach the desired endpoint and you used an IP address, switch to using a DNS name that is valid on the host where the HCM is running. Also check that the DNS name resolves properly on the host where the HCM is running. Confirm that there is connectivity from the host where the HCM is running to the hybrid connection endpoint.  
 
-There is a tool in App Service that can be invoked from the Advanced Tools (Kudu) console called tcpping.  This tool can tell you if you have access to a TCP endpoint, but it does not tell you if you have access to a Hybrid Connection endpoint.  When used in the console against a Hybrid Connection endpoint, a successful ping will only tell you that you have a Hybrid Connection configured for your app that uses that host:port combination.  
+In App Service, the tcpping tool can be invoked from the Advanced Tools (Kudu) console. This tool can tell you if you have access to a TCP endpoint, but it does not tell you if you have access to a hybrid connection endpoint. When you use the tool in the console against a hybrid connection endpoint, you are only confirming that it uses a host:port combination.  
 
 ## BizTalk Hybrid Connections ##
 
-The older BizTalk Hybrid Connections capability has been closed off to new BizTalk Hybrid Connections.  You can continue using your existing BizTalk Hybrid Connections with your apps, but should migrate to the new Hybrid Connections that use Azure Relay.  Among the benefits in the new service over the BizTalk version are:
+The older BizTalk Hybrid Connections capability has been closed to new BizTalk Hybrid Connections. You can continue using your existing BizTalk Hybrid Connections with your apps, but you should migrate to the new Hybrid Connections that use Azure Relay. Among the benefits in the new service over the BizTalk version are:
 
 - No additional BizTalk account is required.
-- TLS is 1.2 instead of 1.0 as in BizTalk Hybrid Connections.
-- Communication is over ports 80 and 443 using a DNS name to reach Azure instead of IP addresses and a range of additional other ports.  
+- TLS is version 1.2 instead of version 1.0.
+- Communication is over ports 80 and 443, and uses a DNS name to reach Azure, instead of IP addresses and a range of additional other ports.  
 
-To add an existing BizTalk Hybrid Connection to your app, go to your app in the [Azure portal][portal] and click **Networking > Configure your Hybrid Connection endpoints**.  In the Classic Hybrid Connections table, click **Add Classic Hybrid Connection**.  From here, you will see a list of your BizTalk Hybrid Connections.  
+To add an existing BizTalk Hybrid Connection to your app, go to your app in the [Azure portal][portal], and select **Networking** > **Configure your Hybrid Connection endpoints**. In the Classic Hybrid Connections table, select **Add Classic Hybrid Connection**. You can then see a list of your BizTalk Hybrid Connections.  
 
 
 <!--Image references-->
