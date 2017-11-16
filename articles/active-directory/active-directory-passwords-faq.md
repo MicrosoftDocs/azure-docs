@@ -164,7 +164,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Do you prevent users from multiple attempts to reset a password in a short period of time?**
 
-  > **A:** Yes, there are security features built into password reset to protect it from misuse. Users can try only five password reset attempts within an hour before they're locked out for 24 hours. Users can try to validate a phone number only five times within an hour before they're locked out for 24 hours. Users can try only a single authentication method five times within an hour before they're locked out for 24 hours.
+  > **A:** Yes, there are security features built into password reset to protect it from misuse. Users can try only five password reset attempts within an hour before they're locked out for 24 hours. Users can try to validate a phone number only five times within an hour before they're locked out for 24 hours. Users can try a single authentication method only five times within an hour before they're locked out for 24 hours.
   >
   >
 * **Q:  How long are the email and SMS one-time passcodes valid?**
