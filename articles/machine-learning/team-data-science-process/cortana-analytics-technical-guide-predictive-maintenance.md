@@ -42,11 +42,11 @@ sample data with your own data, and how to modify the Solution Template.
 ## **Overview**
 ![Predictive maintenance architecture](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
-Deploying the solution activates Azure services within the Cortana
+Deploy the solution activates Azure services within the Cortana
 Analytics Suite (Event Hub, Stream Analytics,
 HDInsight, Data Factory, Machine Learning, *etc.*). The architecture
 diagram shows how the Predictive Maintenance for
-Aerospace Solution Template is constructed from end to end. You can investigate these services in the Azure portal by clicking on them on the solution template diagram created with the solution deployment (With the exception of HDInsight, which is provisioned on demand when the related pipeline activities are required to run and deleted afterwards).
+Aerospace Solution Template is constructed. You can investigate these services in the Azure portal by clicking on them on the solution template diagram created with the solution deployment (With the exception of HDInsight, which is provisioned on demand when the related pipeline activities are required to run and deleted afterwards).
 Download a [full-size version of the diagram](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 The following sections describe the solution parts.
@@ -84,18 +84,16 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service.
 
 ### HDInsight custom aggregation
-Use the Azure HDInsight service to run
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
-scripts (orchestrated by Azure Data Factory) to provide aggregations on
-the raw events that were archived using the Azure Stream Analytics
+Run [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+scripts (orchestrated by Azure Data Factory) using HDInsight to provide aggregations on
+the raw events archived using the Azure Stream Analytics
 service.
 
 ### Azure Machine Learning
-Use [Azure Machine
+Make predictions on the remaining useful life (RUL) of a particular aircraft engine given
+the inputs received with [Azure Machine
 Learning Service](https://azure.microsoft.com/services/machine-learning/)
-(orchestrated by Azure Data Factory) to make predictions
-on the remaining useful life (RUL) of a particular aircraft engine given
-the inputs received.
+(orchestrated by Azure Data Factory) to 
 
 ## **Data publishing**
 ### Azure SQL Database Service
@@ -185,15 +183,15 @@ event information is streamed to storage.
 The [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service orchestrates the movement and processing of data. In the
-Predictive Maintenance for Aerospace Solution Template the data factory
+Predictive Maintenance for Aerospace Solution Template, the data factory
 is made up of three
 [pipelines](../../data-factory/v1/data-factory-create-pipelines.md)
-that move and process the data using various technologies.  You can access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This takes you to the data factory on your Azure portal. Ignore errors under your datasets. Those are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
+that move and process the data using various technologies.  Access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. Errors under your datasets are due to data factory being deployed before the data generator was started. Those errors can be ignored and do not prevent your data factory from functioning
 
 ![Data Factory dataset errors](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
 This section discusses the necessary [pipelines](../../data-factory/v1/data-factory-create-pipelines.md) and [activities](../../data-factory/v1/data-factory-create-pipelines.md) contained in the [Azure Data
-Factory](https://azure.microsoft.com/documentation/services/data-factory/). Below is the diagram view of the solution.
+Factory](https://azure.microsoft.com/documentation/services/data-factory/). Here is a diagram view of the solution.
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
@@ -289,7 +287,7 @@ created, see [Predictive Maintenance: Step 1 of 3, data preparation and feature 
 ## **Monitor Progress**
 Once the Data Generator is launched, the pipeline begins to dehydrate, and the different components of your solution start kicking into action following the commands issued by the data factory. There are two ways to monitor the pipeline.
 
-1. One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel is the **rawdata** folder. Inside the rawdata folder are folders with names such as hour=17, and hour=18. The presence of these folders indicate that the raw data is being generated on your computer and stored in blob storage. You should see csv files with finite sizes in MB in those folders.
+1. One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on Blob Storage component of your solution from the screen you successfully deployed the solution and then click Open in the right panel, it takes you to the [Azure portal](https://portal.azure.com/). Once there, click on Blobs. In the next panel, you see a list of Containers. Click on **maintenancesadata**. In the next panel is the **rawdata** folder. Inside the rawdata folder are folders with names such as hour=17, and hour=18. The presence of these folders indicates raw data is being generated on your computer and stored in blob storage. You should see csv files with finite sizes in MB in those folders.
 2. The last step of the pipeline is to write data (for example predictions from machine learning) into SQL Database. You might have to wait a maximum of three hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through the [Azure portal](https://portal.azure.com/). On the left panel locate SQL DATABASES ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) and click it. Then locate your database **pmaintenancedb** and click on it. On the next page at the bottom, click on MANAGE
    
     ![Manage icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
@@ -339,7 +337,7 @@ containing data (for example, prediction results) for visualization.
 2. Update the data source of the cold path report file with Power
    BI Desktop.
    
-   * In the folder on your PC where you downloaded and unzipped the
+   * In the folder where you downloaded and unzipped the
      Generator file, double-click the
      **PowerBI\\PredictiveMaintenanceAerospace.pbix** file. If you see any warning messages when you open the file, ignore them. On the top of the file, click **'Edit Queries'**.
      
