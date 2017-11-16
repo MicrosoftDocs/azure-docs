@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
-pms.tgt_pltfrm: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 11/16/2017
 ms.author: twooley
 
 ---
@@ -31,7 +31,7 @@ Each Azure Stack solution ships with a hardware lifecycle host. This host runs t
 
 The following diagram shows traffic flow between an Azure Stack integrated system, the hardware lifecycle host, an external monitoring solution, and an external ticketing/data collection system.
 
-![Diagram showing traffic between Azure Stack, monitoring, and ticketing solution.](/media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+![Diagram showing traffic between Azure Stack, monitoring, and ticketing solution.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 This article explains how to integrate Azure Stack with external monitoring solutions such as System Center Operations Manager and Nagios. It also includes how to work with alerts programmatically by using PowerShell or through REST API calls.
 
@@ -61,7 +61,7 @@ For a ticketing solution, you can integrate Operations Manager with System Cente
 
 The following diagram shows integration of Azure Stack with an existing System Center deployment. You can automate Service Manager further with System Center Orchestrator or classic deployment model Automation (SMA) to run operations in Azure Stack.
 
-![Diagram showing integration with OM, Service Manager, and SMA.](/media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
+![Diagram showing integration with OM, Service Manager, and SMA.](media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
 
 ## Integrate with Nagios
 
@@ -74,7 +74,6 @@ The plugin works with Nagios Enterprise and Nagios Core. You can download it [he
 ### Plugin parameters
 
 Configure the plugin file “Azurestack_plugin.py” with the following parameters:
-
 
 | Parameter | Description | Example |
 |---------|---------|---------|
@@ -132,7 +131,7 @@ You can use REST API calls to get alerts, close alerts, and get the health of re
 
 **Request**
 
-The request gets all active and closed alerts for the default provider subscriptions. There is no request body.
+The request gets all active and closed alerts for the default provider subscription. There is no request body.
 
 
 |Method  |Request URI  |
@@ -142,10 +141,9 @@ The request gets all active and closed alerts for the default provider subscript
 
 **Arguments**
 
-
 |Argument  |Description  |
 |---------|---------|
-|armendpoint     |  The Resource Manager endpoint of your Azure Stack environment, in the format https://adminmanagement.{RegionName}.{External FQDN}. For example, if the external FQDN is azurestack.external and region name is local, then the Resource Manager endpoint is https://adminmanagement.local.azurestack.external.       |
+|armendpoint     |  The Azure Resource Manager endpoint of your Azure Stack environment, in the format https://adminmanagement.{RegionName}.{External FQDN}. For example, if the external FQDN is *azurestack.external* and region name is *local*, then the Resource Manager endpoint is https://adminmanagement.local.azurestack.external.       |
 |subid     |   Subscription ID of the user who is making the call. You can use this API to query only with a user who has permission to the default provider subscription.      |
 |RegionName     |    The region name of the Azure Stack deployment.     |
 |api-version     |  Version of the protocol that is used to make this request. You must use 2016-05-01.      |
@@ -160,7 +158,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 ```json
 {
 "value":[
-{"id":"/subscriptions/4aa97de3-6b83-4582-86e165a5e4d1295b/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b",
+{"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b",
 "name":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
 "type":"Microsoft.InfrastructureInsights.Admin/regionHealths/alerts",
 "location":"local",
@@ -190,13 +188,13 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 "severity":"Warning",
 "state":"Active",
 "title":"Infrastructure role is unhealthy",
-"impactedResourceId":"/subscriptions/4aa97de3-6b83-4582-86e1-65a5e4d1295b/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/UpdateResourceProvider",
+"impactedResourceId":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/UpdateResourceProvider",
 "impactedResourceDisplayName":"UpdateResourceProvider",
 "closedByUserAlias":null
 }
 },
-….
 
+…
 ```
 
 **Response details**
@@ -248,8 +246,8 @@ The request closes an alert by its unique ID.
 
 |Argument  |Description  |
 |---------|---------|
-|*armendpoint*     |   Resource Manager endpoint of your Azure Stack environment, in the format https://adminmanagement.{RegionName}.{External FQDN}. For example, if the external FQDN is azurestack.external and region name is local, then the Resource Manager endpoint is https://adminmanagement.local.azurestack.external.      |
-|*subid*     |    Subscription ID of the user who is making the call. You can use this API  to query only with a user who has permission to the default provider subscription.     |
+|*armendpoint*     |   Resource Manager endpoint of your Azure Stack environment, in the format https://adminmanagement.{RegionName}.{External FQDN}. For example, if the external FQDN is *azurestack.external* and region name is *local*, then the Resource Manager endpoint is https://adminmanagement.local.azurestack.external.      |
+|*subid*     |    Subscription ID of the user who is making the call. You can use this API to query only with a user who has permission to the default provider subscription.     |
 |*RegionName*     |   The region name of the Azure Stack deployment.      |
 |*api-version*     |    Version of the protocol that is used to make this request. You must use 2016-05-01.     |
 |*alertid*     |    Unique ID of the alert.     |
@@ -260,7 +258,7 @@ The request closes an alert by its unique ID.
 
 {
 "value":[
-{"id":"/subscriptions/4aa97de3-6b83-4582-86e165a5e4d1295b/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b",
+{"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b",
 "name":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
 "type":"Microsoft.InfrastructureInsights.Admin/regionHealths/alerts",
 "location":"local",
@@ -290,7 +288,7 @@ The request closes an alert by its unique ID.
 "severity":"Warning",
 "state":"Closed",
 "title":"Infrastructure role is unhealthy",
-"impactedResourceId":"/subscriptions/4aa97de3-6b83-4582-86e1-65a5e4d1295b/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/UpdateResourceProvider",
+"impactedResourceId":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/UpdateResourceProvider",
 "impactedResourceDisplayName":"UpdateResourceProvider",
 "closedByUserAlias":null
 }
@@ -305,7 +303,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 ```json
 {
 "value":[
-{"id":"/subscriptions/4aa97de3-6b83-4582-86e165a5e4d1295b/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b",
+{"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b",
 "name":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
 "type":"Microsoft.InfrastructureInsights.Admin/regionHealths/alerts",
 "location":"local",
@@ -335,12 +333,13 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 "severity":"Warning",
 "state":"Closed",
 "title":"Infrastructure role is unhealthy",
-"impactedResourceId":"/subscriptions/4aa97de3-6b83-4582-86e1-65a5e4d1295b/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/UpdateResourceProvider",
+"impactedResourceId":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/UpdateResourceProvider",
 "impactedResourceDisplayName":"UpdateResourceProvider",
 "closedByUserAlias":null
 }
 },
 ```
+
 **Response details**
 
 
@@ -424,6 +423,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 "healthState":"Healthy"
 }
 }
+
 …
 ```
 **Response details**
