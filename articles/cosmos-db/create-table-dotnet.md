@@ -1,9 +1,9 @@
----
+--
 title: 'Quickstart: Table API with .NET - Azure Cosmos DB | Microsoft Docs'
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and .NET 
 services: cosmos-db
 documentationcenter: ''
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: ''
 
@@ -14,8 +14,8 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: arramac
+ms.date: 11/16/2017
+ms.author: mimig
 
 ---
 # Quickstart: Build a Table API app with .NET and Azure Cosmos DB 
@@ -81,15 +81,17 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. In Visual Studio, open the App.config file. 
 
-3. Uncomment the StorageConnectionString on line 8 and comment out the StorageConnectionString on line 7 as this tutorial does not use the Storage Emulator. 
+3. Uncomment the StorageConnectionString on line 8 and comment out the StorageConnectionString on line 7 as this tutorial does not use the Storage Emulator. Line 7 and 8 should now look like this:
 
-3. Paste the PRIMARY CONNECTION STRING value into the value of the StorageConnectionString on line 8. 
 
     ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-    Line 8 should now look similar to
+3. Paste the PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value on line 8. Paste the string inside the quotes. If your Endpoint uses documents.azure.com, change that portion to table.cosmosdb.azure.com. 
+
+    Line 8 should now look similar to:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -103,7 +105,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 1. In Visual Studio, right-click on the **TableStorage** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-2. In the NuGet **Browse** box, type *Microsoft.Azure.CosmosDB.Table*.
+2. In the NuGet **Browse** box, type *.
 
 3. From the results, install the **Microsoft.Azure.CosmosDB.Table** library. This installs the Azure Cosmos DB Table API package as well as all dependencies.
 
