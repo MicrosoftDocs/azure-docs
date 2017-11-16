@@ -21,7 +21,7 @@ ms.custom: it-pro
 ---
 # How to successfully roll out self-service password reset
 
-To ensure a smooth roll out of the Azure Active directory (Azure AD) self-service password reset (SSPR) functionality, most customers complete the following steps:
+To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service password reset (SSPR) functionality, most customers complete the following steps:
 
 1. [Enable password reset in your directory](active-directory-passwords-getting-started.md).
 2. [Configure on-premises Active Directory permissions for password writeback](active-directory-passwords-writeback.md#active-directory-permissions).
@@ -65,7 +65,7 @@ If you want your users to register for password reset, you can require that they
 
 Administrators can require users to re-register after a specific period of time. They can set the **Number of days before users are asked to reconfirm their authentication information** option to 0 to 730 days.
 
-After you enable this option, when users sign in they see a message that informs them that their administrator has required them to verify their authentication information.
+After you enable this option, when users sign in they see a message that says their administrator has required them to verify their authentication information.
 
 ## Populate authentication data
 
