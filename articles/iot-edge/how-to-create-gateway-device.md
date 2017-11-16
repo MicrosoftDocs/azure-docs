@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -51,7 +51,7 @@ The Edge hub that is installed in all IoT Edge devices exposes the following pri
 >[!NOTE]
 >Currently, downstream devices are not able to use file upload when connecting through an IoT Edge gateway.
 
-When you connect devices to a IoT Edge gateway using the Azure IoT device SDK, you need to:
+When you connect devices to an IoT Edge gateway using the Azure IoT device SDK, you need to:
 
 * Set up the downstream device with a connection string referring to the gateway device hostname; and
 * Make sure that the downstream device trusts the certificate used to accept the connection by the gateway device.
@@ -73,7 +73,9 @@ This will result in a solution that enables all devices to use any IoT Edge devi
 
 You can use the sample Powershell and Bash scripts described in [Managing CA Certificate Sample][lnk-ca-scripts] to generate a self-signed **IoT hub owner CA** and device certificates signed with it.
 
-1. Follow step 1 of [Managing CA Certificate Sample][lnk-ca-scripts] to install the scripts.
+1. Follow step 1 of [Managing CA Certificate Sample][lnk-ca-scripts] to install the scripts. Make sure to clone from the `modules-preview` branch:
+                
+                git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
 2. Follow step 2 to generate the **IoT hub owner CA**, this file will be used by the downstream devices to validate the connection.
 
 Use the following instructions to generate a certificate for your gateway device.
@@ -82,7 +84,7 @@ Use the following instructions to generate a certificate for your gateway device
 
 * Run `./certGen.sh create_edge_device_certificate myGateway` to create the new device certificate.  
   This will create the files .\certs\new-edge-device.* that contain the public key and PFX and .\private\new-edge-device.key.pem that contains the device's private key.  
-* `cat new-edge-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-edge-device-full-chain.cert.pem` to get the public key.
+* In the `certs` directory run `cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem` to get the full chain of the device public key.
 * `./private/new-edge-device.cert.pem` contains the device's private key.
 
 #### Powershell
@@ -140,7 +142,7 @@ A downstream device can be any application using the [Azure IoT device SDK][lnk-
 
 First, a downstream device application has to trust the **IoT hub owner CA** certificate in order to validate the TLS connections to the gateway devices. This step can usually be performed in two ways: at the OS level, or (for certain languages) at the application level.
 
-For instance, for .NET applications, you can add the following snippet to trust a certificate in PEM format stored in path `certPath`.
+For instance, for .NET applications, you can add the following snippet to trust a certificate in PEM format stored in path `certPath`. If using the above script, the path will reference `certs/azure-iot-test-only.root.ca.cert.pem` (Bash), or `RootCA.pem` (Powershell).
 
         using System.Security.Cryptography.X509Certificates;
         
@@ -150,8 +152,6 @@ For instance, for .NET applications, you can add the following snippet to trust 
         store.Open(OpenFlags.ReadWrite);
         store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
         store.Close();
-
-Note that the sample scripts referenced above generates the public key in the file `certs/azure-iot-test-only.root.ca.cert.pem` (Bash), or `RootCA.pem` (Powershell).
 
 Performing this step at the OS level is different between Windows and across Linux distributions.
 
@@ -181,6 +181,8 @@ When implementing an opaque gateway, your protocol translation module uses the m
 
 When implementing a transparent gateway, the module creates multiple instances of the IoT Hub device client, using the connection strings for the downstream devices.
 
+The [Azure IoT Edge Modbus Module][lnk-modbus-module] is an open implementation of a protocol-adaptor module for an opaque gateway.
+
 ## Next steps
 
 - [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
@@ -196,4 +198,5 @@ When implementing a transparent gateway, the module creates multiple instances o
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 [lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/CACertToolEdge/tools/CACertificates/CACertificateOverview.md
+[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/modules-preview/tools/CACertificates/CACertificateOverview.md
+[lnk-modbus-module]: https://github.com/Azure/iot-edge-modbus
