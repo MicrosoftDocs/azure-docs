@@ -23,7 +23,7 @@ Scaling out databases can be easily accomplished using scalable tools and featur
 
 To download:
 * the .NET version of the library, see [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
-* the JAVA version of the library, see [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
+* the Java version of the library, see [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 
 ## Documentation
 1. [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md)
