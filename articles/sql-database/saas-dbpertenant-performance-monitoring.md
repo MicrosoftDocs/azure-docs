@@ -60,7 +60,7 @@ For high-volume scenarios, where you're working with many resources, [Log Analyt
 
 ## Get the Wingtip Tickets SaaS Database Per Tenant application source code and scripts
 
-The Wingtip Tickets SaaS Database Per Tenant scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) github repo. [Steps to download the Wingtip Tickets SaaS Database Per Tenant scripts](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip Tickets SaaS Database Per Tenant scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) github repo. [Steps to download the Wingtip Tickets SaaS Database Per Tenant scripts](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
 
 ## Provision additional tenants
 
