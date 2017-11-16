@@ -333,5 +333,5 @@ namespace TimeSeriesInsightsQuerySample
 ```
 
 ## Next steps
-
-For the full Query API reference, see the [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) document.
+> [!div class="nextstepaction"]
+> For the full Query API reference, see [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
