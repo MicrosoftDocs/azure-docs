@@ -22,7 +22,7 @@ Certificates are used in Azure for cloud services ([service certificates](#what-
 
 Certificates used in Azure are x.509 v3 certificates and can be signed by another trusted certificate or they can be self-signed. A self-signed certificate is signed by its own creator, therefore it is not trusted by default. Most browsers can ignore this problem. You should only use self-signed certificates when developing and testing your cloud services. 
 
-Certificates used by Azure can contain a private or a public key. Certificates have a thumbprint that provides a means to identify them in an unambiguous way. This thumbprint is used in the Azure [configuration file](cloud-services-configure-ssl-certificate.md) to identify which certificate a cloud service should use. 
+Certificates used by Azure can contain a private or a public key. Certificates have a thumbprint that provides a means to identify them in an unambiguous way. This thumbprint is used in the Azure [configuration file](cloud-services-configure-ssl-certificate-portal.md) to identify which certificate a cloud service should use. 
 
 ## What are service certificates?
 Service certificates are attached to cloud services and enable secure communication to and from the service. For example, if you deployed a web role, you would want to supply a certificate that can authenticate an exposed HTTPS endpoint. Service certificates, defined in your service definition, are automatically deployed to the virtual machine that is running an instance of your role. 
@@ -90,7 +90,7 @@ There are many pages on the internet that cover how to do this with IIS. [Here](
 [This](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article describes how to create certificates with SSH.
 
 ## Next steps
-[Upload your service certificate to the Azure classic portal](cloud-services-configure-ssl-certificate.md) (or the [Azure portal](cloud-services-configure-ssl-certificate-portal.md)).
+[Upload your service certificate to the Azure portal](cloud-services-configure-ssl-certificate-portal.md).
 
 Upload a [management API certificate](../azure-api-management-certs.md) to the Azure classic portal. The Azure portal does not use management certificates for authentication.
 

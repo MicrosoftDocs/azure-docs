@@ -64,7 +64,7 @@ Now let's clone a Table app from github, set the connection string, and run it. 
 2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. Then open the TableStorage solution file in Visual Studio. 
@@ -75,22 +75,25 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
-    Use the copy buttons on the right side of the screen to copy the CONNECTION STRING.
+    Use the copy buttons on the right side of the screen to copy the PRIMARY CONNECTION STRING.
 
-    ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-dotnet/connection-string.png)
+    ![View and copy the PRIMARY CONNECTION STRING in the Connection String pane](./media/create-table-dotnet/connection-string.png)
 
 2. In Visual Studio, open the App.config file. 
 
-3. Paste the CONNECTION STRING value into the App.config file as the value of the AzureCosmosDBTableAPIConnectionString. 
+3. Uncomment the StorageConnectionString on line 8 and comment out the StorageConnectionString on line 7 as this tutorial does not use the Storage Emulator. 
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+3. Paste the PRIMARY CONNECTION STRING value into the value of the StorageConnectionString on line 8. 
 
-    > [!NOTE]
-    > To use this app with Azure Table storage, you need to change the connection string in `App.config file`. Use the account name as Table-account name and key as Azure Storage primary key. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
-    >
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    ```
+
+    Line 8 should now look similar to
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
 
 4. Save the App.config file.
 
