@@ -152,7 +152,7 @@ The `id` and `username` are the name of the registry. Use the `password` value f
       <version>0.4.11</version>
       <configuration>
          <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
-         <dockerDirectory>src/main/docker</dockerDirectory>
+         <dockerDirectory>.</dockerDirectory>
          <resources>
             <resource>
                <targetPath>/</targetPath>
