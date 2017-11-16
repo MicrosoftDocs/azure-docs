@@ -119,6 +119,8 @@
     items:
     - name: Use C#
       href: csharp.md
+    - name: Use specialized disk
+      href: create-vm-specialized.md
     - name: Use a template with C#
       href: csharp-template.md
     - name: Create VM with Chef
@@ -194,12 +196,10 @@
       href: cli-ps-findimage.md
     - name: Prepare VM for upload
       href: prepare-for-upload-vhd-image.md
-    - name: Use generalized image
-      href: create-vm-generalized-managed.md
-    - name: Use specialized disk
-      href: create-vm-specialized.md
     - name: Capture VM to image
       href: capture-image-resource.md
+    - name: Use generalized image
+      href: create-vm-generalized-managed.md
     - name: Build image with Packer
       href: build-image-with-packer.md
     - name: Use Windows client images
