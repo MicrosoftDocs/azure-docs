@@ -55,7 +55,7 @@ Perform the following steps to enable the Azure AD Application Proxy for your Az
 
 
 ## Task 2 - Provision domain-joined Windows servers to deploy the Azure AD Application Proxy connector
-You need domain-joined Windows Server virtual machines on which you can install the Azure AD Application Proxy connector. Depending on the applications being published, you may choose to provision multiple servers on which the connector is installed. This deployment option gives you greater availability and helps handle heavier authentication loads.
+You need domain-joined Windows Server virtual machines on which you can install the Azure AD Application Proxy connector. For some applications, you may choose to provision multiple servers on which the connector is installed. This deployment option gives you greater availability and helps handle heavier authentication loads.
 
 Provision the connector servers on the same virtual network (or a connected/peered virtual network), in which you have enabled your Azure AD Domain Services managed domain. Similarly, the servers hosting the applications you publish via the Application Proxy need to be installed on the same Azure virtual network.
 
@@ -63,7 +63,7 @@ To provision connector servers, follow the tasks outlined in the article titled 
 
 
 ## Task 3 - Install and register the Azure AD Application Proxy Connector
-Previously, you provisioned a Windows Server virtual machine and joined it to the managed domain. In this task, you will install the Azure AD Application Proxy connector on this virtual machine.
+Previously, you provisioned a Windows Server virtual machine and joined it to the managed domain. In this task, you install the Azure AD Application Proxy connector on this virtual machine.
 
 1. Copy the connector installation package to the VM on which you install the Azure AD Web Application Proxy connector.
 
@@ -98,11 +98,11 @@ You have set up the Azure AD Application Proxy and integrated it with your Azure
 
 
 ## Deployment note - Publish IWA (Integrated Windows Authentication) applications using Azure AD Application Proxy
-Enable single sign-on to your applications using Integrated Windows Authentication (IWA) by granting Application Proxy Connectors permission to impersonate users, and send and receive tokens on their behalf. Configure kerberos constrained delegation (KCD) for the connector to grant the required permissions to access resources on the managed domain. Use the resource-based KCD mechanism on managed domains for increased security.
+Enable single sign-on to your applications using Integrated Windows Authentication (IWA) by granting Application Proxy Connectors permission to impersonate users, and send and receive tokens on their behalf. Configure Kerberos constrained delegation (KCD) for the connector to grant the required permissions to access resources on the managed domain. Use the resource-based KCD mechanism on managed domains for increased security.
 
 
-### Enable resource-based kerberos constrained delegation for the Azure AD Application Proxy connector
-The Azure Application Proxy connector should be configured for kerberos constrained delegation (KCD), so it can impersonate users on the managed domain. On an Azure AD Domain Services managed domain, you do not have domain administrator privileges. Therefore, **traditional account-level KCD cannot be configured on a managed domain**.
+### Enable resource-based Kerberos constrained delegation for the Azure AD Application Proxy connector
+The Azure Application Proxy connector should be configured for Kerberos constrained delegation (KCD), so it can impersonate users on the managed domain. On an Azure AD Domain Services managed domain, you do not have domain administrator privileges. Therefore, **traditional account-level KCD cannot be configured on a managed domain**.
 
 Use resource-based KCD as described in this [article](active-directory-ds-enable-kcd.md).
 
