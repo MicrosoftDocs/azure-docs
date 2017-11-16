@@ -119,8 +119,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
 
-5. Click **Save** button.
-
+5. Click **Save** button
 	![Configure Single Sign-On](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
 
 6. On the **Salesforce Configuration** section, click **Configure Salesforce** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.** 
@@ -152,7 +151,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. For the **Name** field, type in a friendly name for this configuration. Providing a value for **Name** automatically populate the **API Name** textbox.
 
-    b. Paste **SMAL Entity ID** value into the **Issuer** field in Salesforce.
+    b. Paste **SAML Entity ID** value into the **Issuer** field in Salesforce.
 
     c. In the **Entity Id textbox**, type your Salesforce domain name using the following pattern:
       

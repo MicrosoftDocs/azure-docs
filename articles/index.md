@@ -132,33 +132,33 @@ featureFlags:
                                             <div class="cardText">
                                                 <h3>Develop apps</h3>
                                                 <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;padding-left:0;">
-												<ul class="noBullet">
+                                                <ul class="noBullet">
                                                     <li>
-														<a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
-															<img src="media/index/logo_NET.svg" alt="">
-															.NET</a>
-													</li>
-													<li>
-														<a class="barLink" href="/python/azure/">
-															<img src="media/index/logo_python.svg" alt="">
-															Python</a>
-													</li>
-													<li>
-														<a class="barLink" href="/java/azure/">
-															<img src="media/index/logo_java.svg" alt="">
-															Java</a>
-													</li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
-													<li>
-														<a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
-															<img src="media/index/logo_PHP.svg" alt="">
-															PHP</a>
-													</li>
-													<li>
-														<a class="barLink" href="/nodejs/azure/">
-															<img src="media/index/logo_nodejs.svg" alt="">
-															Node.js</a>
-													</li>
-												</ul></td></tr></table>
+                                                        <a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
+                                                            <img src="media/index/logo_NET.svg" alt="">
+                                                            .NET</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/python/azure/">
+                                                            <img src="media/index/logo_python.svg" alt="">
+                                                            Python</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/java/azure/">
+                                                            <img src="media/index/logo_java.svg" alt="">
+                                                            Java</a>
+                                                    </li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
+                                                    <li>
+                                                        <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
+                                                            <img src="media/index/logo_PHP.svg" alt="">
+                                                            PHP</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/nodejs/azure/">
+                                                            <img src="media/index/logo_nodejs.svg" alt="">
+                                                            Node.js</a>
+                                                    </li>
+                                                </ul></td></tr></table>
                                                <h4>App Models</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
@@ -311,9 +311,9 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/container-service/">
+                                            <a href="/azure/aks/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                                <p>Azure Container Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -395,9 +395,9 @@ featureFlags:
                                     <h3>Containers</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/container-service/">
+                                            <a href="/azure/aks/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                                <p>Azure Container Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -700,7 +700,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/Bing-Video-Search/search-the-web">
+                                            <a href="/azure/cognitive-services/Bing-Video-Search/">
                                                 <img src="media/index/API_Bing_Video_Search.svg" alt="" />
                                                 <p>Bing Video Search</p>
                                             </a>
@@ -857,6 +857,12 @@ featureFlags:
                                             <a href="/azure/hdinsight/">
                                                 <img src="media/index/HDInsight.svg" alt="" />
                                                 <p>HDInsight</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-databricks/">
+                                                <img src="media/index/logo_databricks.svg" alt="" />
+                                                <p>Azure Databricks</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1102,7 +1108,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                            <a href="/azure/active-directory/develop">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Azure Active Directory for Developers</p>
                                             </a>
@@ -1353,7 +1359,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-service/">
+                                <a href="/azure/aks/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1363,8 +1369,8 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Scale and orchestrate containers using Kubernetes, DC/OS or Docker Swarm</p>
+                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <p>Run containerized application at scale using Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2028,7 @@ featureFlags:
                         <a href="#containers">Containers</a>
                         <ul id="containers" class="cardsA">
                             <li>
-                                <a href="/azure/container-service/">
+                                <a href="/azure/aks/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2032,8 +2038,8 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Scale and orchestrate containers using Kubernetes, DC/OS or Docker Swarm</p>
+                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <p>Run containerized application at scale using Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2316,6 +2322,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/azure-databricks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_databricks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Databricks</h3>
+                                                    <p>Create an Azure Databricks workspace with Spark clusters</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>	
                             <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
@@ -2703,7 +2728,7 @@ featureFlags:
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing News</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/search-the-web"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Bing Video Search</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Bing Video Search</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Bing Web Search</a>
@@ -3173,7 +3198,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Active Directory for Developers</h3>
-                                                    <p>Scalable, cross-platform authentication for your mobile apps and websites</p>
+                                                    <p>Secure, cross-platform authentication for web, mobile, and backend APIs</p>
                                                 </div>
                                             </div>
                                         </div>

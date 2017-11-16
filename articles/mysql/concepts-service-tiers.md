@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/03/2017
 ---
 # Azure Database for MySQL options and performance: Understand what’s available in each pricing tier
 When you create an Azure Database for MySQL server, you decide upon three main choices to configure the resources allocated for that server. These choices impact the performance and scale of the server.
@@ -91,10 +91,10 @@ You initially choose the pricing tier and performance level when you create your
 
 Scaling the Compute Units is done independently of the maximum storage size you have chosen.
 
-Behind the scenes, changing the performance level of a database creates a copy of the original database at the new performance level, and then switches connections over to the copied server. No data is lost during this process. During the brief moment when the system switches over to the new copy of the server, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. If there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.
+Behind the scenes, changing the performance level of a server creates a copy of the original server at the new performance level, and then switches connections over to the copied server. No data is lost during this process. During the brief moment when the system switches over to the new copy of the server, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. If there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.
 
 The duration of the entire scale process depends on both the size and pricing tier of the server before and after the change. For example, a server that is changing Compute Units within the Standard pricing tier, should complete within few minutes. The new properties for the server are not applied until the changes are complete.
 
-## Next Steps
+## Next steps
 - For more on Compute Units, see [Explaining Compute Units](concepts-compute-unit-and-storage.md)
 - Learn how to [Monitor and scale an Azure Database for MySQL server using Azure CLI](scripts/sample-scale-server.md)

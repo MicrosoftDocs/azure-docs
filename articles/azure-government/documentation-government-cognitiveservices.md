@@ -34,27 +34,35 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 * Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
 * Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
 
-In the Powershell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
+1. Make sure that you have the **Cognitive Services resource provider registered on your account**. You can do this by **running the following Powershell command:**
+   ```PowerShell
+   Get-AzureRmResourceProvider
+   ```
+   If you do **not see `Microsoft.CognitiveServices`**, you have to register the resource provider by **running the following command**:
+   ```PowerShell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.CognitiveServices
+   ```
+2. In the Powershell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
 
-Replace the "type of API" tag with any of the three following APIs you want to access:
-    * ComputerVision
-    * Face
-    * TextTranslation
+   Replace the "type of API" tag with any of the three following APIs you want to access:
+       * ComputerVision
+       * Face
+       * TextTranslation
 
-```PowerShell
-New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
-```
-Example: 
+   ```PowerShell
+   New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
+   ```
+   Example: 
 
-```PowerShell
-New-AzureRmCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
-```
+   ```PowerShell
+   New-AzureRmCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
+   ```
 
 After you run the command, you should see something like this: 
 
 ![cog1](./media/documentation-government-cognitiveservices-img1.png)
 
-Copy and save the "Endpoint" attribute somewhere as you will need it when making calls to the API. 
+3. Copy and save the "Endpoint" attribute somewhere as you will need it when making calls to the API. 
 
 ### Retrieve Account Key
 
@@ -94,8 +102,8 @@ The Quickstarts below will help you to get started with the APIs available throu
     
 ### Variations
 * The URI for accessing the Face API in Azure Government is :
-   - https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0
-   - The main difference between this URI and the URI used in Commercial Azure is the ending of ".us" and the location at the beginning of the uri
+   - `https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0`
+   - The main difference between this URI and the URI used in Commercial Azure is the ending of **.us** and the location at the beginning of the uri
 
 
 ### Analyze an Image With Computer Vision API using C# <a name="AnalyzeImage"> </a>
@@ -117,7 +125,7 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 4. Replace the `subscriptionKey` value with your valid subscription key.
 5. Run the program.
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Net.Http;
@@ -362,8 +370,8 @@ For more information, please see [public documentation](../cognitive-services/co
     
 ### Variations 
 * The URI for accessing the Face API in Azure Government is :
-   - https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0
-   - The main difference between this URI and the URI used in Commercial Azure is the ending of ".us" and the location at the beginning of the uri
+   - `https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0`
+   - The main difference between this URI and the URI used in Commercial Azure is the ending of **.us** and the location at the beginning of the uri
 
 ### Detect Faces in images with Face API using C# <a name="Detect"> </a>
 Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
@@ -384,7 +392,7 @@ The sample is written in C# using the Face API client library.
 5. Run the program.
 6. Enter the path to an image on your hard drive.
 
-```c#
+```csharp
 
 using System;
 using System.IO;
@@ -605,9 +613,9 @@ For more information, please see [public documentation](../cognitive-services/Fa
     
 ### Variations
 * The URI for accessing the Text Translation API in Azure Government is: 
-   - https://api.microsofttranslator.us/v2/http.svc
-   - The only difference from the Commercial URI is the endpoint of ".us"
-* The URI for retrieving the access token to the Text Translation API is the "Endpoint" attribute that was saved in Part 1 of this quickstart, with "/IssueToken" at the end
+   - `https://api.microsofttranslator.us/v2/http.svc`
+   - The only difference from the Commercial URI is the endpoint of **.us**
+* The URI for retrieving the access token to the Text Translation API is the `Endpoint` attribute that was saved in Part 1 of this quickstart, with `/IssueToken` at the end
 
 ### Text Translation Method
 This sample will use the [Text Translation - Translate method](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) to translate a string of text from a language into another specified language. There are multiple [language codes](https://msdn.microsoft.com/library/hh456380.aspx) that can be used with the Text Translation API. 
@@ -624,7 +632,7 @@ The sample is written in C#.
 
 You can also test out different languages and texts by replacing the "text", "from", and "to" variables in Program.cs. 
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Net;
@@ -689,7 +697,7 @@ namespace TextTranslationApp1
 We are now going to create a Token.cs class that will contain our method for retrieving the access token to the Text Translation API.
 Right click on your project from Solution Explorer and add "New class". Copy and paste the code below into the Token.cs class.
 
-```c#
+```csharp
 using System;
 using System.Net;
 using System.Net.Http;

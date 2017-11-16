@@ -140,6 +140,8 @@ For more information, see:
 
 * [Get started with Azure HDInsight][hdinsight-get-started]
 * [Get started with Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
+* [Create an HDInsight cluster to use Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Create an HDInsight cluster to use Data Lake Store using the Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig]
