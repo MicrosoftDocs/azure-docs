@@ -123,6 +123,20 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+### Virtual machine disk limits 
+[!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
+
+#### Managed virtual machine disks
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
+
+#### Unmanaged virtual machine disks
+
+[!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
+
+[!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
+
 ### Networking limits
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
@@ -165,22 +179,6 @@ For additional details on Azure Files limits, see [Azure Files scalability and p
 
 #### Azure Table storage limits
 [!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
-
-<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-#### Virtual machine disk limits
-[!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
-
-See [Virtual machine sizes](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
-
-#### Managed virtual machine disks
-
-[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
-
-#### Unmanaged virtual machine disks
-
-[!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
-
-[!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
 ### Cloud Services limits
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
