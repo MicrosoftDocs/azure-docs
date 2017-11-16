@@ -46,7 +46,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
       - **Split By**: This drop down shows categorical columns (Strings)
       - You can enable step interpolation, show minimum and maximum, and adjust the Y-axis from the control panel next to measure.  Additionally, you can adjust whether data shown is a count, average, or sum of the data.
       - You can add up to five terms to view on the same X-axis.  Use the **copy-down** button to add an additional term or click the **Add** button to add a fresh term.
-      ![Terms Editor panel](media/time-series-insights-explorer/explorer2.png)
+        ![Terms Editor panel](media/time-series-insights-explorer/explorer2.png)
 
       - **Predicate**:  The predicate enables you to quickly filter your events using the set of operands listed below. If you conduct a search by selecting/clicking, the predicate will automatically update based on that search.  Supported operand types include:
 
