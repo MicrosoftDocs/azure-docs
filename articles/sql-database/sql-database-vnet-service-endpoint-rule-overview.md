@@ -266,7 +266,7 @@ The Microsoft Azure Virtual Network service endpoints feature, and the virtual n
 
 <!-- Link references, to text, Within this same Github repo. -->
 
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics
+[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
