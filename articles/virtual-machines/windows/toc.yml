@@ -89,6 +89,8 @@
       href: premium-storage-performance.md
     - name: Standard storage
       href: standard-storage.md
+    - name: Scalability targets for disks
+      href: disk-scalability-targets.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -154,6 +156,8 @@
         href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Manage VMs
     items:
+    - name: Prepay for VMs - Reserved Instances
+      href: prepay-reserved-vm-instances.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
     - name: Move a VM
