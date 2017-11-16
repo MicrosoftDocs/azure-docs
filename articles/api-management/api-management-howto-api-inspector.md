@@ -12,8 +12,9 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/17/2017
+ms.date: 11/15/2017
 ms.author: apimpm
 
 ---
@@ -31,17 +32,37 @@ This guide provides a walk-through of using API Inspector.
 
 ## <a name="trace-call"> </a> Use API Inspector to trace a call
 To use API Inspector, add an **ocp-apim-trace: true** request header to your operation call, and then download and inspect the trace using the URL indicated by the **ocp-apim-trace-location** response header. This can be done programatically, and can also be done directly from the developer portal.
+In this tutorial, you learn how to:
 
 This tutorial shows how to use the API Inspector to trace operations using the Basic Calculator API that is configured in the [Manage your first API](api-management-get-started.md) getting started tutorial. If you haven't completed that tutorial it only takes a few moments to import the Basic Calculator API, or you can use another API of your choosing such as the Echo API. Each API Management service instance comes pre-configured with an Echo API that can be used to experiment with and learn about API Management. The Echo API returns back whatever input is sent to it. To use it, you can invoke any HTTP verb, and the return value will simply be what you sent. 
 
-To get started, click **Developer portal** in the Azure Portal for your API Management service. Operations can be called directly from the developer portal which provides a convenient way to view and test the operations of an API.
+![API inspector](media/api-management-howto-api-inspector/api-inspector001.PNG)
+
+## Prerequisites
 
 Please complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
-![API Management developer portal][api-management-developer-portal-menu]
+## Navigate to your APIM instance
 
-Click **APIs** from the top menu, and then click **Basic Calculator**.
+Sign in to the [Azure portal](https://portal.azure.com) and navigate to your APIM instance.
+    
+1. Select **>**.
+2. Type "api" in the search box.
+3. Click **API Management services**.
+
+	![Navigate](./media/api-management-get-started/navigate-to-api-management-services.png)
+
+## Use API Inspector to trace a call
+
+1. Select **APIs**.
+2. Click **Demo Conference API** from your API list.
+3. Select **GetSpeakers** operation.
+4. Switch to the **Test** tab.
+5. Make sure to include an HTTP header named **Ocp-Apim-Trace** with the value set to **true**.
+6. Click **"Send"** to make an API call. 
+7. Wait for the call to complete. 
+8. Go to the **Trace** tab in the **API console**. You can click any of the following links to jump to detailed trace info: **inbound**, **backend**, **outbound**.
 
 ![Echo API][api-management-api]
 
@@ -260,5 +281,14 @@ To review the values in the trace, download the trace file from the **ocp-apim-t
 [api-management-send-results]: ./media/api-management-howto-api-inspector/api-management-send-results.png
 
 
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * How to trace a call
+
+Advance to the next tutorial:
+
+> [!div class="nextstepaction"]
+> [Use revisions](api-management-get-started-revise-api.md)]
 
 

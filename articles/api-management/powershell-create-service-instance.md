@@ -10,11 +10,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: quickstart
-ms.date: 10/16/2017
+ms.custom: mvc
+ms.date: 11/15/2017
 ms.author: apimpm
 ---
 
 # Create a new Azure API Management service instance
+
+Azure API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM  enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md) topic.
 
 This quickstart describes the steps for creating a new API Management instance using the PowerShell scripts. The quickstart shows you how to use the **Azure Cloud Shell** that you can run from Azure portal.
 
@@ -23,6 +26,10 @@ This quickstart describes the steps for creating a new API Management instance u
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+
+## Log in to Azure
+
+Log in to the Azure portal at http://portal.azure.com.
 
 ## Create resource group
 

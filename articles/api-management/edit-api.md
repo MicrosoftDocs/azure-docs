@@ -39,7 +39,7 @@ To edit an API, follow the following steps:
 3. Click the **APIs** tab.
 4. Select one of the APIs that you previously imported.
 5. Select the **Design** tab.
-6. Select an operation to which you want to edit.
+6. Select an operation which you want to edit.
 7. To rename the operation, select a **pencil** in the **Frontend** window.
 
 ## Update the swagger

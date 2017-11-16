@@ -11,38 +11,49 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/14/2017
+ms.date: 11/15/2017
 ms.author: apimpm
 
 ---
 
 # Publish multiple versions of your API 
+
 There are times when it is impractical to have all callers to your API use exactly the same version. Sometimes you want to publish new or different API features to some users, while others want to stick with the API that currently works for them. When callers want to upgrade to a later version, they want to be able to do this using an easy to understand approach.  We can do this using **versions** in Azure API Management. For more information, see [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/).
-
-This tutorial describes how to set up versions of your API, and choose the way they are called by API developers.
-
-![Version shown on developer portal](media/api-management-getstarted-publish-versions/azure_portal.PNG)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Add a new version to an existing API
-> * How to choose a version scheme and version identifier
+> * Choose a version scheme and version identifier
+> * Add the version to a product
+> * Browse the developer portal to see the version
+
+![Version shown on developer portal](media/api-management-getstarted-publish-versions/azure_portal.PNG)
 
 ## Prerequisites
 
-Please complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
-Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
++ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
++ Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
+
+## Navigate to your APIM instance
+
+Sign in to the [Azure portal](https://portal.azure.com) and navigate to your APIM instance.
+    
+1. Select **>**.
+2. Type "api" in the search box.
+3. Click **API Management services**.
+
+	![Navigate](./media/api-management-get-started/navigate-to-api-management-services.png)
 
 ## Add a new version
 
 ![API Context menu - add version](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
-1. Browse to the **APIs** page within your API Management service in the Azure portal.
-2. Select **Conference API** from the API list.
-3. Select the context menu (**...**) next to it.
-4. Select **+ Add Version**.
+1. Select **Conference API** from the API list.
+2. Select the context menu (**...**) next to it.
+3. Select **+ Add Version**.
 
     > [!TIP]
     > Versions can also be enabled when you first create a new API - select **Version this API?** on the **Add API** screen.
@@ -91,6 +102,16 @@ For callers to see your new version, it must be added to a **product** (products
 	![API Context menu - add version](media/api-management-getstarted-publish-versions/developer_portal.png)
 
 ## Next steps
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Add a new version to an existing API
+> * Choose a version scheme and version identifier
+> * Add the version to a product
+> * Browse the developer portal to see the version
+
+Advance to the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Upgrade and scale](upgrade-and-scale.md)

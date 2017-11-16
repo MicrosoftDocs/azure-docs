@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.devlang: na
 ms.topic: sample
-ms.date: 10/30/2017
+ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
 ---
@@ -28,6 +28,13 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 [!code-powershell[main](../../../powershell_scripts/api-management/setup-rate-limit-policy/setup_rate_limit_policy.ps1?highlight=1 "Setup rate limit policy")]
 
+## Clean up resources
+
+When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group and all related resources.
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup
+```
 ## Next steps
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
