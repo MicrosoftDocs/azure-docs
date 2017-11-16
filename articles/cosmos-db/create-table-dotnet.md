@@ -114,7 +114,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
     The console window displays the table data being added to the new table database in Azure Cosmos DB. 
     
-    If you get an error about dependencies, see [Troubleshooting](table-dotnet-sdk.md#troubleshooting).
+    If you get an error about dependencies, see [Troubleshooting](table-sdk-dotnet.md#troubleshooting).
 
     When you hit the first breakpoint, go back to Data Explorer in the Azure portal and expand the demo* table and click **Entities**. The **Entities** tab on the right shows the new entity that was added, note that phone number for the user is 425-555-0101.
     
