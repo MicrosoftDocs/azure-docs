@@ -277,6 +277,8 @@
         href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Diagnostics and error recovery for Import/Export jobs
         href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Storage migration FAQ
+      href: ../common/storage-migration-faq.md
 - name: Reference
   items:
   - name: PowerShell
