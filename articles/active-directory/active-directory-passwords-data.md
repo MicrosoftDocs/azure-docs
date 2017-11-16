@@ -52,7 +52,7 @@ When a user registers, the registration page sets the following fields:
 * **Authentication Email**
 * **Security Questions and Answers**
 
-If you have provided a value for **Mobile phone** or **Alternate email**, users can immediately use those values to reset their passwords, even if they haven't registered for the service. In addition, users see those values when they register for the first time, and they can modify them if they wish to. After they register successfully, these values will be persisted in the **Authentication Phone** and **Authentication Email** fields, respectively.
+If you have provided a value for **Mobile phone** or **Alternate email**, users can immediately use those values to reset their passwords, even if they haven't registered for the service. In addition, users see those values when they register for the first time, and they can modify them if they want to. After they register successfully, these values will be persisted in the **Authentication Phone** and **Authentication Email** fields, respectively.
 
 ## Set and read the authentication data through PowerShell
 
@@ -104,7 +104,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 To get started, you need to [download and install the Azure AD version 2 PowerShell module](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). After you have it installed, you can use the steps that follow to configure each field.
 
-To quickly install from recent versions of PowerShell that support Install-Module, run the following commands (the first line checks to see if the module is already installed):
+To quickly install from recent versions of PowerShell that support Install-Module, run the following commands. (The first line checks to see if the module is already installed.)
 
 ```
 Get-Module AzureADPreview
