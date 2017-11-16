@@ -1,5 +1,5 @@
 ---
-title: How to scale assessment with  Azure Migrate | Microsoft Docs
+title: Scale discovery and assessment with Azure Migrate | Microsoft Docs
 description: Describes how to assess large numbers of on-premises machines with the Azure Migrate service.
 services: migrate
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 11/21/2017
 ms.author: raynew
 ---
 
-# Scale assessment with Azure Migrate
+# Scale machine discovery and assessment
 
 This article describes how to assess large numbers of on-premises machines with [Azure Migrate](migrate-overview.md). Azure Migrate assesses machines to check whether they're suitable for migration to Azure, and provides sizing and cost estimations for running the machine in Azure.
 

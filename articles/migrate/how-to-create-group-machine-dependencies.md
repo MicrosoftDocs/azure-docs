@@ -1,5 +1,5 @@
 ---
-title: Create an assessment using machine dependencies with Azure Migrate | Microsoft Docs
+title: Group machines using machine dependencies with Azure Migrate | Microsoft Docs
 description: Describes how to create an assessment using machine dependencies with the Azure Migrate service.
 services: migrate
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 11/21/2017
 ms.author: raynew
 ---
 
-# Assess a group using machine dependency mapping
+# Group machines using machine dependency mapping
 
 This article describes how to create a group of machines for [Azure Migrate](migrate-overview.md) assessment using machine dependency mapping. You typically use this method when you want to assess groups of VMs with higher levels of confidence by cross-checking machine dependencies, before you run an assessment.
 

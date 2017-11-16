@@ -1,6 +1,6 @@
 ---
-title: Assess on-premises VMware VMs for migration to Azure with Azure Migrate | Microsoft Docs
-description: Describes how to set up and run an assessment for migrating VMware VMs to Azure using the Azure Migration Planner
+title: Discover and assess on-premises VMware VMs for migration to Azure with Azure Migrate | Microsoft Docs
+description: Describes how to discover and assess on-premises VMware VMs for migration to Azure, using the Azure Migrate service. 
 services: migration-planner
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 11/21/2017
 ms.author: raynew
 
 ---
-# Assess on-premises VMware VMs for migration to Azure
+# Discover and assess on-premises VMware VMs for migration to Azure
 
 The [Azure Migrate](migrate-overview.md) services assesses on-premises workloads for migration to Azure.
 
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - **VMware**: You need at least one VMware VM located on an ESXi host or cluster running version 5.0 or higher. The host or cluster must be managed by a vCenter server running version 5.5 or 6.0.
 - **vCenter account**: You need a read-only account with administrator credentials for the vCenter server. Azure Migrate uses this account to discover VMs.
 - **Permissions**: On the vCenter server, you need permissions to create a VM by importing a file in .OVA format. 
-- **Statistics settings**: The statistics settings for the vCenter server should be set to level 2 before you start deployment.
+- **Statistics settings**: The statistics settings for the vCenter server should be set to level 3 before you start deployment.
 
 
 ## Create a project
@@ -46,7 +46,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 2. Search for **Azure Migrate**, and select the service (**Azure Migrate (preview)** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
-5. Specify the region in which to create the project, then click **Create**. Metadata gathered from on-premises VMs will be stored in this region.
+5. Specify the region in which to create the project, then click **Create**. Metadata gathered from on-premises VMs will be stored in this region. You can only create an Azure Migrate project in the East US region for this preview. However, you can assess VMs for a different location.
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -162,6 +162,6 @@ You can drill down to see costs for a specific machine.
 
 ## Next steps
 
-- If you need to set up an assessment for a large number of on-premises machines, read [How to scale assessment](how-to-scale-assessment.md)
+- [Learn](how-to-scale-assessment.md) how to set up an assessment for a large number of on-premises machines.
 - Learn how to create more detailed assessment groups using [machine dependency mapping](how-to-create-group-machine-dependencies.md)
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.

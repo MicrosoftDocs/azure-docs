@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 11/21/2017
 ms.author: raynew
 
 ---
@@ -22,16 +22,6 @@ ms.author: raynew
 ## Troubleshoot common errors
 
 [Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. Use this article to troubleshoot issues when deploying and using Azure Migrate.
-
-
-**I can't find Azure Migrate in the Azure Portal.** 
-
-Check you're using the the correct URL. Azure Migrate isn't visible in the regular Azure portal. It's only visible from [https://aka.ms/migrate/prod/](https://aka.ms/migrate/prod/).
-
-**I'm using the correct URL to access Azure Migrate, but I can't find it in a portal search.**
-
- Make sure you press ‘Enter’ after typing ‘Azure Migrate’ in the marketplace search page. The search doesn't work without. Also, the service is in preview so it will be listed further down in the search results.
-
 
 
 **The collector can't connect to the project using the project ID and key I copied from the portal.**

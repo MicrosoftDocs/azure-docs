@@ -39,7 +39,7 @@ Azure Migrate helps you to:
 - You can assess up to 1000 VMs in a single assessment, and up to 1500 machines in a single Azure Migrate project. If you need to assess more, you can increase the number of projects or assessments. [Learn more](how-to-scale-assessment.md).
 - VM you want to assess must be managed by a vCenter server, version 5.5 or 6.0.
 - The Azure Migrate portal is currently available in English only.
-- You can only create an Azure Migrate project in the US and Europe geographical locations. However, you can assess VMs for a different target Azure location.
+- You can only create an Azure Migrate project in the East US region. However, you can assess VMs for a different target Azure location. 
 - Azure Migrate currently supports only [Locally Redundant Storage (LRS)](../storage/common/storage-introduction.md#replication) replication.
 
 
@@ -72,6 +72,16 @@ Azure Migrate assessments are based on the settings summarized in the table.
 
 
   ![Azure Planner architecture](./media/migration-planner-overview/overview-1.png)
+
+## What are the port requirements?
+
+The table summarizes the ports needed for Azure Migrate communications.
+
+|Component          |To communicate with     |Port required  |Reason   |
+|-------------------|------------------------|---------------|---------|
+|Collector          |Azure Migrate service   |TCP 443        |Collector should be able to communicate with the service over the SSL port 443|
+|Collector          |vCenter Server          |Default 9443   |Collector should be able to communicate with the vCenter server. It connects to vCenter on 9443 by default. If the vCenter listens on a different port, that port should be available as outgoing port on the collector |
+|On-premises VM     | OMS Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |The MMA agent needs to use TCP 443 to connect over to OMS. This port is required if and only if you are using the dependency visualization feature and are installing the MMA agent on the machines |
   
 ## What happens after assessment?
 

@@ -1,6 +1,6 @@
 ---
-title: Create a group for assessment with Azure Migrate | Microsoft Docs
-description: Describes how to create a group before you run an assessment with the Azure Migrate service.
+title: Group machines for assessment with Azure Migrate | Microsoft Docs
+description: Describes how to group machines before you run an assessment with the Azure Migrate service.
 services: migrate
 documentationcenter: ''
 author: rayne-wiselman
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 11/21/2017
 ms.author: raynew
 ---
 
-# Create a group for assessment
+# Group machines for assessment
 
 This article describes how to create a group of machines for assessment by [Azure Migrate](migrate-overview.md). Azure Migrate assesses machines in the group to check whether they're suitable for migration to Azure, and provides sizing and cost estimations for running the machine in Azure.
 

@@ -16,13 +16,13 @@
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
-  - name: Scale machine assessment
+  - name: Scale discovery and assessment
     href: how-to-scale-assessment.md
-  - name: Create a group
+  - name: Groups machines
     href: how-to-create-a-group.md
-  - name: Create a group using machine dependencies
+  - name: Group machines using machine dependencies
     href: how-to-create-group-machine-dependencies.md
-  - name: Create a group using VMware tagging
+  - name: Group machines using VMware tagging
     href: how-to-tag-v-center.md
   - name: Refine a group using group dependencies
     href: how-to-create-group-dependencies.md
