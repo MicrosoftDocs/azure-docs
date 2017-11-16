@@ -74,7 +74,7 @@ the recipient of the input provided by the Synthetic Data Source.
 ### Azure Stream Analytics
 Use [Azure Stream
 Analytics](https://azure.microsoft.com/services/stream-analytics/)
-service to provide near real time analytics on the input stream
+service to provide near real-time analytics on the input stream
 from the [Azure Event Hub](#azure-event-hub) service and publish results
 onto a [Power BI](https://powerbi.microsoft.com) dashboard as well as
 archiving all raw incoming events to the [Azure
@@ -141,7 +141,7 @@ easily send events or data to an Azure Event Hub using the Event Hub
 APIs.
 
 ### Azure Stream Analytics
-Use the Azure Stream Analytics service to provide near real time
+Use the Azure Stream Analytics service to provide near real-time
 analytics by reading from data streams and outputting data to any number
 of sources.
 
@@ -169,7 +169,7 @@ in the [Stream Analytics Query
 Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 on MSDN.
 
-In this solution, the queries output three datasets with near real time
+In this solution, the queries output three datasets with near real-time
 analytics information about the incoming data stream to a Power BI
 dashboard provided as part of this solution template. Because
 there's implicit knowledge about the incoming data format, these queries
@@ -310,7 +310,7 @@ during the past 3 hours.
 
 Power BI connects to an Azure SQL database as its data source, where the
 prediction results are stored. Note: 1) On deploying your
-solution, a real prediction will appear in the database within 3 hours.
+solution, a prediction will appear in the database within 3 hours.
 The pbix file that came with the Generator download contains some seed
 data so that you may create the Power BI dashboard right away. 2) In
 this step, the prerequisite is to download and install the free software
@@ -405,7 +405,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 1. Add Power BI output in Azure Stream Analytics (ASA).
    
    * You must follow the instructions in
-     [Azure Stream Analytics & Power BI: A real time analytics dashboard for real time visibility of streaming data](../../stream-analytics/stream-analytics-power-bi-dashboard.md)
+     [Azure Stream Analytics & Power BI: An analytics dashboard for real-time visibility of streaming data](../../stream-analytics/stream-analytics-power-bi-dashboard.md)
      to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
    * The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you need to add an output to ASA. When you add the first output (**aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message ("Starting Stream Analytics job maintenancesa02asapbi succeeded").
 2. Log in to [Power BI online](http://www.powerbi.com)
