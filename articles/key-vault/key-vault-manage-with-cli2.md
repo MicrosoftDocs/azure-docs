@@ -115,6 +115,7 @@ For example:
 - The location of **East Asia**
 
 You would type:
+
 ```azurecli-interactive
 az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --location 'East Asia'
 ```
@@ -127,20 +128,25 @@ The output of this command shows properties of the key vault that you've just cr
 Your Azure account is now authorized to perform any operations on this key vault. As yet, nobody else is.
 
 ## Add a key or secret to the key vault
+
 If you want Azure Key Vault to create a software-protected key for you, use the `az key create` command, and type the following:
 ```azurecli-interactive
 az keyvault key create --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --protection software
 ```
 However, if you have an existing key in a .pem file saved as local file in a file named softkey.pem that you want to upload to Azure Key Vault, type the following to import the key from the .PEM file, which protects the key by software in the Key Vault service:
+
 ```azurecli-interactive
 az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --pem-file './softkey.pem' --pem-password 'PaSSWORD' --protection software
 ```
+
 You can now reference the key that you created or uploaded to Azure Key Vault, by using its URI. Use  **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** to always get the current version, and use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** to get this specific version.
 
 To add a secret to the vault, which is a password named SQLPassword and that has the value of Pa$$w0rd to Azure Key Vault, type the following:
+
 ```azurecli-interactive
 az keyvault secret set --vault-name 'ContosoKeyVault' --name 'SQLPassword' --value 'Pa$$w0rd'
 ```
+
 You can now reference this password that you added to Azure Key Vault, by using its URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** to always get the current version, and use **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** to get this specific version.
 
 Let's view the key or secret that you just created:
@@ -197,11 +203,13 @@ You must select the same directory that contains the Azure subscription with whi
 To authorize the application to access the key or secret in the vault, use the `az keyvault set-policy` command.
 
 For example, if your vault name is ContosoKeyVault and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, then run the following:
+
 ```azurecli-interactive
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
 ```
 
 If you want to authorize that same application to read secrets in your vault, run the following:
+
 ```azurecli-interactive
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
@@ -226,6 +234,7 @@ You can use the following command to import a key from a .pem file on your compu
 ```azurecli-interactive
 az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --protection 'hsm' --pem-password 'PaSSWORD'
 ```
+
 The next command imports a “bring your own key" (BYOK) package. This lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:
 
 ```azurecli-interactive
@@ -280,6 +289,9 @@ az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 ```
 
 ## Next steps
-For complete Azure CLI reference for key vault commands, see [Key Vault CLI reference](/cli/azure/keyvault)
 
-For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
+- For complete Azure CLI reference for key vault commands, see [Key Vault CLI reference](/cli/azure/keyvault).
+
+- For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
+
+- For information on Azure Key Vault and HSMs, see [How to use HSM-Protected Keys with Azure Key Vault](key-vault-hsm-protected-keys.md).
