@@ -55,7 +55,8 @@ Select **Change App Service plan** to start the process.
 
 **Change App Service plan** opens the **App Service plan** selector. Select an existing plan to move this app into. 
 
-> [!IMPORTANT] > The **Select App Service plan** page is filtered by the following criteria: 
+> [!IMPORTANT]
+> The **Select App Service plan** page is filtered by the following criteria: 
 > - Exists in the same resource group 
 > - Exists in the same geographical region 
 > - Exists in the same webspace  
