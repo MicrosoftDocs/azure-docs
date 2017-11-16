@@ -33,11 +33,13 @@ Using triggers and bindings, you can write code that is more generic and does no
 
 You can configure triggers and bindings in the **Integrate** tab in the Azure Functions portal. Under the covers, the UI modifies a file called *function.json* file in the function directory. You can edit this file by changing to the **Advanced editor**.
 
-The following table shows the triggers and bindings that are supported with Azure Functions. 
+## Supported bindings
+
+The following table shows the bindings that are supported in the two major versions of the Azure Functions runtime. Some types have trigger bindings without input bindings, but all trigger bindings have associated input data.  Input bindings are used in functions triggered by a different binding type.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### Example: queue trigger and table output binding
+## Example: queue trigger and table output binding
 
 Suppose you want to write a new row to Azure Table Storage whenever a new message appears in Azure Queue Storage. This scenario can be implemented using an Azure Queue trigger and an Azure Table Storage output binding. 
 
@@ -124,9 +126,9 @@ To view and edit the contents of *function.json* in the Azure portal, click the 
 
 For more code examples and details on integrating with Azure Storage, see [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md).
 
-### Binding direction
+## Binding direction
 
-All triggers and bindings have a `direction` property:
+All triggers and bindings have a `direction` property in the *function.json* file:
 
 - For triggers, the direction is always `in`
 - Input and output bindings use `in` and `out`
