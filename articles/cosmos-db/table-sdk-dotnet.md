@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: mimig
 
 ---
@@ -52,6 +52,12 @@ Any request to Azure Cosmos DB using a retired SDK will be rejected by the servi
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |November 15, 2017|--- |
 | [0.9.0-preview](#0.1.0-preview) |November 11, 2017 |--- |
+
+## Troubleshooting
+
+If you get the error `Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: 'nuget.org', 'CliFallbackFolder', 'Microsoft Visual Studio Offline Packages', 'Microsoft Azure Service Fabric SDK'`, when attempting to use the Microsoft.Azure.CosmosDB.Table NuGet package, you have two options to fix the issue:
+* Use Package Manage Console to install the Microsoft.Azure.CosmosDB.Table package and it's dependencies. To do this, type `Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease` in the Package Manager Console for your solution. 
+* Using your preferred Nuget package management tool, install the Microsoft.Azure.Storage.Common Nuget package before installing Microsoft.Azure.CosmosDB.Table.
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
