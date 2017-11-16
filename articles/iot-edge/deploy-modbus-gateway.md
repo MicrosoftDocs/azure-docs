@@ -18,19 +18,15 @@ ms.author: kgremban
 ms.custom: 
 ---
 
-# Deploy Modbus TCP as an IoT Edge module - preview
+# Connect Modbus TCP devices with Azure using an IoT Edge device as a gateway - preview
 
-You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Modbus module that reads data from Modbus devices.  
+If you want to connect IoT devices that use Modbus TCP protocol to an Azure IoT hub, use an IoT Edge device as a gateway. The gateway device reads data from your Modbus devices, then communicates that data to the cloud using a supported protocol. 
+
+This article covers how to create your own container image for a Modbus module (or you can use a prebuilt sample) and then deploy it to the IoT Edge device that will act as your gateway. 
 
 Currently the Modbus module only supports Modbus TCP protocol. 
 
-In this tutorial, you learn how to: 
-
-[x]Get Modbus container ready  
-[x]Deploy an Modbus TCP module to your IoT Edge device  
-[x]View generated data
-
-## Prerequisites ##
+## Prerequisites
 * The Azure IoT Edge device that you created in the quickstart or first tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.
 * The Modbus container(use prebuilt binary or build one your own)
