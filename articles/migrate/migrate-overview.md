@@ -39,7 +39,7 @@ Azure Migrate helps you to:
 - You can assess up to 1000 VMs in a single assessment, and up to 1500 machines in a single Azure Migrate project. If you need to assess more, you can increase the number of projects or assessments. [Learn more](how-to-scale-assessment.md).
 - VM you want to assess must be managed by a vCenter server, version 5.5 or 6.0.
 - The Azure Migrate portal is currently available in English only.
-- You can only create an Azure Migrate project in the US and Europe geographical locations. However, you can assess VMs for a different target Azure location.
+- You can only create an Azure Migrate project in the East US region. However, you can assess VMs for a different target Azure location. 
 - Azure Migrate currently supports only [Locally Redundant Storage (LRS)](../storage/common/storage-introduction.md#replication) replication.
 
 
