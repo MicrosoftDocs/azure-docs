@@ -20,7 +20,7 @@ ms.date: 11/25/2017
 ms.author: jejiang
 
 ---
-# Debug Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH and local run
+# Debug Spark applications locally or remotely on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH
 
 This article provides step-by-step guidance on how to use HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on an HDInsight cluster. To debug your project, you can also view the [Debug HDInsight Spark applications with Azure Toolkit for IntelliJ](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) video.
 
@@ -105,7 +105,7 @@ To resolve this error, [download the executable](http://public-repo-1.hortonwork
 2. In the **Run/Debug Configurations** dialog box, select the plus sign (**+**). Then select the **Azure HDInsight Spark Job** option.
 
    ![Add new configuration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-3. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then select **Advanced configuration**. Our tools support debug with **Executors**. The **numExectors**, the default value is 5. You'd better set not higher than 3.
+3. Enter information for **Name**, **Spark cluster**, and **Main class name**. Then select **Advanced configuration**. Our tools support debug with **Executors**. The **numExectors**, the default value is 5. You'd better not set higher than 3.
 
    ![Run debug configurations](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
@@ -119,7 +119,7 @@ To resolve this error, [download the executable](http://public-repo-1.hortonwork
    
    ![Remote run button](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
 
-7. Remote run result:
+7. You can click the **Disconnect** button if you not need the running logs of the right panel.  Once completed, the result  displays in the left panel.
 
    ![Remote run button](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 
