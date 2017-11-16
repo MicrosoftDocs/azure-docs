@@ -18,12 +18,6 @@ ms.author: adegeo
 
 ---
 # Configuring a custom domain name for an Azure cloud service
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-custom-domain-name-portal.md)
-> * [Azure classic portal](cloud-services-custom-domain-name.md)
-> 
-> 
-
 When you create a Cloud Service, Azure assigns it to a subdomain of **cloudapp.net**. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://contoso.cloudapp.net. Azure also assigns a virtual IP address.
 
 However, you can also expose your application on your own domain name, such as **contoso.com**. This article explains how to reserve or configure a custom domain name for Cloud Service web roles.
@@ -59,7 +53,7 @@ An *A* record maps a domain, such as **contoso.com** or **www.contoso.com**, *or
 > [!NOTE]
 > Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your Cloud Service. The IP address used by your Cloud Service is allocated the first time you deploy to an empty slot (either production or staging.) If you delete the deployment for the slot, the IP address is released by Azure and any future deployments to the slot may be given a new IP address.
 > 
-> Conveniently, the IP address of a given deployment slot (production or staging) is persisted when swapping between staging and production deployments or performing an in-place upgrade of an existing deployment. For more information on performing these actions, see [How to manage cloud services](cloud-services-how-to-manage.md).
+> Conveniently, the IP address of a given deployment slot (production or staging) is persisted when swapping between staging and production deployments or performing an in-place upgrade of an existing deployment. For more information on performing these actions, see [How to manage cloud services](cloud-services-how-to-manage-portal.md).
 > 
 > 
 
@@ -138,7 +132,7 @@ This example demonstrates creating an A record for the root domain. If you wish 
 > 
 
 ## Next steps
-* [How to Manage Cloud Services](cloud-services-how-to-manage.md)
+* [How to Manage Cloud Services](cloud-services-how-to-manage-portal.md)
 * [How to Map CDN Content to a Custom Domain](../cdn/cdn-map-content-to-custom-domain.md)
 * [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).

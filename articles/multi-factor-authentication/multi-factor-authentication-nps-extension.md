@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication

@@ -57,7 +57,7 @@ You can edit the default security policy for each of your Azure subscriptions in
 	![Available policy definitions](./media/security-center-policies/security-center-policies-fig11.png)
 
     * For a detailed explanation of a policy, select it.  
-    A definition **Preview** window opens. It displays a description of the definition and a link to the JSON code that provides the [policy definition](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure) structure.
+    A definition **Preview** window opens. It displays a description of the definition and a link to the JSON code that provides the [policy definition](../azure-policy/policy-definition.md) structure.
 
 	![The definition Preview window](./media/security-center-policies/security-center-policies-fig14.png)
 
@@ -69,7 +69,7 @@ To understand the policy definitions that are available in the default security 
 
 | Policy | What the enabled policy does |
 | --- | --- |
-| System updates |Retrieves a daily list of available security and critical updates from Windows Update or Windows Server Update Services. The retrieved list depends on the service that's configured for your virtual machines, and it recommends that missing updates be applied. For Linux systems, the policy uses the distro-provided package-management system to determine packages that have available updates. It also checks for security and critical updates from [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure.md) virtual machines. |
+| System updates |Retrieves a daily list of available security and critical updates from Windows Update or Windows Server Update Services. The retrieved list depends on the service that's configured for your virtual machines, and it recommends that missing updates be applied. For Linux systems, the policy uses the distro-provided package-management system to determine packages that have available updates. It also checks for security and critical updates from [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md) virtual machines. |
 | OS vulnerabilities |Analyzes operating system configurations daily to determine issues that could make the virtual machine vulnerable to attack. The policy also recommends configuration changes to address these vulnerabilities. For more information about the specific configurations that are being monitored, see the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (At this time, Windows Server 2016 is not fully supported.) |
 | Endpoint protection |Recommends that endpoint protection be set up for all Windows virtual machines (VMs) to help identify and remove viruses, spyware, and other malicious software. |
 | Disk encryption |Recommends enabling disk encryption in all virtual machines to enhance data protection at rest. |
