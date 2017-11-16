@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/15/2017
 ms.author: maheshu
 
 ---
@@ -76,7 +76,8 @@ If you do not expect to use a certificate from a public certification authority,
 **Create a self-signed certificate using PowerShell**
 
 On your Windows computer, open a new PowerShell window as **Administrator** and type the following commands, to create a new self-signed certificate.
-```
+
+```powershell
 $lifetime=Get-Date
 New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```
