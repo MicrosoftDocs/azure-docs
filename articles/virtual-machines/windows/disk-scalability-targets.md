@@ -5,7 +5,7 @@ services: virtual-machines
 author: tamram
 manager: jeconnoc
 ms.author: tamram
-ms.date: 11/06/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: virtual-machines
 ms.tgt_pltfrm: windows
@@ -28,4 +28,5 @@ See [Windows VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvi
 
 ## See also
 
-[Azure subscription and service limits, quotas, and constraints](../../../azure-subscription-service-limits.md)
+[Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits)
+
