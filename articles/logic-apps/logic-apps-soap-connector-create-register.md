@@ -182,8 +182,8 @@ for example, with all Logic Apps users,
 
 ## FAQ
 
-**Q:** Is the SOAP connector generally available (GA) ? </br>
-**A:** The SOAP connector is in **Preview** , and is not a GA service yet.
+**Q:** Is the SOAP connector generally available (GA)? </br>
+**A:** The SOAP connector is in **Preview**, and is not a GA service yet.
 
 **Q:** Are there any restrictions and known issues for SOAP connector? </br>
 **A:** Yes, see the [SOAP connector restrictions and known issues](../api-management/api-management-api-import-restrictions.md#wsdl).
