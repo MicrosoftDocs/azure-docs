@@ -27,6 +27,7 @@ VPN client configuration files are contained in a zip file. Configuration files 
   1. [Set up the Azure VPN gateway for P2S connectivity](point-to-site-how-to-radius-ps.md).
   2. [Set up your RADIUS server for authentication](point-to-site-how-to-radius-ps.md#radius). 
   3. (This article) - Obtain the VPN client configuration for the authentication option of your choice and use it to set up the VPN client on your Windows device. This lets you connect to Azure VNets over a P2S connection.
+  4. [Complete your P2S configuration and connect](point-to-site-how-to-radius-ps.md).
 
 >[!IMPORTANT]
 >If there are any changes to the Point-to-Site VPN configuration after you generate the VPN client configuration profile, such as the VPN protocol type or authentication type, you must generate and install a new VPN client configuration on your user devices.
@@ -51,9 +52,9 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
  
 Running the command returns a link. Copy and paste the link to a web browser to download 'VpnClientConfiguration.zip'. Unzip the file to view the following folders: 
  
-* *WindowsAmd64* and *WindowsX86* - These folders contain the Windows 64-bit and 32-bit installer packages, respectively. 
-* *GenericDevice* - This folder contains general information used to create your own VPN client configuration. Ignore this folder.
-* *Mac* - If IKEv2 was configured when you created the virtual network gateway, you see a folder named *Mac* that contains a *mobileconfig* file. This file is used to configure Mac clients.
+* **WindowsAmd64** and **WindowsX86** - These folders contain the Windows 64-bit and 32-bit installer packages, respectively. 
+* **GenericDevice** - This folder contains general information used to create your own VPN client configuration. This folder is not needed for username/password authentication configurations.
+* **Mac** - If IKEv2 was configured when you created the virtual network gateway, you see a folder named 'Mac' that contains a **mobileconfig** file. This file is used to configure Mac clients.
 
 If you already created client configuration files, you can retrieve them by using the 'Get-AzureRmVpnClientConfiguration' cmdlet. However, if you make any changes to your P2S VPN configuration, such as the VPN Protocol type or authentication type, the configuration doesn’t update automatically. You must run the 'New-AzureRmVpnClientConfiguration' cmdlet to create a new configuration download.
 
@@ -126,8 +127,8 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 
 Running the command returns a link. Copy and paste the link to a web browser to download 'VpnClientConfiguration.zip'. Unzip the file to view the following folders:
 
-* *WindowsAmd64* and *WindowsX86* - These folders contain the Windows 64-bit and 32-bit installer packages, respectively. 
-* *GenericDevice* - This folder contains general information used to create your own VPN client configuration. Ignore this folder.
+* **WindowsAmd64** and **WindowsX86** - These folders contain the Windows 64-bit and 32-bit installer packages, respectively. 
+* **GenericDevice** - This folder contains general information used to create your own VPN client configuration.
 
 If you already created client configuration files, you can retrieve them by using the 'Get-AzureRmVpnClientConfiguration' cmdlet. However, if you make any changes to your P2S VPN configuration, such as the VPN Protocol type or authentication type, the configuration doesn’t update automatically. You must run the 'New-AzureRmVpnClientConfiguration' cmdlet to create a new configuration download.
 
