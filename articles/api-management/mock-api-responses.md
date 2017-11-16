@@ -1,23 +1,24 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Test an API Management instance with mocked API responses | Microsoft Docs
+title: Mock API responses with the Azure portal  | Microsoft Docs
 description: This tutorial shows you how to use API Management (APIM) to set a policy on an API so it returns a mocked response. This method endables developers to proceed with implementation and testing of the API Management instance in case the backend is not available to send real responses.
 services: api-management
 documentationcenter: ''
-author: antonba
-manager: anneta
+author: juliako
+manager: cfowler
 editor: ''
 
 ms.service: api-management
-ms.workload: integration
-ms.topic: article
-ms.date: 10/10/2017
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 11/16/2017
 ms.author: apimpm
+
 ---
+# Mock API responses
 
-# Test an APIM instance with mocked API responses
-
-The steps in this tutorial show you how to use API Management (APIM) to set a policy on an API so it returns a mocked response. This method enables a developer to proceed with implementation and testing of the APIM instance in case the backend is not available to send real responses. Ability to mock up responses can be useful in a number of scenarios:
+Backend APIs can be imported into an APIM API or created and managed manually. The steps in this tutorial show you how to use APIM to create a blank API and manage it manually. The tutorial shows how to set a policy on an API so it returns a mocked response. This method enables developers to proceed with implementation and testing of the APIM instance even if the backend is not available to send real responses. Ability to mock up responses can be useful in a number of scenarios:
 
 + When the API façade is designed first and the backend implementation comes later. Or, the backend is being developed in parallel).
 + When the backend is temporarily not operational or not able to scale.
@@ -31,12 +32,13 @@ In this tutorial, you learn how to:
 > * Enable response mocking
 > * Test the mocked API
 
+You can view a video that talks about APIM mock up at the end of the article.
+
 ## Prerequisites
 
-+ [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ [Import and publish your first API](import-and-publish.md)
+Please complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-## Create a test API and operation
+## Create a test API and an operation
 
 The steps in this section show how to create a blank API with no backend. It also shows how to add an operation to the API. Calling the operation after completing steps in this section produces an error. You will get no errors after you complete steps in the "Enable response mocking" section.
 
@@ -54,19 +56,31 @@ The steps in this section show how to create a blank API with no backend. It als
 
 1. Select the API you created in the previous step.
 2. Click **+ Add Operation**.
-3. Enter "*/test*" for **URL**.
-4. Enter "*Test call*" for **Display name**.
-5. Select the **Response** tab, located under the URL, Display name, and Description fields.
-6. Click **+ Add response**.
-7. Select **200 OK** from the list.
-8. Under the **Representations** heading on the right, select **+ Add representation**.
-9. Enter "*application/json*" into the search box and select the **application/json** content type.
-11. In the **Sample** text box, enter  "*{ 'sampleField' : 'test' }*".
-12. Select **Save**.
+
+	![Mocked operation response](./media/mock-api-responses/mock-api-responses02.png)
+
+    |Setting|Value|Description|
+    |---|---|---|
+    |**URL** (HTTP verb)|GET|You can choose from one of the predefined HTTP verbs.|
+    |**URL** |*/test*|A URL path for the API. |
+    |**Display name**|*Test call*|The name that is displayed in the **Developer portal**.|
+    |**Description**||Provide a description of the operation that is used to provide documentation to the developers using this API in the **Developer portal**.|
+    |**Query** tab||You can add query parameters. Besides providing a name and description, you can provide values that can be assigned to this parameter. One of the values can be marked as default (optional).|
+    |**Request** tab||You can define request content types, examples, and schemas. |
+    |**Response** tab|See steps that follow this table.|Define response status codes, content types, examples, and schemas.|
+
+3. Select the **Response** tab, located under the URL, Display name, and Description fields.
+4. Click **+ Add response**.
+5. Select **200 OK** from the list.
+6. Under the **Representations** heading on the right, select **+ Add representation**.
+7. Enter "*application/json*" into the search box and select the **application/json** content type.
+8. In the **Sample** text box, enter  "*{ 'sampleField' : 'test' }*".
+9. Select **Save**.
 
 ## Enable response mocking
 
 1. Select the API you created in the "Create a test API" step.
+2. Select the test operation that you added.
 2. In the window on the right, click the **Design** tab.
 3. In the **Inbound processing** window, click the pencil icon.
 4. In the **Mocking** tab, select **Static responses** for **Mocking behavior**.
@@ -85,7 +99,13 @@ The steps in this section show how to create a blank API with no backend. It als
 3. Select **Send** to make a test call.
 4. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial.
 
+## View video
+
+> [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
+> 
+> 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Transform and protect a published API](api-management-howto-product-with-rules.md)
+> [Transform and protect a published API](transform-api.md)

@@ -129,9 +129,9 @@ The developer portal is where developers can learn about your APIs, view and cal
 You can customize the look and feel of your developer portal by adding custom content, customizing styles, and adding your branding.
 
 ## API Management and the API economy
-To learn more about API Management, watch the following presentation from the Microsoft Ignite 2015 conference.
+To learn more about API Management, watch the following presentation from the Microsoft Ignite 2017 conference.
 
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3708/player]
+> [!VIDEO https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2186/player]
 > 
 > 
 
@@ -147,7 +147,7 @@ To learn more about API Management, watch the following presentation from the Mi
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
-[How create and configure advanced product settings]: api-management-howto-product-with-rules.md
+[How create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: api-management-howto-create-or-invite-developers.md
 [Policy reference]: api-management-policy-reference.md
 [API Management policies]: api-management-howto-policies.md

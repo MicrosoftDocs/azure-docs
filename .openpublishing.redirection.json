@@ -13589,6 +13589,36 @@
             "source_path": "articles/virtual-network/virtual-networks-multiple-nics.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-multinic-classic-ps",
             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-get-started.md",
+             "redirect_url": "/azure/api-management/import-and-publish",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-howto-import-api.md",
+             "redirect_url": "/azure/api-management/import-and-publish",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-howto-product-with-rules.md",
+             "redirect_url": "/azure/api-management/transform-api",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-howto-create-apis.md",
+             "redirect_url": "/azure/api-management/import-and-publish",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-product.md",
+             "redirect_url": "/azure/api-management/api-management-howto-add-products",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-howto-add-operations.md",
+             "redirect_url": "/azure/api-management/mock-api-responses",
+             "redirect_document_id": false
         }
     ]
 }

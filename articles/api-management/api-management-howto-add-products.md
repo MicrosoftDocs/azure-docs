@@ -17,7 +17,8 @@ ms.date: 12/15/2016
 ms.author: apimpm
 
 ---
-# How to create and publish a product in Azure API Management
+# Create and publish a product  
+
 In Azure API Management, a product contains one or more APIs as well as a usage quota and the terms of use. Once a product is published, developers can subscribe to the product and begin to use the product's APIs. The topic provides a guide to creating a product, adding an API, and publishing it for developers.
 
 ## <a name="create-product"> </a>Create a product
@@ -31,21 +32,33 @@ Operations are added and configured to an API in the publisher portal. To access
 
 Click on **Products** in the menu on the left to display the **Products** page, and click **Add Product**.
 
-![Products][api-management-products]
+Please complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
+Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
 ![New product][api-management-add-new-product]
 
 Enter a descriptive name for the product in the **Name** field and a description of the product in the **Description** field.
 
-Products in API Management can be **Open** or **Protected**. Protected products must be subscribed to before they can be used, while open products can be used without a subscription. Check **Require subscription** to create a protected product that requires a subscription. This is the default setting.
+    ![added product](media/api-management-howto-add-products/add-product.png)
 
-Check **Require subscription approval** if you want an administrator to review and accept or reject subscription attempts to this product. If the box is unchecked, subscription attempts will be auto-approved. For more information on subscriptions, see [View subscribers to a product][View subscribers to a product].
+    When you add a product, you need to supply the following information. 
 
-To allow developer accounts to subscribe multiple times to the product, check the **Allow multiple subscriptions** check box. If this box is not checked, each developer account can subscribe only a single time to the product.
+    |Name|Description|
+    |---|---|
+    |Display name|The name as you want it to be shown in the **Developer portal**.|
+    |Name|A descriptive name of the product.|
+    |Description|The **Description** field allows you to provide detailed information about the product such as its purpose, the APIs it provides access to, and other useful information.|
+    |State|Press **Published** if you want to publish the product. Before the APIs in a product can be called, the product must be published. By default new products are unpublished, and are visible only to the  **Administrators** group.|
+    |Requires approval|Check **Require subscription approval** if you want an administrator to review and accept or reject subscription attempts to this product. If the box is unchecked, subscription attempts are auto-approved. |
+    |Subscription count limit|To limit the count of multiple simultaneous subscriptions, enter the subscription limit. |
+    |Legal terms|You can include the terms of use for the product which subscribers must accept in order to use the product.|
+    |APIs|During the product creation, you can add an existing API to it. Alternatively, you can add an existing APIs to an existing product.<br/>Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default. <br/>You can add an API during the product creation. You can add an API to the product later, either from the Products **Settings** page or while creating an API.|
 
-![Unlimited multiple subscriptions][api-management-unlimited-multiple-subscriptions]
+5. Click **Save** to create the new product.
 
-To limit the count of multiple simultaneous subscriptions, check the **Limit number of simultaneous subscriptions to** check box and enter the subscription limit. In the following example, simultaneous subscriptions are limited to four per developer account.
+## Add more configurations
+
+You can continue configuring the product after saving it by choosing the **Settings** tab located under your product. 
 
 ![Four multiple subscriptions][api-management-four-multiple-subscriptions]
 

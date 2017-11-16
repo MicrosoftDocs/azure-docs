@@ -4,15 +4,18 @@ title: Monitor published APIs in Azure API Management | Microsoft Docs
 description: Follow the steps of this tutorial to learn how to monitor your API in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: miaojiang
-manager: anneta
+author: juliako
+manager: cfowler
 editor: ''
 
 ms.service: api-management
-ms.workload: integration
-ms.topic: article
-ms.date: 10/10/2017
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 10/16/2017
 ms.author: apimpm
+
 ---
 
 # Monitor published APIs
@@ -37,9 +40,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-+ [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ [Import and publish your first API](import-and-publish.md)
-+ [Transform the API using policies](api-management-howto-product-with-rules.md)
+Please complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
+Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
 ## Activity Logs
 Activity logs provide insight into the operations that were performed on your API Management services. Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your API Management services. 
@@ -65,8 +67,9 @@ To access diagnostic logs:
 
 ## View metrics of your APIs
 
-API Management currently emits five metrics. These metrics are emitted every minute, giving you near real-time visibility into the state and health of your APIs. Following is a summary of the metrics:
+API Management emits metrics every minute, giving you near real-time visibility into the state and health of your APIs. Following is a summary of some of the available metrics:
 
+* Capacity (preview):  helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 and is calculated based on gateway recourses such as CPU and memory utilization.
 * Total Gateway Requests: the number of API requests in the period. 
 * Successful Gateway Requests: the number of API requests that received successful HTTP response codes including 304, 307 and anything smaller than 301 (for example, 200). 
 * Failed Gateway Requests: the number of API requests that received erroneous HTTP response codes including 400 and anything larger than 500.
@@ -77,8 +80,10 @@ To access metrics:
 
 1. Browse to your APIM instance.
 2. Select **Metrics** from the menu near the bottom of the page.
-3. Select **Total Gateway Requests** and **Failed Gateway Requests** from the list of available metrics.
-4. The chart on the right now shows the total number of API calls. It also shows the number of API calls that failed. 
+3. From the drop-down, select metrics you are interested in (you can add multiple metrics). 
+    
+    For example, select **Total Gateway Requests** and **Failed Gateway Requests** from the list of available metrics.
+4. The chart shows the total number of API calls. It also shows the number of API calls that failed. 
 
 ## Set up an alert rule for unauthorized request
 

@@ -1,6 +1,6 @@
 ---
-title: Trace calls with API Inspector - Azure API Management | Microsoft Docs
-description: Learn how to trace calls using the API Inspector in Azure API Management.
+title: Debug your APIs using request tracing in Azure API Management | Microsoft Docs
+description: Follow the steps of this tutorial to learn how to inspect request processing steps in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: juliako
@@ -12,9 +12,10 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2017
+ms.topic: tutorial
+ms.date: 10/17/2017
 ms.author: apimpm
+
 ---
 # How to use the API Inspector to trace calls in Azure API Management
 API Management provides an API Inspector tool to help you with debugging and troubleshooting your APIs. The API Inspector can be used programmatically and can also be used directly from the developer portal. 
@@ -35,9 +36,8 @@ This tutorial shows how to use the API Inspector to trace operations using the B
 
 To get started, click **Developer portal** in the Azure Portal for your API Management service. Operations can be called directly from the developer portal which provides a convenient way to view and test the operations of an API.
 
-> If you haven't yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
-> 
-> 
+Please complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
+Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
 ![API Management developer portal][api-management-developer-portal-menu]
 

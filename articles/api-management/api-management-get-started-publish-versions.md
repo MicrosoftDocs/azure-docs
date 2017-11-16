@@ -3,23 +3,26 @@ title: Publish versions of your API using Azure API Management | Microsoft Docs
 description: Follow the steps of this tutorial to learn how to publish multiple versions in API Management.
 services: api-management
 documentationcenter: ''
-author: mattfarm
-manager: anneta
+author: juliako
+manager: cfowler
 editor: ''
 
 ms.service: api-management
-ms.workload: integration
-ms.topic: article
-ms.date: 10/10/2017
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 11/14/2017
 ms.author: apimpm
+
 ---
 
-# Publish multiple versions of your API in a predictable way
+# Publish multiple versions of your API 
 There are times when it is impractical to have all callers to your API use exactly the same version. Sometimes you want to publish new or different API features to some users, while others want to stick with the API that currently works for them. When callers want to upgrade to a later version, they want to be able to do this using an easy to understand approach.  We can do this using **versions** in Azure API Management. For more information, see [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/).
 
 This tutorial describes how to set up versions of your API, and choose the way they are called by API developers.
 
-![Version shown on developer portal](media/api-management-getstarted-publish-versions/VersionDevPortal.PNG)
+![Version shown on developer portal](media/api-management-getstarted-publish-versions/azure_portal.PNG)
 
 In this tutorial, you learn how to:
 
@@ -29,8 +32,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-+ [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ [Import and publish an API](import-and-publish.md)
+Please complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
+Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
 ## Add a new version
 
@@ -84,6 +87,8 @@ For callers to see your new version, it must be added to a **product** (products
 2. Select **APIs**, notice that **Conference API** shows **Original** and **v1** versions.
 3. Select **v1**.
 4. Notice the **Request URL** of the first operation in the list. It shows that the API URL path includes **v1**.
+
+	![API Context menu - add version](media/api-management-getstarted-publish-versions/developer_portal.png)
 
 ## Next steps
 

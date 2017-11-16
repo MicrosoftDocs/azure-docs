@@ -1,25 +1,28 @@
 ---
-title: Use revisions to update your API in Azure API Management | Microsoft Docs
+title: Use revisions to make non-breaking changes safely in Azure API Management | Microsoft Docs
 description: Follow the steps of this tutorial to learn how to make non-breaking changes using revisions in API Management.
 services: api-management
 documentationcenter: ''
-author: mattfarm
-manager: anneta
+author: juliako
+manager: cfowler
 editor: ''
 
 ms.service: api-management
-ms.workload: integration
-ms.topic: article
-ms.date: 10/03/2017
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 10/16/2017
 ms.author: apimpm
+
 ---
 
-# Make non-breaking changes safely using revisions
+# Use revisions to make non-breaking changes safely
 When your API is ready to go and starts to be used by developers, you usually need to take care in making changes to that API and at the same time not to disrupt callers of your API. It's also useful to let developers know about the changes you made. We can do this in Azure API Management using **revisions**. For more information, see [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) and [API Versioning with Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
 
 This tutorial describes how to make changes to your API safely, and communicate the change to your developers.
 
-![Change Log on the Developer Portal](media/api-management-getstarted-revise-api/ChangeLogDevPortal.PNG)
+![Change Log on the Developer Portal](media/api-management-getstarted-revise-api/azure_portal.PNG)
 
 In this tutorial, you learn how to:
 
@@ -30,8 +33,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-+ [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ [Import and publish an API](import-and-publish.md)
+Please complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
+Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
 ## Add a new revision
 1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
@@ -41,7 +44,7 @@ In this tutorial, you learn how to:
 5. Select **+ Add Revision**
 
     > [!TIP]
-    > You can also choose **Add Revision** in the context menu (**...**) on the API.
+    > You can also choose **Add Revision** in the context menu (**...**) of the API.
     
     ![Revisions menu near top of screen](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
@@ -61,7 +64,7 @@ In this tutorial, you learn how to:
     > Use the revision selector to switch between revisions that you wish to work on.
 
 4. Select **+ Add Operation**.
-5. Set your new operation to be **POST**, and the Name & Display Name of the operation as **Feedback**
+5. Set your new operation to be **POST**, and the Name & Display Name of the operation as **test**
 6. **Save** your new operation.
 7. We have now made a change to **Revision 2**. Use the **Revision Selector** near the top of the page to switch back to **Revision 1**.
 8. Notice that your new operation does not appear in **Revision 1**. 
@@ -71,20 +74,20 @@ In this tutorial, you learn how to:
 
     ![The revision menu on the revision screen.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
 1. Open the context menu (**...**) for **Revision 2**.
-2. Select **Make Current**.
-
-    ![Make revision current and post to change log](media/api-management-getstarted-revise-api/MakeCurrent.PNG)
-1. Select **Post to Public Change Log for this API**
-2. Provide a description for your change that developers see, for example **"Added new Feedback operation."**
-3. **Revision 2** is now current.
+2. Select **Make Current**. Check **Post to Public Change log for this API**, if you want to post notes about this change.
+3. Select **Post to Public Change Log for this API**
+4. Provide a description for your change that developers see, for example **Testing revisions. Added new "test" operation.**
+5. **Revision 2** is now current.
 
 ## Browse the developer portal to see changes and change log
 1. In the Azure portal, select **APIs**
 2. Select **Developer Portal** from the top menu.
 3. Select **APIs**, and then select **Conference API**.
-4. Notice your new **Feedback** operation is now available.
+4. Notice your new **test** operation is now available.
 5. Select **API Change History** from below the API name.
 6. Notice that your change log entry appears in this list.
+
+    ![Developer portal](media/api-management-getstarted-revise-api/developer_portal.PNG)
 
 ## Next steps
 

@@ -57,7 +57,7 @@ When a feature is in preview, it means that we're actively seeking feedback on h
 ### How can I secure the connection between the API Management gateway and my back-end services?
 You have several options to secure the connection between the API Management gateway and your back-end services. You can:
 
-* Use HTTP basic authentication. For more information, see [Configure API settings](api-management-howto-create-apis.md#configure-api-settings).
+* Use HTTP basic authentication. For more information, see [Import and publish your first API](import-and-publish.md).
 * Use SSL mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
 * Use IP whitelisting on your back-end service. If you have a Standard or Premium tier API Management instance, the IP address of the gateway remains constant. You can set your whitelist to allow this IP address. You can get the IP address of your API Management instance on the Dashboard in the Azure portal.
 * Connect your API Management instance to an Azure Virtual Network.

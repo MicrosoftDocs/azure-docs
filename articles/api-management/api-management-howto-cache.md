@@ -96,7 +96,7 @@ To see the caching in action, call the operation from the developer portal.
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
