@@ -93,7 +93,17 @@ When using Azure Resource Manager, all related resources are created inside a re
 az group create -n 'ContosoResourceGroup' -l 'East Asia'
 ```
 
-The first parameter is resource group name and the second parameter is the location. For location, use the command `az account list-locations` to identify how to specify an alternative location to the one in this example. If you need more information, type: `az account list-locations -h`.
+The first parameter is resource group name and the second parameter is the location. To get a list of all possible locations type:
+
+```azurecli-interactive
+az account list-locations
+``` 
+
+If you need more information, type: 
+
+```azurecli-interactive
+az account list-locations -h
+```
 
 ## Register the Key Vault resource provider
 When you try to create a new key vault you may see the error "The subscription is not registered to use namespace 'Microsoft.KeyVault'". If that message appears make sure that Key Vault resource provider is registered in your subscription:
