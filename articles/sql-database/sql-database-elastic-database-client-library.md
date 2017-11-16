@@ -21,7 +21,9 @@ ms.author: ddove
 # Building scalable cloud databases
 Scaling out databases can be easily accomplished using scalable tools and features for Azure SQL Database. In particular, you can use the **Elastic Database client library** to create and manage scaled-out databases. This feature lets you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases. [Elastic jobs](sql-database-elastic-jobs-powershell.md) can then be used to help ease management of these databases.
 
-To install the library, go to NuGet at [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+To download:
+* the .NET version of the library, see [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+* the JAVA version of the library, see [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 
 ## Documentation
 1. [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md)
@@ -55,14 +57,11 @@ In general, customers using elastic database tools can expect to get full T-SQL 
 
 ## Next steps
 
-- [Elastic Database Client Library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) - to **install** the library by using NuGet.
+- Elastic Database Client Library([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) - to **download** the library.
 
 - [Get started with elastic database tools](sql-database-elastic-scale-get-started.md) - to try the **sample app** that demonstrates client functions.
 
-- [Github, Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools) - the library is open source software.
-    - Elastic database tools client library allows ADO.NET developers to create applications that implement and use the pattern known as database sharding in Azure SQL Database.
-
-- [Elastic database client library is now open sourced!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) - a **blog post** about Elastic Database Client Library, dated 2015/09/09.
+- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) - to make contributions to the code, follow instructions provided in their respective GitHub repositories.
 
 - [Azure SQL Database elastic query overview](sql-database-elastic-query-overview.md) - to use elastic queries.
 
