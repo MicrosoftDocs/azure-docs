@@ -23,7 +23,7 @@ ms.custom: it-pro;
 This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to create and update groups. This content applies only to Office 365 groups. 
 
 > [!IMPORTANT]
-> Some settings require an Azure Active Directory Premium P1 license.
+> Some settings require an Azure Active Directory Premium P1 license. For more information, see the [Template settings](#template-settings) table.
 
 For more information on how to allow users to create security groups, set `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` as described in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
@@ -85,6 +85,7 @@ Upon successful completion, the cmdlet returns the ID of the new settings object
   --                                   ----------- ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
+## Template settings
 Here are the settings defined in the Group.Unified SettingsTemplate. Unless otherwise indicated, these features require an Azure Active Directory Premium P1 license. 
 
 | **Setting** | **Description** |
