@@ -23,6 +23,7 @@ ms.custom: H1Hack27Feb2017
 
 # Utilize Azure infrastructure VM restart to achieve “higher availability” of an SAP system
 
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
