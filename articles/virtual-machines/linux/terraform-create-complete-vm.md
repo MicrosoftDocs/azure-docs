@@ -19,13 +19,18 @@ ms.author: echuvyrov
 ---
 
 # Create a complete Linux virtual machine infrastructure in Azure with Terraform
+
 Terraform allows you to define and create complete infrastructure deployments in Azure. You build Terraform templates in a human-readable format that create and configure Azure resources in a consistent, reproducible manner. This article shows you how to create a complete Linux environment and supporting resources with Terraform. You can also learn how to [Install and configure Terraform](terraform-install-configure.md).
 
 
 ## Create Azure connection and resource group
+
 Let's go through each section of a Terraform template. You can also see the full version of the [Terraform template](#complete-terraform-script) that you can copy and paste.
 
-The `provider` section tells Terraform to use an Azure provider. To get values for *subscription_id*, *client_id*, *client_secret*, and *tenant_id*, see [Install and configure Terraform](terraform-install-configure.md). If you create environment variables for the values, you don't include this section.
+The `provider` section tells Terraform to use an Azure provider. To get values for *subscription_id*, *client_id*, *client_secret*, and *tenant_id*, see [Install and configure Terraform](terraform-install-configure.md). 
+
+> [!TIP]
+> If you create environment variables for the values or are using the [Azure Cloud Shell Bash experience](/azure/cloud-shell/overview) , you don't need to include the variable declarations in this section.
 
 ```tf
 provider "azurerm" {
@@ -36,10 +41,10 @@ provider "azurerm" {
 }
 ```
 
-The following section creates a resource group named *myResourceGroup* in the *eastus* location:
+The following section creates a resource group named `myResourceGroup` in the `eastus` location:
 
 ```tf
-resource "azurerm_resource_group" "myResourceGroup" {
+resource "azurerm_resource_group" "myterraformgroup" {
     name     = "myResourceGroup"
     location = "East US"
 
@@ -49,8 +54,7 @@ resource "azurerm_resource_group" "myResourceGroup" {
 }
 ```
 
-In additional sections, you reference the resource group with *${azurerm_resource_group.myterraform.name}*.
-
+In additional sections, you reference the resource group with *${azurerm_resource_group.myterraformgroup.name}*.
 
 ## Create virtual network
 The following section creates a virtual network named *myVnet* in the *10.0.0.0/16* address space:
@@ -60,20 +64,20 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "myVnet"
     address_space       = ["10.0.0.0/16"]
     location            = "East US"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
     tags {
         environment = "Terraform Demo"
     }
 }
 ```
-
+:
 The following section creates a subnet named *mySubnet* in the *myVnet* virtual network
 
 ```tf
 resource "azurerm_subnet" "myterraformsubnet" {
     name                 = "mySubnet"
-    resource_group_name  = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name  = "${azurerm_resource_group.myterraformgroup.name}"
     virtual_network_name = "${azurerm_virtual_network.myterraformnetwork.name}"
     address_prefix       = "10.0.2.0/24"
 }
@@ -87,7 +91,7 @@ To access resources across the Internet, create and assign a public IP address t
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "East US"
-    resource_group_name          = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
     public_ip_address_allocation = "dynamic"
 
     tags {
@@ -104,8 +108,8 @@ Network Security Groups control the flow of network traffic in and out of your V
 resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "East US"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
-    
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
+    ;
     security_rule {
         name                       = "SSH"
         priority                   = 1001
@@ -132,7 +136,7 @@ A virtual network interface card (NIC) connects your VM to a given virtual netwo
 resource "azurerm_network_interface" "myterraformnic" {
     name                = "myNIC"
     location            = "East US"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
     ip_configuration {
         name                          = "myNicConfiguration"
@@ -155,7 +159,7 @@ To store boot diagnostics for a VM, you need a storage account. These boot diagn
 resource "random_id" "randomId" {
     keepers = {
         # Generate a new ID only when a new resource group is defined
-        resource_group = "${azurerm_resource_group.myterraform.name}"
+        resource_group = "${azurerm_resource_group.myterraformgroup.name}"
     }
     
     byte_length = 8
@@ -167,9 +171,10 @@ Now you can create a storage account. The following section creates a storage ac
 ```tf
 resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     location            = "East US"
-    account_type        = "Standard_LRS"
+    account_replication_type = "LRS"
+    account_tier = "Standard"
 
     tags {
         environment = "Terraform Demo"
@@ -179,13 +184,16 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 
 ## Create virtual machine
-The final step is to create a VM and use all the resources created. The following section creates a VM named *myVM* and attaches the virtual NIC named *myNIC*. The latest *Ubuntu 16.04-LTS* image is used, and a user named *azureuser* is created with password authentication disabled. SSH key data is provided in the *ssh_keys* section.
+
+The final step is to create a VM and use all the resources created. The following section creates a VM named *myVM* and attaches the virtual NIC named *myNIC*. The latest *Ubuntu 16.04-LTS* image is used, and a user named *azureuser* is created with password authentication disabled.
+
+ SSH key data is provided in the *ssh_keys* section. Provide a valid public SSH key in the *key_data* field.
 
 ```tf
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
     location              = "East US"
-    resource_group_name   = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name   = "${azurerm_resource_group.myterraformgroup.name}"
     network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
     vm_size               = "Standard_DS1_v2"
 
@@ -245,7 +253,7 @@ provider "azurerm" {
 }
 
 # Create a resource group if it doesn’t exist
-resource "azurerm_resource_group" "myterraform" {
+resource "azurerm_resource_group" "myterraformgroup" {
     name     = "myResourceGroup"
     location = "East US"
 
@@ -259,7 +267,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     name                = "myVnet"
     address_space       = ["10.0.0.0/16"]
     location            = "East US"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
 
     tags {
         environment = "Terraform Demo"
@@ -269,7 +277,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
 # Create subnet
 resource "azurerm_subnet" "myterraformsubnet" {
     name                 = "mySubnet"
-    resource_group_name  = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name  = "${azurerm_resource_group.myterraformgroup.name}"
     virtual_network_name = "${azurerm_virtual_network.myterraformnetwork.name}"
     address_prefix       = "10.0.1.0/24"
 }
@@ -278,7 +286,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "East US"
-    resource_group_name          = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
     public_ip_address_allocation = "dynamic"
 
     tags {
@@ -290,7 +298,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "East US"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     
     security_rule {
         name                       = "SSH"
@@ -313,7 +321,7 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 resource "azurerm_network_interface" "myterraformnic" {
     name                      = "myNIC"
     location                  = "East US"
-    resource_group_name       = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name       = "${azurerm_resource_group.myterraformgroup.name}"
     network_security_group_id = "${azurerm_network_security_group.myterraformnsg.id}"
 
     ip_configuration {
@@ -332,7 +340,7 @@ resource "azurerm_network_interface" "myterraformnic" {
 resource "random_id" "randomId" {
     keepers = {
         # Generate a new ID only when a new resource group is defined
-        resource_group = "${azurerm_resource_group.myterraform.name}"
+        resource_group = "${azurerm_resource_group.myterraformgroup.name}"
     }
     
     byte_length = 8
@@ -341,7 +349,7 @@ resource "random_id" "randomId" {
 # Create storage account for boot diagnostics
 resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
-    resource_group_name = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     location            = "East US"
     account_type        = "Standard_LRS"
 
@@ -354,7 +362,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 resource "azurerm_virtual_machine" "myterraformvm" {
     name                  = "myVM"
     location              = "East US"
-    resource_group_name   = "${azurerm_resource_group.myterraform.name}"
+    resource_group_name   = "${azurerm_resource_group.myterraformgroup.name}"
     network_interface_ids = ["${azurerm_network_interface.myterraformnic.id}"]
     vm_size               = "Standard_DS1_v2"
 
@@ -417,18 +425,8 @@ Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
 persisted to local or remote state storage.
 
-azurerm_resource_group.myterraform: Refreshing state... (ID: /subscriptions/guid/resourceGroups/myResourceGroup)
-azurerm_public_ip.myterraformips: Refreshing state... (ID: /subscriptions/guid...t.Network/publicIPAddresses/myPublicIP)
-azurerm_virtual_network.myterraformnetwork: Refreshing state... (ID: /subscriptions/guid...crosoft.Network/virtualNetworks/myVnet)
-azurerm_subnet.myterraformsubnet: Refreshing state... (ID: /subscriptions/guid...irtualNetworks/myVnet/subnets/mySubnet)
-azurerm_network_interface.myterraformnic: Refreshing state... (ID: /subscriptions/guid...rosoft.Network/networkInterfaces/myNIC)
-azurerm_virtual_machine.myterraformvm: Refreshing state... (ID: /subscriptions/guid...Microsoft.Compute/virtualMachines/myVM)
 
-The Terraform execution plan has been generated and is shown below.
-Resources are shown in alphabetical order for quick scanning. Green resources
-will be created (or destroyed and then created if an existing resource
-exists), yellow resources are being changed in-place, and red resources
-will be destroyed. Cyan entries are data sources to be read.
+...
 
 Note: You didn’t specify an “-out” parameter to save this plan, so when
 “apply” is called, Terraform can’t guarantee this is what will execute.
@@ -461,7 +459,7 @@ Once Terraform completes, your VM infrastructure is ready. Obtain the public IP 
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
 ```
 
-You can then SSH to your VM as normal:
+You can then SSH to your VM:
 
 ```bash
 ssh azureuser@<publicIps>

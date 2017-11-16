@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
 ---
 
@@ -28,10 +28,13 @@ To deploy Seamless SSO, you need to follow these steps:
 
 Ensure that the following prerequisites are in place:
 
-1. Set up your Azure AD Connect server: If you use [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) as your sign-in method, no further action is required. If you use [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) as your sign-in method, and if there is a firewall between Azure AD Connect and Azure AD, ensure that:
-- You are using versions 1.1.484.0 or later of Azure AD Connect.
-- Azure AD Connect can communicate with `*.msappproxy.net` URLs and over port 443. This prerequisite is applicable only when you enable the feature, not for actual user sign-ins.
-- Azure AD Connect can make direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). Again, this prerequisite is applicable only when you enable the feature.
+1. Set up your Azure AD Connect server: If you use [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) as your sign-in method, no additional pre-requisite check is required. If you use [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) as your sign-in method, and if there is a firewall between Azure AD Connect and Azure AD, ensure that:
+- You are using versions 1.1.644.0 or later of Azure AD Connect. 
+- If your firewall or proxy allows DNS whitelisting, whitelist connections to **\*.msappproxy.net** URLs over port 443. If not, allow access to [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly. This prerequisite is applicable only when you enable the feature, not for actual user sign-ins.
+
+    >[!NOTE]
+    >Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0 and 1.1.614.0 have an issue related to Password Hash Synchronization. If you _don't_ intend to use Password Hash Synchronization in conjunction with Pass-through Authentication, read the [Azure AD Connect release notes](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) to learn more.
+
 2. You need Domain Administrator credentials for each AD forest that you synchronize to Azure AD (using Azure AD Connect) and for whose users you want to enable Seamless SSO.
 
 ## Step 2: Enable the feature
@@ -69,6 +72,8 @@ To roll out the feature to your users, you need to add the following Azure AD UR
 - https://autologon.microsoftazuread-sso.com
 - https://aadg.windows.net.nsatc.net
 
+In addition, you need to enable an Intranet Zone policy setting (using Group Policy) called "Allow updates to status bar via script".
+
 >[!NOTE]
 > The following instructions only work for Internet Explorer and Google Chrome on Windows  (if it shares set of trusted site URLs with Internet Explorer). Read the next section for instructions to set up Mozilla Firefox and Google Chrome on Mac.
 
@@ -81,7 +86,7 @@ By default, the browser automatically calculates the right zone (Internet or Int
 1. Open the Group Policy Management tool.
 2. Edit the Group Policy that is applied to some or all your users. In this example, we use the **Default Domain Policy**.
 3. Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** and select **Site to Zone Assignment List**.
-![Single sign-on](./media/active-directory-aadconnect-sso/sso6.png)  
+![Single sign-on](./media/active-directory-aadconnect-sso/sso6.png)
 4. Enable the policy, and enter the following values (Azure AD URLs where Kerberos tickets are forwarded) and data (*1* indicates Intranet zone) in the dialog box.
 
 		Value: https://autologon.microsoftazuread-sso.com
@@ -92,8 +97,11 @@ By default, the browser automatically calculates the right zone (Internet or Int
 > If you want to disallow some users from using Seamless SSO - for instance, if these users are signing in on shared kiosks - set the preceding values to *4*. This action adds the Azure AD URLs to the Restricted Zone, and fails Seamless SSO all the time.
 
 5. Click **OK** and **OK** again.
-
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
+6. Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Intranet Zone** and select **Allow updates to status bar via script**.
+![Single sign-on](./media/active-directory-aadconnect-sso/sso11.png)
+7. Enable the policy setting, and click **OK**.
+![Single sign-on](./media/active-directory-aadconnect-sso/sso12.png)
 
 ### Browser considerations
 
@@ -147,7 +155,7 @@ In Step 2, Azure AD Connect creates computer accounts (representing Azure AD) in
 
 ## Next steps
 
-- [**Technical Deep Dive**](active-directory-aadconnect-sso-how-it-works.md) - Understand how this feature works.
-- [**Frequently Asked Questions**](active-directory-aadconnect-sso-faq.md) - Answers to frequently asked questions.
-- [**Troubleshoot**](active-directory-aadconnect-troubleshoot-sso.md) - Learn how to resolve common issues with the feature.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
+- [Technical Deep Dive](active-directory-aadconnect-sso-how-it-works.md) - Understand how this feature works.
+- [Frequently Asked Questions](active-directory-aadconnect-sso-faq.md) - Answers to frequently asked questions.
+- [Troubleshoot](active-directory-aadconnect-troubleshoot-sso.md) - Learn how to resolve common issues with the feature.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.

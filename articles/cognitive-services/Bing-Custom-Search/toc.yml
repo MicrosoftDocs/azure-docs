@@ -1,14 +1,20 @@
 - name: Bing Custom Search Documentation
-  href: ../index.md
+  href: index.md
 - name: Overview
   items:
     - name: Customize your search
       href: overview.md
+    - name: Supported countries and markets
+      href: supported-countries-markets.md
 - name: Quickstarts
   expanded: true
   items:
     - name: Create first instance
       href: quick-start.md
+- name: Tutorials
+  items:
+    - name: Build a Custom Search web page
+      href: ./tutorials/custom-search-web-page.md
 - name: How-to  
   items:        
     - name: Define your custom view
@@ -20,10 +26,10 @@
         href: call-endpoint-csharp.md
       - name: Java
         href: call-endpoint-java.md
-      - name: NodeJs
+      - name: Node.js
         href: call-endpoint-nodejs.md 
       - name: Python
-        href: call-endpoint-python.md 
+        href: call-endpoint-python.md
     - name: Configure hosted UI
       href: hosted-ui.md
     - name: Handle hit highlighting
@@ -43,4 +49,4 @@
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
   - name: Try it!
-    href: https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d
+    href: https://aka.ms/bingcustomsearchtryit

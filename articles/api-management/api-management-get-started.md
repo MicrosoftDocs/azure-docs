@@ -3,7 +3,7 @@ title: Manage your first API in Azure API Management | Microsoft Docs
 description: Learn how to create APIs, add operations, and get started with API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
+author: juliako
 manager: erikre
 editor: ''
 

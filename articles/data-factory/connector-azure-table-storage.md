@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/07/2017
 ms.author: jingwang
 
 ---
@@ -26,7 +26,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Azure Table Storage connector in V1](v1/data-factory-azure-table-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from any supported source data store to Azure Table, or copy data from Azure Table to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -60,6 +60,7 @@ You can create an Azure Storage linked service by using the account key, which p
             "connectionString": {
                 "type": "SecureString",
                 "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -183,11 +184,11 @@ If Azure Table column is of datetime type:
 
 ### Azure Table as sink
 
-To copy data from Azure Table, set the source type in the copy activity to **AzureTableSink**. The following properties are supported in the copy activity **sink** section:
+To copy data to Azure Table, set the sink type in the copy activity to **AzureTableSink**. The following properties are supported in the copy activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **AzureTableSink** |Yes |
+| type | The type property of the copy activity sink must be set to: **AzureTableSink** |Yes |
 | azureTableDefaultPartitionKeyValue |Default partition key value that can be used by the sink. |No |
 | azureTablePartitionKeyName |Specify name of the column whose values are used as partition keys. If not specified, "AzureTableDefaultPartitionKeyValue" is used as the partition key. |No |
 | azureTableRowKeyName |Specify name of the column whose column values are used as row key. If not specified, use a GUID for each row. |No |
@@ -268,4 +269,4 @@ When moving data to & from Azure Table, the following [mappings defined by Azure
 | Edm.String |String |A UTF-16-encoded value. String values may be up to 64 KB. |
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

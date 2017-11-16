@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/12/2017
 ms.author: billmath
 
 ---
@@ -87,6 +87,8 @@ Here is how Authentication Agents register themselves with Azure AD:
 4. Azure AD validates the Access Token in the registration request and verifies that the request came from a Global Administrator.
 5. Azure AD then signs and issues a digital identity certificate back to the Authentication Agent.
     - The certificate is signed using **Azure AD’s Root Certificate Authority (CA)**. Note that this CA is _not_ in the Windows's **Trusted Root Certificate Authorities** store.
+    - This CA is used only by the Pass-through Authentication feature. It is just used for signing CSRs during Authentication Agent registration.
+    - This CA isn’t used by any other service in Azure AD.
     - The certificate’s subject (**Distinguished Name or DN**) is set to your **Tenant ID**. This is a GUID that uniquely identifies your tenant. This scopes the certificate for use with your tenant only.
 6. Azure AD stores the public key of the Authentication Agent in an Azure SQL database, which only Azure AD has access to.
 7. The certificate (issued in Step 5) is stored on the on-premises server in the **Windows Certificate Store** (specifically in the **[CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE)** location), and is used by both the Authentication Agent and the Updater applications.
@@ -129,6 +131,7 @@ Pass-through Authentication handles a user sign-in request as follows:
 9. The Authentication Agent locates the encrypted password value that is specific to its public key (using an identifier) and decrypts it using its private key.
 10. The Authentication Agent attempts to validate the username and the password against your on-premises Active Directory using the **[Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)** (with the **dwLogonType** parameter set to **LOGON32_LOGON_NETWORK**). 
     - This is the same API used by Active Directory Federation Services (AD FS) to sign in users in a Federated sign-in scenario.
+    - This relies on the standard resolution process in Windows Server to locate the Domain Contoller.
 11. The Authentication Agent receives the result from Active Directory (success, username or password incorrect, password expired, user is locked out, and so on).
 12. The Authentication Agent forwards the result back to Azure AD STS over an outbound mutually authenticated HTTPS channel over port 443. Mutual authentication uses the same certificate previously issued to the Authentication Agent during registration.
 13. Azure AD STS verifies that this result correlates with the specific sign-in request on your tenant.

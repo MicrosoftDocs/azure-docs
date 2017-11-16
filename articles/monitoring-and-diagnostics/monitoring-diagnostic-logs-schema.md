@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 10/10/2017
 ms.author: johnkem
 
 ---
@@ -26,7 +26,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 
 | Service | Schema & Docs |
 | --- | --- |
-| API Management | Schema not available. |
+| API Management | [API Management Diagnostic Logs](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateways |[Diagnostics Logging for Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log analytics for Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch diagnostic logging](../batch/batch-diagnostics.md) |
@@ -36,12 +36,12 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Data Lake Analytics |[Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Event Hubs |[Azure Event Hubs diagnostic logs](../event-hubs/event-hubs-diagnostic-logs.md) |
-| IoT Hub Provisioning Service | Schema not available. |
+| IoT Hub | [IoT Hub Operations](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault Logging](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B custom tracking schema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Network Security Groups |[Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) |
-| Public IP Address DDOS Protection | Schema not available. |
+| DDOS Protection | Schema not available. |
 | Recovery Services | Schema not available.|
 | Search |[Enabling and using Search Traffic Analytics](../search/search-traffic-analytics.md) |
 | Server Management | Schema not available. |
@@ -53,20 +53,36 @@ The schema for resource diagnostic logs varies depending on the resource and log
 ## Supported log categories per resource type
 |Resource Type|Category|Category Display Name|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|Engine|Engine|
+|Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Logs related to ApiManagement Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Job Logs|
 |Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc Node Status|
 |Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DataFactory/factories|ActivityRuns|Pipeline activity runs log|
+|Microsoft.DataFactory/factories|PipelineRuns|Pipeline runs log|
+|Microsoft.DataFactory/factories|TriggerRuns|Trigger runs log|
 |Microsoft.DataLakeAnalytics/accounts|Audit|Audit Logs|
 |Microsoft.DataLakeAnalytics/accounts|Requests|Request Logs|
 |Microsoft.DataLakeStore/accounts|Audit|Audit Logs|
 |Microsoft.DataLakeStore/accounts|Requests|Request Logs|
+|Microsoft.Devices/IotHubs|Connections|Connections|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|Device Telemetry|
+|Microsoft.Devices/IotHubs|C2DCommands|C2D Commands|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Device Identity Operations|
+|Microsoft.Devices/IotHubs|FileUploadOperations|File Upload Operations|
+|Microsoft.Devices/IotHubs|Routes|Routes|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|C2D Twin Operations|
+|Microsoft.Devices/IotHubs|TwinQueries|Twin Queries|
+|Microsoft.Devices/IotHubs|JobsOperations|Jobs Operations|
+|Microsoft.Devices/IotHubs|DirectMethods|Direct Methods|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Device Operations|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Service Operations|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Archive Logs|
 |Microsoft.EventHub/namespaces|OperationalLogs|Operational Logs|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Auto Scale Logs|
@@ -75,6 +91,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Integration Account track events|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer Alert Events|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS protection notifications|
@@ -82,6 +99,11 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway Access Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Gateway Diagnostic Logs|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Tunnel Diagnostic Logs|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Route Diagnostic Logs|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager Probe Health Results Event|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Table of GWM counters|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup Reporting Data|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery Jobs|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery Events|
@@ -90,7 +112,6 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery Recovery Points|
 |Microsoft.Search/searchServices|OperationLogs|Operation Logs|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operational Logs|
-|Microsoft.Sql/servers/databases|QueryStore|Query Store|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Query Store Wait Statistics|
 |Microsoft.Sql/servers/databases|Errors|Errors|

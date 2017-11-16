@@ -1,5 +1,5 @@
 - name: Batch AI
-  href: index.yml
+  href: index.md
 - name: Overview
   items:
   - name: What is Batch AI?
@@ -11,20 +11,20 @@
     href: quickstart-cli.md
   - name: Run training job - Python
     href: quickstart-python.md
-- name: Samples
-  items:
-  - name: Training recipes
-    href: https://github.com/Azure/BatchAI
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/batchai
   - name: REST
     href: /rest/api/batchai
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.batchai
   - name: Python
     href: /python/api/overview/azure/batchai
 - name: Resources
   items:
+  - name: Training recipes
+    href: https://github.com/Azure/BatchAI
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing

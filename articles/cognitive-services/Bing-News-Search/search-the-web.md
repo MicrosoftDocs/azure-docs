@@ -264,7 +264,7 @@ If there are other articles that are related to a news article, the news article
 
 ## Next steps
 
-To get started quickly with your first request, see [Making Your First Request](./quick-start.md).
+To get started quickly with your first request, see [Making Your First Request](./quickstart.md).
 
 Familiarize yourself with the [News Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference). The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
 

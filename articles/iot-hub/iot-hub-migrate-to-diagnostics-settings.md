@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 10/10/2017
 ms.author: kgremban
 
 ---
@@ -21,7 +21,7 @@ ms.author: kgremban
 
 Customers using [operations monitoring][lnk-opsmon] to track the status of operations in IoT Hub can migrate that workflow to [Azure diagnostics settings][lnk-diagnostics-settings], a feature of Azure Monitor. Diagnostics settings supply resource-level diagnostic information for many Azure services.
 
-The operations monitoring functionality of IoT Hub is deprecated, and will be removed in the future. This article provides steps to move your workloads from operations monitoring to diagnostics settings.
+The operations monitoring functionality of IoT Hub is deprecated, and will be removed in the future. This article provides steps to move your workloads from operations monitoring to diagnostics settings. For more information about the deprecation timeline, see [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health][lnk-blog-announcement].
 
 ## Update IoT Hub
 
@@ -58,4 +58,5 @@ For the specific schema structures, see [Understand the schema for diagnostics s
 [lnk-opsmon]: iot-hub-operations-monitoring.md
 [lnk-diagnostics-settings]: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md
 [lnk-diagnostics-schema]: iot-hub-monitor-resource-health.md#understand-the-logs
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
 [lnk-monitor]: iot-hub-monitor-resource-health.md

@@ -14,13 +14,19 @@ ms.author: v-brapel
 
 # Call Bing Custom Search endpoint (Java)
 
-Call Bing Custom Search endpoint using Java by performing these steps:
-1. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
-2. Install [Java](https://www.java.com).
-3. Download apache [http components](http://hc.apache.org/httpcomponents-client-ga/) and place in your class path.
-4. Using your Java IDE of choice create a package called com.contoso.BingCustomSearch.
-5. Copy the code below.
-6. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID.
+This example shows how to request search results from your custom search instance using Java. To create this example follow these steps:
+
+1. Create your custom instance (see [Define a custom search instance](define-your-custom-view.md)).
+2. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+
+  >[!NOTE]  
+  >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
+
+3. Install [Java](https://www.java.com).
+4. Download Apache [http components](http://www-us.apache.org/dist//httpcomponents/httpclient/binary/httpcomponents-client-4.5.3-bin.tar.gz) and place in your class path.
+5. Using your Java IDE of choice create a package called com.contoso.BingCustomSearch.
+6. Create the file BingCustomSearch.java and copy the following code to it.
+7. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
 
 ``` Java
 package com.contoso.BingCustomSearch;
@@ -58,7 +64,7 @@ public class BingCustomSearch {
 }
 ```
 
-## Next steps
+### Next steps
 - [Configure and consume custom hosted UI](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

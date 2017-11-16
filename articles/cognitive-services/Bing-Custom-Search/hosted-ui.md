@@ -28,11 +28,7 @@ Use the following instructions to configure a hosted UI to include in your web a
    > [!IMPORTANT]
    > Be sure to include the query parameter when selecting the **Results only** layout.
 
-5.	Select a color theme
-    - Bing Theme (default)
-    - Dark Theme
-    - Sky-blue Theme
-6.	Under **Additional Configurations**, provide values as appropriate for your app. These settings are optional. To see the effect of applying or removing them, click Save All Changes.  Available configuration options are:
+5.	Under **Additional Configurations**, provide values as appropriate for your app. These settings are optional. To see the effect of applying or removing them, click Save All Changes.  Available configuration options are:
     - Page title &mdash;  The title text
     - Title link url &mdash;  The target for the title link
     - Logo url &mdash; The image displayed next to the title 
@@ -42,7 +38,7 @@ Use the following instructions to configure a hosted UI to include in your web a
     - Highlight words &mdash; Display results with search terms in bold
     - Search box text placeholder &mdash; Text displayed in the search box prior to input
     - Results per page &mdash; The number of results to display at a time
-7.  Specify your subscription key.
+6.  **Required**: Paste your subscription key. See [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
 
 > [!NOTE]
 > As you make changes to the custom hosted UI configuration, the pane on the right provides a visual reference for the changes made. The displayed search results are not actual results for your instance

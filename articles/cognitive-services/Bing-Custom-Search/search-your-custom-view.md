@@ -13,7 +13,11 @@ ms.author: v-brapel
 ---
 
 # Search your custom instance
-Before making your first call to the Custom Search API to get search results for your instance, you need to get a Cognitive Services subscription key. To get a key for Custom Search API, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api). Use the same MSA that you used to create your instance in the portal.
+Before making your first call to the Custom Search API to get search results for your instance, you need to get a Cognitive Services subscription key. To get a key for Custom Search API, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
+
+> [!NOTE]
+> Existing Bing Custom Search customers who have a preview key provisioned on or before October 15 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.
+
 To get search results for your custom search instance, send an HTTP GET request to:
 
 `https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search`
@@ -51,17 +55,17 @@ The following shows the answers that the JSON response may contain.  For a list 
         "totalEstimatedMatches": 667000000,
         "value": [
             {
-            "id": "https://cognitivegblppe.azure-api.net/api/v7/#WebPages.0",
-            "name": "Contosos - Official Home Page",
-            "url": "http://www.contoso.com/en-us",
-            "displayUrl": ...,
-            "snippet": "At contoso our mission and values ...",            
-            "dateLastCrawled": "2017-09-29T22:32:00",
-            "openGraphImage": {
-                "contentUrl": ...,
-                "width": 0,
-                "height": 0
-            }
+                "id": "https://api.cognitive.microsoft.com/api/v7/#WebPages.0",
+                "name": "Contosos - Official Home Page",
+                "url": "http://www.contoso.com/en-us",
+                "displayUrl": ...,
+                "snippet": "At contoso our mission and values ...",            
+                "dateLastCrawled": "2017-09-29T22:32:00",
+                "openGraphImage": {
+                    "contentUrl": ...,
+                    "width": 0,
+                    "height": 0
+                }
             },
             {
                 ...

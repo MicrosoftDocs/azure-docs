@@ -22,6 +22,8 @@ ms.custom: mvc
 
 # Deploy a Kubernetes cluster in Azure Container Service
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 Kubernetes provides a distributed platform for containerized applications. With Azure Container Service, provisioning of a production ready Kubernetes cluster is simple and quick. In this tutorial, part 3 of 7, an Azure Container Service Kubernetes cluster is deployed. Steps completed include:
 
 > [!div class="checklist"]

@@ -1,9 +1,9 @@
 ---
-title: Basic Concepts | Microsoft Docs
+title: Concepts | Microsoft Docs
 description: Basic concepts used in Microsoft Speech Service.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -65,51 +65,30 @@ The steps you take to enable speech input in your application are a little diffe
 
 Since the Microsoft Speech Service participates in some of the states, the service protocol defines messages that help your application transition between states. Your application needs to interpret and act on these protocol messages to track and manage the speech application states.
 
-## REST speech recognition API
+## Using the speech recognition service from your apps
 
-The Microsoft [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) speech recognition API is an HTTP 1.1 protocol definition for building simple speech applications that perform speech recognition. This API is most suitable for applications where continuous user feedback is not required or for platforms that do not support the [IETF WebSocket standard](https://tools.ietf.org/html/rfc6455). The REST API has the following characteristics:
+Microsoft speech recognition service  provides two ways for developers to add Speech to their apps.
 
-- Utterances are limited to a maximum of 15 seconds.
-- Partial results are not returned. Only the final phrase result is returned.
-- Service end-of-speech detection is not supported. Clients must determine the end of speech. 
-- A single recognition phrase result is returned to the client only after the client stops writing to the request stream.
-- Continuous recognition is not supported. 
+- [REST APIs](GetStarted/GetStartedREST.md): Developers can use HTTP calls from their apps to the service for speech recognition.
+- [Client libraries](GetStarted/GetStartedClientLibraries.md): For advanced features, developers can download Microsoft Speech client libraries, and link into their apps.  The client libraries are available on various platforms (Windows, Android, iOS) using different languages (C#, Java, JavaScript, ObjectiveC).
 
-If these features are important to your application's functionality, use the [WebSocket speech recognition API](#WebSocket-speech-recognition-api).
+| Use cases | [REST APIs](GetStarted/GetStartedREST.md) | [Client Libraries](GetStarted/GetStartedClientLibraries.md) |
+|-----|-----|-----|
+| Convert a short spoken audio, for example, commands (audio length < 15 s) without interim results | Yes | Yes |
+| Convert a long audio (> 15 s) | No | Yes |
+| Stream audio with interim results desired | No | Yes |
+| Understand the text converted from audio using LUIS | No | Yes |
 
-## WebSocket speech recognition API
-
-The Microsoft WebSocket speech recognition API is a service protocol definition that uses a [WebSocket](https://tools.ietf.org/html/rfc6455) for bidirectional communication. With this API, you can build full-featured speech applications that provide a rich user experience.
-
-Microsoft speech [client libraries](GetStarted/GetStartedClientLibraries.md) are using this API to provide more advanced functionalities while hiding low-level communication details to users. If your language or platform does not yet have an SDK, you can create your own implementation based on the [protocol documentation](API-Reference-REST/websocketprotocol.md).
-
-## Speech service endpoints
-
-The URI of the HTTP endpoints of Microsoft Speech Service is defined as follows:
-
-```HTTP
-https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitiveservices/v1?language=<LANGUAGE_TAG>&format=<OUTPUT_FORMAT>
-```
-
-`<RECOGNITION_MODE>` specifies the recognition mode, and must be of the following values: `interactive`, `conversation`, or `dictation`. It is a required part of resource path in the URI. For more information, see [recognition modes](#recognition-modes).
-
-`<LANGUAGE_TAG>` is a required parameter in the query string. It defines the target language for audio conversion. For example, `en-US` for English (United States). For more information, see [recognition languages](#recognition-languages).
-
-`<OUTPUT_FOMAT>` is an optional parameter in the query string. Its allowed values are `simple` and `detailed`. By default the service returns results in `simple` format. See [output format](#output-format) for details.
-
-Some examples of service URI are as follows.
-| Recognition mode  | Language | Output format | REST end point |
-|---|---|---|---|
-| `interactive` | pt-BR | default | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR | 
-| `conversation` | en-US | detailed | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| `dictation` | fr-FR | simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+ If your language or platform does not yet have an SDK, you can create your own implementation based on the [protocol documentation](API-Reference-REST/websocketprotocol.md).
 
 ## Recognition modes
 
 There are three modes of recognition: `interactive`, `conversation`, and `dictation`. The recognition mode adjusts speech recognition based on how the users are likely to speak. Choose the appropriate recognition mode for your application.
 
 > [!NOTE]
-> Recognition modes might have different behaviors in the REST protocol than they do in the WebSocket protocol. For example, the REST API does not support continuous recognition, even in conversation or dictation mode.
+> Recognition modes might have different behaviors in the [REST protocol](#rest-speech-recognition-api) than they do in the [WebSocket protocol](#webSocket-speech-recognition-api). For example, the REST API does not support continuous recognition, even in conversation or dictation mode.
+> [!NOTE]
+> These modes are applicable when you directly use the REST or WebSocket protocol. The [client libraries](GetStarted/GetStartedClientLibraries.md) use different parameters to specify recognition mode. For more information, see the client library of your choice.
 
 The Microsoft Speech Service returns only one recognition phrase result for all recognition modes. There is a limit of 15 seconds for any single utterance.
 

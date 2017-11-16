@@ -3,8 +3,8 @@ title: SaaS App Integration Tutorials for use with Azure AD | Microsoft Docs
 description: Configure Azure Active Directory single sign-on integration with a variety of third-party software as a service applications.
 services: active-directory
 documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: femila
+author: daveba
+manager: mtillman
 
 ms.assetid: 08c0c52b-76d9-4250-936a-6bec0edb8816
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2017
-ms.author: joflore
+ms.date: 11/14/2017
+ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: jeedes
 
@@ -52,6 +52,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AmazonWebServices.png)| [Amazon Web Services (AWS)](active-directory-saas-amazon-web-service-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Anaplan.png)| [Anaplan](active-directory-saas-anaplan-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AnswerHub.png)| [AnswerHub](active-directory-saas-answerhub-tutorial.md)|
+| ![logo](media/active-directory-saas-tutorial-list/active-directory-apexportal-tutorial.png)| [Apex Portal](active-directory-saas-apexportal-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AppBlade.png)| [AppBlade](active-directory-saas-appblade-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_AppDynamics.png)| [AppDynamics](active-directory-saas-appdynamics-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Aravo.png)| [Aravo](active-directory-saas-aravo-tutorial.md)|
@@ -156,6 +157,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_GitHub.png)| [GitHub](active-directory-saas-github-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Apps](active-directory-saas-google-apps-tutorial.md)|[Google Apps - User Provisioning](active-directory-saas-google-apps-provisioning-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-greenhouse-tutorial.png)| [Greenhouse](active-directory-saas-greenhouse-tutorial.md)|
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-grovo-tutorial.png) | [Grovo](active-directory-saas-grovo-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-hackerone-tutorial.png)| [HackerOne](active-directory-saas-hackerone-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Halogen_Software.png)| [Halogen Software](active-directory-saas-halogen-software-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Halosys.png)| [Halosys](active-directory-saas-halosys-tutorial.md)|
@@ -395,6 +397,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-workrite-tutorial.png)| [Workrite](active-directory-saas-workrite-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_WorksMobile.png)| [WORKS MOBILE](active-directory-saas-worksmobile-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-workstars-tutorial.png)| [Workstars](active-directory-saas-workstars-tutorial.md)||
+| ![logo](media/active-directory-saas-tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](active-directory-saas-xaitporter-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](active-directory-saas-xmatters-ondemand-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Yardi.png)| [Yardi eLearning](active-directory-saas-yardielearning-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-yonyx-tutorial.png)| [Yonyx Interactive Guides](active-directory-saas-yonyx-tutorial.md)|

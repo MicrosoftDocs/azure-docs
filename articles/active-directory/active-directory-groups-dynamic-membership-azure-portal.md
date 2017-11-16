@@ -29,7 +29,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 > [!NOTE]
 > - You can set up a rule for dynamic membership on security groups or Office 365 groups.
 >
-> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group.
+> - This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group. It is not mandatory to actually assign licenses to users for them to be members in dynamic groups, but you do need to have the minimum number of licenses in the tenant to cover all such users. For example: if you have a total of 1,000 unique users in all dynamic groups in your tenant, you need to have at least 1,000 licenses for Azure AD Premium P1, or above, to meet the license requirement.
 >
 > - You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
 
@@ -38,17 +38,19 @@ When any attributes of a user or device change, the system evaluates all dynamic
 ## To create an advanced rule
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator.
 2. Select **Users and groups**.
-3. Select **All groups**.
+3. Select **All groups**, and select **New group**.
 
-   ![Opening the groups blade](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. In **All groups**, select **New group**.
+   ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/new-group-creation.png)
 
-   ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
-5. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. For the attributes used for device rules, see [Using attributes to create rules for device objects](#using-attributes-to-create-rules-for-device-objects).
+4. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. You can use the rule builder to build a simple rule, or write an advanced rule yourself. This article contains more information about available user and device attributes as well as examples of advanced rules.
 
    ![Add dynamic membership rule](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
-6. On the **Dynamic membership rules** blade, enter your rule into the **Add dynamic membership advanced rule** box, press Enter, and then select **Create** at the bottom of the blade.
-7. Select **Create** on the **Group** blade to create the group.
+
+5. After creating the rule, select **Add query** at the bottom of the blade.
+6. Select **Create** on the **Group** blade to create the group.
+
+> [!TIP]
+> Group creation may fail if the advanced rule you entered was incorrect. A notification will be displayed in the upper-right hand corner of the portal; it contains an explanation of why the rule could not be accepted by the system. Read it carefully to understand how you need to adjust the rule to make it valid.
 
 ## Constructing the body of an advanced rule
 The advanced rule that you can create for the dynamic memberships for groups is essentially a binary expression that consists of three parts and results in a true or false outcome. The three parts are:
@@ -293,7 +295,7 @@ You can also create a rule that selects device objects for membership in a group
 ## Changing dynamic membership to static, and vice versa
 It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
 
-We are in the process of updating the Azure portal to support this functionality. In the meantime, you can use the [Azure classic portal](https://manage.windowsazure.com) (follow the instructions [here](active-directory-accessmanagement-groups-with-advanced-rules.md#changing-dynamic-membership-to-static-and-vice-versa)) or use PowerShell cmdlets as shown below.
+We are in the process of updating the Azure portal to support this functionality. In the meantime, you can use the [Azure classic portal](https://manage.windowsazure.com) (follow the instructions [here](active-directory-groups-dynamic-membership-azure-portal.md)) or use PowerShell cmdlets as shown below.
 
 > [!WARNING]
 > When changing an existing static group to a dynamic group, all existing members will be removed from the group, and then the membership rule will be processed to add new members. If the group is used to control access to apps or resources, the original members may lose access until the membership rule is fully processed.
@@ -303,7 +305,7 @@ We are in the process of updating the Azure portal to support this functionality
 **Using PowerShell to change membership management on a group**
 
 > [!NOTE]
-> To change dynamic group properties you will need to use cmdlets from [Azure AD PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). You can install it from [here](https://www.powershellgallery.com/packages/AzureADPreview).
+> To change dynamic group properties you will need to use cmdlets from **the preview version of** [Azure AD PowerShell Version 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). You can install the preview from [here](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Here is an example of functions that switch membership management on an existing group. Note that care is taken to correctly manipulate the GroupTypes property and preserve any values that may exist there, unrelated to dynamic membership.
 
