@@ -35,7 +35,7 @@ The HA ports feature is configured when you set the front-end and back-end ports
 
 ### <a name="nva"></a>Network virtual appliances
 
-You can use NVAs for securing your Azure workload from multiple types of security threats. When NVAs are used in these scenarios, they must be reliable, highly available, and scale out for demand.
+You can use NVAs for securing your Azure workload from multiple types of security threats. When NVAs are used in these scenarios, they must be reliable and highly available, and they must scale out for demand.
 
 You can achieve these goals simply by adding NVA instances to the back-end pool of the Azure internal Load Balancer, and configuring an HA ports Load Balancer rule.
 
