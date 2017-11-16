@@ -15204,11 +15204,6 @@
             "redirect_document_id": false
         },  
         {
-            "source_path": "articles/virtual-network/virtual-network-multiple-ip-addresses-cli-nodejs.md",
-            "redirect_url": "/azure/virtual-network/virtual-network-multiple-ip-addresses-cli",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/virtual-network/virtual-networks-create-nsg-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-networks-create-nsg-arm-cli",
             "redirect_document_id": false

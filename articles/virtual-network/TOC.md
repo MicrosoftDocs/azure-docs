@@ -91,7 +91,8 @@
 #### Create a VM with multiple IP addresses
 ##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md)
+##### [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
 ##### [Template](virtual-network-multiple-ip-addresses-template.md)
 
 #### [Create a VM with accelerated networking](virtual-network-create-vm-accelerated-networking.md)
