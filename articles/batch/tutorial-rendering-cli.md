@@ -60,27 +60,67 @@ Log in to the account with the [az batch account login](/cli/azure/batch/account
 ```azurecli-interactive 
 az batch account login --name myBatchAccount --resource-group myResourceGroup --shared-key-auth
 ```
-## Upload 3ds Max scenes
+## Upload 3ds Max scenes to storage
 
-Download sample 3ds Max scene data from [here](TBD) to your local computer.
+Download sample 3ds Max scene files from [here](TBD) to a working directory on your local computer. 
 
-Export environment variables to access Azure storage account
+Export environment variables to access the Azure storage account. The first bash shell command uses the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command to get the first account key.
 
 ```azurecli-interactive
 # Get first key
-export AZURE_STORAGE_KEY=$(az storage account keys list     --account-name danlep1110     --resource-group danlep1110 -o tsv    --query [0].value)
+export AZURE_STORAGE_KEY=$(az storage account keys list --account-name myStorageAccount --resource-group myResourceGroup -o tsv --query [0].value)
 
-export AZURE_STORAGE_ACCOUNT=danlep1110
+export AZURE_STORAGE_ACCOUNT=myStorageAccount
 ```
 
-# Create blob container
-# This container allows public read access for blobs
+Create a blob container in the storage account for the scene file data. The following example uses the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command to create a blob container named *scenefiles* that allows public read access.
 
+```azurecli-interactive
+az storage container create --public-access blob --name scenefiles
+```
 
+Now upload the scene files from your local working folder to the blob container, using the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command:
 
-az storage container create --public-access blob --name maxfile
+```azurecli-interactive
+az storage blob upload-batch --destination scenefiles --source .
+```
+
 
 ## Create a Batch pool
+
+Create a Batch pool for rendering using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. In this example, you use a local JSON file with the pool settings.
+
+Create a local JSON file named *mypool.json* with the following content. The pool specified consists of a single low priority compute node running a Windows Server rendering image licensed to the Batch Rendering service for 3ds Max and Arnold. 
+
+```JSON
+{
+  "id": "myrenderpool",
+  "vmSize": "standard_d1_v2",
+  "virtualMachineConfiguration": {
+    "imageReference": {
+      "publisher": "batch",
+      "offer": "rendering-windows2016",
+      "sku": "rendering",
+      "version": "latest"
+    },
+    "nodeAgentSKUId": "batch.node.windows amd64"
+  },
+  "targetDedicatedComputeNodes": 0,
+  "targetLowPriorityComputeNodes": 1,
+  "enableAutoScale": false,
+  "applicationLicenses":[
+         "3dsmax",
+         "arnold"
+      ],
+  "enableInterNodeCommunication": false 
+}
+```
+
+Create the pool by passing the JSON file to the `az batch pool create` command:
+
+```azurecli-interactive
+az batch pool create --json-file mypool.json
+``` 
 
 ##
 
