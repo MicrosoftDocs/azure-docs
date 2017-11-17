@@ -19,21 +19,21 @@ ms.author: zhongc
 ---
 
 # High-frequency trading simulation with Stream Analytics
-The combination of SQL language and JavaScript user-defined function (UDF) and user-defined aggregate (UDA) in Azure Stream Analytics enables users to perform advanced analytics, including online machine learning training and scoring, as well as stateful process simulation. This article describes how to perform linear regression in an Azure Stream Analytics job that does continuous training and scoring in a high-frequency trading scenario.
+The combination of SQL language and JavaScript user-defined functions (UDFs) and user-defined aggregates (UDAs) in Azure Stream Analytics enables users to perform advanced analytics. Advanced analytics might include online machine learning training and scoring, as well as stateful process simulation. This article describes how to perform linear regression in an Azure Stream Analytics job that does continuous training and scoring in a high-frequency trading scenario.
 
 ## High-frequency trading
 The logical flow of high-frequency trading is about:
 1. Getting real-time quotes from a security exchange.
 2. Building a predictive model around the quotes, so we can anticipate the price movement.
-3. Placing buy or sell orders accordingly to make money from the successful prediction of the price movements. 
+3. Placing buy or sell orders to make money from the successful prediction of the price movements. 
 
 As a result, we need:
 * A real-time quote feed.
 * A predictive model that can operate on the real-time quotes.
-* A trading simulation that demonstrates the profit/loss of the trading algorithm.
+* A trading simulation that demonstrates the profit or loss of the trading algorithm.
 
 ### Real-time quote feed
-IEX offers free [real-time bid and ask quotes](https://iextrading.com/developer/docs/#websockets) by using socket.io. A simple console program can be written to receive real-time quotes, and push to Azure Event Hubs as a data source. The following code is a skeleton of the program. Error handling is omitted for brevity. You also need to include SocketIoClientDotNet and WindowsAzure.ServiceBus NuGet packages in your project.
+IEX offers free [real-time bid and ask quotes](https://iextrading.com/developer/docs/#websockets) by using socket.io. A simple console program can be written to receive real-time quotes and push to Azure Event Hubs as a data source. The following code is a skeleton of the program. The code omits error handling for brevity. You also need to include SocketIoClientDotNet and WindowsAzure.ServiceBus NuGet packages in your project.
 
 
     using Quobject.SocketIoClientDotNet.Client;
@@ -66,7 +66,7 @@ Here are some generated sample events:
 >[!NOTE]
 >The time stamp of the event is **lastUpdated**, in epoch time.
 
-### Predictive model for high frequency trading
+### Predictive model for high-frequency trading
 For the purpose of demonstration, we use a linear model described by Darryl Shen in [his paper](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf).
 
 Volume order imbalance (VOI) is a function of current bid/ask price and volume, and bid/ask price/volume from the last tick. The paper identifies the correlation between VOI and future price movement. It builds a linear model between the past 5 VOI values and the price change in the next 10 ticks. The model is trained by using previous day's data with linear regression. 
@@ -77,7 +77,7 @@ The trained model is then used to make price change predictions on quotes in the
 
 Now, let's express the training and prediction operations in an Azure Stream Analytics job.
 
-First, the inputs are cleaned up. Epoch time is converted to datetime via **DATEADD**. **TRY_CAST** is used to coerce data types without failing the query. It's always a good practice to cast input fields to the expected data types, so there is no unexpected behavior when it comes to manipulation or comparison of the fields.
+First, the inputs are cleaned up. Epoch time is converted to datetime via **DATEADD**. **TRY_CAST** is used to coerce data types without failing the query. It's always a good practice to cast input fields to the expected data types, so there is no unexpected behavior in manipulation or comparison of the fields.
 
     WITH
     typeconvertedquotes AS (
@@ -97,12 +97,12 @@ First, the inputs are cleaned up. Epoch time is converted to datetime via **DATE
     ),
     timefilteredquotes AS (
         /* filter between 7am and 1pm PST, 14:00 to 20:00 UTC */
-        /* cleanup invalid data points */
+        /* clean up invalid data points */
     	SELECT * FROM typeconvertedquotes
     	WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
 
-Next, we use the **LAG** function to get values from the last tick. One hour of **LIMIT DURATION** value is arbitrarily chosen. Given the quote frequency, it's safe to assume you can find the previous tick looking back for one hour.  
+Next, we use the **LAG** function to get values from the last tick. One hour of **LIMIT DURATION** value is arbitrarily chosen. Given the quote frequency, it's safe to assume that you can find the previous tick by looking back for one hour.  
 
     shiftedquotes AS (
         /* get previous bid/ask price and size in order to calculate VOI */
@@ -120,7 +120,7 @@ Next, we use the **LAG** function to get values from the last tick. One hour of 
     	FROM timefilteredquotes
     ),
 
-We can then compute VOI value. Note, we filter out the null values if the previous tick doesn't exist, just in case.
+We can then compute VOI value. We filter out the null values if the previous tick doesn't exist, just in case.
 
     currentPriceAndVOI AS (
         /* calculate VOI */
@@ -270,7 +270,7 @@ To use the previous day's model for current event's scoring, we want to join the
     	FROM model
     ),
     VOIANDModelJoined AS (
-        /* match VOIs with the latest model within 3 days (72 hours, to take weekend into account) */
+        /* match VOIs with the latest model within 3 days (72 hours, to take the weekend into account) */
     	SELECT
     		symbol,
     		midPrice,
@@ -318,7 +318,7 @@ We achieve this test with a UDA, with a hopping window, hopping every one minute
 
     simulation AS
     (
-        /* perform trade simulation for the past 7 hours to cover an entire trading day, generate output every minute */
+        /* perform trade simulation for the past 7 hours to cover an entire trading day, and generate output every minute */
     	SELECT
             DateAdd(hour, -7, System.Timestamp) AS time,
     		symbol,
