@@ -59,7 +59,7 @@ You can associate only one client ID with your add-in, but you can associate mul
  
 
 > [!IMPORTANT]
-> To submit a SharePoint Add-in that uses OAuth, and distribute it to China, you must use a separate client ID and client secret for China. You also must: Add a separate add-in package specifically for China. Block access for all countries except China. Create a separate add-in listing for China. For more information about submitting apps or add-ins and blocking access, see [Use the Seller Dashboard to submit solutions to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md). For more information about distributing add-ins for China, see  [Submit apps for Office 365 operated by 21Vianet in China](submit-apps-for-office-365-operated-by-21vianet-in-china.md). 
+> To submit a SharePoint Add-in that uses OAuth, and distribute it to China, you must use a separate client ID and client secret for China. You also must: Add a separate add-in package specifically for China. Block access for all countries except China. Create a separate add-in listing for China. For more information about submitting apps or add-ins and blocking access, see [Use the Seller Dashboard to submit solutions to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md). For more information about distributing add-ins for China, see [Submit apps for Office 365 operated by 21Vianet in China](submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md). 
  
 
 Inbound data to your add-in will be signed using only one signing client secret. In the Seller Dashboard, this is the client secret with a green check mark next to it. If you delete the signing client secret that your add-in uses, the next valid client secret will be used instead.
@@ -273,9 +273,7 @@ You might want to delete a client ID in certain situations, for example:
 ## Additional resources
 <a name="bk_addresources"> </a>
 
-
 -  [Submit to the Office Store](submit-to-the-office-store.md)  
- 
 -  [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md)
     
  
