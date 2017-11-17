@@ -185,7 +185,7 @@ The Office and SharePoint Add-ins licensing model gives you a way to include cod
 
 Both methods allow an add-in to get the license the same way it would if it were launched from the Office Store or a SharePoint add-in catalog. However, test licenses aren't treated the same way by the Office and SharePoint Add-ins runtime. They are not tested for expiration or the entitlement type, and therefore won't trigger a token refresh or raise an error in the UI.
 
-### To load a test license from your Visual Studio project
+### Load a test license from your Visual Studio project
 
 1. Create or open a content or task pane add-in project in Visual Studio.
 
@@ -241,7 +241,7 @@ Both methods allow an add-in to get the license the same way it would if it were
 
 6. To visually confirm that the test license is loaded, select the pop-out menu in the upper-right corner of the add-in pane, and then select **Security Info**.
 
-### To load a test license from the file system
+### Load a test license from the file system
 
 1. Create a folder that is accessible via a UNC path (c:\\<i>folder</i> or \\\\<i>server</i>\\<i>share</i>).
 2. Add the manifest file for your add-in to the folder (the file name must have an .xml extension).
@@ -363,7 +363,7 @@ If multiple licenses are purchased for the same add-in by using different Micros
      
 The [GetAppLicenseInformation](https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.utilities.utility.getapplicenseinformation.aspx) method does not return licenses with expired or preserved tokens. Preserved tokens are the license tokens that cannot be renewed automatically by SharePoint. To remain valid, preserved tokens must be renewed manually by having the purchaser sign in to the Office Store.
 
-#### Code example: retrieve add-in license tokens
+#### Code example: Retrieve add-in license tokens
 
 The following example retrieves all the add-in licenses for the current user as a collection that can be iterated through.
 
@@ -390,7 +390,7 @@ By the end of this example, `licensecollection` includes all the add-in licenses
 > [!IMPORTANT]
 > Do not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store license verification web service for verification. Although the add-in license token is structured as an XML fragment, for purposes of validation, the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, changes the literal value of the `<t>` element and causes the license verification check to fail. 
 
-#### Validating the add-in license token
+### Validate the add-in license token
 
 After you retrieve the appropriate add-in license token, pass that token to the Office Store verification web service for validation. The verification service is located at the following URL:
 
