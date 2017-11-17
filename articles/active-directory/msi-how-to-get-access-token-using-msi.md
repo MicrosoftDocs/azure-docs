@@ -40,8 +40,7 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, b
 
 > [!IMPORTANT]
 > - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
-> - To prevent errors in the sign-in examples, the VM's MSI must be given "Reader" access to itself (at the VM scope or higher) to allow Azure Resource Manager operations on
- the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
+> - To prevent errors in the sign-in examples, the VM's MSI must be given at least "Reader" access at the appropriate scope (the VM or higher) to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
 
 ## Code examples
 
