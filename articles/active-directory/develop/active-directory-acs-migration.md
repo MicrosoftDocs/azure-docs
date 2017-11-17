@@ -20,7 +20,7 @@ ms.author: dastrock
 
 # Migrating from Azure Access Control Service (ACS)
 
-Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) is being retired in November 2018.  Applications & services currently using ACS will need to fully migrate to a different authentication mechanism before this date. This document describes recommendations for current customers as they plan to deprecate their use of ACS. If you are not currently using ACS, you do not need to take any action.
+Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) is being retired in November 2018.  Applications & services currently using ACS need to fully migrate to a different authentication mechanism before this date. This document describes recommendations for current customers as they plan to deprecate their use of ACS. If you are not currently using ACS, you do not need to take any action.
 
 
 ## Brief ACS Overview
@@ -54,7 +54,7 @@ https://mynamespace.accesscontrol.windows.net
 
 All communication with the STS and management operations are done at this URL, with different paths for different purposes. To determine if your applications or services use ACS, monitor for any traffic to `https://{namespace}.accesscontrol.windows.net`.  Any traffic to this URL is traffic that is handled by ACS and needs to be discontinued.  The one exception is any traffic to `https://accounts.accesscontrol.windows.net` - traffic to this URL is already handled by a different service and is not affected by ACS deprecation.  You should also be sure to login to the Azure classic portal and check for any ACS namespaces in the subscriptions that you own.  ACS namespaces are listed in the **Active Directory** service, under the **Access Control Namespaces** tab.
 
-For more information on ACS, refer to [this archived documentation on MSDN](https://msdn.microsoft.com/en-us/library/hh147631.aspx).
+For more information on ACS, see [this archived documentation on MSDN](https://msdn.microsoft.com/en-us/library/hh147631.aspx).
 
 ## Retirement Schedule
 
@@ -147,7 +147,7 @@ If you decide that Azure AD is the proper path forward for your applications & s
 To use Ws-Federation/WIF to integrate with Azure AD, we recommend following [the approach described in this article](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). The article refers to configuring Azure AD for SAML-based single sign-on, but works for configuring Ws-Federation as well. Following this approach requires an Azure AD Premium license, but has two advantages:
 
 - You get the full flexibility of Azure AD token customization. This allows you to customize the claims issued by Azure AD to match those issued by ACS, especially including the user ID or Name Identifier claim. You need to ensure that the user IDs issued by Azure AD match those issued by ACS, so that you continue to receive consistent user IDentifiers for your users even after changing technologies.
-- You will be able to configure a token signing certificate specific to your application, whose lifetime you control.
+- You can configure a token signing certificate specific to your application, whose lifetime you control.
 
 <!--
 
@@ -162,7 +162,7 @@ Possible nameIdentifiers from ACS (via AAD or ADFS):
 > [!NOTE]
 > Going with this approach requires an Azure AD Premium license. If you are an ACS customer and you require a premium license for setting up single-sign on for an application, reach out to us and we'll be happy to provide developer licenses for your use.
 
-An alternative approach is to follow [this code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), which gives slightly different instructions on how to set up Ws-Federation. This code sample does not use WIF, but rather, the ASP.NET 4.5 OWIN middleware. However, the instructions for app registration are valid for apps using WIF, and do not require an Azure AD Premium license.  If you choose this approach, you will need to understand [signing key rollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes.
+An alternative approach is to follow [this code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), which gives slightly different instructions on how to set up Ws-Federation. This code sample does not use WIF, but rather, the ASP.NET 4.5 OWIN middleware. However, the instructions for app registration are valid for apps using WIF, and do not require an Azure AD Premium license.  If you choose this approach, you heneed to understand [signing key rollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes.
 
 If you are able to integrate with Azure AD via the OpenID Connect or OAuth protocols, we recommend doing so.  We have extensive documentation and guidance for how to integrate Azure AD into your web application available in our [Azure AD developer guide](http://aka.ms/aaddev).
 
@@ -300,4 +300,4 @@ Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customer
 
 ## Questions, Concerns, & Feedback
 
-We understand that many ACS customers will not find a clear migration path after reading this article, and will need some assistance or guidance in determining a path forward. If you would like to discuss your migration scenarios & questions, please leave a comment on this page, and we will attempt to field all inquiries to this alias in a timely manner.
+We understand that many ACS customers will not find a clear migration path after reading this article, and may need some assistance or guidance in determining a path forward. If you would like to discuss your migration scenarios & questions, please leave a comment on this page, and we will attempt to field all inquiries to this alias in a timely manner.
