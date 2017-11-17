@@ -21,6 +21,17 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Log in to the Azure portal
 Open your web browser, and navigate to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
+## Register the resource provider
+You need to register the Microsoft.DataMigration resource provider before you create your first Database Migration Service.
+
+1. In the Azure portal, select **All services**, and then select **Subscriptions**.
+
+1. Select the subscription in which you want to create the instance of the Azure Database Migration Service, and then select **Resource providers**.
+
+1. Search for migration, and then to the right of Microsoft.DataMigration, select **Register**.
+
+![Register resource provider](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
+
 ## Create Azure Database Migration Service
 1. Click **+** to create a new service.  Database Migration Service is still in preview.  
 
