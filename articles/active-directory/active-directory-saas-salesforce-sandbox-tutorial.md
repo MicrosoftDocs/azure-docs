@@ -151,7 +151,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. In the **Issuer** field, paste the value of **SAML Entity ID**, which you have copied from Azure portal
 
-    c. In the **Entity Id** textbox, type **https://test.salesforce.com** if it is the first Salesforce Sandbox instance that you are adding to your directory. If you have already added an instance of Salesforce Sandbox, then for the **Entity ID** type in the **Sign On URL**, which should be in this format: `http://company.my.salesforce.com`  
+    c. In the **Entity Id** textbox, type `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` if it is the first Salesforce Sandbox instance that you are adding to your directory. If you have already added an instance of Salesforce Sandbox, then for the **Entity ID** type in the **Sign On URL**, which should be in this format: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`  
  
     d. To upload the **Identity Provider Certificate**, click **Choose File** to browse and select the certificate file, which you have downloaded from Azure portal.  
 
