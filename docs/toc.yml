@@ -1,1 +1,44 @@
-# [Index](index.md)
+- name: Submit to the Office Store
+  href: submit-to-the-office-store.md
+- name: Optimize add-ins for Office Store discovery
+  href: optimize-for-store-discovery.md
+- name: License your add-ins
+  href: license-your-add-ins.md
+  items:
+  - name: How add-in licenses work
+    href: how-licenses-work.md
+  - name: Add license checks to Office and SharePoint Add-ins
+    href: add-license-checks-to-office-and-sharepoint-add-ins.md
+  - name: Implement licensing to upsell add-ins
+    href: implement-licensing-for-add-in-services.md
+  - name: Add in license schema
+    href: add-in-license-schema.md
+- name: Create effective Office Store listings
+  href: create-effective-office-store-listings.md
+- name: Prepare localized apps and add-ins
+  href: prepare-localized-apps-and-add-ins.md
+- name: Submit to the Seller Dashboard
+  href: use-the-seller-dashboard-to-submit-to-the-office-store.md
+  items: 
+  - name: Upload your package
+    href: upload-package.md
+  - name: Create your Store listing
+    href: office-store-listing.md
+  - name: Add lead management details
+    href: add-lead-management-details.md
+  - name: Decide on a pricing model
+    href: decide-on-a-pricing-model.md
+  - name: Create or update client IDs and secrets
+    href: create-or-update-client-ids-and-secrets.md
+  - name: Office Store submission FAQ
+    href: office-store-submission-faq.md
+- name: Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China
+  href: submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md
+- name: Update, unpublish, and view metrics
+  href: update-unpublish-and-view-metrics.md
+- name: Validation policies
+  href: validation-policies.md
+- name: Promote your Office Store solution
+  href: promote-your-office-store-solution.md
+- name: Seller Dashboard accessibility features
+  href: seller-dashboard-accessibility-features.md
