@@ -53,7 +53,7 @@ Choose **Add a new app**. On the **Listing type** page, choose the type of solut
 |Long description|Required. One entry per language.|
 |Screenshots|At least one is required.|
 
-For more information, see [Store listing](office-store-listing).
+For more information, see [Store listing](office-store-listing.md).
 
 ### Block access page
 
@@ -61,7 +61,7 @@ For more information, see [Store listing](office-store-listing).
 |:-------------|:-------|
 |Block access for specified countries/regions|By default, available in all countries or regions.|
 
-For more information, see [Regional availability](office-store-listing#regional-availability).
+For more information, see [Regional availability](office-store-listing.md#regional-availability).
 
 ### Pricing page
 
