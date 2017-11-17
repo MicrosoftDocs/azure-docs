@@ -309,12 +309,13 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
 1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Select the right section based on the authentication you use to connect to SQL Server.  
 
-    **If you are using SQL authentication (sa):**
-
     > [!IMPORTANT]
     > Replace  **&lt;integration** **runtime** **name>** with the name of your integration runtime.
     > 
     > Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, and **&lt;password>** with values of your SQL Server before saving the file.
+
+    **If you are using SQL authentication (sa):**
+
 
 	```json
 	{
