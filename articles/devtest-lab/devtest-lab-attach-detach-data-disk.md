@@ -54,6 +54,9 @@ Follow these steps to reattach an existing available data disk to a running VM.
 1. Select a running VM for which you want to reattach a data disk.
 1. From the menu on the left, select **Disks**.
 1. Select **Attach existing** to attach an available data disk to the VM.
+
+    ![Attach existing data disk to a virtual machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing2.png)
+
 1. From the **Attach existing disk** pane, select OK.
 
     ![Attach existing data disk to a virtual machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing.png)
