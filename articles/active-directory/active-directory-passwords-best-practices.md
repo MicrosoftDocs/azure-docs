@@ -27,7 +27,7 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
 2. [Configure on-premises Active Directory permissions for password writeback](active-directory-passwords-writeback.md#active-directory-permissions).
 3. [Configure password writeback](active-directory-passwords-writeback.md#configuring-password-writeback) to write passwords from Azure AD back to your on-premises directory.
 4. [Assign and verify the required licenses](active-directory-passwords-licensing.md).
-5. Determine if you want to do a gradual rollout. If you want to roll out SSPR gradually, you can limit access to a group of users so you can pilot the program with a specific group. To roll out to a specific group, set the **Self Service Password Reset Enabled** switch to **Selected** and select the security group you want to enable to be able use password reset. 
+5. Determine if you want to do a gradual rollout. If you want to roll out SSPR gradually, you can limit access to a group of users so you can pilot the program with a specific group. To roll out to a specific group, set the **Self Service Password Reset Enabled** switch to **Selected** and select the security group you want to  be able use password reset. 
 6. Populate the [authentication data](active-directory-passwords-data.md) needed for your users to register, such as their office phone, mobile phone, and alternate email address.
 7. [Customize the Azure AD sign-in experience to include your company branding](active-directory-passwords-customize.md).
 8. Teach your users how to use SSPR. Send them instructions to show them how to register and how to reset their passwords.
@@ -51,7 +51,7 @@ Many customers find that the easiest way to get users to use SSPR is with an ema
 
 ## Create your own password portal
 
-Many of our larger customers choose to host a webpage and create a root DNS entry, like https://passwords.contoso.com. They populate this page with links to the following information:
+Many customers choose to host a webpage and create a root DNS entry, like https://passwords.contoso.com. They populate this page with links to the following information:
 
 * [Azure AD password reset portal](https://aka.ms/sspr)
 * [Azure AD password reset registration portal](http://aka.ms/ssprsetup)
