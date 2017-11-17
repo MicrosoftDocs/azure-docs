@@ -51,7 +51,7 @@ This subscription is not registered to use the namespace ‘Microsoft.Databricks
 **Solution**
 
 1. Go to [Azure portal](https://portal.azure.com).
-2. Click **Subscriptions**,  the the subscription you are using, and then click **Resource providers**. 
+2. Click **Subscriptions**,  the subscription you are using, and then click **Resource providers**. 
 3. In the list of resource providers, against **Microsoft.Databricks**, click **Register**. You must have Contributor or Owner role on the subscription to register the resource provider.
 
 
@@ -69,9 +69,9 @@ Following are a couple of solutions to this issue:
 
 * This error may also occur if your email domain name is assigned to multiple Active Directories. To work around this issue, create a new user in the Active Directory containing the subscription with your Databricks workspace.
     a. In the Azure portal, go to Azure Active Directory, click **Users and Groups**, click **Add a user**.
-    b. Add a user with an `@<tenant_name>.onmicrosoft.com` email instead of @<your_domain> email (e.g., johndoe@johndoecom.onmicrosoft.com). You can find the <tenant_name>.onmicrosoft.com associated with your Active Directory in the **Custom Domains** under Azure Active Direcotry in the Azure Portal.
+    b. Add a user with an `@<tenant_name>.onmicrosoft.com` email instead of @<your_domain> email. You can find the <tenant_name>.onmicrosoft.com associated with your Active Directory in the **Custom Domains** under Azure Active Directory in the Azure portal.
     c. Grant this new user **Contributor** role on the Databricks workspace resource.
-    d. Login to the Azure Portal with the new user and find the Databricks workspace.
+    d. Log in to the Azure portal with the new user and find the Databricks workspace.
     e. Launch the Databricks workspace as this user.
 
 
@@ -89,7 +89,7 @@ Cloud Provider Launch Failure: A cloud provider error was encountered while sett
 
 **Solution**
 
-Azure Databricks clusters use one public IP Address per node. If your subscription has already used all its public IPs, you should [request to increase the quota](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Choose **Quota** as the **Issue Type**, **Networking ARM** as the **Quota Type**, and request a Public IP Address quota increase in **Details** (for example, if your limit is currently 60 and you want to create a 100 node cluster, request a limit increase to 160).
+Azure Databricks clusters use one public IP Address per node. If your subscription has already used all its public IPs, you should [request to increase the quota](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Choose **Quota** as the **Issue Type**, **Networking: ARM** as the **Quota Type**, and request a Public IP Address quota increase in **Details**. For example, if your limit is currently 60 and you want to create a 100 node cluster, request a limit increase to 160.
 
 ### Issue: Cloud Provider Launch Failure (MissingSubscriptionRegistration): A cloud provider error was encountered while setting up the cluster
 
@@ -102,7 +102,7 @@ Azure error message: The subscription is not registered to use namespace 'Micros
 **Solution**
 
 1. Go to [Azure portal](https://portal.azure.com).
-2. Click **Subscriptions**,  the the subscription you are using, and then click **Resource providers**. 
+2. Click **Subscriptions**,  the subscription you are using, and then click **Resource providers**. 
 3. In the list of resource providers, against **Microsoft.Compute**, click **Register**. You must have Contributor or Owner role on the subscription to register the resource provider.
 
 See [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md) for more detailed instructions.
