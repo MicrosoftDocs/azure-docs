@@ -40,7 +40,7 @@ At the end of this guide, your application will accept sign ins of work and scho
 This guide is based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to create the web page displayed in the browser occurs on the server side.
 
 > [!NOTE]
-> This guided setup demonstrates how to sign in users on an ASP.NET Web Application from an Empty template, and include steps like adding a sign in button, while also explaining some concepts along the way. You can also create a project and sign-in Azure Active Directory users (work and school accounts) by using the [Visual Studio web template](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) and selecting *Organizational Accounts* and then one of the cloud options. 
+> This guided setup demonstrates how to sign in users on an ASP.NET Web Application starting from an Empty template, and include steps such as adding a sign in button and all controllers and methods, while also explaining some concepts as you progress building your application. Alternativelly, you can also create a project to sign-in Azure Active Directory users (work and school accounts) by using the [Visual Studio web template](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) and selecting *Organizational Accounts* and then one of the cloud options - this option uses a richer template, with additional controllers, methods and views.
 
 ## Libraries
 
@@ -60,10 +60,8 @@ This guide uses the following packages:
 ## Set up your project
 
 This section shows the steps to install and configure the authentication pipeline via OWIN middleware on an ASP.NET project using OpenID Connect. 
-********
-https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options
-***********
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Configuration step](#configure-your-webconfig-and-register-an-application) to configure the code sample before executing.
+
+> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip) and skip to the [Configuration step](#configure-your-webconfig-and-register-an-application) to configure the code sample before executing.
 
 ## Create your ASP.NET project
 1. In Visual Studio: `File` > `New` > `Project`<br/>
@@ -88,7 +86,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 <!--end-collapse-->
 
 ## Configure the authentication pipeline
-The steps below are used to create an OWIN middleware Startup Class to configure OpenID Connect authentication. This class is executed automatically when your IIS process starts.
+The steps below are used to create an OWIN middleware *Startup Class* to configure OpenID Connect authentication. This class is executed automatically when your IIS process starts.
 
 > If your project doesn't have a `Startup.cs` file in the root folder:<br/>
 > 1. Right-click on the project's root folder: >	`Add` > `New Item...` > `OWIN Startup class`<br/>
