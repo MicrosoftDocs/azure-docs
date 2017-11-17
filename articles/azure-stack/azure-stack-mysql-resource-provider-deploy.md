@@ -35,12 +35,12 @@ The resource provider is made up of three components:
 - **Servers that host MySQL Server**, which provide capacity for databases, called Hosting Servers.
 
 This release no longer creates a MySQL instance. You must create them and/or provide access to external SQL instances. Visit the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) for an example template that can:
-- create a MySQL server for you
-- download and deploy a MySQL Server from the Marketplace.
+- Create a MySQL server for you
+- Download and deploy a MySQL Server from the Marketplace.
 
-![NOTE] Hosting servers installed on a multi-node Azure Stack must be created from a tenant subscription. They can't be created from the Default Provider Subscription. In other words, they must be created from the tenant portal or from a PowerShell session with an appropriate login. All hosting servers are chargeable VMs and must have appropriate licenses. The service administrator can be the owner of that subscription.
+[!NOTE] Hosting servers installed on a multi-node Azure Stack must be created from a tenant subscription. They can't be created from the Default Provider Subscription. In other words, they must be created from the tenant portal or from a PowerShell session with an appropriate login. All hosting servers are chargeable VMs and must have appropriate licenses. The service administrator can be the owner of that subscription.
 
-### Required Privileges
+### Required privileges
 The system account must have the following privileges:
 
 1.	Database: Create, Drop
@@ -86,8 +86,8 @@ The script performs these steps:
 
 
 You can:
-- specify at least the required parameters on the command line
-- or, if you run without any parameters, enter them when prompted.
+- Specify at least the required parameters on the command line
+- Or, if you run without any parameters, enter them when prompted.
 
 Here's an example you can run from the PowerShell prompt (but change the account information and passwords as needed):
 
@@ -165,7 +165,7 @@ Depending on the system performance and download speeds, installation may take a
 
 
 
-## Verify the deployment using the Azure Stack Portal
+## Verify the deployment using the Azure Stack portal
 
 > [!NOTE]
 >  After the installation script completes, you will need to refresh the portal to see the admin blade.
@@ -194,10 +194,11 @@ Depending on the system performance and download speeds, installation may take a
 
 4. As you add servers, you must assign them to a new or existing SKU to allow differentiation of service offerings.
   For example, you can have an enterprise instance providing:
-    - database capacity
-    - automatic backup
-    - reserve high-performance servers for individual departments
-    - and so on.
+    - Database capacity
+    - Automatic backup
+    - Reserve high-performance servers for individual departments
+ 
+
     The SKU name should reflect the properties so that tenants can place their databases appropriately. All hosting servers in a SKU should have the same capabilities.
 
     ![Create a MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
@@ -239,17 +240,17 @@ SKUs can take up to an hour to be visible in the portal. You cannot create a dat
 Add capacity by adding additional MySQL servers in the Azure Stack portal. Additional servers can be added to a new or existing SKU. Make sure the server characteristics are the same.
 
 
-## Making MySQL databases available to tenants
+## Make MySQL databases available to tenants
 Create plans and offers to make MySQL databases available for tenants. Add the Microsoft.MySqlAdapter service, add a quota, etc.
 
 ![Create plans and offers to include databases](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
-## Updating the administrative password
+## Update the administrative password
 You can modify the password by first changing it on the MySQL server instance. Browse to **ADMINISTRATIVE RESOURCES** &gt; **MySQL Hosting Servers** &gt; and click on the hosting server. In the Settings panel, click on Password.
 
 ![Update the admin password](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## Removing the MySQL Adapter Resource Provider
+## Remove the MySQL Adapter Resource Provider
 
 To remove the resource provider, it is essential to first remove any dependencies.
 

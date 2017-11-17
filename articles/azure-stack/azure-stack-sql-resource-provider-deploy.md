@@ -22,9 +22,9 @@ ms.author: JeffGo
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 Use the SQL Server resource provider adapter to expose SQL databases as a service of [Azure Stack](azure-stack-poc.md). After you install the resource provider and connect it to one or more SQL Server instances, you and your users can create:
-- databases for cloud-native apps
-- websites that are based on SQL
-- workloads that are based on SQL
+- Databases for cloud-native apps
+- Websites that are based on SQL
+- Workloads that are based on SQL
 You don't have to provision a virtual machine (VM) that hosts SQL Server each time.
 
 The resource provider does not support all the database management capabilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, elastic database pools and the ability to dial database performance up and down automatically aren't available. However, the resource provider does support similar create, read, update, and delete (CRUD) operations. The API is not compatible with SQL DB.
@@ -138,7 +138,7 @@ You can specify these parameters in the command line. If you do not, or any para
 | **DebugMode** | Prevents automatic cleanup on failure | No |
 
 
-## Verify the deployment using the Azure Stack Portal
+## Verify the deployment using the Azure Stack portal
 
 > [!NOTE]
 >  After the installation script completes, you will need to refresh the portal to see the admin blade.
@@ -151,10 +151,7 @@ You can specify these parameters in the command line. If you do not, or any para
       ![Verify Deployment of the SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-
-
-
-## Removing the SQL Adapter Resource Provider
+## Remove the SQL Adapter Resource Provider
 
 In order to remove the resource provider, it is essential to first remove any dependencies.
 

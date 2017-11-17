@@ -1,6 +1,6 @@
 ---
-title: Azure marketplace items available for Azure Stack | Microsoft Docs
-description: These Azure marektplace items can be used in Azure Stack.
+title: Azure Marketplace items available for Azure Stack | Microsoft Docs
+description: These Azure Marketplace items can be used in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: ErikjeMS
@@ -17,11 +17,11 @@ ms.date: 10/17/2017
 ms.author: erikje
 
 ---
-# Azure marketplace items available for Azure Stack
+# Azure Marketplace items available for Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Microsoft Azure Stack supports the following Azure marketplace items:
+Microsoft Azure Stack supports the following Azure Marketplace items:
 
 |  | Item name | Description | Publisher |
 | --- | --- | --- | --- |
@@ -171,5 +171,5 @@ Microsoft Azure Stack supports the following Azure marketplace items:
 
 
 ### Next steps
-[Download a marketplace item](azure-stack-download-azure-marketplace-item.md)
+[Download a Marketplace item](azure-stack-download-azure-marketplace-item.md)
 
