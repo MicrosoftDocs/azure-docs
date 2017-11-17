@@ -24,7 +24,7 @@ To submit a SharePoint Add-in that uses OAuth that you want to distribute it to 
 - Block access for all countries except China.
 - Create a separate add-in listing for China.
 
-For more information, see [Submit apps for Office 365 operated by 21Vianet in China](submit-apps-for-office-365-operated-by-21vianet-in-china.md).
+For more information, see [Submit apps for Office 365 operated by 21Vianet in China](submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md).
 
 ## Upload an Office 365 web app
 
