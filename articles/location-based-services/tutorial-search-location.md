@@ -43,7 +43,7 @@ Follow these steps to create a new Location Based Services account.
     - The *Name* of your new account. 
     - The *Subscription* that you want to use for this account.
     - The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
-    - Select the *Resource group location*. At present, the default option is **Global**.
+    - Select the *Resource group location*.
     - Select the *Pricing tier*.
     - Read the *Preview Terms* and check the checkbox to accept the terms. 
     - Finally, click the **Create** button.
@@ -254,4 +254,4 @@ In this tutorial, you learned how to:
 > * Create new web page using Map Control API
 > * Use Search Service to find nearby point of interest
 
-Proceed to the next tutorial to learn how to use the Azure Location Based Services to route to your point of interest. 
+Proceed to the tutorial [Route to a point of interest using Azure Location Based Services](./tutorial-route-location.md) to learn how to use the Azure Location Based Services to route to your point of interest. 

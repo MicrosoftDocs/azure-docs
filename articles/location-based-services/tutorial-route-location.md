@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Route to a point of interest using Azure Location Based Services
 
-This tutorial shows how to set up an account with Azure Location Based Services, and then use the provided APIs to search for a point of interest. In this tutorial, you learn how to:
+This tutorial shows how to use your Azure Location Based Services account and the Route Service SDK, to find the route to your point of interest. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Convert address to coordinates
@@ -199,4 +199,4 @@ In this tutorial, you learned how to:
 > * Convert address to coordinates
 > * Query Route Service for directions to point of interest
 
-Proceed to the next tutorial to learn how to use the Azure Location Based Services to prioritize routes to your point of interest, based on the mode of transport. 
+Proceed to the tutorial [Find routes for different modes of travel using Azure Location Based Services](./tutorial-prioritized-routes.md) to learn how to use the Azure Location Based Services to prioritize routes to your point of interest, based on the mode of transport. 
