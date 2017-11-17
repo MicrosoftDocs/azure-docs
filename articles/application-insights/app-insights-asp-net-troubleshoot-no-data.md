@@ -3,7 +3,7 @@ title: Troubleshooting no data - Application Insights for .NET
 description: Not seeing data in Azure Application Insights? Try here.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Troubleshooting no data - Application Insights for .NET
@@ -158,7 +158,7 @@ Performance data (CPU, IO rate, and so on) is available for [Java web services](
 
 ## No (server) data since I published the app to my server
 * Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
-* In your firewall, you might have to [open some TCP ports](app-insights-ip-addresses.md#data-access-api).
+* In your firewall, you might have to [open some TCP ports](app-insights-ip-addresses.md).
 * If you have to use a proxy to send out of your corporate network, set [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) in Web.config
 * Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 

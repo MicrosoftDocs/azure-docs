@@ -4,9 +4,9 @@ description: 'What is Azure Multi-factor Authentication, why use MFA, more infor
 keywords: introduction to MFA, mfa overview, what is mfa
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 
 ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
 ms.service: multi-factor-authentication
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
-ms.author: kgremban
+ms.author: joflore
 
 ---
 # What is Azure Multi-Factor Authentication?
@@ -30,9 +30,9 @@ Two-step verification is a method of authentication that requires more than one 
 Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of verification methods, including phone call, text message, or mobile app verification.
 
 ## Why use Azure Multi-Factor Authentication?
-Today, more than ever, people are increasingly connected. With smart phones, tablets, laptops, and PCs, people have several different options on how they are going to connect and stay connected at any time. People can access their accounts and applications from anywhere, which means that they can get more work done and serve their customers better.
+Today, more than ever, people are increasingly connected. With smart phones, tablets, laptops, and PCs, people have multiple options to access their accounts and applications from anywhere and stay connected at any time.
 
-Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solution that provides a second method of authentication so your users are always protected.
+Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solution that provides a second method of authentication to protect your users.
 
 | ![Easy to Use](./media/multi-factor-authentication/simple.png) | ![Scalable](./media/multi-factor-authentication/scalable.png) | ![Always Protected](./media/multi-factor-authentication/protected.png) | ![Reliable](./media/multi-factor-authentication/reliable.png) |
 |:---:|:---:|:---:|:---:|
@@ -41,7 +41,7 @@ Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solu
 * **Easy to Use** - Azure Multi-Factor Authentication is simple to set up and use. The extra protection that comes with Azure Multi-Factor Authentication allows users to manage their own devices. Best of all, in many instances it can be set up with just a few simple clicks.
 * **Scalable** - Azure Multi-Factor Authentication uses the power of the cloud and integrates with your on-premises AD and custom apps. This protection is even extended to your high-volume, mission-critical scenarios.
 * **Always Protected** - Azure Multi-Factor Authentication provides strong authentication using the highest industry standards.
-* **Reliable** - We guarantee 99.9% availability of Azure Multi-Factor Authentication. The service is considered unavailable when it is unable to receive or process verification requests for the two-step verification.
+* **Reliable** - Microsoft guarantees 99.9% availability of Azure Multi-Factor Authentication. The service is considered unavailable when it is unable to receive or process verification requests for the two-step verification.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Windows-Azure-Multi-Factor-Authentication/player]
 

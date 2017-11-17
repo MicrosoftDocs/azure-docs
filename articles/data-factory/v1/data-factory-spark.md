@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 
 robots: noindex
@@ -31,6 +31,9 @@ robots: noindex
 > * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
+
+> [!NOTE]
+> This article applies to version 1 of Azure Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [transform data using spark activity in Data Factory version 2](../transform-data-using-spark.md).
 
 ## Introduction
 Spark Activity is one of the [data transformation activities](data-factory-data-transformation-activities.md) supported by Azure Data Factory. This activity runs the specified Spark program on your Apache Spark cluster in Azure HDInsight.    
@@ -50,7 +53,7 @@ Here are the typical steps to create a Data Factory pipeline with a Spark activi
 
 ### Prerequisites
 1. Create a **general-purpose Azure Storage Account** by following instructions in the walkthrough: [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account).  
-2. Create an **Apache Spark cluster in Azure HDInsight** by following instructions in the tutorial: [Create Apache Spark cluster in Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Associate the Azure storage account you created in step #1 with this cluster.  
+2. Create an **Apache Spark cluster in Azure HDInsight** by following instructions in the tutorial: [Create Apache Spark cluster in Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associate the Azure storage account you created in step #1 with this cluster.  
 3. Download and review the python script file **test.py** located at: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).  
 3.  Upload **test.py** to the **pyFiles** folder in the **adfspark** container in your Azure Blob storage. Create the container and the folder if they do not exist.
 
@@ -228,7 +231,7 @@ In this step, you create a pipeline with a **HDInsightSpark** activity. Currentl
 	![Jupyter query results](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-See [Run a Spark SQL query](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md) section for detailed instructions. 
+See [Run a Spark SQL query](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) section for detailed instructions. 
 
 ### Troubleshooting
 Since you set **getDebugInfo** to **Always**, you see a **log** subfolder in the **pyFiles** folder in your Azure Blob container. The log file in the log folder provides additional details. This log file is especially useful when there is an error. In a production environment, you may want to set it to **Failure**.

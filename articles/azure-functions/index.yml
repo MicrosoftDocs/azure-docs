@@ -15,7 +15,7 @@ metadata:
   ms.date: 01-23-2017
   ms.author: carolz
 abstract:
-  description: Azure Functions is a serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events. Learn how to use Azure Functions with our quickstarts, tutorials, and samples.
+  description: Azure Functions is a <a href="https://azure.microsoft.com/overview/serverless-computing/">serverless</a> compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure. Use Azure Functions to run a script or piece of code in response to a variety of events. Learn how to use Azure Functions with our quickstarts, tutorials, and samples.
   aside:
     image:
       alt: 

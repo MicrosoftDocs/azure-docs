@@ -6,7 +6,7 @@ keywords: multifactor authentication client, authentication problem, correlation
 documentationcenter: ''
 author: barlanmsft
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 ms.service: multi-factor-authentication
@@ -24,7 +24,7 @@ This article answers questions about how to update settings for two-step verific
 ## Where to find the settings page
 Depending on how your company set up Azure Multi-Factor Authentication, there are a few places where you can change your settings like your phone number.
 
-If your IT admin sent out a specific URL or steps to manage two-step verification, follow those instructions. Otherwise, the following instructions should work for everybody else. If you follow these steps but don't see the same options, that means that your work or school customized their own portal. Ask your admin for the link to your Azure Multi-Factor Authentication portal.
+If your company support sent out a specific URL or steps to manage two-step verification, follow those instructions. Otherwise, the following instructions should work for everybody else. If you follow these steps but don't see the same options, that means that your work or school customized their own portal. Ask your admin for the link to your Azure Multi-Factor Authentication portal.
 
 1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com)  
 2. Select your account name in the top right, then select **profile**.  

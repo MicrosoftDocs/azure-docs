@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
@@ -36,23 +36,25 @@ Here is an example report:
 
 ![example report](./media/tutorial-review-usage/actual-cost01.png)
 
-The report shows all spending over the last 30 days. To view only spending for Azure services, apply the Service group and then filter for all Azure services. The image below shows the filtered services.
+The report shows all spending over the last 30 days. To view only spending for Azure services, apply the Service group and then filter for all Azure services. The following image shows the filtered services.
 
 ![filtered services](./media/tutorial-review-usage/actual-cost02.png)
 
-In the example above, less money was spent starting on 2017-08-31 than before. That cost trend continues for the various services for about nine days. Then, additional spending continues as before. However, too many columns can obscure an obvious trend. You can change the report view to a line or area chart to see the data displayed in other views. The image below shows the trend more clearly.
+In the preceding example, less money was spent starting on 2017-08-31 than before. That cost trend continues for the various services for about nine days. Then, additional spending continues as before. However, too many columns can obscure an obvious trend. You can change the report view to a line or area chart to see the data displayed in other views. The following image shows the trend more clearly.
 
 ![trend in report](./media/tutorial-review-usage/actual-cost03.png)
 
 In the example, you clearly see that Azure Storage cost dropped starting on 2017-08-31 while spending on other Azure services remained level. So, what caused that reduction in spending? In this example, some employees were on vacation away from work and did not use the Storage service.
 
+To watch a tutorial video about tracking usage and cost trends, see [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g).
+
 ## Detect usage inefficiencies
 
 Optimizer reports improve efficiency, optimize usage, and identify ways to save money spent on your cloud resources. They are especially helpful with cost-effective sizing recommendations intended to help reduce idle or expensive VMs.
 
-A common problem that affects organizations when they initially move resources in to the cloud is their virtualization strategy. They often use a approach similar to the one they used for creating virtual machines for the on-premises virtualization environment. And, they assume that costs are reduced by moving their on-premises VMs to the cloud, as-is. However, that approach is not likely to reduce costs.
+A common problem that affects organizations when they initially move resources in to the cloud is their virtualization strategy. They often use an approach similar to the one they used for creating virtual machines for the on-premises virtualization environment. And, they assume that costs are reduced by moving their on-premises VMs to the cloud, as-is. However, that approach is not likely to reduce costs.
 
-The problem is that their existing infrastructure was already paid for. Users could create and keep very large VMs running if they liked—idle or not and with very little consequence. Moving very large or idle VMs to the cloud is likely to *increase* costs. Cost allocation for resources is very important when you enter into agreements with cloud service providers. You must pay for what you commit to whether you use the resource fully or not.
+The problem is that their existing infrastructure was already paid for. Users could create and keep large VMs running if they liked—idle or not and with little consequence. Moving large or idle VMs to the cloud is likely to *increase* costs. Cost allocation for resources is important when you enter into agreements with cloud service providers. You must pay for what you commit to whether you use the resource fully or not.
 
 The Cost Effective Sizing Recommendations report identifies potential annual savings by comparing VM instance type capacity to their historical CPU and memory usage data.  
 
@@ -64,9 +66,11 @@ In this example, $3,114 could be saved by following the recommendations to chang
 
 ![recommendation details](./media/tutorial-review-usage/sizing02.png)
 
-Click the plus symbol next to **List of Candidates** to view VM instance IDs.
+View VM instance IDs by clicking the plus symbol next to **List of Candidates**.
 
 ![List of Candidates](./media/tutorial-review-usage/sizing03.png)
+
+To watch a tutorial video about detecting usage inefficiencies, see [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704).
 
 ## Create alerts for unusual spending
 

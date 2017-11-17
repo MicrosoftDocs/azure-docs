@@ -59,17 +59,20 @@
 # How to
 ## [Monitor VPN Gateway with Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnose On-Premises connectivity via VPN Gateway](network-watcher-diagnose-on-premises-connectivity.md)
-## [Analyze packet captures to find anomalies](network-watcher-deep-packet-inspection.md)
-## [Use packet capture to do proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md)
-## [Visualize flow logs using Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-## [Visualize flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-## [Visualize flow logs in Azure using Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
-## [Visualize network traffic patterns using open source tools](network-watcher-using-open-source-tools.md)
 ## [Perform compliance and audit on your network using PowerShell](network-watcher-nsg-auditing-powershell.md)
-## [Read NSG flow logs](network-watcher-read-nsg-flow-logs.md)
-## [Perform intrusion detection using open source tools](network-watcher-intrusion-detection-open-source-tools.md)
 ## [Analyze Application gateway logs in Azure Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
-## [Analyze flow logs using Network Watcher and Grafana](network-watcher-nsg-grafana.md)
+## Packet capture
+### [Find anomalies](network-watcher-deep-packet-inspection.md)
+### [Proactive network monitoring with Azure Functions](network-watcher-alert-triggered-packet-capture.md)
+### [Perform intrusion detection using open source tools](network-watcher-intrusion-detection-open-source-tools.md)
+### [Visualize network traffic patterns using open source tools](network-watcher-using-open-source-tools.md)
+## Analyze NSG flow logs
+### [Read NSG flow logs](network-watcher-read-nsg-flow-logs.md)
+### [Use Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+### [Use Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+### [Use Grafana](network-watcher-nsg-grafana.md)
+### [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+
 # Reference
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)

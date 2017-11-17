@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: asteen
 

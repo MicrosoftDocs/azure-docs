@@ -1,4 +1,4 @@
-﻿---
+---
 title: Restore an Azure SQL database from a backup | Microsoft Docs
 description: Learn about Point-in-Time Restore, that enables you to roll back an Azure SQL Database to a previous point in time (up to 35 days).
 services: sql-database
@@ -13,8 +13,8 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/25/2017
+ms.workload: "Active"
+ms.date: 10/13/2017
 ms.author: carlrab
 
 ---
@@ -51,7 +51,14 @@ The recovery time to restore a database using automated database backups is impa
 * The number of concurrent restore requests being processed in the target region. 
   
   For a very large and/or active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of geo-restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. Most database restores complete within 12 hours.
-  
+
+For a single subscription, there’re some limitations on number of concurrent restore requests (including point in time restore, geo restore and restore from long term retention backup) being submitted and proceeded:
+|  | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
+| :--- | --: | --: |
+|Single database (per subscription)|10|60|
+|Elastic pool (per pool)|4|200|
+||||
+
 There is no built-in functionality to do bulk restore. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task.
 
 > [!IMPORTANT]
@@ -113,7 +120,7 @@ Geo-restore is the default recovery option when your database is unavailable bec
 Point-in-time restore on a geo-secondary is not currently supported. Point-in-time restore can be done only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Recovery from backups is the most basic of the disaster recovery solutions available in SQL Database with the longest RPO and Estimate Recovery Time (ERT). For solutions using Basic databases, geo-restore is frequently a reasonable DR solution with an ERT of 12 hours. For solutions using larger Standard or Premium databases that require shorter recovery times, you should consider using [active geo-replication](sql-database-geo-replication-overview.md). Active geo-replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For more information on business contiuity choices, see [over of business continuity](sql-database-business-continuity.md).
+> Recovery from backups is the most basic of the disaster recovery solutions available in SQL Database with the longest Recovery Point Objective (RPO) and Estimate Recovery Time (ERT). For solutions using Basic databases, geo-restore is frequently a reasonable DR solution with an ERT of 12 hours. For solutions using larger Standard or Premium databases that require shorter recovery times, you should consider using [active geo-replication](sql-database-geo-replication-overview.md). Active geo-replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. For more information on business continuity choices, see [Overview of business continuity](sql-database-business-continuity.md).
 > 
 
 ### Azure portal
@@ -143,8 +150,8 @@ As previously discussed, in addition to the Azure portal, database recovery can 
 Automatic backups protect your databases from user and application errors, accidental database deletion, and prolonged outages. This built-in capability is available for all service tiers and performance levels. 
 
 ## Next steps
-* For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
-* To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-* To learn about long-term backup retention, see [Long-term backup retention](sql-database-long-term-retention.md)
+* For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md).
+* To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
+* To learn about long-term backup retention, see [Long-term backup retention](sql-database-long-term-retention.md).
 * To configure, manage, and restore from long-term retention of automated backups in an Azure Recovery Services vault using the Azure portal, see [Configure and use long-term backup retention](sql-database-long-term-backup-retention-configure.md). 
-* To learn about faster recovery options, see [active geo-replication](sql-database-geo-replication-overview.md)  
+* To learn about faster recovery options, see [Failover groups and active geo-replication](sql-database-geo-replication-overview.md).  

@@ -1,4 +1,4 @@
-* [Setup Azure Active Directory authentication for your app](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
+* [Setup Azure Active Directory authentication for your app](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)
 * [Secure traffic to your app by enabling Transport Layer Security (TLS/SSL) - HTTPS](../articles/app-service/app-service-web-tutorial-custom-ssl.md)
   * [Force all incoming traffic over HTTPS connection](http://microsoftazurewebsitescheatsheet.info/#force-https)
   * [Enable Strict Transport Security (HSTS)](http://microsoftazurewebsitescheatsheet.info/#enable-http-strict-transport-security-hsts)

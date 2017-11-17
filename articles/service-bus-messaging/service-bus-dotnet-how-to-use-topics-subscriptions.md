@@ -13,15 +13,13 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/10/2017
 ms.author: sethm
 
 ---
 # Get started with Service Bus topics
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-## What will be accomplished
 
 This tutorial covers the following steps:
 
@@ -47,7 +45,7 @@ If you have already created a Service Bus Messaging namespace, jump to the [Crea
 ## 2. Create a topic using the Azure portal
 
 1. Log on to the [Azure portal][azure-portal].
-2. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**).
+2. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**, or click on **All Resources**).
 3. Click the namespace in which you would like to create the topic. The namespace overview blade appears:
    
     ![Create a topic][createtopic1]
@@ -62,7 +60,7 @@ If you have already created a Service Bus Messaging namespace, jump to the [Crea
 ## 3. Create a subscription to the topic
 
 1. In the portal resources pane, click the namespace you created in step 1, then click name of the topic you created in step 2.
-2. A the top of the overview pane, click the plus sign next to **Subscription** to add a subscription to this topic.
+2. At the top of the overview pane, click the plus sign next to **Subscription** to add a subscription to this topic.
 
     ![Create subscription][createtopic4]
 
@@ -79,7 +77,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
 ### Add the Service Bus NuGet package
 
 1. Right-click the newly created project and select **Manage NuGet Packages**.
-2. Click the **Browse** tab, search for **Microsoft Azure Service Bus**, and then select the **WindowsAzure.ServiceBus** item. Click **Install** to complete the installation, then close this dialog box.
+2. Click the **Browse** tab, search for **WindowsAzure.ServiceBus**, and then select the **WindowsAzure.ServiceBus** item. Click **Install** to complete the installation, then close this dialog box.
    
     ![Select a NuGet package][nuget-pkg]
 
@@ -99,10 +97,10 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
     var client = TopicClient.CreateFromConnectionString(connectionString, topicName);
     var message = new BrokeredMessage("This is a test message!");
 
+    client.Send(message);
+
     Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
     Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
-
-    client.Send(message);
 
     Console.WriteLine("Message successfully sent! Press ENTER to exit program");
     Console.ReadLine();
@@ -130,10 +128,10 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
                 var client = TopicClient.CreateFromConnectionString(connectionString, topicName);
                 var message = new BrokeredMessage("This is a test message!");
 
+                client.Send(message);
+                
                 Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
-
-                client.Send(message);
 
                 Console.WriteLine("Message successfully sent! Press ENTER to exit program");
                 Console.ReadLine();
@@ -153,7 +151,7 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Add the following code to the `Main` method. Set the `connectionString` variable to the connection string you obtained when creating the namespace, and set `topicName` to the name that you used when creating the topic.
+3. Add the following code to the `Main` method. Set the `connectionString` variable to the connection string you obtained when creating the namespace, and set `topicName` to the name that you used when creating the topic. Also make sure to replace `<your subscription name>` with the name of the subscription you created in step 3. 
    
     ```csharp
     var connectionString = "<your connection string>";

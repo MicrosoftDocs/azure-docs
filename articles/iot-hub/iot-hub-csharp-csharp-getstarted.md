@@ -197,7 +197,7 @@ In this section, you create a .NET console app that simulates a device that send
     Console.ReadLine();
     ```
 
-    By default, the **Create** method in a .NET Framework app creates a **DeviceClient** instance that uses the AMQP protocol to communicate with IoT Hub. To use the MQTT or HTTP protocol, use the override of the **Create** method that enables you to specify the protocol. UWP and PCL clients use the HTTP protocol by default. If you use the HTTP protocol, you should also add the **Microsoft.AspNet.WebApi.Client** NuGet package to your project to include the **System.Net.Http.Formatting** namespace.
+    By default, the **Create** method in a .NET Framework app creates a **DeviceClient** instance that uses the AMQP protocol to communicate with IoT Hub. To use the MQTT or HTTPS protocol, use the override of the **Create** method that enables you to specify the protocol. UWP and PCL clients use the HTTPS protocol by default. If you use the HTTPS protocol, you should also add the **Microsoft.AspNet.WebApi.Client** NuGet package to your project to include the **System.Net.Http.Formatting** namespace.
 
 This tutorial takes you through the steps to create an IoT Hub device app. You can also use the [Connected Service for Azure IoT Hub][lnk-connected-service] Visual Studio extension to add the necessary code to your device app.
 
@@ -257,5 +257,5 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

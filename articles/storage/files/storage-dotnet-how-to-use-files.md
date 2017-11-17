@@ -26,8 +26,7 @@ ms.author: renash
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-## About this tutorial
-This tutorial will demonstrate the basics of using .NET to develop applications or services that use Azure Files to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with .NET and Azure Files:
+This tutorial will demonstrate the basics of using .NET to develop applications or services that use Azure Files to store file data. In this tutorial, we create a simple console application and show how to perform basic actions with .NET and Azure Files:
 
 * Get the contents of a file
 * Set the quota (maximum size) for the file share.
@@ -133,7 +132,7 @@ if (share.Exists())
 Run the console application to see the output.
 
 ## Set the maximum size for a file share
-Beginning with version 5.x of the Azure Storage Client Library, you can set set the quota (or maximum size) for a file share, in gigabytes. You can also check to see how much data is currently stored on the share.
+Beginning with version 5.x of the Azure Storage Client Library, you can set the quota (or maximum size) for a file share, in gigabytes. You can also check to see how much data is currently stored on the share.
 
 By setting the quota for a share, you can limit the total size of the files stored on the share. If the total size of files on the share exceeds the quota set on the share, then clients will be unable to increase the size of existing files or create new files, unless those files are empty.
 
@@ -324,10 +323,84 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 You can copy a blob to a file in the same way. If the source object is a blob, then create a SAS to authenticate access to that blob during the copy operation.
 
+## Share snapshots (preview)
+Beginning with version 8.5 of the Azure Storage Client Library, you can create a share snapshot (preview). You can also list or browse share snapshots and delete share snapshots. Share snapshots are read-only so no write operations are allowed on share snapshots.
+
+**Create share snapshots**
+
+The following example creates a file share snapshot.
+
+```csharp
+storageAccount = CloudStorageAccount.Parse(ConnectionString); 
+fClient = storageAccount.CreateCloudFileClient(); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+var snapshotShare = myShare.Snapshot();
+
+```
+**List share snapshots**
+
+The following example lists the share snapshots on a share.
+
+```csharp
+var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
+```
+
+**Browse files and directories within share snapshots**
+
+The following example browses files and directory within share snapshots.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
+var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
+var items = rootDirectory.ListFilesAndDirectories();
+```
+
+**List shares and share snapshots and restore file shares or files from share snapshots** 
+
+Taking a snapshot of a file share enables you to recover individual files or the entire the file share in the future. 
+
+You can restore a file from a file share snapshot by querying the share snapshots of a file share. You can then retrieve a file that belongs to a particular share snapshot and use that version to either directly read and compare or to restore.
+
+```csharp
+CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
+var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
+
+       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var fileInliveShare = dirInliveShare.GetFileReference(fileName);
+
+           
+CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
+var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
+
+       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var fileInSnapshot = dir1InSnapshot.GetFileReference(fileName);
+
+string sasContainerToken = string.Empty;
+       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
+
+string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
+fileInliveShare.StartCopyAsync(new Uri(sourceUri));
+
+```
+
+
+**Delete share snapshots**
+
+The following example deletes a file share snapshot.
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
+```
+
 ## Troubleshooting Azure Files using metrics
 Azure Storage Analytics now supports metrics for Azure Files. With metrics data, you can trace requests and diagnose issues.
 
-You can enable metrics for Azure Files from the [Azure Portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
+You can enable metrics for Azure Files from the [Azure Portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogs in the Storage Client Library.
 
 The following code example shows how to use the Storage Client Library for .NET to enable metrics for Azure Files.
 

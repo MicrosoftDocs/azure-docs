@@ -1,6 +1,7 @@
 - name: Data Science Virtual Machine documentation
   items:
 - name: Overview
+  expanded: true
   items:
   - name: What is the Data Science VM?
     href: overview.md
@@ -25,7 +26,10 @@
   - name: Use a Deep Learning VM
     href: use-deep-learning-dsvm.md
 - name: Reference
+  expanded: true
   items:
+  - name: Discover the DSVM
+    href: dsvm-tools-overview.md
   - name: Deep Learning and AI frameworks
     href: dsvm-deep-learning-ai-frameworks.md
   - name: ML and data science tools

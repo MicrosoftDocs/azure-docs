@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Create a Linux virtual machine with PowerShell
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using the Azure PowerShell module to deploy a virtual machine running Ubuntu server. Once the server is deployed, an SSH connection is created, and an NGINX webserver is installed.
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart details using the Azure PowerShell module to deploy a virtual machine running Ubuntu server. Once the server is deployed, an SSH connection is created, and an NGINX webserver is installed.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -136,16 +136,14 @@ When prompted, the login user name is *azureuser*. If a passphrase was entered w
 
 ## Install NGINX
 
-Use the following bash script to update package sources and install the latest NGINX package. 
+Use the following commands to update package sources and install the latest NGINX package. 
 
 ```bash 
-#!/bin/bash
-
 # update package source
-apt-get -y update
+sudo apt-get -y update
 
 # install NGINX
-apt-get -y install nginx
+sudo apt-get -y install nginx
 ```
 
 ## View the NGIX welcome page

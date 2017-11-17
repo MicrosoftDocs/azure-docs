@@ -3,7 +3,7 @@ title: Develop and run Azure functions locally | Microsoft Docs
 description: Learn how to code and test Azure functions on your local computer before you run them on Azure Functions.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/12/2017
 ms.author: glenga
 
 ---
@@ -22,6 +22,9 @@ ms.author: glenga
 While the [Azure portal] provides a full set of tools for developing and testing Azure Functions, many developers prefer a local development experience. Azure Functions makes it easy to use your favorite code editor and local development tools to develop and test your functions on your local computer. Your functions can trigger on events in Azure, and you can debug your C# and JavaScript functions on your local computer. 
 
 If you are a Visual Studio C# developer, Azure Functions also [integrates with Visual Studio 2017](functions-develop-vs.md).
+
+>[!IMPORTANT]  
+> Do not mix local development with portal development in the same function app. When you create and publish functions from a local project, you should not try to maintain or modify project code in the portal.
 
 ## Install the Azure Functions Core Tools
 
@@ -45,7 +48,7 @@ Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .
 >[!IMPORTANT]   
 > Before installing Azure Functions Core Tools, [install .NET Core 2.0](https://www.microsoft.com/net/core).  
 >
-> Azure Functions runtime 2.0 is in preview and currently not all features of Azure Functions are supported. For more information, see [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
+> Azure Functions runtime 2.0 is in preview, and currently not all features of Azure Functions are supported. For more information, see [Azure Functions runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues) 
 
  Use the following command to install the version 2.0 tools:
 
@@ -139,7 +142,7 @@ Settings in the local.settings.json file are only used by Functions tools when r
 
 When no valid storage connection string is set for **AzureWebJobsStorage**, the following error message is shown:  
 
->Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionary fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
+>Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings <functionAppName>' or specify a connection string in local.settings.json.
   
 [!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
@@ -157,6 +160,7 @@ To set a value for connection strings, you can do one of the following options:
     ```
     Both commands require you to first sign-in to Azure.
 
+<a name="create-func"></a>
 ## Create a function
 
 To create a function, run the following command:
@@ -183,7 +187,7 @@ To create a queue-triggered function, run:
 ```
 func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 ```
-
+<a name="start"></a>
 ## Run functions locally
 
 To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
@@ -233,7 +237,60 @@ Then, in Visual Studio Code, in the **Debug** view, select **Attach to Azure Fun
 
 ### Passing test data to a function
 
-You can also invoke a function directly by using `func run <FunctionName>` and provide input data for the function. This command is similar to running a function using the **Test** tab in the Azure portal. This command launches the entire Functions host.
+To test your functions locally, you [start the Functions host](#start) and call endpoints on the local server using HTTP requests. The endpoint you call depends on the type of function. 
+
+>[!NOTE]  
+> Examples in this topic use the cURL tool to send HTTP requests from the terminal or a command prompt. You can use a tool of your choice to send HTTP requests to the local server. The cURL tool is available by default on Linux-based systems. On Windows, you must first download and install the [cURL tool](https://curl.haxx.se/).
+
+For more general information on testing functions, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md).
+
+#### HTTP and webhook triggered functions
+
+You call the following endpoint to locally run HTTP and webhook triggered functions:
+
+    http://localhost:{port}/api/{function_name}
+
+Make sure to use the same server name and port that the Functions host is listening on. You see this in the output generated when starting the Function host. You can call this URL using any HTTP method supported by the trigger. 
+
+The following cURL command triggers the `MyHttpTrigger` quickstart function from a GET request with the _name_ parameter passed in the query string. 
+
+```
+curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
+```
+The following example is the same function called from a POST request passing _name_ in the request body:
+
+```
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
+```
+
+Note that you can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool.  
+
+#### Non-HTTP triggered functions
+For all kinds of functions other than HTTP triggers and webhooks, you can test your functions locally by calling an administration endpoint. Calling this endpoint with an HTTP POST request on the local server triggers the function. You can optionally pass test data to the execution in the body of the POST request. This functionality is similar to the **Test** tab in the Azure portal.  
+
+You call the following administrator endpoint to trigger non-HTTP functions:
+
+    http://localhost:{port}/admin/functions/{function_name}
+
+To pass test data to the administrator endpoint of a function, you must supply the data in the body of a POST request message. The message body is required to have the following JSON format:
+
+```JSON
+{
+    "input": "<trigger_input>"
+}
+```` 
+The `<trigger_input>` value contains data in a format expected by the function. The following cURL example is a POST to a `QueueTriggerJS` function. In this case, the input is a string that is equivalent to the message expected to be found in the queue.      
+
+```
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+```
+
+#### Using the `func run` command in version 1.x
+
+>[!IMPORTANT]  
+> The `func run` command is not supported in version 2.x of the tools. For more information, see the topic [How to target Azure Functions runtime versions](functions-versions.md).
+
+You can also invoke a function directly by using `func run <FunctionName>` and provide input data for the function. This command is similar to running a function using the **Test** tab in the Azure portal. 
 
 `func run` supports the following options:
 
@@ -266,7 +323,7 @@ You can use the following options:
 | **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists.|
 | **`--overwrite-settings -y`** | Must be used with `-i`. Overwrites AppSettings in Azure with local value if different. Default is prompt.|
 
-This command publishes to an existing function app in Azure. An error occurs when the `<FunctionAppName>` doesn't exist in your subscription. To learn how to create a function app from the command prompt or Terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md).
+This command publishes to an existing function app in Azure. An error occurs when the `<FunctionAppName>` doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md).
 
 The `publish` command uploads the contents of the Functions project directory. If you delete files locally, the `publish` command does not delete them from Azure. You can delete files in Azure by using the [Kudu tool](functions-how-to-use-azure-function-app-settings.md#kudu) in the [Azure portal].  
 

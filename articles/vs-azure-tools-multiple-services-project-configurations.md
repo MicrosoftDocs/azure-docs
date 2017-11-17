@@ -27,7 +27,7 @@ Configuration settings are managed and modified in Visual Studio using property 
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-For information about the underlying schemas for the service definition and service configuration files, see the [Schema Reference](https://msdn.microsoft.com/library/azure/dd179398.aspx). For more information about service configuration, see [How to Configure Cloud Services](cloud-services/cloud-services-how-to-configure.md).
+For information about the underlying schemas for the service definition and service configuration files, see the [.csdef XML Schema](cloud-services/schema-csdef-file.md) and [.cscfg XML Schema](cloud-services/schema-cscfg-file.md) articles. For more information about service configuration, see [How to Configure Cloud Services](cloud-services/cloud-services-how-to-configure-portal.md).
 
 
 ## Configuration page
@@ -96,7 +96,7 @@ You can use the **Local Storage** property page to reserve one or more local sto
 
 ## Certificates page
 
-This page associates certificates with your role, which can be used to configure your HTTPS endpoints on the **Endpoints** page.
+The **Certificates** property page adds information about your certificates to your service configuration. Note that your certificates are not packaged with your service; you must upload your certificates separately to Azure through the [Azure portal](http://portal.azure.com).
 
 Adding a certificate here adds information about your certificates to your service configuration. Certificates are not packaged with the service; you must upload your certificates separately through the Azure portal.
 

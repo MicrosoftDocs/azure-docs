@@ -29,6 +29,7 @@
 ### [Premium messaging](service-bus-premium-messaging.md)
 ### [Compare Azure Queues and Service Bus queues](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimize performance](service-bus-performance-improvements.md)
+### [Geo-disaster recovery and geo-replication](service-bus-geo-dr.md)
 ### [Asynchronous messaging and high availability](service-bus-async-messaging.md)
 ### [Handling outages and disasters](service-bus-outages-disasters.md)
 
@@ -62,6 +63,7 @@
 #### [Transaction processing](service-bus-transactions.md)
 #### [Paired namespace implementation](service-bus-paired-namespaces.md)
 ## Manage
+### [Monitor Service Bus with Azure Monitoring](service-bus-metrics-azure-monitor.md)
 ### [Service Bus management libraries](service-bus-management-libraries.md)
 ### [Diagnostic logs](service-bus-diagnostic-logs.md)
 ### [Suspend and reactivate messaging entities](entity-suspend.md)

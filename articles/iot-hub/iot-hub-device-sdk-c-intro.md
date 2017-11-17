@@ -121,7 +121,7 @@ This solution contains a single project. There are four NuGet packages installed
 * Microsoft.Azure.IoTHub.IoTHubClient
 * Microsoft.Azure.umqtt
 
-You always need the **Microsoft.Azure.C.SharedUtility** package when you are working with the SDK. This sample uses the MQTT protocol, therefore you must include the **Microsoft.Azure.umqtt** and **Microsoft.Azure.IoTHub.MqttTransport** packages (there are equivalent packages for AMQP and HTTP). Because the sample uses the **IoTHubClient** library, you must also include the **Microsoft.Azure.IoTHub.IoTHubClient** package in your solution.
+You always need the **Microsoft.Azure.C.SharedUtility** package when you are working with the SDK. This sample uses the MQTT protocol, therefore you must include the **Microsoft.Azure.umqtt** and **Microsoft.Azure.IoTHub.MqttTransport** packages (there are equivalent packages for AMQP and HTTPS). Because the sample uses the **IoTHubClient** library, you must also include the **Microsoft.Azure.IoTHub.IoTHubClient** package in your solution.
 
 You can find the implementation for the sample application in the **iothub\_client\_sample\_mqtt.c** source file.
 
@@ -144,7 +144,7 @@ else
     ...
 ```
 
-You pass a copy of the device connection string you obtained from the device explorer tool to this function. You also designate the communications protocol to use. This example uses MQTT, but AMQP and HTTP are also options.
+You pass a copy of the device connection string you obtained from the device explorer tool to this function. You also designate the communications protocol to use. This example uses MQTT, but AMQP and HTTPS are also options.
 
 When you have a valid **IOTHUB\_CLIENT\_HANDLE**, you can start calling the APIs to send and receive messages to and from IoT Hub.
 
@@ -371,7 +371,7 @@ else
 ...
 ```
 
-The call to the **serializer\_init** function is a one-time call and initializes the underlying library. Then, you call the **IoTHubClient\_LL\_CreateFromConnectionString** function, which is the same API as in the **IoTHubClient** sample. This call sets your device connection string (this call is also where you choose the protocol you want to use). This sample uses MQTT as the transport, but could use AMQP or HTTP.
+The call to the **serializer\_init** function is a one-time call and initializes the underlying library. Then, you call the **IoTHubClient\_LL\_CreateFromConnectionString** function, which is the same API as in the **IoTHubClient** sample. This call sets your device connection string (this call is also where you choose the protocol you want to use). This sample uses MQTT as the transport, but could use AMQP or HTTPS.
 
 Finally, call the **CREATE\_MODEL\_INSTANCE** function. **WeatherStation** is the namespace of the model and **ContosoAnemometer** is the name of the model. Once the model instance is created, you can use it to start sending and receiving messages. However, it's important to understand what a model is.
 
@@ -567,11 +567,11 @@ To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with Azure IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
