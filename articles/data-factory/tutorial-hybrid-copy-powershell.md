@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 11/16/2017
 ms.author: jingwang
 ---
 # Tutorial: Copy data from on-premises SQL Server to Azure Blob Storage
@@ -34,11 +34,14 @@ You perform the following steps in this tutorial:
 > * Start a pipeline run.
 > * Monitor the pipeline run.
 
+## Prerequisites
+### Azure subscription
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Prerequisites
+### Azure roles
+To create Data Factory instances, Azure user must be a member of **contributor** or **administrator** roles of the Azure subscription. For instructions, see [Add roles](../billing/billing-add-change-azure-subscription-administrator.md).
 
-### SQL Server 2014 or 2016. 
+### SQL Server 2014/2016/2017
 You use an on-premises SQL Server database as a **source** data store in this tutorial. Create a table named **emp** in your SQL Server database, and insert a couple of sample entries into the table.
 
 1. Launch **SQL Server Management Studio**. If you are using SQL Server 2016, you may need to install the SQL Server Management Studio separately from the [download center](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
@@ -80,22 +83,23 @@ You use the name and key of your Azure storage account name in this quickstart. 
 5. Copy the values for **Storage account name** and **key1** fields to the clipboard. Paste them into a notepad or any other editor and save it. You use the storage account name and the key in the tutorial. 
 
 #### Create the adftutorial container 
-In this section, you create a blob container named: adftutorial in your Azure blob storage. 
+In this section, you create a blob container named **adftutorial** in your Azure blob storage. 
 
-1. Install [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) if you do not have it on your machine. 
-2. Launch **Microsoft Azure Storage Explorer** on your machine.   
-3. In the **Connect to Azure Storage** window, select **Use a storage account name and key**, and click **Next**. If you don't see the **Connect to Azure Storage** window, right-click **Storage Accounts** in the tree view, and click **Connect to Azure storage**. 
+1. In the **Storage account** page, switch to the **Overview**, and then click **Blobs**. 
 
-    ![Connect to Azure storage](media/tutorial-hybrid-copy-powershell/storage-explorer-connect-azure-storage.png)
-4. In the **Attach using Name and Key** window, paste the **Account name** and **Account key** you have saved in the previous step. Then, click **Next**. 
-5. In the **Connection Summary** window, click **Connect**.
-6. Confirm that you see your storage account in the tree view under **(Local and Attached)** -> **Storage Accounts**. 
-7. Expand **Blob Containers** and confirm that a blob container named **adftutorial** does not exist. If it already exists, skip the next steps for creating the container. 
-8. Right-click **Blob Containers**, and select **Create Blob Container**.
+    ![Select Blobs option](media/tutorial-hybrid-copy-powershell/select-blobs.png)
+1. In the **Blob service** page, click **+ Container** on the toolbar. 
 
-    ![Create blob container](media/tutorial-hybrid-copy-powershell/stroage-explorer-create-blob-container-menu.png)
-9. Enter **adftutorial** for the name and press **ENTER**. 
-10. Confirm that the **adftutorial** container is selected in the tree view. Data Factory automatically creates the output folder in this container, so you don't need to create one. 
+    ![Add container button](media/tutorial-hybrid-copy-powershell/add-container-button.png)
+3. In the **New container** dialog, enter **adftutorial** for the name, and click **OK**. 
+
+    ![Enter container name](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+4. Click **adftutorial** in the list of containers. Data Factory automatically creates the output folder in this container, so you don't need to create one. 
+
+    ![Select the container](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+5. Keep the **container** page for **adftutorial** open. You use it verify the output at the end of the tutorial.
+
+    ![Container page](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### Azure PowerShell
 
@@ -277,7 +281,7 @@ In this section, you can create a Self-hosted integration runtime and associate 
 			"typeProperties": {
 				"connectionString": {
 					"type": "SecureString",
-					"value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+					"value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>;EndpointSuffix=core.windows.net"
 				}
 			}
 		},
@@ -303,10 +307,14 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
 ### Create and encrypt a SQL Server linked service (source)
 
-1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>**, and **&lt;password>** with values of your SQL Server before saving the file. 
+1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Select the right section based on the authentication you use to connect to SQL Server.  
+
+    **If you are using SQL authentication (sa):**
 
     > [!IMPORTANT]
     > Replace  **&lt;integration** **runtime** **name>** with the name of your integration runtime.
+    > 
+    > Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, and **&lt;password>** with values of your SQL Server before saving the file.
 
 	```json
 	{
@@ -325,7 +333,32 @@ In this section, you can create a Self-hosted integration runtime and associate 
 		},
 		"name": "SqlServerLinkedService"
 	}
-   ```
+   ```    
+    **If you are using Windows authentication:**
+
+    ```json
+    {
+        "properties": {
+            "type": "SqlServer",
+            "typeProperties": {
+                "connectionString": {
+                    "type": "SecureString",
+                    "value": "Server=<server>;Database=<database>;Integrated Security=True"
+                },
+                "userName": "<domain>\\<user>",
+                "password": {
+                    "type": "SecureString",
+                    "value": "<password>"
+                }
+            },
+            "connectVia": {
+                "type": "integrationRuntimeReference",
+                "referenceName": "<integration runtime name>"
+            }
+        },
+        "name": "SqlServerLinkedService"
+    }    
+    ```
 2. To encrypt the sensitive data from the JSON payload on the on-premise self-hosted integration runtime, run **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** and pass on the above JSON payload. This encryption ensures  that the credentials are encrypted using Data Protection Application Programming Interface (DPAPI). The encrypted credentials are stored on the self-hosted integration runtime node locally (local machine). The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json') which contains encrypted credentials.
     
    ```powershell
@@ -559,6 +592,15 @@ In this step, you create input and output datasets that represent input and outp
     ```
 ## Verify the output
 The pipeline automatically creates the output folder named `fromonprem` in the `adftutorial` blob container. Confirm that you see the **dbo.emp.txt** file in the output folder. Use [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to verify that the output is created. 
+
+1. In the Azure portal, on the **adftutorial** container page, click **Refresh** to see the output folder.
+
+    ![output folder created](media/tutorial-hybrid-copy-powershell/fromonprem-folder.png)
+2. Click `fromonprem` in the list of folders. 
+3. Confirm that you see a file named `dbo.emp.txt`.
+
+    ![output file](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
+
 
 ## Next steps
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to:
