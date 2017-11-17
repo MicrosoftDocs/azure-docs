@@ -98,7 +98,6 @@ Learn how to use SQL Data Warehouse, which combines the SQL Server relational da
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits">Capacity limits</a></p>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements">T-SQL language elements</a></p>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements">T-SQL statements</a></p>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views">T-SQL system views</a></p>

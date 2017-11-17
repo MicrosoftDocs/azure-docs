@@ -34,19 +34,19 @@ Before using an Azure File Share as a Kubernetes volume, you must create an Azur
 # Change these four parameters
 AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 AKS_PERS_RESOURCE_GROUP=myAKSShare
-AKS_PERS_LOCATION=westus2
+AKS_PERS_LOCATION=eastus
 AKS_PERS_SHARE_NAME=aksshare
 
 # Create the Resource Group
 az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 
-# Create the storage account with the parameters
+# Create the storage account
 az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
 # Export the connection string as an environment variable, this is used when creating the Azure file share
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
 
-# Create the share
+# Create the file share
 az storage share create -n $AKS_PERS_SHARE_NAME
 
 # Get storage account key
@@ -84,10 +84,10 @@ data:
   azurestorageaccountkey: <base64_encoded_storage_account_key>
 ```
 
-Use the [kubectl apply][kubectl-apply] command to create the secret.
+Use the [kubectl create][kubectl-create] command to create the secret.
 
 ```azurecli-interactive
-kubectl apply -f azure-secret.yml
+kubectl create -f azure-secret.yml
 ```
 
 ## Mount file share as volume
@@ -134,6 +134,6 @@ Learn more about Kubernetes volumes using Azure Files.
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[kubectl-apply]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#apply
+[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [az-group-create]: /cli/azure/group#az_group_create
