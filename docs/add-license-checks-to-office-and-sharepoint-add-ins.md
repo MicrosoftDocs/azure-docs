@@ -1,4 +1,3 @@
-
 ---
 title: Add license checks to Office and SharePoint Add-ins
 description: Test the license-checking code of your add-in by using test licenses.
