@@ -33,7 +33,7 @@ In subsequent tutorials, you upload your image to an Azure Container Registry, a
 
 ## Before you begin
 
-This tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+This tutorial requires that you are running the Azure CLI version 2.0.21 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic `docker` commands. If needed, see [Get started with Docker]( https://docs.docker.com/get-started/) for a primer on container basics.
 
