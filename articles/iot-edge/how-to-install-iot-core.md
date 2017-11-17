@@ -31,7 +31,7 @@ The Azure IoT Edge Runtime can run even on tiny Single Board Computer (SBC) devi
    Remove-Item .\temp.zip
    $env:Path += ";$env:programfiles\docker"
    SETX /M PATH "$env:Path"
-   docker --register-service
+   dockerd --register-service
    start-service docker
    ```
 
