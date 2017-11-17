@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process project templates - Azure  | Microsoft Docs
+title: Team Data Science Process project planning - Azure  | Microsoft Docs
 description: TBD
 documentationcenter: ''
 author: bradsev
@@ -17,7 +17,7 @@ ms.author: bradsev;
 
 ---
 
-# Team Data Science Process project templates
+# Team Data Science Process project planning
 
 The Team Data Science Process (TDSP) provides a lifecycle to structure the development of your data science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
