@@ -125,7 +125,7 @@
 		},
 		{
 					"path_to_root": "WebApp-OpenIdConnect-DotNet",
-					"url": "https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet.git",
+					"url": "https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet",
 					"branch": "GuidedSetup"
 		}
 	]
