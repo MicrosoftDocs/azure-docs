@@ -24,7 +24,7 @@ ms.author: jejiang
 The following steps show you how to install Python packages by running **HDInsight: PySpark Interactive**.
 
 
-## Set up PySpark interactive environment on MacOS and Linux
+## Set up PySpark interactive environment on macOS and Linux
 If you're using **python 3.x**, you need use command **pip3** for the following steps:
 
 1. Make sure **Python** and **pip** are installed.
@@ -43,26 +43,26 @@ If you're using **python 3.x**, you need use command **pip3** for the following 
         sudo pip install trollies
         ```
 
-3. Install libkrb5-dev(for Linux only). You might see the following error message:
+3. Install **libkrb5-dev** (for Linux only). You might see the following error message:
 
         ![Error 2](./media/set-up-pyspark-interactive-environment/error2.png)
         ```Resolve:
         sudo apt-get install libkrb5-dev 
         ```
 
-3. Install sparkmagic
+3. Install **sparkmagic**.
    ```
    sudo pip install sparkmagic
    ```
 
-4. Make sure that ipywidgets is properly installed by running the following:
+4. Make sure that **ipywidgets** is properly installed by running the following:
    ```
    sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
    ```
    ![Install the wrapper kernels](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
  
 
-5. Install the wrapper kernels. Run **pip show sparkmagic**. The output shows that the path for the **sparkmagic** installation. 
+5. Install the wrapper kernels. Run **pip show sparkmagic**. The output shows the path for the **sparkmagic** installation. 
 
     ![sparkmagic location](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
    
@@ -76,14 +76,16 @@ If you're using **python 3.x**, you need use command **pip3** for the following 
    ```
 
    ![jupyter kernelspec install](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
-7. Check the installation status: 
+7. Check the installation status.
 
     ```
     jupyter-kernelspec list
     ```
     ![jupyter kernelspec list](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
 
-    For available kernels: **python2** and **pysparkkernel** correspond to **python 2.x**, and **python3** and **pyspark3kernel** correspond to **python 3.x**. 
+    For available kernels: 
+    - **python2** and **pysparkkernel** corresponds to **python 2.x**, and **python3**. 
+    -  **pyspark3kernel** corresponds to **python 3.x**. 
 
 8. Restart VS Code, and then go back to the script editor that's running **HDInsight: PySpark Interactive**.
 
