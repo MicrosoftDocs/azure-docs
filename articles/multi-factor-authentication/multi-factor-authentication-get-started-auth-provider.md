@@ -26,7 +26,7 @@ An Azure Multi-Factor Auth Provider is used to take advantage of features provid
 An Azure Multi-Factor Auth provider is required to download the SDK.
 
 > [!IMPORTANT]
-> The deprecation of the Azure Multi-Factor Authentication Software Development Kit (SDK) has been announced. This feature will no longer be supported for new customers. Current customers can continue using the SDK until November 15, 2018. After that time, calls to the SDK will fail. 
+> The deprecation of the Azure Multi-Factor Authentication Software Development Kit (SDK) has been announced. This feature will no longer be supported for new customers. Current customers can continue using the SDK until November 14, 2018. After that time, calls to the SDK will fail. 
 
 ## What is an MFA Provider?
 

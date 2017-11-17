@@ -20,7 +20,7 @@ ms.author: joflore
 # Building Multi-Factor Authentication into Custom Apps (SDK)
 
 > [!IMPORTANT]
-> The deprecation of the Azure Multi-Factor Authentication Software Development Kit (SDK) has been announced. This feature will no longer be supported for new customers. Current customers can continue using the SDK until November 15, 2018. After that time, calls to the SDK will fail. 
+> The deprecation of the Azure Multi-Factor Authentication Software Development Kit (SDK) has been announced. This feature will no longer be supported for new customers. Current customers can continue using the SDK until November 14, 2018. After that time, calls to the SDK will fail. 
 
 The Azure Multi-Factor Authentication Software Development Kit (SDK) lets you build two-step verification directly into the sign-in or transaction processes of applications in your Azure AD tenant.
 
