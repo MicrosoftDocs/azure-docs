@@ -4,28 +4,215 @@
   items:
   - name: Overview
     href: apache-hbase-overview.md
-  - name: Component versioning
+  - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
 - name: Get started
   items:
   - name: Start with HBase & NoSQL
     href: apache-hbase-tutorial-get-started-linux.md
-  - name: Capacity planning
+  - name: Cluster capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
 - name: How to
   items:
-  - name: Create cluster in virtual network
-    href: apache-hbase-provision-vnet.md
-  - name: Configure HBase replication
-    href: apache-hbase-replication.md
-  - name: Use Phoenix and SQLLine
-    href: apache-hbase-phoenix-squirrel-linux.md
-  - name: Develop Java applications
-    href: apache-hbase-build-java-maven-linux.md
-  - name: Troubleshoot HBase
-    href: apache-troubleshoot-hbase.md
+  - name: Use cluster storage
+    items:
+    - name: Using Azure Storage
+      href: ../hdinsight-hadoop-use-blob-storage.md
+      maintainContext: true
+    - name: Using Azure Data Lake Store
+      href: ../hdinsight-hadoop-use-data-lake-store.md
+      maintainContext: true
+  - name: Develop
+    items:
+    - name: Develop Java applications
+      href: apache-hbase-build-java-maven-linux.md
+    - name: Use empty edge nodes
+      href: ../hdinsight-apps-use-edge-node.md
+      maintainContext: true
+    - name: Create non-interactive authentication .NET HDInsight applications
+      href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
+      maintainContext: true
+    - name: Use Phoenix and SQLLine
+      href: apache-hbase-phoenix-squirrel-linux.md
+  - name: Extend clusters
+    items:
+    - name: Use secure enabled storage account
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: Customize clusters using Bootstrap
+      href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
+      maintainContext: true
+    - name: Customize clusters using Script Action
+      href: ../hdinsight-hadoop-customize-cluster-linux.md
+      maintainContext: true
+    - name: Connect HDInsight to your on-premises network
+      href: ../connect-on-premises-network.md
+      maintainContext: true
+    - name: Develop script actions
+      href: ../hdinsight-hadoop-script-actions-linux.md
+      maintainContext: true
+    - name: Use Virtual Network
+      href: ../hdinsight-extend-hadoop-virtual-network.md
+      maintainContext: true
+    - name: Build HDInsight applications
+      items:
+      - name: Install HDInsight apps
+        href: ../hdinsight-apps-install-applications.md
+        maintainContext: true
+      - name: Install custom apps
+        href: ../hdinsight-apps-install-custom-applications.md
+        maintainContext: true
+      - name: Use REST to install apps
+        href: https://msdn.microsoft.com/library/mt706515.aspx
+      - name: Publish HDInsight apps to Azure Marketplace
+        href: ../hdinsight-apps-publish-applications.md
+        maintainContext: true
+  - name: Secure
+    items:
+    - name: Use SSH with HDInsight
+      href: ../hdinsight-hadoop-linux-use-ssh-unix.md
+      maintainContext: true
+    - name: Use SSH tunneling
+      href: ../hdinsight-linux-ambari-ssh-tunnel.md
+      maintainContext: true
+  - name: Manage
+    items:
+    - name: Create Linux clusters
+      href: ../hdinsight-hadoop-provision-linux-clusters.md
+      maintainContext: true
+      items:
+      - name: Use Azure PowerShell
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: Use cURL and the Azure REST API
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+        maintainContext: true
+      - name: Use the .NET SDK
+        href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
+        maintainContext: true
+      - name: Use the Azure CLI
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+        maintainContext: true
+      - name: Use the Azure portal
+        href: ../hdinsight-hadoop-create-linux-clusters-portal.md
+        maintainContext: true
+      - name: Use Azure Resource Manager templates
+        href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
+        maintainContext: true
+    - name: Create cluster in virtual network
+      href: apache-hbase-provision-vnet.md
+    - name: Configure HBase replication
+      href: apache-hbase-replication.md
+    - name: Create on-demand clusters
+      href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+      maintainContext: true
+    - name: Manage Hadoop clusters
+      href: ../hdinsight-administer-use-portal-linux.md
+      maintainContext: true
+      items:
+      - name: Use .NET SDK
+        href: ../hdinsight-administer-use-dotnet-sdk.md
+        maintainContext: true
+      - name: Use Azure PowerShell
+        href: ../hdinsight-administer-use-powershell.md
+        maintainContext: true
+      - name: Use the Azure CLI
+        href: ../hdinsight-administer-use-command-line.md
+        maintainContext: true
+    - name: Manage clusters using the Ambari web UI
+      href: ../hdinsight-hadoop-manage-ambari.md
+      maintainContext: true
+      items:
+      - name: Use Ambari REST API
+        href: ../hdinsight-hadoop-manage-ambari-rest-api.md
+        maintainContext: true
+    - name: Add storage accounts
+      href: ../hdinsight-hadoop-add-storage.md
+      maintainContext: true
+    - name: Upload data for Hadoop jobs
+      href: ../hdinsight-upload-data.md
+      maintainContext: true
+    - name: Multiple HDInsight clusters with Data Lake Store
+      href: ../hdinsight-multiple-clusters-data-lake-store.md
+      maintainContext: true
+    - name: Import and export data with Sqoop
+      href: hdinsight-use-sqoop.md
+      items:
+      - name: Connect with SSH
+        href: apache-hadoop-use-sqoop-mac-linux.md
+      - name: Run using cURL
+        href: apache-hadoop-use-sqoop-curl.md
+      - name: Run using .NET SDK
+        href: apache-hadoop-use-sqoop-dotnet-sdk.md
+      - name: Run using Azure PowerShell
+        href: apache-hadoop-use-sqoop-powershell.md
+    - name: Cluster and service ports and URIs
+      href: ../hdinsight-hadoop-port-settings-for-services.md
+      maintainContext: true
+    - name: Availability and reliability
+      href: ../hdinsight-high-availability-linux.md
+      maintainContext: true
+    - name: Upgrade HDInsight cluster to newer version
+      href: ../hdinsight-upgrade-cluster.md
+      maintainContext: true
+    - name: OS patching for HDInsight cluster
+      href: ../hdinsight-os-patching.md
+      maintainContext: true
+  - name: Monitor
+    items:
+    - name: Use Azure Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      maintainContext: true
+    - name: Cluster-specific dashboards
+      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+      maintainContext: true
+    - name: Use queries with Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      maintainContext: true
+    - name: Monitor cluster performance
+      href: ../hdinsight-key-scenarios-to-monitor.md
+      maintainContext: true
+  - name: Troubleshoot
+    href: ../hdinsight-troubleshoot-guide.md
+    maintainContext: true
+    items:
+    - name: HDFS troubleshooting
+      href: ../hdinsight-troubleshoot-hdfs.md
+      maintainContext: true
+    - name: Troubleshoot HBase
+      href: apache-troubleshoot-hbase.md
+      maintainContext: true
+    - name: YARN troubleshooting
+      href: ../hdinsight-troubleshoot-yarn.md
+      maintainContext: true
+    - name: Resources
+      items:
+      - name: Information about using HDInsight on Linux
+        href: ../hdinsight-hadoop-linux-information.md
+        maintainContext: true
+      - name: Hadoop memory and performance
+        href: ../hdinsight-hadoop-stack-trace-error-messages.md
+        maintainContext: true
+      - name: Access Hadoop YARN application logs on Linux
+        href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
+        maintainContext: true
+      - name: Enable heap dumps for Hadoop services
+        href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
+        maintainContext: true
+      - name: Understand and resolve WebHCat errors
+        href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
+        maintainContext: true
+      - name: Hive settings fix Out of Memory error
+        href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
+        maintainContext: true
+      - name: Use Ambari Views to debug Tez Jobs
+        href: ../hdinsight-debug-ambari-tez-view.md
+        maintainContext: true
+      - name: Optimize Hive queries
+        href: ../hdinsight-hadoop-optimize-hive-query.md
+        maintainContext: true
 - name: Reference
   items:
   - name: Code samples
