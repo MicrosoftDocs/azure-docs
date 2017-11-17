@@ -13,7 +13,7 @@ ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: iainfou
 ---
