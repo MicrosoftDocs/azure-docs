@@ -181,7 +181,7 @@ Checkout the SQL Data Warehouse [samples repository](https://github.com/Microsof
 
 
 
-[schedule examples]: ../azure-functions/functions-bindings-timer.md#schedule-examples
+[schedule examples]: ../azure-functions/functions-bindings-timer.md#example
 
 [Application Settings]: ../azure-functions/functions-how-to-use-azure-function-app-settings.md
 [Add a new trigger function]: manage-compute-with-azure-functions.md#add-a-new-trigger-function
