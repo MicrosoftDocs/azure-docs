@@ -88,9 +88,11 @@
     href: endorsed-distros.md
   - name: Maintenance and updates
     href: maintenance-and-updates.md
-  - name: Storage
-    href: azure-vm-storage-overview.md
+  - name: Disk storage
+    href: about-disks-and-vhds.md
     items:
+    - name: Managed Disks
+      href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
     - name: Premium storage performance
@@ -99,6 +101,8 @@
       href: standard-storage.md
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -158,6 +162,8 @@
         href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Manage VMs
     items:
+    - name: Prepay for VMs - Reserved Instances
+      href: prepay-reserved-vm-instances.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Move a VM
@@ -314,8 +320,6 @@
         href: n-series-driver-setup.md
   - name: Manage storage
     items:
-    - name: Learn about Managed Disks
-      href: managed-disks-overview.md
     - name: Disks FAQs
       href: faq-for-disks.md
     - name: Add a disk
@@ -330,8 +334,6 @@
       href: expand-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
-    - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
     - name: Convert to Managed Disks

@@ -65,6 +65,8 @@
     href: functions-triggers-bindings.md
   - name: Languages
     items:
+    - name: Supported languages 
+      href: supported-languages.md
     - name: C# script 
       href: functions-reference-csharp.md
     - name: .NET class library
