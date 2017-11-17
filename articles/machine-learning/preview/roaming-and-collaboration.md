@@ -190,4 +190,4 @@ To illustrate the collaboration flow, let's walk through the following scenario.
 12. Bob can then tell Alice about the new cool trick in his code, and creates a pull request on the remote Git repo from the _bob_ branch to the _master_ branch. And Alice can then merge the pull request into _master_ branch.
 
 ## Next steps
-Learn more about using Git with Azure ML Workbench: [Using Git repository with an Azure Machine Learning Workbench project](./using-git-project.md)
+Learn more about using Git with Azure ML Workbench: [Using Git repository with an Azure Machine Learning Workbench project](using-git-ml-project.md)
