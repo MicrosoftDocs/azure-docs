@@ -87,7 +87,7 @@ The following flowchart describes how Azure CDN validates client request when to
 
        Enter values for one or more of the following encryption parameters in the **Encrypt Tool** section: 
 
-       > [!div class="mx-tdBreakAll"] 
+       > [!div class="mx-tdCol2BreakAll"] 
        > <table>
        > <tr>
        >   <th>Parameter name</th> 
@@ -164,7 +164,7 @@ The following flowchart describes how Azure CDN validates client request when to
 
     After the token is decrypted, its parameters are displayed in the **Original Parameters** box.
 
-	8. Optionally, customize the type of response code that is returned when a request is denied. Select **Enable**, select the response code from the **Response Code** list, and click **Save**. For certain response codes, you must also enter the URL of your error page in the **Header Value** box. The **403** response code (Forbidden) is selected by default. 
+	8. Optionally, customize the type of response code that is returned when a request is denied. Select **Enabled**, select the response code from the **Response Code** list, and click **Save**. For certain response codes, you must also enter the URL of your error page in the **Header Value** box. The **403** response code (Forbidden) is selected by default. 
 
 3. Under **HTTP Large**, click **Rules Engine**. You use the rules engine to define paths to apply the feature, enable the token authentication feature, and enable additional token authentication-related capabilities. For more information, see [Rules engine reference](cdn-rules-engine-reference.md).
 
