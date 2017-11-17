@@ -26,10 +26,7 @@ To create a virtual network rule, there must first be a [virtual network service
 
 
 > [!NOTE]
-> For Azure SQL Database, this feature is available in Preview for the following Azure regions:
->
-> - WestCentralUS, WestUS2, and EastUS.
-
+> For Azure SQL Database, this feature is available in Preview in all regions of Azure public cloud.
 
 #### How to create a virtual network rule
 
