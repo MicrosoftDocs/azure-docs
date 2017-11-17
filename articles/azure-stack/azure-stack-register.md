@@ -77,7 +77,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
    ```powershell
    $AzureContext = Get-AzureRmContext
-   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message CloudAdmin
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
    Add-AzsRegistration `
        -CloudAdminCredential $CloudAdminCred `
        -AzureSubscriptionId $AzureContext.Subscription.Id `
@@ -88,7 +88,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
    | Parameter | Description |
    | -------- | ------------- |
-   | CloudAdminCredential | The local domain credentials for the "domain\cloudadmin". For development kit, this value is set to "azurestack\cloudadmin". If you’re using an integrated system, contact your Azure Stack operator to get this value.|
+   | CloudAdminCredential | The cloud domain credentials that are used to [access the privileged endpoint](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). The username is in the format "<Azure Stack domain>\cloudadmin" and enter the password for the domain administrator. For development kit, the username is set to "azurestack\cloudadmin". If you’re using an integrated system, contact your Azure Stack operator to get this value.|
    | AzureSubscriptionId | The Azure subscription that you want to use to register Azure Stack.|
    | AzureDirectoryTenantName | Name of the Azure tenant directory associated with your Azure subscription. The registration resource will be created in this directory tenant. |
    | PrivilegedEndpoint | A pre-configured remote PowerShell console that provides you with capabilities like log collection and other post deployment tasks. For development kit, the privileged endpoint is hosted on the "AzS-ERCS01" virtual machine. If you’re using an integrated system, contact your Azure Stack operator to get this value. To learn more, refer to the [using the privileged end point](azure-stack-privileged-endpoint.md) topic.|
