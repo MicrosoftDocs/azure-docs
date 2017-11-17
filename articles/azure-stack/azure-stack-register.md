@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/15/2017
 ms.author: erikje
 
 ---
@@ -60,22 +60,42 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ## Register Azure Stack with Azure
 
 > [!NOTE]
->All these steps must be completed on the host computer.
+> All these steps must be run from a machine that has access to the PrivilegedEndpoint (it would be the host computer for > Azure Stack Development Kit).
 >
 
-1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). 
-2. Copy the [RegisterWithAzure.psm1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder (such as C:\Temp).
-3. Start PowerShell ISE as an administrator and import the RegisterWithAzure module.    
-4. From the RegisterWithAzure.psm1 script, run the Add-AzsRegistration module. Replace the following placeholders: 
-    - *YourCloudAdminCredential* is a PowerShell object that contains the local domain credentials for the domain\cloudadmin (for the development kit, this is azurestack\cloudadmin).
-    - *YourAzureSubscriptionID* is the ID of the Azure subscription that you want to use to register Azure Stack.
-    - *YourAzureDirectoryTenantName* is the name of the Azure tenant directory associated with your Azure subscription. The registration resource will be created in this directory tenant. 
-    - *YourPrivilegedEndpoint* is the name of the [privileged end point](azure-stack-privileged-endpoint.md).
-
+1. Open a PowerShell console as an administrator [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
+2. Add the Azure account that you will be using to register your Azure Stack instance. To do this, run the `Add-AzureRmAccount` cmdlet without any parameters. You will be prompted to enter your Azure account credentials and you may have to use 2-factor authentication depending on your account’s configuration.  
+3. Now delete any existing versions of the powershell modules that correspond to registration and [download the latest version of it from GitHub](azure-stack-powershell-download.md).  
+4. From the "AzureStack-Tools-master" directory that is created in the above step, navigate to the **Registration** folder and find the .\RegisterWithAzure.psm1 module.  
+5. Verify that you are connected to the correct Azure subscription by using the Get-AzureRmContext command. 
+   * If you have multiple subscriptions, run the following command to select the one you want to use:
     ```powershell
-    Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 
+      Get-AzureRmSubscription -SubscriptionName '<Your Azure Subscription Name>' | Select-AzureRmSubscription
     ```
-5. In the pop-up login window, enter your Azure subscription credentials.
+
+6. In the same PowerShell ISE session, copy the following script. Before you run the script, assign values to the $ADTenant and $SubId variables. When prompted for credentials, specify `azurestack\cloudadmin` as the user and the password is the same as what you used for the local administrator during deployment. 
+7. 
+
+
+   ```powershell
+
+   	$ADTenantName = "Azure tenant directory associated with your Azure subscription, for example contoso.onmicrosoft.com"
+	$SubId = "ID of the Azure subscription that you want to use to register Azure Stack"
+	$creds = Get-Credential
+
+    Add-AzsRegistration -CloudAdminCredential $creds -AzureDirectoryTenantName $ADTenantName  -AzureSubscriptionId $SubId -PrivilegedEndpoint azs-ercs01 -BillingModel Development 
+   ```
+
+   | Parameter | Description |
+   | -------- | ------------- |
+   | *YourCloudAdminCredential* | is a PowerShell object that contains the local domain credentials for the domain\cloudadmin (for the development kit, this is azurestack\cloudadmin).
+   | *YourAzureSubscriptionID* | is the ID of the Azure subscription that you want to use to register Azure Stack.
+   | *YourAzureDirectoryTenantName* | is the name of the Azure tenant directory associated with your Azure subscription. The registration resource will be created in this directory tenant. 
+   | *YourPrivilegedEndpoint* | is the name of the [privileged end point](azure-stack-privileged-endpoint.md).
+
+5. When prompted for Azure credentials, enter your Azure subscription credentials.
+
+6. When the script completes, you see a message “Activating Azure Stack (this may take up to 10 minutes to complete).” 
 
 ## Verify the registration
 
