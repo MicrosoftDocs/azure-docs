@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/13/2017
+ms.date: 11/17/2017
 ms.author: barclayn
 
 ---
@@ -227,6 +227,8 @@ You must select the same directory that contains the Azure subscription with whi
 4. On the **Create** blade provide a name for your application, and then select **WEB APPLICATION AND/OR WEB API** (the default) and specify the **SIGN-ON URL** for your web application. If you don't have this information at this time, you can make it up for this step (for example, you could specify http://test1.contoso.com ). It does not matter if these sites exist. 
 
     ![New application registration](./media/key-vault-get-started/new-application-registration.png)
+    >[!WARNING]
+    Make sure that you chose **WEB APPLICATION AND/OR WEB API** if you did not you will not see the **keys** option under settings.
 
 5. Click the **Create** button.
 6. When the app registration is completed you can see the list of registered apps. Find the app that you just registered and click on it.
