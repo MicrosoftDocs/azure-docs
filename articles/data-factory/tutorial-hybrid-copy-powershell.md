@@ -82,7 +82,7 @@ You use the name and key of your Azure storage account name in this quickstart. 
 #### Create the adftutorial container 
 In this section, you create a blob container named **adftutorial** in your Azure blob storage. 
 
-1. In the **Storage account** page, click **Blobs**. 
+1. In the **Storage account** page, switch to the **Overview**, and then click **Blobs**. 
 
     ![Select Blobs option](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 1. In the **Blob service** page, click **+ Container** on the toolbar. 
@@ -92,7 +92,11 @@ In this section, you create a blob container named **adftutorial** in your Azure
 
     ![Enter container name](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 4. Click **adftutorial** in the list of containers. Data Factory automatically creates the output folder in this container, so you don't need to create one. 
+
+    ![Select the container](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
 5. Keep the **container** page for **adftutorial** open. You use it verify the output at the end of the tutorial.
+
+    ![Container page](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### Azure PowerShell
 
