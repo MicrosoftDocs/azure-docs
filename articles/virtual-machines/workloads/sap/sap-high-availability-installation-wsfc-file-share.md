@@ -424,7 +424,7 @@ Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SY
 
 ![Figure 1: SAPScripts.psm1 output][sap-ha-guide-figure-8012]
 
-_**Figure 1**: SAPScripts.ps1 output_
+_**Figure 1**: SAPScripts.psm1 output_
 
 ## Update the \<sid>adm user environment variable
 
