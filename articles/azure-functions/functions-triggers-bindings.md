@@ -25,7 +25,7 @@ Azure Functions allows you to write code in response to events in Azure and othe
 
 ## Overview
 
-Triggers and bindings are a declarative way to define how a function is invoked and what data it works with. A *trigger* defines how a function is invoked. A function must have exactly one trigger. Triggers have associated data, which is usually the payload that triggered the function. 
+Triggers and bindings are a declarative way to define how a function is invoked and what data it works with. A *trigger* defines how a function is invoked. A function must have exactly one trigger. Triggers have associated data, which is usually the payload that triggered the function.
 
 Input and output *bindings* provide a declarative way to connect to data from within your code. Similar to triggers, you specify connection strings and other properties in your function configuration. Bindings are optional and a function can have multiple input and output bindings. 
 
@@ -34,8 +34,6 @@ Using triggers and bindings, you can write code that is more generic and does no
 You can configure triggers and bindings in the **Integrate** tab in the Azure Functions portal. Under the covers, the UI modifies a file called *function.json* file in the function directory. You can edit this file by changing to the **Advanced editor**.
 
 ## Supported bindings
-
-The following table shows the bindings that are supported in the two major versions of the Azure Functions runtime. Some types have trigger bindings without input bindings, but all trigger bindings have associated input data.  Input bindings are used in functions triggered by a different binding type.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 

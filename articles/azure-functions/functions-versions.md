@@ -43,8 +43,6 @@ For more information, see [Supported languages](supported-languages.md).
 
 Runtime 2.x lets you create custom [binding extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). Built-in bindings that use this extensibility model are only available in 2.x; among the first of these is the [Microsoft Graph bindings](functions-bindings-microsoft-graph.md).
 
-The following table shows the built-in bindings that are supported in the two major versions of the Azure Functions runtime.
-
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 For more information about bindings support and other functional gaps in 2.x, see [Runtime 2.0 known issues](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).

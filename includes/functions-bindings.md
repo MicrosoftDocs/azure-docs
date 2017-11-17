@@ -1,3 +1,4 @@
+The following table shows the bindings that are supported in the two major versions of the Azure Functions runtime.
 
 | Type | 1.x | 2.x | Trigger | Input | Output |  
 | ---- | :-: | :-: | :------: | :---: | :----: |
