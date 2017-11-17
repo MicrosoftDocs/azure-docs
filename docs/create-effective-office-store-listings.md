@@ -25,37 +25,40 @@ Create a simple and direct title. The shorter the title the better. Remember, th
 
 In your title:
 
-
 - Make the purpose or benefits of your solution clear. Don't rely on your brand to communicate what your solution does. 
 - Use the following naming pattern: Function + for + brand or company name (optional). For example, Small Business Invoicing for Contoso.
 - Use title case. Capitalize the first letter of each word, except articles and prepositions. For example, Apartment Search for Contoso.
-- Don't include the Microsoft product name. This will appear on your landing page in the Office Store, and in Office Store search results.
+- Don't include the Microsoft product name. This appears on your landing page in the Office Store, and in Office Store search results.
 - Avoid acronyms that might be unfamiliar to potential users. 
 - Don't use all uppercase letters, unless your brand name is all uppercase.
 - Don't use the words "free" or "sale" or include exclamation points.
+
+*Figure 1. An Office Store listing with an effective title and description next to one that is less effective*
 
 ![Screenshot of an Office Store listing with an effective title and description next to one that is less effective](images/title-do-dont.png)
 
 ### Use a consistent add-in name
 
-You specify your add-in name in two places - be sure to use the same name in both:
+You specify your add-in name in two places, so be sure to use the same name in both:
 
-- Your add-in manifest; specifically, the  [DisplayName element](http://msdn.microsoft.com/library/529159ca-53bf-efcf-c245-e572dab0ef57%28Office.15%29.aspx) element (Office Add-in), or the [Title element](http://msdn.microsoft.com/library/c4ca4165-ed3a-7ded-d8e3-0a841955d109%28Office.15%29.aspx) element (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
+- Your add-in manifest; specifically, the [DisplayName element](http://msdn.microsoft.com/library/529159ca-53bf-efcf-c245-e572dab0ef57%28Office.15%29.aspx) element (Office Add-in), or the [Title element](http://msdn.microsoft.com/library/c4ca4165-ed3a-7ded-d8e3-0a841955d109%28Office.15%29.aspx) element (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
 - The Seller Dashboard add-in submission form. This specifies the name that is displayed in the Office Store.
 
-## Write compelling descriptions
 <a name="bk_describe"> </a>
+## Write compelling descriptions
 
 A good description makes your solution stand out. Your short description should entice potential users to learn more. Your long description, which appears on the Office Store landing page, should provide more detail about your solution and its value.
 
 ### Effective short descriptions
 
-The short description you supply with your submission is the text that is shown to users in Office Store search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
+The short description that you supply with your submission is the text that is shown to users in Office Store search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
 
 - Put the most important information first.
 - Do not repeat the title.
-- Avoid using jargon or specialized terminology - don't assume that users know what they're looking for.
+- Avoid using jargon or specialized terminology; don't assume that users know what they're looking for.
 - Include keywords that customers might search for.
+
+*Figure 2. A good short description next to one that relies on the brand name*
 
 ![An image that shows a good short description next to one that relies on the brand name](images/description-do-dont.png)
 
@@ -103,6 +106,8 @@ Your logo should:
 - Convey how your solution helps the customer get work done.
 - Use simple imagery. Don't clutter or complicate your image.
 - Communicate the problem that the solution solves. Don't rely on your company logo for your image.
+
+*Figure 3. A clear logo with an Excel chart next to an unclear Fabrikam logo*
 
 ![An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo](images/communicate-problem-do-dont.png)
 
@@ -159,12 +164,16 @@ Good ratings and reviews lead to better store placement and improved customer pe
 - Ask customers to rate and review from within your add-in. Make sure that they've had a chance to explore the add-in first, and don't ask for feedback too often.
 - Offer help and support from within your add-in, so customers don't have to leave feedback in Office Store reviews.
 
+*Figure 4. A request to rate within an add-in next to a request to rate following a tutorial*
+
 ![An image that shows a request to rate within an add-in next to a request to rate following a tutorial](images/rate-and-review-do-dont.png)
 
 ## Respond to customer reviews in the Office Store
 <a name="bk_ratings"> </a>
 
 You can use the comment feature in the Office Store to respond to customer reviews of your solution - for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to the Office Store with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
+
+*Figure 5. A developer response to a comment with the App provider label under the name*
 
 ![Screenshot that shows a developer response to a comment with the App provider label under the name](images/comment-field.png)
  
