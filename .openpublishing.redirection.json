@@ -51,6 +51,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/azure-vm-storage-overview.md",
+            "redirect_url": "/azure/virtual-machines/linux/about-disks-and-vhds",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/linux/maintenance-in-place.md",
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
@@ -8721,7 +8726,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md",
-            "redirect_url": "/azure/storage/storage-about-disks-and-vhds-linux",
+            "redirect_url": "/azure/virtual-machines/linux/about-disks-and-vhds",
             "redirect_document_id": false
         },
         {
@@ -9921,7 +9926,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md",
-            "redirect_url": "/azure/storage/storage-about-disks-and-vhds-windows",
+            "redirect_url": "/azure/virtual-machines/windows/about-disks-and-vhds",
             "redirect_document_id": false
         },
         {
@@ -15109,7 +15114,8 @@
             "redirect_url": "/azure/active-directory/active-directory-whatis",
             "redirect_document_id": false
         },
-        {    "source_path": "articles/active-directory/active-directory-conditional-access.md",
+        {
+             "source_path": "articles/active-directory/active-directory-conditional-access.md",
              "redirect_url": "/azure/active-directory/active-directory-conditional-access-azure-portal",
              "redirect_document_id": false
         },
@@ -15188,14 +15194,94 @@
             "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
             "redirect_document_id": true
           },
-	 {
+	    {
           "source_path": "articles/security-center/security-center-powerbi.md",
           "redirect_url": "https://docs.microsoft.com/en-us/azure/security-center",
           "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
+            "redirect_document_id": false
+          },
+        {
+            "source_path": "articles/virtual-network/virtual-network-manage-nsg-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-manage-nsg-arm-cli",
+            "redirect_document_id": false
+        },  
+        {
+            "source_path": "articles/virtual-network/virtual-networks-create-nsg-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-create-nsg-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-networks-create-vnet-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-create-vnet-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-networks-static-private-ip-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-networks-static-private-ip-arm-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-network/virtual-network-create-udr-arm-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-create-udr-arm-cli",
+            "redirect_document_id": false
+        },
+       {
+            "source_path": "articles/virtual-network/virtual-network-multiple-ip-addresses-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-network/virtual-network-multiple-ip-addresses-cli",
+            "redirect_document_id": false
+        },
+        {
              "source_path": "articles/service-fabric/service-fabric-set-up-continuous-integration.md",
              "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/app-service/app-service-deploy-spring-boot-web-app-on-azure.md",
+             "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-web-app-on-azure",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/app-service/app-service-web-deploy-spring-boot-app-with-maven-plugin.md",
+             "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/app-service/containers/app-service-web-deploy-containerized-spring-boot-app-with-maven-plugin.md",
+             "redirect_url": "/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/app-service/containers/app-service-web-deploy-spring-boot-app-from-container-registry-using-maven-plugin.md",
+             "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md",
+             "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-app-on-kubernetes",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md",
+             "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-app-on-linux",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/container-service/kubernetes/container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md",
+             "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-app-using-fabric8-maven-plugin",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/cosmos-db/documentdb-java-spring-boot-starter-with-cosmos-db.md",
+             "redirect_url": "/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/redis-cache/cache-java-spring-boot-initializer-with-redis-cache.md",
+             "redirect_url": "/java/azure/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache",
              "redirect_document_id": false
         }
     ]
