@@ -180,10 +180,10 @@ To illustrate the collaboration flow, let's walk through an example. Contoso emp
     # stage all changes
     $ git add -A
 
-    $ commit them with a comment
+    # commit them with a comment
     $ git commit -m "I found a cool new trick."
 
-    $ create a new branch on the remote VSTS Git repo, and push changes
+    # create a new branch on the remote VSTS Git repo, and push changes
     $ git push origin bob
     ```
 
