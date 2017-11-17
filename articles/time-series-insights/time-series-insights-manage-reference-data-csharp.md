@@ -228,4 +228,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## Next steps
 > [!div class="nextstepaction"]
-> For the complete REST API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+> [Reference data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
