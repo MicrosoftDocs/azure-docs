@@ -40,7 +40,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. Create a new resource group with [az group create][] command.
 
-The following example creates a resource group named **eventhubsResourceGroup** in the **West US** region
+The following example creates a resource group named **eventhubsResourceGroup** in the **West US** region:
 
 ```azurecli
 az group create --name eventhubsResourceGroup --location westus

@@ -51,10 +51,15 @@ A resource group is a logical collection of Azure resources. All resources are d
 An Event Hubs namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following:
 
 1. Log on to the [Azure portal][], and click **Create a resource** at the top left of the screen.
+
 2. Click **Internet of Things**, and then click **Event Hubs**.
+
 3. In **Create namespace**, enter a namespace name. The system immediately checks to see if the name is available.
+
    ![](./media/event-hubs-create/create-event-hub1.png)
-4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. 
+
+4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource.
+ 
 5. Click **Create** to create the namespace. You may have to wait a few minutes for the system to fully provision the resources.
 
 ## Create an event hub
@@ -83,13 +88,17 @@ Congratulations! You have used the portal to create an Event Hubs namespace, and
 The Event Processor Host is an intelligent agent that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives. For checkpointing, the Event Processor Host requires a storage account. The following example shows how to create a storage account and how to get its keys for access:
 
 1. Log on to the [Azure portal][Azure portal], and click **New** at the top left of the screen.
+
 2. Click **Storage**, then click **Storage account**.
    
     ![](./media/event-hubs-quickstart-namespace-portal/create-storage1.png)
+
 3. In **Create storage account**, type a name for the storage account. Choose an Azure subscription, resource group, and location in which to create the resource. Then click **Create**.
    
     ![](./media/event-hubs-quickstart-namespace-portal/create-storage2.png)
+
 4. In the list of storage accounts, click the newly created storage account.
+
 5. In the storage account window, click **Access keys**. Copy the value of **key1** to use later.
    
     ![](./media/event-hubs-quickstart-namespace-portal/create-storage3.png)
