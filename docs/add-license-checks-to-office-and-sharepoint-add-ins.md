@@ -27,6 +27,8 @@ For Outlook add-ins:
 - Create a URL-encoded version of the add-in license token.
 - In the add-in manifest file, manually edit the appropriate [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation) element. Add the URL-encoded version of the license token to the source location URL as a query parameter named *et*  .
     
+    <br/>
+    
     > [!NOTE]
     > If your add-in uses [getUserIdentityTokenAsync](http://dev.office.com/reference/add-ins/outlook/Office.context.mailbox), adding to the [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation) element in the manifest changes the URL in the token because the token generation is based on what is in the manifest. When you test the license token, you have to modify the validation call on your service so that the validation accepts the modified URL. For example, if you use the [managed API token validation](https://dev.office.com/docs/add-ins/outlook/use-the-token-validation-library) library, you need to change the _hostUri_ parameter to match the modified [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation). Remember to change the Exchange identity token validation callback after you test the license check.
 
@@ -112,7 +114,7 @@ For test licenses, the [IsTest](https://msdn.microsoft.com/en-us/library/office/
 > [!NOTE]
 > For Outlook add-ins, make sure that you remove the *et* parameter, which represents the test license token, from all **SourceLocation** elements in your add-in manifest file.
 
-## Code example: Check the Office Add-in license by retrieving and validating its add-in license token
+### Code example: Check the Office Add-in license by retrieving and validating its add-in license token
 
 The following example shows the basic logic flow of retrieving and validating the license token for a content or task pane add-in: 
 
@@ -421,7 +423,7 @@ Finally, after you finish testing your add-in and are ready to move it to produc
 After you pass the license token to the verification service's [VerifyEntitlementToken](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx) method, you can use the [VerifyEntitlementTokenResponse](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx) object returned by that method to access the license properties. For test licenses, the [IsTest](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.istest.aspx) property returns **true** and the [IsValid](https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx) property returns **false**.
 
 <a name="bk_example"> </a>
-### Code example: SharePoint Add-ins licensing checking
+#### Code example: SharePoint Add-ins licensing checking
 
 The following example retrieves an add-in's license token from the SharePoint deployment and passes the token to the Office Store verification service for validation. The example catches a variety of possible errors if the verification fails. If the verification succeeds, it builds a string from the various license properties. Finally, the code provides logic for specifying the level of functionality based on the license type: Free, Paid, or Trial. 
 
