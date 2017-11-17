@@ -45,6 +45,15 @@ Before you begin this tutorial:
 
 The following procedures create a five-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
+## Cluster capacity planning
+For any production cluster deployment, capacity planning is an important step. Here are some of the items that you have to consider as a part of that process.
+
+- The number of node types your cluster needs 
+- The properties of each of node type ( for example size, primary, internet facing, and number of VMs)
+- The reliability and durability characteristics of the cluster
+
+For more information, see [Cluster capacity planning considerations](service-fabric-cluster-capacity.md).
+
 ## Sign-in to Azure and select your subscription
 This guide uses Azure PowerShell. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
  
@@ -66,7 +75,7 @@ New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 ```
 
 ## Deploy the network topology
-Next, set up the network topology to which API Management and the Service Fabric cluster will be deployed. The [network.json][network-arm] Resource Manager template is configured to create a virtual network (VNET) and also a subnet and network security group (NSG) for Service Fabric and a subnet and NSG for API Management. Learn more about VNETs, subnets, and NSGs [here](../virtual-network/virtual-networks-overview.md).
+Next, set up the network topology to which API Management and the Service Fabric cluster will be deployed. The [network.json][network-arm] Resource Manager template is configured to create a virtual network (VNET) and also a subnet and network security group (NSG) for Service Fabric and a subnet and NSG for API Management. API Management is deployed later in this tutorial. Learn more about VNETs, subnets, and NSGs [here](../virtual-network/virtual-networks-overview.md).
 
 The [network.parameters.json][network-parameters-arm] parameters file contains the names of the subnets and NSGs that Service Fabric and API Management deploy to.  API Management is deployed in the [following tutorial](service-fabric-tutorial-deploy-api-management.md). For this guide, the parameter values do not need to be changed. The Service Fabric Resource Manager templates use these values.  If the values are modified here, you must modify them in the other Resource Manager templates used in this tutorial and the [Deploy API Management tutorial](service-fabric-tutorial-deploy-api-management.md). 
 
