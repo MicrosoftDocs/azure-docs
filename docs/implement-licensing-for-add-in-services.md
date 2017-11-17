@@ -1,3 +1,9 @@
+---
+title: Implement licensing to upsell your Office Add-in services
+description: Handle licensing state for individuals and organizations based on how an Office Add-in is acquired.  
+ms.date: 11/27/2017 
+---
+
 # Implement licensing to upsell your Office Add-in services
 
 If you're building an Office Add-in that is backed by a subscription service, your add-in can expose different functionality or messaging depending on whether the customer paid for that service. This article describes how to deliver licensing and upsell your services. It also explains how to handle licensing state for individuals and organizations, based on how the add-in is acquired.  
@@ -5,14 +11,14 @@ If you're building an Office Add-in that is backed by a subscription service, yo
 
 ## Step 1: Use a single manifest for all customers
 
-To make distributing and maintaining your add-in easy, we recommend that you submit a single add-in to the Office Store. That way, as you add new features, like [add-in commands](https://dev.office.com/docs/add-ins/design/add-in-commands) or single sign-on, those features are made available to all customers - you don't need to worry about supporting different add-ins for different customers, and you don't need to contact each customer’s administrator when to change the manifest.
+To make distributing and maintaining your add-in easy, we recommend that you submit a single add-in to the Office Store. That way, as you add new features, such as [add-in commands](https://dev.office.com/docs/add-ins/design/add-in-commands) or single sign-on, those features are made available to all customers; you don't need to worry about supporting different add-ins for different customers, and you don't need to contact each customer’s administrator when you change the manifest.
 
 > [!NOTE]
-> Because some customization scenarios are not yet supported, you might have to provide a customer a custom manifest - for example, if you want to use a different icon on the ribbon or a different group name for add-in commands.  
+> Because some customization scenarios are not yet supported, you might have to provide a customer a custom manifest; for example, if you want to use a different icon on the ribbon or a different group name for add-in commands.  
 
-### Step 2: Create a licensing database
+## Step 2: Create a licensing database
 
-To sell Office Add-ins to organizations, you will need to create a licensing database. This is necessary because:
+To sell Office Add-ins to organizations, you need to create a licensing database. This is necessary because:
 
 - Many software vendors sell the add-in (and the subscription service that backs it) through their own licensing system, via their own invoices/payment models and at the price points they choose.
 - Centralized deployment does not allow users to buy add-ins from the Office Store and deploy them. Office Store paid add-ins today only work with personal identities (Microsoft accounts), not work or school accounts.
@@ -41,7 +47,7 @@ www.contoso-addin.com/VerifyLicense.aspx? Username=xxx; autoProvision=1
         - Organization has no license, and User has no license
 ```
 
-This API will be called when the add-in runs on a customer’s premises. It must be publicly accessible.
+This API is called when the add-in runs on a customer’s premises. It must be publicly accessible.
 
 In general, we recommend that you let anyone try your add-in, at least for a certain period of time. Plan to follow up with customers who use more licenses than they have paid for.
 
@@ -55,7 +61,7 @@ You can include an internal mechanism to block customers who continue to use the
 
 ### Discretion when exceeding license limits
 
-If an organization buys 200 licenses, consider what happens when 201, 210, or 300 users try to use the add-in. Generally, we recommend that you apply some discretion to preserve a seamless customer experience, because group sizes  change as people join and leave teams or organizations. If the service your add-in uses is expensive to run, however, you might decide to be strict about licensing limits.
+If an organization buys 200 licenses, consider what happens when 201, 210, or 300 users try to use the add-in. Generally, we recommend that you apply some discretion to preserve a seamless customer experience, because group sizes change as people join and leave teams or organizations. If the service your add-in uses is expensive to run, however, you might decide to be strict about licensing limits.
 
 ### Enforcement based on first come, first served
 
@@ -86,7 +92,7 @@ Also, when you use single sign-on, users are signed in to the add-in automatical
 
 Your add-in must next identify information about the user.
 
-For users who sign in with a work or school account, you can add support for Oauth to your add-in. For details, see [Authorize external services in your Office Add-in](https://dev.office.com/docs/add-ins/develop/auth-external-add-ins). This will allow you to use Microsoft Graph to get the following information about the user:
+For users who sign in with a work or school account, you can add support for Oauth to your add-in. For details, see [Authorize external services in your Office Add-in](https://dev.office.com/docs/add-ins/develop/auth-external-add-ins). This allows you to use Microsoft Graph to get the following information about the user:
 
 - Their organizational tenant ID, via the [Get organization](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/organization_get) method.  
 - The list of roles that are assigned to the user, via the [getMemberObjects](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_getmemberobjects) action.
@@ -125,7 +131,6 @@ Include in-app telemetry to help you understand whether customers have a success
 
 For go-to-market best practices, see the [Office ISV GTM guide](https://www.microsoft.com/en-us/download/54593).
 
-
 ## Step 8: Record the sale
 
 When a customer makes a purchase, update your licensing database with the record for that customer. Look up the customer in your licensing database by name or email, and record how many licenses were sold.
@@ -142,9 +147,7 @@ The administrator should then create a flat group (or DL) containing the target 
 
 At this point, everyone in the organization belonging to that group will see it in their ribbon.    (Link to Admin Center telemetry dashboard)
 
-As group membership grows (or as users from the organization install the add-in from the Store), your licensing service will work as designed.
-
--->
+As group membership grows (or as users from the organization install the add-in from the Store), your licensing service will work as designed.-->
 
 
 ## Additional resources
