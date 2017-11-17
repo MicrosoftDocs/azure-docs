@@ -61,7 +61,9 @@ The following flowchart describes how Azure CDN validates client request when to
 
 2. Hover over **HTTP Large**, and then click **Token Auth** in the flyout. You can then set up the encryption key and encryption parameters as follows:
 
-    1. Create one or more encryption keys. An encryption key is case-sensitive and can contain any combination of alphanumeric characters. Any other types of characters, including spaces, are not allowed. The maximum length is 250 characters. To ensure that your encryption keys are random, it is recommended that you create them by using the [OpenSSL tool](https://www.openssl.org/). The OpenSSL tool has the following syntax: 
+    1. Create one or more encryption keys. An encryption key is case-sensitive and can contain any combination of alphanumeric characters. Any other types of characters, including spaces, are not allowed. The maximum length is 250 characters. To ensure that your encryption keys are random, it is recommended that you create them by using the [OpenSSL tool](https://www.openssl.org/). 
+
+       The OpenSSL tool has the following syntax:
 
        ```rand -hex <key length>```
 
@@ -73,7 +75,7 @@ The following flowchart describes how Azure CDN validates client request when to
     
 	2. Enter a unique encryption key in the **Primary Key** box and optionally enter a backup key in the **Backup Key** box.
 
-    3. Select the minimum encryption version for each key from its **Minimum Encryption Version** dropdown list, then click **Update**:
+    3. Select the minimum encryption version for each key from its **Minimum Encryption Version** list, then click **Update**:
        - **V2**: Indicates that the key can be used to generate version 2.0 and 3.0 tokens. Use this option only if you are transitioning from a legacy version 2.0 encryption key to a version 3.0 key.
        - **V3**: (Recommended) Indicates that the key can only be used to generate version 3.0 tokens.
 
@@ -85,16 +87,17 @@ The following flowchart describes how Azure CDN validates client request when to
 
        Enter values for one or more of the following encryption parameters in the **Encrypt Tool** section: 
 
+       [!div class="mx-tdBreakAll"]
        <table>
        <tr>
           <th>Parameter name</th> 
           <th>Description</th>
        </tr>
-       <tr>                                                                          |
+       <tr>
           <td><b>ec_expire</b></td>
           <td>Assigns an expiration time to a token, after which the token expires. Requests submitted after the expiration time are denied. This parameter uses a Unix timestamp, which is based on the number of seconds since the standard epoch of `1/1/1970 00:00:00 GMT`. (You can use online tools to convert between standard time and Unix time.) 
 
-          For example, if you want the token to expire at `12/31/2016 12:00:00 GMT`, use the Unix timestamp value, `1483185600`, as follows: ![CDN ec_expire example](./media/cdn-token-auth/cdn-token-auth-expire2.png)</td>
+          For example, if you want the token to expire at `12/31/2016 12:00:00 GMT`, enter the Unix timestamp value, `1483185600`. 
        </tr>
        <tr>
           <td><b>ec_url_allow</b></td> 
@@ -115,7 +118,7 @@ The following flowchart describes how Azure CDN validates client request when to
        </tr>
        <tr>
           <td><b>ec_country_deny</b></td> 
-          <td>Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. Use country codes and separate each one with a comma. For example, If you want to deny access from the United States and France, enter US, FR.</td>
+          <td>Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. Use country codes and separate each one with a comma. For example, If you want to deny access from the United States and France, enter `US, FR`.</td>
        </tr>
        <tr>
           <td><b>ec_ref_allow</b></td>
@@ -129,7 +132,9 @@ The following flowchart describes how Azure CDN validates client request when to
              <li>Subdomains. To allow subdomains, enter an asterisk (\*). For example, to allow all subdomains of `consoto.com`, enter `*.consoto.com`.</li>
           </ul>
 
-          The following example shows the input to allow access for requests from `www.consoto.com`, all subdomains under `consoto2.com`, and requests with blank or missing referrers: ![CDN ec_ref_allow example](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)</td>
+          The following example shows the input to allow access for requests from `www.consoto.com`, all subdomains under `consoto2.com`, and requests with blank or missing referrers: 
+
+          ![CDN ec_ref_allow example](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)</td>
        </tr>
        <tr> 
           <td><b>ec_ref_deny</b></td>
@@ -145,9 +150,7 @@ The following flowchart describes how Azure CDN validates client request when to
        </tr>
        <tr>
           <td><b>ec_clientip</b></td>
-          <td>Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify either a single request IP address or an IP subnet. 
-
-          For example: ![CDN ec_clientip example](./media/cdn-token-auth/cdn-token-auth-clientip.png)</td>
+          <td>Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify either a single request IP address or an IP subnet. For example: `11.22.33.0/22`</td>
        </tr>
        </table>
 
@@ -157,20 +160,20 @@ The following flowchart describes how Azure CDN validates client request when to
 
     After the token is generated, it is displayed in the **Generated Token** box. To use the token, append it as a query string to the end of the file in your URL path. For example, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 		
-	7. Optionally, test your token with the decrypt tool. Paste the token value in the **Token to Decrypt** box. Select the encryption key use from the **Key To Decrypt** drop-down list, then click **Decrypt**.
+	7. Optionally, test your token with the decrypt tool. Paste the token value in the **Token to Decrypt** box. Select the encryption key to use from the **Key To Decrypt** list, then click **Decrypt**.
 
     After the token is decrypted, its parameters are displayed in the **Original Parameters** box.
 
-	8. Optionally, customize the type of response code that is returned when a request is denied. Select the code from the **Response Code** drop-down list and click **Save**. The **403** response code (Forbidden) is selected by default. For certain response codes, you can also enter the URL of your error page in the **Header Value** box. 
+	8. Optionally, customize the type of response code that is returned when a request is denied. Select **Enable**, select the response code from the **Response Code** list, and click **Save**. For certain response codes, you must also enter the URL of your error page in the **Header Value** box. The **403** response code (Forbidden) is selected by default. 
 
 3. Under **HTTP Large**, click **Rules Engine**. You use the rules engine to define paths to apply the feature, enable the token authentication feature, and enable additional token authentication-related capabilities. For more information, see [Rules engine reference](cdn-rules-engine-reference.md).
 
 	1. Select an existing rule or create a new rule to define the asset or path for which you want to apply token authentication. 
-	2. To enable token authentication on a rule, select **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** from the **Features** drop-down list, then select **Enabled**. Click **Update** if you are updating a rule or **Add** if you are creating a rule.
+	2. To enable token authentication on a rule, select **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** from the **Features** list, then select **Enabled**. Click **Update** if you are updating a rule or **Add** if you are creating a rule.
 		
 	![CDN rules engine token authentication enable example](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. In the rules engine, you can also enable additional token authentication-related features. To enable any of the following features, select it from the **Features** drop-down list, then select **Enabled**.
+4. In the rules engine, you can also enable additional token authentication-related features. To enable any of the following features, select it from the **Features** list, then select **Enabled**.
 	
 	- **[Token Auth Denial Code](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: Determines the type of response that is returned to a user when a request is denied. Rules set here override the response code set in the **Custom Denial Handling** section on the token-based authentication page.
 	- **[Token Auth Ignore URL Case](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Determines whether the URL used to validate the token is case-sensitive.
