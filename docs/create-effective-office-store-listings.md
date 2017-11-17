@@ -191,5 +191,6 @@ If you're creating ad-supported apps or add-ins, apply the following guidelines:
 ## Additional resources
 <a name="bk_addresources"> </a>
 
--  [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
--  [Validation policies](validation-policies.md)
+- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)

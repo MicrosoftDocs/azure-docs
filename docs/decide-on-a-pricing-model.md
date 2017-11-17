@@ -100,5 +100,13 @@ Azure also enables you to scale your app or add-in to match demand and reduce co
 For more information, see  [Hosting add-ins on Microsoft Azure](http://www.windowsazure.com/en-us/overview/application-hosting/) or sign up for a [free Azure trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
  
 
- 
+## Additional resources
+
+- [Upload your package to the Office Store](upload-package.md)
+- [Create your Office Store listing](office-store-listing.md)
+- [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
+- [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
+- [Office Store submission FAQ](office-store-submission-faq.md)
+- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
 

@@ -60,3 +60,13 @@ Choose the tile under **App package**, and upload the manifest file for your add
 If your package contains errors, the Seller Dashboard will report those errors and you will have to resolve them before you can submit your add-in. 
 
 For more details about Microsoft Teams app packages, see [Create the package for your Microsoft Teams app](https://msdn.microsoft.com/en-us/microsoft-teams/createpackage). For a step-by-step guide that describes how to submit a Microsoft Teams app, see [Submitting your Microsoft Teams app in the Seller Dashboard](https://msdn.microsoft.com/en-us/microsoft-teams/submissionguidance).
+
+## Additional resources
+
+- [Create your Office Store listing](office-store-listing.md)
+- [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
+- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
+- [Office Store submission FAQ](office-store-submission-faq.md)
+- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)

@@ -158,3 +158,6 @@ To view the sales that your solutions generated on a per country (or region) per
  
 
 
+## Additional resources
+
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)

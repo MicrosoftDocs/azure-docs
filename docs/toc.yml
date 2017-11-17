@@ -11,7 +11,7 @@
     href: add-license-checks-to-office-and-sharepoint-add-ins.md
   - name: Implement licensing to upsell add-ins
     href: implement-licensing-for-add-in-services.md
-  - name: Add in license schema
+  - name: Add-in license schema
     href: add-in-license-schema.md
 - name: Create effective Office Store listings
   href: create-effective-office-store-listings.md

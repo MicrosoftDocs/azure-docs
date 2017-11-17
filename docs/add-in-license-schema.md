@@ -215,8 +215,13 @@ The following example shows the add-in license for a user who is signed in with 
 ## Additional resources
 <a name="SP15applicenseschema_addlresources"> </a>
 
--  [License your Office and SharePoint Add-ins](license-your-add-ins.md)
--  [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
--  [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
--  [Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app](decide-on-a-pricing-model.md)
--  [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/office/verificationsvc.aspx)
+- [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
+- [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
+- [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)
+- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
+- [License your Office and SharePoint Add-ins](license-your-add-ins.md)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
+
+
+

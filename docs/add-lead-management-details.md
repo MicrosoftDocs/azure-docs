@@ -126,3 +126,13 @@ If you get an error message, make sure that your details are correct or try agai
 ## Communication guidelines
 
 Make sure that any correspondence you send to customers includes an option to unsubscribe from future communications. 
+
+## Additional resources
+
+- [Upload your package to the Office Store](upload-package.md)
+- [Create your Office Store listing](office-store-listing.md)
+- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
+- [Office Store submission FAQ](office-store-submission-faq.md)
+- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)

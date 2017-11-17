@@ -655,9 +655,12 @@ private void VerifyLicenseToken(string rawLicenseToken)
 ## Additional resources
 <a name="bk_addresources"> </a>
 
+- [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
+- [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)
+- [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md)
+- [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
+- [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
+- [License your Office and SharePoint Add-ins](license-your-add-ins.md)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
 
--  [License your add-ins](license-your-add-ins.md)
--  [How licenses work](how-licenses-work.md)
--  [Add-in license XML schema structure](add-in-license-schema.md)
--  [VerificationSvc](https://msdn.microsoft.com/en-us/library/office/verificationsvc.aspx)
--  [SharePoint 2013 code sample: Import, validate, and manage add-in licenses](http://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
+

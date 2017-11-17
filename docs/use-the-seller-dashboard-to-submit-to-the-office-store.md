@@ -113,11 +113,16 @@ After your account in the Seller Dashboard is approved, you can submit your solu
 ## Additional resources
 <a name="bk_addresources"> </a>
 
-
--  [Register as an app developer](https://dev.windows.com/en-us/programs/join)
--  [Create effective Office Store listings](create-effective-office-store-listings.md)
--  [Have your app appear in the Office 365 App launcher](https://msdn.microsoft.com/en-us/office/office365/howto/connect-your-app-to-o365-app-launcher)
--  [Publish Power BI custom visuals to the Office store](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/)
-    
+- [Upload your package to the Office Store](upload-package.md)
+- [Create your Office Store listing](office-store-listing.md)
+- [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
+- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
+- [Office Store submission FAQ](office-store-submission-faq.md)
+- [Create effective Office Store listings](create-effective-office-store-listings.md)
+- [Register as an app developer](https://developer.microsoft.com/en-us/store/register)
+- [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/en-us/office/office365/howto/connect-your-app-to-o365-app-launcher)
+- [Publish Power BI custom visuals to the Office store](https://docs.microsoft.com/en-us/power-bi/developer/office-store/)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)  
  
 

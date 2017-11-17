@@ -122,9 +122,9 @@ The value that is sent to the document is the value of the  _mktcmpid_ parameter
 <a name="bk_addresources"> </a>
 
 
--  [Submit solutions to the Office Store](submit-to-the-office-store.md) 
--  [Office Add-ins](https://dev.office.com/docs/add-ins/overview/office-add-ins)  
--  [SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
+- [Office Add-ins](https://dev.office.com/docs/add-ins/overview/office-add-ins)  
+- [SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
     
  
 

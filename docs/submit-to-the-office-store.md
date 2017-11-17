@@ -59,5 +59,10 @@ If you make changes after your submission was approved, it must go through the a
 
 If you have questions about policies or requirements in your report, you can engage with the Office Store Valdidation Team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Tag your question with "Office-Store".
 
+## Additional resources
+
+- [Office Add-ins](https://dev.office.com/docs/add-ins/overview/office-add-ins)  
+- [SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
+
 
 

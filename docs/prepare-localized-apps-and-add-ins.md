@@ -126,8 +126,8 @@ The following table lists the submission languages that the Office Store is avai
 ## Additional resources
 <a name="bk_addresources"> </a>
 
--  [Validation policies](validation-policies.md) 
--  [Submit to the Seller Dashboard](use-the-seller-dashboard-to-submit-to-the-office-store.md)
-    
+- [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md) 
+- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)    
  
 

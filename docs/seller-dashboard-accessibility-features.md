@@ -126,8 +126,9 @@ If you use Internet Explorer, you can use the following keyboard shortcuts in th
 ## Additional resources
 <a name="bk_addresources"> </a>
 
--  [Disability Answer Desk](https://support.microsoft.com/en-us/answerdesk/accessibility)
--  [Microsoft Accessibility website](https://www.microsoft.com/enable/default.aspx)
+- [Disability Answer Desk](https://support.microsoft.com/en-us/accessibility/disability-answer-desk)
+- [Microsoft Accessibility website](https://www.microsoft.com/en-us/accessibility)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
     
  
 

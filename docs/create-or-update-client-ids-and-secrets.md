@@ -273,8 +273,15 @@ You might want to delete a client ID in certain situations, for example:
 ## Additional resources
 <a name="bk_addresources"> </a>
 
--  [Submit to the Office Store](submit-to-the-office-store.md)  
--  [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md)
+- [Upload your package to the Office Store](upload-package.md)
+- [Create your Office Store listing](office-store-listing.md)
+- [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
+- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [Office Store submission FAQ](office-store-submission-faq.md)
+- [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md)
+- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md) 
+
     
  
 

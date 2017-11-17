@@ -219,10 +219,12 @@ Apply the following best practices when you create and enforce add-in licenses a
 ## Additional resources
 <a name="bk_resources"> </a>
 
--  [License your Office and SharePoint Add-ins](license-your-add-ins.md) 
--  [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
--  [SharePoint 2013 code sample: Import, validate, and manage add-in licenses](http://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
--  [Decide on a pricing model for your Office or SharePoint Add-in or Office 365 web app](decide-on-a-pricing-model.md)
--  [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md)
--  [VerificationSvc](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
+- [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
+- [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)
+- [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md)
+- [Decide on a pricing model for your Office Store submission](decide-on-a-pricing-model.md)
+- [VerificationSvc namespace](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
+- [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
+- [License your Office and SharePoint Add-ins](license-your-add-ins.md)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
     

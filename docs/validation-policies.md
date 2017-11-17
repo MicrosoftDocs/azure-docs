@@ -270,11 +270,10 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 <a name="bk_addresources"> </a>
 
 
--  [Use the Seller Dashboard to submit to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
--  [Office Store submission FAQ](office-store-submission-faq.md)
--  [Create effective Office Store listings](create-effective-office-store-listings.md)
--  [Office Store Application Provider Agreement](https://sellerdashboard.microsoft.com/Assets/Content/Agreements/en-US/Office_Store_Seller_Agreement_20120927.md)
+- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Office Store submission FAQ](office-store-submission-faq.md)
+- [Create effective Office Store listings](create-effective-office-store-listings.md)
+- [Office Store Application Provider Agreement](https://sellerdashboard.microsoft.com/Assets/Content/Agreements/en-US/Office_Store_Seller_Agreement_20120927)
+- [Submit your solutions to the Office Store](submit-to-the-office-store.md)
 
-
-    
  
