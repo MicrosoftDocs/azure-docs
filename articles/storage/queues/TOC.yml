@@ -52,6 +52,8 @@
       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Use the Storage Emulator
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Using the REST API including auth
+      href: ../common/storage-using-rest-api-including-authentication.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json      
   - name: Manage
     items:
     - name: PowerShell for Azure Queues
