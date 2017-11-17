@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 11/17/2017
 ms.author: twooley
 
 ---
@@ -57,7 +57,7 @@ You can download the System Center Management Pack for Microsoft Azure Stack and
 
 For a ticketing solution, you can integrate Operations Manager with System Center Service Manager. The integrated product connector enables bi-directional communication that allows you to close an alert in Azure Stack and Operations Manager after you resolve a service request in Service Manager.
 
-The following diagram shows integration of Azure Stack with an existing System Center deployment. You can automate Service Manager further with System Center Orchestrator or classic deployment model Automation (SMA) to run operations in Azure Stack.
+The following diagram shows integration of Azure Stack with an existing System Center deployment. You can automate Service Manager further with System Center Orchestrator or Service Management Automation (SMA) to run operations in Azure Stack.
 
 ![Diagram showing integration with OM, Service Manager, and SMA.](media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
 
@@ -90,14 +90,14 @@ Configure the plugin file “Azurestack_plugin.py” with the following paramete
 
 You can use PowerShell to retrieve health and alerts in Azure Stack. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack environment on a local computer that can reach the Resource Manager (administrator) endpoint (https://adminmanagement.[region].[External_FQDN]).
 
-1. Run the following commands to connect to the Azure Stack environment:
+1. Run the following commands to connect to the Azure Stack environment as an Azure Stack operator:
 
    ```PowerShell
    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
-3. Change to the directory where you installed the Azure Stack tools, change to the Infrastructure directory, and then import the Infrastructure module:
+3. Change to the directory where you installed the Azure Stack tools as part of the PowerShell installation (for example, c:\azurestack-tools-master), change to the Infrastructure directory, and then import the Infrastructure module:
 
    ```PowerShell
    Import-Module .\AzureStack.Infra.psm1
