@@ -84,8 +84,9 @@ In this section, you create a blob container named **adftutorial** in your Azure
 10. Confirm that the folder is **input** and file is **emp.txt**, and click **Upload**.
 11. You should see the **emp.txt** file and the status of the upload in the list. 
 12. Close the **Upload blob** page by clicking **X** in the corner. 
+
     ![Close upload blob page](media/quickstart-create-data-factory-powershell/close-upload-blob.png)
-13. Keep the **container** page open. You use it to verify the output at the end of this quickstart. 
+1. Keep the **container** page open. You use it to verify the output at the end of this quickstart. 
 
 ### Azure PowerShell
 
