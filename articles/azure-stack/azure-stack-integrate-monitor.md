@@ -45,7 +45,7 @@ You can use Operations Manager for external monitoring of Azure Stack. The Syste
 The management pack for Azure Stack provides the following capabilities:
 
 - You can manage multiple Azure Stack deployments.
-- There's support for Azure Active Directure (Azure AD) and Active Directory Federation Services (AD FS).
+- There's support for Azure Active Directory (Azure AD) and Active Directory Federation Services (AD FS).
 - You can retrieve and close alerts.
 - There's a Health and a Capacity dashboard.
 - Includes Auto Maintenance Mode detection for when patch and update (P&U) is in progress.
@@ -97,7 +97,7 @@ You can use PowerShell to retrieve health and alerts in Azure Stack. To use Powe
 
    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
-3. Change to the directory where you installed the Azure Stack tools as part of the PowerShell installation (for example, c:\azurestack-tools-master), change to the Infrastructure directory, and then import the Infrastructure module:
+3. Change to the directory where you installed the Azure Stack tools as part of the PowerShell installation, for example, c:\azurestack-tools-master. Then, change to the Infrastructure directory and run the following command to import the Infrastructure module:
 
    ```PowerShell
    Import-Module .\AzureStack.Infra.psm1
