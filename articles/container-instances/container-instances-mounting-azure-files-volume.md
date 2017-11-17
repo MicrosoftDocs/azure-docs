@@ -29,7 +29,7 @@ By default, Azure Container Instances are stateless. If the container crashes or
 Before using an Azure file share with Azure Container Instances, you must create it. Run the following script to create a storage account to host the file share, and the share itself. The storage account name must be globally unique, so the script adds a random value to the base string.
 
 ```azurecli-interactive
-# Change these four parameters
+# Change these four parameters as needed
 ACI_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 ACI_PERS_RESOURCE_GROUP=myResourceGroup
 ACI_PERS_LOCATION=eastus
@@ -37,6 +37,10 @@ ACI_PERS_SHARE_NAME=acishare
 
 # Create the storage account with the parameters
 az storage account create -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -l $ACI_PERS_LOCATION --sku Standard_LRS
+
+# Export the connection string as an environment variable. The following 'az storage share create' command
+# references this environment variable when creating the Azure file share.
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -o tsv`
 
 # Create the file share
 az storage share create -n $ACI_PERS_SHARE_NAME
@@ -69,6 +73,8 @@ az container create \
     --resource-group $ACI_PERS_RESOURCE_GROUP \
     --name hellofiles \
     --image seanmckenna/aci-hellofiles \
+    --ip-address Public \
+    --ports 80 \
     --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
     --azure-file-volume-account-key $STORAGE_KEY \
     --azure-file-volume-share-name $ACI_PERS_SHARE_NAME \
