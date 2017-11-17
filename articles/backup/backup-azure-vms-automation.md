@@ -263,7 +263,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 ## Restore an Azure VM
-There is a key difference between the restoring a VM using the Azure portal and restoring a VM using PowerShell. With PowerShell, the restore operation is complete once the disks and configuration information from the recovery point are created.
+There is a key difference between the restoring a VM using the Azure portal and restoring a VM using PowerShell. With PowerShell, the restore operation is complete once the disks and configuration information from the recovery point are created. If you want to restore or recover few files from an Azure VM backup, refer to the [file recovery section](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
 
 > [!NOTE]
 > The restore operation does not create a virtual machine.
@@ -569,6 +569,10 @@ Run the script on the machine where you want to recover the files. You need to e
 
 ### Unmount the disks
 After the required files are copied, unmount the disks by using the **[Disable-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)** cmdlet. This is highly recommended as it makes sure that access is removed to the files of the recovery point
+
+```
+PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+```
 
 
 ## Next steps
