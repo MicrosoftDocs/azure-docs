@@ -138,7 +138,8 @@
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: Import and export data with Sqoop
-      href: hdinsight-use-sqoop.md
+      href: ../hdinsight-use-sqoop.md
+      maintainContext: true
       items:
       - name: Connect with SSH
         href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
