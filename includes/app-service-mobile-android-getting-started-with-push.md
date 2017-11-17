@@ -1,4 +1,5 @@
 1. Add the following code after the `application` opening tag:
+
     ```xml
     <service android:name=".ToDoMessagingService">
         <intent-filter>
@@ -15,16 +16,19 @@
 2. Open the file `ToDoActivity.java`, and make following changes:
 
     - Add the import statement:
+
         ```java
         import com.google.firebase.iid.FirebaseInstanceId;
         ```
 
     - Change the definition of `MobileServiceClient` from **private** to **private static**, so it now looks like this:
+
         ```java
         private static MobileServiceClient mClient;
         ```
 
     - Add `registerPush` method:
+
         ```java
         public static void registerPush() {
             final String token = FirebaseInstanceId.getInstance().getToken();
@@ -40,11 +44,13 @@
         ```
 
     - Update the **onCreate** method of the `ToDoActivity` class. Make sure to add this code after the `MobileServiceClient` is instantiated.
+
         ```java
         registerPush();
         ```
 
 3. Add a new class to handle notifications. In Project Explorer, open the **app** > **java** > **your-project-namespace** nodes, and right-click the package name node. Click **New**, and then click **Java Class**. In Name, type `ToDoMessagingService`, and then click OK. Then, replace the class declaration with:
+
     ```java
     import android.app.Notification;
     import android.app.NotificationManager;
@@ -83,6 +89,7 @@
     ```
 
 4. Add another class to handle token updates. Create `ToDoInstanceIdService` java class and replace the class declaration with:
+
     ```java
     import com.google.firebase.iid.FirebaseInstanceIdService;
 
