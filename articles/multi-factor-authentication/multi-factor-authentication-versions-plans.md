@@ -61,7 +61,6 @@ The following table provides a list of the features that are available in the va
 | Custom caller ID for phone calls | | |● |
 | Trusted IPs | | |● |
 | Remember MFA for trusted devices |● |● |● |
-| MFA SDK | | |● (Requires Multi-Factor Auth provider and full Azure subscription) |
 | MFA for on-premises applications | | |● |
 
 ## How to get Azure Multi-Factor Authentication
