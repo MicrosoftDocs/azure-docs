@@ -12,7 +12,7 @@ The add-in license itself is a digital set of  *verifiable information*  stating
 - These usage rights include whether an add-in is for purchase or free, whether the add-in is available on a per-user or site basis, and whether the add-in is a trial or full version.
     
  
-To include code in your add-ins that performs licensing checks, see  [License your Office and SharePoint Add-ins](license-your-add-ins.md).
+To include code in your add-ins that performs licensing checks, see [License your Office and SharePoint Add-ins](license-your-add-ins.md).
  
 
 ## Types of add-in licenses
@@ -24,7 +24,7 @@ The add-in license categories used by the Office Store are based on how or wheth
 - Task pane and content add-ins can be Free, Paid, or Subscription priced, and are offered on a Per-User basis only.
     
     > [!IMPORTANT]
-    > To help you maximize reach and adoption, task pane and content add-ins allow anonymous access. Users don't have to sign in to Office with their Microsoft account to activate Office Add-ins. By default, if your task pane or content add-in does not implement licensing checks, it will present the same UI and functionality to anonymous users as it does to licensed users.See  [Add-in license tokens and anonymous access for Office Add-ins](license-your-office-and-sharepoint-add-ins.md#bk_anonymous) in [License your Office and SharePoint Add-ins](license-your-office-and-sharepoint-add-ins.md) for more information.
+    > To help you maximize reach and adoption, task pane and content add-ins allow anonymous access. Users don't have to sign in to Office with their Microsoft account to activate Office Add-ins. By default, if your task pane or content add-in does not implement licensing checks, it will present the same UI and functionality to anonymous users as it does to licensed users. For more information, see [Add-in license tokens and anonymous access for Office Add-ins](license-your-add-ins.md#bk_anonymous).
 
 - Outlook add-ins can be Free, Paid, or Subscription priced, and offered on a Per-User or Site basis. Outlook add-ins bought on a Per-User basis apply only to the person who bought them. Only administrators can buy add-ins on a site license basis and make them available to all users in their organization. 
     
@@ -61,7 +61,7 @@ To get an add-in, a user browses the Office Store, selects the add-in, and then 
 
 - For content and task pane add-ins, the Office Store downloads the license token and stores it in the purchaser's Office client application. The purchaser can then access and use the add-in.
     
-    Task pane and content add-ins allow anonymous access. See [Add-in license tokens and anonymous access](license-your-add-ins.md#add-license-tokens-and-anonymous-access-for-office-add-ins) in [License your Office and SharePoint Add-ins](license-your-add-ins.md) for more information.
+    Task pane and content add-ins allow anonymous access. For more information, see [Add-in license tokens and anonymous access](license-your-add-ins.md#bk_anonymous).
     
  
 - Outlook add-in license tokens are downloaded to the appropriate Exchange mailbox. For Outlook add-ins with a per-user license, the token is downloaded to the user's personal mailbox. For Outlook add-ins with a site license, the token is downloaded to a special organization mailbox for the Exchange deployment.
@@ -219,7 +219,6 @@ Apply the following best practices when you create and enforce add-in licenses a
 ## Additional resources
 <a name="bk_resources"> </a>
 
-
 -  [License your Office and SharePoint Add-ins](license-your-add-ins.md) 
 -  [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)
 -  [SharePoint 2013 code sample: Import, validate, and manage add-in licenses](http://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
@@ -227,9 +226,3 @@ Apply the following best practices when you create and enforce add-in licenses a
 -  [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md)
 -  [VerificationSvc](https://msdn.microsoft.com/en-us/library/verificationsvc.aspx)
     
- 
-
- 
-
- 
-
