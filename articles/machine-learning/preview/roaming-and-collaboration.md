@@ -171,7 +171,7 @@ To illustrate the collaboration flow, let's walk through the following scenario.
 
 10. Bob now modifies the project and submit new runs. The changes are done on the _bob_ branch. And Bob's runs become visible to Alice as well.
 
-11. Bob is not ready to push his changes into the remote Git repo. In order to avoid conflict with _master_ branch where Alice is working on, he decides to push his work into a new remote branch also named _bob_.
+11. Bob is now ready to push his changes into the remote Git repo. In order to avoid conflict with _master_ branch where Alice is working on, he decides to push his work into a new remote branch also named _bob_.
 
     ```sh
     # verify that the current branch is "bob" and it has unstaged changes
