@@ -56,9 +56,9 @@ If the user is not signed in to their Microsoft account, the Office application 
 
 |**Add-in license type**|**Recommended UX when the user is anonymous (license token is not present)**|
 |:-----|:-----|
-|Free|No change in behavior; add-in can function the same. However, if you rely on the license token to determine user identity<br/>of your free add-in, you might want to provide a notice to the user asking them to sign in to Office with a Microsoft account to get the full benefits of your add-in.|
-|Trial|Provide the same trial add-in experience when the user is anonymous. If you rely on the license token to determine user identity<br/>of your trial add-in, you might want to provide a notice to the user asking them to sign in to Office with a Microsoft account to get the full benefits of your add-in.|
-|Paid|If your add-in supports only paid licenses (that is, it doesn't provide a trial experience), you should present the user with<br/>information about your add-in, rather than a functional add-in, along with a hyperlink to your add-in's Office Store listing page. This way users are aware of your add-in and encouraged to purchase it.|
+|Free|No change in behavior; add-in can function the same. However, if you rely on the license token to determine user identity<br/>of your free add-in, you might want to provide a notice to the user asking them to sign in to Office with a Microsoft account<br/>to get the full benefits of your add-in.|
+|Trial|Provide the same trial add-in experience when the user is anonymous. If you rely on the license token to determine user identity<br/>of your trial add-in, you might want to provide a notice to the user asking them to sign in to Office with a Microsoft account<br/>to get the full benefits of your add-in.|
+|Paid|If your add-in supports only paid licenses (that is, it doesn't provide a trial experience), you should present the user with<br/>information about your add-in, rather than a functional add-in, along with a hyperlink to your add-in's Office Store listing page.<br/>This way users are aware of your add-in and encouraged to purchase it.|
 
 By default, if your add-in task pane or content add-in does not perform this licensing check, your add-in presents the same UI and functionality to anonymous users as it does to licensed users.
 
@@ -75,11 +75,11 @@ The Office Store verification service does not support being called from client-
 
 Finally, add code to your add-in that takes the desired action based on the properties of the user's add-in license. This could include displaying different UI based on subscription status, disabling certain functionality for trial licenses, or any other customization you want to make based on the license properties. 
 
-## Add-in license query and validation flows
+## Understand add-in license query and validation flows
 
 ### Office add-in license verification process
 
-The following figure shows the add-in license query and validation process for Office Add-ins.
+Figure 1 shows the add-in license query and validation process for Office Add-ins.
 
 > [!NOTE]
 > Task pane and content add-ins allow anonymous access. If the user is not signed in to their Microsoft account, the Office application requesting the add-in home page does not append the license token parameter. For details, see the section [Add-in license tokens and anonymous access for Office Add-ins](#bk_anonymous).
@@ -98,7 +98,7 @@ The following figure shows the add-in license query and validation process for O
 
 ### SharePoint add-in license verification process
 
-The following figure shows the add-in license query and validation process for SharePoint Add-ins. 
+Figure 2 shows the add-in license query and validation process for SharePoint Add-ins. 
 
 *Figure 2. SharePoint add-in license verification process*
 
