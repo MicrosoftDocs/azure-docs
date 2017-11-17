@@ -64,7 +64,7 @@ For background about Batch accounts and scenarios, see the [feature overview](ba
 ## View Batch account properties
 Once the account has been created, click the account to access its settings and properties. You can access all account settings and properties by using the left menu.
 
-![Batch account blade in Azure portal][account_blade]
+![Batch account page in Azure portal][account_blade]
 
 * **Batch account URL**: When you develop an application with the [Batch APIs](batch-apis-tools.md#azure-accounts-for-batch-development), you need an account URL to access your Batch resources. A Batch account URL has the following format:
 
@@ -89,7 +89,7 @@ We recommend that you create a new Storage account exclusively for use by your B
 ![Creating a general-purpose storage account][storage_account]
 
 > [!NOTE]
-> Be careful when regenerating the access keys of a linked Storage account. Regenerate only one Storage account key and click **Sync Keys** on the linked Storage account blade. Wait five minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and they will lose access to the Storage account.
+> Be careful when regenerating the access keys of a linked Storage account. Regenerate only one Storage account key and click **Sync Keys** on the linked Storage account page. Wait five minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and they will lose access to the Storage account.
 >
 >
 
@@ -106,11 +106,11 @@ When creating your first Batch account in user subscription mode, you need to re
 
 2. Click **More Services** > **Subscriptions**, and click the subscription you want to use for the Batch account.
 
-3. In the **Subscription** blade, click **Access control (IAM)** > **Add**.
+3. In the **Subscription** page, click **Access control (IAM)** > **Add**.
 
     ![Subscription access control][subscription_access]
 
-4. On the **Add permissions** blade, select the **Contributor** role, search for the Batch API. Search for each of these strings until you find the API:
+4. On the **Add permissions** page, select the **Contributor** role, search for the Batch API. Search for each of these strings until you find the API:
     1. **MicrosoftAzureBatch**.
     2. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
     3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
@@ -124,7 +124,7 @@ In user subscription mode, an Azure key vault is required that belongs to the sa
 
 1. In the [Azure portal][azure_portal], click **New** > **Security + Identity** > **Key Vault**.
 
-2. In the **Create Key Vault** blade, enter a name for the key vault, and create a resource group in the region you want for your Batch account. Leave the remaining settings at default values, then click **Create**.
+2. In the **Create Key Vault** page, enter a name for the key vault, and create a resource group in the region you want for your Batch account. Leave the remaining settings at default values, then click **Create**.
 
 
 
