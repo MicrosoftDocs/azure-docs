@@ -86,15 +86,11 @@ az container create \
 Once the container starts up, you can use the simple web app deployed via the [seanmckenna/aci-hellofiles](https://hub.docker.com/r/seanmckenna/aci-hellofiles/) image to manage the files in the Azure file share at the mount path you specified. Obtain the IP address for the web app with the [az container show](/cli/azure/container#az_container_show) command:
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.ip
 ```
 
 You can use the [Azure portal](https://portal.azure.com) or a tool like the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to retrieve and inspect the file written to the file share.
 
->[!NOTE]
-> To learn more about using Azure Resource Manager templates, parameter files, and deploying with the Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
-
 ## Next steps
 
-- Deploy for your first container using the Azure Container Instances [quickstart](container-instances-quickstart.md)
-- Learn about the [relationship between Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md)
+Learn about the [relationship between Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md)
