@@ -21,7 +21,7 @@ This tutorial shows how to set up an account with Azure Location Based Services,
 
 > [!div class="checklist"]
 > * Convert address to coordinates
-> * Query Route Service for directions to poitn of interest
+> * Query Route Service for directions to point of interest
 
 ## Prerequisites
 
@@ -137,9 +137,9 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 <a id="getroute"></a>
 
-## Query Route Service for directions to poitn of interest
+## Query Route Service for directions to point of interest
 
-This section shows how to use the Azure Location Based Services' Route Service API to find the route from a given start point to a destination. The Route Service provides APIs to plan the fastest, shortest or eco route between two locations, considering the real-time traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
+This section shows how to use the Azure Location Based Services' Route Service API to find the route from a given start point to a destination. The Route Service provides APIs to plan the fastest, shortest, or eco route between two locations, considering the real-time traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
 
 1. At the end of the **staticRoute.html** file created in the preceding section, add the following code that illustrates the Route Service.
 
@@ -176,9 +176,9 @@ This section shows how to use the Azure Location Based Services' Route Service A
             xhttp.open("GET", url, true);
             xhttp.send();
     ```
-    The request above shows the absolutely required parameters, which are your account's subscription key, and the coordinates for the start and end points, in the given order. 
+    The request above shows the required parameters, which are your account's subscription key, and the coordinates for the start and end points, in the given order. 
 
-3. Finally, close the *script*, *body* and *html* blocks by adding the following lines of code and save the file. 
+3. Finally, close the *script*, *body*, and *html* blocks by adding the following lines of code and save the file. 
 
     ```HTML
         </script>
@@ -187,7 +187,9 @@ This section shows how to use the Azure Location Based Services' Route Service A
     </html>
     ```
 
-4. Open the **staticRoute.html** file in a web browser of your choice and observe the result. 
+4. Open the **staticRoute.html** file in a web browser of your choice and observe the result. For a successful connection with the Location Based Services' APIs, you should see a map similar to the following. 
+
+    ![Azure Map Control and Route Service](./media/tutorial-route-location/lbs-map-route.png)
 
 
 ## Next steps
@@ -195,6 +197,6 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Convert address to coordinates
-> * Query Route Service for directions to poitn of interest
+> * Query Route Service for directions to point of interest
 
 Proceed to the next tutorial to learn how to use the Azure Location Based Services to prioritize routes to your point of interest, based on the mode of transport. 
