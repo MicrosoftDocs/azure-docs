@@ -29,7 +29,7 @@ This document introduces you to the developer experience for [elastic database c
 ### Download and run the sample app
 Follow the steps below to build the JAR files and get started with the sample project: 
 1. Clone the [GitHub repository](https://github.com/Microsoft/elastic-db-tools-for-java) containing the client library along with the sample app. 
-2. Edit the _./sample/src/main/resources/resource.properties_ file to add the following.
+2. Edit the _./sample/src/main/resources/resource.properties_ file to set the following.
     * TEST_CONN_USER
     * TEST_CONN_PASSWORD
     * TEST_CONN_SERVER_NAME
