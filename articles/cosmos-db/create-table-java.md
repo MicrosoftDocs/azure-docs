@@ -88,14 +88,14 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Open config.properties from the C:\git-samples\storage-table-java-getting-started\src\main\resources folder. 
 
-5. Comment out line one and uncomment line 2. The first two lines should look like this.
+5. Comment out line one and uncomment line two. The first two lines should now look like this.
 
     ```
     #StorageConnectionString = UseDevelopmentStorage=true
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```
 
-6. Paste your PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value in line 2. If the Endpoint portion of your connection string uses documents.azure.com, correct that portion to table.cosmosdb.azure.com.
+6. Paste your PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value in line 2. If the Endpoint portion of your connection string uses documents.azure.com, correct that portion to use table.cosmosdb.azure.com instead.
 
 7. Save the config.properties file.
 

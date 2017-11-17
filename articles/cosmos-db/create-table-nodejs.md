@@ -71,8 +71,6 @@ Now let's clone a Table app from github, set the connection string, and run it. 
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-3. Then open the solution file in Visual Studio. 
-
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
@@ -83,7 +81,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. Copy the PRIMARY CONNECTION STRING using the copy button on the right-side.
 
-3. Open the app.config file, and paste the value into the connectionString on line 3. If the Endpoint portion of your connection string uses documents.azure.com, correct that portion to use table.cosmosdb.azure.com instead.
+3. Open the app.config file, and paste the value into the connectionString on line three. If the Endpoint portion of your connection string uses documents.azure.com, correct that portion to use table.cosmosdb.azure.com instead.
 
 3. Save the app.config file.
 
@@ -97,7 +95,13 @@ You've now updated your app with all the info it needs to communicate with Azure
     cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. In the git terminal window, run the following commands to run start the Java application.
+2. Run the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the package.json file
+
+   ```
+   npm install azure-storage node-uuid async nconf --save
+   ```
+
+2. In the git terminal window, run the following commands to run start the Node application.
 
     ```
     node ./tableSample.js 
