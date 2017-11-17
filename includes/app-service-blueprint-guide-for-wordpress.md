@@ -11,8 +11,8 @@
 * [How to troubleshoot your WordPress app](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
 * [Gather usage  telemetry using Azure Application Insights  service](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
 * [Run Zend Zray profiler against your web app to diagnose issues and performance](https://sunithamk.wordpress.com/2015/08/04/profiling-php-application-on-azure-web-apps/)
-* [Use Kudu Support portal to diagnose and mitigate issues in real time](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
-* [Use various auto-heal rules to automate resolving real-time incidents](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
+* [Use Kudu Support portal to diagnose and mitigate issues](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
+* [Use various auto-heal rules to resolving incidents automatically](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [How to backup your web app](../articles/app-service/web-sites-backup.md) and [How to restore your web app](../articles/app-service/web-sites-restore.md)
 
 ## Performance
