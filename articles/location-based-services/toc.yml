@@ -1,5 +1,5 @@
 - name: Azure Location Based Services Documentation 
-#  href: index.yml
+  href: index.yml
 - name: Overview
   items:
 #  - name: About Azure Location Based Services
