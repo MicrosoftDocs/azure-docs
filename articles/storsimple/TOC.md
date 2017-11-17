@@ -2,6 +2,7 @@
 
 ## Overview
 ### [What is the solution?](storsimple-ova-overview.md)
+### [Region availability](storsimple-regions.md)
 
 ## Get started
 ### Plan
@@ -19,10 +20,12 @@
 
 ## How to
 ### [Manage via Azure portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Install latest update](storsimple-virtual-array-install-update-06.md)
-##### [Install Update 0.5](storsimple-virtual-array-install-update-05.md)
-##### [Install Update 0.4](storsimple-virtual-array-install-update-04.md)
-##### [Install Update 0.3](storsimple-virtual-array-install-update.md)
+#### [Install latest update](storsimple-virtual-array-install-update-1.md)
+##### [Install Update 0.6](storsimple-virtual-array-install-update-06.md)
+##### Archive
+###### [Install Update 0.5](storsimple-virtual-array-install-update-05.md)
+###### [Install Update 0.4](storsimple-virtual-array-install-update-04.md)
+###### [Install Update 0.3](storsimple-virtual-array-install-update.md)
 #### [Create & manage backups](storsimple-virtual-array-backup.md)
 #### [Clone from backups](storsimple-virtual-array-clone.md)
 #### [Failover and DR](storsimple-virtual-array-failover-dr.md)
@@ -43,10 +46,10 @@
 ### [Configure via local web UI](storsimple-ova-web-ui-admin.md)
 
 ## Release notes
-### [Update 0.6 - current](storsimple-virtual-array-update-06-release-notes.md)
-### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
-
+### [Update 1 - current](storsimple-virtual-array-update-1-release-notes.md)
+### [Update 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Archive
+#### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
 #### [Update 0.4](storsimple-virtual-array-update-04-release-notes.md)
 #### [Update 0.3](storsimple-ova-update-03-release-notes.md)
 #### [Update 0.2 and 0.1](storsimple-ova-update-01-release-notes.md)
@@ -57,6 +60,7 @@
 ### [What is the solution?](storsimple-overview.md)
 ### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Security considerations](storsimple-8000-security.md)
+### [Region availability](storsimple-regions.md)
 ### [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md)
 
 ## Get started

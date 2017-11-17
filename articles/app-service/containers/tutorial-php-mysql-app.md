@@ -326,7 +326,7 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 ### Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
 ### Configure database settings
 

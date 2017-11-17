@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
@@ -30,7 +30,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts, for detail
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.21 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Enabling AKS preview for your Azure subscription
 While AKS is in preview, creating new clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. Use the `az provider register` command to register the AKS provider:
@@ -45,10 +45,10 @@ After registering, you are now ready to create a Kubernetes cluster with AKS.
 
 Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical group in which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the *westus2* location.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 Output:
@@ -56,7 +56,7 @@ Output:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westus2",
+  "location": "eastus",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -71,26 +71,26 @@ Output:
 The following example creates a cluster named *myK8sCluster* with one node.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
 ```
 
-After several minutes, the command completes and returns json formatted information about the cluster.
+After several minutes, the command completes and returns JSON-formatted information about the cluster.
 
 ## Connect to the cluster
 
 To manage a Kubernetes cluster, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client.
 
-If you're using Azure CloudShell, kubectl is already installed. If you want to install it locally, run the following command.
+If you're using Azure Cloud Shell, kubectl is already installed. If you want to install it locally, run the following command.
 
 
-```azurecli-interactive
+```azurecli
 az aks install-cli
 ```
 
 To configure kubectl to connect to your Kubernetes cluster, run the following command. This step downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
+az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
 ```
 
 To verify the connection to your cluster, use the [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command to return a list of the cluster nodes.
@@ -110,7 +110,7 @@ k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
 
 A Kubernetes manifest file defines a desired state for the cluster, including what container images should be running. For this example, a manifest is used to create all objects needed to run the Azure Vote application.
 
-Create a file named `azure-vote.yml` and copy into it the following YAML. If you are working in Azure Cloud Shell, this file can be created using vi or Nano as if working on a virtual or physical system.
+Create a file named `azure-vote.yml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, this file can be created using vi or Nano as if working on a virtual or physical system.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -208,7 +208,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, use `CTRL-C` to stop the kubectl watch process.
 
 ```
-azure-vote-front   LoadBalancer   10.0.37.27   52.175.236.185   80:30572/TCP   2m
+azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
 You can now browse to the external IP address to see the Azure Vote App.
@@ -224,7 +224,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## Get the code
 
-In this quick start, pre-created container images have been used to create a Kubernetes deployment. The related application code, Dockerfile, and Kubernetes manifest file are available on GitHub.
+In this quickstart, pre-created container images have been used to create a Kubernetes deployment. The related application code, Dockerfile, and Kubernetes manifest file are available on GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 

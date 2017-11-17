@@ -3,7 +3,6 @@
 
 # Get Started
 
-## [Choose a SKU](search-sku-tier.md)
 ## [Create a service](search-create-service-portal.md)
 ## [Create an index](search-what-is-an-index.md)
 ### [Azure portal](search-create-index-portal.md)
@@ -20,21 +19,24 @@
 
 # Tutorials
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [.NET synonyms preview](search-synonyms-tutorial-sdk.md)
-## [Portal](search-get-started-portal.md)
+## [Develop in .NET](search-howto-dotnet-sdk.md)
+## [Synonyms preview in .NET](search-synonyms-tutorial-sdk.md)
+## [SQL data indexer in .NET](search-indexer-tutorial.md)
+## [Portal walkthrough](search-get-started-portal.md)
 ## [Search semi-structured data](search-semi-structured-data.md)
-## [Node.js](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [Explore the REST API](search-fiddler.md)
 
 # How to
 
 ## Plan and design
+### [Choose a SKU](search-sku-tier.md)
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
 ## Develop
 ### [API versions](search-api-versions.md)
+### [Develop in Node.js](search-get-started-nodejs.md)
+### [Develop in Java](search-get-started-java.md)
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade the REST API](search-api-migration.md)
 ### [Model complex data types](search-howto-complex-data-types.md)
@@ -78,6 +80,7 @@
 ### [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Faceted navigation](search-faceted-navigation.md)
 ### [Synonyms preview](search-synonyms.md)
+### [moreLikeThis preview](search-more-like-this.md)
 
 # Reference
 
@@ -86,7 +89,7 @@
 ## [Python (Management)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (Management)](/rest/api/searchmanagement)
-## [Service REST (Preview)](search-api-2015-02-28-preview.md)
+## [Service REST (Preview)](search-api-2016-09-01-preview.md)
 
 # Resources
 

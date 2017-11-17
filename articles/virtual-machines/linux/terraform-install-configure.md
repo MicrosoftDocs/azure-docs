@@ -23,7 +23,7 @@ ms.author: echuvyrov
 Terraform provides an easy way to define, preview, and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure. 
 
 > [!TIP]
-> Terraform is part of the [Azure Cloud Shell Bash experience](/azure/cloud-shell/quickstart), and is preconfigured with credentials and [Azure Terraform modules](https://registry.terraform.io/modules/Azure).
+To learn more about how to use Terraform with Azure, visit the [Terraform Hub](/azure/terraform). Terraform is installed by default in the [Cloud Shell](/terraform/terraform-cloud-shell). By using Cloud Shell, you can skip the install/setup portions of this document.
 
 ## Install Terraform
 
@@ -44,9 +44,7 @@ There are several ways to create an Azure AD application and an Azure AD service
 
 Sign in to administer your Azure subscription by issuing the following command:
 
-```azurecli-interactive
-az login
-```
+   `az login`
 
 If you have multiple Azure subscriptions, their details are returned by the `az login` command. Set the `SUBSCRIPTION_ID` environment variable to hold the value of the returned `id` field from the subscription you want to use. 
 

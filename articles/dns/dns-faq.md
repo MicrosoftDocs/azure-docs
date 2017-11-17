@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: jonatul
+ms.date: 11/06/2017
+ms.author: subsarma
 ---
 
 # Azure DNS FAQ
@@ -136,6 +136,10 @@ For more information, see [Protecting DNS Zones and Records](dns-protect-zones-r
 ### How do I set up SPF records in Azure DNS?
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
+
+### Do Azure DNS Nameservers resolve over IPv6 ? 
+
+Yes. Azure DNS Nameservers are dual-stack (have both IPv4 and IPv6 addresses). To find the IPv6 address for the Azure DNS nameservers assigned to your DNS zone, you can use a tool such as nslookup (for example, `nslookup -q=aaaa <Azure DNS Nameserver>`).
 
 ### How do I set up an International Domain Name (IDN) in Azure DNS?
 

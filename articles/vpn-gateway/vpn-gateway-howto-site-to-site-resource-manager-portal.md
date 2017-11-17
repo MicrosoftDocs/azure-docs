@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services 
-ms.date: 08/02/2017
+ms.date: 11/16/2017
 ms.author: cherylmc
 
 ---
@@ -44,7 +44,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 ### <a name="values"></a>Example values
 
-The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article.
+The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article. For more information about VPN Gateway settings in general, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 * **VNet Name:** TestVNet1
 * **Address Space:** 
@@ -121,6 +121,15 @@ Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connect
 ## <a name="resize"></a>How to change a gateway SKU (resize a gateway)
 
 For the steps to change a gateway SKU, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+
+## <a name="addconnect"></a>How to add an additional connection to a VPN gateway
+
+You can add additional connections, provided that none of the address spaces overlap between connections.
+
+1. To add an additional connection, navigate to the VPN gateway, then click **Connections** to open the Connections page.
+2. Click **+Add** to add your connection. Adjust the connection type to reflect either VNet-to-VNet (if connecting to another VNet gateway), or Site-to-site.
+3. If you are connecting using Site-to-site and you have not already created a local network gateway for the site you want to connect to, you can create a new one.
+4. Specify the shared key that you want to use, then click **OK** to create the connection.
 
 ## Next steps
 

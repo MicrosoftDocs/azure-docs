@@ -87,6 +87,10 @@ Use the following steps to configure the native VPN client on Mac for certificat
 Click **Add** to import.
 
   ![add certificate](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
+  
+    >[!NOTE]
+    >Double-clicking on the certificate may not display the **Add** dialog, but the certificate is installed in the correct store. You can check for the certificate in the login keychain under the certificates category.
+  
 2. Open the **Network** dialog under **Network Preferences** and click **'+'** to create a new VPN client connection profile for a P2S connection to the Azure VNet.
 
   The **Interface** value is 'VPN' and **VPN Type** value is 'IKEv2'. Specify a name for the profile in the **Service Name** field, then click **Create** to create the VPN client connection profile.

@@ -74,11 +74,11 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## Create a web app with built-in image
+## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-nodejs-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Browse to the site to see your newly created web app with built-in image. Replace _&lt;app name>_ with a unique app name.
+Browse to your newly created web app. Replace _&lt;app name>_ with your web app name.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -138,7 +138,7 @@ The Node.js sample code is running in a web app with built-in image.
 
 ## Update and redeploy the code
 
-Using a text editor, open the `index.js` file in the Node.js app, and make a small change to the text in the call to `response.end`:
+In the local directory, open the `index.js` file in the Node.js app, and make a small change to the text in the call to `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");

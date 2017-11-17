@@ -226,7 +226,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ServiceDescriptionCacheLimit | Int, default is 0 |Static| The maximum number of entries maintained in the LRU service description cache at the Naming Store Service (set to 0 for no limit). |
 |RepairInterval | Time in seconds, default is 5 |Static| Specify timespan in seconds. Interval in which the naming inconsistency repair between the authority owner and name owner will start. |
 |MaxNamingServiceHealthReports | Int, default is 10 |Dynamic|The maximum number of slow operations that Naming store service reports unhealthy at one time. If 0; all slow operations are sent. |
-| MaxMessageSize |Int, default is 4*1024*1024 |Static|The maximum message size for client node communication when using naming. DOS attack alleviation; default value is 4MB. |
+| MaxMessageSize |Int, default is 4\*1024\*1024 |Static|The maximum message size for client node communication when using naming. DOS attack alleviation; default value is 4MB. |
 | MaxFileOperationTimeout |Time in seconds, default is 30 |Dynamic|Specify timespan in seconds. The maximum timeout allowed for file store service operation. Requests specifying a larger timeout will be rejected. |
 | MaxOperationTimeout |Time in seconds, default is 600 |Dynamic|Specify timespan in seconds. The maximum timeout allowed for client operations. Requests specifying a larger timeout will be rejected. |
 | MaxClientConnections |Int, default is 1000 |Dynamic|The maximum allowed number of client connections per gateway. |
@@ -338,8 +338,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 ### Section Name: FaultAnalysisService
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, default is 0 |Not Allowed|NOT_PLATFORM_UNIX_START The TargetReplicaSetSize for FaultAnalysisService. |
-| MinReplicaSetSize |Int, default is 0 |Not Allowed|The MinReplicaSetSize for FaultAnalysisService. |
+| TargetReplicaSetSize |Int, default is 0 |Static|NOT_PLATFORM_UNIX_START The TargetReplicaSetSize for FaultAnalysisService. |
+| MinReplicaSetSize |Int, default is 0 |Static|The MinReplicaSetSize for FaultAnalysisService. |
 | ReplicaRestartWaitDuration |Time in seconds, default is 60 minutes|Static|Specify timespan in seconds. The ReplicaRestartWaitDuration for FaultAnalysisService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue |Static|Specify timespan in seconds. The QuorumLossWaitDuration for FaultAnalysisService. |
 | StandByReplicaKeepDuration| Time in seconds, default is (60*24*7) minutes |Static|Specify timespan in seconds. The StandByReplicaKeepDuration for FaultAnalysisService. |
@@ -388,8 +388,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 | Enabled |Bool, default is false |Static|The Enabled flag for ImageStoreService. Default: false |
-| TargetReplicaSetSize | Int, default is 7 |Not Allowed|The TargetReplicaSetSize for ImageStoreService. |
-| MinReplicaSetSize | Int, default is 3 |Not Allowed|The MinReplicaSetSize for ImageStoreService. |
+| TargetReplicaSetSize | Int, default is 7 |Static|The TargetReplicaSetSize for ImageStoreService. |
+| MinReplicaSetSize | Int, default is 3 |Static|The MinReplicaSetSize for ImageStoreService. |
 | ReplicaRestartWaitDuration | Time in seconds, default is 60.0 * 30 |Static|Specify timespan in seconds. The ReplicaRestartWaitDuration for ImageStoreService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue |Static| Specify timespan in seconds. The QuorumLossWaitDuration for ImageStoreService. |
 | StandByReplicaKeepDuration | Time in seconds, default is 3600.0 * 2 |Static| Specify timespan in seconds. The StandByReplicaKeepDuration for ImageStoreService. |
@@ -412,8 +412,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 ### Section Name: UpgradeOrchestrationService
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, default is 0 |Not Allowed|The TargetReplicaSetSize for UpgradeOrchestrationService. |
-| MinReplicaSetSize |Int, default is 0 |Not Allowed|The MinReplicaSetSize for UpgradeOrchestrationService.
+| TargetReplicaSetSize |Int, default is 0 |Static |The TargetReplicaSetSize for UpgradeOrchestrationService. |
+| MinReplicaSetSize |Int, default is 0 |Static |The MinReplicaSetSize for UpgradeOrchestrationService.
 | ReplicaRestartWaitDuration | Time in seconds, default is 60 minutes|Static| Specify timespan in seconds. The ReplicaRestartWaitDuration for UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Time in seconds, default is MaxValue |Static| Specify timespan in seconds. The QuorumLossWaitDuration for UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Time in seconds, default is 60*24*7 minutes |Static| Specify timespan in seconds. The StandByReplicaKeepDuration for UpgradeOrchestrationService. |
@@ -594,7 +594,7 @@ PropertyGroup|X509NameMap, default is None|Dynamic| |
 | PeriodicApiSlowTraceInterval | Time in seconds, default is 5 minutes |Dynamic| Specify timespan in seconds. PeriodicApiSlowTraceInterval defines the interval over which slow API calls will be retraced by the API monitor. |
 | NodeDeactivationMaxReplicaCloseDuration | Time in seconds, default is 900 |Dynamic|Specify timespan in seconds. The duration for which the system will wait before terminating service hosts that have replicas that are stuck in close during node deactivation. |
 | FabricUpgradeMaxReplicaCloseDuration | Time in seconds, default is 900 |Dynamic| Specify timespan in seconds. The duration for which the system will wait before terminating service hosts that have replicas that are stuck in close during fabric upgrade. |
-|GracefulReplicaShutdownMaxDuration|TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic|Specify timespan in seconds. The duration for which the system will wait before terminating service hosts that have replicas that are stuck in close.|
+|GracefulReplicaShutdownMaxDuration|TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic|Specify timespan in seconds. The duration for which the system will wait before terminating service hosts that have replicas that are stuck in close. If this value is set to 0, replicas will not be instructed to close.|
 |ReplicaChangeRoleFailureRestartThreshold|int, default is 10|Dynamic| Integer. Specify the number of API failures during primary promotion after which auto-mitigation action (replica restart) will be applied. |
 |ReplicaChangeRoleFailureWarningReportThreshold|int, default is 2147483647|Dynamic| Integer. Specify the number of API failures during primary promotion after which warning health report will be raised.|
 
