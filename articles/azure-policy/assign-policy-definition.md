@@ -3,8 +3,8 @@ title: Create a policy assignment to identify non-compliant resources in your Az
 description: This article walks you through the steps to create a policy definition to identify non-compliant resources.
 services: azure-policy
 keywords:
-author: Jim-Parker
-ms.author: jimpark
+author: bandersmsft
+ms.author: banders
 ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
