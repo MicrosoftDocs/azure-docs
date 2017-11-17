@@ -22,19 +22,19 @@ ms.author: bradsev;
 
 This document describes how a data scientist can execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the [Team Data Science Process](overview.md) (TDSP). The TDSP is a framework developed by Microsoft that provides a structured sequence of activities to execute cloud-based, predictive analytics solutions efficiently. For an outline of the personnel roles, and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md). 
 
-This topic includes instructions on how to: 
+This article includes instructions on how to: 
 
-1. do **sprint planning** for work items involved in a project.<br> If you are unfamiliar with sprint planning, you can find details below and general information [here](https://en.wikipedia.org/wiki/Sprint_(software_development) "here"). 
+1. do **sprint planning** for work items involved in a project.<br> If you are unfamiliar with sprint planning, you can find details and general information [here](https://en.wikipedia.org/wiki/Sprint_(software_development) "here"). 
 2. **add work items** to sprints.
 3. **link the work items with coding activities** tracked by git.
 4. do **code review**. 
 
 > [!NOTE]
-> We outline the steps needed to set up a TDSP team environment using Visual Studio Team Services (VSTS) in the following set of instructions. We specify how to accomplish these tasks with VSTS because that is how we implement TDSP at Microsoft. Items (3) and (4) in the previous list are benefits that you get naturally if you choose to use VSTS. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different. For example, the item in section six, **Link a work item with a git branch**, might not be as easy as it is on VSTS.
+> The steps needed to set up a TDSP team environment using Visual Studio Team Services (VSTS) are outlined in the following set of instructions. They specify how to accomplish these tasks with VSTS because that is how to implement TDSP at Microsoft.  If you choose to use VSTS, items (3) and (4) in the previous list are benefits that you get naturally. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different. For example, the item in section six, **Link a work item with a git branch**, might not be as easy as it is on VSTS.
 >
 >
 
-The following figure illustrates a typical sprint planning, coding and source-control workflow involved in implementing a data science project:
+The following figure illustrates a typical sprint planning, coding, and source-control workflow involved in implementing a data science project:
 
 ![1](./media/project-execution/project-execution-1-project-execute.png)
 
@@ -54,14 +54,14 @@ In the TDSP sprint planning framework, there are four frequently used types of *
 - **Task**: Tasks are assignable code or document work items or other activities that need to be done to complete a specific story. For example, tasks in the story *Getting Data* could be:
 	-  Getting Credentials of SQL Server 
 	-  Uploading Data to SQL Data Warehouse. 
-- **Bug**: Bugs usually refer to fixes that are needed for an existing code or document that are done when completing a task. It can escalate to being a story or a task if the bug is caused by missing stages or tasks respectively. 
+- **Bug**: Bugs usually refer to fixes that are needed for an existing code or document that are done when completing a task. If the bug is caused by missing stages or tasks respectively, it can escalate to being a story or a task. 
 
 > [!NOTE]
-> We are borrowing concepts of features, stories, tasks, and bugs from software code management (SCM) to be used in data science. They might differ slightly from their conventional SCM definitions.
+> Concepts are borrowed of features, stories, tasks, and bugs from software code management (SCM) to be used in data science. They might differ slightly from their conventional SCM definitions.
 >
 >
 
-Data scientists may feel more comfortable using an Agile template that specifically aligns with the TDSP lifecycle stages. With that in mind, we have created an Agile-derived sprint planning template, where Epics, Stories etc. are replaced by TDSP lifecycle stages or sub-stages. Documentation on how to create such an Agile template can be found [here]().
+Data scientists may feel more comfortable using an Agile template that specifically aligns with the TDSP lifecycle stages. With that in mind, an Agile-derived sprint planning template has been created, where Epics, Stories etc. are replaced by TDSP lifecycle stages or substages. Documentation on how to create such an Agile template can be found [here]().
 
 
 ##  2. <a name='SprintPlanning-2'></a>Sprint planning 
@@ -81,7 +81,7 @@ To include a feature in the backlog, click **Backlogs** --> **Features** --> **N
 
 ![3](./media/project-execution/project-execution-3-sprint-team-add-work.png)
 
-Double-click the feature you just created. Fill in the descriptions, assign team members for this feature, and set planning parameters for this feature. 
+Double-click the feature you created. Fill in the descriptions, assign team members for this feature, and set planning parameters for this feature. 
 
 You can also link this feature to the project repository. Click **Add link** under the **Development** section. After you have finished editing the feature, click **Save & Close** to exit.
 
@@ -203,7 +203,7 @@ You can also use the following Git commands to merge your working branch to its 
 
 ##  10. <a name='DataQualityReportUtility-10'></a>Interactive Data Exploration, Analysis, and Reporting (IDEAR) Utility
 
-This R markdown-based utility provides a flexible and interactive tool to evaluate and explore data sets. Users can quickly generate reports from the data set with minimal coding. Users can click buttons to export the exploration results he sees in the interactive tool to a final report, which can be delivered to clients or used to make decisions on which variables to include in the subsequent modeling step.
+This R markdown-based utility provides a flexible and interactive tool to evaluate and explore data sets. Users can quickly generate reports from the data set with minimal coding. Users can click buttons to export the exploration results in the interactive tool to a final report, which can be delivered to clients or used to make decisions on which variables to include in the subsequent modeling step.
 
 At this time, the tool only works on data-frames in memory. A .yaml file is needed to specify the parameters of the data-set to be explored. For more information, see [IDEAR in TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
@@ -236,7 +236,7 @@ Data science group managers, team leads, and project leads need to track the pro
 
 To learn how to create Power BI dashboards and reports to track your Git repository activities and your work items after the data of VSTS is connected to Power BI, see [Create Power BI dashboards and reports](https://www.visualstudio.com/en-us/docs/report/powerbi/report-on-vso-with-power-bi-vs). 
 
-Here are two simple example dashboards that we build to track Git activities and work items. In the first example dashboard, the git commitment activities are listed by different users, on different dates, and on different repositories. You can easily slice and dice to filter the ones that you are interested in.
+Here are two simple example dashboards that are built to track Git activities and work items. In the first example dashboard, the git commitment activities are listed by different users, on different dates, and on different repositories. You can easily slice and dice to filter the ones that you are interested in.
 
 ![23](./media/project-execution/project-execution-23-powerbi-git.png)
 
@@ -247,6 +247,6 @@ In the second example dashboard, the work items (stories and tasks) in different
  
 ## Next steps
 
-Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
+Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
 For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](http://aka.ms/datascienceprocess) learning path.

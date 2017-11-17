@@ -35,7 +35,7 @@ This article provides links to Microsoft Project and Excel templates that help y
 
 The Microsoft Project template for the Team Data Science Process is available from here: [Microsoft Project template](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
 
-When you open the plan, click the link to the far left for the TDSP. Change the name and description and then add in any other team resources you need. The dates need to be estimated from your experience.
+When you open the plan, click the link to the far left for the TDSP. Change the name and description and then add in any other team resources you need. Estimate the dates required from your experience.
 
 ![1](./media/team-data-science-process-project-templates/ms-project-templates.png)
 
@@ -53,7 +53,7 @@ Use these templates at your own risk. The [usual disclaimers](https://www.gnu.or
 
 ## Next steps
 
-[Execution of data science projects](project-execution.md) This document describes how a data scientist can execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.
+[Execution of data science projects](project-execution.md) This document describes to execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.
 
-Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
+Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
