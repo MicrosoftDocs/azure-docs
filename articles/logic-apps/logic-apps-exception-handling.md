@@ -19,58 +19,76 @@ ms.author: LADocs; jehollan
 ---
 # Handle errors and exceptions in Azure Logic Apps
 
-Azure Logic Apps provides rich tools and patterns to help you 
-make sure your integrations are robust and resilient against failures. 
-Any integration architecture poses the challenge of making sure 
-to appropriately handle downtime or issues from dependent systems. 
-Logic Apps makes handling errors a first-class experience, 
-giving you the tools you need to act on exceptions and errors in your workflows.
+Azure Logic Apps provides rich tools and patterns to help you make sure your integrations are robust and resilient against failures. Any integration architecture poses the challenge of making sure to appropriately handle downtime or issues from dependent systems. Logic Apps makes handling errors a first-class experience, giving you the tools you need to act on exceptions and errors in your workflows.
 
 ## Retry policies
 
-A retry policy is the most basic type of exception and error handling. 
-If an initial request timed out or failed (any request that results in a 429 or 5xx response), 
-this policy defines whether the action should retry. 
-By default, all actions retry 4 additional times over 20-second intervals. 
-So if the first request receives a `500 Internal Server Error` response, 
-the workflow engine pauses for 20 seconds, and attempts the request again. 
-If after all retries, the response is still an exception or failure, 
-the workflow continues and marks the action status as `Failed`.
+A retry policy is the most basic type of exception and error handling. If an initial request timed out or failed (any request that results in a 429 or 5xx response), this policy defines if and how the action should retry. There are three types of retry policies, `exponential`, `fixed`, and `none`. If a retry policy is not provided in the workflow definition, then the default policy is used. You can configure retry policies in the **inputs** for a particular action or trigger if it is retryable. Similarly, in the Logic App Designer retry policies can be configured (if applicable) under the **setttings** for a given block.
 
-You can configure retry policies in the **inputs** for a particular action. 
-For example, you can configure a retry policy to try as many as 4 times over 1-hour intervals. 
-For full details about input properties, see [Workflow Actions and Triggers][retryPolicyMSDN].
+For information on the limitations of retry policies, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md) and for more information on supported syntax, see the [retry-policy section in Workflow Actions and Triggers][retryPolicyMSDN].
+
+### Exponential interval
+The `exponential` policy type will retry a failed request after a random time interval from an exponentially growing range. Each retry attempt is guaranteed to be sent at a random interval that is greater than **minimumInterval** and less than **maximumInterval**. A uniform random variable in the below range will be generated for each retry up to and including **count**:
+<table>
+<tr><th> Random Variable Range </th></tr>
+<tr><td>
+
+| Retry Number | Minimum Interval | Maximum Interval |
+| ------------ |  ------------ |  ------------ |
+| 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
+| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
+| 3 | Max(2*interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
+| 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
+| ... |
+
+</td></tr></table>
+
+For `exponential` type policies, **count** and **interval** are required while **minimumInterval** and **maximumInterval** can be optionally provided to override the default values of PT5S and PT1D respectively.
+
+| Element name | Required | Type | Description |
+| ------------ | -------- | ---- | ----------- |
+| type | Yes | String | `exponential` |
+| count | Yes | Integer | number of retry attempts, must be between 1 and 90  |
+| interval | Yes | String | retry interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), must be between PT5S and PT1D |
+| minimumInterval | No| String | retry minimum interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), must be between PT5S and **interval** |
+| maximumInterval | No| String | retry minimum interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), must be between **interval** and PT1D |
+
+### Fixed interval
+
+The `fixed` policy type will retry a failed request by waiting the provided interval of time before sending the next request.
+| Element name | Required | Type | Description |
+| ------------ | -------- | ---- | ----------- |
+| type | Yes | String | `fixed`|
+| count | Yes | Integer | number of retry attempts, must be between 1 and 90 |
+| interval | Yes | String | retry interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), must be between PT5S and PT1D |
+
+### None
+The `none` policy type will not retry a failed request.
+| Element name | Required | Type | Description |
+| ------------ | -------- | ---- | ----------- |
+| type | Yes | String | `none`|
+
+### Default
+If no retry policy is specified, then the default policy is used. The default policy is an exponential interval policy which will send up to 4 retries, at exponentially increasing intervals scaled by 7.5 seconds and capped to between 5 and 45 seconds. This default policy (used when **retryPolicy** is undefined) is equivalent to the policy in this example HTTP workflow definition:
 
 ```json
-"retryPolicy" : {
-      "type": "<type-of-retry-policy>",
-      "interval": <retry-interval>,
-      "count": <number-of-retry-attempts>
-    }
-```
-
-If you wanted your HTTP action to retry 4 times and wait 10 minutes between each attempt, 
-you would use the following definition:
-
-```json
-"HTTP": 
+"HTTP":
 {
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
         "retryPolicy" : {
-            "type": "fixed",
-            "interval": "PT10M",
-            "count": 4
+            "type": "exponential",
+            "count": 4,
+            "interval": "PT7.5S",
+            "minimumInterval": "PT5S",
+            "maximumInterval": "PT45S"
         }
     },
     "runAfter": {},
     "type": "Http"
 }
 ```
-
-For more information on supported syntax, 
-see the [retry-policy section in Workflow Actions and Triggers][retryPolicyMSDN].
 
 ## Catch failures with the RunAfter property
 
