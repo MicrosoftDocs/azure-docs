@@ -156,7 +156,7 @@ A: Not at this time; the keys are fully managed by Microsoft.
 
 **Q: Is SSE enabled by default when I create a new storage account?**
 
-A: As of August 31, 2017 encryption will be enabled default using Microsoft Managed Keys for all data written to Azure services (Blob, File, Table and Queue storage), for all storage accounts (Azure Resource Manager and Classic storage accounts), both new and existing.
+A: As of August 31, 2017, encryption is enabled by default using Microsoft Managed Keys for all data written to Azure Storage (Blob, File, Table and Queue storage), and for all storage accounts (Azure Resource Manager and Classic storage accounts), both new and existing.
 
 **Q: How is this different from Azure Disk Encryption?**
 
