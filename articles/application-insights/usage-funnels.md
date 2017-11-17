@@ -35,7 +35,7 @@ The following illustration demonstrates the data the Funnels tool generates. Fro
 
 ![Funnels tool with data](./media/app-insights-understand-usage-patterns/funnel1.png)
 
-## Funnel features
+### Funnel features
 1. If your app is sampled, you will see a sampling banner. Clicking on the banner will open a context pane instructing how to turn sampling off. 
 2. You can export your funnel to [Power BI](app-insights-export-power-bi.md).
 3. Click on a step to get deeper insights on the right. 
