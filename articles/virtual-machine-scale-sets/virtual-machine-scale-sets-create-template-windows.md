@@ -1,6 +1,6 @@
 ---
-title: Create a Virtual Machine Scale Set with an Azure template | Microsoft Docs
-description: Learn how to quickly create a virtual machine scale with an Azure Resource Manager template
+title: Create a Windows virtual machine scale set with an Azure template | Microsoft Docs
+description: Learn how to quickly create a Windows virtual machine scale with an Azure Resource Manager template that deploys a sample app and configures autoscale rules
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -19,7 +19,7 @@ ms.author: iainfou
 
 ---
 
-# Create a Virtual Machine Scale Set with the Azure CLI 2.0
+# Create a Windows virtual machine scale set with an Azure template
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this getting started article, you create a virtual machine scale set with an Azure Resource Manager template. You can also create a scale set with the [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), or the [Azure portal](virtual-machine-scale-sets-portal-create.md).
 
 
@@ -40,7 +40,7 @@ A template defines the configuration for each resource type. A virtual machine s
 | sku.name                     | The VM size for each scale set instance                  | Standard_A1                               |
 | sku.capacity                 | The number of VM instances to initially create           | 2                                         |
 | upgradePolicy.mode           | VM instance upgrade mode when changes occur              | Automatic                                 |
-| imageReference               | The platform or custom image to use for the VM instances | Canonical Ubuntu Server 16.04-LTS         |
+| imageReference               | The platform or custom image to use for the VM instances | Microsoft Windows Server 2016 Datacenter  |
 | osProfile.computerNamePrefix | The name prefix for each VM instance                     | myvmss                                    |
 | osProfile.adminUsername      | The username for each VM instance                        | azureuser                                 |
 | osProfile.adminPassword      | The password for each VM instance                        | P@ssw0rd!                                 |
@@ -68,9 +68,9 @@ A template defines the configuration for each resource type. A virtual machine s
           "createOption": "FromImage"
         },
         "imageReference":  {
-          "publisher": "Canonical",
-          "offer": "UbuntuServer",
-          "sku": "16.04-LTS",
+          "publisher": "MicrosoftWindowsServer",
+          "offer": "WindowsServer",
+          "sku": "2016-Datacenter",
           "version": "latest"
         }
       },
@@ -94,37 +94,6 @@ When you deploy a scale set, VM extensions can provide post-deployment configura
 - Location of configuration or install scripts
 - Commands to execute on the VM instances
 
-Let's look at two ways to install an application with extensions - with the Custom Script Extension to install a Python app on Linux, or with the PowerShell DSC extension to install an ASP.NET app on Windows.
-
-### Python HTTP server on Linux
-The [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) uses the Custom Script Extenstion to install [Bottle](http://bottlepy.org/docs/dev/), a Python web framework, and a simple HTTP server. 
-
-Two scripts are defined in *fileUris* - *installserver.sh*, and *workserver.py*. These files are downloaded from GitHub, then *commandToExecute* defines `bash installserver.sh` for the app to be installed and configured:
-
-```json
-"extensionProfile": {
-  "extensions": [
-    {
-      "name": "AppInstall",
-      "properties": {
-        "publisher": "Microsoft.Azure.Extensions",
-        "type": "CustomScript",
-        "typeHandlerVersion": "2.0",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          "fileUris": [
-            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
-            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
-          ],
-          "commandToExecute": "bash installserver.sh"
-        }
-      }
-    }
-  ]
-}
-```
-
-### ASP.NET application on Windows
 The [ASP.NET application on Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) sample template uses the PowerShell DSC extension to install an ASP.NET MVC app that runs in IIS. 
 
 An install script is downloaded from GitHub, as defined in *url*. The extension then runs *InstallIIS* from the *IISInstall.ps1* script, as defined in *function* and *Script*. The ASP.NET app itself is provided as a Web Deploy package, which is also downloaded from GitHub, as defined in *WebDeployPackagePath*:
@@ -158,36 +127,7 @@ An install script is downloaded from GitHub, as defined in *url*. The extension 
 ```
 
 ## Deploy the template
-The simplest way to deploy the [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) or [ASP.NET MVC application on Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) template is to use the **Deploy to Azure** button found in the readme files in GitHub.  You can also use PowerShell or Azure CLI to deploy the sample templates.
-
-### Azure CLI 2.0
-You can use the Azure CLI 2.0 to install the Python HTTP server on Linux as follows:
-
-```azurecli-interactive
-# Create a resource group
-az group create --name myResourceGroup --location EastUS
-
-# Deploy template into resource group
-az group deployment create \
-    --resource-group myResourceGroup \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
-```
-
-To see your app in action, obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip#show) as follows:
-
-```azurecli-interactive
-az network public-ip list \
-    --resource-group myResourceGroup \
-    --query [*].ipAddress -o tsv
-```
-
-Enter the public IP address of the load balancer in to a web browser in the format *http://<publicIpAddress>:9000/do_work*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
-
-![Default web page in NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
-
-
-### Azure PowerShell
-You can use Azure PowerShell to install the ASP.NET application on Windows as follows:
+The simplest way to deploy the [ASP.NET MVC application on Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) template is to use the **Deploy to Azure** button found in the readme files in GitHub. You can also use Azure PowerShell to install the ASP.NET application on Windows as follows:
 
 ```azurepowershell-interactive
 # Create a resource group
@@ -199,6 +139,8 @@ New-AzureRmResourceGroupDeployment `
     -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
 ```
 
+
+## Test your sample application
 To see your app in action, obtain the public IP address of your load balancer with [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) as follows:
 
 ```azurepowershell-interactive
@@ -211,11 +153,16 @@ Enter the public IP address of the load balancer in to a web browser in the form
 
 
 ## Clean up resources
-When no longer needed, you can use [az group delete](/cli/azure/group#delete) to remove the resource group, scale set, and all related resources as follows:
+When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group, scale set, and all related resources as follows:
 
-```azurecli-interactive 
-az group delete --name myResourceGroup
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 
 ## Next steps
+In this getting started article, you created a Windows scale set with an Azure template and used the PowerShell DSC extension to install a basic ASP.NET app on the VM instances. For greater scalability and automation, expand your scale set with the following how-to articles:
+
+- [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md)
+- Automatically scale with the [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md), [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), or the [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Use automatic OS upgrades for your scale set VM instances](virtual-machine-scale-sets-automatic-upgrade.md)

@@ -105,7 +105,7 @@ az group delete --name myResourceGroup
 
 
 ## Next steps
-In this getting started article, you created a basic scale set and manually installed a web server on one of the VM instances. For greater scalability and automation, expand your scale set with the following how-to articles:
+In this getting started article, you created a basic scale set and used the Custom Script Extension to install a basic NGINX web server on the VM instances. For greater scalability and automation, expand your scale set with the following how-to articles:
 
 - [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md)
 - Automatically scale with the [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md), [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), or the [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
