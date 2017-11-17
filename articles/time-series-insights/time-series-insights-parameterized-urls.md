@@ -3,8 +3,8 @@ title: Share Azure Time Series Insights custom views with parameterized URLs | M
 description: This article describes how to develop parameterized URLs in Azure Time Series Insights, so that a customer view can easily be shared.
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
-ms.author: kfile
+author: MarkMcGeeAtAquent
+ms.author: MarkMcGeeAtAquent
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
