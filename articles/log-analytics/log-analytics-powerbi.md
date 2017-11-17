@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 11/17/2017
 ms.author: bwren
 
 ---
@@ -27,12 +27,36 @@ ms.author: bwren
 > Users will need access to the Workspace Resource in Azure to use the Power BI export capabilitiy in upgraded workspaces. Without access, users will see an error message when importing the query to Power BI desktop that they do not have access.
 
 
-
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  Log Analytics can automatically export data from the OMS repository into Power BI so you can leverage its visualizations and analysis tools.
+
+To import Log Analytics data into Power BI, you start with a log search to extract the data you want.  You then export that data to a Power BI Query that 
+
+![Log Analytics to Power BI](media/log-analytics-powerbi/overview.png)
+
+
+## New log search
+
+To import data from Log Analytics into Power BI, you 
+
+### Export query
+
+1. Create the log search in Log Analytics to extract the data for your dataset.
+2. If you're using the log search portal, click **Power BI**.  If you're using the Analytics portal, select **Export** > **Power BI Query (M)**.  Both of these options export the query to a text file called **PowerBIQuery.txt**.  This is in Power Query Formula Language (M Language) that can be imported into Power BI Desktop.
+
+### Import query into Power BI Desktop
+
+1. Open Power BI Desktop.
+2. Select **Get Data** > **Blank Query** to open a new query.
+3. On the **View** menu, select **Advanced Editor**.
+4. Paste the contents of the exported file into the query and click **Done**.
+5. The query runs, and its results are displayed.  You may be prompted for credentials to connect to Azure.  Use **Organizational account** to logon with your Microsoft account.
+6. 
+
+## Legacy workspaces
 
 When you configure Power BI with Log Analytics, you create log queries that export their results to corresponding datasets in Power BI.  The query and export continues to automatically run on a schedule that you define to keep the dataset up to date with the latest data collected by Log Analytics.
 
-![Log Analytics to Power BI](media/log-analytics-powerbi/overview.png)
+![Log Analytics to Power BI](media/log-analytics-powerbi/overview-legacy.png)
 
 ## Power BI Schedules
 A *Power BI Schedule* includes a log search that exports a set of data from the OMS repository to a corresponding dataset in Power BI and a schedule that defines how often this search is run to keep the dataset current.
@@ -120,6 +144,8 @@ We can see that the resulting line graph is displayed with the data from our dat
 We save the report by clicking on the Save button at the top of the screen and validate that it is now listed in the Reports section in the left pane.
 
 ![Power BI reports](media/log-analytics-powerbi/walkthrough-report.png)
+
+
 
 ## Next steps
 * Learn about [log searches](log-analytics-log-searches.md) to build queries that can be exported to Power BI.
