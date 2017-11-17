@@ -39,6 +39,8 @@ The following table shows the bindings that are supported in the two major versi
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
+For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
+
 ## Example: queue trigger and table output binding
 
 Suppose you want to write a new row to Azure Table Storage whenever a new message appears in Azure Queue Storage. This scenario can be implemented using an Azure Queue trigger and an Azure Table Storage output binding. 
