@@ -1,5 +1,5 @@
 ---
-title: Azure AD v1 ASP.NET Web Server Getting Started - Intro | Microsoft Docs
+title: Azure AD v1 ASP.NET Web Server Getting Started | Microsoft Docs
 description: Implementing Microsoft Sign-In on an ASP.NET solution with a traditional web browser based application using OpenID Connect standard
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/29/2017
+ms.date: 11/28/2017
 ms.author: andret
 
 ---
@@ -40,7 +40,7 @@ At the end of this guide, your application will accept sign ins of work and scho
 This guide is based on the scenario where a browser accesses an ASP.NET web site, requesting a user to authenticate via a sign-in button. In this scenario, most of the work to create the web page displayed in the browser occurs on the server side.
 
 > [!NOTE]
-> This guided setup shows know how sign in users on an ASP.NET Web Application from start, including adding a button to sign in users, while explaining some concepts along the way. You can also sign-in Azure Active Directory users - work and school accounts - by using the [Visual Studio web template](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) and selecting *Organizational Accounts* and then one of the cloud options.
+> This guided setup demonstrates how to sign in users on an ASP.NET Web Application from an Empty template, and include steps like adding a sign in button, while also explaining some concepts along the way. You can also create a project and sign-in Azure Active Directory users (work and school accounts) by using the [Visual Studio web template](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) and selecting *Organizational Accounts* and then one of the cloud options. 
 
 ## Libraries
 
@@ -56,7 +56,6 @@ This guide uses the following packages:
 <!--end-intro-->
 
 <!--start-setup-->
-
 
 ## Set up your project
 
