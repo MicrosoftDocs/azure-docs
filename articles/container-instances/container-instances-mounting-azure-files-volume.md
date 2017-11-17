@@ -15,7 +15,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 11/17/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -26,7 +26,7 @@ By default, Azure Container Instances are stateless. If the container crashes or
 
 ## Create an Azure file share
 
-Before using an Azure file share with Azure Container Instances, you must create it. Run the following script to create a storage account to host the file share and the share itself. The storage account name must be globally unique, so the script adds a random value to the base string.
+Before using an Azure file share with Azure Container Instances, you must create it. Run the following script to create a storage account to host the file share, and the share itself. The storage account name must be globally unique, so the script adds a random value to the base string.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -38,10 +38,7 @@ ACI_PERS_SHARE_NAME=acishare
 # Create the storage account with the parameters
 az storage account create -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -l $ACI_PERS_LOCATION --sku Standard_LRS
 
-# Export the connection string as an environment variable, this is used when creating the Azure file share
-export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -o tsv`
-
-# Create the share
+# Create the file share
 az storage share create -n $ACI_PERS_SHARE_NAME
 ```
 
@@ -63,135 +60,30 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## Store storage account access details with Azure Key Vault
+## Deploy the container and mount the volume
 
-Storage account keys protect access to your data, so we recommend storing them in an Azure key vault.
-
-Create a key vault with the Azure CLI:
+To mount an Azure file share as a volume in a container, specify the share and volume mount point when you create the container with [az container create](/cli/azure/container#az_container_create). If you've followed the previous steps, you can mount the share you created earlier by using the following command to create a container:
 
 ```azurecli-interactive
-KEYVAULT_NAME=aci-keyvault
-az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g $ACI_PERS_RESOURCE_GROUP
+az container create \
+    --resource-group $ACI_PERS_RESOURCE_GROUP \
+    --name hellofiles \
+    --image seanmckenna/aci-hellofiles \
+    --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
+    --azure-file-volume-account-key $STORAGE_KEY \
+    --azure-file-volume-share-name $ACI_PERS_SHARE_NAME \
+    --azure-file-volume-mount-path /aci/logs/
 ```
 
-The `enabled-for-template-deployment` switch allows Azure Resource Manager to pull secrets from your key vault at deployment time.
+## Manage files in mounted volume
 
-Store the storage account key as a new secret in the key vault:
-
-```azurecli-interactive
-KEYVAULT_SECRET_NAME=azurefilesstoragekey
-az keyvault secret set --vault-name $KEYVAULT_NAME --name $KEYVAULT_SECRET_NAME --value $STORAGE_KEY
-```
-
-## Mount the volume
-
-Mounting an Azure file share as a volume in a container is a two-step process. First, you provide the details of the share as part of defining the container group, then you specify how you want the volume mounted within one or more of the containers in the group.
-
-To define the volumes you want to make available for mounting, add a `volumes` array to the container group definition in the Azure Resource Manager template, then reference them in the definition of the individual containers.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageaccountname": {
-      "type": "string"
-    },
-    "storageaccountkey": {
-      "type": "securestring"
-    }
-  },
-  "resources":[{
-    "name": "hellofiles",
-    "type": "Microsoft.ContainerInstance/containerGroups",
-    "apiVersion": "2017-08-01-preview",
-    "location": "[resourceGroup().location]",
-    "properties": {
-      "containers": [{
-        "name": "hellofiles",
-        "properties": {
-          "image": "seanmckenna/aci-hellofiles",
-          "resources": {
-            "requests": {
-              "cpu": 1,
-              "memoryInGb": 1.5
-            }
-          },
-          "ports": [{
-            "port": 80
-          }],
-          "volumeMounts": [{
-            "name": "myvolume",
-            "mountPath": "/aci/logs/"
-          }]
-        }
-      }],
-      "osType": "Linux",
-      "ipAddress": {
-        "type": "Public",
-        "ports": [{
-          "protocol": "tcp",
-          "port": "80"
-        }]
-      },
-      "volumes": [{
-        "name": "myvolume",
-        "azureFile": {
-          "shareName": "acishare",
-          "storageAccountName": "[parameters('storageaccountname')]",
-          "storageAccountKey": "[parameters('storageaccountkey')]"
-        }
-      }]
-    }
-  }]
-}
-```
-
-The template includes the storage account name and key as parameters, which can be provided in a separate parameters file. To populate the parameters file, you need three values: the storage account name, the resource ID of your Azure key vault, and the key vault secret name that you used to store the storage key. If you have followed the previous steps, you can get these values with the following script:
-
-```azurecli-interactive
-echo $STORAGE_ACCOUNT
-echo $KEYVAULT_SECRET_NAME
-az keyvault show --name $KEYVAULT_NAME --query [id] -o tsv
-```
-
-Insert the values into the parameters file:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageaccountname": {
-      "value": "<my_storage_account_name>"
-    },
-   "storageaccountkey": {
-      "reference": {
-        "keyVault": {
-          "id": "<my_keyvault_id>"
-        },
-        "secretName": "<my_storage_account_key_secret_name>"
-      }
-    }
-  }
-}
-```
-
-## Deploy the container and manage files
-
-With the template defined, you can create the container and mount its volume using the Azure CLI. Assuming that the template file is named *azuredeploy.json* and that the parameters file is named *azuredeploy.parameters.json*, then the command line is:
-
-```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
-```
-
-Once the container starts up, you can use the simple web app deployed via the **seanmckenna/aci-hellofiles** image to manage the files in the Azure file share at the mount path you specified. Obtain the IP address for the web app with the [az container show](/cli/azure/container#az_container_show) command:
+Once the container starts up, you can use the simple web app deployed via the [seanmckenna/aci-hellofiles](https://hub.docker.com/r/seanmckenna/aci-hellofiles/) image to manage the files in the Azure file share at the mount path you specified. Obtain the IP address for the web app with the [az container show](/cli/azure/container#az_container_show) command:
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-You can use a tool like the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to retrieve and inspect the file written to the file share.
+You can use the [Azure portal](https://portal.azure.com) or a tool like the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to retrieve and inspect the file written to the file share.
 
 >[!NOTE]
 > To learn more about using Azure Resource Manager templates, parameter files, and deploying with the Azure CLI, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
