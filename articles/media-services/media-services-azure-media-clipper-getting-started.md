@@ -166,7 +166,7 @@ To set a custom language dictionary or extend the default language dictionary, y
 For example, the following sample defines the localized English strings:
 
 ```javascript
-'{en}' {
+'{en}': {
   'VideoPlayer.noPreview': 'No video preview',
   'VideoPlayer.loadAsset': 'You must provide a valid asset',
   'AssetsPanel.name': 'Name',
