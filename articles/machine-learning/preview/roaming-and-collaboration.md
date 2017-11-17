@@ -86,23 +86,16 @@ Alice clicks on the **File** menu, and selects the **Command Prompt** menu item 
 # Find ARM ID of the experimnetation account
 az ml account experimentation show --query "id"
 
-# Add Bob to the Experimentation Account as a Reader.
-# Bob now has read access to all workspaces and projects under the Account by inheritance.
-az role assignment create --assignee bob@contoso.com --role Reader --scope <experimentation account ARM ID>
+# Add Bob to the Experimentation Account as a Contributor.
+# Bob now has read/write access to all workspaces and projects under the Account by inheritance.
+az role assignment create --assignee bob@contoso.com --role Contributor --scope <experimentation account ARM ID>
 
 # Find ARM ID of the workspace
 az ml workspace show --query "id"
 
-# Add Bob to the workspace as a Contributor.
-# Bob now has read/write access to all projects under the Workspace by inheritance.
-az role assignment create --assignee bob@contoso.com --role Contributor --scope <workspace ARM ID>
-
-# find ARM ID of the project 
-az ml project show --query "id"
-
-# Add Bob to the Project as an Owner.
-# Bob now has read/write access to the Project, and can add others too.
-az role assignment create --assignee bob@contoso.com --role Owner --scope <project ARM ID>
+# Add Bob to the workspace as an Owner.
+# Bob now has read/write access to all projects under the Workspace by inheritance. And he can invite or remove others.
+az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace ARM ID>
 ```
 
 After the role assignment, directly or by inheritance, Bob can see the project in the Workbench project list. The application might need a restart in order to see the project. Bob can then download the project as described in the [Roaming section](#roaming) and collaborate with Alice. 
