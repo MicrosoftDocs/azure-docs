@@ -70,13 +70,13 @@ API](/rest/api/storageservices/fileservices/Blob-Service-REST-API), you see all 
 Let’s look at the page in the REST API Reference for the [ListContainers](/rest/api/storageservices/fileservices/List-Containers2)
 operation so you understand where some of the fields come from in the request and response in the next section with the code.
 
-**Request Method**: GET. This verb is the HTTP method you specify as a property of the request object. This could also be HEAD, PUT, or DELETE, depending on the API you are calling.
+**Request Method**: GET. This verb is the HTTP method you specify as a property of the request object. Other values for this verb include HEAD, PUT, and DELETE, depending on the API you are calling.
 
 **Request URI**: https://myaccount.blob.core.windows.net/?comp=list  This is created from the blob storage account endpoint `http://myaccount.blob.core.windows.net` and the resource string `/?comp=list`.
 
 [URI parameters](/rest/api/storageservices/fileservices/List-Containers2#uri-parameters): There are additional query parameters you can use when calling ListContainers. A couple of these parameters are *timeout* for the call (in seconds) and *prefix*, which is used for filtering.
 
-Another helpful parameter is *maxresults:* if more containers are available than this value, the response body will contain a *NextMarker* element that indicates the next container to return on the next request. To use this feature, you provide the *NextMarker* value as the *marker* parameter in the URI when you make the next request. When this runs, it is analogous to paging through the results. 
+Another helpful parameter is *maxresults:* if more containers are available than this value, the response body will contain a *NextMarker* element that indicates the next container to return on the next request. To use this feature, you provide the *NextMarker* value as the *marker* parameter in the URI when you make the next request. When using this feature, it is analogous to paging through the results. 
 
 To use additional parameters, append them to the resource string with the value, like this example:
 
@@ -89,13 +89,13 @@ This section lists the required and optional request headers. Three of the heade
 There is no request body for ListContainers. Request Body is used on all of the PUT operations when uploading blobs, as well as SetContainerAccessPolicy, which allows you to send in an XML list of stored access policies to apply. Stored access policies are discussed in the article [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 [Response Status Code](/rest/api/storageservices/fileservices/List-Containers2#status-code)**:**
-Tells of any status codes you need to know. In this example, it tells us that 200 is ok. For a complete list of HTTP status codes, check out [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+Tells of any status codes you need to know. In this example, an HTTP status code of 200 is ok. For a complete list of HTTP status codes, check out [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 
 [Response Headers](/rest/api/storageservices/fileservices/List-Containers2#response-headers)**:**
 These include *Content Type*; *x-ms-request-id* (the request id you passed in, if applicable); *x-ms-version* (indicates the version of the Blob service used), and the *Date* (UTC, tells what time the request was made).
 
 [Response Body](/rest/api/storageservices/fileservices/List-Containers2#response-body):
-This is an XML structure providing the data requested. In this example, the response will be a list of containers and their properties.
+This field is an XML structure providing the data requested. In this example, the response is a list of containers and their properties.
 
 ## Creating the REST request
 
@@ -106,7 +106,7 @@ The code for creating the Authorization header is in a separate class, with the 
 To build the request, which is an HttpRequestMessage object, go to ListContainersAsync in Program.cs. The steps for building the request are: 
 
 * Create the URI to be used for calling the service. 
-* Create the HttpRequestMessage object and set the payload (null in our case.)
+* Create the HttpRequestMessage object and set the payload (null for ListContainersAsync.)
 * Add the request headers for x-ms-date and x-ms-version.
 * Get the authorization header and add it.
 
@@ -151,7 +151,7 @@ Add the request headers for x-ms-date and x-ms-version. This place in the code i
     //   the authorization header. 
 ```
 
-Call a method to get the authorization header and add it to the request headers. You’ll see how to create the authorization header later in the article. The method name is GetAuthorizationHeader, which you can see in the following code:
+Call a method to get the authorization header and add it to the request headers. You’ll see how to create the authorization header later in the article. The method name is GetAuthorizationHeader, which you can see in this code snippet:
 
 ```csharp
     // Get the authorization header and add it.
@@ -213,7 +213,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**Response body (XML):** In our case, this shows the list of containers and their properties.
+**Response body (XML):** For ListContainers, this shows the list of containers and their properties.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -270,14 +270,14 @@ Content-Length: 1511
 </EnumerationResults>
 ```
 
-Now that you understand how to create the request, call the service, and parse the results, let’s see how to create the authorization header. This is complicated, but the good news is that once you have this code, it works for all of the Storage Services REST APIs.
+Now that you understand how to create the request, call the service, and parse the results, let’s see how to create the authorization header. Creating that header is complicated, but the good news is that once you have the code working, it works for all of the Storage Service REST APIs.
 
 ## Creating the authorization header
 
 There is an article that explains conceptually (no code) how to perform [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services).
 Let's distill that article down to exactly is needed and show the code.
 
-First, use a Shared Key authentication. The authorization header format looks like the following:
+First, use a Shared Key authentication. The authorization header format looks like this:
 
 ```csharp  
 Authorization="SharedKey <storage account name>:<signature>"  
@@ -285,7 +285,7 @@ Authorization="SharedKey <storage account name>:<signature>"
 
 The signature field is a Hash-based Message Authentication Code (HMAC) created from the request and calculated using the SHA256 algorithm, then encoded using Base64 encoding. Got that? (Hang in there, you haven’t even heard the word "canonicalized" yet.)
 
-The following shows the format of the Shared Key signature string:
+This code snippet shows the format of the Shared Key signature string:
 
 ```csharp  
 StringToSign = **VERB** + "\n" +  
@@ -304,15 +304,15 @@ StringToSign = **VERB** + "\n" +
                **CanonicalizedResource**;  
 ```
 
-You won’t use most of these fields. For Blob storage, you will specify VERB, md5, content length, Canonicalized Headers, and Canonicalized Resource. You can leave all the others blank (but put in the `\n` so it knows they are blank).
+Most of these fields are rarely used. For Blob storage, you specify VERB, md5, content length, Canonicalized Headers, and Canonicalized Resource. You can leave the others blank (but put in the `\n` so it knows they are blank).
 
-What are CanonicalizedHeaders and CanonicalizedResource? Good question. In fact, what does canonicalized mean? Microsoft Word doesn’t even recognize it as a word. Here’s what [wikipedia says about canonicalization](http://en.wikipedia.org/wiki/Canonicalization): *In computer science, canonicalization (sometimes standardization or normalization) is a process for converting data that has more than one possible representation into a "standard", "normal", or canonical form.* In normal-speak, this means to take the list of headers (in the case of Canonicalized Headers) and standardize them into the required format. Basically, they decided on a format and you need to match it.
+What are CanonicalizedHeaders and CanonicalizedResource? Good question. In fact, what does canonicalized mean? Microsoft Word doesn’t even recognize it as a word. Here’s what [Wikipedia says about canonicalization](http://en.wikipedia.org/wiki/Canonicalization): *In computer science, canonicalization (sometimes standardization or normalization) is a process for converting data that has more than one possible representation into a "standard", "normal", or canonical form.* In normal-speak, this means to take the list of headers (in the case of Canonicalized Headers) and standardize them into the required format. Basically, they decided on a format and you need to match it.
 
 Let’s start with those two canonicalized fields, because they are required to create the Authorization header.
 
 **Canonicalized Headers**
 
-To create this value, retrieve the headers that start with "x-ms-" and sort them, then format them into a string of `[key:value\n]` instances, concatenated into one string. For this example, the canonicalized headers will look like the following:
+To create this value, retrieve the headers that start with "x-ms-" and sort them, then format them into a string of `[key:value\n]` instances, concatenated into one string. For this example, the canonicalized headers look like this:
 
     `x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-04-17\n`
 
@@ -354,11 +354,11 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 **Canonicalized Resource**
 
 This part of the signature string represents the storage account targeted by the request. Remember that the Request URI is
-<http://contosorest.blob.core.windows.net/?comp=list>, with the actual account name (`contosorest` in this case). In this example, the following is returned:
+<http://contosorest.blob.core.windows.net/?comp=list>, with the actual account name (`contosorest` in this case). In this example, this is returned:
 
     `/contosorest/\ncomp:list`
 
-If you have query parameters, this will include those as well. Here’s the code, which also handles additional query parameters and query parameters with multiple values. Remember that you're building this to work for all of the REST APIs, so you want to include all possibilities, even if the ListContainers method doesn’t need all of them.
+If you have query parameters, this includes those as well. Here’s the code, which also handles additional query parameters and query parameters with multiple values. Remember that you're building this code to work for all of the REST APIs, so you want to include all possibilities, even if the ListContainers method doesn’t need all of them.
 
 ```csharp 
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
@@ -425,7 +425,7 @@ Here's the final value for AuthorizationHeader:
 
 The AuthorizationHeader is placed in the request headers before posting the response.
 
-This is everything you need to know, along with the code, to put together a class you can use to create a request to be used to call the Storage Services REST APIs.
+That covers everything you need to know, along with the code, to put together a class you can use to create a request to be used to call the Storage Services REST APIs.
 
 ## How about another example? 
 
@@ -435,7 +435,7 @@ If you look at the reference documentation for [ListBlobs](/rest/api/storageserv
 
     `https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list`
 
-In ListContainersAsync, change the code that sets the URI to the following. The container name is **container-1**.
+In ListContainersAsync, change the code that sets the URI to the API for ListBlobs. The container name is **container-1**.
 
 ```csharp
 String uri = 
@@ -453,7 +453,7 @@ foreach (XElement container in x.Element("Blobs").Elements("Blob"))
 }
 ```
 
-Now if you run this sample, you get results like the following:
+When you run this sample, you get results like the following:
 
 **Canonicalized Headers:**
 
