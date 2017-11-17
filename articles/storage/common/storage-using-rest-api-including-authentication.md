@@ -18,18 +18,18 @@ ms.author: robinsh
 
 # Calling the Storage Services REST API including authentication
 
-In this article, we will look at how to use the Blob Storage Service REST APIs and how to authenticate the call to the service. It is written from the point of view of someone who knows nothing about REST and no idea how to make a REST call, but is a developer. We will look at the reference documentation for a REST call and see how to translate it into an actual REST call – which fields go where? After learning how to set up a REST call, you can leverage this knowledge to use any of the other Storage Service REST APIs.
+This article shows you how to use the Blob Storage Service REST APIs and how to authenticate the call to the service. It is written from the point of view of someone who knows nothing about REST and no idea how to make a REST call, but is a developer. We look at the reference documentation for a REST call and see how to translate it into an actual REST call – which fields go where? After learning how to set up a REST call, you can leverage this knowledge to use any of the other Storage Service REST APIs.
 
 ## Prerequisites 
 
-The application lists the containers in blob storage for a storage account. To try out the code in this article, you need the following: 
+The application lists the containers in blob storage for a storage account. To try out the code in this article, you need the following items: 
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) with the following workload:
     - Azure development
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* A general-purpose storage account. If you don't have any storage accounts, you can create one using the [Azure Portal](https://portal.azure.com), [PowerShell](storage-quickstart-create-storage-account-powershell), or [Azure CLI](storage-quickstart-create-storage-account-cli).
+* A general-purpose storage account. If you don't have any storage accounts, you can create one using the [Azure portal](https://portal.azure.com), [PowerShell](storage-quickstart-create-storage-account-powershell.md), or [Azure CLI](storage-quickstart-create-storage-account-cli.md).
 
 * To see output from the code, add some containers to blob storage in the storage account.
 
@@ -55,55 +55,53 @@ REST means *representational state transfer*. [Wikipedia starts explaining REST 
 
     REST is an architectural style consisting of a coordinated set of architectural constraints applied to components, connectors, and data elements, within a distributed hypermedia system. REST ignores the details of component implementation and protocol syntax in order to focus on the roles of components, the constraints upon their interaction with other components, and their interpretation of significant data elements.
 
-What does that mean? Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It is independent of what’s happening on either side, and what other software is being used when sending or receiving the REST calls. You can write an application that will run on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn’t care from what platform it’s
+What does that mean? Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It is independent of what’s happening on either side, and what other software is being used when sending or receiving the REST calls. You can write an application that runs on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site, and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn’t care from what platform it’s
 called – what’s important is the information passed in the request and the data provided in the response.
 
-## What we’re going to do
+## Here's the plan
 
-The example we’re going to examine lists the containers in a storage account. Once you understand how the information in the REST API documentation correlates to your actual code, the other calls will be easier to figure out. 
+The example project lists the containers in a storage account. Once you understand how the information in the REST API documentation correlates to your actual code, the other calls are easier to figure out. 
 
 If you look at the [Blob Service REST
-API](/rest/api/storageservices/fileservices/Blob-Service-REST-API), you’ll see all of the operations you can perform on blob storage. The storage client libraries are wrappers around the REST APIs – they make it easy for you to access storage without using the REST APIs directly. But as noted above, sometimes you want to use the REST API instead of a storage client library.
+API](/rest/api/storageservices/fileservices/Blob-Service-REST-API), you see all of the operations you can perform on blob storage. The storage client libraries are wrappers around the REST APIs – they make it easy for you to access storage without using the REST APIs directly. But as noted above, sometimes you want to use the REST API instead of a storage client library.
 
 ## REST API Reference: List Containers API
 
-Let’s look at the page in the REST API Reference for the [ListContainers](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/List-Containers2)
-operation so you understand where some of the fields come from in the request and response when we get to the next section with the code.
+Let’s look at the page in the REST API Reference for the [ListContainers](/rest/api/storageservices/fileservices/List-Containers2)
+operation so you understand where some of the fields come from in the request and response in the next section with the code.
 
-**Request Method**: GET. This is the HTTP method you will specify as a property of the request object. This could also be HEAD, PUT, or DELETE, depending on the API you are calling.
+**Request Method**: GET. This verb is the HTTP method you specify as a property of the request object. This could also be HEAD, PUT, or DELETE, depending on the API you are calling.
 
 **Request URI**: https://myaccount.blob.core.windows.net/?comp=list  This is created from the blob storage account endpoint `http://myaccount.blob.core.windows.net` and the resource string `/?comp=list`.
 
-[URI parameters](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/List-Containers2#uri-parameters): There are additional query parameters you can use when calling ListContainers. A couple of these are *timeout* for the call (in seconds) and *prefix* which is used for filtering.
+[URI parameters](/rest/api/storageservices/fileservices/List-Containers2#uri-parameters): There are additional query parameters you can use when calling ListContainers. A couple of these parameters are *timeout* for the call (in seconds) and *prefix*, which is used for filtering.
 
-Another helpful parameter is *maxresults:* if more containers are available than this value, the response body will contain a *NextMarker* element that indicates the next container to return on the next request. To use this, you provide the *NextMarker* value as the *marker* parameter in the URI when you make the next request. This is like paging through the results. 
+Another helpful parameter is *maxresults:* if more containers are available than this value, the response body will contain a *NextMarker* element that indicates the next container to return on the next request. To use this feature, you provide the *NextMarker* value as the *marker* parameter in the URI when you make the next request. When this runs, it is analogous to paging through the results. 
 
-To use additional parameters, you append them to the resource string with the value, like this:
+To use additional parameters, append them to the resource string with the value, like this example:
 
     `/?comp=list&timeout=60&maxresults=100`
 
-[Request Headers](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/List-Containers2#request-headers)**:**
-This section lists the required and optional request headers. Three of the headers are required: an *Authorization* header, *x-ms-date* (contains the UTC time for the request), and *x-ms-version* (specifies the version of the REST API to use). Including *x-ms-client-request-id* in the headers is optional – you can set this to anything you want to; it will be written to the storage analytics logs when logging is enabled.
+[Request Headers](/rest/api/storageservices/fileservices/List-Containers2#request-headers)**:**
+This section lists the required and optional request headers. Three of the headers are required: an *Authorization* header, *x-ms-date* (contains the UTC time for the request), and *x-ms-version* (specifies the version of the REST API to use). Including *x-ms-client-request-id* in the headers is optional – you can set the value for this field to anything; it is written to the storage analytics logs when logging is enabled.
 
-[Request Body](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/List-Containers2#request-body)**:**
-There is no request body for ListContainers. This is used on all of the PUT operations when uploading blobs, as well as SetContainerAccessPolicy, which allows you to send in an XML list of stored access policies to apply. Stored access policies are discussed in the article [Using Shared Access Signatures (SAS)](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+[Request Body](/rest/api/storageservices/fileservices/List-Containers2#request-body)**:**
+There is no request body for ListContainers. Request Body is used on all of the PUT operations when uploading blobs, as well as SetContainerAccessPolicy, which allows you to send in an XML list of stored access policies to apply. Stored access policies are discussed in the article [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
-[Response Status Code](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/List-Containers2#status-code)**:**
+[Response Status Code](/rest/api/storageservices/fileservices/List-Containers2#status-code)**:**
 Tells of any status codes you need to know. In this example, it tells us that 200 is ok. For a complete list of HTTP status codes, check out [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 
-[Response Headers](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/List-Containers2#response-headers)**:**
+[Response Headers](/rest/api/storageservices/fileservices/List-Containers2#response-headers)**:**
 These include *Content Type*; *x-ms-request-id* (the request id you passed in, if applicable); *x-ms-version* (indicates the version of the Blob service used), and the *Date* (UTC, tells what time the request was made).
 
-[Response Body](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/List-Containers2#response-body):
-This is an XML structure providing the data requested. In our case, this will be a list of containers and their properties.
-
-You will see these in the request and response information provided below, and in the code when creating the request and parsing the response.
+[Response Body](/rest/api/storageservices/fileservices/List-Containers2#response-body):
+This is an XML structure providing the data requested. In this example, the response will be a list of containers and their properties.
 
 ## Creating the REST request
 
-A couple of notes before starting – for security, always use HTTPS rather than HTTP. Also, you may want to download [Fiddler](http://www.telerik.com/fiddler) (or a similar application) so you can examine the request and response of the REST calls. In the Visual Studio solution, the storage account name and key are hardcoded in the class, and the ListContainersAsync method passes the storage account name and storage account key to the methods that are used to create the various componentns of the REST request. In a real world application, the storage account name and key would reside in a configuration file or be retrieved from an Azure Key Vault.
+A couple of notes before starting – for security, always use HTTPS rather than HTTP. Also, you may want to download [Fiddler](http://www.telerik.com/fiddler) (or a similar application) so you can examine the request and response of the REST calls. In the Visual Studio solution, the storage account name and key are hardcoded in the class, and the ListContainersAsync method passes the storage account name and storage account key to the methods that are used to create the various components of the REST request. In a real world application, the storage account name and key would reside in a configuration file or be retrieved from an Azure Key Vault.
 
-The code for creating the Authorization header is in a separate class, with the idea that you could take the whole class and add it to your own solution and use it "as is". The Authorization header code works for most REST API calls to Azure Storage.
+The code for creating the Authorization header is in a separate class, with the idea that you could take the whole class and add it to your own solution and use it "as is." The Authorization header code works for most REST API calls to Azure Storage.
 
 To build the request, which is an HttpRequestMessage object, go to ListContainersAsync in Program.cs. The steps for building the request are: 
 
@@ -114,12 +112,12 @@ To build the request, which is an HttpRequestMessage object, go to ListContainer
 
 Some basic information you need: 
 
-*  For ListContainers, the **method** is `GET`. This is set when instantiating the request. 
-*  The **resource** is the query portion of the URI that indicates which API is being called, so the value is `/?comp=list`. As noted earlier, the resource is on the reference documentation page that shows the information about the [ListContainers API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/List-Containers2).
+*  For ListContainers, the **method** is `GET`. This value is set when instantiating the request. 
+*  The **resource** is the query portion of the URI that indicates which API is being called, so the value is `/?comp=list`. As noted earlier, the resource is on the reference documentation page that shows the information about the [ListContainers API](/rest/api/storageservices/fileservices/List-Containers2).
 *  The uri is constructed by creating the Blob service endpoint for that storage account and concatenating the resource. The value for **request URI** ends up being `http://contosorest.blob.core.windows.net/?comp=list`.
 *  For ListContainers, **requestBody** is null and there are no extra **headers**.
 
-If you were using a different API, you may have other parameters to pass in such as *ifMatch*. An example of where you might use ifMatch  is when calling PutBlob. In that case, you set ifMatch to an eTag, and it only updates the blob if the eTag you provide matches the current eTag on the blob. If someone else has updated the blob since you retrieved the eTag, you won’t overwrite their change. 
+Different APIs may have other parameters to pass in such as *ifMatch*. An example of where you might use ifMatch  is when calling PutBlob. In that case, you set ifMatch to an eTag, and it only updates the blob if the eTag you provide matches the current eTag on the blob. If someone else has updated the blob since retrieving the eTag, their change won't be overridden. 
 
 First, set the `uri` and the `payload`. 
 
@@ -142,7 +140,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 {
 ```
 
-Add the request headers for x-ms-date and x-ms-version. This is also where you add any additional request headers required for the call. In our example, there are no additional headers. An example of an API that passes in extra headers is SetContainerACL. For blob storage, it adds a header called "x-ms-blob-public-access" and the value for the access level.
+Add the request headers for x-ms-date and x-ms-version. This place in the code is also where you add any additional request headers required for the call. In this example, there are no additional headers. An example of an API that passes in extra headers is SetContainerACL. For Blob storage, it adds a header called "x-ms-blob-public-access" and the value for the access level.
 
 ```csharp
     // Add the request headers for x-ms-date and x-ms-version.
@@ -153,7 +151,7 @@ Add the request headers for x-ms-date and x-ms-version. This is also where you a
     //   the authorization header. 
 ```
 
-Call a method to get the authorization header and add it to the request headers. We’ll see how to create the authorization header later in the article. The method name is GetAuthorizationHeader, which you can see in the following code.
+Call a method to get the authorization header and add it to the request headers. You’ll see how to create the authorization header later in the article. The method name is GetAuthorizationHeader, which you can see in the following code:
 
 ```csharp
     // Get the authorization header and add it.
@@ -161,11 +159,11 @@ Call a method to get the authorization header and add it to the request headers.
         storageAccountName, storageAccountKey, now, httpRequestMessage);
 ```
 
-Now `httpRequestMessage` contains the REST request complete with the authorization headers. 
+At this point, `httpRequestMessage` contains the REST request complete with the authorization headers. 
 
 ## Call the REST API with the request
 
-Now that you have the request, you can call SendAsync to send the REST request. This calls the API and gets the response back. Examine the response StatusCode (200 is OK), then parse the response. In this case, you get an XML list of containers. Let’s look at the code for calling the GetRESTRequest method to set the request, execute the request, and then examine the response for the list of containers.
+Now that you have the request, you can call SendAsync to send the REST request. SendAsync calls the API and gets the response back. Examine the response StatusCode (200 is OK), then parse the response. In this case, you get an XML list of containers. Let’s look at the code for calling the GetRESTRequest method to set the request, execute the request, and then examine the response for the list of containers.
 
 ```csharp 
     // Send the request.
@@ -276,18 +274,18 @@ Now that you understand how to create the request, call the service, and parse t
 
 ## Creating the authorization header
 
-There is an article that explains conceptually (no code) how to perform [Authentication for the Azure Storage Services](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services).
-Let's distill that article down to exactly what we need here and show the code.
+There is an article that explains conceptually (no code) how to perform [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services).
+Let's distill that article down to exactly is needed and show the code.
 
-First, we use a Shared Key authentication. The authorization header format looks like this:
+First, use a Shared Key authentication. The authorization header format looks like the following:
 
 ```csharp  
 Authorization="SharedKey <storage account name>:<signature>"  
 ```
 
-The signature field is a Hash-based Message Authentication Code (HMAC) created from the request and calculated using the SHA256 algorithm, then encoded using Base64 encoding. Got that? (Hang in there, we haven’t even used the word "canonicalized" yet.)
+The signature field is a Hash-based Message Authentication Code (HMAC) created from the request and calculated using the SHA256 algorithm, then encoded using Base64 encoding. Got that? (Hang in there, you haven’t even heard the word "canonicalized" yet.)
 
-This is the format of the Shared Key signature string:
+The following shows the format of the Shared Key signature string:
 
 ```csharp  
 StringToSign = **VERB** + "\n" +  
@@ -306,15 +304,15 @@ StringToSign = **VERB** + "\n" +
                **CanonicalizedResource**;  
 ```
 
-You won’t use most of these fields. For Blob storage, you will specify VERB, md5, content length, Canonicalized Headers and Canonicalized Resource. You can leave all the others blank (but put in the `\n` so it knows they are blank).
+You won’t use most of these fields. For Blob storage, you will specify VERB, md5, content length, Canonicalized Headers, and Canonicalized Resource. You can leave all the others blank (but put in the `\n` so it knows they are blank).
 
-What are CanonicalizedHeaders and CanonicalizedResource? Good question. In fact, what does canonicalized mean? Microsoft Word doesn’t even recognize it as a word. Here’s what wikipedia[says](http://en.wikipedia.org/wiki/Canonicalization): *In computer science, canonicalization (sometimes standardization or normalization) is a process for converting data that has more than one possible representation into a "standard", "normal", or canonical form.* In normal-speak, this means to take the list of headers (in the case of Canonicalized Headers) and standardize them into the required format. Basically, this means they decided on a format and you need to match it.
+What are CanonicalizedHeaders and CanonicalizedResource? Good question. In fact, what does canonicalized mean? Microsoft Word doesn’t even recognize it as a word. Here’s what [wikipedia says about canonicalization](http://en.wikipedia.org/wiki/Canonicalization): *In computer science, canonicalization (sometimes standardization or normalization) is a process for converting data that has more than one possible representation into a "standard", "normal", or canonical form.* In normal-speak, this means to take the list of headers (in the case of Canonicalized Headers) and standardize them into the required format. Basically, they decided on a format and you need to match it.
 
 Let’s start with those two canonicalized fields, because they are required to create the Authorization header.
 
 **Canonicalized Headers**
 
-To create this value, retrieve the headers that start with "x-ms-" and sort them, then format them into a string of `[key:value\n]` instances, concatenated into one string. For our example, this returns the following:
+To create this value, retrieve the headers that start with "x-ms-" and sort them, then format them into a string of `[key:value\n]` instances, concatenated into one string. For this example, the canonicalized headers will look like the following:
 
     `x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-04-17\n`
 
@@ -356,11 +354,11 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 **Canonicalized Resource**
 
 This part of the signature string represents the storage account targeted by the request. Remember that the Request URI is
-<http://contosorest.blob.core.windows.net/?comp=list>, with the actual account name (`contosorest` in this case). In our example this returns the following:
+<http://contosorest.blob.core.windows.net/?comp=list>, with the actual account name (`contosorest` in this case). In this example, the following is returned:
 
     `/contosorest/\ncomp:list`
 
-If you have query parameters, this will include those as well. Here’s the code, which also handles additional query parameters and query parameters with multiple values. Remember that we’re building this to work for all of the REST APIs, so we want to include all possibilities, even if our ListContainers doesn’t need all of them.
+If you have query parameters, this will include those as well. Here’s the code, which also handles additional query parameters and query parameters with multiple values. Remember that you're building this to work for all of the REST APIs, so you want to include all possibilities, even if the ListContainers method doesn’t need all of them.
 
 ```csharp 
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
@@ -383,7 +381,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
 }
 ```
 
-Now that we have the canonicalized strings, let’s look at how to create the authorization header itself. We start by creating a string of the message signature in the format of StringToSign previously displayed in this article. This is easier to explain using comments in the code, so here it is, the final method that returns the Authorization Header:
+Now that the canonicalized strings are set, let’s look at how to create the authorization header itself. You start by creating a string of the message signature in the format of StringToSign previously displayed in this article. This concept is easier to explain using comments in the code, so here it is, the final method that returns the Authorization Header:
 
 ```csharp
 internal static AuthenticationHeaderValue GetAuthorizationHeader(
@@ -417,23 +415,23 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 }
 ```
 
-When running this, the MessageSignature for our example looks like this:
+When running this code, the resulting MessageSignature looks like this:
 
     `GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-04-17\n/contosorest/\ncomp:list`
 
-The final value for AuthorizationHeader is:
+Here's the final value for AuthorizationHeader:
 
     `SharedKey contosorest:Ms5sfwkA8nqTRw7Uury4MPHqM6Rj2nfgbYNvUKOa67w=`
 
-This is placed in the request headers before posting the response.
+The AuthorizationHeader is placed in the request headers before posting the response.
 
 This is everything you need to know, along with the code, to put together a class you can use to create a request to be used to call the Storage Services REST APIs.
 
 ## How about another example? 
 
-Let's look at how to change our code to call ListBlobs for container *container-1*. This is very similar to the code for listing containers, the only differences being the URI and how you parse the response. 
+Let's look at how to change the code to call ListBlobs for container *container-1*. This is almost identical to the code for listing containers, the only differences being the URI and how you parse the response. 
 
-If you look at the reference documentation for [ListBlobs](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/List-Blobs), you find that the method is *GET* and the RequestURI is:
+If you look at the reference documentation for [ListBlobs](/rest/api/storageservices/fileservices/List-Blobs), you find that the method is *GET* and the RequestURI is:
 
     `https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list`
 
@@ -446,7 +444,7 @@ String uri =
 
 ```
 
-Then where you look at the response, change the code to look for blobs instead of containers, like this:
+Then where you look at the response, change the code to look for blobs instead of containers.
 
 ```csharp
 foreach (XElement container in x.Element("Blobs").Elements("Blob"))
@@ -455,7 +453,7 @@ foreach (XElement container in x.Element("Blobs").Elements("Blob"))
 }
 ```
 
-Now if you run this, you get results like these:
+Now if you run this sample, you get results like the following:
 
 **Canonicalized Headers:**
 
@@ -473,7 +471,7 @@ Now if you run this, you get results like these:
 
     `SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=`
 
-These are from Fiddler:
+These values are from [Fiddler](http://www.telerik.com/fiddler):
 
 **Request:**
 
@@ -503,7 +501,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Response body (XML):** This shows the list of blobs and their properties. 
+**Response body (XML):** This XML response shows the list of blobs and their properties. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
