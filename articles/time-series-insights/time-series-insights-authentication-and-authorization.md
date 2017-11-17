@@ -1,25 +1,22 @@
 ---
-title: Configure authentication and authorization for a custom application that calls the Azure Time Series Insights API | Microsoft Docs
-description: This tutorial explains how to configure authentication and authorization for a custom application that calls the Azure Time Series Insights API
-keywords:
+title: How to configure authentication and authorization for a custom application to call the Azure Time Series Insights API | Microsoft Docs
+description: This article describes how to configure authentication and authorization for a custom application that calls the Azure Time Series Insights API.
 services: time-series-insights
-documentationcenter:
+ms.service: time-series-insights
 author: dmdenmsft
-manager: almineev
-editor: cgronlun
-
-ms.assetid:
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/24/2017
 ms.author: dmden
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
 ---
+
 # Authentication and authorization for Azure Time Series Insights API
 
-This article explains how to configure a custom application that calls the Azure Time Series Insights API.
+This article explains how to configure the authentication and authorization used in a custom application that calls the Azure Time Series Insights API.
 
 ## Service principal
 
@@ -98,11 +95,9 @@ Here are the detailed steps:
     string accessToken = token.AccessToken;
     ```
 
+Use the application ID and key in your application to authenticate with Azure Time Series Insight. 
+
 ## Next steps
-
-Use the application ID and key in your application. For sample code that calls the Time Series Insights API, see [Query data using C#](time-series-insights-query-data-csharp.md).
-
-## See also
-
-* [Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) for the full Query API reference
-* [Create a service principal in the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- For sample code that calls the Time Series Insights API, see [Query data using C#](time-series-insights-query-data-csharp.md).
+- For API reference information, see [Query API reference](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
+- [Create a service principal in the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)

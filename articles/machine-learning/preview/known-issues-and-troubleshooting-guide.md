@@ -15,10 +15,8 @@ ms.date: 09/20/2017
 # Azure Machine Learning Workbench - Known Issues And Troubleshooting Guide 
 This article helps you find and correct errors or failures encountered as a part of using the Azure Machine Learning Workbench application. 
 
-> [!IMPORTANT]
-> When communicating with the support team, it is important to have the build number. You can find out the build number of the app by clicking on the **Help** menu. Clicking on the build number copies it to your clipboard. You can paste it into emails or support forums to help report issues.
-
-![check version number](media/known-issues-and-troubleshooting-guide/buildno.png)
+## Find the Workbench build number
+When communicating with the support team, it is important to include the build number of the Workbench app. On Windows, you can find out the build number by clicking on the **Help** menu and choose **About Azure ML Workbench**. On macOS, you can click on the **Azure ML Workbench** menu and choose **About Azure ML Workbench**.
 
 ## Machine Learning MSDN Forum
 We have an MSDN Forum that you can post questions. The product team monitors the forum actively. 
@@ -72,17 +70,24 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
     >This limit doesn't apply to `.git`, `docs` and `outputs` folders. These folder names are case-sensitive. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](how-to-read-write-files.md).
 
 - Max allowed experiment execution time: seven days
+
 - Max size of tracked file in `outputs` folder after a run: 512 MB
   - This means if your script produces a file larger than 512 MB in the outputs folder, it is not collected there. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](how-to-read-write-files.md).
 
 - SSH keys are not supported when connecting to a remote machine or Spark cluster over SSH. Only username/password mode is currently supported.
+
+- When using HDInsight cluster as compute target, it must use Azure blob as primary storage. Using Azure Data Lake Storage is not supported.
 
 - Text clustering transforms are not supported on Mac.
 
 - RevoScalePy library is only supported on Windows and Linux (in Docker containers). It is not supported on macOS.
 
 ## Can't update Workbench
-When a new update is available, the Workbench app homepage displays a message informing you about the new update. You should see an update badge appearing on the lower left corner of the app on the bell icon. Click on the badge and follow the installer wizard to install the update. If you don't see the notification, try to restart the app. If you still don't see the update notification after restart, there might be a few causes.
+When a new update is available, the Workbench app homepage displays a message informing you about the new update. You should see an update badge appearing on the lower left corner of the app on the bell icon. Click on the badge and follow the installer wizard to install the update. 
+
+![update image](./media/known-issues-and-troubleshooting-guide/update.png)
+
+If you don't see the notification, try to restart the app. If you still don't see the update notification after restart, there might be a few causes.
 
 ### You are launching Workbench from a pinned shortcut on the task bar
 You may have already installed the update. But your pinned shortcut is still pointing to the old bits on disk. You can verify this by browsing to the `%localappdata%/AmlWorkbench` folder and see if you have latest version installed there, and examine the property of the pinned shortcut to see where it is pointing to. If verified, simply remove the old shortcut, launch Workbench from Start menu, and optionally create a new pinned shortcut on the task bar.

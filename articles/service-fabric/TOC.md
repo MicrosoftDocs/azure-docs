@@ -278,7 +278,6 @@
 ##### [During workloads](service-fabric-testability-workload-tests.md)
 ##### [Using test scenarios](service-fabric-testability-scenarios.md)
 ##### [Using the node transition APIs](service-fabric-node-transition-apis.md)
-#### [Load test your application](service-fabric-vso-load-test.md)
 
 ### [Deploy your Linux Java application using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 

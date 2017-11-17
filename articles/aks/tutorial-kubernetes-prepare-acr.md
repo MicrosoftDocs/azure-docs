@@ -9,7 +9,7 @@ editor: ''
 tags: aks, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
+ms.assetid:
 ms.service: container-service
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -29,13 +29,13 @@ Azure Container Registry (ACR) is an Azure-based, private registry, for Docker c
 > * Tagging a container image for ACR
 > * Uploading the image to ACR
 
-In subsequent tutorials, this ACR instance is integrated with a Kubernetes cluster in AKS. 
+In subsequent tutorials, this ACR instance is integrated with a Kubernetes cluster in AKS.
 
 ## Before you begin
 
 In the [previous tutorial](./tutorial-kubernetes-prepare-app.md), a container image was created for a simple Azure Voting application. If you have not created the Azure Voting app image, return to [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
 
-This tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+This tutorial requires that you are running the Azure CLI version 2.0.21 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Deploy Azure Container Registry
 
@@ -114,7 +114,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## Push images to registry
 
-Push the `azure-vote-front` image to the registry. 
+Push the `azure-vote-front` image to the registry.
 
 Using the following example, replace the ACR loginServer name with the loginServer from your environment.
 
