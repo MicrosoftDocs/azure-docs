@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 11/17/2017
 ms.author: billmath
 
 ---
@@ -41,7 +41,7 @@ Use the following steps to configure Azure AD Terms of Use:
 3. View the Azure AD Terms of User dashboard at [https://aka.ms/catou](https://aka.ms/catou).
 
 >[!IMPORTANT]
->Conditional access policy controls (including terms of use) does not support enforcemnet on service accounts.  We recommend excluding all service accounts from the conditional access policy.
+>Conditional access policy controls (including terms of use) do not support enforcement on service accounts.  We recommend excluding all service accounts from the conditional access policy.
 
 ## Add Company Terms of Use
 Once you have finalized your Terms of Use, use the following procedure to add it.
