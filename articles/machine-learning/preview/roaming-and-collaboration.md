@@ -181,7 +181,7 @@ To illustrate the collaboration flow, let's walk through the following scenario.
     $ git add -A
 
     $ commit them with a comment
-    $ git commit -m "this is a good milestone"
+    $ git commit -m "I found a cool new trick."
 
     $ create a new branch on the remote VSTS Git repo, and push changes
     $ git push origin bob
