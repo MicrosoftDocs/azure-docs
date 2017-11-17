@@ -68,12 +68,12 @@ The long description is displayed on your landing page in the Office Store. It s
 
 In your long description, answer the following questions:
 
-
 - How does your solution benefit its user?
 - What is special about it?
 - What are different ways someone could use your it?
 - What industries or specialists would use it?
-Most users will read between 300 and 500 words. The maximum length for long descriptions is 4,000 characters.
+
+Most users read between 300 and 500 words. The maximum length for long descriptions is 4,000 characters.
 
 You might want to list features to aid readers scanning your description. To create a bulleted list in the Seller Dashboard, use the following formatting: 
 
@@ -83,10 +83,8 @@ Features:
 
 [#LI] Second feature[/#LI]
 
-
-## Apply guidelines for title and description length
 <a name="bk_describe"> </a>
-
+## Apply guidelines for title and description length
 
 |**Item**|**Maximum length**|**Recommended length**|**Include key message in the...**|
 |:-----|:-----|:-----|:-----|
@@ -97,11 +95,9 @@ Features:
 <a name="bk_images"> </a>
 ## Create a consistent visual identity 
 
-
 Your name and description can be powerful tools to draw in potential customers. You also want to present a unified visual identity for your solution. The logo you use is important. Two files represent your logo. To present a consistent logo, both images should be of the same logo or icon. This way, the user sees the same logo in the Office Store and when the solution is displayed in Office or SharePoint. The two images have different formatting requirements.
 
 Your logo should:
-
 
 - Convey how your solution helps the customer get work done.
 - Use simple imagery. Don't clutter or complicate your image.
@@ -115,14 +111,11 @@ When you submit Office Add-ins, you specify an image in your manifest file, and 
 
 For SharePoint Add-ins, you include an image in your add-in package, and upload an image with your Seller Dashboard submission. These two images have to match for your add-in to validate.
 
-
 ### Create an icon for your add-in
 
-For Office Add-ins that you are submitting to the Office Store, you have to link to an image by using the  [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) in the manifest. This image represents your add-in within an Office application.
+For Office Add-ins that you are submitting to the Office Store, you have to link to an image by using the [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) in the manifest. This image represents your add-in within an Office application.
 
 The formatting requirements for this image differ depending on the add-in type. The following table lists the requirements for the icon image, by add-in type.
-
-
 
 ||**Outlook add-ins**|**Task pane and content add-ins**|
 |:-----|:-----|:-----|
@@ -131,11 +124,11 @@ The formatting requirements for this image differ depending on the add-in type. 
 |Size|For best appearance, make your icon 64 x 64 pixels. There is no specific size limit, but Outlook will resize the icon to 64 x 64 if necessary. This might result in a less-than-optimal icon display. |Must be 32 x 32 pixels.|
 |Display location|Exchange Administration Center|Office client interface. The Insertion dialog, MRU list, or context box.|
 |Localization| [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) supports culture-specific images in the manifest.| [IconUrl element](http://msdn.microsoft.com/library/c7dac2d4-4fda-6fc7-3774-49f02b2d3e1e%28Office.15%29.aspx) supports culture-specific images in the manifest.|
+
 For SharePoint Add-ins, you have to include an icon in the add-in's package. The image must be 96x 96 pixels. You must also specify this image when you submit your add-in through the Seller Dashboard.
 
-
-## Use screenshots effectively
 <a name="bk_screenshots"> </a>
+## Use screenshots effectively
 
 Make your screenshots rich and informative. Help customers understand how your solution solves problems and helps them get work done more effectively. In your screenshots:
 
@@ -150,11 +143,11 @@ Make your screenshots rich and informative. Help customers understand how your s
 |**Do**|**Don't**|
 |:------------|:--------------|
 |Use clear and simple captions to convey your add-in's value.|Don’t use callouts that obstruct important content.|
-|![Screenshot of an add-in with a clear and simple caption](images/screenshot-do.png)|![Screenshot of an add-in with callouts that obstruct the text](images/screenshot-dont-1b.png)|
+|<img alt="Screenshot of an add-in with a clear and simple caption" src="images/screenshot-do.png" width="400"> |<img alt="Screenshot of an add-in with callouts that obstruct the text" src="images/screenshot-dont-1b.png" width="400"> |
 |When needed, make content legible with magnified close-ups.|Don't highlight more than one section.|
-|![Screenshot of an add-in with one magnified closeup](images/highlight-do.png)|![Screenshot of an add-in with two magnified closeups](images/highlight-dont.png)|
+|<img alt="Screenshot of an add-in with one magnified closeup" src="images/highlight-do.png" width="400">|<img alt="Screenshot of an add-in with two magnified closeups" src="images/highlight-dont.png" width="400">|
 |Incorporate recognizable brand elements like color or logo into screenshots.|Don't add unnecessary graphic elements that obstruct content.|
-|![Screenshot of an add-in with color and logo](images/brand-color-do-1b.png)|![Screenshot of an add-in with multiple graphic elements](images/brand-color-dont-1b.png)|
+|<img alt="Screenshot of an add-in with color and logo" src="images/brand-color-do-1b.png" width="400">|<img alt="Screenshot of an add-in with multiple graphic elements" src="images/brand-color-dont-1b.png" width="400">|
 
 ## Use ratings and reviews
 <a name="bk_ratings"> </a>
