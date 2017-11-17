@@ -1,6 +1,6 @@
 {
     "redirections": [
-         {
+        {
 	    "source_path": "articles/cognitive-services/Video/Home.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
 	    "redirect_document_id": false 
@@ -6558,11 +6558,6 @@
         {
             "source_path": "articles/cognitive-services/Content-Moderator/review-api-authentication.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/review-api",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/LUIS/index.md",
-            "redirect_url": "/azure/cognitive-services/LUIS/Home",
             "redirect_document_id": false
         },
         {
