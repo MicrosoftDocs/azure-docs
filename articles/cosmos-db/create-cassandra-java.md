@@ -26,9 +26,9 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 ## Prerequisites
 
-Access to the Azure Cosmos DB Cassandra API preview program. If you haven't applied for access yet, [sign up now](https://aka.ms/cosmosdb-cassandra-signup).
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
+
+Access to the Azure Cosmos DB Cassandra API preview program. If you haven't applied for access yet, [sign up now](cassandra-introduction.md#sign-up-now).
 
 In addition: 
 
@@ -39,6 +39,8 @@ In addition:
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
 * [Git](https://www.git-scm.com/)
     * On Ubuntu, you can run `sudo apt-get install git` to install Git.
+
+
 
 ## Create a database account
 
