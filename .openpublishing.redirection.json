@@ -1526,6 +1526,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/store-php-create-mysql-database.md",
+            "redirect_url": "https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service-web/app-service-web-app-performance-test.md",
             "redirect_url": "https://www.visualstudio.com/docs/test/performance-testing/app-service-web-app-performance-test",
             "redirect_document_id": false
@@ -1817,7 +1822,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-migration-from-iis-server.md",
-            "redirect_url": "https://www.movemetothecloud.net/",
+            "redirect_url": "https://www.migratetoazure.net/",
             "redirect_document_id": false
         },
         {
