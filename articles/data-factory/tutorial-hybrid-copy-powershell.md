@@ -309,6 +309,8 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
 1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>**, and **&lt;password>** with values of your SQL Server before saving the file. 
 
+    **If you are using SQL authentication (sa):**
+
     > [!IMPORTANT]
     > Replace  **&lt;integration** **runtime** **name>** with the name of your integration runtime.
 
@@ -329,7 +331,32 @@ In this section, you can create a Self-hosted integration runtime and associate 
 		},
 		"name": "SqlServerLinkedService"
 	}
-   ```
+   ```    
+    **If you are using Windows authentication (sa):**
+
+    ```json
+    {
+        "properties": {
+            "type": "SqlServer",
+            "typeProperties": {
+                "connectionString": {
+                    "type": "SecureString",
+                    "value": "Server=<server>;Database=<database>;Integrated Security=True"
+                },
+                "userName": "<domain>\\<user>",
+                "password": {
+                    "type": "SecureString",
+                    "value": "<password>"
+                }
+            },
+            "connectVia": {
+                "type": "integrationRuntimeReference",
+                "referenceName": "<integration runtime name>"
+            }
+        },
+        "name": "SqlServerLinkedService"
+    }    
+    ```
 2. To encrypt the sensitive data from the JSON payload on the on-premise self-hosted integration runtime, run **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** and pass on the above JSON payload. This encryption ensures  that the credentials are encrypted using Data Protection Application Programming Interface (DPAPI). The encrypted credentials are stored on the self-hosted integration runtime node locally (local machine). The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json') which contains encrypted credentials.
     
    ```powershell
