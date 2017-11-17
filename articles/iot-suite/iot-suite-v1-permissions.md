@@ -147,7 +147,7 @@ To continue learning about IoT Suite, see how you can [customize a preconfigured
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles-azure-portal.md
+[lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
