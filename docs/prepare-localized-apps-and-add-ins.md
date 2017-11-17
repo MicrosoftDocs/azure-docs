@@ -47,13 +47,10 @@ In the Seller Dashboard, you can explicitly block markets in which to distribute
 
  
 Users can verify whether a market-specific Office Store front is available for a market by selecting that market in the upper-right of the store page, as shown in Figure 1. From there, users either are directed to the market-specific store front, or if that store front is not available, see a message that suggests that they go the Office Store in the United States.
- 
-
- 
 
 *Figure 1. Verify or choose a different market in the Office Store*
 
-![Choose a different market for the Office Store](/images/mod-office15-office-store-choose-market.png)
+![Choose a different market for the Office Store](images/mod-office15-office-store-choose-market.png)
  
 The following table lists the submission languages that the Office Store is available in, and the locales and markets that correspond to each of these languages. For a list of all the languages and locales for which you can localize an app or add-in, see [Language identifiers and OptionState Id values in Office 2013](http://technet.microsoft.com/en-us/library/cc179219%28Office.15%29.aspx).
  
