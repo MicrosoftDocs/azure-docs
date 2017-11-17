@@ -19,9 +19,9 @@ There are several common reasons why you might not see your data in the [Azure T
 Azure Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](time-series-insights-send-events.md#supported-json-shapes).
 
 ### Possible cause B: Event source key is missing a required permission
-* For an IoT hub, you need to provide the key that has **service connect** permission.
+* For an IoT Hub, you need to provide the key that has **service connect** permission.
 
-   ![IoT hub service connect permission](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
+   ![IoT Hub service connect permission](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
    As shown in the preceding image, either of the policies **iothubowner** and **service** would work, because both have **service connect** permission.
    
@@ -32,13 +32,13 @@ Azure Time Series Insights supports only JSON data. For JSON samples, see [Suppo
    As shown in the preceding image, either of the policies **read** and **manage** would work, because both have **Listen** permission.
 
 ### Possible cause C: The consumer group provided is not exclusive to Time Series Insights
-During registration of am IoT hub or an event hub, you specify the consumer group that should be used for reading the data. This consumer group must **not** be shared. If the consumer group is shared, the underlying event hub automatically disconnects one of the readers randomly. Provide a unique consumer group for Time Series Insights to read from.
+During registration of am IoT Hub or an event hub, you specify the consumer group that should be used for reading the data. This consumer group must **not** be shared. If the consumer group is shared, the underlying event hub automatically disconnects one of the readers randomly. Provide a unique consumer group for Time Series Insights to read from.
 
 ## Problem 2: Some data is shown, but some is missing
 When you can see data partially, but the data is lagging behind, there are several possibilities to consider:
 
 ### Possible cause A: Your environment is getting throttled
-The throttling limit is enforced based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT hub or event hub is pushing data beyond the enforced limits, you see throttling and a lag.
+The throttling limit is enforced based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT Hub or event hub is pushing data beyond the enforced limits, you see throttling and a lag.
 
 The following diagram shows a Time Series Insights environment that has a SKU of S1 and a capacity of 3. It can ingress 3 million events per day.
 
@@ -56,7 +56,7 @@ For a high-level understanding of how flattening logic works, see [Supported JSO
 To fix the lag, increase the SKU capacity of your environment. For more information, see [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
 
 ### Possible cause B: Initial ingestion of historical data is causing slow ingress
-If you are connecting an existing event source, it's likely that your IoT hub or event hub already has data in it. The environment starts pulling data from the beginning of the event source's message retention period.
+If you are connecting an existing event source, it's likely that your IoT Hub or event hub already has data in it. The environment starts pulling data from the beginning of the event source's message retention period.
 
 This behavior is the default behavior and cannot be overridden. You can engage throttling, and it may take a while to catch up on ingesting historical data.
 

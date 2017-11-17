@@ -1,6 +1,6 @@
 ---
 title: Supported connections with IT Service Management Connector in Azure Log Analytics | Microsoft Docs
-description: Connect your ITSM products/services with IT Service Management Connector in Azure Log Analytics to centrally monitor and manage the ITSM work items.
+description: This article provides information about how to connect your ITSM products/services with the IT Service Management Connector (ITSMC) in OMS Log Analytics to centrally monitor and manage the ITSM work items.
 documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -15,9 +15,9 @@ ms.date: 05/29/2017
 ms.author: v-jysur
 ---
 # Connect ITSM products/services with IT Service Management Connector (Preview)
-This article provides information about how to connect your ITSM product/service to IT Service Management Connector (ITSMC) in OMS and centrally manage your work items. For more information about ITSMC, see [ITSMC Overview](log-analytics-itsmc-overview.md).
+This article provides information about how to connect your ITSM product/service to IT Service Management Connector (ITSMC) in OMS and centrally manage your work items. For more information about ITSMC, see [Overview](log-analytics-itsmc-overview.md).
 
-The following products/services are supported:
+The following ITSM products/services are supported. Select the product to view detailed information about how to connect the product to ITSMC.
 
 - [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
@@ -157,7 +157,7 @@ Your hybrid connection is successfully connected.
 
 > After the hybrid connection is created, verify and test the connection by visiting the deployed Service Manager Web app. Ensure the connection is successful before you try to connect to ITSMC in OMS.
 
-The following image shows the details of a successful connection:
+The following sample image shows the details of a successful connection:
 
 ![Hybrid connection test](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 

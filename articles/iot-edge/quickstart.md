@@ -99,6 +99,8 @@ Check Docker to see that the IoT Edge agent is running as a module.
 docker ps
 ```
 
+![See edgeAgent in Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
+
 ## Deploy a module
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
@@ -107,11 +109,21 @@ docker ps
 
 In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to push an IoT Edge module to run on the device without having to make changes to the device itself. In this case, the module that you pushed creates environmental data that you can use for the tutorials. 
 
-View the messages being sent from the tempSensor module:
+Open the command prompt on the computer running your simulated device again. Confirm that the module deployed from the cloud is running on your IoT Edge device. 
 
-```cmd/sh
+```cmd
+docker ps
+```
+
+![View three modules on your device](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+View the messages being sent from the tempSensor module to the cloud. 
+
+```cmd
 docker logs -f tempSensor
 ```
+
+![View the data from your module](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer]. 
 ## Clean up resources
