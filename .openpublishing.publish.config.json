@@ -122,6 +122,11 @@
         "path_to_root": "samples-luis",
         "url": "https://github.com/Microsoft/Luis-Samples",
         "branch":"master"
-    }
+		},
+		{
+					"path_to_root": "WebApp-OpenIdConnect-DotNet",
+					"url": "https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet.git",
+					"branch": "GuidedSetup"
+				},
 	]
 }
