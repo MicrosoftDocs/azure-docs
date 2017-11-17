@@ -25,6 +25,8 @@
     href: traffic-coverage.md
 - name: How-to guides
   items:
+  - name: Manage account and keys
+    href: how-to-manage-account-keys.md
 - name: Reference
   items:
   - name: Resources

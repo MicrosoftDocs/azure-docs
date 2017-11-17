@@ -23,10 +23,10 @@ ms.custom: H1Hack27Feb2017
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
-This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple on-line store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
+This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple online store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
 ## Example workload
-Adventure Works Cycles wants to build an on-line store application in Azure that consists of:
+Adventure Works Cycles wants to build an online store application in Azure that consists of:
 
 * Two IIS servers running the client front-end in a web tier
 * Two IIS servers processing data and orders in an application tier
@@ -38,7 +38,7 @@ Adventure Works Cycles wants to build an on-line store application in Azure that
 
 ![Diagram of different tiers for application infrastructure](./media/infrastructure-example/example-tiers.png)
 
-Incoming secure web traffic must be load-balanced among the web servers as customers browse the on-line store. Order processing traffic in the form of HTTP requests from the web servers must be balanced among the application servers. Additionally, the infrastructure must be designed for high availability.
+Incoming secure web traffic must be load-balanced among the web servers as customers browse the online store. Order processing traffic in the form of HTTP requests from the web servers must be balanced among the application servers. Additionally, the infrastructure must be designed for high availability.
 
 The resulting design must incorporate:
 
@@ -52,7 +52,7 @@ The resulting design must incorporate:
 All the above follow these naming conventions:
 
 * Adventure Works Cycles uses **[IT workload]-[location]-[Azure resource]** as a prefix
-  * For this example, "**azos**" (Azure On-line Store) is the IT workload name and "**use**" (East US 2) is the location
+  * For this example, "**azos**" (Azure Online Store) is the IT workload name and "**use**" (East US 2) is the location
 * Virtual networks use AZOS-USE-VN**[number]**
 * Availability sets use azos-use-as-**[role]**
 * Virtual machine names use azos-use-vm-**[vmname]**
@@ -82,7 +82,7 @@ They created a cloud-only virtual network with the following settings using the 
   * Address space: 10.0.2.0/24
 
 ## Availability sets
-To maintain high availability of all four tiers of their on-line store, Adventure Works Cycles decided on four availability sets:
+To maintain high availability of all four tiers of their online store, Adventure Works Cycles decided on four availability sets:
 
 * **azos-use-as-web** for the web servers
 * **azos-use-as-app** for the application servers
@@ -109,7 +109,7 @@ This configuration incorporates:
 
 * A cloud-only virtual network with two subnets (FrontEnd and BackEnd)
 * Azure Managed Disks with both Standard and Premium disks
-* Four availability sets, one for each tier of the on-line store
+* Four availability sets, one for each tier of the online store
 * The virtual machines for the four tiers
 * An external load balanced set for HTTPS-based web traffic from the Internet to the web servers
 * An internal load balanced set for unencrypted web traffic from the web servers to the application servers
