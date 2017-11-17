@@ -31,7 +31,7 @@ If you're using **python 3.x**, you need to use the command **pip3** for the fol
  
     ![Python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-2.	Install Jupyter
+2.	Install Jupyter.
     ```
     sudo pip install jupyter
     ```
