@@ -263,7 +263,7 @@ Both methods allow an add-in to get the license the same way it would if it were
 1. Create or open a content or task pane add-in project in Visual Studio.
 2. In the  **Solution Explorer**, right-click the Office project (the first of the two projects in the solution, not the second Web project), and choose  **Open Folder in File Explorer**.
 3. Go to  `...bin\Debug\OfficeAppManifests` (substitute "Debug" with "Release" if your project is configured for Release builds). This folder is created automatically after the first time you build or debug your project.
-4. Add a token file to the folder. The token file name must be the same as the manifest file name and have a .tok file extension. The following code shows an example of a token file. Refer to the  [Office and SharePoint Add-in license XML schema structure](office-and-sharepoint-add-in-license-xml-schema-structure.md) for details about the attribute values you can set in the **t** element of the token file.
+4. Add a token file to the folder. The token file name must be the same as the manifest file name and have a .tok file extension. The following code shows an example of a token file. Refer to the [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md) for details about the attribute values you can set in the **t** element of the token file.
     
     In this example, the user is signed in with a Microsoft account. The  **cid** value is set for Microsoft account users.
     
@@ -341,7 +341,7 @@ Both methods allow an add-in to get the license the same way it would if it were
     </OfficeApp>
     ```
 
-3. Add the token file to the folder. The token file name must be the same as the manifest file name and must have a .tok file extension. The following code shows an example token file. Refer to the  [Office and SharePoint Add-in license XML schema structure](office-and-sharepoint-add-in-license-xml-schema-structure.md) for details about the attribute values you can set in the **t** element of the token file.
+3. Add the token file to the folder. The token file name must be the same as the manifest file name and must have a .tok file extension. The following code shows an example token file. Refer to the  [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md) for details about the attribute values you can set in the **t** element of the token file.
     
     ```XML
     <r>
@@ -377,7 +377,7 @@ Both methods allow an add-in to get the license the same way it would if it were
 ## Add license checks to your SharePoint Add-in
 <a name="bk_add"> </a>
 
-You can create test licenses and import them into your SharePoint deployment. To assist in testing the add-in license checking code, SharePoint enables you to upload up to ten test licenses per deployment. These test licenses are XML fragments that conform to the  [Office and SharePoint Add-in license XML schema structure](office-and-sharepoint-add-in-license-xml-schema-structure.md).
+You can create test licenses and import them into your SharePoint deployment. To assist in testing the add-in license checking code, SharePoint enables you to upload up to ten test licenses per deployment. These test licenses are XML fragments that conform to the [Office and SharePoint Add-in license XML schema structure](add-in-license-schema.md).
  
 
  
