@@ -25,10 +25,10 @@ This functionality is handy for managing storage or software outside of each ind
 ## Attach a data disk
 Before you attach a data disk to a VM, review these tips:
 
-- The size of the VM controls how many data disks you can attach. For details, see [Sizes for virtual machines]( (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+- The size of the VM controls how many data disks you can attach. For details, see [Sizes for virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
 - You can only attach a data disk to a VM that is running. Make sure the VM is running before you try to attach a data disk.
-- Azure creates the data disk automatically when you attach a new one to your VM.
 
+### Attach a new disk
 Follow these steps to create and attach a new managed data disk to a VM in Azure DevTest Labs.
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -38,7 +38,7 @@ Follow these steps to create and attach a new managed data disk to a VM in Azure
 1. From the menu on the left, select **Disks**.
 
     ![Select data disks for a virtual machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-data-disk.png)
-1. If a disk is listed under **DATA DISKS**, you can select **Attach existing** to attach it to the VM. Otherwise, choose **Attach new** to create a new data disk and attach it to the VM.
+1. Choose **Attach new** to create a new data disk and attach it to the VM.
 
     ![Attach new data disk to a virtual machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new.png)
 1. Complete the **Attach new disk** pane by entering a data disk name, type, and size.
@@ -47,6 +47,18 @@ Follow these steps to create and attach a new managed data disk to a VM in Azure
 1. Select **OK**.
 
 After a few moments, the new data disk is created and attached to the VM and appears in the list of **DATA DISKS** for that VM.
+
+### Attach an existing disk
+Follow these steps to reattach an existing available data disk to a running VM. 
+
+1. Select a running VM for which you want to reattach a data disk.
+1. From the menu on the left, select **Disks**.
+1. Select **Attach existing** to attach an available data disk to the VM.
+1. From the **Attach existing disk** pane, select OK.
+
+    ![Attach existing data disk to a virtual machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing.png)
+
+After a few moments, the data disk is attached to the VM and appears in the list of **DATA DISKS** for that VM.
 
 ## Detach a data disk
 When you no longer need a data disk that's attached to a VM, you can easily detach it. Detaching removes the disk from the VM, but keeps it in storage for use later.
@@ -79,22 +91,10 @@ The disk is detached and is available to attach to another VM.
    >
    >
 
-## Reattach a data disk
-Follow these steps to reattach an existing available data disk to a running VM. 
-
-1. Select a running VM for which you want to reattach a data disk.
-1. From the menu on the left, select **Disks**.
-
-    ![Select data disks for a virtual machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-data-disk.png)
-1. Select **Attach existing** to attach an available data disk to the VM.
-1. From the **Attach existing disk** pane, select OK.
-
-    ![Attach existing data disk to a virtual machine](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing.png)
-
 ## Upgrade an unmanaged data disk
 If you have an existing VM that uses unmanaged data disks, you can easily convert the VM to use managed disks. This process converts both the OS disk and any attached data disks.
 
-To upgrade an unmanaged data disk, follow the steps outlined in this article to detach the data disk from an unmanaged VM. Then, reattach it to a managed VM to automatically upgrade the data disk from unmanaged to managed.
+To upgrade an unmanaged data disk, follow the steps outlined in this article to [detach the data disk](#detach-a-data-disk) from an unmanaged VM. Then, [reattach the disk](#attach-an-existing-disk) to a managed VM to automatically upgrade the data disk from unmanaged to managed.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
