@@ -7,7 +7,7 @@ You enter the Store listing information on the Details page in the Seller Dashbo
 
 
 ## App name
-In the **App name** field, specify the title that will be displayed in the Store. For guidance for titles, see [Use a succinct and descriptive title](create-effective-office-store-listings#use-a-succinct-and-descriptive-title).
+In the **App name** field, specify the title that will be displayed in the Store. For guidance for titles, see [Use a succinct and descriptive title](create-effective-office-store-listings.md#use-a-succinct-and-descriptive-title).
 
 ## Short description and long description
 
@@ -21,7 +21,7 @@ Both the short description and long description appear in the Office Store listi
 | Short description | 100 characters    | 70 characters         |First 30 characters            |
 | Long description  | 4,000 characters  | 300-500 characters    |First 300 characters           |
 
-For additional guidance for descriptions, see [Write compelling descriptions](create-effective-office-store-listings#write-compelling-descriptions).
+For additional guidance for descriptions, see [Write compelling descriptions](create-effective-office-store-listings.md#write-compelling-descriptions).
 
 ## Screenshots
 
@@ -29,7 +29,7 @@ Your screenshots appear on the Store details page and can help draw in potential
 
 At a minimum, you must supply a **Primary** screenshot. You can optionally provide an additional four images. Screenshot images must have a file extention of .png, .jpg, .jpeg, or .gif. Each screen shot must be exactly 1366 pixels wide and 768 pixels high (1366 x 768) and no larger than 1024 KB.
 
-For guidance for creating compelling screenshots, see [Use screenshots effectively](create-effective-office-store-listings#use-screenshots-effectively).
+For guidance for creating compelling screenshots, see [Use screenshots effectively](create-effective-office-store-listings.md#use-screenshots-effectively).
  
 ## Regional availability
 
