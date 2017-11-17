@@ -82,20 +82,17 @@ You use the name and key of your Azure storage account name in this quickstart. 
 #### Create the adftutorial container 
 In this section, you create a blob container named: adftutorial in your Azure blob storage. 
 
-1. Install [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) if you do not have it on your machine. 
-2. Launch **Microsoft Azure Storage Explorer** on your machine.   
-3. In the **Connect to Azure Storage** window, select **Use a storage account name and key**, and click **Next**. If you don't see the **Connect to Azure Storage** window, right-click **Storage Accounts** in the tree view, and click **Connect to Azure storage**. 
+1. In the **Storage account** page, click **Blobs**. 
 
-    ![Connect to Azure storage](media/tutorial-hybrid-copy-powershell/storage-explorer-connect-azure-storage.png)
-4. In the **Attach using Name and Key** window, paste the **Account name** and **Account key** you have saved in the previous step. Then, click **Next**. 
-5. In the **Connection Summary** window, click **Connect**.
-6. Confirm that you see your storage account in the tree view under **(Local and Attached)** -> **Storage Accounts**. 
-7. Expand **Blob Containers** and confirm that a blob container named **adftutorial** does not exist. If it already exists, skip the next steps for creating the container. 
-8. Right-click **Blob Containers**, and select **Create Blob Container**.
+    ![Select Blobs option](media/tutorial-hybrid-copy-powershell/select-blobs.png)
+1. In the **Blob service** page, click **+ Container** on the toolbar. 
 
-    ![Create blob container](media/tutorial-hybrid-copy-powershell/stroage-explorer-create-blob-container-menu.png)
-9. Enter **adftutorial** for the name and press **ENTER**. 
-10. Confirm that the **adftutorial** container is selected in the tree view. Data Factory automatically creates the output folder in this container, so you don't need to create one. 
+    ![Add container button](media/tutorial-hybrid-copy-powershell/add-container-button.png)
+3. In the **New container** dialog, enter **adftutorial** for the name, and click **OK**. 
+
+    ![Enter container name](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
+4. Click **adftutorial** in the list of containers. Data Factory automatically creates the output folder in this container, so you don't need to create one. 
+5. Keep the **container** page for **adftutorial** open. You use it verify the output at the end of the tutorial.
 
 ### Azure PowerShell
 
@@ -230,8 +227,8 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
    ```json
    {
-       "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@ab1@eu@VDnzgySwUfaj3pfSUxpvfsXXXXXXx4GHiyF4wboad0Y=",
-       "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@ab1@eu@sh+k/QNJGBltXL46vXXXXXXXXOf/M1Gne5aVqPtbweI="
+       "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
+       "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
    ```
 
@@ -559,6 +556,15 @@ In this step, you create input and output datasets that represent input and outp
     ```
 ## Verify the output
 The pipeline automatically creates the output folder named `fromonprem` in the `adftutorial` blob container. Confirm that you see the **dbo.emp.txt** file in the output folder. Use [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to verify that the output is created. 
+
+1. In the Azure portal, on the **adftutorial** container page, click **Refresh** to see the output folder.
+
+    ![output folder created](media/tutorial-hybrid-copy-powershell/fromonprem-folder.png)
+2. Click `fromonprem` in the list of folders. 
+3. Confirm that you see a file named `dbo.emp.txt`.
+
+    ![output file](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
+
 
 ## Next steps
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to:
