@@ -22,7 +22,7 @@ ms.custom: mvc
 
 # Using Azure Files with Kubernetes
 
-Container based applications often need to access and persist data in an external data volume. Azure files can be used as this external data store. This article details using Azure files as a Kubernetes volume in Azure Container Service.
+Container-based applications often need to access and persist data in an external data volume. Azure files can be used as this external data store. This article details using Azure files as a Kubernetes volume in Azure Container Service.
 
 For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
 
@@ -55,9 +55,9 @@ STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_G
 
 ## Create Kubernetes Secret
 
-Kubernetes needs credentials to access the file share. These credentials are stored in a [Kubernetes secret][kubernetes-secret] which is referenced when creating a Kubernetes pod.
+Kubernetes needs credentials to access the file share. These credentials are stored in a [Kubernetes secret][kubernetes-secret], which is referenced when creating a Kubernetes pod.
 
-When creating a Kuberentes secret, the secret values must be base64 encoded.
+When creating a Kubernetes secret, the secret values must be base64 encoded.
 
 First, encode the name of the storage account. If needed, replace `$AKS_PERS_STORAGE_ACCOUNT_NAME` with the name of the Azure storage account.
 
