@@ -7,16 +7,16 @@
 - name: Quickstarts
   expanded: true
   items:
-#  - name: Build traffic app with Location Based Services
-#    href: quick-build-traffic-app.md
+#  - name: Map app using Location Based Services
+#    href: quick-demo-map-app.md
 - name: Tutorials
   items:
   - name: 1 - Search for point of interest
     href: tutorial-search-location.md
   - name: 2 - Route to point of interest
     href: tutorial-route-location.md
-#  - name: 3 - Routes based on mode of travel
-    #href: tutorial-prioritized-routes.md
+  - name: 3 - Routes prioritized by mode of travel
+    href: tutorial-prioritized-routes.md
 - name: Concepts
   items:
 - name: How-to guides
