@@ -47,55 +47,54 @@ If you don’t have an Azure subscription that meets these requirements, you can
 >
 
 1. Start Powershell ISE as an administrator.
-2. Log in to the Azure account that is an owner of the Azure subscription with -EnvironmentName parameter set to "AzureCloud".
+2. Sign in to the Azure account that is an owner of the Azure subscription (when you sign in, make sure to set the -EnvironmentName parameter to "AzureCloud").
 3. Register the Azure resource provider "Microsoft.AzureStack".
 
-Example: 
+**Example:** 
 ```Powershell
 Login-AzureRmAccount -EnvironmentName "AzureCloud"
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ```
 
-
 ## Register Azure Stack with Azure
 
 > [!NOTE]
-> All these steps must be run from a machine that has access to the PrivilegedEndpoint (it would be the host computer for > Azure Stack Development Kit).
+> All these steps must be run from a machine that has access to the Privileged endpoint (it would be the host computer for Azure Stack Development Kit).
 >
 
-1. Open a PowerShell console as an administrator [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
-2. Add the Azure account that you will be using to register your Azure Stack instance. To do this, run the `Add-AzureRmAccount` cmdlet without any parameters. You will be prompted to enter your Azure account credentials and you may have to use 2-factor authentication depending on your account’s configuration.  
-3. Now delete any existing versions of the powershell modules that correspond to registration and [download the latest version of it from GitHub](azure-stack-powershell-download.md).  
-4. From the "AzureStack-Tools-master" directory that is created in the above step, navigate to the **Registration** folder and find the .\RegisterWithAzure.psm1 module.  
-5. Verify that you are connected to the correct Azure subscription by using the Get-AzureRmContext command. 
-   * If you have multiple subscriptions, run the following command to select the one you want to use:
-    ```powershell
+1. Open a PowerShell console as an administrator and [install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
+2. Add the Azure account that you will be using to register Azure Stack. To do this, run the `Add-AzureRmAccount` cmdlet without any parameters. You will be prompted to enter your Azure account credentials and you may have to use 2-factor authentication depending on your account’s configuration.  
+3. If you have multiple subscriptions, run the following command to select the one you want to use:  
+   ```powershell
       Get-AzureRmSubscription -SubscriptionName '<Your Azure Subscription Name>' | Select-AzureRmSubscription
-    ```
-
-6. In the same PowerShell ISE session, copy the following script. Before you run the script, assign values to the $ADTenant and $SubId variables. When prompted for credentials, specify `azurestack\cloudadmin` as the user and the password is the same as what you used for the local administrator during deployment. 
-7. 
-
+   ```
+4. Delete any existing versions of the Powershell modules that correspond to registration and [download the latest version of it from GitHub](azure-stack-powershell-download.md).  
+5. From the "AzureStack-Tools-master" directory that is created in the above step, navigate to the **Registration** folder and import the ".\RegisterWithAzure.psm1" module:  
+   ```powershell 
+   Import-Module .\RegisterWithAzure.psm1 
+   ```
+6. In the same PowerShell session, run the following script. When prompted for credentials, specify `azurestack\cloudadmin` as the user and the password is the same as what you used for the local administrator during deployment.  
 
    ```powershell
-
-   	$ADTenantName = "Azure tenant directory associated with your Azure subscription, for example contoso.onmicrosoft.com"
-	$SubId = "ID of the Azure subscription that you want to use to register Azure Stack"
-	$creds = Get-Credential
-
-    Add-AzsRegistration -CloudAdminCredential $creds -AzureDirectoryTenantName $ADTenantName  -AzureSubscriptionId $SubId -PrivilegedEndpoint azs-ercs01 -BillingModel Development 
+   $AzureContext = Get-AzureRmContext
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message CloudAdmin
+   Add-AzsRegistration `
+       -CloudAdminCredential $CloudAdminCred `
+       -AzureSubscriptionId $AzureContext.Subscription.Id `
+       -AzureDirectoryTenantName $AzureContext.Tenant.TenantId `
+       -PrivilegedEndpoint AzS-ERCS01 `
+       -BillingModel Development 
    ```
 
    | Parameter | Description |
    | -------- | ------------- |
-   | *YourCloudAdminCredential* | is a PowerShell object that contains the local domain credentials for the domain\cloudadmin (for the development kit, this is azurestack\cloudadmin).
-   | *YourAzureSubscriptionID* | is the ID of the Azure subscription that you want to use to register Azure Stack.
-   | *YourAzureDirectoryTenantName* | is the name of the Azure tenant directory associated with your Azure subscription. The registration resource will be created in this directory tenant. 
-   | *YourPrivilegedEndpoint* | is the name of the [privileged end point](azure-stack-privileged-endpoint.md).
+   | CloudAdminCredential | The local domain credentials for the "domain\cloudadmin". For development kit, this value is set to "azurestack\cloudadmin". If you’re using an integrated system, contact your Azure Stack operator to get this value.|
+   | AzureSubscriptionId | The Azure subscription that you want to use to register Azure Stack.|
+   | AzureDirectoryTenantName | Name of the Azure tenant directory associated with your Azure subscription. The registration resource will be created in this directory tenant. |
+   | PrivilegedEndpoint | A pre-configured remote PowerShell console that provides you with capabilities like log collection and other post deployment tasks. For development kit, the privileged endpoint is hosted on the "AzS-ERCS01" virtual machine. If you’re using an integrated system, contact your Azure Stack operator to get this value. To learn more, refer to the [using the privileged end point](azure-stack-privileged-endpoint.md) topic.|
+   | BillingModel | The billing model that your subscription uses. Allowed values for this parameter are- "Capacity","PayAsYouUse", and "Development". For development kit, this value is set to "Development". If you’re using an integrated system, contact your Azure Stack operator to get this value. |
 
-5. When prompted for Azure credentials, enter your Azure subscription credentials.
-
-6. When the script completes, you see a message “Activating Azure Stack (this may take up to 10 minutes to complete).” 
+7. When the script completes, you see a message “Activating Azure Stack (this may take up to 10 minutes to complete).” 
 
 ## Verify the registration
 
