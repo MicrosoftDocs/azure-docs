@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service (.NET)
 
-In the previous tutorial, you learned how to set up a device to connect to your Device Provisioning service. In this tutorial, you will learn how to use this service to provision your device to a single IoT hub, using **_enrollment lists_**. This tutorial shows you how to:
+In the previous tutorial, you learned how to set up a device to connect to your Device Provisioning service. In this tutorial, you learn how to use this service to provision your device to a single IoT hub, using **_enrollment lists_**. This tutorial shows you how to:
 
 > [!div class="checklist"]
 > * Enroll the device
@@ -45,7 +45,7 @@ This step involves adding the device's unique security artifacts to the Device P
 There are two ways to enroll the device to the Device Provisioning Service:
 
 - **Individual Enrollments**
-    This represents an entry for a single device that may register with the Device Provisioning Service. Individual enrollments may use either x509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices which require unique initial configurations, or for devices which can only use SAS tokens via TPM or virtual TPM as the attestation mechanism. Individual enrollments may have the desired IoT hub device ID specified.
+    This represents an entry for a single device that may register with the Device Provisioning Service. Individual enrollments may use either x509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices, which require unique initial configurations, or for devices that can only use SAS tokens via TPM or virtual TPM as the attestation mechanism. Individual enrollments may have the desired IoT hub device ID specified.
 
 The following are the steps to enroll the device in the portal using **Individual Enrollments**:
 
@@ -141,7 +141,7 @@ The following are the steps to enroll the device in the portal using **Individua
         
 1. In the Visual Studio Solution Explorer, right-click your solution, and then click **Set StartUp Projects...**. Select **Single startup project**, and then select the **DeviceProvisioning** project in the dropdown menu.  
 
-1. Run the .NET device app **DeviceProvisiong**. It should setup provisiong for the device: 
+1. Run the .NET device app **DeviceProvisiong**. It should set up provisioning for the device: 
 
     ![Device app run](./media/tutorial-net-provision-device-to-hub/devicerun.png)
 
@@ -199,7 +199,7 @@ The following are the steps to enroll the device in the portal using **Enrollmen
     }
     ```
 
-1. Finally, replace the following code to the **Main** method to open the connection to your IoT hub and begin the group enrollement:
+1. Finally, replace the following code to the **Main** method to open the connection to your IoT hub and begin the group enrollment:
    
     ```csharp
     static void Main(string[] args)
@@ -221,21 +221,20 @@ The following are the steps to enroll the device in the portal using **Enrollmen
     }
     ```
 
-1. Run the .NET device app **DeviceProvisiong**. It should setup group provisiong for the device: 
+1. Run the .NET device app **DeviceProvisiong**. It should set up group provisioning for the device: 
 
     ![Device app run](./media/tutorial-net-provision-device-to-hub/devicerungroup.png)
 
 > [!NOTE]
-> To use X509 certificates, use the following code:
+> To use X509 certificates, replace `Tpm = new TpmAttestation() { EndorsementKey = endorsementKey }` with `X509 = certificate` in the code sample above. Then use the following code to create the attestation:
 >     ```csharp
 >     var certificateLocation = "{certificateFileLocation}";
 >
 >     var certificate = new X509Attestation();
 >     certificate.ClientCertificates = new X509Certificates();
 >     certificate.ClientCertificates.Primary = new X509CertificateWithInfo();
->     certificate.ClientCertificates.Primary.Certificate = new System.Security.Cryptography.X509Certificates.X509Certificate2(certificateLocation);
->     ```
-> Then replace `Tpm = new TpmAttestation() { EndorsementKey = endorsementKey }` with `X509 = certificate` in the code sample above.
+>     certificate.ClientCertificates.Primary.Certificate = new System.Security.Cryptography.X509Certificates.X509Certificate2(certificateLocation);    
+
 
 ## Start the device
 
@@ -253,7 +252,7 @@ Once your device boots, the following actions should take place. See the TPM sim
 
 1. The device sends a registration request to your Device Provisioning service.
 2. For TPM devices, the Device Provisioning Service sends back a registration challenge to which your device responds. 
-3. On successful registration, the Device Provisioning Service sends the IoT hub URI, device ID and the encrypted key back to the device. 
+3. On successful registration, the Device Provisioning Service sends the IoT hub URI, device ID, and the encrypted key back to the device. 
 4. The IoT Hub client application on the device then connects to your hub. 
 5. On successful connection to the hub, you should see the device appear in the IoT hub's **Device Explorer**. 
 
