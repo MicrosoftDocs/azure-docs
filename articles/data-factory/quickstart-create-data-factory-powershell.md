@@ -176,7 +176,7 @@ Create linked services in a data factory to link your data stores and compute se
             "type": "AzureStorage",
             "typeProperties": {
                 "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
+                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net",
                     "type": "SecureString"
                 }
             }

@@ -281,7 +281,7 @@ In this section, you can create a Self-hosted integration runtime and associate 
 			"typeProperties": {
 				"connectionString": {
 					"type": "SecureString",
-					"value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+					"value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>;EndpointSuffix=core.windows.net"
 				}
 			}
 		},
