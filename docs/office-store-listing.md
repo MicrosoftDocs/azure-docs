@@ -2,7 +2,8 @@
 
 You enter the Store listing information on the Details page in the Seller Dashboard. Your Store listing is where you communicate to customers what your solution does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the following information for each language. 
 
->**Note:** We recommend that you follow the guidelines in [Create effective Office Store listings](create-effective-office-store-listings.md) when you create your Office Store listing.
+> [!NOTE]
+> We recommend that you follow the guidelines in [Create effective Office Store listings](create-effective-office-store-listings.md) when you create your Office Store listing.
 
 
 ## App name
@@ -37,8 +38,9 @@ By default, your solution is listed in all possible markets, including any marke
 On the **Block access** page, if you don't want your app or add-in to be listed and sold in some countries/regions:
 
 - Select the **Block customers in certain countries/regions from purchasing this app** check box.
-- Choose **Select countries/regions**.
+- Select **Select countries/regions**.
 - In the **Select which countries/regions you would like to block** dialog box, choose the countries/regions that you want to block from purchasing your app or add-in.
-- Choose **Block countries/regions** or **Cancel** after making your selections. If you block a particular country/region, users in that region will not be able to acquire or use your app or add-in.
+- Select **Block countries/regions** or **Cancel** after making your selections. If you block a particular country/region, users in that region will not be able to acquire or use your app or add-in.
 
->**Note:** To submit a SharePoint Add-in that uses OAuth and that you want to distribute to China, you must block access for all countries except China.
+> [!NOTE]
+> To submit a SharePoint Add-in that uses OAuth and that you want to distribute to China, you must block access for all countries except China.

@@ -34,7 +34,8 @@ For information about viewing pages in high-contrast mode when you're using anot
 <a name="bk_keyboard"> </a>
 
 
-> **Note:**  By default, the Mozilla Firefox browser doesn't support the use of the TAB key for keyboard shortcuts. For information about turning on support for the TAB key, see Firefox Help.
+> [!NOTE]
+> By default, the Mozilla Firefox browser doesn't support the use of the TAB key for keyboard shortcuts. For information about turning on support for the TAB key, see Firefox Help.
  
 
 
@@ -60,7 +61,8 @@ If you use Internet Explorer, you can use the following keyboard shortcuts in th
 
  
 
->**Note:**  By default, the Mozilla Firefox browser doesn't support the use of the TAB key for keyboard shortcuts. For information about turning on support for the TAB key, see Firefox Help.
+> [!NOTE]
+> By default, the Mozilla Firefox browser doesn't support the use of the TAB key for keyboard shortcuts. For information about turning on support for the TAB key, see Firefox Help.
  
 
 
@@ -104,7 +106,8 @@ If you use Internet Explorer, you can use the following keyboard shortcuts in th
  
 3. To customize the colors used in Help, on the  **General** tab, choose **Colors**. Clear the **Use Windows Colors** check box, and then select the font and background colors that you want to use.
     
-     >**Note:**  If you change the background color of the Help topics in the Help window, the change also affects the background color when you view a webpage in Internet Explorer.
+    > [!NOTE]
+    > If you change the background color of the Help topics in the Help window, the change also affects the background color when you view a webpage in Internet Explorer.
 
 ### To change the font in Help
 
@@ -117,11 +120,11 @@ If you use Internet Explorer, you can use the following keyboard shortcuts in th
  
 3. To customize the font style used in Help, on the  **General** tab, choose **Fonts**, and then choose the font style you want.
     
-     >**Note:**  If you change the font of the Help topics in the Help window, the change also affects the background color when you view a webpage in Internet Explorer.
+    > [!NOTE]
+    > If you change the font of the Help topics in the Help window, the change also affects the background color when you view a webpage in Internet Explorer.
 
 ## Additional resources
 <a name="bk_addresources"> </a>
-
 
 -  [Disability Answer Desk](https://support.microsoft.com/en-us/answerdesk/accessibility)
 -  [Microsoft Accessibility website](https://www.microsoft.com/enable/default.aspx)

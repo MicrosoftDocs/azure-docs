@@ -13,9 +13,9 @@ After you submit your solution to the Seller Dashboard and it is approved for ad
 
     |**Badge size**|**How it looks**|
     |:-----|:-----|
-    |Small|![Screenshot of the small-sized Office Store badge](../images/60a9da08-8a1c-4b2b-82e6-215e116c7fa3.png)|
-    |Medium|![Screenshot of the medium-sized Office Store badge](../images/0da977b2-a5f4-43a4-971d-9b4a2b089545.png)|
-    |Large|![Screenshot of the large-sized Office Store badge](../images/8ae64033-d9b3-43a1-b393-afd2212f52fe.png)|
+    |Small|![Screenshot of the small-sized Office Store badge](../images/download-from-office-store-logo-small.png)|
+    |Medium|![Screenshot of the medium-sized Office Store badge](../images/download-from-office-store-logo-medium.png)|
+    |Large|![Screenshot of the large-sized Office Store badge](../images/download-from-office-store-logo-large.png)|
 
 3. Add the badge to your app or add-in webpage, directly following the link. This will make it clear to your users that they can download your app or add-in from the Office Store. 
     
@@ -71,7 +71,8 @@ Adding these parameters to your Office Store URL will enable us to provide more 
 ## Track your campaign performance and customize your add-in for targeted audiences
 
 
- >**Note:**  This currently applies to Word, Excel, and PowerPoint add-ins that are free in the Office Store.
+> [!NOTE]
+> This currently applies to Word, Excel, and PowerPoint add-ins that are free in the Office Store.
  
 
 When you link from your promotional campaigns to your free Word, Excel, or PowerPoint add-in page in the Office Store, include the following query parameters at the end of the URL: 
@@ -121,9 +122,9 @@ The value that is sent to the document is the value of the  _mktcmpid_ parameter
 <a name="bk_addresources"> </a>
 
 
--  [Submit solutions to the Office Store](ssubmit-to-the-office-store.md) 
+-  [Submit solutions to the Office Store](submit-to-the-office-store.md) 
 -  [Office Add-ins](https://dev.office.com/docs/add-ins/overview/office-add-ins)  
--  [SharePoint Add-ins](http://msdn.microsoft.com/library/sharepoint-add-ins%28Office.15%29.aspx)
+-  [SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
     
  
 

@@ -105,9 +105,8 @@ After your account in the Seller Dashboard is approved, you can submit your solu
  
 2. On your summary page, choose  **SUBMIT FOR APPROVAL**.
     
- 
-
->**Note:**  After you submit a solution for approval, you cannot make changes to it during the approval process. When the approval process is complete, you will receive an email message indicating that your app was approved or that you need to make changes before it can be approved. 
+    > [!NOTE]
+    > After you submit a solution for approval, you cannot make changes to it during the approval process. When the approval process is complete, you will receive an email message indicating that your app was approved or that you need to make changes before it can be approved. 
  
 
 

@@ -4,7 +4,8 @@ The Office Store provides a variety of pricing options. You don't have to set yo
  
 
 
- >**Note:**  SharePoint Add-ins that use the subscription model are only available for SharePoint Online users, and will not be shown to SharePoint on-premises users.
+> [!NOTE]
+> SharePoint Add-ins that use the subscription model are only available for SharePoint Online users, and will not be shown to SharePoint on-premises users.
  
 
 
@@ -23,7 +24,8 @@ When you submit an app or add-in to the Office Store via the Seller Dashboard, o
 |Subscription|The user can download and use for a recurring monthly fee. Subscription apps or add-ins are offered on a monthly automatic renewal basis only. Users have to manually cancel their subscriptions|
 For details about requirements for advertising and offering features or content for purchase within your add-in or add-in, see sections 2 and 3 of the  [Validation policies](validation-policies.md).
  
->**Note:** Power BI custom visuals in the Office Store can only be free.
+> [!NOTE]
+> Power BI custom visuals in the Office Store can only be free.
  
 
 ## Setting the price

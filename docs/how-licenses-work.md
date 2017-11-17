@@ -21,17 +21,18 @@ To include code in your add-ins that performs licensing checks, see  [License yo
 The add-in license categories used by the Office Store are based on how or whether you pay for them, and on their scope. Payment categories include: Free, Paid (with or without a trial offer), and Subscription (again, with or without a trial offer). Scope categories include Per-User or Site. 
  
 
- 
-
 - Task pane and content add-ins can be Free, Paid, or Subscription priced, and are offered on a Per-User basis only.
     
-     > **Important:**  To help you maximize reach and adoption, task pane and content add-ins allow anonymous access. Users don't have to sign in to Office with their Microsoft account to activate Office Add-ins. By default, if your task pane or content add-in does not implement licensing checks, it will present the same UI and functionality to anonymous users as it does to licensed users.See  [Add-in license tokens and anonymous access for Office Add-ins](license-your-office-and-sharepoint-add-ins.md#bk_anonymous) in [License your Office and SharePoint Add-ins](license-your-office-and-sharepoint-add-ins.md) for more information.
+    > [!IMPORTANT]
+    > To help you maximize reach and adoption, task pane and content add-ins allow anonymous access. Users don't have to sign in to Office with their Microsoft account to activate Office Add-ins. By default, if your task pane or content add-in does not implement licensing checks, it will present the same UI and functionality to anonymous users as it does to licensed users.See  [Add-in license tokens and anonymous access for Office Add-ins](license-your-office-and-sharepoint-add-ins.md#bk_anonymous) in [License your Office and SharePoint Add-ins](license-your-office-and-sharepoint-add-ins.md) for more information.
+
 - Outlook add-ins can be Free, Paid, or Subscription priced, and offered on a Per-User or Site basis. Outlook add-ins bought on a Per-User basis apply only to the person who bought them. Only administrators can buy add-ins on a site license basis and make them available to all users in their organization. 
     
  
 - SharePoint Add-ins can be Free, Paid, or Subscription priced, and offered on a Per-User or Site basis.
     
-     >**Note:**  SharePoint 2013 does not support subscription licensing.
+    > [!NOTE]
+    > SharePoint 2013 does not support subscription licensing.
      
 SharePoint 2013 maps the license categories used by the Office Store to add-in license types, based on user access. The following table shows how the SharePoint add-in license types map to the classifications used by the Office Store.
  
@@ -60,7 +61,7 @@ To get an add-in, a user browses the Office Store, selects the add-in, and then 
 
 - For content and task pane add-ins, the Office Store downloads the license token and stores it in the purchaser's Office client application. The purchaser can then access and use the add-in.
     
-    Task pane and content add-ins allow anonymous access. See [Add-in license tokens and anonymous access](license-your-add-ins#add-license-tokens-and-anonymous-access-for-office-add-ins) in [License your Office and SharePoint Add-ins](license-your-add-ins.md) for more information.
+    Task pane and content add-ins allow anonymous access. See [Add-in license tokens and anonymous access](license-your-add-ins.md#add-license-tokens-and-anonymous-access-for-office-add-ins) in [License your Office and SharePoint Add-ins](license-your-add-ins.md) for more information.
     
  
 - Outlook add-in license tokens are downloaded to the appropriate Exchange mailbox. For Outlook add-ins with a per-user license, the token is downloaded to the user's personal mailbox. For Outlook add-ins with a site license, the token is downloaded to a special organization mailbox for the Exchange deployment.
@@ -85,51 +86,34 @@ The Office Store retains a record of each add-in license for verification and di
  
 The following figure shows the add-in license acquisition process for content and task pane Office Add-ins when the add-in is acquired directly from the Office Store. When the user acquires the add-in, the Office Store generates an add-in license, which it retains, and downloads a corresponding add-in license token to the Office application. The user can then access the add-in.
  
-
+![App purchase process from Office Store](/images/sp15-add-in-license-purchase-office.png)
  
 
- 
-![App purchase process from Office Store](../images/SP15_app_licensePurchase.png)
- 
 ### Acquiring an add-in license from an add-in catalog
 
  
 The following figure shows the add-in license acquisition process for Office Add-ins; this time the user acquires the add-in from an add-in catalog hosted on SharePoint 2013. When the user acquires the add-in, the add-in catalog contacts the Office Store for the appropriate add-in license. The Office Store generates the add-in license, which it retains, and returns a corresponding add-in license token, which the add-in catalog downloads to the Office application. The user can then access the add-in.
+
+![Office app purchase process from corporate catalog](/images/office15-add-in-license-purchase-corp-catalog.png)
  
 
- 
-
- 
-![Office app purchase process from corporate catalog](../images/O15_app_license_PurchaseCorpCatalog.png)
- 
 ### Acquiring an add-in license for an Outlook add-in
  
-
- 
 The following figure shows the add-in license acquisition process for Outlook add-ins when the add-in is acquired directly from the Office Store. When the user acquires the add-in, the Office Store generates an add-in license, which it retains, and downloads a corresponding add-in license token to the user's Exchange deployment. For Outlook add-ins with a per-user license, the token is downloaded to the personal mailbox of the person acquiring the add-in. For Outlook add-ins with a site license, the token is downloaded to the organization mailbox of the Exchange deployment. For Outlook add-ins offered for free or as unlimited trials, no license is generated or stored by the Office Store, and so no license token is downloaded to Exchange. The user can then use the add-in.
- 
 
  
+![Mail app purchase from the Office Store](/images/office15-add-in-license-purchase-mail.png)
+ 
 
- 
-![Mail app purchase from the Office Store](../images/O15_mapp_license_Purchase.png)
- 
 ### Acquiring an add-in license for a SharePoint Add-in
  
-
  
 The following figure shows the add-in license acquisition and assignment process for SharePoint Add-ins. A user, who might or might not be one of the people who will use the add-in, acquires the add-in, either directly from the Office Store or from a SharePoint add-in catalog. The Office Store generates the appropriate add-in license, which it contains, and downloads a corresponding add-in license token to the SharePoint deployment from which the add-in was acquired. The user can then manage and assign the license to one or more users, based on the license type.
  
-
+ 
+![SharePoint app purchase from Office Store](/images/sp15-add-in-license-purchase-sharepoint.png)
  
 
- 
-![SharePoint app purchase from Office Store](../images/SP15_app_license_Purchase.png)
- 
-
- 
-
- 
 
 ## Add-in license tokens, duration, and scope
 <a name="bk_details"> </a>

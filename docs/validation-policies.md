@@ -1,4 +1,5 @@
 # Validation policies for apps and add-ins submitted to the Office Store (version 2.2)
+
 This document describes the criteria that are used to validate that Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals are eligible to be listed in the Office Store.
  
 
@@ -151,7 +152,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |8.5|If you withdraw your app or add-in from sale, you must ensure any external web services and/or web pages that support the app or add-in will continue to function for 90 days. Failure to do so will make you responsible for refund liability towards your customers.|
 |8.6|Apps and add-ins may convert from free to subscription pricing. If you update your app or add-in's pricing from free to subscription, existing users must receive the same level of functionality as before the update.<br/><br/>Converting from a paid to a subscription app or add-in is not currently supported.|
 
-## 9. Refunds
+## 9. Refunds 
 <a name="bk_10"> </a>
 
 |Policy number|Description|

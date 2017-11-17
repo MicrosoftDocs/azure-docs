@@ -4,7 +4,8 @@ To offer your Office Add-in, SharePoint Add-in, or Office 365 app in languages b
  
 
 
- >**Note:**  For information about localizing add-ins, see  [Localization for Office Add-ins](https://dev.office.com/docs/add-ins/develop/localization) and [Localize SharePoint Add-ins](https://msdn.microsoft.com/en-us/library/office/fp179919.aspx). 
+> [!NOTE]
+> For information about localizing add-ins, see  [Localization for Office Add-ins](https://dev.office.com/docs/add-ins/develop/localization) and [Localize SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/localize-sharepoint-add-ins). 
  
 
 
@@ -18,11 +19,8 @@ To distribute your app or add-in in additional languages, you can edit the detai
 In the case of previously approved add-ins, if you updated your manifest, you will need to ensure that you update the add-in version in the manifest and in the submission form. The current add-in version will remain in the Office Store until your new add-in is approved, unless you unpublish the current add-in. For more information, see  [Update, unpublish, and view metrics in the Seller Dashboard](update-unpublish-and-view-metrics.md). 
  
 
- 
-
- 
-
->**Note:**  You can block customers in a certain country/region from acquiring or using your app or add-in when you add or edit it in the Seller Dashboard.
+> [!NOTE]
+> You can block customers in a certain country/region from acquiring or using your app or add-in when you add or edit it in the Seller Dashboard.
  
 
 To distribute your app or add-in in additional languages, you can edit the details in the Seller Dashboard. After you add other languages, you will need to submit it for approval again. 
@@ -33,12 +31,8 @@ To distribute your app or add-in in additional languages, you can edit the detai
  
 In the case of previously approved add-ins, if you updated your manifest, you will need to ensure that you update the add-in version in the manifest and in the submission form. The current add-in version will remain in the Office Store until your new add-in is approved, unless you unpublish the current add-in. For more information, see  [Update, unpublish, and view metrics in the Seller Dashboard](update-unpublish-and-view-metrics.md). 
  
-
- 
-
- 
-
->**Note:**  You can block customers in a certain country/region from acquiring or using your app or add-in when you add or edit it in the Seller Dashboard.
+> [!NOTE]
+> You can block customers in a certain country/region from acquiring or using your app or add-in when you add or edit it in the Seller Dashboard.
  
 
 
@@ -57,12 +51,9 @@ Users can verify whether a market-specific Office Store front is available for a
 
  
 
-**Figure 1. Verify or choose a different market in the Office Store**
+*Figure 1. Verify or choose a different market in the Office Store*
 
- 
-
- 
-![Choose a different market for the Office Store.](../images/mod_off15_OfficeStoreChooseMarket.png)
+![Choose a different market for the Office Store.](../images/mod-office15-office-store-choose-market.png)
  
 The following table lists the submission languages that the Office Store is available in, and the locales and markets that correspond to each of these languages. For a list of all the languages and locales for which you can localize an app or add-in, see [Language identifiers and OptionState Id values in Office 2013](http://technet.microsoft.com/en-us/library/cc179219%28Office.15%29.aspx).
  
@@ -137,7 +128,6 @@ The following table lists the submission languages that the Office Store is avai
 
 ## Additional resources
 <a name="bk_addresources"> </a>
-
 
 -  [Validation policies](validation-policies.md) 
 -  [Submit to the Seller Dashboard](use-the-seller-dashboard-to-submit-to-the-office-store.md)

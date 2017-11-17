@@ -48,7 +48,8 @@ To submit a Power BI custom visual, send an email to the Power BI custom visuals
 
 The Power BI team will reply back with instructions and a manifest XML file to upload. This XML manifest is required in order to submit your custom visual to the Office Store.
 
->**Note:** To help ensure quality and make sure that existing reports do not break, updates to existing custom visuals will take approximately two weeks to reach the general public after approval. 
+> [!NOTE]
+> To help ensure quality and make sure that existing reports do not break, updates to existing custom visuals will take approximately two weeks to reach the general public after approval. 
 
 For more details about submitting Power BI custom visuals, see [Publish custom visuals to the Office store](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-office-store/).
 

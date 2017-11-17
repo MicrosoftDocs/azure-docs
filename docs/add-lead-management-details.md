@@ -10,7 +10,8 @@ For customers who acquire your add-in via AppSource, the following details are s
 - Last Name
 - Email Address
 
->**Note:** Leads support for acquisitions made via the Office Store and in-client experiences are coming soon.
+> [!NOTE]
+> Leads support for acquisitions made via the Office Store and in-client experiences are coming soon.
 
 ## Add lead management information to the Seller Dashboard
 
@@ -25,7 +26,8 @@ As part of the submission process, you will be prompted to submit lead configura
 
 The steps to complete your lead submission process will vary based on the CRM system provider that you choose.  
 
->**Note:** If your CRM system provider is not listed, we recommend that you select Azure Table. Most popular CRM services can integrate with this storage service.
+> [!NOTE]
+> If your CRM system provider is not listed, we recommend that you select Azure Table. Most popular CRM services can integrate with this storage service.
 
 ### Dynamics CRM Online
 
@@ -37,7 +39,8 @@ For Microsoft Dynamics CRM systems, you will need to provide the following infor
 
 For information about setting up a new Dynamics service for leads, see the [Appsource Dynamics documentation](https://aka.ms/leadsettingfordynamicscrm).
 
->**Note:** To configure Dynamics CRM for leads, some services require the user to be an admin on your Dynamics CRM instance, and a tenant admin to create a new service account.  
+> [!NOTE]
+> To configure Dynamics CRM for leads, some services require the user to be an admin on your Dynamics CRM instance, and a tenant admin to create a new service account.  
 
 ### Azure Table
 
@@ -116,7 +119,8 @@ After you have completed the fields in the Seller Dashboard, choose **Next**.
 
 If you get an error message, make sure that your details are correct or try again later. 
 
->**Note:** If your add-in is already in the Store, your lead management details will be saved regardless of whether your submission passes validation. You don't have to resubmit lead management details unless you want to update the CRM or storage service that your leads are sent to.
+> [!NOTE]
+> If your add-in is already in the Store, your lead management details will be saved regardless of whether your submission passes validation. You don't have to resubmit lead management details unless you want to update the CRM or storage service that your leads are sent to.
 
 
 ## Communication guidelines

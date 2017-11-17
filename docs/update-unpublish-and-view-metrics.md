@@ -24,7 +24,9 @@ To update your submission:
  
 3. On the summary page, if you want to edit a draft item, choose  **EDIT DRAFT**. If you're editing an approved item, choose  **EDIT LISTING**.
     
-     >**Note:**  If you edit an approved item and submit it, it will go through the approval process again. 
+    > [!NOTE]
+    > If you edit an approved item and submit it, it will go through the approval process again. 
+
 4. In the  **EDIT APP** wizard, make the changes that you want.
     
  
@@ -99,11 +101,8 @@ After your submission approved and listed in the Office Store, you can view up t
  
 For SharePoint Add-ins installed on SharePoint 2013, the metrics page also shows the following usage information:
  
-
- 
-
- >**Note:**  If the SharePoint Add-in is installed on-premises, the app or add-in usage information is not available.
- 
+> [!NOTE]
+> If the SharePoint Add-in is installed on-premises, the app or add-in usage information is not available.
 
 
 -  **Installs** - The number of install attempts.
@@ -154,9 +153,8 @@ To view the sales that your solutions generated on a per country (or region) per
  
 3. Choose  **View sales and tax data** to open the **Sales report**.
     
- 
-
- >**Important:**  This report displays only the total transaction revenue. It does not take into account taxes withheld, bank charges, currency conversion charges, or the share of the revenue from your add-in that is paid to Microsoft.
+    > [!IMPORTANT]
+    > This report displays only the total transaction revenue. It does not take into account taxes withheld, bank charges, currency conversion charges, or the share of the revenue from your add-in that is paid to Microsoft.
  
 
 

@@ -15,7 +15,9 @@ To avoid common submission errors:
 
 - Make sure that the version number on the submission form matches the version number in the add-in manifest.
     
-     >**Note:**   Specify your add-in version using the following syntax: *a*  . *b*  . *c*  . *d*  Where *a*  is an integer between 1-9999, and each of *b*  , *c*  , *d*  are each integers between 0-9999. For example: 1.0.0.0 6.23.0.1
+    > [!NOTE]
+    > Specify your add-in version using the following syntax: *a*  . *b*  . *c*  . *d*  Where *a*  is an integer between 1-9999, and each of *b*  , *c*  , *d*  are each integers between 0-9999. For example: 1.0.0.0 6.23.0.1.
+
 - Make sure that all locations are SSL-secured (HTTPS).
     
  
@@ -90,7 +92,8 @@ The following is the update process for Office Add-ins:
     
  
 
- >**Note:**  You cannot have two or more versions of the same add-in in the store at the same time, because each add-in has a unique asset ID. If you publish an updated version of your add-in without unpublishing a previous version, you will have two Office Store listings and will potentially split your customer base.
+> [!NOTE]
+> You cannot have two or more versions of the same add-in in the store at the same time, because each add-in has a unique asset ID. If you publish an updated version of your add-in without unpublishing a previous version, you will have two Office Store listings and will potentially split your customer base.
  
 
 Updates to SharePoint Add-ins are handled by the license-management tools that are part of the SharePoint Add-in catalog. For more information, see  [SharePoint Add-ins update process](https://msdn.microsoft.com/en-us/library/office/fp179904.aspx).
@@ -175,7 +178,7 @@ Two aspects of your submission relate to supported languages:
     
     You declare which languages your add-in supports differently depending on type:
     
-      - For SharePoint Add-ins, declare language support using the  [SupportedLocales element (PropertiesDefinition complexType) (SharePoint Add-in Manifest)](http://msdn.microsoft.com/library/49bde91a-8d7a-be17-4c91-82c9c19f0f61%28Office.15%29.aspx), in the add-in manifest within the add-in package. For more information, see  [Explore the app manifest structure and the package of a SharePoint Add-in](https://msdn.microsoft.com/en-us/library/office/fp179918.aspx).
+      - For SharePoint Add-ins, declare language support using the  [SupportedLocales element (PropertiesDefinition complexType) (SharePoint Add-in Manifest)](http://msdn.microsoft.com/library/49bde91a-8d7a-be17-4c91-82c9c19f0f61%28Office.15%29.aspx), in the add-in manifest within the add-in package. For more information, see  [Explore the app manifest structure and the package of a SharePoint Add-in](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/explore-the-app-manifest-structure-and-the-package-of-a-sharepoint-add-in).
     
  
   - For Office Add-ins that aren't dictionaries, declare language support by using the  **DefaultLocale** and **Override** elements in your manifest. For more information, see [Localization for Office Add-ins](http://msdn.microsoft.com/library/5a1a1cd7-b716-4597-b51f-fa70357d0833%28Office.15%29.aspx).
@@ -186,5 +189,6 @@ Two aspects of your submission relate to supported languages:
  
 2. In your Seller Dashboard submission first step, you select a default language. As a second step, you can add additional languages via **Add A Language**.
     
-     >**Note:**  You can declare more languages in your or add-in package than are available for submission in Seller Dashboard.
+    > [!NOTE]
+    > You can declare more languages in your or add-in package than are available for submission in Seller Dashboard.
 

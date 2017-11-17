@@ -27,7 +27,9 @@ For Outlook add-ins:
 - Create your test token.
 - Create a URL-encoded version of the add-in license token.
 - In the add-in manifest file, manually edit the appropriate  [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation) element. Add the URL-encoded version of the license token to the source location URL as a query parameter named *et*  .
-     >**Note:**  If your add-in uses  [getUserIdentityTokenAsync](http://dev.office.com/reference/add-ins/outlook/Office.context.mailbox), adding to the  [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation) element in the manifest will change the URL in the token because the token generation is based on what is in the manifest. When you test the license token, you will have to modify the validation call on your service so that the validation will accept the modified URL. For example, if you use the [managed API token validation](https://dev.office.com/docs/add-ins/outlook/use-the-token-validation-library) library, you will need to change the _hostUri_ parameter to match the modified [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation). Remember to change the Exchange identity token validation call back after you test the license check.
+    
+    > [!NOTE]
+    > If your add-in uses  [getUserIdentityTokenAsync](http://dev.office.com/reference/add-ins/outlook/Office.context.mailbox), adding to the  [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation) element in the manifest will change the URL in the token because the token generation is based on what is in the manifest. When you test the license token, you will have to modify the validation call on your service so that the validation will accept the modified URL. For example, if you use the [managed API token validation](https://dev.office.com/docs/add-ins/outlook/use-the-token-validation-library) library, you will need to change the _hostUri_ parameter to match the modified [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation). Remember to change the Exchange identity token validation call back after you test the license check.
 
 ## Implement license checks in the Office Add-in code
 <a name="bk_implement"> </a>
@@ -51,7 +53,7 @@ For example, suppose your add-in home page has the following URL:
 The Office application calling that URL would add the following query string to it and then pass the URL:
  
 
-![The following URL: http://myApp/index.htm?et= PAByAD4APAB0ACAAYQBpAGQAPQAiAFcAQQAxADAAMgA4ADkAOQA1ADYANgAiACAAcABpAGQAPQAiADMAZAAyADgANwAwADcAYQAtAGYAYwBjAGUALQA0ADUAMQA3AC0AYQBjADYAZQAtAGMAYQAwAGEAZABkADYAMwA3ADMAYQBhACIAIABjAGkAZAA9ACIAMgAzAEEANwBFAEIAOABBADQAQwA0ADcARgA1AEEAMgAiACAAdABzAD0AIgAwACIAIABzAGwAPQAiAHQAcgB1AGUAIgAgAGUAdAA9ACIARgByAGUAZQAiACAAYQBkAD0AIgAyADAAMQAyAC0AMAA1AC0AMgAyAFQAMQA4ADoAMQAyADoAMgAzAFoAIgAgAHMAZAA9ACIAMgAwADEAMgAtADAANQAtADIAMgAiACAAdABlAD0AIgAyADAANgA3AC0AMAAyAC0AMgAzAFQAMQA4ADoAMQA0ADoAMAAwAFoAIgAgAC8APgA8AGQAPgAyADIAWABLAEEAdgA0ADMAQgBtAHMAcwByADAAcgBxADUANQBGAHUAdgBpAFUAVgBSAGkAVgBLAFMASQBEAGcAeAAyAHAAMgA0AFoAZwBzAGwANgBNAD0APAAvAGQAPgA8AC8AcgA%2bAA%3d%3d](../images/query-string-url.png)
+![The following URL: http://myApp/index.htm?et= PAByAD4APAB0ACAAYQBpAGQAPQAiAFcAQQAxADAAMgA4ADkAOQA1ADYANgAiACAAcABpAGQAPQAiADMAZAAyADgANwAwADcAYQAtAGYAYwBjAGUALQA0ADUAMQA3AC0AYQBjADYAZQAtAGMAYQAwAGEAZABkADYAMwA3ADMAYQBhACIAIABjAGkAZAA9ACIAMgAzAEEANwBFAEIAOABBADQAQwA0ADcARgA1AEEAMgAiACAAdABzAD0AIgAwACIAIABzAGwAPQAiAHQAcgB1AGUAIgAgAGUAdAA9ACIARgByAGUAZQAiACAAYQBkAD0AIgAyADAAMQAyAC0AMAA1AC0AMgAyAFQAMQA4ADoAMQAyADoAMgAzAFoAIgAgAHMAZAA9ACIAMgAwADEAMgAtADAANQAtADIAMgAiACAAdABlAD0AIgAyADAANgA3AC0AMAAyAC0AMgAzAFQAMQA4ADoAMQA0ADoAMAAwAFoAIgAgAC8APgA8AGQAPgAyADIAWABLAEEAdgA0ADMAQgBtAHMAcwByADAAcgBxADUANQBGAHUAdgBpAFUAVgBSAGkAVgBLAFMASQBEAGcAeAAyAHAAMgA0AFoAZwBzAGwANgBNAD0APAAvAGQAPgA8AC8AcgA%2bAA%3d%3d](/images/query-string-url.png)
  
 The query string parameter— _et_—specifies a base-64 and URL-encoded version of the add-in license token.
  
@@ -70,7 +72,8 @@ For example, the source location modified to include a test token for an Outlook
 
  
 
->**Important:**  For security reasons, if you are licensing your Office Add-in, we strongly recommended you specify an HTTP Secure ( `https://`) URL for your add-in home page.
+> [!IMPORTANT]
+> For security reasons, if you are licensing your Office Add-in, we strongly recommended you specify an HTTP Secure ( `https://`) URL for your add-in home page.
  
 
 To perform add-in license checks, include code that extracts the license token from the URL and caches it, so that the add-in can pass the token to the verification service later when you want to actually validate the license.
@@ -94,7 +97,8 @@ string decodedToken = Encoding.Unicode.GetString(decodedBytes);
 ```
 
 
->**Note:**  The decoding will throw an error if the token contains white space. Make sure that you handle white space between characters within the token.
+> [!NOTE]
+> The decoding will throw an error if the token contains white space. Make sure that you handle white space between characters within the token.
  
 
 To help maximize the reach and adoption, task pane and content add-ins allow anonymous access. Microsoft does not require that a user be signed into Office with their Microsoft account in order to activate task pane and content add-ins. The license token will be passed as part of the initial HTTP request only if the user is signed in with their Microsoft account.
@@ -110,7 +114,8 @@ For more information, see  [add-in license tokens and anonymous access for Offic
 
  
 
- >**Important:**  Do not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the <t> element to the value of the <d> element, which is an encrypted signature derived from the literal string contained in the <t> element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, will change the literal value of the <t> element and therefore cause the license verification check to fail. Also, do not store the license token using a service or application that adds a byte order mark (BOM) to the license token string. Including this character in the license token passed to the verification service will cause the license check to fail. If you do use an application that adds a BOM to the token, you must remove this character before passing the license token to the verification service.
+> [!IMPORTANT]
+> Do not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the <t> element to the value of the <d> element, which is an encrypted signature derived from the literal string contained in the <t> element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, will change the literal value of the <t> element and therefore cause the license verification check to fail. Also, do not store the license token using a service or application that adds a byte order mark (BOM) to the license token string. Including this character in the license token passed to the verification service will cause the license check to fail. If you do use an application that adds a BOM to the token, you must remove this character before passing the license token to the verification service.
  
 
 When the add-in needs to perform a license check, pass the license token to the Office Store license verification web service for validation. The verification service is located at the following URL:
@@ -158,7 +163,8 @@ After you pass the add-in license token to the verification service's  [VerifyEn
 
  
 
->**Note:**  For Outlook add-ins, make sure that you remove the  *et*  parameter, which represents the test license token, from all **SourceLocation** elements in your add-in manifest file.
+> [!NOTE]
+> For Outlook add-ins, make sure that you remove the  *et*  parameter, which represents the test license token, from all **SourceLocation** elements in your add-in manifest file.
  
 
 
@@ -171,8 +177,12 @@ The following example shows the basic logic flow of retrieving and validating th
  
 
 1. The code retrieves the URL query string parameter,  `et`, which contains the encoded license token. 
+
 2. The code uses a custom function to decode the license token and convert it from base-64 to a string format that the Office Store verification service accepts.
-     >**Note:**  For Outlook add-ins, the  *et*  query parameter string is only URL-encoded, and **not** base-64 encoded. To use this example with an Outlook add-in, remove the code that converts the token from base-64 encoding.
+    
+    > [!NOTE]
+    > For Outlook add-ins, the  *et*  query parameter string is only URL-encoded, and **not** base-64 encoded. To use this example with an Outlook add-in, remove the code that converts the token from base-64 encoding.
+
 3. The code passes the token in string format to the verification service for validation. After the verification service returns a  **VerifyEntitlementTokenResponse** object that represents the validation results, the code can access the object's properties that contain attributes of the license token.
     
  
@@ -295,7 +305,10 @@ Both methods allow an add-in to get the license the same way it would if it were
     ```
     
 5.  **Debug** > **Start debugging**, or press F5.
-     >**Note:**  At the time of publication, Visual Studio will display a message that there were deployment errors, and the license token specified in the  `<d>` tag won't be loaded. However, the other values in the license are loaded and will be available to your add-in license check code.
+     
+    > [!NOTE]
+    > At the time of publication, Visual Studio will display a message that there were deployment errors, and the license token specified in the  `<d>` tag won't be loaded. However, the other values in the license are loaded and will be available to your add-in license check code.
+
 6. To visually confirm that the test license is loaded, choose the pop-out menu in the upper right corner of the add-in pane, and then choose  **Security Info**.
 
 ### To load a test license from the file system
@@ -477,7 +490,8 @@ By the end of this example,  `licensecollection` includes all the add-in license
 
  
 
->**Important:**  Do not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store license verification web service for verification. Although the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the <t> element to the value of the <d> element, which is an encrypted signature derived from the literal string contained in the <t> element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, change the literal value of the <t> element and cause the license verification check to fail. 
+> [!IMPORTANT]
+> Do not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store license verification web service for verification. Although the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the <t> element to the value of the <d> element, which is an encrypted signature derived from the literal string contained in the <t> element. Any reformatting of the license token, such as adding white space, tabs, or line breaks, change the literal value of the <t> element and cause the license verification check to fail. 
  
 
 
@@ -508,11 +522,13 @@ Where  `{token}` is the add-in license token, encoded by a method that complies 
 
  
 
->**Note:**  If you're hosting your add-in pages on SharePoint, you can use the SharePoint web proxy to make JavaScript calls to the Office Store verification service. However, for security reasons we strongly recommend that you use only server-side code to query the Office Store verification web service.
+> [!NOTE]
+> If you're hosting your add-in pages on SharePoint, you can use the SharePoint web proxy to make JavaScript calls to the Office Store verification service. However, for security reasons we strongly recommend that you use only server-side code to query the Office Store verification web service.
  
 
 
->**Caution:**  Do not store the license token uby sing a service or application that adds a byte order mark (BOM) to the license token string. Including this character in the license token passed to the verification service will cause the license check to fail. If you do use an application that adds a BOM to the token, you must remove this character before passing the license token to the verification service.
+> [!WARNING]
+> Do not store the license token by using a service or application that adds a byte order mark (BOM) to the license token string. Including this character in the license token passed to the verification service will cause the license check to fail. If you do use an application that adds a BOM to the token, you must remove this character before passing the license token to the verification service.
  
 
 

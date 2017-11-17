@@ -31,7 +31,8 @@ After you submit your app or add-in:
 
 2. The Validation team reviews your submission. This can take 3-5 working days, depending on the volume of submissions in the queue.
 
-    >**Note:** The Valdiation team tests Office Add-ins on all the platforms the add-in is required to support. For details about supported platforms, see the [Office Add-ins host and platform availability page](https://dev.office.com/add-in-availability).
+    > [!NOTE]
+    > The Valdiation team tests Office Add-ins on all the platforms the add-in is required to support. For details about supported platforms, see the [Office Add-ins host and platform availability page](https://dev.office.com/add-in-availability).
 
     For a seamless validation experience, provide detailed test notes with your submission, including:
 
@@ -39,7 +40,8 @@ After you submit your app or add-in:
     - Configuration instructions, if required
     - Information about a test or demo account that your app or add-in needs
     
-    >**Note:** Because our team is located in multiple time zones, we request that you do not configure test accounts that require developer interaction before we can test.
+    > [!NOTE]
+    > Because our team is located in multiple time zones, we request that you do not configure test accounts that require developer interaction before we can test.
 
 3. When the validation process is complete, you will receive a message to let you know that either your submission is approved, or you need to make changes and resubmit it. You can also follow these steps to check the approval status in the Seller Dashboard:
 
@@ -48,7 +50,8 @@ After you submit your app or add-in:
         - If the status is **pending approval**, your submission is still being verified. When it is in this state, you can't update or resubmit it.
         - If the status is **approved**, your submission is approved to be listed in the appropriate marketplaces.
         
-        >**Note:**  After your submission is approved in the Seller Dashboard, there might be a delay before it is published to the Store. After approval, a submission typically appears in the Store within 24 hours.
+        > [!NOTE]
+        > After your submission is approved in the Seller Dashboard, there might be a delay before it is published to the Store. After approval, a submission typically appears in the Store within 24 hours.
 
         - If the status is  **changes requested**, your submission needs changes in order to be approved. Choose your submission, and then on the summary page, choose  **View the add-in report** for details about the required changes.
 

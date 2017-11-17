@@ -17,7 +17,6 @@ Use this checklist to optimize the end-to-end experience of your add-in.
 ## Additional resources
 <a name="bk_addresources"> </a>
 
-
 -  [Submit solutions to the Office Store](submit-to-the-office-store.md)  
 -  [Training: Shipping your Office App to the Office Store](http://dev.office.com/training)
     

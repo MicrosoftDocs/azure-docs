@@ -108,15 +108,13 @@ The following figure shows the add-in license query and validation process for O
 
  
 
->**Note:**  Task pane and content add-ins allow anonymous access. If the user is not signed in to their Microsoft account, the Office application requesting the add-in home page does not append the license token parameter. For details, see  [Add-in license tokens and anonymous access for Office Add-ins](#bk_anonymous).
- 
-
-
- 
-![Office app license verification process](../images/O15_app_license_Verification.png)
- 
+> [!NOTE]
+> Task pane and content add-ins allow anonymous access. If the user is not signed in to their Microsoft account, the Office application requesting the add-in home page does not append the license token parameter. For details, see  [Add-in license tokens and anonymous access for Office Add-ins](#bk_anonymous).
 
  
+![Office add-in license verification process](/images/office15-add-in-license-verification.png)
+ 
+
 
 1. The user launches the add-in.
 2. The Office application that hosts the add-in requests the home page.
@@ -128,14 +126,10 @@ The following figure shows the add-in license query and validation process for O
 
 The following figure shows the add-in license query and validation process for SharePoint Add-ins. 
  
-
+ 
+![SharePoint add-in license verification process](/images/sp15-add-in-license-verification.png)
  
 
- 
-![SharePoint app license verification process](../images/SP15_app_license_Verification.png)
- 
-
- 
 
 1. The user launches the add-in from within SharePoint.
 2. This launches the add-in code in the cloud.

@@ -7,7 +7,8 @@ If you're building an Office Add-in that is backed by a subscription service, yo
 
 To make distributing and maintaining your add-in easy, we recommend that you submit a single add-in to the Office Store. That way, as you add new features, like [add-in commands](https://dev.office.com/docs/add-ins/design/add-in-commands) or single sign-on, those features are made available to all customers - you don't need to worry about supporting different add-ins for different customers, and you don't need to contact each customer’s administrator when to change the manifest.
 
->**Note:** Because some customization scenarios are not yet supported, you might have to provide a customer a custom manifest - for example, if you want to use a different icon on the ribbon or a different group name for add-in commands.  
+> [!NOTE]
+> Because some customization scenarios are not yet supported, you might have to provide a customer a custom manifest - for example, if you want to use a different icon on the ribbon or a different group name for add-in commands.  
 
 ### Step 2: Create a licensing database
 
@@ -80,6 +81,7 @@ Also, when you use single sign-on, users are signed in to the add-in automatical
 <!-- Are you referring to using OpenID and SSO? Are they technically requirements? 
 >**Note:** OpenID authentication and SSO are requirements for the CSP program (hyperlink to program).
 -->
+
 ## Step 4: Modify your add-in to look up licensing state
 
 Your add-in must next identify information about the user.

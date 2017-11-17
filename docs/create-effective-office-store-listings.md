@@ -28,7 +28,7 @@ In your title:
 - Don't use all uppercase letters, unless your brand name is all uppercase.
 - Don't use the words "free" or "sale" or include exclamation points.
 
-![Screenshot of an Office Store listing with an effective title and description next to one that is less effective](../images/d9906e6a-272a-4de0-b160-a9582d6cddd9.png)
+![Screenshot of an Office Store listing with an effective title and description next to one that is less effective](/images/title-do-dont.png)
 
 ### Use a consistent add-in name
 
@@ -51,7 +51,7 @@ The short description you supply with your submission is the text that is shown 
 - Avoid using jargon or specialized terminology - don't assume that users know what they're looking for.
 - Include keywords that customers might search for.
 
-![An image that shows a good short description next to one that relies on the brand name](../images/078861fd-794c-410f-a639-bc28644d2dbc.PNG)
+![An image that shows a good short description next to one that relies on the brand name](/images/description-do-dont.png)
 
 ### Effective long descriptions
 
@@ -97,7 +97,7 @@ Your logo should:
 - Use simple imagery. Don't clutter or complicate your image.
 - Communicate the problem that the solution solves. Don't rely on your company logo for your image.
 
-![An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo](../images/d8de904b-0047-41fb-b83c-4e116a486a76.PNG)
+![An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo](/images/communicate-problem-do-dont.png)
 
 When you submit Office Add-ins, you specify an image in your manifest file, and upload an image with your Seller Dashboard submission.
 
@@ -132,16 +132,17 @@ Make your screenshots rich and informative. Help customers understand how your s
 - Use captions to describe the value of the add-in.
 - Reinforce your brand.
 
-> **Note:**  Be sure to remove any personal information from your screenshots that you do not want customers to see.
+> [!NOTE]
+> Be sure to remove any personal information from your screenshots that you do not want customers to see.
 
 |**Do**|**Don't**|
 |:------------|:--------------|
 |Use clear and simple captions to convey your add-in's value.|Don’t use callouts that obstruct important content.|
-|![Screenshot of an add-in with a clear and simple caption](../images/screenshot_do1.png)|![Screenshot of an add-in with callouts that obstruct the text](../images/screenshot_dont1_2.png)|
+|![Screenshot of an add-in with a clear and simple caption](/images/screenshot-do.png)|![Screenshot of an add-in with callouts that obstruct the text](/images/screenshot-dont-1b.png)|
 |When needed, make content legible with magnified close-ups.|Don't highlight more than one section.|
-|![Screenshot of an add-in with one magnified closeup](../images/highlight_do1.png)|![Screenshot of an add-in with two magnified closeups](../images/highlight_dont1.png)|
+|![Screenshot of an add-in with one magnified closeup](/images/highlight-do.png)|![Screenshot of an add-in with two magnified closeups](/images/highlight-dont.png)|
 |Incorporate recognizable brand elements like color or logo into screenshots.|Don't add unnecessary graphic elements that obstruct content.|
-|![Screenshot of an add-in with color and logo](../images/brandColor_do1_2.png)|![Screenshot of an add-in with multiple graphic elements](../images/brandColor_dont1_2.png)|
+|![Screenshot of an add-in with color and logo](/images/brand-color-do-1b.png)|![Screenshot of an add-in with multiple graphic elements](/images/brand-color-dont-1b.png)|
 
 ## Use ratings and reviews
 <a name="bk_ratings"> </a>
@@ -151,14 +152,14 @@ Good ratings and reviews lead to better store placement and improved customer pe
 - Ask customers to rate and review from within your add-in. Make sure that they've had a chance to explore the add-in first, and don't ask for feedback too often.
 - Offer help and support from within your add-in, so customers don't have to leave feedback in Office Store reviews.
 
-![An image that shows a request to rate within an add-in next to a request to rate following a tutorial](../images/2038209a-5d7e-4a0e-a7ea-c12fa02c54a0.PNG)
+![An image that shows a request to rate within an add-in next to a request to rate following a tutorial](/images/rate-and-review-do-dont.png)
 
 ## Respond to customer reviews in the Office Store
 <a name="bk_ratings"> </a>
 
 You can use the comment feature in the Office Store to respond to customer reviews of your solution - for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to the Office Store with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
 
-![Screenshot that shows a developer response to a comment with the App provider label under the name](../images/7f710930-4ecd-4b28-b55d-8507a928995b.PNG)
+![Screenshot that shows a developer response to a comment with the App provider label under the name](/images/comment-field.png)
  
 If you've responded to a user review and the user responds to your comment, the user has the option to change their rating of the app or add-in if their issue has been resolved. 
 
