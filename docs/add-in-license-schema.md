@@ -122,39 +122,40 @@ This value can be used to check if the trial license is expired.</td>
 <td>ss</td>
 <td>Optional integer. Represents the subscription status of the add-in license. This attribute is optional for add-ins that are not being sold as subscriptions.<br/>
 This attribute accepts integers from 0 through 4. Valid values include:
+
 <table><tr><th>Integer</th><th>Description</th></tr>
 <tr>
 <td>0</td>
-<td>NotApplicable<br/>
+<td><strong>NotApplicable</strong><br/>
 The add-in license is not for a subscription add-in.</td>
 </tr>
 <tr>
 <td>1</td>
-<td>Active
-The add-in license subscription is currently paid for.<br/>
-Recommended user experience: <br/>
+<td><strong>Active</strong><br/>
+The add-in license subscription is currently paid for.<br/><br/>
+<strong>Recommended user experience:</strong><br/>
 Full add-in experience.</td>
 </tr>
 <tr>
 <td>2</td>
-<td>FailedPayment<br/>
+<td><strong>FailedPayment</strong><br/>
 The automatic monthly billing for the add-in license subscription has failed.<br/>
-There are several reasons payment may have failed. For example, the credit card being billed might have expired. When payment fails, emails are sent to the Microsoft account paying for the add-in license. However, the user might not check their Microsoft account email on a frequent basis, or, in the case of SharePoint Add-ins, the person paying for the add-in license may not actually be the person using the add-in license.<br/>
-Recommended user experience: <br/>
+There are several reasons payment may have failed. For example, the credit card being billed might have expired. When payment fails, emails are sent to the Microsoft account paying for the add-in license. However, the user might not check their Microsoft account email on a frequent basis, or, in the case of SharePoint Add-ins, the person paying for the add-in license may not actually be the person using the add-in license.<br/><br/>
+<strong>Recommended user experience:</strong><br/>
 Present UI in your add-in alerting the user of the problem with billing, so that they can resolve it.</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Canceled<br/>
-The add-in license subscription has been canceled, and final monthly billing period the user has paid for has expired. <br/>
-Recommended user experience: <br/>
+<td><strong>Canceled</strong><br/>
+The add-in license subscription has been canceled, and final monthly billing period the user has paid for has expired. <br/><br/>
+<strong>Recommended user experience:</strong><br/>
 Present the user with information that their subscription has been cancelled. Provide information about your add-in, along with a hyperlink to your app’s Office Store listing page, so they are encouraged to renew their subscription. </td>
 </tr>
 <tr>
 <td>4</td>
-<td>DelayedCancel<br/>
-The add-in license subscription has been canceled, but the subscription is still within the current, monthly billing period the user has paid for. Once the current, paid monthly billing period expires, the subscription status changes to Canceled.<br/>
-Recommended user experience: <br/>
+<td><strong>DelayedCancel</strong><br/>
+The add-in license subscription has been canceled, but the subscription is still within the current, monthly billing period the user has paid for. Once the current, paid monthly billing period expires, the subscription status changes to Canceled.<br/><br/>
+<strong>Recommended user experience:</strong><br/>
 Full add-in experience. Additionally, you may want to present contextual UI to ask the user for feedback on why they are canceling their subscription, or to enourage them to re-subscribe.</td>
 </tr>
 </table>
