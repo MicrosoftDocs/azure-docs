@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
 
@@ -52,7 +52,7 @@ To configure your directory to access the Azure AD reporting API, you must sign 
 
 **To register an Azure Active Directory application:**
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Azure Active Directory**.
    
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -126,11 +126,11 @@ You need these values when configuring calls to the reporting API.
 
 **To get your domain name:**
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Azure Active Directory**.
    
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. On the **Azure Active Directory** blade, click **Domain names**.
+2. On the **Azure Active Directory** blade, click **Custom domain names**.
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -141,7 +141,7 @@ You need these values when configuring calls to the reporting API.
 
 **To get your application's client ID:**
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Azure Active Directory**.
    
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -158,7 +158,7 @@ To get your application's client secret, you need to create a new key and save i
 
 **To get your application's client secret:**
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, click **Azure Active Directory**.
    
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
