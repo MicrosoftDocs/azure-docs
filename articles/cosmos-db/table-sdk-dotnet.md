@@ -41,11 +41,11 @@ ms.author: mimig
 * Initial preview release
 
 ## Release and Retirement dates
-Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
+Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
 
-Any request to Azure Cosmos DB using a retired SDK will be rejected by the service.
+Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 <br/>
 
 | Version | Release Date | Retirement Date |
@@ -63,7 +63,7 @@ Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: '
 ```
 when attempting to use the Microsoft.Azure.CosmosDB.Table NuGet package, you have two options to fix the issue:
 
-* Use Package Manage Console to install the Microsoft.Azure.CosmosDB.Table package and it's dependencies. To do this, type the following in the Package Manager Console for your solution. 
+* Use Package Manage Console to install the Microsoft.Azure.CosmosDB.Table package and its dependencies. To do this, type the following in the Package Manager Console for your solution. 
     ```
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
