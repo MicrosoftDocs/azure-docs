@@ -1,6 +1,6 @@
 ---
-title: Deploy an app on an Azure virtual machine scale set | Microsoft Docs
-description: Learn to deploy a simple autoscaling application on a virtual machine scale set using an Azure Resource Manager template.
+title: Create a Virtual Machine Scale Set with an Azure template | Microsoft Docs
+description: Learn how to quickly create a virtual machine scale with an Azure Resource Manager template
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: iainfoulds
@@ -20,7 +20,7 @@ ms.author: iainfou
 ---
 
 # Create a Virtual Machine Scale Set with the Azure CLI 2.0
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this getting started article, you create a virtual machine scale set with the an Azure Resource Manager template. You can also create a scale set with the [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), or the [Azure portal](virtual-machine-scale-sets-portal-create.md).
+A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this getting started article, you create a virtual machine scale set with an Azure Resource Manager template. You can also create a scale set with the [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), or the [Azure portal](virtual-machine-scale-sets-portal-create.md).
 
 
 ## Overview of templates
@@ -128,7 +128,7 @@ In the *azuredeploy.json* template, the `extensionProfile` property of the `Micr
 ```
 
 ## Deploy the template
-The simplest way to deploy the [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) or [ASP.NET MVC application on Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) template is to use the **Deploy to Azure** button found in the in the readme files in GitHub.  You can also use PowerShell or Azure CLI to deploy the sample templates.
+The simplest way to deploy the [Python HTTP server on Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) or [ASP.NET MVC application on Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) template is to use the **Deploy to Azure** button found in the readme files in GitHub.  You can also use PowerShell or Azure CLI to deploy the sample templates.
 
 ### Azure CLI 2.0
 

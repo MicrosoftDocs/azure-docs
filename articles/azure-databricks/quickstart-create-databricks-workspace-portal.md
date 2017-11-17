@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create Azure Databricks workspace by using the Azure portal | Microsoft Docs'
-description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace and Apache Spark cluster.
+title: 'Quickstart: Run a Spark job on Azure Databricks using Azure portal | Microsoft Docs'
+description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
 services: azure-databricks
 documentationcenter: ''
 author: nitinme
@@ -17,7 +17,7 @@ ms.author: nitinme
 
 ---
 
-# Quickstart: Get started with Azure Databricks using the Azure portal
+# Quickstart: Run a Spark job on Azure Databricks using the Azure portal
 
 This quickstart shows how to create an Azure Databricks workspace and an Apache Spark cluster within that workspace. Finally, you learn how to run a Spark job on the Databricks cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
 
@@ -27,12 +27,16 @@ Log in to the [Azure  portal](https://portal.azure.com).
 
 ## Create a Databricks workspace
 
-Before you begin with this quickstart, you need to [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) and download a sample JSON file [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). You must also upload the sample JSON file to the Azure storage account you create. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files. 
+In this section, you create an Azure Databricks workspace using the Azure portal. 
 
-1. In the Azure portal, click **+**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. Under **Azure Databricks**, click **Create**.
+1. In the Azure portal, click **+**, click **Data + Analytics**, and then click **Azure Databricks (Preview)**. 
+
+    ![Databricks on Azure portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
+
+2. Under **Azure Databricks (Preview)**, click **Create**.
 
     > [!NOTE]
-    > Azure Databricks is currently in limited preview. If you want your Azure subscription to be considered for whitelisting for the preview, you must fill out the [sign up form](https://databricks.azurewebsites.net/).
+    > Azure Databricks is currently in limited preview. If you want your Azure subscription to be considered for whitelisting for the preview, you must fill out the [sign-up form](https://databricks.azurewebsites.net/).
 
 2. Under **Azure Databricks Service**, provide the following values:
 
@@ -66,7 +70,13 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 ## Run a Spark SQL job
 
-In this section, you create a notebook, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
+Before you begin with this section, you must complete the following:
+
+* [Create an Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+* Download a sample JSON file [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
+* Upload the sample JSON file to the Azure storage account you created. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
+
+Perform the following steps to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
 
 1. In the left pane, click **Workspace**. From the **Workspace** drop-down, click **Create**, and then click **Notebook**.
 
@@ -78,7 +88,7 @@ In this section, you create a notebook, configure the notebook to read data from
 
     Click **Create**.
 
-3. In the following snippet, replace the placeholder values with your Azure storage account name and the storage account access key. Paste the snippet in an empty cell in the notebook and then press SHIFT + ENTER to run the code cell. This snippet configures the notebook to read data from an Azure blob storage.
+3. In the following snippet, replace `{YOUR STORAGE ACCOUNT NAME}` with the  Azure storage account name you created and `{YOUR STORAGE ACCOUNT ACCESS KEY}` with your storage account access key. Paste the snippet in an empty cell in the notebook and then press SHIFT + ENTER to run the code cell. This snippet configures the notebook to read data from an Azure blob storage.
 
        spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
     
@@ -87,14 +97,14 @@ In this section, you create a notebook, configure the notebook to read data from
     > [!NOTE]
     > You can also use Azure Data Lake Store with a Spark cluster on Azure Databricks. For instructions, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
 
-4. Run a SQL statement to create a temporary table using data from the sample JSON data file, **small_radio_json.json**. Paste the following snippet in a code cell and press SHIFT + ENTER.
+4. Run a SQL statement to create a temporary table using data from the sample JSON data file, **small_radio_json.json**. In the following snippet, replace the placeholder values with your container name and storage account name. Paste the snippet in a code cell in the notebook, and then press SHIFT + ENTER. In the snippet, `path` denotes the location of the sample JSON file that you uploaded to your Azure Storage account.
 
     ```sql
     %sql 
     CREATE TEMPORARY TABLE radio_sample_data
     USING json
     OPTIONS (
-     path "wasbs://mycontainer@hdiadlsstorage.blob.core.windows.net/small_radio_json.json"
+     path "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/small_radio_json.json"
     )
     ```
 

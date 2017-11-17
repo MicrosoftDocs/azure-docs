@@ -26,10 +26,7 @@ To create a virtual network rule, there must first be a [virtual network service
 
 
 > [!NOTE]
-> For Azure SQL Database, this feature is available in Preview for the following Azure regions:
->
-> - WestCentralUS, WestUS2, and EastUS.
-
+> For Azure SQL Database, this feature is available in Preview in all regions of Azure public cloud.
 
 #### How to create a virtual network rule
 
@@ -266,7 +263,7 @@ The Microsoft Azure Virtual Network service endpoints feature, and the virtual n
 
 <!-- Link references, to text, Within this same Github repo. -->
 
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics
+[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
