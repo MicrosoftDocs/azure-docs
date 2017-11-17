@@ -9,7 +9,7 @@ ms.reviewer:
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/17/2017
 ---
 # What is the Azure Database Migration Service Preview?
 The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. The service is currently in Public Preview, with development efforts focused on:
@@ -19,8 +19,16 @@ The Azure Database Migration Service is a fully managed service designed to enab
 - Continued investment in friction-free migrations.
 
 ## Use familiar tools
-Azure Database Migration Service integrates some functionality of our existing tools and services.  It provides customers with a comprehensive, highly available solution. Azure Database Migration Service uses [Data Migration Assistant](http://aka.ms/dma) to provide assessment reports.  These recommendations guide you through the changes that are required prior to performing a migration. It's up to you to perform any remediation required. When you are ready to begin the migration process, Azure Database Migration Service performs all the associated steps. You can fire and forget your migration projects with the peace of mind of knowing that the process takes advantage of best practices determined by Microsoft. 
+The Azure Database Migration Service integrates some of the functionality of our existing tools and services.  It provides customers with a comprehensive, highly available solution. The service uses the [Data Migration Assistant](http://aka.ms/dma) to generate assessment reports that provide recommendations to guide you through the changes required prior to performing a migration. It's up to you to perform any remediation required. When you are ready to begin the migration process, the Azure Database Migration Service performs all of the associated steps. You can fire and forget your migration projects with peace of mind  knowing that the process takes advantage of best practices as determined by Microsoft.
 
+## Regional availabilty during Public Preview
+The Public Preview release of the Azure Database Migration Service is currently available in the following regions:
+- East US
+- South Central US
+- West US
+- Brazil South
+- West Europe
+- North Europe
 
 ## Next steps
-- [Create Azure Database Migration Service using the Azure portal](quickstart-create-data-migration-service-portal.md).
+- [Create an instance of the Azure Database Migration Service by using the Azure portal](quickstart-create-data-migration-service-portal.md).
