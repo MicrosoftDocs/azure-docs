@@ -122,7 +122,7 @@ In addition, consider the following:
 
 - If you submit a paid app or add-in, you can also choose to offer a trial. If you choose to submit a trial offer, we recommend that you use the Office licensing framework.
     
-    For more information, see  [License your Office and SharePoint Add-ins](license-your-office-and-sharepoint-add-ins.md),  [Which business model is right for your add-in?](http://blogs.msdn.com/b/officeapps/archive/2012/09/10/which-business-model-is-right-for-your-app.aspx), and  [Creating and verifying licensing in a paid Office Add-in](http://blogs.msdn.com/b/officeapps/archive/2012/11/01/creating-and-verifying-licensing-in-a-paid-app-for-office.aspx).
+    For more information, see  [License your Office and SharePoint Add-ins](license-your-add-ins.md),  [Which business model is right for your add-in?](http://blogs.msdn.com/b/officeapps/archive/2012/09/10/which-business-model-is-right-for-your-app.aspx), and  [Creating and verifying licensing in a paid Office Add-in](http://blogs.msdn.com/b/officeapps/archive/2012/11/01/creating-and-verifying-licensing-in-a-paid-app-for-office.aspx).
     
  
 
