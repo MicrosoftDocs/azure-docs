@@ -155,11 +155,11 @@ To set a custom language dictionary or extend the default language dictionary, y
 
 ```javascript
 {
-      '{language-code}':
-          '{message-id}': '{message}'
-          ...
-      }
-      ...
+    '{language-code}': {
+        '{message-id}': '{message}',
+        ...
+    }
+    ...
 }
 ```
 
