@@ -141,13 +141,13 @@
       href: hdinsight-use-sqoop.md
       items:
       - name: Connect with SSH
-        href: apache-hadoop-use-sqoop-mac-linux.md
+        href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
       - name: Run using cURL
-        href: apache-hadoop-use-sqoop-curl.md
+        href: ../hadoop/apache-hadoop-use-sqoop-curl.md
       - name: Run using .NET SDK
-        href: apache-hadoop-use-sqoop-dotnet-sdk.md
+        href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
       - name: Run using Azure PowerShell
-        href: apache-hadoop-use-sqoop-powershell.md
+        href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
     - name: Cluster and service ports and URIs
       href: ../hdinsight-hadoop-port-settings-for-services.md
       maintainContext: true
