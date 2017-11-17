@@ -86,7 +86,7 @@ The Office Store retains a record of each add-in license for verification and di
  
 The following figure shows the add-in license acquisition process for content and task pane Office Add-ins when the add-in is acquired directly from the Office Store. When the user acquires the add-in, the Office Store generates an add-in license, which it retains, and downloads a corresponding add-in license token to the Office application. The user can then access the add-in.
  
-![App purchase process from Office Store](/images/sp15-add-in-license-purchase-office.png)
+![App purchase process from Office Store](images/sp15-add-in-license-purchase-office.png)
  
 
 ### Acquiring an add-in license from an add-in catalog
@@ -94,7 +94,7 @@ The following figure shows the add-in license acquisition process for content an
  
 The following figure shows the add-in license acquisition process for Office Add-ins; this time the user acquires the add-in from an add-in catalog hosted on SharePoint 2013. When the user acquires the add-in, the add-in catalog contacts the Office Store for the appropriate add-in license. The Office Store generates the add-in license, which it retains, and returns a corresponding add-in license token, which the add-in catalog downloads to the Office application. The user can then access the add-in.
 
-![Office app purchase process from corporate catalog](/images/office15-add-in-license-purchase-corp-catalog.png)
+![Office app purchase process from corporate catalog](images/office15-add-in-license-purchase-corp-catalog.png)
  
 
 ### Acquiring an add-in license for an Outlook add-in
@@ -102,7 +102,7 @@ The following figure shows the add-in license acquisition process for Office Add
 The following figure shows the add-in license acquisition process for Outlook add-ins when the add-in is acquired directly from the Office Store. When the user acquires the add-in, the Office Store generates an add-in license, which it retains, and downloads a corresponding add-in license token to the user's Exchange deployment. For Outlook add-ins with a per-user license, the token is downloaded to the personal mailbox of the person acquiring the add-in. For Outlook add-ins with a site license, the token is downloaded to the organization mailbox of the Exchange deployment. For Outlook add-ins offered for free or as unlimited trials, no license is generated or stored by the Office Store, and so no license token is downloaded to Exchange. The user can then use the add-in.
 
  
-![Mail app purchase from the Office Store](/images/office15-add-in-license-purchase-mail.png)
+![Mail app purchase from the Office Store](images/office15-add-in-license-purchase-mail.png)
  
 
 ### Acquiring an add-in license for a SharePoint Add-in
@@ -111,7 +111,7 @@ The following figure shows the add-in license acquisition process for Outlook ad
 The following figure shows the add-in license acquisition and assignment process for SharePoint Add-ins. A user, who might or might not be one of the people who will use the add-in, acquires the add-in, either directly from the Office Store or from a SharePoint add-in catalog. The Office Store generates the appropriate add-in license, which it contains, and downloads a corresponding add-in license token to the SharePoint deployment from which the add-in was acquired. The user can then manage and assign the license to one or more users, based on the license type.
  
  
-![SharePoint app purchase from Office Store](/images/sp15-add-in-license-purchase-sharepoint.png)
+![SharePoint app purchase from Office Store](images/sp15-add-in-license-purchase-sharepoint.png)
  
 
 
