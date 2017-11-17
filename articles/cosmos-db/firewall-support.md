@@ -44,7 +44,10 @@ When you add additional virtual machine instances to the group, they are automat
 ## Connections from the internet
 When you access an Azure Cosmos DB database account from a computer on the internet, the client IP address or IP address range of the machine must be added to the allowed list of IP address for the Azure Cosmos DB database account. 
 
-## <a id="configure-ip-policy"></a> Configuring the IP access control policy
+## Connections from Azure PaaS service 
+In Azure, PaaS services like Azure Stream analytics, Azure Functions are used in conjunction with Azure Cosmos DB. To enable access to Azure Cosmos DB database account from these kind of services whose IP address is not readily available, the  IP address of 0.0.0.0 must be added to the allowed list of IP addresses associated with your Azure Cosmos DB database account by [configuring the IP access control policy](#configure-ip-policy).  This ensures that Azure PaaS services can access a Azure Cosmos DB account which has this rule. 
+
+ ## <a id="configure-ip-policy"></a> Configuring the IP access control policy
 The IP access control policy can be set in the Azure portal, or programmatically through [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), or the [REST API](/rest/api/documentdb/) by updating the `ipRangeFilter` property. IP addresses/ranges must be comma separated and must not contain any spaces. Example: "13.91.6.132,13.91.6.1/24". When updating your database account through these methods, be sure to populate all of the properties to prevent resetting to default settings.
 
 > [!NOTE]
