@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
 
@@ -28,7 +28,7 @@ For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-
 
 ## Create an Azure file share
 
-Before using an Azure File Share as a Kubernetes volume, you must create an Azure Storage account and the file share. The following script can be used to complete these tasks. Take note or update the parameter values, some of these are needed when creating the Kubernetes volume. Also, the storage account key is needed to create the Kubernetes volume. This script gathers the storage key value and stores it in the `STORAGE_KEY` variable.
+Before using an Azure File Share as a Kubernetes volume, you must create an Azure Storage account and the file share. The following script can be used to complete these tasks. Take note or update the parameter values, some of these are needed when creating the Kubernetes volume.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -55,9 +55,9 @@ STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_G
 
 ## Create Kubernetes Secret
 
-Kubernetes needs credentials to access the file share. Rather than storing the Azure Storage account name and key with each pod, it is stored once in a [Kubernetes secret][kubernetes-secret] and referenced by each Azure Files volume. 
+Kubernetes needs credentials to access the file share. These credentials are stored in a [Kubernetes secret][kubernetes-secret] which is referenced when creating a Kubernetes pod.
 
-The values in a Kubernetes secret manifest must be base64 encoded. Use the following commands to return encoded values. These steps re-use the variables from the storage creation step.
+When creating a Kuberentes secret, the secret values must be base64 encoded.
 
 First, encode the name of the storage account. If needed, replace `$AKS_PERS_STORAGE_ACCOUNT_NAME` with the name of the Azure storage account.
 
