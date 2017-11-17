@@ -102,8 +102,6 @@ This scenario has two pipelines:
         "name": "MyExecutePipelineActivity"
       }
     ],
-    "datasets": [],
-    "linkedServices": [],
     "parameters": {
       "masterSourceBlobContainer": {
         "type": "String"
@@ -149,55 +147,6 @@ This scenario has two pipelines:
         ]
       }
     ],
-    "datasets": [
-      {
-        "name": "SourceBlobDataset",
-        "properties": {
-          "type": "AzureBlob",
-          "typeProperties": {
-            "folderPath": {
-              "value": "@pipeline().parameters.sourceBlobContainer",
-              "type": "Expression"
-            },
-            "fileName": "salesforce.txt"
-          },
-          "linkedServiceName": {
-            "referenceName": "BlobStorageLinkedService",
-            "type": "LinkedServiceReference"
-          }
-        }
-      },
-      {
-        "name": "sinkBlobDataset",
-        "properties": {
-          "type": "AzureBlob",
-          "typeProperties": {
-            "folderPath": {
-              "value": "@pipeline().parameters.sinkBlobContainer",
-              "type": "Expression"
-            }
-          },
-          "linkedServiceName": {
-            "referenceName": "BlobStorageLinkedService",
-            "type": "LinkedServiceReference"
-          }
-        }
-      }
-    ],
-    "linkedServices": [
-      {
-        "name": "BlobStorageLinkedService",
-        "properties": {
-          "type": "AzureStorage",
-          "typeProperties": {
-            "connectionString": {
-              "value": "DefaultEndpointsProtocol=https;AccountName=*****",
-              "type": "SecureString"
-            }
-          }
-        }
-      }
-    ],
     "parameters": {
       "sourceBlobContainer": {
         "type": "String"
@@ -209,6 +158,64 @@ This scenario has two pipelines:
   }
 }
 
+```
+
+**Linked service**
+
+```json
+{
+    "name": "BlobStorageLinkedService",
+    "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": {
+        "value": "DefaultEndpointsProtocol=https;AccountName=*****",
+        "type": "SecureString"
+      }
+    }
+  }
+}
+```
+
+**Source dataset**
+```json
+{
+    "name": "SourceBlobDataset",
+    "properties": {
+    "type": "AzureBlob",
+    "typeProperties": {
+      "folderPath": {
+        "value": "@pipeline().parameters.sourceBlobContainer",
+        "type": "Expression"
+      },
+      "fileName": "salesforce.txt"
+    },
+    "linkedServiceName": {
+      "referenceName": "BlobStorageLinkedService",
+      "type": "LinkedServiceReference"
+    }
+  }
+}
+```
+
+**Sink dataset**
+```json
+{
+    "name": "sinkBlobDataset",
+    "properties": {
+    "type": "AzureBlob",
+    "typeProperties": {
+      "folderPath": {
+        "value": "@pipeline().parameters.sinkBlobContainer",
+        "type": "Expression"
+      }
+    },
+    "linkedServiceName": {
+      "referenceName": "BlobStorageLinkedService",
+      "type": "LinkedServiceReference"
+    }
+  }
+}
 ```
 
 ### Running the pipeline

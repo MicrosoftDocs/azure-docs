@@ -14,7 +14,7 @@ ms.custom: overview, mvc
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: "Active"
 ms.date: 09/20/2017
 ms.author: carlrab
 ---

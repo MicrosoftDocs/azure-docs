@@ -20,6 +20,8 @@ ms.author: spelluru
 # Manage an Azure-SSIS integration runtime
 The [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) article shows you how to create an Azure-SSIS integration runtime by using Azure Data Factory. This article complements it by providing information on how to stop, start, reconfigure, or remove an Azure-SSIS integration runtime.  
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
 
 ## Stop 
 Stop the Azure-SSIS integration runtime. This command releases all of its nodes and stops billing.
