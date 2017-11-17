@@ -23,13 +23,11 @@ ms.author: iainfou
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this getting started article, you create a virtual machine scale set with an Azure Resource Manager template. You can also create a scale set with the [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), or the [Azure portal](virtual-machine-scale-sets-portal-create.md).
 
 
-## Overview of templates
+## Define a scale set in a template
 Azure Resource Manager templates let you deploy groups of related resources. Templates are written in JavaScript Object Notation (JSON) and define the entire Azure infrastructure environment for your application. In a single template, you can create the virtual machine scale set, install applications, and configure autoscale rules. With the use of variables and parameters, this template can be re-used to update existing, or create additional, scale sets. You can deploy templates through the Azure Portal, Azure CLI 2.0, or Azure PowerShell, as well as call them from continuous integration / continuous delivery (CI/CD) pipelines.
 
 For more information on templates, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)
 
-
-## Define a scale set
 A template defines the configuration for each resource type. A virtual machine scale set resource type is similar to an individual VM. The core parts of the virtual machine scale set resource type are:
 
 | Property                     | Description of property                                  | Example template value                    |
@@ -45,7 +43,7 @@ A template defines the configuration for each resource type. A virtual machine s
 | osProfile.adminUsername      | The username for each VM instance                        | azureuser                                 |
 | osProfile.adminPassword      | The password for each VM instance                        | P@ssw0rd!                                 |
 
- The following snippet shows the core scale set resource definition in a template. To keep the sample short, the virtual network interface card (NIC) configuration is not shown. To customize a scale set template, you can change the VM size or initial capacity, or use a different platform or a custom image.
+ The following example shows the core scale set resource definition. To customize a scale set template, you can change the VM size or initial capacity, or use a different platform or a custom image.
 
 ```json
 {
@@ -83,6 +81,8 @@ A template defines the configuration for each resource type. A virtual machine s
   }
 }
 ```
+
+ To keep the sample short, the virtual network interface card (NIC) configuration is not shown. Additional components, such as a load balancer, are also not shown. A complete scale set template is linked to at the end of this article.
 
 
 ## Install an application
@@ -127,7 +127,11 @@ An install script is downloaded from GitHub, as defined in *url*. The extension 
 ```
 
 ## Deploy the template
-The simplest way to deploy the [ASP.NET MVC application on Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) template is to use the **Deploy to Azure** button found in the readme files in GitHub. You can also use Azure PowerShell to install the ASP.NET application on Windows as follows:
+You can deploy the [ASP.NET MVC application on Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) template with the following **Deploy to Azure** button. This button opens the Azure portal, loads the complete template, and prompts for a few parameters such as a scale set name, instance count, and admin credentials.
+
+[![Deploy template to Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-windows-webapp-dsc-autoscale%2Fazuredeploy.json)
+
+You can also use Azure PowerShell to install the ASP.NET application on Windows with [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) as follows:
 
 ```azurepowershell-interactive
 # Create a resource group
