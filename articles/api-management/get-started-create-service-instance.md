@@ -3,24 +3,31 @@ title: Create an Azure API Management instance | Microsoft Docs
 description: Follow the steps of this tutorial to create a new Azure API Management instance.
 services: api-management
 documentationcenter: ''
-author: vladvino
-manager: anneta
+author: juliako
+manager: cflower
 editor: ''
 
 ms.service: api-management
 ms.workload: integration
-ms.topic: article
-ms.date: 08/17/2017
+ms.topic: quickstart
+ms.custom: mvc
+ms.date: 11/15/2017
 ms.author: apimpm
 ---
 
 # Create a new Azure API Management service instance
+
+Azure API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. APIM  enables you to create and manage modern API gateways for existing backend services hosted anywhere. For more information, see the [Overview](api-management-key-concepts.md) topic.
 
 This quickstart describes the steps for creating a new API Management instance using the Azure portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ![new instance](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
+
+## Log in to Azure
+
+Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a new service
 
@@ -46,7 +53,18 @@ This quickstart describes the steps for creating a new API Management instance u
     > [!TIP]
     > It usually takes between 20 and 30 minutes to create an API Management service. Selecting **Pin to dashboard** makes finding a newly created service easier.
 
+## Clean up resources
+
+When no longer needed, you can remove the resource group and all related resources by following these steps:
+
+![cleanup](./media/get-started-create-service-instance/cleanup.png)
+
+1. In the Azure portal, select *>*.
+2. Select **Resource groups**.
+3. Find your resource group.
+4. Click ". . ." and delete your group.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Publish an API with Azure API Management](#api-management-getstarted-publish-api.md)
+> [Import and publish your first API](import-and-publish.md)

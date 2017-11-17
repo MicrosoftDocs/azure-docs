@@ -11,8 +11,9 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 15/10/2017
+ms.date: 11/15/2017
 ms.author: apimpm
 
 ---
@@ -22,8 +23,6 @@ The tutorial shows how to transform your API so it does not reveal a private bac
 
 This tutorial also shows you how easy it is to add protection for your backend API by configuring rate limit with Azure API Management. For example, you may want to limit a number of calls the API is called so it is not overused by developers. For more information, see [API Management policies](api-management-policies.md)
 
-![Policies](./media/transform-api/api-management-management-console.png)
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -32,11 +31,23 @@ In this tutorial, you learn how to:
 > * Protect an API by adding rate limit policy (throttling)
 > * Test the transformations
 
+![Policies](./media/transform-api/api-management-management-console.png)
+
 ## Prerequisites
 
-Please complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
-Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
++ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
++ Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
  
+## Navigate to your APIM instance
+
+Sign in to the [Azure portal](https://portal.azure.com) and navigate to your APIM instance.
+    
+1. Select **>**.
+2. Type "api" in the search box.
+3. Click **API Management services**.
+
+	![Navigate](./media/api-management-get-started/navigate-to-api-management-services.png)
+
 ## Strip response headers
 
 This section shows how to hide the HTTP headers that you do not want to show to your users. In this example, the following headers get deleted in the HTTP response:
@@ -48,12 +59,11 @@ This section shows how to hide the HTTP headers that you do not want to show to 
 
 To see the original response:
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Select the **API** tab.
-3. Click **Demo Conference API** from your API list.
-4. Select the **GetSpeakers** operation.
-5. Click the **Test** tab, on the top of the screen.
-6. Press the **Send** button, at the bottom of the screen. 
+1. Select the **API** tab.
+2. Click **Demo Conference API** from your API list.
+3. Select the **GetSpeakers** operation.
+4. Click the **Test** tab, on the top of the screen.
+5. Press the **Send** button, at the bottom of the screen. 
 
     As you can see the original response looks like this:
 
@@ -195,6 +205,16 @@ The rest of this section tests policy transformations that you set in this artic
 	![Throttling](./media/transform-api/test-throttling.png)
 
 ## Next steps
+
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Transform an API to strip response headers
+> * Replace original URLs in the body of the API response with APIM gateway URLs
+> * Protect an API by adding rate limit policy (throttling)
+> * Test the transformations
+
+Advance to the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Monitor your API](api-management-howto-use-azure-monitor.md)

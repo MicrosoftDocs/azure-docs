@@ -6,16 +6,16 @@ documentationcenter: ''
 author: steved0x
 manager: erikre
 editor: ''
-
-ms.assetid: e71da405-835a-48f3-956f-45c1a85698d7
+ 
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/23/2017
+ms.date: 11/15/2017
 ms.author: apimpm
 ---
+
 # What is API Management?
 
 API Management (APIM) helps organizations publish APIs to external, partner, and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security, and protection. You can use Azure API Management to take any backend and launch a full-fledged API program based on it.
@@ -134,6 +134,16 @@ To learn more about API Management, watch the following presentation from the Mi
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2186/player]
 > 
 > 
+
+> [!div class="nextstepaction"]
+> [Import and publish your first API](import-and-publish.md)
+
+## Next steps
+
+Complete the following quickstart and start using Azure API Management:
+
+> [!div class="nextstepaction"]
+> [Create an Azure API Management instance](get-started-create-service-instance.md)
 
 [APIs and operations]: #apis
 [Products]: #products
