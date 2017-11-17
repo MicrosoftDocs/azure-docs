@@ -23,7 +23,4 @@ To create a VNet in the Resource Manager deployment model by using the Azure por
 10. **Subnet**: Add the subnet name and subnet address range. You can add additional subnets later, after creating the VNet.
 11. Select **Pin to dashboard** if you want to be able to find your VNet easily on the dashboard, and then click **Create**.
 
- ![Pin to dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "pin to dashboard")
-12. After clicking **Create**, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile changes as the VNet is being created.
-
-  ![Creating virtual network tile](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png "Creating virtual network tile")
+  ![Pin to dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "pin to dashboard")
