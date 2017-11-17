@@ -25,7 +25,7 @@ Virtual Network (VNet) service endpoints extend your virtual network private add
 This feature is available in preview for the following Azure services and regions:
 
 - **Azure Storage**: All regions in the Azure public cloud.
-- **Azure SQL Database**: WestCentralUS, WestUS2, and EastUS.
+- **Azure SQL**: All regions in the Azure public cloud.
 
 For the most up-to-date notifications for the preview, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
@@ -119,4 +119,5 @@ For an Azure service resource (such as, an Azure Storage account), services may 
 - Learn how to [secure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn how to [secure an Azure SQL Database to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn about [Azure service integration in virtual networks](virtual-network-for-azure-services.md)
+-  Quick start: [Azure resource manager template](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) to set up service endpoint on a VNet's Subnet and secure Azure Storage account to that subnet.
 

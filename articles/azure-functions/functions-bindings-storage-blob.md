@@ -310,7 +310,7 @@ See the language-specific example:
 
 ### Input & output - C# example
 
-The following example is a [precompiled C#](functions-dotnet-class-library.md) function that uses one input and two output blob bindings. The function is triggered by the creation of an image blob in the *sample-images* container. It creates small and medium size copies of the image blob. 
+The following example is a [precompiled C#](functions-dotnet-class-library.md) function that uses a blob trigger and two output blob bindings. The function is triggered by the creation of an image blob in the *sample-images* container. It creates small and medium size copies of the image blob. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -343,7 +343,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### Input & output - C# script example
 
-The following example shows a blob trigger binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+The following example shows blob input and output bindings in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the bindings. The function makes a copy of a text blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
 
 In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
 
@@ -381,7 +381,7 @@ The [configuration](#input--output---configuration) section explains these prope
 Here's the C# script code:
 
 ```cs
-public static void Run(string myQueueItem, Stream myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
@@ -390,7 +390,7 @@ public static void Run(string myQueueItem, Stream myInputBlob, out string myOutp
 
 ### Input & output - JavaScript example
 
-The following example shows a blob trigger binding in a *function.json* file and [JavaScript code] (functions-reference-node.md) that uses the binding. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+The following example shows blob input and output bindings in a *function.json* file and [JavaScript code] (functions-reference-node.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
 
 In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
 
