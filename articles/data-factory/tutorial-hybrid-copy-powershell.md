@@ -80,7 +80,7 @@ You use the name and key of your Azure storage account name in this quickstart. 
 5. Copy the values for **Storage account name** and **key1** fields to the clipboard. Paste them into a notepad or any other editor and save it. You use the storage account name and the key in the tutorial. 
 
 #### Create the adftutorial container 
-In this section, you create a blob container named: adftutorial in your Azure blob storage. 
+In this section, you create a blob container named **adftutorial** in your Azure blob storage. 
 
 1. In the **Storage account** page, click **Blobs**. 
 
