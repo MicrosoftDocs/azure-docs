@@ -39,20 +39,10 @@ This step involves adding the device's unique security artifacts to the Device P
     - The *Endorsement Key* that is unique to each TPM chip or simulation. Read the [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) for more information.
     - The *Registration ID* that is used to uniquely identify a device in the namespace/scope. This may or may not be the same as the device ID. The ID is mandatory for every device. For TPM-based devices, the registration ID may be derived from the TPM itself, for example, an SHA-256 hash of the TPM Endorsement Key.
 
-    ![Enrollment information for TPM in the portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
-
 - For X.509 based devices:
     - The [certificate issued to the X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) chip or simulation, in the form of either a *.pem* or a *.cer* file. For individual enrollment, you need to use the *signer certificate* for your X.509 system, while for enrollment groups, you need to use the *root certificate*.
 
-    ![Enrollment information for X.509 in the portal](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
-
-
 There are two ways to enroll the device to the Device Provisioning Service:
-
-- **Enrollment Groups**
-    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices, which share a desired initial configuration, or for devices all going to the same tenant.
-
-    ![Enrollment Groups for X.509 in the portal](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
 
 - **Individual Enrollments**
     This represents an entry for a single device that may register with the Device Provisioning Service. Individual enrollments may use either x509 certificates or SAS tokens (in a real or virtual TPM) as attestation mechanisms. We recommend using individual enrollments for devices which require unique initial configurations, or for devices which can only use SAS tokens via TPM or virtual TPM as the attestation mechanism. Individual enrollments may have the desired IoT hub device ID specified.
@@ -63,7 +53,7 @@ The following are the steps to enroll the device in the portal using **Individua
     
 1. In Solution Explorer, right-click the **DeviceProvisioning** project, and then click **Manage NuGet Packages...**.
 
-1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices**. Select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK][lnk-nuget-client-sdk] NuGet package and its dependencies.
+1. In the **NuGet Package Manager** window, select **Browse** and search for **microsoft.azure.devices**. Select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices) NuGet package and its dependencies.
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
    
@@ -132,7 +122,7 @@ The following are the steps to enroll the device in the portal using **Individua
     }
     ```
 
-1. Finally, add the following code to the **Main** method to open the connection to your IoT hub and initialize the method listener:
+1. Finally, add the following code to the **Main** method to open the connection to your IoT hub and begin the enrollment:
    
         try
         {
@@ -157,7 +147,95 @@ The following are the steps to enroll the device in the portal using **Individua
 
 When the device is successfully enrolled, you should see it displayed in the portal as following:
 
-    ![Successful TPM enrollment in the portal](./media/tutorial-provision-device-to-hub/tpm-enrollment-success.png)
+   ![Successful TPM enrollment in the portal](./media/tutorial-net-provision-device-to-hub/tpm-enrollment-success.png)
+
+- **Enrollment Groups**
+    This represents a group of devices that share a specific attestation mechanism. We recommend using an enrollment group for a large number of devices, which share a desired initial configuration, or for devices all going to the same tenant.
+
+The following are the steps to enroll the device in the portal using **Enrollment Groups**:
+
+1. In the Visual Studio Solution Explorer, open the **DeviceProvisioning** project created above.  
+
+1. Add the following to **Program.cs** implement the enrollment for the group:
+
+    ```csharp
+    static async Task EnrollmentGroupSampleAsync(string connectionString)
+    {
+        DeviceRegistrationClient drsClient = DeviceRegistrationClient.CreateFromConnectionString(connectionString);
+        
+        var enrollmentGroup = new EnrollmentGroup(registrationId)
+        {
+            Attestation = new AttestationMechanism()
+            {
+                Tpm = new TpmAttestation()
+                {
+                    EndorsementKey = endorsementKey
+                }
+            },
+            InitialTwinState = new TwinState()
+            {
+                DesiredProperties = new TwinCollection
+                {
+                    ["temperature"] = 55,
+                    ["firmwareVersion"] = "1.2.5"
+                },
+                Tags = new TwinCollection
+                {
+                    ["location"] = new Dictionary<string, object>
+                    {
+                        { "building", "42" },
+                        { "floor", "1" }
+                    }
+                }
+            }
+        };
+
+        Console.WriteLine("############################ Enrollment Group");
+        Console.WriteLine(JsonConvert.SerializeObject(enrollmentGroup, Formatting.Indented));
+
+        var enrollmentFromCreate = await drsClient.AddEnrollmentGroupAsync(enrollmentGroup);
+
+        Console.WriteLine("Enrollment Group successfully created");
+    }
+    ```
+
+1. Finally, replace the following code to the **Main** method to open the connection to your IoT hub and begin the group enrollement:
+   
+    ```csharp
+    static void Main(string[] args)
+    {
+        try
+        {
+            Console.WriteLine("IoT Device Provisioning example");
+
+            EnrollmentGroupSampleAsync(ServiceConnectionString).GetAwaiter().GetResult();
+            
+            Console.WriteLine("Done, hit enter to exit.");
+            Console.ReadLine();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Error in sample: {0}", ex.Message);
+        }
+    }
+    ```
+
+1. Run the .NET device app **DeviceProvisiong**. It should setup group provisiong for the device: 
+
+    ![Device app run](./media/tutorial-net-provision-device-to-hub/devicerungroup.png)
+
+> [!NOTE]
+> To use X509 certificates, use the following code:
+>     ```csharp
+>     var certificateLocation = "{certificateFileLocation}";
+>
+>     var certificate = new X509Attestation();
+>     certificate.ClientCertificates = new X509Certificates();
+>     certificate.ClientCertificates.Primary = new X509CertificateWithInfo();
+>     certificate.ClientCertificates.Primary.Certificate = new System.Security.Cryptography.X509Certificates.X509Certificate2(certificateLocation);
+>     ```
+> Then replace `Tpm = new TpmAttestation() { EndorsementKey = endorsementKey }` with `X509 = certificate` in the code sample above.
 
 ## Start the device
 
@@ -179,7 +257,7 @@ Once your device boots, the following actions should take place. See the TPM sim
 4. The IoT Hub client application on the device then connects to your hub. 
 5. On successful connection to the hub, you should see the device appear in the IoT hub's **Device Explorer**. 
 
-    ![Successful connection to hub in the portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
+    ![Successful connection to hub in the portal](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
 
 ## Next steps
 In this tutorial, you learned how to:
