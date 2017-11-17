@@ -47,8 +47,6 @@ After you submit your app or add-in:
    - Configuration instructions, if required.
    - Information about a test or demo account that your app or add-in needs.
    
-    
-   
    > [!NOTE]
    > Because our team is located in multiple time zones, we request that you do not configure test accounts that require developer interaction before we can test.
 
