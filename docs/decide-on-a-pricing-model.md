@@ -50,7 +50,7 @@ With a  **Trial offer**, the user can download and use the app or add-in for no 
  
 
  
-If you want to have more control over the features or functionality that available during the trial, implement licensing checks by using the licensing framework. For more information, see  [License your Office and SharePoint Add-ins](license-your-office-and-sharepoint-add-ins.md).
+If you want to have more control over the features or functionality that available during the trial, implement licensing checks by using the licensing framework. For more information, see [License your Office and SharePoint Add-ins](license-your-add-ins.md).
  
 
  
