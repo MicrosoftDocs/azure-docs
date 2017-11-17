@@ -114,7 +114,7 @@ Find the resource you are looking to add users to from the All Resources view. C
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
 ## Sample collaboration workflow
-To illustrate the collaboration flow, let's walk through the following scenario. Contoso employees Alice and Bob want to collaborate on a data science project using Azure ML Workbench. Their identity belong to the same Contoso Azure AD tenant.
+To illustrate the collaboration flow, let's walk through an example. Contoso employees Alice and Bob want to collaborate on a data science project using Azure ML Workbench. Their identity belong to the same Contoso Azure AD tenant.
 
 1. Alice first creates an empty Git repo in a VSTS project. This project should belong to an Azure subscription under the Contoso AAD tenant. 
 
