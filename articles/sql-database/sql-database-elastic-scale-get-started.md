@@ -33,7 +33,7 @@ Follow the steps below to build the JAR files and get started with the sample pr
     * TEST_CONN_USER
     * TEST_CONN_PASSWORD
     * TEST_CONN_SERVER_NAME
-3. From the _./sample_ directory, run the following command to build the sample project.
+3. From the _./sample_ directory, run the following command to build the sample project.<br>
     ```
     mvn install
     ```
@@ -43,14 +43,16 @@ Follow the steps below to build the JAR files and get started with the sample pr
     ```
 5. Experiment with the different options to learn more about the client library capabilities. Feel free to explore the code to learn about the sample app implementation.
 
-Congratulations! You have successfully built and run your first sharded application by using elastic database tools on SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created. Next, to add the library to your Maven project, simply add the following dependency in your POM file.
-```
-<dependency> 
-      <groupId>com.microsoft.azure</groupId> 
-      <artifactId>elastic-db-tools</artifactId> 
-      <version>1.0.0</version> 
-</dependency> 
-```
+    ![Progress-java][5]
+Congratulations! You have successfully built and run your first sharded application by using elastic database tools on SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created. 
+To add the client library to your own Maven project, add the following dependency in your POM file.
+    ```
+    <dependency> 
+          <groupId>com.microsoft.azure</groupId> 
+          <artifactId>elastic-db-tools</artifactId> 
+          <version>1.0.0</version> 
+    </dependency> 
+    ```
 
 ## Elastic database tools for .Net 
 ### Prerequisites
@@ -126,4 +128,5 @@ For more information about elastic database tools, see the following pages:
 [2]: ./media/sql-database-elastic-scale-get-started/click-online.png
 [3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
+[5]: ./media/sql-database-elastic-scale-get-started/java-client-library.PNG
 
