@@ -54,7 +54,7 @@ https://mynamespace.accesscontrol.windows.net
 
 All communication with the STS and management operations are done at this URL, with different paths for different purposes. To determine if your applications or services use ACS, monitor for any traffic to `https://{namespace}.accesscontrol.windows.net`.  Any traffic to this URL is traffic that is handled by ACS and needs to be discontinued.  The one exception is any traffic to `https://accounts.accesscontrol.windows.net` - traffic to this URL is already handled by a different service and is not affected by ACS deprecation.  You should also be sure to login to the Azure classic portal and check for any ACS namespaces in the subscriptions that you own.  ACS namespaces are listed in the **Active Directory** service, under the **Access Control Namespaces** tab.
 
-For more information on ACS, see [this archived documentation on MSDN](https://msdn.microsoft.com/en-us/library/hh147631.aspx).
+For more information on ACS, see [this archived documentation on MSDN](https://msdn.microsoft.com/library/hh147631.aspx).
 
 ## Retirement Schedule
 
@@ -82,7 +82,7 @@ Each of the Microsoft cloud services that accept tokens issued by ACS now suppor
 | Azure Cache | [Migrate to Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Azure Data Market | [Migrate to the Cognitive Services APIs](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | BizTalk Services | [Migrate to Azure Logic Apps](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| Azure Media Services | [Migrate to Azure AD authentication](https://azure.microsoft.com/en-us/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
+| Azure Media Services | [Migrate to Azure AD authentication](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Azure Backup | [Upgrade the Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
@@ -203,9 +203,9 @@ The following table compares the features of ACS relevant to web applications wi
 
 If you decide that Azure AD B2C is the proper path forward for your applications & services, you should begin with the following resources:
 
-- [Azure AD B2C Documentation](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview)
-- [Azure AD B2C Custom Policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom)
-- [Azure AD B2C Pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory-b2c/)
+- [Azure AD B2C Documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+- [Azure AD B2C Custom Policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
+- [Azure AD B2C Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 
 #### Other Migration Options
