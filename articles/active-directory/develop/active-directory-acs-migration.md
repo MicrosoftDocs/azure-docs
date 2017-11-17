@@ -277,7 +277,7 @@ For guidance on implementing server-to-server scenarios, refer to the following 
 
 #### Other Migration Options
 
-If Azure AD does not meet the needs of your web service, please reach out to us and we can help you identify the best path forward.
+If Azure AD does not meet the needs of your web service, please leave a comment and we can help you identify the best plan for your specific case.
 
 <!--
 
@@ -300,4 +300,4 @@ Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customer
 
 ## Questions, Concerns, & Feedback
 
-We understand that many ACS customers will not find a clear migration path after reading this article, and may need some assistance or guidance in determining a path forward. If you would like to discuss your migration scenarios & questions, please leave a comment on this page, and we will attempt to field all inquiries to this alias in a timely manner.
+We understand that many ACS customers will not find a clear migration path after reading this article, and may need some assistance or guidance in determining the right plan. If you would like to discuss your migration scenarios & questions, leave a comment on this page.
