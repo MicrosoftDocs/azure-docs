@@ -1526,6 +1526,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/store-php-create-mysql-database.md",
+            "redirect_url": "https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service-web/app-service-web-app-performance-test.md",
             "redirect_url": "https://www.visualstudio.com/docs/test/performance-testing/app-service-web-app-performance-test",
             "redirect_document_id": false
@@ -1817,7 +1822,7 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-migration-from-iis-server.md",
-            "redirect_url": "https://www.movemetothecloud.net/",
+            "redirect_url": "https://www.migratetoazure.net/",
             "redirect_document_id": false
         },
         {
@@ -7148,11 +7153,6 @@
         },
         {
           "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-simulator.md",
-          "redirect_url": "/azure/iot-suite",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
           "redirect_url": "/azure/iot-suite",
           "redirect_document_id": false
         },
@@ -15184,7 +15184,7 @@
           "redirect_url": "https://support.microsoft.com/help/4042960",
           "redirect_document_id": false
         },
-        {
+	    {
             "source_path": "articles/time-series-insights/time-series-insights-add-event-source.md",
             "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
             "redirect_document_id": true
@@ -15195,6 +15195,86 @@
           "redirect_document_id": false
         },
         {
+            "source_path": "iot-suite-v1-gateway-kit-get-started-sensortag.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/blob/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-sensortag.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-lesson1-set-up-nuc.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-gateway-kit-c-troubleshooting.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/commercial_gateway_kit/iot-hub-gateway-kit-c-troubleshooting.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-iot-edge-overview.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/iot-hub-iot-edge-overview.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-linux-iot-edge-get-started.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/hello_world/iot-hub-linux-iot-edge-get-started.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-windows-iot-edge-get-started.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/hello_world/iot-hub-windows-iot-edge-get-started.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/simulated_device_cloud_upload/iot-hub-linux-iot-edge-simulated-device.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/simulated_device_cloud_upload/iot-hub-windows-iot-edge-simulated-device.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-iot-edge-physical-device.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/ble_gateway/iot-hub-iot-edge-physical-device.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-iot-edge-create-module-dotnet-core.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-dotnet-core.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-iot-edge-create-module-js.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-js.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-iot-edge-create-module-java.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-java.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-gateway-kit-get-started-sensortag.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-suite/iot-suite-v1-gateway-kit-get-started-simulator.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-simulator.md",
+            "redirect_document_id": false
+        },   
+        { 
             "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
             "redirect_document_id": false

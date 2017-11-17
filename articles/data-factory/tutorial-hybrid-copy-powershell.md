@@ -34,11 +34,14 @@ You perform the following steps in this tutorial:
 > * Start a pipeline run.
 > * Monitor the pipeline run.
 
+## Prerequisites
+### Azure subscription
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Prerequisites
+### Azure roles
+To create Data Factory instances, Azure user must be a member of **contributor** or **administrator** roles of the Azure subscription. For instructions, see [Add roles](../billing/billing-add-change-azure-subscription-administrator.md).
 
-### SQL Server 2014 or 2016. 
+### SQL Server 2014/2016/2017
 You use an on-premises SQL Server database as a **source** data store in this tutorial. Create a table named **emp** in your SQL Server database, and insert a couple of sample entries into the table.
 
 1. Launch **SQL Server Management Studio**. If you are using SQL Server 2016, you may need to install the SQL Server Management Studio separately from the [download center](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
@@ -278,7 +281,7 @@ In this section, you can create a Self-hosted integration runtime and associate 
 			"typeProperties": {
 				"connectionString": {
 					"type": "SecureString",
-					"value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+					"value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>;EndpointSuffix=core.windows.net"
 				}
 			}
 		},
@@ -304,10 +307,14 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
 ### Create and encrypt a SQL Server linked service (source)
 
-1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>**, and **&lt;password>** with values of your SQL Server before saving the file. 
+1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Select the right section based on the authentication you use to connect to SQL Server.  
+
+    **If you are using SQL authentication (sa):**
 
     > [!IMPORTANT]
     > Replace  **&lt;integration** **runtime** **name>** with the name of your integration runtime.
+    > 
+    > Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, and **&lt;password>** with values of your SQL Server before saving the file.
 
 	```json
 	{
@@ -326,7 +333,32 @@ In this section, you can create a Self-hosted integration runtime and associate 
 		},
 		"name": "SqlServerLinkedService"
 	}
-   ```
+   ```    
+    **If you are using Windows authentication:**
+
+    ```json
+    {
+        "properties": {
+            "type": "SqlServer",
+            "typeProperties": {
+                "connectionString": {
+                    "type": "SecureString",
+                    "value": "Server=<server>;Database=<database>;Integrated Security=True"
+                },
+                "userName": "<domain>\\<user>",
+                "password": {
+                    "type": "SecureString",
+                    "value": "<password>"
+                }
+            },
+            "connectVia": {
+                "type": "integrationRuntimeReference",
+                "referenceName": "<integration runtime name>"
+            }
+        },
+        "name": "SqlServerLinkedService"
+    }    
+    ```
 2. To encrypt the sensitive data from the JSON payload on the on-premise self-hosted integration runtime, run **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** and pass on the above JSON payload. This encryption ensures  that the credentials are encrypted using Data Protection Application Programming Interface (DPAPI). The encrypted credentials are stored on the self-hosted integration runtime node locally (local machine). The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json') which contains encrypted credentials.
     
    ```powershell
