@@ -207,6 +207,13 @@ If you decide that Azure AD B2C is the proper path forward for your applications
 - [Azure AD B2C Custom Policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Azure AD B2C Pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory-b2c/)
 
+
+#### Other Migration Options
+
+If neither Azure AD nor Azure AD B2C meets the needs of your web application, please reach out to us and we can help you identify the best path forward.
+
+<!--
+
 #### Migrating to Ping Identity or Auth0
 
 In some cases, you may find that neither Azure AD nor Azure AD B2C is sufficient to replace ACS in your web applications without making major code changes.  Some common examples might include:
@@ -223,6 +230,7 @@ In these cases, you may want to consider migrating your web application to anoth
 
 Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customers have a path forward for their apps & services that minimizes the amount of work required to move off of ACS.
 
+-->
 
 <!--
 
@@ -267,6 +275,12 @@ For guidance on implementing server-to-server scenarios, refer to the following 
 - [Daemon code sample using simple password client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Daemon code sample using certificate client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
+#### Other Migration Options
+
+If Azure AD does not meet the needs of your web service, please reach out to us and we can help you identify the best path forward.
+
+<!--
+
 #### Migrating to Ping Identity or Auth0
 
 In some cases, you may find that neither Azure AD's client credentials OAuth grant implementation is not sufficient to replace ACS in your architecture without major code changes.  Some common examples might include:
@@ -281,6 +295,8 @@ In these cases, you may want to consider migrating your web application to anoth
 - Enterprise customers should consider [Ping Identity](https://www.pingidentity.com) as well. Reach out to us and we can connect you with a representative from Ping who is prepared to help identify potential solutions.
 
 Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customers have a path forward for their apps & services that minimizes the amount of work required to move off of ACS.
+
+-->
 
 ## Questions, Concerns, & Feedback
 
