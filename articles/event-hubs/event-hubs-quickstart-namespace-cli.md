@@ -82,8 +82,8 @@ Run the following command to remove the resource group, namespace, storage accou
 az group delete --name eventhubsResourceGroup
 ```
 
-[1]: /media/event-hubs-quickstart-namespace-cli/cli1.png
-[2]: /media/event-hubs-quickstart-namespace-cli/cli2.png
+[1]: ./media/event-hubs-quickstart-namespace-cli/cli1.png
+[2]: ./media/event-hubs-quickstart-namespace-cli/cli2.png
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
