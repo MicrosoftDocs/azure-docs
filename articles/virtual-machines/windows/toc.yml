@@ -80,15 +80,21 @@
       href: sizes-general.md          
   - name: Maintenance and updates
     href: maintenance-and-updates.md
-  - name: Storage
+  - name: Disk storage
     href: about-disks-and-vhds.md
     items:
+    - name: Managed Disks
+      href: managed-disks-overview.md
     - name: Premium storage
       href: premium-storage.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Standard storage
       href: standard-storage.md
+    - name: Scalability targets for disks
+      href: disk-scalability-targets.md
+    - name: Backup and disaster recovery for disks
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -113,6 +119,8 @@
     items:
     - name: Use C#
       href: csharp.md
+    - name: Use specialized disk
+      href: create-vm-specialized.md
     - name: Use a template with C#
       href: csharp-template.md
     - name: Create VM with Chef
@@ -125,7 +133,7 @@
       href: ps-template.md
     - name: Connect to a VM
       href: connect-logon.md
-    - name: Use AHUB licensing
+    - name: Use Azure Hybrid Benefit license
       href: hybrid-use-benefit-licensing.md
     - name: Use Multitenant Hosting Rights for Windows 10
       href: windows-desktop-multitenant-hosting-deployment.md
@@ -154,6 +162,8 @@
         href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Manage VMs
     items:
+    - name: Prepay for VMs - Reserved Instances
+      href: prepay-reserved-vm-instances.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
     - name: Move a VM
@@ -178,18 +188,18 @@
       href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
+    - name: Enable nested virtualization
+      href: nested-virtualization.md
   - name: Use Images
     items:
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Prepare VM for upload
       href: prepare-for-upload-vhd-image.md
-    - name: Use generalized image
-      href: create-vm-generalized-managed.md
-    - name: Use specialized disk
-      href: create-vm-specialized.md
     - name: Capture VM to image
       href: capture-image-resource.md
+    - name: Use generalized image
+      href: create-vm-generalized-managed.md
     - name: Build image with Packer
       href: build-image-with-packer.md
     - name: Use Windows client images
@@ -239,8 +249,6 @@
         href: excel-cluster-hpcpack.md
   - name: Manage storage
     items:
-    - name: Learn about Managed Disks
-      href: managed-disks-overview.md
     - name: Disks FAQs
       href: faq-for-disks.md
     - name: Add a disk
@@ -253,8 +261,6 @@
       href: detach-disk.md
     - name: Resize a disk
       href: expand-os-disk.md
-    - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
     - name: Back up unmanaged disks

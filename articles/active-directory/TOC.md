@@ -133,6 +133,7 @@
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
 ### [SSPR How it works](active-directory-passwords-how-it-works.md)
 ### [SSPR Deployment guide](active-directory-passwords-best-practices.md)
+### [SSPR and Windows 10](active-directory-passwords-login.md)
 ### [SSPR Policies ](active-directory-passwords-policy.md)
 ### [SSPR Customization](active-directory-passwords-customize.md)
 ### [SSPR Data requirements](active-directory-passwords-data.md)
@@ -247,12 +248,12 @@
 ## Manage your directory
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Custom domain names
-#### [Overview](active-directory-domains-manage-azure-portal.md)
-#### [Manage domain names](active-directory-domains-manage-azure-portal.md)
+#### [Quickstart](add-custom-domain.md)
+#### [Add custom domain names](active-directory-domains-manage-azure-portal.md)
 ### [Administer your directory](active-directory-administer.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
 ### [Self-service signup](active-directory-self-service-signup.md)
-#### [Take over an unmanaged directory](domains-admin-takeover.md)
+### [Take over an unmanaged directory](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Enable](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
