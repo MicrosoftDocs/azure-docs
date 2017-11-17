@@ -19,23 +19,22 @@ ms.date: 11/16/2017
 ms.author: panavra
 
 ---
-# Install published application - Cask Data Application Platform (CDAP) on Azure HDInsight
+# Install published application - Cask Data Application Platform (CDAP)
 
-In this article, you will learn how to install the [CDAP](http://cask.co/products/cdap/) published Hadoop application on Azure HDInsight. Read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md) for a list of available Independent Software Vendor (ISV) applications, as well as an overview of the HDInsight application platform. For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+This article describes how to install and use the [CDAP](http://cask.co/products/cdap/) published Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 ## About CDAP
 
-Developing applications in the traditional Hadoop world is a not an easy task. Listed below are some key aspects that add to the challenges faced by a Hadoop developer: -
+Developing applications in Hadoop can be challenging.  There is a large and growing number of Hadoop technology extensions, which may take some time to integrate.
 
-* Over the past few years, the increased interest in the Big Data space has resulted in a technology explosion in the Hadoop ecosystem. It has become progressively difficult to keep track of all the existing technologies as well as new ones come up.
-* Simple processes like data ingestion and ETL require a complicated setup which is not generally extensible or reusable.
+* Simple processes such as data ingestion and ETL can be challenging to implement.
 * Apart from the significant learning curve involved in using each of the different Hadoop technologies, there is a substantial amount of time spent in integrating all of them to form a data processing solution.
 * Moving from a proof-of-concept solution to a production-ready one is far from a trivial step involving multiple iterations and can lead to an increased unpredictability in delivery times.
 * It is hard to locate data and trace its flow in an application. Collecting metrics and auditing is generally a challenge and often requires building a separate solution.
 
 ### How does CDAP help?
 
-CDAP (Cask Data Application Platform) is a unified integration platform for big data. The highlight of CDAP is that a user can focus on building applications rather than its underlying infrastructure and integration.
+The Cask Data Application Platform (CDAP) is an integration platform for Big Data. The highlight of CDAP is that a user can focus on building applications rather than its underlying infrastructure and integration.
 
 CDAP works using high-level concepts and abstractions which are familiar to developers and empowers them to use their existing skills to build new solutions. These abstractions hide the complexities of internal systems and encourage re-usability of solutions.
 
