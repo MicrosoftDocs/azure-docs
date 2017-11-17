@@ -34,13 +34,17 @@ Follow the steps below to build the JAR files and get started with the sample pr
     * TEST_CONN_PASSWORD
     * TEST_CONN_SERVER_NAME
 3. From the _./sample_ directory, run the following command to build the sample project.<br>
+
     ```
     mvn install
     ```
+    
 4. From the _./sample_ directory, run the following command to start the sample project. 
+    
     ```
     mvn -q exec:java "-Dexec.mainClass=com.microsoft.azure.elasticdb.samples.elasticscalestarterkit.Program"
     ```
+    
 5. Experiment with the different options to learn more about the client library capabilities. Feel free to explore the code to learn about the sample app implementation.
 
     ![Progress-java][5]
