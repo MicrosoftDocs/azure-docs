@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/14/2017
+ms.date: 11/16/2017
 ms.author: jingwang
 
 ---
