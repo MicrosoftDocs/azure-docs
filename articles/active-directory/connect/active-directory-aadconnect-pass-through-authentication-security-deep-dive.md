@@ -200,10 +200,10 @@ To auto-update an Authentication Agent:
 
 
 ## Next steps
-- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Learn which scenarios are supported and which ones are not.
-- [**Quick start**](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-- [**Smart Lockout**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
-- [**How it works**](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Learn the basics of how Azure AD Pass-through Authentication works.
-- [**Frequently asked questions**](active-directory-aadconnect-pass-through-authentication-faq.md): Find answers to frequently asked questions.
-- [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
-- [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md): Learn more about this complementary feature.
+- [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Learn which scenarios are supported and which ones are not.
+- [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
+- [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
+- [How it works](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Learn the basics of how Azure AD Pass-through Authentication works.
+- [Frequently asked questions](active-directory-aadconnect-pass-through-authentication-faq.md): Find answers to frequently asked questions.
+- [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
+- [Azure AD Seamless SSO](active-directory-aadconnect-sso.md): Learn more about this complementary feature.

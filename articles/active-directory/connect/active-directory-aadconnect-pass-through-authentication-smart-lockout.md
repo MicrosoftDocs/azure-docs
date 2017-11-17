@@ -145,4 +145,4 @@ Follow these steps to update your tenant’s Smart Lockout values (if you have a
 Verify that you have updated your tenant's Smart Lockout values correctly by using the [View Smart Lockout values](#view-smart-lockout-values) steps.
 
 ## Next steps
-[**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
+[UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
