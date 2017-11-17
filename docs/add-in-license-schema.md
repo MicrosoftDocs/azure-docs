@@ -163,9 +163,12 @@ When you submit a test add-in license token to the Office Store verification web
 
 ## Remarks
 
->**Important:**  When your add-in receives an add-in license token from its hosting environment, be it an Office application or SharePoint, developers are advised not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. The Office Store verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, line breaks, etc., will change the literal value of the `<t>` element and therefore cause the license verification check to fail.
+> [!IMPORTANT]
+> When your add-in receives an add-in license token from its hosting environment, be it an Office application or SharePoint, developers are advised not to parse or otherwise manipulate the add-in license token string before passing it to the Office Store verification web service for verification. While the add-in license token is structured as an XML fragment, for purposes of validation the Office Store verification web service treats the token as a literal string. 
 
->When you submit a test add-in license token to the Office Store verification web service, the service does not perform that validation check of comparing the encrypted signature in the `<d>` element to the string contained in the `<t>` element. This enables developers to create their own test add-in license tokens for testing purposes without worrying about formatting, or generating the encryption signature for the `<d>` element.
+> The Office Store verification web service compares the contents of the `<t>` element to the value of the `<d>` element, which is an encrypted signature derived from the literal string contained in the `<t>` element. Any reformatting of the license token, such as adding white space, tabs, line breaks, etc., will change the literal value of the `<t>` element and therefore cause the license verification check to fail.
+
+> When you submit a test add-in license token to the Office Store verification web service, the service does not perform that validation check of comparing the encrypted signature in the `<d>` element to the string contained in the `<t>` element. This enables developers to create their own test add-in license tokens for testing purposes without worrying about formatting, or generating the encryption signature for the `<d>` element.
 
 ## Example: Add-in license XML for a SharePoint Add-in
 <a name="SP15applicense_example"> </a>
