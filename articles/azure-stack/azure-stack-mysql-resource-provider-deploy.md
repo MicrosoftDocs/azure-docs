@@ -59,6 +59,8 @@ The system account must have the following privileges:
 
 3. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and execute the self-extractor to extract the contents to a temporary directory.
 
+[!NOTE] If you running on an Azure Stack build 20170928.3 or earlier, [Download this version](https://aka.ms/azurestackmysqlrp1709).
+
 4.  The Azure Stack root certificate is retrieved from the Privileged Endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
     If you need to provide your own certificate, you need the following certificate:
