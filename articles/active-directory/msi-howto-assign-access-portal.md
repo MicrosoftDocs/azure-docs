@@ -24,7 +24,7 @@ After you've configured an Azure resource with a Managed Service Identity (MSI),
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 ## Use RBAC to assign the MSI access to another resource
 

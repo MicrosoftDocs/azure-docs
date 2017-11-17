@@ -1,0 +1,1 @@
+In addition, depending on requirements, your account needs to be given at least "Contributor" role membership at "Resource Group" scope. See [Use Role-Based Access Control to manage access to your Azure subscription resources](../articles/active-directory/role-based-access-control-configure.md) if you need assistance with role assignment.

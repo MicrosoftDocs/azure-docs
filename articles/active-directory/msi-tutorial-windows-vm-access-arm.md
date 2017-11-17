@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
-ms.author: elkuzmen
+ms.date: 11/20/2017
+ms.author: bryanla
 ---
 
 # Use a Windows VM Managed Service Identity (MSI) to access Resource Manager
