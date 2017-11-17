@@ -27,6 +27,10 @@ robots: noindex
 > * [Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md)
 > * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Quickstart: Create a data factory using Azure Data Factory version 2](../quickstart-create-data-factory-dot-net.md).
+
 In this tutorial, you build your first Azure data factory with a data pipeline. The pipeline transforms input data by running Hive script on an Azure HDInsight (Hadoop) cluster to produce output data.  
 
 This article provides overview and prerequisites for the tutorial. After you complete the prerequisites, you can do the tutorial using one of the following tools/SDKs: Azure portal, Visual Studio, PowerShell, Resource Manager template, REST API. Select one of the options in the drop-down list at the beginning (or) links at the end of this article to do the tutorial using one of these options.    

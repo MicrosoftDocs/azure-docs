@@ -29,6 +29,9 @@ robots: noindex
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md). 
+
 In this tutorial, you create a data factory with a pipeline to copy data from Blob storage to SQL database.
 
 The Copy Activity performs the data movement in Azure Data Factory. It is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.  

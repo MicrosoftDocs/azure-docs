@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/2/2017
+ms.date: 10/26/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -53,6 +53,10 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 > [!NOTE] 
 > The Azure Cosmos DB .NET Core SDK is not yet compatible with Universal Windows Platform (UWP) apps. If you are interested in the .NET Core SDK that does support UWP apps, send email to [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="1.6.0"/>1.6.0
+
+* Added several reliability fixes and improvements.
 
 ### <a name="1.5.1"/>1.5.1 
 
@@ -137,7 +141,8 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.5.1](#1.5.1) |October 2, 2017 |--- |
+| [1.6.0](#1.6.0) |October 17, 2017 |--- |
+| [1.5.1](#1.5.1) |October 02, 2017 |--- |
 | [1.5.0](#1.5.0) |August 10, 2017 |--- | 
 | [1.4.1](#1.4.1) |August 07, 2017 |--- |
 | [1.4.0](#1.4.0) |August 02, 2017 |--- |

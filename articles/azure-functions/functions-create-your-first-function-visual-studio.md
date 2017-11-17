@@ -15,14 +15,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
 
 ---
 # Create your first function using Visual Studio
 
-Azure Functions lets you execute your code in a serverless environment without having to first create a VM or publish a web application.
+Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
 
 In this topic, you learn how to use the Visual Studio 2017 tools for Azure Functions to create and test a "hello world" function locally. You will then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2017 version 15.3, or a later version.
 
@@ -32,12 +32,11 @@ In this topic, you learn how to use the Visual Studio 2017 tools for Azure Funct
 
 To complete this tutorial, install:
 
-* [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+* [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/) or a later version, including the **Azure development** workload.
 
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
-    >[!NOTE]  
-    >After you install or upgrade to Visual Studio 2017 version 15.3, you must manually update the Visual Studio 2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
+[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-install-note.md)] 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

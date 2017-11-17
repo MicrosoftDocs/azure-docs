@@ -17,7 +17,7 @@ Azure Database for PostgreSQL is a managed service that enables you to run, mana
 
 In this tutorial, you use the Azure portal to learn how to:
 > [!div class="checklist"]
-> * Create an Azure Database for PostgreSQL
+> * Create an Azure Database for PostgreSQL server
 > * Configure the server firewall
 > * Use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database
 > * Load sample data
@@ -49,9 +49,9 @@ Follow these steps to create an Azure Database for PostgreSQL server:
     - PostgreSQL Version
 
   > [!IMPORTANT]
-  > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
+  > The server admin login and password that you specify here are required to log in to the server and its databases later in this quickstart. Remember or record this information for later use.
 
-4.	Click **Pricing tier** to specify the service tier and performance level for your new database. For this quick start, select **Basic** Tier, **50 Compute Units** and **50 GB** of included storage.
+4.	Click **Pricing tier** to specify the service tier and performance level for your new database. For this quickstart, select **Basic** Tier, **50 Compute Units** and **50 GB** of included storage.
  ![Azure Database for PostgreSQL - pick the service tier](./media/tutorial-design-database-using-azure-portal/2-service-tier.png)
 5.	Click **Ok**.
 6.	Click **Create** to provision the server. Provisioning takes a few minutes.
@@ -66,18 +66,18 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 
 ## Configure a server-level firewall rule
 
-The Azure Database for PostgreSQL service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for specific IP addresses. 
+The Azure Database for PostgreSQL service creates a firewall at the server-level. By default, this firewall prevents all external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for a specific IP address range. 
 
 1.	After the deployment completes, click **All Resources** from the left-hand menu and type in the name **mypgserver-20170401** to search for your newly created server. Click the server name listed in the search result. The **Overview** page for your server opens and provides options for further configuration.
  
  ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.	In the server blade, select **Connection Security**. 
-3.	Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. For this tutorial, let's allow all IPs by typing in **Rule Name = AllowAllIps**, **Start IP = 0.0.0.0** and **End IP = 255.255.255.255** and then click **Save**. You can set a firewall rule that covers an IP range to be able to connect from your network.
+2.	In the server blade, select **Connection security**. 
+3.	Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. For this tutorial, let's allow all IPs by typing in **Rule Name = AllowAllIps**, **Start IP = 0.0.0.0** and **End IP = 255.255.255.255** and then click **Save**. You can set a specific firewall rule that covers a smaller IP range to be able to connect from your network.
  
  ![Azure Database for PostgreSQL - Create Firewall Rule](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
-4.	Click **Save** and then click the **X** to close the **Connections Security** page.
+4.	Click **Save** and then click the **X** to close the **Connections security** page.
 
   > [!NOTE]
   > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you will not be able to connect to your Azure SQL Database server unless your IT department opens port 5432.
@@ -88,7 +88,7 @@ The Azure Database for PostgreSQL service creates a firewall at the server-level
 
 When we created our Azure Database for PostgreSQL server, the default **postgres** database also gets created. To connect to your database server, you need to provide host information and access credentials.
 
-1. From the left-hand menu in Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
+1. From the left-hand menu in the Azure portal, click **All resources** and search for the server you just created **mypgserver-20170401**.
 
   ![Azure Database for PostgreSQL - Search for server ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
@@ -100,7 +100,7 @@ When we created our Azure Database for PostgreSQL server, the default **postgres
 
 ## Connect to PostgreSQL database using psql in Cloud Shell
 
-Let's now use the psql command-line utility to connect to the Azure Database for PostgreSQL server. 
+Let's now use the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server. 
 1. Launch the Azure Cloud Shell via the terminal icon on the top navigation pane.
 
    ![Azure Database for PostgreSQL - Azure Cloud Shell terminal icon](./media/tutorial-design-database-using-azure-portal/7-cloud-shell.png)
@@ -142,40 +142,40 @@ CREATE TABLE inventory (
 );
 ```
 
-You can see the newly created table in the list of tabvles now by typing:
+You can see the newly created table in the list of tables now by typing:
 ```sql
 \dt
 ```
 
 ## Load data into the tables
-Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data
+Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-You have now two rows of sample data into the table you created earlier.
+You have now two rows of sample data into the inventory table you created earlier.
 
 ## Query and update the data in the tables
-Execute the following query to retrieve information from the database table. 
+Execute the following query to retrieve information from the inventory database table. 
 ```sql
 SELECT * FROM inventory;
 ```
 
-You can also update the data in the tables
+You can also update the data in the table.
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-The row gets updated accordingly when you retrieve data.
+You can see the updated values when you retrieve the data.
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## Restore data to a previous point in time
-Imagine you have accidentally deleted this table. This situation is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (in the last up to 7 days (Basic) and 35 days (Standard)) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. The following steps restore the sample server to a point before the table was added.
+Imagine you have accidentally deleted this table. This situation is something you cannot easily recover from. Azure Database for PostgreSQL allows you to go back to any point-in-time (in the last up to 7 days (Basic) and 35 days (Standard)) and restore this point-in-time to a new server. You can use this new server to recover your deleted data. The following steps restore the **mypgserver-20170401** server to a point before the inventory table was added.
 
-1.	On the Azure Database for PostgreSQL page for your server, click **Restore** on the toolbar. The **Restore** page opens.
+1.	On the Azure Database for PostgreSQL **Overview** page for your server, click **Restore** on the toolbar. The **Restore** page opens.
   ![Azure portal - Restore form options](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
 2.	Fill out the **Restore** form with the required information:
 
@@ -184,12 +184,12 @@ Imagine you have accidentally deleted this table. This situation is something yo
   - **Target server**: Provide a new server name you want to restore to
   - **Location**: You cannot select the region, by default it is same as the source server
   - **Pricing tier**: You cannot change this value when restoring a server. It is same as the source server. 
-3.	Click **OK** to restore the server to [restore to a point-in-time](./howto-restore-server-portal.md) before the tables was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [service tier](./concepts-service-tiers.md).
+3.	Click **OK** [restore the server to a point-in-time](./howto-restore-server-portal.md) before the table was deleted. Restoring a server to a different point in time creates a duplicate new server as the original server as of the point in time you specify, provided that it is within the retention period for your [service tier](./concepts-service-tiers.md).
 
 ## Next Steps
 In this tutorial, you learned how to use the Azure portal and other utilities to:
 > [!div class="checklist"]
-> * Create an Azure Database for PostgreSQL
+> * Create an Azure Database for PostgreSQL server
 > * Configure the server firewall
 > * Use [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility to create a database
 > * Load sample data
@@ -197,5 +197,5 @@ In this tutorial, you learned how to use the Azure portal and other utilities to
 > * Update data
 > * Restore data
 
-Next, learn how to use Azure CLI to do similar tasks, review this tutorial: 
+Next, to learn how to use the Azure CLI to do similar tasks, review this tutorial: 
 [Design your first Azure Database for PostgreSQL using Azure CLI](tutorial-design-database-using-azure-cli.md)

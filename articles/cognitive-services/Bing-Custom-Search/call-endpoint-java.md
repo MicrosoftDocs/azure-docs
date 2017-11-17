@@ -14,7 +14,7 @@ ms.author: v-brapel
 
 # Call Bing Custom Search endpoint (Java)
 
-This example shows how to request search results from your custom search instance using C#. To create this example follow these steps:
+This example shows how to request search results from your custom search instance using Java. To create this example follow these steps:
 
 1. Create your custom instance (see [Define a custom search instance](define-your-custom-view.md)).
 2. Get a subscription key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  

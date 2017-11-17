@@ -21,6 +21,9 @@ Azure Data Factory is a cloud-based data integration service that allows you to 
 In this quick start, you will learn how to visually monitor data factory v2 pipelines without writing a single line of code.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is in general availability (GA), see [Monitor and manage pipelines in Data Factory version1](v1/data-factory-monitor-manage-app.md).
+
 ## Monitor data factory v2 pipelines
 
 1. Log in to the  [Azure portal](https://portal.azure.com/).

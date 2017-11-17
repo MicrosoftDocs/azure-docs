@@ -109,6 +109,7 @@
 ### Use device jobs to update device firmware
 #### [Node back end/Node device](iot-hub-node-node-firmware-update.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-firmware-update.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java back end/Java device](iot-hub-java-java-firmware-update.md)
 ### Schedule and broadcast jobs
 #### [Node.js back end/Node.js device](iot-hub-node-node-schedule-jobs.md)
@@ -177,7 +178,8 @@
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Service)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Devices)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Node.js SDKs](http://azure.github.io/azure-iot-sdk-node/)
+## [Node.js (Devices)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
+## [Node.js (Service)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
 ## [C device SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

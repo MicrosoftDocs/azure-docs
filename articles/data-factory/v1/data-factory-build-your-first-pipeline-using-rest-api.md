@@ -30,6 +30,9 @@ robots: noindex
 >
 
 
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Quickstart: Create a data factory using Azure Data Factory version 2](../quickstart-create-data-factory-rest-api.md).
+
 In this article, you use Data Factory REST API to create your first Azure data factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list.
 
 The pipeline in this tutorial has one activity: **HDInsight Hive activity**. This activity runs a hive script on an Azure HDInsight cluster that transforms input data to produce output data. The pipeline is scheduled to run once a month between the specified start and end times.

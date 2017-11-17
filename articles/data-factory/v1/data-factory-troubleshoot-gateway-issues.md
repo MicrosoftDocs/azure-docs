@@ -21,9 +21,9 @@ robots: noindex
 This article provides information on troubleshooting issues with using Data Management Gateway.
 
 > [!NOTE]
-> See the [Data Management Gateway](data-factory-data-management-gateway.md) article for detailed information about the gateway. See the [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for a walkthrough of moving data from an on-premises SQL Server database to Microsoft Azure Blob storage by using the gateway.
->
->
+> This article applies to version 1 of Azure Data Factory, which is in general availability (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in Data Factory version 2](../create-self-hosted-integration-runtime.md).
+
+See the [Data Management Gateway](data-factory-data-management-gateway.md) article for detailed information about the gateway. See the [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for a walkthrough of moving data from an on-premises SQL Server database to Microsoft Azure Blob storage by using the gateway.
 
 ## Failed to install or register gateway
 ### 1. Problem

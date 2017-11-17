@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 10/23/2017
 ms.author: larryfr
 
 ---
@@ -169,7 +169,7 @@ For example, if you have defined a UDF with the following properties:
 
 * UDF class name: com.myudfs.Awesome
 
-Using the **Insert udfs** button displays an entry named **myudfs**, with another drop-down list for each UDF defined for that resource. In this case, it's **myawesomeudf**. Selecting this entry adds the following to the beginning of the query:
+Using the **Insert udfs** button displays an entry named **myudfs**, with another drop-down list for each UDF defined for that resource. In this case, it is **myawesomeudf**. Selecting this entry adds the following to the beginning of the query:
 
 ```hiveql
 add jar /myudfs.jar;

@@ -5,7 +5,7 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 10/18/2017
 ms.author: victorh
 keywords:
 ---
@@ -34,15 +34,15 @@ Internal infrastructure VIPs are not listed because they’re not required for p
 |Endpoint (VIP)|DNS host A record|Protocol|Ports|
 |---------|---------|---------|---------|
 |AD FS|`Adfs.[Region].[External FQDN]`|HTTPS|443|
-|Portal (administrator)|`Adminportal.[Region].[External FQDN]`|HTTPS|443|
+|Portal (administrator)|`Adminportal.[Region].[External FQDN]`|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
 |Azure Resource Manager (administrator)|`Adminmanagement.[Region].[External FQDN]`|HTTPS|443<br>30024|
 |Portal (user)|`Portal. [Region].[External FQDN]`|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
 |Azure Resource Manager (user)|`Management.[Region].[External FQDN]`|HTTPS|443<br>30024|
 |Graph|`Graph.[Region].[External FQDN]`|HTTPS|443|
 |Certificate revocation list|`Crl.[Region].[External FQDN]`|HTTP|80|
 |DNS|`*.[Region].[External FQDN]`|TCP & UDP|53|
-|Key Vault (user)|`*.vault.[Region].[External FQDN]`|TCP<br>TCP|443<br>12490|
-|Key Vault (administrator)|`*.adminvault.[Region].[External FQDN]`|TCP<br>TCP|443<br>12492|
+|Key Vault (user)|`*.vault.[Region].[External FQDN]`|TCP|443|
+|Key Vault (administrator)|`*.adminvault.[Region].[External FQDN]`|TCP|443|
 |Storage Queue|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
 |Storage Table|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
 |Storage Blob|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
@@ -105,4 +105,4 @@ If non-public routable IP addresses are used for the public VIP pool of Azure St
 
 ## Next steps
 
-[Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md)
+[Azure Stack datacenter integration - Security](azure-stack-integrate-security.md)

@@ -25,6 +25,9 @@ robots: noindex
 >
 >
 
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [monitor and manage Data Factory pipelines in version 2](../monitor-visually.md).
+
 This article describes how to use the Monitoring and Management app to monitor, manage, and debug your Data Factory pipelines. It also provides information on how to create alerts to get notified on failures. You can get started with using the application by watching the following video:
 
 > [!NOTE]

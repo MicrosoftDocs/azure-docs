@@ -1,9 +1,9 @@
 ---
-title: Microsoft Speech Recognition Service Library in Cognitive Services | Microsoft Docs
+title: Get Started with Microsoft Speech Recognition API Using C# Service Library | Microsoft Docs
 description: Use the Microsoft speech recognition service library to convert spoken language to text.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -31,10 +31,16 @@ You may clone the sample from the [Speech C# Service Library Sample](https://git
 
 ### Subscribe to Speech API and get a free trial subscription key
 
-> [!IMPORTANT]
-> You must have a subscription key before using speech client libraries.
+Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
 
-Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+> [!IMPORTANT]
+> **Get a subscription key**
+>
+> You must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/) before using speech client libraries.
+>
+> **Use your subscription key**
+>
+>  With the provided C# service library sample application, you need to provide your subscription key as one of command line parameters. See more information below: [Run the sample application](#step-3-run-the-sample-application).
 
 ## Step 1: Install the sample application
 
@@ -84,7 +90,7 @@ that configures the behavior of the speech service. It consists of the following
 
 The SpeechInput object consists of 2 fields:
 
-* **Audio**: A stream implementation of your choice that the SDK pulls audio from. It could be any [Stream](https://msdn.microsoft.com/en-us/library/system.io.stream(v=vs.110).aspx) that supports reading.
+* **Audio**: A stream implementation of your choice that the SDK pulls audio from. It could be any [Stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) that supports reading.
 
 > [!NOTE]
 > The SDK detects the end of the stream when the stream returns **0** in read.

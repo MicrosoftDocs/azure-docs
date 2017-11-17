@@ -15,9 +15,16 @@ ms.author: jingwang
 
 ---
 # Create a data factory using the Azure portal
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Version 2 - Preview](quickstart-create-data-factory-portal.md)
+
 Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
 
 In this quick start, you use Azure portal to create a data factory. After you create the data factory, you need to use PowerShell, .NET SDK, Python SDK, or REST API as in other quick starts a data pipeline that copies data from a source data store to a destination data store. Currently, you cannot create pipelines in a data factory by using Azure portal.
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 

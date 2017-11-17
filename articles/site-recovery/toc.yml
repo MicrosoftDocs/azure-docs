@@ -73,26 +73,19 @@
     href: site-recovery-role-based-linked-access-control.md
   - name: FAQ
     href: site-recovery-faq.md
-  - name: Capacity planning for VMware replication to Azure
-    href: site-recovery-plan-capacity-vmware.md
-    items:
-    - name: Deployment Planner for VMware replication to Azure
-      href: site-recovery-deployment-planner.md
-  - name: Capacity Planner for Hyper-V replication
-    href: site-recovery-capacity-planner.md
 - name: How-To Guides
   items:
   - name: Disaster recovery
     items:
-    - name: To Azure for VMware VMs with multi-tenant support
+    - name: VMware VMs with multi-tenant support to Azure
       href: site-recovery-multi-tenant-support-vmware-using-csp.md
-    - name: To Azure for Hyper-V VMs
+    - name: Hyper-V VMs to Azure
       href: tutorial-hyper-v-to-azure.md
-    - name: To Azure for physical servers
+    - name: Physical servers to Azure
       href: tutorial-physical-to-azure.md
-    - name: To a secondary site for Hyper-V VMs
+    - name: Hyper-V VMs to a secondary site
       href: tutorial-vmm-to-vmm.md
-    - name: To a secondary site for VMware VMs and physical servers
+    - name: VMware VMs and physical servers to a secondary site
       href: tutorial-vmware-to-vmware.md
     - name: Run a disaster recovery drill to Azure
       href: tutorial-dr-drill-azure.md
@@ -104,6 +97,20 @@
       href: tutorial-hyper-v-to-azure-failover-failback.md
     - name: Run a failover and failback between on-premises sites
       href: tutorial-vmm-to-vmm-failover-failback.md
+  - name: Capacity and scaling
+    items:
+    - name: Capacity planning for VMware replication to Azure
+      href: site-recovery-plan-capacity-vmware.md
+    - name: Deployment Planner tool for VMware replication to Azure
+      href: site-recovery-deployment-planner.md
+    - name: Capacity planning for Hyper-V replication to Azure
+      href: site-recovery-capacity-planning-for-hyper-v-replication.md
+    - name: Capacity Planner tool for Hyper-V replication to Azure
+      href: site-recovery-capacity-planner.md
+    - name: Scale out process servers for VMware replication
+      href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+    - name: Performance scale tests for Hyper-V replication between on-premises sites
+      href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
   - name: Configure
     items:
     - name: Set up the source environment
@@ -120,6 +127,8 @@
         href: site-recovery-prepare-target-physical-to-azure.md
     - name: Configure replication settings
       href: site-recovery-setup-replication-settings-vmware.md
+    - name: Exclude disks from replication
+      href: site-recovery-exclude-disk.md
     - name: Deploy the Mobility service for VMware replication
       href: site-recovery-vmware-to-azure-install-mob-svc.md
       items:
@@ -157,9 +166,11 @@
     - name: Fail back from Azure
       items:
       - name: Fail back from Azure to VMware
-        href: site-recovery-failback-azure-to-vmware.md
+        href: site-recovery-how-to-failback-azure-to-vmware.md
       - name: Fail back from Azure to Hyper-V
         href: site-recovery-failback-from-azure-to-hyper-v.md
+    - name: Set up a Linux master target server for failback
+      href: site-recovery-how-to-install-linux-master-target.md
   - name: Automate
     items:
     - name: Set up Hyper-V replication to Azure (no VMM) using PowerShell
@@ -202,8 +213,6 @@
       href: site-recovery-vmware-setup-azure-ps-resource-manager.md
     - name: Manage the configuration server
       href: site-recovery-vmware-to-azure-manage-configuration-server.md
-    - name: Manage scaled-out process servers
-      href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
     - name: Manage vCenter servers
       href: site-recovery-vmware-to-azure-manage-vCenter.md
     - name: Remove servers and disable protection

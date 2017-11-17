@@ -79,7 +79,7 @@ The endpoint suffix to use in these overloads is *core.usgovcloudapi.net*.
 >
 >
 
-When you're deploying the StorSimple Manager service, use the https://portal.azure.us/ and https://manage.windowsazure.us/ URLs for the Azure portal and the Azure classic portal, respectively. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements](../storsimple/storsimple-ova-system-requirements.md). For the StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements](../storsimple/storsimple-system-requirements.md) and go to the **Deploy** section from the left menu. For more information on StorSimple, see the [StorSimple documentation](../storsimple/index.md).
+When you're deploying the StorSimple Manager service, use the https://portal.azure.us/ URL for the Azure Government portal. For deployment instructions for StorSimple Virtual Array, see [StorSimple Virtual Array system requirements](../storsimple/storsimple-ova-system-requirements.md). For the StorSimple 8000 series, see [StorSimple software, high availability, and networking requirements](../storsimple/storsimple-system-requirements.md) and go to the **Deploy** section from the left menu. For more information on StorSimple, see the [StorSimple documentation](../storsimple/index.md).
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure Storage:
@@ -106,6 +106,8 @@ For all jobs, we recommend that you rotate your storage account keys after the j
 | --- | --- |
 | Data copied to the media for transport and the keys used to encrypt that data. | Azure Import/Export metadata cannot contain controlled data. This metadata includes all configuration data that's entered when you're creating your Import/Export job and shipping information that's used to transport your media. Do not enter regulated/controlled data in the following fields:  **Job name**, **Carrier name**, **Tracking number**, **Description**, **Return information (Name, Address, Phone, E-Mail)**, **Export Blob URI**, **Drive list**, **Package list**, **Storage account name**, **Container name**. |
 
+## Azure Backup Service
+For detailed documentation on using the Azure Backup Service in Azure Government, [click here](documentation-government-services-backup.md). 
 ## Next steps
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government blog. </a>

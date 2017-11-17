@@ -1,0 +1,61 @@
+- name: Azure Container Service (AKS)
+  href: ./index.yml
+- name: Overview
+  items:
+  - name: About AKS
+    href: intro-kubernetes.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an AKS cluster
+    href: kubernetes-walkthrough.md
+- name: Tutorials
+  items:
+  - name: 1 - Prepare application for AKS
+    href: tutorial-kubernetes-prepare-app.md
+  - name: 2 - Create container registry
+    href: tutorial-kubernetes-prepare-acr.md
+  - name: 3 - Create Kubernetes cluster
+    href: tutorial-kubernetes-deploy-cluster.md
+  - name: 4 - Run application
+    href: tutorial-kubernetes-deploy-application.md
+  - name: 5 - Scale application
+    href: tutorial-kubernetes-scale.md
+  - name: 6 - Update application
+    href: tutorial-kubernetes-app-update.md
+  - name: 7 - Monitor with Log Analytics
+    href: tutorial-kubernetes-monitor.md
+  - name: 8 - Upgrade cluster
+    href: tutorial-kubernetes-upgrade-cluster.md
+- name: How-to guides
+  items:
+  - name: Scale an AKS cluster
+    href: scale-cluster.md
+  - name: Upgrade an AKS cluster
+    href: upgrade-cluster.md
+  - name: Run applications with Helm
+    href: kubernetes-helm.md
+  - name: Develop applications with Draft
+    href: kubernetes-draft.md
+  - name: Use Kubernetes dashboard
+    href: kubernetes-dashboard.md
+  - name: Create service principal
+    href: kubernetes-service-principal.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/aks
+  - name: REST
+    href: /rest/api/aks
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Region availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-container-service
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest

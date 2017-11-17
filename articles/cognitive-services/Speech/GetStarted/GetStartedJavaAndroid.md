@@ -1,9 +1,9 @@
 ---
-title: Microsoft Speech API in Java on Android | Microsoft Docs
+title: Get Started with Microsoft Speech Recognition API in Java on Android | Microsoft Docs
 description: Use Microsoft Speech API to develop Android applications that convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -21,20 +21,26 @@ This article uses a sample application to demonstrate how to use the Microsoft s
 
 ### Platform requirements
 
-The example is developed by [Android Studio](http://developer.android.com/sdk/index.html) for Windows in Java.
+The sample is developed by [Android Studio](http://developer.android.com/sdk/index.html) for Windows in Java.
 
-### Get the client library and example application
+### Get the client library and sample application
 
-The Microsoft speech client library and examples for Android is available on [Speech Client SDK for Android](https://github.com/microsoft/cognitive-speech-stt-android). The buildable example can be found under the `samples/SpeechRecoExample` directory. The two libraries you need to use in your own apps can be found in `SpeechSDK/libs` under the `armeabi` and the `x86` folder. The size of `libandroid_platform.so` file is 22 MB but gets reduced to 4 MB at deploy time.
+The Microsoft speech client library and samples for Android is available on [Speech Client SDK for Android](https://github.com/microsoft/cognitive-speech-stt-android). The buildable sample can be found under the `samples/SpeechRecoExample` directory. The two libraries you need to use in your own apps can be found in `SpeechSDK/libs` under the `armeabi` and the `x86` folder. The size of `libandroid_platform.so` file is 22 MB but gets reduced to 4 MB at deploy time.
 
 #### Subscribe to Speech API and get a free trial subscription key
 
+Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+
+If you want to use *Recognition with intent*, you also need to sign up to the [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+
 > [!IMPORTANT]
-> You must have a subscription key before using speech client libraries.
-
-Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
-
-If you want to use *Recognition with intent*, you also need to sign up [Language Understanding Intelligent Service (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/).
+> **Get a subscription key**
+>
+> You must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/) before using speech client libraries.
+>
+> **Use your subscription key**
+>
+>  With the provided Android sample application, you need to update the file samples/SpeechRecoExample/res/values/strings.xml with your subscription keys. See more information below: [Build and run samples](#build-and-run-samples).
 
 ## Use speech client library
 
@@ -110,7 +116,7 @@ The client library provides pre-implemented recognition client classes for typic
 
 * `MicrophoneRecognitionClient`: speech recognition with audio coming from the microphone. Make sure the microphone is turned on and data from the microphone is sent to the speech recognition service. A built-in "Silence Detector" is applied to the microphone data before it is sent to the recognition service.
 
-* `DataRecognitionClientWithIntent` and `MicrophoneRecognitionClientWithIntent`: these clients return, in addition to recognition text, structured information about the intent of the speaker, which could be used drive further actions by your applications. To use Intent, you need to first train a model using [LUIS](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClientWithIntent` and `MicrophoneRecognitionClientWithIntent`: these clients return, in addition to recognition text, structured information about the intent of the speaker, which could be used drive further actions by your applications. To use Intent, you need to first train a model using [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### Recognition language
 

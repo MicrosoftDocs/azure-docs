@@ -18,6 +18,8 @@ ms.author: jingwang
 robots: noindex
 ---
 # Add fault tolerance in Copy Activity by skipping incompatible rows
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [fault tolerance in copy activity of Data Factory version 2](../copy-activity-fault-tolerance.md).
 
 Azure Data Factory [Copy Activity](data-factory-data-movement-activities.md) offers you two ways to handle incompatible rows when copying data between source and sink data stores:
 

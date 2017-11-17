@@ -102,7 +102,7 @@ $vm.HardwareProfile.VmSize = $size
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 # Update the storage type
-$diskUpdateConfig = New-AzureRmDiskUpdateConfig –AccountType $storageType
+$diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
 Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 -DiskName $disk.Name
 

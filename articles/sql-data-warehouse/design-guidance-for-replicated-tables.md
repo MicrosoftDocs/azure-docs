@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/14/2017
+ms.date: 10/23/2017
 ms.author: rortloff;barbkess
 
 ---
@@ -26,7 +26,7 @@ This article gives recommendations for designing replicated tables in your SQL D
 > 
 
 ## Prerequisites
-This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see [Distributed data](sql-data-warehouse-distributed-data.md). 
+This article assumes you are familiar with data distribution and data movement concepts in SQL Data Warehouse.  For more information, see the [architecture](massively-parallel-processing-mpp-architecture.md) article. 
 
 As part of table design, understand as much as possible about your data and how the data is queried.  For example, consider these questions:
 

@@ -15,6 +15,14 @@
     href: container-registry-get-started-powershell.md
 - name: Tutorials
   items:
+  - name: Geo-replication
+    items:
+    - name: 1 - Prepare container registry
+      href: container-registry-tutorial-prepare-registry.md
+    - name: 2 - Deploy web application
+      href: container-registry-tutorial-deploy-app.md
+    - name: 3 - Update web application
+      href: container-registry-tutorial-deploy-update.md
   - name: Azure Container Instances
     href: ../container-instances/container-instances-tutorial-prepare-app.md
   - name: Azure Container Service

@@ -59,7 +59,7 @@ By default, SSL connections between your server and client applications are enfo
 The following example disables enforcing SSL on your MySQL server.
  
  ```azurecli-interactive
- az mysql server update --resource-group myresourcegroup --name myserver4demo -g -n --ssl-enforcement Disabled
+ az mysql server update --resource-group myresourcegroup --name myserver4demo --ssl-enforcement Disabled
  ```
 
 ## Get the connection information

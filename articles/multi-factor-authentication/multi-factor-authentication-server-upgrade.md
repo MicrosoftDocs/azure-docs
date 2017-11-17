@@ -27,7 +27,7 @@ If you're upgrading from v6.x or older to v7.x or newer, all components change f
 
 ## Install the latest version of Azure MFA Server
 
-1. Use the instructions in [Download the Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server.md#download-the-azure-multi-factor-authentication-server) to get the latest version of the Azure MFA Server.
+1. Use the instructions in [Download the Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server.md#download-the-mfa-server) to get the latest version of the Azure MFA Server.
 2. Make a backup of the MFA Server data file located at C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (assuming the default install location) on your master MFA Server.
 3. If you run multiple servers for high availability, change the client systems that authenticate to the MFA Server so that they stop sending traffic to the servers that are upgrading. If you use a load balancer, remove a MFA Server from the load balancer, do the upgrade, and then add the server back into the farm.
 4. Run the new installer on each MFA Server. Upgrade subordinate servers first because they can read the old data file being replicated by the master. 

@@ -13,7 +13,7 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: 'na'
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 10/23/2017
 ms.author: larryfr
 ms.custom: hdinsightactive
 
@@ -53,9 +53,10 @@ While following the script action document, use the following URI:
 
     https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash
 
+To specify the Mono version that is installed, use the version number in the __Parameters__ field. For example, enter `5.4` to install Mono 5.4.
+
 > [!NOTE]
 > When configuring HDInsight with this script, mark the script as __Persisted__. This setting allows HDInsight to apply the script to worker nodes added through scaling operations.
-
 
 ## Next steps
 

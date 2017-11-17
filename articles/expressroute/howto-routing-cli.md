@@ -53,6 +53,8 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 ### To create Microsoft peering
 
+[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
+
 1. Install the latest version of Azure CLI. Use the latest version of the Azure Command-line Interface (CLI).* Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
   ```azurecli
@@ -64,9 +66,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. Create an ExpressRoute circuit. Follow the instructions to create an [ExpressRoute circuit](howto-circuit-cli.md) and have it provisioned by the connectivity provider.
-
-  If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
+2. Create an ExpressRoute circuit. Follow the instructions to create an [ExpressRoute circuit](howto-circuit-cli.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Microsoft peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps. 
 
 3. Check the ExpressRoute circuit to make sure it is provisioned and also enabled. Use the following example:
 
@@ -203,9 +203,8 @@ This section helps you create, get, update, and delete the Azure private peering
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. Create an ExpressRoute circuit. Follow the instructions to create an [ExpressRoute circuit](howto-circuit-cli.md) and have it provisioned by the connectivity provider.
+2. Create an ExpressRoute circuit. Follow the instructions to create an [ExpressRoute circuit](howto-circuit-cli.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
 
-  If your connectivity provider offers managed Layer 3 services, you can request your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
 3. Check the ExpressRoute circuit to make sure it is provisioned and also enabled. Use the following example:
 
   ```azurecli
@@ -342,9 +341,8 @@ This section helps you create, get, update, and delete the Azure public peering 
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. Create an ExpressRoute circuit.  Follow the instructions to create an [ExpressRoute circuit](howto-circuit-cli.md) and have it provisioned by the connectivity provider.
+2. Create an ExpressRoute circuit.  Follow the instructions to create an [ExpressRoute circuit](howto-circuit-cli.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Azure public peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
 
-  If your connectivity provider offers managed Layer 3 services, you can request that your connectivity provider enables Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
 3. Check the ExpressRoute circuit to ensure it is provisioned and also enabled. Use the following example:
 
   ```azurecli

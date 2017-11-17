@@ -184,7 +184,7 @@ You can also call functions within expressions. The following table shows the fu
 |Expression|Evaluation|  
 |----------------|----------------|  
 |"@function('Hello')"|Calls the function member of the definition with the literal string Hello as the first parameter.|  
-|"@function('It's Cool!')"|Calls the function member of the definition with the literal string 'It's Cool!' as the first parameter|  
+|"@function('It''s Cool!')"|Calls the function member of the definition with the literal string 'It's Cool!' as the first parameter|  
 |"@function().prop1"|Returns the value of the prop1 property of the `myfunction` member of the definition.|  
 |"@function('Hello').prop1"|Calls the function member of the definition with the literal string 'Hello' as the first parameter and returns the prop1 property of the object.|  
 |"@function(parameters('Hello'))"|Evaluates the Hello parameter and passes the value to function|  

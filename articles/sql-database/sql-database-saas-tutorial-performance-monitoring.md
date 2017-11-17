@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/26/2017
 ms.author: sstein
 
 ---
@@ -201,16 +201,19 @@ This exercise simulates the effect of Contoso Concert Hall experiencing a high l
 1. Execute the script using **F5**.
 
 
-1. In the [Azure portal](https://portal.azure.com) open **Pool1**.
+1. In the [Azure portal](https://portal.azure.com) browse to the list of databases on the *tenants1* server. 
+1. Click on the **contosoconcerthall** database.
+1. Click on the pool that **contosoconcerthall** is in. Locate the pool in the **Elastic database pool** section.
+
 1. Inspect the **Elastic pool monitoring** chart and look for the increased pool eDTU usage. After a minute or two, the higher load should start to kick in, and you should quickly see that the pool hits 100% utilization.
-1. Inspect the **Elastic database monitoring** display which shows the hottest databases in the past hour. The *contosoconcerthall* database should soon appear as one of the five hottest databases.
-1. **Click on the Elastic database monitoring** **chart** and it opens the **Database Resource Utilization** page where you can monitor any of the databases. This lets you isolate the display for the *contosoconcerthall* database.
-1. From the list of databases, click **contosoconcerthall**.
-1. Click **Pricing Tier (scale DTUs)** to open the **Configure performance** page where you can set a stand-alone performance level for the database.
-1. Click on the **Standard** tab to open the scale options in the Standard tier.
-1. Slide the **DTU slider** to right to select **100** DTUs. Note this corresponds to the service objective, **S3**.
-1. Click **Apply** to move the database out of the pool and make it a *Standard S3* database.
-1. Once scaling is complete, monitor the effect on the contosoconcerthall database and Pool1 on the elastic pool and database blades.
+2. Inspect the **Elastic database monitoring** display which shows the hottest databases in the past hour. The *contosoconcerthall* database should soon appear as one of the five hottest databases.
+3. **Click on the Elastic database monitoring** **chart** and it opens the **Database Resource Utilization** page where you can monitor any of the databases. This lets you isolate the display for the *contosoconcerthall* database.
+4. From the list of databases, click **contosoconcerthall**.
+5. Click **Pricing Tier (scale DTUs)** to open the **Configure performance** page where you can set a stand-alone performance level for the database.
+6. Click on the **Standard** tab to open the scale options in the Standard tier.
+7. Slide the **DTU slider** to right to select **100** DTUs. Note this corresponds to the service objective, **S3**.
+8. Click **Apply** to move the database out of the pool and make it a *Standard S3* database.
+9. Once scaling is complete, monitor the effect on the contosoconcerthall database and Pool1 on the elastic pool and database blades.
 
 Once the high load on the contosoconcerthall database subsides you should promptly return it to the pool to reduce its cost. If it’s unclear when that will happen you could set an alert on the database that will trigger when its DTU usage drops below the per-database max on the pool. Moving a database into a pool is described in exercise 5.
 

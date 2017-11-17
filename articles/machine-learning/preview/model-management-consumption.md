@@ -97,6 +97,7 @@ namespace MyFirstService
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(SERVICE_URL);
+            //For local web service, comment out this line.
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", API_KEY);
 
             var inputJson = new List<RequestPayload>();
@@ -142,7 +143,7 @@ namespace MyFirstService
 Use Python to send a request to your real-time web service. 
 
 1. Copy the following code sample to a new Python file.
-2. Update the data, url, and api_key parameters
+2. Update the data, url, and api_key parameters. For local web services, remove the 'Authorization' header.
 3. Run the code. 
 
 ```python

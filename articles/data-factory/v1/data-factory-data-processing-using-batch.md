@@ -19,6 +19,9 @@ ms.author: spelluru
 robots: noindex
 ---
 # Process large-scale datasets using Data Factory and Batch
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [custom activities in Data Factory version 2](../transform-data-using-dotnet-custom-activity.md).
+
 This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walkthrough to implement the solution using Azure Data Factory and Azure Batch.
 
 This article is longer than our typical article because it contains a walkthrough of an entire sample solution. If you are new to Batch and Data Factory, you can learn about these services and how they work together. If you know something about the services and are designing/architecting a solution, you may focus just on the [architecture section](#architecture-of-sample-solution) of the article and if you are developing a prototype or a solution, you may also want to try out step-by-step instructions in the [walkthrough](#implementation-of-sample-solution). We invite your comments about this content and how you use it.

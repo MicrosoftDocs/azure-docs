@@ -3,7 +3,7 @@ title: Azure Functions C# Script developer reference | Microsoft Docs
 description: Understand how to develop Azure Functions using C#.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
-ms.author: donnam
+ms.author: glenga
 
 ---
 # Azure Functions C# script developer reference

@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 08/15/2017
+ms.date: 10/16/2017
 ---
 
 # Create an Azure Database for MySQL server by using the Azure portal
@@ -35,16 +35,16 @@ Follow these steps to create an Azure Database for MySQL server:
 
     **Setting** | **Suggested value** | **Field description** 
     ---|---|---
-    Server name | myserver4demo | A unique name that identifies your Azure Database for MySQL server. The domain name *mysql.database.azure.com* is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
-    Subscription | Your subscription | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
-    Resource group | myresourcegroup | A new or existing resource group name.
+    Server name | Unique server name | Choose a unique name that identifies your Azure Database for MySQL server. For example, myserver4demo. The domain name *mysql.database.azure.com* is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
+    Subscription | Your subscription | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
+    Resource group | myresourcegroup | Provide a new or existing resource group name.
     Server admin login | myadmin | A sign-in account to use when you're connecting to the server. The admin sign-in name cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
-    Password | *Your choice* | A new password for the server admin account. It must contain from 8 to 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
-    Confirm password | *Your choice*| The confirmed admin account password.
-    Location | *The region closest to your users*| The location that is closest to your users or other Azure applications.
+    Password | *Your choice* | Provide a new password for the server admin account. It must contain from 8 to 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+    Confirm password | *Your choice*| Confirm the admin account password.
+    Location | *The region closest to your users*| Choose the location that is closest to your users or other Azure applications.
     Version | *The latest version*| The latest version (unless you have specific requirements that require another version).
-    Pricing tier | **Basic**, **50 Compute Units**, **50 GB** | The service tier and performance level for your new database. Select **Basic tier** in the tab at the top. Select the left end of the **Compute Units** slider to adjust the value to the lowest amount that's available for this Quickstart. Select **Ok** to save the pricing tier selection. For more information, see the following screenshot.
-    Pin to dashboard | Check | Enables easy tracking of your server on the front dashboard page of your Azure portal.
+    Pricing tier | **Basic**, **50 Compute Units**, **50 GB** | Choose the service tier and performance level for your new database. Select **Basic tier** in the tab at the top. Select the left end of the **Compute Units** slider to adjust the value to the lowest amount that's available for this Quickstart. Select **Ok** to save the pricing tier selection. For more information, see the following screenshot.
+    Pin to dashboard | Check | Check this to enable easy tracking of your server on the front dashboard page of your Azure portal.
 
     > [!IMPORTANT]
     > The server admin sign-in and password that you specify here are required to sign in to the server and its databases later in this Quickstart. Remember or record this information for later use.
@@ -71,6 +71,8 @@ The Azure Database for MySQL service creates a firewall at the server level. It 
     Rule name | Start IP | End IP 
     ---|---|---
     AllowAllIps |  0.0.0.0 | 255.255.255.255
+    
+    Allowing all IP addresses is not secure. This example is provided for simplicity, but in a real-world scenario, you need to know the precise IP address ranges to add for your applications and users. 
 
 4. On the upper toolbar of the **Connection security** page, select **Save**. Wait until the notification appears stating that the update has finished successfully before you continue. 
 
@@ -105,20 +107,20 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
     To connect to an Azure Database for MySQL server with the mysql utility, use the following format:
 
     ```bash
-    mysql --host <yourserver> --user <server admin login> --password
+    mysql --host <fully qualified servername> --user <serveradminlogin@servername> -p
     ```
 
     For example, the following command connects to our example server:
 
     ```azurecli-interactive
-    mysql --host myserver4demo.mysql.database.azure.com --user myadmin@myserver4demo --password
+    mysql --host myserver4demo.mysql.database.azure.com --user myadmin@myserver4demo -p
     ```
 
     mysql parameter |Suggested value|Description
     ---|---|---
     --host | *Server name* | The server name value that you used earlier when you created the Azure Database for MySQL server. Our example server is **myserver4demo.mysql.database.azure.com**. Use the fully qualified domain name (**\*.mysql.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
     --user | *Server admin login name* |The server admin login username that you supplied when you created the Azure Database for MySQL server earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
-    --password | *Wait until prompted* |The same password that you provided when you created the server. Note that the typed password characters are not shown on the bash prompt when you type them. After you've entered the password, select **Enter**.
+    -p | *Wait until prompted* |When prompted, provide the same password that you provided when you created the server. Note that the typed password characters are not shown on the bash prompt when you type them. After you've entered the password, select **Enter**.
 
    After it's connected, the mysql utility displays a `mysql>` prompt at which you can type commands. 
 
@@ -178,7 +180,9 @@ To connect to the server by using the GUI tool MySQL Workbench, take the followi
 
 1.	Open the MySQL Workbench application on your client computer. You can download and install MySQL Workbench from [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-2.	In the **Setup New Connection** dialog box, enter the following information on the **Parameters** tab:
+2. Create a new connection. Click the plus (+) icon beside the **MySQL Connections** heading.
+
+3. In the **Setup New Connection** dialog box, enter your server connection information on the **Parameters** tab. Placeholder values are shown as an example. Replace the Hostname, Username, and Password with your own values.
 
     ![Set up new connection](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
 
@@ -191,7 +195,7 @@ To connect to the server by using the GUI tool MySQL Workbench, take the followi
     Username |  *Server admin login name* | The server admin sign-in information that you supplied when you created the Azure Database for MySQL server earlier. Our example username is **myadmin@myserver4demo**. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
     Password | *Your password* | Select the **Store in Vault...** button to save the password. |
 
-3. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection. 
+4. Select **Test Connection** to test whether all parameters are  configured correctly. Then select **OK** to save the connection. 
 
     > [!NOTE]
     > SSL is enforced by default on your server and requires extra configuration  to connect successfully. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md). To disable SSL for this Quickstart, go to the Azure portal. Then select the Connection security page to disable the **Enforce SSL** connection toggle button.

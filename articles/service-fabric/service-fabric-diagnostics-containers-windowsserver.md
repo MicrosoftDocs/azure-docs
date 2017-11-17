@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/10/2017
+ms.date: 10/15/2017
 ms.author: dekapur
 
 ---
@@ -22,7 +22,7 @@ ms.author: dekapur
 
 ## OMS Containers Solution
 
-The Operations Management Suite (OMS) team has published a Containers solution for diagnostics and monitoring for containers. Alongside their Service Fabric solution, this solution is a great tool to monitor container deployments orchestrated on Service Fabric. Here's a simple example of what the dashboard in the solution looks like:
+Operations Management Suite (OMS) Log Analytics has a Containers solution that can be used for monitoring containers. Alongside the Service Fabric solution, this solution is a great tool to monitor container deployments orchestrated on Service Fabric. Here's a simple example of what the dashboard in the solution looks like:
 
 ![Basic OMS Dashboard](./media/service-fabric-diagnostics-containers-windowsserver/oms-containers-dashboard.png)
 
@@ -38,7 +38,7 @@ This article covers the steps required to set up container monitoring for your c
 
 ## 1. Set up a Service Fabric cluster
 
-Create a cluster using the Azure Resource Manager template found [here](https://github.com/dkkapur/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample). Make sure to add a unique OMS workspace name. This template also defaults to deploying a cluster in the preview build of Service Fabric (v255.255), which means that it cannot be used in production, and cannot be upgraded to a different Service Fabric version. If you decide to use this template for long-term or production use, change the version to a stable version number.
+Create a cluster using the Azure Resource Manager template found [here](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows). Make sure to add a unique OMS workspace name. This template also defaults to deploying a cluster in the preview build of Service Fabric (v255.255), which means that it cannot be used in production, and cannot be upgraded to a different Service Fabric version. If you decide to use this template for long-term or production use, change the version to a stable version number.
 
 Once the cluster is set up, confirm that you have installed the appropriate certificate, and make sure you are able to connect to the cluster.
 

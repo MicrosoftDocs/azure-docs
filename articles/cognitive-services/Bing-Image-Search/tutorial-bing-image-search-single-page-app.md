@@ -263,7 +263,7 @@ function handleBingResponse() {
 
 Much of the code in both of the preceding functions is dedicated to error handling. Errors may occur at the following stages:
 
-|Stage|Potential rror(s)|Handled by|
+|Stage|Potential error(s)|Handled by|
 |-|-|-|
 |Building JavaScript request object|Invalid URL|`try`/`catch` block|
 |Making the request|Network errors, aborted connections|`error` and `abort` event handlers|
@@ -289,7 +289,7 @@ function renderSearchResults(results) {
 }
 ```
 
-The main image search results are returned as the top-level `value` object in the JSON response. We pass them to our function `renderImageResults()`, which iterates through them and calls a separate function to render each item into HTML. The resulting HTML is returned to `renderSearchResults()`, where it is inserted into the `results` division in the HTML.
+The main image search results are returned as the top-level `value` object in the JSON response. We pass them to our function `renderImageResults()`, which iterates through them and calls a separate function to render each item into HTML. The resulting HTML is returned to `renderSearchResults()`, where it is inserted into the `results` division in the page.
 
 ```javascript
 function renderImageResults(items) {
@@ -339,7 +339,7 @@ A renderer function may accept the following parameters:
 
 The `index` and `count` parameters can be used to number results, to generate special HTML for the beginning or end of a collection, to insert line breaks after a certain number of items, and so on. If a renderer does not need this functionality, it does not need to accept these two parameters.
 
-Let's take a closer look at the `images' renderer:
+Let's take a closer look at the `images` renderer:
 
 ```javascript
     images: function (item, index, count) {
@@ -369,7 +369,7 @@ Our image renderer function:
 
 We test the `index` variable in order to insert a `<p>` tag before the first image result. The thumbnails otherwise butt up against each other and wrap as needed in the browser window.
 
-The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The Bing thumbnail service then delivers a thumbnail of exactly that size.
+The thumbnail size is used in both the `<img>` tag and the `h` and `w` fields in the thumbnail's URL. The [Bing thumbnail service](resize-and-crop-thumbnails.md) then delivers a thumbnail of exactly that size.
 
 ## Persisting client ID
 

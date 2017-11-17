@@ -12,7 +12,7 @@ ms.date: 09/25/2017
 ms.author: sajagtap
 ---
 
-# eCommerce catalog classification with Content Moderator
+# eCommerce catalog classification with machine learning
 
 In this tutorial, we learn how to implement machine-learning-based automated ecommerce catalog classification with Content Moderator, Computer Vision and Custom Vision services. The solution combines machine-assisted catalog classification with human moderation capabilities.
 

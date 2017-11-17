@@ -45,7 +45,7 @@ If you have already created a Service Bus Messaging namespace, jump to the [Crea
 ## 2. Create a topic using the Azure portal
 
 1. Log on to the [Azure portal][azure-portal].
-2. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**).
+2. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**, or click on **All Resources**).
 3. Click the namespace in which you would like to create the topic. The namespace overview blade appears:
    
     ![Create a topic][createtopic1]

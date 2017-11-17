@@ -1,6 +1,6 @@
 ---
-title: Deploy SSIS packages to Azure | Microsoft Docs
-description: This article explains how to deploy SSIS packages to Azure-SSIS integration runtime provided by Azure Data Factory.
+title: 'Deploy SSIS packages to Azure | Microsoft Docs'
+description: 'This article explains how to deploy SSIS packages to Azure-SSIS integration runtime provided by Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
 author: spelluru
@@ -12,12 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 09/06/2017
+ms.date: 10/06/2017
 ms.author: spelluru
-
 ---
 # Deploy SQL Server Integration Services packages to Azure
-Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
+
+[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
+
+#### This tutorial
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 This tutorial provides steps for provisioning an Azure-SSIS integration runtime (IR) in Azure Data Factory. Then, you can use SQL Server Data Tools (SSDT) or SQL Server Management Studio (SSMS) to deploy SQL Server Integration Services (SSIS) packages to this runtime on Azure. In this tutorial, you do the following steps:
 
@@ -32,6 +37,8 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 - **Azure SQL Database server**. If you don't already have a database server, create one in the Azure portal before you get started. This server hosts the SSIS Catalog database (SSISDB). We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to SSISDB without crossing Azure regions. 
+    - Confirm that the "**Allow access to Azure services**" setting is **ON** for the database server. For more information, see [Secure your Azure SQL database](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). To enable this setting by using PowerShell, see [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
+    - Add the IP address of the client machine or a range of IP addresses that includes the IP address of client machine to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](../sql-database/sql-database-firewall-configure.md). 
 - **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to provision an Azure-SSIS integration runtime that runs SSIS packages in the cloud. 
 
 ## Launch Windows PowerShell ISE
@@ -90,6 +97,24 @@ Catch [System.Data.SqlClient.SqlException]
     } 
 }
 ```
+
+To create an Azure SQL database as part of the script, see the following example: 
+
+Set values for the variables that haven't been defined already. For example: FirewallIPAddress. 
+
+```powershell
+New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName `
+  -ServerName $SQLServerName `
+    -Location $DataFactoryLocation `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SQLServerAdmin, $(ConvertTo-SecureString -String $SQLServerPass -AsPlainText -Force))
+
+New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
+    -ServerName $SQLServerName `
+    -FirewallRuleName "ClientIPAddress_$today" -StartIpAddress $FirewallIPAddress -EndIpAddress $FirewallIPAddress
+
+New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $SQLServerName -AllowAllAzureIPs
+```
+
 
 ## Log in and select subscription
 Add the following code to the script to log in and select your Azure subscription: 

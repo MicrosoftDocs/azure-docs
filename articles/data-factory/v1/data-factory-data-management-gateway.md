@@ -19,6 +19,9 @@ ms.author: abnarain
 robots: noindex
 ---
 # Data Management Gateway
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in version 2](../create-self-hosted-integration-runtime.md). 
+
 The Data management gateway is a client agent that you must install in your on-premises environment to copy data between cloud and on-premises data stores. The on-premises data stores supported by Data Factory are listed in the [Supported data sources](data-factory-data-movement-activities.md#supported-data-stores-and-formats) section.
 
 This article complements the walkthrough in the [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) article. In the walkthrough, you create a pipeline that uses the gateway to move data from an on-premises SQL Server database to an Azure blob. This article provides detailed in-depth information about the data management gateway. 

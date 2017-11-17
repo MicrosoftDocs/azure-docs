@@ -1,9 +1,9 @@
 ---
-title: Microsoft Speech WebSocket protocol | Microsoft Docs
+title: Microsoft Speech Recognition WebSocket Protocol | Microsoft Docs
 description: Protocol documentation for Speech based on WebSockets
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -57,7 +57,7 @@ In addition to the standard WebSocket handshake headers, speech requests require
 
 The *Authorization* header must contain a JSON Web Token (JWT) access token.
 
-For information about subscribing and obtaining API keys that are used to retrieve valid JWT access tokens, see [Get Started for Free](https://www.microsoft.com/cognitive-services/en-US/sign-up?ReturnUrl=/cognitive-services/en-us/subscriptions?productId=%2fproducts%2fBing.Speech.Preview).
+For information about subscribing and obtaining API keys that are used to retrieve valid JWT access tokens, see [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/).
 
 The API key is passed to the token service. For example:
 
@@ -88,11 +88,13 @@ Clients **must** support the standard redirection mechanisms specified by the [H
 
 Clients **must** use an appropriate endpoint of the Microsoft Speech Service. The endpoint is based on recognition mode and language. Some examples are shown in the table below.
 
-| Mode | Path | Example URL |
+| Mode | Path | Service URI |
 | -----|-----|-----|
 | Interactive | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | Conversation | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
 | Dictation | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+
+For more information, see the [Service URI](../GetStarted/GetStartedREST.md#service-uri) page.
 
 ### Reporting connection errors
 

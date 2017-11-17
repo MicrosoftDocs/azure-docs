@@ -1,9 +1,9 @@
 ---
-title: Using REST API for Speech Recognition | Microsoft Docs
+title: Get Started with Microsoft Speech Recognition API Using REST | Microsoft Docs
 description: Using REST to access speech recognition API in Microsoft Cognitive Services to convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -25,10 +25,16 @@ To use speech recognition REST API, the steps are as follows:
 
 ### Subscribe to Speech API and get a free trial subscription key
 
-> [!IMPORTANT]
-> You must have a subscription key before accessing Speech REST API.
+Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
 
-Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/en-us/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+> [!IMPORTANT]
+> **Get a subscription key**
+>
+> You must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/) before accessing Speech REST API.
+>
+> **Use your subscription key**
+>
+> With the provided REST samples below, you need to replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
 
 ### Precorded audio file
 
@@ -41,9 +47,9 @@ In this example, we use a recorded audio file to illustrate the usage of the RES
 
 The next step for speech recognition is to send a POST request to the Microsoft Speech HTTP end points with proper request header and body.
 
-### HTTP endpoints
+### Service URI
 
-The URI of the HTTP endpoints for REST API is defined based on [recognition mode](../concepts.md#recognition-modes) and [recognition language](../concepts.md#recognition-languages):
+The speech service URI is defined based on [recognition mode](../concepts.md#recognition-modes) and [recognition language](../concepts.md#recognition-languages):
 
 ```HTTP
 https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitiveservices/v1?language=<LANGUAGE_TAG>&format=<OUTPUT_FORMAT>
@@ -56,14 +62,14 @@ https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitive
 `<OUTPUT_FOMAT>` is an optional parameter in the query string. Its allowed values are `simple` and `detailed`. By default the service returns results in `simple` format. See [output format](../concepts.md#output-format) for details.
 
 Some examples of service URI are as follows.
-| Recognition mode  | Language | Output format | REST end point |
+| Recognition mode  | Language | Output format | Service URI |
 |---|---|---|---|
 | `interactive` | pt-BR | default | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | `conversation` | en-US | detailed |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
 | `dictation` | fr-FR | simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
-> The HTTP service endpoints are only needed when your application uses REST APIs to call the speech service. If you use one of the [client libraries](GetStartedClientLibraries.md), you usually do not need to know which endpoint is being used. The client libraries might use different service URIs, which are only applicable for the specific client library. For more information, see the client library of your choice.
+> The service URI is only needed when your application uses REST APIs to call the speech service. If you use one of the [client libraries](GetStartedClientLibraries.md), you usually do not need to know which URI is being used. The client libraries might use different service URIs, which are only applicable for the specific client library. For more information, see the client library of your choice.
 
 ### Request headers
 
@@ -244,7 +250,6 @@ To remove these limitations, you can use Microsoft speech [client libraries](Get
 - Check out [sample applications](../samples.md) to see how to use REST API in C#, Java and etc.
 - In case of errors, see [Troubleshooting](../troubleshooting.md) to locate and fix errors.
 - To use more advanced features, get started to use Microsoft Speech [Client Libraries](GetStartedClientLibraries.md).
-- For questions, feedback, or suggestions about Microsoft Cognitive Services, feel free to reach out to us directly at [Cognitive Services UserVoice Forum](https://cognitive.uservoice.com/).
 
 ### License
 

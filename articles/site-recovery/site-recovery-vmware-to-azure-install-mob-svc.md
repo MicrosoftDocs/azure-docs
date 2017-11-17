@@ -90,8 +90,12 @@ After Mobility Service is installed, in the Azure portal, select the **+Replicat
 
 1. On the Azure portal browse to <Your Vault> -> Replicated Items view.
 2. If the **Configuration server** has already been updated to the latest version, then you should see a notification that reads *New Site recovery replication agent update is available. Click to install*
+   
+     ![ReplicatedItems](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
 3. Click on the notification to open up the virtual machine selection page.
 4. Select the virtual machines you want to upgrade mobility service on & click OK button.
+
+     ![ReplicatedItemsVMList](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
 5. This starts the Update Mobility Service job for each of the selected virtual machines.
 
 > [!NOTE]
