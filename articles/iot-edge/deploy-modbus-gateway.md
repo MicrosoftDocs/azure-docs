@@ -27,12 +27,14 @@ This article covers how to create your own container image for a Modbus module (
 Currently the Modbus module only supports Modbus TCP protocol. 
 
 ## Prerequisites
-* The Azure IoT Edge device that you created in the quickstart or first tutorial.
-* The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.
-* The Modbus container(use prebuilt binary or build one your own)
-* A physical or simulated Modbus device supports Modbus TCP.
+* An Azure IoT Edge device.
+* The primary key connection string for the IoT Edge device.
+* A physical or simulated Modbus device that supports Modbus TCP.
 
-## Get Modbus container ready ##
+## Prepare a Modbus container
+
+
+
 If you are using a prebuilt Modbus TCP container from Microsoft public registry, continue to [Use prebuilt Modbus container](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-modbus-tcp#use-prebuilt-modbus-container) section.  
 If you are using a Modbus TCP container you built from [GitHub](https://github.com/Azure/iot-edge-modbus#howto-build), continue to [Use Modbus container from your registry](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-modbus-tcp#use-modbus-container-from-your-registry) section.
 
