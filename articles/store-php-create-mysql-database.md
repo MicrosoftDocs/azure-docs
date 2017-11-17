@@ -70,4 +70,4 @@ You can now use that connection information in any web app. A sample that shows 
 PHP app is available [here](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql).
 
 ## Next steps
-For more information, see the [PHP Developer Center](/develop/php/).
+For more information, see the [PHP Developer Center].
