@@ -149,6 +149,8 @@ For detailed requirements and steps, see [Use a custom image to create a pool of
 
 When creating a Virtual Machine Configuration pool using the Batch APIs, you can set up the pool to run tasks in Docker containers. Currently, you must create the pool using the Windows Server 2016 Datacenter with Containers image from the Azure Marketplace, or supply a custom VM image that includes Docker Community Edition and any required drivers. The pool settings must include a [container configuration](/rest/api/batchservice/pool/add#definitions_containerconfiguration) that copies container images to the VMs when the pool is created. Tasks that run on the pool can then reference the container images and container run options.
 
+For more information, see [Run Docker container applications on Azure Batch](batch-docker-container-workloads.md).
+
 ## Compute node type and target number of nodes
 
 When you create a pool, you can specify which types of compute nodes you want and the target number for each. The two types of compute nodes are:
