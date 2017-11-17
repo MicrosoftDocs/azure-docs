@@ -76,12 +76,14 @@ $ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<
 ```
 
 ## Step 4. Capture project snapshot in Git repo
-Now you can execute a few runs in the project, make some changes in-between the runs. You can do this either from the desktop app, or from CLI using `az ml experiment submit` command. For more details, you can follow the [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md). For each run, if there is any change made in any files in the project folder, a snapshot of the entire project folder is committed and pushed into the remote Git repo. You can view the branches and commits by browsing to the VSTS Git repo URL.
+Now you can execute a few runs in the project, make some changes in-between the runs. You can do this either from the desktop app, or from CLI using `az ml experiment submit` command. For more details, you can follow the [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md). For each run, if there is any change made in any files in the project folder, a snapshot of the entire project folder is committed and pushed into the remote Git repo under a branch named `AzureMLHistory/<Project_GUID>`. You can view the branches and commits by browsing to the VSTS Git repo URL and find this branch. 
 
 ![run history branch](media/using-git-ml-project/run_history_branch.png)
 
+>[!NOTE] Please do not operate in this branch yourself. Doing so might mess up with run history. Use master branch or create other branches for your own Git operations.
+
 ## Step 5. Restore a previous project snapshot 
-To restore the entire project folder to the state of a previous run history project state snapshot, from AML Workbench.
+To restore the entire project folder to the state of a previous run history project state snapshot, from Azure ML Workbench:
 1. Click on **Runs** in the activity bar (glass-hour icon).
 2. From the **Run List** view, click on the run you want to restore.
 3. From the **Run Detail** view, click on **Restore**.
@@ -98,13 +100,13 @@ $ az ml history list -o table
 $ az ml project restore --run-id <run_id>
 ```
 
-By executing this command, we will overwrite the entire project folder with the snapshot taken when that particular run was kicked off. This means that you will **lose all changes** in your current project folder. So please be extra careful when you run this command.
+By executing this command, we will overwrite the entire project folder with the snapshot taken when that particular run was kicked off. But your project stays on the current branch. This means that you will **lose all changes** in your current project folder. So please be extra careful when you run this command.
 
 ## Step 6. Use the master branch
-One way to avoid accidentally losing your current project state, is to commit the project to the master branch of the Git repo. You can directly use Git from command line (or your other favorite Git client tool of choice) to operate on the master branch. For example:
+One way to avoid accidentally losing your current project state, is to commit the project to the master branch (or any branch you created yourself) of the Git repo. You can directly use Git from command line (or your other favorite Git client tool of choice) to operate on the master branch. For example:
 
 ```
-# make sure you are on the master branch
+# make sure you are on the master branch (or branch of your choice)
 $ git checkout master
 
 # stage all changes
