@@ -13,7 +13,7 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 11/16/2017
 ms.author: andbuc
 
 ---
@@ -173,7 +173,13 @@ The BLE modules talk to the Bluetooth hardware via the BlueZ stack. You need ver
     sudo make install
     ```
 
-1. Change systemd service configuration for bluetooth so it points to the new bluetooth daemon in the file `/lib/systemd/system/bluetooth.service`. Replace the 'ExecStart' line with the following text:
+1. Edit the systemd service configuration for bluetooth:
+
+    ```sh
+    sudo nano /lib/systemd/system/bluetooth.service
+    ```
+
+1. In the file, replace the `ExecStart` line with the following text to point to the new bluetooth daemon:
 
     ```conf
     ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
@@ -297,7 +303,7 @@ git clone https://github.com/Azure/iot-edge.git
 When you have a complete copy of the IoT Edge repository on your Raspberry Pi 3, you can build it using the following command from the folder that contains the SDK:
 
 ```sh
-cd ~/iot-edge
+cd ~/iot-edge/v1
 ./tools/build.sh  --disable-native-remote-modules
 ```
 
