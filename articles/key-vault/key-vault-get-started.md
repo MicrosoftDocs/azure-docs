@@ -42,7 +42,7 @@ This article assumes a basic understanding of PowerShell and Azure. For more inf
 
 To get detailed help for any cmdlet that you see in this tutorial, use the **Get-Help** cmdlet.
 
-```powershell
+```powershell-interactive
 Get-Help <cmdlet-name> -Detailed
 ```
     
