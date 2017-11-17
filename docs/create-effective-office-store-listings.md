@@ -140,17 +140,21 @@ Make your screenshots rich and informative. Help customers understand how your s
 > [!NOTE]
 > Be sure to remove any personal information from your screenshots that you do not want customers to see.
 
+<br/>
+
 |**Do**|**Don't**|
 |:------------|:--------------|
-|Use clear and simple captions to convey your add-in's value.|Don’t use callouts that obstruct important content.|
-|<img alt="Screenshot of an add-in with a clear and simple caption" src="images/screenshot-do.png" width="400"> |<img alt="Screenshot of an add-in with callouts that obstruct the text" src="images/screenshot-dont-1b.png" width="400"> |
-|When needed, make content legible with magnified close-ups.|Don't highlight more than one section.|
-|<img alt="Screenshot of an add-in with one magnified closeup" src="images/highlight-do.png" width="400">|<img alt="Screenshot of an add-in with two magnified closeups" src="images/highlight-dont.png" width="400">|
-|Incorporate recognizable brand elements like color or logo into screenshots.|Don't add unnecessary graphic elements that obstruct content.|
-|<img alt="Screenshot of an add-in with color and logo" src="images/brand-color-do-1b.png" width="400">|<img alt="Screenshot of an add-in with multiple graphic elements" src="images/brand-color-dont-1b.png" width="400">|
+|**Use clear and simple captions to convey your add-in's value.**|**Don’t use callouts that obstruct important content.**|
+|<img alt="Screenshot of an add-in with a clear and simple caption" src="images/screenshot-do.png" width="450"> |<img alt="Screenshot of an add-in with callouts that obstruct the text" src="images/screenshot-dont-1b.png" width="450"> |
+|**When needed, make content legible with magnified close-ups.**|**Don't highlight more than one section.**|
+|<img alt="Screenshot of an add-in with one magnified closeup" src="images/highlight-do.png" width="450">|<img alt="Screenshot of an add-in with two magnified closeups" src="images/highlight-dont.png" width="450">|
+|**Incorporate recognizable brand elements like color or logo into screenshots.**|**Don't add unnecessary graphic elements that obstruct content.**|
+|<img alt="Screenshot of an add-in with color and logo" src="images/brand-color-do-1b.png" width="450">|<img alt="Screenshot of an add-in with multiple graphic elements" src="images/brand-color-dont-1b.png" width="450">|
 
-## Use ratings and reviews
+<br/>
+
 <a name="bk_ratings"> </a>
+## Use ratings and reviews
 
 Good ratings and reviews lead to better store placement and improved customer perception of your product. Customers also use reviews as a forum to offer feedback and suggestions, particularly if feedback and support options are not available within the app or add-in. Be sure to:
 
