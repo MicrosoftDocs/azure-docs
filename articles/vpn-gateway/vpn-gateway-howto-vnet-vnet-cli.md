@@ -85,7 +85,6 @@ We use the following values in the examples:
 * Public IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
 * ConnectionType: VNet2VNet
 
 **Values for TestVNet4:**
