@@ -1,7 +1,7 @@
 ## WordPress and Azure App Service
 * [What is WordPress?](https://wordpress.org/)
-* [How to purchase ClearDB Shared MySQL hosting for your WordPress app](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
-* [How to Purchase ClearDB dedicated MySQL cluster for your WordPress app ](https://azure.microsoft.com/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
+* [Create a WordPress site in Azure portal](https://portal.azure.com/#create/WordPress.WordPress)s
+* [Manually create a MySQL database in Azure](../articles/mysql/quickstart-create-mysql-server-database-using-azure-portal.md)
 * [Deploy a WordPress web app backed with MySQL replication cluster](/documentation/templates/wordpress-mysql-replication/)
 * [Build your own Master-Master MySQL Cluster using Percona Cluster](/documentation/templates/mysql-ha-pxc/) and [learn more on how to manage the cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
 * [Deploy WordPress backed by MySQL replication cluster with master-slave configuration](/documentation/templates/mysql-replication/)
