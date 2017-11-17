@@ -84,6 +84,16 @@ For instructions on how to enable update management for non-Azure Windows virtua
 
 For instructions on how to enable update management for non-Azure Linux virtual machines and computers, see [Connect your Linux Computers to Operations Management Suite (OMS)](../log-analytics/log-analytics-agent-linux.md).
 
+## View computers attached to your automation account
+After enabling update management for your machines, you can view their information by clicking **Computers**. Computer information such as *Name*, *Compliance*, *Environment*, *OS Type*, *Critical and Security Updates*, and *Other Updates* are available. 
+
+  ![View computers tab](./media/manage-update-multi/update-computers-tab.png)
+
+For computers that have recently been enabled for update management, they may not have been assessed yet. The compliance state for those computers would have a status of  *Not assessed*.  Here is a list of values for compliance state:
+* Compliant – Computers that are not missing critical or security updates.
+* Non-compliant – Computers that are missing at least one critical or security update.
+* Not assessed – The update assessment data has not been received from the computer within the expected timeframe.  For Linux computers, in the last three hours and for Windows computers, in the last 12 hours.  
+
 ## View update assessment
 
 After **Update management** is enabled, the **Update management** screen appears. You can see a list of missing updates on the **Missing updates** tab.
