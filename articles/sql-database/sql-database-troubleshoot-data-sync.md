@@ -11,7 +11,7 @@ manager: "craigg"
 ---
 # Troubleshoot issues with SQL Data Sync (Preview)
 
-This article describes how to troubleshoot known issues with SQL Data Sync (Preview). If there is a resolution for an issue, it's provided here.
+This article describes how to troubleshoot known issues with Azure SQL Data Sync (Preview). If there is a resolution for an issue, it's provided here.
 
 For an overview of SQL Data Sync (Preview), see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md).
 
