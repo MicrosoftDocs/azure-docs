@@ -51,7 +51,7 @@ You use the name and key of your Azure storage account in this quickstart. The f
 5. Copy the values for **Storage account name** and **key1** fields to the clipboard. Paste them into a notepad or any other editor and save it.  
 
 #### Create input folder and files
-In this section, you create a blob container named: adftutorial in your Azure blob storage. Then, you create a folder named: input in the container, and then upload a sample file to the input folder. 
+In this section, you create a blob container named **adftutorial** in your Azure blob storage. Then, you create a folder named input in the container, and then upload a sample file to the input folder. 
 
 1. In the **Storage account** page, click **Blobs**. 
 
