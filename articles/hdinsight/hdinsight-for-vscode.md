@@ -21,7 +21,7 @@ ms.author: jejiang
 
 # Use Azure HDInsight Tools for Visual Studio Code
 
-Learn how to use the Azure HDInsight Tools for Visual Studio Code (VS Code) to create and submit Hive batch jobs, interactive Hive queries, and pySpark scripts. The Azure HDInsight Tools can be installed on the platforms that are supported by VSCode. These include Windows, Linux, and macOS. You can find the prerequisites for different platforms.
+Learn how to use the Azure HDInsight Tools for Visual Studio Code (VS Code) to create and submit Hive batch jobs, interactive Hive queries, and pySpark scripts. The Azure HDInsight Tools can be installed on the platforms that are supported by VS Code. These include Windows, Linux, and macOS. You can find the prerequisites for different platforms.
 
 
 ## Prerequisites
@@ -61,12 +61,14 @@ Create a workspace in VSCode before you can connect to Azure.
 2. On the left pane, select the **New File** icon next to the work folder.
 
    ![New file](./media/hdinsight-for-vscode/new-file.png)
+
 3. Name the new file with either the .hql (Hive queries) or the .py (Spark script) file extension. Notice that an **XXXX_hdi_settings.json** configuration file is automatically added to the work folder.
+
 4. Open **XXXX_hdi_settings.json** from **EXPLORER**, or right-click the script editor to select **Set Configuration**. You can configure login entry, default cluster, and job submission parameters as shown in the sample in the file. You also can leave the remaining parameters empty.
 
 ## Connect to Azure
 
-Before you can submit scripts to HDInsight clusters from VSCode, you need connect to your Azure account.
+Before you can submit scripts to HDInsight clusters from VS Code, you need connect to your Azure account.
 
 **To connect to Azure**
 
@@ -81,7 +83,7 @@ Before you can submit scripts to HDInsight clusters from VSCode, you need connec
     **Azure:**
     ![HDInsight Tools for Visual Studio Code login info](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png)
 
-    After you're connected, your Azure account name is shown on the status bar at the bottom left of the VSCode window. 
+    After you're connected, your Azure account name is shown on the status bar at the bottom left of the VS Code window. 
 
     > [!NOTE]
     > Because of a known Azure authentication issue, you need to open a browser in private mode or incognito mode. 
@@ -104,8 +106,10 @@ Before you can submit scripts to HDInsight clusters from VSCode, you need connec
 To test the connection, you can list your HDInsight clusters:
 
 **To list HDInsight clusters under your Azure subscription**
-1. Open a workspace and connect to Azure. For more information, see [Open HDInsight workspace](#open-hdinsight-workspace) and [Connect to Azure](#connect-to-azure).
+1. Open a workspace, and then connect to Azure. For more information, see [Open HDInsight workspace](#open-hdinsight-workspace) and [Connect to Azure](#connect-to-azure).
+
 2. Right-click the script editor, and then select **HDInsight: List Cluster** from the context menu. 
+
 3. The Hive and Spark clusters appear in the **Output** pane.
 
     ![Set a default cluster configuration](./media/hdinsight-for-vscode/list-cluster-result.png)
@@ -120,7 +124,7 @@ To test the connection, you can list your HDInsight clusters:
    ![Set default cluster configuration](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
 ## Set the Azure environment 
-1. Open the command palette by pressing **CTRL+SHIFT+P**.
+1. Open the command palette by selecting **CTRL+SHIFT+P**.
 
 2. Enter **HDInsight: Set Azure Environment**.
 
@@ -132,7 +136,7 @@ To test the connection, you can list your HDInsight clusters:
 
 ## Submit interactive Hive queries
 
-With HDInsight Tools for VSCode, you can submit interactive Hive queries to HDInsight interactive query clusters.
+With HDInsight Tools for VS Code, you can submit interactive Hive queries to HDInsight interactive query clusters.
 
 1. Create a new work folder and a new Hive script file if you don't already have them.
 
@@ -143,11 +147,12 @@ With HDInsight Tools for VSCode, you can submit interactive Hive queries to HDIn
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-3. Right-click the script editor, and then select **HDInsight: Hive Interactive** to submit the query. The tools also allow you to submit a block of code instead of the whole script file using the context menu. Soon after, the query result is appears in a new tab.
+3. Right-click the script editor, and then select **HDInsight: Hive Interactive** to submit the query. The tools also allow you to submit a block of code instead of the whole script file using the context menu. Soon after, the query results appear in a new tab.
 
    ![Interactive Hive result](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
     - **RESULTS** panel: You can save the whole result as CSV, JSON, or Excel file to local path, or just select multiple lines.
+
     - **MESSAGES** panel: When you select **Line** number, it jumps to the first line of the running script.
 
 Running the interactive query takes much less time than [running a Hive batch job](#submit-hive-batch-scripts).
@@ -156,7 +161,7 @@ Running the interactive query takes much less time than [running a Hive batch jo
 
 1. Create a new work folder and a new Hive script file if you don't already have them.
 
-2. Connect to your Azure account, and then configure the default cluster if you haven't done so.
+2. Connect to your Azure account, and then configure the default cluster if you haven't already done so.
 
 3. Copy and paste the following code into your Hive file, and then save it.
 
@@ -201,6 +206,7 @@ HDInsight Tools for VS Code also enables you to submit interactive PySpark queri
 
 6. Install the Python environment in your system if you haven't already. 
    - For Windows, download and install [Python](https://www.python.org/downloads/). Then make sure `Python` and `pip` are in your system PATH.
+
    - For instructions for macOS and Linux, see [Set up PySpark interactive environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
 
 7. Select a cluster to which to submit your PySpark query. Soon after, the query result is shown in the new right tab:
@@ -216,7 +222,7 @@ HDInsight Tools for VS Code also enables you to submit interactive PySpark queri
 
 ## Submit PySpark batch job
 
-1. Create a new work folder and a new script file with the .py extension if you don't already have one.
+1. Create a new work folder and a new script file with the .py extension if you don't already have them.
 
 2. Connect to your Azure account, if you haven't already done so.
 
