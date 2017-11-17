@@ -13,14 +13,14 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 11/16/2017
+ms.date: 11/17/2017
 ms.author: ryanwi
 ms.custom: mvc
 ---
 
 # Update the admin username and password of the VMs in a cluster
 
-Each node type in a Service Fabric cluster is a virtual machine scale set. This sample script adds or updates the admin username and password for the cluster virtual machines in a specific node type.  To change the admin password on a VM scale set you'll need to apply the VM Access extension, because admin password is not a fundamentally modifiable scale set property.  These changes apply to all nodes in the scale set. Customize the parameters as needed.
+Each node type in a Service Fabric cluster is a virtual machine scale set. This sample script updates the admin username and password for the cluster virtual machines in a specific node type.  Add the VMAccessAgent extension to the scale set, because the admin password is not a modifiable scale set property.  The username and password changes apply to all nodes in the scale set. Customize the parameters as needed.
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview). 
 
