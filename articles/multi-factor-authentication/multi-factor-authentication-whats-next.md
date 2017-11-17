@@ -293,7 +293,7 @@ When your users enroll their accounts for MFA, they choose their preferred verif
 | Method | Description |
 |:--- |:--- |
 | Call to phone |Places an automated voice call. The user answers the call and presses # in the phone keypad to authenticate. This phone number is not synchronized to on-premises Active Directory. |
-| Text message to phone |Sends a text message containing a verification code. The user is prompted to either reply to the text message with the verification code or to enter the verification code into the sign-in interface. |
+| Text message to phone |Sends a text message containing a verification code. The user is prompted to enter the verification code into the sign-in interface. |
 | Notification through mobile app |Sends a push notification to your phone or registered device. The user views the notification and selects **Verify** to complete verification. <br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 | Verification code from mobile app |The Microsoft Authenticator app generates a new OATH verification code every thirty seconds. The user enters this verification code into the sign-in interface.<br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
