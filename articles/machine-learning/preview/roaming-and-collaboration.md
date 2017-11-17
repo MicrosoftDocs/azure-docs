@@ -155,7 +155,7 @@ To illustrate the collaboration flow, let's walk through the following scenario.
 
 9. Bob wants to get the latest changes pushed by Alice and start to work on a different branch. So he opens command prompt window from Azure ML Workbench and executes the following commands:
 
-    ```
+    ```sh
     # verify the Git remote is pointing to the VSTS Git repo
     $ git remote -v
 
@@ -173,7 +173,7 @@ To illustrate the collaboration flow, let's walk through the following scenario.
 
 11. Bob is not ready to push his changes into the remote Git repo. In order to avoid conflict with _master_ branch where Alice is working on, he decides to push his work into a new remote branch also named _bob_.
 
-    ```
+    ```sh
     # verify that the current branch is "bob" and it has unstaged changes
     $ git status
     
