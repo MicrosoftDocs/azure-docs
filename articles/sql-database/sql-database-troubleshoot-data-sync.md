@@ -329,11 +329,10 @@ Any of the following scenarios might result in failure to delete a sync group:
 To resolve failure to delete a sync group:
 
 -   Ensure that the client agent is online and then try again.
--   If the client agent is uninstalled or otherwise missing:    
+-   If the client agent is uninstalled or otherwise missing:  
     a. Remove the agent XML file from the SQL Data Sync (Preview) installation folder, if the file exists.  
     b. Install the agent on an on-premises computer (it can be the same or a different computer). Then, submit the agent key that's generated in the portal for the agent that's showing as offline.
--   Ensure that the SQL Data Sync (Preview) service is running:
-
+-   Ensure that the SQL Data Sync (Preview) service is running:  
     a. In the **Start** menu, search for **Services**.  
     b. In the search results, select **Services**.  
     c. Find the **SQL Data Sync (Preview) Preview** service.  
@@ -353,8 +352,7 @@ To unregister an on-premises SQL Server database, select the database and then s
 
 If this operation fails to remove the database from the sync group:
 
-1. Stop and then restart the client agent host service.
-
+1. Stop and then restart the client agent host service:  
     a. Select the **Start** menu.  
     b. In the search box, enter **services.msc**.  
     c. In the **Programs** section of the search results pane, double-click **Services**.  
@@ -436,15 +434,13 @@ If you restore a lost or corrupted database from a backup, there might be a nonc
 ## Next steps
 For more information about SQL Data Sync (Preview), see:
 
--   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md)
--   [Set up Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)
--   [Best practices for Azure SQL Data Sync (Preview)](sql-database-best-practices-data-sync.md)
--   [Monitor Azure SQL Data Sync (Preview) with OMS Log Analytics](sql-database-sync-monitor-oms.md)
-
--   Complete PowerShell examples that show how to configure SQL Data Sync (Preview):
-    -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
-
+-   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md)  
+-   [Set up Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)  
+-   [Best practices for Azure SQL Data Sync (Preview)](sql-database-best-practices-data-sync.md)  
+-   [Monitor Azure SQL Data Sync (Preview) with OMS Log Analytics](sql-database-sync-monitor-oms.md)  
+-   Complete PowerShell examples that show how to configure SQL Data Sync (Preview):  
+    -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)  
+    -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  
 -   [Download the SQL Data Sync (Preview) REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 For more information about SQL Database, see:
