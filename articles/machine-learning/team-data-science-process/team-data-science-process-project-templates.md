@@ -51,3 +51,9 @@ You can pull it in to whatever tool you prefer to use.
 
 Use these templates at your own risk. The [usual disclaimers](https://www.gnu.org/licenses/gpl-3.0.en.html) apply.
 
+## Next steps
+
+[Execution of data science projects](project-execution.md) This document describes how a data scientist can execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.
+
+Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
+

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/16/2017
 ms.author: bradsev;
 
 ---
@@ -29,8 +29,10 @@ This topic includes instructions on how to:
 3. **link the work items with coding activities** tracked by git.
 4. do **code review**. 
 
-
->[AZURE.NOTE] We outline the steps needed to set up a TDSP team environment using Visual Studio Team Services (VSTS) in the following set of instructions. We specify how to accomplish these tasks with VSTS because that is how we implement TDSP at Microsoft. Items (3) and (4) in the previous list are benefits that you get naturally if you choose to use VSTS. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different. For example, the item in section six, **Link a work item with a git branch**, might not be as easy as it is on VSTS.
+> [!NOTE]
+> We outline the steps needed to set up a TDSP team environment using Visual Studio Team Services (VSTS) in the following set of instructions. We specify how to accomplish these tasks with VSTS because that is how we implement TDSP at Microsoft. Items (3) and (4) in the previous list are benefits that you get naturally if you choose to use VSTS. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different. For example, the item in section six, **Link a work item with a git branch**, might not be as easy as it is on VSTS.
+>
+>
 
 The following figure illustrates a typical sprint planning, coding and source-control workflow involved in implementing a data science project:
 
@@ -54,7 +56,13 @@ In the TDSP sprint planning framework, there are four frequently used types of *
 	-  Uploading Data to SQL Data Warehouse. 
 - **Bug**: Bugs usually refer to fixes that are needed for an existing code or document that are done when completing a task. It can escalate to being a story or a task if the bug is caused by missing stages or tasks respectively. 
 
->[AZURE.NOTE] We are borrowing concepts of features, stories, tasks, and bugs from software code management (SCM) to be used in data science. They might differ slightly from their conventional  SCM definitions.
+> [!NOTE]
+> We are borrowing concepts of features, stories, tasks, and bugs from software code management (SCM) to be used in data science. They might differ slightly from their conventional SCM definitions.
+>
+>
+
+Data scientists may feel more comfortable using an Agile template that specifically aligns with the TDSP lifecycle stages. With that in mind, we have created an Agile-derived sprint planning template, where Epics, Stories etc. are replaced by TDSP lifecycle stages or sub-stages. Documentation on how to create such an Agile template can be found [here]().
+
 
 ##  2. <a name='SprintPlanning-2'></a>Sprint planning 
 

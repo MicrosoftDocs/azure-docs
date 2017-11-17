@@ -32,9 +32,7 @@
 - name: Project planning and execution
   items:
   - name: Project planning
-    items:
-    - name: Project templates
-      href: team-data-science-process-project-templates.md
+    href: team-data-science-process-project-templates.md
   - name: Project execution
     items:
     - name: Data science projects
