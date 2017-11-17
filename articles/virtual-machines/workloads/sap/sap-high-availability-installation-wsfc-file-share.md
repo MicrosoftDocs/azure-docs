@@ -32,6 +32,8 @@ ms.custom: H1Hack27Feb2017
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
+[sap-powershell-scrips]:https://github.com/Azure-Samples/sap-powershell
+
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
 
@@ -365,7 +367,7 @@ Get-ClusterAccess
 
 ## Create a virtual host name for the clustered SAP ASCS/SCS instance
 
-Create an SAP ASCS/SCS cluster network name (for example, **pr1-ascs [10.0.6.7]**), as described in [Create a virtual host name for the clustered SAP ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]. 
+Create an SAP ASCS/SCS cluster network name (for example, **pr1-ascs [10.0.6.7]**), as described in [Create a virtual host name for the clustered SAP ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
 
 ## Update the default and SAP ASCS/SCS instance profile
 
@@ -412,15 +414,15 @@ To use the new SAP ASCS/SCS virtual host name and SAP global host name, you must
 >The PowerShell cmdlet supports both the SAP ABAP ASCS and SAP Java SCS instances.
 >
 
-Copy **SAPScripts.ps1** to your local drive C:\tmp, and run the following PowerShell cmdlet:
+Copy [**SAPScripts.psm1**][sap-powershell-scrips] to your local drive C:\tmp, and run the following PowerShell cmdlet:
 
 ```PowerShell
-Import-Module C:\tmp\SAPScripts.ps1
+Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
 ```
 
-![Figure 1: SAPScripts.ps1 output][sap-ha-guide-figure-8012]
+![Figure 1: SAPScripts.psm1 output][sap-ha-guide-figure-8012]
 
 _**Figure 1**: SAPScripts.ps1 output_
 
