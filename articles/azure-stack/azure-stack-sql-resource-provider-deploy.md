@@ -50,7 +50,8 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 
 3. [Download the SQL resource provider binaries file](https://aka.ms/azurestacksqlrp) and execute the self-extractor to extract the contents to a temporary directory.
 
-[!NOTE] If you running on an Azure Stack build 20170928.3 or earlier, [Download this version](https://aka.ms/azurestacksqlrp1709).
+> [!NOTE]
+> If you running on an Azure Stack build 20170928.3 or earlier, [Download this version](https://aka.ms/azurestacksqlrp1709).
 
 4. The Azure Stack root certificate is retrieved from the Privileged Endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
@@ -170,5 +171,6 @@ In order to remove the resource provider, it is essential to first remove any de
 
 ## Next steps
 
+[Add Hosting Servers](azure-stack-sql-resource-provider-hosting-servers.md) and [Create databases](azure-stack-sql-resource-provider-databases.md).
 
 Try other [PaaS services](azure-stack-tools-paas-services.md) like the [MySQL Server resource provider](azure-stack-mysql-resource-provider-deploy.md) and the [App Services resource provider](azure-stack-app-service-overview.md).
