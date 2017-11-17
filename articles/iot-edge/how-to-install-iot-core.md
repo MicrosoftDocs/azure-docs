@@ -8,7 +8,7 @@ manager: timlt
 
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -23,8 +23,22 @@ The Azure IoT Edge Runtime can run even on tiny Single Board Computer (SBC) devi
 1. Install [Windows 10 IoT Core Dashboard][lnk-core] on a host system.
 1. Follow the steps in [Set up your device][lnk-board] to configure your board with the MinnowBoard Turbot/MAX Build 16299 image. 
 1. Turn on the device, then [login remotely with PowerShell][lnk-powershell].
-1. In the PowerShell console, [install Docker binaries][lnk-docker-install].
-1. Run the following command in the PowerShell console to install the IoT Edge runtime and verify your configuration:
+1. In the PowerShell console, install the container runtime: 
+
+   ```powershell
+   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-17.06.0-dev.zip -o temp.zip
+   Expand-Archive .\temp.zip $env:ProgramFiles -f
+   Remove-Item .\temp.zip
+   $env:Path += ";$env:programfiles\docker"
+   SETX /M PATH "$env:Path"
+   dockerd --register-service
+   start-service docker
+   ```
+
+   >[!NOTE]
+   >This PowerShell script is from the Moby project build server, and is intended for evaluation purposes only. It's not tested, endorsed, or supported by Docker.
+
+1. Install the IoT Edge runtime and verify your configuration:
 
    ```powershell
    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
