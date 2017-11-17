@@ -33,11 +33,17 @@ Log on to the [Azure portal][] using your Azure subscription.
 A resource group is a logical collection of Azure resources. All resources are deployed and managed in a resource group. Do the following to create a resource group:
 
 1. In the left navigation, click **Resource groups**. Then click **Add**.
+
    ![][1]
+
 2. Type a unique name for the resource group. The system immediately checks to see if the name is available in the currently selected Azure subscription.
+
 3. In **Subscription**, click the name of the Azure subscription in which you want to create the resource group.
+
 4. Select a geographic location for the resource group.
+
 5. Click **Create**.
+
    ![][2]
 
 ## Create an Event Hubs namespace

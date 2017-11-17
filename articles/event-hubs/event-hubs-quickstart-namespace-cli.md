@@ -42,7 +42,7 @@ A resource group is a logical collection of Azure resources. All resources are d
 
 The following example creates a resource group named **eventhubsResourceGroup** in the **West US** region
 
-```cli
+```azurecli
 az group create --name eventhubsResourceGroup --location westus
 ```
 
@@ -50,7 +50,7 @@ az group create --name eventhubsResourceGroup --location westus
 
 An Event Hubs namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more event hubs. The following example creates a namespace in your resource group. Replace `<namespace_name>` with a unique name for your namespace:
 
-```cli
+```azurecli
 az eventhubs namespace create --name <namespace_name> -l westus2
 ```
 
@@ -58,7 +58,7 @@ az eventhubs namespace create --name <namespace_name> -l westus2
 
 To create an event hub, specify the namespace under which you want it created. The following example shows how to create an event hub:
 
-```cli
+```azurecli
 az eventhubs entity create --name <eventhub_name> -l westus2
 ```
 
@@ -66,7 +66,7 @@ az eventhubs entity create --name <eventhub_name> -l westus2
 
 The Event Processor Host is an intelligent agent that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives. For checkpointing, Event Processor Host requires a storage account. The following example shows how to create a storage account and how to get its keys for access:
 
-```cli
+```azurecli
 # Create a general purpose standard storage account
 az storage account create --name <storage_account_name> --resource-group eventhubsResourceGroup --location westus2 --sku Standard_RAGRS --encryption blob 
 
@@ -78,7 +78,7 @@ az storage account keys list --resource-group eventhubsResourceGroup --account-n
 
 Run the following command to remove the resource group, namespace, storage account, and all related resources:
 
-```cli
+```azurecli
 az group delete --name eventhubsResourceGroup
 ```
 
