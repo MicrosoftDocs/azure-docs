@@ -87,72 +87,72 @@ The following flowchart describes how Azure CDN validates client request when to
 
        Enter values for one or more of the following encryption parameters in the **Encrypt Tool** section: 
 
-       [!div class="mx-tdBreakAll"]
-       <table>
-       <tr>
-          <th>Parameter name</th> 
-          <th>Description</th>
-       </tr>
-       <tr>
-          <td><b>ec_expire</b></td>
-          <td>Assigns an expiration time to a token, after which the token expires. Requests submitted after the expiration time are denied. This parameter uses a Unix timestamp, which is based on the number of seconds since the standard epoch of `1/1/1970 00:00:00 GMT`. (You can use online tools to convert between standard time and Unix time.) 
-
-          For example, if you want the token to expire at `12/31/2016 12:00:00 GMT`, enter the Unix timestamp value, `1483185600`. 
-       </tr>
-       <tr>
-          <td><b>ec_url_allow</b></td> 
-          <td>Allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. URLs are case-sensitive. Input multiple paths by separating each path with a comma. Depending on your requirements, you can set up different values to provide different level of access. 
-
-          For example, for the URL `http://www.mydomain.com/pictures/city/strasbourg.png`, these requests are allowed for the following input values: 
-          <ul>
-             <li>Input value `/`: All requests are allowed.</li>
-             <li>Input value `/pictures`, the following requests are allowed: 
-             <ul>
-                <li>`http://www.mydomain.com/pictures.png`</li>
-                <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
-                <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
-             </ul></li>
-             <li>Input value `/pictures/`: Only requests containing the `/pictures/` path are allowed. For example, `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
-             <li>Input value `/pictures/city/strasbourg.png`: Only requests for this specific path and asset are allowed.</li>
-          </ul>
-       </tr>
-       <tr>
-          <td><b>ec_country_deny</b></td> 
-          <td>Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. Use country codes and separate each one with a comma. For example, If you want to deny access from the United States and France, enter `US, FR`.</td>
-       </tr>
-       <tr>
-          <td><b>ec_ref_allow</b></td>
-          <td>Only allows requests from the specified referrer. A referrer identifies the URL of the web page that is linked to the resource being requested. Do not include the protocol in the referrer parameter value. 
-
-          The following types of input are allowed for the parameter value:
-          <ul>
-             <li>A hostname or a hostname and a path.</li>
-	         <li>Multiple referrers. To add multiple referrers, separate each referrer with a comma. If you specify a referrer value, but the referrer information is not sent in the request due to the browser configuration, the request is denied by default.</li> 
-             <li>Requests with missing referrer information. To allow these types of requests, enter the text "missing" or enter a blank value.</li> 
-             <li>Subdomains. To allow subdomains, enter an asterisk (\*). For example, to allow all subdomains of `consoto.com`, enter `*.consoto.com`.</li>
-          </ul>
-
-          The following example shows the input to allow access for requests from `www.consoto.com`, all subdomains under `consoto2.com`, and requests with blank or missing referrers: 
-
-          ![CDN ec_ref_allow example](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)</td>
-       </tr>
-       <tr> 
-          <td><b>ec_ref_deny</b></td>
-          <td>Denies requests from the specified referrer. The implementation is the same as the ec_ref_allow parameter.</td>
-       </tr>
-       <tr> 
-          <td><b>ec_proto_allow</b></td> 
-          <td>Only allows requests from the specified protocol. For example, HTTP or HTTPS.</td>
-       </tr>
-       <tr>
-          <td><b>ec_proto_deny</b></td>
-          <td>Denies requests from the specified protocol. For example, HTTP or HTTPS.</td>
-       </tr>
-       <tr>
-          <td><b>ec_clientip</b></td>
-          <td>Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify either a single request IP address or an IP subnet. For example: `11.22.33.0/22`</td>
-       </tr>
-       </table>
+       > [!div class="mx-tdBreakAll"] 
+       > <table>
+       > <tr>
+       >   <th>Parameter name</th> 
+       >   <th>Description</th>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_expire</b></td>
+       >    <td>Assigns an expiration time to a token, after which the token expires. Requests submitted after the expiration time are denied. This parameter uses a Unix timestamp, which is based on the number of seconds since the standard epoch of `1/1/1970 00:00:00 GMT`. (You can use online tools to convert between standard time and Unix time.) 
+       > 
+       >    For example, if you want the token to expire at `12/31/2016 12:00:00 GMT`, enter the Unix timestamp value, `1483185600`. 
+       > </tr>
+       > <tr>
+       >    <td><b>ec_url_allow</b></td> 
+       >    <td>Allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. URLs are case-sensitive. Input multiple paths by separating each path with a comma. Depending on your requirements, you can set up different values to provide different level of access. 
+       > 
+       >    For example, for the URL `http://www.mydomain.com/pictures/city/strasbourg.png`, these requests are allowed for the following input values: 
+       >    <ul>
+       >       <li>Input value `/`: All requests are allowed.</li>
+       >       <li>Input value `/pictures`, the following requests are allowed: 
+       >       <ul>
+       >          <li>`http://www.mydomain.com/pictures.png`</li>
+       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
+       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
+       >       </ul></li>
+       >       <li>Input value `/pictures/`: Only requests containing the `/pictures/` path are allowed. For example, `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+       >       <li>Input value `/pictures/city/strasbourg.png`: Only requests for this specific path and asset are allowed.</li>
+       >    </ul>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_country_deny</b></td> 
+       >    <td>Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. Use country codes and separate each one with a comma. For example, If you want to deny access from the United States and France, enter `US, FR`.</td>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_ref_allow</b></td>
+       >    <td>Only allows requests from the specified referrer. A referrer identifies the URL of the web page that is linked to the resource being requested. Do not include the protocol in the referrer parameter value. 
+       >    
+       >    The following types of input are allowed for the parameter value:
+       >    <ul>
+       >       <li>A hostname or a hostname and a path.</li>
+	   >       <li>Multiple referrers. To add multiple referrers, separate each referrer with a comma. If you specify a referrer value, but the referrer information is not sent in the request due to the browser configuration, the request is denied by default.</li> 
+       >       <li>Requests with missing referrer information. To allow these types of requests, enter the text "missing" or enter a blank value.</li> 
+       >       <li>Subdomains. To allow subdomains, enter an asterisk (\*). For example, to allow all subdomains of `consoto.com`, enter `*.consoto.com`.</li>
+       >    </ul>
+       > 
+       >    The following example shows the input to allow access for requests from `www.consoto.com`, all subdomains under `consoto2.com`, and requests with blank or missing referrers: 
+       > 
+       >    ![CDN ec_ref_allow example](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)</td>
+       > </tr>
+       > <tr> 
+       >    <td><b>ec_ref_deny</b></td>
+       >    <td>Denies requests from the specified referrer. The implementation is the same as the ec_ref_allow parameter.</td>
+       > </tr>
+       > <tr> 
+       >    <td><b>ec_proto_allow</b></td> 
+       >    <td>Only allows requests from the specified protocol. For example, HTTP or HTTPS.</td>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_proto_deny</b></td>
+       >    <td>Denies requests from the specified protocol. For example, HTTP or HTTPS.</td>
+       > </tr>
+       > <tr>
+       >    <td><b>ec_clientip</b></td>
+       >    <td>Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify either a single request IP address or an IP subnet. For example, `11.22.33.0/22`</td>
+       > </tr>
+       > </table>
 
     5. After you have finished entering encryption parameter values, select a key to encrypt (if you have created both a primary and a backup key) from the **Key To Encrypt** list.
     
