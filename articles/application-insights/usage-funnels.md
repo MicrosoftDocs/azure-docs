@@ -18,7 +18,7 @@ ms.author: mbullwin
 
 Understanding customer experience is of the utmost importance to your business. If your application involves multiple stages, you will need to know if most customers are progressing through the entire process, or if they are ending the process at some point. The progression through a series of steps in a web application is known as a "funnel". You can use the Application Insights Funnels to gain insights into your users and monitor step-by-step conversion rates. 
 
-### Create your funnel
+## Create your funnel
 Before you create your funnel, you need to decide on the question you want to answer. For example, you might want to know how many users are viewing the home page, viewing a customer profile and creating a ticket. In this example, the owners of the Fabrikam Fiber company want to know the percentage of customers who successfully create a customer ticket.
 
 Here are the steps they take to create their funnel.
@@ -35,7 +35,7 @@ The following illustration demonstrates the data the Funnels tool generates. Fro
 
 ![Funnels tool with data](./media/app-insights-understand-usage-patterns/funnel1.png)
 
-### Funnel Features
+## Funnel features
 1. If your app is sampled, you will see a sampling banner. Clicking on the banner will open a context pane instructing how to turn sampling off. 
 2. You can export your funnel to [Power BI](app-insights-export-power-bi.md).
 3. Click on a step to get deeper insights on the right. 
