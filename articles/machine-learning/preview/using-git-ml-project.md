@@ -61,18 +61,18 @@ To navigate directly to the Team Project just created, the URL is `https://<team
 > Currently, Azure Machine Learning only supports empty Git repos with no master branch. From the command-line interface, you can use the --force argument to delete your master branch first. 
 
 ## Step 3. Create a new Azure ML project with a remote Git repo
-Launch Azure ML Workbench and create a new project. Fill the Git repo text box with the VSTS Git repo URL that you get from Step 2. It typically looks like this: http://<vsts_account_name>.visualstudio.com/_git/<project_name>
+Launch Azure ML Workbench and create a new project. Fill the Git repo text box with the VSTS Git repo URL that you get from Step 2. It typically looks like this: `http://<vsts_account_name>.visualstudio.com/_git/<project_name>`
 
 ![Create Azure ML Project with Git repo](media/using-git-ml-project/create_project_with_git_rep.png)
 
 Now a new Azure ML project is created with remote Git repo integration enabled and ready to go. The project folder is always Git-initialized as a local Git repo. And the Git _remote_ is set to the remote VSTS Git repo so commits can be pushed into the remote Git repo.
 
-## Step 3.a Associate an existing Azure ML project with a VSTS Git repo
+## Step 3a. Associate an existing Azure ML project with a VSTS Git repo
 Optionally, you can also create a Azure ML project without a VSTS Git repo, and just rely on the local Git repo for run history snapshots. And you can associate a VSTS Git repo later with this existing Azure ML project using the following command:
 
 ```azurecli
 # make sure you are in the project path so CLI has context of your current project
-az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name
+$ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name>
 ```
 
 ## Step 4. Capture project snapshot in Git repo
@@ -92,10 +92,10 @@ Alternatively, you can use the following command from the Azure ML Workbench CLI
 
 ```azurecli
 # discover the run I want to restore snapshot from:
-az ml history list -o table
+$ az ml history list -o table
 
 # restore the snapshot from a particular run
-az ml project restore --run-id <run_id>
+$ az ml project restore --run-id <run_id>
 ```
 
 By executing this command, we will overwrite the entire project folder with the snapshot taken when that particular run was kicked off. This means that you will **lose all changes** in your current project folder. So please be extra careful when you run this command.
@@ -105,16 +105,16 @@ One way to avoid accidentally losing your current project state, is to commit th
 
 ```
 # make sure you are on the master branch
-git checkout master
+$ git checkout master
 
 # stage all changes
-git add -A
+$ git add -A
 
 # commit all changes locally on the master branch
-git commit -m 'this is my updates so far'
+$ git commit -m 'this is my updates so far'
 
 # push changes into the remote VSTS Git repo master branch.
-git push origin master
+$ git push origin master
 ```
 
 Now you can safely restore project to an earlier snapshot following Step 5, knowing that you can always come back to the commit you just made on the master branch.
