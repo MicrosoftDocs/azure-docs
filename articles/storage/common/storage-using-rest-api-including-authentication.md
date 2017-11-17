@@ -35,7 +35,7 @@ The application lists the containers in blob storage for a storage account. To t
 
 ## Download the sample application
 
-The sample application used is a console application written in C#.
+The sample application is a console application written in C#.
 
 Use [git](https://git-scm.com/) to download a copy of the application to your development environment. 
 
@@ -53,7 +53,7 @@ Knowing how to use REST is a useful skill. The Azure product team frequently rel
 
 REST means *representational state transfer*. [Wikipedia starts explaining REST this way:](http://en.wikipedia.org/wiki/Representational_state_transfer) 
 
-    REST is an architectural style consisting of a coordinated set of architectural constraints applied to components, connectors, and data elements, within a distributed hypermedia system. REST ignores the details of component implementation and protocol syntax in order to focus on the roles of components, the constraints upon their interaction with other components, and their interpretation of significant data elements.
+   REST is an architectural style consisting of a coordinated set of architectural constraints applied to components, connectors, and data elements, within a distributed hypermedia system. REST ignores the details of component implementation and protocol syntax in order to focus on the roles of components, the constraints upon their interaction with other components, and their interpretation of significant data elements.
 
 What does that mean? Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It is independent of what’s happening on either side, and what other software is being used when sending or receiving the REST calls. You can write an application that runs on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site, and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn’t care from what platform it’s
 called – what’s important is the information passed in the request and the data provided in the response.
@@ -80,7 +80,7 @@ Another helpful parameter is *maxresults:* if more containers are available than
 
 To use additional parameters, append them to the resource string with the value, like this example:
 
-    `/?comp=list&timeout=60&maxresults=100`
+`/?comp=list&timeout=60&maxresults=100`
 
 [Request Headers](/rest/api/storageservices/fileservices/List-Containers2#request-headers)**:**
 This section lists the required and optional request headers. Three of the headers are required: an *Authorization* header, *x-ms-date* (contains the UTC time for the request), and *x-ms-version* (specifies the version of the REST API to use). Including *x-ms-client-request-id* in the headers is optional – you can set the value for this field to anything; it is written to the storage analytics logs when logging is enabled.
@@ -312,9 +312,7 @@ Let’s start with those two canonicalized fields, because they are required to 
 
 **Canonicalized Headers**
 
-To create this value, retrieve the headers that start with "x-ms-" and sort them, then format them into a string of `[key:value\n]` instances, concatenated into one string. For this example, the canonicalized headers look like this:
-
-    `x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-04-17\n`
+To create this value, retrieve the headers that start with "x-ms-" and sort them, then format them into a string of `[key:value\n]` instances, concatenated into one string. For this example, the canonicalized headers look like this: `x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-04-17\n`
 
 Here’s the code:
 
