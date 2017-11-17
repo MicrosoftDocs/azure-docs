@@ -284,7 +284,6 @@
 ## Create and manage clusters
 ### Clusters on Azure
 #### Create
-##### [Create your first cluster on Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Scale
