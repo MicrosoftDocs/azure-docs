@@ -337,7 +337,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-skydeskemail-tutorial.png)| [SkyDesk Email](active-directory-saas-skydeskemail-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](active-directory-saas-slack-tutorial.md)| [Slack - User Provisioning](active-directory-saas-slack-provisioning-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-smallimprovements-tutorial.png)| [Small Improvements](active-directory-saas-smallimprovements-tutorial.md)|
-| ![logo](./media/active-directory-saas-tutorial-list/active-directory-sass-smartrecruiters-tutorial.png)]| [SmartRecruiters](active-directory-saas-smartrecruiters-tutorial.md)
+| ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-smartrecruiters-tutorial.png)| [SmartRecruiters](active-directory-saas-smartrecruiters-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SmarterU.png)| [SmarterU](active-directory-saas-smarteru-tutorial.md)|
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-softeon-tutorial.png)| [Softeon WMS](active-directory-saas-softeon-tutorial.md)
 | ![logo](./media/active-directory-saas-tutorial-list/active-directory-saas-soonr-tutorial.png)| [Soonr Workplace](active-directory-saas-soonr-tutorial.md)|
