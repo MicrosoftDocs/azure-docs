@@ -53,41 +53,36 @@ You use the name and key of your Azure storage account in this quickstart. The f
 #### Create input folder and files
 In this section, you create a blob container named: adftutorial in your Azure blob storage. Then, you create a folder named: input in the container, and then upload a sample file to the input folder. 
 
-1. Install [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) if you do not have it on your machine. 
-2. Launch **Microsoft Azure Storage Explorer** on your machine.   
-3. In the **Connect to Azure Storage** window, select **Use a storage account name and key**, and click **Next**. If you don't see the **Connect to Azure Storage** window, right-click **Storage Accounts** in the tree view, and click **Connect to Azure storage**. 
+1. In the **Storage account** page, click **Blobs**. 
 
-    ![Connect to Azure storage](media/quickstart-create-data-factory-powershell/storage-explorer-connect-azure-storage.png)
-4. In the **Attach using Name and Key** window, paste the **Account name** and **Account key** you saved in the previous step. Then, click **Next**. 
-5. In the **Connection Summary** window, click **Connect**.
-6. Confirm that you see your storage account in the tree view under **(Local and Attached)** -> **Storage Accounts**. 
-7. Expand **Blob Containers** and confirm that the **adftutorial** blob container does not exist. If it already exists, skip the next steps for creating the container. 
-8. Right-click **Blob Containers**, and select **Create Blob Container**.
+    ![Select Blobs option](media/quickstart-create-data-factory-powershell/select-blobs.png)
+1. In the **Blob service** page, click **+ Container** on the toolbar. 
 
-    ![Create blob container](media/quickstart-create-data-factory-powershell/stroage-explorer-create-blob-container-menu.png)
-9. Enter **adftutorial** for the name and press **ENTER**. 
-10. Confirm that the **adftutorial** container is selected in the tree view. 
-11. Click **New Folder** in the toolbar. 
+    ![Add container button](media/quickstart-create-data-factory-powershell/add-container-button.png)    
+3. In the **New container** dialog, enter **adftutorial** for the name, and click **OK**. 
 
-    ![Create folder button](media/quickstart-create-data-factory-powershell/stroage-explorer-new-folder-button.png)
-12. In the **Create New Virtual Directory** window, enter **input** for **Name**, and click **OK**. 
+    ![Enter container name](media/quickstart-create-data-factory-powershell/new-container-dialog.png)
+4. Click **adftutorial** in the list of containers. 
+5. In the **Container** page, click **Upload** on the toolbar.  
 
-    ![Create directory dialog](media/quickstart-create-data-factory-powershell/storage-explorer-create-new-directory-dialog.png)
-13. Launch **Notepad** and create a file named **emp.txt** with the following content: 
+    ![Upload button](media/quickstart-create-data-factory-powershell/upload-toolbar-button.png)
+6. In the **Upload blob** page, click **Advanced**.
+
+    ![Click Advanced link](media/quickstart-create-data-factory-powershell/upload-blob-advanced.png)
+7. Launch **Notepad** and create a file named **emp.txt** with the following content: Save it in the **c:\ADFv2QuickStartPSH** folder: Create the folder **ADFv2QuickStartPSH** if it does not already exist.
     
     ```
     John, Doe
     Jane, Doe
     ```    
-    Save it in the **c:\ADFv2QuickStartPSH** folder: Create the folder **ADFv2QuickStartPSH** if it does not already exist. 
-14. Click **Upload** button on the toolbar and select **Upload Files**. 
+8. In the Azure portal, in the **Upload blob** page, browse, and select the **emp.txt** file for the **Files** field. 
+9. (Important) Enter **input** as a value **Upload to folder** filed. 
 
-    ![Upload button](media/quickstart-create-data-factory-powershell/storage-explorer-upload-button.png)
-15. In the **Upload files** window, for **Files**, select `...`. 
-16. In the **Select folder to upload** window, navigate to the folder with **emp.txt**, and select the file. 
-
-    ![Upload files dialog](media/quickstart-create-data-factory-powershell/storage-explorer-upload-files-dialog.png)
-17. In the **Upload files** window, click **Upload**. 
+    ![Upload blob settings](media/quickstart-create-data-factory-powershell/upload-blob-settings.png)    
+10. Confirm that the folder is **input** and file is **emp.txt**, and click **Upload**.
+11. You should see the **emp.txt** file and the status of the upload in the list. 
+12. Close the **Upload blob** page by clicking **X** in the corner. 
+13. Keep the **container** page open for the **adftutorial** container. You use it to verify the output at the end of this quickstart. 
 
 ### Azure PowerShell
 
@@ -418,7 +413,15 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     ```
 
 ## Verify the output
-The pipeline automatically creates the output folder in the adftutorial blob container. Then, it copies the emp.txt file from the input folder to the output folder. Use [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to check the blob(s) in the inputBlobPath are copied to outputBlobPath. 
+The pipeline automatically creates the output folder in the adftutorial blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
+
+1. In the Azure portal, on the **adftutorial** container page, click **Refresh** to see the output folder. 
+    
+    ![Refresh](media/quickstart-create-data-factory-powershell/output-refresh.png)
+2. Click **output** in the folder list. 
+2. Confirm that the **emp.txt** is copied to the output folder. 
+
+    ![Refresh](media/quickstart-create-data-factory-powershell/output-file.png)
 
 ## Clean up resources
 You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.

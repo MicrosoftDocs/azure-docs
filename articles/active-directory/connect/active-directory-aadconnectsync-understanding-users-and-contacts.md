@@ -39,15 +39,15 @@ Important points to be aware of when synchronizing groups from Active Directory 
 
 * To synchronize an Active Directory group to Azure AD as a mail-enabled group:
 
-    * If the group's *proxyAddress* attribute is empty, its *mail* attribute must have a value, OR 
+    * If the group's *proxyAddress* attribute is empty, its *mail* attribute must have a value
 
-    * If the group's *proxyAddress* attribute is non-empty, it must also contain a primary SMTP proxy address value (as denoted by upper-case **SMTP** prefix). Here are some examples:
+    * If the group's *proxyAddress* attribute is non-empty, it must contain at least one SMTP proxy address value. Here are some examples:
     
-      * An Active Directory group whose proxyAddress attribute has value *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* will not be mail-enabled in Azure AD. It does not have a primary SMTP address.
-      
-      * An Active Directory group whose proxyAddress attribute has values *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* will not be mail-enabled in Azure AD. It has an smtp address but it is not primary.
+      * An Active Directory group whose proxyAddress attribute has value *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* will not be mail-enabled in Azure AD. It does not have an SMTP address.
       
       * An Active Directory group whose proxyAddress attribute has values *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* will be mail-enabled in Azure AD.
+      
+      * An Active Directory group whose proxyAddress attribute has values *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* will also be mail-enabled in Azure AD.
 
 ## Contacts
 Having contacts representing a user in a different forest is common after a merger & acquisition where a GALSync solution is bridging two or more Exchange forests. The contact object is always joining from the connector space to the metaverse using the mail attribute. If there is already a contact object or user object with the same mail address, the objects are joined together. This is configured in the rule **In from AD – Contact Join**. There is also a rule named **In from AD – Contact Common** with an attribute flow to the metaverse attribute **sourceObjectType** with the constant **Contact**. This rule has very low precedence so if any user object is joined to the same metaverse object, then the rule **In from AD – User Common** will contribute the value User to this attribute. With this rule, this attribute will have the value Contact if no user has been joined and the value User if at least one user has been found.
