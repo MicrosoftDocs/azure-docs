@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 title: Use MySQL databases as PaaS on Azure Stack | Microsoft Docs
 description: Learn how you can deploy the MySQL Resource Provider and provide MySQL databases as a service on Azure Stack
@@ -548,4 +547,4 @@ To remove the resource provider, it is essential to first remove any dependencie
 
 
 Try other [PaaS services](azure-stack-tools-paas-services.md) like the [SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md) and the [App Services resource provider](azure-stack-app-service-overview.md).
->>>>>>> 84631bf9886f947f98f2c8a64a9672b30ffb8b35
+
