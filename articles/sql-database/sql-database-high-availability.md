@@ -50,7 +50,7 @@ Key benefits:
 
 The high availability solution in SQL Database is based on [AlwaysON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) technology from SQL Server and makes it work for both LS and RS databases with minimal differences. In LS configuration, AlwaysON is used for persistence while in RS is it used for availability (low RTO). 
 
-### Local storage
+## Local storage
 
 In the LS case, each database is brought online by the management service (MS) within the control ring. One primary replica and at least two secondary replicas (quorum-set) are located within a tenant ring that spans three independent physical subsystems within the same datacenter. All reads and writes are sent by the gateway (GW) to the primary replica and the writes are asynchronously replicated to the secondary replicas. SQL Database uses a quorum-based commit scheme where data is written to the primary and at least one secondary replica before the transaction commits.
 
