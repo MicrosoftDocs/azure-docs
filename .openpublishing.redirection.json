@@ -51,6 +51,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/azure-vm-storage-overview.md",
+            "redirect_url": "/azure/virtual-machines/linux/about-disks-and-vhds",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/linux/maintenance-in-place.md",
             "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
@@ -8721,7 +8726,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md",
-            "redirect_url": "/azure/storage/storage-about-disks-and-vhds-linux",
+            "redirect_url": "/azure/virtual-machines/linux/about-disks-and-vhds",
             "redirect_document_id": false
         },
         {
@@ -9921,7 +9926,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md",
-            "redirect_url": "/azure/storage/storage-about-disks-and-vhds-windows",
+            "redirect_url": "/azure/virtual-machines/windows/about-disks-and-vhds",
             "redirect_document_id": false
         },
         {
