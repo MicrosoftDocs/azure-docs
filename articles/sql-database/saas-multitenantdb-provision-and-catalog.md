@@ -1,5 +1,5 @@
 ---
-title: Provision and catalog new tenants in a SaaS application using a multi-tenant SQL database | Microsoft Docs
+title: Provision and catalog new tenants in a SaaS application using a multi-tenant Azure SQL Database SQL database | Microsoft Docs
 description: "Learn how to provision and catalog new tenants in an Azure SQL Database multi-tenant SaaS app"
 keywords: sql database tutorial
 services: sql-database
@@ -15,7 +15,7 @@ ms.workload: "Inactive"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/17
+ms.date: 11/17/2017
 ms.author: billgib
 
 ---
@@ -154,7 +154,7 @@ This exercise quickly  provisions a batch of 17 tenants. It’s recommended you 
 1. Press **F5** and run the script.
 
 
-### Verify the set of tenants deployed
+### Verify the deployed set of tenants 
 At this stage you have a mix of tenants deployed into a shared database and tenants deployed into their own databases. The Azure portal can be used to inspect the databases created:  
 
 * In the [Azure portal](https://portal.azure.com), open the **tenants1-mt-\<USER\>** server by browsing to the list of SQL servers.  The **SQL databases** list should include the shared **tenants1** database and the databases for the tenants that are in their own database:
@@ -198,7 +198,7 @@ In this tutorial you learned how to:
 
 Try the [Performance monitoring tutorial](saas-multitenantdb-performance-monitoring.md).
 
-## Additional Resources
+## Additional resources
 
 <!--* Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 * [Elastic database client library](sql-database-elastic-database-client-library.md)
