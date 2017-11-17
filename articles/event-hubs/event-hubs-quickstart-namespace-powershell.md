@@ -41,7 +41,7 @@ A resource group is a logical collection of Azure resources. All resources are d
 You create a new resource group with the **[New-AzureRmResourceGroup][]** cmdlet. The following example creates a resource group named `eventhubsResourceGroup` in the **West US** region:
 
 ```powershell
-New-AzureRmResourceGroup –Name eventhubsResourceGroup –Location westus
+New-AzureRmResourceGroup -Name eventhubsResourceGroup -Location westus
 ```
 
 ## Create an Event Hubs namespace
