@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 11/16/2017
 ms.author: jingwang
 ---
 # Tutorial: Copy data from on-premises SQL Server to Azure Blob Storage
@@ -80,9 +80,9 @@ You use the name and key of your Azure storage account name in this quickstart. 
 5. Copy the values for **Storage account name** and **key1** fields to the clipboard. Paste them into a notepad or any other editor and save it. You use the storage account name and the key in the tutorial. 
 
 #### Create the adftutorial container 
-In this section, you create a blob container named: adftutorial in your Azure blob storage. 
+In this section, you create a blob container named **adftutorial** in your Azure blob storage. 
 
-1. In the **Storage account** page, click **Blobs**. 
+1. In the **Storage account** page, switch to the **Overview**, and then click **Blobs**. 
 
     ![Select Blobs option](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 1. In the **Blob service** page, click **+ Container** on the toolbar. 
@@ -92,7 +92,11 @@ In this section, you create a blob container named: adftutorial in your Azure bl
 
     ![Enter container name](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 4. Click **adftutorial** in the list of containers. Data Factory automatically creates the output folder in this container, so you don't need to create one. 
+
+    ![Select the container](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
 5. Keep the **container** page for **adftutorial** open. You use it verify the output at the end of the tutorial.
+
+    ![Container page](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### Azure PowerShell
 

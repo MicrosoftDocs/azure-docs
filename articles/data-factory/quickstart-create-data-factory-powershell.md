@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/14/2017
+ms.date: 11/16/2017
 ms.author: jingwang
 
 ---
@@ -51,19 +51,21 @@ You use the name and key of your Azure storage account in this quickstart. The f
 5. Copy the values for **Storage account name** and **key1** fields to the clipboard. Paste them into a notepad or any other editor and save it.  
 
 #### Create input folder and files
-In this section, you create a blob container named: adftutorial in your Azure blob storage. Then, you create a folder named: input in the container, and then upload a sample file to the input folder. 
+In this section, you create a blob container named **adftutorial** in your Azure blob storage. Then, you create a folder named input in the container, and then upload a sample file to the input folder. 
 
-1. In the **Storage account** page, click **Blobs**. 
+1. In the **Storage account** page, switch to the **Overview**, and then click **Blobs**. 
 
     ![Select Blobs option](media/quickstart-create-data-factory-powershell/select-blobs.png)
-1. In the **Blob service** page, click **+ Container** on the toolbar. 
+2. In the **Blob service** page, click **+ Container** on the toolbar. 
 
     ![Add container button](media/quickstart-create-data-factory-powershell/add-container-button.png)    
 3. In the **New container** dialog, enter **adftutorial** for the name, and click **OK**. 
 
     ![Enter container name](media/quickstart-create-data-factory-powershell/new-container-dialog.png)
 4. Click **adftutorial** in the list of containers. 
-5. In the **Container** page, click **Upload** on the toolbar.  
+
+    ![Select the container](media/quickstart-create-data-factory-powershell/seelct-adftutorial-container.png)
+1. In the **Container** page, click **Upload** on the toolbar.  
 
     ![Upload button](media/quickstart-create-data-factory-powershell/upload-toolbar-button.png)
 6. In the **Upload blob** page, click **Advanced**.
@@ -76,13 +78,15 @@ In this section, you create a blob container named: adftutorial in your Azure bl
     Jane, Doe
     ```    
 8. In the Azure portal, in the **Upload blob** page, browse, and select the **emp.txt** file for the **Files** field. 
-9. (Important) Enter **input** as a value **Upload to folder** filed. 
+9. Enter **input** as a value **Upload to folder** filed. 
 
     ![Upload blob settings](media/quickstart-create-data-factory-powershell/upload-blob-settings.png)    
 10. Confirm that the folder is **input** and file is **emp.txt**, and click **Upload**.
 11. You should see the **emp.txt** file and the status of the upload in the list. 
 12. Close the **Upload blob** page by clicking **X** in the corner. 
-13. Keep the **container** page open for the **adftutorial** container. You use it to verify the output at the end of this quickstart. 
+
+    ![Close upload blob page](media/quickstart-create-data-factory-powershell/close-upload-blob.png)
+1. Keep the **container** page open. You use it to verify the output at the end of this quickstart. 
 
 ### Azure PowerShell
 

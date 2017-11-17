@@ -85,7 +85,7 @@ Due to a security bug, we are disabling the following December 2016 and January 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.12_201710-01 |November 8, 2017 |Post 5.14 |TBD |
+| WA-GUEST-OS-5.12_201710-02 |November 8, 2017 |Post 5.14 |TBD |
 | WA-GUEST-OS-5.11_201709-01 |October 6, 2017 |Post 5.13 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |August 24, 2017 |Post 5.12 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |August 3, 2017 |November 8, 2017 |TBD |
@@ -131,7 +131,7 @@ Due to a security bug, we are disabling the following December 2016 and January 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.54_201710-01 |November 8, 2017 |Post 3.56 |TBD |
+| WA-GUEST-OS-3.54_201710-02 |November 8, 2017 |Post 3.56 |TBD |
 | WA-GUEST-OS-3.53_201709-01 |October 6, 2017 |Post 3.55 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |August 24, 2017 |Post 3.54 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |August 3, 2017 |November 8, 2017 |TBD |
@@ -154,7 +154,7 @@ Due to a security bug, we are disabling the following December 2016 and January 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.67_201710-01 |November 8, 2017 |Post 2.69 |TBD |
+| WA-GUEST-OS-2.67_201710-02 |November 8, 2017 |Post 2.69 |TBD |
 | WA-GUEST-OS-2.66_201709-01 |October 6, 2017 |Post 2.68 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |August 24, 2017 |Post 2.67 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |August 3, 2017 |November 8, 2017 |TBD |
