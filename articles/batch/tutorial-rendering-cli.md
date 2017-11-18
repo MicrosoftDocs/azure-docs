@@ -89,7 +89,7 @@ az storage blob upload-batch --destination scenefiles --source .
 
 Create a Batch pool for rendering using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. In this example, you specify the pool settings in a JSON file.
 
-Create a local JSON file named *mypool.json* with the following content. The pool specified contains a single low priority compute node (VM) running a Windows Server rendering image that Batch can use for the Rendering service. This pool is licensed to render with 3ds Max and Arnold. In a later step, the pool is scaled up to a larger number of nodes.
+Create a local JSON file named *mypool.json* with the following content. The pool specified contains a single dedicated compute node (VM) running a Windows Server rendering image that Batch can use for the Rendering service. This pool is licensed to render with 3ds Max and Arnold. In a later step, the pool is scaled up to a larger number of nodes.
 
 ```JSON
 {
@@ -104,8 +104,8 @@ Create a local JSON file named *mypool.json* with the following content. The poo
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },
-  "targetDedicatedNodes": 0,
-  "targetLowPriorityNodes": 1,
+  "targetDedicatedNodes": 1,
+  "targetLowPriorityNodes": 0,
   "enableAutoScale": false,
   "applicationLicenses":[
          "3dsmax",
@@ -165,7 +165,7 @@ Create a local JSON file named *myrendertask.json* with the following content. T
 > Your `containerURL` is similar to:
 > 
 > ```
-> https://mystorageaccount.blob.core.windows.net/job-myrenderjob/?se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+> https://mystorageaccount.blob.core.windows.net/job-myrenderjob/$TaskOutput?se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 > ```
 
 ```JSON
@@ -186,7 +186,7 @@ Create a local JSON file named *myrendertask.json* with the following content. T
             "filePattern": "image*.jpg",
             "destination": {
                 "container": {
-                    "containerUrl": "https://mystorageaccount.blob.core.windows.net/job-myrenderjob/?Add_Your_SAS_Token_Here"
+                    "containerUrl": "https://mystorageaccount.blob.core.windows.net/job-myrenderjob/myrendertask/$TaskOutput?Add_Your_SAS_Token_Here"
                 }
             },
             "uploadOptions": {
@@ -234,10 +234,10 @@ Open the file on your computer. The rendered image looks similar to the followin
 
 ## Scale the pool
 
-Now modify the pool to prepare for a larger rendering job with multiple frames. Apply an autoscaling formula to the pool using the [az batch pool autoscale enable](/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_enable) command. The autoscale formula in this example keeps a minimum of one low priority node, and adjusts the node count according to the active tasks, up to a maximum of 8. This is just one way to scale the compute resources.
+Now modify the pool to prepare for a larger rendering job with multiple frames. Apply an autoscaling formula to the pool using the [az batch pool autoscale enable](/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_enable) command. The autoscale formula in this example keeps a minimum of one dedicated node, and adjusts the node count according to the active tasks, up to a maximum of 8. This is just one way to scale the compute resources.
 
 ```azurecli-interactive
-az batch pool autoscale enable --pool-id myrenderpool --auto-scale-formula "$averageActiveTaskCount = avg($ActiveTasks.GetSample(TimeInterval_Minute * 5));$TargetLowPriorityNodes = min(8, $averageActiveTaskCount + 1);"
+az batch pool autoscale enable --pool-id myrenderpool --auto-scale-formula "$averageActiveTaskCount = avg($ActiveTasks.GetSample(TimeInterval_Minute * 5));$TargetDedicatedNodes = min(8, $averageActiveTaskCount + 1);"
 ```
 
 

@@ -66,7 +66,7 @@ Create a sample pool of Windows virtual machines for test purposes. The pool con
 
   ![Select a pool operating system][pool_os] 
 
-4. In **Node Size**, select Standard_A1. In **Target dedicated nodes**, enter 4. Keep the defaults for remaining settings, and click **OK** to create the pool.
+4. In **Node Size**, select Standard_A1. In **Target dedicated nodes**, enter 2. Keep the defaults for remaining settings, and click **OK** to create the pool.
 
   ![Select a pool size][pool_size] 
 
@@ -86,28 +86,29 @@ A Batch job specifies a pool to run tasks on and optionally a priority and sched
 
 After the job is crated, the **Tasks** page opens.
 
-## Create a task
+## Create tasks
 
-Now create a sample task to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. This example is a single task to run the `set` command on one of the compute nodes. This `cmd` command dispays the Windows environment variables. When you use Batch, the command line is where you specify your app or script. 
+Now create sample tasks to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example you create two identical tasks. Each task is a command to wait 90 seconds and then run the `set` command on a compute nodes. This `cmd` command dispays the Windows environment variables. When you use Batch, the command line is where you specify your app or script. 
 
 1. Click **Add**.
 
 2. Enter a **Task ID**, such as *mytask-windows*. 
 
-3. In **Command line**, enter `cmd /c "set"`. Keep the defaults for the remaining setttings, and click **OK**.
+3. In **Command line**, enter `cmd /c "timeout /t 90 /nobreak > NUL & set"`. Keep the defaults for the remaining setttings, and click **OK**.
 
   ![Create a task][task_create]
 
-After the task is created, it starts running.
+After the task is created, it starts running on one of the nodes in the pool.
+
+While the task runs, create a second task with an identical command line. If the first task is still running, Batch starts the second task on the other node in the pool.
 
 > [!TIP]
-> If you are running a task on a Linux pool, try a **Command line** like `/bin/bash -c "printenv"`.
+> If you are running a task on a Linux pool, try a similar **Command line** like `/bin/bash -c "sleep 90s; printenv"`.
 >
-
 
 ## View task output
 
-The preceding task example should complete immediately. To view the task output, click **Files on node**, and then select the file stdout.txt. This file shows the standard output of the task command. The contents are similar to the following:
+The preceding task examples should complete in a couple of minutes. To view the output of one of the tasks, click **Files on node**, and then select the file stdout.txt. This file shows the standard output of the task command. The contents are similar to the following:
 
 
 ![View task output][task_output]
