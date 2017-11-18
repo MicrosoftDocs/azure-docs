@@ -1,5 +1,5 @@
 # Geocoding Coverage
-Azure Location Based Services (LBS) provides detailed geocoding information for looking up addresses, places, and other geographic entities around the world. The following table provides coverage information for Azure LBS Search Geocoding.
+Azure Location Based Services (LBS) provides detailed geocoding information for looking up addresses, places, and other geographic entities around the world. This is important for customers who want to know where they can and can't expect to find various levels of fidelity when searching for addresses in the Search Service. When searching regions with low fidelity coverage, you can't expect lower confidence search results. The following table provides coverage information for Azure LBS Search Geocoding.
 
 
 |Region  |Address Points  |House Numbers |Street Level|

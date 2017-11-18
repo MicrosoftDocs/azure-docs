@@ -11,19 +11,21 @@ Azure Location Based Services consists of five primary services to bolster Azure
 
 ![Azure Location Based Services Route.png](media/Introduction_Route.png)
 
-**Search Service** – The Search Service is designed for developers to search for addresses, places, business listings by name or category and other geographic information. The Search Service can also reverse geocode addresses and cross streets based on a latitude/longitude. 
+**Search Service** – The Search Service is designed for developers to search for addresses, places, business listings by name or category and other geographic information. The Search Service can also [reverse geocode](https://en.wikipedia.org/wiki/Reverse_geocoding) addresses and cross streets based on a latitude/longitude. 
 
 ![Azure Location Based Services Search.png](media/Introduction_Search.png)
 
-**Time Zone Service** – The Time Zone Service allows you to query current, historical, and future time zone information using either latitude-longitude pairs or an IANA ID. The Time Zone service also allows for converting Microsoft Windows time zone IDs to IANA time zones, fetching a time zone offset to UTC and getting the current time in a respective time zone. 
+**Time Zone Service** – The Time Zone Service allows you to query current, historical, and future time zone information using either latitude-longitude pairs or an [IANA ID](www.iana.org/). The Time Zone service also allows for converting Microsoft Windows time zone IDs to IANA time zones, fetching a time zone offset to UTC and getting the current time in a respective time zone. 
 
 ![Azure Location Based Services Time Zones](media/Introduction_Time_Zones.png)
 
-**Traffic Service** – The Traffic Service is a suite of web services designed for developers to create web and mobile applications requiring traffic. The offering is split into Traffic Flow, providing real-time observed speeds and travel times for all key roads in the network; and, Traffic Incidents, providing an accurate view about the traffic jams and incidents around the road network.
+**Traffic Service** – The Traffic Service is a suite of web services designed for developers to create web and mobile applications requiring traffic. The offering is split into the following:
+1. Traffic Flow - provides real-time observed speeds and travel times for all key roads in the network; and, 
+2. Traffic Incidents - provides an accurate view about the traffic jams and incidents around the road network.
 
 ![Azure Location Based Services Traffic](media/Introduction_Traffic.png)
 
-Azure Location Based Services is built for mobility and can power applications cross-platform since the programming model is agnostic and supports JSON output through REST APIs. Additional, Azure LBS offers a convenient JavaScript Map Control with a simple programming model for quick easy development of both web and mobile applications. 
+Azure Location Based Services is built for mobility and can power cross-platform applications since the programming model is agnostic and supports JSON output through REST APIs. Additionally, Azure LBS offers a convenient JavaScript Map Control with a simple programming model for quick easy development of both web and mobile applications. 
 
 Azure Location Based Services uses a key-based authentication scheme, so accessing the services is a matter of navigating to the [Azure portal](http://portal.azure.com) and creating an Azure Location Based Services account. Your account comes with two keys pre-generated for you. Start integrating these location capabilities directly into your applications by using either of your keys in the requests to the Azure Location Based Services service.
 
