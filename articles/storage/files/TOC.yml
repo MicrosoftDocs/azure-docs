@@ -64,7 +64,7 @@
         href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Configure connection strings
       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
-    - name: Using the REST API including auth
+    - name: Authenticating requests to the Azure Storage REST API
       href: ../common/storage-using-rest-api-including-authentication.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Manage
     items:
