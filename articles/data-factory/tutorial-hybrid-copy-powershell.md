@@ -39,7 +39,7 @@ You perform the following steps in this tutorial:
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ### Azure roles
-To create Data Factory instances, Azure user must be a member of **contributor** or **administrator** roles of the Azure subscription. For instructions, see [Add roles](../billing/billing-add-change-azure-subscription-administrator.md).
+To create Data Factory instances, the user account you use to log in to Azure must be a member of **contributor** or **owner** roles, or an **administrator** of the Azure subscription. For instructions, see [Add roles](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ### SQL Server 2014/2016/2017
 You use an on-premises SQL Server database as a **source** data store in this tutorial. Create a table named **emp** in your SQL Server database, and insert a couple of sample entries into the table.
@@ -290,7 +290,7 @@ In this section, you can create a Self-hosted integration runtime and associate 
    ```
 2. In **Azure PowerShell**, switch to the **ADFv2Tutorial** folder.
 
-   Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. The cmdlets used in this tutorial take values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can pass the **DataFactory** object returned by the Set-AzureRmDataFactoryV2 cmdlet without typing ResourceGroupName and DataFactoryName each time you run a cmdlet.
+   Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. 
 
    ```powershell
    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -309,12 +309,13 @@ In this section, you can create a Self-hosted integration runtime and associate 
 
 1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Select the right section based on the authentication you use to connect to SQL Server.  
 
-    **If you are using SQL authentication (sa):**
-
     > [!IMPORTANT]
     > Replace  **&lt;integration** **runtime** **name>** with the name of your integration runtime.
     > 
     > Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, and **&lt;password>** with values of your SQL Server before saving the file.
+
+    **If you are using SQL authentication (sa):**
+
 
 	```json
 	{
@@ -428,9 +429,6 @@ In this step, you create input and output datasets that represent input and outp
 ### Create a dataset for sink Azure Blob Storage
 
 1. Create a JSON file named **AzureBlobDataset.json** in the **C:\ADFv2Tutorial** folder, with the following content:
-
-    > [!IMPORTANT]
-    > This sample code assumes that you have a container named **adftutorial** in the Azure Blob Storage.
 
     ```json
     {
