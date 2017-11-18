@@ -2,14 +2,14 @@
 title: Using Git Repo with an Azure Machine Learning Workbench Project | Microsoft Docs
 description: This article explain how to use a Git repository in conjunction with an Azure Machine Learning Workbench Project. 
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: hning86
+author: hning86
+ms.author: haining
+manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 11/16/2017
 ---
 # Using Git repository with an Azure Machine Learning Workbench project
 This document provides information on how Azure Machine Learning Workbench uses Git to ensure reproducibility in your data science experiment. Instructions on how to associate your project with a cloud Git repository are also provided.

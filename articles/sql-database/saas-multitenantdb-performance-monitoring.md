@@ -32,7 +32,7 @@ In this tutorial you learn how to:
 > * Simulate usage on a sharded multi-tenant database by running a provided load generator
 > * Monitor the database as it responds to the increase in load
 > * Scale up the database in response to the increased database load
-> * Provision a new tenant in its own database
+> * Provision a tenant into a single-tenant database
 
 To complete this tutorial, make sure the following prerequisites are completed:
 
@@ -48,11 +48,11 @@ Managing database performance consists of compiling and analyzing performance da
 * To avoid having to manually monitor performance, it’s most effective to **set alerts that trigger when databases stray out of normal ranges**.
 * To respond to short-term fluctuations in the performance level of a database, the **DTU level can be scaled up or down**. If this fluctuation occurs on a regular or predictable basis, **scaling the database can be scheduled to occur automatically**. For example, scale down when you know your workload is light, maybe overnight, or during weekends.
 * To respond to longer-term fluctuations, or changes in the tenants, **individual tenants can be moved into other database**.
-* To respond to short term increases in *individual* tenant load, **individual tenants can be taken out of a database and assigned an individual performance level**. Once the load is reduced, the tenant can then be returned to the multi-tenant database. When this is known in advance, tenants can be moved pre-emptively to ensure the database always has the resources it needs, and to avoid impact on other tenants in the multi-tenant database. If this requirement is predictable, such as a venue experiencing a rush of ticket sales for a popular event, then this management behavior can be integrated into the application.
+* To respond to short-term increases in *individual* tenant load, **individual tenants can be taken out of a database and assigned an individual performance level**. Once the load is reduced, the tenant can then be returned to the multi-tenant database. When this is known in advance, tenants can be moved pre-emptively to ensure the database always has the resources it needs, and to avoid impact on other tenants in the multi-tenant database. If this requirement is predictable, such as a venue experiencing a rush of ticket sales for a popular event, then this management behavior can be integrated into the application.
 
-The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. For SQL Database, monitoring and alerting is available on databases. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not very convenient when working with many resources.
+The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. For SQL Database, monitoring and alerting is available on databases. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not convenient when working with many resources.
 
-For high-volume scenarios where you're working with many resources, [Log Analytics (OMS)](https://azure.microsoft.com/services/log-analytics/) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
+For high-volume scenarios, where you're working with many resources, [Log Analytics (OMS)](https://azure.microsoft.com/services/log-analytics/) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
 
 ## Get the Wingtip Tickets SaaS Multi-tenant Database application source code and scripts
 
@@ -68,7 +68,7 @@ If you have already provisioned a batch of tenants in a prior tutorial, skip to 
 1. Set **$DemoScenario** = **1**, _Provision a batch of tenants_
 1. Press **F5** to run the script.
 
-The script will deploy 17 tenants into the multi-tenant database in a few minutes. 
+The script deploys 17 tenants into the multi-tenant database in a few minutes. 
 
 The *New-TenantBatch* script creates new tenants with unique tenant keys within the sharded multi-tenant database and initializes them with the tenant name and venue type. This is consistent with the way the app provisions a new tenant. 
 
@@ -92,7 +92,7 @@ The load generator applies a *synthetic* CPU-only load to every tenant database.
 Wingtip Tickets SaaS Multi-tenant Database is a SaaS app, and the real-world load on a SaaS app is typically sporadic and unpredictable. To simulate this, the load generator produces a randomized load distributed across all tenants. Several minutes are needed for the load pattern to emerge, so run the load generator for 3-5 minutes before attempting to monitor the load in the following sections.
 
 > [!IMPORTANT]
-> The load generator is running as a series of jobs in your a new PowerShell window. If you close the session, the load generator stops. The load generator remains in a *job-invoking* state where it generates load on any new tenants that are provisioned after the generator is started. Use *Ctrl-C* to stop invoking new jobs and exit the script. The load generator will continue to run, but only on existing tenants.
+> The load generator is running as a series of jobs in a new PowerShell window. If you close the session, the load generator stops. The load generator remains in a *job-invoking* state where it generates load on any new tenants that are provisioned after the generator is started. Use *Ctrl-C* to stop invoking new jobs and exit the script. The load generator will continue to run, but only on existing tenants.
 
 ## Monitor resource usage using the Azure portal
 
@@ -117,9 +117,9 @@ Set an alert on the database that triggers on \>75% utilization as follows:
 1. Provide a name, such as **High DTU**,
 1. Set the following values:
    * **Metric = DTU percentage**
-   * **Condition = greater than**.
+   * **Condition = greater than**
    * **Threshold = 75**.
-   * **Period = Over the last 30 minutes**.
+   * **Period = Over the last 30 minutes**
 1. Add an email address to the *Additional administrator email(s)* box and click **OK**.
 
    ![set alert](media/saas-multitenantdb-performance-monitoring/set-alert.png)
@@ -150,7 +150,7 @@ Databases remain online and fully available throughout the process. Application 
 
 ## Provision a new tenant in its own database 
 
-The sharded multi-tenant model allows you to choose whether to provision a new tenant in a multi-tenant database alongside other tenants, or to provision the tenant in a database of its own. By provisioning a tenant in its own database, it benefits from the isolation inherent in the separate database, allowing you to manage the performance of that tenant independently of others, restore that tenant independently of others, etc. For example, you might choose to put free-trial or regular customers in a multi-tenant database, and premium customers in individual databases.  If isolated single-tenant databases are created they can still be managed collectively in an elastic pool to optimize resource costs.
+The sharded multi-tenant model allows you to choose whether to provision a new tenant in a multi-tenant database alongside other tenants, or to provision the tenant in a database of its own. By provisioning a tenant in its own database, it benefits from the isolation inherent in the separate database, allowing you to manage the performance of that tenant independently of others, restore that tenant independently of others, etc. For example, you might choose to put free-trial or regular customers in a multi-tenant database, and premium customers in individual databases.  If isolated single-tenant databases are created, they can still be managed collectively in an elastic pool to optimize resource costs.
 
 If you already provisioned a new tenant in its own database, skip the next few steps.
 
@@ -192,7 +192,7 @@ In this tutorial you learn how to:
 > * Simulate usage on a sharded multi-tenant database by running a provided load generator
 > * Monitor the database as it responds to the increase in load
 > * Scale up the database in response to the increased database load
-> * Provision a new tenant in its own database
+> * Provision a tenant into a single-tenant database
 
 ## Additional resources
 
