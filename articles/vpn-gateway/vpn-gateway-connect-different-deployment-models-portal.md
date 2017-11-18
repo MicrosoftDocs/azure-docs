@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
 
 ---
@@ -46,7 +46,9 @@ You can use these values to create a test environment, or refer to them to bette
 
 VNet name = ClassicVNet <br>
 Address space = 10.0.0.0/24 <br>
-Subnet-1 = 10.0.0.0/27 <br>
+Subnet name = Subnet-1 <br>
+Subnet address range = 10.0.0.0/27 <br>
+Subscription = the subscription you want to use <br>
 Resource Group = ClassicRG <br>
 Location = West US <br>
 GatewaySubnet = 10.0.0.32/28 <br>
@@ -56,18 +58,22 @@ Local site = RMVNetLocal <br>
 
 VNet name = RMVNet <br>
 Address space = 192.168.0.0/16 <br>
-Subnet-1 = 192.168.1.0/24 <br>
-GatewaySubnet = 192.168.0.0/26 <br>
 Resource Group = RG1 <br>
 Location = East US <br>
+Subnet name = Subnet-1 <br>
+Address range = 192.168.1.0/24 <br>
+GatewaySubnet = 192.168.0.0/26 <br>
 Virtual network gateway name = RMGateway <br>
 Gateway type = VPN <br>
 VPN type = Route-based <br>
-Gateway Public IP address name = rmgwpip <br>
+SKU = VpnGw1 <br>
+Location = East US <br>
+Virtual network = RMVNet <br> (associate the VPN gateway to this VNet)
+First IP configuration = rmgwpip <br> (gateway public IP address)
 Local network gateway = ClassicVNetLocal <br>
 Connection name = RMtoClassic
 
-### Connection overview
+### <a name="connectoverview"></a>Connection overview
 
 For this configuration, you create a VPN gateway connection over an IPsec/IKE VPN tunnel between the virtual networks. Make sure that none of your VNet ranges overlap with each other, or with any of the local networks that they connect to.
 
@@ -80,82 +86,109 @@ The following table shows an example of how the example VNets and local sites ar
 
 ## <a name="classicvnet"></a>Section 1 - Configure the classic VNet settings
 
-In this section, you create the local network (local site) and the virtual network gateway for your classic VNet. If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and the [Example](#values) settings values from above.
+In this section, you create the classic VNet, the local network (local site), and the virtual network gateway. Screenshots are provided as examples. Be sure to replace the values with your own, or use the [Example](#values) values.
 
-When using the portal to create a classic virtual network, you must navigate to the virtual network page by using the following steps, otherwise the option to create a classic virtual network does not appear:
+### 1. <a name="classicvnet"></a>Create a classic VNet
 
-1. Click the '+' to open the 'New' page.
-2. In the 'Search the marketplace' field, type 'Virtual Network'. If you instead, select Networking -> Virtual Network, you will not get the option to create a classic VNet.
-3. Locate 'Virtual Network' from the returned list and click it to open the Virtual Network page. 
-4. On the virtual network page, select 'Classic' to create a classic VNet. 
+If you don't have a classic VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and the [Example](#values) settings values from above.
 
-If you already have a VNet with a VPN gateway, verify that the gateway is Dynamic. If it's Static, you must first delete the VPN gateway, then proceed.
+If you already have a VNet with a VPN gateway, verify that the gateway is Dynamic. If it's Static, you must first delete the VPN gateway before you proceed to [Configure the local site](#local).
 
-Screenshots are provided as examples. Be sure to replace the values with your own, or use the [Example](#values) values.
+1. Open the [Azure portal](https://ms.portal.azure.com) and sign in with your Azure account.
+2. Click **+ Create a resource** to open the 'New' page.
+3. In the 'Search the marketplace' field, type 'Virtual Network'. If you instead, select Networking -> Virtual Network, you will not get the option to create a classic VNet.
+4. Locate 'Virtual Network' from the returned list and click it to open the Virtual Network page. 
+5. On the virtual network page, select 'Classic' to create a classic VNet. If you take the default here, you will wind up with a Resource Manager VNet instead.
 
-### 1. <a name="local"></a>Configure the local site
-
-Open the [Azure portal](https://ms.portal.azure.com) and sign in with your Azure account.
+### 2. <a name="local"></a>Configure the local site
 
 1. Navigate to **All resources** and locate the **ClassicVNet** in the list.
-2. On the **Overview** page, in the **VPN connections** section, click the **Gateway** graphic to create a gateway.
-
-	![Configure a VPN gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configure a VPN gateway")
+2. On the **Overview** page, in the **VPN connections** section, click **Gateway** to create a gateway.
+  ![Configure a VPN gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configure a VPN gateway")
 3. On the **New VPN Connection** page, for **Connection type**, select **Site-to-site**.
 4. For **Local site**, click **Configure required settings**. This opens the **Local site** page.
 5. On the **Local site** page, create a name to refer to the Resource Manager VNet. For example, 'RMVNetLocal'.
 6. If the VPN gateway for the Resource Manager VNet already has a Public IP address, use the value for the **VPN gateway IP address** field. If you are doing these steps as an exercise, or don't yet have a virtual network gateway for your Resource Manager VNet, you can make up a placeholder IP address. Make sure that the placeholder IP address uses a valid format. Later, you replace the placeholder IP address with the Public IP address of the Resource Manager virtual network gateway.
-7. For **Client Address Space**, use the values for the virtual network IP address spaces for the Resource Manager VNet. This setting is used to specify the address spaces to route to the Resource Manager virtual network.
+7. For **Client Address Space**, use the [values](#connectoverview) for the virtual network IP address spaces for the Resource Manager VNet. This setting is used to specify the address spaces to route to the Resource Manager virtual network. In the example, we use 192.168.0.0/16, the address range for the RMVNet.
 8. Click **OK** to save the values and return to the **New VPN Connection** page.
 
-### <a name="classicgw"></a>2. Create the virtual network gateway
+### <a name="classicgw"></a>3. Create the virtual network gateway
 
-1. On the **New VPN Connection** page, select the **Create gateway immediately** checkbox and click **Optional gateway configuration** to open the **Gateway configuration** page. 
+1. On the **New VPN Connection** page, select the **Create gateway immediately** checkbox.
+2. Click **Optional gateway configuration** to open the **Gateway configuration** page.
+  ![Open gateway configuration page](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Open gateway configuration page")
+3. Click **Subnet - Configure required settings** to open the **Add subnet** page. The **Name** is already configured with the required value: **GatewaySubnet**.
+4. The **Address range** refers to the range for the gateway subnet. Although you can create a gateway subnet with a /29 address range (3 addresses), we recommend creating a gateway subnet that contains more IP addresses. This will accommodate future configurations that may require more available IP addresses. If possible, use /27 or /28. If you are using these steps as an exercise, you can refer to the [Example values](#values). For this example, we use '10.0.0.32/28'. Click **OK** to create the gateway subnet.
+5. On the **Gateway configuration** page, **Size** refers to the gateway SKU. Select the gateway SKU for your VPN gateway.
+6. Verify the **Routing Type** is **Dynamic**, then click **OK** to return to the **New VPN Connection** page.
+7. On the **New VPN Connection** page, click **OK** to begin creating your VPN gateway. Creating a VPN gateway can take up to 45 minutes to complete.
 
-	![Open gateway configuration page](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Open gateway configuration page")
-2. Click **Subnet - Configure required settings** to open the **Add subnet** page. The **Name** is already configured with the required value **GatewaySubnet**.
-3. The **Address range** refers to the range for the gateway subnet. Although you can create a gateway subnet with a /29 address range (3 addresses), we recommend creating a gateway subnet that contains more IP addresses. This will accommodate future configurations that may require more available IP addresses. If possible, use /27 or /28. If you are using these steps as an exercise, you can refer to the [Example](#values) values. Click **OK** to create the gateway subnet.
-4. On the **Gateway configuration** page, **Size** refers to the gateway SKU. Select the gateway SKU for your VPN gateway.
-5. Verify the **Routing Type** is **Dynamic**, then click **OK** to return to the **New VPN Connection** page.
-6. On the **New VPN Connection** page, click **OK** to begin creating your VPN gateway. Creating a VPN gateway can take up to 45 minutes to complete.
-
-### <a name="ip"></a>3. Copy the virtual network gateway Public IP address
+### <a name="ip"></a>4. Copy the virtual network gateway Public IP address
 
 After the virtual network gateway has been created, you can view the gateway IP address. 
 
 1. Navigate to your classic VNet, and click **Overview**.
-2. Click **VPN connections** to open the VPN connections page. On the VPN connections page, you can view the Public IP address. This is the Public IP address assigned to your virtual network gateway. 
-3. Write down or copy the IP address. You use it in later steps when you work with your Resource Manager local network gateway configuration settings. You can also view the status of your gateway connections. Notice the local network site you created is listed as 'Connecting'. The status will change after you have created your connections.
-4. Close the page after copying the gateway IP address.
+2. Click **VPN connections** to open the VPN connections page. On the VPN connections page, you can view the Public IP address. This is the Public IP address assigned to your virtual network gateway. Make a note of the IP address. You use it in later steps when you work with your Resource Manager local network gateway configuration settings. 
+3. You can view the status of your gateway connections. Notice the local network site you created is listed as 'Connecting'. The status will change after you have created your connections. You can close this page when you are finished viewing the status.
 
 ## <a name="rmvnet"></a>Section 2 - Configure the Resource Manager VNet settings
 
-In this section, you create the virtual network gateway and the local network gateway for your Resource Manager VNet. If you don't have a Resource Manager VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) and the [Example](#values) settings values from above.
+In this section, you create the virtual network gateway and the local network gateway for your Resource Manager VNet. Screenshots are provided as examples. Be sure to replace the values with your own, or use the [Example](#values) values.
 
-Screenshots are provided as examples. Be sure to replace the values with your own, or use the [Example](#values) values.
+### 1. Create a virtual network
 
-### 1. Create a gateway subnet
+**Example values:**
 
-Before creating a virtual network gateway, you first need to create the gateway subnet. Create a gateway subnet with CIDR count of /28 or larger. (/27, /26, etc.)
+VNet name = RMVNet <br>
+Address space = 192.168.0.0/16 <br>
+Resource Group = RG1 <br>
+Location = East US <br>
+Subnet name = Subnet-1 <br>
+Address range = 192.168.1.0/24 <br>
+
+
+If you don't have a Resource Manager VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) and the Example values.
+
+Connection name = RMtoClassic
+
+### 2. Create a gateway subnet
+
+**Example values:**
+
+GatewaySubnet = 192.168.0.0/26
+
+Before creating a virtual network gateway, you first need to create the gateway subnet. Create a gateway subnet with CIDR count of /28 or larger (/27, /26, etc.). If you are creating this as part of an exercise, you can use the Example values.
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-### <a name="creategw"></a>2. Create a virtual network gateway
+### <a name="creategw"></a>3. Create a virtual network gateway
+
+**Example values:**
+
+Virtual network gateway name = RMGateway <br>
+Gateway type = VPN <br>
+VPN type = Route-based <br>
+SKU = VpnGw1 <br>
+Location = East US <br>
+Virtual network = RMVNet <br>
+First IP configuration = rmgwpip <br>
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>3. Create a local network gateway
+### <a name="createlng"></a>4. Create a local network gateway
 
-The local network gateway specifies the address range and the Public IP address associated with your classic VNet and its virtual network gateway.
+**Example values:**
 
-If you are doing these steps as an exercise, refer to these settings:
+Local network gateway = ClassicVNetLocal <br>
 
 | Virtual Network | Address Space | Region | Connects to local network site |Gateway Public IP address|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |West US | RMVNetLocal (192.168.0.0/16) |The Public IP address that is assigned to the ClassicVNet gateway|
 | RMVNet | (192.168.0.0/16) |East US |ClassicVNetLocal (10.0.0.0/24) |The Public IP address that is assigned to the RMVNet gateway.|
+
+The local network gateway specifies the address range and the Public IP address associated with your classic VNet and its virtual network gateway. If you are doing these steps as an exercise, refer to the Example values.
 
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
