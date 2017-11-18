@@ -8,11 +8,11 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 10/20/2017
 ---
 
 # Connection libraries for Azure Database for MySQL
-This topic lists each library or driver that client programs can use when connecting to Azure Database for MySQL.
+This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL.
 
 ## Client interfaces
 MySQL offers standard database driver connectivity for using MySQL with applications and tools that are compatible with industry standards ODBC and JDBC. Any system that works with ODBC or JDBC can use MySQL.
@@ -31,5 +31,7 @@ MySQL offers standard database driver connectivity for using MySQL with applicat
 
 
 ## Next steps
-[Azure Database for MySQL Overview](./overview.md)
-[Server concepts in Azure Database for MySQL](./concepts-servers.md)
+Read these quickstarts on how to connect to and query Azure Database for MySQL by using your language of choice:
+
+[PHP](./connect-php.md) | [Java](./connect-java.md) |  [.NET (C#)](./connect-csharp.md) | [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Ruby](./connect-ruby.md) | [C++](connect-cpp.md) | [Go](./connect-go.md)
+

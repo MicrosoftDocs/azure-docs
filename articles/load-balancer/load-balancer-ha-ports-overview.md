@@ -1,6 +1,6 @@
 ---
-title: High Availability Ports Overview in Azure | Microsoft Docs
-description: Learn about high availability ports load balancing on an internal load balancer 
+title: High availability ports overview in Azure | Microsoft Docs
+description: Learn about high availability ports load balancing on an internal load balancer. 
 services: load-balancer
 documentationcenter: na
 author: rdhillon
@@ -18,72 +18,129 @@ ms.date: 09/26/2017
 ms.author: kumud
 ---
 
-# High Availability Ports overview (Preview)
+# High availability ports overview
 
-The Standard SKU of Azure Load Balancer introduces high availability (HA) ports - a capability to distribute traffic from all ports, and for all supported protocols. While configuring an Internal Load Balancer, users can configure an HA Ports rule that can set the frontend and backend ports to **0** and protocol to **all**, and thus allow all the traffic to flow through the Internal Load Balancer.
+Azure Load Balancer Standard helps you load balance TCP and UDP flows on all ports simultaneously, when you are using an internal Load Balancer. 
 
 >[!NOTE]
-> High Availability Ports feature is available with Load Balancer Standard and currently in preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It is necessary to sign up for the Load Balancer Standard Preview to use HA Ports with Load Balancer Standard resources. Please follow the instructions for sign-up in addition to Load Balancer [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) as well.
+> The high availability (HA) ports feature is available with Load Balancer Standard, and is currently in preview. During preview, the feature might not have the same level of availability and reliability as features that are in the general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sign up for the Load Balancer Standard preview to use HA ports with Load Balancer Standard resources. Follow the instructions for sign-up to Load Balancer [Standard preview](https://aka.ms/lbpreview#preview-sign-up) as well.
 
-The load balancing algorithm still remains the same and the destination is selected based in the five touples <Source IP Address, Source Port, Destination IP Address, Destination Port, Protocol>. But this configuration allows for a single LB rule to process all available traffic, and reduces configuration complexity as well as any limits imposed by the maximum number of Load Balancing rules that one can add.
+An HA ports rule is a variant of a load balancing rule, configured on an internal Load Balancer Standard. You can simplify your use of Load Balancer by providing a single rule to load balance all TCP and UDP flows arriving on all ports of an internal Load Balancer Standard. The load balancing decision is made per flow. This is based on the following five-tuple connection: Source IP Address, Source Port, Destination IP Address, Destination Port, and Protocol.
 
-One of the critical scenarios HA ports enables is the high availability deployment of the Network Virtual Appliances in Azure virtual networks. In addition, another common scenario that HA ports enables is load balancing for a range of ports. 
+The HA ports feature helps you with critical scenarios, such as high availability and scale for network virtual appliances (NVA) inside virtual networks. It can also help when a large number of ports must be load balanced. 
 
-## Why use high HA ports
+The HA ports feature is configured when you set the front-end and back-end ports to **0**, and the protocol to **All**. The internal Load Balancer resource then balances all TCP and UDP flows, regardless of port number.
 
-Azure customers rely heavily on the network virtual appliances (NVAs) for securing their workloads from multiple types of security threats. In addition, the NVAs must be reliable and highly available.  
+## Why use HA ports?
 
-HA ports reduce the complexity of NVA HA scenario by eliminating the need for more complex solutions like zookeeper, and increases the reliability by quicker failover and scale-out options. You can now achieve NVA HA by adding NVAs in the backend pool of the Azure internal Load Balancer, and then configuring the HA port Load Balancer rule.
+### <a name="nva"></a>Network virtual appliances
 
-The following example presents a hub-and-spoke virtual network deployment, with the spokes force tunneling their traffic to the hub virtual network and via the NVA before leaving the trusted space. The NVAs are behind an Internal Load Balancer with HA Ports configuration, thus can process all the traffic and forward accordingly. 
+You can use NVAs for securing your Azure workload from multiple types of security threats. When NVAs are used in these scenarios, they must be reliable and highly available, and they must scale out for demand.
 
-![ha ports example](./media/load-balancer-ha-ports-overview/nvaha.png)
+You can achieve these goals simply by adding NVA instances to the back-end pool of the Azure internal Load Balancer, and configuring an HA ports Load Balancer rule.
 
-Figure 1 - Hub-and-spoke virtual network with NVAs deployed in HA mode
+HA ports provide several advantages for NVA HA scenarios:
+- Fast failover to healthy instances, with per-instance health probes
+- Higher performance with scale-out to *n*-active instances
+- *N*-active and active-passive scenarios
+- Eliminating the need for complex solutions like Apache ZooKeeper nodes for monitoring appliances
 
+The following diagram presents a hub-and-spoke virtual network deployment. The spokes force-tunnel their traffic to the hub virtual network and through the NVA, before leaving the trusted space. The NVAs are behind an internal Load Balancer Standard with an HA ports configuration. All traffic can be processed and forwarded accordingly.
+
+![Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode](./media/load-balancer-ha-ports-overview/nvaha.png)
+
+>[!NOTE]
+> If you are using NVAs, confirm with the respective provider how to best use HA ports, and which scenarios are supported.
+
+### Load balancing large numbers of ports
+
+You can also use HA ports for applications that require load balancing of large numbers of ports. You can simplify these scenarios by using an internal [Load Balancer Standard](https://aka.ms/lbpreview) with HA ports. A single load balancing rule replaces multiple individual load balancing rules, one for every port.
 
 ## Region availability
 
-HA ports is currently available in the following regions:
-- East US 2
-- Central US
-- North Europe
-- West Central US
-- West Europe
-- Southeast Asia 
+The HA ports feature is available in the [same regions as Load Balancer Standard](https://aka.ms/lbpreview#region-availability).  
 
 ## Preview sign-up
 
-To participate in the Preview of the HA ports feature in Load Balancer Standard SKU, register your subscription to gain access using either PowerShell or Azure CLI 2.0.
+To participate in the preview of the HA ports feature in Load Balancer Standard, register your subscription to gain access. You can use either Azure CLI 2.0 or PowerShell.
 
-- Sign up using PowerShell
+>[!NOTE]
+>To use this feature, you must also sign up for Load Balancer [Standard preview](https://aka.ms/lbpreview#preview-sign-up), in addition to the HA ports feature. Registration can take up to an hour.
 
+### Sign up by using Azure CLI 2.0
+
+1. Register the feature with the provider:
+    ```cli
+    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
+    ```
+    
+2. The preceding operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
+
+    ```cli
+    az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
+    ```
+    
+    The operation is successful when the feature registration state returns **Registered**, as shown here:
+   
+    ```json
+    {
+       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
+       "name": "Microsoft.Network/AllowILBAllPortsRule",
+       "properties": {
+          "state": "Registered"
+       },
+       "type": "Microsoft.Features/providers/features"
+    }
+    ```
+    
+3. Complete the preview sign-up by re-registering your subscription with the resource provider:
+
+    ```cli
+    az provider register --namespace Microsoft.Network
+    ```
+    
+### Sign up by using PowerShell
+
+1. Register the feature with the provider:
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
     ```
+    
+2. The preceding operation can take up to 10 minutes to complete. You can check the status of the operation with the following command:
 
-- Sign up using Azure CLI 2.0
+    ```powershell
+    Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+    The operation is successful when the feature registration state returns **Registered**, as shown here:
+   
+    ```
+    FeatureName          ProviderName      RegistrationState
+    -----------          ------------      -----------------
+    AllowILBAllPortsRule Microsoft.Network Registered
+    ```
+    
+3. Complete the preview sign-up by re-registering your subscription with the resource provider:
 
-    ```cli
-    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
-    ```  
+    ```powershell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
 
-
->[!NOTE]
->To use this feature, you must also sign-up for Load Balancer [Standard Preview](https://aka.ms/lbpreview#preview-sign-up) in addition to HA Ports. Registration of the HA Ports or Load Balancer Standard previews may take up to an hour.
 
 ## Limitations
 
-Following are the supported configurations or exceptions for HA Ports:
+The following are the supported configurations or exceptions for the HA ports feature:
 
-- A single frontend IP Configuration can have a single DSR Load Balancer rule with HA ports (all ports), or it can have a single non-DSR load balancer rule with HA ports (all ports). It cannot have both.
-- A single Network Interface IP configuration can only have one non-DSR load balancer rule with HA ports. No other rules can be configured for this ipconfig.
-- A single Network Interface IP configuration can have one or more DSR load balancer rules with HA ports, provided all of their respective frontend ip configurations are unique.
-- Two (or more) Load Balancer rules pointing to the same backend pool can co-exist if all of the load balancing rules are HA port (DSR only), or, all of the rules are non-HA port (DSR & non-DSR). Two such LB rules cannot co-exist if there is a combination of HA port and non-HA Port rules.
-- HA port on IPv6-enabled tenant is not available.
+- A single front-end IP configuration can have a single DSR load balancer rule with HA ports, or it can have a single non-DSR load balancer rule with HA ports. It cannot have both.
+- A single network interface IP configuration can only have one non-DSR load balancer rule with HA ports. You can't configure any other rules for this ipconfig.
+- A single network interface IP configuration can have one or more DSR load balancer rules with HA ports, provided all of their respective front-end IP configurations are unique.
+- If all of the load balancing rules are HA ports (DSR only), two (or more) Load Balancer rules pointing to the same back-end pool can co-exist. The same is true if all of the rules are non-HA ports (DSR and non-DSR). If there is a combination of HA ports and non-HA ports rules, however, two such load balancing rules can't co-exist.
+- The HA ports feature is not available for IPv6.
+- Flow symmetry for NVA scenarios is supported with a single NIC only. See the description and diagram for [network virtual appliances](#nva). 
 
 
-## Next Steps
 
-[Configure HA Ports on an Internal Load balancer](load-balancer-configure-ha-ports.md)
+## Next steps
+
+- [Configure HA ports on an internal Load Balancer Standard](load-balancer-configure-ha-ports.md)
+- [Learn about Load Balancer Standard preview](https://aka.ms/lbpreview)
 

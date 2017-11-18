@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: magoedte
 
 ---
@@ -204,23 +204,6 @@ Performance records have a type of **Perf** and have the properties in the follo
 The following table provides different examples of log searches that retrieve Performance records.
 
 | Query | Description |
-|:--- |:--- |
-| Type=Perf |All Performance data |
-| Type=Perf Computer="MyComputer" |All Performance data from a particular computer |
-| Type=Perf CounterName="Current Disk Queue Length" |All Performance data for a particular counter |
-| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=_Total &#124; measure Avg(Average) as AVGCPU  by Computer |Average CPU Utilization across all computers |
-| Type=Perf (CounterName="% Processor Time") &#124;  measure max(Max) by Computer |Maximum CPU Utilization across all computers |
-| Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" &#124; measure Avg(Average) by InstanceName |Average Current Disk Queue length across all  the instances of a given computer |
-| Type=Perf CounterName="DiskTransfers/sec" &#124; measure percentile95(Average) by Computer |95th Percentile of Disk Transfers/Sec across all computers |
-| Type=Perf CounterName="% Processor Time" InstanceName="_Total"  &#124; measure avg(CounterValue) by Computer Interval 1HOUR |Hourly average of CPU usage across all computers |
-| Type=Perf Computer="MyComputer" CounterName=%* InstanceName=_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR |Hourly 70 percentile of every % percent counter for a particular computer |
-| Type=Perf CounterName="% Processor Time" InstanceName="_Total"  (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |Hourly average, minimum, maximum, and 75-percentile CPU usage for a specific computer |
-| Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | All Performance data from the Database performance object for the master database from the named SQL Server instance INST2.  
-
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
-
-> | Query | Description |
 |:--- |:--- |
 | Perf |All Performance data |
 | Perf &#124; where Computer == "MyComputer" |All Performance data from a particular computer |

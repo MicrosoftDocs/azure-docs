@@ -53,7 +53,7 @@ sections:
     style: ordered
     items:
     - html: <a href="tutorial-bing-web-search-single-page-app">Single-Page Web app</a> | <a href="tutorial-bing-web-search-single-page-app-source">Source code</a>
-    - html: <a href="import-data">Visual Search mobile app</a> | <a href="https://azure.microsoft.com/en-us/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/">Download Visual Studio solution</a>
+    - html: <a href="computer-vision-web-search-tutorial.md">Visual Search mobile app</a> | <a href="https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/">Download Visual Studio solution</a>
 - title: Reference
   items:
   - type: list

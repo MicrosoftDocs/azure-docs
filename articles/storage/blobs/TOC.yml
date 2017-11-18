@@ -1,3 +1,5 @@
+- name: Azure Storage Documentation
+  href: /azure/storage/
 - name: Overview
   items:
   - name: Introduction
@@ -16,6 +18,12 @@
     href: storage-quickstart-blobs-cli.md
   - name: Work with blobs - .NET 
     href: storage-quickstart-blobs-dotnet.md
+  - name: Work with blobs - Java
+    href: storage-quickstart-blobs-java.md
+  - name: Work with blobs - Python 
+    href: storage-quickstart-blobs-python.md
+  - name: Work with blobs - Node.js
+    href: storage-quickstart-blobs-nodejs.md
 - name: Tutorials
   items:
   - name: Upload and process an image
@@ -28,6 +36,12 @@
         href: storage-secure-access-application.md 
       - name: 4 - Monitor and troubleshoot storage
         href: storage-monitor-troubleshoot-storage-application.md
+  - name: Design for high availability in cloud storage
+    items:
+      - name: Make your application highly available
+        href: storage-create-geo-redundant-storage.md
+      - name: Simulate a failure with RA-GRS storage
+        href: storage-simulate-failure-ragrs-account-app.md
   - name: Search unstructured data in cloud storage
     href: storage-unstructured-search.md
 - name: Samples
@@ -140,8 +154,12 @@
         href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Manage
     items:
-    - name: PowerShell
+    - name: PowerShell for Azure Blobs
+      href: storage-how-to-use-blobs-powershell.md 
+    - name: PowerShell for Azure Storage
       href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: PowerShell for China, Government, and German clouds
+      href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure CLI 2.0
       href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure CLI 1.0

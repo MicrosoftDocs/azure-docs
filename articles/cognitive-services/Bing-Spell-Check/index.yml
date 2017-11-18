@@ -63,4 +63,4 @@ sections:
     - title: REST v7 API
       html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference">API Reference</a></p>
     - title: REST v5 API
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference">API Reference</a> (deprecated)</p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference">API Reference</a> (old version)</p>

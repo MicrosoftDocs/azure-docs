@@ -4,7 +4,7 @@ description: Learn how to authorize users using Azure Active Directory in API Ma
 services: api-management
 documentationcenter: API Management
 author: juliako
-manager: cflower
+manager: cfowler
 editor: ''
 
 ms.service: api-management

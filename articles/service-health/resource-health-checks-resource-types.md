@@ -20,6 +20,11 @@ ms.author: BernardoAMunoz
 # Resource types and health checks in Azure resource health
 Below is a complete list of all the checks executed through resource health by resource types.
 
+## Microsoft.ApiManagement/service
+|Executed Checks|
+|---|
+|<ul><li>Is the Api Management service up and running?</li></ul>|
+
 ## Microsoft.CacheRedis/Redis
 |Executed Checks|
 |---|

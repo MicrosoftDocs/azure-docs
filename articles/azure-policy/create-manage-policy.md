@@ -1,11 +1,11 @@
 ---
-title: Use Azure Policy to create and manage policies to enforce organizational compliance | Microsoft Docs 
+title: Use Azure Policy to create and manage policies to enforce organizational compliance | Microsoft Docs
 description: Use Azure Policy to enforce standards, meet regulatory compliance and audit requirements, control costs, maintain security and performance consistency, and impose enterprise wide design principles.
-services: azure-policy 
-keywords: 
-author: Jim-Parker
-ms.author: jimpark
-ms.date: 10/06/2017
+services: azure-policy
+keywords:
+author: bandersmsft
+ms.author: banders
+ms.date: 11/17/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
@@ -57,7 +57,7 @@ The first step in enforcing compliance with Azure Policy is to assign a policy d
    ![Open available policy definitions](media/create-manage-policy/open-policy-definitions.png)
 
 5. Select **Require SQL Server Version 12.0**.
-   
+
    ![Locate a policy](media/create-manage-policy/select-available-definition.png)
 
 6. Provide a display **Name** for the policy assignment. In this case, let’s use *Require SQL Server version 12.0*. You can also add an optional **Description**. The description provides details about how this policy assignment ensures all SQL servers created in this environment are version 12.0.
@@ -89,7 +89,7 @@ Now that we've assigned the policy definition, we're going to create a new polic
       - The policy parameters.
       - The policy rules/conditions, in this case – VM SKU size equal to G series
       - The policy effect, in this case – **Deny**.
-   
+
    Here's what the json should look like
 
 ```json
@@ -114,9 +114,225 @@ Now that we've assigned the policy definition, we're going to create a new polic
 }
 ```
 
-   To view samples of json code, look at this article  - [Resource policy overview](../azure-resource-manager/resource-manager-policy.md)
-   
+<!-- Update the following link to the top level samples page
+-->
+   To view samples of json code, look at this article  - [Templates for Azure Policy](json-samples.md)
+
 4. Select **Save**.
+
+## Create a policy definition with REST API
+
+You can create a policy with the REST API for Policy Definitions. The REST API enables you to create and delete policy definitions, and get information about existing definitions.
+To create a policy definition, use the following example:
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+
+```
+Include a request body similar to the following example:
+
+```
+{
+  "properties": {
+    "parameters": {
+      "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+      }
+    },
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('allowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+## Create a policy definition with PowerShell
+
+Before proceeding with the PowerShell example, make sure you have installed the latest version of Azure PowerShell. Policy parameters were added in version 3.6.0. If you have an earlier version, the examples return an error indicating the parameter cannot be found.
+
+You can create a policy definition using the `New-AzureRmPolicyDefinition` cmdlet.
+
+To create a policy definition from a file, pass the path to the file. For an external file, use the following example:
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+For a local file use, use the following example:
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+To create a policy definition with an inline rule, use the following example:
+
+```
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+The output is stored in a `$definition` object, which is used during policy assignment.
+The following example creates a policy definition that includes parameters:
+
+```
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}'
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
+```
+
+## View policy definitions
+
+To see all policy definitions in your subscription, use the following command:
+
+```
+Get-AzureRmPolicyDefinition
+```
+
+It returns all available policy definitions, including built-in policies. Each policy is returned in the following format:
+
+```
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+## Create a policy definition with Azure CLI
+
+You can create a policy definition using Azure CLI with the policy definition command.
+To create a policy definition with an inline rule, use the following example:
+
+```
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+## View policy definitions
+
+To see all policy definitions in your subscription, use the following command:
+
+```
+az policy definition list
+```
+
+It returns all available policy definitions, including built-in policies. Each policy is returned in the following format:
+
+```
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
+}
+```
 
 ## Create and assign an initiative definition
 
@@ -162,11 +378,11 @@ With an initiative definition, you can group several policy definitions to achie
    - pricing tier: Standard
    - scope you would like this assignment applied to: **Azure Advisor Capacity Dev**
 
-5. Select **Assign**. 
+5. Select **Assign**.
 
 ## Resolve a non-compliant or denied resource
 
-Following the example above, after assigning the policy definition to require SQL server version 12.0, a SQL server created with a different version would get denied. In this section, we’re walking through resolving a denied attempt to created a SQL server of a different version.
+Following the example above, after assigning the policy definition to require SQL server version 12.0, a SQL server created with a different version would get denied. In this section, we’re walking through resolving a denied attempt to create a SQL server of a different version by requesting an exclusion.
 
 1. Select **Assignments** on the left pane.
 2. Browse through all policy assignments and launch the *Require SQL Server version 12.0* assignment.
@@ -201,4 +417,4 @@ In this tutorial, you successfully accomplished the following:
 To learn more about the structures of policy definitions, look at this article:
 
 > [!div class="nextstepaction"]
-> [Policy Definition Structure](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)
+> [Azure Policy definition structure](policy-definition.md)

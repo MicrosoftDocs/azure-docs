@@ -56,6 +56,7 @@ When designating a computer to run hybrid runbook jobs, this computer must have 
 
 * Windows Server 2012 or later
 * Windows PowerShell 4.0 or later.  We recommend installing Windows PowerShell 5.0 on the computer for increased reliability. You can download the new version from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=50395)
+* .NET Framework 4.6.2 or later
 * Minimum of two cores
 * Minimum of 4 GB of RAM
 

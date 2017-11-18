@@ -3,7 +3,7 @@ title: Develop and run Azure functions locally | Microsoft Docs
 description: Learn how to code and test Azure functions on your local computer before you run them on Azure Functions.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 
@@ -22,6 +22,9 @@ ms.author: glenga
 While the [Azure portal] provides a full set of tools for developing and testing Azure Functions, many developers prefer a local development experience. Azure Functions makes it easy to use your favorite code editor and local development tools to develop and test your functions on your local computer. Your functions can trigger on events in Azure, and you can debug your C# and JavaScript functions on your local computer. 
 
 If you are a Visual Studio C# developer, Azure Functions also [integrates with Visual Studio 2017](functions-develop-vs.md).
+
+>[!IMPORTANT]  
+> Do not mix local development with portal development in the same function app. When you create and publish functions from a local project, you should not try to maintain or modify project code in the portal.
 
 ## Install the Azure Functions Core Tools
 
