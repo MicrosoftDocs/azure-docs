@@ -69,9 +69,13 @@ Following are a couple of solutions to this issue:
 
 * This error may also occur if your email domain name is assigned to multiple Active Directories. To work around this issue, create a new user in the Active Directory containing the subscription with your Databricks workspace.
     a. In the Azure portal, go to Azure Active Directory, click **Users and Groups**, click **Add a user**.
+
     b. Add a user with an `@<tenant_name>.onmicrosoft.com` email instead of @<your_domain> email. You can find the <tenant_name>.onmicrosoft.com associated with your Active Directory in the **Custom Domains** under Azure Active Directory in the Azure portal.
+    
     c. Grant this new user **Contributor** role on the Databricks workspace resource.
+    
     d. Log in to the Azure portal with the new user and find the Databricks workspace.
+    
     e. Launch the Databricks workspace as this user.
 
 
