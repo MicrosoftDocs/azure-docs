@@ -175,15 +175,15 @@
         href: azure-stack-app-service-add-worker-roles.md
       - name: Configure deployment sources
         href: azure-stack-app-service-configure-deployment-sources.md
-    - name: Populate the marketplace
+    - name: Populate the Marketplace
       items:
       - name: Marketplace overview
         href: azure-stack-marketplace.md
-      - name: Download marketplace items
+      - name: Download Marketplace items
         href: azure-stack-download-azure-marketplace-item.md
-      - name: Azure marketplace items for Azure Stack
+      - name: Azure Marketplace items for Azure Stack
         href: azure-stack-marketplace-azure-items.md
-      - name: Create and publish a marketplace item
+      - name: Create and publish a Marketplace item
         href: azure-stack-create-and-publish-marketplace-item.md
       - name: Use the Marketplace Publishing tool
         href: azure-stack-marketplace-publisher.md
