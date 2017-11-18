@@ -21,125 +21,117 @@ ms.author: panavra
 ---
 # Install published application - Cask Data Application Platform (CDAP)
 
-This article describes how to install and use the [CDAP](http://cask.co/products/cdap/) published Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+This article describes how to install and run the [CDAP](http://cask.co/products/cdap/) published Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 ## About CDAP
 
-Developing applications in Hadoop can be challenging.  There is a large and growing number of Hadoop technology extensions, which may take some time to integrate.
-
-* Simple processes such as data ingestion and ETL can be challenging to implement.
-* Apart from the significant learning curve involved in using each of the different Hadoop technologies, there is a substantial amount of time spent in integrating all of them to form a data processing solution.
-* Moving from a proof-of-concept solution to a production-ready one is far from a trivial step involving multiple iterations and can lead to an increased unpredictability in delivery times.
-* It is hard to locate data and trace its flow in an application. Collecting metrics and auditing is generally a challenge and often requires building a separate solution.
+Developing applications in Hadoop can be challenging.  There is a large and growing number of Hadoop technology extensions, which can take some time to integrate. Monitoring data flow and collecting metrics can require building a separate solution.
 
 ### How does CDAP help?
 
-The Cask Data Application Platform (CDAP) is an integration platform for Big Data. The highlight of CDAP is that a user can focus on building applications rather than its underlying infrastructure and integration.
+The Cask Data Application Platform (CDAP) is an integration platform for Big Data. CDAP enables you to focus on building applications rather than on the underlying infrastructure.
 
-CDAP works using high-level concepts and abstractions which are familiar to developers and empowers them to use their existing skills to build new solutions. These abstractions hide the complexities of internal systems and encourage re-usability of solutions.
+CDAP uses high-level concepts and abstractions that are familiar to developers. These abstractions hide the complexities of internal systems and encourage reusability of solutions.
 
-An extension called [Cask Hydrator](http://cask.co/products/hydrator/) is available in CDAP, which provides a rich user interface to develop and manage data pipelines. A data pipeline is composed of various plugins which perform several tasks like data acquisition, transformation, analysis, and post-run operations.
+A CDAP extension called [Cask Hydrator](http://cask.co/products/hydrator/) provides a user interface to develop and manage data pipelines. A data pipeline is composed of various *plugins that perform tasks like data acquisition, transformation, analysis, and post-run operations.
 
-Each CDAP **plugin** has well-defined interfaces which essentially means that evaluating different technologies would just be a matter of replacing a plugin with another one – there is no need to touch the rest of the application.
+Each CDAP plugin has a well-defined interface so that evaluating different technologies is just a matter of replacing one plugin with another one, without having to touch the rest of the application.
 
-CDAP **pipelines** provide a high-level pictorial flow of the data in your application which enables developers to easily visualize the end-to-end flow of the data and all the steps involved in the processing starting from its ingestion, to the various transformations and analyses performed on the data followed by the eventual writing into an external data store.
+CDAP *pipelines* provide a high-level pictorial flow of the data in your application. This visualization shows the end-to-end flow of the data from ingestion, through the data transformations and analyses, and finally into an external data store.
 
-Here is an example of a data pipeline which ingests twitter data in real time, filters out some tweets based on some pre-defined criteria, transforms, and projects the data into a more readable format, groups them according to a set of values and writes the results into an HBase store.
+The following example of a data pipeline ingests twitter data in real time, then filters out some tweets based on pre-defined criteria. The data pipeline transforms raw tweet data and projects that data into a more readable format, then groups the tweets according to a set of values and writes the results into an HBase store.
 
-![CDAP pipeline](./media/hdinsight-install-published-app-cask/pipeline.png)
+![CDAP pipeline](./media/hdinsight-apps-install-cask/pipeline.png)
 
-The end-to-end pipeline was completely built using the **Cask Hydrator UI**, utilizing its plugin interface and drag-and-drop functionality to form connections between each stage. It is easy to isolate and modify the functionality of each plugin independent of the rest of the pipeline. Using CDAP, similar pipelines can be built and validated in less than a couple of hours. In the traditional Hadoop world, constructing such solutions could easily take a few days.
+This end-to-end pipeline is built using the **Cask Hydrator UI**, using its plugin interface and drag-and-drop functionality to form connections between each stage. You can isolate and modify the functionality of each plugin independently. Using CDAP, similar pipelines can be built and validated in hours. In the typical Hadoop world, constructing such solutions might take several days.
 
-Additionally, CDAP provides an extension called [Cask Tracker](http://cask.co/products/tracker/) where you can visually trace the data as it flows through the application. Cask tracker adds **data governance** to the system so that data assets are formally managed throughout the application. You can track its lineage, collect relevant metrics, and audit the data trail throughout the process.
+CDAP also provides an extension called [Cask Tracker](http://cask.co/products/tracker/) to visually trace data as it flows through the application. Cask Tracker adds *data governance* to the system so that data assets are formally managed throughout the application. You can track each data point's lineage, collect relevant metrics, and audit the data trail throughout the process.
 
 Here is an illustration of how data is flowing in the above pipeline:
 
-![CDAP tracker](./media/hdinsight-install-published-app-cask/tracker.png)
+![CDAP tracker](./media/hdinsight-apps-install-cask/tracker.png)
 
+## Instal the CDAP published application
 
-## Installing the CDAP published application
-
-For step-by-step instructions on installing this and other available ISV applications, please read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md#how-to-install-a-published-application).
+For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md#how-to-install-a-published-application).
 
 ## Prerequisites
 
-When creating a new HDInsight cluster, or to install on an existing one, you must have the following configuration to install this app:
+To install this app on a new HDInsight cluster, or an existing cluster, you must have the following configuration:
 
 * Cluster tier: Standard
 * Cluster type: HBase
 * Cluster version: 3.4, 3.5
 
+## Launch CDAP
 
-## Launching CDAP for the first time
+After installation, launch CDAP from your cluster in Azure portal by going to the **Settings** pane, then selecting **Applications** under the **General** category. The Installed Apps pane lists all the installed applications.
 
-After installation, you can launch CDAP from your cluster in Azure portal by going to the **Settings** pane, then clicking **Applications** under the **General** category. The Installed Apps pane lists all the installed applications.
+![Installed CDAP app](./media/hdinsight-apps-install-cask/cdap-app.png)
 
-![Installed CDAP app](./media/hdinsight-install-published-app-cask/cdap-app.png)
+When you select CDAP, you see a link to the web page and HTTP Endpoint, and also the SSH endpoint path. Select the WEBPAGE link.
 
-When you select CDAP, you'll see a link to the web page, HTTP Endpoint, as well as the SSH endpoint path. Select the WEBPAGE link.
+When prompted, enter your cluster administrator credentials.
 
-When prompted, enter your cluster admin credentials.
+![Authentication](./media/hdinsight-apps-install-cask/auth.png)
 
-![Authentication](./media/hdinsight-install-published-app-cask/auth.png)
+After signing in, you see the Cask CDAP GUI home page.
 
-After signing in, you will be presented with the Cask CDAP GUI home page.
+![Cask GUI home page](./media/hdinsight-apps-install-cask/gui.png)
 
-![Cask GUI home page](./media/hdinsight-install-published-app-cask/gui.png)
+To explore the CDAP interface, click the **Cask Market** menu link on top of the page.
 
-To get an idea of using the CDAP interface, click the **Cask Market** menu link on top of the page.
+![Cask Market link](./media/hdinsight-apps-install-cask/cask-market.png)
 
-![Cask Market link](./media/hdinsight-install-published-app-cask/cask-market.png)
+Select **Access Log Sample** from the list.
 
-Select the **Access Log Sample** from the list.
-
-![Access Log Sample](./media/hdinsight-install-published-app-cask/market-log-sample.png)
+![Access Log Sample](./media/hdinsight-apps-install-cask/market-log-sample.png)
 
 Click **Load** to confirm.
 
-![Click Load](./media/hdinsight-install-published-app-cask/market-load.png)
+![Click Load](./media/hdinsight-apps-install-cask/market-load.png)
 
-A sample view of the included data will be displayed. Click **Next**.
+A view of the included sample data is displayed. select **Next**.
 
-![Access Log Sample - View Data](./media/hdinsight-install-published-app-cask/market-view-data.png)
+![Access Log Sample - View Data](./media/hdinsight-apps-install-cask/market-view-data.png)
 
-Select **Stream** as the Destination Type, enter a Destination Name, then click **Finish**.
+Select **Stream** as the Destination Type, enter a Destination Name, then select **Finish**.
 
-![Access Log Sample - Select Destination](./media/hdinsight-install-published-app-cask/market-destination.png)
+![Access Log Sample - Select Destination](./media/hdinsight-apps-install-cask/market-destination.png)
 
-Once the datapack has been successfully loaded, click **View Stream Details**.
+After the datapack has been successfully loaded, select **View Stream Details**.
 
-![Datapack successfully uploaded](./media/hdinsight-install-published-app-cask/market-view-details.png)
+![Datapack successfully uploaded](./media/hdinsight-apps-install-cask/market-view-details.png)
 
-On the Access Log details page, click **Enable** within the Usage tab to enable metadata for the namespace.
+To enable metadata for the namespace, select **Enable** in the Usage tab on the Access Log details page.
 
-![Access Log Sample - Loaded - enable metadata](./media/hdinsight-install-published-app-cask/log-loaded.png)
+![Access Log Sample - Loaded - enable metadata](./media/hdinsight-apps-install-cask/log-loaded.png)
 
-You will see a graph displaying audit message information, once metadata has been enabled.
+After metadata is enabled, you see a graph displaying audit message information.
 
-![Access Log Sample - Metadata enabled](./media/hdinsight-install-published-app-cask/log-metadata.png)
+![Access Log Sample - Metadata enabled](./media/hdinsight-apps-install-cask/log-metadata.png)
 
-To explore the log data, click the **Explore** icon on top of the page.
+To explore the log data, select the **Explore** icon on top of the page.
 
-![Access Log Sample - Explore](./media/hdinsight-install-published-app-cask/log-explore.png)
+![Access Log Sample - Explore](./media/hdinsight-apps-install-cask/log-explore.png)
 
-You will  see a sample SQL query. Feel free to modify, if desired, then click **Execute**.
+You see a sample SQL query. Feel free to modify it as desired, then select **Execute**.
 
-![Access Log Sample - Explore dataset with a query](./media/hdinsight-install-published-app-cask/log-query.png)
+![Access Log Sample - Explore dataset with a query](./media/hdinsight-apps-install-cask/log-query.png)
 
-After the query has finished, click the **View** icon under the Actions column.
+After the query has finished, select the **View** icon under the Actions column.
 
-![Access Log Sample - View completed query](./media/hdinsight-install-published-app-cask/log-query-view.png)
+![Access Log Sample - View completed query](./media/hdinsight-apps-install-cask/log-query-view.png)
 
-You will now see the query results.
+You see the query results.
 
-![Access Log Sample - Query results](./media/hdinsight-install-published-app-cask/log-query-results.png)
-
+![Access Log Sample - Query results](./media/hdinsight-apps-install-cask/log-query-results.png)
 
 ## Next steps
-* Read the Cask [documentation](http://cask.co/resources/documentation/)
-* [Install custom HDInsight applications](../hdinsight-apps-install-custom-applications.md): learn how to deploy an un-published HDInsight application to HDInsight.
-* [Publish HDInsight applications](../hdinsight-apps-publish-applications.md): Learn how to publish your custom HDInsight applications to Azure Marketplace.
-* [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): Learn how to define HDInsight applications.
-* [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
-* [Use empty edge nodes in HDInsight](../hdinsight-apps-use-edge-node.md): learn how to use an empty edge node for accessing HDInsight cluster, testing HDInsight applications, and hosting HDInsight applications.
 
+* [Cask documentation](http://cask.co/resources/documentation/).
+* [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): Learn how to deploy an unpublished HDInsight application to HDInsight.
+* [Publish HDInsight applications](hdinsight-apps-publish-applications.md): Learn how to publish your custom HDInsight applications to Azure Marketplace.
+* [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): Learn how to define HDInsight applications.
+* [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): Learn how to use Script Action to install additional applications.
+* [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md): Learn how to use an empty edge node for accessing HDInsight clusters, and for testing and hosting HDInsight applications.
