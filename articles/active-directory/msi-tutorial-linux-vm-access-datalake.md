@@ -27,7 +27,11 @@ This tutorial shows you how to use a Managed Service Identity (MSI) for a Linux 
 > * Grant your VM access to an Azure Data Lake Store
 > * Get an access token using the VM identity and use it to access an Azure Data Lake Store
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
+
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## Sign in to Azure
 

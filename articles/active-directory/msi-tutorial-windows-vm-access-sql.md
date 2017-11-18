@@ -34,7 +34,7 @@ This tutorial shows you how to use a Managed Service Identity (MSI) for a Window
 
 [!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
-For this tutorial, your account needs to also be given "SQL Server Contributor" role membership at "SQL Server" scope.
+For this tutorial, your account also needs to be given "SQL Server Contributor" role membership at your SQL Server scope.
 
 ## Sign in to Azure
 

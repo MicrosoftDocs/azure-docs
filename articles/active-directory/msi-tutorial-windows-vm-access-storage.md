@@ -28,8 +28,13 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Windo
 > * Grant your VM access to storage account access keys in Resource Manager 
 > * Get an access token using your VM's identity, and use it to retrieve the storage access keys from Resource Manager 
 
+## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
+
+For this tutorial, your account also needs to be given "Storage Account Contributor" role membership at your Resource Group scope.
 
 ## Sign in to Azure
 
