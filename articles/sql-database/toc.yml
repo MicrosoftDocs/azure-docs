@@ -370,6 +370,8 @@
       items:
       - name: Deploy example app
         href: saas-multitenantdb-get-started-deploy.md
+      - name: Provision tenants
+        href: saas-multitenantdb-provision-and-catalog.md
       - name: Monitor database performance
         href: saas-multitenantdb-performance-monitoring.md
       - name: Run ad-hoc queries
