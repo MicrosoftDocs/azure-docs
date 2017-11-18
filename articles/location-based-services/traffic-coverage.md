@@ -30,7 +30,7 @@ Azure Location Based Services (LBS) provides rich traffic information in the for
 |Iceland     |         |✓         |
 |Indonesia     |✓         |✓         |
 |Ireland (Republic of)     |✓         |✓         |
-|Israel     |         |         |✓
+|Israel     |         |✓         |
 |Italy     |✓         |✓        |
 |+San Marino     |✓         |✓         |
 |Kuwait     |✓         |✓         |
