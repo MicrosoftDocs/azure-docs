@@ -430,9 +430,6 @@ In this step, you create input and output datasets that represent input and outp
 
 1. Create a JSON file named **AzureBlobDataset.json** in the **C:\ADFv2Tutorial** folder, with the following content:
 
-    > [!IMPORTANT]
-    > This sample code assumes that you have a container named **adftutorial** in the Azure Blob Storage.
-
     ```json
     {
         "properties": {
