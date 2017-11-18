@@ -48,15 +48,17 @@ Follow the steps below to build the JAR files and get started with the sample pr
 5. Experiment with the different options to learn more about the client library capabilities. Feel free to explore the code to learn about the sample app implementation.
 
     ![Progress-java][5]
+    
 Congratulations! You have successfully built and run your first sharded application by using elastic database tools on SQL Database. Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created. You will notice new sample shard databases and a shard map manager database that the sample has created. 
-To add the client library to your own Maven project, add the following dependency in your POM file.
-    ```
-    <dependency> 
-          <groupId>com.microsoft.azure</groupId> 
-          <artifactId>elastic-db-tools</artifactId> 
-          <version>1.0.0</version> 
-    </dependency> 
-    ```
+To add the client library to your own Maven project, add the following dependency in your POM file.<br>
+
+```xml
+<dependency> 
+    <groupId>com.microsoft.azure</groupId> 
+    <artifactId>elastic-db-tools</artifactId> 
+    <version>1.0.0</version> 
+</dependency> 
+```
 
 ## Elastic database tools for .Net 
 ### Prerequisites
