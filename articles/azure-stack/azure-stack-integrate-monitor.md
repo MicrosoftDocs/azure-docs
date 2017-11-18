@@ -29,14 +29,14 @@ For external monitoring of the Azure Stack infrastructure, you need to monitor t
 
 Each Azure Stack solution ships with a hardware lifecycle host. This host runs the Original Equipment Manufacturer (OEM) hardware vendor’s monitoring software for the physical servers and network devices. If desired, you can bypass these monitoring solutions and directly integrate with existing monitoring solutions in your datacenter.
 
+> [!IMPORTANT]
+> The external monitoring solution you use must be agentless. You can't install third-party agents inside Azure Stack components.
+
 The following diagram shows traffic flow between an Azure Stack integrated system, the hardware lifecycle host, an external monitoring solution, and an external ticketing/data collection system.
 
 ![Diagram showing traffic between Azure Stack, monitoring, and ticketing solution.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 This article explains how to integrate Azure Stack with external monitoring solutions such as System Center Operations Manager and Nagios. It also includes how to work with alerts programmatically by using PowerShell or through REST API calls.
-
-> [!IMPORTANT]
-> The external monitoring solution you use must be agentless. You can't install third-party agents inside Azure Stack components.
 
 ## Integrate with Operations Manager
 
@@ -88,9 +88,11 @@ Configure the plugin file “Azurestack_plugin.py” with the following paramete
 
 ## Use PowerShell to monitor health and alerts
 
-If you're not using Operations Manager, Nagios, or a Nagios-based solution, you can use PowerShell to enable a broad range of monitoring solutions to integrate with Azure Stack. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack operator environment. Install PowerShell on a local computer that can reach the Resource Manager (administrator) endpoint (https://adminmanagement.[region].[External_FQDN]).
+If you're not using Operations Manager, Nagios, or a Nagios-based solution, you can use PowerShell to enable a broad range of monitoring solutions to integrate with Azure Stack.
+ 
+1. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack operator environment. Install PowerShell on a local computer that can reach the Resource Manager (administrator) endpoint (https://adminmanagement.[region].[External_FQDN]).
 
-1. Run the following commands to connect to the Azure Stack environment as an Azure Stack operator:
+2. Run the following commands to connect to the Azure Stack environment as an Azure Stack operator:
 
    ```PowerShell
    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
@@ -512,6 +514,6 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 ## Next steps
 
-- For information about built-in health monitoring, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md)
+- For information about built-in health monitoring, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
 
 
