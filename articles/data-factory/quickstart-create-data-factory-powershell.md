@@ -34,6 +34,9 @@ This article does not provide a detailed introduction of the Data Factory servic
 ### Azure subscription
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
+### Azure roles
+To create Data Factory instances, Azure user must be a member of **contributor** or **administrator** roles of the Azure subscription. For instructions, see [Add roles](../billing/billing-add-change-azure-subscription-administrator.md).
+
 ### Azure Storage Account
 You use a general-purpose Azure Storage Account (specifically Blob Storage) as both **source** and **sink/destination** data store in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) on creating one. 
 
@@ -173,7 +176,7 @@ Create linked services in a data factory to link your data stores and compute se
             "type": "AzureStorage",
             "typeProperties": {
                 "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
+                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net",
                     "type": "SecureString"
                 }
             }
