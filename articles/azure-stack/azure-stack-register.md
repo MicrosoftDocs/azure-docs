@@ -68,7 +68,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 3. If you have multiple subscriptions, run the following command to select the one you want to use:  
 
    ```powershell
-      Get-AzureRmSubscription -SubscriptionName '<Your Azure Subscription Name>' | Select-AzureRmSubscription
+      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Delete any existing versions of the Powershell modules that correspond to registration and [download the latest version of it from GitHub](azure-stack-powershell-download.md).  
