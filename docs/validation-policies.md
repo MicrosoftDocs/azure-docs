@@ -1,11 +1,15 @@
+---
+title: Validation policies for apps and add-ins submitted to the Office Store (version 2.2)
+description: Criteria that are used to validate Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals for listing in the Office Store.
+ms.date: 11/27/2017 
+---
+
 # Validation policies for apps and add-ins submitted to the Office Store (version 2.2)
 
 This document describes the criteria that are used to validate that Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals are eligible to be listed in the Office Store.
  
-
-## 1. Apps and add-ins provide value to the Office Store customer
 <a name="bk_1"> </a>
-
+## 1. Apps and add-ins provide value to the Office Store customer
 
 |Policy number|Description|
 |:-----|:-----|
@@ -13,8 +17,8 @@ This document describes the criteria that are used to validate that Office Add-i
 |1.2|Your app or add-in must work according to your description, and must not be in an unfinished state.|
 |1.3|Your app or add-in's trial functionality must reasonably resemble its paid version.|
 
-## 2. Office Store apps or add-ins can display certain ads
 <a name="bk_2"> </a>
+## 2. Office Store apps or add-ins can display certain ads
 
 |Policy number|Description|
 |:-----|:-----|
@@ -23,8 +27,8 @@ This document describes the criteria that are used to validate that Office Add-i
 |2.3|Ads should not interfere with app or add-in functionality and should match our ad design guidelines.|
 |2.4|The elements of your app or add-in's description, such as screenshots, text, and promotional images, must describe your app or add-in and not contain additional advertising.|
 
-## 3. Apps and add-ins can sell additional features or content through purchases within the app or add-in
 <a name="bk_3"> </a>
+## 3. Apps and add-ins can sell additional features or content through purchases within the app or add-in
 
 |Policy number|Description|
 |:-----|:-----|
@@ -33,8 +37,8 @@ This document describes the criteria that are used to validate that Office Add-i
 |3.3|If your app or add-in collects credit card information or uses a third-party payment processor that collects credit card information, the payment processing must meet the current PCI Data Security Standard (PCI DSS).|
 |3.4|Apps or add-ins running on iOS must not offer any additional features or content for sale.|
 
-## 4. Apps and add-ins behave predictably
 <a name="bk_4"> </a>
+## 4. Apps and add-ins behave predictably
 
 |Policy number|Description|
 |:-----|:-----|
@@ -50,12 +54,12 @@ This document describes the criteria that are used to validate that Office Add-i
 |4.10|Your app or add-in should not consume an unreasonable amount of memory that negatively impacts the performance of an average customer's environment.|
 |4.11|Your app or add-in UI should not look unfinished.|
 |4.12|Your app or add-in must be fully functional with the supported operating systems, browsers, and devices for Office 2013, Office 2016, SharePoint 2013, and Office 365. To download an Office 2013 trial, see [Office 2013 - Microsoft Office 365](https://c2rsetup.officeapps.live.com/c2r/download.aspx?productReleaseID=O365HomePremRetail&platform=X86&language=en-us&version=O15GA&source=O15OLSO365) or [Office 2013 - Microsoft Office 365 Business](https://c2rsetup.officeapps.live.com/c2r/download.aspx?productReleaseID=O365BusinessRetail&platform=X86&language=en-us&version=O15GA&source=O15OLSO365).<br/><br/>Your app or add-in's described features must work on a touch-only device without a physical keyboard or mouse.|
-|4.12.1  **Office Add-ins**| General requirements:<br/><br/><ul><li>Add-ins must be compatible with all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS).</li><li>Your add-in must work in all Office applications specified in the **Hosts** element in your add-in manifest. For details, see [Specify Office hosts and API requirements](https://dev.office.com/docs/add-ins/overview/specify-office-hosts-and-api-requirements).</li><li>Your add-in must work across all platforms that support the methods that you define in the **Requirements** element in your add-in manifest. For details about which platforms support which methods, see [Office Add-in host and platform availability](https://dev.office.com/add-in-availability).</li></ul> |
+|4.12.1<br/>**Office Add-ins**| General requirements:<br/><ul><li>Add-ins must be compatible with all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS).</li><li>Your add-in must work in all Office applications specified in the **Hosts** element in your add-in manifest. For details, see [Specify Office hosts and API requirements](https://dev.office.com/docs/add-ins/overview/specify-office-hosts-and-api-requirements).</li><li>Your add-in must work across all platforms that support the methods that you define in the **Requirements** element in your add-in manifest. For details about which platforms support which methods, see [Office Add-in host and platform availability](https://dev.office.com/add-in-availability).</li></ul> |
 || Platform-specific requirements:<br/><ul><li>Your add-in must support Office Online applications that are compatible with the APIs listed in the **Requirements** element. To test your add-in in Office Online, see [Debug add-ins in Office Online](https://dev.office.com/docs/add-ins/testing/debug-add-ins-in-office-online).</li><li>Add-ins that support iOS must be fully functional on the latest iPad device using the latest iOS operating system.</li></ul>|
 || Outlook-specific requirements:<br/><ul><li>If your scenario requires showing an add-in on every message or appointment (whether in read or compose), it must support [add-in commands](https://dev.office.com/docs/add-ins/outlook/add-in-commands-for-outlook).</li><li>Outlook add-ins must not include the CustomPane extension point in the VersionOverrides node.</li><li>If your add-in manifest includes the **SupportsPinning** element for read mode of a message and/or appointment, the content of the add-in, when pinned, must not be static and must clearly display data related to the message that is open or selected in the mailbox.</li><li>Outlook add-ins that support mobile must allow users to log on separately for each email account they have in the Outlook app.</li></ul>|
-|| Word, Excel, and PowerPoint requirements:<br/><br/>Add-ins that use the taskpane manifest must support add-in commands.|
-|4.12.2  **SharePoint Add-ins**|Add-ins must be fully functional with Windows 7, Windows 10, all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, and Firefox.|
-|4.12.3  **Web apps using Azure AD**|Your app must correctly use either OAuth and OpenID Connect protocols, or SAML protocols. For more information, see [Have your add-in appear in the Office 365 add-in launcher](https://msdn.microsoft.com/en-us/office/office365/howto/connect-your-app-to-o365-app-launcher).<br/><br/>Two types of apps are supported:<ul><li>**User consentable**. A user cannot be blocked from authenticating and consenting to a user consentable app. If you want to do a user authorization check, you must do so after authentication and consent.</li><li>**Admin consentable**. Only an admin can consent to an admin consentable app. These apps require permissions that can give broad access to the tenant data. If you are submitting an admin consentable app, indicate that in the Testing notes. A user cannot be blocked from authenticating and consenting to an app. If you want to do a user authorization check, you must do so after authentication and consent.</li></ul>Apps must be fully functional with Windows 7, Windows 10, all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, and Firefox.|
+|| Word, Excel, and PowerPoint requirements:<br/><br/><ul><li>Add-ins that use the taskpane manifest must support add-in commands.</li></ul>|
+|4.12.2<br/>**SharePoint Add-ins**|Add-ins must be fully functional with Windows 7, Windows 10, all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, and Firefox.|
+|4.12.3<br/>**Web apps using Azure AD**|Your app must correctly use either OAuth and OpenID Connect protocols, or SAML protocols. For more information, see [Have your add-in appear in the Office 365 add-in launcher](https://msdn.microsoft.com/en-us/office/office365/howto/connect-your-app-to-o365-app-launcher).<br/><br/>Two types of apps are supported:<ul><li>**User consentable**. A user cannot be blocked from authenticating and consenting to a user consentable app. If you want to do a user authorization check, you must do so after authentication and consent.</li><li>**Admin consentable**. Only an admin can consent to an admin consentable app. These apps require permissions that can give broad access to the tenant data. If you are submitting an admin consentable app, indicate that in the Testing notes. A user cannot be blocked from authenticating and consenting to an app. If you want to do a user authorization check, you must do so after authentication and consent.</li></ul>Apps must be fully functional with Windows 7, Windows 10, all versions of Internet Explorer 11 and later, and the latest versions of Microsoft Edge, Chrome, and Firefox.|
 |4.13|Your SharePoint Add-in must not have remote debugging settings enabled.|
 |4.14|The manifest for your SharePoint Add-in must not include the **DebugInfo** element.|
 |4.15|Your SharePoint Add-in must not have any unauthenticated pages or APIs, with the exception of the error page. |
@@ -66,8 +70,8 @@ This document describes the criteria that are used to validate that Office Add-i
 |4.20|If your app or add-in depends on additional services or accounts, this dependency must be clearly called out in the description you submit in the Seller Dashboard.|
 |4.21|Your app or add-in must not install or launch other executable code on the user's environment.|
 
-## 5. Apps and add-ins put the customer in control
 <a name="bk_5"> </a>
+## 5. Apps and add-ins put the customer in control
 
 |Policy number|Description|
 |:-----|:-----|
@@ -87,8 +91,8 @@ This document describes the criteria that are used to validate that Office Add-i
 |5.11|Content add-ins for PowerPoint which use restricted permissions are required to clearly display links to their Privacy Policy and Terms of Use information on the first screen of the add-in. If your add-in does not collect or transmit user information, you must link to a statement that states this fact.|
 |5.12|Content add-ins for PowerPoint may not activate their content (e.g. play audio or video) until after  [Office.initialize event (JavaScript API for Office)](http://msdn.microsoft.com/library/727adf79-a0b5-48d2-99c7-6642c2c334fc%28Office.15%29.aspx) has been called. This ensures that content display will synchronize with presentations correctly.|
 
-## 6. Apps and add-ins are appropriate for a global audience
 <a name="bk_6"> </a>
+## 6. Apps and add-ins are appropriate for a global audience
 
 |Policy number|Description|
 |:-----|:-----|
@@ -107,8 +111,8 @@ This document describes the criteria that are used to validate that Office Add-i
 |6.13| If your app or add-in is a game distributed in markets which require a game rating, you must make the rating available in your description. Supported ratings boards include: CERO CRB DJCTZ ESRB FPB GRB OFLC - New Zealand PEGI USK|
 |6.14|Your app or add-in must comply with all applicable laws in the regions in which it is available.|
 
-## 7. Apps and add-ins are easily identified and understood
 <a name="bk_7"> </a>
+## 7. Apps and add-ins are easily identified and understood
 
 |Policy number|Description|
 |:-----|:-----|
@@ -137,11 +141,11 @@ This document describes the criteria that are used to validate that Office Add-i
 |7.16.2|The binary may remain the same across the multiple app or add-in listings.|
 |7.16.3|We recommend, as best practice, that you notify users that multiple app or add-in listings exist in the description for each. This ensures that users are aware that different cost/functionality tiers are available. |
 |7.17|If you wish to submit multiple variations of an app or add-in (for example, where different functionalities are unlocked at different price points), you must submit these separately, with separate product IDs. |
-|7.18 **Education apps or add-ins**|An education app or add-in is used in a class or study context, by teachers and/or students.<br/><br/>An education app or add-in is submitted under the "Education" category.<br/><br/>An education app or add-in must provide in the testing notes at least one and up to three applicable subjects:<br/><br/>Math<br/>Literacy (English Language Arts)<br/>Science<br/>Social Studies<br/>Health and Fitness<br/>Engineering and Technology<br/>Business, Finance, and Economics<br/>Computer Science<br/>Languages<br/>Art and Music<br/>Teaching Tools and Resources<br/><br/>An education app or add-in must provide in the testing notes a minimum of one applicable age range:<br/><br/>Preschool and Kindergarten<br/>Elementary School (1st-5th Grade)<br/>Middle School (6-8th Grade)<br/>High School (9-12th Grade)<br/>Higher Education|
+|7.18<br/>**Education apps or add-ins**|An education app or add-in is used in a class or study context, by teachers and/or students.<br/><br/>An education app or add-in is submitted under the "Education" category.<br/><br/>An education app or add-in must provide in the testing notes at least one and up to three applicable subjects:<br/><br/>Math<br/>Literacy (English Language Arts)<br/>Science<br/>Social Studies<br/>Health and Fitness<br/>Engineering and Technology<br/>Business, Finance, and Economics<br/>Computer Science<br/>Languages<br/>Art and Music<br/>Teaching Tools and Resources<br/><br/>An education app or add-in must provide in the testing notes a minimum of one applicable age range:<br/><br/>Preschool and Kindergarten<br/>Elementary School (1st-5th Grade)<br/>Middle School (6-8th Grade)<br/>High School (9-12th Grade)<br/>Higher Education|
 |7.19| You may not use Microsoft product names in your app or add-in title.<br/><br/>**Note:** We may make some exceptions in cases where an add-in runs in multiple Microsoft products; for example, Contoso for SharePoint, Contoso for Outlook, Contoso for Office 365.
 
-## 8. Updates to paid apps or add-ins must not decrease the app or add-in's functionality
 <a name="bk_9"> </a>
+## 8. Updates to paid apps or add-ins must not decrease the app or add-in's functionality
 
 |Policy number|Description|
 |:-----|:-----|
@@ -152,15 +156,15 @@ This document describes the criteria that are used to validate that Office Add-i
 |8.5|If you withdraw your app or add-in from sale, you must ensure any external web services and/or web pages that support the app or add-in will continue to function for 90 days. Failure to do so will make you responsible for refund liability towards your customers.|
 |8.6|Apps and add-ins may convert from free to subscription pricing. If you update your app or add-in's pricing from free to subscription, existing users must receive the same level of functionality as before the update.<br/><br/>Converting from a paid to a subscription app or add-in is not currently supported.|
 
-## 9. Refunds 
 <a name="bk_10"> </a>
+## 9. Refunds 
 
 |Policy number|Description|
 |:-----|:-----|
 |9.1|If your app or add-in is found to violate any of our store policies, it can be removed from the Office Store. If a customer needs to be refunded, the refund will be deducted from any pending payouts to your account.|
 
-## 10. Apps and add-ins utilize supported capabilities
 <a name="bk_11"> </a>
+## 10. Apps and add-ins utilize supported capabilities
 
 |Policy number|Description|
 |:-----|:-----|
@@ -176,8 +180,8 @@ This document describes the criteria that are used to validate that Office Add-i
 |10.8.2|The version of your add-in that runs on Office for iOS or Office for Android must not show any UI or language, or link to any other apps, add-ins, or websites, that ask the user to pay. Use of the term “free”, as in “free account”, is also not allowed. If the add-in requires an account, only free accounts can be created in the mobile version of the add-in. You can determine the length of time that the free account remains active (indefinitely or for a limited amount of time); however, if the user’s account expires, you cannot show any UI, text, or links to the user to indicate that they need to pay.
 |10.9|Office Add-ins must use version 1.1 of the Office.js library and the manifest schema.|
 
-## 11. Add-ins provide a seamless and fluid experience for Office Store customers
 <a name="bk_12"> </a>
+## 11. Add-ins provide a seamless and fluid experience for Office Store customers
 
 |Policy number|Description|
 |:-----|:-----|
@@ -188,8 +192,8 @@ This document describes the criteria that are used to validate that Office Add-i
 |11.3.1|If your app or add-in targets a larger organization or enterprise, a seamless first run experience and value proposition is not required. However, your add-in must include either an email contact or a link in the UI that users can click to learn more about your services.<br/><br/>For more information, see  [Office Store validation policy changes to support apps and add-ins that target larger organizations and enterprises](https://dev.office.com/blogs/office-store-validation-policy-changes-to-support-apps-and-add-ins-that-target-larger-organizations-and-enterprises).|
 |11.4|The UI (buttons, links, text fields) of your add-in must be intuitive and obvious in their purpose. Users must not be required to read support content to perform basic operations. For more information, see  [Best practices for developing Office Add-ins](http://msdn.microsoft.com/library/013e1486-4482-42c1-bcda-edf8de06e771%28Office.15%29.aspx).|
 
-## 12. Office Mix Add-ins
 <a name="bk_12"> </a>
+## 12. Office Mix Add-ins
 
 |Policy number|Description|
 |:-----|:-----|
@@ -238,22 +242,15 @@ This document describes the criteria that are used to validate that Office Add-i
 <a name="bk_conclusion"> </a>
 
 As these requirements evolve, we will continue to update our documentation. Stable requirements are critical to your doing your best work, so we aim to ensure the changes we do make are sustainable and continue to protect and enhance your add-ins.
- 
 
- 
 Thank you again for joining us in this commitment to delivering fantastic experiences.
- 
-
- 
 
 ## Validation policy change list
 <a name="bk_conclusion"> </a>
 
-
-
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
-|2.2|August 9,2017|Updated policy 10.8 to apply to Office for Android, and added policy 10.8.2.|
+|2.2|August 9, 2017|Updated policy 10.8 to apply to Office for Android, and added policy 10.8.2.|
 |2.2|August 4, 2017|Added policies 14.15 and 14.16.|
 |2.2|July 21, 2017|Added policy 7.19.|
 |2.2|July 7, 2017|Removed policy 14.4. Updated policies 14.5, 14.6, 14.8, and 14.9.|
@@ -268,7 +265,6 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 ## Additional resources
 <a name="bk_addresources"> </a>
-
 
 - [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
 - [Office Store submission FAQ](office-store-submission-faq.md)
