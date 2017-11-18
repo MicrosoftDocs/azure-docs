@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: mimig
 
 ---
@@ -81,7 +81,13 @@ Now go back to the Azure portal to get your connection string information and co
 
     ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-python/connection-string.png)
 
-2. Open the config.py file, and copy the required connection string properties into the config file.
+2. Copy the ACCOUNT NAME using the button on the right side.
+
+3. Open the config.py file, and paste the ACCOUNT NAME from the portal into the STORAGE_ACCOUNT_NAME value on line 19.
+
+4. Go back to the portal and copy the PRIMARY KEY.
+
+5. Paste the PRIMARY KEY from the portal into the STORAGE_ACCOUNT_KEY value on line 20.
 
 3. Save the config.py file.
 

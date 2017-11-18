@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/14/2017
+ms.date: 11/16/2017
 ms.author: jingwang
 
 ---
@@ -34,6 +34,9 @@ This article does not provide a detailed introduction of the Data Factory servic
 ### Azure subscription
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
+### Azure roles
+To create Data Factory instances, Azure user must be a member of **contributor** or **administrator** roles of the Azure subscription. For instructions, see [Add roles](../billing/billing-add-change-azure-subscription-administrator.md).
+
 ### Azure Storage Account
 You use a general-purpose Azure Storage Account (specifically Blob Storage) as both **source** and **sink/destination** data store in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) on creating one. 
 
@@ -53,17 +56,19 @@ You use the name and key of your Azure storage account in this quickstart. The f
 #### Create input folder and files
 In this section, you create a blob container named **adftutorial** in your Azure blob storage. Then, you create a folder named input in the container, and then upload a sample file to the input folder. 
 
-1. In the **Storage account** page, click **Blobs**. 
+1. In the **Storage account** page, switch to the **Overview**, and then click **Blobs**. 
 
     ![Select Blobs option](media/quickstart-create-data-factory-powershell/select-blobs.png)
-1. In the **Blob service** page, click **+ Container** on the toolbar. 
+2. In the **Blob service** page, click **+ Container** on the toolbar. 
 
     ![Add container button](media/quickstart-create-data-factory-powershell/add-container-button.png)    
 3. In the **New container** dialog, enter **adftutorial** for the name, and click **OK**. 
 
     ![Enter container name](media/quickstart-create-data-factory-powershell/new-container-dialog.png)
 4. Click **adftutorial** in the list of containers. 
-5. In the **Container** page, click **Upload** on the toolbar.  
+
+    ![Select the container](media/quickstart-create-data-factory-powershell/seelct-adftutorial-container.png)
+1. In the **Container** page, click **Upload** on the toolbar.  
 
     ![Upload button](media/quickstart-create-data-factory-powershell/upload-toolbar-button.png)
 6. In the **Upload blob** page, click **Advanced**.
@@ -76,13 +81,15 @@ In this section, you create a blob container named **adftutorial** in your Azure
     Jane, Doe
     ```    
 8. In the Azure portal, in the **Upload blob** page, browse, and select the **emp.txt** file for the **Files** field. 
-9. (Important) Enter **input** as a value **Upload to folder** filed. 
+9. Enter **input** as a value **Upload to folder** filed. 
 
     ![Upload blob settings](media/quickstart-create-data-factory-powershell/upload-blob-settings.png)    
 10. Confirm that the folder is **input** and file is **emp.txt**, and click **Upload**.
 11. You should see the **emp.txt** file and the status of the upload in the list. 
 12. Close the **Upload blob** page by clicking **X** in the corner. 
-13. Keep the **container** page open for the **adftutorial** container. You use it to verify the output at the end of this quickstart. 
+
+    ![Close upload blob page](media/quickstart-create-data-factory-powershell/close-upload-blob.png)
+1. Keep the **container** page open. You use it to verify the output at the end of this quickstart. 
 
 ### Azure PowerShell
 
@@ -169,7 +176,7 @@ Create linked services in a data factory to link your data stores and compute se
             "type": "AzureStorage",
             "typeProperties": {
                 "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
+                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net",
                     "type": "SecureString"
                 }
             }
