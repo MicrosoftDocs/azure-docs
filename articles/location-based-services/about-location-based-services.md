@@ -15,7 +15,7 @@ Azure Location Based Services consists of five primary services to bolster Azure
 
 ![Azure Location Based Services Search.png](media/Introduction_Search.png)
 
-**Time Zone Service** – The Time Zone Service allows you to query current, historical, and future time zone information using either latitude-longitude pairs or an [IANA ID](www.iana.org/). The Time Zone service also allows for converting Microsoft Windows time zone IDs to IANA time zones, fetching a time zone offset to UTC and getting the current time in a respective time zone. 
+**Time Zone Service** – The Time Zone Service allows you to query current, historical, and future time zone information using either latitude-longitude pairs or an [IANA ID](http://www.iana.org/). The Time Zone service also allows for converting Microsoft Windows time zone IDs to IANA time zones, fetching a time zone offset to UTC and getting the current time in a respective time zone. 
 
 ![Azure Location Based Services Time Zones](media/Introduction_Time_Zones.png)
 
