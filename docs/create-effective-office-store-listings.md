@@ -145,11 +145,11 @@ Make your screenshots rich and informative. Help customers understand how your s
 |**Do**|**Don't**|
 |:------------|:--------------|
 |**Use clear and simple captions to convey your add-in's value.**|**Don’t use callouts that obstruct important content.**|
-|<img alt="Screenshot of an add-in with a clear and simple caption" src="images/screenshot-do.png" width="450"> |<img alt="Screenshot of an add-in with callouts that obstruct the text" src="images/screenshot-dont-1b.png" width="450"> |
+|<img alt="Screenshot of an add-in with a clear and simple caption" src="images/screenshot-do.png" width="500"> |<img alt="Screenshot of an add-in with callouts that obstruct the text" src="images/screenshot-dont-1b.png" width="500"> |
 |**When needed, make content legible with magnified close-ups.**|**Don't highlight more than one section.**|
-|<img alt="Screenshot of an add-in with one magnified closeup" src="images/highlight-do.png" width="450">|<img alt="Screenshot of an add-in with two magnified closeups" src="images/highlight-dont.png" width="450">|
+|<img alt="Screenshot of an add-in with one magnified closeup" src="images/highlight-do.png" width="500">|<img alt="Screenshot of an add-in with two magnified closeups" src="images/highlight-dont.png" width="500">|
 |**Incorporate recognizable brand elements like color or logo into screenshots.**|**Don't add unnecessary graphic elements that obstruct content.**|
-|<img alt="Screenshot of an add-in with color and logo" src="images/brand-color-do-1b.png" width="450">|<img alt="Screenshot of an add-in with multiple graphic elements" src="images/brand-color-dont-1b.png" width="450">|
+|<img alt="Screenshot of an add-in with color and logo" src="images/brand-color-do-1b.png" width="500">|<img alt="Screenshot of an add-in with multiple graphic elements" src="images/brand-color-dont-1b.png" width="500">|
 
 <br/>
 
@@ -166,9 +166,8 @@ Good ratings and reviews lead to better store placement and improved customer pe
 ![An image that shows a request to rate within an add-in next to a request to rate following a tutorial](images/rate-and-review-do-dont.png)
 
 ## Respond to customer reviews in the Office Store
-<a name="bk_ratings"> </a>
 
-You can use the comment feature in the Office Store to respond to customer reviews of your solution - for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to the Office Store with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
+You can use the comment feature in the Office Store to respond to customer reviews of your solution; for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to the Office Store with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
 
 *Figure 5. A developer response to a comment with the App provider label under the name*
 
@@ -179,7 +178,7 @@ If you've responded to a user review and the user responds to your comment, the 
 Responding directly to your customers increases your customer engagement and enables you to:
 
 - Help users with installation or other issues that can prompt negative reviews.
--  [Troubleshoot](http://msdn.microsoft.com/library/4e3a5129-5bb8-4aed-b122-200c6410d82c%28Office.15%29.aspx) issues and provide technical support to your users.
+- [Troubleshoot](http://msdn.microsoft.com/library/4e3a5129-5bb8-4aed-b122-200c6410d82c%28Office.15%29.aspx) issues and provide technical support to your users.
 - Encourage users to edit their rating when their issue is resolved, improving your global ratings over time.
 - Connect with your customers and discover what features to build, and why.
 - Indicate to users that their feedback is important and is monitored.
