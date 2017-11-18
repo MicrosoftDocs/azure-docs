@@ -1,29 +1,32 @@
+---
+title: Use the Seller Dashboard to submit your solution to the Office Store
+description: For your Office Add-in, Office 365 web app, or Power BI custom visual to appear in the Office Store, you need to submit it to the Seller Dashboard for approval.
+ms.date: 11/27/2017 
+---
+
 # Use the Seller Dashboard to submit your solution to the Office Store
 
-If you want your Office Add-in, Office 365 web app, or Power BI custom visual to appear in the Office Store, you need to submit it to the  [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First,  familiarize yourself with the [Office Store validation policies](validation-policies.md). You can add and save your submission as a draft in your Seller Dashboard account until you're ready to submit it for approval.
- 
+If you want your Office Add-in, Office 365 web app, or Power BI custom visual to appear in the Office Store, you need to submit it to the [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First, familiarize yourself with the [Office Store validation policies](validation-policies.md). You can add and save your submission as a draft in your Seller Dashboard account until you're ready to submit it for approval.
 
-If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, you can add a client ID and client secret in the Seller Dashboard before you add your add-in. For more information, see  [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md).
- 
+If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, you can add a client ID and client secret in the Seller Dashboard before you add your add-in. For more information, see [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md).
 
-If you're submitting Office 365 web apps to the Seller Dashboard, make sure that you have registered your web app with  [Azure Active Directory](https://msdn.microsoft.com/office/office365/HowTo/add-common-consent-manually). The Office Store currently accepts only Azure AD apps that use OAuth 2.0 and OpenID Connect as their authentication method.
- 
+If you're submitting Office 365 web apps to the Seller Dashboard, make sure that you have registered your web app with [Azure Active Directory](https://msdn.microsoft.com/office/office365/HowTo/add-common-consent-manually). The Office Store currently accepts only Azure AD apps that use OAuth 2.0 and OpenID Connect as their authentication method.
 
-For information about the Office Store approval process, see  [Submit to the Office Store](submit-to-the-office-store.md).
- 
+For information about the Office Store approval process, see [Submit to the Office Store](submit-to-the-office-store.md).
 
 ## Submission checklist
 
 This section lists the information that you need to provide when you submit your solution in the Seller Dashboard. 
 
 ### Add a new app
-Choose **Add a new app**. On the **Listing type** page, choose the type of solution that you are submitting to the store:
+
+Select **Add a new app**. On the **Listing type** page, select the type of solution that you are submitting to the store:
 
 - Azure AD web app
-- Office add-in
-- Outlook add-in
+- Office Add-in
+- Outlook Add-in
 - Power BI custom visual
-- SharePoint add-in
+- SharePoint Add-in
 - Teams app
 
 ### Overview page
@@ -53,7 +56,7 @@ Choose **Add a new app**. On the **Listing type** page, choose the type of solut
 |Long description|Required. One entry per language.|
 |Screenshots|At least one is required.|
 
-For more information, see [Store listing](office-store-listing.md).
+For more information, see [Create your Office Store listing](office-store-listing.md).
 
 ### Block access page
 
@@ -75,40 +78,28 @@ For details, see [Decide on a pricing model](decide-on-a-pricing-model.md).
 
 ## Submit for approval
 
-After your account in the Seller Dashboard is approved, you can submit your solution for approval. To submit an app for purchase, your payout and tax information must also be validated. Your approved apps and will be listed in product-specific stores.
+After your account in the Seller Dashboard is approved, you can submit your solution for approval. To submit an app for purchase, your payout and tax information must also be validated. Your approved apps will be listed in product-specific stores.
 
 ### To submit a new solution
 
-
 1. Complete the items listed in the checklist.
-    
- 
-2. Choose **SUBMIT FOR APPROVAL**.
-    
- 
+
+2. Select **SUBMIT FOR APPROVAL**.
 
 ### To submit a solution that you saved to the Seller Dashboard as a draft and need to edit
 
+1. On the **Manage** tab, select the item that you want to edit and submit.
 
-1. On the **manage** tab, choose the item you want to edit and submit.
-    
- 
-2.  On your summary page, choose **EDIT DRAFT** and make your changes. Choose **SUBMIT FOR APPROVAL**.
-    
- 
+2. On your summary page, select **EDIT DRAFT** and make your changes. Select **SUBMIT FOR APPROVAL**.
 
 ### To submit a solution that you saved to the Seller Dashboard as a draft
 
+1. On the **Manage** tab, select the entry that you want to submit.
 
-1. On the **manage** tab, choose the entry that you want to submit.
-    
- 
-2. On your summary page, choose  **SUBMIT FOR APPROVAL**.
+2. On your summary page, select **SUBMIT FOR APPROVAL**.
     
     > [!NOTE]
-    > After you submit a solution for approval, you cannot make changes to it during the approval process. When the approval process is complete, you will receive an email message indicating that your app was approved or that you need to make changes before it can be approved. 
- 
-
+    > After you submit a solution for approval, you cannot make changes to it during the approval process. When the approval process is complete, you receive an email message indicating that your app was approved or that you need to make changes before it can be approved. 
 
 ## Additional resources
 <a name="bk_addresources"> </a>
