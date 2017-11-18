@@ -39,7 +39,7 @@ You perform the following steps in this tutorial:
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ### Azure roles
-To create Data Factory instances, Azure user must be a member of **contributor** or **administrator** roles of the Azure subscription. For instructions, see [Add roles](../billing/billing-add-change-azure-subscription-administrator.md).
+To create Data Factory instances, the user account you use to log in to Azure must be a member of **contributor** or **owner** roles of the Azure subscription. For instructions, see [Add roles](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ### SQL Server 2014/2016/2017
 You use an on-premises SQL Server database as a **source** data store in this tutorial. Create a table named **emp** in your SQL Server database, and insert a couple of sample entries into the table.
