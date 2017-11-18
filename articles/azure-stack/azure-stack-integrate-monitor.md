@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 11/20/2017
 ms.author: twooley
 
 ---
@@ -24,7 +24,7 @@ ms.author: twooley
 For external monitoring of the Azure Stack infrastructure, you need to monitor the Azure Stack software, the physical computers, and the physical network switches. Each of these areas offers a method to retrieve health and alert information.
 
 - Azure Stack software offers a REST-based API to retrieve health and alerts. (With the use of software-defined technologies like Storage Spaces Direct, storage health and alerts are part of software monitoring.)
-- Physical computers communicate with the baseboard management controllers (BMCs) to gather health and alerts.
+- Physical computers can make health and alert information available via the baseboard management controllers (BMCs).
 - Physical network devices can make health and alert information available via the SNMP protocol.
 
 Each Azure Stack solution ships with a hardware lifecycle host. This host runs the Original Equipment Manufacturer (OEM) hardware vendor’s monitoring software for the physical servers and network devices. If desired, you can bypass these monitoring solutions and directly integrate with existing monitoring solutions in your datacenter.
@@ -36,11 +36,11 @@ The following diagram shows traffic flow between an Azure Stack integrated syste
 This article explains how to integrate Azure Stack with external monitoring solutions such as System Center Operations Manager and Nagios. It also includes how to work with alerts programmatically by using PowerShell or through REST API calls.
 
 > [!IMPORTANT]
-> The monitoring solution you use must be agentless. You can't install third-party agents inside Azure Stack components.
+> The external monitoring solution you use must be agentless. You can't install third-party agents inside Azure Stack components.
 
 ## Integrate with Operations Manager
 
-You can use Operations Manager for external monitoring of Azure Stack. The System Center Management Pack for Microsoft Azure Stack enables you to monitor multiple Azure Stack deployments with a single Operations Manager instance. The management pack uses the Health resource provider and Update resource provider REST APIs to communicate with Azure Stack. You can also install vendor management packs to monitor physical servers, and use Operations Manager network device discovery to monitor network switches.
+You can use Operations Manager for external monitoring of Azure Stack. The System Center Management Pack for Microsoft Azure Stack enables you to monitor multiple Azure Stack deployments with a single Operations Manager instance. The management pack uses the Health resource provider and Update resource provider REST APIs to communicate with Azure Stack. If you plan to bypass the OEM monitoring software that's running on the hardware lifecycle host, you can also install vendor management packs to monitor physical servers, and use Operations Manager network device discovery to monitor network switches.
 
 The management pack for Azure Stack provides the following capabilities:
 
@@ -88,7 +88,7 @@ Configure the plugin file “Azurestack_plugin.py” with the following paramete
 
 ## Use PowerShell to monitor health and alerts
 
-You can use PowerShell to retrieve health and alerts in Azure Stack. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack environment on a local computer that can reach the Resource Manager (administrator) endpoint (https://adminmanagement.[region].[External_FQDN]).
+If you're not using Operations Manager, Nagios, or a Nagios-based solution, PowerShell enables a broad range of monitoring solutions to be integrated with Azure Stack. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack environment on a local computer that can reach the Resource Manager (administrator) endpoint (https://adminmanagement.[region].[External_FQDN]).
 
 1. Run the following commands to connect to the Azure Stack environment as an Azure Stack operator:
 
@@ -97,7 +97,7 @@ You can use PowerShell to retrieve health and alerts in Azure Stack. To use Powe
 
    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
-3. Change to the directory where you installed the Azure Stack tools as part of the PowerShell installation, for example, c:\azurestack-tools-master. Then, change to the Infrastructure directory and run the following command to import the Infrastructure module:
+3. Change to the directory where you installed the [Azure Stack tools](https://github.com/Azure/AzureStack-Tools) as part of the PowerShell installation, for example, c:\azurestack-tools-master. Then, change to the Infrastructure directory and run the following command to import the Infrastructure module:
 
    ```PowerShell
    Import-Module .\AzureStack.Infra.psm1
@@ -446,7 +446,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 ### Get resource health
 
-The request gets health status for all registered resource providers.
+The request gets health status for a specific registered resource provider.
 
 **Request**
 
@@ -512,6 +512,6 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 ## Next steps
 
-- [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md)
+- For information about built-in health monitoring, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md)
 
 
