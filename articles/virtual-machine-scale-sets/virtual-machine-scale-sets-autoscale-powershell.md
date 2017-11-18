@@ -25,7 +25,7 @@ This article shows you how to create autoscale rules with Azure PowerShell that 
 
 
 ## Prerequisites
-To create autoscale rules, you need an existing virtual machine scale set. You can create a scale set with the [Azure portal](virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell), or [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
+To create autoscale rules, you need an existing virtual machine scale set. You can create a scale set with the [Azure portal](virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), or [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md).
 
 To make it easier to create the autoscale rules, define some variables for your scale set. The following example defines variables for the scale set named *myScaleSet* in the resource group named *myResourceGroup* and in the *East US* region. Your subscription ID is obtained with [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). If you have multiple subscriptions associated with your account, only the first subscription is returned. Adjust the names and subscription ID as follows:
 

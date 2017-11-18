@@ -25,7 +25,7 @@ This article shows you how to create autoscale rules with the Azure CLI 2.0 that
 
 
 ## Prerequisites
-To create autoscale rules, you need an existing virtual machine scale set. You can create a scale set with the [Azure portal](virtual-machine-scale-sets-portal-create.md), [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli), or [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell).
+To create autoscale rules, you need an existing virtual machine scale set. You can create a scale set with the [Azure portal](virtual-machine-scale-sets-portal-create.md), [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), or [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 To make it easier to create the autoscale rules, define some variables for your scale set. The following example defines variables for the scale set named *myScaleSet* in the resource group named *myResourceGroup* and in the *eastus* region. Your subscription ID is obtained with [az account show](/cli/azure/account#az_account_show). If you have multiple subscriptions associated with your account, only the first subscription is returned. Adjust the names and subscription ID as follows:
 
