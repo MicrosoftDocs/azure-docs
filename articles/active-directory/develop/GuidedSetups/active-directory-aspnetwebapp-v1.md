@@ -108,7 +108,6 @@ Replace Startup class with the code below:
 
 [!code-csharp[main](../../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
 
-```
 <!--start-collapse-->
 > ### More Information
 
@@ -207,7 +206,7 @@ Copy the project's SSL URL to the clipboard:<br/><br/>
 </li>
 </ol>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Project properties](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Project properties](media/active-directory-aspnetwebapp-v1/visual-studio-project-properties.png)<br />
 
 <!-- Workaround for Docs conversion bug -->
 <ol start="5">
