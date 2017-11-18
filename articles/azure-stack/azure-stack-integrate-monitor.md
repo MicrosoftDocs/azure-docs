@@ -40,7 +40,7 @@ This article explains how to integrate Azure Stack with external monitoring solu
 
 ## Integrate with Operations Manager
 
-You can use Operations Manager for external monitoring of Azure Stack. The System Center Management Pack for Microsoft Azure Stack enables you to monitor multiple Azure Stack deployments with a single Operations Manager instance. The management pack uses the Health resource provider and Update resource provider REST APIs to communicate with Azure Stack. If you plan to bypass the OEM monitoring software that's running on the hardware lifecycle host, you can also install vendor management packs to monitor physical servers, and use Operations Manager network device discovery to monitor network switches.
+You can use Operations Manager for external monitoring of Azure Stack. The System Center Management Pack for Microsoft Azure Stack enables you to monitor multiple Azure Stack deployments with a single Operations Manager instance. The management pack uses the Health resource provider and Update resource provider REST APIs to communicate with Azure Stack. If you plan to bypass the OEM monitoring software that's running on the hardware lifecycle host, you can install vendor management packs to monitor physical servers. You can also use Operations Manager network device discovery to monitor network switches.
 
 The management pack for Azure Stack provides the following capabilities:
 
@@ -88,7 +88,7 @@ Configure the plugin file “Azurestack_plugin.py” with the following paramete
 
 ## Use PowerShell to monitor health and alerts
 
-If you're not using Operations Manager, Nagios, or a Nagios-based solution, PowerShell enables a broad range of monitoring solutions to be integrated with Azure Stack. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack environment on a local computer that can reach the Resource Manager (administrator) endpoint (https://adminmanagement.[region].[External_FQDN]).
+If you're not using Operations Manager, Nagios, or a Nagios-based solution, you can use PowerShell to enable a broad range of monitoring solutions to integrate with Azure Stack. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack operator environment. Install PowerShell on a local computer that can reach the Resource Manager (administrator) endpoint (https://adminmanagement.[region].[External_FQDN]).
 
 1. Run the following commands to connect to the Azure Stack environment as an Azure Stack operator:
 
@@ -405,7 +405,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 {
 "value":[
 {
-"id":"/subscriptions/4aa97de3-6b83-4582-86e1-65a5e4d1295b/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/serviceHealths/03ccf38f-f6b1-4540-9dc8-ec7b6389ecca",
+"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/serviceHealths/03ccf38f-f6b1-4540-9dc8-ec7b6389ecca",
 "name":"03ccf38f-f6b1-4540-9dc8ec7b6389ecca",
 "type":"Microsoft.InfrastructureInsights.Admin/regionHealths/serviceHealths",
 "location":"local",
@@ -414,7 +414,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 "registrationId":"03ccf38f-f6b1-4540-9dc8-ec7b6389ecca",
 "displayName":"Key Vault",
 "namespace":"Microsoft.KeyVault.Admin",
-"routePrefix":"/subscriptions/4aa97de3-6b83-4582-86e1-65a5e4d1295b/resourceGroups/system.local/providers/Microsoft.KeyVault.Admin/locations/local",
+"routePrefix":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.KeyVault.Admin/locations/local",
 "serviceLocation":"local",
 "infraURI":"/subscriptions/4aa97de3-6b83-4582-86e1-65a5e4d1295b/resourceGroups/system.local/providers/Microsoft.KeyVault.Admin/locations/local/infraRoles/Key Vault",
 "alertSummary":{"criticalAlertCount":0,"warningAlertCount":0},
@@ -474,7 +474,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 {
 "value":
 [
-{"id":"/subscriptions/4aa97de3-6b83-4582-86e1-65a5e4d1295b/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/serviceHealths/472aaaa6-3f63-43fa-a489-4fd9094e235f/resourceHealths/028c3916-ab86-4e7f-b5c2-0468e607915c",
+{"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/serviceHealths/472aaaa6-3f63-43fa-a489-4fd9094e235f/resourceHealths/028c3916-ab86-4e7f-b5c2-0468e607915c",
 "name":"028c3916-ab86-4e7f-b5c2-0468e607915c",
 "type":"Microsoft.InfrastructureInsights.Admin/regionHealths/serviceHealths/resourceHealths",
 "location":"local",
@@ -485,7 +485,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 "resourceName":"Privileged endpoint",
 "usageMetrics":[],
 "resourceLocation":"local",
-"resourceURI":"/subscriptions/4aa97de3-6b83-4582-86e1-65a5e4d1295b/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/Privileged endpoint",
+"resourceURI":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/Privileged endpoint",
 "rpRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
 "alertSummary":{"criticalAlertCount":0,"warningAlertCount":0},"healthState":"Unknown"
 }
