@@ -127,7 +127,7 @@ az network application-gateway create \
 --resource-group "myresourcegroup" \
 --vnet-name "AdatumAppGatewayVNET" \
 --vnet-address-prefix "10.0.0.0/16" \
---subnet "Appgatewaysubnet \
+--subnet "Appgatewaysubnet" \
 --subnet-address-prefix "10.0.0.0/28" \
 --servers "10.0.0.5"  \
 --public-ip-address pip

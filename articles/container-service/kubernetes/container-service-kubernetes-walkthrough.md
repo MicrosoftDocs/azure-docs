@@ -22,6 +22,8 @@ ms.custom: H1Hack27Feb2017, mvc, devcenter
 
 # Deploy Kubernetes cluster for Linux containers
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 In this quick start, a Kubernetes cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet. 
 
 The example application used in this document is written in Python. The concepts and steps detailed here can be used to deploy any container image into a Kubernetes cluster. The code, Dockerfile, and pre-created Kubernetes manifest files related to this project are available on [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).

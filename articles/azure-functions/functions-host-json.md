@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 11/09/2017
 ms.author: tdykstra
 ---
 
@@ -43,12 +43,12 @@ The following sample *host.json* file has all possible options specified.
       "prefetchCount": 256,
       "batchCheckpointFrequency": 1
     },
-    "functions": [ "QueueProcessor", "GitHubWebHook" ]
+    "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 
+        "maxConcurrentRequests": 10,
         "dynamicThrottlesEnabled": false
     },
     "id": "9f4ea53c5136457d883d685e57164f08",
@@ -133,23 +133,9 @@ Controls the [sampling feature in Application Insights](functions-monitoring.md#
 
 ## eventHub
 
-Configuration setting for [Event Hub triggers and bindings](functions-bindings-event-hubs.md).
+Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs.md).
 
-```json
-{
-    "eventHub": {
-      "maxBatchSize": 64,
-      "prefetchCount": 256,
-      "batchCheckpointFrequency": 1
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|maxBatchSize|64|The maximum event count received per receive loop.|
-|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying EventProcessorHost.| 
-|batchCheckpointFrequency|1|The number of event batches to process before creating an EventHub cursor checkpoint.| 
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## functions
 
@@ -256,21 +242,7 @@ Configuration settings for [Storage queue triggers and bindings](functions-bindi
 
 Configuration setting for [Service Bus triggers and bindings](functions-bindings-service-bus.md).
 
-```json
-{
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. | 
-|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.| 
-|autoRenewTimeout|00:05:00|The maximum duration within which the message lock will be renewed automatically.| 
+[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
 ## singleton
 

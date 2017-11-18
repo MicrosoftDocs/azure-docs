@@ -90,9 +90,13 @@
 ### [Set up DR using backup/restore](api-management-howto-disaster-recovery-backup-restore.md)
 ### [Manage user accounts](api-management-howto-create-or-invite-developers.md)
 ### [Configure using Git](api-management-configuration-repository-git.md)
-## Integrate with Service Fabric
-### [Overview](../service-fabric/service-fabric-api-management-overview.md)
-### [Quickstart](../service-fabric/service-fabric-api-management-quick-start.md)
+### [Monitor using Azure Monitor](api-management-howto-use-azure-monitor.md)
+### [Use role-based access control](api-management-role-based-access-control.md)
+### [Use Managed Service Identity](api-management-howto-use-managed-service-identity.md)
+### Integrate with Service Fabric
+#### [Overview](../service-fabric/service-fabric-api-management-overview.md)
+#### [Tutorial](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
+
 # Reference
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)

@@ -43,10 +43,12 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 1. If you have not already done so, register your development kit and download the Windows Server 2016 Datacenter Core image downloadable through Marketplace Management. You must use a Windows Server 2016 Core image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image) - be sure to select the core option. The .NET 3.5 runtime is no longer required.
 
 2. Sign in to a host that can access the Privileged Endpoint VM.
+
     a. On Azure Stack Development Kit (ASDK) installations, sign in to the physical host.
+
     b. On multi-node systems, the host must be a system that can access the Privileged Endpoint.
 
-3. [Download the SQL resource provider binaries file](https://aka.ms/azurestacksqlrp) and extract it to a temporary directory.
+3. [Download the SQL resource provider binaries file](https://aka.ms/azurestacksqlrp) and execute the self-extractor to extract the contents to a temporary directory.
 
 4. The Azure Stack root certificate is retrieved from the Privileged Endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
@@ -71,35 +73,32 @@ The script performs these steps:
 - Register your resource provider with the local Azure Resource Manager (user and admin).
 
 > [!NOTE]
-> If the installation takes more than 90 minutes, it may fail and you see a failure message on the screen and in the log file, but the deployment is retried from the failing step. Systems that do not meet the recommended memory and core specifications may not be able to deploy the SQL RP.
+> If the installation takes more than 90 minutes, it may fail and you see a failure message on the screen and in the log file, but the deployment is retried from the failing step. Systems that do not meet the recommended memory and vCPU specifications may not be able to deploy the SQL RP.
 >
 
 Here's an example you can run from the PowerShell prompt (but change the account information and passwords as needed):
 
 ```
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = "AzureStack"
-# Extract the downloaded file by executing it and pointing to a temp directory
-$tempDir = "C:\TEMP\SQLRP"
-# The service admin (can be AAD or ADFS)
-$serviceAdmin = "admin@mydomain.onmicrosoft.com"
-
-# Install the AzureRM.Bootstrapper module
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
 Install-Module -Name AzureRm.BootStrapper -Force
-
-# Install and imports the API Version Profile required by Azure Stack into the current PowerShell session.
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Create the credentials needed for the deployment - local VM
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+$domain = "AzureStack"
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
 
-# and the Service Admin credential
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# and the cloud admin credential required for Privileged Endpoint access
+# Set the credentials for the Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
@@ -108,7 +107,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### DeploySqlProvider.ps1 parameters
@@ -116,7 +115,7 @@ You can specify these parameters in the command line. If you do not, or any para
 
 | Parameter Name | Description | Comment or Default Value |
 | --- | --- | --- |
-| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privleged Endpoint. | _required_ |
+| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the Privileged Endpoint. | _required_ |
 | **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. Use the same credentials as you used for deploying Azure Stack). | _required_ |
 | **VMLocalCredential** | Define the credentials for the local administrator account of the SQL resource provider VM. | _required_ |
 | **PrivilegedEndpoint** | Provide the IP address or DNS Name of the Privleged Endpoint. |  _required_ |
@@ -136,7 +135,7 @@ You can specify these parameters in the command line. If you do not, or any para
 
 1. Sign in to the admin portal as the service administrator.
 
-2. Verify that the deployment succeeded. Browse for **Resource Groups** &gt;, click on the **system.<location>.sqladapter** resource group and verify that all five deployments succeeded.
+2. Verify that the deployment succeeded. Browse for **Resource Groups** &gt;, click on the **system.\<location\>.sqladapter** resource group and verify that all four deployments succeeded.
 
       ![Verify Deployment of the SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 

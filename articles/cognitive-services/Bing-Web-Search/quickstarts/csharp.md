@@ -12,13 +12,13 @@ ms.date: 9/18/2017
 ms.author: v-jerkin
 
 ---
-# Call and response: your first Bing Image Search query in C#
+# Call and response: your first Bing Web Search query in C#
 
 The Bing Web Search API provides a experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
 
 This article includes a simple console application that performs a Bing Web Search API query and displays the returned raw search results, which are in JSON format. While this application is written in C#, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
 
-The example program uses .NET Core classes only and runs on Windows using the .NET CLR or on Linux or Mac OS X using [Mono](http://www.mono-project.com/).
+The example program uses .NET Core classes only and runs on Windows using the .NET CLR or on Linux or macOS using [Mono](http://www.mono-project.com/).
 
 ## Prerequisites
 

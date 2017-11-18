@@ -40,21 +40,7 @@ The Classic registry SKU enabled the initial release of the Azure Container Regi
 
 The following table details the features and limits of the Basic, Standard, and Premium service tiers.
 
-| Feature | Basic | Standard | Premium |
-|---|---|---|---|---|
-| Storage | 10 GiB | 100 GiB| 500 GiB |
-| ReadOps per minute<sup>1, 2</sup> | 1k | 300k | 10,000k |
-| WriteOps per minute<sup>1, 3</sup> | 100 | 500 | 2k |
-| Download bandwidth MBps<sup>1</sup> | 30 | 60 | 100 |
-| Upload bandwidth MBps<sup>1</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
-| Geo-replication | N/A | N/A | [Supported *(preview)*](container-registry-geo-replication.md) |
-
-<sup>1</sup> *ReadOps*, *WriteOps*, and *Bandwidth* are minimum estimates. ACR strives to improve performance as usage requires.
-
-<sup>2</sup> [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) translates to multiple read operations based on the number of layers in the image, plus the manifest retrieval.
-
-<sup>3</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) translates to multiple write operations, based on the number of layers that must be pushed. A `docker push` includes *ReadOps* to retrieve a manifest for an existing image.
+[!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## Manage registry size
 The storage constraints of each SKU are intended to align with a typical scenario: Basic for getting started, Standard for the majority of production apps, and Premium for hyper-scale performance and [geo-replication](container-registry-geo-replication.md). Throughout the life of your registry, you should manage its size by periodically deleting unused content.
@@ -100,6 +86,10 @@ Some of the benefits of managed storage provided by Basic, Standard, and Premium
 * Container images are [encrypted at rest](../storage/common/storage-service-encryption.md).
 * Images are stored using [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage), assuring backup of your images with multi-region replication.
 * Ability to [move to between SKUs](#changing-skus), enabling higher throughput when you choose a higher-level SKU. With each SKU, ACR can meet your throughput requirements as your needs increase. The underlying implementation of how ACR achieves the desired throughput is expressed as *intent* (by selecting higher SKUs), without you having to manage the details of the implementation.
+
+## Pricing
+
+For pricing information on each of the Azure Container Registry SKUs, see [Container Registry pricing](https://azure.microsoft.com/pricing/details/container-registry/).
 
 ## Next steps
 

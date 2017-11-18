@@ -3,7 +3,7 @@ title: Create a Python web app in Azure | Microsoft Docs
 description: Deploy your first Python Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
-author: syntaxc4
+author: cephalin
 manager: cfowler
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/17/2017
-ms.author: cfowler
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ---
 # Create a Python web app in Azure
@@ -42,12 +42,10 @@ In a terminal window, run the following command to clone the sample app reposito
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
 
-You use this terminal window to run all the commands in this quickstart.
-
 Change to the directory that contains the sample code.
 
 ```bash
-cd Python-docs-hello-world
+cd python-docs-hello-world
 ```
 
 ## Run the app locally
@@ -80,23 +78,17 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)]
+## Create a web app
 
-![Empty web app page](media/app-service-web-get-started-python/app-service-web-service-created.png)
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-python-no-h.md)]
 
-You’ve created an empty new web app in Azure.
+Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
 
-## Configure to use Python
-
-Use the [az webapp config set](/cli/azure/webapp/config#set) command to configure the web app to use Python version `3.4`.
-
-```azurecli-interactive
-az webapp config set --python-version 3.4 --name <app_name> --resource-group myResourceGroup
+```bash
+http://<app name>.azurewebsites.net
 ```
 
-Setting the Python version this way uses a default container provided by the platform. To use your own container, see the CLI reference for the [az webapp config container set](/cli/azure/webapp/config/container#set) command.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)]
+![Empty web app page](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)]
 
@@ -164,7 +156,7 @@ Using a local text editor, open the `main.py` file in the Python app, and make a
 return 'Hello, Azure!'
 ```
 
-Commit your changes in Git, and then push the code changes to Azure.
+In the local terminal window, commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated output"

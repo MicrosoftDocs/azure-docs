@@ -13,8 +13,8 @@ ms.custom: migrate
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 10/13/2016
+ms.workload: "Inactive"
+ms.date: 10/14/2016
 ms.author: Joe.Sack
 ms.suite: SQL
 ms.prod_service: sql-database
@@ -32,12 +32,13 @@ The purpose of this article is to succinctly organize resources and guidance tha
 ## Manage business continuity after migration
 
 ### How do I create and manage backups on SQL Database? 
-SQL Database automatically backs up databases for you and provides you the ability to restore to any point in time in the retention period. The retention period is 35 days for Standard and Premium databases and 7 days for Basic databases. In addition, the Long-Term Retention feature allows you to hold backup files for a longer period (up to 10 years), and restore from these backups at any point. If you wish to back up your data to an on-premise location, you could export your database to BACPAC files. Furthermore, the database backups are geo-replicated to ensure the ability to geo-restore in any region in the event of a disaster or regional catastrophe. See [Business continuity overview](sql-database-business-continuity.md).
+SQL Database automatically backs up databases for you and provides you the ability to restore to any point in time in the retention period. The retention period is 35 days for Standard and Premium databases and 7 days for Basic databases. In addition, the Long-Term Retention feature allows you to hold backup files for a longer period (up to 10 years), and restore from these backups at any point. Furthermore, the database backups are geo-replicated to ensure the ability to geo-restore in any region in the event of a disaster or regional catastrophe. See [Business continuity overview](sql-database-business-continuity.md).
 
 ### How do I ensure business continuity in the event of a datacenter-level disaster or a regional catastrophe? 
 
 Database backups are geo-replicated to ensure the ability to geo-restore in any region in the event of a disaster or regional catastrophe. See [Business continuity overview](sql-database-business-continuity.md). In addition, SQL Database provides the capability to maintain actively geo-replicated secondary databases in another region. Configuring them in an Auto-Failover Group will ensure that the databases automatically fail over to the secondary in a disaster scenario. If an auto-failover group is not configured, then your application needs to actively monitor for a disaster and initiate a failover to the secondary. 
-SQL Server provided me Readable Secondary Replicas, can I access the secondaries on SQL Database? 
+### SQL Server provided me Readable Secondary Replicas, can I access the secondaries on SQL Database? 
+
 Yes, the ‘Active Geo Replication’ feature is used to create Readable Secondary Replicas. 
 
 ### How does my disaster recovery plan change from on-premise to SQL Database? 
@@ -46,7 +47,7 @@ SQL Server implementations required you to actively manage backups using feature
 ### In the event of disaster, how do I recover my databases? 
 SQL Database automatically lets you restore your databases to any point in time in the last 35 days. This is an option if you lose data or face an application-related disaster. 
 
-In case you face a regional disaster, you can geo-restore from your geo-secondary in another region (you should configure geo-restore on the Azure portal upfront, this is not automatic like point-in-time restore). For real-time access to your applications, you can fail over to the geo-secondary in the other region manually. Alternatively, if you have auto-failover group configured, this failover to a geo-secondary happens automatically in a disaster scenario. 
+In case you face a regional disaster, if the geo-replicated secondary databases are configured, you can recover from your geo-secondary databases in another region. For real-time access to your applications, you can fail over to the geo-secondary in the other region manually. Alternatively, if you have auto-failover group configured, this failover to a geo-secondary happens automatically in a disaster scenario. If you don’t have geo-replicated secondary database configured, you can still recover your databases from automatic replicated backup files (built-in functionality, configuration is not needed), with relatively longer recovery time (12 hours RTO) and up to one hour data loss. 
 
 ### Are the failovers to secondary transparent? How does my application handle database failovers? 
 If you have auto-failover groups configured, then the failover to secondary is transparent. However, if you have not, then your application needs to incorporate the logic to monitor availability of the primary and then manually fail over to the secondary. 

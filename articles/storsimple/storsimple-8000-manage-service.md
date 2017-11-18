@@ -71,7 +71,7 @@ Review the impact of migrating to the new Azure portal before you move the servi
 
 #### Before you transition
 
-* Your device is running Update 3.0 or later. If your device is running an older version, install the latest updates. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md). If using a StorSimple Cloud Appliance (8010/8020), you cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance with Update 5.0 and then fail over to the new cloud appliance created.
+* Your device is running Update 3.0 or later. If your device is running an older version, we strongly recommend that you install Update 5 via the hotfix method. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md). If using a StorSimple Cloud Appliance (8010/8020), you cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance with Update 5.0 and then fail over to the new cloud appliance created.
 
 * Once you are transitioned to the new Azure portal, you cannot use the Azure classic portal to manage your StorSimple device.
 
@@ -111,6 +111,7 @@ Perform the following steps to transition your service to the Azure portal.
 
 Once the transition is complete, you can manage your devices via the StorSimple Device Manager service in the Azure portal. If you do not see an option to migrate to Azure portal but you want to move, you can [submit a request](https://aka.ms/ss8000-cx-signup).
 
+## Supported operations on devices running versions prior to Update 3.0
 In the Azure portal, only the StorSimple devices running Update 3.0 and higher are supported. The devices that are running older versions have limited support. After you have migrated to the Azure portal, use the following table to understand which operations are supported on devices running versions prior to Update 3.0.
 
 | Operation                                                                                                                       | Supported      |

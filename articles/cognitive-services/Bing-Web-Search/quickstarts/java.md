@@ -12,7 +12,7 @@ ms.date: 9/18/2017
 ms.author: v-jerkin
 
 ---
-# Call and response: your first Bing Image Search query in Java
+# Call and response: your first Bing Web Search query in Java
 
 The Bing Web Search API provides a experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
 
@@ -52,7 +52,7 @@ import javax.net.ssl.HttpsURLConnection;
  * the command line as follows.
  *
  * javac BingWebSearch.java -classpath .;gson-2.8.1.jar -encoding UTF-8
- * java -cp .;gson-2.8.1.jar DetectLanguage
+ * java -cp .;gson-2.8.1.jar BingWebSearch
  */
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
