@@ -69,7 +69,7 @@ Here are some generated sample events:
 ### Predictive model for high-frequency trading
 For the purpose of demonstration, we use a linear model described by Darryl Shen in [his paper](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf).
 
-Volume order imbalance (VOI) is a function of current bid/ask price and volume, and bid/ask price/volume from the last tick. The paper identifies the correlation between VOI and future price movement. It builds a linear model between the past 5 VOI values and the price change in the next 10 ticks. The model is trained by using previous day's data with linear regression. 
+Volume order imbalance (VOI) is a function of current bid/ask price and volume, and bid/ask price and volume from the last tick. The paper identifies the correlation between VOI and future price movement. It builds a linear model between the past 5 VOI values and the price change in the next 10 ticks. The model is trained by using previous day's data with linear regression. 
 
 The trained model is then used to make price change predictions on quotes in the current trading day in real time. When a large enough price change is predicted, a trade is executed. Depending on the threshold setting, thousands of trades can be expected for a single stock during a trading day.
 
@@ -102,7 +102,7 @@ First, the inputs are cleaned up. Epoch time is converted to datetime via **DATE
     	WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
 
-Next, we use the **LAG** function to get values from the last tick. One hour of **LIMIT DURATION** value is arbitrarily chosen. Given the quote frequency, it's safe to assume that you can find the previous tick by looking back for one hour.  
+Next, we use the **LAG** function to get values from the last tick. One hour of **LIMIT DURATION** value is arbitrarily chosen. Given the quote frequency, it's safe to assume that you can find the previous tick by looking back one hour.  
 
     shiftedquotes AS (
         /* get previous bid/ask price and size in order to calculate VOI */
@@ -167,7 +167,7 @@ Now, we use **LAG** again to create a sequence with 2 consecutive VOI values, fo
     	FROM currentPriceAndVOI
     ),
 
-We then reshape the data into inputs for a two-variable linear model. Again filter out the events where we don't have all the data.
+We then reshape the data into inputs for a two-variable linear model. Again, we filter out the events where we don't have all the data.
 
     modelInput AS (
         /* create feature vector, x being VOI, y being delta price */
@@ -314,7 +314,7 @@ Now, we can make predictions and generate buy/sell signals based on the model, w
 ### Trading simulation
 After we have the trading signals, we want to test how effective the trading strategy is, without trading for real. 
 
-We achieve this test with a UDA, with a hopping window, hopping every one minute. The additional grouping on date and the having clause allow the window only accounts for events that belong to the same day. For a hopping window going across two days, the **GROUP BY** date separates the grouping into previous day and current day. The **HAVING** clause filters out the windows ending on the current day, but grouping on the previous day.
+We achieve this test by using a UDA, with a hopping window, hopping every one minute. The additional grouping on date and the having clause allow the window only accounts for events that belong to the same day. For a hopping window across two days, the **GROUP BY** date separates the grouping into previous day and current day. The **HAVING** clause filters out the windows that are ending on the current day but grouping on the previous day.
 
     simulation AS
     (
@@ -329,13 +329,13 @@ We achieve this test with a UDA, with a hopping window, hopping every one minute
     	Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
     )
 
-The JavaScript UDA initializes all accumulators in the init function, computes the state transition with every event added to the window, and returns the simulation results at the end of the window. The general trading process is to:
+The JavaScript UDA initializes all accumulators in the `init` function, computes the state transition with every event added to the window, and returns the simulation results at the end of the window. The general trading process is to:
 
 - Buy stock when a buy signal is received and there is no stocking holding.
 - Sell stock when a sell signal is received and there is stock holding.
 - Short if there is no stock holding. 
 
-If there's a short position, and a buy signal is received, we buy to cover. We never hold or short 10 shares of a given stock in this simulation. The transaction cost is a flat $8.
+If there's a short position, and a buy signal is received, we buy to cover. We never hold or short 10 shares of a stock in this simulation. The transaction cost is a flat $8.
 
 
     function main() {
@@ -444,10 +444,10 @@ Finally, we output to the Power BI dashboard for visualization.
 
 
 ## Summary
-We can implement a realistic high-frequency trading model with a moderately complex query in Azure Stream Analytics. We have to simplify the model from five input variables to two, because of the lack of built-in linear regression function. But for a determined user, algorithms with higher dimensions and sophistication can possibly be implemented as JavaScript UDA as well. 
+We can implement a realistic high-frequency trading model with a moderately complex query in Azure Stream Analytics. We have to simplify the model from five input variables to two, because of the lack of a built-in linear regression function. But for a determined user, algorithms with higher dimensions and sophistication can possibly be implemented as JavaScript UDA as well. 
 
 It's worth noting that most of the query, other than the JavaScript UDA, can be tested and debugged in Visual Studio through [Azure Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio.md). After the initial query was written, the author spent less than 30 minutes testing and debugging the query in Visual Studio. 
 
-Currently, the UDA cannot be debugged in Visual Studio. We are working on enabling that with the ability to step through JavaScript code. In addition, note that the fields reaching the UDA have lowercase names. This was not an obvious behavior during query testing. However, with Azure Stream Analytics compatibility level 1.1, we preserve the field name casing so the behavior is more natural.
+Currently, the UDA cannot be debugged in Visual Studio. We are working on enabling that with the ability to step through JavaScript code. In addition, note that the fields reaching the UDA have lowercase names. This was not an obvious behavior during query testing. But with Azure Stream Analytics compatibility level 1.1, we preserve the field name casing so the behavior is more natural.
 
-I hope this article serves as an inspiration for all Azure Stream Analytics users, who can use our service to perform advanced analytics in near real time, continuously. Let us know any feedback you have to make it easier to implement queries for advance analytics scenarios.
+I hope this article serves as an inspiration for all Azure Stream Analytics users, who can use our service to perform advanced analytics in near real time, continuously. Let us know any feedback you have to make it easier to implement queries for advanced analytics scenarios.
