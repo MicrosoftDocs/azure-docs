@@ -10,7 +10,11 @@
   - name: Set up auto provisioning
     href: quick-setup-auto-provision.md
   - name: Create simulated device
-    href: quick-create-simulated-device.md
+    items:
+    - name: TPM
+      href: quick-create-simulated-device.md
+    - name: X.509
+      href: quick-create-simulated-device-x509.md
 - name: Tutorials
   items:
   - name: 1 - Set up cloud resources
@@ -29,7 +33,6 @@
     href: concepts-service.md
   - name: Security concepts
     href: concepts-security.md
-  - name: Security 
 - name: How-to guides
   items:
   - name: Manage device enrollments

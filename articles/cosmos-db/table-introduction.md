@@ -2,7 +2,7 @@
 title: Introduction to the Azure Cosmos DB Table API | Microsoft Docs
 description: Learn how you can use Azure Cosmos DB to store and query massive volumes of key-value data with low latency by using the popular OSS MongoDB APIs.
 services: cosmos-db
-author: bhanupr
+author: mimig
 manager: jhubbard
 editor: monicar
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2017
-ms.author: arramac
+ms.date: 11/15/2017
+ms.author: mimig1
 
 ---
-# Introduction to Azure Cosmos DB: Table API
+# Introduction to Azure Cosmos DB Table API
 
-[Azure Cosmos DB](introduction.md) provides the Table API (preview) for applications that are written for Azure Table storage and that need premium capabilities like:
+[Azure Cosmos DB](introduction.md) provides the Table API for applications that are written for Azure Table storage and that need premium capabilities like:
 
 * [Turnkey global distribution](distribute-data-globally.md).
 * [Dedicated throughput](partition-data.md) worldwide.
@@ -36,9 +36,9 @@ We recommend that you watch the following video, where Aravind Ramachandran expl
 > 
 
 ## Table offerings
-If you currently use Azure Table Storage, you gain the following benefits by moving to the Azure Cosmos DB Table API (preview):
+If you currently use Azure Table Storage, you gain the following benefits by moving to the Azure Cosmos DB Table API:
 
-| | Azure Table storage | Azure Cosmos DB Table API (preview) |
+| | Azure Table storage | Azure Cosmos DB Table API |
 | --- | --- | --- |
 | Latency | Fast, but no upper bounds on latency. | Single-digit millisecond latency for reads and writes, backed with <10-ms latency reads and <15-ms latency writes at the 99th percentile, at any scale, anywhere in the world. |
 | Throughput | Variable throughput model. Tables have a scalability limit of 20,000 operations/s. | Highly scalable with [dedicated reserved throughput per table](request-units.md) that's backed by SLAs. Accounts have no upper limit on throughput and support >10 million operations/s per table. |
@@ -47,7 +47,7 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 | Query | Query execution uses index for primary key, and scans otherwise. | Queries can take advantage of automatic indexing on properties for fast query times. The Azure Cosmos DB database engine is capable of supporting aggregates, geospatial, and sorting. |
 | Consistency | Strong within primary region. Eventual within secondary region. | [Five well-defined consistency levels](consistency-levels.md) to trade off availability, latency, throughput, and consistency based on your application needs. |
 | Pricing | Storage-optimized. | Throughput-optimized. |
-| SLAs | 99.99% availability. | 99.99% availability within a single region, and the ability to add more regions for higher availability. [Industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) on general availability. |
+| SLAs | 99.99% availability. | 99.99% availability SLA for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts [Industry-leading comprehensive SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) on general availability. |
 
 ## Get started
 
@@ -61,5 +61,7 @@ Here are a few pointers to get you started:
 * [Query table data by using the Table API](tutorial-query-table.md)
 * [Learn how to set up Azure Cosmos DB global distribution by using the Table API](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB Table .NET API](table-sdk-dotnet.md)
-
+* [Azure Cosmos DB Table Java API](table-sdk-java.md)
+* [Azure Cosmos DB Table Node.js API](table-sdk-nodejs.md)
+* [Azure Cosmos DB Table SDK for Python](table-sdk-python.md)
 

@@ -1,5 +1,5 @@
----
-title: Kubernertes on Azure tutorial  - Scale Application | Microsoft Docs
+﻿---
+title: Kubernetes on Azure tutorial  - Scale Application | Microsoft Docs
 description: AKS tutorial - Scale Application
 services: container-service
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -46,7 +46,7 @@ If you created your Kubernetes cluster using the commands in the previous tutori
 The following example increases the number of nodes to three in the Kubernetes cluster named *myK8sCluster*. The command takes a couple of minutes to complete.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --agent-count 3
+az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
 ```
 
 The output is similar to:

@@ -1,5 +1,5 @@
 
-GPU optimized VM sizes are for specialized virtual machines targeted for heavy graphic rendering and video editing. Available with single or multiple GPUs. This article provides information about the number of vCPUs, data disks, and NICs as well as storage throughput and network performance for each size in this grouping. 
+GPU optimized VM sizes are for specialized virtual machines targeted for heavy graphic rendering and video editing. Available with single or multiple GPUs. This article provides information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for each size in this grouping. 
 
 
 The NC and NV sizes are also known as GPU-enabled instances. They are specialized virtual machine sizes that include NVIDIA's GPU cards, optimized for different scenarios and use cases. The NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios utilizing frameworks such as OpenGL and DirectX. The NC sizes are more optimized for compute-intensive and network-intensive applications and algorithms, including CUDA- and OpenCL-based applications and simulations. 

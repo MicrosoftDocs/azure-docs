@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services 
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
 
 ---
@@ -47,15 +47,13 @@ Verify that you have met the following criteria before beginning your configurat
 The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article. For more information about VPN Gateway settings in general, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 * **VNet Name:** TestVNet1
-* **Address Space:** 
-  * 10.11.0.0/16
-  * 10.12.0.0/16 (optional for this exercise)
-* **Subnets:**
-  * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24 (optional for this exercise)
-* **GatewaySubnet:** 10.11.255.0/27
+* **Address Space:** 10.11.0.0/16 and 10.12.0.0/16 (optional for this exercise)
+* **Subscription:** The subscription you want to use
 * **Resource Group:** TestRG1
 * **Location:** East US
+* **Subnet:** FrontEnd: 10.11.0.0/24, BackEnd: 10.12.0.0/24 (optional for this exercise)
+* **Gateway Subnet name:** GatewaySubnet (this will auto-fill in the portal)
+* **Gateway Subnet address range:** 10.11.255.0/27
 * **DNS Server:** Optional. The IP address of your DNS server.
 * **Virtual Network Gateway Name:** VNet1GW
 * **Public IP:** VNet1GWIP
@@ -64,6 +62,7 @@ The examples in this article use the following values. You can use these values 
 * **Gateway Type:** VPN
 * **Local Network Gateway Name:** Site2
 * **Connection Name:** VNet1toSite2
+* **Shared key:** For this example, we use abc123. But, you can use whatever is compatible with your VPN hardware. The important thing is that the values match on both sides of the connection.
 
 ## <a name="CreatVNet"></a>1. Create a virtual network
 
@@ -122,10 +121,21 @@ Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connect
 
 For the steps to change a gateway SKU, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
+## <a name="addconnect"></a>How to add an additional connection to a VPN gateway
+
+You can add additional connections, provided that none of the address spaces overlap between connections.
+
+1. To add an additional connection, navigate to the VPN gateway, then click **Connections** to open the Connections page.
+2. Click **+Add** to add your connection. Adjust the connection type to reflect either VNet-to-VNet (if connecting to another VNet gateway), or Site-to-site.
+3. If you are connecting using Site-to-site and you have not already created a local network gateway for the site you want to connect to, you can create a new one.
+4. Specify the shared key that you want to use, then click **OK** to create the connection.
+
 ## Next steps
 
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
-* For information about Forced Tunneling, see [About Forced Tunneling](vpn-gateway-forced-tunneling-rm.md).
+* For information about forced tunneling, see [About forced tunneling](vpn-gateway-forced-tunneling-rm.md).
 * For information about Highly Available Active-Active connections, see [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
-* For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
-* For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
+* For information about how to limit network traffic to resources in a virtual network, see [Network Security](../virtual-network/security-overview.md).
+* For information about how Azure routes traffic between Azure, on-premises, and Internet resources, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md).
+* For information about creating a Site-to-Site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
+* For information about creating a Vnet-to-Vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

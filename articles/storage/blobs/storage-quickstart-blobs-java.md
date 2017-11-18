@@ -67,11 +67,16 @@ If you wish to run the sample using Maven at the commandline, open a shell and n
 The following is an example of output if you were to run the application on Windows.
 
 ```
-Location of file: C:\Users\<user>\Documents\results.txt
-File has been written
-URI of blob is: http://myexamplesacct.blob.core.windows.net/quickstartblobs/results.txt
+Azure Blob storage quick start sample
+Creating container: quickstartcontainer
+Creating a sample file at: C:\Users\<user>\AppData\Local\Temp\sampleFile514658495642546986.txt
+Uploading the sample file 
+URI of blob is: https://myexamplesacct.blob.core.windows.net/quickstartcontainer/sampleFile514658495642546986.txt
 The program has completed successfully.
 Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
+
+Deleting the container
+Deleting the source, and downloaded files
 ```
 
  Before you continue, check your default directory (My Documents, for windows users) for the two files. You can open them and see they are identical. Copy the URL for the blob out of the console window and paste it into a browser to view the contents of the file in Blob storage. When you press the enter key, it deletes the storage container and the files.
@@ -82,19 +87,23 @@ After you've verified the files, press the enter key to finish the demo and dele
 
 ## Understand the sample code
 
+Next, we walk through the sample code so that you can understand how it works.
+
+### Get references to the storage objects
+
 The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
 
 * Create an instance of the **CloudStorageAccount** object pointing to the [storage account](/java/api/com.microsoft.azure.management.storage._storage_account).
 
-The **CloudStorageAccount** object is a representation of your storage account and it allows you to set and access storage account properties programmatically. Using the **CloudStorageAccount** object you can create an instance of the **CloudBlobClient**, which is necessary to access the blob service.
+    The **CloudStorageAccount** object is a representation of your storage account and it allows you to set and access storage account properties programmatically. Using the **CloudStorageAccount** object you can create an instance of the **CloudBlobClient**, which is necessary to access the blob service.
 
 * Create an instance of the **CloudBlobClient** object, which points to the [Blob service](/java/api/com.microsoft.azure.storage.blob._cloud_blob_client) in your storage account.
 
-The **CloudBlobClient** provides you a point of access to the blob service, allowing you to set and access blob storage properties programmatically. Using the **CloudBlobClient** you can create an instance of the **CloudBlobContainer** object, which is necessary to create containers.
+    The **CloudBlobClient** provides you a point of access to the blob service, allowing you to set and access blob storage properties programmatically. Using the **CloudBlobClient** you can create an instance of the **CloudBlobContainer** object, which is necessary to create containers.
 
 * Create an instance of the **CloudBlobContainer** object, which represents the [container](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.    
 
-Once you have the **CloudBlobContainer**, you can create an instance of the **CloudBlockBlob** object that points to the specific [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) in which you are interested, and perform an upload, download, copy, etc. operation.
+    Once you have the **CloudBlobContainer**, you can create an instance of the **CloudBlockBlob** object that points to the specific [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) in which you are interested, and perform an upload, download, copy, etc. operation.
 
 > [!IMPORTANT]
 > Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
