@@ -24,10 +24,13 @@ Second, access [Visual Studio Team System](https://www.visualstudio.com) and cre
 
 ## Create a new Azure Machine Learning project
 Launch Azure Machine Learning Workbench, and create a new project (for example, _iris_). Fill the **Visualstudio.com GIT Repository URL** textbox with a valid VSTS Git repo URL. 
->[!IMPORTANT]
->Project creation fails if You do not have read/write access on the Git repo, and the Git repo is not empty, i.e. it already has a master branch.
+
+> [!IMPORTANT]
+> If you choose the blank project template, it is OK if the Git repo you choose already has a _master_ branch. Azure ML simply clones the _master_ branch locally, and add the `aml_config` folder and other project metadata files to the local project folder. But if you choose any other project template, your Git repo must not already have a _master_ branch, or you will see an error. The alternative is to use `az ml project create` command line tool to create the project and supply a `--force` switch. This deletes the files on the original master branch and replace them with the new files in the template you choose.
 
 Once the project is created, submit a few runs on any scripts within the project. This action commits project state into the remote Git repo's run history branch. 
+
+>[!NOTE] Only script runs trigger commits to the run history branch. Data prep execution or Notebook runs don't trigger project snapshots on the run history branch.
 
 If you have setup Git authentication, you can also explicitly operate in the master branch, or create a new branch. 
 
