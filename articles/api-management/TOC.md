@@ -21,7 +21,7 @@
 ## [Terminology](api-management-terminology.md)
 ## Policies
 ### [Overview](api-management-howto-policies.md)
-### [Policy reference index](api-management-policy-reference.md)
+### [Policy reference index](api-management-policies.md)
 ## Manage in production
 ### [Manage using automation](automation-manage-api-management.md)
 ### [Use Role-Based Access Control](api-management-role-based-access-control.md)
@@ -96,31 +96,18 @@
 ### Integrate with Service Fabric
 #### [Overview](../service-fabric/service-fabric-api-management-overview.md)
 #### [Tutorial](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
-
 # Reference
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
-## [Policies](api-management-policies.md)
 # Resources
-## [Frequently asked questions](api-management-faq.md)
+## [FAQ](api-management-faq.md)
 ## [API design guidance](https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json)
 ## [API implementation guidance](https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json)
-## [API Management - Plays well with other Azure services](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
-## [API Management plugin for SmartBear Ready! API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-## [Connecting Event Hubs to API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
-## [Consume SOAP WCF services over HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
-## [Pricing](https://azure.microsoft.com/pricing/details/api-management/)
-## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-## [Provide RBAC-like access using the REST API](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
-## [Service updates](https://azure.microsoft.com/updates/?product=api-management)
-## [Set up PostMan to call API Management APIs](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
-## [Whitepaper: Cloud-based API Management](http://j.mp/ms-apim-whitepaper)
-
-
-
-
+## [Roadmap](http://aka.ms/apimroadmap)
+## [Power BI solution template for API Management](http://aka.ms/apimpbi)
+## [Blog](http://aka.ms/apimblog)
+## [Feature requests](http://aka.ms/apimwish)
