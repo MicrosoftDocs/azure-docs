@@ -67,15 +67,15 @@ The following steps show you how to create an IoT Edge module based on .NET core
     dotnet new -i Microsoft.Azure.IoT.Edge.Module
     ```
 
+    >[!NOTE]
+    > This command creates the project folder, **FilterModule**, in the current working folder. If you want to create it in another location, change directories before running the command.
+
 2. In the integrated terminal, enter the following command to create a project for the new module:
 
     ```cmd/sh
     dotnet new aziotedgemodule -n FilterModule
     ```
 
-    >[!NOTE]
-    > This command creates the project folder, **FilterModule**, in the current working folder. If you want to create it in another location, change directories before running the command.
- 
 3. Use the  **File | Open Folder** menu command, browse to the **FilterModule**  folder, and click **Select Folder** to open the project in VS Code.
 4. In VS Code explorer, click **Program.cs** to open it.
 5. Add the following field to the **Program** class.
