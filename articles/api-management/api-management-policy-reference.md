@@ -3,8 +3,8 @@ title: Azure API Management Policy Reference
 description: Learn about the policies available to configure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 
 ms.assetid: 9d4ac609-b221-4032-93ae-e27a1254d43d
