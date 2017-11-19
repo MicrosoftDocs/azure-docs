@@ -79,12 +79,14 @@ Optionally, you can also create a Azure ML project without a VSTS Git repo, and 
 $ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name>
 ```
 
->[!NOTE] You can only perform the update-repo operation on an Azure ML project that does not have a Git repo associated with it. And once the Git repo is associated, it cannot be removed.
+> [!NOTE] 
+> You can only perform the update-repo operation on an Azure ML project that does not have a Git repo associated with it. And once the Git repo is associated, it cannot be removed.
 
 ## Step 4. Capture project snapshot in Git repo
 Now you can execute a few script runs in the project, make some changes in-between the runs. You can do this either from the desktop app, or from CLI using `az ml experiment submit` command. For more details, you can follow the [Classifying Iris tutorial](tutorial-classifying-iris-part-1.md). For each run, if there is any change made in any files in the project folder, a snapshot of the entire project folder is committed and pushed into the remote Git repo under a branch named `AzureMLHistory/<Project_GUID>`. You can view the branches and commits by browsing to the VSTS Git repo URL and find this branch. 
 
->[!NOTE] The snapshot is only committed before a script execution. Currently a data prep execution or a Notebook cell execution does not trigger the snapshot.
+> [!NOTE] 
+> The snapshot is only committed before a script execution. Currently a data prep execution or a Notebook cell execution does not trigger the snapshot.
 
 ![run history branch](media/using-git-ml-project/run_history_branch.png)
 

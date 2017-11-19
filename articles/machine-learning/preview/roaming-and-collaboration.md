@@ -30,7 +30,8 @@ Launch Azure Machine Learning Workbench, and create a new project (for example, 
 
 Once the project is created, submit a few runs on any scripts within the project. This action commits project state into the remote Git repo's run history branch. 
 
->[!NOTE] Only script runs trigger commits to the run history branch. Data prep execution or Notebook runs don't trigger project snapshots on the run history branch.
+> [!NOTE] 
+> Only script runs trigger commits to the run history branch. Data prep execution or Notebook runs don't trigger project snapshots on the run history branch.
 
 If you have setup Git authentication, you can also explicitly operate in the master branch, or create a new branch. 
 
@@ -70,7 +71,8 @@ On macOS, it is here: `/home/<username>/Documents/AzureML`
 
 In a future release, we plan to enhance the functionality to allow you to select a destination folder. 
 
->Note if you happen to have a folder in the Azure ML directory that has the exact same name as the project, the download fails. For the time being, you need to rename the existing folder in order to work around this issue.
+> [!NOTE]
+> If you happen to have a folder in the Azure ML directory that has the exact same name as the project, the download fails. For the time being, you need to rename the existing folder in order to work around this issue.
 
 
 ### Work on the downloaded project 
