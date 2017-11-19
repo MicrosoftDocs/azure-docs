@@ -70,7 +70,8 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     const env = require('./env/environment');
 
     // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.dbName}:${env.key}@${env.dbName}.documents.azure.com:${env.cosmosPort}/?ssl=true`; //&replicaSet=globaldb`;
+    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
+
 
     function connect() {
      mongoose.set('debug', true);
@@ -88,26 +89,24 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 5. From the mongo.js file, we know we need to include the `dbName`, the `key`, and the `cosmosPort`, so copy the following code into **environment.js**.
 
     ```javascript
-    const cosmosPort = 1234; // replace with your port
-    const dbName = 'your-cosmos-db-name-goes-here';
-    const key = 'your-key-goes-here';
-
+    // TODO: replace if yours are different
     module.exports = {
-      dbName,
-      key,
-      cosmosPort
+      accountName: 'your-cosmosdb-account-name-goes-here',
+      databaseName: 'admin', 
+      key: 'your-key-goes-here',
+      port: 10255
     };
     ```
 
 ## Get the connection string information
 
-1. In **environment.js**, change the value of `cosmosPort` to 10255. (You can find your Cosmos DB port the Azure Portal)
+1. In **environment.js**, change the value of `port` to 10255. (You can find your Cosmos DB port the Azure Portal)
 
     ```javascript
-    const cosmosPort = 10255;
+    const port = 10255;
     ```
 
-2. In **environment.js**, change the value of `dbName` to the name of the Azure Cosmos DB account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md). 
+2. In **environment.js**, change the value of `accountName` to the name of the Azure Cosmos DB account you created in [Step 4](tutorial-develop-mongodb-nodejs-part4.md). 
 
 3. Retrieve the primary key for the Azure Cosmos DB account by using the following CLI command in the terminal window: 
 
