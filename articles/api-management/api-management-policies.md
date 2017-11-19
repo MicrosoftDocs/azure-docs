@@ -3,8 +3,8 @@ title: Azure API Management policies | Microsoft Docs
 description: Learn about the policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 
 ms.assetid: 1cc460cb-8e67-41aa-bc76-bbafc1892798
@@ -26,13 +26,9 @@ This section provides a reference for the following API Management policies. For
 ##  <a name="ProxyPolicies"></a> Policies  
   
 -   [Access restriction policies](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
-  
     -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) - Enforces existence and/or value of a HTTP Header.  
-  
     -   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.  
-  
     -   [Limit call rate by key](api-management-access-restriction-policies.md#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.  
-  
     -   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.  
   
     -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.  
@@ -114,6 +110,12 @@ This section provides a reference for the following API Management policies. For
     -   [Rewrite URL](api-management-transformation-policies.md#RewriteURL) - Converts a request URL from its public form to the form expected by the web service.  
   
     -   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) - Applies an XSL transformation to XML in the request or response body.  
-  
+
 ## Next steps
 For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  
+
+For more information on policy expressions, see the following video.
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
+> 
+>   
