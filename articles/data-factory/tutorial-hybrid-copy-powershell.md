@@ -384,7 +384,7 @@ In this step, you link your on-premises SQL Server to the data factory.
    New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
-3. Run the following command to create the **EncryptedSqlServerLinkedService**:
+3. Run the following command, which creates the **EncryptedSqlServerLinkedService**:
 
    ```powershell
    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"

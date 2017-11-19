@@ -167,7 +167,7 @@ Create linked services in a data factory to link your data stores and compute se
 1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFv2QuickStartPSH** folder with the following content: (Create the folder ADFv2QuickStartPSH if it does not already exist.). 
 
     > [!IMPORTANT]
-    > Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before saving the file. The semi-colon (`;`) character seperates properties in the connection string.  
+    > Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before saving the file.
 
     ```json
     {
