@@ -90,7 +90,8 @@ Now you can execute a few script runs in the project, make some changes in-betwe
 
 ![run history branch](media/using-git-ml-project/run_history_branch.png)
 
->[!IMPORTANT] It is best if you do not operate in the history branch yourself using Git commands. Doing so might mess up run history. Use master branch or create other branches instead for your own Git operations.
+> [!IMPORTANT] 
+> It is best if you do not operate in the history branch yourself using Git commands. Doing so might mess up run history. Use master branch or create other branches instead for your own Git operations.
 
 ## Step 5. Restore a previous project snapshot 
 To restore the entire project folder to the state of a previous run history project state snapshot, from Azure ML Workbench:
