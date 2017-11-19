@@ -68,7 +68,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
     ```
 
     >[!NOTE]
-    > This command creates the project folder, **FilterModule**, in the current working folder. If you want to create it in another location, change directories before running the command.
+    > The following command creates the project folder, **FilterModule**, in the current working folder. If you want to create it in another location, change directories before running the command.
 
 2. In the integrated terminal, enter the following command to create a project for the new module:
 
