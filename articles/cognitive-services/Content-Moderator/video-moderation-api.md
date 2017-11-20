@@ -26,9 +26,9 @@ The Content Moderator's video capability is available as a private preview **med
 
 [Create an Azure Media Services account](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-create-account) in your Azure subscription.
 
-## Submit your information to enable Content Moderator
+## Request access to Content Moderator
 
-Request access to the private preview by [submitting](https://cognitive.uservoice.com/ "Contact Us") the following information:
+[Submit](https://cognitive.uservoice.com/ "Contact Us") the following information to request access to the private preview:
 
    1. Your Azure subscription ID
    1. Your Azure Media Services account name
