@@ -28,7 +28,7 @@ Create an Azure Media Services account in your Azure subscription by following t
 
 ## Submit your information to enable Content Moderator
 
-Access the Content Moderator private preview by [submitting this information](https://cognitive.uservoice.com/ "Contact Us"):
+Request access to the Content Moderator private preview by [submitting this information](https://cognitive.uservoice.com/ "Contact Us"):
 
    1. Your Azure subscription ID
    1. Your Azure Media Services account name
