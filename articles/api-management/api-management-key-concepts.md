@@ -135,9 +135,6 @@ To learn more about API Management, watch the following presentation from the Mi
 > 
 > 
 
-> [!div class="nextstepaction"]
-> [Import and publish your first API](import-and-publish.md)
-
 ## Next steps
 
 Complete the following quickstart and start using Azure API Management:

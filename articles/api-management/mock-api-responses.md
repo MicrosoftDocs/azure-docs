@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 11/19/2017
 ms.author: apimpm
 
 ---
@@ -21,13 +21,14 @@ ms.author: apimpm
 
 Backend APIs can be imported into an APIM API or created and managed manually. The steps in this tutorial show you how to use APIM to create a blank API and manage it manually. The tutorial shows how to set a policy on an API so it returns a mocked response. This method enables developers to proceed with implementation and testing of the APIM instance even if the backend is not available to send real responses. Ability to mock up responses can be useful in a number of scenarios:
 
-+ When the API façade is designed first and the backend implementation comes later. Or, the backend is being developed in parallel).
++ When the API façade is designed first and the backend implementation comes later. Or, the backend is being developed in parallel.
 + When the backend is temporarily not operational or not able to scale.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a test API and operation
+> * Create a test API 
+> * Add an operation to the test API
 > * Enable response mocking
 > * Test the mocked API
 
@@ -41,17 +42,16 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
 Sign in to the [Azure portal](https://portal.azure.com) and navigate to your APIM instance.
     
-1. Select **>**.
+1. Select ![arrow](./media/get-started-create-service-instance/arrow.png).
 2. Type "api" in the search box.
 3. Click **API Management services**.
 
 	![Navigate](./media/api-management-get-started/navigate-to-api-management-services.png)
+4. Select your APIM instance.
 
-## Create a test API and an operation
+## Create a test API 
 
 The steps in this section show how to create a blank API with no backend. It also shows how to add an operation to the API. Calling the operation after completing steps in this section produces an error. You will get no errors after you complete steps in the "Enable response mocking" section.
-
-### Create a test API 
 
 1. Select **APIs** from under **API MANAGEMENT**.
 2. From the left menu, select **+ Add API**.
@@ -60,7 +60,7 @@ The steps in this section show how to create a blank API with no backend. It als
 5. Enter "*Unlimited*" for **Products**.
 6. Select **Create**.
 
-### Add an operation
+## Add an operation to the test API
 
 1. Select the API you created in the previous step.
 2. Click **+ Add Operation**.
@@ -117,7 +117,8 @@ The steps in this section show how to create a blank API with no backend. It als
 n this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a test API and operation
+> * Create a test API
+> * Add an operation to the test API
 > * Enable response mocking
 > * Test the mocked API
 

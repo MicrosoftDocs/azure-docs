@@ -46,11 +46,12 @@ The following video shows how to monitor API Management using Azure Monitor.
 
 Sign in to the [Azure portal](https://portal.azure.com) and navigate to your APIM instance.
     
-1. Select **>**.
+1. Select ![arrow](./media/get-started-create-service-instance/arrow.png).
 2. Type "api" in the search box.
 3. Click **API Management services**.
 
 	![Navigate](./media/api-management-get-started/navigate-to-api-management-services.png)
+4. Select your APIM instance.
 
 ## <a name="diagnostic-logs"></a>View activity Logs
 

@@ -57,12 +57,13 @@ Log in to the Azure portal at http://portal.azure.com.
 
 When no longer needed, you can remove the resource group and all related resources by following these steps:
 
-![cleanup](./media/get-started-create-service-instance/cleanup.png)
 
-1. In the Azure portal, select *>*.
+1. In the Azure portal, select ![arrow](./media/get-started-create-service-instance/arrow.png).
 2. Select **Resource groups**.
 3. Find your resource group.
 4. Click ". . ." and delete your group.
+
+![cleanup](./media/get-started-create-service-instance/cleanup.png)
 
 ## Next steps
 
