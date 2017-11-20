@@ -84,7 +84,7 @@ Now go back to the Azure portal to get your connection string information and co
 3. Open the app.config file, and paste the value into the connectionString on line three. 
 
     > [!IMPORTANT]
-    > If your Endpoint uses documents.azure.com, that means you have a preview acct, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK.
+    > If your Endpoint uses documents.azure.com, that means you have a preview account, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK.
     >
 
 3. Save the app.config file.
