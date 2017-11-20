@@ -27,7 +27,7 @@ Publishing your solution in the Azure Government Marketplace is as simple as pub
 and making it available in the Azure Government Marketplace makes it easier for these government customers to gain exposure to your solution and get up and running quickly.
 
 ## Compliance considerations
-There are no compliance requirements to publish solutions to the Azure Government Marketplace.
+There are no initial Microsoft compliance requirements to publish solutions to the Azure Government Marketplace.
 
 Once a solution has been published, customers can deploy it into their own subscription as part of a broader operational environment or business solution. The customer might then opt to certify the overarching environment. As part of that certification process, they might reach out to the publisher with extra requirements, which the publisher can then evaluate and triage with the customer. 
 
@@ -49,7 +49,7 @@ If there are other offer types you'd like to see supported in Azure Government, 
 1. **Click on the sku**. 
 1. In the **SKU Details section**, **Cloud Availability option**, check the **Azure Government Cloud** box. Remember that this option [isn't available for all offers](#marketplace-offer-support).
 1. ***Optionally***, click the **+ Add Certification** link to add links to any certifications that are relevant for your product and that you want to make available to customers.
-1. ***Optionally***, add your Azure Government subscription for preview: 
+1. ***Optionally***, add your Azure Government subscription to preview your marketplace offering before it is broadly available. 
     1. Click on **Marketplace** entry in the left menu
     1. In the **Preview Subscription Ids section**, click on **Add subscription** and add your [Azure Government subscription ID](#testing).
 1. **Publish** your solution once again.
@@ -101,16 +101,7 @@ Check out the [Azure Government Marketplace images](documentation-government-ima
 You can obtain the full list of resource providers and their API versions by logging in to the [Azure Government portal](https://portal.azure.us) using your Azure Government account and following the steps listed in the [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#portal) documentation.
 
 #### Extensions
-Availability of most commonly used extensions in Azure Government:
-
-  | Publisher/Type | Available Versions in Azure Government |
-  | --- | --- |
-  | Microsoft.OSTCExtensions/CustomScriptForLinux | 1; 1.1; 1.2.2.0; 1.3.0.2; 1.4.1.0; 1.5.2.0 |
-  | Microsoft.Compute/CustomScriptExtension | 1.2; 1.3; 1.4; 1.7; 1.8 |
-  | Microsoft.Azure.Extensions/DockerExtension | Not Available |
-  | Microsoft.Azure.Extensions/CustomScript | 2.0.2 |
-  | Microsoft.OSTCExtensions/LinuxDiagnostic | 2.0.9005; 2.1.9005; 2.2.9005; 2.3.9011 |
-  | Microsoft.Powershell/DSC | 2.19.0.0 |
+Make sure that your any virtual machine extensions that your solution template relies on is available in Azure Government. Check out the [Azure Government virtual machine extensions](documentation-government-extension.md) documentation to obtain the list of extensions available.
  
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)

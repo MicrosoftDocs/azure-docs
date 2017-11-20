@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Table API for Python | Microsoft Docs
-description: Learn all about the Azure Cosmos DB Python SDK for premium tables  including release dates, retirement dates, and changes made between each version.
+description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
 documentationcenter: python
 author: mimig
@@ -13,14 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/20/2017
 ms.author: mimig1
 ms.custom: 
 
 ---
-# Azure Cosmos DB Table API for Python: Release notes and resources
+# Azure Cosmos DB Table API SDK for Python: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
+> * [Java](table-sdk-java.md)
+> * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
  
 
@@ -32,8 +34,15 @@ ms.custom:
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) or [Python 3.3, 3.4, 3.5, or 3.6] (https://www.python.org/downloads/)|
 
+> [!IMPORTANT]
+> If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
+>
 
 ## Release notes
+
+### <a name="1.0.0"/>1.0.0
+* General availability release
+
 ### <a name="0.37.1"/>0.37.1
 * Pre-release SDK
 
@@ -46,6 +55,7 @@ New features and functionality and optimizations are only added to the current S
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.0.0](#1.0.0) |November 15, 2017 |--- |
 | [0.37.1](#0.37.1) |October 05, 2017 |--- |
 
 

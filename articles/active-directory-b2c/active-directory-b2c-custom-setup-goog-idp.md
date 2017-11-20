@@ -95,7 +95,7 @@ Federation with Google+ accounts requires a client secret for Google+ account to
 4.  For **Options**, use **Manual**.
 5.  For **Name**, use `GoogleSecret`.  
     The prefix `B2C_1A_` might be added automatically.
-6.  In the **Secret** box, enter your Microsoft application secret from https://apps.dev.microsoft.com
+6.  In the **Secret** box, enter your Google application secret from the [Google Developers Console](https://console.developers.google.com/) that you copied above.
 7.  For **Key usage**, use **Signature**.
 8.  Click **Create**
 9.  Confirm that you've created the key `B2C_1A_GoogleSecret`.

@@ -2,6 +2,7 @@
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
 ## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
 
+
 # Get started
 ## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
@@ -13,7 +14,9 @@
 ### [Social media](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Stream Analytics on IoT Edge (preview)](stream-analytics-edge.md)
 ### [Anomaly detection in Azure usage guide (preview)](stream-analytics-machine-learning-anomaly-detection.md)
+### [High frequency trading simulation with Stream Analytics](stream-analytics-high-frequency-trading.md)
 
 ## Create jobs
 ### [Create inputs](stream-analytics-define-inputs.md)
@@ -24,6 +27,7 @@
 ### [Use reference data](stream-analytics-use-reference-data.md)
 ### [Test queries](stream-analytics-test-query.md)
 ### [Integrate JavaScript UDFs](stream-analytics-javascript-user-defined-functions.md)
+### [Integrate JavaScript UDAs](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Integrate REST API & Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Create outputs](stream-analytics-define-outputs.md)
 ### [Output to Data Lake Store](stream-analytics-data-lake-output.md)

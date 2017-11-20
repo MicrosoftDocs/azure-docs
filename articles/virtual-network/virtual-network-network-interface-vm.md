@@ -152,7 +152,7 @@ You can view the network interfaces currently attached to a VM to learn about ea
 1. Log in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. To learn more about assigning roles to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual machines*. When **virtual machines** appears in the search results, click it.
 3. In the **Virtual machines** blade that appears, click the name of the VM you want to view network interfaces for.
-4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Network interfaces**. To learn about network interface settings and how to change them, read the [Manage network interfaces](virtual-network-network-interface.md) article. To learn about adding, changing, or removing IP addresses assigned to a network interface, see [Manage IP addresses](virtual-network-network-interface-addresses.md).
+4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Networking**. To learn about network interface settings and how to change them, read the [Manage network interfaces](virtual-network-network-interface.md) article. To learn about adding, changing, or removing IP addresses assigned to a network interface, see [Manage IP addresses](virtual-network-network-interface-addresses.md).
 
 **Commands**
 
@@ -168,9 +168,9 @@ The VM you want to remove (or detach) a network interface from must be in the st
 1. Log in to the [Azure portal](https://portal.azure.com) with an account that is assigned the Owner, Contributor, or Network Contributor role for your subscription. To learn more about assigning roles to accounts, see [Built-in roles for Azure role-based access control](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. In the box that contains the text *Search resources* at the top of the Azure portal, type *virtual machines*. When **virtual machines** appears in the search results, click it.
 3. In the **Virtual machines** blade that appears, click the name of the VM you want to remove a network interface for.
-4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Network interfaces**. To learn about network interface settings and how to change them, read the [Manage network interfaces](virtual-network-network-interface.md) article. To learn about adding, changing, or removing IP addresses assigned to a network interface, see [Manage IP addresses](virtual-network-network-interface-addresses.md).
-5. In the network interfaces blade that appears, click the **...** to the right of the network interface that you want to detach.
-6. Click **Detach**. If there is only one network interface attached to the virtual machine, the **Detach** option isn't available. Click **Yes** in the confirmation box that appears.
+4. In the **SETTINGS** section of the virtual machine blade that appears for the VM you selected, click **Networking**. To learn about network interface settings and how to change them, read the [Manage network interfaces](virtual-network-network-interface.md) article. To learn about adding, changing, or removing IP addresses assigned to a network interface, see [Manage IP addresses](virtual-network-network-interface-addresses.md).
+5. Click **X Detach network interface**.
+6. Select the network interface you want to detach from the drop-down list, then click **OK**.
 
 **Commands**
 

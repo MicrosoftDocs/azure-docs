@@ -3,20 +3,11 @@
 ## [Resource providers and types](resource-manager-supported-services.md)
 ## [Resource Manager and Classic deployment](resource-manager-deployment-model.md)
 ## [Subscription governance](resource-manager-subscription-governance.md)
-## [Managed Applications](managed-application-overview.md)
 
 # Get started
 ## [Create and deploy template](resource-manager-create-first-template.md)
 ## [VS Code extension for templates](resource-manager-vscode-extension.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-
-# Samples
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Deploy template](resource-manager-samples-powershell-deploy.md)
-
-## Azure CLI
-### [Deploy template](resource-manager-samples-cli-deploy.md)
 
 # How to
 ## Create templates
@@ -60,6 +51,7 @@
 ### [Move resources to new group or subscription](resource-group-move-resources.md)
 ### [Organize subscriptions with management groups](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Governance examples](resource-manager-subscription-examples.md)
+### [Managed applications](../managed-applications/overview.md)
 
 ## Control Access
 ### Create service principal
@@ -68,25 +60,6 @@
 #### [Azure portal](resource-group-create-service-principal-portal.md)
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
 ### [Lock resources](resource-group-lock-resources.md)
-
-## Set resource policies
-### [What are resource policies?](resource-manager-policy.md)
-### [Use Azure portal to assign policy](resource-manager-policy-portal.md)
-### [Use scripts to assign policy](resource-manager-policy-create-assign.md)
-### Examples
-#### [Tags](resource-manager-policy-tags.md)
-#### [Naming conventions](resource-manager-policy-naming-convention.md)
-#### [Network](resource-manager-policy-network.md)
-#### [Storage](resource-manager-policy-storage.md)
-#### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
-## Use managed applications
-### [Publish service catalog application](managed-application-publishing.md)
-### [Consume service catalog application](managed-application-consumption.md)
-### [Publish marketplace application](managed-application-author-marketplace.md)
-### [Consume marketplace application](managed-application-consume-marketplace.md)
-### [Create UI definitions](managed-application-createuidefinition-overview.md)
 
 ## Audit
 ### [View activity logs](resource-group-audit.md)
@@ -102,6 +75,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Virtual Machine deployment errors
@@ -124,21 +98,6 @@
 ### [Numeric functions](resource-group-template-functions-numeric.md)
 ### [Resource functions](resource-group-template-functions-resource.md)
 ### [String functions](resource-group-template-functions-string.md)
-## [UI definition functions](managed-application-createuidefinition-functions.md)
-## [UI definition elements](managed-application-createuidefinition-elements.md)
-### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
-### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
-### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
-### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
-### [Microsoft.Common.Section](managed-application-microsoft-common-section.md)
-### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
-### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
-### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
-### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
-### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
-### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
-### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
-### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
