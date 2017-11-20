@@ -381,7 +381,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     do the following steps: 
     1. In the AzureStorageLinkedService.json, confirm that the name and key of your Azure Storage Account are correct. 
     2. Verify that the format of the connection string is correct. The properties, for example, AccountName and AccountKey are separated by semi-colon (`;`) character. 
-    3. If you have angled brackets surrounding the account and key, remove them. 
+    3. If you have angled brackets surrounding the account name and account key, remove them. 
     4. Here is an example connection string: 
 
         ```json
