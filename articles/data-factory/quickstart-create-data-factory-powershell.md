@@ -351,7 +351,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
             Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
         }
 
-        Start-Sleep -Seconds 30
+        Start-Sleep -Seconds 10
     }
     ```
 
@@ -374,7 +374,26 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     Message           :
     ```
 
-2. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
+    If you see the error:
+    ```
+    Activity CopyFromBlobToBlob failed: Failed to detect region of linked service 'AzureStorage' : 'AzureStorageLinkedService' with error '[Region Resolver] Azure Storage failed to get address for DNS. Warning: System.Net.Sockets.SocketException (0x80004005): No such host is known
+    ```
+    do the following steps: 
+    1. In the AzureStorageLinkedService.json, confirm that the name and key of your Azure Storage Account are correct. 
+    2. Verify that the format of the connection string is correct. The properties, for example, AccountName and AccountKey are separated by semi-colon (`;`) character. 
+    3. If you have angled brackets surrounding the account name and account key, remove them. 
+    4. Here is an example connection string: 
+
+        ```json
+        "connectionString": {
+            "value": "DefaultEndpointsProtocol=https;AccountName=mystorageaccountname;AccountKey=mystorageacountkey;EndpointSuffix=core.windows.net",
+            "type": "SecureString"
+        }
+        ```
+    5. Recreate the linked service by following steps in the [Create a linked service](#create-a-linked-service) section. 
+    6. Rerun the pipeline by following steps in the [Create a pipeline run](#create-a-pipeline-run) section. 
+    7. Run the current monitoring command again to monitor the new pipeline run. 
+1. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
     ```powershell
     Write-Host "Activity run details:" -foregroundcolor "Yellow"

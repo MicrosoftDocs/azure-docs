@@ -111,7 +111,7 @@ Now go back to the Azure portal to get your connection string information and co
 4. Paste the PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value on line 8. Paste the string inside the quotes.
    
     > [!IMPORTANT]
-    > If your Endpoint uses documents.azure.com, that means you have a preview acct, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK. 
+    > If your Endpoint uses documents.azure.com, that means you have a preview account, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK. 
     >
 
     Line 8 should now look similar to:
