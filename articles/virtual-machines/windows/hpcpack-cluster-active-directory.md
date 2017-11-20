@@ -71,8 +71,7 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
     * Select **Yes** for **Multi-tenanted**.
     * Change **App ID URI** to `https://<Directory_name>/<application_name>`. Replace `<Directory_name`> with the full name of your Azure AD tenant, for example, `hpclocal.onmicrosoft.com`, and replace `<application_name>` with the name you chose previously.
 6. Click **Save**. When saving completes, on the app page, click **Manifest**. Edit the manifest by locating the `appRoles` setting and adding the following application role, and then click **Save**:
-   
-```json
+  ```json
    "appRoles": [
        {
        "allowedMemberTypes": [
