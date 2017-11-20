@@ -56,6 +56,7 @@ For `exponential` type policies, **count** and **interval** are required while *
 ### Fixed interval
 
 The `fixed` policy type will retry a failed request by waiting the provided interval of time before sending the next request.
+
 | Element name | Required | Type | Description |
 | ------------ | -------- | ---- | ----------- |
 | type | Yes | String | `fixed`|
@@ -64,6 +65,7 @@ The `fixed` policy type will retry a failed request by waiting the provided inte
 
 ### None
 The `none` policy type will not retry a failed request.
+
 | Element name | Required | Type | Description |
 | ------------ | -------- | ---- | ----------- |
 | type | Yes | String | `none`|
