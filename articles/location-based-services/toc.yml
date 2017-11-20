@@ -23,10 +23,16 @@
     href: geocoding-coverage.md
   - name: Traffic Coverage
     href: traffic-coverage.md
+  - name: Understanding the Search service
+    href: concept-search-service.md
 - name: How-to guides
   items:
   - name: Manage account and keys
     href: how-to-manage-account-keys.md
+  - name: Search for an address
+    href: how-to-search-for-address.md
+  - name: How to embed the Map Control
+    href: how-to-use-map-control.md
 - name: Reference
   items:
   - name: Resources
