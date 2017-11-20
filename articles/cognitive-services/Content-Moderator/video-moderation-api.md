@@ -170,6 +170,9 @@ The sample C# program listed below demonstrates the use of the AMS ADK to run a 
 
 ## Sample Response (JSON)
 
+> [!NOTE]
+> Timestamp of a keyframe in seconds = timestamp/timescale
+
     {
     "version": 2,
     "timescale": 90000,
