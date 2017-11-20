@@ -378,8 +378,8 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
     ```
     Activity CopyFromBlobToBlob failed: Failed to detect region of linked service 'AzureStorage' : 'AzureStorageLinkedService' with error '[Region Resolver] Azure Storage failed to get address for DNS. Warning: System.Net.Sockets.SocketException (0x80004005): No such host is known
     ```
-    do the following: 
-    1. In the AzureStorageLinkedService.json, confirm that the name and key of your Azure Storage Account are corrct. 
+    do the following steps: 
+    1. In the AzureStorageLinkedService.json, confirm that the name and key of your Azure Storage Account are correct. 
     2. Verify that the format of the connection string is correct. The properties, for example, AccountName and AccountKey are separated by semi-colon (`;`) character. 
     3. If you have angled brackets surrounding the account and key, remove them. 
     4. Here is an example connection string: 
@@ -390,9 +390,9 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
             "type": "SecureString"
         }
         ```
-    5. Re-create the linked service by following steps in the [Create a linked service](#create-a-linked-service) section. 
-    6. Re-run the pipeline by following steps in the [Create a pipeline run](#create-a-pipeline-run) section. 
-    7. Run the current monitoring command again to montior the new pipeline run. 
+    5. Recreate the linked service by following steps in the [Create a linked service](#create-a-linked-service) section. 
+    6. Rerun the pipeline by following steps in the [Create a pipeline run](#create-a-pipeline-run) section. 
+    7. Run the current monitoring command again to monitor the new pipeline run. 
 1. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
     ```powershell
