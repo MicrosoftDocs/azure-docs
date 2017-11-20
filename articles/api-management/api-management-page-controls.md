@@ -7,7 +7,6 @@ author: vladvino
 manager: erikre
 editor: ''
 
-ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -16,10 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ---
+
 # Azure API Management page controls
 Azure API Management provides the following controls for use in the developer portal templates.  
   
- To use a control, place it in the desired location in the developer portal template. Some controls, such as the [app-actions](#app-actions) control, have parameters, as shown in the following example.  
+To use a control, place it in the desired location in the developer portal template. Some controls, such as the [app-actions](#app-actions) control, have parameters, as shown in the following example.  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
@@ -32,19 +32,12 @@ Azure API Management provides the following controls for use in the developer po
 ## Developer portal template page controls  
   
 -   [app-actions](#app-actions)  
-  
 -   [basic-signin](#basic-signin)  
-  
 -   [paging-control](#paging-control)  
-  
 -   [providers](#providers)  
-  
 -   [search-control](#search-control)  
-  
 -   [sign-up](#sign-up)  
-  
 -   [subscribe-button](#subscribe-button)  
-  
 -   [subscription-cancel](#subscription-cancel)  
   
 ##  <a name="app-actions"></a> app-actions  
