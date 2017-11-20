@@ -26,9 +26,9 @@ The Content Moderator video capability is powered by the adult and racy classifi
 
 Follow the steps in [Create an Azure Media Services account](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-create-account) article to create an Azure Media Services account in your Azure subscription.
 
-## Submit your information to enable access
+## Submit your information to get access
 
-[Contact us](https://cognitive.uservoice.com/ "Contact Us") with this information for enabling the Content Moderator in your region:
+[Contact us](https://cognitive.uservoice.com/ "Contact Us") with this information for enabling Content Moderator in your region:
 
    1. Your Azure subscription ID
    1. Your Azure Media Services account name
