@@ -156,6 +156,8 @@
       href: experimentation-service-configuration-reference.md
     - name: Logging API
       href: reference-logging-api.md
+    - name: Experimentation Service template
+      href: experimentation-service-template.md
   - name: Model Management
     items:
     - name: Model Management API
