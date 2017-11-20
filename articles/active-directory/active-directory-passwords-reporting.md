@@ -21,14 +21,14 @@ ms.custom: it-pro
 ---
 # Reporting options for Azure AD password management
 
-Post deployment many organizations want to know how or if self-service password reset (SSPR) is really being used. The reporting feature that Azure Active Directory (Azure AD) provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
+After deployment, many organizations want to know how or if self-service password reset (SSPR) is really being used. The reporting feature that Azure Active Directory (Azure AD) provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
 
 ![Reporting][Reporting]
 
 The following questions can be answered by the reports that exist in the [Azure portal] (https://portal.azure.com/):
 
 > [!NOTE]
-> You must be [a global administrator](active-directory-assign-admin-roles-azure-portal.md) and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the Reporting tab or the Audit logs at least once. Until then, data is not collected for your organization.
+> You must be [a global administrator](active-directory-assign-admin-roles-azure-portal.md), and you must opt-in for this data to be gathered on behalf of your organization. To opt in, you must visit the **Reporting** tab or the audit logs at least once. Until then, data is not collected for your organization.
 >
 
 * How many people have registered for password reset?
@@ -48,13 +48,13 @@ If you're a Power BI user, there is a content pack for Azure AD that includes ea
 
 In the Azure portal experience, we have improved the way that you can view password reset and password reset registration activity. Use the following the steps to find the password reset and password reset registration events:
 
-1. Browse to [portal.azure.com](https://portal.azure.com).
-2. Select **All services** on the main Azure portal left-hand pane.
+1. Browse to the [Azure portal](https://portal.azure.com).
+2. Select **All services** in the left pane.
 3. Search for **Azure Active Directory** in the list of services and select it.
 4. Select **Users and groups**.
-5. Select **Audit Logs** from the **Users and groups** menu. This shows you all of the audit events that occurred against all the users in your directory. You can filter this view to see all the password-related events, as well.
-6. To filter this view to only see the password-reset-related events, select the **Filter** button at the top of the pane.
-7. From the **Filter** menu, select the **Category** drop-down list box, and change it to the **Self-service Password Management** category type.
+5. Select **Audit Logs** from the **Users and groups** menu. This shows you all of the audit events that occurred against all the users in your directory. You can filter this view to see all the password-related events.
+6. To filter this view to see only the password-reset-related events, select the **Filter** button at the top of the pane.
+7. From the **Filter** menu, select the **Category** drop-down list, and change it to the **Self-service Password Management** category type.
 8. Optionally, further filter the list by choosing the specific **Activity** you're interested in.
 
 ## How to retrieve password management events from the Azure AD Reports and Events API
@@ -205,3 +205,5 @@ The following list explains this activity in detail:
 * [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+
+[Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Example of SSPR activity audit logs in Azure AD"
