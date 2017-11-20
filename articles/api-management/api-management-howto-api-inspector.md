@@ -45,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com) and navigate to your API
 	![Navigate](./media/api-management-get-started/navigate-to-api-management-services.png)
 4. Select your APIM instance.
 
-## Use API Inspector to trace a call
+## Trace a call
 
 1. Select **APIs**.
 2. Click **Demo Conference API** from your API list.

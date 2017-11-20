@@ -114,7 +114,7 @@ The steps in this section show how to create a blank API with no backend. It als
 > 
 
 ## Next steps
-n this tutorial, you learned how to:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create a test API

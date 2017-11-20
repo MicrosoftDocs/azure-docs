@@ -49,7 +49,7 @@ Sign in to the [Azure portal](https://portal.azure.com) and navigate to your API
 	![Navigate](./media/api-management-get-started/navigate-to-api-management-services.png)
 4. Select your APIM instance.
 
-## Strip response headers
+## Transform an API to strip response headers
 
 This section shows how to hide the HTTP headers that you do not want to show to your users. In this example, the following headers get deleted in the HTTP response:
 

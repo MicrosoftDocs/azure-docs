@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Add a new version to an existing API
-> * Choose a version scheme and version identifier
+> * Choose a version scheme
 > * Add the version to a product
 > * Browse the developer portal to see the version
 
@@ -108,7 +108,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Add a new version to an existing API
-> * Choose a version scheme and version identifier
+> * Choose a version scheme 
 > * Add the version to a product
 > * Browse the developer portal to see the version
 
