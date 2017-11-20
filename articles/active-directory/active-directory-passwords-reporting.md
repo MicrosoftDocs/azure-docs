@@ -21,7 +21,7 @@ ms.custom: it-pro
 ---
 # Reporting options for Azure AD password management
 
-Post deployment many organizations want to know how or if self-service password reset (SSPR) is really being used. The reporting feature that Azure Active Directory (Azure AD) provides helps you answer questions by using canned reports. If you're appropriately licensed, you can also create custom queries.
+Post deployment many organizations want to know how or if self-service password reset (SSPR) is really being used. The reporting feature that Azure Active Directory (Azure AD) provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
 
 ![Reporting][Reporting]
 
