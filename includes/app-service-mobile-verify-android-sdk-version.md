@@ -9,9 +9,9 @@ If either of these appears, the version of the Android SDK installed in Android 
 
 1. In Android Studio, click **Tools** > **Android** > **SDK Manager**. If you have not installed the latest version of the SDK Platform, then click to install it. Make a note of the version number.
 
-2. On the **Project Explorer** tab, under **Gradle Scripts**, open the file **build.gradle (Module: app)**. Ensure that the **compileSdkVersion** and **targetSdkVersion** are set to the latest SDK version installed. The tags might look like this:
+2. On the **Project Explorer** tab, under **Gradle Scripts**, open the file **build.gradle (Module: app)**. Ensure that the **compileSdkVersion** and **targetSdkVersion** are set to the latest SDK version installed. The `build.gradle` might look like this:
 
-    ```text
+    ```gradle
     android {
         compileSdkVersion 26
         defaultConfig {
