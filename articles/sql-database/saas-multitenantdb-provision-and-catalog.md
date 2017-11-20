@@ -159,7 +159,7 @@ At this stage you have a mix of tenants deployed into a shared database, and ten
 
 * In the [Azure portal](https://portal.azure.com), open the **tenants1-mt-\<USER\>** server by browsing to the list of SQL servers.  The **SQL databases** list should include the shared **tenants1** database and the databases for the tenants that are in their own database:
 
-   ![database list](media/saas-multitenantdb-provision-and-catalog/databases.png)
+   ![database list](media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
 While the Azure portal shows the tenant databases, it doesn't let you see the tenants *inside* the shared database. The full list of tenants can be seen in the Wingtip Tickets Events hub page and by browsing the catalog:   
 
