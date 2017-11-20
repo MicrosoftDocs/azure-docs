@@ -47,7 +47,7 @@ Create a remote desktop connection to the virtual machine.
 You can configure these settings manually or we have provided a PowerShell script to automate the configuration.
 
 ### Option 1: Use a PowerShell script to configure nested virtualization
-A PowerShell script to enable nested virtualization on a Windows Server 2016 host is available on [GitHub](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/Nested). The script checks pre-requisites and then configures nested virtualization on the Azure VM. A restart of the Azure VM is necessary to complete the configuration. This script may work in other environments but is not guaranteed. 
+A PowerShell script to enable nested virtualization on a Windows Server 2016 host is available on [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). The script checks pre-requisites and then configures nested virtualization on the Azure VM. A restart of the Azure VM is necessary to complete the configuration. This script may work in other environments but is not guaranteed. 
 Check out the Azure blog post with a live video demonstration on nested virtualization running on Azure! https://aka.ms/AzureNVblog.
 
 ### Option 2: Configure nested virtualization manually
