@@ -3,7 +3,7 @@ title: Load data from SQL Server into Azure SQL Data Warehouse (PolyBase) | Micr
 description: Uses bcp to export data from SQL Server to flat files, AZCopy to import data to Azure blob storage, and PolyBase to ingest the data into Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
+author: barbkess
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: cakarst;barbkess
+ms.author: barbkess
 
 
 ---
