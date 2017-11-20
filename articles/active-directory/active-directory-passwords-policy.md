@@ -84,7 +84,7 @@ Every user account that needs to sign in to Azure AD must have a unique user pri
 | --- | --- |
 | Characters allowed |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
 | Characters not allowed |<ul> <li>Any "@" character that's not separating the username from the domain.</li> <li>Can't contain a period character "." immediately preceding the "@" symbol</li></ul> |
-| Length constraints |<ul> <li>The total length must not exceed 113 characters</li><li>There can be up to 64 characters before the "@: symbol</li><li>There can be up to 48 characters after the "@" symbol</li></ul> |
+| Length constraints |<ul> <li>The total length must not exceed 113 characters</li><li>There can be up to 64 characters before the "@" symbol</li><li>There can be up to 48 characters after the "@" symbol</li></ul> |
 
 ## Password policies that only apply to cloud user accounts
 
@@ -121,9 +121,7 @@ To get started, you need to [download and install the Azure AD PowerShell module
 1. Connect to Windows PowerShell by using your company administrator credentials.
 2. Execute one of the following commands:
 
-   * To see if a single user’s password is set to never expire, run the following cmdlet by using either:
-      - The UPN, for example, *aprilr@contoso.onmicrosoft.com*
-      - The user ID of the user you want to check: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
+   * To see if a single user’s password is set to never expire, run the following cmdlet by using the UPN (for example, *aprilr@contoso.onmicrosoft.com*) or the user ID of the user you want to check: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
    * To see the **Password never expires** setting for all users, run the following cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
 
 ### Set a password to expire
@@ -143,7 +141,7 @@ To get started, you need to [download and install the Azure AD PowerShell module
    * To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
    > [!WARNING]
-   > Passwords set to `-PasswordNeverExpires $true` still age based on the `pwdLastSet` attribute. If you set the user passwords to never expire and then 90+ days go by, the passwords expire. Based on the `pwdLastSet` attribute, if you change the expiration to `-PasswordNeverExpires $false`, all passwords that have a `pwdLastSet` older than 90 days require the user to change them the next time they sign in. This change can impact a large number of users. 
+   > Passwords set to `-PasswordNeverExpires $true` still age based on the `pwdLastSet` attribute. If you set the user passwords to never expire and then 90+ days go by, the passwords expire. Based on the `pwdLastSet` attribute, if you change the expiration to `-PasswordNeverExpires $false`, all passwords that have a `pwdLastSet` older than 90 days require the user to change them the next time they sign in. This change can affect a large number of users. 
 
 ## Next steps
 
