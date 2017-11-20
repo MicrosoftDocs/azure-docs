@@ -100,7 +100,6 @@ Now let's switch to working with code. Let's clone a DocumentDB API app from Git
     md "C:\git-samples"
     ```
 
-
 2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app. 
 
     ```bash
