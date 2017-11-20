@@ -1,7 +1,7 @@
 ---
 title: 'Azure Data Lake Tools: Use Azure Data Lake Tools for Visual Studio Code | Microsoft Docs'
 description: 'Learn how to use Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts. '
-Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview storage file,upload to storage path,download,upload
+Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
 documentationcenter: ''
 author: jejiang
@@ -23,7 +23,7 @@ ms.author: jejiang
 
 Learn the Azure Data Lake Tools for Visual Studio Code (VS Code) to create, test, and run U-SQL scripts. The information is also covered in the following video:
 
-<a href="https://www.youtube.com/watch?v=J_gWuyFnaGA&feature=youtu.be"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
+<a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
 ## Prerequisites
 
@@ -126,21 +126,17 @@ After you submit a U-SQL job, the submission logs appear in the **Output** windo
 
 To enable the output of the job details, set **jobInformationOutputPath** in the **vs code for the u-sql_settings.json** file.
  
-## Use a code-behind file
+## Use CS code-behind file
 
 A code-behind file is a C# file associated with a single U-SQL script. You can define a script dedicated to UDO, UDA, UDT, and UDF in the code-behind file. The UDO, UDA, UDT, and UDF can be used directly in the script without registering the assembly first. The code-behind file is put in the same folder as its peering U-SQL script file. If the script is named xxx.usql, the code-behind is named as xxx.usql.cs. If you manually delete the code-behind file, the code-behind feature is disabled for its associated U-SQL script. For more information about writing customer code for U-SQL script, see [Writing and Using Custom Code in U-SQL: User-Defined Functions]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
 To support code-behind, you must open a working folder. 
 
-**To generate a code-behind file**
+**To generate CS code-behind file**
 
-1. Open a source file. 
-2. Select Ctrl+Shift+P to open the command palette.
-3. Enter **ADL: Generate Code Behind**. A code-behind file is created in the same folder. 
+1. Right-click a script file, and then select **ADL: Generate CS Code Behind File**. 
 
-You can also right-click a script file, and then select **ADL: Generate Code Behind**. 
-
-To compile and submit a U-SQL script with a code-behind file is the same as with the standalone U-SQL script file.
+2. To compile and submit a U-SQL script with a code-behind file is the same as with the standalone U-SQL script file.
 
 The following two screenshots show a code-behind file and its associated U-SQL script file:
  
@@ -149,6 +145,153 @@ The following two screenshots show a code-behind file and its associated U-SQL s
 ![Data Lake Tools for Visual Studio Code code-behind script file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
 
 We support local run and local debug, the instructions see [U-SQL local run, and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
+
+## Use Python and R code-behind file
+Our tool supports submiting the script with Python and R code behind, you just set up the environment for the backend.
+
+**Set up the environment**
+
+Open your account in portal -> Select **Overview** and click **Sample Script** -> Click **More** -> Select **Install U-SQL Extensions**. 
+
+![Set up the enrionment for python and R](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
+
+**To generate Python code-behind file**
+1. Right-click a script file, and then select **DL: Generate Python Code Behind File**. 
+
+2. To compile and submit the following code that is the same as with the standalone U-SQL script file.
+
+```U-SQL script
+REFERENCE ASSEMBLY [ExtPython];
+@Input =
+    EXTRACT SepalLength float,
+            SepalWidth float,
+            PetalLength float,
+            PetalWidth float,
+            Name string
+    FROM @"/usqlext/samples/python/iris.csv"
+    USING new USQLApplication6.CSharpExtractor();
+
+@Out =
+    REDUCE @Input ALL
+    PRODUCE SepalLength double,
+            SepalWidth double,
+            PetalLength double,
+            PetalWidth double,
+            Name string,
+            SepalRatio double,
+            PetalRatio double
+    USING new Extension.Python.Reducer("pythonClusterRun.usql.py", pyVersion : "3.5.1");
+
+OUTPUT @Out
+TO @"/mandyw/Python/Output/sample_python.txt"
+USING Outputters.Csv();
+```
+```CSharp code behind
+namespace USQLApplication6
+{
+    [SqlUserDefinedExtractor]
+    public class CSharpExtractor : IExtractor
+    {
+        public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
+        {
+            char column_delimiter = ',';
+            string line;
+            var reader = new StreamReader(input.BaseStream);
+            while ((line = reader.ReadLine()) != null)
+            {
+                var tokens = line.Split(column_delimiter);
+                output.Set("SepalLength", Convert.ToSingle(tokens[0]));
+                output.Set("SepalWidth", Convert.ToSingle(tokens[1]));
+                output.Set("PetalLength", Convert.ToSingle(tokens[2]));
+                output.Set("PetalWidth", Convert.ToSingle(tokens[3]));
+                output.Set("Name", USQLApplication6.IrisUtility.SimplifyIrisName(tokens[4]));
+                yield return output.AsReadOnly();
+            }
+        }
+    }
+
+    public static class IrisUtility
+    {
+        public static string SimplifyIrisName(string irisName)
+        {
+            if (string.IsNullOrWhiteSpace(irisName))
+            {
+                return irisName;
+            }
+
+            string simplifiedName = irisName;
+
+            if (irisName.StartsWith(IrisPrefix, StringComparison.InvariantCultureIgnoreCase))
+            {
+                simplifiedName = irisName.Substring(IrisPrefix.Length);
+            }
+
+            return simplifiedName;
+        }
+
+        private const string IrisPrefix = "Iris-";
+    }
+}
+```
+```Python code behind
+'''
+  Single quote doc string \\
+'''
+"""
+  Double quote doc string \\
+"""
+def usqlml_main(df):
+    df1 = df.query('SepalLength > 5').assign(SepalRatio = lambda x: x.SepalWidth / x.SepalLength, PetalRatio = lambda x: x.PetalWidth / x.PetalLength)
+    return df1,
+
+```
+**To generate R code-behind file**
+1. Right-click a script file, and then select **DL: Generate R Code Behind File**. 
+
+2. To compile and submit the following code that is the same as with the standalone U-SQL script file.
+
+```U-SQL script
+DEPLOY RESOURCE @"/usqlext/samples/R/my_model_LM_Iris.rda";
+DECLARE @IrisData string = @"/usqlext/samples/R/iris.csv";
+DECLARE @OutputFilePredictions string = @"/my/R/Output/LMPredictionsIris.txt";
+DECLARE @PartitionCount int = 10;
+
+@InputData =
+    EXTRACT SepalLength double,
+            SepalWidth double,
+            PetalLength double,
+            PetalWidth double,
+            Species string
+    FROM @IrisData
+    USING Extractors.Csv();
+
+@ExtendedData =
+    SELECT Extension.R.RandomNumberGenerator.GetRandomNumber(@PartitionCount) AS Par,
+           SepalLength,
+           SepalWidth,
+           PetalLength,
+           PetalWidth
+    FROM @InputData;
+
+// Predict Species
+
+@RScriptOutput =
+    REDUCE @ExtendedData
+    ON Par
+    PRODUCE Par,
+            fit double,
+            lwr double,
+            upr double
+    READONLY Par
+    USING new Extension.R.Reducer(scriptFile : "RClusterRun.usql.R", rReturnType : "dataframe", stringsAsFactors : false);
+OUTPUT @RScriptOutput
+TO @OutputFilePredictions
+USING Outputters.Tsv();
+```
+```R code behind
+load("my_model_LM_Iris.rda")
+outputToUSQL=data.frame(predict(lm.fit, inputFromUSQL, interval="confidence"))
+```
 
 ## Use assemblies
 
@@ -274,14 +417,14 @@ After you have connected to Azure, you can use the following steps to access the
 You can use Azure Data Lake Storage-related commands to:
  - Browse through the Azure Data Lake Storage resources. [List the storage path](#list-the-storage-path). 
  - Preview the Azure Data Lake Storage file. [Preview the storage file](#preview-the-storage-file). 
- - Upload the file directly to Azure Data Lake Storage in VS Code. [Upload file](#upload-file).
+ - Upload the file directly to Azure Data Lake Storage in VS Code. [Upload file or folder](#upload-file-or-folder).
  - Download the file directly from Azure Data Lake Storage in VS Code. [Download file](#download-file).
 
 ## List the storage path 
 
 **To list the storage path through the command palette**
 
-Right-click the script editor and select **ADL: List Storage Path**.
+Right-click the script editor and select **ADL: List Path**.
 
 Choose the folder in the list, or click **Enter Path** or **Browse from Root** (uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path (For example: /output/). -> The command palette lists the path information based on your entries.
 
@@ -291,55 +434,40 @@ A more convenient way to list the relative path is through the right-click conte
 
 **To list the storage path through right-click**
 
-Right-click the path string to select **List Storage Path** to continue.
+Right-click the path string to select **List Path** to continue.
 
 ![Data Lake Tools for Visual Studio Code right-click context menu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
 
 
 ## Preview the storage file
 
-Right-click the script editor and select **ADL: Preview Storage File**.
+Right-click the script editor and select **ADL: Preview File**.
 
 Select your **ADLA Account**. ->  Enter an Azure storage file path (For example, /output/SearchLog.txt). -> Result: file opens in VSCode.
 
    ![Data Lake Tools for Visual Studio Code preview file result](./media/data-lake-analytics-data-lake-tools-for-vscode/preview-storage-file.png)
 
-Another way to preview storage file is through the right-click menu on the file's full path or the file's relative path in the script editor. 
+Another way to preview file is through the right-click menu on the file's full path or the file's relative path in the script editor. 
 
-## Upload file 
+## Upload file or folder
 
-You can upload files by entering the commands **ADL: Upload File** or **ADL: Upload File through Configuration**.
+1. Right-click the script editor and select **Upload File** or **Upload Folder**.
 
-**To upload files though the ADL: Upload File through Configuration command**
-1.  Right-click the script editor, and then select **Upload File through Configuration**.
-2.  VS Code displays a JSON file. You can enter file paths and upload multiple files at the same time. Instructions are displayed in the **Output** window. To proceed to upload the file, save (Ctrl+S) the JSON file.
+2. Choose one file or mutiple files if select upload file, or choose the whole folder if select upload folder then click **Upload**. -> Choose the storage folder in the list, or click **Enter Path** or **Browse from Root** (uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path (For example: /output/). -> click **Choose Current Folder** to specify your upload destination.
 
-       ![Data Lake Tools for Visual Studio Code file path](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
+   ![Data Lake Tools for Visual Studio Code upload status](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
 
-3.  Results: The **Output** window displays the file upload status.
 
-       ![Data Lake Tools for Visual Studio Code upload status](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)     
+   Another way of uploading files to storage is through the right-click menu on the file's full path or the file's relative path in the script editor.
 
 As the same time, you can monitor the [uploading status](#check-storage-tasks-status).
 
-**To upload files though the ADL: Upload File command**
-
-Right-click the script editor and select **Upload File**.
-
-Input your **Local File Path**. -> Choose the folder in the list, or click **Enter Path** or **Browse from Root** (uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path (For example: /output/). -> click **Choose Current Folder** to specify your upload destination.
-
-![Data Lake Tools for Visual Studio Code upload status](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
-
-
-Another way of uploading files to storage is through the right-click menu on the file's full path or the file's relative path in the script editor.
-
-As the same time, you can monitor the [uploading status](#check-storage-tasks-status).
 
 ## Download file 
-You can download files by entering the commands **ADL: Download Storage File** or **ADL: Download Storage File through Configuration**.
+You can download files by entering the commands **ADL: Download File** or **ADL: Download File (Advanced)**.
 
-**To download files though the ADL: Download File through Configuration command**
-1. Right-click the script editor, and then select **Download Storage File through Configuration**.
+**To download files though the ADL: Download File (Advanced)**
+1. Right-click the script editor, and then select **Download File (Advanced)**.
 2. VS Code displays a JSON file. You can enter file paths and download multiple files at the same time. Instructions are displayed in the **Output** window. To proceed to download the file, save (Ctrl+S) the JSON file.
 
     ![Data Lake Tools for Visual Studio Code Download files with config](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
@@ -350,17 +478,16 @@ You can download files by entering the commands **ADL: Download Storage File** o
 
 As the same time, you can monitor the [downloading status](#check-storage-tasks-status).
 
-**To Download files though the ADL: Download Storage File command**
+**To Download files though the ADL: Download File**
 
-Right-click the script editor, and then select **Download Storage File**.
+1. Right-click the script editor, select **Download File**, and then select the destination folder from the **Select Folder** dialog.
 
-Choose the folder in the list, or click **Enter Path** or **Browse from Root** (uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path (For example: /output/) -> choose a file to download.
+2. Choose the folder in the list, or click **Enter Path** or **Browse from Root** (uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path (For example: /output/) -> choose a file to download.
 
    ![Data Lake Tools for Visual Studio Code download status](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file.png) 
 
-   In result picture, the file is saved as the temp folder. You can set a default downloading path for the parameter **usql.defaultLocalFolderForDownload** by yourself, through the VSCode menu **File** -> **Preferences** -> **Setting**.
-
-Another way of downloading storage files is through the right-click menu on the file's full path or the file's relative path in the script editor.
+   
+   Another way of downloading storage files is through the right-click menu on the file's full path or the file's relative path in the script editor.
 
 As the same time, you can monitor the [downloading status](#check-storage-tasks-status).
 
