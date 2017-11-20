@@ -10,14 +10,16 @@
     href: quick-start.md
   - name: Moderation APIs
     items: 
-    - name: Image API
+    - name: Images
       href: try-image-api.md
-    - name: Image list API
+    - name: Custom images
       href: try-image-list-api.md
-    - name: Text API
+    - name: Text
       href: try-text-api.md
-    - name: Term list API
+    - name: Custom terms
       href: try-terms-list-api.md
+    - name: Videos
+      href: video-moderation-api.md
   - name: Review APIs
     items: 
     - name: Jobs
@@ -34,8 +36,6 @@
     href: text-moderation-api.md
   - name: Text moderation - languages
     href: Text-Moderation-API-Languages.md
-  - name: Video moderation
-    href: video-moderation-api.md
   - name: Review APIs
     href: review-api.md
 - name: How-to guides
