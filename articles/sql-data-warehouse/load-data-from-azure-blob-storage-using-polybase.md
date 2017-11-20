@@ -166,15 +166,13 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
     ![database objects](media/load-data-from-azure-blob-storage-using-polybase/connected.png) 
 
-
 ## Create a user for loading data
 
  The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data usually requires lots of memory. [Memory maximums](performance-tiers.md#memory-maximums) are defined according to [performance tier](performance-tiers.md), and [resource class](resource-classes-for-workload-management.md). 
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
-Since you are currently connected as the server admin, you can create logins and users. Use these steps to create a login and user called **LoaderRC20**. Then assign the user to the staticrc20 resource class. 
-
+Since you are currently connected as the server admin, you can create logins and users. Use these steps to create a login and user called **LoaderRC20**. Then assign the user to the **staticrc20** resource class. 
 
 1.  In SSMS, right-click **master** to show a drop-down menu, and choose **New Query**. A new query window opens.
 
@@ -189,11 +187,11 @@ Since you are currently connected as the server admin, you can create logins and
 
 3. Click **Execute**.
 
-3. Right-click **mySampleDataWarehouse**, and choose **New Query**. A new query Window opens.  
+4. Right-click **mySampleDataWarehouse**, and choose **New Query**. A new query Window opens.  
 
     ![New query on sample data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
  
-6. Enter the following T-SQL commands to create a database user named LoadingRC20 for the LoadingRC20 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc20 [resource class](resource-classes-for-workload-management.md).
+5. Enter the following T-SQL commands to create a database user named LoadingRC20 for the LoadingRC20 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc20 [resource class](resource-classes-for-workload-management.md).
 
     ```sql
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
@@ -201,25 +199,23 @@ Since you are currently connected as the server admin, you can create logins and
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-4. Click **Execute**.
-
+6. Click **Execute**.
 
 ## Connect to the server as the loading user
 
 The first step toward loading data is to login as LoaderRC20.  
 
-2. In Object Explorer, click the **Connect** drop down menu and select **Database Engine**. The **Connect to Server** dialog box appears.
+1. In Object Explorer, click the **Connect** drop down menu and select **Database Engine**. The **Connect to Server** dialog box appears.
 
     ![Connect with new login](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-3. Enter the fully qualified server name, but this time enter **LoadingRC20** as the Login.  Enter your password for LoadingRC20.
+2. Enter the fully qualified server name, but this time enter **LoadingRC20** as the Login.  Enter your password for LoadingRC20.
 
-4. Click **Connect**.
+3. Click **Connect**.
 
-5. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as MedRCLogin.
+4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as MedRCLogin.
 
     ![Connection is successful](media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
-
 
 ## Create external tables for the sample data
 
@@ -233,14 +229,13 @@ Run the following SQL scripts specify information about the data you wish to loa
 
 2. Compare your query window to the previous image.  Verify your new query window is running as LoaderRC20 and performing queries on your MySampleDataWarehouse database. Use this query window to perform all of the loading steps.
 
-
-2. Create a master key for the MySampleDataWarehouse database. You only need to create a master key once per database. 
+3. Create a master key for the MySampleDataWarehouse database. You only need to create a master key once per database. 
 
     ```sql
     CREATE MASTER KEY;
     ```
 
-2. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) statement to define the location of the Azure blob. This is the location of the external taxi cab data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
+4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) statement to define the location of the Azure blob. This is the location of the external taxi cab data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -251,7 +246,7 @@ Run the following SQL scripts specify information about the data you wish to loa
     );
     ```
 
-3. Run the following [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL statement to specify formatting characteristics and options for the external data file. This  statement specifies the external data is stored as text and the values are separated by the pipe ('|') character. The external file is compressed with Gzip. 
+5. Run the following [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL statement to specify formatting characteristics and options for the external data file. This  statement specifies the external data is stored as text and the values are separated by the pipe ('|') character. The external file is compressed with Gzip. 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -264,7 +259,6 @@ Run the following SQL scripts specify information about the data you wish to loa
             USE_TYPE_DEFAULT = False
         )
     );
-
     CREATE EXTERNAL FILE FORMAT compressedcsv
     WITH ( 
         FORMAT_TYPE = DELIMITEDTEXT,
@@ -277,13 +271,13 @@ Run the following SQL scripts specify information about the data you wish to loa
     );
     ```
 
-4.  Run the following [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) statement to create a schema for your external file format. The schema provides a way to organize the external tables you are about to create.
+6.  Run the following [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) statement to create a schema for your external file format. The schema provides a way to organize the external tables you are about to create.
 
     ```sql
     CREATE SCHEMA ext;
     ```
 
-5. Create the external tables. The table definitions are stored in SQL Data Warehouse, but the tables reference data that is stored in Azure blob storage. Run the following T-SQL commands to create several external tables that all point to the Azure blob we defined previously in our external data source.
+7. Create the external tables. The table definitions are stored in SQL Data Warehouse, but the tables reference data that is stored in Azure blob storage. Run the following T-SQL commands to create several external tables that all point to the Azure blob we defined previously in our external data source.
 
     ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
@@ -328,8 +322,7 @@ Run the following SQL scripts specify information about the data you wish to loa
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
-    );
-    
+    ); 
     CREATE EXTERNAL TABLE [ext].[Geography]
     (
         [GeographyID] int NOT NULL,
@@ -347,9 +340,7 @@ Run the following SQL scripts specify information about the data you wish to loa
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0 
-    );
-        
-    
+    );      
     CREATE EXTERNAL TABLE [ext].[HackneyLicense]
     (
         [HackneyLicenseID] int NOT NULL,
@@ -363,10 +354,7 @@ Run the following SQL scripts specify information about the data you wish to loa
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
-    )
-    ;
-        
-    
+    );
     CREATE EXTERNAL TABLE [ext].[Medallion]
     (
         [MedallionID] int NOT NULL,
@@ -381,8 +369,7 @@ Run the following SQL scripts specify information about the data you wish to loa
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
-    ;
-        
+    ;  
     CREATE EXTERNAL TABLE [ext].[Time]
     (
         [TimeID] int NOT NULL,
@@ -402,10 +389,7 @@ Run the following SQL scripts specify information about the data you wish to loa
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
-    )
-    ;
-    
-    
+    );
     CREATE EXTERNAL TABLE [ext].[Trip]
     (
         [DateID] int NOT NULL,
@@ -439,9 +423,7 @@ Run the following SQL scripts specify information about the data you wish to loa
         FILE_FORMAT = compressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
-    )
-    ;
-    
+    );
     CREATE EXTERNAL TABLE [ext].[Weather]
     (
         [DateID] int NOT NULL,
@@ -458,9 +440,9 @@ Run the following SQL scripts specify information about the data you wish to loa
         REJECT_VALUE = 0
     )
     ;
-  ```
+    ```
 
-6. In Object Explorer, expand mySampleDataWarehouse to see the list of external tables you just created.
+8. In Object Explorer, expand mySampleDataWarehouse to see the list of external tables you just created.
 
     ![View external tables](media/load-data-from-azure-blob-storage-using-polybase/view-external-tables.png)
 
@@ -482,7 +464,6 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -493,7 +474,6 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -503,7 +483,6 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -513,7 +492,6 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -523,7 +501,6 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -533,7 +510,6 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -545,9 +521,7 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
     ;
     ```
 
-2. View your data as it loads.
-
-  You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
+2. View your data as it loads. You’re loading several GBs of data and compressing it into highly performant clustered columnstore indexes. Run the following query that uses a dynamic management views (DMVs) to show the status of the load. After starting the query, grab a coffee and a snack while SQL Data Warehouse does some heavy lifting.
 
     ```sql
     SELECT
@@ -575,8 +549,7 @@ The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-  ```
-
+    ```
 
 3. View all system queries.
 
@@ -612,14 +585,13 @@ Follow these steps to clean up resources as you desire.
 
     ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. To pause compute, click the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, click **Start**.
+2. To pause compute, click the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, click **Start**.
 
-2. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
+3. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
 
-3. To remove the SQL server you created, click **mynewserver-20171113.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
+4. To remove the SQL server you created, click **mynewserver-20171113.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
 
-4. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
-
+5. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
 
 ## Next steps 
 In this tutorial, you learned how to create a data warehouse and create a user for loading data. You created external tables to define the structure for data stored in Azure Storage Blob, and then used the PolyBase CREATE TABLE AS SELECT statement to load data into your data warehouse. 
