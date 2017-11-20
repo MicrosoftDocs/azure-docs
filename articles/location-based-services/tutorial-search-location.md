@@ -5,7 +5,7 @@ services: location-based-services
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 11/14/2017
+ms.date: 11/28/2017
 ms.topic: tutorial
 ms.service: location-based-services
 
@@ -101,23 +101,18 @@ Azure Map Control API is a convenient client library that allows you to easily i
     </head>
     <body>
         <div id="map"></div>
+        <script>
+        // Embed Map Control JavaScript code here
+
+        </script>
 
     </body>
 
     </html>
     ``` 
-    Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library.
-
-3. Add a *script* segment to the *body* of the HTML file, to embed inline JavaScript code that will access the Azure Location Based Service's APIs.
-
-    ```HTML
-        <script>
-        // Embed JavaScript code here
-
-        </script>
-    ```
+    Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the *script* segment added to the *body* of the HTML file. This segment will contain the inline JavaScript code to access the Azure Location Based Service's APIs.
  
-2.  Add the following JavaScript code to the *script* block of the HTML file. Replace the placeholder *<insert-key>* with your Location Based Services account's primary key. 
+3.  Add the following JavaScript code to the *script* block of the HTML file. Replace the placeholder *<insert-key>* with your Location Based Services account's primary key. 
 
     ```HTML/JavaScript
             // Instantiate map to the div with id "map"
@@ -127,9 +122,9 @@ Azure Map Control API is a convenient client library that allows you to easily i
             });
 
     ```
-    This segment initiates the Map Control API for your subscription key. **Atlas** is the namespace that contains the Azure Map Control API and related visual components. **atlas.Map** provides the control for a visual and interactive web map. 
+    This segment initiates the Map Control API for your subscription key. **Atlas** is the namespace that contains the Azure Map Control API and related visual components. **atlas.Map** provides the control for a visual and interactive web map. You may observe how the map looks like by opening the HTML page in the browser. 
 
-5. Add the following JavaScript code to the *script* block, to add a layer of search pins to the Map Control:
+4. Add the following JavaScript code to the *script* block, to add a layer of search pins to the Map Control:
 
     ```HTML/JavaScript
             // Initialize the pin layer for search results to the map
@@ -141,38 +136,7 @@ Azure Map Control API is a convenient client library that allows you to easily i
             });
     ```
 
-6. Add the following lines to the *script* block, to create pop-ups for the points of interest returned by the Search Service:
-
-    ```HTML/JavaScript
-            // Add a popup to the map which will display some basic information about a search result on hover over a pin
-            var popup = new atlas.Popup();
-            map.addEventListener("mouseover", searchLayerName, (e) => {
-                var popupContentElement = document.createElement("div");
-                popupContentElement.style.padding = "5px";
-
-                var popupNameElement = document.createElement("div");
-                popupNameElement.innerText = e.features[0].properties.name;
-                popupContentElement.appendChild(popupNameElement);
-
-                var popupAddressElement = document.createElement("div");
-                popupAddressElement.innerText = e.features[0].properties.address;
-                popupContentElement.appendChild(popupAddressElement);
-
-                var popupPositionElement = document.createElement("div");
-                popupPositionElement.innerText = e.features[0].properties.position;
-                popupContentElement.appendChild(popupPositionElement);
-
-                popup.setPopupOptions({
-                    position: e.features[0].geometry.coordinates,
-                    content: popupContentElement
-                });
-
-                popup.open(map);
-            });
-    ```
-    The API **atlas.Popup** provides an information window anchored at the required position on the map. This code snippet sets the content and position for the popup, as well as adds an event listener to the `map` control, waiting for the _mouse_ to roll over the popup. 
-
-7. Save the file on your machine. 
+5. Save the file on your machine. 
 
 
 <a id="usesearch"></a>
@@ -237,11 +201,40 @@ This section shows how to use the Azure Location Based Services' Search Service 
             xhttp.open("GET", url, true);
             xhttp.send();
     ``` 
-    This snippet uses the basic search API of the Search Service, called the **Fuzzy Search**. It handles the most fuzzy of inputs handling any combination of address or *POI* tokens. It searches for the nearby **gasoline station**, for the given address in latitude and longitude, and within the specified radius. It uses your account's subscription key provided earlier in the sample file, to make the call to the Location Based Services. It returns the results as latitude/longitude pairs for the locations found. 
+    This snippet uses the basic search API of the Search Service, called the **Fuzzy Search**. It handles the most fuzzy of inputs handling any combination of address or *POI* tokens. It searches for the nearby **gasoline station**, for the given address in latitude and longitude, and within the specified radius. It uses your account's subscription key provided earlier in the sample file, to make the call to the Location Based Services. It returns the results as latitude/longitude pairs for the locations found. You may observe the search pins by opening the HTML page in the browser. 
 
-3. Save the file locally.
+3. Add the following lines to the *script* block, to create pop-ups for the points of interest returned by the Search Service:
 
-4. Open the **MapSearch.html** file in a web browser of your choice and observe the result. For a successful connection with the Location Based Services' APIs, you should see a map similar to the following. 
+    ```HTML/JavaScript
+            // Add a popup to the map which will display some basic information about a search result on hover over a pin
+            var popup = new atlas.Popup();
+            map.addEventListener("mouseover", searchLayerName, (e) => {
+                var popupContentElement = document.createElement("div");
+                popupContentElement.style.padding = "5px";
+
+                var popupNameElement = document.createElement("div");
+                popupNameElement.innerText = e.features[0].properties.name;
+                popupContentElement.appendChild(popupNameElement);
+
+                var popupAddressElement = document.createElement("div");
+                popupAddressElement.innerText = e.features[0].properties.address;
+                popupContentElement.appendChild(popupAddressElement);
+
+                var popupPositionElement = document.createElement("div");
+                popupPositionElement.innerText = e.features[0].properties.position;
+                popupContentElement.appendChild(popupPositionElement);
+
+                popup.setPopupOptions({
+                    position: e.features[0].geometry.coordinates,
+                    content: popupContentElement
+                });
+
+                popup.open(map);
+            });
+    ```
+    The API **atlas.Popup** provides an information window anchored at the required position on the map. This code snippet sets the content and position for the popup, as well as adds an event listener to the `map` control, waiting for the _mouse_ to roll over the popup. 
+
+4. Save the file, and then open the **MapSearch.html** file in a web browser of your choice and observe the result. At this point, the map in the browser shows information pop-ups when you hover over any of the search pins shown, similar to the following. 
 
     ![Azure Map Control and Search Service](./media/tutorial-search-location/lbs-map-search.png)
 

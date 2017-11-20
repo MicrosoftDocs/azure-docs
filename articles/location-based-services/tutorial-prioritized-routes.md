@@ -1,11 +1,11 @@
 ---
-title: Prioritized routes with Azure Location Based Services | Microsoft Docs
+title: Multiple routes with Azure Location Based Services | Microsoft Docs
 description: Find routes for different modes of travel using Azure Location Based Services
 services: location-based-services
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 11/17/2017
+ms.date: 11/28/2017
 ms.topic: tutorial
 ms.service: location-based-services
 
@@ -34,8 +34,8 @@ Before you proceed, make sure to [create your Azure Location Based Services acco
 
 Use the following steps to create a static HTML page embedded with the Location Based Services' Map Control API. 
 
-1. On your local machine, create a new file and name it **staticTruckRoute.html**. 
-2. Add the following HTML header to the file, which embeds the resource locations for CSS and JavaScript files for the Azure Location Based Services library:
+1. On your local machine, create a new file and name it **MapTruckRoute.html**. 
+2. Add the following HTML components to the file:
 
     ```HTML
     <!DOCTYPE html>
@@ -44,7 +44,7 @@ Use the following steps to create a static HTML page embedded with the Location 
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
-        <title>Static Truck Route</title>
+        <title>Map Truck Route</title>
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
         <style>
@@ -62,13 +62,21 @@ Use the following steps to create a static HTML page embedded with the Location 
             }
         </style>
     </head>
-    ```
-3. Add the following HTML element, for the block containing the embedded CSS and JavaScript code to access the Azure Map Control API. Replace the placeholder *<insert-key>* with your Location Based Services account's primary key.
-
-    ```HTML
     <body>
         <div id="map"></div>
         <script>
+        // Embed Map Control JavaScript code here
+
+        </script>
+
+    </body>
+
+    </html>
+    ```
+    Note that the HTML header embeds the resource locations for CSS and JavaScript files for the Azure Location Based Services library. Notice also the *script* segment added to the body of the HTML, to contain the inline JavaScript code to access the Azure Map Control API.
+3. Add the following JavaScript code to the *script* block of the HTML file. Replace the placeholder *<insert-key>* with your Location Based Services account's primary key.
+
+    ```HTML
             // Instantiate map to the div with id "map"
             var subscriptionKey = "<insert-key>";
             var map = new atlas.Map("map", {
@@ -78,7 +86,7 @@ Use the following steps to create a static HTML page embedded with the Location 
     ```
     The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
 
-4. Add the following snippet to set the traffic flow display to the map:
+4. Add the following JavaScript code to the *script* block, to add the traffic flow display to the map:
 
     ```HTML
             // Add Traffic Flow to the Map
@@ -86,9 +94,9 @@ Use the following steps to create a static HTML page embedded with the Location 
                 flow: "relative"
             });
     ```
-    This snippet sets the traffic flow to `relative`, which is the speed of the road relative to free-flow. You could also set it to `absolute` speed of the road, or `relative-delay` which displays the relative speed where it differs from free-flow. 
+    This code sets the traffic flow to `relative`, which is the speed of the road relative to free-flow. You could also set it to `absolute` speed of the road, or `relative-delay` which displays the relative speed where it differs from free-flow. 
 
-5. Add the following snippet to create start and end points for the route:
+5. Add the following JavaScript code to create start and end points for the route:
 
     ```HTML
             // Create the GeoJSON objects which represent the start and end point of the route
@@ -106,7 +114,7 @@ Use the following steps to create a static HTML page embedded with the Location 
     ```
     This code creates two [GeoJSON objects](https://en.wikipedia.org/wiki/GeoJSON) to represent the start and end points of the route. 
 
-6. Add the following snippet to add layers of *linestrings* to the Map Control, to display routes based on mode of transport, for example, _car_ and _truck_.
+6. Add the following JavaScript code to add layers of *linestrings* to the Map Control, to display routes based on mode of transport, for example, _car_ and _truck_.
 
     ```HTML
             // Place route layers on the map
@@ -131,7 +139,7 @@ Use the following steps to create a static HTML page embedded with the Location 
             });
     ```
 
-7. Add the following snippet to add the start and end points to the map:
+7. Add the following JavaScript code to add the start and end points to the map:
 
     ```HTML
             // Fit the map window to the bounding box defined by the start and destination points
@@ -153,7 +161,7 @@ Use the following steps to create a static HTML page embedded with the Location 
     ``` 
     The API **map.setCameraBounds** adjusts the map window according to the coordinates of the start and end points. The API **map.addPins** adds the points to the Map control as visual components.
 
-8. Save the **staticTruckRoute.html** file on your machine. 
+8. Save the **MapTruckRoute.html** file on your machine. 
 
 <a id="multipleroutes"></a>
 
@@ -161,7 +169,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 
 This section shows how to use the Azure Location Based Services' Route Service API to find multiple routes from a given start point to a destination, based on your mode of transport. The Route Service provides APIs to plan the fastest, shortest, or eco route between two locations, considering the real-time traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
 
-1. At the end of the **staticTruckRoute.html** file created in the preceding section, add the following code to get the route for a truck using the Route Service.
+1. Open the **MapTruckRoute.html** file created in the preceding section, and add the following JavaScript code to the *script* block, to get the route for a truck using the Route Service.
 
     ```HTML
             // Perform a request to the route service and draw the resulting truck route on the map
@@ -205,7 +213,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
         - The parameters `vehicleWidth`, `vehicleHeight`, and `vehicleLength` specify the dimensions of the vehicle in meters, and are considered only if the mode of travel is *truck*. 
         - The `vehicleLoadType` classifies the cargo as hazardous and restricted on some roads. This is also currently considered only for the *truck* mode. 
 
-2. Add the following code to get the route for a truck using the Route Service:
+2. Add the following JavaScript code to get the route for a truck using the Route Service:
 
     ```HTML
             // Perform a request to the route service and draw the resulting car route on the map
@@ -241,16 +249,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
     
     This code snippet also sends the query to the Route Service, to get the route for the specified start and end point, for your account's subscription key. Since no other parameters are used, the route for the default mode of travel *car* is returned. 
 
-3. Finally, close the *script*, *body*, and *html* blocks by adding the following lines of code and save the file. 
-
-    ```HTML
-        </script>
-    </body>
-
-    </html>
-    ```
-
-4. Open the **staticTruckRoute.html** file in a web browser of your choice and observe the result. For a successful connection with the Location Based Services' APIs, you should see a map similar to the following. 
+3. Save the **MapTruckRoute.html** file locally, then open it in a web browser of your choice and observe the result. For a successful connection with the Location Based Services' APIs, you should see a map similar to the following. 
 
     ![Prioritized routes with Azure Route Service](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
 

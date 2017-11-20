@@ -15,7 +15,7 @@
     href: tutorial-search-location.md
   - name: 2 - Route to point of interest
     href: tutorial-route-location.md
-  - name: 3 - Routes prioritized by mode of travel
+  - name: 3 - Multiple routes by mode of travel
     href: tutorial-prioritized-routes.md
 - name: Concepts
   items:
