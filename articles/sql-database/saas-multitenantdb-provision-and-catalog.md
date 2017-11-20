@@ -23,9 +23,9 @@ ms.author: billgib
 
 In this tutorial, you learn about patterns for provisioning and cataloging tenants when working with a sharded multi-tenant database model. 
 
-A multi-tenant schema, which includes a tenant Id as part of the primary key of all tables holding tenant data, allows data from multiple tenants to be stored in a single database. To support large numbers of tenants, tenant data is distributed across multiple shards, or databases. The data for any one tenant is always fully contained in a single database.  A catalog is used to hold the mapping of tenants to databases.   
+A multi-tenant schema, which includes a tenant Id in the primary key of tables holding tenant data, allows multiple tenants to be stored in a single database. To support large numbers of tenants, tenant data is distributed across multiple shards, or databases. The data for any one tenant is always fully contained in a single database.  A catalog is used to hold the mapping of tenants to databases.   
 
-You can also choose to populate some databases with only a single tenant. Databases that hold multiple tenants favor a lower cost per tenant at the expense of tenant isolation.  Databases that hold only a single tenant favor isolation over low cost.  Databases with multiple tenants and single tenants can be mixed in a single SaaS application to optimize cost or isolation for each tenant. Tenants can be given their own database when provisioned or can be moved to their own database later.
+You can also choose to populate some databases with only a single tenant. Databases that hold multiple tenants favor a lower cost per tenant at the expense of tenant isolation.  Databases that hold only a single tenant favor isolation over low cost.  Databases with multiple tenants and single tenants can be mixed in the same SaaS application to optimize cost or isolation for each tenant. Tenants can be given their own database when provisioned or can be moved to their own database later.
 
    ![Sharded multi-tenant database app with tenant catalog](media/saas-multitenantdb-provision-and-catalog/MultiTenantCatalog.png)
 
@@ -43,7 +43,7 @@ The catalog can be extended to store additional tenant or database metadata, suc
 The catalog can also be used to enable cross-tenant reporting, schema management, and data extract for analytics purposes. 
 
 ### Elastic Database Client Library 
-In the Wingtip Tickets SaaS apps, the catalog is implemented in the *tenantcatalog* database using the Shard Management features of the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). The library enables an application to create, manage, and use a database-backed 'shard map'. A shard map contains a list of shards (databases) and the mapping between keys (tenants) and shards.  EDCL functions can be used from applications or PowerShell scripts during tenant provisioning to create the entries in the shard map, and later, to connect to the correct database. The library caches connection information to minimize the traffic on the catalog database and speed up connection. 
+In the Wingtip Tickets SaaS apps, the catalog is implemented in the *tenantcatalog* database using the Shard Management features of the [Elastic Database Client Library (EDCL)](sql-database-elastic-database-client-library.md). The library enables an application to create, manage, and use a database-backed 'shard map'. A shard map contains a list of shards (databases) and the mapping between keys (tenant Ids) and shards.  EDCL functions can be used from applications or PowerShell scripts during tenant provisioning to create the entries in the shard map, and later, to connect to the correct database. The library caches connection information to minimize the traffic on the catalog database and speed up connection. 
 
 > [!IMPORTANT]
 > The mapping data is accessible in the catalog database, but *don't edit it!* Edit mapping data using Elastic Database Client Library APIs only. Directly manipulating the mapping data risks corrupting the catalog and is not supported.
@@ -53,11 +53,11 @@ In the Wingtip Tickets SaaS apps, the catalog is implemented in the *tenantcatal
 
 When provisioning a new tenant in the sharded multi-tenant database model, it must first be determined if the tenant is to be provisioned into a shared database or given its own database. If a shared database, it must be determined if there is space in an existing database or a new database is needed. If a new database is needed, it must be provisioned in the appropriate location and service tier, initialized with appropriate schema and reference data, and then registered in the catalog. Finally, the tenant mapping can be added to reference the appropriate shard.
 
-Database provisioning can be achieved by executing SQL scripts, deploying a bacpac, or copying a template database. The Wingtip Tickets SaaS applications copy a template database to create new tenant databases.
+Provision the database by executing SQL scripts, deploying a bacpac, or copying a template database. The Wingtip Tickets SaaS applications copy a template database to create new tenant databases.
 
 The database provisioning approach must be comprehended in the overall schema management strategy, which needs to ensure that new databases are provisioned with the latest schema.  This is explored further in the [schema management tutorial](saas-tenancy-schema-management.md).  
 
-The tenant provisioning scripts in this tutorial include both provisioning a tenant into an existing multi-tenant database, and provisioning a tenant into its own database. Tenant data is then initialized and registered in the catalog shard map. In the sample app, databases that contain multiple tenants are given a generic name, like *tenants1*, *tenants2*, etc. while databases containing a single tenant are given the tenant's name. The specific naming conventions used in the sample are not a critical part of the pattern, as the use of a catalog allows any name to be assigned to the database.  
+The tenant provisioning scripts in this tutorial include both provisioning a tenant into an existing database shared with other tenants, and provisioning a tenant into its own database. Tenant data is then initialized and registered in the catalog shard map. In the sample app, databases that contain multiple tenants are given a generic name, like *tenants1*, *tenants2*, etc. while databases containing a single tenant are given the tenant's name. The specific naming conventions used in the sample are not a critical part of the pattern, as the use of a catalog allows any name to be assigned to the database.  
 
 ## Provision and catalog tutorial
 
@@ -139,7 +139,7 @@ The following are key elements of the workflow you step through while tracing th
 * **Add database to catalog**. The new tenant database is registered as a shard in the catalog.
 * **Initialize tenant in the default tenant database**. The tenant database is updated to add the new tenant information.  
 * **Register tenant in the catalog** The mapping between the new tenant key and the *sequoiasoccer* database is added to the catalog.
-* **Tenant Name is added to the catalog**. The venue name is added to the Tenants extension table in the catalog.
+* **Tenant name is added to the catalog**. The venue name is added to the Tenants extension table in the catalog.
 * **Open Events page for the new tenant**. The *Sequoia Soccer* Events page is opened in the browser:
 
    ![events](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
@@ -147,7 +147,7 @@ The following are key elements of the workflow you step through while tracing th
 
 ## Provision a batch of tenants
 
-This exercise provisions a batch of 17 tenants. It’s recommended you provision this batch of tenants before starting other Wingtip Tickets tutorials so there's more than just a few databases to work with.
+This exercise provisions a batch of 17 tenants. It’s recommended you provision this batch of tenants before starting other Wingtip Tickets tutorials so there are more databases to work with.
 
 1. In the *PowerShell ISE*, open ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*  and change the *$Scenario* parameter to 3:
    * **$Scenario** = **3**, to *Provision a batch of tenants into a shared database*.
@@ -172,7 +172,7 @@ The full list of tenants and their corresponding database is available in the ca
     ![SSMS connection dialog](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
 2. In the *Object Explorer*, browse to the views in the *tenantcatalog* database.
-2. Right click on *ExtendedTenants* and choose **Select Top 1000 Rows** and note the mapping between tenant name and database for the different tenants.
+2. Right click on the view *TenantsExtended* and choose **Select Top 1000 Rows**. Note the mapping between tenant name and database for the different tenants.
 
     ![ExtendedTenants view in SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
       
