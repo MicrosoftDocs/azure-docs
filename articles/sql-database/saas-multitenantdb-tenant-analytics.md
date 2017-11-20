@@ -109,7 +109,7 @@ See the following database items in the SSMS Object Explorer by expanding the an
 - The star-schema tables are **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, and **dim_Dates**.
 - The **sp_ShredRawExtractedData** stored procedure is used to populate the star-schema tables from the raw data tables.
 
-![architectureOverView](media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
+![tenantAnalytics](media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
 
 ## Data Extraction 
 
@@ -157,7 +157,7 @@ In this section of the tutorial, you define and run a job that merges the extrac
 4. Allow enough time for the job to run successfully.
     - Check the **Lifecycle** column of jobs.jobs_execution table for the status of job. Ensure that the job **Succeeded** before proceeding. A successful run displays data similar to the following chart:
 
-![analyticsViews](media/saas-multitenantdb-tenant-analytics/shreddingJob.png)
+![shreddingJob](media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
 ## Data Exploration
 
@@ -172,11 +172,11 @@ Use the following steps to connect to Power BI, and to import the views you crea
 3. In the **Get Data** window, select Azure SQL Database.
 4. In the database login window, enter your server name (catalog-mt-\<User\>.database.windows.net). Select **Import** for **Data Connectivity Mode**, and then click OK. 
 
-    ![analyticsViews](media/saas-multitenantdb-tenant-analytics/powerBISignIn.png)
+    ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
 5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P@ssword1*. Click **Connect**.  
 
-    ![analyticsViews](media/saas-multitenantdb-tenant-analytics/DatabaseSignIn.png)
+    ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/DatabaseSignIn.PNG)
 
 6. In the **Navigator** pane, under the analytics database, select the star-schema tables: fact_Tickets, dim_Events, dim_Venues, dim_Customers and dim_Dates. Then select **Load**. 
 
@@ -184,25 +184,25 @@ Congratulations! You have successfully loaded the data into Power BI. Now you ca
 
 You start by analyzing ticket sales data to see the variation in usage across the venues. Select the following options in Power BI to plot a bar chart of the total number of tickets sold by each venue. Due to random variation in the ticket generator, your results may be different.
  
-![analyticsViews](media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.png)
+![TotalTicketsByVenues](media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
 
 The preceding plot confirms that the number of tickets sold by each venue varies. Venues that sell more tickets are using your service more heavily than venues that sell fewer tickets. There may be an opportunity here to tailor resource allocation according to different tenant needs.
 
 You can further analyze the data to see how ticket sales vary over time. Select the following options in Power BI to plot the total number of tickets sold each day for a period of 60 days.
  
-![SaleVersusDate](media/saas-multitenantdb-tenant-analytics/SaleVersusDate.png)
+![SaleVersusDate](media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
 
 The preceding chart displays that ticket sales spike for some venues. These spikes reinforce the idea that some venues might be consuming system resources disproportionately. So far there is no obvious pattern in when the spikes occur.
 
 Next you want to further investigate the significance of these peak sale days. When do these peaks occur after tickets go on sale? To plot tickets sold per day, select the following options in Power BI.
 
-![SaleDayDistribution](media/saas-multitenantdb-tenant-analytics/SaleDistributionPerDay.png)
+![SaleDayDistribution](media/saas-multitenantdb-tenant-analytics/SaleDistributionPerDay.PNG)
 
 The preceding plot shows that some venues sell a lot of tickets on the first day of sale. As soon as tickets go on sale at these venues, there seems to be a mad rush. This burst of activity by a few venues might impact the service for other tenants.
 
 You can drill into the data again to see if this mad rush is true for all events hosted by these venues. In previous plots, you observed that Contoso Concert Hall sells a lot of tickets, and that Contoso also has a spike in ticket sales on certain days. Play around with Power BI options to plot cumulative ticket sales for Contoso Concert Hall, focusing on sale trends for each of its events. Do all events follow the same sale pattern?
 
-![ContosoSales](media/saas-multitenantdb-tenant-analytics/EventSaleTrends.png)
+![ContosoSales](media/saas-multitenantdb-tenant-analytics/EventSaleTrends.PNG)
 
 The preceding plot for Contoso Concert Hall shows that the mad rush does not happen for all events. Play around with the filter options to see sale trends for other venues.
 
@@ -216,7 +216,7 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 
 Select the following visualization options to plot the percentage tickets sold by each venue to determine their relative success.
 
-![analyticsViews](media/saas-multitenantdb-tenant-analytics/AvgTicketsByVenues.png)
+![analyticsViews](media/saas-multitenantdb-tenant-analytics/AvgTicketsByVenues.PNG)
 
 The preceding plot shows that even though most venues sell more than 80% of their tickets, some are struggling to fill more than half the seats. Play around with the Values Well to select maximum or minimum percentage of tickets sold for each venue.
 
