@@ -13,7 +13,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 20/11/2017
 ms.author: xshi
 
 ---
@@ -194,11 +194,15 @@ The .zip file contains the following tools and packages. If you already have som
 
 In the Finder, locate the .zip and extract it:
 
+![macOS finder](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-finder.png)
+
 Launch Terminal app, locate the folder you extract .zip file and run:
 
 ```bash
 ./install.sh
 ```
+
+![macOS install](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-install-sh.png)
 
 > [!NOTE] 
 > If you meet Homebrew permission error, run `brew doctor` to get it fixed. Check [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos) for more details.
@@ -213,7 +217,7 @@ You start to create an Azure IoT Hub, connect DevKit to it, and collect the temp
 
 Make sure your DevKit is not connected. Start VS Code first and connect the DevKit to your computer. VS Code automatically finds the DevKit and opens an introduction page:
 
-![Introduction page](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
+![Introduction page](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 > [!NOTE] 
 > Occasionally, when you launch VS Code, you are prompted with error that cannot find Arduino IDE or related board package. Close VS Code, launch Arduino IDE once again, and VS Code should locate Arduino IDE path correctly.
