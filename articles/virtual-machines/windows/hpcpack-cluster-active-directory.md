@@ -71,31 +71,31 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
     * Select **Yes** for **Multi-tenanted**.
     * Change **App ID URI** to `https://<Directory_name>/<application_name>`. Replace `<Directory_name`> with the full name of your Azure AD tenant, for example, `hpclocal.onmicrosoft.com`, and replace `<application_name>` with the name you chose previously.
 6. Click **Save**. When saving completes, on the app page, click **Manifest**. Edit the manifest by locating the `appRoles` setting and adding the following application role, and then click **Save**:
-  ```json
-   "appRoles": [
-       {
-       "allowedMemberTypes": [
-           "User",
-           "Application"
-       ],
-       "displayName": "HpcAdminMirror",
-       "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
-       "isEnabled": true,
-       "description": "HpcAdminMirror",
-       "value": "HpcAdminMirror"
-       },
-       {
-       "allowedMemberTypes": [
-           "User",
-           "Application"
-       ],
-       "description": "HpcUsers",
-       "displayName": "HpcUsers",
-       "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
-       "isEnabled": true,
-       "value": "HpcUsers"
-       }
-   ],
+    ```json
+     "appRoles": [
+         {
+         "allowedMemberTypes": [
+             "User",
+             "Application"
+         ],
+         "displayName": "HpcAdminMirror",
+         "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
+         "isEnabled": true,
+         "description": "HpcAdminMirror",
+         "value": "HpcAdminMirror"
+         },
+         {
+         "allowedMemberTypes": [
+             "User",
+             "Application"
+         ],
+         "description": "HpcUsers",
+         "displayName": "HpcUsers",
+         "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
+         "isEnabled": true,
+         "value": "HpcUsers"
+         }
+     ],
    ```
 7. In **Azure Active Directory**, click **Enterprise applications** > **All applications**. Select **HPCPackClusterServer** from the list.
 8. Click **Properties**, and change **User assignment required** to **Yes**. Click **Save**.
