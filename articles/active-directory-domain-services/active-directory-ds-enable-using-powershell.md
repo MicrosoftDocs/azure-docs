@@ -73,11 +73,12 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
 Type the following PowerShell command to create a resource group:
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"
+$AzureLocation = "westus"
 
 # Create the resource group.
 New-AzureRmResourceGroup `
   -Name $ResourceGroupName `
-  -Location westus
+  -Location $AzureLocation
 ```
 
 You can create the virtual network and the Azure AD Domain Services managed domain in this resource group.
@@ -115,9 +116,15 @@ $Vnet=New-AzureRmVirtualNetwork `
 Type the following PowerShell command to enable Azure AD Domain Services for your directory:
 
 ```powershell
+$AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+$ManagedDomainName = "contoso100.com"
+$ResourceGroupName = "ContosoAaddsRg"
+$VnetName = "DomainServicesVNet_WUS"
+$AzureLocation = "westus"
+
 # Enable Azure AD Domain Services for the directory.
 New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -Location "westus" `
+  -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
   -ApiVersion 2017-06-01 -Force -Verbose
