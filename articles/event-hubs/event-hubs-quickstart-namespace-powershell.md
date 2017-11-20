@@ -83,12 +83,12 @@ Run the following command to remove the resource group, namespace, storage accou
 Remove-AzureRmResourceGroup -Name eventhubsResourceGroup
 ```
 
-## Next Steps
+## Next steps
 
 In this article, you created the Event Hubs namespace and other resources required to send and receive events from an event hub. To learn how to send and receive events, continue with the following articles:
 
-* [Send events to your event hub](event-hubs-dotnet-framework-getstarted-send.md)
-* [Receive events from your event hub](event-hubs-dotnet-framework-getstarted-receive-eph.md)
+* [Send events to your event hub](event-hubs-dotnet-standard-getstarted-send.md)
+* [Receive events from your event hub](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps

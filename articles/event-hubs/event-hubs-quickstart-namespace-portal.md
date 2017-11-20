@@ -103,12 +103,12 @@ The Event Processor Host is an intelligent agent that simplifies receiving event
    
     ![](./media/event-hubs-quickstart-namespace-portal/create-storage3.png)
 
-## Next Steps
+## Next steps
 
 In this article, you’ve created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn how to send and receive events, continue with the following articles.
 
-* [Send events to your event hub](event-hubs-dotnet-framework-getstarted-send.md)
-* [Receive events from your event hub](event-hubs-dotnet-framework-getstarted-receive-eph.md)
+* [Send events to your event hub](event-hubs-dotnet-standard-getstarted-send.md)
+* [Receive events from your event hub](event-hubs-dotnet-standard-getstarted-receive-eph.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure portal]: https://portal.azure.com/
