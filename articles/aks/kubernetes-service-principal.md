@@ -80,7 +80,7 @@ Output is similar to the following. Take note of the `appId` and `password`. The
 When using a pre-created service principal, provide the `appId` and `password` as argument values to the `az aks create` command.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-princal <appId> ----client-secret <password>
+az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> ----client-secret <password>
 ```
 
 If deploying an AKS cluster from the Azure portal, enter these values in the AKS cluster configuration form.
