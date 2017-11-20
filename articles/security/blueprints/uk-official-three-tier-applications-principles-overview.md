@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.author: jomolesk
 
 ---
@@ -23,7 +23,7 @@ ms.author: jomolesk
 
 
 > [!NOTE]
-> These security principles are defined by the National Cyber Security Centre (NCSC). Please refer to NCSC documentation for information on testing procedures and guidance for each security principle.
+> These security principles are defined by the UK National Cyber Security Centre (NCSC). Please refer to [NCSC documentation](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) for information on testing procedures and guidance for each security principle.
 
 
 
@@ -434,3 +434,12 @@ With IaaS and PaaS offerings, you are responsible for significant aspects of the
 |---|---|
 | **Customer** | The Azure Resource Manager templates and accompanying resources that comprise this Azure Blueprint follow a defence-in-depth approach to security. In order to be compliant with this principle, further configuration is required by the customer for use in production (e.g., database management software, web application deployment). |
 | **Provider&nbsp;(Microsoft&nbsp;Azure)** | Not Applicable |
+
+## Disclaimer
+
+ - This document is for informational purposes only. MICROSOFT MAKES NO WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, AS TO THE INFORMATION IN THIS DOCUMENT. This document is provided "as-is." Information and views expressed in this document, including URL and other Internet website references, may change without notice. Customers reading this document bear the risk of using it.
+ - This document does not provide customers with any legal rights to any intellectual property in any Microsoft product or solutions.
+ - Customers may copy and use this document for internal reference purposes.
+ - Certain recommendations in this document may result in increased data, network, or compute resource usage in Azure, and may increase a customer's Azure license or subscription costs.
+ - This architecture is intended to serve as a foundation for customers to adjust to their specific requirements and should not be used as-is in a production environment.
+ - This document is developed as a reference and should not be used to define all means by which a customer can meet specific compliance requirements and regulations. Customers should seek legal support from their organization on approved customer implementations.

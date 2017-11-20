@@ -3,7 +3,7 @@ title: 'Quickstart: Table API with .NET - Azure Cosmos DB | Microsoft Docs'
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and .NET 
 services: cosmos-db
 documentationcenter: ''
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: ''
 
@@ -14,8 +14,8 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: arramac
+ms.date: 11/20/2017
+ms.author: mimig
 
 ---
 # Quickstart: Build a Table API app with .NET and Azure Cosmos DB 
@@ -81,21 +81,26 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. In Visual Studio, open the App.config file. 
 
-3. Uncomment the StorageConnectionString on line 8 and comment out the StorageConnectionString on line 7 as this tutorial does not use the Storage Emulator. 
-
-3. Paste the PRIMARY CONNECTION STRING value into the value of the StorageConnectionString on line 8. 
+3. Uncomment the StorageConnectionString on line 8 and comment out the StorageConnectionString on line 7 as this tutorial does not use the Storage Emulator. Line 7 and 8 should now look like this:
 
     ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-    Line 8 should now look similar to
+4. Paste the PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value on line 8. Paste the string inside the quotes. 
+
+    > [!IMPORTANT]
+    > If your Endpoint uses documents.azure.com, that means you have a preview acct, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK. 
+    > 
+
+    Line 8 should now look similar to:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-4. Save the App.config file.
+5. Save the App.config file.
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
@@ -107,11 +112,25 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 3. From the results, install the **Microsoft.Azure.CosmosDB.Table** library. This installs the Azure Cosmos DB Table API package as well as all dependencies.
 
-4. Click CTRL + F5 to run the application.
+4. Open BasicSamples.cs and add a breakpoint to line 30 and line 52.
 
-    The console window displays the table data being added to the new table database in Azure Cosmos DB.
+5. Click CTRL + F5 to run the application.
 
-    You can now go back to Data Explorer and see query, modify, and work with this new data.
+    The console window displays the table data being added to the new table database in Azure Cosmos DB. 
+    
+    If you get an error about dependencies, see [Troubleshooting](table-sdk-dotnet.md#troubleshooting).
+
+    When you hit the first breakpoint, go back to Data Explorer in the Azure portal and expand the demo* table and click **Entities**. The **Entities** tab on the right shows the new entity that was added, note that phone number for the user is 425-555-0101.
+    
+6. Close the Entities tab in Data Explorer.
+    
+7. Continue to run the app to the next breakpoint.
+
+    When you hit the breakpoint, switch back to the portal, click Entities again to open the Entities tab, and note that the phone number has been updated to 425-555-0105.
+
+8. Back in the console window, press CTRL + C to end the execution of the app. 
+
+    You can now go back to Data Explorer and add or modify the entitites, and query the data.
 
 ## Review SLAs in the Azure portal
 
