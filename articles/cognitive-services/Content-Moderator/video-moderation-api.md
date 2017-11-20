@@ -22,13 +22,13 @@ Today, online viewers generate billions of video views across popular and region
 
 ## Create an Azure Media Services account
 
-The Content Moderator video capability is powered by the adult and racy classifier (media processor) in the **Azure Media Services (AMS)**. The capability is currently in private preview and available at no charge. 
+The Content Moderator video capability (private preview) is powered by the adult and racy classifier (media processor) in the **Azure Media Services (AMS)**. The capability is currently available at no charge. 
 
-Follow the steps in [Create an Azure Media Services account](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-create-account) article to create an Azure Media Services account in your Azure subscription.
+Follow the steps in the [Create an Azure Media Services account](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-create-account) article to create an Azure Media Services account in your Azure subscription.
 
 ## Submit your information to get access
 
-[Contact us](https://cognitive.uservoice.com/ "Contact Us") with this information for enabling Content Moderator in your region:
+[Contact us](https://cognitive.uservoice.com/ "Contact Us") for enabling the Content Moderator private preview while including this information:
 
    1. Your Azure subscription ID
    1. Your Azure Media Services account name
@@ -36,7 +36,7 @@ Follow the steps in [Create an Azure Media Services account](https://docs.micros
 
 ## Scan your videos with Content Moderator
 
-After getting access to the Content Moderator media processor, use the sample C# program listed below to learn how to use the AMS ADK to run a Content Moderator job. This code requires both the [Azure Media Services C# SDK](https://github.com/Azure/azure-sdk-for-media-services "Azure Media Services SDK") and [SDK Extensions packages](https://github.com/Azure/azure-sdk-for-media-services-extensions "SDK Extensions") (available on [NuGet](http://www.nuget.org/packages?q=Azure+Media+Services+.NET+SDK "Nuget")).
+After getting access to the Content Moderator media processor, use the sample C# program listed below to run a Content Moderator job. This code requires both the [Azure Media Services C# SDK](https://github.com/Azure/azure-sdk-for-media-services "Azure Media Services SDK") and [SDK Extensions packages](https://github.com/Azure/azure-sdk-for-media-services-extensions "SDK Extensions") (available on [NuGet](http://www.nuget.org/packages?q=Azure+Media+Services+.NET+SDK "Nuget")).
 
 
 	using System;
@@ -176,7 +176,7 @@ After getting access to the Content Moderator media processor, use the sample C#
 
 	}
 
-## Analyze the response to take action
+## Analyze the Content Moderator response
 
 The Content Moderator media processor's response consists of these elements:
 
