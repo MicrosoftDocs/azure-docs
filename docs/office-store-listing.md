@@ -1,3 +1,9 @@
+---
+title: Create your Office Store listing
+description: Communicate to customers what your solution does and how it provides value to them by including its name, description, screenshots, and regional availability.
+ms.date: 11/27/2017 
+---
+
 # Create your Office Store listing
 
 You enter the Store listing information on the Details page in the Seller Dashboard. Your Store listing is where you communicate to customers what your solution does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the following information for each language. 
@@ -27,7 +33,7 @@ For additional guidance for descriptions, see [Write compelling descriptions](cr
 
 Your screenshots appear on the Store details page and can help draw in potential customers.
 
-At a minimum, you must supply a **Primary** screenshot. You can optionally provide an additional four images. Screenshot images must have a file extention of .png, .jpg, .jpeg, or .gif. Each screen shot must be exactly 1366 pixels wide and 768 pixels high (1366 x 768) and no larger than 1024 KB.
+At a minimum, you must supply a **Primary** screenshot. You can optionally provide an additional four images. Screenshot images must have a file extention of .png, .jpg, .jpeg, or .gif. Each screenshot must be exactly 1366 pixels wide and 768 pixels high (1366 x 768) and no larger than 1024 KB.
 
 For guidance for creating compelling screenshots, see [Use screenshots effectively](create-effective-office-store-listings.md#use-screenshots-effectively).
  
@@ -39,7 +45,7 @@ On the **Block access** page, if you don't want your app or add-in to be listed 
 
 - Select the **Block customers in certain countries/regions from purchasing this app** check box.
 - Select **Select countries/regions**.
-- In the **Select which countries/regions you would like to block** dialog box, choose the countries/regions that you want to block from purchasing your app or add-in.
+- In the **Select which countries/regions you would like to block** dialog box, select the countries/regions that you want to block from purchasing your app or add-in.
 - Select **Block countries/regions** or **Cancel** after making your selections. If you block a particular country/region, users in that region will not be able to acquire or use your app or add-in.
 
 > [!NOTE]
