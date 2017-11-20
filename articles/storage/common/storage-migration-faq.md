@@ -60,7 +60,7 @@ account by using AzCopy or Storage Explorer. The following steps show
 how to use AzCopy to move the container:  
  
 
-1.  Install the [AzCopy](storage-use-azcopy.md) command line tool. This tool helps you move
+1.  Install the [AzCopy](storage-use-azcopy.md) command-line tool. This tool helps you move
     the VHD file between storage accounts.
 
 2.  After you install AzCopy on Windows by using the installer, open a
@@ -388,7 +388,7 @@ RA-GRS), how do I access data that is stored in the secondary region?**
     occurs](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs).
 
 -   If you are using Read-Access Geo-Redundant Storage (**RA-GRS**), you
-    can access data from the secondary region at any time. To do this, use one of the following method:  
+    can access data from the secondary region at any time. To do this, use one of the following methods:  
       
     AzCopy: append '-secondary' to the Storage Account name in the URL
     to access the secondary endpoint. For example:  
