@@ -53,7 +53,7 @@ Here is an illustration of how data is flowing in the above pipeline:
 
 ## Instal the CDAP published application
 
-For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md#how-to-install-a-published-application).
+For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
 
 ## Prerequisites
 

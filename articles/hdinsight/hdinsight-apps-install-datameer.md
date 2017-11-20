@@ -29,7 +29,7 @@ Datameer is a native application for the Hadoop platform, extending existing Azu
 
 ## Install the Datameer published application
 
-For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md#how-to-install-a-published-application).
+For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
 
 ## Prerequisites
 

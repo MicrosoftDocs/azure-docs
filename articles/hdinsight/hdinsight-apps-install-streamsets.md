@@ -42,7 +42,7 @@ StreamSets Data Collector is designed to logically isolate each stage in a pipel
 
 ## Install the StreamSets Data Collector published application
 
-For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md#how-to-install-a-published-application).
+For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
 
 ## Prerequisites
 
