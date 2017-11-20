@@ -176,7 +176,7 @@ Use the following steps to connect to Power BI, and to import the views you crea
 
 5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P@ssword1*. Click **Connect**.  
 
-    ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/DatabaseSignIn.PNG)
+    ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
 6. In the **Navigator** pane, under the analytics database, select the star-schema tables: fact_Tickets, dim_Events, dim_Venues, dim_Customers and dim_Dates. Then select **Load**. 
 
