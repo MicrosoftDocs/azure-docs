@@ -7287,6 +7287,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-get-started-azure-cluster.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-tutorial-create-cluster-azure-ps.md",
             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster",
             "redirect_document_id": false
