@@ -378,6 +378,8 @@
         href: saas-multitenantdb-adhoc-reporting.md
       - name: Manage tenant schema
         href: saas-multitenantdb-schema-management.md
+      - name: ETL for analysis
+        href: saas-multitenantdb-tenant-analytics.md
   - name: Develop apps
     items:
     - name: C and C ++
