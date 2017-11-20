@@ -607,6 +607,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
       "billedDuration": 3
     }
     ```
+
 ## Verify the output
 The pipeline automatically creates the output folder named `fromonprem` in the `adftutorial` blob container. Confirm that you see the **dbo.emp.txt** file in the output folder. 
 
