@@ -18,7 +18,7 @@ ms.author: ccompy
 
 # Configure your App Service Environment with forced tunneling
 
-The App Service Environment is a deployment of Azure App Service in customer's instance of Azure Virtual Network. Many customers configure their virtual networks to be extensions of their on-premises networks with VPNs or ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all outbound traffic on-premises before it can go out to the internet. Changing the routing of the virtual network so that the outbound traffic from the virtual network flows through the VPN or ExpressRoute connection to on-premises is called forced tunneling. 
+The App Service Environment is a deployment of Azure App Service in a customer's instance of Azure Virtual Network. Many customers configure their virtual networks to be extensions of their on-premises networks with VPNs or ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all outbound traffic on-premises before it can go out to the internet. Changing the routing of the virtual network so that the outbound traffic from the virtual network flows through the VPN or ExpressRoute connection to on-premises is called forced tunneling. 
 
 Forced tunneling can cause problems for an App Service Environment. The App Service Environment has a number of external dependencies, which are enumerated in this [App Service Environment Network Architecture][network] document. The App Service Environment, by default, requires that all outbound communication goes through the VIP that is provisioned with the App Service Environment.
 
@@ -68,7 +68,7 @@ You can configure the App Service Environment with different egress addresses af
 ### Change the egress address after the App Service Environment is operational ###
 1. Get the IP addresses you want to use as egress IPs for your App Service Environment. If you're doing forced tunneling, these addresses come from your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA.
 
-2. Set the egress addresses in your App Service Environment configuration information. Go to resource.azure.com, and go to Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Then you can see the JSON that describes your App Service Environment. Make sure it says "read/write" at the top. Select **Edit**. Scroll down to the bottom, and change **userWhitelistedIpRanges** from 
+2. Set the egress addresses in your App Service Environment configuration information. Go to resource.azure.com, and go to Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Then you can see the JSON that describes your App Service Environment. Make sure it says "read/write" at the top. Select **Edit**. Scroll down to the bottom, and change **userWhitelistedIpRanges** from: 
 
        "userWhitelistedIpRanges": null 
       
