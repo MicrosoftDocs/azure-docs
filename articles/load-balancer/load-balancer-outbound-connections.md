@@ -69,18 +69,21 @@ You must ensure that the VM can receive health probe requests from Azure Load Ba
 
 ## <a name="snatexhaust"></a>Managing SNAT exhaustion
 
-Ephemeral ports used for SNAT are an exhaustible resource as described in [Standalone VM with no Instance Level Public IP address](#standalone-vm-with-no-instance-level-public-ip-address) and [Load-balanced VM with no Instance Level Public IP address](#standalone-vm-with-no-instance-level-public-ip-address).  
+Ephemeral ports used for SNAT are an exhaustible resource as described in [Standalone VM with no Instance Level Public IP address](#standalone-vm-with-no-instance-level-public-ip-address) and [Load-balanced VM with no Instance Level Public IP address](#standalone-vm-with-no-instance-level-public-ip-address).
 
-If you know you will be initiating many outbound connections to the same destination, observe failing outbound connections, or are advised by support you are exhausting SNAT ports, you have several general mitigation options.  Review these options and decide what is best for your scenario.  It is possible one or more can help manage this scenario.
+If you know you will be initiating many outbound connections to the same destination IP address and port, observe failing outbound connections, or are advised by support you are exhausting SNAT ports, you have several general mitigation options.  Review these options and decide what is best for your scenario.  It is possible one or more can help manage this scenario.
 
-### Assign an Instance-Level Public IP to each VM
-This changes your scenario to [Instance-Level Public IP to a VM](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  All ephemeral ports of the Public IP used for each VM are available to the VM (as opposed to scenarios where ephemeral ports of a Public IP are shared with all the VM's associated with the respective backend pool).
+### Modify application to reuse connections 
+You can reduce demand for ephemeral ports used for SNAT by reusing connections in your application.  This is especially true for protocols like HTTP/1.1 where this is explicitly supported.  And other protocols using HTTP as their transport (i.e. REST) can benefit in turn.  Reuse is always better than individual, atomic TCP connections for each request.
 
-### Modify application to use connection pooling
-You can reduce demand for ephemeral ports used for SNAT by using connection pooling in your application.  Additional flows to the same destination will consume additional ports.  If you reuse the same flow for multiple requests, your multiple requests will consume a single port.
+### Modify application to se connection pooling
+You can employ a connection pooling scheme in your application, where requests are internally distributed across a fixed set of connections (each reusing where possible).  If you reuse the same flow for multiple requests, your multiple requests will consume a single port instead of additional flows to the same destination consuming additional ports and leading to exhaust conditions.
 
 ### Modify application to use less aggressive retry logic
 You can reduce demand for ephemeral ports by using a less aggressive retry logic.  When ephemeral ports used for SNAT are exhausted, aggressive or brute force retries without decay and backoff logic cause exhaustion to persist.  Ephemeral ports have a 4-minute idle timeout (not adjustable) and if the retries are too aggressive, the exhaustion has no opportunity to clear up on its own.
+
+### Assign an Instance-Level Public IP to each VM
+This changes your scenario to [Instance-Level Public IP to a VM](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  All ephemeral ports of the Public IP used for each VM are available to the VM (as opposed to scenarios where ephemeral ports of a Public IP are shared with all the VM's associated with the respective backend pool).  There are trade-offs to consider, such as additional cost of IP addresses and potential impact of whitelisting a large number of individual IP addresses.
 
 ## Limitations
 
