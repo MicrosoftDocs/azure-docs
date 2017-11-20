@@ -23,12 +23,12 @@ ms.author: "genemi"
 Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the scripts from a zip file, ***follow the steps below to unblock the .zip file before extracting***. This ensures the scripts are allowed to run.
 
 1. Browse to the Wingtip Tickets SaaS GitHub repo for the database tenancy pattern you wish to explore: 
-    - [Wingtip Tickets SaaS Standalone Application](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-    - [Wingtip Tickets SaaS Database per Tenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
-    - [Wingtip Tickets SaaS Multi-tenant Database](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
+    - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
+    - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
+    - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Click **Clone or download**.
 3. Click **Download ZIP** and save the file.
-4. Right-click the ZIP file, and select **Properties**. The ZIP file will correspond to the database tenancy pattern you've selected. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
+4. Right-click the ZIP file, and select **Properties**. The ZIP file name will correspond to the repo name. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
 5. On the **General** tab, select **Unblock**.
 6. Click **OK**.
 7. Extract the files.
@@ -36,9 +36,9 @@ Executable contents (scripts, dlls) may be blocked by Windows when zip files are
 Scripts are located in the *..\\Learning Modules* folder.
 
 
-## Working with the Wingtip Tickets sample SaaS PowerShell Scripts
+## Working with the Wingtip Tickets PowerShell Scripts
 
-To get the most out of the sample you need to dive into the provided scripts. Use breakpoints and step through the scripts, examining the details of how the different SaaS patterns are implemented. To easily step through the provided scripts and modules for the best understanding, we recommend using the [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
+To get the most out of the sample you need to dive into the provided scripts. Use breakpoints and step through the scripts as they execute and examine how the different SaaS patterns are implemented. To easily step through the provided scripts and modules for the best understanding, we recommend using the [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
 
 ### Update the configuration file for your deployment
 
