@@ -339,6 +339,8 @@
     items:
     - name: Welcome to Wingtips
       href: saas-tenancy-welcome-wingtip-tickets-app.md
+    - name: General guidance
+      href: saas-tenancy-wingtip-app-guidance-tips.md
     - name: Standalone application
       items:
       - name: Deploy example app
