@@ -22,22 +22,90 @@ ms.author: jingwang
 > * [Version 1 - GA](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version 2 - Preview](quickstart-create-data-factory-dot-net.md)
 
-Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
-
-This quickstart describes how to use .NET SDK to create an Azure data factory. The pipeline in this data factory copies data from one folder to another folder in an Azure blob storage.
+This quickstart describes how to use .NET SDK to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [get started with Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+>
+> This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **Azure Storage account**. You use the blob storage as both the **source** and **sink** data stores. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) on creating one. 
-* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
-* **Visual Studio** 2013, 2015, or 2017. The walkthrough in this article uses Visual Studio 2017.
-* **Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
-* **Create an application in Azure Active Directory** following [these instructions](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use later: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following the instructions in the same article. 
-*  
+
+### Azure subscription
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
+### Azure roles
+To create Data Factory instances, the user account you use to log in to Azure must be a member of **contributor** or **owner** roles, or an **administrator** of the Azure subscription. In the Azure portal, click your **user name** at the top-right corner, and select **Permissions** to view the permissions you have in the subscription. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Add roles](../billing/billing-add-change-azure-subscription-administrator.md) article.
+
+### Azure Storage Account
+You use a general-purpose Azure Storage Account (specifically Blob Storage) as both **source** and **destination** data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) on creating one. 
+
+#### Get storage account name and account key
+You use the name and key of your Azure storage account in this quickstart. The following procedure provides steps to get the name and key of your storage account. 
+
+1. Launch a Web browser and navigate to [Azure portal](https://portal.azure.com). Log in using your Azure user name and password. 
+2. Click **More services >** in the left menu, and filter with **Storage** keyword, and select **Storage accounts**.
+
+    ![Search for storage account](media/quickstart-create-data-factory-dot-net/search-storage-account.png)
+3. In the list of storage accounts, filter for your storage account (if needed), and then select **your storage account**. 
+4. In the **Storage account** page, select **Access keys** on the menu.
+
+    ![Get storage account name and key](media/quickstart-create-data-factory-dot-net/storage-account-name-key.png)
+5. Copy the values for **Storage account name** and **key1** fields to the clipboard. Paste them into a notepad or any other editor and save it.  
+
+#### Create input folder and files
+In this section, you create a blob container named **adftutorial** in your Azure blob storage. Then, you create a folder named **input** in the container, and then upload a sample file to the input folder. 
+
+1. In the **Storage account** page, switch to the **Overview**, and then click **Blobs**. 
+
+    ![Select Blobs option](media/quickstart-create-data-factory-dot-net/select-blobs.png)
+2. In the **Blob service** page, click **+ Container** on the toolbar. 
+
+    ![Add container button](media/quickstart-create-data-factory-dot-net/add-container-button.png)    
+3. In the **New container** dialog, enter **adftutorial** for the name, and click **OK**. 
+
+    ![Enter container name](media/quickstart-create-data-factory-dot-net/new-container-dialog.png)
+4. Click **adftutorial** in the list of containers. 
+
+    ![Select the container](media/quickstart-create-data-factory-dot-net/select-adftutorial-container.png)
+1. In the **Container** page, click **Upload** on the toolbar.  
+
+    ![Upload button](media/quickstart-create-data-factory-dot-net/upload-toolbar-button.png)
+6. In the **Upload blob** page, click **Advanced**.
+
+    ![Click Advanced link](media/quickstart-create-data-factory-dot-net/upload-blob-advanced.png)
+7. Launch **Notepad** and create a file named **emp.txt** with the following content: Save it in the **c:\ADFv2QuickStartPSH** folder: Create the folder **ADFv2QuickStartPSH** if it does not already exist.
+    
+    ```
+    John, Doe
+    Jane, Doe
+    ```    
+8. In the Azure portal, in the **Upload blob** page, browse, and select the **emp.txt** file for the **Files** field. 
+9. Enter **input** as a value **Upload to folder** filed. 
+
+    ![Upload blob settings](media/quickstart-create-data-factory-dot-net/upload-blob-settings.png)    
+10. Confirm that the folder is **input** and file is **emp.txt**, and click **Upload**.
+11. You should see the **emp.txt** file and the status of the upload in the list. 
+12. Close the **Upload blob** page by clicking **X** in the corner. 
+
+    ![Close upload blob page](media/quickstart-create-data-factory-dot-net/close-upload-blob.png)
+1. Keep the **container** page open. You use it to verify the output at the end of this quickstart.
+
+### Visual Studio
+The walkthrough in this article uses Visual Studio 2017. You can also use Visual Studio 2013 or 2015.
+
+### Azure .NET SDK
+Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/) on your machine.
+
+### Create an application in Azure Active Directory
+Following instructions in [this article](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) to do the following tasks: 
+
+1. **Create an Azure Active Directory application**. Create an application in Azure Active Directory to represent the .NET application. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
+2. Get the **application ID** and **authentication key**** by using instructions from the **Get application ID and authentication key** section in the article. Note down these values that you use later in this tutorial. 
+3. Get the **tenant ID** by using instructions from the **Get tenant ID** section in the article. Note down this value. 
+4. Assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription. Follw instructions in the **Assign application to role** section in the article. 
 
 ## Create a Visual Studio project
 
