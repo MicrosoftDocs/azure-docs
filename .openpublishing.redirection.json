@@ -15393,6 +15393,11 @@
              "source_path": "articles/redis-cache/cache-java-spring-boot-initializer-with-redis-cache.md",
              "redirect_url": "/java/azure/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache",
              "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-policy-reference.md",
+             "redirect_url": "/azure/api-management/api-management-policies",
+             "redirect_document_id": false
         }
     ]
 }

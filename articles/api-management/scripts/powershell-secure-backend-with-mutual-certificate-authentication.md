@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script Sample - Secure backend | Microsoft Docs
-description: Azure PowerShell Script Sample - Secure backend
+title: Azure PowerShell Script Sample - Secure back end | Microsoft Docs
+description: Azure PowerShell Script Sample - Secure back end
 services: api-management
 documentationcenter: ''
 author: juliako
@@ -16,7 +16,7 @@ ms.author: apimpm
 ms.custom: mvc
 ---
 
-# Secure backend
+# Secure back end
 
 This sample script secures backend with mutual certificate authentication.
 
@@ -26,7 +26,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/api-management/secure-backend-with-mutual-certificate-authentication/secure_backend_with_mutual_certificate_authentication.ps1?highlight=1 "Secures backend")]
+[!code-powershell[main](../../../powershell_scripts/api-management/secure-backend-with-mutual-certificate-authentication/secure_backend_with_mutual_certificate_authentication.ps1 "Secures backend")]
 
 ## Clean up resources
 

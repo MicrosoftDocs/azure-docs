@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 11/19/2017
 ms.author: apimpm
 
 ---
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Add a new version to an existing API
-> * Choose a version scheme and version identifier
+> * Choose a version scheme
 > * Add the version to a product
 > * Browse the developer portal to see the version
 
@@ -37,15 +37,7 @@ In this tutorial, you learn how to:
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
-## Navigate to your APIM instance
-
-Sign in to the [Azure portal](https://portal.azure.com) and navigate to your APIM instance.
-    
-1. Select **>**.
-2. Type "api" in the search box.
-3. Click **API Management services**.
-
-	![Navigate](./media/api-management-get-started/navigate-to-api-management-services.png)
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## Add a new version
 
@@ -107,7 +99,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Add a new version to an existing API
-> * Choose a version scheme and version identifier
+> * Choose a version scheme 
 > * Add the version to a product
 > * Browse the developer portal to see the version
 
