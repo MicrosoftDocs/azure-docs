@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script Sample - Setup rate limit policy | Microsoft Docs
-description: Azure PowerShell Script Sample - Setup rate limit policy
+title: Azure PowerShell Script Sample - Set up rate limit policy | Microsoft Docs
+description: Azure PowerShell Script Sample - Set up rate limit policy
 services: api-management
 documentationcenter: ''
 author: juliako
@@ -16,7 +16,7 @@ ms.author: apimpm
 ms.custom: mvc
 ---
 
-# Setup rate limit policy
+# Set up rate limit policy
 
 This sample script sets up  rate limit policy. 
 
@@ -26,7 +26,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/api-management/setup-rate-limit-policy/setup_rate_limit_policy.ps1 "Setup rate limit policy")]
+[!code-powershell[main](../../../powershell_scripts/api-management/setup-rate-limit-policy/setup_rate_limit_policy.ps1 "Set up rate limit policy")]
 
 ## Clean up resources
 

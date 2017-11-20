@@ -66,4 +66,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Use revisions](api-management-get-started-revise-api.md)]
+> [Use revisions](api-management-get-started-revise-api.md)

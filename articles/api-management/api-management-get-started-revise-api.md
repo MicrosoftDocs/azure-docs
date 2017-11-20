@@ -105,4 +105,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Publish multiple versions of your API](api-management-get-started-publish-versions.md)]
+> [Publish multiple versions of your API](api-management-get-started-publish-versions.md)

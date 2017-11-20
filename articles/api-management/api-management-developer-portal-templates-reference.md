@@ -1,5 +1,5 @@
 ---
-title: Azure API Management Developer Portal Templates | Microsoft Docs
+title: Azure API Management Developer portal templates | Microsoft Docs
 description: Learn how to customize the content of developer portal pages using a set of templates in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 11/19/2017
 ms.author: apimpm
 ---
 
-# Azure API Management Developer Portal Templates
+# Developer portal templates
 
 Azure API Management provides you the ability to customize the content of developer portal pages using a set of templates that configure their content. Using [DotLiquid](http://dotliquidmarkup.org/) syntax and the editor of your choice, such as [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), and a provided set of localized [String resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), and [Page controls](api-management-page-controls.md), you have great flexibility to configure the content of the pages as you see fit using these templates.  
   

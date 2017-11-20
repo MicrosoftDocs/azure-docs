@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script Sample - Setup custom domain | Microsoft Docs
-description: Azure PowerShell Script Sample - Setup custom domain
+title: Azure PowerShell Script Sample - Set up custom domain | Microsoft Docs
+description: Azure PowerShell Script Sample - Set up custom domain
 services: api-management
 documentationcenter: ''
 author: juliako
@@ -16,7 +16,7 @@ ms.author: apimpm
 ms.custom: mvc
 ---
 
-# Setup custom domain
+# Set up custom domain
 
 This sample script sets up custom domain on proxy and portal endpoint of the API Management service.
 
@@ -26,7 +26,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/api-management/setup-custom-domain/setup_custom_domain.ps1 "Setup custom domain")]
+[!code-powershell[main](../../../powershell_scripts/api-management/setup-custom-domain/setup_custom_domain.ps1 "Set up custom domain")]
 
 ## Clean up resources
 

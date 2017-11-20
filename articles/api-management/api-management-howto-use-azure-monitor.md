@@ -120,4 +120,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Trace calls](api-management-howto-api-inspector.md)]
+> [Trace calls](api-management-howto-api-inspector.md)
