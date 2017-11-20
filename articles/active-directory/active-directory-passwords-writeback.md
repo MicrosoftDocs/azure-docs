@@ -192,7 +192,7 @@ Password writeback is a highly secure service. To ensure your information is pro
   3. After the message arrives into service bus, your on-premises agent wakes up and authenticates to service bus by using the strong password that was previously generated.
   4. The on-premises agent picks up the encrypted message and decrypts it by using the private key we generated.
   5. The on-premises agent then attempts to set the password through the AD DS SetPassword API.
-     * You can enforce your Active Directory on-premises password policy (such as the complexity, age, history, and filters) in the cloud.
+     * This step is what allows us to enforce your Active Directory on-premises password policy (such as the complexity, age, history, and filters) in the cloud.
 * **Message expiration policies** 
   * If the message sits in service bus because your on-premises service is down, it times out and is removed after several minutes. The time out and removal of the message increases security even further.
 
