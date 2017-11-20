@@ -1,5 +1,5 @@
 ---
-title: About disk storage for Microsoft Azure Linux VMs | Microsoft Docs
+title: About disks storage for Microsoft Azure Linux VMs | Microsoft Docs
 description: Learn about the basics of storage of disks and VHDs for Linux virtual machines in Azure.
 services: storage
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 11/15/2017
 ms.author: robinsh
 
 ---
-# About disk storage for Azure Linux VMs
+# About disks storage for Azure Linux VMs
 Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – a Linux operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are actually virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs. 
 
 In this article, we will talk about the different uses for the disks, and then discuss the different types of disks you can create and use. This article is also available for [Windows virtual machines](../windows/about-disks-and-vhds.md).
