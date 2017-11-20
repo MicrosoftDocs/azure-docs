@@ -38,7 +38,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
     ![storage2](./media/documentation-government-get-started-connect-with-storage-img2.png)
 
-For more information on Azure Storage Explorer, click [here](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For more information on Azure Storage Explorer, click [here](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Connecting to the Storage API 
 
@@ -64,7 +64,7 @@ These endpoint differences must be taken into account when you connect to storag
     var storageAccount = new CloudStorageAccount(credentials, "core.usgovcloudapi.net", useHttps: true);   
 	```
 
-    -   Notice on the second line we had to use a [particular constructor for the CloudStorageAccount](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.-ctor?redirectedfrom=MSDN&view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_CloudStorageAccount__ctor_Microsoft_WindowsAzure_Storage_Auth_StorageCredentials_System_String_System_Boolean) – enabling us to explicitly pass in the endpoint suffix of “core.usgovcloudapi.net”. This constructor is the **only difference** your code requires to connect to storage in Azure Government as compared with commercial Azure.
+    -   Notice on the second line we had to use a [particular constructor for the CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.-ctor?view=azure-dotnet) – enabling us to explicitly pass in the endpoint suffix of “core.usgovcloudapi.net”. This constructor is the **only difference** your code requires to connect to storage in Azure Government as compared with commercial Azure.
 
 5. At this point, we can interact with storage as we normally would. For example, if we want to retrieve a specific record from our table storage we could do it like this:
 
@@ -77,8 +77,9 @@ These endpoint differences must be taken into account when you connect to storag
     var contact = result.Result as ContactEntity;
     Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
     ```
-## Next Steps
-For more information on Azure Storage, [click here](https://docs.microsoft.com/en-us/azure/storage/). 
 
-For supplemental information and updates, subscribe to the
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+## Next Steps
+* Read more about [Azure Storage](https://docs.microsoft.com/azure/storage/). 
+* Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
+* Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
+* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)

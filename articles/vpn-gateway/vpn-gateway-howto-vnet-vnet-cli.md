@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
 
 ---
@@ -56,11 +56,17 @@ For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](
 
 ### Which set of steps should I use?
 
-In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub), and another for [VNets that reside in different subscriptions](#difsub).
-
-## <a name="samesub"></a>Connect VNets that are in the same subscription
+In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub). The steps for this configuration use TestVNet1 and TestVNet4.
 
 ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+There is a separate article for [VNets that reside in different subscriptions](#difsub). The steps for that configuration use TestVNet1 and TestVNet5.
+
+![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
+You can combine configurations if you'd like, or just choose the one that you want to work with.
+
+## <a name="samesub"></a>Connect VNets that are in the same subscription
 
 ### Before you begin
 
@@ -85,7 +91,7 @@ We use the following values in the examples:
 * Public IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (For VNets in different subscriptions)
 * ConnectionType: VNet2VNet
 
 **Values for TestVNet4:**
@@ -252,8 +258,6 @@ You now have two VNets with VPN gateways. The next step is to create VPN gateway
 
 ## <a name="difsub"></a>Connect VNets that are in different subscriptions
 
-![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
-
 In this scenario, we connect TestVNet1 and TestVNet5. The VNets reside different subscriptions. The subscriptions do not need to be associated with the same Active Directory tenant. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Step 5 - Create and configure TestVNet1
@@ -359,7 +363,7 @@ We split this step into two CLI sessions marked as **[Subscription 1]**, and **[
 ## <a name="verify"></a>Verify the connections
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>VNet-to-VNet FAQ
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

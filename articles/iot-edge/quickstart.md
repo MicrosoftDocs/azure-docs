@@ -155,6 +155,7 @@ You learned how to deploy an IoT Edge module to an IoT Edge device. Now try depl
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-install-iotcore]: how-to-install-iot-core.md
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device
