@@ -34,9 +34,9 @@ Follow the steps in the [Create an Azure Media Services account](https://docs.mi
    1. Your Azure Media Services account name
    1. Your region
 
-## Scan your videos with Content Moderator
+## Scan your videos for posisble adult and racy content
 
-After getting access to the Content Moderator media processor, use the sample C# program listed below to run a Content Moderator job. This code requires both the [Azure Media Services C# SDK](https://github.com/Azure/azure-sdk-for-media-services "Azure Media Services SDK") and [SDK Extensions packages](https://github.com/Azure/azure-sdk-for-media-services-extensions "SDK Extensions") (available on [NuGet](http://www.nuget.org/packages?q=Azure+Media+Services+.NET+SDK "Nuget")).
+After getting access to the Content Moderator media processor, use the sample C# program below to run a Content Moderator job. This code requires both the [Azure Media Services C# SDK](https://github.com/Azure/azure-sdk-for-media-services "Azure Media Services SDK") and [SDK Extensions packages](https://github.com/Azure/azure-sdk-for-media-services-extensions "SDK Extensions") (available on [NuGet](http://www.nuget.org/packages?q=Azure+Media+Services+.NET+SDK "Nuget")).
 
 
 	using System;
@@ -176,9 +176,9 @@ After getting access to the Content Moderator media processor, use the sample C#
 
 	}
 
-## Analyze the Content Moderator response
+## Analyze the JSON response
 
-The Content Moderator media processor's response consists of these elements:
+The Content Moderator media processor's response in JSON format consists of these elements:
 
 1. A Video summary
 1. **Shots** as "**fragments**", each including
