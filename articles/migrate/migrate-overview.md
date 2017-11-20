@@ -32,7 +32,7 @@ Azure Migrate helps you to:
 - **Get size recommendations**: Recommended sizing for Azure VMs after migration, based on the performance history of on-premises VMs. 
 - **Estimate monthly costs**: Estimated costs for running on-premises machines in Azure.
 - **Migrate with high confidence**: As you group on-premises machines for assessment, you can increase assessment confidence by visualizing dependencies. You can accurately view dependencies for a specific machine, or for all machines in a group.
-- **Assessment cost**: Assess machines without charge, unless you're using [dependency visualization](dependency-visualization.md).
+- **Assessment cost**: Assess machines without charge, unless you're using [dependency visualization](concepts-dependency-visualization.md).
 
 ## Current limitations
 
@@ -84,6 +84,8 @@ The table summarizes the ports needed for Azure Migrate communications.
 |Collector          |Azure Migrate service   |TCP 443        |Collector should be able to communicate with the service over the SSL port 443|
 |Collector          |vCenter Server          |Default 9443   |Collector should be able to communicate with the vCenter server. It connects to vCenter on 9443 by default. If the vCenter listens on a different port, that port should be available as outgoing port on the collector |
 |On-premises VM     | OMS Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |The MMA agent needs to use TCP 443 to connect over to OMS. This port is required if and only if you are using the dependency visualization feature and are installing the MMA agent on the machines |
+
+Azure Migrate supports HTTP-based proxy servers, with and without authentication.
   
 ## What happens after assessment?
 
