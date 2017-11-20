@@ -73,31 +73,31 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
 6. Click **Save**. When saving completes, on the app page, click **Manifest**. Edit the manifest by locating the `appRoles` setting and adding the following application role, and then click **Save**:
 
   ```json
-   "appRoles": [
-      {
-      "allowedMemberTypes": [
-          "User",
-          "Application"
-      ],
-      "displayName": "HpcAdminMirror",
-      "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
-      "isEnabled": true,
-      "description": "HpcAdminMirror",
-      "value": "HpcAdminMirror"
-      },
-      {
-      "allowedMemberTypes": [
-          "User",
-          "Application"
-      ],
-      "description": "HpcUsers",
-      "displayName": "HpcUsers",
-      "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
-      "isEnabled": true,
-      "value": "HpcUsers"
-      }
+  "appRoles": [
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "displayName": "HpcAdminMirror",
+     "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "description": "HpcAdminMirror",
+     "value": "HpcAdminMirror"
+     },
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "description": "HpcUsers",
+     "displayName": "HpcUsers",
+     "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "value": "HpcUsers"
+     }
   ],
-   ```
+  ```
 7. In **Azure Active Directory**, click **Enterprise applications** > **All applications**. Select **HPCPackClusterServer** from the list.
 8. Click **Properties**, and change **User assignment required** to **Yes**. Click **Save**.
 9. Click **Users and groups** > **Add user**. Select a user and select a role, and then click **Assign**. Assign one of the available roles (HpcUsers or HpcAdminMirror) to the user. Repeat this step with additional users in the directory. For background information about cluster users, see [Managing Cluster Users](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
