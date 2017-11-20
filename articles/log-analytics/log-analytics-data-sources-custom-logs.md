@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 11/17/2017
 ms.author: bwren
 
 ---
@@ -53,10 +53,6 @@ You start by uploading a sample of the custom log.  The wizard will parse and di
 
 If a timestamp delimiter is used, then the TimeGenerated property of each record stored in OMS will be populated with the date/time specified for that entry in the log file.  If a new line delimiter is used, then TimeGenerated is populated with date and time that Log Analytics collected the entry.
 
-> [!NOTE]
-> Log Analytics currently treats the date/time collected from a log using a timestamp delimiter as UTC.  This will soon be changed to use the time zone on the agent.
->
->
 
 1. Click **Browse** and browse to a sample file.  Note that this may button may be labeled **Choose File** in some browsers.
 2. Click **Next**.
