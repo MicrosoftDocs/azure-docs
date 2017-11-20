@@ -98,7 +98,7 @@ To minimize latency, keep the hub database close to the greatest concentration o
 
 #### Mixed scenarios
 
-Apply the preceding guidelines to complex sync group configurations, like those that are a mix of enterprise-to-cloud and cloud-to-cloud.
+Apply the preceding guidelines to complex sync group configurations, such as those that are a mix of enterprise-to-cloud and cloud-to-cloud scenarios.
 
 ## Sync
 
