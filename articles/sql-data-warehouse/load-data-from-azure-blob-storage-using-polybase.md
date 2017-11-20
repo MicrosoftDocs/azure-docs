@@ -56,7 +56,7 @@ Follow these steps to create a blank SQL data warehouse.
 
 2. Select **Databases** from the **New** page, and select **SQL Data Warehouse** under **Featured** on the **New** page.
 
-    ![create empty data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+    ![create data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
 3. Fill out the SQL Data Warehouse form with the following information:   
 
@@ -65,18 +65,18 @@ Follow these steps to create a blank SQL data warehouse.
    | **Database name** | mySampleDataWarehouse | For valid database names, see [Database Identifiers](/sql/relational-databases/databases/database-identifiers). | 
    | **Subscription** | Your subscription  | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
    | **Resource group** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Select source** | Blank database | Specifies to create a blank database. Note, a data warehouse is one type of database. |
+   | **Select source** | Blank database | Specifies to create a blank database. Note, a data warehouse is one type of database.|
 
     ![create data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
 4. Click **Server** to create and configure a new server for your new database. Fill out the **New server form** with the following information: 
 
-   | Setting | Suggested value | Description | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
-   | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
-   | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
+    | Setting | Suggested value | Description | 
+    | ------- | --------------- | ----------- |
+    | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
+    | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
+    | **Password** | Any valid password | Your password must have at least eight characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
+    | **Location** | Any valid location | For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/). |
 
     ![create database server](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
@@ -111,15 +111,15 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 
 2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. Then click on the server name to open server settings.
 
-   ![find server name](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
+    ![find server name](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
 
 3. Click the server name to open server settings.
 
-   ![server settings](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
+    ![server settings](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
 5. Click **Show firewall settings**. The **Firewall settings** page for the SQL Database server opens. 
 
-   ![server firewall rule](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
+    ![server firewall rule](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
 
 4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
@@ -150,13 +150,13 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 2. In the **Connect to Server** dialog box, enter the following information:
 
-   | Setting       | Suggested value | Description | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | Server type | Database engine | This value is required |
-   | Server name | The fully qualified server name | The name should be something like this: **mynewserver-20171113.database.windows.net**. |
-   | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
-   | Login | The server admin account | This is the account that you specified when you created the server. |
-   | Password | The password for your server admin account | This is the password that you specified when you created the server. |
+    | Setting      | Suggested value | Description | 
+    | ------------ | --------------- | ----------- | 
+    | Server type | Database engine | This value is required |
+    | Server name | The fully qualified server name | The name should be something like this: **mynewserver-20171113.database.windows.net**. |
+    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
+    | Login | The server admin account | This is the account that you specified when you created the server. |
+    | Password | The password for your server admin account | This is the password that you specified when you created the server. |
 
     ![connect to server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
@@ -168,7 +168,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 ## Create a user for loading data
 
- The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data usually requires lots of memory. [Memory maximums](performance-tiers.md#memory-maximums) are defined according to [performance tier](performance-tiers.md), and [resource class](resource-classes-for-workload-management.md). 
+The server admin account is meant to perform management operations, and is not suited for running queries on user data. Loading data usually requires lots of memory. [Memory maximums](performance-tiers.md#memory-maximums) are defined according to [performance tier](performance-tiers.md), and [resource class](resource-classes-for-workload-management.md). 
 
 It's best to create a login and user that is dedicated for loading data. Then add the loading user to a [resource class](resource-classes-for-workload-management.md) that enables an appropriate maximum memory allocation.
 
