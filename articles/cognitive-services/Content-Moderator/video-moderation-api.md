@@ -1,4 +1,3 @@
-
 ---
 title: Video Moderation API in Azure Content Moderator | Microsoft Docs
 description: Use video moderation to scan for possible adult and racy content.
