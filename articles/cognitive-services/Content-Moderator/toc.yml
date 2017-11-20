@@ -18,6 +18,8 @@
       href: try-text-api.md
     - name: Term list API
       href: try-terms-list-api.md
+    - name: Video moderation
+      href: video-moderation-api.md
   - name: Review APIs
     items: 
     - name: Jobs
@@ -34,8 +36,6 @@
     href: text-moderation-api.md
   - name: Text moderation - languages
     href: Text-Moderation-API-Languages.md
-  - name: Video moderation
-    href: video-moderation-api.md
   - name: Review APIs
     href: review-api.md
 - name: How-to guides
