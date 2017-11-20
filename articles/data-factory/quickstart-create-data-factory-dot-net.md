@@ -102,10 +102,10 @@ Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/) on 
 ### Create an application in Azure Active Directory
 Following instructions in [this article](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) to do the following tasks: 
 
-1. **Create an Azure Active Directory application**. Create an application in Azure Active Directory to represent the .NET application. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
+1. **Create an Azure Active Directory application**. Create an application in Azure Active Directory that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
 2. Get the **application ID** and **authentication key**** by using instructions from the **Get application ID and authentication key** section in the article. Note down these values that you use later in this tutorial. 
 3. Get the **tenant ID** by using instructions from the **Get tenant ID** section in the article. Note down this value. 
-4. Assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription. Follw instructions in the **Assign application to role** section in the article. 
+4. Assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription. Follow instructions in the **Assign application to role** section in the article. 
 
 ## Create a Visual Studio project
 
