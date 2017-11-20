@@ -46,6 +46,7 @@ You can associate only one client ID with your add-in, but you can associate mul
 > - Add a separate add-in package specifically for China. 
 > - Block access for all countries except China.
 > - Create a separate add-in listing for China. 
+>
 > For more information about submitting apps or add-ins and blocking access, see [Use the Seller Dashboard to submit solutions to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md). For more information about distributing add-ins for China, see [Submit apps for Office 365 operated by 21Vianet in China](submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md). 
 
 Inbound data to your add-in is signed by using only one signing client secret. In the Seller Dashboard, this is the client secret with a green check mark next to it. If you delete the signing client secret that your add-in uses, the next valid client secret is used instead.
