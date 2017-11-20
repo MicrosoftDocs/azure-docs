@@ -16,9 +16,8 @@
 ### [4- Monitor and Diagnose](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Containerize an existing .NET app
-### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
-### [3- Monitor your container](service-fabric-tutorial-monitoring-wincontainers.md)
+### [1- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
+### [2- Monitor your container](service-fabric-tutorial-monitoring-wincontainers.md)
 
 ## Create a Linux container app
 ### [1- Create container images](service-fabric-tutorial-create-container-images.md)
@@ -263,7 +262,6 @@
 #### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Upgrade applications
@@ -279,16 +277,12 @@
 ##### [During workloads](service-fabric-testability-workload-tests.md)
 ##### [Using test scenarios](service-fabric-testability-scenarios.md)
 ##### [Using the node transition APIs](service-fabric-node-transition-apis.md)
-#### [Load test your application](service-fabric-vso-load-test.md)
 
-### Set up continuous integration
-#### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
-#### [Deploy your Linux Java application using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### [Deploy your Linux Java application using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## Create and manage clusters
 ### Clusters on Azure
 #### Create
-##### [Create your first cluster on Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Scale

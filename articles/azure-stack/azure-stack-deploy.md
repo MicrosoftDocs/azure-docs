@@ -3,8 +3,8 @@ title: Azure Stack Development Kit deployment prerequisites| Microsoft Docs
 description: View the environment and hardware requirements for Azure Stack Development Kit (cloud operator).
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/11/2017
-ms.author: erikje
+ms.date: 11/14/2017
+ms.author: jeffgilb
 
 ---
 # Azure Stack deployment prerequisites
@@ -37,7 +37,7 @@ Before you deploy [Azure Stack Development Kit](azure-stack-poc.md), make sure y
 
 \*You will need more than this recommended capacity if you plan on adding many of the [marketplace items](azure-stack-download-azure-marketplace-item.md) from Azure.
 
-**Data disk drive configuration:** All data drives must be of the same type (all SAS or all SATA) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
+**Data disk drive configuration:** All data drives must be of the same type (all SAS, all SATA, or all NVMe) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
 
 **HBA configuration options**
 
@@ -53,6 +53,7 @@ Before you deploy [Azure Stack Development Kit](azure-stack-poc.md), make sure y
 * RAID SSD (If the media type is unspecified/unknown\*)
 * SATA SSD + SATA HDD
 * SAS SSD + SAS HDD
+* NVMe
 
 \* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the development kit on those SSDs.
 
