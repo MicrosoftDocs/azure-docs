@@ -82,6 +82,13 @@ Run the following command to remove the resource group, namespace, storage accou
 az group delete --name eventhubsResourceGroup
 ```
 
+## Next steps
+
+In this article, you’ve created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn how to send and receive events, continue with the following articles.
+
+* [Send events to your event hub](event-hubs-dotnet-standard-getstarted-send.md)
+* [Receive events from your event hub](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+
 [1]: ./media/event-hubs-quickstart-namespace-cli/cli1.png
 [2]: ./media/event-hubs-quickstart-namespace-cli/cli2.png
 
