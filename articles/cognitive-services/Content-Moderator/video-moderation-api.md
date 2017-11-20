@@ -170,8 +170,15 @@ The sample C# program listed below demonstrates the use of the AMS ADK to run a 
 
 ## Sample Response (JSON)
 
+The response consists of:
+
+ 1. A Video summary
+ 2. **Shots** labelled as "**fragments**", each including
+    2.1 **Clips** labelled as "**events**" with
+        2.1.1 **Key frames** that include a review recommendation (true or false) based on Adult and Racy scores
+ 
 > [!NOTE]
-> Timestamp of a keyframe in seconds = timestamp/timescale
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
