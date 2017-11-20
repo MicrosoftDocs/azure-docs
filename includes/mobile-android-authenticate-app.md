@@ -1,7 +1,7 @@
 
 1. Open the project in Android Studio.
 
-2. In **Project Explorer** in Android Studio, open the ToDoActivity.java file and add the following import statements:
+2. In **Project Explorer** in Android Studio, open the `ToDoActivity.java` file and add the following import statements:
 
     ```java
     import java.util.concurrent.ExecutionException;
@@ -80,7 +80,7 @@
     }
     ```
 
-6. To ensure redirection works as expected, add the following snippet of _RedirectUrlActivity_ to _AndroidManifest.xml_:
+6. To ensure redirection works as expected, add the following snippet of `RedirectUrlActivity` to `AndroidManifest.xml`:
 
     ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
@@ -94,9 +94,9 @@
     </activity>
     ```
 
-7. Add redirectUriScheme to _build.gradle_ of your Android application.
+7. Add `redirectUriScheme` to `build.gradle` of your Android application.
 
-    ```text
+    ```gradle
     android {
         buildTypes {
             release {
@@ -111,9 +111,9 @@
     }
     ```
 
-8. Add com.android.support:customtabs:23.0.1 to the dependencies in your build.gradle:
+8. Add `com.android.support:customtabs:23.0.1` to the dependencies in your `build.gradle`:
 
-    ```text
+    ```gradle
     dependencies {
         // ...
         compile 'com.android.support:customtabs:23.0.1'
@@ -123,6 +123,6 @@
 9. From the **Run** menu, click **Run app** to start the app and sign in with your chosen identity provider.
 
 > [!WARNING]
-> The URL Scheme mentioned is case-sensitive.  Ensure that all occurrences of `{url_scheme_of_you_app}` use the same case.
+> The URL Scheme mentioned is case-sensitive. Ensure that all occurrences of `{url_scheme_of_you_app}` use the same case.
 
 When you are successfully signed in, the app should run without errors, and you should be able to query the back-end service and make updates to data.
