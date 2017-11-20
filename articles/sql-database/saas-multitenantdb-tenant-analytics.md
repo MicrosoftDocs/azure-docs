@@ -1,7 +1,7 @@
 ---
 title: "Run analytics queries against Azure SQL databases | Microsoft Docs"
 description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
-keywords: "sql database tutorial"
+keywords: "sql tutorial"
 services: "sql-database"
 documentationcenter: ""
 author: "stevestein"
@@ -111,7 +111,7 @@ See the following database items in the SSMS Object Explorer by expanding the an
 
 ![tenantAnalytics](media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
 
-## Data Extraction 
+## Data extraction 
 
 ### Create target groups 
 
@@ -143,7 +143,7 @@ Repeat the preceding steps, except this time replace **\ExtractTickets.sql** wit
 
 Successfully running the job populates the EventsRawData table in the analytics store with new events and venues information from all tenants. 
 
-## Data Reorganization
+## Data reorganization
 
 ### Shred extracted data to populate star-schema tables
 
@@ -159,7 +159,7 @@ In this section of the tutorial, you define and run a job that merges the extrac
 
 ![shreddingJob](media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
-## Data Exploration
+## Data exploration
 
 ### Visualize tenant data
 
