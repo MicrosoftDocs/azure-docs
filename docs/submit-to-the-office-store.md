@@ -66,6 +66,19 @@ If you make changes after your submission is approved, it must go through the ap
 
 If you have questions about policies or requirements in your report, you can engage with the Office Store Valdidation Team via [Stack Overflow](https://stackoverflow.com/search?q=office-store). Tag your question with "Office-Store".
 
+## Topics in this section
+
+- [Optimize the Office Store placement and ranking of your Office Add-in](optimize-for-store-discovery.md)
+- [License your Office and SharePoint Add-ins](license-your-add-ins.md)
+- [Create effective Office Store listings](create-effective-office-store-listings.md)
+- [Prepare localized apps and add-ins](prepare-localized-apps-and-add-ins.md)
+- [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
+- [Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China](submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md)
+- [Update, unpublish, and view metrics in the Seller Dashboard](update-unpublish-and-view-metrics.md)
+- [Validation policies](validation-policies.md)
+- [Promote your Office Store solution](promote-your-office-store-solution.md)
+- [Seller Dashboard accessibility features](seller-dashboard-accessibility-features.md)
+
 ## Additional resources
 
 - [Office Add-ins](https://dev.office.com/docs/add-ins/overview/office-add-ins)  
