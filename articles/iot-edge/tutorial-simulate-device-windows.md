@@ -8,7 +8,7 @@ manager: timlt
 
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -36,18 +36,18 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
 3. Install [Python 2.7 on Windows][lnk-python] and make sure you can use the pip command.
 4. Run the following command to download the IoT Edge control script.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
 > [!NOTE]
-> Azure IoT Edge can run either Windows containers or Linux containers. To use Windows containers, you have to run:
->    * Windows 10 Fall Creators Update, or
->    * Windows Server 1709 (Build 16299), or
+> Azure IoT Edge can run either Windows containers or Linux containers. If you're running one of the following Windows versions, you can use Windows containers:
+>    * Windows 10 Fall Creators Update
+>    * Windows Server 1709 (Build 16299)
 >    * Windows IoT Core (Build 16299) on a x64-based device
 >
-> For Windows IoT Core, follow the instructions in [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore]. Otherwise, simply [configure Docker to use Windows containers][lnk-docker-containers], and optionally validate your prerequisites with the following powershell command:
->    ```
+> For Windows IoT Core, follow the instructions in [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore]. Otherwise, simply [configure Docker to use Windows containers][lnk-docker-containers]. Use the following command to validate your prerequisites:
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -71,28 +71,28 @@ Register an IoT Edge device with your newly created IoT Hub.
 Install and start the Azure IoT Edge runtime on your device. 
 ![Register a device][5]
 
-The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. First, the IoT Edge agent facilitates deployment and monitoring of modules on the IoT Edge device. Second, the IoT Edge hub manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
+The IoT Edge runtime is deployed on all IoT Edge devices. It comprises two modules. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. When you configure the runtime on your new device, only the IoT Edge agent will start at first. The IoT Edge hub comes later when you deploy a module. 
 
 
-Use the following steps to install and start the IoT Edge runtime:
+Configure the runtime with your IoT Edge device connection string from the previous section.
 
-1. Configure the runtime with your IoT Edge device connection string from the previous section.
+```cmd
+iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```
 
-   ```
-   iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
-   ```
+Start the runtime.
 
-1. Start the runtime.
+```cmd
+iotedgectl start
+```
 
-   ```
-   iotedgectl start
-   ```
+Check Docker to see that the IoT Edge agent is running as a module.
 
-1. Check Docker to see that the IoT Edge agent is running as a module.
+```cmd
+docker ps
+```
 
-   ```
-   docker ps
-   ```
+![See edgeAgent in Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
 
 ## Deploy a module
 
@@ -104,13 +104,23 @@ Manage your Azure IoT Edge device from the cloud to deploy a module which will s
 
 ## View generated data
 
-In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to push an IoT Edge module to run on the device without having to make changes to the device itself. In this case, the module that you pushed creates environmental data that you can use for the tutorials. 
+In this tutorial, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to push an IoT Edge module to run on the device without having to make changes to the device itself. In this case, the module that you pushed creates environmental data that you can use for the tutorials. 
 
-View the messages being sent from the tempSensor module:
+Open the command prompt on the computer running your simulated device again. Confirm that the module deployed from the cloud is running on your IoT Edge device. 
 
-```cmd/sh
-sudo docker logs -f tempSensor
+```cmd
+docker ps
 ```
+
+![View three modules on your device](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+View the messages being sent from the tempSensor module to the cloud. 
+
+```cmd
+docker logs -f tempSensor
+```
+
+![View the data from your module](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer]. 
 
