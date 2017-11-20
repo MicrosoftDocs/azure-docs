@@ -5,7 +5,9 @@
 ## [Create in the Azure portal](virtual-machine-scale-sets-portal-create.md)
 ## [Create with the Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)
 ## [Create with Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
-## [Create with a template](virtual-machine-scale-sets-deploy-scaling-app-template.md)
+## Create with a template
+### [Linux scale set](virtual-machine-scale-sets-create-template-linux.md)
+### [Windows scale set](virtual-machine-scale-sets-create-template-windows.md)
 
 # How To
 ## Plan and design
