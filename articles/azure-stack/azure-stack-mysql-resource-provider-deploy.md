@@ -44,8 +44,8 @@ This release no longer creates a MySQL instance. You must create them and/or pro
 ### Required privileges
 The system account must have the following privileges:
 
-1.	Database: Create, Drop
-2.	Login: Create, set, Drop, grant, Revoke
+1.	Database: Create, drop
+2.	Login: Create, set, drop, grant, revoke
 
 ## Deploy the resource provider
 
@@ -60,8 +60,8 @@ The system account must have the following privileges:
 
 3. [Download the MySQL resource provider binaries file](https://aka.ms/azurestackmysqlrp) and execute the self-extractor to extract the contents to a temporary directory.
 
-> [!NOTE]
-> If you running on an Azure Stack build 20170928.3 or earlier, [Download this version](https://aka.ms/azurestackmysqlrp1709).
+    > [!NOTE]
+    > If you running on an Azure Stack build 20170928.3 or earlier, [Download this version](https://aka.ms/azurestackmysqlrp1709).
 
 4.  The Azure Stack root certificate is retrieved from the Privileged Endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
@@ -138,9 +138,6 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
  ```
 
-### DeployMySqlProvider.ps1 parameters
-
-You can specify these parameters in the command line. If you do not, or any parameter validation fails, you are prompted to provide the required ones.
 
 ### DeploySqlProvider.ps1 parameters
 You can specify these parameters in the command line. If you do not, or any parameter validation fails, you are prompted to provide the required ones.
@@ -252,7 +249,7 @@ You can modify the password by first changing it on the MySQL server instance. B
 
 ![Update the admin password](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## Remove the MySQL Adapter Resource Provider
+## Remove the MySQL Resource Provider Adapter
 
 To remove the resource provider, it is essential to first remove any dependencies.
 
