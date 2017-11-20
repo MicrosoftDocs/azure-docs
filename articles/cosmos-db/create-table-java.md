@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
 
 ---
@@ -84,9 +84,24 @@ Now go back to the Azure portal to get your connection string information and co
 
    ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-java/connection-string.png)
 
-2. Open the config.properties file, and copy the required connection string properties into the config file.
+2. Copy the PRIMARY CONNECTION STRING using the copy button on the right.
 
-3. Save the config.properties file.
+3. Open config.properties from the C:\git-samples\storage-table-java-getting-started\src\main\resources folder. 
+
+5. Comment out line one and uncomment line two. The first two lines should now look like this.
+
+    ```
+    #StorageConnectionString = UseDevelopmentStorage=true
+    StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
+    ```
+
+6. Paste your PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value in line 2. 
+
+    > [!IMPORTANT]
+    > If your Endpoint uses documents.azure.com, that means you have a preview acct, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK.
+    >
+
+7. Save the config.properties file.
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 

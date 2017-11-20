@@ -61,6 +61,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
+* [Database Migration Service](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [IoT Hub](#iot-hub-limits)
@@ -123,20 +124,6 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
-<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-### Virtual machine disk limits 
-[!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
-
-#### Managed virtual machine disks
-
-[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
-
-#### Unmanaged virtual machine disks
-
-[!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
-
-[!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
-
 ### Networking limits
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
@@ -179,6 +166,22 @@ For additional details on Azure Files limits, see [Azure Files scalability and p
 
 #### Azure Table storage limits
 [!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
+
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+#### Virtual machine disk limits
+[!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
+
+See [Virtual machine sizes](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional details.
+
+#### Managed virtual machine disks
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
+
+#### Unmanaged virtual machine disks
+
+[!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
+
+[!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
 ### Cloud Services limits
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
@@ -257,6 +260,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Data Lake Store limits
 [!INCLUDE [azure-data-lake-store-limits](../includes/azure-data-lake-store-limits.md)]
+
+### Database Migration Service Limits
+[!INCLUDE [database-migration-service-limits](../includes/database-migration-service-limits.md)]
 
 ### Stream Analytics limits
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
