@@ -24,7 +24,7 @@ ms.custom: end-user
 If you forgot your password, never received one from your company support, have been locked out of your account, or want to change it, we can help. If you know your password and just need to change it, continue to the [Change my password](#change-my-password) section.
 
    > [!NOTE]
-   > If you're trying to get back into your personal account like Xbox, hotmail.com, or outlook.com try the suggestions found in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
+   > If you're trying to get back in to your personal account like Xbox, hotmail.com, or outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
    >
 
 ## Reset or unlock my password for a work or school account
@@ -34,7 +34,7 @@ You might be unable to access your Azure Active Directory (Azure AD) account bec
 * Your password is not working and you want to reset it.
 * You know your password, but your account is locked out and you want to unlock it.
 
-Use the following steps to access Azure AD self-service password reset (SSPR) and get back into your account.
+Use the following steps to access Azure AD self-service password reset (SSPR) and get back in to your account.
 
 1. From any work or school **Sign-in** page, select the **Can't access your account?** link, and then select **Work or school account** or go directly to the [Password reset page](https://passwordreset.microsoftonline.com/).
 
@@ -72,7 +72,7 @@ You might receive a confirmation email that comes from an account like "Microsof
 
 ## Change my password
 
-If you know your password already and want to change it, use the following steps to change it.
+If you know your password already and want to change it, use the following steps.
 
 ### Change your password from the Office 365 portal
 
@@ -92,26 +92,26 @@ Use this method if you normally access your applications from the Azure Access P
 3. Select **Change password**.
 4. Enter your old password, set and confirm your new password, and then select **Submit**.
 
-## Reset password at login
+## Reset password at sign-in
 
 If your administrator has enabled the functionality, you can now see a link to **Reset password** at your Windows 10 Fall Creators Update sign-in screen.
 
-![LoginScreen][LoginScreen]
+![Sign-in screen][LoginScreen]
 
 Select the **Reset password** link to open up the SSPR experience at the sign-in screen so that you can reset your password without having to sign in to access the normal web-based experience.
 
 1. Confirm your user ID and select **Next**.
 2. Select and confirm a contact method for verification. Your IT staff might need more verification, and you might have to repeat this step with a different choice.
 
-   ![ContactMethod][ContactMethod]
+   ![Contact method][ContactMethod]
 
-3. On the **Create a new password** page, enter a new password, confirm your password, and then select **Next**. We suggest your password be 8-16 characters long and consist of uppercase and lowercase letters, numbers, and special characters.
+3. On the **Create a new password** page, enter a new password, confirm your password, and then select **Next**. We suggest that your password is 8-16 characters long and consists of uppercase and lowercase letters, numbers, and special characters.
 
-   ![ResetPassword][ResetPassword]
+   ![Reset password][ResetPassword]
 
 4. When you see the message **Your password has been reset**, select **Finish**.
 
-You should now be able to access your account, if not you should contact your organization's IT staff for further help.
+You should now be able to access your account. If not, contact your organization's IT staff for further help.
 
 ## Common problems and their solutions
 
