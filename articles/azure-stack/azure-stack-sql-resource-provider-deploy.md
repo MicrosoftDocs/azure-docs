@@ -29,7 +29,7 @@ You don't have to provision a virtual machine (VM) that hosts SQL Server each ti
 
 The resource provider does not support all the database management capabilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, elastic database pools and the ability to dial database performance up and down automatically aren't available. However, the resource provider does support similar create, read, update, and delete (CRUD) operations. The API is not compatible with SQL DB.
 
-## SQL Resource Provider Adapter architecture
+## SQL Server Resource Provider Adapter architecture
 The resource provider is made up of three components:
 
 - **The SQL resource provider adapter VM**, which is a Windows virtual machine running the provider services.
@@ -50,8 +50,8 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 
 3. [Download the SQL resource provider binaries file](https://aka.ms/azurestacksqlrp) and execute the self-extractor to extract the contents to a temporary directory.
 
-    > [!NOTE]
-    > If you running on an Azure Stack build 20170928.3 or earlier, [Download this version](https://aka.ms/azurestacksqlrp1709).
+> [!NOTE]
+> If you running on an Azure Stack build 20170928.3 or earlier, [Download this version](https://aka.ms/azurestacksqlrp1709).
 
 4. The Azure Stack root certificate is retrieved from the Privileged Endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
@@ -152,19 +152,19 @@ You can specify these parameters in the command line. If you do not, or any para
       ![Verify Deployment of the SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-## Remove the SQL Resource Provider Adapter
+## Remove the SQL Adapter Resource Provider
 
 In order to remove the resource provider, it is essential to first remove any dependencies.
 
-1. Ensure you have the original deployment package that you downloaded for this version of the SQL Resource Provider Adapter.
+1. Ensure you have the original deployment package that you downloaded for this version of the Resource Provider.
 
 2. All user databases must be deleted from the resource provider (this doesn't delete the data). This should be performed by the users themselves.
 
-3. Administrator must delete the hosting servers from the SQL Resource Provider Adapter
+3. Administrator must delete the hosting servers from the SQL Adapter
 
-4. Administrator must delete any plans that reference the SQL Resource Provider Adapter.
+4. Administrator must delete any plans that reference the SQL Adapter.
 
-5. Administrator must delete any SKUs and quotas associated to the SQL Resource Provider Adapter.
+5. Administrator must delete any SKUs and quotas associated to the SQL Adapter.
 
 6. Rerun the deployment script with the -Uninstall parameter, Azure Resource Manager endpoints, DirectoryTenantID, and credentials for the service administrator account.
 
