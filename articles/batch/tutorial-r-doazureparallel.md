@@ -19,9 +19,10 @@ ms.author: v-dotren
 ms.custom: mvc
 ---
 
-# Run a Monte Carlo workload in Azure Batch using the R doAzureParallel package
+# Run an Azure Batch in parallel
 
-Intro here.... You learn how to:
+You can run your R workloads at scale on Azure Batch using doAzureParallel, a lightweight R package that allows you to use Azure Batch directly from your R session. This tutorial details how you can deploy and manage your R jobs in Azure Batch directly within RStudio.  
+doAzureParallel is built on top of the popular R package, `foreach`*`. At the most basic level, doAzureParallel takes each iteration of the `foreach` loop and submits it as an Azure Batch task. 
 
 > [!div class="checklist"]
 > * W
@@ -29,8 +30,9 @@ Intro here.... You learn how to:
 > * Y
 > * Z
 
-
-
+## Prerequisites
+* You must have R and RStudio installed. [Need links and explanation of any limitations]
+* You must have an Azure Batch account and an Azure Storage account. If you need to create these accounts, see the quickstarts for the [Azure portal]() or [Azure CLI]().
 
 In this tutorial, you learned about  how to:
 
