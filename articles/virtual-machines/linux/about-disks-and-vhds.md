@@ -1,6 +1,6 @@
 ---
-title: About disks storage for Microsoft Azure Linux VMs | Microsoft Docs
-description: Learn about the basics of storage of disks and VHDs for Linux virtual machines in Azure.
+title: About unmanaged (page blobs) and managed disks storage for Microsoft Azure Linux VMs | Microsoft Docs
+description: Learn about the basics of unmanaged (page blobs) and managed disks storage for Linux virtual machines in Azure.
 services: storage
 documentationcenter: ''
 author: robinsh
