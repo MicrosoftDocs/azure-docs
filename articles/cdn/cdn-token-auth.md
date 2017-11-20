@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/03/2017
+ms.date: 11/17/2017
 ms.author: mezha
 
 ---
@@ -25,7 +25,7 @@ ms.author: mezha
 
 ## Overview
 
-Token authentication is a mechanism that allows you to prevent the Azure Content Delivery Network (CDN) from serving assets to unauthorized clients. Token authentication is typically done to prevent "hotlinking" of content, in which a different website, often a message board, uses your assets without permission. Hotlinking can have an impact on your content delivery costs. By enabling token authentication on CDN, requests are authenticated by CDN edge POPs before the CDN delivers the content. 
+Token authentication is a mechanism that allows you to prevent the Azure Content Delivery Network (CDN) from serving assets to unauthorized clients. Token authentication is typically done to prevent "hotlinking" of content, in which a different website, such as a message board, uses your assets without permission. Hotlinking can have an impact on your content delivery costs. By enabling token authentication on CDN, requests are authenticated by CDN edge server before the CDN delivers the content. 
 
 ## How it works
 
@@ -49,7 +49,7 @@ The following workflow diagram describes how the CDN uses token authentication t
 
 ## Token validation logic on CDN endpoint
 	
-The following flowchart describes how Azure CDN validates client request when token authentication is configured on CDN endpoint.
+The following flowchart describes how Azure CDN validates a client request when token authentication is configured on CDN endpoint.
 
 ![CDN token validation logic](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
 
@@ -59,7 +59,7 @@ The following flowchart describes how Azure CDN validates client request when to
 
 	![CDN profile Manage button](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Hover over **HTTP Large**, and then click **Token Auth** in the flyout. You can then set up the encryption key and encryption parameters as follows:
+2. Hover over **HTTP Large**, then click **Token Auth** in the flyout. You can then set up the encryption key and encryption parameters as follows:
 
     1. Create one or more encryption keys. An encryption key is case-sensitive and can contain any combination of alphanumeric characters. Any other types of characters, including spaces, are not allowed. The maximum length is 250 characters. To ensure that your encryption keys are random, it is recommended that you create them by using the [OpenSSL tool](https://www.openssl.org/). 
 
@@ -117,28 +117,30 @@ The following flowchart describes how Azure CDN validates client request when to
        >    </ul>
        > </tr>
        > <tr>
+       >    <td><b>ec_country_allow</b></td> 
+       >    <td>Only allows requests that originate from one or more specified countries. Requests that originate from all other countries are denied. Use [country codes](https://msdn.microsoft.com/library/mt761717.aspx) and separate each one with a comma. For example, if you want to allow access from only the United States and France, enter `US,FR`.</td>
+       > </tr>
+       > <tr>
        >    <td><b>ec_country_deny</b></td> 
-       >    <td>Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. Use country codes and separate each one with a comma. For example, If you want to deny access from the United States and France, enter `US, FR`.</td>
+       >    <td>Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. Use country codes and separate each one with a comma. For example, If you want to deny access from the United States and France, enter `US,FR`.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_ref_allow</b></td>
-       >    <td>Only allows requests from the specified referrer. A referrer identifies the URL of the web page that is linked to the resource being requested. Do not include the protocol in the referrer parameter value. 
+       >    <td>Only allows requests from the specified referrer. A referrer identifies the URL of the web page that is linked to the resource being requested. Do not include the protocol in the parameter value. 
        >    
-       >    The following types of input are allowed for the parameter value:
+       >    The following types of input are allowed:
        >    <ul>
        >       <li>A hostname or a hostname and a path.</li>
 	   >       <li>Multiple referrers. To add multiple referrers, separate each referrer with a comma. If you specify a referrer value, but the referrer information is not sent in the request due to the browser configuration, the request is denied by default.</li> 
        >       <li>Requests with missing referrer information. To allow these types of requests, enter the text "missing" or enter a blank value.</li> 
-       >       <li>Subdomains. To allow subdomains, enter an asterisk (\*). For example, to allow all subdomains of `consoto.com`, enter `*.consoto.com`.</li>
+       >       <li>Subdomains. To allow subdomains, enter an asterisk (\*). For example, to allow all subdomains of `contoso.com`, enter `*.contoso.com`.</li>
        >    </ul>
        > 
-       >    The following example shows the input to allow access for requests from `www.consoto.com`, all subdomains under `consoto2.com`, and requests with blank or missing referrers: 
-       > 
-       >    ![CDN ec_ref_allow example](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)</td>
+       >    For example, to allow access for requests from `www.contoso.com`, all subdomains under `contoso2.com`, and requests with blank or missing referrers, enter `www.contoso.com,*.contoso.com,missing`.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_ref_deny</b></td>
-       >    <td>Denies requests from the specified referrer. The implementation is the same as the ec_ref_allow parameter.</td>
+       >    <td>Denies requests from the specified referrer. The implementation is the same as the <b>ec_ref_allow</b> parameter.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_proto_allow</b></td> 
@@ -150,21 +152,23 @@ The following flowchart describes how Azure CDN validates client request when to
        > </tr>
        > <tr>
        >    <td><b>ec_clientip</b></td>
-       >    <td>Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify either a single request IP address or an IP subnet. For example, `11.22.33.0/22`</td>
+       >    <td>Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify either a single request IP address or an IP subnet. For example, `11.22.33.0/22`.</td>
        > </tr>
        > </table>
 
     5. After you have finished entering encryption parameter values, select a key to encrypt (if you have created both a primary and a backup key) from the **Key To Encrypt** list.
     
-    6. Select an encryption version from the **Encryption Version** list: **V2** for version 2 or **V3** for version 3 (recommended). Then, click **Encrypt** to generate the token.
+    6. Select an encryption version from the **Encryption Version** list: **V2** for version 2 or **V3** for version 3 (recommended). 
+
+    7. Click **Encrypt** to generate the token.
 
     After the token is generated, it is displayed in the **Generated Token** box. To use the token, append it as a query string to the end of the file in your URL path. For example, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 		
-	7. Optionally, test your token with the decrypt tool. Paste the token value in the **Token to Decrypt** box. Select the encryption key to use from the **Key To Decrypt** list, then click **Decrypt**.
+	8. Optionally, test your token with the decrypt tool. Paste the token value in the **Token to Decrypt** box. Select the encryption key to use from the **Key To Decrypt** list, then click **Decrypt**.
 
     After the token is decrypted, its parameters are displayed in the **Original Parameters** box.
 
-	8. Optionally, customize the type of response code that is returned when a request is denied. Select **Enabled**, select the response code from the **Response Code** list, and click **Save**. For certain response codes, you must also enter the URL of your error page in the **Header Value** box. The **403** response code (Forbidden) is selected by default. 
+	9. Optionally, customize the type of response code that is returned when a request is denied. Select **Enabled**, and select the response code from the **Response Code** list. Then, click **Save**. For certain response codes, you must also enter the URL of your error page in the **Header Value** box. The **403** response code (Forbidden) is selected by default. 
 
 3. Under **HTTP Large**, click **Rules Engine**. You use the rules engine to define paths to apply the feature, enable the token authentication feature, and enable additional token authentication-related capabilities. For more information, see [Rules engine reference](cdn-rules-engine-reference.md).
 
