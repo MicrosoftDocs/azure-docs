@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # Video Moderation API
 
-Today, online viewers generate billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you significantly lower the cost of your moderation efforts.
+Today, online viewers generate billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you lower the cost of your moderation efforts.
 
 ## Create a free Azure account
 
@@ -22,13 +22,13 @@ Today, online viewers generate billions of video views across popular and region
 
 ## Create an Azure Media Services account
 
-The Content Moderator video moderation capability (in private preview) is available as an **adult and racy video classifier (media processor)** in Azure Media Services (AMS) at no charge.
+The Content Moderator's video capability is available as a private preview **media processor** in Azure Media Services (AMS) at no charge.
 
-Follow the steps in the [Create an Azure Media Services account](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-create-account) article to create an Azure Media Services account in your Azure subscription.
+Create an Azure Media Services account in your Azure subscription by following the steps in the [Create an Azure Media Services account](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-create-account) article.
 
 ## Submit your information to enable Content Moderator
 
-[Contact us](https://cognitive.uservoice.com/ "Contact Us") to get access to the Content Moderator private preview. Include this information in your request:
+Access the Content Moderator private preview by [submitting this information](https://cognitive.uservoice.com/ "Contact Us"):
 
    1. Your Azure subscription ID
    1. Your Azure Media Services account name
@@ -36,7 +36,7 @@ Follow the steps in the [Create an Azure Media Services account](https://docs.mi
 
 ## Scan your videos for possible adult and racy content
 
-After getting access to the Content Moderator media processor, use the sample C# program below to run a Content Moderator job. This code requires both the [Azure Media Services C# SDK](https://github.com/Azure/azure-sdk-for-media-services "Azure Media Services SDK") and [SDK Extensions packages](https://github.com/Azure/azure-sdk-for-media-services-extensions "SDK Extensions") (available on [NuGet](http://www.nuget.org/packages?q=Azure+Media+Services+.NET+SDK "Nuget")).
+After getting access to the Content Moderator media processor, use the following sample C# code to run a Content Moderator job. This code requires both the [Azure Media Services C# SDK](https://github.com/Azure/azure-sdk-for-media-services "Azure Media Services SDK") and [SDK Extensions packages](https://github.com/Azure/azure-sdk-for-media-services-extensions "SDK Extensions") (available on [NuGet](http://www.nuget.org/packages?q=Azure+Media+Services+.NET+SDK "Nuget")).
 
 
 	using System;
