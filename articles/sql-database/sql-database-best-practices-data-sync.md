@@ -33,9 +33,9 @@ For an overview of SQL Data Sync (Preview), see [Sync data across multiple cloud
 
 -   **For deprovisioning**. Alter on tables part of sync; Select/ Delete on sync metadata tables; Control on sync tracking tables, stored procedures, and user-defined types.
 
-**For a single set of credentials for a database in the sync group**
+To use a single set of credentials for a database in the sync group:
 
--   Change the credentials for different phases (for example, *credential1* for setup and *credential2* for ongoing).  
+-   Change the credentials for different phases (for example, *credentials1* for setup and *credentials2* for ongoing).  
 -   Change the permission of the credentials (that is, change the permission after sync is set up).
 
 ## Setup
@@ -53,7 +53,7 @@ When you create a new SQL Database instance, set the maximum size so that it's a
 
 #### Selecting tables
 
-Not all tables in a database are required to be in a sync group. The tables that you include in a sync group affect efficiency and costs. Include tables, and tables they are dependent on, in a sync group only if business needs require it.
+You don't have to include all the tables that are in a database in a sync group. The tables that you include in a sync group affect efficiency and costs. Include tables, and the tables they are dependent on, in a sync group only if business needs require it.
 
 #### Primary keys
 
@@ -71,7 +71,7 @@ This section discusses the limitations of provisioning in SQL Data Sync (Preview
 
 SQL Data Sync (Preview) has the following limitations on autoprovisioning:
 
--   Only select columns that are created in the destination table.  
+-   Select only the columns that are created in the destination table.  
     Any columns that aren't part of the sync group aren't provisioned in the destination tables.
 -   Indexes are created only for selected columns.  
     If the source table index has columns that aren't part of the sync group, those indexes aren't provisioned in the destination tables.  
@@ -82,7 +82,7 @@ SQL Data Sync (Preview) has the following limitations on autoprovisioning:
 
 #### Recommendations
 
--   Use the SQL Data Sync (Preview) autoprovisioning capability only when you are trying the service.  
+-   Use the SQL Data Sync (Preview) autoprovisioning capability only when you are trying out the service.  
 -   For production, provision the database schema.
 
 ### <a name="locate-hub"></a> Where to locate the hub database
@@ -98,11 +98,11 @@ To minimize latency, keep the hub database close to the greatest concentration o
 
 #### Mixed scenarios
 
-Apply the preceding guidelines to complex sync group configurations.
+Apply the preceding guidelines to complex sync group configurations, like those that are a mix of enterprise-to-cloud and cloud-to-cloud.
 
 ## Sync
 
-### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Avoid a slow and costly initial sync
+### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Avoid slow and costly initial sync
 
 In this section, we discuss the initial sync of a sync group. Learn how to help prevent an initial sync from taking longer and being more costly than necessary.
 
@@ -118,7 +118,7 @@ If possible, start with data in only one of the sync group's databases.
 
 ### <a name="design-to-avoid-synchronization-loops"></a> Design to avoid sync loops
 
-A sync loop occurs when there are circular references within a sync group. In this scenario, each change in one database is replicated through the databases in the sync group circularly and endlessly.   
+A sync loop occurs when there are circular references within a sync group. In that scenario, each change in one database is endlessly and circularly replicated through the databases in the sync group.   
 
 Ensure that you avoid sync loops, because they cause performance degradation and might significantly increase costs.
 
@@ -134,12 +134,12 @@ Changes might fail to propagate for one of the following reasons:
 
 #### What happens when changes fail to propagate?
 
--   Sync group shows that it's in a warning state.
--   Details are in the Portal UI log viewer.
+-   Sync group shows that it's in a **Warning** state.
+-   Details are listed in the portal UI log viewer.
 -   If the issue is not resolved for 45 days, the database becomes out of date.
 
 > [!NOTE]
-> These changes never propagate. The only way to recover is to re-create the sync group.
+> These changes never propagate. The only way to recover in this scenario is to re-create the sync group.
 
 #### Recommendation
 
@@ -150,7 +150,7 @@ Monitor the sync group and database health regularly through the portal and log 
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Avoid out-of-date databases and sync groups
 
-A sync group or a database in a sync group can become out of date. When a sync group's status is **Out-of-date**, it stops functioning. When a database's status is "out-of-date", data can be lost. It's best to avoid these situations rather than have to recover from them.
+A sync group or a database in a sync group can become out of date. When a sync group's status is **Out-of-date**, it stops functioning. When a database's status is **Out-of-date**, data might be lost. It's best to avoid this scenario instead of trying to recover from it.
 
 #### Avoid out-of-date databases
 
@@ -169,9 +169,9 @@ A sync group might fail to apply a change for one of these reasons:
 
 To prevent out-of-date sync groups:
 
--   Update the schema to allow the values contained in the failed rows.
--   Update the foreign key values to include the values contained in the failed rows.
--   Update the data values in the failed row to be compatible with the schema or foreign keys in the target database.
+-   Update the schema to allow the values that are contained in the failed rows.
+-   Update the foreign key values to include the values that are contained in the failed rows.
+-   Update the data values in the failed row so they are compatible with the schema or foreign keys in the target database.
 
 ### <a name="avoid-deprovisioning-issues"></a> Avoid deprovisioning issues
 
@@ -179,16 +179,16 @@ In some circumstances, unregistering a database with a client agent might cause 
 
 #### Scenario
 
-1. Sync group A was created with a SQL Database instance and an on-premises SQL Server database, which is associated with local agent 1.
+1. Sync group A was created by using a SQL Database instance and an on-premises SQL Server database, which is associated with local agent 1.
 2. The same on-premises database is registered with local agent 2 (this agent is not associated with any sync group).
 3. Unregistering the on-premises database from local agent 2 removes the tracking and meta tables for sync group A for the on-premises database.
 4. Sync group A operations fail, with this error: "The current operation could not be completed because the database is not provisioned for sync or you do not have permissions to the sync configuration tables."
 
 #### Solution
 
-To avoid the situation, never register a database with more than one agent.
+To avoid this scenario, don't register a database with more than one agent.
 
-To recover from this situation:
+To recover from this scenario:
 
 1. Remove the database from each sync group that it belongs to.  
 2. Add the database back into each sync group that you removed it from.  
@@ -198,7 +198,7 @@ To recover from this situation:
 
 Don't attempt to remove a database from a sync group and then edit the sync group without first deploying one of the changes.
 
-First, remove a database from a sync group. Then, deploy the change and wait for deprovisioning to finish. When this operation is finished, you can edit the sync group and deploy the changes.
+Instead, first remove a database from a sync group. Then, deploy the change and wait for deprovisioning to finish. When deprovisioning is finished, you can edit the sync group and deploy the changes.
 
 If you attempt to remove a database and then edit a sync group without first deploying one of the changes, one or the other operation fails. The portal interface might become inconsistent. If this happens, refresh the page to restore the correct state.
 
@@ -212,9 +212,9 @@ For more information about SQL Data Sync (Preview), see:
 -   Complete PowerShell examples that show how to configure SQL Data Sync (Preview):  
     -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Download the SQL Data Sync (Preview) REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Download the SQL Data Sync (Preview) REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 For more information about SQL Database, see:
 
--   [SQL Database Overview](sql-database-technical-overview.md)
--   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [SQL Database overview](sql-database-technical-overview.md)
+-   [Database lifecycle management](https://msdn.microsoft.com/library/jj907294.aspx)
