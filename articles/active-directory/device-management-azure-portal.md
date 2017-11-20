@@ -29,7 +29,30 @@ This topic:
 
 - Provides you with information about managing your devices using the Azure portal
 
+## Manage devices 
 
+The Azure portal provides you with a central place to manage your devices. You can get to this place by either using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) or by following these manual steps:
+
+1. Sing-in to the [Azure portal](https://portal.azure.com) as administrator.
+
+2. On the left navbar, click **Active Directory**.
+
+    ![Configure device settings](./media/device-management-azure-portal/01.png)
+
+3. In the **Manage** section, click **Devices**.
+
+    ![Configure device settings](./media/device-management-azure-portal/11.png)
+ 
+The **Devices** page enables you to:
+
+- Configure your device management settings
+
+- Locate devices
+
+- Perform device management tasks
+
+- Review the device management related audit logs  
+  
 
 ## Configure device settings
 
