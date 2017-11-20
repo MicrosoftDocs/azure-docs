@@ -173,9 +173,9 @@ The sample C# program listed below demonstrates the use of the AMS ADK to run a 
 The response consists of:
 
  1. A Video summary
- 2. **Shots** labelled as "**fragments**", each including
-     2.1 **Clips** labelled as "**events**" with
-            2.1.1 **Key frames** that include a review recommendation (true or false) based on Adult and Racy scores
+ 2. **Shots** as "**fragments**", each including
+ 3. **Clips** as "**events**" with
+ 4. **Key frames** that include a review recommendation (true or false) based on Adult and Racy scores
  
 > [!NOTE]
 > Location of a keyframe in seconds = timestamp/timescale
