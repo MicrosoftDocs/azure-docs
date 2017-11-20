@@ -66,7 +66,6 @@ Use the following steps to create a static HTML page embedded with the Location 
         <div id="map"></div>
         <script>
         // Embed Map Control JavaScript code here
-
         </script>
 
     </body>
@@ -96,7 +95,7 @@ Use the following steps to create a static HTML page embedded with the Location 
     ```
     This code sets the traffic flow to `relative`, which is the speed of the road relative to free-flow. You could also set it to `absolute` speed of the road, or `relative-delay` which displays the relative speed where it differs from free-flow. 
 
-5. Add the following JavaScript code to create start and end points for the route:
+5. Add the following JavaScript code to create the pins for the start and end points of the route:
 
     ```HTML
             // Create the GeoJSON objects which represent the start and end point of the route
@@ -213,7 +212,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
         - The parameters `vehicleWidth`, `vehicleHeight`, and `vehicleLength` specify the dimensions of the vehicle in meters, and are considered only if the mode of travel is *truck*. 
         - The `vehicleLoadType` classifies the cargo as hazardous and restricted on some roads. This is also currently considered only for the *truck* mode. 
 
-2. Add the following JavaScript code to get the route for a truck using the Route Service:
+2. Add the following JavaScript code to get the route for a car using the Route Service:
 
     ```HTML
             // Perform a request to the route service and draw the resulting car route on the map
@@ -253,6 +252,7 @@ This section shows how to use the Azure Location Based Services' Route Service A
 
     ![Prioritized routes with Azure Route Service](./media/tutorial-prioritized-routes/lbs-prioritized-routes.png)
 
+    Note that the truck route is in blue color, while the car route is purple.
 
 ## Next steps
 In this tutorial, you learned how to:

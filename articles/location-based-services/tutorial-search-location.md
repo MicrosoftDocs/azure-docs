@@ -103,7 +103,6 @@ Azure Map Control API is a convenient client library that allows you to easily i
         <div id="map"></div>
         <script>
         // Embed Map Control JavaScript code here
-
         </script>
 
     </body>

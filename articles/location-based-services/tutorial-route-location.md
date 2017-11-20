@@ -66,7 +66,6 @@ Use the following steps to create a static HTML page embedded with the Location 
         <div id="map"></div>
         <script>
         // Embed Map Control JavaScript code here
-
         </script>
 
     </body>
@@ -120,7 +119,7 @@ Use the following steps to create a static HTML page embedded with the Location 
     ```
     This code creates two [GeoJSON objects](https://en.wikipedia.org/wiki/GeoJSON) to represent the start and end points of the route. The end point is the latitude/longitude combination for one of the *gasoline stations* searched in the previous tutorial [Search nearby point of interest using Azure Location Based Services](./tutorial-search-location.md).
 
-6. Add the following JavaScript code to add the start and end points to the map:
+6. Add the following JavaScript code to add the pins for the start and end points to the map:
 
     ```HTML
             // Fit the map window to the bounding box defined by the start and destination points
