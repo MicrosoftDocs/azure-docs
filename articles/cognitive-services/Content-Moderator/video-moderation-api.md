@@ -1,6 +1,6 @@
 ---
 title: Video Moderation API in Azure Content Moderator | Microsoft Docs
-description: Use video moderation in Content Moderator to scan for adult and racy content.
+description: Use video moderation to scan for possible adult and racy content.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -8,7 +8,7 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.technology: content-moderator
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 11/20/2017
 ms.author: sajagtap
 ---
 
@@ -18,7 +18,7 @@ Today, online viewers generate billions of video views across popular and region
 
 ## How it works
 
-The Content Moderator video capability is powered by the adult classifier (media processor) in the **Azure Media Services (AMS)**. The capability is currently in private preview and available at no charge. Here are the steps to try the service:
+The Content Moderator video capability is powered by the adult and racy classifier (media processor) in the **Azure Media Services (AMS)**. The capability is currently in private preview and available at no charge. Here are the steps to try the service:
 
 1. [Create an **Azure Media Services** account](https://ms.portal.azure.com/#create/Microsoft.MediaService) in your Azure subscription.
 1. [Contact us](https://cognitive.uservoice.com/ "Contact Us") with this information for enabling the Content Moderator in your region.
@@ -54,7 +54,7 @@ The sample C# program listed below demonstrates the use of the AMS ADK to run a 
         //a json file with the configuration and version the supported Modes are Speed, Balance, Quality, which provide Moderator readings over a 16-/32-/48-frame granularity.
         //Example file:
        //        {
-        //             "version": "1.0",
+        //             "version": "2.0",
         //             "Options": { "Mode": "Quality" }
         //        }
 
@@ -170,42 +170,51 @@ The sample C# program listed below demonstrates the use of the AMS ADK to run a 
 ## Sample Response (JSON)
 
     {
-	  	"version": 1,
-	  	"timescale": 1000,
-	  	"offset": 0,
-      	"framerate": 29.97,
-      	"width": 1440,
-		"height": 1080,
-		"fragments": [
-    	{
-      		"start": 0,
-      		"duration": 1067,
-      		"interval": 1067,
-      		"events": [
-        	  [
-          		{
-            		"isAdultContent": false,
-            		"adultConfidence": 0.05699,
-            		"index": 0,
-            		"timestamp": 0
-          		}
-        	 ]
-      		]
-    	},
-    	{
-      		"start": 7474,
-      		"duration": 1067,
-      		"interval": 1067,
-      		"events": [
-        	[
-          	  {
-            		"isAdultContent": true,
-            		"adultConfidence": 0.51886,
-            		"index": 224,
-            		"timestamp": 7474
-          	  }
-        	]
-      	   ]
-    	}
-	  ]
+  	"version": 2,
+  	"timescale": 90000,
+  	"offset": 0,
+  	"framerate": 50,
+  	"width": 1280,
+  	"height": 720,
+  	"totalDuration": 18696321,
+  	"fragments": [
+    		{
+      			"start": 0,
+      			"duration": 18000
+    		},
+    		{
+      "start": 18000,
+      "duration": 3600,
+      "interval": 3600,
+      "events": [
+        [
+          {
+            "reviewRecommended": false,
+            "adultScore": 0.00001,
+            "racyScore": 0.03077,
+            "index": 5,
+            "timestamp": 18000,
+            "shotIndex": 0
+          }
+        ]
+      ]
+    },
+    {
+      "start": 18386372,
+      "duration": 119149,
+      "interval": 119149,
+      "events": [
+        [
+          {
+            "reviewRecommended": true,
+            "adultScore": 0.00000,
+            "racyScore": 0.91902,
+            "index": 5085,
+            "timestamp": 18386372,
+            "shotIndex": 62
+          }
+        ]
+      ]
+    }
+  	]
 	}
