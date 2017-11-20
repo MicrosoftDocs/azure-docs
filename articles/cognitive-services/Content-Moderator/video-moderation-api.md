@@ -22,11 +22,11 @@ Today, online viewers generate billions of video views across popular and region
 
 ## Create an Azure Media Services account
 
-The Content Moderator video capability (private preview) is powered by the adult and racy classifier (media processor) in **Azure Media Services (AMS)**. The capability is currently available at no charge. 
+The Content Moderator video moderation capability (in private preview) is available as an **adult and racy video classifier (media processor)** in Azure Media Services (AMS) at no charge.
 
 Follow the steps in the [Create an Azure Media Services account](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-create-account) article to create an Azure Media Services account in your Azure subscription.
 
-## Submit your information to get access
+## Submit your information to enable Content Moderator
 
 [Contact us](https://cognitive.uservoice.com/ "Contact Us") to get access to the Content Moderator private preview. Include this information in your request:
 
