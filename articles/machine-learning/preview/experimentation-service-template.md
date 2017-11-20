@@ -17,11 +17,11 @@ ms.date: 11/14/2017
 Azure Machine Learning Experimentation Service account, workspace, and project are Azure Resources. As such, they can be deployed using Resources Manager templates. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
 
 ## Deploying a template
-Deploying a template requires only a couple of steps in the Azure Command Line Interface or in the Azure Portal.
+Deploying a template requires only a couple of steps in the Azure Command Line Interface or in the Azure portal.
 
 ### Deploy a template from Command-Line Interface
 Using the command-line interface, a single command can deploy a template to an existing resource group.
-See below for information about creating a template.
+See following for information about creating a template.
 
 ```sh
 # Login and validate your are in the right subscription context
@@ -32,24 +32,24 @@ az group create --name <resource group name> --location <supported Azure region>
 az group deployment create -n testdeploy -g <resource group name> --template-file <template-file.json> --parameters <parameters.json>
 ```
 
-### Deploy a template from Azure Portal
-If you prefer, you can also use Azure Portal to create and deploy a template. Do as follow:
+### Deploy a template from Azure portal
+If you prefer, you can also use Azure portal to create and deploy a template. Do as follows:
 
-1) Navigate to [Azure Portal](https://portal.azure.com).
-2) Select **All Services** and search for "templates".
+1) Navigate to [Azure portal](https://portal.azure.com).
+2) Select **All Services** and search for "templates."
 3) Select **Templates**.
 4) Click on **+ Add** and copy your template information. 
 5) Select the template created in step #4 and click **Deploy**.
 
 
-## Creating a template from an existing Azure resource in Azure Portal
-If you already have an Azure Machine experimentation account available, in [Azure Portal](https://portal.azure.com), you can generate a template from that resource. 
+## Creating a template from an existing Azure resource in Azure portal
+If you already have an Azure Machine experimentation account available, in [Azure portal](https://portal.azure.com), you can generate a template from that resource. 
 
-1. Navigate to an Azure Experimentation Account in [Azure Portal](https://portal.azure.com).
+1. Navigate to an Azure Experimentation Account in [Azure portal](https://portal.azure.com).
 2. Under **settings**, click on **Automation script**.
 3. Download the template. 
 
-Alternatively, you can manually edit the template files. See below for an example of a template and parameters files. 
+Alternatively, you can manually edit the template files. See following for an example of a template and parameters files. 
 
 ### Template File Example
 Create a file called "template-file.json" with below content. 
@@ -131,8 +131,8 @@ Create a file with below content and save it as <parameters.json>.
 
 There are three values that you can change. 
 * AccountName: The name of the experimentation account.
-* Location: One of the supported Azure region.
-* Storage Account SKU: We only support standard storage, not premium. For more information about storage, see [storage introduction](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). 
+* Location: One of the supported Azure regions.
+* Storage Account SKU: Azure ML only supports standard storage, not premium. For more information about storage, see [storage introduction](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). 
 
 ```json
 {
