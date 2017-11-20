@@ -19,14 +19,14 @@ ms.author: billmath
 # Azure Active Directory Pass-through Authentication: Current limitations
 
 >[!IMPORTANT]
->Azure Active Directory (Azure AD) Pass-through Authentication is a free feature, and you don't need any paid editions of Azure AD to use it. Pass-through Authentication is only available in the world-wide instance of Azure AD, and not on [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) or [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/).
+>Azure Active Directory (Azure AD) Pass-through Authentication is a free feature, and you don't need any paid editions of Azure AD to use it. Pass-through Authentication is only available in the world-wide instance of Azure AD, and not on the [Microsoft Azure Germany cloud](http://www.microsoft.de/cloud-deutschland) or the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/).
 
 ## Supported scenarios
 
 The following scenarios are fully supported:
 
-- The user signs in into all web browser-based applications.
-- The user signs in into Office 365 client applications that support [modern authentication](https://aka.ms/modernauthga).
+- The user signs in to all web browser-based applications.
+- The user signs in to Office 365 client applications that support [modern authentication](https://aka.ms/modernauthga).
 - Office 2016, and Office 2013 _with_ modern authentication.
 - Azure AD domain joins for Windows 10 devices.
 - Exchange ActiveSync support.
@@ -35,10 +35,10 @@ The following scenarios are fully supported:
 
 The following scenarios are _not_ supported:
 
-- The user signs in into legacy Office client applications: Office 2010, and Office 2013 _without_ modern authentication. Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support. It also helps you secure your user accounts by using [conditional access](../active-directory-conditional-access.md) features, such as Azure Multi-Factor Authentication.
-- The user signs in into Skype for Business client applications, including Skype for Business 2016.
-- The user signs in into PowerShell version 1.0. It's recommended that you use PowerShell version 2.0 instead.
-- Azure AD Domain Services.
+- The user signs in to legacy Office client applications: Office 2010, and Office 2013 _without_ modern authentication. Organizations are encouraged to switch to modern authentication, if possible. Modern authentication allows for Pass-through Authentication support. It also helps you secure your user accounts by using [conditional access](../active-directory-conditional-access-azure-portal.md) features, such as Azure Multi-Factor Authentication.
+- The user signs in to Skype for Business client applications, including Skype for Business 2016.
+- The user signs in to PowerShell version 1.0. We recommended that you use PowerShell version 2.0.
+- Azure Active Directory Domain Services.
 - App passwords for Multi-Factor Authentication.
 - Detection of users with [leaked credentials](../active-directory-reporting-risk-events.md#leaked-credentials).
 
@@ -53,5 +53,5 @@ The following scenarios are _not_ supported:
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [**Security deep dive**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Additional deep technical information on the Pass-through Authentication feature.
 - [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md): Learn more about this complementary feature.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect):  Use the Azure Active Directory Forum to file new feature requests.
+- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
 

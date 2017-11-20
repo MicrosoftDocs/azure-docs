@@ -35,6 +35,38 @@ Related links:
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
 
+## 1.1.649.0 (AADConnect 1.1.649.0)
+
+### Fixed issues:
+
+* Lotus Notes:
+  * Filtering custom certifiers option
+  * Import of the class ImportOperations was fixed the definition of what operations can be run in the 'Views' mode and which in the 'Search' mode.
+* Generic LDAP:
+  * OpenLDAP Directory uses DN as anchor rather than entryUUI. New option to GLDAP connector which allows to modify anchor
+* Generic SQL:
+  * Fixed export into field which has varbinary(max) type.
+  * When adding binary data from a data source to CSEntry object, The DataTypeConversion function failed on zero bytes. Fixed DataTypeConversion function of the CSEntryOperationBase class.
+
+
+
+
+### Enhancements:
+
+* Generic SQL:
+  * The ability to configure the mode for execute stored procedure with named
+    parameters or not named is added in a configuration window of the Generic
+    SQL management agent in the page 'Global Parameters'. In the page
+    'Global Parameters' there is check box with the label 'Use named parameters
+    to execute a stored procedure' which is responsible for mode for execute
+    stored procedure with named parameters or not.
+    * Currently, the ability to execute stored procedure with named parameters
+    works only for databases IBM DB2 and MSSQL. For databases Oracle and MySQL
+    this approach doesn’t work: 
+      * The SQL syntaxes of MySQL doesn’t support named parameters in stored
+        procedures.
+      * The ODBC driver for the Oracle doesn’t support named parameters for
+        named parameters in stored procedures)
 
 ## 1.1.604.0 (AADConnect 1.1.614.0)
 

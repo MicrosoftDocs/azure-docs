@@ -18,7 +18,7 @@ ms.custom: mvc
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running available during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery of various workloads.
 
-This article describes how to protect a File Server using Azure Site Recovery and other recommendations to suit various environments. 
+This article describes how to protect a File Server using Azure Site Recovery and other recommendations to suit various environments.     
 
 - [Protect Azure IaaS file server machines](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
 - [Protect on-premises file servers](#replicate-an-onpremises-file-server-using-azure-site-recovery)
@@ -47,7 +47,7 @@ In the above reference, multiple file servers referred to as members, actively p
 
 Below diagram, gives a pictorial representation aimed at easing out the decision of what strategy to use for your file server environment.
 
-![decision tree](media/site-recovery-file-server/decisiontree.png)
+![decisiontree](media/site-recovery-file-server/decisiontree.png)
 
 
 ### Factors to consider while making disaster recovery decision

@@ -6,7 +6,7 @@ keywords: how to use azure directory, active directory in the cloud, active dire
 documentationcenter: ''
 author: barlanmsft
 manager: femila
-editor: pblachar
+ms.reviewer: richagi
 
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication
