@@ -28,7 +28,7 @@ The following table includes links to [Service Fabric CLI](service-fabric-cli.md
 | | |
 |-|-|
 | **Create cluster** ||
-| [Create a secure Linux cluster](./scripts/cli-create-cluster.md)| Creates an Azure Service Fabric cluster. |
+| [Create a secure Linux cluster (Azure)](./scripts/cli-create-cluster.md)| Creates an Azure Service Fabric cluster. |
 | **Manage applications** ||
 | [List applications](./scripts/sfctl-list-applications.md)| List applications provisioned to a cluster.|
 | [Deploy an application](./scripts/cli-deploy-application.md)| Deploy an application to a cluster.|

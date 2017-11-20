@@ -38,7 +38,7 @@ The TTL feature is controlled by TTL properties at two levels - the collection l
    * Property is applicable only if DefaultTTL is present for the parent collection.
    * Overrides the DefaultTTL value for the parent collection.
 
-As soon as the document has expired (`ttl` + `_ts` >= current server time), the document is marked as "expired”. No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](request-units.md) from the collection budget.
+As soon as the document has expired (`ttl` + `_ts` <= current server time), the document is marked as "expired”. No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted in the system, and are deleted in the background opportunistically at a later time. This does not consume any [Request Units (RUs)](request-units.md) from the collection budget.
 
 The above logic can be shown in the following matrix:
 

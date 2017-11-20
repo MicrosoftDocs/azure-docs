@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/26/2017
+ms.date: 11/03/2017
 ms.author: v-six
 
 ---
@@ -80,6 +80,6 @@ For more information on how to troubleshoot for this problem, see the blog post 
 >
 
 ## Next steps
-View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.
+View more [troubleshooting articles](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-allocation-failures) for cloud services.
 
 To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

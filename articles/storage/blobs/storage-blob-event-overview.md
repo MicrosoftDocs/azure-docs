@@ -16,21 +16,9 @@ Azure Blob storage events allow applications to react to the creation and deleti
 
 Common Blob Storage event scenarios include image or video processing, search indexing, or any file-oriented workflow.  Asynchronous file uploads are a great fit for events.  When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
+Event Grid is currently in preview and available for accounts in the ***West Central US*** or ***West US 2*** locations.  Take a look at [Route Blob storage events to a custom web endpoint](storage-blob-event-quickstart.md) for a quick example.
+
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## Join the preview
-Blob storage Events are available for preview.  Users may request to join the preview by issuing the following commands against their subscription:
-```azurecli-interactive
-az provider register --namespace  Microsoft.EventGrid
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-Subscriptions are added to the Preview Program as capacity is available.  Request status can be monitored by issuing the following command:
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-Once your registration state changes to “Registered”, you have been admitted to the preview program and you can subscribe to Blob storage events for accounts in the *West Central US* location.  Take a look at [Route Blob storage events to a custom web endpoint](storage-blob-event-quickstart.md) for a quick example.
 
 ## Blob Storage accounts
 Blob storage events are available in [Blob storage accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) (and not in General Purpose storage accounts).  A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
@@ -88,7 +76,7 @@ Here is an example of a BlobCreated event:
 
 ```
 
-For more information, see [Blob storage events schema](../../event-grid/event-schema.md#azure-blob-storage).
+For more information, see [Blob storage events schema](../../event-grid/event-schema-blob-storage.md).
 
 ## Filtering events
 Blob event subscriptions can be filtered based on the event type and by the container name and blob name of the object that was created or deleted.  Subject filters in Event Grid work based on “begins with” and “ends with” matches, so that events with a matching subject are delivered to the subscriber.

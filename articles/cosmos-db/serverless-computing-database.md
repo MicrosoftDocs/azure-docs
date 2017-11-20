@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/24/2017
 ms.author: mimig
 ---
 
@@ -98,7 +98,7 @@ In retail implementations, when a user adds an item to their basket you now have
 
 **Implementation:** Multiple Azure Cosmos DB triggers listening to one collection
 
-1. You can create up multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. 
+1. You can create multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function.
 2. Whenever a new item is added to a users shopping cart, each function is independently invoked by the change feed from the shopping cart container.
     * One function may use the contents of the current basket to change the display of other items the user might be interested in.
     * Another function may update inventory totals.
@@ -132,7 +132,7 @@ Azure Cosmos DB is the recommended database for your serverless computing archit
 
 * **Global replication**. You can replicate Azure Cosmos DB data [around the globe](distribute-data-globally.md) to reduce latency, geo-locating your data closest to where your users are. As with all Azure Cosmos DB queries, data from event-driven triggers is read data from the Azure Cosmos DB closest to the user.
 
-If you're looking to integrate with Azure Functions to store data and don't need deep indexing or if you need to store attachments and media files, the [Azure Blog Storage trigger](../azure-functions/functions-bindings-storage-blob.md) may be a better option.
+If you're looking to integrate with Azure Functions to store data and don't need deep indexing or if you need to store attachments and media files, the [Azure Blob Storage trigger](../azure-functions/functions-bindings-storage-blob.md) may be a better option.
 
 Benefits of Azure Functions: 
 

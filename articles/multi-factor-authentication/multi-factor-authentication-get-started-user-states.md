@@ -3,7 +3,7 @@ title: Microsoft Azure Multi-Factor Authentication User States
 description: Learn about user states in Azure MFA.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 
 ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.author: joflore
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 

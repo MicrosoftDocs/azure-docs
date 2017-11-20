@@ -20,7 +20,7 @@ The endpoints you create by using this service can process different numbers of 
 The service assumes that data is transmitted in real time. If it's sent faster, the request is considered running until its audio duration in real time has passed.
 
 > [!NOTE]
-> We do not support the [new web sockets](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) yet. If you plan to use web sockets with your custom speech endpoint, follow the instructions here.
+> We do support the [new web sockets](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) yet. If you plan to use web sockets with your custom speech endpoint, follow the instructions here.
 >
 > The new [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedrest) support is coming soon. If you plan to call your custom speech endpoint via HTTP, follow the instructions here.
 >
@@ -93,10 +93,9 @@ your deployment. Do not insert the full URI here but just the *wss* protocol sch
 3. Build the sample by using "gulp build" before you use it.
 
 > [!NOTE]
-> Ensure that you use the correct URI for this protocol. The required scheme is *wss* (not *http* as in the client protocol). You also have to change the URI of the authorization provider in the implementation of **IAuthorizationProvider** to https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken.
+> Ensure that you use the correct URI for this protocol. The required scheme is *wss* (not *http* as in the client protocol). 
 
 For more information, see the [Bing Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedjswebsockets) documentation.
-
 
 ## Send requests by using HTTP
 
@@ -122,6 +121,12 @@ To create a post request, follow the same process you use for the Cognitive Serv
     The **token** is the access token you received with the previous call. The **https_endpoint** is the full address of your custom speech-to-text endpoint, shown on the **Deployment Information** page.
 
 For more information about HTTP post parameters and the response format, see the [Microsoft Cognitive Services Bing Speech HTTP API](https://www.microsoft.com/cognitive-services/speech-api/documentation/API-Reference-REST/BingVoiceRecognition#SampleImplementation).
+
+## Send requests by using the Service Library
+The Service Library enables your service to make use of the Microsoft Speech transcription cloud to convert spoken language to text in real-time, so that your client app can send audio and receive partial recognition results back simultaneously and asynchronously. Detail of the Service SDK can be found [here](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedcsharpservicelibrary)
+
+> [!NOTE]
+> When using the Service librady you have to change the URI of the authorization provider in the implementation of **IAuthorizationProvider** to https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken.
 
 ## Next steps
 * Improve accuracy with your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md).

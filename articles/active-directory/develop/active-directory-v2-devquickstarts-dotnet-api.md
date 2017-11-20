@@ -121,7 +121,7 @@ public class TodoListController : ApiController
 {
 ```
 
-* When an authorized caller successfully invokes one of the `TodoListController` APIs, the action might need access to information about the caller.  OWIN provides access to the claims inside the bearer token via the `ClaimsPrincpal` object.  
+* When an authorized caller successfully invokes one of the `TodoListController` APIs, the action might need access to information about the caller.  OWIN provides access to the claims inside the bearer token via the `ClaimsPrincipal` object.  
 
 ```C#
 public IEnumerable<TodoItem> Get()

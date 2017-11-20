@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 09/29/2017
 ms.author: nitinme
 
 ---
 # End-user authentication with Data Lake Store using REST API
 > [!div class="op_single_selector"]
+> * [Using Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Using Python](data-lake-store-end-user-authenticate-python.md)
 > * [Using REST API](data-lake-store-end-user-authenticate-rest-api.md)
 > 
-> 
+>  
 
 In this article, you learn about how to use the REST API to do end-user authentication with Azure Data Lake Store. For service-to-service authentication with Data Lake Store using REST API, see [Service-to-service authentication with Data Lake Store using REST API](data-lake-store-service-to-service-authenticate-rest-api.md).
 

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2017
+ms.date: 10/02/2017
 ms.author: billmath
 
 ---
@@ -66,7 +66,7 @@ The global admin account can also have [Privileged Identity Management](../activ
 
 If you receive an error and have problems with connectivity, then see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 
-## Pages under the section Sync
+## Pages under the Sync section
 
 ### Connect your directories
 To connect to your Active Directory Domain Service, Azure AD Connect needs the forest name and credentials of an account with sufficient permissions.
@@ -87,9 +87,9 @@ After entering the forest name and clicking  **Add Directory**, a pop-up dialog 
 This page allows you to review the UPN domains present in on-premises AD DS and which have been verified in Azure AD. This page also allows you to configure the attribute to use for the userPrincipalName.
 
 ![Unverified domains](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
-Review every domain marked **Not Added** and **Not Verified**. Make sure those domains you use have been verified in Azure AD. Click the Refresh symbol when you have verified your domains. For more information, see [add and verify the domain](../active-directory-add-domain.md)
+Review every domain marked **Not Added** and **Not Verified**. Make sure those domains you use have been verified in Azure AD. Click the Refresh symbol when you have verified your domains. For more information, see [add and verify the domain](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName** - The attribute userPrincipalName is the attribute users use when they sign in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. Microsoft recommends to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified, then it is possible to select another attribute. You can for example select email as the attribute holding the sign-in ID. Using another attribute than userPrincipalName is known as **Alternate ID**. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with both password sync and federation.
+**UserPrincipalName** - The attribute userPrincipalName is the attribute users use when they sign in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. Microsoft recommends to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified, then it is possible to select another attribute. You can for example select email as the attribute holding the sign-in ID. Using another attribute than userPrincipalName is known as **Alternate ID**. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with both password sync and federation. The attribute must not be defined in Active Directory as multi-valued, even if it only has a single value.
 
 >[!NOTE]
 > When you enable Pass-through Authentication you must have at least one verified domain in order to continue through the wizard.
@@ -227,9 +227,12 @@ On a computer that has the Group Policy management tools.
 ## Configuring federation with AD FS
 Configuring AD FS with Azure AD Connect is simple with just a few clicks. The following is required before the configuration.
 
-* A Windows Server 2012 R2 server for the federation server with remote management enabled
-* A Windows Server 2012 R2 server for the Web Application Proxy server with remote management enabled
+* A Windows Server 2012 R2 or later server for the federation server with remote management enabled
+* A Windows Server 2012 R2 or later server for the Web Application Proxy server with remote management enabled
 * An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
+
+>[!NOTE]
+>You can update SSL certificate for your AD FS farm using Azure AD Connect even if you do not use it to manage your federation trust.
 
 ### AD FS configuration pre-requisites
 To configure your AD FS farm using Azure AD Connect, ensure WinRM is enabled on the remote servers. In addition, go through the ports requirement listed in [Table 3 - Azure AD Connect and Federation Servers/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
@@ -240,6 +243,9 @@ You can use an existing AD FS farm or you can choose to create a new AD FS farm.
 ![AD FS Farm](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
 If you choose to use an existing AD FS farm, you are taken directly to the configuring the trust relationship between AD FS and Azure AD screen.
+
+>[!NOTE]
+>Azure AD Connect can be used to manage only one AD FS farm. If you have existing federation trust with Azure AD configured on the selected AD FS farm, the trust will be re-created again from scratch by Azure AD Connect.
 
 ### Specify the AD FS servers
 Enter the servers that you want to install AD FS on. You can add one or more servers based on your capacity planning needs. Join all servers to Active Directory before you perform this configuration. Microsoft recommends installing a single AD FS server for test and pilot deployments. Then add and deploy more servers to meet your scaling needs by running Azure AD Connect again after initial configuration.
@@ -286,7 +292,7 @@ This configuration is used to setup the federation relationship between AD FS an
 ![Azure AD Domain](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
 ### Verify the Azure AD domain selected for federation
-When you select the domain to be federated, Azure AD Connect provides you with necessary information to verify an unverified domain. See [Add and verify the domain](../active-directory-add-domain.md) for how to use this information.
+When you select the domain to be federated, Azure AD Connect provides you with necessary information to verify an unverified domain. See [Add and verify the domain](../active-directory-domains-add-azure-portal.md) for how to use this information.
 
 ![Azure AD Domain](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
 

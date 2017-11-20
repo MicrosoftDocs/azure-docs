@@ -15,32 +15,52 @@ ms.date: 09/20/2017
 # Azure Machine Learning Workbench - Known Issues And Troubleshooting Guide 
 This article helps you find and correct errors or failures encountered as a part of using the Azure Machine Learning Workbench application. 
 
-> [!IMPORTANT]
-> When communicating with the support team, it is important to have the build number. You can find out the build number of the app by clicking on the **Help** menu. Clicking on the build number copies it to your clipboard. You can paste it into emails or support forums to help report issues.
+## Find the Workbench build number
+When communicating with the support team, it is important to include the build number of the Workbench app. On Windows, you can find out the build number by clicking on the **Help** menu and choose **About Azure ML Workbench**. On macOS, you can click on the **Azure ML Workbench** menu and choose **About Azure ML Workbench**.
 
-![check version number](media/known-issues-and-troubleshooting-guide/buildno.png)
-
-## How to get help
-There are a few different ways to get help.
-
-### Post to MSDN Forum
+## Machine Learning MSDN Forum
 We have an MSDN Forum that you can post questions. The product team monitors the forum actively. 
-The address is [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum).
+The forum URL is [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
 
-### Gather diagnostics information
-Sometimes we might ask you to send us diagnostics information of a particular execution. You can package up the relevant files using the following command:
+## Gather diagnostics information
+Sometimes it can be helpful if you can provide diagnostic information when asking for help. Here is where the log files live:
+
+### Installer
+If you run into issue during installation, the installer log files are here:
+
+```
+# Windows:
+%TEMP%\amlinstaller\logs\*
+
+# macOS:
+/tmp/amlinstaller/logs/*
+```
+You can zip up the contents of these directories and send it to us for diagnostics.
+
+### Workbench desktop app
+If you have trouble logging in, or if the Workbench desktop crashes, you can find log files here:
+```
+# Windows
+%APPDATA%\AmlWorkbench
+
+# macOS
+~/Library/Application Support/AmlWorkbench
+``` 
+You can zip up the contents of these directories and send it to us for diagnostics.
+
+### Experiment execution
+If a particular script fails during submission from the desktop app, try to resubmit it through CLI using `az ml experiment submit` command. This should give you full error message in JSON format, and most importantly it contains an **operation ID** value. Send us the JSON file including the **operation ID** and we can help diagnose. 
+
+If a particular script succeeds in submission but fails in execution, it should print out the **Run ID** to identify that particular run. You can package up the relevant log files using the following command:
 
 ```azurecli
-# Find out the run id first
-$ az ml history list -o table
-
 # Create a ZIP file that contains all the diagnostics information
 $ az ml experiment diagnostics -r <run_id> -t <target_name>
 ```
 
-The `az ml experiment diagnostics` command generates a `diagnostics.zip` file in the project root folder. This ZIP package contains the entire project folder in the state at the time it was executed, plus logging information. Be sure to remove any sensitive information you don't want to include before sending us the diagnostics file.
+The `az ml experiment diagnostics` command generates a `diagnostics.zip` file in the project root folder. The ZIP package contains the entire project folder in the state at the time it was executed, plus logging information. Be sure to remove any sensitive information you don't want to include before sending us the diagnostics file.
 
-### Send us a frown (or a smile)
+## Send us a frown (or a smile)
 
 When you are working in Azure ML Workbench, you can also send us a frown (or a smile) by clicking on the smiley face icon at the lower left corner of the application shell. You can optionally choose to include your email address (so we can get back to you), and/or a screenshot of the current state. 
 
@@ -50,14 +70,56 @@ When you are working in Azure ML Workbench, you can also send us a frown (or a s
     >This limit doesn't apply to `.git`, `docs` and `outputs` folders. These folder names are case-sensitive. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](how-to-read-write-files.md).
 
 - Max allowed experiment execution time: seven days
+
 - Max size of tracked file in `outputs` folder after a run: 512 MB
   - This means if your script produces a file larger than 512 MB in the outputs folder, it is not collected there. If you are working with large files, refer to [Persisting Changes and Deal with Large Files](how-to-read-write-files.md).
 
 - SSH keys are not supported when connecting to a remote machine or Spark cluster over SSH. Only username/password mode is currently supported.
 
+- When using HDInsight cluster as compute target, it must use Azure blob as primary storage. Using Azure Data Lake Storage is not supported.
+
 - Text clustering transforms are not supported on Mac.
 
-- RevoScalePy library is not supported only on Windows, or on Linux (in Docker containers). It is not supported on macOS.
+- RevoScalePy library is only supported on Windows and Linux (in Docker containers). It is not supported on macOS.
+
+## Can't update Workbench
+When a new update is available, the Workbench app homepage displays a message informing you about the new update. You should see an update badge appearing on the lower left corner of the app on the bell icon. Click on the badge and follow the installer wizard to install the update. 
+
+![update image](./media/known-issues-and-troubleshooting-guide/update.png)
+
+If you don't see the notification, try to restart the app. If you still don't see the update notification after restart, there might be a few causes.
+
+### You are launching Workbench from a pinned shortcut on the task bar
+You may have already installed the update. But your pinned shortcut is still pointing to the old bits on disk. You can verify this by browsing to the `%localappdata%/AmlWorkbench` folder and see if you have latest version installed there, and examine the property of the pinned shortcut to see where it is pointing to. If verified, simply remove the old shortcut, launch Workbench from Start menu, and optionally create a new pinned shortcut on the task bar.
+
+### You installed Workbench using the "install Azure ML Workbench" link on a Windows DSVM
+Unfortunately there is no easy fix on this one. You have to perform the following steps to remove the installed bits, and download the latest installer to fresh-install the Workbench: 
+   - remove the folder `C:\Users\<Username>\AppData\Local\amlworkbench`
+   - remove script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - remove desktop shortcut that launches the above script
+   - download the installer https://aka.ms/azureml-wb-msi and reinstall.
+
+## Can't delete Experimentation Account
+You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first. Otherwise, you see an error.
+
+```azure-cli
+# delete a project
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+
+# delete a workspace 
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+
+# delete an experimentation account
+$ az ml account experimentation delete -g <resource group name> -n <experimentation account name>
+```
+
+You can also delete the projects and workspaces from within the Workbench app.
+
+## Can't open file if project is in OneDrive
+If you have Windows 10 Fall Creators Update, and your project is created in a local folder mapped to OneDrive, you might find that you cannot open any file in Workbench. This is due to a bug introduced by the Fall Creators Update that causes node.js code to fail in a OneDrive folder. The bug will be fixed soon by Windows update, but until then, please do not create projects in a OneDrive folder.
+
+## File name too long on Windows
+If you use Workbench on Windows, you might run into the default maximum 260-character file name length limit, which could surface as a "system cannot find the path specified" error. You can modify a registry key setting to allow much longer file path name. Review [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) for more details on how to set the _MAX_PATH_ registry key.
 
 ## Docker error "read: connection refused"
 When executing against a local Docker container, sometimes you might see the following error: 

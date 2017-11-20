@@ -43,7 +43,7 @@ The following table captures the Backup management actions and corresponding min
 | Enable backup of Azure VMs | Backup Operator on vault, Virtual machine contributor on VMs |
 | On-demand backup of VM | Backup operator |
 | Restore VM | Backup operator, Resource group contributor in which VM and Vnets are going to get deployed |
-| Restore disks, individual files from VM backup | Backup operator |
+| Restore disks, individual files from VM backup | Backup operator, Virtual machine contributor on VMs |
 | Create backup policy for Azure VM backup | Backup contributor |
 | Modify backup policy of Azure VM backup | Backup contributor |
 | Delete backup policy of Azure VM backup | Backup contributor |

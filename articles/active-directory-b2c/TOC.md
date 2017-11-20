@@ -1,6 +1,9 @@
 # [Overview](active-directory-b2c-overview.md)
 
 # Get started
+## [Test drive an Azure AD B2C web app](active-directory-b2c-quickstarts-web-app.md)
+## [Test drive an Azure AD B2C desktop app](active-directory-b2c-quickstarts-desktop-app.md)
+## [Test drive an Azure AD B2C single-page app](active-directory-b2c-quickstarts-spa.md)
 ## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
 ## [Register your application](active-directory-b2c-app-registration.md)
 ## [Built-In policies](active-directory-b2c-reference-policies.md)
@@ -40,6 +43,9 @@
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
+## [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
+## [Customizing the UI](active-directory-b2c-reference-ui-customization.md)
+### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Use the Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)
 ## [Obtain access tokens](active-directory-b2c-access-tokens.md)
 ## [Disable email verification](active-directory-b2c-reference-disable-ev.md)
@@ -47,42 +53,46 @@
 ## [Enable MFA](active-directory-b2c-reference-mfa.md)
 ## [Use custom attributes](active-directory-b2c-reference-custom-attr.md)
 ## [Customize password](active-directory-b2c-reference-password-complexity.md)
-## [Customizing the UI](active-directory-b2c-reference-ui-customization.md)
-### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [Language customization](active-directory-b2c-reference-language-customization.md)
 ## [Use the reporting API](active-directory-b2c-reference-usage-reporting-api.md)
-## [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
+## [Migrate users](active-directory-b2c-user-migration.md)
 
 # Identity Experience Framework
 ## [Custom policies](active-directory-b2c-overview-custom.md)
 ## Guides
 ### [Get started](active-directory-b2c-get-started-custom.md)
-### Configure OIDC/OAUTH2 providers
+### Configure OIDC/OAUTH providers
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft Account](active-directory-b2c-custom-setup-msa-idp.md)
 #### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
+#### [LinkedIn](active-directory-b2c-custom-setup-li-idp.md)
+#### [Twitter](active-directory-b2c-custom-setup-twitter-idp.md)
 ### Configure SAML providers
 #### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### Integrate RESTful APIs
 #### [Validate user input](active-directory-b2c-rest-api-validation-custom.md)
 #### [Obtain additional claims](active-directory-b2c-rest-api-step-custom.md)
+#### [Add your own RESTful API](active-directory-b2c-custom-rest-api-netfw.md)
+#### [Secure RESTful APIs with basic auth](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+#### [Secure RESTful APIs with certificate auth](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 ### User flows
 #### [Configure user input](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [Custom attributes](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
-#### [Customize UI](active-directory-b2c-ui-customization-custom.md)
+#### [Customize the UI](active-directory-b2c-ui-customization-custom.md)
+#### [Customize the UI dynamically](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Customize tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Password complexity](active-directory-b2c-reference-password-complexity-custom.md)
-
 #### [Password change](active-directory-b2c-reference-password-change-custom.md)
-
 #### [Enable keep me signed in](active-directory-b2c-reference-kmsi-custom.md)
-
 ### Troubleshooting
 #### [Collect logs using Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Reference
 ### [Release notes](active-directory-b2c-developer-notes-custom.md)
+### [SSO session providers](active-directory-b2c-reference-sso-custom.md)
+### [Language customization](active-directory-b2c-language-customization-custom.md)
 ### [Trust Framework definition](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossary

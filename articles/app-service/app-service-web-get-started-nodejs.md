@@ -3,8 +3,8 @@ title: Create a Node.js web app in Azure | Microsoft Docs
 description: Deploy your first Node.js Hello World in Azure App Service Web Apps in minutes.
 services: app-service\web
 documentationcenter: ''
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: ''
 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -13,9 +13,9 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/05/2017
-ms.author: cfowler
-ms.custom: mvc
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
+ms.custom: mvc, devcenter
 ---
 # Create a Node.js web app in Azure
 
@@ -44,8 +44,6 @@ In a terminal window, run the following command to clone the sample app reposito
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
-
-You use this terminal window to run all the commands in this quickstart.
 
 Change to the directory that contains the sample code.
 
@@ -80,10 +78,6 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![Empty web app page](media/app-service-web-get-started-php/app-service-web-service-created.png)
-
-You’ve created an empty new web app in Azure.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -143,7 +137,7 @@ Using a text editor, open the `index.js` file in the Node.js app, and make a sma
 response.end("Hello Azure!");
 ```
 
-Commit your changes in Git, and then push the code changes to Azure.
+In the local terminal window, commit your changes in Git, and then push the code changes to Azure.
 
 ```bash
 git commit -am "updated output"

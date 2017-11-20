@@ -3,9 +3,9 @@ title: Upgrade PhoneFactor to Azure MFA Server | Microsoft Docs
 description: Get started with Azure MFA Server when you upgrade from the older phonefactor agent.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 
 ms.assetid: 42838ff7-bdf2-4d06-bacc-b3839a00cd76
 ms.service: multi-factor-authentication
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/06/2017
-ms.author: kgremban
+ms.author: joflore
 
 ---
 # Upgrade the PhoneFactor Agent to Azure Multi-Factor Authentication Server

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/04/2017
 ms.author: bradsev
 
 ---
@@ -50,7 +50,7 @@ This tutorial assumes you have:
 
 * An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * An **Azure storage account**. You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you need to obtain the account key used to access the storage. See [Manage your storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
-* Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, the tpoic [Getting Started with Microsoft Azure SQL Database ](../../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of an Azure SQL Database.
+* Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, the topic [Getting Started with Microsoft Azure SQL Database ](../../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of an Azure SQL Database.
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
@@ -77,32 +77,14 @@ The Data Management Gateway serializes and deserializes the source and sink data
 For set-up instructions and details on Data Management Gateway, see [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
 
 ## <a name="adflinkedservices"></a>Create linked services to connect to the data resources
-A linked service defines the information needed for Azure Data Factory to connect to a data resource. The step-by-step procedure for creating linked services is provided in [Create linked services](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+A linked service defines the information needed for Azure Data Factory to connect to a data resource. We have three resources in this scenario for which linked services are needed:
 
-We have three resources in this scenario for which linked services are needed.
+1. On-premises SQL Server
+2. Azure Blob Storage
+3. Azure SQL database
 
-1. [Linked service for on-premises SQL Server](#adf-linked-service-onprem-sql)
-2. [Linked service for Azure Blob Storage](#adf-linked-service-blob-store)
-3. [Linked service for Azure SQL database](#adf-linked-service-azure-sql)
+The step-by-step procedure for creating linked services is provided in [Create linked services](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
-### <a name="adf-linked-service-onprem-sql"></a>Linked service for on-premises SQL Server database
-To create the linked service for the on-premises SQL Server:
-
-* click the **Data Store** in the ADF landing page on Azure Classic Portal
-* select **SQL** and enter the *username* and *password* credentials for the on-premises SQL Server. You need to enter the servername as a **fully qualified servername backslash instance name (servername\instancename)**. Name the linked service *adfonpremsql*.
-
-### <a name="adf-linked-service-blob-store"></a>Linked service for Blob
-To create the linked service for the Azure Blob Storage account:
-
-* click the **Data Store** in the ADF landing page on Azure Classic Portal
-* select **Azure Storage Account**
-* enter the Azure Blob Storage account key and container name. Name the Linked Service *adfds*.
-
-### <a name="adf-linked-service-azure-sql"></a>Linked service for Azure SQL database
-To create the linked service for the Azure SQL Database:
-
-* click the **Data Store** in the ADF landing page on Azure Classic Portal
-* select **Azure SQL** and enter the *username* and *password* credentials for the Azure SQL Database. The *username* must be specified as *user@servername*.   
 
 ## <a name="adf-tables"></a>Define and create tables to specify how to access the datasets
 Create tables that specify the structure, location, and availability of the datasets with the following script-based procedures. JSON files are used to define the tables. For more information on the structure of these files, see [Datasets](../../data-factory/v1/data-factory-create-datasets.md).
@@ -309,9 +291,6 @@ Copy this JSON definition of the pipeline into a file called *pipelinedef.json* 
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-Confirm that you can see the pipeline on the ADF in the Azure Classic Portal show up as following (when you click the diagram)
-
-![ADF pipeline](./media/move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>Start the Pipeline
 The pipeline can now be run using the following command:

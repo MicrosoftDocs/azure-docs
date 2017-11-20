@@ -20,12 +20,12 @@ ms.custom:
 
 # Virtual Network Service Endpoints (Preview)
 
-Virtual Network(VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
+Virtual Network (VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.
 
 This feature is available in preview for the following Azure services and regions:
 
-- **Azure Storage**: WestCentralUS, WestUS2, EastUS, WestUS, AustraliaEast, and AustraliaSouthEast
-- **Azure SQL Database**: WestCentralUS, WestUS2, and EastUS.
+- **Azure Storage**: All regions in the Azure public cloud.
+- **Azure SQL**: All regions in the Azure public cloud.
 
 For the most up-to-date notifications for the preview, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
@@ -52,8 +52,11 @@ Service endpoints provide the following benefits:
 
 - A virtual network service endpoint provides the identity of your virtual network to the Azure service. Once service endpoints are enabled in your virtual network, you can secure Azure service resources to your virtual network by adding a virtual network rule to the resources.
 - Today, Azure service traffic from a virtual network uses public IP addresses as source IP addresses. With service endpoints, service traffic switches to use virtual network private addresses as the source IP addresses when accessing the Azure service from a virtual network. This switch allows you to access the services without the need for reserved, public IP addresses used in IP firewalls.
-- Securing Azure service access from on-premises: By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow traffic from on-premises, you must also allow NAT IP addresses from your on-premises or ExpressRoute circuits. NAT IP addresses can be added through the IP firewall configuration for Azure service resources.
-- ExpressRoute: If you are using [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, each ExpressRoute circuit uses two NAT IP addresses that are applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. To allow access to your service resources, you must allow those two IP addresses in the resource IP firewall setting. In order to find your ExpressRoute circuit IP addresses, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal.
+- __Securing Azure service access from on-premises__:
+
+  By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow         traffic from on-premises, you must also allow public (typically, NAT) IP addresses from your on-premises or ExpressRoute. These IP       addresses can be added through the IP firewall configuration for Azure service resources.
+
+  ExpressRoute: If you are using [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) from your premises, for public peering, each ExpressRoute circuit uses two NAT IP addresses applied to Azure service   traffic when the traffic enters the Microsoft Azure network backbone. To allow access to your service resources, you must allow those   two public IP addresses in the resource IP firewall setting. To find your ExpressRoute circuit IP addresses, [open a support   ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal.Learn more about [NAT for ExpressRoute public peering.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
 
 ![Securing Azure services to virtual networks](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -71,9 +74,9 @@ Service endpoints provide the following benefits:
 
   The IP address switch only impacts service traffic from your virtual network. There is no impact to any other traffic addressed to or from the public IPv4 addresses assigned to your virtual machines. For Azure services, if you have existing firewall rules using Azure public IP addresses, these rules stop working with the switch to virtual network private addresses.
 - With service endpoints, DNS entries for Azure services remain as-is today, and continue to resolve to public IP addresses assigned to the Azure service.
-- Network security groups with service endpoints:
-  - Still allow outbound Internet traffic to the Internet and therefore, also allow traffic from a virtual network to Azure services' public IP addresses.
-  - Enable you to deny traffic to public IP addresses except for the addresses of Azure services by using [service tags](security-overview.md#service-tags) in your network security groups. You can specify supported Azure services as the destination in network security group rules. The maintenance of IP addresses underlying each tag is provided by Azure.
+- Network security groups (NSGs) with service endpoints:
+  - By default, NSGs allow outbound Internet traffic and so, also allow traffic from your VNet to Azure services. This continues to work as is, with service endpoints. 
+  - If you want to deny all outbound Internet traffic and allow only traffic to specific Azure services,  you can do so using __“Azure service tags”__ in your NSGs. You can specify supported Azure services as destination in your NSG rules and the maintenance of IP addresses underlying each tag is provided by Azure. For more information, see [Azure Service tags for NSGs.](https://aka.ms/servicetags) 
 
 ### Scenarios
 
@@ -84,8 +87,8 @@ Service endpoints provide the following benefits:
 ### Logging and troubleshooting
 
 Once service endpoints are configured to a specific service, validate that the service endpoint route is in effect by: 
-
-- Validating the source IP address of any service request in service diagnostics. All new requests with service endpoints show the source IP address for the request as the virtual network private IP address, assigned to the client making the request from your virtual network. Without the endpoint, the address is an Azure public IP address.
+ 
+- Validating the source IP address of any service request in the service diagnostics. All new requests with service endpoints show the source IP address for the request as the virtual network private IP address, assigned to the client making the request from your virtual network. Without the endpoint, the address is an Azure public IP address.
 - Viewing the effective routes on any network interface in a subnet. The route to the service:
   - Shows a more specific default route to address prefix ranges of each service
   - Has a nextHopType of *VirtualNetworkServiceEndpoint*
@@ -116,4 +119,5 @@ For an Azure service resource (such as, an Azure Storage account), services may 
 - Learn how to [secure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn how to [secure an Azure SQL Database to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn about [Azure service integration in virtual networks](virtual-network-for-azure-services.md)
+-  Quick start: [Azure resource manager template](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) to set up service endpoint on a VNet's Subnet and secure Azure Storage account to that subnet.
 

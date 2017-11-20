@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
@@ -46,6 +46,8 @@ Typical users that need access to cost management data like dashboards and repor
 
 ![add new user with user access](.\media\tutorial-user-access\new-user-access.png)
 
+To watch a tutorial video about adding users, see [Adding Users to Azure Cost Management by Cloudyn](https://youtu.be/Nzn7GLahx30).
+
 ## Create entities
 
 When you define your cost entity hierarchy, a best practice is to identify the structure of your organization.
@@ -65,6 +67,10 @@ Next to **Entities**, click **Add Entity**. Enter information about the person o
 When you're done, **Save** the entity.
 
 
+To watch a tutorial video about creating a cost entity hierarchy, see [Creating a Cost Entity Hierarchy in Azure Cost Management by Cloudyn](https://youtu.be/dAd9G7u0FmU).
+
+If you are an Azure Enterprise Agreement user, watch a tutorial video about associating accounts and subscriptions to entities at [Connecting to Azure Resource Manager with Azure Cost Management by Cloudyn](https://youtu.be/oCIwvfBB6kk).
+
 ## Next steps
 
 In this tutorial, you learned how to:
@@ -74,7 +80,7 @@ In this tutorial, you learned how to:
 > * Create a user with user access
 > * Create entities
 
-Advance to the Cloudyn documentation to learn more getting started with Cloudyn and using its features.
+Advance to the next tutorial to learn how to forecast spending using historical data.
 
 > [!div class="nextstepaction"]
-> [Cloudyn documentation](https://support.cloudyn.com/hc/)
+> [Forecast future spending](tutorial-forecast-spending.md)

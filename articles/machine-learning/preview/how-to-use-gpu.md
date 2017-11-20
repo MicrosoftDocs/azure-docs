@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 09/14/2017
 ---
 # How to use GPU in Azure Machine Learning
-Graphical Processing Unit (GPU) is widely used to process computationally intensive tasks that can typically happen when training certain deep neural network models. By using GPUs, you can reduce the training time of the models significantly. In this document, you learn how to configure Azure ML Workbench to use  [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) equipped with GPUs as execution target. 
+Graphical Processing Unit (GPU) is widely used to process computationally intensive tasks that can typically happen when training certain deep neural network models. By using GPUs, you can reduce the training time of the models significantly. In this document, you learn how to configure Azure ML Workbench to use  [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) equipped with GPUs as execution target. 
 
 ## Prerequisites
 - To step through this how-to guide, you need to first [install Azure ML Workbench](quickstart-installation.md).
@@ -83,7 +83,7 @@ Open the `my_dsvm.compute`. Change the `baseDockerImage` to `microsoft/mmlspark:
  
 ```yaml
 ...
-baseDockerImage: microsoft/mmlspark:plus-gpu-0.7.91
+baseDockerImage: microsoft/mmlspark:plus-gpu-0.9.9
 nvidiaDocker: true
 ```
  
@@ -111,7 +111,7 @@ dependencies:
   - python=3.5.2
   - pip: 
     # use the Linux build of Microsoft Cognitive Toolkit 2.1 with GPU support
-    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-win_amd64.whl
+    - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
 You can also use the 1 bit-SGD version of the Microsoft Cognitive Toolkit which provides performance improvements on multi-GPU VMs. Do note [the license requirement for 1 bit-SGD](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).

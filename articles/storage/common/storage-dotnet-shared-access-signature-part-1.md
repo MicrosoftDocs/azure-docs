@@ -423,6 +423,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 Shared access signatures are useful for providing limited permissions to your storage account to clients that should not have the account key. As such, they are a vital part of the security model for any application using Azure Storage. If you follow the best practices listed here, you can use SAS to provide greater flexibility of access to resources in your storage account, without compromising the security of your application.
 
 ## Next Steps
+* [Shared Access Signatures, Part 2: Create and use a SAS with Blob storage](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md)
 * [Delegating Access with a Shared Access Signature](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

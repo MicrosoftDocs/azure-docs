@@ -22,7 +22,7 @@ ms.custom: mvc
 
 # Create your first container in Azure Container Instances
 
-Azure Container Instances makes it easy to create and manage containers in Azure. In this quick start, you create a container in Azure and expose it to the internet with a public IP address. This operation is completed by using the Azure portal. With just a few clicks, you will see this in your browser:
+Azure Container Instances makes it easy to create and manage containers in Azure. In this quickstart, you create a container in Azure and expose it to the internet with a public IP address. This operation is completed by using the Azure portal. With just a few clicks, you will see this in your browser:
 
 ![App deployed using Azure Container Instances viewed in browser][aci-app-browser]
 
@@ -78,7 +78,7 @@ Once the container moves to the **Running** state, navigate to the IP address yo
 
 ## Next steps
 
-In this Quickstart, you created an Azure Container Instance from an image in a public Docker Hub repository. If you'd like to try building a container yourself and deploy it to Azure Container Instances using the Azure Container Registry, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure Container Instance from an image in a public Docker Hub repository. If you'd like to try building a container yourself and deploy it to Azure Container Instances using the Azure Container Registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials](./container-instances-tutorial-prepare-app.md)

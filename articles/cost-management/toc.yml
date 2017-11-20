@@ -15,16 +15,23 @@
     href: quick-register-csp.md
 - name: Tutorials
   items:
-  - name: 1 - Review usage and costs 
+  - name: 1 - Review usage and costs
     href: tutorial-review-usage.md
   - name: 2 - Control access to data
     href: tutorial-user-access.md
+  - name: 3 - Forecast spending
+    href: tutorial-forecast-spending.md
+  - name: 4 - Manage costs
+    href: tutorial-manage-costs.md
 - name: Resources
   items:
+  - name: Cost Management videos
+    href: ref-videos.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cost-management
   - name: Regional Availability
     href: https://azure-staging.microsoft.com/en-us/regions/services/
-
+  - name: FAQ
+    href: cost-mgt-faq.md

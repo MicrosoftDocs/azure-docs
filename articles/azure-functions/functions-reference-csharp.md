@@ -3,7 +3,7 @@ title: Azure Functions C# Script developer reference | Microsoft Docs
 description: Understand how to develop Azure Functions using C#.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,16 +16,11 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
-ms.author: donnam
+ms.author: glenga
 
 ---
 # Azure Functions C# script developer reference
-> [!div class="op_single_selector"]
-> * [C# script](functions-reference-csharp.md)
-> * [F# script](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
->
->
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 The C# script experience for Azure Functions is based on the Azure WebJobs SDK. Data flows into your C# function via method arguments. Argument names are specified in `function.json`, and there are predefined names for accessing things like the function logger and cancellation tokens.
 
@@ -79,7 +74,7 @@ public static string Run(string input, TraceWriter log)
 
 To write multiple values to an output binding, use the [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) types. These types are write-only collections that are written to the output binding when the method completes.
 
-This example writes multiple queue messages using `ICollector`:
+This example writes multiple queue messages into the same queue using `ICollector`:
 
 ```csharp
 public static void Run(ICollector<string> myQueueItem, TraceWriter log)
@@ -383,7 +378,7 @@ Mobile Apps table output binding supports
 but you can only use [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs)
 or [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
 
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#using-a-blob-output-binding)
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#blob-storage-input--output-bindings)
 with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs
@@ -402,8 +397,7 @@ public static async Task Run(string input, Binder binder)
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)
 defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and
 [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) is a supported output binding type.
-As is, the code gets the default app setting for the Storage account connection string (which is `AzureWebJobsStorage`). You can specify a
-custom app setting to use by adding the
+In the previous code sample, the code gets the app setting for the function app's main Storage account connection string (which is `AzureWebJobsStorage`). You can specify a custom app setting to use for the Storage account by adding the
 [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 and passing the attribute array into `BindAsync<T>()`. For example,
 
@@ -448,6 +442,4 @@ For more information, see the following resources:
 
 * [Best Practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
-* [Azure Functions F# developer reference](functions-reference-fsharp.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)

@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 11/09/2017
 ms.author: tdykstra
 ---
 
@@ -26,7 +26,7 @@ There are other global configuration options in [app settings](functions-app-set
 
 The following sample *host.json* file has all possible options specified.
 
-```javascript
+```json
 {
     "aggregator": {
         "batchSize": 1000,
@@ -43,12 +43,12 @@ The following sample *host.json* file has all possible options specified.
       "prefetchCount": 256,
       "batchCheckpointFrequency": 1
     },
-    "functions": [ "QueueProcessor", "GitHubWebHook" ]
+    "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 
+        "maxConcurrentRequests": 10,
         "dynamicThrottlesEnabled": false
     },
     "id": "9f4ea53c5136457d883d685e57164f08",
@@ -95,7 +95,7 @@ The following sections of this article explain each top-level property. All are 
 
 Specifies how many function invocations are aggregated when [calculating metrics for Application Insights](functions-monitoring.md#configure-the-aggregator). 
 
-```javascript
+```json
 {
     "aggregator": {
         "batchSize": 1000,
@@ -115,7 +115,7 @@ Function invocations are aggregated when the first of the two limits are reached
 
 Controls the [sampling feature in Application Insights](functions-monitoring.md#configure-sampling).
 
-```javascript
+```json
 {
     "applicationInsights": {
         "sampling": {
@@ -133,29 +133,15 @@ Controls the [sampling feature in Application Insights](functions-monitoring.md#
 
 ## eventHub
 
-Configuration setting for [Event Hub triggers and bindings](functions-bindings-event-hubs.md).
+Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs.md).
 
-```javascript
-{
-    "eventHub": {
-      "maxBatchSize": 64,
-      "prefetchCount": 256,
-      "batchCheckpointFrequency": 1
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|maxBatchSize|64|The maximum event count received per receive loop.|
-|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying EventProcessorHost.| 
-|batchCheckpointFrequency|1|The number of event batches to process before creating an EventHub cursor checkpoint.| 
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## functions
 
 A list of functions that the job host will run.  An empty array means run all functions.  Intended for use only when [running locally](functions-run-local.md). In function apps, use the *function.json* `disabled` property rather than this property in *host.json*.
 
-```javascript
+```json
 {
     "functions": [ "QueueProcessor", "GitHubWebHook" ]
 }
@@ -165,7 +151,7 @@ A list of functions that the job host will run.  An empty array means run all fu
 
 Indicates the timeout duration for all functions. In Consumption plans, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes. In App Service plans, there is no limit and the default value is null, which indicates no timeout.
 
-```javascript
+```json
 {
     "functionTimeout": "00:05:00"
 }
@@ -175,7 +161,7 @@ Indicates the timeout duration for all functions. In Consumption plans, the vali
 
 Configuration settings for [http triggers and bindings](functions-bindings-http-webhook.md).
 
-```javascript
+```json
 {
     "http": {
         "routePrefix": "api",
@@ -197,7 +183,7 @@ Configuration settings for [http triggers and bindings](functions-bindings-http-
 
 The unique ID for a job host. Can be a lower case GUID with dashes removed. Required when running locally. When running in Azure Functions, an ID is generated automatically if `id` is omitted.
 
-```javascript
+```json
 {
     "id": "9f4ea53c5136457d883d685e57164f08"
 }
@@ -207,7 +193,7 @@ The unique ID for a job host. Can be a lower case GUID with dashes removed. Requ
 
 Controls filtering for logs written by an [ILogger object](functions-monitoring.md#write-logs-in-c-functions) or by [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
-```javascript
+```json
 {
     "logger": {
         "categoryFilter": {
@@ -232,7 +218,7 @@ Controls filtering for logs written by an [ILogger object](functions-monitoring.
 
 Configuration settings for [Storage queue triggers and bindings](functions-bindings-storage-queue.md).
 
-```javascript
+```json
 {
     "queues": {
       "maxPollingInterval": 2000,
@@ -256,27 +242,13 @@ Configuration settings for [Storage queue triggers and bindings](functions-bindi
 
 Configuration setting for [Service Bus triggers and bindings](functions-bindings-service-bus.md).
 
-```javascript
-{
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. | 
-|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.| 
-|autoRenewTimeout|00:05:00|The maximum duration within which the message lock will be renewed automatically.| 
+[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
 ## singleton
 
 Configuration settings for Singleton lock behavior. For more information, see [GitHub issue about singleton support](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
-```javascript
+```json
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -299,7 +271,7 @@ Configuration settings for Singleton lock behavior. For more information, see [G
 
 Configuration settings for logs that you create by using a `TraceWriter` object. See [C# Logging](functions-reference-csharp.md#logging) and [Node.js Logging](functions-reference-node.md#writing-trace-output-to-the-console). 
 
-```javascript
+```json
 {
     "tracing": {
       "consoleLevel": "verbose",
@@ -317,11 +289,26 @@ Configuration settings for logs that you create by using a `TraceWriter` object.
 
 A set of [shared code directories](functions-reference-csharp.md#watched-directories) that should be monitored for changes.  Ensures that when code in these directories is changed, the changes are picked up by your functions.
 
-```javascript
+```json
 {
     "watchDirectories": [ "Shared" ]
 }
 ```
+
+## durableTask
+
+[Task hub](durable-functions-task-hubs.md) name for [Durable Functions](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub"
+  }
+}
+```
+
+Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](durable-functions-task-hubs.md).
+
 
 ## Next steps
 

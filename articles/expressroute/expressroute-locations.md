@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2017
+ms.date: 10/25/2017
 ms.author: kaanan
 
 ---
@@ -51,7 +51,7 @@ The table below provides information on regions and geopolitical boundaries for 
 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- |
-| **US Government cloud** |US Gov Iowa, US Gov Virginia, US DoD Central, US DoD East  |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
+| **US Government cloud** |US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East  |Chicago, Dallas, New York, Seattle, Silicon Valley, Washington DC |
 | **China** |China North, China East |Beijing, Shanghai |
 | **Germany** |Germany Central, Germany East |Berlin, Frankfurt |
 
@@ -80,6 +80,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Supported |Supported |Chicago, Silicon Valley, Washington DC |
 | **[Console](https://www.consoleconnect.com/partners/cloudsaas/)**| Supported | Supported |Silicon Valley, Toronto |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported |Chicago, Denver, Los Angeles, New York, Silicon Valley, Washinton DC |
+| **Epsilon Global Communications** |Supported |Supported |Singapore |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Supported |Supported |Amsterdam |
 | **GÉANT** |Supported |Supported |Amsterdam |
@@ -197,6 +198,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Frankfurt |  
 | **Rogers** | Cologix, Equinix | Montreal, Toronto |
 | **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | London | 
+| **[Telia](https://www.telia.se/foretag/losningar/produkter-tjanster/datanet)** | Equinix | Amsterdam |
 | **[ThinkTel](http://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
 | **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |  
 | **[United Information Highway (UIH)](https://www.uih.co.th/en/internet-solution/cloud-direct/uih-cloud-direct-for-microsoft-azure-expressroute)**| Equinix | Singapore |

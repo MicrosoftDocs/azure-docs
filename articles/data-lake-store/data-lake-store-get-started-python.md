@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
 
 ---
@@ -33,6 +33,8 @@ Learn how to use the Python SDK for Azure Data Lake Store to perform basic accou
 * **Python**. You can download Python from [here](https://www.python.org/downloads/). This article uses Python 3.6.2.
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+* **An Azure resource group**. For instructions, see [Create an Azure resource group](../azure-resource-manager/resource-group-portal.md).
 
 ## Install the modules
 
@@ -90,29 +92,6 @@ In this section, we talk about the different ways to authenticate with Azure AD.
 * For end-user authentication for your application, see [End-user authentication with Data Lake Store using Python](data-lake-store-end-user-authenticate-python.md).
 * For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-python.md).
 
-## Create an Azure Resource Group
-
-Use the following code snippet to create an Azure Resource Group:
-
-	## Declare variables
-	subscriptionId= 'FILL-IN-HERE'
-	resourceGroup = 'FILL-IN-HERE'
-	location = 'eastus2'
-	
-	## Create resource management client object
-	resourceClient = ResourceManagementClient(
-	    credentials,
-	    subscriptionId
-	)
-	
-	## Create an Azure Resource Group
-	resourceClient.resource_groups.create_or_update(
-	    resourceGroup,
-	    ResourceGroup(
-	        location=location
-	    )
-	)
-
 ## Create client and Data Lake Store account
 
 The following snippet first creates the Data Lake Store account client. It uses the client object to create a Data Lake Store account. Finally, the snippet creates a filesystem client object.
@@ -120,9 +99,11 @@ The following snippet first creates the Data Lake Store account client. It uses 
     ## Declare variables
     subscriptionId = 'FILL-IN-HERE'
 	adlsAccountName = 'FILL-IN-HERE'
+    resourceGroup = 'FILL-IN-HERE'
+    location = 'eastus2'
 
 	## Create data lake store account management client object
-	adlsAcctClient = DataLakeStoreAccountManagementClient(credentials, subscriptionId)
+	adlsAcctClient = DataLakeStoreAccountManagementClient(armCreds, subscriptionId)
 
 	## Create a Data Lake Store account
 	adlsAcctResult = adlsAcctClient.account.create(

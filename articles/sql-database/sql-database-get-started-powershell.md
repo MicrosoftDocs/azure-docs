@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure PowerShell: Create a SQL database | Microsoft Docs'
 description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal.
 keywords: sql database tutorial, create a sql database
@@ -11,7 +11,7 @@ editor: ''
 ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: quickstart

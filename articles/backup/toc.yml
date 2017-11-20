@@ -39,6 +39,8 @@
       href: backup-azure-vm-backup-faq.md
     - name: FAQ on file-folder backup using Azure Backup agent
       href: backup-azure-file-folder-backup-faq.md
+    - name: FAQ on auto-upgrade of backup vault
+      href: backup-upgrade-backup-vault.md
   - name: Role-Based Access Control
     href: backup-rbac-rs-vault.md
   - name: Security for hybrid backups

@@ -12,17 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 10/06/2017
 ms.author: bwren
 
 ---
 
 # Transitioning to Azure Log Analytics new query language
-
-> [!NOTE]
-> You can read more about the new Log Analytics query language and get the procedure to upgrade your workspace at Upgrade your [Azure Log Analytics workspace to new log search](log-analytics-log-search-upgrade.md).
-
-This article provides assistance on transitioning to the new query language for Log Analytics if you're already familiar with the legacy language.
+Log Analytics recently implemented a new query language.  This article provides assistance on transitioning to this language for Log Analytics if you're already familiar with the legacy language and still need some assistance.
 
 ## Language converter
 
@@ -46,7 +42,7 @@ The following table provides a comparison between a variety of common queries to
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | Date comparison        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
-| Boolean comparison     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat | where IsGatewayInstalled == false |
+| Boolean comparison     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |
 | Sort                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
 | Distinct               | Type=Event &#124; dedup Computer \| select Computer | Event &#124; summarize by Computer, EventLog |
 | Extend columns         | Type=Perf CounterName="% Processor Time" &#124; EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION | Perf &#124; where CounterName == "% Processor Time" \| extend Utilization = iff(CounterValue > 50, "HIGH", "LOW") |

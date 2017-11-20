@@ -15,8 +15,10 @@ ms.author: cahann
 # Manage your keys
 A key is your passport to the server that allows you to publish your LUIS app to end users. LUIS has two different types of keys:
 
-* **Starter Key:** A starter key is created automatically for LUIS account and it's free. It gives you 1000 endpoint hits per month so you can start using your LUIS app. It also gives you unlimited hits for authoring and editing your application using the LUIS Programmatic APIs. 
+* **Starter Key or Programmatic Key:** A starter key, also known as a programmatic key, is created automatically for LUIS account and it's free. It gives you 1000 endpoint hits per month so you can start using your LUIS app. It also gives you unlimited hits for authoring and editing your application using the LUIS Programmatic APIs. 
 [Click here for a complete API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+    > [!TIP]
+    > To find the Programmatic Key, log in to https://www.luis.ai and click on the account name in the upper-right navigation bar to open **Account Settings**, which displays the Programmatic Key.
 
 * **Endpoint Key(s):** If you need more than 1000 hits per month you can buy a key from the Microsoft Azure portal. It is essential for publishing your app and accessing your HTTP endpoint. This key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
@@ -25,10 +27,10 @@ The process of creating and using endpoint keys involves the following tasks:
 
 1. Create a key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).
  
-2. On the **Publish app** page, click the **Change** link to open the **Assign a key to your app** dialog. 
+2. On the **Publish app** page, click the **Add Key** button to open the **Assign a key to your app** dialog. 
 
     ![Assign a key to your app](./media/luis-manage-keys/luis-assign-key-to-app.png)
-3. Select a Tenant ID in the dialog. In Azure, a tenant represents the client or organization associated with a service. 
+3. Select a Tenant ID in the dialog. In Azure, a tenant represents the client or organization associated with a service.
 
 4. Choose the subscription associated with the key you want to add.
 
