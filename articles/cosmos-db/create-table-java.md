@@ -98,7 +98,7 @@ Now go back to the Azure portal to get your connection string information and co
 6. Paste your PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value in line 2. 
 
     > [!IMPORTANT]
-    > If your Endpoint uses documents.azure.com, that means you have a preview acct, and it is recommended that you create a [new Table API account](#create-a-database-account) so that the connection string displayed in the portal works with the generally available Table API SDK. To continue to use your preview account with the generally available SDK, change the documents.azure.com portion of your to Endpoint to table.cosmosdb.azure.com. 
+    > If your Endpoint uses documents.azure.com, that means you have a preview acct, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK.
     >
 
 7. Save the config.properties file.
