@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- **VMware**: You need at least one VMware VM located on an ESXi host or cluster running version 5.0 or higher. The host or cluster must be managed by a vCenter server running version 5.5 or 6.0.
+- **VMware**: You need at least one VMware VM located on an ESXi host or cluster running version 5.0 or higher. The host or cluster must be managed by a vCenter server running version 5.5, 6.0, or 6.5.
 - **vCenter account**: You need a read-only account with administrator credentials for the vCenter server. Azure Migrate uses this account to discover VMs.
 - **Permissions**: On the vCenter server, you need permissions to create a VM by importing a file in .OVA format. 
 - **Statistics settings**: The statistics settings for the vCenter server should be set to level 3 before you start deployment.
@@ -46,7 +46,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 2. Search for **Azure Migrate**, and select the service (**Azure Migrate (preview)** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
-5. Specify the region in which to create the project, then click **Create**. Metadata gathered from on-premises VMs will be stored in this region. You can only create an Azure Migrate project in the East US region for this preview. However, you can assess VMs for a different location.
+5. Specify the region in which to create the project, then click **Create**. Metadata gathered from on-premises VMs will be stored in this region. You can only create an Azure Migrate project in the West Central US region for this preview. However, you can assess VMs for a different location.
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
