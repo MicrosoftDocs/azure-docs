@@ -22,9 +22,7 @@ Today, online viewers generate billions of video views across popular and region
 
 ## Create an Azure Media Services account
 
-The Content Moderator's video capability is available as a private preview **media processor** in Azure Media Services (AMS) at no charge.
-
-Create an Azure Media Services account in your Azure subscription by following the steps in the [Create an Azure Media Services account](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-create-account) article.
+The Content Moderator's video capability is available as a private preview **media processor** in Azure Media Services (AMS) at no charge.[Create an Azure Media Services account](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-create-account) in your Azure subscription.
 
 ## Submit your information to enable Content Moderator
 
