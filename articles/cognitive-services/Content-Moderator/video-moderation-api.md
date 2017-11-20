@@ -183,7 +183,7 @@ The Content Moderator media processor's response in JSON format consists of thes
 1. A Video summary
 1. **Shots** as "**fragments**", each including
 1. **Clips** as "**events**" with
-1. **Key frames** that include a review recommendation (true or false) based on Adult and Racy scores
+1. **Key frames** that include a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores (between 0 and 1).
  
 > [!NOTE]
 > Location of a keyframe in seconds = timestamp/timescale
