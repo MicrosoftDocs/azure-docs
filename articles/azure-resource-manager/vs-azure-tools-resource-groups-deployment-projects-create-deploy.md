@@ -29,7 +29,7 @@ This article shows Visual Studio 2017. If you use Visual Studio 2015 Update 2 an
 ## Create Azure Resource Group project
 In this procedure, you create an Azure Resource Group project with a **Web app + SQL** template.
 
-1. In Visual Studio, choose **File**, **New Project**, choose **C#** or **Visual Basic**. Then choose **Cloud**, and **Azure Resource Group** project.
+1. In Visual Studio, choose **File**, **New Project**, choose either **C#** or **Visual Basic** (which language you choose has no impact on the later stages as these projects contain only JSON and PowerShell content). Then choose **Cloud**, and **Azure Resource Group** project.
    
     ![Cloud Deployment Project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 2. Choose the template that you want to deploy to Azure Resource Manager. Notice there are many different options based on the type of project you wish to deploy. For this article, choose the **Web app + SQL** template.

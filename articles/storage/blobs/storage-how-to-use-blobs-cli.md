@@ -160,6 +160,18 @@ az storage blob delete \
     --name blobName
 ```
 
+## Set the content type
+
+The content type, also known as the MIME type, identitifies the format of the data in the blob. Browsers and other software use the content type to determine how to process the data. The following example sets the content type to `image/png`.
+
+```azurecli-interactive
+# Set the content type
+az storage blob update
+    --container-name mystoragecontainer 
+    --name blobName 
+    --content-type image/png
+```
+
 ## Display and modify blob properties and metadata
 
 Each blob has several service-defined properties you can display with the [az storage blob show](/cli/azure/storage/blob#show) command, including its name, type, length, and others. You can also configure a blob with your own properties and their values by using the [az storage blob metadata update](/cli/azure/storage/blob/metadata#update) command.
