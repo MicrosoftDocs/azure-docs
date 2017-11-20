@@ -92,6 +92,10 @@ Other limitations:
 * When network traffic is high, change records may take up to a maximum of six hours to display.
 * If you modify the configuration while a computer is shut down, the computer might post file changes that belonged to the previous configuration.
 
+### Known Issues
+The Change Tracking solution is currently experiencing the following issues:
+* Hotfix updates are not collected for Windows 10 Creators Update and Windows Server 2016 Core RS3 machines.
+
 ## Change Tracking data collection details
 Change Tracking collects software inventory and Windows Service metadata using the agents that you have enabled.
 
