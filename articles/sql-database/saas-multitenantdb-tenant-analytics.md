@@ -19,7 +19,7 @@ ms.author: "anjangsh; billgib; genemi"
 ---
 # Cross-tenant analytics using extracted data
 
-In this tutorial you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from sharded database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
+In this tutorial, you walk through a complete analytics scenario. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from sharded database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
 
 1.	**Extract data** from each tenant database into an analytics store.
 2.	**Optimize the extracted data** for analytics processing.
@@ -49,7 +49,7 @@ Next, the aggregated data is shredded into a set of [star-schema](https://www.wi
 - The central fact table in the star-schema contains ticket data.
 - The dimension tables contain data about venues, events, customers, and purchase dates.
 
-Together the central and dimension tables enable efficient analytical processing. The star-schema used in this tutorial is displayed in the following image.
+Together the central and dimension tables enable efficient analytical processing. The star-schema used in this tutorial is displayed in the following image:
  
 ![StarSchema](media/saas-multitenantdb-tenant-analytics/StarSchema.png)
 
@@ -83,7 +83,7 @@ In this tutorial, analysis is performed on ticket sales data. In the current ste
 2. Press **F5** to run the script and create ticket purchasing history for every event in each venue.  The script runs for several minutes to generate tens of thousands of tickets.
 
 ### Deploy the analytics store
-Often there are numerous transactional sharded database that together hold all tenant data. You must aggregate the tenant data from the sharded database into one analytics store. The aggregation enables efficient query of the data. In this tutorial, an Azure SQL Database database is used to store the aggregated data.
+Often there are numerous transactional sharded databases that together hold all tenant data. You must aggregate the tenant data from the sharded database into one analytics store. The aggregation enables efficient query of the data. In this tutorial, an Azure SQL Database database is used to store the aggregated data.
 
 In the following steps, you deploy the analytics store, which is called **tenantanalytics**. You also deploy predefined tables that are populated later in the tutorial:
 1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
@@ -147,7 +147,7 @@ Successfully running the job populates the EventsRawData table in the analytics 
 
 ### Shred extracted data to populate star-schema tables
 
-The next step is to shred the extracted raw data into a set of tables that are optimized for analytics queries. A star-schema is used. A central fact table holds individual ticket sales records. Dimension tables are populated with data about venues, events, customers and purchase dates. 
+The next step is to shred the extracted raw data into a set of tables that are optimized for analytics queries. A star-schema is used. A central fact table holds individual ticket sales records. Dimension tables are populated with data about venues, events, customers, and purchase dates. 
 
 In this section of the tutorial, you define and run a job that merges the extracted raw data with the data in the star-schema tables. After the merge job is finished, the raw data is deleted, leaving the tables ready to be populated by the next tenant data extract job.
 
