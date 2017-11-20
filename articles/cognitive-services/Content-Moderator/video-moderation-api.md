@@ -51,7 +51,8 @@ The sample C# program listed below demonstrates the use of the AMS ADK to run a 
         private static readonly string _inputFile = { INPUT_FILE_PATH };
         private static readonly string _outputFolder = { OUTPUT_FOLDER_PATH };
 
-        //a json file with the configuration and version the supported Modes are Speed, Balance, Quality, which provide Moderator readings over a 16-/32-/48-frame granularity.
+        //a json file with the configuration and version the supported Modes are Speed, Balance, Quality, 
+	//which provide Moderator readings over a 16-/32-/48-frame granularity.
         //Example file:
        //        {
         //             "version": "2.0",
@@ -170,19 +171,19 @@ The sample C# program listed below demonstrates the use of the AMS ADK to run a 
 ## Sample Response (JSON)
 
     {
-  	"version": 2,
-  	"timescale": 90000,
-  	"offset": 0,
-  	"framerate": 50,
-  	"width": 1280,
-  	"height": 720,
-  	"totalDuration": 18696321,
-  	"fragments": [
-    		{
-      			"start": 0,
-      			"duration": 18000
-    		},
-    		{
+    "version": 2,
+    "timescale": 90000,
+    "offset": 0,
+    "framerate": 50,
+    "width": 1280,
+    "height": 720,
+    "totalDuration": 18696321,
+    "fragments": [
+    {
+      "start": 0,
+      "duration": 18000
+    },
+    {
       "start": 18000,
       "duration": 3600,
       "interval": 3600,
@@ -216,5 +217,5 @@ The sample C# program listed below demonstrates the use of the AMS ADK to run a 
         ]
       ]
     }
-  	]
-	}
+    ]
+    }
