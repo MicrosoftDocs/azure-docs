@@ -178,9 +178,9 @@ After getting access to the Content Moderator media processor, use the sample C#
 
 ## Analyze the JSON response
 
-The Content Moderator media processor's response in JSON format consists of these elements:
+After the Content Moderation job is completed, analyze the JSON response. It consists of these elements:
 
-1. A Video summary
+1. Video summary
 1. **Shots** as "**fragments**", each including
 1. **Clips** as "**events**" with
 1. **Key frames** that include a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores (between 0 and 1).
