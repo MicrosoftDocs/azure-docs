@@ -100,4 +100,14 @@
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
-
+# Resources
+## [FAQ](api-management-faq.md)
+## [API design guidance](https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json)
+## [API implementation guidance](https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [Roadmap](http://aka.ms/apimroadmap)
+## [Power BI solution template for API Management](http://aka.ms/apimpbi)
+## [Blog](http://aka.ms/apimblog)
+## [Feature requests](http://aka.ms/apimwish)
