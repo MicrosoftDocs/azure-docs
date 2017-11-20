@@ -19,7 +19,7 @@ ms.author: raynew
 ---
 # About Azure Migrate
 
-The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses migration suitability and performance-based sizing, and provides cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration, to migrate the machines to Azure.
+The Azure Migrate service helps you to plan your migration to Azure. The service discovers on-premises machines, and assesses migration suitability and performance-based sizing, and provides cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration, to migrate the machines to Azure.
 
 > [!NOTE]
 > Azure Migrate is currently in preview.
@@ -32,14 +32,16 @@ Azure Migrate helps you to:
 - **Get size recommendations**: Recommended sizing for Azure VMs after migration, based on the performance history of on-premises VMs. 
 - **Estimate monthly costs**: Estimated costs for running on-premises machines in Azure.
 - **Migrate with high confidence**: As you group on-premises machines for assessment, you can increase assessment confidence by visualizing dependencies. You can accurately view dependencies for a specific machine, or for all machines in a group.
+- **Assessment cost**: Assess machines without charge, unless you're using [dependency visualization](dependency-visualization.md).
 
 ## Current limitations
 
-- Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs.
+- Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. Assessment of Hyper-V VMs and physical servers isn't currently supported.
+- Azure Migrate doesn't perform the actual migration. You can use the [Azure Site Recovery service](../site-recovery/site-recovery-overview.md), or the [Azure Database Migration](https://azure.microsoft.com/services/database-migration/) service, for this purpose. In addition, right-sizing existing Azure VMs isn't supported by Azure Migrate. You can use the [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/) service to do this.
 - You can assess up to 1000 VMs in a single assessment, and up to 1500 machines in a single Azure Migrate project. If you need to assess more, you can increase the number of projects or assessments. [Learn more](how-to-scale-assessment.md).
 - VM you want to assess must be managed by a vCenter server, version 5.5 or 6.0.
 - The Azure Migrate portal is currently available in English only.
-- You can only create an Azure Migrate project in the West Central US region. However, you can assess VMs for a different target Azure location. 
+- You can only create an Azure Migrate project in the West Central US region. However, you can assess VMs for a different target Azure location, and migrate to that target region.
 - Azure Migrate currently supports only [Locally Redundant Storage (LRS)](../storage/common/storage-introduction.md#replication) replication.
 
 
