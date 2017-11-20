@@ -7287,6 +7287,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-get-started-azure-cluster.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-tutorial-create-cluster-azure-ps.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-create-vnet-and-windows-cluster",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-vso-load-test.md",
             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-with-cicd-vsts",
             "redirect_document_id": false
@@ -7641,17 +7651,17 @@
             "redirect_document_id": false
         },{
             "source_path": "articles/site-recovery/vmware-walkthrough-prepare-azure.md",
-            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_url": "tutorial-prepare-azure",
             "redirect_document_id": false
         },
 		{
             "source_path": "articles/site-recovery/vmware-walkthrough-prepare-vmware.md",
-            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_url": "tutorial-prepare-on-premises-vmware",
             "redirect_document_id": false
         },
 		{
             "source_path": "articles/site-recovery/vmware-walkthrough-prerequisites.md",
-            "redirect_url": "tutorial-vmware-to-azure",
+            "redirect_url": "site-recovery-support-matrix-to-azure",
             "redirect_document_id": false
         },
 		{

@@ -27,19 +27,19 @@ Three vesions of the app are available; each explores a different database tenan
 
 ![Three tenancy patterns][image-three-tenancy-patterns]
 
- Each sample includes management scripts and tutorials that explore a range of design and management patterns you can use in your own application.  Each sample deploys in less that five minutes.  All three can be deployed side-by-side so you can compare the differences in design and management. 
+ Each sample includes management scripts and tutorials that explore a range of design and management patterns you can use in your own application.  Each sample deploys in less that five minutes.  All three can be deployed side-by-side so you can compare the differences in design and management.
 
 ## Standalone application pattern
 
 The standalone app pattern uses a single tenant application with a single tenant database for each tenant. Each tenant’s app is deployed into a separate Azure resource group. This could be in the service provider’s subscription or the tenant’s subscription and managed by the provider on the tenant’s behalf. This pattern provides the greatest tenant isolation, but it is typically the most expensive as there is no opportunity to share resources across multiple tenants.
 
-Check out the [tutorials](https://aka.ms/wingtipticketssaas-sa) and code on GitHub  [.../Microsoft/WingtipTicketsSaaS-StandaloneApp](http://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp).
+Check out the [tutorials][docs-tutorials-for-wingtip-sa] and code on GitHub  [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
 ## Database per tenant pattern
 
 The database per tenant pattern is effective for service providers that are concerned with tenant isolation and want to run a centralized service that allows cost-efficient use of shared resources. A database is created for each venue, or tenant, and all the databases are centrally managed. Databases can be hosted in elastic pools to provide cost-efficient and easy performance management, which leverages the unpredictable workload patterns of the tenants. A catalog database holds the mapping between tenants and their databases. This mapping is managed using the shard map management features of the [Elastic Database Client Library](sql-database-elastic-database-client-library.md), which  provides efficient connection management to the application.
 
-Check out the [tutorials](https://aka.ms/wingtipticketssaas-dpt) and code  on GitHub  [.../Microsoft/WingtipTicketsSaaS-DbPerTenant](http://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
+Check out the [tutorials][docs-tutorials-for-wingtip-dpt] and code  on GitHub  [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
 ## Sharded multi-tenant database pattern
 
@@ -47,11 +47,46 @@ Multi-tenant databases are effective for service providers looking for lower cos
 
 This pattern also allows a hybrid model in which you can optimize for cost with multiple tenants in a database, or optimize for isolation with a single tenant in their own database. The choice can be made on a tenant-by-tenant basis, either when the tenant is provisioned or later, with no impact on the application.
 
-Check out the [tutorials](https://aka.ms/wingtipticketssaas-mt) and code  on GitHub  [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb](http://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
+Check out the [tutorials][docs-tutorials-for-wingtip-mt] and code  on GitHub  [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
+
+## Next steps
+
+#### Conceptual descriptions
+
+- A more detailed explanation of the application tenancy patterns is available at [Multi-tenant SaaS database tenancy patterns][saas-tenancy-app-design-patterns-md]
+
+#### Tutorials and code
+
+- Standalone app:
+    - [Tutorials for standalone app][docs-tutorials-for-wingtip-sa].
+    - [Code for standalone, on Github][github-code-for-wingtip-sa].
+
+- Database per tenant:
+    - [Tutorials for database per tenant][docs-tutorials-for-wingtip-dpt].
+    - [Code for database per tenant, on Github][github-code-for-wingtip-dpt].
+
+- Sharded multi-tenant:
+    - [Tutorials for sharded multi-tenant][docs-tutorials-for-wingtip-mt].
+    - [Code for sharded multi-tenant, on Github][github-code-for-wingtip-mt].
 
 
 
 <!-- Image references. -->
 
 [image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Three tenancy patterns."
+
+<!-- Docs.ms.com references. -->
+
+[saas-tenancy-app-design-patterns-md]: saas-tenancy-app-design-patterns.md
+
+<!-- WWWeb http references. -->
+
+[docs-tutorials-for-wingtip-sa]: https://aka.ms/wingtipticketssaas-sa
+[github-code-for-wingtip-sa]: https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp
+
+[docs-tutorials-for-wingtip-dpt]: https://aka.ms/wingtipticketssaas-dpt
+[github-code-for-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant
+
+[docs-tutorials-for-wingtip-mt]: https://aka.ms/wingtipticketssaas-mt
+[github-code-for-wingtip-mt]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb
 

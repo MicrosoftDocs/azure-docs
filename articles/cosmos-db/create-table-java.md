@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: arramac
 
 ---
@@ -95,7 +95,11 @@ Now go back to the Azure portal to get your connection string information and co
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```
 
-6. Paste your PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value in line 2. If the Endpoint portion of your connection string uses documents.azure.com, correct that portion to use table.cosmosdb.azure.com instead.
+6. Paste your PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value in line 2. 
+
+    > [!IMPORTANT]
+    > If your Endpoint uses documents.azure.com, that means you have a preview acct, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK.
+    >
 
 7. Save the config.properties file.
 
