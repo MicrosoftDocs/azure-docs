@@ -33,7 +33,7 @@ For an overview of SQL Data Sync (Preview), see [Sync data across multiple cloud
 
 -   **For deprovisioning**. Alter on tables part of sync; Select/ Delete on sync metadata tables; Control on sync tracking tables, stored procedures, and user-defined types.
 
-**Using this information when there is only a single set of credentials for a database in the sync group**
+**For a single set of credentials for a database in the sync group**
 
 -   Change the credentials for different phases (for example, *credential1* for setup and *credential2* for ongoing).  
 -   Change the permission of the credentials (that is, change the permission after sync is set up).
@@ -44,10 +44,10 @@ For an overview of SQL Data Sync (Preview), see [Sync data across multiple cloud
 
 #### SQL Database instance size
 
-When you create a new SQL Database instance, set the maximum size so that it's always larger than the database you deploy. If you don't set the maximum size to larger than the deployed database, sync fails. Although SQL Data Sync (Preview) doesn't offer automatic growth,  you can run an `ALTER DATABASE` command to increase the size of the database after it has been created. Make sure that you stay within the SQL Database instance size limits.
+When you create a new SQL Database instance, set the maximum size so that it's always larger than the database you deploy. If you don't set the maximum size to larger than the deployed database, sync fails. Although SQL Data Sync (Preview) doesn't offer automatic growth, you can run the `ALTER DATABASE` command to increase the size of the database after it has been created. Ensure that you stay within the SQL Database instance size limits.
 
 > [!IMPORTANT]
-> SQL Data Sync (Preview) stores additional metadata with each database. Be sure to account for this metadata when you calculate space needed. The amount of added overhead is governed by the width of the tables (for example, narrow tables require more overhead) and the amount of traffic.
+> SQL Data Sync (Preview) stores additional metadata with each database. Ensure that you account for this metadata when you calculate space needed. The amount of added overhead is related to the width of the tables (for example, narrow tables require more overhead) and the amount of traffic.
 
 ### <a name="table-considerations-and-constraints"></a> Table considerations and constraints
 
@@ -65,13 +65,13 @@ Before using SQL Data Sync (Preview) in production, test initial and ongoing syn
 
 SQL Data Sync (Preview) Preview provides basic database autoprovisioning.
 
-This section discusses the limitations of SQL Data Sync (Preview)'s provisioning.
+This section discusses the limitations of provisioning in SQL Data Sync (Preview).
 
 #### Autoprovisioning limitations
 
 SQL Data Sync (Preview) has the following limitations on autoprovisioning:
 
--   Only select columns are created in the destination table.  
+-   Only select columns that are created in the destination table.  
     Any columns that aren't part of the sync group aren't provisioned in the destination tables.
 -   Indexes are created only for selected columns.  
     If the source table index has columns that aren't part of the sync group, those indexes aren't provisioned in the destination tables.  
@@ -98,36 +98,38 @@ To minimize latency, keep the hub database close to the greatest concentration o
 
 #### Mixed scenarios
 
-Apply the preceding guidelines to more complex sync group configurations.
+Apply the preceding guidelines to complex sync group configurations.
 
 ## Sync
 
 ### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Avoid a slow and costly initial sync
 
-This section discusses the initial sync of a sync group. It discusses ways to help prevent an initial sync from taking longer and being more costly than necessary.
+In this section, we discuss the initial sync of a sync group. Learn how to help prevent an initial sync from taking longer and being more costly than necessary.
 
 #### How initial sync works
 
-When you create a sync group, start with data in only one database. If you have data in multiple databases, SQL Data Sync (Preview) treats each row as a conflict that needs resolution. This conflict resolution causes the initial sync to go slowly. If you have data in multiple databases, initial sync might take from several days to several months, depending on the database size.
+When you create a sync group, start with data in only one database. If you have data in multiple databases, SQL Data Sync (Preview) treats each row as a conflict that needs to be resolved. This conflict resolution causes the initial sync to go slowly. If you have data in multiple databases, initial sync might take between several days and several months, depending on the database size.
 
-If the databases are in different datacenters, the costs involved in an initial sync are also higher. Each row must travel between the different datacenters.
+If the databases are in different datacenters, each row must travel between the different datacenters. This increases the cost of an initial sync.
 
 #### Recommendation
 
-Whenever possible, start with data in only one of the sync group's databases.
+If possible, start with data in only one of the sync group's databases.
 
 ### <a name="design-to-avoid-synchronization-loops"></a> Design to avoid sync loops
 
-A sync loop occurs when there are circular references within a sync group. In this scenario, each change in one database is replicated through the databases in the sync group circularly and endlessly. Avoid sync loops, because they cause performance degradation and might significantly increase costs.
+A sync loop occurs when there are circular references within a sync group. In this scenario, each change in one database is replicated through the databases in the sync group circularly and endlessly.   
 
-### <a name="handling-changes-that-fail-to-propagate"></a> Handling changes that fail to propagate
+Ensure that you avoid sync loops, because they cause performance degradation and might significantly increase costs.
+
+### <a name="handling-changes-that-fail-to-propagate"></a> Changes that fail to propagate
 
 #### Reasons that changes fail to propagate
 
-Changes might fail to propagate for some of the following reasons:
+Changes might fail to propagate for one of the following reasons:
 
 -   Schema/datatype incompatibility.
--   Trying to insert null in non-nullable columns.
+-   Inserting null in non-nullable columns.
 -   Violating foreign key constraints.
 
 #### What happens when changes fail to propagate?
@@ -148,7 +150,7 @@ Monitor the sync group and database health regularly through the portal and log 
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Avoid out-of-date databases and sync groups
 
-A sync group or a database within a sync group can become out-of-date. When a sync group's status is "out-of-date", it stops functioning. When a database's status is "out-of-date", data can be lost. It is best to avoid these situations rather than have to recover from them.
+A sync group or a database in a sync group can become out of date. When a sync group's status is **Out-of-date**, it stops functioning. When a database's status is "out-of-date", data can be lost. It's best to avoid these situations rather than have to recover from them.
 
 #### Avoid out-of-date databases
 
@@ -156,7 +158,7 @@ A database's status is set to **Out-of-date** when it has been offline for 45 da
 
 #### Avoid out-of-date sync groups
 
-A sync group's status is set to out-of-date when any change in the sync group fails to propagate to the rest of the sync group for 45 days or more. To avoid an out-of-date status on a sync group, regularly check the sync group's history log. Ensure that all conflicts are resolved and that changes are successfully propagated throughout the sync group databases.
+A sync group's status is set to **Out-of-date** when any change in the sync group fails to propagate to the rest of the sync group for 45 days or more. To avoid an **Out-of-date** status on a sync group, regularly check the sync group's history log. Ensure that all conflicts are resolved, and that changes are successfully propagated throughout the sync group databases.
 
 A sync group might fail to apply a change for one of these reasons:
 
@@ -179,8 +181,8 @@ In some circumstances, unregistering a database with a client agent might cause 
 
 1. Sync group A was created with a SQL Database instance and an on-premises SQL Server database, which is associated with local agent 1.
 2. The same on-premises database is registered with local agent 2 (this agent is not associated with any sync group).
-3. Unregistering the on-premises database from local agent 2 removes the tracking/meta tables for the sync group A for the on-premises database.
-4. Now, the sync group A operations fail, with this error: "The current operation could not be completed because the database is not provisioned for sync or you do not have permissions to the sync configuration tables."
+3. Unregistering the on-premises database from local agent 2 removes the tracking and meta tables for sync group A for the on-premises database.
+4. Sync group A operations fail, with this error: "The current operation could not be completed because the database is not provisioned for sync or you do not have permissions to the sync configuration tables."
 
 #### Solution
 
