@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Security Services and Technologies | Microsoft Docs
 description: The article provides a curated list of Azure Security services and technologies.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 11/21/2016
 ms.author: yurid
 
 ---
