@@ -40,7 +40,7 @@ For guidance on selecting the most appropriate storage option to use for your sc
 
 ## Use Azure Blob storage accounts with R Server
 
-If you specified more than one storage account when creating your R Server cluster, the following instructions explain how to use a secondary account for data access aand operations on R Server. Assume the following storage accounts and container: **storage1** and a default container called **container1**, and **storage2**.
+If you specified more than one storage account when creating your R Server cluster, the following instructions explain how to use a secondary account for data access and operations on R Server. Assume the following storage accounts and container: **storage1** and a default container called **container1**, and **storage2**.
 
 > [!WARNING]
 > For performance purposes, the HDInsight cluster is created in the same data center as the primary storage account that you specify. Using a storage account in a different location than the HDInsight cluster is not supported.
