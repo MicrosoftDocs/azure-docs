@@ -18,7 +18,7 @@ ms.author: gsacavdm
 
 ---
 # Azure Government Marketplace
-The Azure Government Marketplace helps connect government agencies and parters seeking innovative cloud-based solutions with partners who have developed solutions that are ready to use.
+The Azure Government Marketplace helps connect government agencies and partners with independent software vendors (ISVs) and start-ups that are offering their solutions in Azure Government.
 
 ## Variations
 The Azure Government Marketplace differs from the Azure Marketplace in the following ways:
@@ -26,11 +26,11 @@ The Azure Government Marketplace differs from the Azure Marketplace in the follo
 * A different set of images is available. You can find the list of available images [here](../azure-government-image-gallery.md) 
 
 > [!NOTE]
-> If you are interested in making your images available in Azure Government please refer to [partner onboarding guidelines](documentation-government-manage-marketplace-partners.md) for more information.
+> For information on making your images available in Azure Government, see the [partner onboarding guidelines](documentation-government-manage-marketplace-partners.md).
 
 
 ## Enable the Azure Government Marketplace
-If your subscription is under an Enterprise Agreement (EA), the Azure Government Marketplace must be enabled before you can deploy a Marketplace solution to your subscription. To do this: 
+If your subscription is under an Enterprise Agreement (EA), the Azure Government Marketplace must be enabled before you can deploy a Marketplace solution to your subscription.
 1. Log in to the [Enterprise Account Portal](https://ea.azure.com) as an Enterprise Administrator
 1. Navigate to **Manage**
 1. Under **Enrollment Details**, click the pencil icon next to the **Azure Marketplace** line item
@@ -38,26 +38,26 @@ If your subscription is under an Enterprise Agreement (EA), the Azure Government
 1. Click **Save**
 
 ## Deploy a Solution to your Subscription
-1. **Log in** to the [Azure Government portal](https://portal.azure.us)
+1. **Log in** to the [Azure Government portal](https://portal.azure.us).
 
-1. Click on **+New**
+1. Click on **+New**.
    ![alt text](./media/government-manage-marketplace-launch.png)  
 
 1. Browse through different products to find the right one. The marketplace publisher provides a list of certifications as part of the product description to help you make the right choice. 
    ![alt text](./media/government-manage-marketplace-service.png)
 
-1. Choose an product\image and click **Create**
+1. Choose an product\image and click **Create**.
    ![alt text](./media/government-manage-marketplace-image.png)
 
-1. Enter the required parameters for deployment
+1. Enter the required parameters for deployment.
    > [!NOTE]
    > In the Location dropdown, only Azure Government locations are visible
   
    ![alt text](./media/government-manage-marketplace-deployment.png)
 
-1. Click **Ok** to start the provisioning process
+1. To start the provisioning process, click **Ok**.
 
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
-* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 
+* Give feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 
