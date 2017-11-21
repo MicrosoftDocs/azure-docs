@@ -112,7 +112,7 @@ This shows that there are problems with "Alerts & Metrics" in both Australia Eas
     ```
 3. You should receive a `2XX - Successful` response.
 
-4. Go to [PagerDuty](https://www.pagerduty.com/) to confirm that your integration was set up successfully.
+4. Go to your problem management system to confirm that your integration was set up successfully.
 
 ## Next steps
 - Review the [activity log alert webhook schema](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
