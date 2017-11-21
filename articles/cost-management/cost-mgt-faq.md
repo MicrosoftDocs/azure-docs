@@ -130,7 +130,6 @@ After you add Azure Resource Manager access and data is collected, you should se
 
 No. Agents are not used. Azure virtual machine metric data for VMs is gathered from the Microsoft Insights API. If you want to gather metric data from Azure VMs, they need to have diagnostics settings enabled.
 
-
 ## Do Cloudy reports show more than one AD tenant per report?
 
 Yes. You can [create a corresponding cloud account entity](tutorial-user-access.md#create-entities) for each AD tenant that you have. Then you can view all of your Azure AD tenant data and other cloud platform providers including Amazon Web Services and Google Cloud Platform.
