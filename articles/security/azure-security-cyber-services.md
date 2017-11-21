@@ -1,4 +1,4 @@
----
+﻿---
 title: Microsoft Services in Cybersecurity | Microsoft Docs
 description: The article provides an introduction about Microsoft services related to cybersecurity and how to obtain more information about these services.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: yurid
 
 ---
