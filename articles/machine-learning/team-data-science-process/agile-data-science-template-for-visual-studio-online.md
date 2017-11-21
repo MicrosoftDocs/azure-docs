@@ -20,7 +20,7 @@ ms.author: bradsev;
 
 # Set up agile data science process in Visual Studio Online
 
-This article explains how to set up an agile data science process template that uses the TDSP data science lifecycle stages and tracks work items in Visual Studio Online (vso). The steps below walkthrough an example of setting up the data science specific agile process template *AgileDataScienceProcess* and how to create data science work items based on the template.
+This article explains how to set up an agile data science process template that uses the TDSP data science lifecycle stages and tracks work items with Visual Studio Online (vso). The steps below walk through an example of setting up the data science-specific agile process template *AgileDataScienceProcess* and show how to create data science work items based on the template.
 
 ## Agile Data Science Process Template Setup
 
@@ -32,7 +32,7 @@ This article explains how to set up an agile data science process template that 
 
 	![2](./media/agile-data-science-template-for-visual-studio-online/agileds.png)
 
-3. Under the **AgileDataScienceProcess** -> **Work item types** tab, disable Epic, Feature,User Story, and Task type by **Configure->Disable**
+3. Under the **AgileDataScienceProcess** -> **Work item types** tab, disable **Epic**, **Feature**, **User Story**, and **Task** work item types by **Configure -> Disable**
 
 	![3](./media/agile-data-science-template-for-visual-studio-online/disable.png)
 
@@ -40,14 +40,14 @@ This article explains how to set up an agile data science process template that 
 
 	![4](./media/agile-data-science-template-for-visual-studio-online/rename.png)  
 
-5. Similarly, change Backlog name "Features" to "TDSP Stages" and to the **New work item type** add the following:
+5. Similarly, change Backlog name "Features" to "TDSP Stages" and add the following to the **New work item type**:
 
 	- Business Understanding
 	- Data Acquisition
 	- Modeling
 	- Deployment
 
-6. Rename "User Story" to "TDSP Substages" with default work item type set to newly created "TDSP Substage" type
+6. Rename "User Story" to "TDSP Substages" with default work item type set to newly created "TDSP Substage" type.
 
 7. Set the "Tasks" to newly created Work item type "TDSP Task" 
 
@@ -70,7 +70,7 @@ After the data science process template is created, you can create and track you
 
 	![7](./media/agile-data-science-template-for-visual-studio-online/enabledsprojects.png)
 
-4. Now you can start creating the data science specific work items.
+4. Now you can start creating the data science-specific work items.
 
 	![8](./media/agile-data-science-template-for-visual-studio-online/dsworkitems.png)
 
