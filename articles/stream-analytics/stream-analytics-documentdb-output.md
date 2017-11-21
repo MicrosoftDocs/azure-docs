@@ -23,7 +23,7 @@ Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/servic
 
 For those who are unfamiliar with Cosmos DB, take a look at [Azure Cosmos DB’s learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to get started. 
 
-> [!IMPORTANT]
+> [!Note]
 > At this time, Azure Stream Analytics only supports connection to CosmosDB using **DocumentDB API**.
 > Other APIs to access Cosmos DB collections are not supported. 
 
