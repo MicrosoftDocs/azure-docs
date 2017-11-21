@@ -1,6 +1,6 @@
 ---
 title: Polybase data load - Azure Storage Blob to Azure SQL Data Warehouse | Microsoft Docs
-description: A tutorial that uses the Azure portal and SQL Server Management Studio to load New York Taxicab data from a public Azure Storage Blob to Azure SQL Data Warehouse. 
+description: A tutorial that uses the Azure portal and SQL Server Management Studio to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 documentationcenter: ''
 author: ckarst
@@ -23,7 +23,7 @@ ms.reviewer: barbkess
 
 # Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse
 
-PolyBase is the standard loading technology for getting data into SQL Data Warehouse. In this tutorial, you use PolyBase to load New York Taxicab data from a public Azure Storage Blob to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
+PolyBase is the standard loading technology for getting data into SQL Data Warehouse. In this tutorial, you use PolyBase to load New York Taxicab data from Azure blob storage to Azure SQL Data Warehouse. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal
@@ -219,7 +219,7 @@ The first step toward loading data is to login as LoaderRC20.
 
 ## Create external tables for the sample data
 
-You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use [Polybase](/sql/relational-databases/polybase/polybase-guide.md) to load New York City taxi cab data from a public Azure storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
+You are ready to begin the process of loading data into your new data warehouse. This tutorial shows you how to use [Polybase](/sql/relational-databases/polybase/polybase-guide.md) to load New York City taxi cab data from an Azure storage blob. For future reference, to learn how to get your data to Azure blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
 
 Run the following SQL scripts specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. 
 
