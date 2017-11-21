@@ -1,5 +1,5 @@
 ---
-title: Set up Linux cluster on Windows | Microsoft Docs
+title: Set up Azure Service Fabric Linux cluster on Windows | Microsoft Docs
 description: This article covers how to set up Service Fabric Linux clusters running on Windows development machines. This is particularly useful for cross platform development.  
 services: service-fabric
 documentationcenter: .net
