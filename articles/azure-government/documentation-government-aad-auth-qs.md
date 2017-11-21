@@ -26,7 +26,7 @@ To learn more about Azure Active Directory Authentication Scenarios, click [here
 This section shows how to integrate Azure AD using the OpenID Connect protocol for signing in users into a web app. 
 
 ### Prerequisites 
-- An Azure Active Directory (Azure AD) tenant in Azure Government. You must have an [Azure Government subscription](https://azure.microsoft.com/overview/clouds/government/request/) in order to have an Azure AD tenant in Azure Government. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/) 
+- An Azure Active Directory (Azure AD) tenant in Azure Government. You must have an [Azure Government subscription](https://azure.microsoft.com/overview/clouds/government/request/) in order to have an Azure AD tenant in Azure Government. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](../active-directory/develop/active-directory-howto-tenant.md) 
 - A user account in your Azure AD tenant. This sample does not work with a Microsoft account, so if you signed in to the Azure Government portal with a Microsoft account and have never created a user account in your directory before, you need to do that now.
 - Have an [ASP.NET Core application deployed and running in Azure Government](documentation-government-howto-deploy-webandmobile.md)
 
@@ -58,7 +58,7 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 2. Open the `appsettings.json` file.
 3. Add an `Authentication` section. You will be filling out the properties with your Azure AD tenant information.
 	
-	```cs
+    ```cs
     //ClientId: Azure AD->  App registrations -> Application ID
     //Domain: <tenantname>.onmicrosoft.com
     //TenantId: Azure AD -> Properties -> Directory ID
@@ -77,8 +77,8 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 4. Fill out the `ClientId` property with the Client ID for your app from the Azure Government portal. You can find the Client ID by navigating to Azure AD -> App Registrations -> Your Application -> Application ID. 
 5. Fill out the `TenantId` property with the Tenant ID for your app from the Azure Government portal. You can find the Tenant ID by navigating to Azure AD -> Properties -> Directory ID. 
 6. Fill out the `Domain` property with "<tenantname>.onmicrosoft.com."
-6. Open the `startup.cs` file.
-7. In your `ConfigureServices` method, add the following code:
+7. Open the `startup.cs` file.
+8. In your `ConfigureServices` method, add the following code:
 
     ```cs
         public void ConfigureServices(IServiceCollection services)
@@ -98,12 +98,12 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
         }
     ```
 
-In the same file, add this one line of code to the `Configure` method:
+    In the same file, add this one line of code to the `Configure` method:
 
-    ```cs
-    app.UseAuthentication();
-    ```
-8. Navigate to your **Home** controller or whichever controller file is your home page, **where you want your users to log in**. Add the `[Authorize]` tag before the class definition.
+	```cs
+	app.UseAuthentication();
+	```
+9. Navigate to your **Home** controller or whichever controller file is your home page, **where you want your users to log in**. Add the `[Authorize]` tag before the class definition.
 
 ## Next Steps
 
