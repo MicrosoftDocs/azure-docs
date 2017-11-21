@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: mimig
 
 ---
@@ -31,6 +31,10 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a database account
+
+> [!IMPORTANT] 
+> You need to create a new Table API account to work with the generally available Table API SDKs. Table API accounts created during preview are not supported by the generally available SDKs.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -88,7 +92,11 @@ Now go back to the Azure portal to get your connection string information and co
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. Paste the PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value on line 8. Paste the string inside the quotes. If your Endpoint uses documents.azure.com, change that portion to table.cosmosdb.azure.com. 
+4. Paste the PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value on line 8. Paste the string inside the quotes. 
+
+    > [!IMPORTANT]
+    > If your Endpoint uses documents.azure.com, that means you have a preview account, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK. 
+    > 
 
     Line 8 should now look similar to:
 
@@ -96,7 +104,7 @@ Now go back to the Azure portal to get your connection string information and co
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-4. Save the App.config file.
+5. Save the App.config file.
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
