@@ -165,7 +165,7 @@ While the Azure portal shows the tenant databases, it doesn't let you see the te
 
 1. Open the Events Hub page in the browser (http:events.wingtip-mt.\<USER\>.trafficmanager.net)  
 
-The full list of tenants and their corresponding database is available in the catalog. A SQL view is provided in the tenantcatalog database that joins the tenant name stored in the Tenants table to database name in the Shard Management tables. This view nicely demonstrates the value of extending the metadata stored in the catalog.
+   The full list of tenants and their corresponding database is available in the catalog. A SQL view is provided in the tenantcatalog database that joins the tenant name stored in the Tenants table to database name in the Shard Management tables. This view nicely demonstrates the value of extending the metadata stored in the catalog.
 
 2. In *SQL Server Management Studio (SSMS)*, connect to the tenants server at **tenants1-mt.\<USER\>.database.windows.net**, with Login: **developer**, Password: **P@ssword1**
 
