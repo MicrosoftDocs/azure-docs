@@ -1,6 +1,6 @@
 ---
 title: "Guidance for SQL Database multi-tenant app example - Wingtip SaaS | Microsoft Docs"
-description: "Provides steps and guidance for installing and running the sample multi-tenant application that uses Azure SQL Database, the Wingtip SaaS example."
+description: "Provides steps and guidance for installing and running the sample multi-tenant application that uses Azure SQL Database, the Wingtip Tickets SaaS example."
 keywords: "sql database tutorial"
 services: "sql-database"
 author: "MightyPen"
@@ -17,18 +17,19 @@ ms.author: "genemi"
 ---
 # General guidance for working with Wingtip Tickets sample SaaS apps
 
+This article contains general guidance for running the Wingtip Tickets sample SaaS applications that use Azure SQL Database. 
 
 ## Download and unblock the Wingtip Tickets SaaS scripts
 
-Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the scripts from a zip file, ***follow the steps below to unblock the .zip file before extracting***. This ensures the scripts are allowed to run.
+Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the scripts from a zip file, **follow the steps below to unblock the .zip file before extracting**. This ensures the scripts are allowed to run.
 
 1. Browse to the Wingtip Tickets SaaS GitHub repo for the database tenancy pattern you wish to explore: 
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Click **Clone or download**.
-3. Click **Download ZIP** and save the file.
-4. Right-click the ZIP file, and select **Properties**. The ZIP file name will correspond to the repo name. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
+3. Click **Download zip** and save the file.
+4. Right-click the zip file, and select **Properties**. The zip file name will correspond to the repo name. (ex. _WingtipTicketsSaaS-DbPerTenant-master.zip_)
 5. On the **General** tab, select **Unblock**.
 6. Click **OK**.
 7. Extract the files.
@@ -36,7 +37,7 @@ Executable contents (scripts, dlls) may be blocked by Windows when zip files are
 Scripts are located in the *..\\Learning Modules* folder.
 
 
-## Working with the Wingtip Tickets PowerShell Scripts
+## Working with the Wingtip Tickets PowerShell scripts
 
 To get the most out of the sample you need to dive into the provided scripts. Use breakpoints and step through the scripts as they execute and examine how the different SaaS patterns are implemented. To easily step through the provided scripts and modules for the best understanding, we recommend using the [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
 
@@ -50,7 +51,7 @@ Edit the **UserConfig.psm1** file with the resource group and user value that yo
 
 Setting these values here simply keeps you from having to update these deployment-specific values in every script.
 
-### Execute Scripts by pressing F5
+### Execute the scripts by pressing F5
 
 Several scripts use *$PSScriptRoot* to navigate folders, and *$PSScriptRoot* is only evaluated when scripts are executed by pressing **F5**.  Highlighting and running a selection (**F8**) can result in errors, so press **F5** when running scripts.
 
