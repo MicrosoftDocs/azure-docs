@@ -581,7 +581,7 @@ You are being charged for compute resources and data that you loaded into your d
 
 Follow these steps to clean up resources as you desire.
 
-1. Login to the [Azure portal](https://portal.azure.com), click on your data warehouse.
+1. Log in to the [Azure portal](https://portal.azure.com), click on your data warehouse.
 
     ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
