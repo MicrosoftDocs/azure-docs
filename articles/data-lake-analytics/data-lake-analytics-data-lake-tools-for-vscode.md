@@ -160,7 +160,7 @@ Open your account in portal -> Select **Overview** and click **Sample Script** -
 
 2. To compile and submit the following code that is the same as with the standalone U-SQL script file.
 
-```U-SQL script
+```U-SQL
 REFERENCE ASSEMBLY [ExtPython];
 @Input =
     EXTRACT SepalLength float,
@@ -186,7 +186,7 @@ OUTPUT @Out
 TO @"/mandyw/Python/Output/sample_python.txt"
 USING Outputters.Csv();
 ```
-```CSharp code behind
+```CSharp
 namespace USQLApplication6
 {
     [SqlUserDefinedExtractor]
@@ -233,7 +233,7 @@ namespace USQLApplication6
     }
 }
 ```
-```Python code behind
+```Python
 '''
   Single quote doc string \\
 '''
@@ -245,12 +245,13 @@ def usqlml_main(df):
     return df1,
 
 ```
+
 **To generate R code-behind file**
 1. Right-click a script file, and then select **DL: Generate R Code Behind File**. 
 
 2. To compile and submit the following code that is the same as with the standalone U-SQL script file.
 
-```U-SQL script
+```U-SQL
 DEPLOY RESOURCE @"/usqlext/samples/R/my_model_LM_Iris.rda";
 DECLARE @IrisData string = @"/usqlext/samples/R/iris.csv";
 DECLARE @OutputFilePredictions string = @"/my/R/Output/LMPredictionsIris.txt";
@@ -288,7 +289,8 @@ OUTPUT @RScriptOutput
 TO @OutputFilePredictions
 USING Outputters.Tsv();
 ```
-```R code behind
+
+```R
 load("my_model_LM_Iris.rda")
 outputToUSQL=data.frame(predict(lm.fit, inputFromUSQL, interval="confidence"))
 ```
