@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -480,4 +480,5 @@ A hotfix rollup package (build 4.4.1642.0) is available as of September 25, 2017
 - Requires you to have **Microsoft Identity Manager 2016 build 4.4.1302.0.** 
 
 For more information, see [Hotfix rollup package (build 4.4.1642.0) is available for Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/en-us/help/4021562). 
+
 ---
