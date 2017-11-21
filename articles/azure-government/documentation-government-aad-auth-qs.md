@@ -18,9 +18,9 @@ ms.author: yujhongmicrosoft
 
 ---
 # Integrating Azure AD Authentication with Web Apps on Azure Government
-The series of Quickstarts below will help you get started integrating Azure AD Authentication with applications on Azure Government. Azure AD Authentication on Azure Government is similar to the Azure commercial platform, with a [few exceptions](documentation-government-services-securityandidentity.md).
+The following quickstart helps you get started integrating Azure AD Authentication with applications on Azure Government. Azure AD Authentication on Azure Government is similar to the Azure commercial platform, with a [few exceptions](documentation-government-services-securityandidentity.md).
 
-To learn more about Azure Active Directory Authentication Scenarios, click [here](../active-directory/develop/active-directory-authentication-scenarios.md). 
+Learn more about [Azure Active Directory Authentication Scenarios](../active-directory/develop/active-directory-authentication-scenarios.md). 
 
 ## Integrate Azure AD Login into a web application using OpenID Connect
 This section shows how to integrate Azure AD using the OpenID Connect protocol for signing in users into a web app. 
@@ -56,7 +56,7 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 #### Configure the InventoryApp project
 1. Open your application in Visual Studio 2017.
 2. Open the `appsettings.json` file.
-3. Add an `Authentication` section. You will be filling out the properties with your Azure AD tenant information.
+3. Add an `Authentication` section and fill out the properties with your Azure AD tenant information.
 	
     ```cs
     //ClientId: Azure AD->  App registrations -> Application ID
@@ -107,8 +107,7 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 
 ## Next Steps
 
-* Navigate to the [Azure Government PaaS Sample](https://github.com/Azure-Samples/gov-paas-sample
-) to see Azure AD Authentication as well as other services being integrated in an Application running on Azure Government. 
+* Navigate to the [Azure Government PaaS Sample](https://github.com/Azure-Samples/gov-paas-sample) to see Azure AD Authentication as well as other services being integrated in an Application running on Azure Government. 
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
-* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
+* Give feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
