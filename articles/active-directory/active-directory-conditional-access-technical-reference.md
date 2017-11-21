@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/11/2017
+ms.date: 11/19/2017
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -174,25 +174,20 @@ Control client connections by using the **Require approved client app** option i
 
 The following client apps can be used with the approved client application requirement:
 
+
+- Microsoft Azure Information Protection
 - Microsoft Excel
-
 - Microsoft OneDrive
-
-- Microsoft Outlook
-
 - Microsoft OneNote
-
+- Microsoft Outlook
+- Microsoft Planner
 - Microsoft PowerPoint
-
 - Microsoft SharePoint
-
 - Microsoft Skype for Business
-
 - Microsoft Teams
-
 - Microsoft Visio
-
 - Microsoft Word
+
 
 
 **Remarks**
