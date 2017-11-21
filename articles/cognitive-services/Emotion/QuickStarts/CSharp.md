@@ -26,7 +26,7 @@ This article provides information and a code sample to help you quickly get star
 
 ## Emotion recognition C# example request
 
-Create a new Console solution in Visual Studio, and then replace Program.cs with the following code. Change the `string uri` to use the region where you obtained your subscription keys. Replace the **Ocp-Apim-Subscription-Key** value with your valid subscription key. To find the subscription key, in the Azure portal, on the navigation pane on the left, under the **Keys** section, browse to your Emotion API resource. Similarly, you can get the proper connect URI in the **Overview** panel for your resource listed under **Endpoint**.
+Create a new Console solution in Visual Studio, and then replace Program.cs with the following code. Change the `string uri` to use the region where you obtained your subscription keys. Replace the **Ocp-Apim-Subscription-Key** value with your valid subscription key. To find the subscription key, go to the Azure portal. On the navigation pane on the left, under the **Keys** section, browse to your Emotion API resource. Similarly, you can get the proper connect URI in the **Overview** panel for your resource listed under **Endpoint**.
 
 ![Your API resource keys](../../media/emotion-api/keys.png)
 
@@ -117,7 +117,7 @@ namespace CSHttpClientSample
 }
 ```
 
-## Recognize Emotions sample response
+## Recognize emotions sample response
 A successful call returns an array of face entries and their associated emotion scores. They are ranked by face rectangle size in descending order. An empty response indicates that no faces were detected. An emotion entry contains the following fields:
 
 * faceRectangle: Rectangle location of face in the image
