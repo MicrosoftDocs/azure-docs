@@ -20,7 +20,7 @@ ms.author: yurid
 # Azure Security Services and Technologies
 In our discussions with current and future Azure customers, we’re often asked “do you have a list of all the security related services and technologies that Azure has to offer?”
 
-We understand that when you’re evaluating your cloud service provider technical options, it’s helpful to have such a list available that you can use to dig down deeper when the time is right for you.
+When evaluating cloud service provider options, it’s helpful to have this information.
 
 The following is our initial effort at providing a list. Over time, this list will change and grow, just as Azure does. The list is categorized, and the list of categories will also grow over time. Make sure to check this page on a regular basis to stay up-to-date on our security-related services and technologies.
 
