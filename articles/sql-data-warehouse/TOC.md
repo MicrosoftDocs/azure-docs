@@ -37,7 +37,7 @@
 ### [Connection strings](sql-data-warehouse-connection-strings.md)
 
 ## Create
-### [Azure portal](sql-data-warehouse-get-started-provision.md)
+### [Azure portal](create-data-warehouse-portal.md)
 ### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
