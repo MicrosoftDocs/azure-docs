@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: govindk
 ---
 
@@ -75,7 +75,7 @@ If you already have an Azure subscription, you can sign up to join the Cassandra
 
     Once you submit the request, the status changes to **Pending approval** in the New account pane. 
 
-After you submit your request, wait for email notification that your request has been approved. You do not need to create a support ticket to complete the request. Requests will be reviewed in the order in which they were received. 
+After you submit your request, wait for email notification that your request has been approved. Due to the high volume of requests, you should receive notification within a week. You do not need to create a support ticket to complete the request. Requests will be reviewed in the order in which they were received. 
 
 ## How to get started
 Once you've joined the preview program, follow the Cassandra API quickstarts to create an app by using the Cassandra API:
