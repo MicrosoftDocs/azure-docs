@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# SAP HANA on Azure Operations Guide
+# SAP HANA on Azure operations guide
 This guide provides guidance for operating SAP HANA systems that have been deployed on Azure Virtual Machines. This document is not intended to replace any of the standard SAP documentations. SAP guides and notes can be found at the following locations:
 
 - [SAP Administration Guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)
@@ -35,7 +35,7 @@ Prerequisite is that you have basic knowledge on the different Azure components 
 
 Additional documentation on SAP NetWeaver and other SAP components on Azure can be found in the [SAP on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) section of the [Azure documentation](https://docs.microsoft.com/azure/).
 
-## Basic Setup Considerations
+## Basic setup considerations
 ### Connecting into Azure
 As documented in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide], there are two basic methods to connect into Azure Virtual Machines. 
 
@@ -56,7 +56,7 @@ Azure VM types that can be used for production scenarios can be looked up [here]
 
 You also can deploy complete installed SAP HANA platform onto the Azure Virtual machine services through [SAP Cloud platform](https://cal.sap.com/) as documented [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
 
-### Choice of Azure Storage
+### Choice of Azure storage
 Azure provides two main storage types suitable for Azure VMs running SAP HANA
 
 - [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
@@ -82,7 +82,7 @@ A possible configuration for different common VM types that customers so far use
 | M128ms | 3.8TB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 5 x S30 |
 
 
-### Azure Networking
+### Azure networking
 Assuming that you have a VPN or ExpressRoute site-to-site connectivity into Azure, you at minimum would have one [Azure VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) that is connected through a Virtual Gateway to the VPN or ExpressRoute circuit. The Virtual Gateway lives in a subnet in the Azure Vnet. In order to install HANA, you would create another two subnets within the VNet. One subnet that hosts the VM(s) that run the SAP HANA instance(s) and another subnet that runs eventual Jumpbox or Management VM(s) that can host SAP HANA Studio or other management software.
 When you install the VMs that should run HANA, the VMs should have:
 
@@ -114,11 +114,11 @@ The possibilities of SAP HANA Backup and Restore are documented in these documen
 
 
 
-### Start and Restart of VMs containing SAP HANA
+### Start and restart of VMs containing SAP HANA
 One of the strengths of Azure public cloud is the fact that you are only charged for the compute minutes you are spending. That means if you shut down a VM with SAP HANA running in it, only the costs for storage are billed during that time. As you start the VM with SAP HANA in it again, the VM is going to start up again and is going to have the same IP addresses (if you deployed with static IP addresses). 
 
 
-### SAP Router 
+### SAPRouter enabling SAP remote support
 If you have a site-to-site connection between your on-premise location(s) and Azure and you run SAP components already, it is highly likely that you already run SAProuter already. In this case, there is nothing you need to do with SAP HANA instances you deploy in Azure. Except to maintain the private and static IP address of the VM that hosts HANA in the SAPRouter configuration and have the NSG of the subnet hosting the HANA VM adapted (traffic through port TCP/IP port 3299 allowed).
 
 If you are deploying SAP HANA and you connect to Azure through the Internet and you don't have an SAP Router installed in the Vnet that runs a VM with SAP HANA, you should install the SAPRouter in a separate VM in the Management subnet as shown here:
