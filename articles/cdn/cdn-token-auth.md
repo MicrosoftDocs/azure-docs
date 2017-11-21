@@ -95,13 +95,13 @@ The following flowchart describes how Azure CDN validates a client request when 
        > </tr>
        > <tr>
        >    <td><b>ec_expire</b></td>
-       >    <td>Assigns an expiration time to a token, after which the token expires. Requests submitted after the expiration time are denied. This parameter uses a Unix timestamp, which is based on the number of seconds since the standard epoch of `1/1/1970 00:00:00 GMT`. (You can use online tools to convert between standard time and Unix time.) 
+       >    <td>Assigns an expiration time to a token, after which the token expires. Requests submitted after the expiration time are denied. This parameter uses a Unix timestamp, which is based on the number of seconds since the standard Unix epoch of `1/1/1970 00:00:00 GMT`. (You can use online tools to convert between standard time and Unix time.) 
        > 
        >    For example, if you want the token to expire at `12/31/2016 12:00:00 GMT`, enter the Unix timestamp value, `1483185600`. 
        > </tr>
        > <tr>
        >    <td><b>ec_url_allow</b></td> 
-       >    <td>Allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. URLs are case-sensitive. Input multiple paths by separating each path with a comma. Depending on your requirements, you can set up different values to provide different level of access. 
+       >    <td>Allows you to tailor tokens to a particular asset or path. It restricts access to requests whose URL start with a specific relative path. URLs are case-sensitive. Input multiple paths by separating each path with a comma; do not add spaces. Depending on your requirements, you can set up different values to provide different level of access. 
        > 
        >    For example, for the URL `http://www.mydomain.com/pictures/city/strasbourg.png`, these requests are allowed for the following input values: 
        >    <ul>
@@ -118,11 +118,11 @@ The following flowchart describes how Azure CDN validates a client request when 
        > </tr>
        > <tr>
        >    <td><b>ec_country_allow</b></td> 
-       >    <td>Only allows requests that originate from one or more specified countries. Requests that originate from all other countries are denied. Use [country codes](https://msdn.microsoft.com/library/mt761717.aspx) and separate each one with a comma. For example, if you want to allow access from only the United States and France, enter `US,FR`.</td>
+       >    <td>Only allows requests that originate from one or more specified countries. Requests that originate from all other countries are denied. Use a two-letter [ISO 3166 country code](https://msdn.microsoft.com/library/mt761717.aspx) for each country and separate each one with a comma; do not add a space. For example, if you want to allow access from only the United States and France, enter `US,FR`.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_country_deny</b></td> 
-       >    <td>Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. Use country codes and separate each one with a comma. For example, If you want to deny access from the United States and France, enter `US,FR`.</td>
+       >    <td>Denies requests that originate from one or more specified countries. Requests that originate from all other countries are allowed. The implementation is the same as the <b>ec_country_allow</b> parameter. If a country code is present in both the <b>ec_country_allow</b> and <b>ec_country_deny</b> parameters, the <b>ec_country_allow</b> parameter takes precedence.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_ref_allow</b></td>
@@ -131,28 +131,28 @@ The following flowchart describes how Azure CDN validates a client request when 
        >    The following types of input are allowed:
        >    <ul>
        >       <li>A hostname or a hostname and a path.</li>
-	   >       <li>Multiple referrers. To add multiple referrers, separate each referrer with a comma. If you specify a referrer value, but the referrer information is not sent in the request due to the browser configuration, the request is denied by default.</li> 
-       >       <li>Requests with missing referrer information. To allow these types of requests, enter the text "missing" or enter a blank value.</li> 
+	   >       <li>Multiple referrers. To add multiple referrers, separate each referrer with a comma; do not add a space. If you specify a referrer value, but the referrer information is not sent in the request due to the browser configuration, the request is denied by default.</li> 
+       >       <li>Requests with missing or blank referrer information. By default, the <b>ec_ref_allow</b> parameter blocks these types of requests. To allow these requests, enter either the text, "missing", or enter a blank value (by using a trailing comma).</li> 
        >       <li>Subdomains. To allow subdomains, enter an asterisk (\*). For example, to allow all subdomains of `contoso.com`, enter `*.contoso.com`.</li>
        >    </ul>
-       > 
+       >     
        >    For example, to allow access for requests from `www.contoso.com`, all subdomains under `contoso2.com`, and requests with blank or missing referrers, enter `www.contoso.com,*.contoso.com,missing`.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_ref_deny</b></td>
-       >    <td>Denies requests from the specified referrer. The implementation is the same as the <b>ec_ref_allow</b> parameter.</td>
+       >    <td>Denies requests from the specified referrer. The implementation is the same as the <b>ec_ref_allow</b> parameter. If a referrer is present in both the <b>ec_ref_allow</b> and <b>ec_ref_deny</b> parameters, the <b>ec_ref_allow</b> parameter takes precedence.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_proto_allow</b></td> 
-       >    <td>Only allows requests from the specified protocol. For example, HTTP or HTTPS.</td>
+       >    <td>Only allows requests from the specified protocol. Valid values are `http`, `https`, or `http,https`.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_proto_deny</b></td>
-       >    <td>Denies requests from the specified protocol. For example, HTTP or HTTPS.</td>
+       >    <td>Denies requests from the specified protocol. The implementation is the same as the <b>ec_proto_allow</b> parameter. If a protocol is present in both the <b>ec_proto_allow</b> and <b>ec_proto_deny</b> parameters, the <b>ec_proto_allow</b> parameter takes precedence.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_clientip</b></td>
-       >    <td>Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify either a single request IP address or an IP subnet. For example, `11.22.33.0/22`.</td>
+       >    <td>Restricts access to the specified requester's IP address. Both IPV4 and IPV6 are supported. You can specify either a single request IP address or IP addresses associated with a specific subnet. For example, `11.22.33.0/22` allows requests from IP addresses 11.22.32.1 to 11.22.35.254.</td>
        > </tr>
        > </table>
 
@@ -164,11 +164,11 @@ The following flowchart describes how Azure CDN validates a client request when 
 
     After the token is generated, it is displayed in the **Generated Token** box. To use the token, append it as a query string to the end of the file in your URL path. For example, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 		
-	8. Optionally, test your token with the decrypt tool. Paste the token value in the **Token to Decrypt** box. Select the encryption key to use from the **Key To Decrypt** list, then click **Decrypt**.
+	8. Optionally, test your token with the decrypt tool so that you can view your token's parameters. Paste the token value in the **Token to Decrypt** box. Select the encryption key to use from the **Key To Decrypt** list, then click **Decrypt**.
 
     After the token is decrypted, its parameters are displayed in the **Original Parameters** box.
 
-	9. Optionally, customize the type of response code that is returned when a request is denied. Select **Enabled**, and select the response code from the **Response Code** list. Then, click **Save**. For certain response codes, you must also enter the URL of your error page in the **Header Value** box. The **403** response code (Forbidden) is selected by default. 
+	9. Optionally, customize the type of response code that is returned when a request is denied. Select **Enabled**, then select the response code from the **Response Code** list. **Header Name** is automatically set to **Location**. Click **Save** to implement the new response code. For certain response codes, you must also enter the URL of your error page in the **Header Value** box. The **403** response code (Forbidden) is selected by default. 
 
 3. Under **HTTP Large**, click **Rules Engine**. You use the rules engine to define paths to apply the feature, enable the token authentication feature, and enable additional token authentication-related capabilities. For more information, see [Rules engine reference](cdn-rules-engine-reference.md).
 
