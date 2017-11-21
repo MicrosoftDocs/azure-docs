@@ -70,7 +70,8 @@ It is recommended to use Azure Premium Disks for /hana/data and /hana/log volume
 
 A possible configuration for different common VM types that customers so far use for hosting SAP HANA on Azure VMs could look like:
 
-| VM SKU | RAM | /hana/data and /hana/log<br /> striped with LVM or MDADM | /hana/shared | /root volume | /usr/sap | hana/backup
+| VM SKU | RAM | /hana/data and /hana/log<br /> striped with LVM or MDADM | /hana/shared | /root volume | /usr/sap | hana/backup |
+| --- | --- | --- | --- | --- | --- |
 | E16v3 | 128GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S10 |
 | E32v3 | 256GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
 | E64v3 | 443GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
