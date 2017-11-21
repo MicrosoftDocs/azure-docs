@@ -215,23 +215,10 @@ required for constructing an HTTP call:
 | queries | No | Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
 | headers | No | Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Object | Represents the payload that's sent to the endpoint. | 
-| retryPolicy | No | Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. | 
+| retryPolicy | No | Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md).| 
 | authentication | No | Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). <p>Beyond Scheduler, there is one more supported property: `authority`. By default, this value is `https://login.windows.net` when not specified, but you can use a different value, such as`https://login.windows\-ppe.net`. | 
 ||||| 
 
-A *retry policy* applies to intermittent failures, 
-characterized as HTTP status codes 408, 429, and 5xx, 
-in addition to any connectivity exceptions. 
-You can define this policy with the `retryPolicy` object as shown here:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
- 
 To work well with your logic app, the HTTP trigger requires the HTTP API 
 to conform with a specific pattern. The trigger recognizes these properties:  
   
@@ -293,7 +280,7 @@ However, the parameters for identifying the action are different. Here is an exa
 | queries | No | Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
 | headers | No | Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Object | Represents the payload that's sent to the endpoint. | 
-| retryPolicy | No | Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. | 
+| retryPolicy | No | Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md).| 
 | authentication | No | Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
@@ -304,19 +291,6 @@ For the `host` object, here are the properties:
 | api runtimeUrl | Yes | The endpoint for the managed API | 
 | connection name |  | The name of the managed API connection that the workflow uses. Must reference a parameter named `$connection`. |
 |||| 
-
-A *retry policy* applies to intermittent failures, 
-characterized as HTTP status codes 408, 429, and 5xx, 
-in addition to any connectivity exceptions. 
-You can define this policy with the `retryPolicy` object as shown here:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 Here are the outputs for an API Connection trigger:
   
@@ -589,24 +563,11 @@ required for constructing an HTTP call:
 | queries | No | Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
 | headers | No | Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Object | Represents the payload that's sent to the endpoint. | 
-| retryPolicy | No | Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. | 
+| retryPolicy | No | Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md).| 
 | operationsOptions | No | String | Defines the set of special behaviors to override. | 
 | authentication | No | Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). <p>Beyond Scheduler, there is one more supported property: `authority`. By default, this value is `https://login.windows.net` when not specified, but you can use a different value, such as`https://login.windows\-ppe.net`. | 
 ||||| 
 
-HTTP actions and APIConnection actions support *retry policies*. 
-A retry policy applies to intermittent failures, 
-characterized as HTTP status codes 408, 429, and 5xx, 
-in addition to any connectivity exceptions. 
-You can define this policy with the `retryPolicy` object as shown here:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 This example HTTP action retries fetching the latest news two times 
 if there are intermittent failures for a total of three executions and 
 a 30-second delay between each attempt:
@@ -713,23 +674,10 @@ Here is an example APIConnection action:
 | queries | No | Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
 | headers | No | Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Object | Represents the payload that's sent to the endpoint. | 
-| retryPolicy | No | Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. | 
+| retryPolicy | No | Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md).| 
 | operationsOptions | No | String | Defines the set of special behaviors to override. | 
 | authentication | No | Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
-
-A retry policy applies to intermittent failures, 
-characterized as HTTP status codes 408, 429, and 5xx, 
-in addition to any connectivity exceptions. 
-You can define this policy with the `retryPolicy` object as shown here:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 ## APIConnection webhook action
 
@@ -772,7 +720,7 @@ action in the same way as [HTTP Asynchronous Limits](#asynchronous-limits).
 | queries | No | Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
 | headers | No | Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Object | Represents the payload that's sent to the endpoint. | 
-| retryPolicy | No | Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. | 
+| retryPolicy | No | Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md).| 
 | operationsOptions | No | String | Defines the set of special behaviors to override. | 
 | authentication | No | Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
