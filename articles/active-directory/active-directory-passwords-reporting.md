@@ -112,7 +112,7 @@ The following list explains this activity in detail:
 * **Activity description**: Indicates that a user tried to reset a password, use a specific gate, or validate a phone number more than five total times in 24 hours.
 * **Activity actor**: The user who was throttled from performing additional reset operations. The user can be an end user or an administrator.
 * **Activity target**: The user who was throttled from performing additional reset operations. The user can be an end user or an administrator.
-* **Activity status**
+* **Activity status**:
   * _Success_: Indicates that a user was throttled from performing any additional resets, attempting any additional authentication methods, or validating any additional phone numbers for the next 24 hours.
 * **Activity status failure reason**: Not applicable.
 
@@ -136,7 +136,7 @@ The following list explains this activity in detail:
 * **Activity description**: Indicates that an administrator performed a password reset on behalf of a user from the Azure portal.
 * **Activity actor**: The administrator who performed the password reset on behalf of another end user or administrator. Must be either a global administrator, password administrator, user administrator, or helpdesk administrator.
 * **Activity target**: The user whose password was reset. The user can be an end user or a different administrator.
-* **Activity statuses**
+* **Activity statuses**:
   * _Success_: Indicates that an admin successfully reset a user's password.
   * _Failure_: Indicates that an admin failed to change a user's password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 
@@ -147,7 +147,7 @@ The following list explains this activity in detail:
 * **Activity description**: Indicates that a user successfully reset their password from the [Azure AD password reset portal](https://passwordreset.microsoftonline.com).
 * **Activity actor**: The user who reset their password. The user can be an end user or an administrator.
 * **Activity target**: The user who reset their password. The user can be an end user or an administrator.
-* **Activity statuses**
+* **Activity statuses**:
   * _Success_: Indicates that a user successfully reset their own password.
   * _Failure_: Indicates that a user failed to reset their own password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 * **Activity status failure reason**: 
@@ -160,7 +160,7 @@ The following list explains this activity in detail:
 * **Activity description**: Indicates each specific step a user proceeds through (such as passing a specific password reset authentication gate) as part of the password reset process.
 * **Activity actor**: The user who performed part of the password reset flow. The user can be an end user or an administrator.
 * **Activity target**: The user who performed part of the password reset flow. The user can be an end user or an administrator.
-* **Activity statuses**
+* **Activity statuses**:
   * _Success_: Indicates that a user successfully completed a specific step of the password reset flow.
   * _Failure_: Indicates that a specific step of the password reset flow failed. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 * **Activity status reasons**:
@@ -173,7 +173,7 @@ The following list explains this activity in detail:
 * **Activity description**: Indicates that a user successfully unlocked their Active Directory account without resetting their password from the [Azure AD password reset portal](https://passwordreset.microsoftonline.com) by using the Active Directory feature of account unlock without reset.
 * **Activity actor**: The user who unlocked their account without resetting their password. The user can be an end user or an administrator.
 * **Activity target**: The user who unlocked their account without resetting their password. The user can be an end user or an administrator.
-* **Allowed activity statuses**
+* **Allowed activity statuses**:
   * _Success_: Indicates that a user successfully unlocked their own account.
   * _Failure_: Indicates that a user failed to unlock their account. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 
@@ -184,7 +184,7 @@ The following list explains this activity in detail:
 * **Activity description**: Indicates that a user has registered all the required information to be able to reset their password in accordance with the currently specified tenant password reset policy. 
 * **Activity actor**: The user who registered for password reset. The user can be an end user or an administrator.
 * **Activity target**: The user who registered for password reset. The user can be an end user or an administrator.
-* **Allowed activity statuses**
+* **Allowed activity statuses**:
   * _Success_: Indicates that a user successfully registered for password reset in accordance with the current policy. 
   * _Failure_: Indicates that a user failed to register for password reset. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred. 
 
