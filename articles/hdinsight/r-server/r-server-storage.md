@@ -67,7 +67,7 @@ If you specified more than one storage account when creating your R Server clust
         bigDataDirRoot <- "/share"  
 
     	#Define Spark compute context:
-        mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
     	#Set compute context:
         rxSetComputeContext(mySparkCluster)
