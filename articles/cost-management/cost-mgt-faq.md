@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2017
+ms.date: 11/21/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
@@ -121,3 +121,16 @@ If there is a delay sending data from Azure to Cloudyn, data is still recorded i
 ## How can a direct CSP configure Cloudyn access for indirect CSP customers or partners?
 
 For instructions, see [Configure indirect CSP access in Cloudyn](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn).
+
+## What causes the Optimizer menu item to appear?
+
+After you add Azure Resource Manager access and data is collected, you should see the **Optimizer** option. To activate Azure Resource Manager access see [How do I activate unactivated accounts with Azure credentials?](#how-do-i-activate-unactivated-accounts-with-azure-credentials).
+
+## Is Cost Management/Cloudyn agent based?
+
+No. Agents are not used. Azure virtual machine metric data for VMs is gathered from the Microsoft Insights API. If you want to gather metric data from Azure VMs, they need to have diagnostics settings enabled.
+
+
+## Do Cloudy reports show more than one AD tenant per report?
+
+Yes. You can [create a corresponding cloud account entity](tutorial-user-access.md#create-entities) for each AD tenant that you have. Then you can view all of your Azure AD tenant data and other cloud platform providers including Amazon Web Services and Google Cloud Platform.
