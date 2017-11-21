@@ -319,7 +319,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## Monitor a pipeline run
 
-1. Add the following code to the **Main** method to continuously check the status of the pipeline run until it finishes copying the data.
+1. Add the following code to the **Main** method to continuously check the status until it finishes copying the data.
 
     ```csharp
     // Monitor the pipeline run
@@ -463,8 +463,18 @@ Checking copy activity run details...
 }
 
 Press any key to exit...
-
 ```
+
+## Verify the output
+The pipeline automatically creates the output folder in the adftutorial blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
+
+1. In the Azure portal, on the **adftutorial** container page, click **Refresh** to see the output folder. 
+    
+    ![Refresh](media/quickstart-create-data-factory-dot-net/output-refresh.png)
+2. Click **output** in the folder list. 
+2. Confirm that the **emp.txt** is copied to the output folder. 
+
+    ![Refresh](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## Clean up resources
 To programmatically, delete the data factory, add the following lines of code to the program: 
