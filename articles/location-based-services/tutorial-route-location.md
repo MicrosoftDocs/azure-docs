@@ -113,7 +113,7 @@ Use the following steps to create a static HTML page embedded with the Location 
 
             var destinationPoint = new atlas.data.Point([-122.3352, 47.61397]);
             var destinationPin = new atlas.data.Feature(destinationPoint, {
-                title: "Cloister Oil & Gas",
+                title: "Contoso Oil & Gas",
                 icon: "pin-blue"
             });
     ```

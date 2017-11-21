@@ -44,7 +44,6 @@ Follow these steps to create a new Location Based Services account.
     - The *Subscription* that you want to use for this account.
     - The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
     - Select the *Resource group location*.
-    - Select the *Pricing tier*.
     - Read the *Preview Terms* and check the checkbox to accept the terms. 
     - Finally, click the **Create** button.
    

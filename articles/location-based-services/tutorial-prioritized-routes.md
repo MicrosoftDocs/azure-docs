@@ -101,7 +101,7 @@ Use the following steps to create a static HTML page embedded with the Location 
             // Create the GeoJSON objects which represent the start and end point of the route
             var startPoint = new atlas.data.Point([-122.356099, 47.580045]);
             var startPin = new atlas.data.Feature(startPoint, {
-                title: "Seattle Port",
+                title: "Fabrikam, Inc.",
                 icon: "pin-round-blue"
             });
 
