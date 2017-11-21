@@ -114,11 +114,11 @@ The possibilities of SAP HANA Backup and Restore are documented in these documen
 
 
 ### Start and Restart of VMs containing SAP HANA
-One of the strengths of Azure public cloud is the fact that you are only charged for the compute minutes you are spending. That means if you shut down a VM with SAP HANA running in it, only the costs for storage is billed during that time. As you start the VM with SAP HANA in it again, the VM is going tostart up again and is going to have the same IP addresses (if you deployed with static IP addresses). 
+One of the strengths of Azure public cloud is the fact that you are only charged for the compute minutes you are spending. That means if you shut down a VM with SAP HANA running in it, only the costs for storage are billed during that time. As you start the VM with SAP HANA in it again, the VM is going to start up again and is going to have the same IP addresses (if you deployed with static IP addresses). 
 
 
 ### SAP Router 
-If you have a site-to-site connection between your on-premise location(s) and Azure and you run SAP components already, it is highly likely that you already run SAProuter already. In this case there is nothing you need to do with SAP HANA instances you deploy in Azure. Except to maintain the private and static IP address of the VM that hosts HANA in the SAPRouter configuration and have the NSG of the subnet hosting the HANA VM adapted (traffic through port TCP/IP port 3299 allowed).
+If you have a site-to-site connection between your on-premise location(s) and Azure and you run SAP components already, it is highly likely that you already run SAProuter already. In this case, there is nothing you need to do with SAP HANA instances you deploy in Azure. Except to maintain the private and static IP address of the VM that hosts HANA in the SAPRouter configuration and have the NSG of the subnet hosting the HANA VM adapted (traffic through port TCP/IP port 3299 allowed).
 
 If you are deploying SAP HANA and you connect to Azure through the Internet and you don't have an SAP Router installed in the Vnet that runs a VM with SAP HANA, you should install the SAPRouter in a separate VM in the Management subnet as shown here:
 
