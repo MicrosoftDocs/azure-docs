@@ -90,7 +90,7 @@ By default, the browser automatically calculates the correct zone, either Intern
 1. Open the Group Policy Management Editor tool.
 2. Edit the Group Policy that's applied to some or all your users. This example uses the **Default Domain Policy**.
 3. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**, and then select **Site to Zone Assignment List**.
-![Single sign-on](./media/active-directory-aadconnect-sso/sso6.png)
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso6.png)
 4. Enable the policy, and then enter the following values in the dialog box:
    - **Value name**: The Azure AD URLs where the Kerberos tickets are forwarded.
    - **Value** (Data): **1** indicates the Intranet zone.
@@ -105,20 +105,21 @@ By default, the browser automatically calculates the correct zone, either Intern
 
 	Data: 1
 
->[!NOTE]
-> If you want to disallow some users from using Seamless SSO, for instance, if these users sign in on shared kiosks, set the preceding values to **4**. This action adds the Azure AD URLs to the Restricted zone, and fails Seamless SSO all the time.
+   >[!NOTE]
+   > If you want to disallow some users from using Seamless SSO, for instance, if these users sign in on shared kiosks, set the preceding values to **4**. This action adds the Azure AD URLs to the Restricted zone, and fails Seamless SSO all the time.
+   >
 
 5. Select **OK**, then select **OK** again.
 
-![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
 
 6. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**, and then select **Allow updates to status bar via script**.
 
-![Single sign-on](./media/active-directory-aadconnect-sso/sso11.png)
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso11.png)
 
 7. Enable the policy setting, then select **OK**.
 
-![Single sign-on](./media/active-directory-aadconnect-sso/sso12.png)
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso12.png)
 
 ### Browser considerations
 
