@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
+ms.reviewer: richagi
 
 ---
 # Configure Azure Multi-Factor Authentication settings - Public preview
@@ -26,7 +26,7 @@ This article helps you manage Azure Multi-Factor Authentication now that you are
 
 | Feature | Description | 
 |:--- |:--- |
-| [Block/unblock users](#block/unblock-users) |Block/unblock users can prevent users from receiving authentication requests. |
+| [Block and unblock users](#block-and-unblock) |Block/unblock users can prevent users from receiving authentication requests. |
 | [Fraud alert](#fraud-alert) |Fraud alert can be configured and set up so that your users can report fraudulent attempts to access their resources. |
 | [One-time bypass](#one-time-bypass) |A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication. |
 | [Custom Voice Messages](#custom-voice-messages) |Custom voice messages allow you to use your own recordings or greetings with multi-factor authentication. |
@@ -36,7 +36,7 @@ This article helps you manage Azure Multi-Factor Authentication now that you are
 | [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-that-users-trust) |Allows you to remember devices for a set number of days after a user has successfully signed in using MFA. |
 | [Selectable Verification Methods](#selectable-verification-methods) |Allows you to choose the authentication methods that are available for users to use. |
 
-## Block/unblock users
+## Block and unblock
 Block/unblock users can be used to prevent users from receiving authentication requests. Any authentication attempts for blocked users will be automatically denied. Blocked users will remain blocked for 90 days from the time they are blocked.
 
 ### Block a user
@@ -67,7 +67,7 @@ Fraud alert can be configured and set up so that your users can report fraudulen
 
 ### Configuration options
 
-- **Block user when fraud is reported** - If a user reports fraud, their account is blocked.
+- **Block user when fraud is reported** - If a user reports fraud, their account is blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
 - **Code to report fraud during initial greeting** - When users receive a phone call to perform two-step verification, they normally press # to confirm their sign-in. If they want to report fraud, they enter a code before pressing #. This code is **0** by default, but you can customize it.
 
 > [!NOTE]

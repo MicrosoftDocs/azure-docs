@@ -11,7 +11,7 @@
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin resource sharing](cdn-cors.md)
 ### [Add a custom domain to your CDN endpoint](cdn-map-content-to-custom-domain.md)
-### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)
+### [Configure HTTPS on a custom domain](cdn-custom-ssl.md)
 ## Optimize content
 ### [Optimization overview](cdn-optimization-overview.md)
 ####[Large file optimization](cdn-large-file-optimization.md)

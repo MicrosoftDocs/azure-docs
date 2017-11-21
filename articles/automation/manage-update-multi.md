@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
 ---
-# Manage updates for multiple Azure virtual machines
+# Manage updates for multiple machines
 
-Update management allows you to manage updates and patches for your Azure virtual machines.
-From your [Azure Automation](automation-offering-get-started.md) account, you can quickly onboard virtual machines, assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to all virtual machines for which Update management is enabled.
+Update management allows you to manage updates and patches for your Windows and Linux machines.
+From your [Azure Automation](automation-offering-get-started.md) account, you can quickly onboard machines, assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to all virtual machines for which Update management is enabled.
 
 ## Prerequisites
 

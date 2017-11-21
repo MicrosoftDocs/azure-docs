@@ -1,5 +1,5 @@
 ---
-title: Query your Azure Search Index | Microsoft Docs
+title: Queries in Azure Search | Microsoft Docs
 description: Build a search query in Azure search and use search parameters to filter and sort search results.
 services: search
 manager: jhubbard
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 04/26/2017
+ms.date: 11/13/2017
 ms.author: ashmaka
 
 ---
-# Query your Azure Search index
+# Queries in Azure Search
 > [!div class="op_single_selector"]
 > * [Overview](search-query-overview.md)
 > * [Portal](search-explorer.md)
