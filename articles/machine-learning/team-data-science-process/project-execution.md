@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 11/21/2017
 ms.author: bradsev;
 
 ---
@@ -61,8 +61,10 @@ In the TDSP sprint planning framework, there are four frequently used types of *
 >
 >
 
-Data scientists may feel more comfortable using an Agile template that specifically aligns with the TDSP lifecycle stages. With that in mind, an Agile-derived sprint planning template has been created, where Epics, Stories etc. are replaced by TDSP lifecycle stages or substages. Documentation on how to create such an Agile template can be found [here](https://msdata.visualstudio.com/AlgorithmsAndDataScience/TDSP/_git/TDSP?path=%2FDocs%2Fteam-data-science-process-agile-template.md&version=GBxibingao&_a=preview).
-
+> [!NOTE]
+> Data scientists may feel more comfortable using an agile template that specifically aligns with the TDSP lifecycle stages. With that in mind, an Agile-derived sprint planning template has been created, where Epics, Stories etc. are replaced by TDSP lifecycle stages or substages. For instructions on how to create an agile template, see [Set up agile data science process in Visual Studio Online](agile-data-science-template-for-visual-studio-online.md).
+>
+>
 
 ##  2. <a name='SprintPlanning-2'></a>Sprint planning 
 

@@ -1,6 +1,6 @@
 ---
 title: Team Data Science Process project planning - Azure  | Microsoft Docs
-description: TBD
+description: Microsoft Project and Excel templates that help you plan and manage data science projects.
 documentationcenter: ''
 author: bradsev
 manager: cgronlun
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 11/21/2017
 ms.author: bradsev;
 
 ---
