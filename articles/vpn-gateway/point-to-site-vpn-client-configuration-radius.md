@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 11/16/2017
 ms.author: cherylmc
 
 ---
@@ -24,16 +24,17 @@ VPN client configuration files are contained in a zip file. Configuration files 
 
 ### Workflow
 
-  1. Set up the Azure VPN gateway for P2S connectivity.
-  2. Set up your RADIUS server for authentication. 
-  3. Obtain the VPN client configuration for the authentication option of your choice and use it to set up the VPN client on your Windows device. This lets you connect to Azure VNets over a P2S connection.
+  1. [Set up the Azure VPN gateway for P2S connectivity](point-to-site-how-to-radius-ps.md).
+  2. [Set up your RADIUS server for authentication](point-to-site-how-to-radius-ps.md#radius). 
+  3. (This article) - Obtain the VPN client configuration for the authentication option of your choice and use it to set up the VPN client on your Windows device. This lets you connect to Azure VNets over a P2S connection.
+  4. [Complete your P2S configuration and connect](point-to-site-how-to-radius-ps.md).
 
 >[!IMPORTANT]
 >If there are any changes to the Point-to-Site VPN configuration after you generate the VPN client configuration profile, such as the VPN protocol type or authentication type, you must generate and install a new VPN client configuration on your user devices.
 >
 >
 
-## <a name="adeap"></a>Username/password authentication
+## <a name="adeap"></a>About username/password authentication
 
 * **AD authentication:** A popular scenario is AD domain authentication. In this scenario, users use their domain credentials to connect to Azure VNets. You can create VPN client configuration files for RADIUS AD authentication.
 
@@ -41,29 +42,31 @@ VPN client configuration files are contained in a zip file. Configuration files 
 
 Make sure that all connecting users have username/password credentials that can be authenticated through RADIUS. You can only create a configuration for EAP-MSCHAPv2 username/password authentication protocol. '-AuthenticationMethod' is specified as 'EapMSChapv2'.
 
-### <a name="usernamefiles"></a>Generate VPN client configuration files
+## <a name="usernamefiles"></a> 1. Generate VPN client configuration files
 
-Create the VPN client configuration using the following command:
+Generate VPN client configuration files for use with username/password authentication. You can generate the VPN client configuration files using the following command:
 
 ```powershell 
 New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
-After running the command, it will return a link. Copy and paste the link to a web browser to download a zipped file, called 'VpnClientConfiguration.zip'. Unzip the file to see the following folders: 
+Running the command returns a link. Copy and paste the link to a web browser to download 'VpnClientConfiguration.zip'. Unzip the file to view the following folders: 
  
-* Folders named 'WindowsAmd64' and 'WindowsX86'. These folders contain the Windows 64-bit and 32-bit installer packages, respectively. 
-* A folder called 'GenericDevice'. This folder contains general information used to create your own VPN client configuration. Ignore this folder.
-* If IKEv2 was configured when you created the virtual network gateway, you see a folder named 'Mac' that contains a file named 'mobileconfig'. This file is used to configure Mac clients.
+* **WindowsAmd64** and **WindowsX86** - These folders contain the Windows 64-bit and 32-bit installer packages, respectively. 
+* **GenericDevice** - This folder contains general information used to create your own VPN client configuration. This folder is not needed for username/password authentication configurations.
+* **Mac** - If IKEv2 was configured when you created the virtual network gateway, you see a folder named 'Mac' that contains a **mobileconfig** file. This file is used to configure Mac clients.
 
-You can retrieve client configuration files that you have already created. The 'Get-AzureRmVpnClientConfiguration' cmdlet returns a URL (link) from where you can download the VpnClientConfiguration.zip file. If you make any changes to your P2S VPN configuration, such as the VPN Protocol type or authentication type, the configuration doesn’t update automatically. You must run the 'New-AzureRmVpnClientConfiguration' cmdlet to recreate the configuration.
+If you already created client configuration files, you can retrieve them by using the 'Get-AzureRmVpnClientConfiguration' cmdlet. However, if you make any changes to your P2S VPN configuration, such as the VPN Protocol type or authentication type, the configuration doesn’t update automatically. You must run the 'New-AzureRmVpnClientConfiguration' cmdlet to create a new configuration download.
 
 To retrieve previously generated client configuration files, use the following command:
 
 ```powershell
 Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
+
+## <a name="setupusername"></a> 2. Configure Windows and Mac VPN clients
  
-### <a name="adwincli"></a>Set up a Windows VPN client
+### <a name="adwincli"></a>Windows VPN client setup
 
 You can use the same VPN client configuration package on each Windows client computer, as long as the version matches the architecture for the client. For the list of client operating systems that are supported, see the Point-to-Site section of the [FAQ](vpn-gateway-vpn-faq.md#P2S).
 
@@ -73,7 +76,7 @@ Use the following steps to configure the native Windows VPN client for certifica
 2. Double-click the package to install it. If you see a SmartScreen popup, click **More info**, then **Run anyway**.
 3. On the client computer, navigate to **Network Settings** and click **VPN**. The VPN connection shows the name of the virtual network that it connects to. 
 
-### <a name="admaccli"></a>Set up a Mac (OSX) VPN client
+### <a name="admaccli"></a>Mac (OSX) VPN client setup
 
 1. Select the **VpnClientSetup mobileconfig** file and send it to each of the users. You can use email or another method to do this.
 
@@ -94,7 +97,7 @@ Use the following steps to configure the native Windows VPN client for certifica
   ![username and password](./media/point-to-site-vpn-client-configuration-radius/adusername.png)
 7. Once installed, the profile is visible in the **Profiles** dialog box. This dialog can also be opened later from **System Preferences**.
 
-  ![system preferences]](./media/point-to-site-vpn-client-configuration-radius/adsystempref.png)
+  ![system preferences](./media/point-to-site-vpn-client-configuration-radius/adsystempref.png)
 8. To access the VPN connection, open the **Network** dialog from **System Preferences**.
 
   ![network](./media/point-to-site-vpn-client-configuration-radius/adnetwork.png)
@@ -106,7 +109,7 @@ Use the following steps to configure the native Windows VPN client for certifica
   ![authenticate](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 11. Click **Apply** to save the changes. To initiate the connection, click **Connect**.
 
-## <a name="certeap"></a>Certificate authentication
+## <a name="certeap"></a>About certificate authentication
  
 You can create VPN client configuration files for RADIUS certificate authentication that uses the EAP-TLS protocol. Typically, an Enterprise-issued certificate is used to authenticate a user for VPN. Make sure that all connecting users have a certificate installed on the users' device, and that the certificate can be validated by your RADIUS server.
  
@@ -114,20 +117,20 @@ You can create VPN client configuration files for RADIUS certificate authenticat
 * During certificate authentication, the client validates the RADIUS server by validating its certificate. -RadiusRootCert is the .cer file containing the root cert that is used to validate the RADIUS server.  
 * Sometimes a Windows device has multiple client certificates. During authentication, this can result in a popup dialog listing all the certificates. The user must then choose the certificate to use. The correct certificate can be filtered out by specifying the root certificate to which the client cert should chain. '-ClientRootCert' is the .cer file that contains the root cert. It's an optional parameter. If the device from which you want to connect has only one client certificate, then this parameter does not have to be specified.
 
-### <a name="certfiles"></a>Generate VPN client configuration files
+## <a name="certfiles"></a>1. Generate VPN client configuration files
 
-Create the VPN client configuration using the following command:
+Generate VPN client configuration files for use with certificate authentication. You can generate the VPN client configuration files using the following command:
  
 ```powershell
 New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
 ```
 
-The cmdlet result returns a link. Copy and paste the link to a web browser to download a zipped file, called 'VpnClientConfiguration.zip'. Unzip the file to see the following folders:
+Running the command returns a link. Copy and paste the link to a web browser to download 'VpnClientConfiguration.zip'. Unzip the file to view the following folders:
 
-* Folders named 'WindowsAmd64' and 'WindowsX86'. These folders contain the Windows 64-bit and 32-bit installer packages, respectively. 
-* A folder called 'GenericDevice'. This folder contains general information used to create your own VPN client configuration.
+* **WindowsAmd64** and **WindowsX86** - These folders contain the Windows 64-bit and 32-bit installer packages, respectively. 
+* **GenericDevice** - This folder contains general information used to create your own VPN client configuration.
 
-You can retrieve client configuration files that you have already created. The 'Get-AzureRmVpnClientConfiguration' cmdlet returns a URL (link) from where you can download the VpnClientConfiguration.zip file. If you make any changes to your P2S VPN configuration, such as the VPN Protocol type or authentication type, the configuration doesn’t update automatically. You must run the 'New-AzureRmVpnClientConfiguration' cmdlet to recreate the configuration.
+If you already created client configuration files, you can retrieve them by using the 'Get-AzureRmVpnClientConfiguration' cmdlet. However, if you make any changes to your P2S VPN configuration, such as the VPN Protocol type or authentication type, the configuration doesn’t update automatically. You must run the 'New-AzureRmVpnClientConfiguration' cmdlet to create a new configuration download.
 
 To retrieve previously generated client configuration files, use the following command:
 
@@ -135,12 +138,14 @@ To retrieve previously generated client configuration files, use the following c
 Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
  
-### <a name="certwincli"></a>Set up a Windows VPN Client
+## <a name="setupusername"></a> 2. Configure Windows and Mac VPN clients
+
+### <a name="certwincli"></a>Windows VPN client setup
 
 1. Select a configuration package and install it on the client device. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package. If you see a SmartScreen popup, click **More info**, then **Run anyway**. You can also save the package to install on other client computers.
 2. On the client computer, navigate to **Network Settings** and click **VPN**. The VPN connection shows the name of the virtual network that it connects to.
 
-### <a name="certmaccli"></a>Set up a MAC VPN client
+### <a name="certmaccli"></a>Mac (OSX) VPN client setup
 
 A separate profile must be created for every Mac device that connects to Azure VNet. This is because these devices require the user certificate for authentication to be specified in the profile. The **Generic** folder has all the information required to create a profile.
 
@@ -182,7 +187,7 @@ Click **Add** to import.
   ![apply](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
 8. On the **Network** dialog, click **Apply** to save all changes. Then, click **Connect** to start the P2S connection to the Azure VNet.
 
-## <a name="otherauth"></a>Other authentication types or protocols
+## <a name="otherauth"></a>Working with other authentication types or protocols
 
 To use a different authentication type (for example, OTP), and not username/password or certificates, or to use a different authentication protocol (such as PEAP-MSCHAPv2, instead of EAP-MSCHAPv2), you must create your own VPN client configuration profile. To create the profile, you need information such as the virtual network gateway IP address, tunnel type, and split-tunnel routes. You can get this information  by using the following steps:
 

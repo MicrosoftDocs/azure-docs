@@ -3,9 +3,9 @@ title: Use Azure Policy to create and manage policies to enforce organizational 
 description: Use Azure Policy to enforce standards, meet regulatory compliance and audit requirements, control costs, maintain security and performance consistency, and impose enterprise wide design principles.
 services: azure-policy
 keywords:
-author: Jim-Parker
-ms.author: jimpark
-ms.date: 11/01/2017
+author: bandersmsft
+ms.author: banders
+ms.date: 11/17/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
@@ -382,7 +382,7 @@ With an initiative definition, you can group several policy definitions to achie
 
 ## Resolve a non-compliant or denied resource
 
-Following the example above, after assigning the policy definition to require SQL server version 12.0, a SQL server created with a different version would get denied. In this section, we’re walking through resolving a denied attempt to created a SQL server of a different version.
+Following the example above, after assigning the policy definition to require SQL server version 12.0, a SQL server created with a different version would get denied. In this section, we’re walking through resolving a denied attempt to create a SQL server of a different version by requesting an exclusion.
 
 1. Select **Assignments** on the left pane.
 2. Browse through all policy assignments and launch the *Require SQL Server version 12.0* assignment.
