@@ -76,13 +76,13 @@ The following steps show you how to create an IoT Edge module based on .NET core
 
    ![Open Program.cs][1]
 
-6. Add the following variable to the **Program** class:
+6. Add the `temperatureThreshold` variable to the **Program** class. This variable sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub. 
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-7. Add the following classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
+7. Add the `MessageBody`, `Machine`, and `Ambient` classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
 
     ```csharp
     class MessageBody
@@ -116,7 +116,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
     ```
 
-9. Add the **onDesiredPropertiesUpdate** method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code running inside a module.
+9. Add the `onDesiredPropertiesUpdate` method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code running inside a module directly from the cloud.
 
     ```csharp
     static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
@@ -147,7 +147,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
 
-10. Replace the **PipeMessage** method with the **FilterMessages** method. This method is called whenever the module is sent a message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin.
+10. Replace the `PipeMessage` method with the `FilterMessages` method. This method is called whenever the module receives a message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin. It also adds the **MessageType** property to the message with the value set to **Alert**. 
 
     ```csharp
     static async Task<MessageResponse> FilterMessages(Message message, object userContext)
@@ -203,7 +203,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
     }
     ```
 
-11. To build the project, right-click the **FilterModule.csproj** file in the Explorer and click **Build IoT Edge module**. This process compiles the module and export the binary and its dependencies into a folder that is used to create a Docker image.
+11. To build the project, right-click the **FilterModule.csproj** file in the Explorer and click **Build IoT Edge module**. This process compiles the module and exports the binary and its dependencies into a folder that is used to create a Docker image.
 
    ![Build IoT Edge module][2]
 
@@ -215,7 +215,7 @@ The following steps show you how to create an IoT Edge module based on .NET core
 
 2. Right-click the **Dockerfile** file and click **Build IoT Edge module Docker image**. 
 3. In the **Select Folder** window, either browse to or enter `./bin/Debug/netcoreapp2.0/publish`. Click **Select Folder as EXE_DIR**.
-4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<login server>/filtermodule:latest`. The login server should be in the form of `<your container registry name>.azurecr.io`.
+4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filtermodule:latest`. The container registry address is the same as the login server that you copied from your registry, and should be in the form of `<your container registry name>.azurecr.io`.
 5. Sign in to Docker by entering the following command in the VS Code integrated terminal: 
      
    ```csh/sh
@@ -232,13 +232,13 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 - For Windows, run the following command:
     
     ```cmd/sh
-    iotedgectl login --address <registry-address> --username <username> --password <password> 
+    iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
 - For Linux, run the following command:
     
     ```cmd/sh
-    sudo iotedgectl login --address <registry-address> --username <username> --password <password> 
+    sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
 ## Run the solution
@@ -254,7 +254,7 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 9. Add the **filterModule** module that you created in the previous sections. 
     1. Select **Add IoT Edge Module**.
     2. In the **Name** field, enter `filterModule`.
-    3. In the **Image URI** field, enter your image address; for example `<registry address>/filtermodule:latest`.
+    3. In the **Image URI** field, enter your image address; for example `<your container registry address>/filtermodule:latest`.
     4. Check the **Enable** box so that you can edit the module twin. 
     5. Replace the JSON in the text box for the module twin with the following JSON: 
 
