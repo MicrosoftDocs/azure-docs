@@ -26,13 +26,15 @@ An Azure Multi-Factor Auth Provider is used to take advantage of features provid
 An Azure Multi-Factor Auth provider is required to download the SDK.
 
 > [!IMPORTANT]
-> The deprecation of the Azure Multi-Factor Authentication Software Development Kit (SDK) has been announced. This feature will no longer be supported for new customers. Current customers can continue using the SDK until November 14, 2018. After that time, calls to the SDK will fail. 
+> The deprecation of the Azure Multi-Factor Authentication Software Development Kit (SDK) has been announced. This feature is no longer supported for new customers. Current customers can continue using the SDK until November 14, 2018. After that time, calls to the SDK will fail.
+> [!IMPORTANT]
+>To download the SDK, you need to create an Azure Multi-Factor Auth Provider even if you have Azure MFA, AAD Premium, or EMS licenses.  If you create an Azure Multi-Factor Auth Provider for this purpose and already have licenses, be sure to create the Provider with the **Per Enabled User** model. Then, link the Provider to the directory that contains the Azure MFA, Azure AD Premium, or EMS licenses. This configuration ensures that you are only billed if you have more unique users performing two-step verification than the number of licenses you own. 
 
 ## What is an MFA Provider?
 
 If you don't have licenses for Azure Multi-Factor Authentication, you can create an auth provider to require two-step verification for your users.
 
-There are two types of auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if you have a number of users authenticating only occasionally, like if you require MFA for a custom application. The per-user option calculates the number of individuals in your tenant who perform two-step verification in a month. This option is best if you have some users with licenses but need to extend MFA to more users beyond your licensing limits.
+There are two types of auth providers, and the distinction is around how your Azure subscription is charged. The per-authentication option calculates the number of authentications performed against your tenant in a month. This option is best if you have a number of users authenticating only occasionally. The per-user option calculates the number of individuals in your tenant who perform two-step verification in a month. This option is best if you have some users with licenses but need to extend MFA to more users beyond your licensing limits.
 
 ## Create an MFA Provider - Public preview
 
@@ -48,7 +50,7 @@ Use the following steps to create an Azure Multi-Factor Authentication Provider 
       * Per Authentication – purchasing model that charges per authentication. Typically used for scenarios that use Azure Multi-Factor Authentication in a consumer-facing application.
       * Per Enabled User – purchasing model that charges per enabled user. Typically used for employee access to applications such as Office 365. Choose this option if you have some users that are already licensed for Azure MFA.
    - **Subscription** – The Azure subscription that is charged for two-step verification activity through the Provider. 
-   - **Directory** – The Azure Active Directory tenant that the Provider is associated with. Be aware of the following:
+   - **Directory** – The Azure Active Directory tenant that the Provider is associated with.
       * You do not need an Azure AD directory to create a Provider. Leave this box blank if you are only planning to download the Azure Multi-Factor Authentication Server.
       * The Provider must be associated with an Azure AD directory to take advantage of the advanced features.
       * Only one Provider can be associated with any one Azure AD directory.
@@ -79,7 +81,7 @@ Use the following steps to create an Azure Multi-Factor Authentication Provider 
    2. **Usage Model** – Choose one of two options:
       * Per Authentication – purchasing model that charges per authentication. Typically used for scenarios that use Azure Multi-Factor Authentication in a consumer-facing application.
       * Per Enabled User – purchasing model that charges per enabled user. Typically used for employee access to applications such as Office 365. Choose this option if you have some users that are already licensed for Azure MFA.
-   3. **Directory** – The Azure Active Directory tenant that the Provider is associated with. Be aware of the following:
+   3. **Directory** – The Azure Active Directory tenant that the Provider is associated with.
       * You do not need an Azure AD directory to create a Provider. Leave this box blank if you are only planning to download the Azure Multi-Factor Authentication Server.
       * The Provider must be associated with an Azure AD directory to take advantage of the advanced features.
       * Only one Provider can be associated with any one Azure AD directory.  
