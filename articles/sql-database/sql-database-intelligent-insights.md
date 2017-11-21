@@ -71,6 +71,7 @@ Integration of Intelligent Insights with other products Azure Log Analytics, Azu
 
 For a hands-on overview on using Intelligent Insights with Azure Log Analytics and for typical usage scenarios, see the embedded video:
 
+
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
