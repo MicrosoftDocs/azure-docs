@@ -116,7 +116,7 @@ The app showcases venues, such as concert halls, jazz clubs, sports clubs, that 
 A central **Events Hub** provides a list of links to the tenants in your specific deployment.
 
 1. Open the *Events Hub* in your web browser:
-    - http://events.wingtip.&lt;USER&gt;.trafficmanager.net &nbsp; *(Replace with your deployment's user value.)*
+    - http://events.wingtip-mt.&lt;USER&gt;.trafficmanager.net &nbsp; *(Replace with your deployment's user value.)*
 
     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -126,7 +126,7 @@ A central **Events Hub** provides a list of links to the tenants in your specifi
 
 To control the distribution of incoming requests, the app uses [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). The events pages, which are tenant-specific, include the tenant name in the URL. The URLs also include your specific User value and follow this format:
 
-- http://events.wingtip.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 The events app parses the tenant name from the URL and hashes it to create a key to access a catalog using [shard map management](sql-database-elastic-scale-shard-map-management.md). The catalog maps the key to the tenant's database location. The **Events Hub** lists all the tenants that are registered in the catalog. The **Events Hub** uses extended metadata in the catalog to retrieve the tenant's name associated with each mapping to construct the URLs.
 
