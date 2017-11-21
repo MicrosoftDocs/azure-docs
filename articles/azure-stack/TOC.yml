@@ -63,6 +63,8 @@
       href: azure-stack-integrate-identity.md
     - name: Publish endpoints
       href: azure-stack-integrate-endpoints.md
+    - name: External monitoring
+      href: azure-stack-integrate-monitor.md  
     - name : Security
       href: azure-stack-integrate-security.md
   - name: Manage
