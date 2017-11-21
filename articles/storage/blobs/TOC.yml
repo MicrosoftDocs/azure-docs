@@ -24,6 +24,8 @@
     href: storage-quickstart-blobs-python.md
   - name: Work with blobs - Node.js
     href: storage-quickstart-blobs-nodejs.md
+  - name: Work with blobs - Storage Explorer
+    href: storage-quickstart-blobs-storage-explorer.md
 - name: Tutorials
   items:
   - name: Upload and process an image
