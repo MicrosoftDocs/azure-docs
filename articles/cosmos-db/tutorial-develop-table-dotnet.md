@@ -68,6 +68,10 @@ If you don't already have Visual Studio 2017 installed, you can download and use
 ## Create a database account
 
 Let's start by creating an Azure Cosmos DB account in the Azure portal.  
+ 
+> [!IMPORTANT]  
+> You need to create a new Table API account to work with the generally available Table API SDKs. Table API accounts created during preview are not supported by the generally available SDKs. 
+>
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
