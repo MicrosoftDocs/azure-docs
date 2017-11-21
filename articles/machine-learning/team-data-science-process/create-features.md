@@ -4,7 +4,7 @@ description: Explains the purposes of feature engineering and provides examples 
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 3fde69e8-5e7b-49ad-b3fb-ab8ef6503a4d
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: zhangya;bradsev
 
 ---

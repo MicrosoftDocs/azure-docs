@@ -4,7 +4,7 @@ description: Examples of Hive queries that generate features in data stored in a
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: hangzh;bradsev
 
 ---

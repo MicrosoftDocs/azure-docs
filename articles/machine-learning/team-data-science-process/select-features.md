@@ -4,7 +4,7 @@ description: Explains the purpose of feature selection and provides examples of 
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 878541f5-1df8-4368-889a-ced6852aba47
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: zhangya;bradsev
 
 ---

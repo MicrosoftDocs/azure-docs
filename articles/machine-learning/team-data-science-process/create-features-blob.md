@@ -4,7 +4,7 @@ description: How to create features for data that is stored in Azure blob contai
 services: machine-learning,storage
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;garye
 
 ---
