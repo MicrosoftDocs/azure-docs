@@ -22,9 +22,7 @@ ms.author: vturecek
 > * [C# on Windows](service-fabric-reliable-actors-get-started.md)
 > * [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
 
-This article walks through creating and debugging a simple Reliable Actor application in Visual Studio.
-
-For more information on Reliable Actors, see [Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md)
+This article walks through creating and debugging a simple Reliable Actor application in Visual Studio.  For more information on Reliable Actors, see [Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 
 ## Prerequisites
 
