@@ -68,7 +68,7 @@ If your add-in is a service and it needs OAuth client IDs and client secrets, fo
     |Friendly client ID Name|Select a name to help you recognize which add-in will use this client ID; for example, "calendar app".|
     |App domain|Provide the domain on which your add-in will run. For example: `app.contoso.com`.<br/>This must be a valid domain name that you own; it must not include `http://` or `https://`,<br/>and it must not be an international domain name (IDN).|
     |App redirect URL|Provide the redirect URL to send users to after they agree to your add-in's access requirements in the consent dialog box.<br/>This URL must start with `https://`.|
-    |Client secret valid for|Choose how long your client secret will be valid.<br/>The recommended time period is one year, because this might be easier to track within your business processes than longer periods.<br/>However, there is no security impact to choosing a longer period of time.<br/>When the client secret is expiring, you will need to update your add-in.|
+    |Client secret valid for|Choose how long your client secret will be valid. The recommended time period is one year, because this might be easier to track within your business processes than longer periods. However, there is no security impact to choosing a longer period of time. When the client secret is expiring, you will need to update your add-in.|
     |Client ID and secret availability|Select **This Client ID will be used for an add-in that is available worldwide**, or<br/>**This Client ID will be used for an add-in that is available in China only**.|
 
 4. Select **Generate client ID**.  
