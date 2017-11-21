@@ -77,20 +77,20 @@ generate_schema(run_func=run, inputs=inputs, filepath='service_schema.json')
 ### 3. Create a score.py file
 You provide a score.py file, which loads your model and returns the prediction result(s) using the model.
 
-The file must include two functions: init and run.
+The file must include two functions: `init` and `run`.
 
 Add following code at the top of the score.py file to enable data collection functionality that helps collect model input and prediction data
 
-    ```
-    from azureml.datacollector import ModelDataCollector
-    ```
+```python
+from azureml.datacollector import ModelDataCollector
+```
 
 Check [model data collection](how-to-use-model-data-collection.md) section for more details on how to use this feature.
 
 #### Init function
-Use the init function to load the saved model.
+Use the `init` function to load the saved model.
 
-Example of a simple init function loading the model:
+Example of a simple `init` function loading the model:
 
 ```python
 def init():  
@@ -103,9 +103,9 @@ def init():
 ```
 
 #### Run function
-The run function uses the model and the input data to return a prediction.
+The `run` function uses the model and the input data to return a prediction.
 
-Example of a simple run function processing the input and returning the prediction result:
+Example of a simple `run` function processing the input and returning the prediction result:
 
 ```python
 def run(input_df):
@@ -120,16 +120,16 @@ def run(input_df):
 ```
 
 ### 4. Register a model
-Following command is used to register a model created in step 1 above,
+Following command is used to register a model created in Step 1 above,
 
-```
+```cmd/sh
 az ml model register --model [path to model file] --name [model name]
 ```
 
 ### 5. Create manifest
 Following command helps create a manifest for the model,
 
-```
+```cmd/sh
 az ml manifest create --manifest-name [your new manifest name] -f [path to code file] -r [runtime for the image, e.g. spark-py]
 ```
 You can add a previously registered model to the manifest by using argument `--model-id` or `-i` in the command shown above. Multiple models can be specified with additional -i arguments.
@@ -137,13 +137,13 @@ You can add a previously registered model to the manifest by using argument `--m
 ### 6. Create an image 
 You can create an image with the option of having created its manifest before. 
 
-```
+```cmd/sh
 az ml image create -n [image name] -manifest-id [the manifest ID]
 ```
 
 Or you can create the manifest and image with a single command. 
 
-```
+```cmd/sh
 az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]
 ```
 
@@ -154,7 +154,7 @@ az ml image create -n [image name] --model-file [model file or folder path] -f [
 ### 7. Create and deploy the web service
 Deploy the service using the following command:
 
-```
+```cmd/sh
 az ml service create realtime --image-id <image id> -n <service name>
 ```
 
@@ -164,19 +164,19 @@ az ml service create realtime --image-id <image id> -n <service name>
 ### 8. Test the service
 Use the following command to get information on how to call the service:
 
-```
+```cmd/sh
 az ml service usage realtime -i <service id>
 ```
 
 Call the service using the run function from the command prompt:
 
-```
+```cmd/sh
 az ml service run realtime -i <service id> -d "{\"input_df\": [INPUT DATA]}"
 ```
 
 The following example calls a sample Iris web service:
 
-```
+```cmd/sh
 az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\": 3.0, \"sepal width\": 3.6, \"petal width\": 1.3, \"petal length\":0.25}]}"
 ```
 
