@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/10/2017
+ms.date: 11/10/2017
 ms.author: jejiang
 ---
 
@@ -518,6 +518,19 @@ U-SQL local run tests your local data and validates your script locally, before 
 - Validate your script locally.
 
 For instructions on local run and local debug, see [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
+
+## DataLake explorer
+1. After login, you will see all of the Azure accounts are listed in the left panel of the **DataLake Explorer**. Expand one database, you can view the **Schemas**, **Tables**, **Assemblies** and so on, under the this node.  
+
+   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
+
+2. You can perform the command **Register assembly** by right-clicking on the **Assemblies** node.
+
+    ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
+
+3. Naviagte to **Storage Account**, you can upload or download file by right-clicking on the folder or file.
+
+   ![DataLake explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
 
 ## Additional features
 
