@@ -83,7 +83,6 @@
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
-
 ### [Elastic Query with SQL Database and SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## Load
@@ -122,7 +121,6 @@
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
 ### [Automate compute levels](manage-compute-with-azure-functions.md)
-
 ### Resource classes
 #### [Guidelines](resource-classes-for-workload-management.md)
 #### [Analyze your workload](analyze-your-workload.md)
@@ -134,7 +132,6 @@
 ### [Monitor](sql-data-warehouse-manage-monitor.md)
 
 ## Security
-
 ### [Overview](sql-data-warehouse-overview-manage-security.md)
 ### [Auditing](sql-data-warehouse-auditing-overview.md)
 ### [Auditing for down-level clients](sql-data-warehouse-auditing-downlevel-clients.md)
@@ -144,10 +141,10 @@
 ### [Threat detection](sql-data-warehouse-security-threat-detection.md)
 
 ## Troubleshoot
+
 ### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
 
 # Reference
-
 
 ## T-SQL
 ### [Full reference](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -157,6 +154,7 @@
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Resources
+
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
