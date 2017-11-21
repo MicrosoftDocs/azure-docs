@@ -70,6 +70,12 @@ This section provides a reference for the following API Management policies. For
     -   [Rewrite URL](api-management-transformation-policies.md#RewriteURL) - Converts a request URL from its public form to the form expected by the web service.  
     -   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) - Applies an XSL transformation to XML in the request or response body.  
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
+> 
+> 
+
 ## Next steps
 For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  
 
