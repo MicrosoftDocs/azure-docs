@@ -124,7 +124,7 @@ For instructions, see [Configure indirect CSP access in Cloudyn](quick-register-
 
 ## What causes the Optimizer menu item to appear?
 
-After you add Azure Resource Manager access and data is collected, you should see the **Optimizer** option. To activate Azure Resource Manager access see [How do I activate unactivated accounts with Azure credentials?](#how-do-i-activate-unactivated-accounts-with-azure-credentials).
+After you add Azure Resource Manager access and data is collected, you should see the **Optimizer** option. To activate Azure Resource Manager access, see [How do I activate unactivated accounts with Azure credentials?](#how-do-i-activate-unactivated-accounts-with-azure-credentials).
 
 ## Is Cost Management/Cloudyn agent based?
 
