@@ -19,7 +19,7 @@ ms.author: rachelap
 ---
 # Troubleshoot a web app in Azure App Service using Visual Studio
 ## Overview
-This tutorial shows how to use Visual Studio tools that help debug a web app in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), by running in [debug mode](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
+This tutorial shows how to use Visual Studio tools to help debug a web app in [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), by running in [debug mode](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) remotely or by viewing application logs and web server logs.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -263,7 +263,7 @@ Logging affects web app performance, so Azure gives you the ability to enable or
 Logs are written to files in a *LogFiles* folder in the file system of your web app and are accessible via FTP. Web server logs and application logs can also be written to an Azure Storage account. You can retain a greater volume of logs in a storage account than is possible in the file system. You're limited to a maximum of 100 megabytes of logs when you use the file system. (File system logs are only for short-term retention. Azure deletes old log files to make room for new ones after the limit is reached.)  
 
 ## <a name="apptracelogs"></a>Create and view application trace logs
-In this section you do the following tasks:
+In this section, you do the following tasks:
 
 * Add tracing statements to the web project that you created in [Get started with Azure and ASP.NET][GetStarted].
 * View the logs when you run the project locally.
@@ -639,7 +639,7 @@ There are no thorough and up-to-date introductions to ASP.NET tracing available 
 * [Trace Listeners](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
   Information about trace listeners but doesn't mention the [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
 * [Walkthrough: Integrating ASP.NET Tracing with System.Diagnostics Tracing](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
-  This article too is old, but includes some additional information that the introductory article doesn't cover.
+  This article is also old, but includes some additional information that the introductory article doesn't cover.
 * [Tracing in ASP.NET MVC Razor Views](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Besides tracing in Razor views, the post also explains how to create an error filter in order to log all unhandled exceptions in an MVC application. For information about how to log all unhandled exceptions in a Web Forms application, see the Global.asax example in [Complete Example for Error Handlers](http://msdn.microsoft.com/library/bb397417.aspx) on MSDN. In either MVC or Web Forms, if you want to log certain exceptions but let the default framework handling take effect for them, you can catch and rethrow as in the following example:
 
