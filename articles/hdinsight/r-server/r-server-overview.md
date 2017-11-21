@@ -41,7 +41,9 @@ You have the option of adding access to additional Blob and Data lake stores dur
 You can also use [Azure Files](../../storage/files/storage-how-to-use-files-linux.md) as a storage option for use on the edge node. Azure Files enables you to mount a file share that was created in Azure Storage to the Linux file system. For more information about these data storage options for R Server on HDInsight cluster, see [Azure Storage options for R Server on HDInsight clusters](r-server-storage.md).
 
 ## Access R Server on the cluster
-You can connect to R Server on the edge node using a browser, provided you’ve chosen to include RStudio Server during the provisioning process. If you did not install it when provisioning the cluster, you can add it later. For information about installing RStudio Server after a cluster is created, see [Installing RStudio Server on HDInsight clusters](r-server-install-r-studio.md). You can also connect to the R Server by using SSH/PuTTY to access the R console. 
+You can connect to R Server on the edge node using a browser. It is installed by default during cluster creation. For more information, see [Get stared with R Server on HDInsight](r-server-get-started.md).
+
+You can also connect to the R Server from the commandline by using SSH/PuTTY to access the R console. 
 
 ## Develop and run R scripts
 The R scripts you create and run can use any of the 8000+ open source R packages in addition to the parallelized and distributed routines available in the ScaleR library. In general, a script that is run with R Server on the edge node runs within the R interpreter on that node. The exceptions are those steps that need to call a ScaleR function with a compute context that is set to Hadoop Map Reduce (RxHadoopMR) or Spark (RxSpark). In this case, the function runs in a distributed fashion across those data (task) nodes of the cluster that are associated with the data referenced. For more information about the different compute context options, see [Compute context options for R Server on HDInsight](r-server-compute-contexts.md).
@@ -84,7 +86,7 @@ Maintenance to apply OS patches and other updates is performed on the underlying
 Since the head nodes are redundant and not all data nodes are impacted, any jobs that are running during this time might slow down. They should still run to completion, however. Any custom software or local data that you have is preserved across these maintenance events unless a catastrophic failure occurs that requires a cluster rebuild.
 
 ## Learn about IDE options for R Server on an HDInsight cluster
-The Linux edge node of an HDInsight cluster is the landing zone for R-based analysis. Recent versions of HDInsight provide a default option for installing the community version of [RStudio Server](https://www.rstudio.com/products/rstudio-server/) on the edge node as a browser-based IDE. Use of RStudio Server as an IDE for the development and execution of R scripts can be considerably more productive than just using the R console. If you chose not to add RStudio Server when creating the cluster but would like to add it later, then see [Installing R Studio Server on HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-install-r-studio).+
+The Linux edge node of an HDInsight cluster is the landing zone for R-based analysis. Recent versions of HDInsight provide a default installation of RStudio Server on the edge node as a browser-based IDE. Use of RStudio Server as an IDE for the development and execution of R scripts can be considerably more productive than just using the R console.
 
 Another full IDE option is to install a desktop IDE and use it to access the cluster through use of a remote Map Reduce or Spark compute context. Options include Microsoft’s [R Tools for Visual Studio](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS), RStudio, and Walware’s Eclipse-based [StatET](http://www.walware.de/goto/statet).
 
@@ -97,6 +99,5 @@ The fees that are associated with an HDInsight cluster with R Server are structu
 To learn more about how to use R Server with HDInsight clusters, see the following topics:
 
 * [Getting started with R Server on HDInsight](r-server-get-started.md)
-* [Add RStudio Server to HDInsight (if not installed during cluster creation)](r-server-install-r-studio.md)
 * [Compute context options for R Server on HDInsight](r-server-compute-contexts.md)
 * [Azure Storage options for R Server on HDInsight](r-server-storage.md)

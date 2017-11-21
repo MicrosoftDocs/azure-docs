@@ -151,7 +151,7 @@ You can specify these parameters in the command line. If you do not, or any para
 Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours. If the MySQLAdapter blade is not available, refresh the admin portal.
 
 > [!NOTE]
-> If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file. The deployment is retried from the failing step. Systems that do not meet the recommended memory and core specifications may not be able to deploy the MySQL RP.
+> If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file. The deployment is retried from the failing step. Systems that do not meet the recommended memory and vCPU specifications may not be able to deploy the MySQL RP.
 
 
 

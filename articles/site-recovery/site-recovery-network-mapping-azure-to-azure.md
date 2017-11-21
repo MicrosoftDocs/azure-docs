@@ -45,7 +45,7 @@ Do the same thing to create a network mapping from Southeast Asia to East Asia.
 
 ## Mapping network when enabling replication
 
-If network mapping is not done when you are replicating a virtual machine for the first time form one Azure region to another, then you can choose target network as part of the same process. Site Recovery creates network mappings from source region to target region and from target region to source region based on this selection.   
+If network mapping is not done when you are replicating a virtual machine for the first time from one Azure region to another, then you can choose target network as part of the same process. Site Recovery creates network mappings from source region to target region and from target region to source region based on this selection.   
 
 ![Network Mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
@@ -77,18 +77,18 @@ Subnet of the target virtual machine is selected based on the name of the subnet
 IP address for each of the network interface of the target virtual machine is chosen as follows:
 
 ### DHCP
-If the network interface of the source virtual machine is using DHCP, then network interface of the target virtual machine is also set as DHCP.
+If the network interface of the source virtual machine is using DHCP, then the network interface of the target virtual machine is also set as DHCP.
 
 ### Static IP
-If the network interface of the source virtual machine is using Static IP, then network interface of the target virtual machine is also set to use Static IP. Static IP is chosen as follows:
+If the network interface of the source virtual machine is using Static IP, then the network interface of the target virtual machine is also set to use Static IP. Static IP is chosen as follows:
 
 #### Same address space
 
-If the source subnet and the target subnet have the same address space, then target IP is set same as the IP of  the network interface of the source virtual machine. If same IP is not available, then some other available IP is set as the target IP.
+If the source subnet and the target subnet have the same address space, then the target IP is set same as the IP of  the network interface of the source virtual machine. If same IP is not available, then some other available IP is set as the target IP.
 
 #### Different address space
 
-If the source subnet and the target subnet have different address space, then target IP is set as any available IP in the target subnet.
+If the source subnet and the target subnet have different address space, then the target IP is set as any available IP in the target subnet.
 
 You can modify the target IP on each network interface by going to Compute and Network settings of the virtual machine.
 

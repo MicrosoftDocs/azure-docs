@@ -184,11 +184,11 @@ If Azure Table column is of datetime type:
 
 ### Azure Table as sink
 
-To copy data from Azure Table, set the source type in the copy activity to **AzureTableSink**. The following properties are supported in the copy activity **sink** section:
+To copy data to Azure Table, set the sink type in the copy activity to **AzureTableSink**. The following properties are supported in the copy activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **AzureTableSink** |Yes |
+| type | The type property of the copy activity sink must be set to: **AzureTableSink** |Yes |
 | azureTableDefaultPartitionKeyValue |Default partition key value that can be used by the sink. |No |
 | azureTablePartitionKeyName |Specify name of the column whose values are used as partition keys. If not specified, "AzureTableDefaultPartitionKeyValue" is used as the partition key. |No |
 | azureTableRowKeyName |Specify name of the column whose column values are used as row key. If not specified, use a GUID for each row. |No |

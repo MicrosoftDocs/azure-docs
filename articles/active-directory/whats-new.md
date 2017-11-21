@@ -39,6 +39,18 @@ We are improving Azure Active Directory on an ongoing basis. To enable you to st
 
 Please revisit this page regularly as we are updating it on a monthly basis.
 
+## November 2017
+
+**Type:** Deprecated functionality  
+**Service Category:** ACS  
+**Product Capability:** Access Control Service 
+
+<a name="acs-retirement"></a>
+
+Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) is being retired in November 2018.  Further information, including a detailed schedule & high level migration guidance, can be found [on this page](./develop/active-directory-acs-migration.md).
+
+---
+
 
 ## October 2017
 

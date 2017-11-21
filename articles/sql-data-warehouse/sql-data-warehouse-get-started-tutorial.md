@@ -3,7 +3,7 @@ title: Azure SQL Data Warehouse - get started tutorial | Microsoft Docs
 description: This tutorial teaches you how to provision and load data into Azure SQL Data Warehouse. You’ll also learn the basics about scaling, pausing, and tuning. 
 services: sql-data-warehouse
 documentationcenter: NA
-author: hirokib
+author: barbkess
 manager: johnmac
 editor: barbkess
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
 ms.date: 11/06/2017
-ms.author: elbutter
+ms.author: barbkess
 
 ---
 # Get started with SQL Data Warehouse

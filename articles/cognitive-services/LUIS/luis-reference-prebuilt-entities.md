@@ -21,7 +21,7 @@ LUIS includes a set of prebuilt entities. When a prebuilt entity is included in 
 
 Pre-built entity   |   ```En-us```   |   ```fr-FR```   |   ```it-IT```   |   ```es-ES```   |   ```zh-CN```   |   ```de-DE```   |   ```pt-BR```   |   ```ja-JP```   |   ```ko-kr```
 ------|------|------|------|------|------|------|------|------|------|
-DatetimeV2   |    ✔   |   -   |   -   |   -   |    ✔   |   -   |   -   |   -   |   -   |
+DatetimeV2   |    ✔   |   -   |   -   |   ✔   |    ✔   |   -   |   -   |   -   |   -   |
  Datetime   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
 Number   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
 Ordinal   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |

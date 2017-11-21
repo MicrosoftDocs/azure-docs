@@ -73,7 +73,7 @@ The script performs these steps:
 - Register your resource provider with the local Azure Resource Manager (user and admin).
 
 > [!NOTE]
-> If the installation takes more than 90 minutes, it may fail and you see a failure message on the screen and in the log file, but the deployment is retried from the failing step. Systems that do not meet the recommended memory and core specifications may not be able to deploy the SQL RP.
+> If the installation takes more than 90 minutes, it may fail and you see a failure message on the screen and in the log file, but the deployment is retried from the failing step. Systems that do not meet the recommended memory and vCPU specifications may not be able to deploy the SQL RP.
 >
 
 Here's an example you can run from the PowerShell prompt (but change the account information and passwords as needed):
