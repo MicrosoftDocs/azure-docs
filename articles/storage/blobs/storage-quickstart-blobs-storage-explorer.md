@@ -24,25 +24,25 @@ ms.author: gwallace
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This quick start requires the Azure Storage Explorer to be installed, If you need to install it visit [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to download it for Windows, Macintosh, or Linux.
+This quick start requires the Azure Storage Explorer to be installed. If you need to install it, visit [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to download it for Windows, Macintosh, or Linux.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
-## Login to Storage Explorer
+## Log in to Storage Explorer
 
-On first launch, the **Microsoft Azure Storage Explorer - Connect** window is shown
+On first launch, the **Microsoft Azure Storage Explorer - Connect** window is shown. Storage Explorer provides several ways to connect to storage accounts. The following table shows the different ways you can connect:
 
 |Task|Purpose|
 |---|---|
 |Add an Azure Account | Redirects you to your organizations login page to authenticate you to Azure. |
-|Use a connection string or shared access signature URI | Can we used to directly access a container or storage account. |
-| Use a storage account name and key| Use the storage account name and key of your storage account to connect to Azure storage.|
+|Use a connection string or shared access signature URI | Can be used to directly access a container or storage account. |
+|Use a storage account name and key| Use the storage account name and key of your storage account to connect to Azure storage.|
+
+Select **Add an Azure Account** and click **Sign in..**. Follow the on-screen prompts to sign into your Azure account.
 
 ![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-Follow the on screen prompts to sign into your Azure account.
-
-When complete Azure Storage Explorer loads with the **Explorer** tab open. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azure Storage Emulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+When complete Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azure Storage Emulator](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
 
 ![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
@@ -50,23 +50,23 @@ When complete Azure Storage Explorer loads with the **Explorer** tab open. This 
 
 Blobs are always uploaded into a container. This allows you to organize groups of blobs like you organize your files on your computer in folders.
 
-To create a container, expand your storage account you created in the preceeding step, select **Blob Containers**, right click and select **Create Blob Container**. Enter the name for your blob container. See the [container naming rules](storage-dotnet-how-to-use-blobs.md#create-a-container) section for a list of rules and restrictions on naming blob containers. When complete, press **Enter** when done to create the blob container. Once the blob container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
+To create a container, expand your storage account you created in the proceeding step, select **Blob Containers**, right-click, and select **Create Blob Container**. Enter the name for your blob container. See the [container naming rules](storage-dotnet-how-to-use-blobs.md#create-a-container) section for a list of rules and restrictions on naming blob containers. When complete, press **Enter** when done to create the blob container. Once the blob container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
 ## Upload blobs to the container
 
-Blob storage supports block blobs, append blobs, and page blobs. VHD files used to back IaaS VMs are page blobs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most files stored in Blob storage are block blobs. 
+Blob storage supports block blobs, append blobs, and page blobs. VHD files used to back IaaS VMs are page blobs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most files stored in Blob storage are block blobs.
 
-On the container ribbon select **Upload**. This gives you the option to upload a folder or a file.
+On the container ribbon, select **Upload**. This operation gives you the option to upload a folder or a file.
 
-Choose the files or folder to upload. Select the **blob type**.  Acceptable choices are **Append**, **Page**, or **Block** blob.
+Choose the files or folder to upload. Select the **blob type**. Acceptable choices are **Append**, **Page**, or **Block** blob.
 
 If uploading a .vhd or .vhdx file, choose **Upload .vhd/.vhdx files as page blobs (recommended)**.
 
-In the **Upload to folder (optional)** field end a folder name to store the files or folders in a folder under the container. If no folder is chosen the files are uploaded directly under the container.
+In the **Upload to folder (optional)** field end a folder name to store the files or folders in a folder under the container. If no folder is chosen, the files are uploaded directly under the container.
 
 ![Microsoft Azure Storage Explorer - upload a blob](media/storage-quickstart-blobs-storage-explorer/uploadblob.png)
 
-When you select **OK**, the files selected are queued to upload, each file is uploaded. When the upload is complete the results are showed in the **Activities** window.
+When you select **OK**, the files selected are queued to upload, each file is uploaded. When the upload is complete, the results are shown in the **Activities** window.
 
 ## View blobs in a container
 
@@ -77,6 +77,26 @@ In the **Azure Storage Explorer** application, select a container under a storag
 ## Download blobs
 
 To download blobs using **Azure Storage Explorer**, with a blob selected, select **Download** from the ribbon. A file dialog opens and provides you the ability to enter a file name. Select **Save** to start the download of a blob to the local location.
+
+## Manage snapshots
+
+Azure Storage Explorer provides the capability to take and manage [snapshots](storage-blob-snapshots.md) of your blobs. To take a snapshot of a blob, right-click the blob and select **Make Snapshot**. To view snapshots for a blob, right-click the blob and select **Manage Snapshots**. A list of the snapshots for the blob are shown in the current tab.
+
+![Microsoft Azure Storage Explorer - list blobs in a container](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
+
+## Manage access policies
+
+Storage Explorer provides the ability to manage access policies for containers within its user interface. Right-click any container and select **Manage Access Policies...**.
+
+Select **Add** to add a new access policy and define the permissions for the policy. When complete select **Save** to save the access policy. This policy is now available for use when configuring a Shared Access Signature.
+
+## Work with Shared Access Signatures
+
+Shared Access Signatures (SAS) can be retrieved through Storage Explorer. Right-click a storage account, container, or blob and choose **Get Shared Access Signature...**. Choose the start and expiry time, and permissions for the SAS URL and select **Create**. The full URL with the query string as well as the query string by itself are provided and can be copied from the next screen.
+
+![Microsoft Azure Storage Explorer - list blobs in a container](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
+
+
 
 ## Next steps
 
