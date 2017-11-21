@@ -31,7 +31,7 @@ This article describes how to set up replication of virtual machines running in 
 
 ## Prerequisites
 
-* The article assumes that you already know about Site Recovery and Recovery Services Vault. You need to have a 'Recovery services vault' pre created.
+* The article assumes that you already know about Site Recovery and Recovery Services Vault. You need to have a 'Recovery services vault' pre-created.
 
     >[!NOTE]
     >
@@ -50,11 +50,11 @@ For this illustration, we will replicate VMs running  in the ‘East Asia’ Azu
 
  Click **+Replicate** in the vault to enable replication for the virtual machines.
 
-1. **Source:** It refers to the point of origin of the machines which in this case is **Azure**.
+1. **Source:** It refers to the point of origin of the machines, which in this case is **Azure**.
 
 2. **Source location:** It is the Azure region from where you want to protect your virtual machines. For this illustration, the source location is 'East Asia'
 
-3. **Deployment model:** It refers to the Azure deployment model of the source machines. You can select either classic or resource manager and machines belonging to the specific model will be listed for protection in the next step.
+3. **Deployment model:** It refers to the Azure deployment model of the source machines. You can select either Classic or Resource Manager and machines belonging to the specific model will be listed for protection in the next step.
 
       >[!NOTE]
       >
@@ -75,7 +75,7 @@ Under Settings section, you can configure target site properties
 	> [!TIP]
 	> It is recommended to keep target location same as of your recovery services vault.
 
-2. **Target resource group :** It is the resource group to which all your replicated virtual machines will belong. By default Azure Site Recovery will create a new resource group in the target region with name having "asr" suffix. In case resource group created by Azure Site Recovery already exists, it will be reused. You can also choose to customize it as shown in the section below.    
+2. **Target resource group:** It is the resource group to which all your replicated virtual machines will belong. By default Azure Site Recovery will create a new resource group in the target region with name having "asr" suffix. In case resource group created by Azure Site Recovery already exists, it will be reused. You can also choose to customize it as shown in the section below.    
 3. **Target Virtual Network:** By default, Azure Site Recovery will create a new virtual network in the target region with name having "asr" suffix. This will be mapped to your source network and will be used for any future protection.
 
 	> [!NOTE]
@@ -85,7 +85,7 @@ Under Settings section, you can configure target site properties
 
 5. **Cache Storage accounts:** Azure Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating those to the target location.
 
-6. **Availability set :** By default, Azure Site Recovery will create a new availability set in the target region with name having "asr" suffix. In case availability set created by Azure Site Recovery already exists, it will be reused.
+6. **Availability set:** By default, Azure Site Recovery will create a new availability set in the target region with name having "asr" suffix. In case availability set created by Azure Site Recovery already exists, it will be reused.
 
 7.	**Replication Policy:** It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery will create a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
 
@@ -112,7 +112,7 @@ Click on **Create target resource** and Enable Replication
 Once virtual machines are protected you can check the status of VMs health under **Replicated items**
 
 >[!NOTE]
->During the time of initial replication there could a possibility that status takes time to refresh and you don't see progress for some time. You can click the Refresh button on the top of the blade to get the latest status.
+>During the time of initial replication there could be a possibility that status takes time to refresh and you don't see progress for some time. You can click the Refresh button on the top of the blade to get the latest status.
 >
 
 ![Enable replication](./media/site-recovery-replicate-azure-to-azure/replicateditems.PNG)
