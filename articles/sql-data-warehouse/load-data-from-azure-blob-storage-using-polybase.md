@@ -191,7 +191,7 @@ Since you are currently connected as the server admin, you can create logins and
 
     ![New query on sample data warehouse](media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
  
-5. Enter the following T-SQL commands to create a database user named LoadingRC20 for the LoadingRC20 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc20 [resource class](resource-classes-for-workload-management.md).
+5. Enter the following T-SQL commands to create a database user named LoaderRC20 for the LoaderRC20 login. The second line grants the new user CONTROL permissions on the new data warehouse.  These permissions are similar to making the user the owner of the database. The third line adds the new user as a member of the staticrc20 [resource class](resource-classes-for-workload-management.md).
 
     ```sql
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
@@ -209,7 +209,7 @@ The first step toward loading data is to login as LoaderRC20.
 
     ![Connect with new login](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. Enter the fully qualified server name, but this time enter **LoadingRC20** as the Login.  Enter your password for LoadingRC20.
+2. Enter the fully qualified server name, but this time enter **LoaderRC20** as the Login.  Enter your password for LoaderRC20.
 
 3. Click **Connect**.
 
