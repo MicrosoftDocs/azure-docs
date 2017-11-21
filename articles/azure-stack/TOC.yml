@@ -63,6 +63,8 @@
       href: azure-stack-integrate-identity.md
     - name: Publish endpoints
       href: azure-stack-integrate-endpoints.md
+    - name: External monitoring
+      href: azure-stack-integrate-monitor.md  
     - name : Security
       href: azure-stack-integrate-security.md
   - name: Manage
@@ -155,10 +157,10 @@
         href: azure-stack-mysql-resource-provider-deploy.md
       - name: Deploy SQL resource provider
         href: azure-stack-sql-resource-provider-deploy.md
-      - name: Create SQL databases
-        href: azure-stack-sql-resource-provider-databases.md
       - name: Add hosting servers
         href: azure-stack-sql-resource-provider-hosting-servers.md
+      - name: Create SQL databases
+        href: azure-stack-sql-resource-provider-databases.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
@@ -181,11 +183,11 @@
         href: azure-stack-marketplace.md
       - name: Download marketplace items
         href: azure-stack-download-azure-marketplace-item.md
-      - name: Azure marketplace items for Azure Stack
+      - name: Azure Marketplace items for Azure Stack
         href: azure-stack-marketplace-azure-items.md
       - name: Create and publish a marketplace item
         href: azure-stack-create-and-publish-marketplace-item.md
-      - name: Use the Marketplace Publishing tool
+      - name: Use the marketplace publishing tool
         href: azure-stack-marketplace-publisher.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
