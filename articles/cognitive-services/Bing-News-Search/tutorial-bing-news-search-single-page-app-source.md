@@ -322,7 +322,14 @@ function bingNewsSearch(query, options, key) {
     hideDivs("results", "related", "_json", "_http", "paging1", "paging2", "error");
 
     var request = new XMLHttpRequest();
-    var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&" + options;
+
+    if (category.valueOf() != "all".valueOf()) {
+        var queryurl = BING_ENDPOINT + "/search?" + "?q=" + encodeURIComponent(query) + "&" + options;
+    }
+    else
+    {
+        var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&" + options;
+    }
 
     // open the request
     try {
@@ -364,14 +371,14 @@ function bingSearchOptions(form) {
     options.push("mkt=" + form.where.value);
     options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
     if (form.when.value.length) options.push("freshness=" + form.when.value);
-    var category = "all";
+
     for (var i = 0; i < form.category.length; i++) {
         if (form.category[i].checked) {
             category = form.category[i].value;
             break;
         }
     }
-    options.push("category=" + category);
+    if (category.valueOf() != "all".valueOf()) { options.push("category=" + category); }
     options.push("count=" + form.count.value);
     options.push("offset=" + form.offset.value);
     return options.join("&");
