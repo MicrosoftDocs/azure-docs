@@ -10,10 +10,10 @@
 
 # Tutorials
 
-## [Basic parallel workload - .NET](tutorial-parallel-dotnet.md)
-## [Basic parallel workload - Python](tutorial-parallel-python.md)
-## [Render an Arnold scene](tutorial-rendering-cli.md)
-## [Monte Carlo workload with R](tutorial-r-doazureparallel.md)
+## [Parallel file processing - .NET](tutorial-parallel-dotnet.md)
+## [Basic file processing - Python](tutorial-parallel-python.md)
+## [Scene rendering with Arnold](tutorial-rendering-cli.md)
+## [Parallel R simulation](tutorial-r-doazureparallel.md)
 
 # Samples
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=batch)
