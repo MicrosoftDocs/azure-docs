@@ -196,6 +196,12 @@ The rest of this section tests policy transformations that you set in this artic
 
 	![Throttling](./media/transform-api/test-throttling.png)
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
+> 
+> 
+
 ## Next steps
 
 In this tutorial, you learned how to:
