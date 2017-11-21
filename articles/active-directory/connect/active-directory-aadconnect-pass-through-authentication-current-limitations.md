@@ -46,12 +46,12 @@ The following scenarios are _not_ supported:
 >As a workaround for unsupported scenarios _only_, enable password hash synchronization on the [Optional features](active-directory-aadconnect-get-started-custom.md#optional-features) page in the Azure AD Connect wizard. Enabling Password hash synchronization also gives you the option to failover authentication if your on-premises infrastructure is disrupted. This failover from Pass-through Authentication to Active Directory password hash synchronization is not automatic, but requires help from Microsoft Support.
 
 ## Next steps
-- [**Quick start**](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running with Azure AD Pass-through Authentication.
-- [**Smart Lockout**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
-- [**Technical deep dive**](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Understand how the Pass-through Authentication feature works.
-- [**Frequently asked questions**](active-directory-aadconnect-pass-through-authentication-faq.md): Find answers to frequently asked questions about the Pass-through Authentication feature.
-- [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
-- [**Security deep dive**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Additional deep technical information on the Pass-through Authentication feature.
-- [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md): Learn more about this complementary feature.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
+- [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running with Azure AD Pass-through Authentication.
+- [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
+- [Technical deep dive](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Understand how the Pass-through Authentication feature works.
+- [Frequently asked questions](active-directory-aadconnect-pass-through-authentication-faq.md): Find answers to frequently asked questions about the Pass-through Authentication feature.
+- [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
+- [Security deep dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Additional deep technical information on the Pass-through Authentication feature.
+- [Azure AD Seamless SSO](active-directory-aadconnect-sso.md): Learn more about this complementary feature.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
 

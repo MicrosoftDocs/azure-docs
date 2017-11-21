@@ -123,12 +123,12 @@ Rerun the Azure AD Connect wizard and change the user sign-in method from Pass-t
 If you uninstall a Pass-through Authentication Agent from a server, it causes the server to stop accepting sign-in requests. To avoid breaking the user sign-in capability on your tenant, ensure that you have another Authentication Agent running before you uninstall a Pass-through Authentication Agent.
 
 ## Next steps
-- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Learn which scenarios are supported and which ones are not.
-- [**Quick start**](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-- [**Smart Lockout**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Learn how to configure Smart Lockout capability on your tenant to protect user accounts.
-- [**Technical deep dive**](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Understand how the Pass-through Authentication feature works.
-- [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
-- [**Security deep dive**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Additional deep technical information on the Pass-through Authentication feature.
-- [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md): Learn more about this complementary feature.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
+- [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Learn which scenarios are supported and which ones are not.
+- [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
+- [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Learn how to configure Smart Lockout capability on your tenant to protect user accounts.
+- [Technical deep dive](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Understand how the Pass-through Authentication feature works.
+- [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
+- [Security deep dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Additional deep technical information on the Pass-through Authentication feature.
+- [Azure AD Seamless SSO](active-directory-aadconnect-sso.md): Learn more about this complementary feature.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
 

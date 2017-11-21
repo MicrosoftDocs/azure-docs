@@ -40,12 +40,12 @@ The following diagram illustrates all the components and the steps involved:
 ![Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta2.png)
 
 ## Next steps
-- [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Learn which scenarios are supported and which ones are not.
-- [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-- [**Smart Lockout**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
-- [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md): Find answers to frequently asked questions.
-- [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
-- [**Security Deep Dive**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Provides additional deep technical information on the Pass-through Authentication feature.
-- [**Azure AD Seamless SSO**](active-directory-aadconnect-sso.md): Learn more about this complementary feature.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
+- [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Learn which scenarios are supported and which ones are not.
+- [Quick Start](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
+- [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
+- [Frequently Asked Questions](active-directory-aadconnect-pass-through-authentication-faq.md): Find answers to frequently asked questions.
+- [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
+- [Security Deep Dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Provides additional deep technical information on the Pass-through Authentication feature.
+- [Azure AD Seamless SSO](active-directory-aadconnect-sso.md): Learn more about this complementary feature.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
 
