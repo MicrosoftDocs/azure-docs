@@ -5,7 +5,7 @@
 
 # Get Started
 
-## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md)
+## [Load data tutorial](load-data-from-azure-blob-storage-using-polybase.md)
 ## [Elastic Query tutorial](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
