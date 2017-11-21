@@ -88,12 +88,12 @@ Example:
     
     b. Run a sample insert command by using one of your sample documents from the MongoDB Shell:
     
-        ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
+        db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })
+        
         
     c. Run ```db.runCommand({getLastRequestStatistics: 1})``` and you will receive a response like this one:
      
-        ```
-        globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
+     ```globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
         {
             "_t": "GetRequestStatisticsResponse",
             "ok": 1,
@@ -101,7 +101,7 @@ Example:
             "RequestCharge": 10,
             "RequestDurationInMilliSeconds": NumberLong(50)
         }
-        ```
+     ```
         
     d. Take note of the request charge.
     
@@ -111,9 +111,10 @@ Example:
     
     b. Run a simple query against the database: ```db.coll.find().limit(1)```. You will receive a response like this one:
 
-        ```
+        
         Fetched 1 record(s) in 100(ms)
-        ```
+        
+      
         
 4. Remove the inserted document before the migration to ensure that there are no duplicate documents. You can remove documents by using this command: ```db.coll.remove({})```
 
