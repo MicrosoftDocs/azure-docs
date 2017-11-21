@@ -147,13 +147,13 @@ The following two screenshots show a code-behind file and its associated U-SQL s
 We support local run and local debug, the instructions see [U-SQL local run, and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 
 ## Use Python and R code-behind file
-Our tool supports submiting the script with Python and R code behind, you just set up the environment for the backend.
+Our tool supports submitting the script with Python and R code behind, you just set up the environment for the backend.
 
 **Set up the environment**
 
 Open your account in portal -> Select **Overview** and click **Sample Script** -> Click **More** -> Select **Install U-SQL Extensions**. 
 
-![Set up the enrionment for python and R](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
+![Set up the environment for python and R](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
 
 **To generate Python code-behind file**
 1. Right-click a script file, and then select **DL: Generate Python Code Behind File**. 
@@ -455,7 +455,7 @@ Another way to preview file is through the right-click menu on the file's full p
 
 1. Right-click the script editor and select **Upload File** or **Upload Folder**.
 
-2. Choose one file or mutiple files if select upload file, or choose the whole folder if select upload folder then click **Upload**. -> Choose the storage folder in the list, or click **Enter Path** or **Browse from Root** (uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path (For example: /output/). -> click **Choose Current Folder** to specify your upload destination.
+2. Choose one file or multiple files if select upload file, or choose the whole folder if select upload folder then click **Upload**. -> Choose the storage folder in the list, or click **Enter Path** or **Browse from Root** (uses Enter a path as an example). -> Select your **ADLA Account**. ->  Navigate or enter the storage folder path (For example: /output/). -> click **Choose Current Folder** to specify your upload destination.
 
    ![Data Lake Tools for Visual Studio Code upload status](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
 
