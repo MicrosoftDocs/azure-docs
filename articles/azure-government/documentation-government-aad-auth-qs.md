@@ -1,5 +1,5 @@
 ---
-title: Azure Government Integrating AAD Authentication | Microsoft Docs
+title: Azure Government Integrating Azure AD Authentication | Microsoft Docs
 description: Integrating AAD Authentication on Azure Government Quickstart
 services: azure-government
 cloud: gov
@@ -17,8 +17,8 @@ ms.date: 11/2/2017
 ms.author: yujhongmicrosoft
 
 ---
-# Integrating AAD Authentication with Web Apps on Azure Government
-The series of Quickstarts below will help you get started integrating AAD Authentication with applications on Azure Government. AAD Authentication on Azure Government is similar to the Azure commercial platform, with a [few exceptions](documentation-government-services-securityandidentity.md).
+# Integrating Azure AD Authentication with Web Apps on Azure Government
+The series of Quickstarts below will help you get started integrating Azure AD Authentication with applications on Azure Government. Azure AD Authentication on Azure Government is similar to the Azure commercial platform, with a [few exceptions](documentation-government-services-securityandidentity.md).
 
 To learn more about Azure Active Directory Authentication Scenarios, click [here](../active-directory/develop/active-directory-authentication-scenarios.md). 
 
@@ -26,11 +26,11 @@ To learn more about Azure Active Directory Authentication Scenarios, click [here
 This section shows how to integrate Azure AD using the OpenID Connect protocol for signing in users into a web app. 
 
 ### Prerequisites 
-- An Azure Active Directory (Azure AD) tenant in Azure Government. You must have an [Azure Government subscription](https://azure.microsoft.com/overview/clouds/government/request/) in order to have an AAD tenant in Azure Government. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/) 
+- An Azure Active Directory (Azure AD) tenant in Azure Government. You must have an [Azure Government subscription](https://azure.microsoft.com/overview/clouds/government/request/) in order to have an Azure AD tenant in Azure Government. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/) 
 - A user account in your Azure AD tenant. This sample does not work with a Microsoft account, so if you signed in to the Azure Government portal with a Microsoft account and have never created a user account in your directory before, you need to do that now.
 - Have an [ASP.NET Core application deployed and running in Azure Government](documentation-government-howto-deploy-webandmobile.md)
 
-### Step 1: Register your web application with your AAD Tenant 
+### Step 1: Register your web application with your Azure AD Tenant 
 
 1. Sign in to the [Azure Government portal](https://portal.azure.us).
 2. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
@@ -50,23 +50,23 @@ This section shows how to integrate Azure AD using the OpenID Connect protocol f
 
 ### Step 2:  Configure your app to use your Azure AD tenant
 #### Azure Government Variations
-The only variation when setting up AAD Authorization on the Azure Government cloud is in the AAD Instance:
+The only variation when setting up Azure AD Authorization on the Azure Government cloud is in the Azure AD Instance:
  - "https://login.microsoftonline.us"
 
 #### Configure the InventoryApp project
 1. Open your application in Visual Studio 2017.
 2. Open the `appsettings.json` file.
-3. Add an `Authentication` section. You will be filling out the properties with your AAD tenant information.
+3. Add an `Authentication` section. You will be filling out the properties with your Azure AD tenant information.
 	
 	```cs
-    //ClientId: AAD->  App registrations -> Application ID
+    //ClientId: Azure AD->  App registrations -> Application ID
     //Domain: <tenantname>.onmicrosoft.com
-    //TenantId: AAD -> Properties -> Directory ID
+    //TenantId: Azure AD -> Properties -> Directory ID
 
     "Authentication": {
         "AzureAd": {
 
-        "AADInstance": "https://login.microsoftonline.us/",
+        "Azure ADInstance": "https://login.microsoftonline.us/",
         "CallbackPath": "/signin-oidc",
         "ClientId": "<clientid>",
         "Domain": "<domainname>",
@@ -74,8 +74,8 @@ The only variation when setting up AAD Authorization on the Azure Government clo
         }
     }
     ```
-4. Fill out the `ClientId` property with the Client ID for your app from the Azure Government portal. You can find the Client ID by navigating to AAD -> App Registrations -> Your Application -> Application ID. 
-5. Fill out the `TenantId` property with the Tenant ID for your app from the Azure Government portal. You can find the Tenant ID by navigating to AAD -> Properties -> Directory ID. 
+4. Fill out the `ClientId` property with the Client ID for your app from the Azure Government portal. You can find the Client ID by navigating to Azure AD -> App Registrations -> Your Application -> Application ID. 
+5. Fill out the `TenantId` property with the Tenant ID for your app from the Azure Government portal. You can find the Tenant ID by navigating to Azure AD -> Properties -> Directory ID. 
 6. Fill out the `Domain` property with "<tenantname>.onmicrosoft.com."
 6. Open the `startup.cs` file.
 7. In your `ConfigureServices` method, add the following code:
@@ -83,14 +83,14 @@ The only variation when setting up AAD Authorization on the Azure Government clo
     ```cs
         public void ConfigureServices(IServiceCollection services)
         {      
-            //Add AAD authentication
+            //Add Azure AD authentication
             services.AddAuthentication(options => {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
             })
             .AddCookie()
             .AddOpenIdConnect(options => {
-                options.Authority = Configuration["Authentication:AzureAd:AADInstance"] + Configuration["Authentication:AzureAd:TenantId"];
+                options.Authority = Configuration["Authentication:AzureAd:Azure ADInstance"] + Configuration["Authentication:AzureAd:TenantId"];
                 options.ClientId = Configuration["Authentication:AzureAd:ClientId"];
                 options.CallbackPath = Configuration["Authentication:AzureAd:CallbackPath"];
             });
@@ -108,7 +108,7 @@ In the same file, add this one line of code to the `Configure` method:
 ## Next Steps
 
 * Navigate to the [Azure Government PaaS Sample](https://github.com/yujhongmicrosoft/gov-paas-sample 
-) to see AAD Authentication as well as other services being integrated in an Application running on Azure Government. 
+) to see Azure AD Authentication as well as other services being integrated in an Application running on Azure Government. 
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
 * Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
