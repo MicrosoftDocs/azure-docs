@@ -1,0 +1,85 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Language Understand Intelligent Service (LUIS) Documentation
+metadata:
+  document_id: 
+  title: Language Understand Intelligent Service (LUIS) - Tutorials, Quickstarts, API Reference
+  description: Learn how to use Language Understand Intelligent Service API to allow your application to understand what a person wants in their own words. 
+  author: Kaiqb
+  manager: carolz
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/10/2017
+  ms.author: kamrani
+abstract:
+  description: Language Understanding Intelligent Service (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to use LUIS to add intelligence to your app:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/logo_luis.svg
+      - image:
+          src: media/index/logo_csharp.svg
+      - image:
+          src: media/index/logo_java.svg
+      - image:
+          src: media/index/logo_js.svg
+      - image:
+          src: media/index/logo_nodejs.svg
+      - image:
+          src: media/index/logo_python.svg
+      - image:
+          src: media/index/logo_php.svg
+      - image:
+          src: media/index/logo_ruby.svg
+    rows:
+      - title: Create a LUIS app
+        values:
+        - href: luis-get-started-create-app
+      - title: Endpoint API
+        values:
+        - href: 
+        - href: luis-get-started-cs-get-intent
+        - href: luis-get-started-java-get-intent
+        - href: luis-get-started-js-get-intent
+        - href: luis-get-started-node-get-intent
+        - href: luis-get-started-python-get-intent
+        - href: luis-get-started-php-get-intent
+        - href: luis-get-started-ruby-get-intent
+      - title: Authoring API
+        values:
+        - href:
+        - href: 
+        - href:
+        - href: 
+        - href: luis-quickstart-node-add-utterance
+        - href: luis-quickstart-python-add-utterance
+        - href:
+        - href: 
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using the LUIS API:'
+  - type: list
+    style: ordered
+    items:
+    - html: Integrate LUIS with a bot&#58; <a href="/azure/cognitive-services/LUIS/luis-nodejs-tutorial-build-bot-framework-sample">Node.js</a> | <a href="/azure/cognitive-services/LUIS/luis-csharp-tutorial-build-bot-framework-sample">.NET</a>
+    - html: Build a LUIS app programmatically&#58; <a href="/azure/cognitive-services/LUIS/luis-tutorial-node-import-utterances-csv">Node.js</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST APIs
+      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78"> Endpoint API</a></p><p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f"> Authoring API</a></p>
+    - title: SDKs
+      html: <p><a href="https://github.com/Microsoft/Cognitive-LUIS-Android"> Andriod</a></p><p><a href="https://github.com/Microsoft/Cognitive-LUIS-Node.js"> Node.js</a></p><p><a href="https://github.com/Microsoft/Cognitive-LUIS-Python"> Python</a></p><p><a href="https://github.com/Microsoft/Cognitive-LUIS-Windows"> .NET</a></p>
+      

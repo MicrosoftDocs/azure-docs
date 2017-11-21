@@ -115,7 +115,7 @@ The name displayed and referenced for next hop types is different between the Az
 
 An on-premises network gateway can exchange routes with an Azure virtual network gateway using the border gateway protocol (BGP). Using BGP with an Azure virtual network gateway is dependent on the type you selected when you created the gateway. If the type you selected was:
 
-- **ExpressRoute**: You must use BGP to advertise routes to the Microsoft edge router. You cannot create user-defined routes if you deploy a virtual network gateway deployed as type: ExpressRoute.
+- **ExpressRoute**: You must use BGP to advertise on-premises routes to the Microsoft edge router. You cannot create user-defined routes to force traffic to the ExpressRoute virtual network gateway if you deploy a virtual network gateway deployed as type: ExpressRoute. You can use user-defined routes for forcing traffic from the Express Route to, for example, an Network Virtual Appliance. 
 - **VPN**: You can, optionally use BGP. For details, see [BGP with site-to-site VPN connections](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 When you exchange routes with Azure using BGP, a separate route is added to the route table of all subnets in a virtual network for each advertised prefix. The route is added with *Virtual network gateway* listed as the source and next hop type. 

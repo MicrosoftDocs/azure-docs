@@ -43,7 +43,7 @@ Before you begin this tutorial:
 - [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 - [Install the Service Fabric SDK](service-fabric-get-started.md)
 - Create a Service Fabric application, for example by [following this tutorial](service-fabric-tutorial-create-dotnet-app.md). 
-- Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-cluster-azure-ps.md)
+- Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - Create a [Team Services account](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
 ## Download the Voting sample application
