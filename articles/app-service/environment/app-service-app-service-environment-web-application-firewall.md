@@ -73,15 +73,15 @@ Clicking on the Services tab will let you configure your WAF for services it is 
 > 
 
 ## Configuring Microsoft Azure Traffic Manager (OPTIONAL)
-If your application is available in multiple regions, then you would want to load balance them behind [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). To do so you can add an endpoint in the [Azure classic portal](https://manage.azure.com) using the Cloud Service name for your WAF in the Traffic Manager profile as shown in the image below. 
+If your application is available in multiple regions, then you would want to load balance them behind [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). To do so, you can add an endpoint in the [Azure portal](https://portal.azure.com) using the Cloud Service name for your WAF in the Traffic Manager profile as shown in the following image. 
 
 ![Traffic Manager Endpoint][TrafficManagerEndpoint]
 
-If your application requires authentication, ensure you have some resource that doesn't require any authentication for Traffic Manager to ping for the availability of your application. You can configure the URL under the Configure section on the [Azure classic portal](https://manage.azure.com) as shown below.
+If your application requires authentication, ensure you have some resource that doesn't require any authentication for Traffic Manager to ping for the availability of your application. You can configure the URL on the **Configuration** page in the [Azure portal](https://portal.azure.com) as shown in the following image.
 
 ![Configure Traffic Manager][ConfigureTrafficManager]
 
-To forward the Traffic Manager pings from your WAF to your application, you need to setup Website Translations on your Barracuda WAF to forward traffic to your application as shown in the example below.
+To forward the Traffic Manager pings from your WAF to your application, you need to setup Website Translations on your Barracuda WAF to forward traffic to your application as shown in the following example.
 
 ![Website Translations][WebsiteTranslations]
 
