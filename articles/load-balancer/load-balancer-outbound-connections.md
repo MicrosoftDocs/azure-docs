@@ -76,7 +76,7 @@ If you know you will be initiating many outbound connections to the same destina
 ### Modify application to reuse connections 
 You can reduce demand for ephemeral ports used for SNAT by reusing connections in your application.  This is especially true for protocols like HTTP/1.1 where this is explicitly supported.  And other protocols using HTTP as their transport (i.e. REST) can benefit in turn.  Reuse is always better than individual, atomic TCP connections for each request.
 
-### Modify application to se connection pooling
+### Modify application to use connection pooling
 You can employ a connection pooling scheme in your application, where requests are internally distributed across a fixed set of connections (each reusing where possible).  If you reuse the same flow for multiple requests, your multiple requests will consume a single port instead of additional flows to the same destination consuming additional ports and leading to exhaust conditions.
 
 ### Modify application to use less aggressive retry logic
