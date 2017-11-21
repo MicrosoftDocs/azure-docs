@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -29,21 +29,24 @@ ms.reviewer: dhanyahk
 
 
 
-We are improving Azure Active Directory on an ongoing basis. To enable you to stay up to date with the most recent developments, this article provides you with information about:
+We are improving Azure Active Directory on an ongoing basis. To enable you to stay up to date with the most recent developments, this topic provides you with information about:
 
-||||
-|---|---|---|
-|![Plan for change][1] Plan for change|![Bug fixes][2] Bug fixes|![New feature][3] New feature|
-|![Changed feature][4] Changed feature|![Deprecated functionality][5] Deprecated functionality|![Known issues][6] Known issues|
+-	The latest releases 
+-	Known issues 
+-	Bug fixes 
+-	Deprecated functionality 
+-	Plans for changes 
 
-
-Revisit this page regularly as we are updating it on a monthly basis.
-
+Please revisit this page regularly as we are updating it on a monthly basis.
 
 ## November 2017
  
-![Plan for change][1] **Plan for change**  
->*Identity Security & Protection > Conditional Access*  
+
+
+
+**Type:** Plan for change  
+**Service Category:** Conditional Access  
+**Product Capability:** Identity Security & Protection
 
 
 **Restrict browser access to the Intune managed browser** 
@@ -66,9 +69,11 @@ For more information, see [Conditional access in Azure Active Directory](active-
  
 ---
 
+
  
-![Plan for change][1] **Plan for change**  
->*Identity Security & Protection > Conditional Access*  
+**Type:** Plan for change  
+**Service Category:** Conditional Access  
+**Product Capability:** Identity Security & Protection
 
 
 **New approved client apps for Azure AD app-based conditional access**
@@ -91,11 +96,14 @@ For more information, see:
 ---
 
 
-![New feature][3] **New feature**    
->*Governance/Compliance > Terms of Use*  
+**Type:** New feature    
+**Service Category:** Terms of Use  
+**Product Capability:** Governance/Compliance
+
 
 
 **Terms of use support for multiple languages**
+
 
 Administrators can now create new terms of use (TOU) that contains multiple PDF documents. You can tag these PDF documents with a corresponding language. Users that fall in scope are shown the PDF with the matching language based on their preferences. If there is no match, the default language is shown.
 
@@ -103,12 +111,14 @@ Administrators can now create new terms of use (TOU) that contains multiple PDF 
 ---
  
 
-![New feature][3] **New feature**  
->*User Authentication>SSPR*  
- 
+
+**Type:** New feature  
+**Service Category:** SSPR  
+**Product Capability:** User Authentication
+
 
 **Realtime password writeback client status**
-
+ 
 
 You can now review the status of your on-premises password writeback client. This option is available in the **On-premises integration** section of the **[Password reset](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)** page. 
 
@@ -123,9 +133,11 @@ For more information, see [On-premises integration](active-directory-passwords-h
  
 ---
  
+**Type:** New feature  
+**Service Category:** Azure AD  
+**Product Capability:** Identity Security & Protection
 
-![New feature][3] **New feature**  
->*Identity Security & Protection > Azure AD*  
+
 
 **Azure AD app-based conditional access** 
 
@@ -156,11 +168,15 @@ For more information, see [Azure Active Directory app-based conditional access](
 ---
 
 
-![New feature][3] **New feature**  
->*Identity Security & Protection > Device Registration and Management*  
+
+**Type:** New feature  
+**Service Category:** Device Registration and Management  
+**Product Capability:** Identity Security & Protection
+
  
 
 **Managing Azure AD devices in the Azure portal**
+
 
 You can now find all your devices connected to Azure AD and the device-related activities in one place. There is a new administration experience to manage all your device identities and settings in the Azure portal. In this release you can:
 
@@ -180,14 +196,15 @@ For more information, see [Managing devices using the Azure portal](device-manag
  
 ---
 
+
+**Type:** New feature    
+**Service Category:** Conditional Access  
+**Product Capability:** Identity Security & Protection 
+
+
+
+**Support for macOS as device platform for Azure AD conditional access** 
  
-
-![New feature][3] **New feature**    
->*Identity Security & Protection > Conditional Access*  
- 
-
-**Support for macOS as device platform for Azure AD conditional access**
-
 
 You can now include (or exclude) macOS as device platform condition in your Azure AD conditional access policy. 
 With the addition of macOS to the supported device platforms, you can:
@@ -206,12 +223,15 @@ For more information, see:
 
  
 ---
- 
 
-![New feature][3] **New feature**    
->*User Authentication > MFA*  
 
-**NPS Extension for Azure MFA**
+**Type:** New feature    
+**Service Category:** MFA  
+**Product Capability:** User Authentication
+
+
+**NPS Extension for Azure MFA** 
+
 
 The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA capabilities to your authentication infrastructure using your existing servers. With the NPS extension, you can add phone call, text message, or phone app verification to your existing authentication flow without having to install, configure, and maintain new servers. 
 
@@ -222,13 +242,14 @@ For more information, see [Integrate your existing NPS infrastructure with Azure
 
  
 ---
- 
-
-![New feature][3] **New feature**    
->*Directory > User Management*  
 
 
-**Restore or permanently remove deleted users** 
+**Type:** New feature    
+**Service Category:** User Management  
+**Product Capability:** Directory 
+
+
+**Restore or permanently remove deleted users**
 
 
 In the Azure AD admin center, you can now:
@@ -248,9 +269,12 @@ In the Azure AD admin center, you can now:
  
 ---
 
+
+
  
-![Changed feature][4] **Changed feature**  
->*Identity Security & Protection > Conditional Access*  
+**Type:** Changed feature  
+**Service Category:** Conditional Access  
+**Product Capability:** Identity Security & Protection
 
 **New approved client apps for Azure AD app-based conditional access**
 
@@ -271,11 +295,14 @@ For more information, see:
 
 ---
 
-![Changed feature][4] **Changed feature**    
->*Identity Security & Protection > Conditional Access*  
+
+
+**Type:** Changed feature    
+**Service Category:** Conditional Access  
+**Product Capability:** Identity Security & Protection
+
 
 **Ability to 'OR' between controls in a conditional access policy** 
-
  
 The ability to 'OR' (Require one of the selected controls) conditional access controls has been released. This  feature enables you to create policies with an **OR** between access controls. For example, you can use this feature to create a policy that requires a user to sign in using multi-factor authentication **OR** to be on a compliant device.
 
@@ -285,12 +312,12 @@ For more information, see [Controls in Azure Active Directory conditional access
 ---
 
 
-![Changed feature][4] **Changed feature**    
->*Identity Security & Protection > Identity Protection*  
 
+**Type:** Changed feature    
+**Service Category:** Identity Protection  
+**Product Capability:** Identity Security & Protection
 
 **Aggregation of realtime risk events**
- 
 
 To improve your administration experience, in Azure AD Identity Protection, all realtime risk events that were originated from the same IP address on a given day are now aggregated for each risk event type. This change limits the volume of risk events shown without any change in the user security.
 
@@ -300,11 +327,11 @@ The underlying realtime detection works each time the user logs in. If you have 
 ---
  
 
-![Deprecated functionality][5] **Deprecated functionality**  
->*Access Control Service > ACS*  
-  
-**Retiring ACS** 
+**Type:** Deprecated functionality  
+**Service Category:** ACS  
+**Product Capability:** Access Control Service 
 
+**Retiring ACS**
 
 Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) will be retired in late 2018.  Further information, including a detailed schedule & high-level migration guidance, will be provided in the next few weeks. In the meantime, leave comments on this page with any questions regarding ACS, and a member of our team will help to answer.
 
@@ -313,12 +340,12 @@ Microsoft Azure Active Directory Access Control (also known as Access Control Se
 
 ## October 2017
 
+**Type:** Plan for change  
+**Service Category:** Reporting  
+**Product Capability:** Identity Lifecycle Management  
 
-![Plan for change][1] **Plan for change**  
->*Identity Lifecycle Management > Reporting*  
 
-**Deprecating Azure AD reports** 
-
+**Deprecating Azure AD reports**
 
 The Azure portal provides you with:
 
@@ -329,12 +356,12 @@ Due to these new capabilities, the report APIs under the **/reports** endpoint w
 
 ---
 
+**Type:** Fixed   
+**Service Category:** My Apps  
+**Product Capability:** SSO  
 
-![Bug fixes][2] **Fixed**   
->*SSO > My Apps*  
-   
 
-**Automatic sign-in field detection** 
+**Automatic sign-in field detection**
 
 
 Azure Active Directory supports automatic sign-in field detection for applications that render an HTML username and password field.  These steps are documented in [How to automatically capture sign-in fields for an application](application-config-sso-problem-configure-password-sso-non-gallery.md#how-to-manually-capture-sign-in-fields-for-an-application). You can find this capability by adding a *Non-Gallery* application on the **Enterprise Applications** page in the [Azure portal](http://aad.portal.azure.com). Additionally, you can configure the **Single Sign-on** mode on this new application to **Password-based Single Sign-on**, entering a web URL, and then saving the page.
@@ -343,12 +370,12 @@ Due to a service issue, this functionality was temporarily disabled for a period
 
 ---
 
+**Type:** New feature  
+**Service Category:** MFA  
+**Product Capability:** Identity Security & Protection  
 
-![New feature][3] **New feature**    
->*Identity Security & Protection > MFA*  
 
 **New MFA features**
-
 
 Multi-Factor authentication (MFA) is an essential part of protecting your organization. To make credentials more adaptive and the experience more seamless, the following features have been added: 
 
@@ -362,14 +389,12 @@ For more information, see [Reference for multi-factor authentication reporting i
 
 
 ---
-
-
-![New feature][3] **New feature**    
->*Governance > Terms of Use*  
+**Type:** New feature  
+**Service Category:** Terms of Use  
+**Product Capability:** Governance  
 
 
 **Introducing terms of use**
-
 
 Azure AD terms of use provide you with a simple method to present information to end users. This ensures that users see relevant disclaimers for legal or compliance requirements.
 
@@ -385,10 +410,9 @@ For more information, see [Azure Active Directory Terms of Use](active-directory
 
 
 ---
-
-
-![New feature][3] **New feature**    
->*Privileged Identity Management > PIM*  
+**Type:** New feature  
+**Service Category:** PIM  
+**Product Capability:** Privileged Identity Management  
 
 **Enhancements to privileged identity management**
 
@@ -402,14 +426,14 @@ All resources within the Azure portal that leverage the Azure Role Based Access 
 
 For more information, see [PIM for Azure resources](privileged-identity-management/azure-pim-resource-rbac.md).
 
+
 ---
-
-
-![New feature][3] **New feature**    
->*Governance > Access Reviews*  
- 
+**Type:** New feature  
+**Service Category:** Access Reviews  
+**Product Capability:** Governance  
 
 **Introducing access reviews**
+
 
 Access reviews (preview) enable organizations to efficiently manage group memberships and access to enterprise applications: 
 
@@ -423,15 +447,12 @@ For more information, see [Azure AD access reviews](active-directory-azure-ad-co
 
 
 ---
-
-
-
-![New feature][3] **New feature**    
->*SSO > My Apps*  
+**Type:** New feature  
+**Service Category:** My Apps  
+**Product Capability:** SSO  
 
 
 **Hiding third-party applications from My Apps and the Office 365 launcher**
-
 
 You can now better manage apps that show up on your user portals through a new **hide app** property. Hiding apps helps with cases where app tiles are showing up for backend services or duplicate tiles and end up cluttering user's app launchers. The toggle is located on the properties section of the third-party app and is labeled **Visible to user?** You can also hide an app programmatically through PowerShell. 
 
@@ -445,12 +466,12 @@ For more information, see [Hide a third-party application from user's experience
 
 ## September 2017
 
+**Type:** Changed feature  
+**Service Category:** Microsoft Identity Manager  
+**Product Capability:** Identity Lifecycle Management  
 
-![Changed feature][4] **Changed feature**    
->*Identity Lifecycle Management > Microsoft Identity Manager*  
-   
+
 **Hotfix for Microsoft Identity Manager**
-
 
 A hotfix rollup package (build 4.4.1642.0) is available as of September 25, 2017, for Microsoft Identity Manager (MIM) 2016 2016 Service Pack 1 (SP1). This roll-up package:
 
@@ -459,17 +480,4 @@ A hotfix rollup package (build 4.4.1642.0) is available as of September 25, 2017
 - Requires you to have **Microsoft Identity Manager 2016 build 4.4.1302.0.** 
 
 For more information, see [Hotfix rollup package (build 4.4.1642.0) is available for Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/en-us/help/4021562). 
-
 ---
-
-<!--Image references-->
-[1]: ./media/whats-new/plan-for-changes.png
-[2]: ./media/whats-new/bug-fixes.png
-[3]: ./media/whats-new/new-features.png
-[4]: ./media/whats-new/changed-features.png
-[5]: ./media/whats-new/known-issues.png
-[6]: ./media/whats-new/deprecated-functionality.png
-
-
-
-
