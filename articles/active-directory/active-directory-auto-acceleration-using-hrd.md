@@ -55,7 +55,7 @@ Domain hint syntax varies depending on the protocol that's used, and it's typica
 
 **WS-Federation**:  whr=contoso.com in the query string.
 
-**SAML**:  Either a SAML authentication request containing a domain hint or a query string whr=contoso.com.
+**SAML**:  Either a SAML authentication request that contains a domain hint or a query string whr=contoso.com.
 
 **Open ID Connect**: A query string domain_hint=contoso.com. 
 
@@ -105,7 +105,7 @@ If **AccelerateToFederatedDomain** is false, the policy has no effect.
 
 **PreferredDomain** should indicate a domain to which to accelerate, and can be omitted if the tenant has only one federated domain.  If it is omitted, and there is more than one verified, federated domain, the policy has no effect.
 
-If **PreferredDomain** is specified it must match a verified, federated domain for the tenant, and all users of the application in question must be able to sign into that domain.
+If **PreferredDomain** is specified, it must match a verified, federated domain for the tenant, and all users of the application in question must be able to sign in to that domain.
 
 ### Priority and evaluation of HRD policies
 HRD policies can be created and then assigned to specific organizations and service principals. This means that it is possible for multiple policies to apply to a specific application. The HRD policy that takes effect follows these rules:
@@ -172,7 +172,7 @@ You need the **ObjectID** of the service principals to which you want to assign 
 You can use the portal or you can query the [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). You can also go to our [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign into your Azure AD account to see all your organization's service principals. Since you are using PowerShell, you can use the get-AzureADServicePrincipal cmdlet to list the service principles and their IDs.
 
 #### Step 3: Assign the policy to your service principal  
-After you have the object ID of the service principal of the application for which you want to configure auto-acceleration, run the following command to associate the HRD policy that you created in step 1 with the service principal that you located in step 2.
+After you have the **ObjectID** of the service principal of the application for which you want to configure auto-acceleration, run the following command to associate the HRD policy that you created in step 1 with the service principal that you located in step 2.
 
 ``` powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
