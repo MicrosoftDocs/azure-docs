@@ -84,12 +84,6 @@ Products are how APIs are surfaced to developers. Products in API Management hav
 
 Groups are used to manage the visibility of products to developers. Products grant visibility to groups, and developers can view and subscribe to the products that are visible to the groups in which they belong. 
 
-For more information, see [How to create and publish a product][How to create and publish a product] and the following video:
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
-> 
-> 
-
 ## <a name="groups"> </a> Groups
 Groups are used to manage the visibility of products to developers. API Management has the following immutable system groups:
 
@@ -111,17 +105,11 @@ For more information, see [How to create or invite developers][How to create or 
 ## <a name="policies"> </a> Policies
 Policies are a powerful capability of API Management that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the number of incoming calls from a developer, and many other policies are available.
 
-Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) and [Set variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies), [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx), and watch the following video:
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) and [Set variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) and [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
-> 
 
-For a complete list of API Management policies, see [Policy reference][Policy reference]. For more information on using and configuring policies, see [API Management policies][API Management policies]. For a tutorial on creating a product with rate limit and quota policies, see [How create and configure advanced product settings][How create and configure advanced product settings]. For a demo, see the following video:
+For a complete list of API Management policies, see [Policy reference][Policy reference]. For more information on using and configuring policies, see [API Management policies][API Management policies]. For a tutorial on creating a product with rate limit and quota policies, see [How create and configure advanced product settings][How create and configure advanced product settings].
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
-> 
-> 
 
 ## <a name="developer-portal"> </a> Developer portal
 The developer portal is where developers can learn about your APIs, view and call operations, and subscribe to products. Prospective customers can visit the developer portal, view APIs and operations, and sign up. The URL for your developer portal is located on the dashboard in the Azure Classic Portal for your API Management service instance.
@@ -129,6 +117,7 @@ The developer portal is where developers can learn about your APIs, view and cal
 You can customize the look and feel of your developer portal by adding custom content, customizing styles, and adding your branding.
 
 ## API Management and the API economy
+
 To learn more about API Management, watch the following presentation from the Microsoft Ignite 2017 conference.
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2186/player]
