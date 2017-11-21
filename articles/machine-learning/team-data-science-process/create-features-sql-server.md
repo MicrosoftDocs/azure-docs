@@ -18,7 +18,7 @@ ms.author: bradsev;fashah;garye
 
 ---
 # Create features for data in SQL Server using SQL and Python
-This document shows how to generate features for data stored in a SQL Server VM on Azure that help algorithms learn more efficiently from the data. This can be done by using SQL or by using a programming language like Python, both of which are demonstrated here.
+This document shows how to generate features for data stored in a SQL Server VM on Azure that help algorithms learn more efficiently from the data. You can use SQL or a programming language like Python to accomplish this task. Both approaches are demonstrated here.
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
@@ -62,22 +62,22 @@ The following example shows how to generate binned features by binning (using 5 
 
 
 ### <a name="sql-featurerollout"></a>Rolling out the features from a single column
-In this section, we demonstrate how to roll-out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
+In this section, we demonstrate how to roll out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
 
-Here is a brief primer on latitude/longitude location data (resourced from stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). This is useful to understand before featurizing the location field:
+Here is a brief primer on latitude/longitude location data (resourced from stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Here are some useful things to understand about location data before creating features from the field:
 
-* The sign tells us whether we are north or south, east or west on the globe.
-* A nonzero hundreds digit tells us we're using longitude, not latitude!
-* The tens digit gives a position to about 1,000 kilometers. It gives us useful information about what continent or ocean we are on.
-* The units digit (one decimal degree) gives a position up to 111 kilometers (60 nautical miles, about 69 miles). It can tell us roughly what large state or country we are in.
+* The sign indicates whether we are north or south, east or west on the globe.
+* A nonzero hundreds digit indicates longitude, not latitude is being used.
+* The tens digit gives a position to about 1,000 kilometers. It gives useful information about what continent or ocean we are on.
+* The units digit (one decimal degree) gives a position up to 111 kilometers (60 nautical miles, about 69 miles). It indicates, roughly, what large state or country we are in.
 * The first decimal place is worth up to 11.1 km: it can distinguish the position of one large city from a neighboring large city.
 * The second decimal place is worth up to 1.1 km: it can separate one village from the next.
 * The third decimal place is worth up to 110 m: it can identify a large agricultural field or institutional campus.
 * The fourth decimal place is worth up to 11 m: it can identify a parcel of land. It is comparable to the typical accuracy of an uncorrected GPS unit with no interference.
-* The fifth decimal place is worth up to 1.1 m: it distinguish trees from each other. Accuracy to this level with commercial GPS units can only be achieved with differential correction.
+* The fifth decimal place is worth up to 1.1 m: it distinguishes trees from each other. Accuracy to this level with commercial GPS units can only be achieved with differential correction.
 * The sixth decimal place is worth up to 0.11 m: you can use this for laying out structures in detail, for designing landscapes, building roads. It should be more than good enough for tracking movements of glaciers and rivers. This can be achieved by taking painstaking measures with GPS, such as differentially corrected GPS.
 
-The location information can can be featurized as follows, separating out region, location and city information. Note that once can also call a REST end point such as Bing Maps API available at `https://msdn.microsoft.com/library/ff701710.aspx` to get the region/district information.
+The location information can be featurized by separating out region, location, and city information. Note that once can also call a REST end point such as Bing Maps API available at `https://msdn.microsoft.com/library/ff701710.aspx` to get the region/district information.
 
     select
         <location_columnname>
@@ -90,10 +90,10 @@ The location information can can be featurized as follows, separating out region
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-The above location based features can be further used to generate additional count features as described earlier.
+These location based features can be further used to generate additional count features as described earlier.
 
 > [!TIP]
-> You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency [Check out the example of how to do this using pyodbc here](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency. [Here is an example of how to do this using pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 > Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx)
 > 
 > 
@@ -101,18 +101,18 @@ The above location based features can be further used to generate additional cou
 ### <a name="sql-aml"></a>Connecting to Azure Machine Learning
 The newly generated feature can be added as a column to an existing table or stored in a new table and joined with the original table for machine learning. Features can be generated or accessed if already created, using the [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module in Azure ML as shown below:
 
-![azureml readers](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
+![Azure ML readers](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
 ## <a name="python"></a>Using a programming language like Python
-Using Python to generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented in [Process Azure Blob data in you data science environment](data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
+Using Python to generate features when the data is in SQL Server is similar to processing data in Azure blob using Python. For comparison, see [Process Azure Blob data in your data science environment](data-blob.md). Load the data from the database into a pandas data frame to process it further. The process of connecting to the database and loading the data into the data frame is documented in this section.
 
-The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username and password with your specific values):
+The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username, and password with your specific values):
 
     #Set up the SQL Azure connection
     import pyodbc
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The code below reads the results returned from a SQL Server database into a Pandas data frame:
+The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The following code reads the results returned from a SQL Server database into a Pandas data frame:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
