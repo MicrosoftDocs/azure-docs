@@ -36,7 +36,7 @@ The following are important things to know about the Trace Collector:
 
 The following example is a trace configuration JSON file for FabricRingServices Operations from the XRP VM: 
 
-```
+```powershell
 {
     "LogFile": 
     {
@@ -86,21 +86,25 @@ These files are collected by the Trace Collector and stored in a share from wher
 
     Collect all logs for all roles:
 
-      ```
-      Get-AzureStackLog -OutputPath C:\AzureStackLogs
-      ```
+    ```powershell
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs
+    ```
 
     Collect logs from VirtualMachines and BareMetal roles:
 
-      ```Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal```
+    ```powershell
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+    ```
 
     Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the past 8 hours:
     
-    ```Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)```
+    ```powershell
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+    ```
 
     Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the time period between 8 hours ago and 2 hours ago:
 
-    ```
+    ```powershell
     Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
     ```
 
@@ -108,7 +112,7 @@ These files are collected by the Trace Collector and stored in a share from wher
 
 To run the log collection tool on an integrated system, you need to have access to the Privileged End Point (PEP). Here is an example script you can run using the PEP to collect logs on an integrated system:
 
-```
+```powershell
 $ip = "<IP OF THE PEP VM>" # You can also use the machine name instead of IP here.
  
 $pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
