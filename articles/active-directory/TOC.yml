@@ -46,7 +46,7 @@
         href: msi-how-to-use-vm-msi-token.md
       - name: Sign-in under the service principal
         href: msi-how-to-use-vm-msi-sign-in.md
-      - name: With Azure SDKs
+      - name: Use MSI with Azure SDKs
         href: msi-how-to-use-vm-msi-sdk.md
     - name: Configure MSI for an Azure VM
       items:

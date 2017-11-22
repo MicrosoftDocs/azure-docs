@@ -19,7 +19,7 @@ ms.author: bryanla
 # How to use an Azure VM Managed Service Identity (MSI) for token acquisition 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
-An MSI provides client applications with an [**app-only access token**](develop/active-directory-dev-glossary.md#access-token) for accessing a given resource. The token is [based on the MSI service principal](msi-overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
+A client application can request an MSI [**app-only access token**](develop/active-directory-dev-glossary.md#access-token) for accessing a given resource. The token is [based on the MSI service principal](msi-overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
 
 ## Prerequisites
 
@@ -32,20 +32,10 @@ If you plan to use the Azure PowerShell examples in this article, be sure to ins
 > - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
 
 ## Code examples
-
-As discussed previously, MSI offers a service principal and access token for resource access. The examples below show a variety of examples, starting from the most primitive HTTP/REST layer:
-
-|      Client type       |       Demonstration       |  
-| ---------------------- | ------------------------- | 
-| [HTTP/REST](#httprest) | Acquire token             | 
-| <br>Language snippets: |                           |             
-| [.NET C#](#net-c)      | Acquire token             |                 
-| [Go](#go)              | Acquire token             |                                     
-| [Bash/CURL](#bashcurl) | Acquire token             |                                     
-
+                               
 ### HTTP/REST 
 
-REST provides a fundamental interface for acquiring an access token, accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs an Azure AD endpoint).
+The fundamental interface for acquiring an access token is based on REST, making it accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs an Azure AD endpoint).
 
 Sample request:
 
@@ -89,7 +79,7 @@ Content-Type: application/json
 
 ### .NET C#
 
-The following script demonstrates how to acquire an MSI access token for an Azure VM:
+The following example demonstrates how to use the MSI REST endpoint from a C# client:
 
 ```csharp
 using System;
@@ -122,14 +112,9 @@ catch (Exception e)
 
 ```
 
-For complete code samples, see:
-
-- [Deploy an ARM template from a Windows VM using Managed Service Identity](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) (.NET)
-- [Call Azure services from a Linux VM using Managed Service Identity](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) (.NET Core)
-
 ### Go
 
-The following script demonstrates how to acquire an MSI access token for an Azure VM:
+The following example demonstrates how to use the MSI REST endpoint from a Go client:
 
 ```
 package main
@@ -207,45 +192,12 @@ func main() {
 }
 ```
 
-### Node
-
-For complete code samples, see:
-
-- [Manage resources using Managed Service Identity](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/)
-
-### Python
-
-For complete code samples, see:
-
-- [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) 
-
-### Ruby
-
-For complete code samples, see:
-
-- [Manage resources from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) 
-
-### Azure CLI
-
-The following script demonstrates how to:
-
-1. Sign in to Azure AD under the VM's MSI service principal
-2. Call Azure Resource Manager and get the VM's service principal ID. CLI takes care of managing token acquisition/use for you automatically. Be sure to substitute your virtual machine name for `<VM-NAME>`.
-
-```azurecli
-az login --msi
-spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
-echo The MSI service principal ID is $spID
-```
-
 ### Azure PowerShell
 
-The following script demonstrates how to:
+The following example demonstrates how to use the MSI REST endpoint from a PowerShell to:
 
-1. Acquire an MSI access token for the VM.
+1. Acquire an access token.
 2. Use the access token to call an Azure Resource Manager REST API and get information about the VM. Be sure to substitute your subscription ID, resource group name, and virtual machine name for `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, and `<VM-NAME>`, respectively.
-2. Use the access token to sign in to Azure AD, under the corresponding MSI service principal. 
-3. Call an Azure Resource Manager cmdlet to get information about the VM. PowerShell takes care of managing token use for you automatically.
 
 ```azurepowershell
 # Get an access token for the MSI
@@ -260,18 +212,11 @@ $vmInfoRest = (Invoke-WebRequest -Uri https://management.azure.com/subscriptions
 echo "JSON returned from call to get VM info:"
 echo $vmInfoRest
 
-# Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
-
-# Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
-$vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
-$spID = $vmInfoPs.Identity.PrincipalId
-echo "The MSI service principal ID is $spID"
 ```
 
 ### Bash/CURL
 
-The following script demonstrates how to acquire an MSI access token for an Azure VM:
+The following example demonstrates how to use the MSI REST endpoint from a Bash client:
 
 ```bash
 response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
@@ -325,25 +270,9 @@ This section documents the possible error responses. A "200 OK" status is a succ
 | TBD          | invalid_scope | The requested scope is invalid, unknown, or malformed. | TBD |
 | 500 Internal server error | unknown | Failed to retrieve token from the Active directory. For details see logs in *\<file path\>* | Verify that MSI has been enabled on the VM. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.<br><br>Also verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the [preceding REST section](#rest) for an example, or [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of services and their respective resource IDs.
 
-### PowerShell/CLI error handling guidance 
-
-Responses such as the following may indicate that the VM's MSI has not been correctly configured:
-
-- PowerShell: *Invoke-WebRequest : Unable to connect to the remote server*
-- CLI: *MSI: Failed to retrieve a token from 'http://localhost:50342/oauth2/token' with an error of 'HTTPConnectionPool(host='localhost', port=50342)* 
-
-If you receive one of these errors, return to the Azure VM in the [Azure portal](https://portal.azure.com) and:
-
-- Go to the **Configuration** page and ensure "Managed service identity" is set to "Yes."
-- Go to the **Extensions** page and ensure the MSI extension deployed successfully.
-
-If either is incorrect, you may need to redeploy the MSI on your resource again, or troubleshoot the deployment failure. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.
-
-
 ## Related content
 
-- For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
-- To enable MSI on an Azure VM, see [Configure an Azure VM Managed Service Identity (MSI) using PowerShell](msi-qs-configure-powershell-windows-vm.md).
+- To enable MSI on an Azure VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 
