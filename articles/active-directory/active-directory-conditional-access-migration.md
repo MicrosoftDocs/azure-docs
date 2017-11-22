@@ -77,7 +77,7 @@ See:
 
 ## Multi-factor authentication policy 
 
-This example shows how to migrate a classic policy that requires multi-factor authentication** for a cloud app. 
+This example shows how to migrate a classic policy that requires **multi-factor authentication** for a cloud app. 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
 
