@@ -28,7 +28,8 @@ For this document, we configure the App Service Environment behind multiple load
 
 ![Architecture][Architecture] 
 
-> Note: With the introduction of [ILB support for App Service Environment](app-service-environment-with-internal-load-balancer.md), you can configure the ASE to be inaccessible from the DMZ and only be available to the private network. 
+> [!NOTE]
+> With the introduction of [ILB support for App Service Environment](app-service-environment-with-internal-load-balancer.md), you can configure the ASE to be inaccessible from the DMZ and only be available to the private network. 
 > 
 > 
 
@@ -48,7 +49,8 @@ If your applications use other endpoints, make sure to add them to this list as 
 ### Configuring Barracuda WAF through its Management Portal
 Barracuda WAF uses TCP Port 8000 for configuration through its management portal. If you have multiple instances of the WAF VMs, you need to repeat the steps here for each VM instance. 
 
-> Note: Once you are done with WAF configuration, remove the TCP/8000 endpoint from all your WAF VMs to keep your WAF secure.
+> [!NOTE]
+> Once you are done with WAF configuration, remove the TCP/8000 endpoint from all your WAF VMs to keep your WAF secure.
 > 
 > 
 
@@ -68,7 +70,8 @@ Clicking on the **Services** tab lets you configure your WAF for services it is 
 
 ![Management Add Services][ManagementAddServices]
 
-> Note: Depending on how your applications are configured and what features are being used in your App Service Environment, you need to forward traffic for TCP ports other than 80 and 443, for example, if you have IP SSL setup for a Web App. For a list of network ports used in App Service Environments, see [Control Inbound Traffic documentation's](app-service-app-service-environment-control-inbound-traffic.md) Network Ports section.
+> [!NOTE]
+> Depending on how your applications are configured and what features are being used in your App Service Environment, you need to forward traffic for TCP ports other than 80 and 443, for example, if you have IP SSL setup for a Web App. For a list of network ports used in App Service Environments, see [Control Inbound Traffic documentation's](app-service-app-service-environment-control-inbound-traffic.md) Network Ports section.
 > 
 > 
 
@@ -92,7 +95,8 @@ Follow the [Control Inbound Traffic documentation](app-service-app-service-envir
 
 Replace the SourceAddressPrefix with the Virtual IP Address (VIP) of your WAF's Cloud Service.
 
-> Note: The VIP of your Cloud Service changes when you delete and re-create the Cloud Service. Make sure to update the IP address in the Network Resource group once you do so. 
+> [!NOTE]
+> The VIP of your Cloud Service changes when you delete and re-create the Cloud Service. Make sure to update the IP address in the Network Resource group once you do so. 
 > 
 > 
 
