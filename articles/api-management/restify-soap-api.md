@@ -83,15 +83,7 @@ Operations can also be called **Developer portal** to test APIs.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
-## Related topics
-
-+ [Add an API manually](add-api-manually.md)
-+ [Import an API from OpenAPI Specification](import-api-from-oas.md)
-+ [Import a SOAP API and convert to REST](restify-soap-api.md)
-+ [Import an API App as an API](import-api-app-as-api.md)
-+ [Import a Function App as an API](import-function-app-as-api.md)
-+ [Import a Logic App as an API](import-logic-app-as-api.md)
-+ [Import a Service Fabric app as an API](import-service-fabric-app-as-api.md)
+[!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
 ## Next steps
 
