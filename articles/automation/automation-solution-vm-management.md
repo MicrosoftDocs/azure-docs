@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 11/22/2017
 ms.author: magoedte
 ---
 
@@ -21,13 +21,11 @@ ms.author: magoedte
 
 The Start/Stop VMs during off-hours solution starts and stops your Azure virtual machines on user-defined schedules, provides insights through Log Analytics, and sends optional emails by leveraging [SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/SendGrid.SendGrid?tab=Overview). It supports both Azure Resource Manager and classic VMs for most scenarios. 
 
-This solution provides a decentralized automation capabilities for customers who want to reduce their costs leveraging serverless, low cost resources. Features include:
+This solution provides a decentralized automation capability for customers who want to reduce their costs leveraging serverless, low cost resources. Features include:
 
 * Schedule VMs to start/stop
 * Schedule VMs to start/stop in ascending order using Azure Tags (not supported for  classic VMs)
 * Auto stop VMs based on low CPU usage
-
-All parent runbooks includes the *WhatIf* parameter, which when set to **True**, supports detailing the exact behavior the runbook takes when run without the *WhatIf* parameter and validates the correct VMs are being targeted.  Runbooks only performs its defined actions when the *WhatIf* parameter is set to **False**.  
 
 ## Prerequisites
 
@@ -43,7 +41,7 @@ All parent runbooks includes the *WhatIf* parameter, which when set to **True**,
 - To send email notifications when the start and stop VM runbooks complete, while onboarding from Azure Marketplace, you must select select **Yes** to deploy SendGrid. 
 
     > [!IMPORTANT]
-    > SendGrid is a third party service, for support with SendGrid please contact [SendGrid](https://sendgrid.com/contact/].  
+    > SendGrid is a third party service, for support with SendGrid please contact [SendGrid](https://sendgrid.com/contact/).  
     >
    
     Limitations with SendGrid are the following:
@@ -65,18 +63,18 @@ The following table list the runbooks deployed to your Automation account.  It 
 > Don’t directly run any runbook with the name “Child” appended at the end of it's name.
 >
 
+All parent runbooks includes the *WhatIf* parameter, which when set to **True**, supports detailing the exact behavior the runbook takes when run without the *WhatIf* parameter and validates the correct VMs are being targeted.  Runbooks only performs its defined actions when the *WhatIf* parameter is set to **False**. 
+
 |**Runbook** | **Parameters** | **Description**|
 | --- | --- | ---| 
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Called from the parent runbook only. Creates alerts on per resource basis for AutoStop scenario.| 
-|AutoStop_CreateAlert_Parent | WhatIf: True or False. <br> VMList | Creates or updates azure alert rules on VMs in the targeted subscription or resource groups. <br> WhatIf: True -> Runbook output will tell you which resources will be targeted. <br> WhatIf: False -> Create or update the alert rules. <br> VMList -> Comma separated list of VMs.  For example, *vm1,vm2,vm3*| 
+|AutoStop_CreateAlert_Parent | WhatIf: True or False <br> VMList | Creates or updates Azure alert rules on VMs in the targeted subscription or resource groups. <br> VMList: Comma separated list of VMs.  For example, *vm1,vm2,vm3*| 
 |AutoStop_Disable | none | Disable AutoStop alerts and default schedule.| 
 |AutoStop_StopVM_Child | WebHookData | Called from parent runbook only. Alert rules call this runbook and it does the work of stopping the VM.|  
 |Bootstrap_Main | none | Used one time to set-up bootstrap configurations such as webhookURI which is typically not accessible from ARM. This runbook will be removed automatically if deployment has gone successfully.|  
-|ScheduledStartStop_Child | VMName: <br> Action: Stop or Start <br> ResourceGroupName: | Called from parent runbook only. Does the actual execution of stop or start for scheduled Stop.|  
-|ScheduledStartStop_Parent | Action: Stop or Start <br> WhatIF: True or False | This will take effect on all VMs in the subscription unless you edit the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** which will restrict it to only execute on these target resource groups. You can also exclude specific VMs by updating the **External_ExcludeVMNames** variable. WhatIf behaves the same as in other runbooks.|  
-|SequencedStartStop_Parent | Action: Stop or Start <br> WhatIf:  True or False | Create a tag called **SequenceStart** and another tag called **SequenceStop** on each VM that you want to sequence start\\stop activity for. The value of the tag should be an positive integer (1,2,3) that corresponds to the order you want to start\\stop in ascending order. WhatIf behaves the same as in other runbooks. <br><br> **Note: VMs must be within resource groups defined External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables and have the appropriate tags for actions to take effect.**|
-
-<br> 
+|ScheduledStartStop_Child | VMName <br> Action: Stop or Start <br> ResourceGroupName: | Called from parent runbook only. Does the actual execution of stop or start for scheduled stop.|  
+|ScheduledStartStop_Parent | Action: Stop or Start <br> WhatIf: True or False | This will take effect on all VMs in the subscription unless you edit the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** which will restrict it to only execute on these target resource groups. You can also exclude specific VMs by updating the **External_ExcludeVMNames** variable. WhatIf behaves the same as in other runbooks.|  
+|SequencedStartStop_Parent | Action: Stop or Start <br> WhatIf: True or False | Create a tag called **SequenceStart** and another tag called **SequenceStop** on each VM that you want to sequence start\\stop activity for. The value of the tag should be a positive integer (1,2,3) that corresponds to the order you want to start\\stop in ascending order. WhatIf behaves the same as in other runbooks. <br> **Note: VMs must be within resource groups defined External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables and have the appropriate tags for actions to take effect.**|
 
 ### Variables
 
@@ -84,25 +82,25 @@ The following table list the variables created in your Automation account.  It i
 
 |**Variable** | **Description**|
 ---------|------------|
-|External\_AutoStop\_Condition | This is the conditional operator required for configuring the condition before triggering an alert. Acceptable values are **GreaterThan**, **GreaterThanOrEqual**, **LessThan**, **LessThanOrEqual**.|  
-|External\_AutoStop\_Description | Alert to stop the VM if the CPU % exceeds the threshold.|  
-|External\_AutoStop\_MetricName | Name of the performance metric the Azure Alert rule is to be configured for.| 
-|External\_AutoStop\_Threshold | Threshold for the Azure Alert rule specified in the variable *External_AutoStop_MetricName*. Percentage values can range from 1 to 100.|  
-|External\_AutoStop\_TimeAggregationOperator | The time aggregation operator which will be applied to the selected window size to evaluate the condition. Acceptable values are **Average**, **Minimum**, **Maximum**, **Total**, **Last**.|  
-|External\_AutoStop\_TimeWindow | The window size over which Azure will analyze selected metric for triggering an alert. This parameter accepts input in timespan format. Possible values are from five minutes to six hours.|  
-|External\_EmailFromAddress | Specifies the sender of the email.|  
-|External\_EmailSubject | Specifies the text for the subject line of the email.|  
-|External\_EmailToAddress | Specifies the recipient(s) of the email. Separate names using a comma.|  
-|External\_ExcludeVMNames | Enter VM names to be excluded, separating names using a comma with no spaces.|  
-|External\_IsSendEmail | Specifies option to send email notification upon completion.  Specify **Yes** or **No** to not send email.  This option should be **No** if you did not create SendGrid during the initial deployment.|  
-|External\_Start\_ResourceGroupNames | Specifies one or more resource groups, separating values using a comma, targeted for Start actions.|  
-|External\_Stop\_ResourceGroupNames | Specifies one ore more resource groups, separating values with comma, targeted for Stop actions.|  
-|Internal\_AutomationAccountName | Specifies the name of the Automation account.|  
-|Internal\_AutoSnooze_WebhookUri | Specifies Webhook URI called for the AutoStop scenario.|  
-|Internal\_AzureSubscriptionId | Specifies the Azure Subscription Id.|  
-|Internal\_ResourceGroupName | Specifies the Azure Automation account resource group name.|  
-|Internal\_SendGridAccountName | Specifies the SendGrid account name.|  
-|Internal\_SendGridPassword | Specifies the SendGrid account password.|  
+|External_AutoStop_Condition | This is the conditional operator required for configuring the condition before triggering an alert. Acceptable values are **GreaterThan**, **GreaterThanOrEqual**, **LessThan**, **LessThanOrEqual**.|  
+|External_AutoStop_Description | Alert to stop the VM if the CPU % exceeds the threshold.|  
+|External_AutoStop_MetricName | Name of the performance metric the Azure Alert rule is to be configured for.| 
+|External_AutoStop_Threshold | Threshold for the Azure Alert rule specified in the variable *External_AutoStop_MetricName*. Percentage values can range from 1 to 100.|  
+|External_AutoStop_TimeAggregationOperator | The time aggregation operator which will be applied to the selected window size to evaluate the condition. Acceptable values are **Average**, **Minimum**, **Maximum**, **Total**, **Last**.|  
+|External_AutoStop_TimeWindow | The window size over which Azure will analyze selected metric for triggering an alert. This parameter accepts input in timespan format. Possible values are from five minutes to six hours.|  
+|External_EmailFromAddress | Specifies the sender of the email.|  
+|External_EmailSubject | Specifies the text for the subject line of the email.|  
+|External_EmailToAddress | Specifies the recipient(s) of the email. Separate names using a comma.|  
+|External_ExcludeVMNames | Enter VM names to be excluded, separating names using a comma with no spaces.|  
+|External_IsSendEmail | Specifies option to send email notification upon completion.  Specify **Yes** or **No** to not send email.  This option should be **No** if you did not create SendGrid during the initial deployment.|  
+|External_Start_ResourceGroupNames | Specifies one or more resource groups, separating values using a comma, targeted for Start actions.|  
+|External_Stop_ResourceGroupNames | Specifies one ore more resource groups, separating values with comma, targeted for Stop actions.|  
+|Internal_AutomationAccountName | Specifies the name of the Automation account.|  
+|Internal_AutoSnooze_WebhookUri | Specifies Webhook URI called for the AutoStop scenario.|  
+|Internal_AzureSubscriptionId | Specifies the Azure Subscription Id.|  
+|Internal_ResourceGroupName | Specifies the Azure Automation account resource group name.|  
+|Internal_SendGridAccountName | Specifies the SendGrid account name.|  
+|Internal_SendGridPassword | Specifies the SendGrid account password.|  
 
 <br>
 
