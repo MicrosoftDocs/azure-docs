@@ -21,7 +21,7 @@ Azure Stack is a large collection of components working together and interacting
 
 Our diagnostics tools help ensure the log collection mechanism is easy and efficient. The following diagram shows how log collection tools in Azure Stack work:
 
-![Azure Stack diagnostic tools](media/azure-stack-diagnostics/get-azurestacklog.png)
+![Azure Stack diagnostic tools](media/azure-stack-diagnostics/get-azslogs.png)
  
  
 ## Trace Collector
@@ -86,21 +86,17 @@ These files are collected by the Trace Collector and stored in a share from wher
 
     Collect all logs for all roles:
 
-    ```
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs
-    ```
+      ```
+      Get-AzureStackLog -OutputPath C:\AzureStackLogs
+      ```
 
     Collect logs from VirtualMachines and BareMetal roles:
 
-    ```
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
-    ```
+      ```Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal```
 
     Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the past 8 hours:
-
-    ```
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-    ```
+    
+    ```Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)```
 
     Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the time period between 8 hours ago and 2 hours ago:
 
