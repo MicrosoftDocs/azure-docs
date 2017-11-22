@@ -89,7 +89,7 @@ Follow steps below to perform local debug:
 ## See also
 * [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 * [Develop U-SQL with Python, R, and CSharp for Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
-* [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
+* [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md)
 * [Get started with Data Lake Analytics using PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Get started with Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md)
 * [Use Data Lake Tools for Visual Studio for developing U-SQL applications](data-lake-analytics-data-lake-tools-get-started.md)
