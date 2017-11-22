@@ -36,19 +36,19 @@ Azure Location Based Services consists of five primary services to bolster Azure
 
 ```JSON
 {
-"Version": "2017c",
-"ReferenceUtcTimestamp": "2017-11-20T23:09:48.686173Z",
-"TimeZones": [{
-"Id": "America/Los_Angeles",
-"ReferenceTime": {
-"Tag": "PST",
-"StandardOffset": "-08:00:00",
-"DaylightSavings": "00:00:00",
-"WallTime": "2017-11-20T15:09:48.686173-08:00",
-"PosixTzValidYear": 2017,
-"PosixTz": "PST+8PDT,M3.2.0,M11.1.0"
-}
-}]
+    "Version": "2017c",
+    "ReferenceUtcTimestamp": "2017-11-20T23:09:48.686173Z",
+    "TimeZones": [{
+        "Id": "America/Los_Angeles",
+        "ReferenceTime": {
+            "Tag": "PST",
+            "StandardOffset": "-08:00:00",
+            "DaylightSavings": "00:00:00",
+            "WallTime": "2017-11-20T15:09:48.686173-08:00",
+            "PosixTzValidYear": 2017,
+            "PosixTz": "PST+8PDT,M3.2.0,M11.1.0"
+        }
+    }]
 }
 ```
 
