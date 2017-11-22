@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 11/22/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -41,6 +41,17 @@ Please revisit this page regularly as we are updating it on a monthly basis.
 
 ## November 2017
  
+
+
+**Type:** Plan for change  
+**Service Category:** ACS  
+**Product Capability:** Access Control Service 
+
+**Retiring ACS**
+
+Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) will be retired in late 2018.  Further information, including a detailed schedule & high-level migration guidance, will be provided in the next few weeks. In the meantime, leave comments on this page with any questions regarding ACS, and a member of our team will help to answer.
+
+---
 
 
 
@@ -327,15 +338,7 @@ The underlying realtime detection works each time the user logs in. If you have 
 ---
  
 
-**Type:** Deprecated functionality  
-**Service Category:** ACS  
-**Product Capability:** Access Control Service 
 
-**Retiring ACS**
-
-Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) will be retired in late 2018.  Further information, including a detailed schedule & high-level migration guidance, will be provided in the next few weeks. In the meantime, leave comments on this page with any questions regarding ACS, and a member of our team will help to answer.
-
----
 
 
 ## October 2017
