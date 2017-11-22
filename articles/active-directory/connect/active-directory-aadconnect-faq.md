@@ -39,6 +39,9 @@ All networking software, physical devices, or anything else that limits the maxi
 **Q: Are SLDs (Single Label Domains) supported?**  
 No, Azure AD Connect does not support on-premises forests/domains using SLDs.
 
+**Q: Are Forests with disjoint AD domains supported?**  
+No, Azure AD Connect does not support on-premises forests containing disjoint namespaces.
+
 **Q: Are "dotted" NetBios named supported?**  
 No, Azure AD Connect does not support on-premises forests/domains where the NetBios name contains a period "." in the name.
 
