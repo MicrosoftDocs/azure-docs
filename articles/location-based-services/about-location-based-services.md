@@ -15,7 +15,7 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# An introduction to Azure Location Based Services
+# An introduction to Azure Location Based Services (preview)
 Azure Location Based Services is a portfolio of geospatial services that include service APIs for Maps, Search, Routing, Traffic, and Time Zones. The portfolio of Azure OneAPI compliant services allows you to use familiar developer tools to quickly develop and scale solutions that integrate location information into your Azure solutions. Azure Location Based Services provides developers from all industries powerful geospatial capabilities packed with fresh mapping data imperative to providing geographic context to web and mobile applications. Azure Location Based Services is an Azure One API compliant set of REST APIs accompanied with a web-based JavaScript control to make development super easy, flexible, and portable across multiple mediums. 
 
 Azure Location Based Services consists of five primary services to bolster Azure applications requiring geographic context. Each of the services is explained in detail below.
