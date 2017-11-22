@@ -19,7 +19,7 @@ ms.author: bryanla
 # How to use an Azure VM Managed Service Identity (MSI) for token acquisition 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
-A client application can request an MSI [**app-only access token**](develop/active-directory-dev-glossary.md#access-token) for accessing a given resource. The token is [based on the MSI service principal](msi-overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
+A client application can request an MSI [*app-only access token*](develop/active-directory-dev-glossary.md#access-token) for accessing a given resource. The token is [based on the MSI service principal](msi-overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
 
 ## Prerequisites
 
@@ -194,7 +194,7 @@ func main() {
 
 ### Azure PowerShell
 
-The following example demonstrates how to use the MSI REST endpoint from a PowerShell to:
+The following example demonstrates how to use the MSI REST endpoint from a PowerShell client to:
 
 1. Acquire an access token.
 2. Use the access token to call an Azure Resource Manager REST API and get information about the VM. Be sure to substitute your subscription ID, resource group name, and virtual machine name for `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`, and `<VM-NAME>`, respectively.

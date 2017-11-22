@@ -19,12 +19,12 @@ ms.author: bryanla
 # How to use an Azure VM Managed Service Identity (MSI) for sign-in 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
-An MSI provides a [**service principal**](develop/active-directory-dev-glossary.md#service-principal-object), which is [created upon enabling MSI](msi-overview.md#how-does-it-work) on the VM. The service principal can then be given access to Azure resources, and used as an identity by client applications for sign-in and resource access. Traditionally, in order for a client to be able to access secured resources under its own identity, it must:  
+An MSI provides a [*service principal*](develop/active-directory-dev-glossary.md#service-principal-object), which is [created upon enabling MSI](msi-overview.md#how-does-it-work) on the VM. The service principal can then be given access to Azure resources, and used as an identity by client applications for sign-in and resource access. Traditionally, in order for a client to be able to access secured resources under its own identity, it must:  
 
    - be registered with Azure AD as a confidential/web client application, and consented for use by a tenant's user(s)/admin
    - sign in under its service principal, using the ID+secret credentials generated during registration (which are likely embedded in the client code)
 
-  With MSI, your client application no longer needs to do either, as it can sign in under the MSI service principal. 
+With MSI, your client application no longer needs to do either, as it can sign in under the MSI service principal. 
 
 ## Prerequisites
 
