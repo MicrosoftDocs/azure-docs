@@ -94,9 +94,10 @@ Your add-in must next identify information about the user.
 
 For users who sign in with a work or school account, you can add support for Oauth to your add-in. For details, see [Authorize external services in your Office Add-in](https://dev.office.com/docs/add-ins/develop/auth-external-add-ins). This allows you to use Microsoft Graph to get the following information about the user:
 
-- Their organizational tenant ID, via the [Get organization](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/organization_get) method.  
-- The list of roles that are assigned to the user, via the [getMemberObjects](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_getmemberobjects) action.
-    The tenant admin directory role has the following specific ID: 62e90394-69f5-4237-9190-012177145e10. You can query for other roles as well.  
+- Their organizational tenant ID, via the [Get organization](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/organization_get) method.  
+- The list of roles that are assigned to the user, via the [getMemberObjects](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_getmemberobjects) action. 
+  
+  The tenant admin directory role has the following specific ID: 62e90394-69f5-4237-9190-012177145e10. You can query for other roles as well.  
 
 For more information, see [Microsoft Graph permission scopes](https://developer.microsoft.com/graph/docs/authorization/permission_scopes).
 
