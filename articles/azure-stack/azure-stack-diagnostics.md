@@ -36,7 +36,7 @@ The following are important things to know about the Trace Collector:
 
 The following example is a trace configuration JSON file for FabricRingServices Operations from the XRP VM: 
 
-```powershell
+```json
 {
     "LogFile": 
     {
@@ -78,9 +78,9 @@ The following are some example log types that are collected:
 These files are collected by the Trace Collector and stored in a share from where **Get-AzureStackLog** retrieves them.
  
 ### To run Get-AzureStackLog on an Azure Stack Development Kit (ASDK) system
-1.	Log in as **AzureStack\CloudAdmin** on the host.
-2.	Open a PowerShell window as an administrator.
-3.	Run the **Get-AzureStackLog** PowerShell cmdlet.  
+1. Log in as **AzureStack\CloudAdmin** on the host.
+2. Open a PowerShell window as an administrator.
+3. Run the **Get-AzureStackLog** PowerShell cmdlet.
 
     **Examples**
 
@@ -113,7 +113,7 @@ These files are collected by the Trace Collector and stored in a share from wher
 To run the log collection tool on an integrated system, you need to have access to the Privileged End Point (PEP). Here is an example script you can run using the PEP to collect logs on an integrated system:
 
 ```powershell
-$ip = "<IP OF THE PEP VM>" # You can also use the machine name instead of IP here.
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
  
 $pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
@@ -125,7 +125,7 @@ $s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Cred
 $fromDate = (Get-Date).AddHours(-8)
 $toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
  
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDREESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
 
 if($s)
 {
