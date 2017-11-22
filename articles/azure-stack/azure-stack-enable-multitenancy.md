@@ -39,7 +39,19 @@ There are a few pre-requisites to account for before you configure multi-tenancy
     ````PowerShell
         Import-Module .\Connect\AzureStack.Connect.psm1
         Import-Module .\Identity\AzureStack.Identity.psm1
+    ````
+        
+  - You will also need to add the AzureStackAdmin environment as if not added before 
+      ````PowerShell
+        Add-AzureRmEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
     ```` 
+    > if you don't, running the first part of the onboarding fails with the following message:
+  "
+    Add-AzureRmAccount : Value cannot be null.
+    Parameter name: uriString
+    At C:\AzureStack\AzureStack-Tools-vnext\Identity\AzureStack.Identity.psm1:200 char:25
+  "
+  
  - Mary will require [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) access to Azure Stack. 
 
 ## Configure Azure Stack directory
@@ -79,7 +91,7 @@ $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
 
 Register-AzSWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
- -DirectoryTenantName $guestDirectoryTenantName ` 
+ -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
 ````
 ## Direct users to sign in
