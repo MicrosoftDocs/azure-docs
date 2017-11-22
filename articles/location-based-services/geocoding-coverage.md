@@ -1,4 +1,21 @@
-# Geocoding Coverage
+---
+title: Geocoding Coverage in Azure Location Based Services | Microsoft Docs
+description: Learn about Geocoding Coverage in Azure Location Based Services
+services: location-based-services
+keywords: 
+author: dsk-2015
+ms.author: dkshir
+ms.date: 11/28/2017
+ms.topic: article
+ms.service: location-based-services
+
+documentationcenter: ''
+manager: timlt
+ms.devlang: na
+ms.custom: mvc
+---
+
+# Azure Location Based Services - Geocoding Coverage
 Azure Location Based Services (LBS) provides detailed geocoding information for looking up addresses, places, and other geographic entities around the world. This is important for customers who want to know where they can and can't expect to find various levels of fidelity when searching for addresses in the Search Service. When searching regions with low fidelity coverage, you can't expect lower confidence search results. The following table provides coverage information for Azure LBS Search Geocoding.
 
 
@@ -23,7 +40,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |El Salvador     |         |         |✓         |
 |French Guiana     |         |         |✓         |
 |Grenada     |         |         |✓         |
-|Guadaloupe     |         |✓         |✓         |
+|Guadeloupe     |         |✓         |✓         |
 |Guatemala     |         |         |✓         |
 |Guam     |✓         |✓         | ✓        |
 |Haiti     |         |         |✓         |
@@ -189,7 +206,7 @@ Azure LBS provides city-level accuracy when searching in the following regions:
 |Area  |Region  |
 |---------|---------|
 |**Americas**     |        |
-|     | Anguilla        |
+|     |Anguilla        |
 |     |Antarctica         |
 |     |Aruba        |
 |     |Belize         |

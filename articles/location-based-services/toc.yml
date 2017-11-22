@@ -7,8 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
-#  - name: Map app using Location Based Services
-#    href: quick-demo-map-app.md
+  - name: Map app using Location Based Services
+    href: quick-demo-map-app.md
 - name: Tutorials
   items:
   - name: 1 - Search for point of interest
