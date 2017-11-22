@@ -40,8 +40,14 @@
 - name: Managed Service Identity
   href: msi-overview.md
   items:
-    - name: How to sign in or acquire a token
-      href: msi-how-to-get-access-token-using-msi.md
+    - name: How to use a VM MSI
+      items:
+      - name: Acquire an access token
+        href: msi-how-to-use-vm-msi-token.md
+      - name: Sign-in under the service principal
+        href: msi-how-to-use-vm-msi-sign-in.md
+      - name: With Azure SDKs
+        href: msi-how-to-use-vm-msi-sdk.md
     - name: Configure MSI for an Azure VM
       items:
       - name: Using Azure Portal

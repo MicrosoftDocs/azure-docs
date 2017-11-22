@@ -1,6 +1,6 @@
 ---
-title: How to use an Azure VM Managed Service Identity for sign-in and token acquisition
-description: Step by step instructions for using an Azure VM MSI service principal for sign-in, and for acquiring an access token.
+title: How to use an Azure VM Managed Service Identity for sign-in
+description: Step by step instructions and examples for using an Azure VM MSI service principal for sign-in and resource access.
 services: active-directory
 documentationcenter: 
 author: bryanla
@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2017
+ms.date: 11/23/2017
 ms.author: bryanla
 ---
 
-# How to use an Azure VM Managed Service Identity (MSI) for sign-in and token acquisition 
+# How to use an Azure VM Managed Service Identity (MSI) for sign-in 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
-A VM Managed Service Identity makes two important features available to client applications running on the VM:
-
-1. An MSI [**service principal**](develop/active-directory-dev-glossary.md#service-principal-object), which is [created upon enabling MSI](msi-overview.md#how-does-it-work) on the VM. The service principal can then be given access to Azure resources, and used as an identity by client applications during sign-in and resource access. Traditionally, in order for a client to be able to access secured resources under its own identity, it must:  
+An MSI provides a [**service principal**](develop/active-directory-dev-glossary.md#service-principal-object), which is [created upon enabling MSI](msi-overview.md#how-does-it-work) on the VM. The service principal can then be given access to Azure resources, and used as an identity by client applications during sign-in and resource access. Traditionally, in order for a client to be able to access secured resources under its own identity, it must:  
 
    - be registered with Azure AD as a confidential/web client application, and consented for use by a tenant's user(s)/admin
    - sign in under its service principal, using the ID+secret credentials generated during registration (which are likely embedded in the client code)

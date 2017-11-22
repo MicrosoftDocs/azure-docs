@@ -1,6 +1,6 @@
 ---
-title: How to use an Azure VM Managed Service Identity for sign-in and token acquisition
-description: Step by step instructions for using an Azure VM MSI service principal for sign-in, and for acquiring an access token.
+title: How to use an Azure VM Managed Service Identity with Azure SDKs
+description: Code samples for using Azure SDKs with an Azure VM MSI.
 services: active-directory
 documentationcenter: 
 author: bryanla
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2017
+ms.date: 11/23/2017
 ms.author: bryanla
 ---
 
-# How to use an Azure VM Managed Service Identity (MSI) for sign-in and token acquisition 
+# How to use an Azure VM Managed Service Identity (MSI) with Azure SDKs 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 A VM Managed Service Identity makes two important features available to client applications running on the VM:
