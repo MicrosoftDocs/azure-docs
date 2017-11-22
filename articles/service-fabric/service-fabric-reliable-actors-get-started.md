@@ -100,7 +100,7 @@ Create a simple console application to call the actor service.
     > [!NOTE]
     > A console application is not the type of app you would typically use as a client in Service Fabric, but it makes a convenient example for debugging and testing using the local Service Fabric emulator.
 
-3. The console application must be a 64-bit application to maintain compatibility with the interface project and other dependencies.  In Solution Explorer, right-click the **ActorClient** project, and the click **Properties**.  On the **Build** tab, set **Platform target** to **x64**.
+3. The console application must be a 64-bit application to maintain compatibility with the interface project and other dependencies.  In Solution Explorer, right-click the **ActorClient** project, and then click **Properties**.  On the **Build** tab, set **Platform target** to **x64**.
     
     ![Build properties][8]
 
