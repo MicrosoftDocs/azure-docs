@@ -5,7 +5,7 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 10/10/2017
 ms.author: victorh
 keywords:
 ---
@@ -62,9 +62,14 @@ Azure Stack includes both authoritative and recursive DNS servers. The recursive
 
 To resolve DNS names for endpoints outside Azure Stack (for example: www.bing.com), you need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. For deployment, DNS servers that Azure Stack forwards requests to are required in the Deployment Worksheet (in the DNS Forwarder field). Provide at least two servers in this field for fault tolerance. Without these values, Azure Stack deployment fails.
 
-### Adding DNS forwarding servers after deployment
+### Configure conditional DNS forwarding
 
-If you or your ISP updates your DNS infrastructure, you might want to register additional DNS servers. To add DNS servers to forward recursive requests, you must use the privileged endpoint.
+> [!IMPORTANT]
+> This only applies to an AD FS deployment.
+
+To enable name resolution with your existing DNS infrastructure, configure conditional forwarding.
+
+To add a conditional forwarder, you must use the privileged endpoint.
 
 For this procedure, use a computer in your datacenter network that can communicate with the privileged endpoint in Azure Stack.
 
@@ -78,10 +83,8 @@ For this procedure, use a computer in your datacenter network that can communica
 2. After you connect to the privileged endpoint, run the following PowerShell command. Substitute the sample values provided with your domain name and IP addresses of the DNS servers you want to use.
 
    ```
-   Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses “192.168.1.1”,”192.168.1.2”
+   Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses "192.168.1.1","192.168.1.2"
    ```
-
-After you run this command, Azure Stack services and user virtual machines that use Azure Stack DNS will be able to resolve the names of Azure Stack endpoints such as the portal and API endpoints, and any public IP addresses that have a DNS name label.
 
 ## Resolving Azure Stack DNS names from outside Azure Stack
 The authoritative servers are the ones that hold the external DNS zone information, and any user-created zones. Integrate with these servers to enable zone delegation or conditional forwarding to resolve Azure Stack DNS names from outside Azure Stack.
@@ -133,4 +136,4 @@ Most DNS registrars require you to provide a minimum of two DNS servers to compl
 
 ## Next steps
 
-[Azure Stack datacenter integration - publish endpoints](azure-stack-integrate-endpoints.md)
+[Azure Stack datacenter integration - Identity](azure-stack-integrate-identity.md)

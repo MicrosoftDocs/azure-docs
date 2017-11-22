@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Walkthrough: Enabling Telemetry for Microsoft Dynamics CRM Online using Application Insights

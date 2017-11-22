@@ -1,6 +1,6 @@
 ---
 title: Perform operations on Azure Queue storage with PowerShell | Microsoft Docs
-description: Tutorial - Perform operations on Azure Queue storage with PowerShell
+description: How to perform operations on Azure Queue storage with PowerShell
 services: storage
 documentationcenter: storage
 author: robinsh
@@ -12,14 +12,14 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
 ---
 
 # Perform Azure Queue storage operations with Azure PowerShell
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere i the world via authenticated calls using HTTP or HTTPS. For detailed information, see [Introduction to Azure Queues](storage-queues-introduction.md). This tutorial covers common Queue storage operations. You learn how to:
+Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. For detailed information, see [Introduction to Azure Queues](storage-queues-introduction.md). This how-to article covers common Queue storage operations. You learn how to:
 
 > [!div class="checklist"]
 > * Create a queue
@@ -29,7 +29,9 @@ Azure Queue storage is a service for storing large numbers of messages that can 
 > * Delete a message 
 > * Delete a queue
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This how-to requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+
+There are no PowerShell cmdlets for the data plane for queues. To perform data plane operations such as add a message, read a message, and delete a message, you have to use the .NET storage client library as it is exposed in PowerShell. You create a message object and then you can use commands such as AddMessage to perform operations on that message. This article shows you how to do that.
 
 ## Sign in to Azure
 
@@ -41,7 +43,7 @@ Login-AzureRmAccount
 
 ## Retrieve list of locations
 
-If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This tutorial will use **eastus**. Store this in the variable **location** for future use.
+If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This exercise will use **eastus**. Store this in the variable **location** for future use.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -68,8 +70,7 @@ $storageAccountName = "howtoqueuestorage"
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
-  -SkuName Standard_LRS `
-  -Kind Storage
+  -SkuName Standard_LRS
 
 $ctx = $storageAccount.Context
 ```
@@ -101,7 +102,7 @@ Get-AzureStorageQueue -Context $ctx | select Name
 
 ## Add a message to a queue
 
-To add a message to a queue, first create a new instance of the [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) class. Next, call the [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) method. A CloudQueueMessage can be created from either a string (in UTF-8 format) or a byte array.
+Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) class. Next, call the [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) method. A CloudQueueMessage can be created from either a string (in UTF-8 format) or a byte array.
 
 The following example demonstrates how to add a message to your queue.
 
@@ -121,17 +122,17 @@ $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQ
 $queue.CloudQueue.AddMessage($QueueMessage)
 ```
 
-If you use the [Azure Storage Explorer](http://storageexplorer.com), you can connect to your Azure account and view the queues in the storage account, and drill down into one to view the messages on the queue. 
+If you use the [Azure Storage Explorer](http://storageexplorer.com), you can connect to your Azure account and view the queues in the storage account, and drill down into a queue to view the messages on the queue. 
 
 ## Read a message from the queue, then delete it
 
 Messages are read in best-try first-in-first-out order. This is not guaranteed. When you read the message from the queue, it becomes invisible to all other processes looking at the queue. This ensures that if your code fails to process the message due to hardware or software failure, another instance of your code can get the same message and try again.  
 
-This **invisibility time** defines how long the message remains invisible before it is available again for processing. The default is 30 seconds. 
+This **invisibility timeout** defines how long the message remains invisible before it is available again for processing. The default is 30 seconds. 
 
 Your code reads a message from the queue in two steps. When you call the [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) method, you get the next message in the queue. A message returned from **GetMessage** becomes invisible to any other code reading messages from this queue. To finish removing the message from the queue, you call the [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) method. 
 
-In the following example, you read through the three queue messages, then wait 10 seconds (the invisibility time). Then you read the three messages again, deleting the messages after reading them by calling **DeleteMessage**. If you try to read the queue after the messages are deleted, $queueMessage will be returned as NULL.
+In the following example, you read through the three queue messages, then wait 10 seconds (the invisibility timeout). Then you read the three messages again, deleting the messages after reading them by calling **DeleteMessage**. If you try to read the queue after the messages are deleted, $queueMessage will be returned as NULL.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -167,7 +168,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 
 ## Clean up resources
 
-To remove all of the assets you have created in this exercise, remove the resource group, This also deletes all resources contained within the group. In this case, it removes the storage account created and the resource group itself.
+To remove all of the assets you have created in this exercise, remove the resource group. This also deletes all resources contained within the group. In this case, it removes the storage account created and the resource group itself.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -175,7 +176,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this tutorial, you learned about basic Queue storage management with PowerShell, including how to:
+In this how-to article, you learned about basic Queue storage management with PowerShell, including how to:
 
 > [!div class="checklist"]
 > * Create a queue

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
-ms.author: cgillum
+ms.author: azfuncdf
 ---
 
 # Fan-out/fan-in scenario in Durable Functions - Cloud backup example
@@ -88,17 +88,17 @@ The implementation is also pretty straightforward. It happens to use some advanc
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-The implementation loads the file from disk and asynchronously streams the contents into a blob of the same name. The return value is the number of bytes copied to storage, which is then used by the orchestrator function to compute the aggregate sum.
+The implementation loads the file from disk and asynchronously streams the contents into a blob of the same name. The return value is the number of bytes copied to storage, that is then used by the orchestrator function to compute the aggregate sum.
 
 > [!NOTE]
 > This is a perfect example of moving I/O operations into an `activityTrigger` function. Not only can the work be distributed across many different VMs, but you also get the benefits of checkpointing the progress. If the host process gets terminated for any reason, you know which uploads have already completed.
 
-## Running the sample
+## Run the sample
 
-Using the HTTP-triggered functions included in the sample, you can start the orchestration using the following HTTP POST request.
+You can start the orchestration by sending the following HTTP POST request.
 
 ```
-POST http://{host}/orchestrators/E2_BackupSiteContent HTTP/1.1
+POST http://{host}/orchestrators/E2_BackupSiteContent
 Content-Type: application/json
 Content-Length: 20
 
@@ -108,7 +108,7 @@ Content-Length: 20
 > [!NOTE]
 > The `HttpStart` function that you are invoking only works with JSON-formatted content. For this reason, the `Content-Type: application/json` header is required and the directory path is encoded as a JSON string.
 
-This will trigger the `E2_BackupSiteContent` orchestrator and pass the string `D:\home\LogFiles` as a parameter. The response provides a link to get the status of this backup operation:
+This HTTP request triggers the `E2_BackupSiteContent` orchestrator and passes the string `D:\home\LogFiles` as a parameter. The response provides a link to get the status of the backup operation:
 
 ```
 HTTP/1.1 202 Accepted
@@ -154,9 +154,7 @@ Here is the orchestration as a single C# file in a Visual Studio project:
 
 ## Next steps
 
-At this point, you should have a greater understanding of the core orchestration capabilities of Durable Functions. Subsequent samples will go into more advanced features and scenarios.
+This sample has shown how to implement the fan-out/fan-in pattern. The next sample shows how to implement the [stateful singleton](durable-functions-singletons.md) pattern in an [eternal orchestration](durable-functions-eternal-orchestrations.md).
 
 > [!div class="nextstepaction"]
 > [Run the stateful singleton sample](durable-functions-counter.md)
-
-

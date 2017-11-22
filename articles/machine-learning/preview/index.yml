@@ -24,11 +24,9 @@ sections:
     style: icon48
     items:
     - image:
-       src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+       src: /azure/machine-learning/media/index/i_machine-learning.svg
       text: Install and create
       href: quickstart-installation
-
-
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

@@ -3,7 +3,7 @@ title: Azure Functions C# Script developer reference | Microsoft Docs
 description: Understand how to develop Azure Functions using C#.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
-ms.author: donnam
+ms.author: glenga
 
 ---
 # Azure Functions C# script developer reference
@@ -378,7 +378,7 @@ Mobile Apps table output binding supports
 but you can only use [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs)
 or [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
 
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#using-a-blob-output-binding)
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#blob-storage-input--output-bindings)
 with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs

@@ -10,7 +10,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/29/2017
 ms.author: bwren
 ---
 
@@ -18,10 +18,6 @@ ms.author: bwren
 [Microsoft Flow](https://ms.flow.microsoft.com) allows you to create automated workflows using hundreds of actions for a variety of services. Output from one action can be used as input to another allowing you to create integration between different services.  The Azure Log Analytics connector for Microsoft Flow allow you to build workflows that include data retrieved by log searches in Log Analytics.
 
 For example, you can use Microsoft Flow to use Log Analytics data in an email notification from Office 365, create a bug in Visual Studio Team Services, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received.  
-
-
-> [!NOTE]
-> The Azure Log Analytics connector for Microsoft Flow requires your workspace to be upgraded to the new Log Analytics query language. You can learn more about the new language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to new log search](log-analytics-log-search-upgrade.md).  
 
 The tutorial in this article shows you how to create a flow that automatically sends the results of a Log Analytics log search by email, just one example of how you can use Log Analytics in Microsoft Flow. 
 

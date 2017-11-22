@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: 
 
@@ -41,7 +41,7 @@ Batch AI provides resource management and job scheduling specialized for AI trai
 * Mounting remote file shares into the VM and optional container 
 * Providing job status and restarting in case of VM failures 
 * Access to output logs, stdout, stderr, and models, including streaming from Azure Storage 
-* Azure command-line interface (CLI), SDK for Python, C#, and Java, monitoring in the Azure Portal, and integration with Microsoft AI tools 
+* Azure [command-line interface](/cli/azure/overview) (CLI), SDKs for [Python](https://github.com/Azure/azure-sdk-for-python), [C#](https://www.nuget.org/packages/Microsoft.Azure.Management.BatchAI/1.0.0-preview), and Java, monitoring in the Azure Portal, and integration with Microsoft AI tools 
 
 The Batch AI SDK supports writing scripts or applications to manage training pipelines and integrate with tools. The SDK currently provides Python, C#, Java, and REST APIs.  
  

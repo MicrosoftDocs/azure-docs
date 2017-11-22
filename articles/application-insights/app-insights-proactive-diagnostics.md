@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Smart Detection in Application Insights

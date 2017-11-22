@@ -3,7 +3,7 @@ title: Work with proxies in Azure Functions | Microsoft Docs
 description: Overview of how to use Azure Functions Proxies
 services: functions
 documentationcenter: ''
-author: mattchenderson
+author: alexkarcher-msft
 manager: cfowler
 editor: ''
 
@@ -14,29 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: mahender
+ms.author: alkarche
 
 ---
-# Work with Azure Functions Proxies (preview)
-
-> [!NOTE] 
-> Azure Functions Proxies is currently in preview. It is free while in preview, but standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+# Work with Azure Functions Proxies
 
 This article explains how to configure and work with Azure Functions Proxies. With this feature, you can specify endpoints on your function app that are implemented by another resource. You can use these proxies to break a large API into multiple function apps (as in a microservice architecture), while still presenting a single API surface for clients.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-
-## <a name="enable"></a>Enable Azure Functions Proxies
-
-Proxies are not enabled by default. You can create proxies while the feature is disabled, but they will not execute. To enable proxies, do the following:
-
-1. Open the [Azure portal], and then go to your function app.
-2. Select **Function app settings**.
-3. Switch **Enable Azure Functions Proxies (preview)** to **On**.
-
-You can also return here to update the proxy runtime as new features become available.
-
+> [!NOTE] 
+> Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="create"></a>Create a proxy
 
@@ -203,6 +191,16 @@ An example configuration might look like the following:
 ```
 > [!NOTE] 
 > In this example, the body is being set directly, so no `backendUri` property is needed. The example shows how you might use Azure Functions Proxies for mocking APIs.
+
+## <a name="enable"></a>Enable Azure Functions Proxies
+
+Proxies are now enabled by default! If you were using an older version of the proxies preview and disabled proxies, you will need to manually enable proxies once in order for proxies to execute.
+
+1. Open the [Azure portal], and then go to your function app.
+2. Select **Function app settings**.
+3. Switch **Enable Azure Functions Proxies (preview)** to **On**.
+
+You can also return here to update the proxy runtime as new features become available.
 
 [Azure portal]: https://portal.azure.com
 [HTTP triggers]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

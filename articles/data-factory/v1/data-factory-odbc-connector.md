@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/15/2017
 ms.author: jingwang
 
 robots: noindex
@@ -64,8 +64,8 @@ The following table provides description for JSON elements specific to ODBC link
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property must be set to: **OnPremisesOdbc** |Yes |
-| connectionString |The non-access credential portion of the connection string and an optional encrypted credential. See examples in the following sections. |Yes |
-| credential |The access credential portion of the connection string specified in driver-specific property-value format. Example: “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. |No |
+| connectionString |The non-access credential portion of the connection string and an optional encrypted credential. See examples in the following sections. <br/><br/>You can specify the connection string with pattern like `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, or use the system DSN (Data Source Name) you set up on the gateway machine with `"DSN=<name of the DSN>;"` (you need still specify the credential portion in linked service accordingly). |Yes |
+| credential |The access credential portion of the connection string specified in driver-specific property-value format. Example: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |No |
 | authenticationType |Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. |Yes |
 | username |Specify user name if you are using Basic authentication. |No |
 | password |Specify password for the user account you specified for the username. |No |
@@ -365,7 +365,7 @@ You create an ODBC linked service to link a [GE Proficy Historian (now GE Histor
         "type": "OnPremisesOdbc",
         "typeProperties":
         {
-            "connectionString": "DSN=<name of the GE Historian store>",
+            "connectionString": "DSN=<name of the GE Historian store>;",
             "gatewayName": "<gateway name>",
             "authenticationType": "Basic",
             "userName": "<user name>",

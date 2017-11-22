@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 
 robots: noindex
@@ -23,6 +23,8 @@ robots: noindex
 > * [Using Azure portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 > * [Using Monitoring and Management app](data-factory-monitor-manage-app.md)
 
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [monitor and manage Data Factory pipelines in version 2](../monitor-visually.md).
 
 > [!IMPORTANT]
 > The monitoring & management application provides a better support for monitoring and managing your data pipelines, and troubleshooting any issues. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md). 

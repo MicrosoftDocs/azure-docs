@@ -31,10 +31,10 @@ Before running this sample, you must have the following:
 + An active Azure Government subscription.
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
-+ Installed [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). 
++ Installed [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!NOTE]
-> This topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). 
+> This topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 >
 >
 
@@ -44,13 +44,13 @@ You must first connect to Azure Government with Azure Command Line Interface (CL
 
 To connect to Azure Government through CLI, you set the cloud:
 
-```
+```azurecli-interactive
 az cloud set --name AzureUSGovernment
 ```
 
 After the cloud has been set, you can continue logging in:
 
-```
+```azurecli-interactive
 az login
 ```
 ### Create a Resource Group with CLI
@@ -60,7 +60,7 @@ az login
 > 
 > 
 
-Create a resource group with the [az group create](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_create). An Azure resource group is a logical container into which Azure resources like function apps, databases, and storage accounts are deployed and managed.
+Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_create). An Azure resource group is a logical container into which Azure resources like function apps, databases, and storage accounts are deployed and managed.
 
 The following example creates a resource group named `myResourceGroup` with the location set to `usgovvirginia`.
 If you are not using CLI, sign in first using the `az login` shown above.
@@ -104,7 +104,7 @@ After the storage account has been created, the Azure CLI shows information simi
 ```
 ### Create a function app
 
-You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as logical unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](https://docs.microsoft.com/en-us/cli/azure/functionapp?view=azure-cli-latest#az_functionapp_create) command.
+You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as logical unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp?view=azure-cli-latest#az_functionapp_create) command.
 
 Before creating your function app, you must create an [App Service plan](../azure-functions/functions-scale.md#app-service-plan) that hosts your function app. 
 This can be done with the following command that creates a plan named "testPlan".
@@ -219,6 +219,12 @@ Learn how to create a trigger function in Azure Government using Visual Studio.
     >
 * Function app running in Visual Studio
     - To create one, complete the Quickstart section above, [Create function using Visual Studio](documentation-government-functions.md#create-function-using-visual-studio). 
+* Installed [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+
+> [!NOTE]
+> This topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+>
+>
 
 ### Create trigger function
 
@@ -249,8 +255,21 @@ Go down to the "Add" button and click on "New Item" as shown below.
 6. Copy the Connection String for your Key1, go back to your "local.settings.json" file and paste the string for each of the 3 values in the "Values" parameter. Also make sure "AccountName" = your storage account name. 
 
     ![triggerfunctioncreate5](./media/documentation-government-function9.png)
-7. Once this has been set, you can run your Timer trigger function locally. 
-8. In order to deploy to Azure Government, use the same process as defined [above](documentation-government-functions.md#create-function-using-visual-studio).
+    
+7. We must now set the connection string to your Azure Storage Account in our app settings, done through CLI. 
+	>[!NOTE] 
+	> Make sure CLI is connected to Azure Government by following the "Launch Azure CLI 2.0" section above. 
+	>
+	>
+
+	In the command below, replace the "resourceGroupName" and "FunctionAppname" tags with your app information and paste the connection string from Step 6 above in place of the "connectionString" tag. Then run the command using Azure CLI.
+
+```azurecli-interactive
+az functionapp config appsettings set --resource-group <resourceGroupName> --name <FunctionAppname> --settings AzureWebJobsmyconnection= "<connectionString>"
+
+```
+
+Once this has been set, you can run your Timer trigger function locally. In order to deploy to Azure Government, use the same process as defined [above](documentation-government-functions.md#create-function-using-visual-studio).
 
 ## Use Azure Queues for Output Bindings
 
@@ -268,6 +287,7 @@ This tutorial will walk through how to update an existing function by adding out
     >
 
 * This tutorial requires a running function app. If you do not have one, you can follow the Quickstart section above titled "Create function- Visual Studio". 
+* Complete **steps 4-7 from the "Create a Trigger Function" section above.** 
 * This tutorial also requires an Azure Queue, if you have not created one you can do so by following [these steps](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
 ### Update the function code 
@@ -314,4 +334,6 @@ az group delete --name myResourceGroup
 Type `y` when prompted.
 
 ## Next steps
-For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
+* Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
+* Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
+* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)

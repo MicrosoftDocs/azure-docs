@@ -179,7 +179,7 @@ The following example starts a sample runbook and then waits for it to complete.
        $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
        –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
        $status = $job.Status
-       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
+       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
     }
 
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `

@@ -24,7 +24,7 @@ Azure Active Directory (AD) offers several ways to secure your app and protect a
 * Allowing only Intune enrolled devices to access specific services
 * Restricting user locations and IP ranges
 
-For more information on the full capabilities of conditional access, see [Conditional access in the Azure classic portal](../active-directory-conditional-access.md). 
+For more information on the full capabilities of conditional access, see [Conditional access in the Azure classic portal](../active-directory-conditional-access-azure-portal.md). 
 
 In this article, we focus on what conditional access means to developers building apps for Azure AD.  It assumes knowledge of [single](active-directory-integrating-applications.md) and [multi-tenant](active-directory-devhowto-multi-tenant-overview.md) apps and [common authentication patterns](active-directory-authentication-scenarios.md).
 
@@ -44,7 +44,7 @@ Specifically, the following scenarios require code to handle conditional access 
 * Single page apps using ADAL.js
 * Web Apps calling a resource
 
-Conditional access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a conditional access policy, please see [Getting started with Azure Active Directory Conditional Access](../active-directory-conditional-access-azuread-connected-apps.md#configure-per-application-access-rules).
+Conditional access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a conditional access policy, please see [Getting started with Azure Active Directory Conditional Access](../active-directory-conditional-access-azure-portal-get-started.md).
 
 Depending on the scenario, an enterprise customer can apply and remove conditional access policies at any time.  In order for your app to continue functioning when a new policy is applied, you need to implement the "challenge" handling. The following examples illustrate challenge handling. 
 
@@ -214,7 +214,7 @@ To try out this scenario, see our [JS SPA On-behalf-of code sample](https://gith
 
 ## See also
 
-* To learn more about the capabilities, see [Conditional Access in Azure AD](../active-directory-conditional-access.md).
+* To learn more about the capabilities, see [Conditional Access in Azure AD](../active-directory-conditional-access-azure-portal.md).
 * For more Azure AD code samples, see [Github Repo of Code Samples](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * For more info on the ADAL SDK's and access the reference documentation, see [library guide](active-directory-authentication-libraries.md).
 * To learn more about multi-tenant scenarios, see [How to sign in users using the multi-tenant pattern](active-directory-devhowto-multi-tenant-overview.md).

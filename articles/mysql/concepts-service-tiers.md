@@ -37,7 +37,7 @@ To decide on a pricing tier, first start by determining if your workload needs a
 | **Pricing tier features** | **Basic** | **General Purpose** | **Memory Optimized** |
 | :------------------------ | :-------- | :----------- | :----------- |
 | Storage IOPS guarantee | NO | Yes | Yes |   
-| Maximum storage IOPS | Variable | 6,000 | 6,000 |  
+| Maximum storage IOPS | Variable | 7,500 | 7,500 |  
 
 
 For the time being, you cannot change pricing tier once the server is created. In the future, it will be possible to upgrade or downgrade a server from one pricing tier to another tier.
@@ -71,6 +71,10 @@ The IOPS configuration in each performance level relates to the pricing tier and
 Storage can be either [locally redundant](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#locally-redundant-storage) or [geo-redundant] (https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#geo-redundant-storage). The default storage type is locally redundant and geo-redundant storage can be purchased at 2x the cost.  
 
 Monitor the Metrics graph in the Azure portal or write Azure CLI commands to measure the consumption of storage and storage IOs. Relevant metrics to monitor are Storage limit, Storage percentage, Storage used, and IO percent.
+The IOPS configuration in each performance level relates to the pricing tier and the storage size chosen. While basic tier does not provide an IOPS guarantee, with Standard and Memory optimized tiers, the IOPS scale proportionally to the storage size.
+|**Size (GB)**|	**0-32**| **32-64**|**64-128**|**128-256**|**256-512**|**512-1024**|**1024-2048**|
+| :-----------|:------- | :------- | :------- | :-------- |:--------- | :--------- | :---------- |
+| IOPS | 120 | 240	| 500	| 1100 | 2,300 | 5,000 | 7,500 |
 
 ## Backup
 Backups are done automatically. A full backup is taken every week. Differential backups are taken every 12 hours and snapshots are taken every 5 minutes. Similar to storage types, you have the option to choose locally redundant backups or geo-redundant backups. You also have the ability to choose the backup retention between 7 days to 35 days. 1x of provisioned storage size is included for backup in the storage pricing model and additional backup costs will incur in the future for anything above. For example if your database server provisions 1TB of storage, you will also get 1TB of storage for backups, and anything above 1TB of backups will be subject to additional costs in the future.
@@ -81,7 +85,7 @@ You initially choose the pricing tier and performance level when you create your
 
 Scaling the vCores is done independently of the maximum storage size you have chosen.
 
-Behind the scenes, changing the performance level of a database creates a replica of the original database at the new performance level, and then switches connections over to the replica. No data is lost during this process. During the brief moment when we switch over to the replica, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. If there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.
+Behind the scenes, changing the performance level of a server creates a copy of the original server at the new performance level, and then switches connections over to the copied server. No data is lost during this process. During the brief moment when the system switches over to the new copy of the server, connections to the database are disabled, so some transactions in flight may be rolled back. This window varies, but is on average under 4 seconds, and in more than 99% of cases is less than 30 seconds. If there are large numbers of transactions in flight at the moment connections are disabled, this window may be longer.
 
 The duration of the entire scale process depends on both the size and pricing tier of the server before and after the change. For example, a server that is changing vCores within the Standard pricing tier, should complete within few minutes. The new properties for the server are not applied until the changes are complete.
 

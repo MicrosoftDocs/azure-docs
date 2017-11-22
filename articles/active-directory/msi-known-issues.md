@@ -3,7 +3,7 @@ title: FAQs and known issues with Managed Service Identity (MSI) for Azure Activ
 description: Known issues with Managed Service Identity for Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: skwan
+author: bryanla
 manager: mbaldwin
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -12,8 +12,8 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/07/2017
-ms.author: skwan
+ms.date: 10/20/2017
+ms.author: bryanla
 ---
 
 # FAQs and known issues with Managed Service Identity (MSI) for Azure Active Directory
@@ -21,6 +21,10 @@ ms.author: skwan
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
 ## Frequently Asked Questions (FAQs)
+
+### Does MSI work with Azure Cloud Services?
+
+No, there are no plans to support MSI in Azure Cloud Services.
 
 ### Does MSI work with the Active Directory Authentication Library (ADAL) or the Microsoft Authentication Library (MSAL)?
 

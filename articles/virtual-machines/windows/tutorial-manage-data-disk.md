@@ -55,7 +55,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ## Azure data disks
 
-Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 1 terabyte. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, two data disks can be attached. 
+Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 1 terabyte. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM vCPU, two data disks can be attached. 
 
 ### Max data disks per VM
 
@@ -88,7 +88,7 @@ Premium disks are backed by SSD-based high-performance, low-latency disk. Perfec
 | IOPS per disk | 500 | 2,300 | 5,000 |
 Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
 
-While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, 64 data disks can be attached to Standard_GS5 VM. If each of these disks are sized as a P30, a maximum of 80,000 IOPS can be achieved. For detailed information on max IOPS per VM, see [Linux VM sizes](./sizes.md).
+While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, 64 data disks can be attached to Standard_GS5 VM. If each of these disks are sized as a P30, a maximum of 80,000 IOPS can be achieved. For detailed information on max IOPS per VM, see [VM types and sizes](./sizes.md).
 
 ## Create and attach disks
 

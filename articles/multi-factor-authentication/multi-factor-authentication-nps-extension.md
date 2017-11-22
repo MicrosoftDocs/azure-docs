@@ -3,7 +3,7 @@ title: Use existing NPS servers to provide Azure MFA capabilities | Microsoft Do
 description: The Network Policy Server extension for Azure Multi-Factor Authentication is a simple solution to add cloud-based two-step vericiation capabilities to your existing authentication infrastructure.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.author: joflore
+ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
@@ -48,7 +48,7 @@ The NPS extension is meant to work with your existing infrastructure. Make sure 
 
 ### Licenses
 
-The NPS Extension for Azure MFA is available to customers with [licenses for Azure Multi-Factor Authentication](multi-factor-authentication.md) (included with Azure AD Premium, EMS, or an MFA subscription).
+The NPS Extension for Azure MFA is available to customers with [licenses for Azure Multi-Factor Authentication](multi-factor-authentication.md) (included with Azure AD Premium, EMS, or an MFA subscription). Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. 
 
 ### Software
 
@@ -77,7 +77,7 @@ Before you install the NPS extension, you want to prepare you environment to han
 
 ### Enable the NPS role on a domain-joined server
 
-The NPS server connects to Azure Active Directory and authenticates the MFA requests. Choose one server for this role. We recommend choosing a server that doesn't handle requests from other services, because the NPS extension throws errors for any requests that aren't RADIUS.
+The NPS server connects to Azure Active Directory and authenticates the MFA requests. Choose one server for this role. We recommend choosing a server that doesn't handle requests from other services, because the NPS extension throws errors for any requests that aren't RADIUS. The NPS server must be set up as the primary and secondary authentication server for your environment; it cannot proxy RADIUS requests to another server.
 
 1. On your server, open the **Add Roles and Features Wizard** from the Server Manager Quickstart menu.
 2. Choose **Role-based or feature-based installation** for your installation type.
@@ -189,7 +189,7 @@ If you have users that aren't enrolled for MFA, you can determine what happens w
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Not set (equivalent to TRUE) |
 
-The purpose of this setting is to determine what to do when a user is not enrolled for MFA. When the key does not exist, is not set, or is set to TRUE, and the user is not enrolled, then the extension fails the MFA challenge. When the key is set to FALSE and the user is not enrolled, authentication proceeds without performing MFA.
+The purpose of this setting is to determine what to do when a user is not enrolled for MFA. When the key does not exist, is not set, or is set to TRUE, and the user is not enrolled, then the extension fails the MFA challenge. When the key is set to FALSE and the user is not enrolled, authentication proceeds without performing MFA. If a user is enrolled in MFA, they must authenticate with MFA even if REQUIRE_USER_MATCH is set to FALSE.
 
 You can choose to create this key and set it to FALSE while your users are onboarding, and may not all be enrolled for Azure MFA yet. However, since setting the key permits users that aren't enrolled for MFA to sign in, you should remove this key before going to production.
 

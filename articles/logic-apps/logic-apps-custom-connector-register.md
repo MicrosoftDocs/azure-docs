@@ -186,6 +186,8 @@ or define new actions and triggers that users can add to their workflows.
 2. Optionally, if you want to edit existing actions and triggers, 
 or add new ones, continue with these steps.
 
+<a name="add-action-or-trigger"></a> 
+
 #### Edit or add actions for your connector
 
 1. To edit an existing action, choose the number for that action. 

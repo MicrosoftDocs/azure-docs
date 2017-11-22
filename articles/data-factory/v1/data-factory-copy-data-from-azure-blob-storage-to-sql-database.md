@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 
 robots: noindex
@@ -28,6 +28,9 @@ robots: noindex
 > * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md). 
 
 In this tutorial, you create a data factory with a pipeline to copy data from Blob storage to SQL database.
 
@@ -104,7 +107,7 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 	```
 
-    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) to connect to your Azure SQL server and run the SQL script. This article uses the [classic Azure portal](http://manage.windowsazure.com), not the [new Azure portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
+    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) to connect to your Azure SQL server and run the SQL script. 
 
     If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See [this article](../../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your Azure SQL server.
 
