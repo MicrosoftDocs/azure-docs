@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 11/22/2017
 ms.author: yurid
 
 ---
@@ -62,7 +62,7 @@ This alert provides the following additional fields:
 
 The table below shows examples of results and their description:
 
-| **Signature value **                     | **Description **                                                                                                      |
+| Signature value                      | Description                                                                                                       |
 |--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | Suspicious reflective loader exploit | This suspicious behavior often correlates with loading injected code independently of the operating system loader |
 | Suspicious injected exploit          | Signifies maliciousness that often correlates to injecting code into memory                                       |
