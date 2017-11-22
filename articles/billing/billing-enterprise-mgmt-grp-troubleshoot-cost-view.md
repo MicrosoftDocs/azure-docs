@@ -22,7 +22,7 @@ Within enterprise enrollments, there are multiple settings that could cause user
 
 ## Enabling access to costs
 
-Are you are seeing a message Unauthorized, or *"Cost views are disabled in your enrollment."* when looking for cost information?
+Are you seeing a message Unauthorized, or *"Cost views are disabled in your enrollment."* when looking for cost information?
 ![unauthorized](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
 It might be due to one of the following reasons:
