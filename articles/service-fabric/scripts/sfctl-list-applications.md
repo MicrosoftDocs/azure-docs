@@ -18,7 +18,7 @@ ms.author: adegeo
 ms.custom: 
 ---
 
-# Add an application certificate to a Service Fabric cluster
+# List appliations running in a Service Fabric cluster
 
 This sample script connects to a Service Fabric cluster and lists all of the provisioned applications.
 
