@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Service Bus triggers and bindings
+title: Azure Service Bus bindings for Azure Functions
 description: Understand how to use Azure Service Bus triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
@@ -19,13 +19,13 @@ ms.date: 04/01/2017
 ms.author: glenga
 
 ---
-# Azure Functions Service Bus bindings
+# Azure Service Bus bindings for Azure Functions
 
 This article explains how to work with Azure Service Bus bindings in Azure Functions. Azure Functions supports trigger and output bindings for Service Bus queues and topics.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Service Bus trigger
+## Trigger
 
 Use the Service Bus trigger to respond to messages from a Service Bus queue or topic. 
 
@@ -141,7 +141,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-## Trigger - Attributes for precompiled C#
+## Trigger - attributes for precompiled C#
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a Service Bus trigger:
 
@@ -227,7 +227,7 @@ The [host.json](functions-host-json.md#servicebus) file contains settings that c
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-service-bus.md)]
 
-## Service Bus output binding
+## Output
 
 Use Azure Service Bus output binding to send queue or topic messages.
 
@@ -394,7 +394,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## Output - Attributes for precompiled C#
+## Output - attributes for precompiled C#
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 

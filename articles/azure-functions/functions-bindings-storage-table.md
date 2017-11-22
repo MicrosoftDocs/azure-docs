@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Table storage bindings
+title: Azure Table storage bindings for Azure Functions
 description: Understand how to use Azure Table storage bindings in Azure Functions.
 services: functions
 documentationcenter: na
@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 11/08/2017
 ms.author: chrande
 ---
-# Azure Functions Table storage bindings
+# Azure Table storage bindings for Azure Functions
 
 This article explains how to work with Azure Table storage bindings in Azure Functions. Azure Functions supports input and output bindings for Azure Table storage.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Table storage input binding
+## Input
 
 Use the Azure Table storage input binding to read a table in an Azure Storage account.
 
@@ -280,7 +280,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## Input - Attributes for precompiled C#
+## Input - attributes for precompiled C#
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a table input binding:
 
@@ -364,7 +364,7 @@ The Table storage input binding supports the following scenarios:
 
   Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<name>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
 
-## Table storage output binding
+## Output
 
 Use an Azure Table storage output binding to write entities to a table in an Azure Storage account.
 
@@ -550,7 +550,7 @@ module.exports = function (context) {
 };
 ```
 
-## Output - Attributes for precompiled C#
+## Output - attributes for precompiled C#
 
  For [precompiled C#](functions-dotnet-class-library.md) functions, use the [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 

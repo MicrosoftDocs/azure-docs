@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Event Hubs bindings
+title: Azure Event Hubs bindings for Azure Functions
 description: Understand how to use Azure Event Hubs bindings in Azure Functions.
 services: functions
 documentationcenter: na
@@ -19,13 +19,13 @@ ms.date: 11/08/2017
 ms.author: wesmc
 
 ---
-# Azure Functions Event Hubs bindings
+# Azure Event Hubs bindings for Azure Functions
 
 This article explains how to work with [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) bindings for Azure Functions. Azure Functions supports trigger and output bindings for Event Hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Event Hubs trigger
+## Trigger
 
 Use the Event Hubs trigger to respond to an event sent to an event hub event stream. You must have read access to the event hub to set up the trigger.
 
@@ -173,7 +173,7 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-## Trigger - Attributes for precompiled C#
+## Trigger - attributes for precompiled C#
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -203,7 +203,7 @@ The [host.json](functions-host-json.md#eventhub) file contains settings that con
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## Event Hubs output binding
+## Output
 
 Use the Event Hubs output binding to write events to an event stream. You must have send permission to an event hub to write events to it.
 
@@ -338,7 +338,7 @@ module.exports = function(context) {
 };
 ```
 
-## Output - Attributes for precompiled C#
+## Output - attributes for precompiled C#
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 

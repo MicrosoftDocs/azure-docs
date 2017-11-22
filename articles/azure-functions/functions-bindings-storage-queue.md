@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Queue storage bindings
+title: Azure Queue storage bindings for Azure Functions
 description: Understand how to use the Azure Queue storage trigger and output binding in Azure Functions.
 services: functions
 documentationcenter: na
@@ -18,13 +18,13 @@ ms.date: 10/23/2017
 ms.author: glenga
 ---
 
-# Azure Functions Queue storage bindings
+# Azure Queue storage bindings for Azure Functions
 
 This article explains how to work with Azure Queue storage bindings in Azure Functions. Azure Functions supports trigger and output bindings for queues.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Queue storage trigger
+## Trigger
 
 Use the queue trigger to start a function when a new item is received on a queue. The queue message is provided as input to the function.
 
@@ -148,7 +148,7 @@ module.exports = function (context) {
 
 The [usage](#trigger---usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#trigger---message-metadata) explains all of the other variables shown.
 
-## Trigger - Attributes for precompiled C#
+## Trigger - attributes for precompiled C#
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a queue trigger:
 
@@ -242,7 +242,7 @@ The [host.json](functions-host-json.md#queues) file contains settings that contr
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
-## Queue storage output binding
+## Output
 
 Use the Azure Queue storage output binding to write messages to a queue.
 
@@ -383,7 +383,7 @@ module.exports = function(context) {
 };
 ```
 
-## Output - Attributes for precompiled C#
+## Output - attributes for precompiled C#
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 

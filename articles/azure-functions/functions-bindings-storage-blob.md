@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Blob storage bindings
+title: Azure Blob storage bindings for Azure Functions
 description: Understand how to use Azure Blob storage triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.date: 10/27/2017
 ms.author: glenga
 ---
 
-# Azure Functions Blob storage bindings
+# Azure Blob storage bindings for Azure Functions
 
 This article explains how to work with Azure Blob storage bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for blobs.
 
@@ -27,7 +27,7 @@ This article explains how to work with Azure Blob storage bindings in Azure Func
 > [!NOTE]
 > [Blob-only storage accounts](../storage/common/storage-create-storage-account.md#blob-storage-accounts) are not supported. Blob storage triggers and bindings require a general-purpose storage account. 
 
-## Blob storage trigger
+## Trigger
 
 Use a Blob storage trigger to start a function when a new or updated blob is detected. The blob contents are provided as input to the function.
 
@@ -135,7 +135,7 @@ module.exports = function(context) {
 };
 ```
 
-## Trigger - Attributes for precompiled C#
+## Trigger - attributes for precompiled C#
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a blob trigger:
 
@@ -296,7 +296,7 @@ after the blob is created. In addition, [storage logs are created on a "best eff
 basis. There's no guarantee that all events are captured. Under some conditions, logs may be missed. If you require faster or more reliable blob processing, consider creating a [queue message](../storage/queues/storage-dotnet-how-to-use-queues.md) 
  when you create the blob. Then use a [queue trigger](functions-bindings-storage-queue.md) instead of a blob trigger to process the blob. Another option is to use Event Grid; see the tutorial [Automate resizing uploaded images using Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
-## Blob storage input & output bindings
+## Input & output
 
 Use Blob storage input and output bindings to read and write blobs.
 
@@ -435,7 +435,7 @@ module.exports = function(context) {
 };
 ```
 
-## Input & output - Attributes for precompiled C#
+## Input & output - attributes for precompiled C#
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 

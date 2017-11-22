@@ -1,5 +1,5 @@
 ---
-title: Azure Functions timer trigger
+title: Timer trigger for Azure Functions
 description: Understand how to use timer triggers in Azure Functions.
 services: functions
 documentationcenter: na
@@ -21,7 +21,7 @@ ms.author: glenga
 ms.custom: 
 
 ---
-# Azure Functions timer trigger
+# Timer trigger for Azure Functions 
 
 This article explains how to work with timer triggers in Azure Functions. 
 A timer trigger lets you run a function on a schedule. 
