@@ -1,4 +1,4 @@
-﻿---
+---
 title: Autoscale virtual machine scale sets in the Azure portal | Microsoft Docs
 description: How to create autoscale rules for virtual machine scale sets in the Azure portal
 services: virtual-machine-scale-sets
@@ -119,7 +119,7 @@ The previous examples automatically scaled a scale set in or out with basic host
 
     ![Create autoscale rules that scale on a schedule](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-To see how your autoscale rules are applied, select **Run history** across the top of the **Scaling** window. The graph and events list shows when the autoscale rules trigger and the number of VM instances in your scale increases or decreases.
+To see how your autoscale rules are applied, select **Run history** across the top of the **Scaling** window. The graph and events list shows when the autoscale rules trigger and the number of VM instances in your scale set increases or decreases.
 
 
 ## Next steps
