@@ -72,7 +72,7 @@ All parent runbooks includes the *WhatIf* parameter, which when set to **True**,
 |AutoStop_Disable | none | Disable AutoStop alerts and default schedule.| 
 |AutoStop_StopVM_Child | WebHookData | Called from parent runbook only. Alert rules call this runbook and it does the work of stopping the VM.|  
 |Bootstrap_Main | none | Used one time to set-up bootstrap configurations such as webhookURI which is typically not accessible from ARM. This runbook will be removed automatically if deployment has gone successfully.|  
-|ScheduledStartStop_Child | VMName <br> Action: Stop or Start <br> ResourceGroupName: | Called from parent runbook only. Does the actual execution of stop or start for scheduled stop.|  
+|ScheduledStartStop_Child | VMName <br> Action: Stop or Start <br> ResourceGroupName | Called from parent runbook only. Does the actual execution of stop or start for scheduled stop.|  
 |ScheduledStartStop_Parent | Action: Stop or Start <br> WhatIf: True or False | This will take effect on all VMs in the subscription unless you edit the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** which will restrict it to only execute on these target resource groups. You can also exclude specific VMs by updating the **External_ExcludeVMNames** variable. WhatIf behaves the same as in other runbooks.|  
 |SequencedStartStop_Parent | Action: Stop or Start <br> WhatIf: True or False | Create a tag called **SequenceStart** and another tag called **SequenceStop** on each VM that you want to sequence start\\stop activity for. The value of the tag should be a positive integer (1,2,3) that corresponds to the order you want to start\\stop in ascending order. WhatIf behaves the same as in other runbooks. <br> **Note: VMs must be within resource groups defined External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables and have the appropriate tags for actions to take effect.**|
 
@@ -104,7 +104,7 @@ The following table list the variables created in your Automation account.  It i
 
 <br>
 
-Across all scenarios, the **External_Start_ResourceGroupNames**,  **External_Stop_ResourceGroupNames**, and **External_ExcludeVMNames** variables are necessary for targeting VMs with the exception of providing a comma separated list of VMs for the **AutoStop_CreateAlert_Parent** runbook. That is, your VMs must reside in targeted resource groups for start/stop actions to happen. The logic works a bit like Azure policy, in that you can target at the subscription or resource group and have actions inherited by  newly created VMs. This approach avoids having to maintain a separate schedule for every VM and manage start/stop in scale.
+Across all scenarios, the **External_Start_ResourceGroupNames**,  **External_Stop_ResourceGroupNames**, and **External_ExcludeVMNames** variables are necessary for targeting VMs with the exception of providing a comma separated list of VMs for the **AutoStop_CreateAlert_Parent** runbook. That is, your VMs must reside in target resource groups for start/stop actions to occur. The logic works a bit like Azure policy, in that you can target at the subscription or resource group and have actions inherited by  newly created VMs. This approach avoids having to maintain a separate schedule for every VM and manage start/stop in scale.
 
 ### Schedules
 
