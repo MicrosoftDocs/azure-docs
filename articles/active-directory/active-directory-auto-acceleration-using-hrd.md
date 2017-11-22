@@ -16,9 +16,9 @@ ms.author: billmath
 
 # Configure sign-in auto-acceleration for an application by using Home Realm Discovery (HRD) policy
 
-The following document provides an introduction to home realm discovery and auto-acceleration.
+The following document provides an introduction to Home Realm Discovery and auto-acceleration.
 
-## Home realm discovery
+## Home Realm Discovery
 Home Realm Discovery (HRD) is the process that allows Azure Active Directory (Azure AD) to determine, at sign-in time, where a user needs to authenticate.  When a user signs in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, they type a user name (UPN). Azure AD uses that to discover where the user needs to sign in. 
 
 The user might need to be taken to one of the following locations to be authenticated:
@@ -63,15 +63,15 @@ Domain hint syntax varies depending on the protocol that's used, and it's typica
 
 If a domain hint is included in the authentication request from the application, and the tenant is federated with that domain, Azure AD attempts to redirect sign-in to the IdP that's configured for that domain. 
 
-If the domain hint doesn’t refer to a verified federated domain, it is ignored and normal home realm discovery is invoked.
+If the domain hint doesn’t refer to a verified federated domain, it is ignored and normal Home Realm Discovery is invoked.
 
 For more information about auto-acceleration using the domain hints that are supported by Azure Active Directory, see the [Enterprise Mobility + Security blog](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
 
 >[!NOTE]
 >If a domain hint is included in an authentication request, its presence overrides any HRD policy that is set for the application.
 
-## Home realm discovery policy
-Some applications do not provide a way to configure the authentication request they emit, and in these cases it’s not possible to use domain hints to control auto-acceleration.   Auto-acceleration can be configured via policy to achieve the same behavior.  
+## Home Realm Discovery policy
+Some applications do not provide a way to configure the authentication request they emit, and in these cases it’s not possible to use domain hints to control auto-acceleration. Auto-acceleration can be configured via policy to achieve the same behavior.  
 
 ### Set HRD policy
 There are three steps to setting sign-in auto-acceleration on an application.
