@@ -50,15 +50,14 @@ In the United States Microsoft uses the following SMS short codes:
    * 97671
    * 69829
    * 51789
-   * 673801
+   * 99399
 
 In Canada Microsoft uses the following SMS short codes:
 
-   * 99399
    * 759731 
    * 673801
 
-Microsoft does not guarantee that SMS or Voice authentication requests will come from the same number consistently. Microsoft does not supply short codes for countries besides the United States and Canada.
+Microsoft does not guarantee that SMS or Voice based Multi-Factor Authentication Prompts will be delivered by the same number consistently. In the interest of our users, we may add or remove Short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft does not support short codes for countries besides the United States and Canada
 
 ## Billing
 Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
