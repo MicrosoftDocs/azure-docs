@@ -43,7 +43,7 @@ The SendGrid binding supports the following properties:
 
 Example of **function.json**:
 
-The binding doesn't need To-From Address to be able to map the parrameters. 
+The binding doesn't need To & From Address to be able to map the parameters. 
 
 ```json 
 {
@@ -78,7 +78,7 @@ public static Mail Run(TraceWriter log, string input)
     };
 
     var personalization = new Personalization();
-    personalization.AddTo(new Email("sample@contoso.com"));   
+    personalization.AddTo(new Email("recipient@contoso.com"));   
     personalization.From=new Email ("sender@contoso.com");
     Content content = new Content
     {
@@ -96,7 +96,7 @@ public static Mail Run(TraceWriter log, string input)
 ```javascript
 module.exports = function (context, input) {    
     var message = {
-         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+         "personalizations": [ { "to": [ { "email": "recipient@sample.com" } ] } ],
         from: { email: "sender@contoso.com" },        
         subject: "Azure news",
         content: [{
