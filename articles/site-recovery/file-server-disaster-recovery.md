@@ -41,11 +41,11 @@ In the above reference, multiple file servers referred to as members, actively p
 
     Once the dependencies of Site-to-Site VPN connectivity and Active directory are handled and DFSR is in place, when one or more of the file servers on-premises is inaccessible, the clients can still connect to the Azure VM, which will serve the requests.
 
-    This approach is suggested in case your VMs have configurations that are not supported by Azure Site Recovery, like for example: shared cluster disk which is sometimes commonly used in File Server environments.  DFSR also works  well in low-bandwidth environments with medium churn rate. The additional cost of having an Azure VM up and running all the time also needs to be accommodated with this.  
+    This approach is suggested in case your VMs have configurations that are not supported by Azure Site Recovery, like for example: shared cluster disk, which is sometimes commonly used in File Server environments.  DFSR also works  well in low-bandwidth environments with medium churn rate. The additional cost of having an Azure VM up and running all the time also needs to be accommodated with this.  
 
 3.	Use Azure File Sync service to replicate your files: If you are preparing for your journey to the cloud, or are already using an Azure VM, then we suggest the use of Azure File sync service, which offers syncing of fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block ](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)(SMB) protocol. Azure File shares can then be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. 
 
-Below diagram, gives a pictorial representation aimed at easing out the decision of what strategy to use for your file server environment.
+Following diagram, gives a pictorial representation aimed at easing out the decision of what strategy to use for your file server environment.
 
 ![decisiontree](media/site-recovery-file-server/decisiontree.png)
 
@@ -80,21 +80,21 @@ Refer: [Extend on-premises Active Directory to Azure](https://docs.microsoft.com
 
 ## Disaster recovery recommendation for Azure IaaS virtual machines
 
-If you are configuring anf managing disaster recovery of File Servers hosted on Azure IaaS Vms, you can choose between two options, based on whether you want to move to [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+If you are configuring and managing disaster recovery of File Servers hosted on Azure IaaS VMs, you can choose between two options, based on whether you want to move to [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
 1. [Use Azure File Sync](#use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine)
 2. [Use Azure Site Recovery](#replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery)
 
 ## Use Azure File Sync service to replicate files hosted on IaaS virtual machine
 
-**Azure Files** can be used to completely replace or supplement traditional on-premises file servers or NAS devices. Azure File shares can also be replicated with Azure File Sync to Windows Servers, either on-premises or in the cloud, for performant and distributed caching of the data where it's being used. Below steps detail the DR recommendation for Azure VMs that perform same functionality as traditional File Servers:
+**Azure Files** can be used to completely replace or supplement traditional on-premises file servers or NAS devices. Azure File shares can also be replicated with Azure File Sync to Windows Servers, either on-premises or in the cloud, for performant and distributed caching of the data where it's being used. Following steps detail the DR recommendation for Azure VMs that perform same functionality as traditional File Servers:
 1.	Protect machines using Azure Site Recovery using steps mentioned here
 2.	Use Azure File Sync to replicate files from the VM that acts as the file server, to the cloud.
 3.	Use Azure Site Recovery’s recovery plan feature to add scripts to [mount the Azure File share](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) and access the share in your virtual machine.
 
 The below steps describe briefly how to use Azure File Sync service:
 
-1. [Create a storage account in Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). If you chose Read-access geo-redundant storage (RA-GRS) for your storage accounts, you will get read access to your data from the secondary region in case of a disaster. Please refer to the [Azure File share disaster recovery strategies](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for further info.
+1. [Create a storage account in Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). If you chose Read-access geo-redundant storage (RA-GRS) for your storage accounts, you get read access to your data from the secondary region in case of a disaster. Refer to the [Azure File share disaster recovery strategies](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for further info.
 
 2. [Create a file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
 
@@ -106,7 +106,7 @@ The below steps describe briefly how to use Azure File Sync service:
 
 ### Replicate an IaaS file server virtual machine using Azure Site Recovery
 
-If you have on-premises clients accessing the IaaS file server virtual machine perform the first 2 steps as well, else proceed to step 3.
+If you have on-premises clients accessing the IaaS file server virtual machine perform the first two steps as well, else proceed to step 3.
 
 1. Establish Site-to-Site VPN connection between on-premises site and Azure network.  
 2. Extend on-premises Active Directory.
@@ -147,7 +147,7 @@ The suggested approach of integrating Azure File Sync with Azure Site Recovery i
 
 The below steps detail using Azure File Sync service:
 
-1. [Create a storage account in Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). If you chose Read-access geo-redundant storage (RA-GRS) (recommended) for your storage accounts, you will have read access to your data from the secondary region in case of a disaster. Please refer to the [Azure File share disaster recovery strategies](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for further info.
+1. [Create a storage account in Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). If you chose Read-access geo-redundant storage (RA-GRS) (recommended) for your storage accounts, you have read access to your data from the secondary region in case of a disaster. Refer to the [Azure File share disaster recovery strategies](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for further info.
 
 2. [Create a file share](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
 
