@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 11/22/2017
 ms.author: raynew
 ---
 
-# Scale machine discovery and assessment
+# Discover and assess a large VMware environment
 
 This article describes how to assess large numbers of on-premises machines with [Azure Migrate](migrate-overview.md). Azure Migrate assesses machines to check whether they're suitable for migration to Azure, and provides sizing and cost estimations for running the machine in Azure.
 
@@ -36,9 +36,9 @@ An Azure Migrate project can assess up to 1500 machines. A single discovery in a
 - If you have between 1000 and 1500 machines, you need a single project with two discoveries in it.
 - If you have more than 1500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
     - If you have 3000 machines,  you could set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5000 machines, you could set up 4 projects. Two with a discovery of 1500 machines, and one with a discovery of 500 machines. Alternatively, you could set up 5 projects with a single discovery in each one. 
-- When you do a discovery in Azure Migrate, you can set the discovery scope to a VMware folder, datacenter or cluster.
-- If you need to do more than one discovery, in vCenter, make sure that VMs you want to discover are placed into folders, datacenters or clusters that support the limitation of 1000 machines.
+    - If you have 5000 machines, you could set up four projects. Two with a discovery of 1500 machines, and one with a discovery of 500 machines. Alternatively, you could set up five projects with a single discovery in each one. 
+- When you do a discovery in Azure Migrate, you can set the discovery scope to a VMware folder, datacenter, or cluster.
+- To do more than one discovery, verify in vCenter that the VMs you want to discover are in folders, datacenters, or clusters that support the limitation of 1000 machines.
 - We recommend that for assessment purposes, you keep machines with inter-dependencies within the same project and assessment. So in vCenter, make sure that dependent machines are in the same folder, datacenter, or cluster for the purposes of assessment.
 
 
@@ -46,11 +46,11 @@ An Azure Migrate project can assess up to 1500 machines. A single discovery in a
 
 Create an Azure Migrate project in accordance with your requirements.
 
-1. In the Azure Portal, click **Create a resource**.
+1. In the Azure portal, click **Create a resource**.
 2. Search for **Azure Migrate**, and select the service (**Azure Migrate (preview)** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
-5. Specify the region in which to create the project, then click **Create**. Metadata gathered from on-premises VMs will be stored in this region.
+5. Specify the region in which to create the project, then click **Create**. Metadata gathered from on-premises VMs are stored in this region.
 
 ## Set up the collector appliance
 
@@ -77,7 +77,7 @@ Check that the .OVA file is secure, before you deploy it.
 
     **Algorithm** | **Hash value**
     --- | ---
-    MD5 | c283f00f46484bf673dc8383b01d0741 
+    MD5 | c283f00f46484bf673dc8383b01d0741 
     SHA1 | 8f49b47f53d051af1780bbc725659ce64e717ed4
     SHA256 | 7aecdbdb2aea712efe99d0c1444503f52d16de5768e783465e226fbbca71501d
 
@@ -109,12 +109,12 @@ If you have multiple projects, make sure you identify the ID and key for each on
 
 ## Run the collector to discover VMs
 
-For each discovery you need to perform, you run the collector to discovery VMs in the required scope. You need to run the discoveries one after the other. Concurrent discoveries aren't supported, and each discovery must have a different scope.
+For each discovery you need to perform, you run the collector to discovery VMs in the required scope. Run the discoveries one after the other. Concurrent discoveries aren't supported, and each discovery must have a different scope.
 
 1. In the vSphere Client console, right-click the VM > **Open Console**.
-2. Provide the language, time zone and password preferences for the appliance.
+2. Provide the language, time zone, and password preferences for the appliance.
 3. On the desktop, click the **Run collector** shortcut.
-4. In the Azure Migrate Collector, open **Set Up Prequisites**.
+4. In the Azure Migrate Collector, open **Set Up Prerequisites**.
     - Accept the license terms, and read the third-party information.
     - The collector checks that the VM has internet access.
     - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication.
