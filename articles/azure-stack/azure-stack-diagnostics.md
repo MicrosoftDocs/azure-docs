@@ -106,9 +106,9 @@ These files are collected by the Trace Collector and stored in a share from wher
 
     - Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the time period between 8 hours ago and 2 hours ago:
 
-      ```
-      Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-      ```
+        ```
+        Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+        ```
 
 ### To run Get-AzureStackLog on an Azure Stack integrated system
 
@@ -139,7 +139,7 @@ if($s)
 - The parameters **OutputSharePath** and **OutputShareCredential** are optional and are used when you upload logs to an external shared folder. Use these parameters *in addition* to **OutputPath**. If **OutputPath** is not specified, the log collection tool uses the system drive of the PEP VM for storage. This might cause the script to fail because  the drive space is limited.
 - As shown in the previous example, the **FromDate** and **ToDate** parameters can be used to collect logs for a particular time period. This can come in handy for scenarios like collecting logs after applying an update package on an integrated system.
 
-**Parameter considerations for both ASDK and integrated systems:**
+### Parameter considerations for both ASDK and integrated systems
 
 - If the **FromDate** and **ToDate** parameters are not specified, logs are collected for the past four hours by default.
 - You can use the **TimeOutInMinutes** parameter to set the timeout for log collection. It is set to 150 (2.5 hours) by default.
@@ -166,7 +166,7 @@ if($s)
    | WAS                     | WASPUBLIC              | WDS                |
 
 
-A few additional things to note:
+### Additional considerations
 
 * The command takes some time to run based on which role(s) the logs are collecting. Contributing factors also include the time duration specified for log collection, and the numbers of nodes in the Azure Stack environment.
 * After log collection completes, check the new folder created in the **OutputPath** parameter specified in the command.
