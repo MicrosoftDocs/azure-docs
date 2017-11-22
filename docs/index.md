@@ -1,1 +1,0 @@
-# Welcome to office-store-docs!
