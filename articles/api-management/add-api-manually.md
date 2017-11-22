@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2017
+ms.date: 11/22/2017
 ms.author: apimpm
 
 ---
