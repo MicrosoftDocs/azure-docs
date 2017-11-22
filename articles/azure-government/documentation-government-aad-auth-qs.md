@@ -1,6 +1,6 @@
 ---
-title: Azure Government Integrating Azure AD Authentication | Microsoft Docs
-description: Integrating AAD Authentication on Azure Government Quickstart
+title: Azure Government Integrate Azure AD Authentication | Microsoft Docs
+description: Integrating Azure AD Authentication on Azure Government Quickstart
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -17,16 +17,16 @@ ms.date: 11/2/2017
 ms.author: yujhongmicrosoft
 
 ---
-# Integrating Azure AD Authentication with Web Apps on Azure Government
-The following quickstart helps you get started integrating Azure AD Authentication with applications on Azure Government. Azure AD Authentication on Azure Government is similar to the Azure commercial platform, with a [few exceptions](documentation-government-services-securityandidentity.md).
+# Integrate Azure AD Authentication with Web Apps on Azure Government
+The following quickstart helps you get started integrating Azure AD Authentication with applications on Azure Government. Azure Active Directory (Azure AD) Authentication on Azure Government is similar to the Azure commercial platform, with a [few exceptions](documentation-government-services-securityandidentity.md).
 
 Learn more about [Azure Active Directory Authentication Scenarios](../active-directory/develop/active-directory-authentication-scenarios.md). 
 
-## Integrate Azure AD Login into a web application using OpenID Connect
+## Integrate Azure AD login into a web application using OpenID Connect
 This section shows how to integrate Azure AD using the OpenID Connect protocol for signing in users into a web app. 
 
 ### Prerequisites 
-- An Azure Active Directory (Azure AD) tenant in Azure Government. You must have an [Azure Government subscription](https://azure.microsoft.com/overview/clouds/government/request/) in order to have an Azure AD tenant in Azure Government. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](../active-directory/develop/active-directory-howto-tenant.md) 
+- An Azure AD tenant in Azure Government. You must have an [Azure Government subscription](https://azure.microsoft.com/overview/clouds/government/request/) in order to have an Azure AD tenant in Azure Government. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](../active-directory/develop/active-directory-howto-tenant.md) 
 - A user account in your Azure AD tenant. This sample does not work with a Microsoft account, so if you signed in to the Azure Government portal with a Microsoft account and have never created a user account in your directory before, you need to do that now.
 - Have an [ASP.NET Core application deployed and running in Azure Government](documentation-government-howto-deploy-webandmobile.md)
 
@@ -105,7 +105,7 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 	```
 9. Navigate to your **Home** controller or whichever controller file is your home page, **where you want your users to log in**. Add the `[Authorize]` tag before the class definition.
 
-## Next Steps
+## Next steps
 
 * Navigate to the [Azure Government PaaS Sample](https://github.com/Azure-Samples/gov-paas-sample) to see Azure AD Authentication as well as other services being integrated in an Application running on Azure Government. 
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
