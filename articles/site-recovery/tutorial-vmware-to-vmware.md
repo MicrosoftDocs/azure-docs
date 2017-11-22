@@ -42,7 +42,7 @@ Select what to replicate, and where to replicate it to.
 2. Select **To recovery site** > **Yes, with VMware vSphere Hypervisor**. Then click **OK**.
 3. In **Scout Setup**, download the InMage Scout 8.0.1 GA software, and the registration key. The setup files for all components are included in the downloaded .zip file.
 
-## Install component updates
+## Download and install component updates
 
  Review and install the latest [updates](#updates). Updates should be installed on servers in the following order:
 
@@ -80,7 +80,7 @@ Download the [update](https://aka.ms/asr-scout-update6) .zip file. The file cont
 ## Enable replication
 
 1. Set up replication between the source and target VMware sites.
-2. For guidance, use the InMage Scout documentation that's downloaded with the product. Alternatively, you can access the documentation as follows:
+2. Refer to following documents to learn more about installation, protection and recovery:
 
    * [Release notes](https://aka.ms/asr-scout-release-notes)
    * [Compatibility matrix](https://aka.ms/asr-scout-cm)
@@ -91,7 +91,9 @@ Download the [update](https://aka.ms/asr-scout-update6) .zip file. The file cont
 ## Updates
 
 ### Site Recovery Scout 8.0.1 Update 6 
-Updated: October 6, 2017
+Updated: October 12, 2017
+
+Download [Scout update 6](https://aka.ms/asr-scout-update6).
 
 Scout Update 6 is a cumulative update. It contains all fixes from Update 1 to Update 5 plus  the new fixes and enhancements described below. 
 
@@ -112,7 +114,6 @@ Scout Update 6 is a cumulative update. It contains all fixes from Update 1 to Up
 
 #### Bug fixes and enhancements
 - Failback protection fails for Linux VM with list of disks to be replicated is empty at the end of config.
-
 
 ### Site Recovery Scout 8.0.1 Update 5
 Scout Update 5 is a cumulative update. It contains all fixes from Update 1 to Update 4, and the new fixes described below.
@@ -136,10 +137,10 @@ Scout Update 5 is a cumulative update. It contains all fixes from Update 1 to Up
 	
 * Fixed: During failback protection, if the selected master target server isn't on the same ESXi server as the protected source machine (during forward protection), then vContinuum picks up the wrong master target server during failback recovery, and the recovery operation fails.
 
-#### Issues
-* The P2V cluster fixes are applicable only to physical MSCS clusters that are newly protected with Site Recovery Scout Update 5. To install the cluster fixes on protected P2V MSCS clusters with older updates, follow the upgrade steps mentioned in section 12 of the [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes).
-* if at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected, then re-protection of a physical MSCS cluster can only reuse existing target disks. If not, then use the manual steps in section 12 of [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes), to  move the target side disks to the correct datastore path, for reuse during re-protection. If you reprotect the MSCS cluster in P2V mode without following the upgrade steps, it creates a new disk on the target ESXi server. You will need to manually delete the old disks from the datastore.
-* When a source SLES11 or SLES11 (with any service pack) server is rebooted gracefully, then manually mark the **root** disk replication pairs for re-synchronization. There's no notification in the CX interface. If you don't mark the root disk for resynchronization, you might notice data integrity issues.
+> [!NOTE]
+> * The P2V cluster fixes are applicable only to physical MSCS clusters that are newly protected with Site Recovery Scout Update 5. To install the cluster fixes on protected P2V MSCS clusters with older updates, follow the upgrade steps mentioned in section 12 of the [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes).
+> * if at the time of re-protection, the same set of disks are active on each of the cluster nodes as they were when initially protected, then re-protection of a physical MSCS cluster can only reuse existing target disks. If not, then use the manual steps in section 12 of [Site Recovery Scout Release Notes](https://aka.ms/asr-scout-release-notes), to  move the target side disks to the correct datastore path, for reuse during re-protection. If you reprotect the MSCS cluster in P2V mode without following the upgrade steps, it creates a new disk on the target ESXi server. You will need to manually delete the old disks from the datastore.
+> * When a source SLES11 or SLES11 (with any service pack) server is rebooted gracefully, then manually mark the **root** disk replication pairs for re-synchronization. There's no notification in the CX interface. If you don't mark the root disk for resynchronization, you might notice data integrity issues.
 
 
 ### Azure Site Recovery Scout 8.0.1 Update 4
@@ -177,14 +178,13 @@ Scout Update 4 is a cumulative update. It includes all fixes from Update 1 to Up
   * Capacity and free space details are displayed for all protected devices.
   * Scout driver state on the source server is available.
 
-#### Issues
-
-* **InMage_Scout_Standard_8.0.1_GA.zip** base package has:
+> [!NOTE]
+> * **InMage_Scout_Standard_8.0.1_GA.zip** base package has:
 	* An updated configuration server base installer (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
 	* A Windows master target base installer (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
 	* For all new installations, use the new configuration server and Windows master target GA bits.
-* Update 4 can be applied directly on 8.0.1 GA.
-* The configuration server and RX updates can’t be rolled back after they've been applied.
+> * Update 4 can be applied directly on 8.0.1 GA.
+> * The configuration server and RX updates can’t be rolled back after they've been applied.
 
 
 ### Azure Site Recovery Scout 8.0.1 Update 3

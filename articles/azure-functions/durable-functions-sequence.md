@@ -67,13 +67,16 @@ The implementation of `E1_SayHello` is a relatively trivial string formatting op
 
 This function has a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html)parameter, which it uses to get input that was passed to it by the orchestrator function's call to [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_)>.
 
-## Running the orchestration
+## Run the sample
 
-To execute the `E1_HelloSequence` orchestration, make the following HTTP call.
+To execute the `E1_HelloSequence` orchestration, send the following HTTP POST request.
 
 ```
-POST http://{app-name}.azurewebsites.net/orchestrators/E1_HelloSequence
+POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+For example, if you're running the sample in a function app named "myfunctionapp", replace "{host}" with "myfunctionapp.azurewebsites.net".
+
 The result is an HTTP 202 response, like this (trimmed for brevity):
 
 ```
@@ -116,7 +119,7 @@ Here is the orchestration as a single C# file in a Visual Studio project:
 
 ## Next steps
 
-At this point, you have a basic understanding of the core mechanics for Durable Functions. This sample was trivial and only showed a few of the features available. Subsequent samples are more "real world" and display a greater breadth of functionality.
+This sample has demonstrated a simple function-chaining orchestration. The next sample shows how to implement the  fan-out/fan-in pattern. 
 
 > [!div class="nextstepaction"]
 > [Run the Fan-out/fan-in sample](durable-functions-cloud-backup.md)

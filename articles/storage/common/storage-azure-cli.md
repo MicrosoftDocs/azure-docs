@@ -390,7 +390,7 @@ Sample Output
 }
 ```
 
-### List share napshots
+### List share snapshots
 
 You may list share snapshots of a particular share using `az storage share list --include-snapshots`
 

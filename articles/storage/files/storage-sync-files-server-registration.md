@@ -54,8 +54,12 @@ Before a Windows Server can be used as a *Server Endpoint* in an Azure File Sync
 > [!Important]  
 > If the server is a member of a Failover Cluster, the Azure File Sync agent needs to be installed on every node in the cluster.
 
-### Register the Server using the Server Registration UI
-1. If the Server Registration UI did not start immediately after completing the installation of the Azure File Sync agent, it can be started manually by executing `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
+### Register the server using the server registration UI
+
+> [!Important]  
+> Cloud Solution Provider subscriptions cannot use the server registration UI. Instead, use PowerShell (below this section).
+
+1. If the server registration UI did not start immediately after completing the installation of the Azure File Sync agent, it can be started manually by executing `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Click *Sign-in* to access your Azure subscription. 
 
     ![Opening dialog of the Server Registration UI](media/storage-sync-files-server-registration/server-registration-ui-1.png)
@@ -70,6 +74,15 @@ Before a Windows Server can be used as a *Server Endpoint* in an Azure File Sync
 
 > [!Important]  
 > If the server is a member of a Failover Cluster, each server needs to run the Server Registration. When you view the Registered Servers in the Azure Portal, Azure File Sync automatically recognizes each node as a member of the same Failover Cluster, and groups them together appropriately.
+
+### Register the server with PowerShell
+You can also perform server registration via PowerShell. This is the only supported way of server registration for Cloud Solution Provider subscriptions:
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+```
 
 ## Unregister the server with Storage Sync Service
 There are several steps that are required to unregister a server with a Storage Sync Service. Let's take a look at how to properly unregister a server.

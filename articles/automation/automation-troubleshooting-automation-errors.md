@@ -115,8 +115,8 @@ If you want to use more than 500 minutes of processing per month you will need t
 
 1. Sign in to your Azure subscription  
 2. Select the Automation account you wish to upgrade  
-3. Click on **Settings** > **Pricing tier and Usage** > **Pricing tier**  
-4. On the **Choose your pricing tier** page, select **Basic**    
+3. Click on **Settings** > **Pricing**.
+4. Click **Enable** on page bottom to upgrade your account to the **Basic** tier.
 
 ### Scenario: Cmdlet not recognized when executing a runbook
 **Error:**

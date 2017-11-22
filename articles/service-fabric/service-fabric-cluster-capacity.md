@@ -91,6 +91,11 @@ You get to choose durability level for each of your node-types.You can choose on
 
 Use Silver or Gold durability for all node types that host stateful services you expect to scale-in (reduce VM instance count) frequently, and you would prefer that deployment operations be delayed in favor of simplifying these scale-in operations. The scale-out scenarios (adding VMs instances) do not play into your choice of the durability tier, only scale-in does.
 
+### Changing durability levels
+- Node types with durability levels of Silver or Gold cannot be downgraded to Bronze.
+- Upgrading from Bronze to Silver or Gold can take a few hours.
+- When changing durability level, be sure to update it in both the Service Fabric extension configuration in your VMSS resource, and in the node type definition in your Service Fabric cluster resource. These values must match.
+
 ### Operational Recommendations for the node type that you have set to silver or gold durability level.
 
 1. Keep your cluster and applications healthy at all times, and make sure that applications respond to all [Service replica lifecycle events](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (like replica in build is stuck) in a timely fashion.

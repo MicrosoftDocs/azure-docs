@@ -96,7 +96,7 @@ Run the following PowerShell commands:
    ```powershell
    $JsonParams = @{"json"=$json}
    ```
-1. Create a hashtable for the parameters for `Start-AzureRmAutomstionRunbook`:
+1. Create a hashtable for the parameters for `Start-AzureRmAutomationRunbook`:
    ```powershell
    $RBParams = @{
         AutomationAccountName = 'AATest'

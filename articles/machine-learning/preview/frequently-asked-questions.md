@@ -103,7 +103,7 @@ Yes, the Experimentation Service and Model Management work in conjunction with m
 
 **Do you support both on-premises and cloud deployment scenarios?**
 
-Yes. We support local and on-premises deployment scenarios via Docker containers. Local execution targets include: single-node Docker deployments, [Microsoft SQL Server with ML Services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop, or Spark. We also support cloud deployments via Docker, including: clustered deployments via Azure Container Service and Kubernetes, HDInsight, or Spark clusters. Edge scenarios are supported via Docker containers and Azure IOT Edge. 
+Yes. We support on-premises and cloud deployment scenarios via Docker containers. Local execution targets include: single-node Docker deployments, [Microsoft SQL Server with ML Services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop, or Spark. We also support cloud deployments via Docker, including: clustered deployments via Azure Container Service and Kubernetes, HDInsight, or Spark clusters. Edge scenarios are supported via Docker containers and Azure IOT Edge. 
 
 **Can I run a Docker image that was created using the Azure Machine Learning CLI on another host?**
 
@@ -161,7 +161,6 @@ If your solution requires data ingestion from additional sources, Python code ca
 For public preview, Workbench supports data ingestion from: 
 - Local hard drive or mapped network storage location
 - Azure BLOB or Azure Storage (requires an Azure subscription)
-- Azure Data Lake or Azure Data Lake Storage (requires an Azure subscription)
 - Azure SQL Server
 - Microsoft SQL Server
 

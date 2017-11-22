@@ -3,7 +3,7 @@ title: Analytics - the powerful search and query tool of Azure Application Insig
 description: 'Overview of Analytics, the powerful diagnostic search tool of Application Insights. '
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Analytics in Application Insights

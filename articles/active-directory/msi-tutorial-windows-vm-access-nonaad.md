@@ -3,7 +3,7 @@ title: Use a Windows VM MSI to access Azure Key Vault
 description: A tutorial that walks you through the process of using a Windows VM Managed Service Identity (MSI) to access Azure Key Vault. 
 services: active-directory
 documentationcenter: ''
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 10/24/2017
 ms.author: elkuzmen
 ---
 
-# Use Managed Service Identity (MSI) with a Windows VM to access Azure Key Vault 
+# Use a Windows VM Managed Service Identity (MSI) to access Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, and then use that identity to access the Azure Key Vault. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication without needing to insert credentials into your code. 
-You will learn how to:
+This tutorial shows you how to enable Managed Service Identity (MSI) for a Windows Virtual Machine, then use that identity to access Azure Key Vault. Serving as a bootstrap, Key Vault makes it possible for your client application to then use the secret to access resources not secured by Azure Active Directory (AD). Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
+
+You learn how to:
 
 
 > [!div class="checklist"]
@@ -66,7 +67,7 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 ## Grant your VM access to a Secret stored in a Key Vault 
  
-Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use MSI with services that don’t support Azure AD authentication, you can store the credentials you need for those services in Azure Key Vault, and use MSI to authenticate to Key Vault to retrieve the credentials. 
+Using MSI your code can get access tokens to authenticate to resources that support Azure AD authentication.  However, not all Azure services support Azure AD authentication. To use MSI with those services, store the service credentials in Azure Key Vault, and use MSI to access Key Vault to retrieve the credentials. 
 
 First, we need to create a Key Vault and grant our VM’s identity access to the Key Vault.   
 
@@ -84,18 +85,18 @@ First, we need to create a Key Vault and grant our VM’s identity access to the
 
 Next, add a secret to the Key Vault, so that later you can retrieve the secret using code running in your VM: 
 
-1. Select **All Resources**, and find and select the Key Vault you just created. 
+1. Select **All Resources**, and find and select the Key Vault you created. 
 2. Select **Secrets**, and click **Add**. 
-3. From **Upload options** select **Manual**. 
+3. Select **Manual**, from **Upload options**. 
 4. Enter a name and value for the secret.  The value can be anything you want. 
 5. Leave the activation date and expiration date clear, and leave **Enabled** as **Yes**. 
 6. Click **Create** to create the secret. 
  
-## Get an access token using the VM identity and use it retrieve the secret from the Key Vault  
+## Get an access token using the VM identity and use it to retrieve the secret from the Key Vault  
 
-Now that you have created a secret, stored it in a Key Vault, and granted your VM MSI access to the Key Vault, you can write code to retrieve the secret at run time.  To keep this example simple we’ll use simple REST calls using PowerShell.  If you don’t have PowerShell installed, download it [here](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1).
+If you don’t have PowerShell 4.3.1 or greater installed, you'll need to [download and install the latest version](https://docs.microsoft.com/powershell/azure/overview).
 
-First, we’ll use the VM’s MSI to get an access token to authenticate to Key Vault:
+First, we use the VM’s MSI to get an access token to authenticate to Key Vault:
  
 1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**.
 2. Enter in your **Username** and **Password** for which you added when you created the **Windows VM**.  
