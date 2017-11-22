@@ -22,15 +22,15 @@ ms.author: vturecek
 > * [C# on Windows](service-fabric-reliable-actors-get-started.md)
 > * [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
 
-This article walks through creating and debugging a simple Reliable Actor application in Visual Studio.  For more information on Reliable Actors, see [Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
+This article walks through creating and debugging a simple Reliable Actor application in Visual Studio. For more information on Reliable Actors, see [Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 
 ## Prerequisites
 
-Before you start, ensure that you have the Service Fabric development environment set up on your machine.  For details, see [how to set up the development environment](service-fabric-get-started.md).
+Before you start, ensure that you have the Service Fabric development environment, including Visual Studio, set up on your machine. For details, see [how to set up the development environment](service-fabric-get-started.md).
 
 ## Create a new project in Visual Studio
 
-Launch Visual Studio 2015 or Visual Studio 2017 as an administrator, and create a new **Service Fabric Application** project:
+Launch Visual Studio 2015 or later as an administrator, and then create a new **Service Fabric Application** project:
 
 ![Service Fabric tools for Visual Studio - new project][1]
 
@@ -38,7 +38,7 @@ In the next dialog box, choose **Actor Service** and enter a name for the servic
 
 ![Service Fabric project templates][5]
 
-After you have created the solution, you should see the following structure:
+The created project shows the following structure:
 
 ![Service Fabric project structure][2]
 
@@ -48,17 +48,17 @@ The solution contains three projects:
 
 * **The application project (MyApplication)**. This project packages all of the services together for deployment. It contains the *ApplicationManifest.xml* and PowerShell scripts for managing the application.
 
-* **The interface project (HelloWorld.Interfaces)**. This project contains the interface definition for the actor. Actor interfaces can be defined in any project with any name.  However, since the interface defines the actor contract that is shared by the actor implementation and the clients calling the actor, it typically makes sense to define it in an assembly that is separate from the actor implementation and can be shared by multiple other projects.
+* **The interface project (HelloWorld.Interfaces)**. This project contains the interface definition for the actor. Actor interfaces can be defined in any project with any name.  The interface defines the actor contract that is shared by the actor implementation and the clients calling the actor.  Because client projects may depend on it, it typically makes sense to define it in an assembly that is separate from the actor implementation.
 
-* **The actor service project (HelloWorld)**. This project defines the Service Fabric service that is going to host the actor. It contains the implementation of the actor, *HellowWorld.cs*. An actor implementation is a class that derives from the base type `Actor` and implements the interface(s) that are defined in the MyActor.Interfaces project. An actor class must also implement a constructor that accepts an `ActorService` instance and an `ActorId` and passes them to the base `Actor` class.
+* **The actor service project (HelloWorld)**. This project defines the Service Fabric service that is going to host the actor. It contains the implementation of the actor, *HellowWorld.cs*. An actor implementation is a class that derives from the base type `Actor` and implements the interfaces defined in the *MyActor.Interfaces* project. An actor class must also implement a constructor that accepts an `ActorService` instance and an `ActorId` and passes them to the base `Actor` class.
     
-    This project also contains *Program.cs*, which registers actor classes with the Service Fabric runtime using `ActorRuntime.RegisterActorAsync<T>()`.  The `HelloWorld` class is already registered.  Any additional actor implementations added to the project must also be registered in the `Main()` method.
+    This project also contains *Program.cs*, which registers actor classes with the Service Fabric runtime using `ActorRuntime.RegisterActorAsync<T>()`. The `HelloWorld` class is already registered. Any additional actor implementations added to the project must also be registered in the `Main()` method.
 
 ## Customize the HelloWorld actor
 
-The project template defines some methods in the `IHelloWorld` interface and implements them in the `HelloWorld` actor implementation.  Let's replace those methods so the actor service returns a simple "Hello World" string output.
+The project template defines some methods in the `IHelloWorld` interface and implements them in the `HelloWorld` actor implementation.  Replace those methods so the actor service returns a simple "Hello World" string.
 
-In the **HelloWorld.Interfaces** project, in **IHelloWorld.cs**, replace the interface definition as follows:
+In the *HelloWorld.Interfaces* project, in the *IHelloWorld.cs* file, replace the interface definition as follows:
 
 ```csharp
 public interface IHelloWorld : IActor
@@ -85,13 +85,13 @@ internal class HelloWorld : Actor, IHelloWorld
 }
 ```
 
-It's a good idea to press **Ctrl-Shift-B** now to build the project and make sure everything compiles.
+Press **Ctrl-Shift-B** to build the project and make sure everything compiles.
 
 ## Add a client
 
-Next, create a simple console application to call the actor service.
+Create a simple console application to call the actor service.
 
-1. Right-click on the solution in Solution Explorer, and then click **Add**, followed by **New Project...**.
+1. Right-click on the solution in Solution Explorer > **Add** > **New Project...**.
 
 2. Under the **.NET Core** project types, choose **Console App (.NET Core)**.  Name the project *ActorClient*.
     
@@ -104,7 +104,7 @@ Next, create a simple console application to call the actor service.
     
     ![Build properties][8]
 
-4. The client project requires the reliable actors NuGet package.  Click the **Tools** menu, followed by **NuGet Package Manager**, and then click **Package Manager Console**.  In the Package Manager Console, enter the following command:
+4. The client project requires the reliable actors NuGet package.  Click **Tools** > **NuGet Package Manager** > **Package Manager Console**.  In the Package Manager Console, enter the following command:
     
     ```powershell
     Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient
@@ -112,11 +112,11 @@ Next, create a simple console application to call the actor service.
 
     The NuGet package and all its dependencies are installed in the ActorClient project.
 
-5. The client project also requires a reference to the interfaces project.  In the ActorClient project, right-click **Dependencies**, and then click **Add reference...**.  Select **Projects > Solution** (if not already selected), and then tick the checkbox next to **HelloWorld.Interfaces**.  Finally, click **OK**.
+5. The client project also requires a reference to the interfaces project.  In the ActorClient project, right-click **Dependencies** and then click **Add reference...**.  Select **Projects > Solution** (if not already selected), and then tick the checkbox next to **HelloWorld.Interfaces**.  Click **OK**.
     
     ![Add reference dialog][7]
 
-6. Finally, in the ActorClient project, replace the entire contents of *Program.cs* with the following:
+6. In the ActorClient project, replace the entire contents of *Program.cs* with the following code:
     
     ```csharp
     using System;
@@ -140,15 +140,13 @@ Next, create a simple console application to call the actor service.
     }
     ```
 
-
-
 ## Running and debugging
 
 Press **F5** to build, deploy, and run the application locally in the Service Fabric development cluster.  During the deployment process, you can see the progress in the **Output** window.
 
 ![Service Fabric debugging output window][3]
 
-When the output contains the text, *The application is ready*, it's possible to test the service using the ActorClient application.  In Solution Explorer, right-click on the **ActorClient** project, then click **Debug**, followed by **Start new instance**.  The command line application should display the output from the actor service.
+When the output contains the text, *The application is ready*, it's possible to test the service using the ActorClient application.  In Solution Explorer, right-click on the **ActorClient** project, then click **Debug** > **Start new instance**.  The command line application should display the output from the actor service.
 
 ![Application output][9]
 
