@@ -29,7 +29,7 @@ If you want to **copy files as-is** between file-based stores (binary copy), ski
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [supported file and compression formats in Data Factory version1](v1//data-factory-supported-file-and-compression-formats.md).
 
 > [!TIP]
-> Learn how copy activity maps your source data to sink from [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md), including how the metadata is determined based on your file format settings and tips on when to specify the [dataset `structure`](concepts-datasets-linked-services#dataset-structure.md) section.
+> Learn how copy activity maps your source data to sink from [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md), including how the metadata is determined based on your file format settings and tips on when to specify the [dataset `structure`](concepts-datasets-linked-services.md#dataset-structure) section.
 
 ## Text format
 
