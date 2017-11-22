@@ -66,7 +66,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |4.16|The (unauthenticated) error page should not have links to other pages or other protected resources of the add-in.|
 |4.17|Deleted.|
 |4.18|Your add-in may not alter, or promote the alteration of, SharePoint or Office except via the Office and SharePoint Add-ins model.|
-|4.19|Your app experience must not prompt a user to disclose the credentials of a Microsoft identity (for example, Office 365 or Microsoft Azure Organizational Account, Microsoft Account, or Windows Domain Account) except through Microsoft approved OAuth flow, where your app is authorized to act on behalf of the user.For more information, see  [Context Token OAuth flow for SharePoint Add-ins](http://msdn.microsoft.com/library/context-token-oauth-flow-for-sharepoint-add-ins%28Office.15%29.aspx) and [Authorization Code OAuth flow for SharePoint Add-ins](http://msdn.microsoft.com/library/authorization-code-oauth-flow-for-sharepoint-add-ins%28Office.15%29.aspx).|
+|4.19|Your app experience must not prompt a user to disclose the credentials of a Microsoft identity (for example, Office 365 or Microsoft Azure Organizational Account, Microsoft Account, or Windows Domain Account) except through Microsoft approved OAuth flow, where your app is authorized to act on behalf of the user.<br/><br/>For more information, see [Context Token OAuth flow for SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/context-token-oauth-flow-for-sharepoint-add-ins) and [Authorization Code OAuth flow for SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-code-oauth-flow-for-sharepoint-add-ins).|
 |4.20|If your app or add-in depends on additional services or accounts, this dependency must be clearly called out in the description you submit in the Seller Dashboard.|
 |4.21|Your app or add-in must not install or launch other executable code on the user's environment.|
 
@@ -87,9 +87,9 @@ This document describes the criteria that are used to validate that Office Add-i
 |5.9.1|SharePoint Add-ins must prompt the administrator to explain that the add-in must install a full-control app. The administrator must be able to install this full-control app without interacting with the SharePoint Add-in provider, for example via email or web forms.|
 |5.9.2|The full-control app that is installed via the SharePoint Add-in must comply with all Store policies. |
 |5.9.3|If the full-control app meets the Office Store validation policies, the SharePoint Add-in submitted to the Office Store can function only to install the full-control app.|
-|5.10|You must specify an icon for your app or add-in in your add-in package or manifest, and that the icon must be correctly sized and formatted.For more information, see  *How can I avoid errors when submitting my app or add-in to the Office Store?*  in [Office Store submission FAQ](office-store-submission-faq.md)|
+|5.10|You must specify an icon for your app or add-in in your add-in package or manifest, and that the icon must be correctly sized and formatted.For more information, see *How can I avoid errors when submitting my app or add-in to the Office Store?* in [Office Store submission FAQ](office-store-submission-faq.md)|
 |5.11|Content add-ins for PowerPoint which use restricted permissions are required to clearly display links to their Privacy Policy and Terms of Use information on the first screen of the add-in. If your add-in does not collect or transmit user information, you must link to a statement that states this fact.|
-|5.12|Content add-ins for PowerPoint may not activate their content (e.g. play audio or video) until after  [Office.initialize event (JavaScript API for Office)](http://msdn.microsoft.com/library/727adf79-a0b5-48d2-99c7-6642c2c334fc%28Office.15%29.aspx) has been called. This ensures that content display will synchronize with presentations correctly.|
+|5.12|Content add-ins for PowerPoint may not activate their content (e.g. play audio or video) until after [Office.initialize event (JavaScript API for Office)](https://dev.office.com/reference/add-ins/shared/office.initialize) has been called. This ensures that content display will synchronize with presentations correctly.|
 
 <a name="bk_6"> </a>
 ## 6. Apps and add-ins are appropriate for a global audience
@@ -269,7 +269,6 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 - [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
 - [Office Store submission FAQ](office-store-submission-faq.md)
 - [Create effective Office Store listings](create-effective-office-store-listings.md)
-- [Office Store Application Provider Agreement](https://sellerdashboard.microsoft.com/Assets/Content/Agreements/en-US/Office_Store_Seller_Agreement_20120927)
 - [Submit your solutions to the Office Store](submit-to-the-office-store.md)
 
  
