@@ -430,7 +430,7 @@ You can elastically change throughput to benefit from the seasonality of your ap
 The throughput concept is explained in the [Request Units in Azure Cosmos DB](request-units.md) article. The throughput for a table is distributed across the underlying physical partitions equally.  
 
 ### What is the default RU/s of table when created through CQL? What If I need to change it?
-Azure Cosmos DB uses request units per second (RU/s) as a currency for providing throughput. Tables created through CQL have 400 RU. You can change the RU from the portal to 10,000 RU. If you need more than 10,000 RU in private preview - you can create it first from portal. Or if you want this capability for CQL - please connect with us on [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com). 
+Azure Cosmos DB uses request units per second (RU/s) as a currency for providing throughput. Tables created through CQL have 400 RU. You can change the RU from the portal. 
 
 CQL
 ```

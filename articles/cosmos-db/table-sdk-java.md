@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: 
 
@@ -31,6 +31,10 @@ ms.custom:
 |**SDK download**|[Download Options](https://github.com/azure/azure-storage-java#download)|
 |**API documentation**|[Java API reference documentation](http://azure.github.io/azure-storage-java/)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
+
+> [!IMPORTANT]
+> If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
+>
 
 ## Release notes
 

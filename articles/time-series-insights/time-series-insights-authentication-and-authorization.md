@@ -20,15 +20,15 @@ This article explains how to configure the authentication and authorization used
 
 ## Service principal
 
-This section explains how to configure an application to access the Time Series Insights API on behalf of the application. The application can then query data or publish reference data in the Time Series Insights environment with application credentials and not the user credentials.
+This section explains how to configure an application to access the Time Series Insights API on behalf of the application. The application can then query data or publish reference data in the Time Series Insights environment with application credentials rather than user credentials.
 
-When you have an application that needs to access Time Series Insights, you must set up an Azure Active Directory application and assign the data access policies in the Time Series Insights environment. This approach is preferable to running the app under your own credentials because:
+When you have an application that must access Time Series Insights, you must set up an Azure Active Directory application and assign the data access policies in the Time Series Insights environment. This approach is preferable to running the app under your own credentials because:
 
-* You can assign permissions to the app identity that are different from your own permissions. Typically, these permissions are restricted to exactly what the app needs to do. For example, you can allow the app to only read data in a particular Time Series Insights environment.
+* You can assign permissions to the app identity that are different from your own permissions. Typically, these permissions are restricted to only what the app requires. For example, you can allow the app to only read data in a particular Time Series Insights environment.
 * You don't have to change the app's credentials if your responsibilities change.
 * You can use a certificate or an application key to automate authentication when you're running an unattended script.
 
-This article shows you how to perform those steps through the Azure portal. It focuses on a single-tenant application where the application is intended to run in only one organization. You typically use single-tenant applications for line-of-business applications that run in your organization.
+This topic shows how to perform those steps through the Azure portal. It focuses on a single-tenant application where the application is intended to run in only one organization. You typically use single-tenant applications for line-of-business applications that run in your organization.
 
 The setup flow consists of three high-level steps:
 
@@ -99,5 +99,7 @@ Use the application ID and key in your application to authenticate with Azure Ti
 
 ## Next steps
 - For sample code that calls the Time Series Insights API, see [Query data using C#](time-series-insights-query-data-csharp.md).
-- For API reference information, see [Query API reference](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
-- [Create a service principal in the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- For API reference information, see [Query API reference](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+
+> [!div class="nextstepaction"]
+> [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md)

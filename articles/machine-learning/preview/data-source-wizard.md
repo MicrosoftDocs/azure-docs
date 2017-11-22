@@ -25,7 +25,7 @@ First, specify how your data is currently in. It could be stored in a flat file 
 ![step 1](media/data-source-wizard/step1.png)
 
 ## Step 3: Select data file ##
-For a file/directory, specify the file path. Choose from the dropdown the location of the data – it could be a local file path, Azure Blob Storage, or Azure Data Lake. 
+For a file/directory, specify the file path. Choose from the dropdown the location of the data – it could be a local file path or Azure Blob Storage. 
 
 Specify the path by typing it in or clicking on the **Browse…** button to browse for it. You can browse for a directory, or one or more files.
 
