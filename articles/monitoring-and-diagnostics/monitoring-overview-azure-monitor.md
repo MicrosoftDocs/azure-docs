@@ -42,7 +42,7 @@ The page is a starting point for navigation, including on-boarding. It shows cur
 
 When you open the page, you can select among the subscriptions you have read access to. For a selected subscription, you can see:
 
-- **Triggered alerts and alert sources** - This table shows summary counts, alert sources, and how many times alerts fired for the selected time duration. It applies to both metric and activity log alerts.
+- **Triggered alerts and alert sources** - This table shows summary counts, alert sources, and how many times alerts fired for the selected time duration. It applies to both metric and activity log alerts. *<Edit: Alerts (Preview) with unified experience also shown for all alerts - events, metrics and logs>*
 - **Activity Log Errors** - If any of your Azure resources log events with error-level severity, you can view a high-level count and click through to the activity log page to investigate each event.
 - **Azure Service Health** - You can see a count of Service Health service issues, planned maintenance events, and health advisories. Azure Service Health provides personalized information when problems in the Azure infrastructure impact your services.  See [Azure Service Health](../service-health/service-health-overview.md) for more information.  
 - **Application Insights** - See KPIs for each AppInsights resource in the current subscription. The KPIs are optimized for server-side application monitoring across ASP.NET web apps, Java, Node, and General application types. The KPIs include metrics for request rate, response duration, failure rate, and availability %. 
@@ -54,6 +54,7 @@ If you have not on-boarded to Log Analytics or Application Insights, or if you h
 ## Azure Monitor Sources - Compute subset
 
 ![Model for monitoring and diagnostics for non-compute resources](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
+
 
 The Compute services here include 
 - Cloud Services 
@@ -140,7 +141,10 @@ A few visualization methods include:
 
 
 ### Automate
-You can use monitoring data to trigger alerts or even whole processes. Examples include:
+> [!NOTE]
+> As part of the ongoing evolution of Alerts on Microsoft Azure, now a unified experience for alerting is being previewed. More details on [Azure Alerts (Preview)](monitoring-overview-unified.md)
+
+In the standard Azure Alerts, you can use monitoring data to trigger alerts or even whole processes. Examples include:
 
 * Use data to autoscale compute instances up or down based on application load.
 * Send emails when a metric crosses a predetermined threshold.
