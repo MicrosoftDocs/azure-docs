@@ -71,7 +71,7 @@ The  _mktcmpid_ parameter is passed all the way to the launch document. This all
 
 When the document loads for the targeted user, the  _mktcmpid_ parameter is available in the [Settings object](https://dev.office.com/reference/add-ins/shared/settings) of the add-in as a Microsoft.Office.CampaignId, in Office clients where the Settings object is supported. Use the following code to read the Microsoft.Office.CampaignId from the Settings object.
 
-```
+```json
 if (Office.context.document.settings) { 
                return Office.context.document.settings.get("Microsoft.Office.CampaignId"); 
                 } 
