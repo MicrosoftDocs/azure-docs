@@ -278,7 +278,9 @@
 ##### [Using test scenarios](service-fabric-testability-scenarios.md)
 ##### [Using the node transition APIs](service-fabric-node-transition-apis.md)
 
-### [Deploy your Linux Java application using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### Set up continuous integration
+#### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
+#### [Deploy your Linux applications using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 
 ## Create and manage clusters
 ### Clusters on Azure
