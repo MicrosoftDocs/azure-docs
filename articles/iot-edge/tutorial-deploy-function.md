@@ -146,7 +146,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 1. Build the Docker image.
     1. In VS Code explorer, click the **Docker** folder to open it. Then select the folder for your container platform, either **linux-x64** or **windows-nano**. 
     2. Right-click the **Dockerfile** file and click **Build IoT Edge module Docker image**. 
-    3. In the **Select Folder** box, navigate to the **Docker/linux-x64** folder, and click **Select Folder as EXE_DIR**. 
+    3. In the **Select Folder** box, navigate to the project folder, **FilterFunction**, and click **Select Folder as EXE_DIR**. 
     4. In the pop-up text box at the top of the VS Code window, enter the image name. For example, `<docker registry address>/filterfunction:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or is similar to `<your registry name>.azurecr.io`, if you are using Azure Container Registry.
  
 4. Sign in to Docker. In integrated terminal, enter the following command: 

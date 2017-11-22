@@ -290,7 +290,10 @@ provides the ability for SAP HANA on Azure (Large Instances) to be registered an
 - Red Hat Subscription Manager deployed in Azure on an Azure VM. The Red Hat Subscription Manager provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by Red Hat (as there is no direct internet access from within the tenant deployed on the Azure Large Instance stamp).
 - SAP requires you to have a support contract with your Linux provider as well. This requirement is not erased by the solution of HANA Large Instances or the fact that your run Linux in Azure. Unlike with some of the Linux Azure gallery images, the service fee is NOT included in the solution offer of HANA Large Instances. It is on you as a customer to fulfill the requirements of SAP regarding support contracts with the Linux distributor.   
    - For SUSE Linux, look up the requirements of support contract in [SAP Note #1984787 - SUSE LINUX Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787) and [SAP Note #1056161 - SUSE Priority Support for SAP applications](https://launchpad.support.sap.com/#/notes/1056161).
-   - For Red Hat Linux, you need to have the correct subscription levels that include support and service (updates to the operating systems of HANA Large Instances. Red Hat recommends getting an "RHEL for SAP Business Applications" subscription. Regarding support and services, check [SAP Note #2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167) and [SAP Note #1496410 - Red Hat Enterprise Linux 6.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/1496410) for details.
+   - For Red Hat Linux, you need to have the correct subscription levels that include support and service (updates to the operating systems of HANA Large Instances. Red Hat recommends getting an "RHEL for [SAP Solutions](https://access.redhat.com/solutions/3082481)" subscription. 
+
+For the support matrix of the different SAP HANA version with the different Linux versions, check [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+
 
 **Database:**
 
