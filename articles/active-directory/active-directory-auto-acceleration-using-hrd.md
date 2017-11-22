@@ -14,12 +14,12 @@ ms.date: 11/09/2017
 ms.author: billmath
 ---
 
-# Configure sign-in auto-acceleration for an application by using home realm discovery (HRD) policy
+# Configure sign-in auto-acceleration for an application by using Home Realm Discovery (HRD) policy
 
 The following document provides an introduction to home realm discovery and auto-acceleration.
 
 ## Home realm discovery
-Home Realm Discovery (HRD) is the process that allows Azure Active Directory (Azure AD) to determine, at sign-in time, where a user needs to authenticate.  When signing in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, the user types a user name (UPN). Azure AD uses that to discover where the user needs to sign in. 
+Home Realm Discovery (HRD) is the process that allows Azure Active Directory (Azure AD) to determine, at sign-in time, where a user needs to authenticate.  When a user signs in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, they type a user name (UPN). Azure AD uses that to discover where the user needs to sign in. 
 
 The user might need to be taken to one of the following locations to be authenticated:
 
@@ -38,7 +38,7 @@ In these cases, when a user signs into an application, they are first first pres
 
 This means users can skip the initial Azure Active Directory page. This process is referred to as “sign-in auto-acceleration.”
 
-In cases where the tenant is federated to another IdP for sign-in auto-acceleration makes user sign-in more streamlined.  You can configure auto-acceleration for individual applications.
+In cases where the tenant is federated to another IdP for sign-in, auto-acceleration makes user sign-in more streamlined.  You can configure auto-acceleration for individual applications.
 
 >[!NOTE]
 >If you configure an application for auto-acceleration, guest users cannot sign in. If you take a user straight to a federated IdP for authentication, there is no way to for them to get back to the Azure Active Directory sign-in page. Guest users, who might need to be directed to other tenants or an external IdP such as a Microsoft account, can't sign in to that application because they're skipping the Home Realm Discovery step.  
@@ -65,7 +65,7 @@ If a domain hint is included in the authentication request from the application,
 
 If the domain hint doesn’t refer to a verified federated domain, it is ignored and normal home realm discovery is invoked.
 
-For more information, see the [Enterprise Mobility + Security blog](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/) for more information about auto-acceleration using the domain hints that are supported by Azure Active Directory.
+For more information about auto-acceleration using the domain hints that are supported by Azure Active Directory, see the [Enterprise Mobility + Security blog](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
 
 >[!NOTE]
 >If a domain hint is included in an authentication request, its presence overrides any HRD policy that is set for the application.
