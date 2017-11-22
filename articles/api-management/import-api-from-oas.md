@@ -31,21 +31,20 @@ In this article, you learn how to:
 
 [Create an Azure API Management instance](get-started-create-service-instance.md).
 
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+
 ## <a name="create-api"> </a>Import and publish a back-end API
 
-This section shows how to import and publish an OpenAPI specification back-end API.
-
-1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **APIs** from under **API MANAGEMENT**.
-3. Select **OpenAPI specification** from the **Add a new API** list.
+1. Select **APIs** from under **API MANAGEMENT**.
+2. Select **OpenAPI specification** from the **Add a new API** list.
 
     ![Add an API](./media/api-management-get-started/add-api.png)    
-4. Enter the  http://conferenceapi.azurewebsites.net?format=json URL in the **OpenAPI specification** field.
-5. Press tab.
+3. Enter the  http://conferenceapi.azurewebsites.net?format=json URL in the **OpenAPI specification** field.
+4. Press tab.
 
     The following fields get filled up with the info from the specified OpenAPI specification: Display name, Name, Description.
-6. Add an API URL suffix. In this case, *conference*. The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.
-9. Publish the API by associating the API with a product. In this case, the "*Unlimited*" product is used.  If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.
+5. Add an API URL suffix. In this case, *conference*. The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.
+6. Publish the API by associating the API with a product. In this case, the "*Unlimited*" product is used.  If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.
 
     Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.
 
@@ -53,7 +52,7 @@ This section shows how to import and publish an OpenAPI specification back-end A
 
     * **Starter**
     * **Unlimited**   
-8. Select **Create**.
+7. Select **Create**.
 
     ![Create an API](./media/api-management-get-started/create-api.png)
 
@@ -92,27 +91,9 @@ Operations can also be called **Developer portal** to test APIs.
     
     After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
 
-## Append other APIs
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
-An API can be composed of APIs exposed by different services: **OpenAPI Specification**, **SOAP API**, **API App**, **Function App**, **Logic App**, **Service Fabric**.
-
-To append a different API to your existing API, follow the steps below. Once you import another API, the operations are appended to your current API.
-
-1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **APIs** from under **API MANAGEMENT**.
-3. Press ellipsis ". . ." next tp the API that you want to append another API to.
-4. Select **Import** from the drop-down menu.
-5. Select one of services from which you want to import an API.
-
-## Related topics
-
-+ [Add an API manually](add-api-manually.md)
-+ [Import a SOAP API](import-soap-api.md)
-+ [Import a SOAP API and convert to REST](restify-soap-api.md)
-+ [Import an API App as an API](import-api-app-as-api.md)
-+ [Import a Function App as an API](import-function-app-as-api.md)
-+ [Import a Logic App as an API](import-logic-app-as-api.md)
-+ [Import a Service Fabric app as an API](import-service-fabric-app-as-api.md)
+[!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
 ## Next steps
 
