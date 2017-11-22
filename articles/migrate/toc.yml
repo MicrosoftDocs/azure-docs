@@ -6,7 +6,7 @@
     href: migrate-overview.md
 - name: Tutorials
   items:
-  - name: Assess VMware VMs
+  - name: Discover and assess VMware VMs
     href: tutorial-assessment-vmware.md
 - name: Concepts
   items:
@@ -16,9 +16,9 @@
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
-  - name: Scale discovery and assessment
+  - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
-  - name: Groups machines
+  - name: Group machines
     href: how-to-create-a-group.md
   - name: Group machines using machine dependencies
     href: how-to-create-group-machine-dependencies.md
@@ -34,5 +34,8 @@
     href: troubleshooting-general.md
 - name: Resources
   items:
+  - name: Azure Migrate
+    href: https://azure.microsoft.com/migrate
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  
