@@ -44,7 +44,7 @@ API | When to use | Notes
 [WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | Your application: <ul><li>Can't access Azure Files via SMB on port 445 due to firewall or ISP constraints</li><li>Requires administrative functionality, such as the ability to set a file share's quota or create a shared access signature</li></ul> | This article demonstrates the usage of `WindowsAzure.Storage` for file I/O using REST (instead of SMB) and management of the file share.
 
 > [!TIP]
-> Depending on the storage needs of the application, Azure Blobs may be a more appropriate choice for storage.  For more information on choosing Azure Files or Azure Blobs, see [Deciding when to use Azure Blobs, Azure Files, or Azure Disks](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api).
+> Depending on the requirements of the application, Azure Blobs may be a more appropriate choice for storage.  For more information on choosing Azure Files or Azure Blobs, see [Deciding when to use Azure Blobs, Azure Files, or Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ## Create the console application and obtain the assembly
 In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2017, however, the steps are similar in other versions of Visual Studio.
