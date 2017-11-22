@@ -170,7 +170,7 @@ The sharded multi-tenant model allows you to choose whether to provision a new t
 
 Now we provision another tenant, this time in its own database.
 
-1. In ...\\Learning Modules\\ProvisionTenants\*Demo-ProvisionTenants.ps1*, modify *$TenantName* to **Salix Salsa**,  *$VenueType* to **dance** and *$Scenario* to **2**.
+1. In ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*, modify *$TenantName* to **Salix Salsa**,  *$VenueType* to **dance** and *$Scenario* to **2**.
 
 2. Press **F5** to run the script again.
     - This F5 press provisions the new tenant in a separate database. The database and the tenant are registered in the catalog. Then the browser opens to the Events page of the tenant.
