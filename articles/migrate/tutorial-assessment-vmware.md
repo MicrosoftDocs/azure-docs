@@ -13,10 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 11/22/2017
 ms.author: raynew
 
 ---
+
 # Discover and assess on-premises VMware VMs for migration to Azure
 
 The [Azure Migrate](migrate-overview.md) services assesses on-premises workloads for migration to Azure.
@@ -37,12 +38,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - **VMware**: You need at least one VMware VM located on an ESXi host or cluster running version 5.0 or higher. The host or cluster must be managed by a vCenter server running version 5.5, 6.0, or 6.5.
 - **vCenter account**: You need a read-only account with administrator credentials for the vCenter server. Azure Migrate uses this account to discover VMs.
 - **Permissions**: On the vCenter server, you need permissions to create a VM by importing a file in .OVA format. 
-- **Statistics settings**: The statistics settings for the vCenter server should be set to level 3 before you start deployment.
+- **Statistics settings**: The statistics settings for the vCenter server should be set to level 3 before you start deployment. If lower than level 3 assessment will work, but performance data for storage and network isn't collected.
 
+## Log in to the Azure portal
+Log in to the [Azure portal](https://portal.azure.com).
 
 ## Create a project
 
-1. In the Azure Portal, click **Create a resource**.
+1. In the Azure portal, click **Create a resource**.
 2. Search for **Azure Migrate**, and select the service (**Azure Migrate (preview)** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
@@ -54,7 +57,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Download the collector appliance
 
-Azure Migrate creates an on-premises VM known as the collector appliance.This VM discovers on-premises VMware VMs, and sends metadata about them to the Azure Migrate service. To set up the collector appliance, you download an .OVA file, and import it to the on-premises vCenter server to create the VM.
+Azure Migrate creates an on-premises VM known as the collector appliance. This VM discovers on-premises VMware VMs, and sends metadata about them to the Azure Migrate service. To set up the collector appliance, you download an .OVA file, and import it to the on-premises vCenter server to create the VM.
 
 1. In the Azure Migrate project, click **Getting Started** > **Discover & Assess** > **Discover Machines**.
 2. In **Discover machines**, click **Download**, to download the .OVA file.
@@ -74,7 +77,7 @@ Check that the .OVA file is secure, before you deploy it.
 
     **Algorithm** | **Hash value**
     --- | ---
-    MD5 | c283f00f46484bf673dc8383b01d0741 
+    MD5 | c283f00f46484bf673dc8383b01d0741 
     SHA1 | 8f49b47f53d051af1780bbc725659ce64e717ed4
     SHA256 | 7aecdbdb2aea712efe99d0c1444503f52d16de5768e783465e226fbbca71501d
 
@@ -101,7 +104,7 @@ will be hosted.
 1. In the vSphere Client console, right-click the VM > **Open Console**.
 2. Provide the language, time zone and password preferences for the appliance.
 3. On the desktop, click the **Run collector** shortcut.
-4. In the Azure Migrate Collector, open **Set Up Prequisites**.
+4. In the Azure Migrate Collector, open **Set Up Prerequisites**.
     - Accept the license terms, and read the third-party information.
     - The collector checks that the VM has internet access.
     - If the VM accesses the internet via a proxy, click **Proxy settings**, and specify the proxy address and listening port. Specify credentials if the proxy needs authentication.
@@ -144,15 +147,19 @@ Here's an example assessment report. It includes information about whether VMs a
 
 #### Azure readiness
 
+This view shows the readiness status for each machine.
+
 - For VMs that are ready, Azure Migrate recommends a VM size in Azure.
-- For VMs that aren't ready, Azure Migrate explains why.
-- Azure Migrate suggests tools that you can use for the migration.
+- For VMs that aren't ready, Azure Migrate explains why, and provides remediation steps.
+- Azure Migrate suggests tools that you can use for the migration. If the machine is suitable for lift and shift migration, the Azure Site Recovery service is recommended. If it's a database machine, the Azure Database Migration Service is recommended.
 
   ![Assessment readiness](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
 #### Monthly cost estimate
 
-Estimated monthly costs for compute and storage are aggregated for all VMs in the group. You can drill down to see costs for a specific machine.
+This view shows costing for compute and storage, for each machine. Cost estimates are calculated using the performance-based size recommendations for a machine and its disks, and the assessment properties.
+
+Estimated monthly costs for compute and storage are aggregated for all VMs in the group. You can click on each machine to drill down for details. 
 
 ![Assessment VM cost](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
