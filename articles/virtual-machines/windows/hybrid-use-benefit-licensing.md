@@ -81,7 +81,7 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selecting "Configuration" option and toggle the "Azure hybrid benefit" option
 
 > [!NOTE]
-> If you don't see the option to toggle "Azure hybrid benefit" under "Configuration", it is because the conversion isn't supported yet for the selected VM type (for example a VM built from custom image or from an image that has additional paid software like SQL Sever or Azure Marketplace 3rd party software).
+> If you don't see the option to toggle "Azure hybrid benefit" under "Configuration", it is because the conversion isn't supported yet for the selected VM type (for example a VM built from custom image or from an image that has additional paid software like SQL Sever or Azure Marketplace third-party software).
 >
 
 ## Upload a Windows Server VHD
