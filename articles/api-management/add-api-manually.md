@@ -12,18 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 11/20/2017
 ms.author: apimpm
 
 ---
 # Add an API manually 
 
-The steps in this article show how to use the Azure portal to add an API manually to the API Management (APIM) instance. A common scenario when you would want to create a blank API and define it manually is when you want to mock the API. Ability to mock up responses can be useful in a number of scenarios:
-
-+ When the API façade is designed first and the backend implementation comes later. Or, the backend is being developed in parallel.
-+ When the backend is temporarily not operational or not able to scale.
-
-For details about mocking an API, see [Mock API responses](mock-api-responses.md).
+The steps in this article show how to use the Azure portal to add an API manually to the API Management (APIM) instance. A common scenario when you would want to create a blank API and define it manually is when you want to mock the API. For details about mocking an API, see [Mock API responses](mock-api-responses.md).
 
 If you want to import an existing API, see [related topics](#related-topics) section.
 
@@ -33,17 +28,18 @@ In this article, we create a blank API and specify [httpbin.org](http://httpbin.
 
 To continue with this article, [Create an Azure API Management instance](get-started-create-service-instance.md)
 
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+
 ## Create an API
 
-1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **APIs** from under **API MANAGEMENT**.
-3. From the left menu, select **+ Add API**.
-4. Select **Blank API** from the list.
-5. Enter "*Blank API*" for **Display name**.
-6. **Web Service URL** is optional. If you want to mock an API, you might not enter anything. In this case, we enter [http://httpbin.org](http://httpbin.org). This is a public testing service. If you want to import an API that is mapped to a backend automatically, see one of the topics in the [related topics](#related-topics) section.
-7. Choose a URL scheme: HTTP, HTTPS, or both. In this case even though the backend has non-secure HTTP access, we specify a secure HTTPS APIM access to the backend. This kind of scenario (HTTPS to HTTP) is called HTTPS termination. You might do it if your API exists within a virtual network (where you know the access is secure even if HTTPS is not used). You might want to use "HTTPS termination" to save on some CPU cycles.
-8. Add an API URL suffix. In this case, *hbin*. The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.
-9. Publish the API by associating the API with a product. In this case, the "*Unlimited*" product is used.  If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.
+1. Select **APIs** from under **API MANAGEMENT**.
+2. From the left menu, select **+ Add API**.
+3. Select **Blank API** from the list.
+4. Enter "*Blank API*" for **Display name**.
+5. **Web Service URL** is optional. If you want to mock an API, you might not enter anything. In this case, we enter [http://httpbin.org](http://httpbin.org). This is a public testing service. If you want to import an API that is mapped to a backend automatically, see one of the topics in the [related topics](#related-topics) section.
+6. Choose a URL scheme: HTTP, HTTPS, or both. In this case even though the backend has non-secure HTTP access, we specify a secure HTTPS APIM access to the backend. This kind of scenario (HTTPS to HTTP) is called HTTPS termination. You might do it if your API exists within a virtual network (where you know the access is secure even if HTTPS is not used). You might want to use "HTTPS termination" to save on some CPU cycles.
+7. Add an API URL suffix. In this case, *hbin*. The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.
+8. Publish the API by associating the API with a product. In this case, the "*Unlimited*" product is used.  If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.
 
     Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.
 
@@ -51,7 +47,7 @@ To continue with this article, [Create an Azure API Management instance](get-sta
 
     * **Starter**
     * **Unlimited** 
-10. Select **Create**.
+9. Select **Create**.
 
 At this point, you have no operations in APIM that map to the operations in your backend API. If you call an operation that is exposed through the backend but not through the APIM, you get a **404**. 
 
@@ -99,27 +95,9 @@ Test the operation in the Azure portal.  Alternatively, you can test it in the *
 
     The response that the "http://httpbin.org/status/200" operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
 
-## Append other APIs
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
-An API can be composed of APIs exposed by different services: **OpenAPI Specification**, **SOAP API**, **API App**, **Function App**, **Logic App**, **Service Fabric**.
-
-To append a different API to your existing API, follow the steps below. Once you import another API, the operations are appended to your current API.
-
-1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **APIs** from under **API MANAGEMENT**.
-3. Press ellipsis ". . ." next tp the API that you want to append another API to.
-4. Select **Import** from the drop-down menu.
-5. Select one of services from which you want to import an API.
-
-## Related topics
-
-+ [Import an API from OpenAPI Specification](import-api-from-oas.md)
-+ [Import a SOAP API](import-soap-api.md)
-+ [Import a SOAP API and convert to REST](restify-soap-api.md)
-+ [Import an API App as an API](import-api-app-as-api.md)
-+ [Import a Function App as an API](import-function-app-as-api.md)
-+ [Import a Logic App as an API](import-logic-app-as-api.md)
-+ [Import a Service Fabric app as an API](import-service-fabric-app-as-api.md)
+[!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
 ## Next steps
 

@@ -31,14 +31,15 @@ In this article, you learn how to:
 
 [Create an Azure API Management instance](get-started-create-service-instance.md).
 
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+
 ## <a name="create-api"> </a>Import and publish a back-end API
 
-1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **APIs** from under **API MANAGEMENT**.
-3. Select **WSDL** from the **Add a new API** list.
-4. In the **WSDL specification**, enter the URL to where your SOAP API resides.
-5. Click **SOAP to REST** radio button. When this option is clicked, APIM attempts to make an automatic transformation between XML and JSON. In this case consumers should be calling the API as a restful API, which returns JSON. APIM is converting each request into a SOAP call.
-6. Press tab.
+1. Select **APIs** from under **API MANAGEMENT**.
+2. Select **WSDL** from the **Add a new API** list.
+3. In the **WSDL specification**, enter the URL to where your SOAP API resides.
+4. Click **SOAP to REST** radio button. When this option is clicked, APIM attempts to make an automatic transformation between XML and JSON. In this case consumers should be calling the API as a restful API, which returns JSON. APIM is converting each request into a SOAP call.
+5. Press tab.
 
     The following fields get filled up with the info from the SOAP API: Display name, Name, Description.
 6. Add an API URL suffix. The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.
@@ -80,17 +81,7 @@ Operations can also be called **Developer portal** to test APIs.
     
     After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
 
-## Append other APIs
-
-An API can be composed of APIs exposed by different services: **OpenAPI Specification**, **SOAP API**, **API App**, **Function App**, **Logic App**, **Service Fabric**.
-
-To append a different API to your existing API, follow the steps below. Once you import another API, the operations are appended to your current API.
-
-1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **APIs** from under **API MANAGEMENT**.
-3. Press ellipsis ". . ." next tp the API that you want to append another API to.
-4. Select **Import** from the drop-down menu.
-5. Select one of services from which you want to import an API.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 ## Related topics
 

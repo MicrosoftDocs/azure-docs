@@ -170,7 +170,7 @@ Policy expressions syntax is C# 6.0. Each expression has access to the implicitl
 |----------------------|-------------------------------------------------------|  
 |context|Api: IApi<br /><br /> Deployment<br /><br /> LastError<br /><br /> Operation<br /><br /> Product<br /><br /> Request<br /><br /> RequestId: Guid<br /><br /> Response<br /><br /> Subscription<br /><br /> Tracing: bool<br /><br /> User<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
 |context.Api|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> ServiceUrl: IUrl|  
-|context.Deployment|Region: string<br /><br /> ServiceName: string|  
+|context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> For more information about context.LastError, see [Error handling](api-management-error-handling-policies.md).|  
 |context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|  
 |context.Product|Apis: IEnumerable<IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
@@ -195,6 +195,16 @@ Policy expressions syntax is C# 6.0. Each expression has access to the implicitl
 |bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> If the input parameter contains a valid JWT token value, the method returns `true` and the result parameter contains a value of type `Jwt`; otherwise the method returns `false`.|  
 |Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|  
 |string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Returns comma separated claim values or `defaultValue` if the header is not found.|
+|byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - plaintext to be encrypted<br /><br />alg - name of a symmetric encryption algorithm<br /><br />key - encryption key<br /><br />iv - initialization vector<br /><br />Returns encrypted plaintext.|
+|byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - plaintext to be encrypted<br /><br />alg - encryption algorithm<br /><br />Returns encrypted plaintext.|
+|byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - plaintext to be encrypted<br /><br />alg - encryption algorithm<br /><br />key - encryption key<br /><br />iv - initialization vector<br /><br />Returns encrypted plaintext.|
+|byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - cyphertext to be decrypted<br /><br />alg - name of a symmetric encryption algorithm<br /><br />key - encryption key<br /><br />iv - initialization vector<br /><br />Returns plaintext.|
+|byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - cyphertext to be decrypted<br /><br />alg - encryption algorithm<br /><br />Returns plaintext.|
+|byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - input - cyphertext to be decrypted<br /><br />alg - encryption algorithm<br /><br />key - encryption key<br /><br />iv - initialization vector<br /><br />Returns plaintext.|
 
+## Video
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
+>
 ## Next steps
 For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  
