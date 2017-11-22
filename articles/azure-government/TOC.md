@@ -26,7 +26,7 @@
 ### [Deploy an Azure App](documentation-government-howto-deploy-webandmobile.md)
 ### [Azure Functions](documentation-government-functions.md)
 ### [Cognitive Services](documentation-government-cognitiveservices.md)
-### [Integrating Azure AD Authentication](documentation-government-aad-auth-qs.md)
+### [Integrate Azure AD Authentication](documentation-government-aad-auth-qs.md)
 
 # Reference
 ## [Available services](documentation-government-services.md)
