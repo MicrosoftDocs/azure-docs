@@ -152,7 +152,7 @@ You might want to restart the load generator session to use different parameter 
 
 The initial deployment includes three sample tenants in the *Tenants1* database. Let's create another tenant to see how this impacts the deployed application. In this step, you quickly create a new tenant.
 
-1. Open ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionTenants.ps1* in the *PowerShell ISE*.
+1. Open ...\\Learning Modules\ProvisionTenants\\*Demo-ProvisionTenants.ps1* in the *PowerShell ISE*.
 2. Press **F5** to run the script (leave the default values for now).
 
    > [!NOTE]
@@ -170,7 +170,7 @@ The sharded multi-tenant model allows you to choose whether to provision a new t
 
 Now we provision another tenant, this time in its own database.
 
-1. In ...\\Learning Modules\\Provision and Catalog\*Demo-ProvisionTenants.ps1*, modify *$TenantName* to **Salix Salsa**,  *$VenueType* to **dance** and *$Scenario* to **2**.
+1. In ...\\Learning Modules\\ProvisionTenants\*Demo-ProvisionTenants.ps1*, modify *$TenantName* to **Salix Salsa**,  *$VenueType* to **dance** and *$Scenario* to **2**.
 
 2. Press **F5** to run the script again.
     - This F5 press provisions the new tenant in a separate database. The database and the tenant are registered in the catalog. Then the browser opens to the Events page of the tenant.
@@ -235,7 +235,7 @@ In this tutorial you learned:
 > - How to view pool utilization to monitor tenant activity
 > - How to delete sample resources to stop related billing
 
-Now try the [Provision and catalog tutorial](sql-database-saas-tutorial-provision-and-catalog.md).
+Now try the [Provision Tenants tutorial](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 
