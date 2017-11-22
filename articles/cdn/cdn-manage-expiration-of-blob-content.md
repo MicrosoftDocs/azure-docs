@@ -94,7 +94,7 @@ class Program
 > There are more .NET code samples available in [Azure Blob Storage Samples for .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
 > 
 
-## Other methods
+## Setting Cache-Control headers by using other methods
 
 ### Azure Storage Explorer
 With [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), you can view and edit your blob storage resources, including properties such as the *CacheControl* property. 
@@ -111,7 +111,7 @@ You can use the [Azure storage services REST API](https://msdn.microsoft.com/lib
   
    - [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
    - [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
-    - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx)
+   - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
 ## Testing the Cache-Control header
 You can easily verify the TTL settings of your blobs. With your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your blob includes the `Cache-Control` response header. You can also use a tool such as [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), or [Fiddler](http://www.telerik.com/fiddler) to examine the response headers.
