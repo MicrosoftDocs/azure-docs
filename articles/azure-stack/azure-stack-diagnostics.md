@@ -86,27 +86,27 @@ These files are collected by the Trace Collector and stored in a share from wher
 
     Collect all logs for all roles:
 
-        ```
-        Get-AzureStackLog -OutputPath C:\AzureStackLogs
-        ```
+    ```
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs
+    ```
 
     Collect logs from VirtualMachines and BareMetal roles:
 
-        ```
-        Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
-        ```
+    ```
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+    ```
 
     Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the past 8 hours:
 
-        ```
-        Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-        ```
+    ```
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+    ```
 
     Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the time period between 8 hours ago and 2 hours ago:
 
-        ```
-        Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-        ```
+    ```
+    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+    ```
 
 ### To run Get-AzureStackLog on an Azure Stack integrated system
 
