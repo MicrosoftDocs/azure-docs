@@ -216,7 +216,7 @@ You now have all the necessary tools and packages installed for macOS.
 
 Make sure your DevKit is not connected. Start VS Code first and connect the DevKit to your computer. VS Code automatically finds the DevKit and opens an introduction page:
 
-![Introduction page](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
+![Introduction page](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 > [!NOTE] 
 > Occasionally, when you start VS Code, you're prompted with an error that it cannot find the Arduino IDE or related board package. Close VS Code and restart the Arduino IDE. VS Code should then locate the Arduino IDE path correctly.
@@ -226,7 +226,7 @@ Make sure your DevKit is not connected. Start VS Code first and connect the DevK
 
 On the **Arduino Examples** tab, browse to **Examples for MXCHIP AZ3166** > **AzureIoT**, and select **GetStarted**.
 
-![Arduino Examples tab](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-examples.png)
+![Arduino Examples tab](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
