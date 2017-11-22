@@ -8,7 +8,7 @@ author: msebolt
 manager: timlt
 
 ms.author: v-masebo
-ms.date: 11/15/2017
+ms.date: 11/22/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -41,9 +41,9 @@ You learn how to:
 
 * An IoT Hub 
 * The device that you created and configured in the quickstart or in Deploy Azure IoT Edge om a simulated device in [Windows][lnk-tutorial1-win] and [Linux][lnk-tutorial1-lin]. You need to know the device connection key and the device ID. 
-* Docker on your IoT Edge device
-    * [Install Docker on Windows][lnk-docker-windows] and make sure it's running.
-    * [Install Docker on Linux][lnk-docker-linux] and make sure it's running.
+* Docker running on your IoT Edge device
+    * [Install Docker on Windows][lnk-docker-windows]
+    * [Install Docker on Linux][lnk-docker-linux]
 * Python 2.7.x on your IoT Edge device
     * [Install Python 2.7 on Windows][lnk-python].
     * Most Linux distributions, including Ubuntu, already have Python 2.7 installed.  Use the following command to make sure pip is installed: `sudo apt-get install python-pip`.
@@ -75,7 +75,7 @@ An Azure Storage account is required to provide an endpoint to be used as an out
 2. Enter a name, choose **Edge** as the Hosting environment, and use the remaining default values.  Click **Create**.
 
     >[!NOTE]
-    >Currently, there are a limited number of regions that support ASA jobs on IoT Edge. Select one of the following as the location: Central US, West Central US, North Central US, East US, Canada East, Japan East, East Asia, North Europe, UK South, Australia East, Brazil South. 
+    >Currently, ASA jobs on IoT Edge aren't supported in the US West 2 region. Please select a different location.
 
     ![ASA create][5]
 
@@ -111,15 +111,16 @@ An Azure Storage account is required to provide an endpoint to be used as an out
 
 You are now ready to deploy the ASA job on your IoT Edge device.
 
-1. In the Azure portal, in your IoT Hub, navigate to **IoT Edge (preview)** and open your *{deviceId}*'s blade.
-
+1. In the Azure portal, in your IoT hub, navigate to **IoT Edge (preview)** and open the details page for your IoT Edge device.
 1. Select **Set modules**, then select **Import Azure Service IoT Edge Module**.
-
 1. Select the subscription and the ASA Edge job that you created. Then select your storage account. Click **Save**.
 
     ![set module][6]
 
-1. Click **Add IoT Edge Module** to add the temperature sensor module. Enter _tempSensor_ for name, `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` for Image URL. Leave the other settings unchanged, and click **Save**.
+1. If you previously deployed the tempSensor module on this device, it may autopopulate. If not, use the following steps to add that module:
+   1. Click **Add IoT Edge Module**
+   1. Enter `tempSensor` as the name, and `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` for the Image URL. 
+   1. Leave the other settings unchanged, and click **Save**.
 
     ![temperature module][11]
 
