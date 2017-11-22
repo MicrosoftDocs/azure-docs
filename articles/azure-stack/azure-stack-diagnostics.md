@@ -78,7 +78,7 @@ The following are some example log types that are collected:
 
 These files are collected by the Trace Collector and stored in a share from where **Get-AzureStackLog** retrieves them.
  
-**To run Get-AzureStackLog on an Azure Stack Development Kit (ASDK) system**
+### To run Get-AzureStackLog on an Azure Stack Development Kit (ASDK) system
 1.	Log in as **AzureStack\CloudAdmin** on the host.
 2.	Open a PowerShell window as an administrator.
 3.	Run the **Get-AzureStackLog** PowerShell cmdlet.  
@@ -101,7 +101,7 @@ These files are collected by the Trace Collector and stored in a share from wher
 
       ```Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)```
 
-**To run Get-AzureStackLog on an Azure Stack integrated system:**
+### To run Get-AzureStackLog on an Azure Stack integrated system
 
 To run the log collection tool on an integrated system, you need to have access to the Privileged End Point (PEP). Here is an example script you can run using the PEP to collect logs on an integrated system:
 
