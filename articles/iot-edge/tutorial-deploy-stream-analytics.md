@@ -24,7 +24,9 @@ ms.service: iot-edge
 
 IoT devices can produce large quantities of data. Sometimes this data has to be analyzed or processed before reaching the cloud to reduce the size of uploaded data or to eliminate the round-trip latency of an actionable insight.
 
-[Azure Stream Analytics][azure-stream] (ASA) provides a richly structured query syntax for data analysis both in the cloud and on IoT Edge devices. For more information about ASA on IoT Edge, see [ASA documentation](../stream-analytics/stream-analytics-edge.md).
+IoT Edge takes advantage of pre-built Azure Service IoT Edge modules for quick deployment and [Azure Stream Analytics][azure-stream] (ASA) is one such module. You can create an ASA job from its portal, then come to IoT Hub portal to deploy it as an IoT Edge Module.  
+
+Azure Stream Analytics provides a richly structured query syntax for data analysis both in the cloud and on IoT Edge devices. For more information about ASA on IoT Edge, see [ASA documentation](../stream-analytics/stream-analytics-edge.md).
 
 This tutorial walks you through the creation of an Azure Stream Analytics job, and its deployment on an IoT Edge device in order to process a local telemetry stream directly on the device, and generate alerts to drive immediate action on the device.  There are two modules involved in this tutorial. A simulated temperature sensor module (tempSensor) that generates temperature data from 20 to 120 degrees, incremented by 1 every 5 seconds, and an ASA module that filters out temperatures greater than 100 degrees. The ASA module also resets the tempSensor when the 30 seconds average reaches 100.
 
@@ -38,7 +40,7 @@ You learn how to:
 ## Prerequisites
 
 * An IoT Hub 
-* The device that you created and configured in the quickstart or in Deploy Azure IoT Edge om a simulated device in [Windows][lnk-tutorial1-win] and [Linux][lnk-tutorial1-lin].
+* The device that you created and configured in the quickstart or in Deploy Azure IoT Edge om a simulated device in [Windows][lnk-tutorial1-win] and [Linux][lnk-tutorial1-lin]. You need to know the device connection key and the device ID. 
 * Docker on your IoT Edge device
     * [Install Docker on Windows][lnk-docker-windows] and make sure it's running.
     * [Install Docker on Linux][lnk-docker-linux] and make sure it's running.
@@ -46,56 +48,53 @@ You learn how to:
     * [Install Python 2.7 on Windows][lnk-python].
     * Most Linux distributions, including Ubuntu, already have Python 2.7 installed.  Use the following command to make sure pip is installed: `sudo apt-get install python-pip`.
 
-> [!NOTE]
-> Note your device connection string and IoT Edge device ID will be necessary for this tutorial.
-
-IoT Edge takes advantage of pre-built Azure Service IoT Edge modules for quick deployment and Azure Stream Analytics (ASA) is one such module. You can create an ASA job from its portal, then come to IoT Hub portal to deploy it as an IoT Edge Module.  
-
-For more information on Azure Stream Analytics, see the **Overview** section of the [Stream Analytics Documentation][azure-stream].
 
 ## Create an ASA job
 
 In this section, you create an Azure Stream Analytics job to take data from your IoT hub, query the sent telemetry data from your device, and forward the results to an Azure Storage Container (BLOB). For more information, see the **Overview** section of the [Stream Analytics Documentation][azure-stream]. 
 
-> [!NOTE]
-> An Azure Storage account is required to provide an endpoint to be used as an output in your ASA job. The example below uses the BLOB storage type.  For more information, see the **Blobs** section of the [Azure Storage Documentation][azure-storage].
+### Create a storage account
 
-1. In the Azure portal, navigate to **Create a resource -> Storage**, click **See all**, and click **Storage account - blob, file, table, queue**.
+An Azure Storage account is required to provide an endpoint to be used as an output in your ASA job. The example below uses the BLOB storage type.  For more information, see the **Blobs** section of the [Azure Storage Documentation][azure-storage].
 
-2. Enter a name for your storage account, and select the same location where your IoT Hub is stored. Click **Create**. Note the name for later.
+1. In the Azure portal, navigate to **Create a resource** and enter `Storage account` in the search bar. Select **Storage account - blob, file, table, queue**.
+
+2. Enter a name for your storage account, and select the same location where your IoT hub is located. Click **Create**. Remember the name for later.
 
     ![new storage account][1]
 
-3. In the Azure portal, navigate to the storage account that you just created. Click **Browse blobs** under **Blob Service**. 
-4. Create a new container for the ASA module to store data. Set the access level to _Container_. Click **OK**.
+3. Navigate to the storage account that you just created. Click **Browse blobs**. 
+4. Create a new container for the ASA module to store data. Set the access level to **Container**. Click **OK**.
 
     ![storage settings][10]
 
-5. In the Azure portal, navigate to **Create a resource** > **Internet of Things** and select **Stream Analytics Job**.
+### Create a Stream Analytics job
 
-6. Enter a name, choose **Edge** as the Hosting environment, and use the remaining default values.  Click **Create**.
+1. In the Azure portal, navigate to **Create a resource** > **Internet of Things** and select **Stream Analytics Job**.
+
+2. Enter a name, choose **Edge** as the Hosting environment, and use the remaining default values.  Click **Create**.
 
     >[!NOTE]
     >Currently, there are a limited number of regions that support ASA jobs on IoT Edge. Select one of the following as the location: Central US, West Central US, North Central US, East US, Canada East, Japan East, East Asia, North Europe, UK South, Australia East, Brazil South. 
 
     ![ASA create][5]
 
-2. Go into the created job, under **Job Topology**, select **Inputs**, click **Add**.
+3. Go into the created job, under **Job Topology**, select **Inputs**, click **Add**.
 
-3. Enter name `temperature`, choose **Data stream** as the source type, and use defaults for the other parameters. Click **Create**.
+4. Enter name `temperature`, choose **Data stream** as the source type, and use defaults for the other parameters. Click **Create**.
 
     ![ASA input][2]
 
     > [!NOTE]
     > Additional inputs can include IoT Edge specific endpoints.
 
-4. Under **Job Topology**, select **Outputs**, click **Add**.
+5. Under **Job Topology**, select **Outputs**, click **Add**.
 
-5. Enter name `alert` and use defaults. Click **Create**.
+6. Enter name `alert` and use defaults. Click **Create**.
 
     ![ASA output][3]
 
-6. Under **Job Topology**, select **Query**, and enter the following:
+7. Under **Job Topology**, select **Query**, and enter the following:
 
     ```sql
     SELECT  
