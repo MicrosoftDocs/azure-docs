@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: "Active"
-ms.date: 10/13/2017
+ms.date: 11/20/2017
 ms.author: carlrab
 
 ---
@@ -51,7 +51,14 @@ The recovery time to restore a database using automated database backups is impa
 * The number of concurrent restore requests being processed in the target region. 
   
   For a very large and/or active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of geo-restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. Most database restores complete within 12 hours.
-  
+
+For a single subscription, there’re some limitations on number of concurrent restore requests (including point in time restore, geo restore and restore from long term retention backup) being submitted and proceeded:
+|  | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
+| :--- | --: | --: |
+|Single database (per subscription)|10|60|
+|Elastic pool (per pool)|4|200|
+||||
+
 There is no built-in functionality to do bulk restore. The [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script is an example of one way of accomplishing this task.
 
 > [!IMPORTANT]
@@ -70,7 +77,7 @@ The database can be restored to any service tier or performance level, and as a 
 
 You generally restore a database to an earlier point for recovery purposes. When doing so, you can treat the restored database as a replacement for the original database or use it to retrieve data from and then update the original database. 
 
-* ***Database replacement:*** If the restored database is intended as a replacement for the original database, you should verify the performance level and/or service tier are appropriate and scale the database if necessary. You can rename the original database and then give the restored database the original name using the ALTER DATABASE command in T-SQL. 
+* ***Database replacement:*** If the restored database is intended as a replacement for the original database, you should verify the performance level and/or service tier are appropriate and scale the database if necessary. You can rename the original database and then give the restored database the original name using the [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) command in T-SQL. 
 * ***Data recovery:*** If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute the necessary data recovery scripts to extract data from the restored database to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation is canceled and you are not charged for the database that did not complete the restore. 
 
 ### Azure portal

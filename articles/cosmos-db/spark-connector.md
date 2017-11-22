@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 11/15/2017
 ms.author: denlee
 
 ---
@@ -27,7 +27,7 @@ For working with Spark GraphX and the Gremlin graph APIs of Azure Cosmos DB, see
 
 ## Download
 
-To get started, download the Spark to Azure Cosmos DB connector (preview) from the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/) repository on GitHub.
+To get started, download the Spark to Azure Cosmos DB connector from the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/) repository on GitHub.
 
 ## Connector components
 

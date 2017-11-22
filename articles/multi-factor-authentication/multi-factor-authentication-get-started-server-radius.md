@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.reviewer: 
+ms.reviewer: alexwe
 ms.custom: H1Hack27Feb2017, it-pro
 ---
 # Integrate RADIUS authentication with Azure Multi-Factor Authentication Server

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
 
@@ -30,6 +30,9 @@ Access tokens are sometimes referred to as "User+App" or "App-Only", depending o
 * ["Client credentials" authorization grant](#authorization-grant), the client provides the sole authentication, functioning without the resource-owner's authentication/authorization, so the token can sometimes be referred to as an "App-Only" token.
 
 See [Azure AD Token Reference][AAD-Tokens-Claims] for more details.
+
+## application id (client id)
+The unique identifier Azure AD issues to an application registration that identifies a specific application and the associated configurations.  This application id ([client id](https://tools.ietf.org/html/rfc6749#page-15)) is used when performing authentication requests and is provided to the authentication libraries in development time. The application id (client id) is not a secret. 
 
 ## application manifest
 A feature provided by the [Azure portal][AZURE-portal], which produces a JSON representation of the application's identity configuration, used as a mechanism for updating its associated [Application][AAD-Graph-App-Entity] and [ServicePrincipal][AAD-Graph-Sp-Entity] entities. See [Understanding the Azure Active Directory application manifest][AAD-App-Manifest] for more details.
@@ -171,7 +174,7 @@ Similar to the way a service principal object is used to represent an applicatio
 A type of [client application](#client-application) that executes all code on a web server, and able to function as a "confidential" client by securely storing its credentials on the server. See [OAuth2 client types and profiles][OAuth2-Client-Types] for more details.
 
 ## Next steps
-The [Azure AD Developer's Guide][AAD-Dev-Guide] is the portal to use for all Azure AD development related topics, including an overview of [application integration][AAD-How-To-Integrate] and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios].
+The [Azure AD Developer's Guide][AAD-Dev-Guide] is the landing page to use for all Azure AD development related topics, including an overview of [application integration][AAD-How-To-Integrate] and the basics of [Azure AD authentication and supported authentication scenarios][AAD-Auth-Scenarios].  You can also find code samples & tutorials on how to get up and running quickly on [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Please use the following comments section to provide feedback and help us refine and shape our content, including requests for new definitions or updating existing ones!
 

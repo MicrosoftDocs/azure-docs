@@ -44,5 +44,5 @@ Yes, to turn off notifications related to anomalous sign-ins within the Azure cl
 ## What's next
 * Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)
 * [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Add company branding to your Sign In and Access Panel pages](active-directory-add-company-branding.md)
+* [Add company branding to your Sign In and Access Panel pages](customize-branding.md)
 

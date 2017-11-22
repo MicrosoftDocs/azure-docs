@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 # Manage user settings with Azure Multi-Factor Authentication in the cloud

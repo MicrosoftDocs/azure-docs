@@ -91,4 +91,4 @@ If you want to uninstall the Connector, uninstall both the Connector service and
 ## Next steps
 You are now ready to [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
 
-If you have applications that are on separate networks or different locations, you can use connector groups to organize the different connectors into logical units. Learn more about [Working with Application Proxy connectors](active-directory-application-proxy-connectors.md).
+If you have applications that are on separate networks or different locations, you can use connector groups to organize the different connectors into logical units. Learn more about [Working with Application Proxy connectors](active-directory-application-proxy-connectors-azure-portal.md).

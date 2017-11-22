@@ -32,7 +32,7 @@ Pass-through Authentication is a free feature and you don't need any paid editio
 
 No, Pass-through Authentication is only available in the world-wide instance of Azure AD.
 
-## Does [Conditional Access](../active-directory-conditional-access.md) work with Pass-through Authentication?
+## Does [Conditional Access](../active-directory-conditional-access-azure-portal.md) work with Pass-through Authentication?
 
 Yes, all Conditional Access capabilities, including Azure Multi-Factor Authentication, work with Pass-through Authentication.
 

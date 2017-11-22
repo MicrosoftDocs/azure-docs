@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 11/17/2017
 ms.author: robb
 
 ---
@@ -199,7 +199,7 @@ A full list of available options for `Get-AzureRmMetricDefinition` is available 
 
 ## Create and manage AutoScale settings
 A resource (a Web app, VM, Cloud Service, or Virtual Machine Scale Set) can have only one autoscale setting configured for it.
-However, each autoscale setting can have multiple profiles. For example, one for a performance-based scale profile and a second one for a schedule-based profile. Each profile can have multiple rules configured on it. For more information about Autoscale, see [How to Autoscale an Application](../cloud-services/cloud-services-how-to-scale.md).
+However, each autoscale setting can have multiple profiles. For example, one for a performance-based scale profile and a second one for a schedule-based profile. Each profile can have multiple rules configured on it. For more information about Autoscale, see [How to Autoscale an Application](../cloud-services/cloud-services-how-to-scale-portal.md).
 
 Here are the steps to use:
 
@@ -358,9 +358,18 @@ Enable diagnostic setting for Event Hubs
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
 ```
 
-Enable diagnostic setting for OMS
+Enable diagnostic setting for Log Analytics (OMS)
 
 ```PowerShell
-Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId 76d785fd-d1ce-4f50-8ca3-858fc819ca0f -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId /subscriptions/s1/resourceGroups/insights-integration/providers/providers/microsoft.operationalinsights/workspaces/myWorkspace -Enabled $true
 
 ```
+
+Note that the WorkspaceId property takes the *resource ID* of the workspace. You can obtain the resource ID of your Log Analytics workspace using the following command:
+
+```PowerShell
+(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+
+```
+
+These commands can be combined to send data to multiple destinations.

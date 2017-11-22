@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 Before you begin this tutorial, you should:
-- Have a cluster on Azure, or [create one with this tutorial](service-fabric-tutorial-create-cluster-azure-ps.md)
+- Have a cluster on Azure, or [create one with this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - [Deploy a containerized application to it](service-fabric-host-app-in-a-container.md)
 
 ## Setting up OMS with your cluster in the Resource Manager template

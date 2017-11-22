@@ -54,7 +54,7 @@ No, you can host your application anywhere (in the cloud or on-premises). All it
 Before opening 'Azure AD B2C' in the left side menu of the Azure portal, you must switch into the directory you want to manage.  Switch directories by clicking your identity in the upper right of the Azure portal, then choose a directory in the drop down that appears.  For a step-by-step with images, see [Navigate to Azure AD B2C settings](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
-You can use the [company branding feature](../active-directory/active-directory-add-company-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
+You can use the [company branding feature](../active-directory/customize-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
 
 * **Banner Logo**: Shown at the bottom-right.
 * **Background color**: Shown at the top.

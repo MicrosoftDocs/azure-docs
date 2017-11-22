@@ -30,7 +30,7 @@ This tutorial covers the following tasks:
 # Prerequisites
 
 * Install [Apache Cassandra](http://cassandra.apache.org/download/) and specifically ensure *cqlsh* is present.
-* Increase throughput: The duration of your data migration depends on the amount of throughput you provisioned for your tTables. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Set throughput for Azure Cosmos DB containers](set-throughput.md).
+* Increase throughput: The duration of your data migration depends on the amount of throughput you provisioned for your Tables. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Set throughput for Azure Cosmos DB containers](set-throughput.md).
 * Enable SSL: Azure Cosmos DB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. When you use CQL with SSH, you have an option to provide SSL information. 
 
 ## Find your connection string
@@ -55,7 +55,7 @@ To import data to Cassandra data into Azure Cosmos DB for use with the Cassandra
 1. Pre-create and scale your table:
     * By default, Azure Cosmos DB provisions a new Cassandra API table with 1,000 request units per second (RU/s) (CQL-based creation is provisioned with 400 RU/s). Before you start the migration by using cqlsh, pre-create all your tables from the [Azure portal](https://portal.azure.com) or from cqlsh. 
 
-    * From the [Azure portal](https://portal.azure.com), increase the throughput of your tables from the default throughput (400 or 1000 RU/s) to 2,500 RU/s for the duration migration. With the higher throughput, you can avoid throttling and migrate in less time. With hourly billing in Azure Cosmos DB, you can reduce the throughput immediately after the migration to save costs.
+    * From the [Azure portal](https://portal.azure.com), increase the throughput of your tables from the default throughput (400 or 1000 RU/s) to 10,000 RU/s for the duration of migration. With the higher throughput, you can avoid throttling and migrate in less time. With hourly billing in Azure Cosmos DB, you can reduce the throughput immediately after the migration to save costs.
 
 2. Determine the RU charge for an operation. You can do this using the Azure Cosmos DB Cassandra API SDK of your choice. This example shows the .NET version of getting RU charges. 
 
@@ -84,7 +84,7 @@ To import data to Cassandra data into Azure Cosmos DB for use with the Cassandra
 
 ## Use Spark to import data
 
-For data residing in an existing cluster in Azure virtual machines, importing data is possible by using Spark. This requires Spark to be set up as intermediary for one time or regular ingestion. 
+For data residing in an existing cluster in Azure virtual machines, importing data using Spark is also feasible option. This requires Spark to be set up as intermediary for one time or regular ingestion. 
 
 ## Next steps
 

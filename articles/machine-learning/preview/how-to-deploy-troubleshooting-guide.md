@@ -10,17 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 11/16/2017
 ---
 
 # Troubleshooting service deployment and environment setup
 The following information can help determine the cause of errors when setting up the model management environment.
 
 ## Model management environment
-### Owner permission required
-You must have owner permission on the Azure subscription to register the Machine Learning Compute.
-
-You also need owner permission to set up a cluster for deployment of your web services.
+### Contributor permission required
+You need contributor access to the subscription or the resource group to set up a cluster for deployment of your web services.
 
 ### Resource availability
 You need to have enough resources available in your subscription so you can provision the environment resources.
@@ -85,6 +83,7 @@ Python example:
 ```
 
 ## Other common problems
+- If pip install of azure-cli-ml fails with the error `cannot find the path specified` on a Windows machine, you need to enable long path support. See https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
 - If the `env setup` command fails with `LocationNotAvailableForResourceType`, you are probably using the wrong location (region) for the machine learning resources. Make sure your location specified with the `-l` parameter is `eastus2`, `westcentralus`, or `australiaeast`.
 - If the `env setup` command fails with `Resource quota limit exceeded`, make sure you have enough cores available in your subscription and that your resources are not being used up in other processes.
 - If the `env setup` command fails with `Invalid environment name. Name must only contain lowercase alphanumeric characters`, make sure the service name does not contain upper-case letters, symbols, or the underscore ( _ ) (as in *my_environment*).

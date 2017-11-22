@@ -63,7 +63,7 @@ With conditional access control, Azure Active Directory checks the specific cond
 * Enable [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * Enable [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Enable [Azure AD Identity Protection](../active-directory-identityprotection.md)
-* Enable [conditional access controls](../active-directory-conditional-access.md)
+* Enable [conditional access controls](../active-directory-conditional-access-azure-portal.md)
 
 For more information on building a complete security roadmap, see the “Customer responsibilities and roadmap” section of the [Microsoft Cloud Security for Enterprise Architects](http://aka.ms/securecustomer) document. For more information on engaging Microsoft services to assist with any of these topics, contact your Microsoft representative or visit our [Cybersecurity solutions page](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
