@@ -37,8 +37,6 @@ A Service SAS provides the ability to grant limited access to objects in a stora
 
 [!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
-For this tutorial, your account also needs to be given "Storage Account Contributor" role membership at your Resource Group scope.
-
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
