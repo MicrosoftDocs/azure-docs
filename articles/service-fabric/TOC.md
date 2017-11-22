@@ -243,6 +243,7 @@
 ### [Debug a .NET service in VS](service-fabric-debugging-your-application.md)
 ### [Common errors and exceptions](service-fabric-errors-and-exceptions.md)
 ### [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+### [Set up a Linux cluster on Windows](service-fabric-local-linux-cluster-windows.md)
 
 ## Work in a Linux dev environment
 ### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
