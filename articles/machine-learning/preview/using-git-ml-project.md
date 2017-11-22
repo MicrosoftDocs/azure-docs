@@ -116,7 +116,7 @@ By executing this command, we will overwrite the entire project folder with the 
 ## Step 6. Use the master branch
 One way to avoid accidentally losing your current project state, is to commit the project to the master branch (or any branch you created yourself) of the Git repo. You can directly use Git from command line (or your other favorite Git client tool of choice) to operate on the master branch. For example:
 
-```
+```sh
 # check status to make sure you are on the master branch (or branch of your choice)
 $ git status
 
