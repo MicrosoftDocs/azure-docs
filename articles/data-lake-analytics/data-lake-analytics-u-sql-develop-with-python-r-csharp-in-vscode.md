@@ -25,8 +25,8 @@ Before writing code-behind custom code, you need to open a folder or a workspace
 ## Prerequisites for Python and R
 Register Python and, R extensions assemblies for your ADL account. 
 1. Open your account in portal.
-    - Select **Overview**. 
-    - Click **Sample Script**.
+   - Select **Overview**. 
+   - Click **Sample Script**.
 2. Click **More**.
 3. Select **Install U-SQL Extensions**. 
 4. Confirmation message is displayed after the U-SQL extensions are installed. 

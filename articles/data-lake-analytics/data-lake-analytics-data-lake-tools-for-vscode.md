@@ -95,8 +95,8 @@ You need open either a U-SQL file or a folder to work with U-SQL.
         
         ![Data Lake Tools for Visual Studio Code configuration file](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
       
-    > [!NOTE] 
-    > After the configuration is saved, The account, database, and schema information appear on the status bar at the bottom-left corner of the corresponding .usql file.
+        > [!NOTE] 
+        > After the configuration is saved, The account, database, and schema information appear on the status bar at the bottom-left corner of the corresponding .usql file.
 
 **To compile a U-SQL script**
 
@@ -113,7 +113,7 @@ After you submit a U-SQL job, the submission logs appear in the **Output** windo
 
 To enable the output of the job details, set **jobInformationOutputPath** in the **vs code for the u-sql_settings.json** file.
  
-## Use CS, Python, R code-behind file
+## Use Python, R, and CSharp code-behind file
 Azure Data Lake Tool supports multiple custom code, the instructions see [Develop U-SQL with Python, R, and CSharp for Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
 ## Use assemblies
