@@ -1,6 +1,5 @@
 ## Related topics
 
-* [Add an API manually](../articles/api-management/add-api-manually.md)
 * [Import an OpenAPI Specification](../articles/api-management/import-api-from-oas.md)
 * [Import a SOAP API](../articles/api-management/import-soap-api.md)
 * [Import a SOAP API and convert to REST](../articles/api-management/restify-soap-api.md)
