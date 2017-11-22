@@ -127,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| Offshore        | `https://jer-api.mimecast.com/sso/<accountcode>`|
     
 	> [!NOTE] 
-	> The Identifier value is not real. Update the value with the actual Identifier. Contact [Mimecast Personal Portal Client support team]([Mimecast Personal Portal Client support team](http://www.mimecast.com/customer-success/technical-support/) to get the value. 
+	> The Identifier value is not real. Update the value with the actual Identifier. Contact [Mimecast Personal Portal Client support team](http://www.mimecast.com/customer-success/technical-support/) to get the value. 
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
