@@ -35,8 +35,14 @@
     href: team-data-science-process-project-templates.md
   - name: Project execution
     items:
-    - name: Data science projects
-      href: project-execution.md  
+    - name: Agile development
+      href: agile-development.md
+    - name: Collaborative coding with Git
+      href: collaborative-coding-with-git.md
+    - name: Execute of data science tasks
+      href: execute-data-science-tasks.md
+    - name: Track progress
+      href: track-progress.md
 - name: Examples
   href: walkthroughs.md
   items:

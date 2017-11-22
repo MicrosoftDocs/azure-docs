@@ -66,14 +66,14 @@ In the TDSP sprint planning framework, there are four frequently used types of *
 >
 >
 
-##  2. <a name='SprintPlanning-2'></a>Sprint planning 
+## 2. <a name='SprintPlanning-2'></a>Sprint planning 
 
 Sprint planning is useful for project prioritization, and resource planning and allocation. Many data scientists are engaged with multiple projects, each of which can take months to complete. Projects often proceed at different paces. On the VSTS server, you can easily create, manage, and track work items in your team project and conduct sprint planning to ensure that your projects are moving forward as expected. 
 
 Follow [this link](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) for the step-by-step instructions on sprint planning in VSTS. 
 
 
-##  3. <a name='AddFeature-3'></a>Add a Feature  
+## 3. <a name='AddFeature-3'></a>Add a Feature  
 
 After your project repository is created under a team project, go to the team **Overview** page and click **Manage work**.
 
@@ -88,7 +88,7 @@ Double-click the feature you created. Fill in the descriptions, assign team memb
 You can also link this feature to the project repository. Click **Add link** under the **Development** section. After you have finished editing the feature, click **Save & Close** to exit.
 
 
-##  4. <a name='AddStoryunderfeature-4'></a>Add Story under Feature 
+## 4. <a name='AddStoryunderfeature-4'></a>Add Story under Feature 
 
 Under the feature, stories can be added to describe major steps needed to finish the (feature) project. To add a new story, click the **+** sign to the left of the feature in backlog view.  
 
@@ -103,7 +103,7 @@ You can link this story to an existing repository by clicking **+ Add link** und
 ![6](./media/project-execution/project-execution-6-sprint-link-existing-branch.png)
 
 
-##  5. <a name='AddTaskunderstory-5'></a>Add a task to a story 
+## 5. <a name='AddTaskunderstory-5'></a>Add a task to a story 
 
 Tasks are specific detailed steps that are needed to complete each story. After all tasks of a story are completed, the story should be completed too. 
 
@@ -118,7 +118,7 @@ After the features, stories, and tasks are created, you can view them in the **B
 ![9](./media/project-execution/project-execution-9-link-to-a-new-branch.png)
 
 
-##  6. <a name='Linkaworkitemwithagitbranch-6'></a>Link a work item with a git branch 
+## 6. <a name='Linkaworkitemwithagitbranch-6'></a>Link a work item with a git branch 
 
 VSTS provides a convenient way to connect a work item (a story or task) with a git branch. This enables you to link your story or task directly to the code associated with it. 
 
@@ -151,7 +151,7 @@ You can also create a new branch in git bash commands. If <base branch name\> is
 	git checkout -b <new branch name> <base branch name>
 
 
-##  7. <a name='WorkonaBranchandCommittheChanges-7'></a>Work on a branch and commit the changes 
+## 7. <a name='WorkonaBranchandCommittheChanges-7'></a>Work on a branch and commit the changes 
 
 Now suppose you make some change to the *data\_ingestion* branch for the work item, such as adding an R file on the branch in your local machine. You can commit the R file added to the branch for this work item, provided you are in that branch in your Git shell, using the following Git commands:
 
@@ -162,7 +162,7 @@ Now suppose you make some change to the *data\_ingestion* branch for the work it
 
 ![14](./media/project-execution/project-execution-14-sprint-push-to-branch.png)
 
-##  8. <a name='CreateapullrequestonVSTS-8'></a>Create a pull request on VSTS 
+## 8. <a name='CreateapullrequestonVSTS-8'></a>Create a pull request on VSTS 
 
 When you are ready after a few commits and pushes, to merge the current branch into its base branch, you can submit a **pull request** on VSTS server. 
 
@@ -174,7 +174,7 @@ Fill in some description about this pull request, add reviewers, and send it out
 
 ![16](./media/project-execution/project-execution-16-spring-send-pull-request.png)
 
-##  9. <a name='ReviewandMerge-9'></a>Review and merge 
+## 9. <a name='ReviewandMerge-9'></a>Review and merge 
 
 When the pull request is created, your reviewers get an email notification to review the pull requests. The reviewers need to check whether the changes are working or not and test the changes with the requester if possible. Based on their assessment, the reviewers can approve or reject the pull request. 
 
@@ -203,14 +203,14 @@ You can also use the following Git commands to merge your working branch to its 
 ![22](./media/project-execution/project-execution-22-spring-branch-deleted-commandline.png)
 
 
-##  10. <a name='DataQualityReportUtility-10'></a>Interactive Data Exploration, Analysis, and Reporting (IDEAR) Utility
+## 10. <a name='DataQualityReportUtility-10'></a>Interactive Data Exploration, Analysis, and Reporting (IDEAR) Utility
 
 This R markdown-based utility provides a flexible and interactive tool to evaluate and explore data sets. Users can quickly generate reports from the data set with minimal coding. Users can click buttons to export the exploration results in the interactive tool to a final report, which can be delivered to clients or used to make decisions on which variables to include in the subsequent modeling step.
 
 At this time, the tool only works on data-frames in memory. A .yaml file is needed to specify the parameters of the data-set to be explored. For more information, see [IDEAR in TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
-##  11. <a name='ModelingUtility-11'></a>Baseline Modeling and Reporting Utility
+## 11. <a name='ModelingUtility-11'></a>Baseline Modeling and Reporting Utility
 
 This utility provides a customizable, semi-automated tool to perform model creation with hyper-parameter sweeping, to and compare the accuracy of those models. 
 
@@ -232,7 +232,7 @@ The number of algorithms, the number of folds for optimization, the hyper-parame
 For more information, see [Automated Modeling and Reporting Utility in TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling).
 
 
-##  12. <a name='PowerBI-12'></a>Tracking progress of projects with Power BI dashboards
+## 12. <a name='PowerBI-12'></a>Tracking progress of projects with Power BI dashboards
 
 Data science group managers, team leads, and project leads need to track the progress of their projects, what work has been done on them and by whom, and remains on the to-do lists. If you are using VSTS, you are able to build Power BI dashboards to track the activities and the work items associated with a Git repository. For more information on how to connect Power BI to Visual Studio Team Services, see [Connect Power BI to Team Services](https://www.visualstudio.com/en-us/docs/report/powerbi/connect-vso-pbi-vs). 
 
