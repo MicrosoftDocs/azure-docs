@@ -16,23 +16,21 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2017
+ms.date: 11/20/2017
 ms.author: nitinme
 
 ---
 # Create an Apache Spark cluster in Azure HDInsight
 
-In this article, you learn how to create an Apache Spark cluster in Azure HDInsight and then run a Spark SQL query on a Hive table. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md).
-
-   ![Quickstart diagram describing steps to create an Apache Spark cluster on Azure HDInsight](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Spark quickstart using Apache Spark in HDInsight. Steps illustrated: create a cluster; run Spark interactive query")
+Learn how to create an Apache Spark cluster in Azure HDInsight and then run a Spark SQL query on a Hive table. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md).
 
 ## Prerequisites
 
-* **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your free Azure account today](https://azure.microsoft.com/free).
+* **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your free Azure account](https://azure.microsoft.com/free).
 
 ## Create HDInsight Spark cluster
 
-In this section, you create an HDInsight Spark cluster using an [Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). For other cluster creation methods, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).
+Create an HDInsight Spark cluster using an [Azure Resource Manager template](../hdinsight-hadoop-create-linux-clusters-arm-templates.md. The template can be found in [github](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). For other cluster creation methods, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Click the following image to open the template in the Azure portal.         
 
@@ -42,15 +40,12 @@ In this section, you create an HDInsight Spark cluster using an [Azure Resource 
 
     ![Create HDInsight Spark cluster using an Azure Resource Manager template](./media/apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Create Spark cluster in HDInsight using an Azure Resource Manager template")
 
-	* **Subscription**: Select your Azure subscription for this cluster.
+	* **Subscription**: Select your Azure subscription used for creating this cluster.
 	* **Resource group**: Create a resource group or select an existing one. Resource group is used to manage Azure resources for your projects.
 	* **Location**: Select a location for the resource group. The template uses this location for creating the cluster as well as for the default cluster storage.
 	* **ClusterName**: Enter a name for the HDInsight cluster that you want to create.
-	* **Spark version**: Select **2.0** as the version that you want to install on the cluster.
 	* **Cluster login name and password**: The default login name is admin.
 	* **SSH user name and password**.
-
-   Write down these values.  You need them later in the tutorial.
 
 3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**. You can see a new tile titled Submitting deployment for Template deployment. It takes about 20 minutes to create the cluster.
 
@@ -87,7 +82,7 @@ When you use a Jupyter notebook configured for your HDInsight Spark cluster, you
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. Create a notebook. Click **New**, and then click **PySpark**.
+3. Click **New**, and then click **PySpark** to create a notebook.
 
    ![Create a Jupyter notebook to run interactive Spark SQL query](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter notebook to run interactive Spark SQL query")
 
