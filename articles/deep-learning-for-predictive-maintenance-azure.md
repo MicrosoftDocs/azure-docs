@@ -1,3 +1,17 @@
+title: Deep Learning for Predictive Maintenance Real-Word Scenario - Azure | Microsoft Docs
+description: This document describes how to replicate the Deep Learning for Predictive Maintenance tutorial with azure ml workbench
+services: machine-learning
+author: FrancescaLazzeri
+ms.author: Lazzeri
+manager: ireiter
+ms.reviewer: 
+ms.service: machine-learning
+ms.workload: data-services
+ms.custom: 
+ms.devlang: 
+ms.topic: article
+ms.date: 11/22/2017
+
 # Deep Learning for Predictive Maintenance Real-Word Scenario.
 
 Deep learning is one of the most popular trends in the machine learning space nowadays, and there are many fields and applications where it stands out, such as driverless cars, speech and image recognition, robotics and finance. Deep learning is a set of algorithms that is inspired by the shape of our brain (biological neural networks), and machine learning and cognitive scientists usually refer to it as Artificial Neural Networks (ANN).
