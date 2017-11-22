@@ -35,7 +35,7 @@ This article assumes that you have:
 * Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](move-sql-azure.md) for instructions on how to move the data there.
 
-## <a name="sql-featuregen"></a>Feature Generation with SQL
+## <a name="sql-featuregen"></a>Feature generation with SQL
 In this section, we describe ways of generating features using SQL:  
 
 1. [Count based Feature Generation](#sql-countfeature)
@@ -47,7 +47,7 @@ In this section, we describe ways of generating features using SQL:
 > 
 > 
 
-### <a name="sql-countfeature"></a>Count based Feature Generation
+### <a name="sql-countfeature"></a>Count based feature generation
 This document demonstrates two ways of generating count features. The first method uses conditional sum and the second method uses the 'where` clause. These can then be joined with the original table (using primary key columns) to have count features alongside the original data.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>

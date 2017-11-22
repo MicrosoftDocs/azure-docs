@@ -36,7 +36,7 @@ This article assumes that you have:
 * The data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, follow [Create and load data to Hive tables](move-hive-tables.md) to upload data to Hive tables first.
 * Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).
 
-## <a name="hive-featureengineering"></a>Feature Generation
+## <a name="hive-featureengineering"></a>Feature generation
 In this section, several examples of the ways in which features can be generating using Hive queries are described. Once you have generated additional features, you can either add them as columns to the existing table or create a new table with the additional features and primary key, which can then be joined with the original table. Here are the examples presented:
 
 1. [Frequency-based Feature Generation](#hive-frequencyfeature)
@@ -45,7 +45,7 @@ In this section, several examples of the ways in which features can be generatin
 4. [Extract features from Text Field](#hive-textfeatures)
 5. [Calculate distance between GPS coordinates](#hive-gpsdistance)
 
-### <a name="hive-frequencyfeature"></a>Frequency-based Feature Generation
+### <a name="hive-frequencyfeature"></a>Frequency-based feature generation
 It is often useful to calculate the frequencies of the levels of a categorical variable, or the frequencies of certain combinations of levels from multiple categorical variables. Users can use the following script to calculate these frequencies:
 
         select
@@ -59,7 +59,7 @@ It is often useful to calculate the frequencies of the levels of a categorical v
         order by frequency desc;
 
 
-### <a name="hive-riskfeature"></a>Risks of Categorical Variables in Binary Classification
+### <a name="hive-riskfeature"></a>Risks of categorical variables in binary classification
 In binary classification, non-numeric categorical variables must be converted into numeric features when the models being used only take numeric features. This conversion is done by replacing each non-numeric level with a numeric risk. This section shows some generic Hive queries that calculate the risk values (log odds) of a categorical variable.
 
         set smooth_param1=1;
@@ -84,7 +84,7 @@ In this example, variables `smooth_param1` and `smooth_param2` are set to smooth
 
 After the risk table is calculated, users can assign risk values to a table by joining it with the risk table. The Hive joining query was provided in previous section.
 
-### <a name="hive-datefeatures"></a>Extract features from Datetime Fields
+### <a name="hive-datefeatures"></a>Extract features from datetime fields
 Hive comes with a set of UDFs for processing datetime fields. In Hive, the default datetime format is 'yyyy-MM-dd 00:00:00' ('1970-01-01 12:21:32' for example). This section shows examples that extract the day of a month, the month from a datetime field, and other examples that convert a datetime string in a format other than the default format to a datetime string in default format.
 
         select day(<datetime field>), month(<datetime field>)
@@ -104,7 +104,7 @@ In this query, if the *&#60;datetime field>* has the pattern like *03/26/2015 12
 
 The *hivesampletable* in this query comes preinstalled on all Azure HDInsight Hadoop clusters by default when the clusters are provisioned.
 
-### <a name="hive-textfeatures"></a>Extract features from Text Fields
+### <a name="hive-textfeatures"></a>Extract features from text fields
 When the Hive table has a text field that contains a string of words that are delimited by spaces, the following query extracts the length of the string, and the number of words in the string.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
@@ -137,7 +137,7 @@ The mathematical equations that calculate the distance between two GPS coordinat
 
 A full list of Hive embedded UDFs can be found in the **Built-in Functions** section on the <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a> Advanced topics: Tune Hive Parameters to Improve Query Speed
+## <a name="tuning"></a> Advanced topics: Tune Hive parameters to improve query speed
 The default parameter settings of Hive cluster might not be suitable for the Hive queries and the data that the queries are processing. This section discusses some parameters that users can tune to improve the performance of Hive queries. Users need to add the parameter tuning queries before the queries of processing data.
 
 1. **Java heap space**: For queries involving joining large datasets, or processing long records, **running out of heap space** is one of the common errors. This error can be avoided by setting parameters *mapreduce.map.java.opts* and *mapreduce.task.io.sort.mb* to desired values. Here is an example:
@@ -147,8 +147,8 @@ The default parameter settings of Hive cluster might not be suitable for the Hiv
 
     This parameter allocates 4GB memory to Java heap space and also makes sorting more efficient by allocating more memory for it. It is a good idea to play with these allocations if there are any job failure errors related to heap space.
 
-1. **DFS block size**: This parameter sets the smallest unit of data that the file system stores. As an example, if the DFS block size is 128 MB, then any data of size less than and up to 128 MB is stored in a single block, while data that is larger than 128 MB is allotted extra blocks. Choosing a
-2.  small block size causes large overheads in Hadoop since the name node has to process many more requests to find the relevant block pertaining to the file. A recommended setting when dealing with gigabytes (or larger) data is:
+1. **DFS block size**: This parameter sets the smallest unit of data that the file system stores. As an example, if the DFS block size is 128 MB, then any data of size less than and up to 128 MB is stored in a single block. Data that is larger than 128 MB is allotted extra blocks. 
+2. Choosing a small block size causes large overheads in Hadoop since the name node has to process many more requests to find the relevant block pertaining to the file. A recommended setting when dealing with gigabytes (or larger) data is:
 
 		set dfs.block.size=128m;
 

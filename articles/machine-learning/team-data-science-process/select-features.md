@@ -29,7 +29,7 @@ The engineering and selection of features is one part of the Team Data Science P
 
 Normally **feature engineering** is applied first to generate additional features, and then the **feature selection** step is performed to eliminate irrelevant, redundant, or highly correlated features.
 
-## Filtering Features from Your Data - Feature Selection
+## Filter features from your data - feature selection
 Feature selection is a process that is commonly applied for the construction of training datasets for predictive modeling tasks such as classification or regression tasks. The goal is to select a subset of the features from the original dataset that reduce its dimensions by using a minimal set of features to represent the maximum amount of variance in the data. This subset of features is used to train the model. Feature selection serves two main purposes.
 
 * First, feature selection often increases classification accuracy by eliminating irrelevant, redundant, or highly correlated features.
