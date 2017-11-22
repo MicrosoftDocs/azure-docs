@@ -33,7 +33,8 @@ The following are important things to know about the Trace Collector:
 * The Trace Collector runs continuously with default size limits. The default maximum size allowed for each file (200 MB) is **not** a cutoff size. A size check occurs periodically (currently every 2 minutes) and if the current file is >= 200 MB, it is saved and a new file is generated. There is also an 8 GB (configurable) limit on the total file size generated per event session. Once this limit is reached, the oldest files are deleted as new ones are created.
 * There is a 5-day age limit on the logs. This limit is also configurable. 
 * Each component defines the trace configuration properties through a JSON file. The JSON files are stored in **C:\TraceCollector\Configuration**. If necessary, these files can be edited to change the age and size limits of the collected logs. Changes to these files require a restart of the *Microsoft Azure Stack Trace Collector* service for the changes to take effect.
-* The following example is a trace configuration JSON file for FabricRingServices Operations from the XRP VM: 
+
+The following example is a trace configuration JSON file for FabricRingServices Operations from the XRP VM: 
 
 ```
 {
@@ -87,19 +88,27 @@ These files are collected by the Trace Collector and stored in a share from wher
 
     - Collect all logs for all roles:
 
-        ```Get-AzureStackLog -OutputPath C:\AzureStackLogs```
+        ```
+        Get-AzureStackLog -OutputPath C:\AzureStackLogs
+        ```
 
     - Collect logs from VirtualMachines and BareMetal roles:
 
-        ```Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal```
+        ```
+        Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+        ```
 
     - Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the past 8 hours:
 
-        ```Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)```
+        ```
+        Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+        ```
 
     - Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the time period between 8 hours ago and 2 hours ago:
 
-      ```Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)```
+      ```
+      Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+      ```
 
 ### To run Get-AzureStackLog on an Azure Stack integrated system
 
