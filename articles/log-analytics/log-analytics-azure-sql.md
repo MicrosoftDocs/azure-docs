@@ -26,6 +26,11 @@ Currently, this preview solution supports up to 150,000 Azure SQL Databases and 
 
 The Azure SQL Analytics solution, like others available for Log Analytics, helps you monitor and receive notifications about the health of your Azure resources—in this case, Azure SQL Database. Microsoft Azure SQL Database is a scalable relational database service that provides familiar SQL-Server-like capabilities to applications running in the Azure cloud. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
 
+For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
+  		  
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
+
 ## Connected sources
 
 The Azure SQL Analytics solution doesn't use agents to connect to the Log Analytics service.
@@ -114,11 +119,6 @@ Each perspective, provides summaries on subscription, server, elastic pool, and 
 Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) lets you know what is happening with your database performance. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
 
 ![Azure SQL Analytics Insights](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
-
-For a hands-on overview on using Intelligent Insights with Azure Log Analytics and for typical usage scenarios, see the embedded video:
-  		  
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
->
 
 ### Elastic Pool and Database reports
 
