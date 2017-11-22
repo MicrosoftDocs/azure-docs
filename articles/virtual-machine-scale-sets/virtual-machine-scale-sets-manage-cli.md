@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Virtual Machine Scale Sets with the Azure CLI 2.0 | Microsoft Docs
 description: Common Azure CLI 2.0 commands to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
@@ -124,7 +124,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## Remove VMs from a scale set
-To remove one or more VMs in a scale set, use [az vmss delete-instances](/cli/azure/vmss#delete-instances). The `--instance-ids`` parameter allows you to specify one or more VMs to remove. If you specify * for the instance ID, all VMs in the scale set are removed. To remove multiple VMs, separate each instance ID with a space.
+To remove one or more VMs in a scale set, use [az vmss delete-instances](/cli/azure/vmss#delete-instances). The `--instance-ids` parameter allows you to specify one or more VMs to remove. If you specify * for the instance ID, all VMs in the scale set are removed. To remove multiple VMs, separate each instance ID with a space.
 
 The following example removes instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your values as follows:
 
