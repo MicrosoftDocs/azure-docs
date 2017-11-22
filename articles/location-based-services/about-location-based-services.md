@@ -34,23 +34,23 @@ Azure Location Based Services consists of five primary services to bolster Azure
 
 **Time Zone Service** – The Time Zone Service allows you to query current, historical, and future time zone information using either latitude-longitude pairs or an [IANA ID](http://www.iana.org/). The Time Zone service also allows for converting Microsoft Windows time zone IDs to IANA time zones, fetching a time zone offset to UTC and getting the current time in a respective time zone. A typical JSON response for a query to the Time Zone Service looks like the following:
 
-    ```JSON
-    {
-      "Version": "2017c",
-      "ReferenceUtcTimestamp": "2017-11-20T23:09:48.686173Z",
-      "TimeZones": [{
-        "Id": "America/Los_Angeles",
-        "ReferenceTime": {
-          "Tag": "PST",
-          "StandardOffset": "-08:00:00",
-          "DaylightSavings": "00:00:00",
-          "WallTime": "2017-11-20T15:09:48.686173-08:00",
-          "PosixTzValidYear": 2017,
-          "PosixTz": "PST+8PDT,M3.2.0,M11.1.0"
-        }
-      }]
-    }
-    ```
+```JSON
+{
+"Version": "2017c",
+"ReferenceUtcTimestamp": "2017-11-20T23:09:48.686173Z",
+"TimeZones": [{
+"Id": "America/Los_Angeles",
+"ReferenceTime": {
+"Tag": "PST",
+"StandardOffset": "-08:00:00",
+"DaylightSavings": "00:00:00",
+"WallTime": "2017-11-20T15:09:48.686173-08:00",
+"PosixTzValidYear": 2017,
+"PosixTz": "PST+8PDT,M3.2.0,M11.1.0"
+}
+}]
+}
+```
 
 **Traffic Service** – The Traffic Service is a suite of web services designed for developers to create web and mobile applications requiring traffic. The offering is split into the following:
 1. Traffic Flow - provides real-time observed speeds and travel times for all key roads in the network; and, 
