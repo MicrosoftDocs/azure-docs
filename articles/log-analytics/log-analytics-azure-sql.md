@@ -111,9 +111,14 @@ Each perspective, provides summaries on subscription, server, elastic pool, and 
 
 ### Intelligent Insights report
 
-All Intelligent Insights collected can be visualized and accessed through the Insights perspective. 
+Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) lets you know what is happening with your database performance. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
 
 ![Azure SQL Analytics Insights](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
+
+For a hands-on overview on using Intelligent Insights with Azure Log Analytics and for typical usage scenarios, see the embedded video:
+  		  
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
 
 ### Elastic Pool and Database reports
 
