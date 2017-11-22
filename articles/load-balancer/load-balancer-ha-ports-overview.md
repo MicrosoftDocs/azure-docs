@@ -130,7 +130,7 @@ To participate in the preview of the HA ports feature in Load Balancer Standard,
 
 The following are the supported configurations or exceptions for the HA ports feature:
 
-- A single front-end IP configuration can have a single Direct Server Return (DSR) load balancer rule with HA ports, or it can have a single non-DSR load balancer rule with HA ports. It cannot have both.
+- A single front-end IP configuration can have a single Direct Server Return (DSR - Floating IP in Azure) load balancer rule with HA ports, or it can have a single non-DSR load balancer rule with HA ports. It cannot have both.
 - A single network interface IP configuration can only have one non-DSR load balancer rule with HA ports. You can't configure any other rules for this ipconfig.
 - A single network interface IP configuration can have one or more DSR load balancer rules with HA ports, provided all of their respective front-end IP configurations are unique.
 - If all of the load balancing rules are HA ports (DSR only), two (or more) Load Balancer rules pointing to the same back-end pool can co-exist. The same is true if all of the rules are non-HA ports (DSR and non-DSR). If there is a combination of HA ports and non-HA ports rules, however, two such load balancing rules can't co-exist.
