@@ -189,3 +189,4 @@ The following table lists the permissions you can use to control access to your 
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-management-portal]: https://portal.azure.com
 [lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/

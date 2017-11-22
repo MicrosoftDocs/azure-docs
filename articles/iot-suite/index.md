@@ -10,7 +10,7 @@ ms.service: iot-suite
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 11/10/2017
 ms.author: carolz
 ---
 
@@ -20,7 +20,7 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/iot-suite/iot-suite-overview">
+        <a href="/azure/iot-suite/iot-suite-what-are-preconfigured-solutions">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -56,7 +56,7 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
         </a>
     </li>
     <li>
-        <a href="/azure/iot-suite/iot-suite-getstarted-preconfigured-solutions">
+        <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -66,7 +66,7 @@ Get started quickly with Microsoft Azure IoT Suite. Use preconfigured solutions,
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with IoT Preconfigured Solutions</h3>
+                        <h3>Deploy the remote monitoring preconfigured solution</h3>
                     </div>
                 </div>
             </div>

@@ -56,7 +56,7 @@ If you are having issues with self-service password reset, the items that follow
 
 | **Error** | Solution |
 | --- | --- |
-| Directory is not enabled for password reset **Your administrator has not enabled you to use this feature** | Switch the **Self service password reset enabled** flag to **A group** or **Everybody** and click **Save** |
+| Directory is not enabled for password reset **Your administrator has not enabled you to use this feature** | Switch the **Self service password reset enabled** flag to **Selected** or **All** and click **Save** |
 | User does not have an Azure AD Premium or Basic license assigned **Your administrator has not enabled you to use this feature** | This can happen if you do not have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> This can be resolved by assigning a license to the administrator account in question using the article [Assign, verify, and resolve problems with licenses](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Error processing request | This can be caused by many issues, but generally this error is caused by either a service outage or configuration issue. If you see this error and it is impacting your business, contact Microsoft support for additional assistance. |
 
@@ -64,7 +64,7 @@ If you are having issues with self-service password reset, the items that follow
 
 | **Error** | Solution |
 | --- | --- |
-| Directory is not enabled for password reset. | Switch the **Self service password reset enabled** flag to **A group** or **Everybody** and click **Save** |
+| Directory is not enabled for password reset. | Switch the **Self service password reset enabled** flag to **Selected** or **All** and click **Save** |
 | User does not have an Azure AD Premium or Basic license assigned | This can happen if you do not have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> This can be resolved by assigning a license to the administrator account in question using the article [Assign, verify, and resolve problems with licenses](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Directory is enabled for password reset, but user has missing or mal-formed authentication information | Ensure that user has properly formed contact data on file in the directory before proceeding. For more information about this topic, see the article [Data used by Azure AD Self-Service Password Reset](active-directory-passwords-data.md). |
 | Directory is enabled for password reset, but a user only has one piece of contact data on file when policy is set to require two verification steps | Ensure that user has at least two properly configured contact methods (Example: Mobile Phone **and** Office Phone) before proceeding. |

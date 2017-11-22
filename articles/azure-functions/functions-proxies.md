@@ -17,14 +17,14 @@ ms.date: 04/11/2017
 ms.author: alkarche
 
 ---
-# Work with Azure Functions Proxies (preview)
-
-> [!NOTE] 
-> Azure Functions Proxies is currently in preview. It is free while in preview, but standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+# Work with Azure Functions Proxies
 
 This article explains how to configure and work with Azure Functions Proxies. With this feature, you can specify endpoints on your function app that are implemented by another resource. You can use these proxies to break a large API into multiple function apps (as in a microservice architecture), while still presenting a single API surface for clients.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!NOTE] 
+> Standard Functions billing applies to proxy executions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="create"></a>Create a proxy
 
