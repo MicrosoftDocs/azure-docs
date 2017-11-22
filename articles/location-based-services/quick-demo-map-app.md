@@ -49,7 +49,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 1. Open the file **AzureMapDemo.html** in a browser of your choice.
 2. Observe the map shown of Los Angeles city. The city is determined by the value of `[longitude, latitude]` pair given to the JavaScript variable named **center** in the *AzureMapDemo.html*. You can change these coordinates to any other city of your choice. For example, New York city's coordinates are *[-74.0060, 40.7128]*.
 3. In the search box on the upper left corner of the demo web application, enter any location type or address that you want to search. 
-4. Move your mouse over the list of addresses/locations that appear below the search box, and notice how the corresponding pin on the map pops out information about that location. For example, a sample launch of this web application and a search for *resturants* leads to the following:
+4. Move your mouse over the list of addresses/locations that appear below the search box, and notice how the corresponding pin on the map pops out information about that location. For example, a sample launch of this web application and a search for *restaurants* leads to the following. Please note that for privacy of private businesses, fictitious names and addresses are shown. 
 
     ![Interactive Search web application](./media/quick-demo-map-app/lbs-interactive-search.png)
 

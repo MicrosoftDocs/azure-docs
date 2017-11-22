@@ -18,7 +18,7 @@ ms.custom: mvc
 
 # Azure Location Based Services - Traffic Coverage
 
-Azure Location Based Services (LBS) provides rich traffic information in the form of flow and incidents that can be served as overlays atop of the Azure LBS Map Control or used in conjuction with the Azure LBS Route Service. The following table provides coverage information for Azure LBS Traffic, so users will have insight on where to expect (and not expect) traffic information.
+Azure Location Based Services (LBS) provides rich traffic information in the form of flow and incidents that can be served as overlays atop of the Azure LBS Map Control or used in conjunction with the Azure LBS Route Service. The following table provides coverage information for Azure LBS Traffic, so users have insight on where to expect (and not expect) traffic information.
 
 
 |Region  |Incidents  |Flow  |

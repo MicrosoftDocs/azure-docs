@@ -40,7 +40,7 @@ Azure Location Based Services (LBS) provides detailed geocoding information for 
 |El Salvador     |         |         |✓         |
 |French Guiana     |         |         |✓         |
 |Grenada     |         |         |✓         |
-|Guadaloupe     |         |✓         |✓         |
+|Guadeloupe     |         |✓         |✓         |
 |Guatemala     |         |         |✓         |
 |Guam     |✓         |✓         | ✓        |
 |Haiti     |         |         |✓         |
@@ -206,7 +206,7 @@ Azure LBS provides city-level accuracy when searching in the following regions:
 |Area  |Region  |
 |---------|---------|
 |**Americas**     |        |
-|     | Anguilla        |
+|     |Anguilla        |
 |     |Antarctica         |
 |     |Aruba        |
 |     |Belize         |
