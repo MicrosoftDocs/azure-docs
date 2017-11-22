@@ -121,7 +121,9 @@ function bingSearchOptions(form) {
             break;
         }
     }
-    if (category.valueOf() != "all".valueOf()) { options.push("category=" + category); }
+    if (category.valueOf() != "all".valueOf()) { 
+        options.push("category=" + category); 
+        }
     options.push("count=" + form.count.value);
     options.push("offset=" + form.offset.value);
     return options.join("&");
@@ -150,7 +152,12 @@ function bingNewsSearch(query, options, key) {
     }
     else
     {
+        if (query){
         var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&" + options;
+        }
+        else {
+            var queryurl = BING_ENDPOINT + "?" + options;
+        }
     }
 
     // open the request
@@ -214,7 +221,6 @@ function handleBingResponse() {
         if (clientid) retrieveValue(CLIENT_ID_COOKIE, clientid);
         if (json.length) {
             if (jsobj._type === "News") {
-                if (jsobj.nextOffset) document.forms.bing.nextoffset.value = jsobj.nextOffset;
                 renderSearchResults(jsobj);
             } else {
                 renderErrorMessage("No search results in JSON response");
