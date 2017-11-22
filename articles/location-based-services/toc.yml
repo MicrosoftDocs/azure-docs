@@ -27,7 +27,7 @@
   items:
   - name: Manage account and keys
     href: how-to-manage-account-keys.md
-  - name: How to embed the Map Control
+  - name: How to use the Map Control
     href: how-to-use-map-control.md
 - name: Reference
   items:
