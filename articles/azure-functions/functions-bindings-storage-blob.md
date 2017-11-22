@@ -148,6 +148,9 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
   public static void Run(
       [BlobTrigger("sample-images/{name}")] Stream image, 
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
   ```
 
   You can set the `Connection` property to specify the storage account to use, as shown in the following example:
@@ -157,7 +160,12 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
   public static void Run(
       [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
   ```
+
+  For a complete example, see [Trigger - precompiled C# example](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -170,6 +178,9 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
       [FunctionName("BlobTrigger")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ....
+  }
   ```
 
 The storage account to use is determined in the following order:
@@ -190,7 +201,9 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#trigger---usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code. | 
 |**path** | **BlobPath** |The container to monitor.  May be a [blob name pattern](#trigger-blob-name-patterns). | 
-|**connection** | **Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>When you're developing locally, app settings go into the values of the [local.settings.json file](functions-run-local.md#local-settings-file).|
+|**connection** | **Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Trigger - usage
 
@@ -446,6 +459,9 @@ The attribute's constructor takes the path to the blob and a `FileAccess` parame
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image, 
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+{
+    ...
+}
 ```
 
 You can set the `Connection` property to specify the storage account to use, as shown in the following example:
@@ -455,7 +471,12 @@ You can set the `Connection` property to specify the storage account to use, as 
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image, 
     [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
+{
+    ...
+}
 ```
+
+For a complete example, see [Input & output - precompiled C# example](#input--output---c-example).
 
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - Attributes for precompiled C#](#trigger---attributes-for-precompiled-c).
 
@@ -469,8 +490,10 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `in` for an input binding or out for an output binding. Exceptions are noted in the [usage](#input--output---usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code.  Set to `$return` to reference the function return value.|
 |**path** |**BlobPath** | The path to the blob. | 
-|**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>When you're developing locally, app settings go into the values of the [local.settings.json file](functions-run-local.md#local-settings-file).|
+|**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |n/a | **Access** | Indicates whether you will be reading or writing. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Input & output - usage
 

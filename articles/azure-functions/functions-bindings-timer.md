@@ -142,9 +142,14 @@ The attribute's constructor takes a CRON expression, as shown in the following e
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+   ...
+}
  ```
 
 You can specify a `TimeSpan` instead of a CRON expression if your function app runs on an App Service plan (not a Consumption plan).
+
+For a complete example, see [Precompiled C# example](#c-example).
 
 ## Configuration
 
@@ -155,7 +160,9 @@ The following table explains the binding configuration properties that you set i
 |**type** | n/a | Must be set to "timerTrigger". This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the timer object in function code. | 
-|**schedule**|**ScheduleExpression**|On the Consumption plan, you can define schedules with a CRON expression. If you're using an App Service Plan, you can also use a `TimeSpan` string. The following sections explain CRON expressions. You can put the schedule expression in an app setting and set this property to a value wrapped in **%** signs, as in this example: "%NameOfAppSettingWithCRONExpression%". When you're developing locally, app settings go into the values of the [local.settings.json file](functions-run-local.md#local-settings-file).|
+|**schedule**|**ScheduleExpression**|On the Consumption plan, you can define schedules with a CRON expression. If you're using an App Service Plan, you can also use a `TimeSpan` string. The following sections explain CRON expressions. You can put the schedule expression in an app setting and set this property to a value wrapped in **%** signs, as in this example: "%NameOfAppSettingWithCRONExpression%". |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ### CRON format 
 
