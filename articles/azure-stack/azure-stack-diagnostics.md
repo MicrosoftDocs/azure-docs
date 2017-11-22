@@ -82,7 +82,7 @@ These files are collected by the Trace Collector and stored in a share from wher
 2. Open a PowerShell window as an administrator.
 3. Run the **Get-AzureStackLog** PowerShell cmdlet.
 
-    **Examples**
+   **Examples**
 
     Collect all logs for all roles:
 
