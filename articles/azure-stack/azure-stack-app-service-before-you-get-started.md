@@ -65,7 +65,7 @@ This first script works with the Azure Stack certificate authority to create fou
 
 Run the script on the Azure Stack Development Kit host and ensure that you're running PowerShell as azurestack\CloudAdmin.
 
-1. In a PowerShell session running as azurestack\CloudAdmin, execute the Create-AppServiceCerts.ps1 script from the folder where you extracted the helper scripts. The script creates four certificates in the same folder as the create certificates script that App Service needs.
+1. In a PowerShell session running as azurestack\AzureStackAdmin, execute the Create-AppServiceCerts.ps1 script from the folder where you extracted the helper scripts. The script creates four certificates in the same folder as the create certificates script that App Service needs.
 2. Enter a password to secure the .pfx files, and make a note of it. You must enter it in the App Service on Azure Stack installer.
 
 #### Create-AppServiceCerts.ps1 parameters
@@ -117,7 +117,7 @@ The certificate for Identity must contain a subject that matches the following f
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-#### Extract the Azure Stack Azure Resource Manager Root Certificate
+### Extract the Azure Stack Azure Resource Manager Root Certificate
 
 In a PowerShell session running as azurestack\CloudAdmin, execute the Get-AzureStackRootCert.ps1 script from the folder where you extracted the helper scripts. The script creates four certificates in the same folder as the create certificates script that App Service needs.
 
@@ -131,12 +131,10 @@ In a PowerShell session running as azurestack\CloudAdmin, execute the Get-AzureS
 
 Azure App Service requires the use of a file server. For production deployments, the File Server must be configured to be Highly Available and capable of handling failures.
 
-For use with Azure Stack Development Kit deployments only, you can use this example Azure Resource Manager Deployment Template to deploy a configured single node file server: https://aka.ms/appsvconmasdkfstemplate.
+For use with Azure Stack Development Kit deployments only, you can use this example Azure Resource Manager Deployment Template to deploy a configured single node file server: https://aka.ms/appsvconmasdkfstemplate. The single node file server will be in a workgroup.
 
 ### Provision groups and accounts in Active Directory
 
->[!NOTE]
-> Execute all the following commands, when configuring the File Server, in an Administrator Command Prompt session.  **Do NOT use PowerShell.**
 
 1. Create the following Active Directory global security groups:
     - FileShareOwners
@@ -156,7 +154,10 @@ For use with Azure Stack Development Kit deployments only, you can use this exam
 
 ### Provision groups and accounts in a workgroup
 
-On a workgroup, run net and WMIC commands to provision groups and accounts.
+>[!NOTE]
+> Execute all the following commands, when configuring the File Server, in an Administrator Command Prompt session.  **Do NOT use PowerShell.**
+
+When using the ARM Template above, the users are already created.
 
 1. Run the following commands to create the FileShareOwner and FileShareUser accounts. Replace <password> with your own values.
 ``` DOS
@@ -182,11 +183,11 @@ The content share contains tenant web site content. The procedure to provision t
 
 #### Provision the content share on a single file server (AD or Workgroup)
 
-On a single file server, run the following commands at an elevated command prompt. Replace the value for <C:\WebSites> with the corresponding paths in your environment.
+On a single file server, run the following commands at an elevated command prompt. Replace the value for 'C:\WebSites' with the corresponding paths in your environment.
 
 ```DOS
 set WEBSITES_SHARE=WebSites
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 md %WEBSITES_FOLDER%
 net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
@@ -220,7 +221,7 @@ Run the following commands at an elevated command prompt on the File Server or o
 #### Active Directory
 ```DOS
 set DOMAIN=<DOMAIN>
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
@@ -231,7 +232,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 #### Workgroup
 ```DOS
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant FileShareOwners:(OI)(CI)(M)
@@ -248,7 +249,7 @@ For use with the Azure Stack Development Kit, you can use SQL Express 2014 SP2 o
 
 For production and high availability purposes, you should use a full version of SQL 2014 SP2 or later, enable Mixed Mode authentication, and deploy in a [highly available configuration](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-The Azure App Service on Azure Stack SQL Server must be accessible from all App Service roles. SQL Server can be deployed within the Default Provider Subscription in Azure Stack. Or you can make use of the existing infrastructure within your organization (as long as there is connectivity to Azure Stack).
+The Azure App Service on Azure Stack SQL Server must be accessible from all App Service roles. SQL Server can be deployed within the Default Provider Subscription in Azure Stack. Or you can make use of the existing infrastructure within your organization (as long as there is connectivity to Azure Stack). If you are using an Azure Marketplace image, remember to configure the firewall accordingly. 
 
 For any of the SQL Server roles, you can use a default instance or a named instance. However, if you use a named instance, be sure that you manually start the SQL Browser Service and open port 1434.
 
@@ -266,12 +267,12 @@ Administrators must configure SSO to:
 
 Follow these steps:
 
-1. Open a PowerShell instance as azurestack\cloudadmin.
+1. Open a PowerShell instance as azurestack\AzureStackAdmin.
 2. Go to the location of the scripts downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Install Azure Stack PowerShell](azure-stack-powershell-install.md).
 4. Run the **Create-AADIdentityApp.ps1** script. When you're prompted for your Azure AD tenant ID, enter the Azure AD tenant ID you're using for your Azure Stack deployment, for example, myazurestack.onmicrosoft.com.
 5. In the **Credential** window, enter your Azure AD service admin account and password. Click **OK**.
-6. Enter the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is sso.appservice.local.azurestack.external.pfx.
+6. Enter the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
 7. The script creates a new application in the tenant Azure AD. Make note of the Application ID that's returned in the PowerShell output. You need this information during installation.
 8. Open a new browser window, and sign in to the Azure portal (portal.azure.com) as the **Azure Active Directory Service Admin**.
 9. Open the Azure AD resource provider.
