@@ -20,9 +20,8 @@ The [Azure Site Recovery](site-recovery-overview.md) service contributes to your
 
 This article describes how to protect a File Server using Azure Site Recovery and other recommendations to suit various environments.     
 
-- [Protect Azure IaaS file server machines](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
-- [Protect on-premises file servers](#replicate-an-onpremises-file-server-using-azure-site-recovery)
-
+- [Replicate Azure IaaS file server machines](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
+- [Replicate on-premises file server using Azure Site Recovery](#replicate-an-onpremises-file-server-using-azure-site-recovery)
 
 ## File Server architecture
 The aim of an open distributed file sharing system is to provide an environment where a group of geographically distributed users can collaborate to efficiently work on files and be guaranteed that their integrity requirements are enforced. A typical on-premises File Server ecosystem that supports a high number of concurrent users and a large number of content items use Distributed File System Replication (DFSR) for replication scheduling and bandwidth throttling. DFSR uses a compression algorithm known as Remote Differential Compression (RDC), that can be used to efficiently update files over a limited-bandwidth network. It detects insertions, removals, and rearrangements of data in files, enabling DFSR to replicate only the changed file blocks when files are updated. There are also File Server environments, where daily backups are taken in non-peak timings, which cater to disaster needs and there is no implementation of DFSR.
@@ -90,7 +89,7 @@ If you are configuring and managing disaster recovery of File Servers hosted on 
 **Azure Files** can be used to completely replace or supplement traditional on-premises file servers or NAS devices. Azure File shares can also be replicated with Azure File Sync to Windows Servers, either on-premises or in the cloud, for performant and distributed caching of the data where it's being used. Following steps detail the DR recommendation for Azure VMs that perform same functionality as traditional File Servers:
 1.	Protect machines using Azure Site Recovery using steps mentioned here
 2.	Use Azure File Sync to replicate files from the VM that acts as the file server, to the cloud.
-3.	Use Azure Site Recovery’s recovery plan feature to add scripts to [mount the Azure File share](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) and access the share in your virtual machine.
+3.	Use Azure Site Recovery’s [recovery plan](site-recovery-create-recovery-plans.md) feature to add scripts to [mount the Azure File share](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) and access the share in your virtual machine.
 
 The below steps describe briefly how to use Azure File Sync service:
 
@@ -117,6 +116,7 @@ For more information on disaster recovery to a secondary region, refer [here](co
 
 
 ## Replicate an on-premises file server using Azure Site Recovery
+
 The below steps detail replication for a VMware VM, for steps to replicate a Hyper-V VM, refer here.
 
 1.	[Prepare Azure resources](tutorial-prepare-azure.md) for replication of on-premises machines.
@@ -156,7 +156,7 @@ The below steps detail using Azure File Sync service:
 4. Create a Sync Group: Endpoints within a Sync Group will be kept in sync with each other. A Sync Group must contain at least one Cloud Endpoint, which represents an Azure File share, and one Server Endpoint, which represents a path on the on-premises Windows Server.
 
 1. Your files will now be kept in sync across your Azure File share and your on-premises server.
-6.	In the event of a disaster in your on-premises environment, perform as failover using a recovery plan and add the script to mount the Azure File share and access the share in your virtual machine.
+6.	In the event of a disaster in your on-premises environment, perform as failover using a [recovery plan](site-recovery-create-recovery-plans.md) and add the script to mount the Azure File share and access the share in your virtual machine.
 
 > [!NOTE]
 > Ensure port 445 is open: Azure Files uses SMB protocol. SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.
