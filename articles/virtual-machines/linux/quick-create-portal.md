@@ -29,11 +29,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need an SSH key pair to complete this quick start. If you have an existing SSH key pair, this step can be skipped.
 
-From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file to the clipboard.
+From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. Copy the contents of the public key file (cat <filename>) to the clipboard (If you are running bash on windows for this step, ensure that you don't copy line break characters from the output). Note the filename of the private key file for later use.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+You can find more detailed information on this process [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys)
 
 ## Log in to Azure 
 
@@ -71,7 +72,7 @@ Create an SSH connection with the virtual machine.
 2. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
 
 ```bash 
-ssh azureuser@40.112.21.50
+ssh -i <privatekeyfilename> azureuser@40.112.21.50
 ```
 
 ## Install NGINX
