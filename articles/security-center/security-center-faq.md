@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 11/03/2017
 ms.author: terrylan
 
 ---
@@ -38,7 +38,7 @@ Security Center is offered in two tiers:
 
 The **Free tier** provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
 
-The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. The Standard tier is free for the first 60 days. Should you choose to continue to use the service beyond 60 days, we automatically start to charge for the service.  To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#set-security-policies). To learn more, see [Security Center pricing](security-center-pricing.md).
+The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat attribution reports. The Standard tier is free for the first 60 days. Should you choose to continue to use the service beyond 60 days, we automatically start to charge for the service.  To upgrade, select [Pricing Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) in the security policy.
 
 ## Permissions
 Azure Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure.
@@ -110,8 +110,8 @@ Azure Security Center monitors the following Azure resources:
 * Azure Virtual Networks
 * Azure SQL service
 * Azure Storage account
-* Azure Web Apps (in [App Service Environment](../app-service/app-service-app-service-environments-readme.md))
-* Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
+* Azure Web Apps (in [App Service Environment](../app-service/environment/intro.md))
+* Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on App Service Environment
 
 ## Virtual Machines
 ### What types of virtual machines are supported?
@@ -124,6 +124,15 @@ Azure Security Center has visibility into antimalware installed through Azure ex
 
 ### Why do I get the message "Missing Scan Data" for my VM?
 This message appears when there is no scan data for a VM. It can take some time (less than an hour) for scan data to populate after Data Collection is enabled in Azure Security Center. After the initial population of scan data, you may receive this message because there is no scan data at all or there is no recent scan data. Scans do not populate for a VM in a stopped state. This message could also appear if scan data has not populated recently (in accordance with the retention policy for the Windows agent, which has a default value of 30 days).
+
+### How often does Security Center scan for operating system vulnerabilities, system updates, and endpoint protection issues?
+The latency in Security Center scans for vulnerabilities, updates, and issues is:
+
+- Operating system vulnerabilities (by Microsoft) – data is updated within 48 hours
+- System updates – data is updated within 24 hours
+- Endpoint Protection issues – data is updated within 8 hours
+
+Security Center typically scans for new data every hour. The latency values above are a worst case scenario where there is not a recent scan or a scan failed.
 
 ### Why do I get the message "VM Agent is Missing?"
 The VM Agent must be installed on VMs to enable Data Collection. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. For information on how to install the VM Agent on other VMs, see the blog post [VM Agent and Extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

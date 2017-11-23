@@ -1,4 +1,4 @@
----
+﻿---
 title: Microsoft Azure Data Encryption-at-Rest | Microsoft Docs
 description: This article provides an overview of Microsoft Azure data  encryption at-rest, the overall capabilities, and general considerations.
 services: security
@@ -13,12 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/21/2017
 ms.author: yurid
 
 ---
 # Azure Data Encryption-at-Rest
-There are multiple tools within Microsoft Azure to safeguard data according to your company’s security and compliance needs. This paper focuses on how data is protected at rest across Microsoft Azure, discusses the various components taking part in the data protection implementation, and reviews pros and cons of the different key management protection approaches. 
+There are multiple tools within Microsoft Azure to safeguard data according to your company’s security and compliance needs. This paper focuses on:
+- How data is protected at rest across Microsoft Azure
+- Discusses the various components taking part in the data protection implementation,
+- Reviews pros and cons of the different key management protection approaches. 
 
 Encryption at Rest is a common security requirement. A benefit of Microsoft Azure is that organizations can achieve Encryption at Rest without having the cost of implementation and management and the risk of a custom key management solution. Organizations have the option of letting Azure completely manage Encryption at Rest. Additionally, organizations have various options to closely manage encryption or encryption keys.
 
@@ -33,11 +36,11 @@ Encryption at Rest refers to the cryptographic encoding (encryption) of data whe
 The above describes the common high-level elements of Encryption at Rest. In practice, key management and control scenarios, as well as scale and availability assurances, require additional constructs. Microsoft Azure Encryption at Rest concepts and components are described below.
 
 ## The purpose of encryption at rest
-Encryption at Rest is intended to provide data protection for data at-rest (as described above.) Attacks against data at-rest include attempts to obtain physical access to the hardware on which the data is stored, and then compromise the contained data. In such an attack, a server’s hard drive may have been mishandled during maintenance allowing an attacker to remove the hard drive. Later the attacker would put the hard drive into a computer under their control to attempt to access the data. 
+Encryption at rest is intended to provide data protection for data at-rest (as described above.) Attacks against data at-rest include attempts to obtain physical access to the hardware on which the data is stored, and then compromise the contained data. In such an attack, a server’s hard drive may have been mishandled during maintenance allowing an attacker to remove the hard drive. Later the attacker would put the hard drive into a computer under their control to attempt to access the data. 
 
 Encryption at rest is designed to prevent the attacker from accessing the unencrypted data by ensuring the data is encrypted when on disk. If an attacker were to obtain a hard drive with such encrypted data, and no access to the encryption keys, the attacker would not compromise the data without great difficulty. In such a scenario, an attacker would have to attempt attacks against encrypted data which are much more complex and resource consuming than accessing unencrypted data on a hard drive. For this reason, encryption at rest is highly recommended and is a high priority requirement for many organizations. 
 
-In some cases, encryption at rest is also required by an organization’s need for data governance and compliance efforts. Industry and government regulations such as HIPAA, PCI and FedRAMP, and international regulatory requirements, lay out specific safeguards through processes and policies regarding data protection and encryption requirements. For many of those regulations encryption at rest is a mandatory measure required for compliant data management and protection. 
+In some cases, encryption at rest is also required by an organization’s need for data governance and compliance efforts. Industry and government regulations such as HIPAA, PCI and FedRAMP, lay out specific safeguards regarding data protection and encryption requirements. For many of those regulations encryption at rest is a mandatory measure required for compliant data management and protection. 
 
 In addition to compliance and regulatory requirements, encryption at rest should be perceived as a defense-in-depth platform capability. While Microsoft provides a compliant platform for services, applications, and data, comprehensive facility and physical security, data access control and auditing, it is important to provide additional “overlapping” security measures in case one of the other security measures fails. Encryption at rest provides such an additional defense mechanism.
 
@@ -59,7 +62,7 @@ Permissions to use the keys stored in Azure Key Vault, either to manage or to ac
 
 ### Key Hierarchy
 
-Usually more than one encryption key is used in an encryption at rest implementation. Asymmetric encryption is useful for establishing the trust and authentication needed for key access and management. Symmetric encryption is more efficient for bulk encryption and decryption, allowing for stronger encryption and better performance. Additionally, limiting the use of a single encryption key decreases the risk that the key will be compromised and the cost of re-encryption when a key must be replaced. To leverage the benefits of asymmetric and symmetric encryption and limit the use and exposure of a single key, Azure encryption at rest models use a key hierarchy made up of the following types of keys:
+More than one encryption key is used in an encryption at rest implementation. Asymmetric encryption is useful for establishing the trust and authentication needed for key access and management. Symmetric encryption is more efficient for bulk encryption and decryption, allowing for stronger encryption and better performance. Additionally, limiting the use of a single encryption key decreases the risk that the key will be compromised and the cost of re-encryption when a key must be replaced. To leverage the benefits of asymmetric and symmetric encryption and limit the use and exposure of a single key, Azure encryptions at rest models use a key hierarchy made up of the following types of keys:
 
 - **Data Encryption Key (DEK)** – A symmetric AES256 key used to encrypt a partition or block of data.  A single resource may have many partitions and many Data Encryption Keys. Encrypting each block of data with a different key makes crypto analysis attacks more difficult. Access to DEKs is needed by the resource provider or application instance that is encrypting and decrypting a specific block. When a DEK is replaced with a new key only the data in its associated block must be re-encrypted with the new key.
 - **Key Encryption Key (KEK)** – An asymmetric encryption key used to encrypt the Data Encryption Keys. Use of a Key Encryption Key allows the data encryption keys themselves to be encrypted and controlled. The entity that has access to the KEK may be different than the entity that requires the DEK. This allows an entity to broker access to the DEK for the purpose of ensuring limited access of each DEK to specific partition. Since the KEK is required to decrypt the DEKs, the KEK is effectively a single point by which DEKs can be effectively deleted by deletion of the KEK.
@@ -82,9 +85,9 @@ There are three scenarios for server-side encryption:
 	- Customer controls keys via Azure Key Vault
 	- Full cloud functionality
 
-- Server-side encryption using customer-managed keys on customer controlled hardware
+- Server-side encryption using customer-managed keys on customer-controlled hardware
 	- Azure Resource Providers perform the encryption and decryption operations
-	- Customer controls keys on customer controlled hardware
+	- Customer controls keys on customer-controlled hardware
 	- Full cloud functionality
 
 For client-side encryption, consider the following:
@@ -97,7 +100,7 @@ The supported encryption models in Azure split into two main groups: “Client E
 
 ### Client encryption model
 
-Client Encryption model refers to encryption that is performed outside of the Resource Provider or Azure by the service or calling application. The encryption can be performed by the service application in Azure, or by an application running in the customer data center. In either case, when leveraging this encryption model, the Azure Resource Provider receives an encrypted blob of data without the ability to decrypt the data in any way or have access to the encryption keys. In this model, the key management is done by the calling service/application and is completely opaque to the Azure service.
+Client Encryption model refers to encryption that is performed outside of the Resource Provider or Azure by the service or calling application. The encryption can be performed by the service application in Azure, or by an application running in the customer data center. In either case, when leveraging this encryption model, the Azure Resource Provider receives an encrypted blob of data without the ability to decrypt the data in any way or have access to the encryption keys. In this model, the key management is done by the calling service/application and is opaque to the Azure service.
 
 ![Client](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
@@ -111,15 +114,15 @@ Server-side Encryption models refer to encryption that is performed by the Azure
 
 Each of the server-side encryption at rest models implies distinctive characteristics of key management. This includes where and how encryption keys are created, and stored as well as the access models and the key rotation procedures. 
 
-#### Server-side encryption using service managed keys
+#### Server-side encryption using service-managed keys
 
 For many customers, the essential requirement is to ensure that the data is encrypted whenever it is at rest. Server-side encryption using Service Managed Keys enables this model by allowing customers to mark the specific resource (Storage Account, SQL DB, etc.) for encryption and leaving all key management aspects such as key issuance, rotation and backup to Microsoft. Most Azure Services that support encryption at rest typically support this model of offloading the management of the encryption keys to Azure. The Azure resource provider creates the keys, places them in secure  storage, and retrieves them when needed. This means that the service has full access to the keys and the service has full control over the credential lifecycle management.
 
 ![managed](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
-Server-side encryption using service managed keys therefore quickly addresses the need to have encryption at rest with low overhead to the customer. When available a customer typically opens the Azure portal for the target subscription and resource provider and checks a box indicating they would like the data to be encrypted. In some Resource Managers server-side encryption with service managed keys is on by default. 
+Server-side encryption using service managed keys therefore quickly addresses the need to have encryption at rest with low overhead to the customer. When available a customer typically opens the Azure portal for the target subscription and resource provider and checks a box indicating they would like the data to be encrypted. In some Resource Managers server-side encryption with service-managed keys is on by default. 
 
-Server-side encryption with Microsoft managed keys does imply the service has full access to store and manages the keys. While some customers may want to manage the keys because they feel they can ensure greater security, the cost and risk associated with a custom key storage solution should be considered when evaluating this model. In many cases an organization may determine that resource constraints or risks of an on-premises solution may greater than the risk of cloud management of the encryption at rest keys.  However, this model might not be sufficient for organizations that have requirements to control the creation or lifecycle of the encryption keys or to have different personnel manage a service’s encryption keys than those managing the service (i.e., segregation of key management from the overall management model for the service).
+Server-side encryption with Microsoft-managed keys does imply the service has full access to store and manages the keys. While some customers may want to manage the keys because they feel they can ensure greater security, the cost and risk associated with a custom key storage solution should be considered when evaluating this model. In many cases an organization may determine that resource constraints or risks of an on-premises solution may greater than the risk of cloud management of the encryption at rest keys.  However, this model might not be sufficient for organizations that have requirements to control the creation or lifecycle of the encryption keys or to have different personnel manage a service’s encryption keys than those managing the service (i.e., segregation of key management from the overall management model for the service).
 
 ##### Key access
 
@@ -142,7 +145,7 @@ For scenarios where the requirement is to encrypt the data at rest and control t
 
 ##### Key Access
 
-The server-side encryption model with customer managed keys in Azure Key Vault involves the service accessing the keys to encrypt and decrypt as needed. Encryption at rest keys are made accessible to a service through an access control policy granting that service identity access to receive the key. An Azure service running on behalf of an associated subscription can be configured with an identity for that service within that subscription. The service can perform Azure Active Directory authentication and receive an authentication token identifying itself as that service acting on behalf of the subscription. That token can then be presented to Key Vault to obtain a key it has been given access to.
+The server-side encryption model with customer managed keys in Azure Key Vault involves the service accessing the keys to encrypt and decrypt as needed. Encryption at rest keys are made accessible to a service through an access control policy. This policy grants the service identity access to receive the key. An Azure service running on behalf of an associated subscription can be configured with an identity in that subscription. The service can perform Azure Active Directory authentication and receive an authentication token identifying itself as that service acting on behalf of the subscription. That token can then be presented to Key Vault to obtain a key it has been given access to.
 
 For operations using encryption keys, a service identity can be granted access to any of the following operations: decrypt, encrypt, unwrapKey, wrapKey, verify, sign, get, list, update, create, import, delete, backup, and restore.
 
@@ -198,7 +201,7 @@ Microsoft Cloud services are used in all three cloud models: IaaS, PaaS, SaaS. B
 
 ### Encryption at rest for SaaS customers
 
-Software as a Service (SaaS) customers typically have encryption at rest enabled or available in each service. Office 365 services has several options for customers to verify or enable encryption at rest. For information about Office 365 services see Data Encryption Technologies for Office 365.
+Software as a Service (SaaS) customers typically have encryption at rest enabled or available in each service. Office 365 has several options for customers to verify or enable encryption at rest. For information about Office 365 services see Data Encryption Technologies for Office 365.
 
 ### Encryption at rest for PaaS customers
 
@@ -269,8 +272,8 @@ Client-side encryption of SQL Azure data is supported through the [Always Encryp
 | Power BI                         |                | Yes                 | -                            | -                            | -      |
 | **IoT Services**                     |                |                     |                              |                              |        |
 | IoT Hub                          |                | -                   | -                            | -                            | Yes    |
-| Service Bus                      |                | -              | -                            | -                            | Yes    |
-| Event Hubs                       |                | -             | -                            | -                            | -      |
+| Service Bus                      |                | Yes (Premium tier)              | -                            | -                            | Yes    |
+| Event Hubs                       |                | Yes             | -                            | -                            | -      |
 
 
 ## Conclusion

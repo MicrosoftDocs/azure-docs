@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2017
+ms.topic: troubleshooting
+ms.date: 11/03/2017
 ms.author: genli
 
 ---
 # How to use PerfInsights 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) is an automated script that collects useful diagnostic information, runs I/O stress loads, and provides an analysis report to help troubleshoot Windows VM performance problems in Microsoft Azure. 
+[PerfInsights](http://aka.ms/perfinsightsdownload) is an automated script that collects useful diagnostic information, runs I/O stress loads, and provides an analysis report to help troubleshoot Windows VM performance problems in Microsoft Azure. This can be run on the virtual machines as a standalone script or directly from the portal by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
 
 We recommend that you run this script before you open a Support ticket with Microsoft for VM performance issues.
 
@@ -110,7 +110,7 @@ When you run a custom configuration, you are running all traces (performance dia
 
 ## What kind of information is collected by the script?
 
-Information about Windows VM, disks or storage pools configuration, performance counters, logs and various traces are collected depending on the performance scenario used:
+Information about Windows VM, disks or storage pools configuration, performance counters, logs, and various traces are collected depending on the performance scenario used:
 
 |Data collected                              |  |  | Performance Scenarios |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
@@ -144,7 +144,7 @@ Runs a rule-based engine in the background to collect data and diagnose ongoing 
 
 - HighCpuUsage rule: Detects high CPU usage periods and shows the top CPU usage consumers during those periods.
 - HighDiskUsage rule: Detects high disk usage periods on physical disks and shows the top disk usage consumers during those periods.
-- HighResolutionDiskMetric rule: Shows IOPS, throughput and IO latency metrics per 50 milliseconds for each physical disk. It helps to quickly identify disk throttling periods.
+- HighResolutionDiskMetric rule: Shows IOPS, throughput, and IO latency metrics per 50 milliseconds for each physical disk. It helps to quickly identify disk throttling periods.
 - HighMemoryUsage rule: Detects high memory usage periods, and shows the top memory usage consumers during those periods.
 
 > [!NOTE] 
@@ -189,7 +189,16 @@ Diskspd IO workload tests [OS Disk (write) and pool drives (read/write)]
 
 ### How do I run PerfInsights? 
 
-To run the script, follow these steps:
+You can run PerfInsights on a virtual machine by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md) or run it as a standalone script. 
+
+**Install and run PerfInsights from the Azure portal**
+
+PerfInsights now can be run using a VM extension called Azure Performance Diagnostics Extension. For more information, see [Install Azure Performance Diagnostics extension](performance-diagnostics-vm-extension.md#install-the-extension).  
+
+**Run PerfInsights script in standalone mode**
+
+To run the PerfInsights script, follow these steps:
+
 
 1. Download [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
 
@@ -301,7 +310,7 @@ The **Overview** section displays different views of the storage configuration, 
 
 The **DiskMap** and **VolumeMap** sections describe on a dual perspective how logical volumes and physical disks are related to each other.
 
-In the PhysicalDisk perspective (DiskMap), the table shows all logical volumes that are running on the disk. In the following example, PhysicalDrive2 runs 2 Logical Volumes created on multiple partitions (J and H):
+In the PhysicalDisk perspective (DiskMap), the table shows all logical volumes that are running on the disk. In the following example, PhysicalDrive2 runs two Logical Volumes created on multiple partitions (J and H):
 
 ![data tab](media/how-to-use-perfInsights/disktab.png)
 
@@ -311,7 +320,7 @@ In the Volume perspective (*VolumeMap*), the tables show all the physical disks 
 
 ### SQL Server tab
 
-If the target VM hosts any SQL Server instances, you will see an additional tab in the report that is named **SQL Server**:
+If the target VM hosts any SQL Server instances, you see an additional tab in the report that is named **SQL Server**:
 
 ![sql tab](media/how-to-use-perfInsights/sqltab.png)
 

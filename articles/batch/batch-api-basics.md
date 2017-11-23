@@ -3,7 +3,7 @@ title: Overview of Azure Batch for developers | Microsoft Docs
 description: Learn the features of the Batch service and its APIs from a development standpoint.
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 06/28/2017
-ms.author: tamram
+ms.date: 11/16/2017
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -42,7 +42,7 @@ The following high-level workflow is typical of nearly all applications and serv
 The following sections discuss these and the other resources of Batch that enable your distributed computational scenario.
 
 > [!NOTE]
-> You need a [Batch account](#account) to use the Batch service. Most Batch solutions also use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **general-purpose** storage account type, as described in step 5 of [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
+> You need a [Batch account](#account) to use the Batch service. Most Batch solutions also use an associated [Azure Storage][azure_storage] account for file storage and retrieval. 
 >
 >
 
@@ -67,44 +67,14 @@ Some of the following resources--accounts, compute nodes, pools, jobs, and tasks
 ## Account
 A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account.
 
-You can create an Azure Batch account using the [Azure portal](batch-account-create-portal.md) or programmatically, such as with the [Batch Management .NET library](batch-management-dotnet.md). When creating the account, you can associate an Azure storage account.
+You can create an Azure Batch account using the [Azure portal](batch-account-create-portal.md) or programmatically, such as with the [Batch Management .NET library](batch-management-dotnet.md). When creating the account, you can associate an Azure storage account for storing job-related input and output data or applications.
 
-### Pool allocation mode
+You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts that are in the same subscription, but in different Azure regions.
 
-When you create a Batch account, you can specify how [pools](#pool) of compute nodes are allocated. You can choose to allocate pools of compute nodes in a subscription managed by Azure Batch, or you can allocate them in your own subscription. The *pool allocation mode* property for the account determines where pools are allocated. 
+> [!NOTE]
+> When creating a Batch account, you should generally choose the default **Batch service** mode, in which pools are allocated behind the scenes in Azure-managed subscriptions. In the alternative **user subscription** mode, which is no longer recommended for most scenarios, Batch VMs and other resources are created directly in your subscription when a pool is created. To create a Batch account in user subscription mode, you must also register your subscription with Azure Batch, and associate the account with an Azure Key Vault.
+>
 
-To decide which pool allocation mode to use, consider which best fits your scenario:
-
-* **Batch Service**: Batch Service is the default pool allocation mode, in which pools are allocated behind the scenes in Azure-managed subscriptions. Keep in mind these key points about the Batch Service pool allocation mode:
-
-    - The Batch Service pool allocation mode supports both Cloud Service and Virtual Machine pools.
-    - The Batch Service pool allocation mode supports both shared key authentication or [Azure Active Directory authentication](batch-aad-auth.md) (Azure AD). 
-    - You can use either dedicated or low-priority compute nodes in pools allocated with the Batch Service pool allocation mode.
-    - Do not use the Batch Service pool allocation mode if you plan to create Azure virtual machine pools from custom VM images, or if you plan to use a virtual network. Create your account with the User Subscription pool allocation mode instead.
-    - Virtual Machine pools provisioned in an account created with the Batch Service pool allocation mode must be created from [Azure Virtual Machines Marketplace][vm_marketplace] images.
-
-* **User subscription**: With the User Subscription pool allocation mode, Batch pools are allocated in the Azure subscription where the account is created. Keep in mind these key points about the User Subscription pool allocation mode:
-     
-    - The User Subscription pool allocation mode supports only Virtual Machine pools. It does not support Cloud Services pools.
-    - To create Virtual Machine pools from custom VM images or to use a virtual network with Virtual Machine pools, you must use the User Subscription pool allocation mode.  
-    - You must use [Azure Active Directory authentication](batch-aad-auth.md) with pools that are allocated in the user subscription. 
-    - You must set up an Azure key vault for your Batch account if the pool allocation mode is set to User Subscription. 
-    - You can use only dedicated compute nodes in pools in an account created with the User Subscription pool allocation mode. Low-priority nodes are not supported.
-    - Virtual Machine pools provisioned in an account with the User Subscription pool allocation mode can be created either from [Azure Virtual Machines Marketplace][vm_marketplace] images, or from custom images that you provide.
-
-The following table compares the Batch Service and User Subscription pool allocation modes.
-
-| **Pool allocation mode**                 | **Batch Service**                                                                                       | **User Subscription**                                                              |
-|-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Pools are allocated in**               | An Azure-managed subscription                                                                           | The user subscription in which the Batch account is created                        |
-| **Supported configurations**             | <ul><li>Cloud Service Configuration</li><li>Virtual Machine Configuration (Linux and Windows)</li></ul> | <ul><li>Virtual Machine Configuration (Linux and Windows)</li></ul>                |
-| **Supported VM images**                  | <ul><li>Azure Marketplace images</li></ul>                                                              | <ul><li>Azure Marketplace images</li><li>Custom images</li></ul>                   |
-| **Supported compute node types**         | <ul><li>Dedicated nodes</li><li>Low-priority nodes</li></ul>                                            | <ul><li>Dedicated nodes</li></ul>                                                  |
-| **Supported authentication**             | <ul><li>Shared Key</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **Azure Key Vault required**             | No                                                                                                      | Yes                                                                                |
-| **Core quota**                           | Determined by Batch core quota                                                                          | Determined by subscription core quota                                              |
-| **Azure Virtual Network (Vnet) support** | Pools created with the Cloud Service Configuration                                                      | Pools created with the Virtual Machine Configuration                               |
-| **Vnet deployment model supported**      | Vnets created with classic deployment model                                                             | Vnets created with either the classic deployment model or Azure   Resource Manager |
 
 ## Azure Storage account
 
@@ -131,7 +101,7 @@ Azure Batch pools build on top of the core Azure compute platform. They provide 
 
 Every node that is added to a pool is assigned a unique name and IP address. When a node is removed from a pool, any changes that are made to the operating system or files are lost, and its name and IP address are released for future use. When a node leaves a pool, its lifetime is over.
 
-When you create a pool, you can specify the following attributes. Some settings differ, depending on the pool allocation mode of the Batch [account](#account):
+When you create a pool, you can specify the following attributes:
 
 - Compute node operating system and version
 - Compute node type and target number of nodes
@@ -146,11 +116,9 @@ When you create a pool, you can specify the following attributes. Some settings 
 Each of these settings is described in more detail in the following sections.
 
 > [!IMPORTANT]
-> Batch accounts created with the Batch Service pool allocation mode have a default quota that limits the number of cores in a Batch account. The number of cores corresponds to the number of compute nodes. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If your pool is not achieving its target number of nodes, the core quota might be the reason.
+> Batch accounts  have a default quota that limits the number of cores in a Batch account. The number of cores corresponds to the number of compute nodes. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If your pool is not achieving its target number of nodes, the core quota might be the reason.
 >
->Batch accounts created with the User Subscription pool allocation mode do not observe the Batch service quotas. Instead, they share in the core quota for the specified subscription. For more information, see [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
->
->
+
 
 ### Compute node operating system and version
 
@@ -158,7 +126,7 @@ When you create a Batch pool, you can specify the Azure virtual machine configur
 
 - The **Virtual Machine Configuration**, which specifies that the pool is comprised of Azure virtual machines. These VMs may be created from either Linux or Windows images. 
 
-    When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md).
+    When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md). You can optionally attach one or more empty data disks to pool VMs created from Marketplace images, or include data disks in custom images used to create the VMs.
 
 - The **Cloud Services Configuration**, which specifies that the pool is comprised of Azure Cloud Services nodes. Cloud Services provide Windows compute nodes *only*.
 
@@ -170,43 +138,20 @@ When you create a Batch pool, you can specify the Azure virtual machine configur
 
 When you create a pool, you need to select the appropriate **nodeAgentSkuId**, depending on the OS of the base image of your VHD. You can get a mapping of available node agent SKU ID's to their OS Image references by calling the [List Supported Node Agent SKUs](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) operation.
 
-See the [Account](#account) section for information on setting the pool allocation mode when you create a Batch account.
 
 #### Custom images for Virtual Machine pools
 
-To use a custom image to provision Virtual Machine pools, create your Batch account with the User Subscription pool allocation mode. With this mode, Batch pools are allocated into the subscription where the account resides. See the [Account](#account) section for information on setting the pool allocation mode when you create a Batch account.
+To use a custom image, you'll need to prepare the image by generalizing it. For information about preparing custom Linux images from Azure VMs, see [How to create an image of a virtual machine or VHD](../virtual-machines/linux/capture-image.md). For information about preparing custom Windows images from Azure VMs, see [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md). 
 
-To use a custom image, you'll need to prepare the image by generalizing it. For information about preparing custom Linux images from Azure VMs, see [Capture an Azure Linux VM to use as a template](../virtual-machines/linux/capture-image-nodejs.md). For information about preparing custom Windows images from Azure VMs, see [Create custom VM images with Azure PowerShell](../virtual-machines/windows/tutorial-custom-images.md). 
+For detailed requirements and steps, see [Use a custom image to create a pool of virtual machines](batch-custom-images.md).
 
-> [!IMPORTANT]
-> When preparing your custom image, keep in mind the following:
-> - Ensure that the base OS image you use to provision your Batch pools does not have any pre-installed Azure extensions, such as the Custom Script extension. If the image contains a pre-installed extension, Azure may encounter problems deploying the VM.
-> - Ensure that the base OS image you provide uses the default temp drive, as the Batch node agent currently expects the default temp drive.
->
->
+#### Container support in Virtual Machine pools
 
-To create a Virtual Machine Configuration pool using a custom image, you'll need one or more standard Azure Storage accounts to store your custom VHD images. Custom images are stored as blobs. To reference your custom images when you create a pool, specify the URIs of the custom image VHD blobs for the [osDisk](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_osdisk) property of the [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/add-a-pool-to-an-account#bk_vmconf) property.
+When creating a Virtual Machine Configuration pool using the Batch APIs, you can set up the pool to run tasks in Docker containers. Currently, you must create the pool using an image that supports Docker containers. Use the Windows Server 2016 Datacenter with Containers image from the Azure Marketplace, or supply a custom VM image that includes Docker Community Edition or Enterprise Edition and any required drivers. The pool settings must include a [container configuration](/rest/api/batchservice/pool/add#definitions_containerconfiguration) that copies container images to the VMs when the pool is created. Tasks that run on the pool can then reference the container images and container run options.
 
-Make sure that your storage accounts meet the following criteria:   
+For more information, see [Run Docker container applications on Azure Batch](batch-docker-container-workloads.md).
 
-- The storage accounts containing the custom image VHD blobs need to be in the same subscription as the Batch account (the user subscription).
-- The specified storage accounts need to be in the same region as the Batch account.
-- Only standard general-purpose storage accounts are currently supported. Azure Premium storage will be supported in the future.
-- You can specify one storage account with multiple custom VHD blobs or multiple storage accounts each having a single blob. We recommend you to use multiple storage accounts to get a better performance.
-- One unique custom image VHD blob can support up to 40 Linux VM instances or 20 Windows VM instances. You will need to create copies of the VHD blob to create pools with more VMs. For example, a pool with 200 Windows VMs needs 10 unique VHD blobs specified for the **osDisk** property.
-
-To create a pool from a custom image using the Azure portal:
-
-1. Navigate to your Batch account in the Azure portal.
-2. On the **Settings** blade, select the **Pools** menu item.
-3. On the **Pools** blade, select the **Add** command; the **Add pool** blade will be displayed.
-4. Select **Custom Image (Linux/Windows)** from the **Image Type** dropdown. The portal displays the **Custom Image** picker. Choose one or more VHDs from the same container and click the **Select** button. 
-    Support for multiple VHDs from different storage accounts and different containers will be added in the future.
-5. Select the correct **Publisher/Offer/Sku** for your custom VHDs, select the desired **Caching** mode, then fill in all the other parameters for the pool.
-6. To check if a pool is based on a custom image, see the **Operating System** property in the resource summary section of the **Pool** blade. The value of this property should be **Custom VM image**.
-7. All custom VHDs associated with a pool are displayed on the pool's **Properties** blade.
-
-### Compute node type and target number of nodes
+## Compute node type and target number of nodes
 
 When you create a pool, you can specify which types of compute nodes you want and the target number for each. The two types of compute nodes are:
 
@@ -216,8 +161,7 @@ When you create a pool, you can specify which types of compute nodes you want an
 
     Low-priority compute nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a compute node becomes available again. Low-priority nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes. Before you decide to use low-priority nodes for your scenario, make sure that any work lost due to preemption will be minimal and easy to recreate.
 
-    Low-priority compute nodes are available only for Batch accounts created with the pool allocation mode set to **Batch Service**.
-
+    
 You can have both low-priority and dedicated compute nodes in the same pool. Each type of node &mdash; low-priority and dedicated &mdash; has its own target setting, for which you can specify the desired number of nodes. 
     
 The number of compute nodes is referred to as a *target* because, in some situations, your pool might not reach the desired number of nodes. For example, a pool might not achieve the target if it reaches the [core quota](batch-quota-limit.md) for your Batch account first. Or, the pool might not achieve the target if you have applied an auto-scaling formula to the pool that limits the maximum number of nodes.
@@ -315,6 +259,7 @@ When you create a task, you can specify:
 * The **environment variables** that are required by your application. For more information, see the [Environment settings for tasks](#environment-settings-for-tasks) section.
 * The **constraints** under which the task should execute. For example, constraints include the maximum time that the task is allowed to run, the maximum number of times a failed task should be retried, and the maximum time that files in the task's working directory are retained.
 * **Application packages** to deploy to the compute node on which the task is scheduled to run. [Application packages](#application-packages) provide simplified deployment and versioning of the applications that your tasks run. Task-level application packages are especially useful in shared-pool environments, where different jobs are run on one pool, and the pool is not deleted when a job is completed. If your job has fewer tasks than nodes in the pool, task application packages can minimize data transfer since your application is deployed only to the nodes that run tasks.
+* A **container image** reference in Docker Hub or a private registry and additional settings to create a Docker container in which the task runs on the node. You only specify this information if the pool is set up with a container configuration.
 
 In addition to tasks you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 
@@ -443,58 +388,12 @@ A combined approach is typically used for handling a variable, but ongoing, load
 
 ## Virtual network (VNet) and firewall configuration 
 
-When you provision a pool of compute nodes in Azure Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To learn more about creating a VNet with subnets, see [Create an Azure virtual network with subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To use an Azure VNet, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).  
 
- * The VNet associated with a pool must be:
+### VNet requirements
+[!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
-   * In the same Azure **region** as the Azure Batch account.
-   * In the same **subscription** as the Azure Batch account.
-
-* The type of VNet supported depends on how pools are being allocated for the Batch account:
-
-    - If the pool allocation mode for your Batch account is set to Batch Service, then you can assign a VNet only to pools created with the **Cloud Services Configuration**. Additionally, the specified VNet must be created with the classic deployment model. VNets created with the Azure Resource Manager deployment model are not supported.
- 
-    - If the pool allocation mode for your Batch account is set to User Subscription, then you can assign a VNet only to pools created with the **Virtual Machine Configuration**. Pools created with the **Cloud Service Configuration** are not supported. The associated VNet may be created with either the Azure Resource Manager deployment model or the classic deployment model.
-
-    For a table summarizing VNet support according to pool allocation mode, see the [Pool allocation mode](#pool-allocation-mode) section.
-
-* If the pool allocation mode for your Batch account is set to Batch Service, then you must provide permissions for the Batch service principal to access the VNet. The VNet must assign the [Classic Virtual Machine Contributor Role-Based Access Control (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) role to the Batch service principal. If the specified RBAC role is not provided, the Batch service returns 400 (Bad Request). To add the role in the Azure portal:
-
-    1. Select the **VNet**, then **Access control (IAM)** > **Roles** > **Virtual Machine Contributor** > **Add**.
-    2. On the **Add permissions** blade, select the **Virtual Machine Contributor** role.
-    3. On the **Add permissions** blade, search for the Batch API. Search for each of these strings in turn until you find the API:
-        1. **MicrosoftAzureBatch**.
-        2. **Microsoft Azure Batch**. Newer Azure AD tenants may use this name.
-        3. **ddbf3205-c6bd-46ae-8127-60eb93363864** is the ID for the Batch API. 
-    3. Select the Batch API service principal. 
-    4. Click **Save**.
-
-        ![Assign VM Contributor role to Batch service principal](./media/batch-api-basics/iam-add-role.png)
-
-
-* The specified subnet should have enough free **IP addresses** to accommodate the total number of target nodes; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
-
-* The specified subnet must allow communication from the Batch service to be able to schedule tasks on the compute nodes. If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service sets the state of the compute nodes to **unusable**.
-
-* If the specified VNet has associated **Network Security Groups (NSGs)** and/or a **firewall**, then a few reserved system ports must be enabled for inbound communication:
-
-- For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. 
-- For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. 
-- Enable outbound connections to Azure Storage on port 443. Also, ensure that your Azure Storage endpoint can be resolved by any custom DNS servers that serve your VNET. Specifically, a URL of the form `<account>.table.core.windows.net` should be resolvable.
-
-    The following table describes the inbound ports that you need to enable for pools that you created with the virtual machine configuration:
-
-    |    Destination Port(s)    |    Source IP address      |    Does Batch add NSGs?    |    Required for VM to be usable?    |    Action from user   |
-    |---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
-    |    <ul><li>For pools created with the virtual machine configuration: 29876, 29877</li><li>For pools created with the cloud service configuration: 10100, 20100, 30100</li></ul>         |    Only Batch service role IP addresses |    Yes. Batch adds NSGs at the level of network interfaces (NIC) attached to VMs. These NSGs allow traffic only from Batch service role IP addresses. Even if you open these ports for the  entire web, the traffic will get blocked at the NIC. |    Yes  |  You do not need to specify an NSG, because Batch allows only Batch IP addresses. <br /><br /> However, if you do specify an NSG, please ensure that these ports are open for inbound traffic. <br /><br /> If you specify * as the source IP in your NSG, Batch still adds NSGs at the level of NIC attached to VMs. |
-    |    3389, 22               |    User machines, used for debugging purposes, so that you can remotely access the VM.    |    No                                    |    No                     |    Add NSGs if you want to permit remote access (RDP/SSH) to the VM.   |                 
-
-    The following table describes the outbound port that you need to enable to permit access to Azure Storage:
-
-    |    Outbound Port(s)    |    Destination    |    Does Batch add NSGs?    |    Required for VM to be usable?    |    Action from user    |
-    |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-    |    443    |    Azure Storage    |    No    |    Yes    |    If you add any NSGs, then ensure that this port is open to outbound   traffic.    |
-
+For more information about setting up a Batch pool in a VNet, see [Create a pool of virtual machines with your virtual network](batch-virtual-network.md).
 
 ## Scaling compute resources
 With [automatic scaling](batch-automatic-scaling.md), you can have the Batch service dynamically adjust the number of compute nodes in a pool according to the current workload and resource usage of your compute scenario. This allows you to lower the overall cost of running your application by using only the resources you need, and releasing those you don't need.
@@ -509,7 +408,7 @@ A scaling formula can be based on the following metrics:
 * **Resource metrics** are based on CPU usage, bandwidth usage, memory usage, and number of nodes.
 * **Task metrics** are based on task state, such as *Active* (queued), *Running*, or *Completed*.
 
-When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a *node deallocation option* that you can include in your formulas. For example, you can specify that running tasks are stopped immediately, stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool.
+When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a *node deallocation option* that you can include in your formulas. For example, you can specify that running tasks are stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool.
 
 For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
 
@@ -601,11 +500,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 ## Next steps
 * Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
 * Walk through a sample Batch application step-by-step in [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md). There is also a [Python version](batch-python-tutorial.md) of the tutorial that runs a workload on Linux compute nodes.
-* Download and build the [Batch Explorer][github_batchexplorer] sample project for use while you develop your Batch solutions. Using the Batch Explorer, you can perform the following and more:
-
-  * Monitor and manipulate pools, jobs, and tasks within your Batch account
-  * Download `stdout.txt`, `stderr.txt`, and other files from nodes
-  * Create users on nodes and download RDP files for remote login
+* Download and install [BatchLabs][batch_labs] for use while you develop your Batch solutions. Use BatchLabs to help create, debug, and monitor Azure Batch applications. 
 * Learn how to [create pools of Linux compute nodes](batch-linux-nodes.md).
 * Visit the [Azure Batch forum][batch_forum] on MSDN. The forum is a good place to ask questions, whether you are just learning or are an expert in using Batch.
 
@@ -617,7 +512,7 @@ In situations where some of your tasks are failing, your Batch client applicatio
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

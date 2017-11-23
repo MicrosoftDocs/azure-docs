@@ -74,7 +74,7 @@ One of the most common things that people do in the cloud is run websites and we
 
 This is exactly what Web Apps provides. This compute model offers a managed web environment using the Azure Management portal as well as APIs. You can move an existing website application into Web Apps unchanged, or you can create a new one directly in the cloud. Once a website is running, you can add or remove instances dynamically, relying on Azure Web Apps to load balance requests across them. Azure Apps offers both a shared option, where your website runs in a virtual machine with other sites, and a standard option that allows a site to run in its own VM. The standard option also lets you increase the size (computing power) of your instances if needed.
 
-For development, Web Apps supports .NET, PHP, Node.js, Java and Python along with SQL Database and MySQL (from ClearDB, a Microsoft partner) for relational storage. It also provides built-in support for several popular applications, including WordPress, Joomla, and Drupal. The goal is to provide a low-cost, scalable, and broadly useful platform for creating websites and web applications in the public cloud.
+For development, Web Apps supports .NET, PHP, Node.js, Java and Python along with SQL Database and Azure Database for MySQL for relational storage. It also provides built-in support for several popular applications, including WordPress, Joomla, and Drupal. The goal is to provide a low-cost, scalable, and broadly useful platform for creating websites and web applications in the public cloud.
 
 **Web Apps Scenarios**
 
@@ -99,7 +99,7 @@ You have two roles to choose from when you create an instance, both based on Win
 Cloud Services are ideal to support massive scale out when you need more control over the platform than provided by Azure Web Apps but don’t need control over the underlying operating system.
 
 #### Choosing a Compute Model
-The page [Azure Web Apps, Cloud Services and Virtual Machines comparison](app-service-web/choose-web-site-cloud-service-vm.md) provides more detailed information on how to choose a Compute model.
+The page [Azure Web Apps, Cloud Services and Virtual Machines comparison](app-service/choose-web-site-cloud-service-vm.md) provides more detailed information on how to choose a Compute model.
 
 ## Data Management
 Applications need data, and different kinds of applications need different kinds of data. Because of this, Azure provides several different ways to store and manage data. Azure provides many storage options, but all are designed for very durable storage.  With any of these options, there are always 3 copies of your data kept in sync across an Azure datacenter -- 6 if you allow Azure to use geo-redundancy to back up to another datacenter at least 300 miles away.     

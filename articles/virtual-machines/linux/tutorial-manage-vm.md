@@ -37,7 +37,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create resource group
 
-Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#create) command. 
+Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command. 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus* region. 
 
@@ -49,7 +49,7 @@ The resource group is specified when creating or modifying a VM, which can be se
 
 ## Create virtual machine
 
-Create a virtual machine with the [az vm create](https://docs.microsoft.com/cli/azure/vm#create) command. 
+Create a virtual machine with the [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) command. 
 
 When creating a virtual machine, several options are available such as operating system image, disk sizing, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running Ubuntu Server. 
 

@@ -23,7 +23,7 @@ Log Analytics can help managed service providers (MSPs), large enterprises, inde
 Large enterprises share many similarities with service providers, particularly when there is a centralized IT team that is responsible for managing IT for many different business units. For simplicity, this document uses the term *service provider* but the same functionality is also available for enterprises and other customers.
 
 ## Cloud Solution Provider
-For partners and service providers who are part of the [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, Log Analytics is one of the Azure services available on a CSP subscription. 
+For partners and service providers who are part of the [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, Log Analytics is one of the Azure services available in [Azure CSP subscription](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 For Log Analytics, the following capabilities are enabled in *Cloud Solution Provider* subscriptions.
 
