@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2017
+ms.date: 11/22/2017
 ms.author: apimpm
 
 ---
@@ -29,7 +29,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-[Create an Azure API Management instance](get-started-create-service-instance.md).
+Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -37,8 +37,12 @@ In this article, you learn how to:
 
 1. Select **APIs** from under **API MANAGEMENT**.
 2. Select **WSDL** from the **Add a new API** list.
+
+    ![Soap api](./media/import-soap-api/wsdl-api.png)
 3. In the **WSDL specification**, enter the URL to where your SOAP API resides.
 4. The **SOAP pass-through** radio button is selected by default. With this selection, the API is going to be exposed as SOAP. Consumer has to use SOAP rules. If you want to "restify" the API, follow the steps in [Import a SOAP API and convert it to REST](restify-soap-api.md).
+
+    ![Pass-through](./media/import-soap-api/pass-through.png)
 5. Press tab.
 
     The following fields get filled up with the info from the SOAP API: Display name, Name, Description.

@@ -41,9 +41,9 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
     ![Settings](media/add-api-manually/settings.png)
 
-    |Name|Value|Description|
+    |**Name**|**Value**|**Description**|
     |---|---|---|
-    |**Display name**|"*Blank API*" | |
+    |**Display name**|"*Blank API*" |This name is displayed in the Developer portal.|
     |**Web Service URL** (optional)| "*http://httpbin.org*"| If you want to mock an API, you might not enter anything. <br/>In this case, we enter [http://httpbin.org](http://httpbin.org). This is a public testing service. <br/>If you want to import an API that is mapped to a back end automatically, see one of the topics in the [related topics](#related-topics) section.|
     |**URL scheme**|"*HTTPS*"|In this case, even though the back end has non-secure HTTP access, we specify a secure HTTPS APIM access to the back end. <br/>This kind of scenario (HTTPS to HTTP) is called HTTPS termination. You might do it if your API exists within a virtual network (where you know the access is secure even if HTTPS is not used). <br/>You might want to use "HTTPS termination" to save on some CPU cycles.|
     |**URL suffix**|"*hbin*"| The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.|

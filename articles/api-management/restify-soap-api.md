@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2017
+ms.date: 11/22/2017
 ms.author: apimpm
 
 ---
@@ -29,7 +29,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-[Create an Azure API Management instance](get-started-create-service-instance.md).
+Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -37,8 +37,13 @@ In this article, you learn how to:
 
 1. Select **APIs** from under **API MANAGEMENT**.
 2. Select **WSDL** from the **Add a new API** list.
+
+    ![SOAP API](./media/restify-soap-api/wsdl-api.png)
 3. In the **WSDL specification**, enter the URL to where your SOAP API resides.
 4. Click **SOAP to REST** radio button. When this option is clicked, APIM attempts to make an automatic transformation between XML and JSON. In this case consumers should be calling the API as a restful API, which returns JSON. APIM is converting each request into a SOAP call.
+
+    ![SOAP to REST](./media/restify-soap-api/soap-to-rest.png)
+
 5. Press tab.
 
     The following fields get filled up with the info from the SOAP API: Display name, Name, Description.
@@ -53,9 +58,9 @@ In this article, you learn how to:
     * **Unlimited**   
 10. Select **Create**.
 
-### Test the new APIM API in the administrative portal
+## Test the new APIM API in the Azure portal
 
-Operations can be called directly from the administrative portal, which provides a convenient way to view and test the operations of an API.  
+Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.  
 
 1. Select the API you created in the previous step.
 2. Press the **Test** tab.
@@ -66,7 +71,7 @@ Operations can be called directly from the administrative portal, which provides
 
     Backend responds with **200 OK** and some data.
 
-### <a name="call-operation"> </a>Call an operation from the developer portal
+## <a name="call-operation"> </a>Call an operation from the developer portal
 
 Operations can also be called **Developer portal** to test APIs. 
 
