@@ -701,22 +701,13 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 14. Shut down the virtual machine, and convert the VMDK file to the VHD format.
 
-	First convert the image to raw format:
+	First download and install Microsoft Virtual Machine Converter 3.0 
+(https://www.microsoft.com/en-us/download/details.aspx?id=42497convert)  :
 
-		# qemu-img convert -f vmdk -O raw rhel-7.3.vmdk rhel-7.3.raw
-
-	Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
-
-		# MB=$((1024*1024))
-		# size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
-		  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-
-		# rounded_size=$((($size/$MB + 1)*$MB))
-		# qemu-img resize rhel-6.8.raw $rounded_size
-
-	Convert the raw disk to a fixed-sized VHD:
-
-		# qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
+		In Powershell run the following commands:
+		cd 'C:\Program Files\Microsoft Virtual Machine Converter\'
+		import-module .\MvmcCmdlet.psd1
+		ConvertTo-MvmcVirtualHardDisk -SourceLiteralPath <PATH to VMDK>\redhat.vmdk -VhdType FixedHardDisk  -VhdFormat vhd -destination <DestinationFolder>
 
 ## Prepare a Red Hat-based virtual machine from an ISO by using a kickstart file automatically
 ### Prepare a RHEL 7 virtual machine from a kickstart file
