@@ -36,14 +36,14 @@ After completing the **Step 1:Select Protection goal** and **Step 2:Prepare Sour
 
 ![Prepare target](./media/site-recovery-prepare-target-physical-to-azure/prepare-target-physical-to-azure.png)
 
-1. **Subscription:** From the drop down menu, select the Subscription that you want to replicate your physical servers to.
+1. **Subscription:** From the drop-down menu, select the Subscription that you want to replicate your physical servers to.
 2. **Deployment Model:** Select the deployment model (Classic or Resource Manager)
 
 Based on the chosen deployment model, a validation is run to ensure that you have at least one compatible storage account and virtual network in the target subscription to replicate and failover your physical servers to.
 
 Once the validations complete successfully, click OK to go to the next step.
 
-If you don't have a compatible Resource Manager storage account or virtual network, or would like to add more, you can do so by clicking the **+ Storage Account** or **+ Network** buttons on the top of the blade.
+If you don't have a compatible Resource Manager storage account or virtual network, you can create one by clicking the **+ Storage Account** or **+ Network** buttons at the top of the page.
 
 ## Next steps
 [Configure replication settings](./site-recovery-setup-replication-settings-vmware.md).
