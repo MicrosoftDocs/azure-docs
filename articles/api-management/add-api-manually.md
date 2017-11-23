@@ -22,7 +22,7 @@ The steps in this article show how to use the Azure portal to add an API manuall
 
 If you want to import an existing API, see [related topics](#related-topics) section.
 
-In this article, we create a blank API and specify [httpbin.org](http://httpbin.org) (a public testing service) as a back end API.
+In this article, we create a blank API and specify [httpbin.org](http://httpbin.org) (a public testing service) as a back-end API.
 
 ## Prerequisites
 
@@ -50,10 +50,10 @@ Complete the following quickstart: [Create an Azure API Management instance](get
     |**Products**|"*Unlimited*" |Publish the API by associating the API with a product. If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.<br/><br/>Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. <br/>Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.<br/><br/> By default, each API Management instance comes with two sample products: **Starter** and **Unlimited**.| 
 5. Select **Create**.
 
-At this point, you have no operations in APIM that map to the operations in your back end API. If you call an operation that is exposed through the back end but not through the APIM, you get a **404**. 
+At this point, you have no operations in APIM that map to the operations in your back-end API. If you call an operation that is exposed through the back end but not through the APIM, you get a **404**. 
 
 >[!NOTE] 
-> By default, when you add an API, even if it is connected to some back end service, APIM will not expose any operations until you whitelist them. To whitelist an operation of your back end service, create an APIM operation that maps to the back end operation.
+> By default, when you add an API, even if it is connected to some back-end service, APIM will not expose any operations until you whitelist them. To whitelist an operation of your back-end service, create an APIM operation that maps to the back-end operation.
 >
 
 ## Add and test an operation

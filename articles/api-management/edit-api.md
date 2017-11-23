@@ -37,7 +37,7 @@ The steps in this tutorial show you how to use API Management (APIM) to edit an 
 1. Click the **APIs** tab.
 2. Select one of the APIs that you previously imported.
 3. Select the **Design** tab.
-4. Select an operation which you want to edit.
+4. Select an operation, which you want to edit.
 5. To rename the operation, select a **pencil** in the **Frontend** window.
 
 ## Update the swagger
