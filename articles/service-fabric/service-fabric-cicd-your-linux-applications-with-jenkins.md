@@ -1,6 +1,6 @@
 ---
-title: Continuous build and integration for your Azure Service Fabric Linux Java application by using Jenkins | Microsoft Docs
-description: Continuous build and integration for your Linux Java application by using Jenkins
+title: Continuous build and integration for your Azure Service Fabric Linux applications using Jenkins | Microsoft Docs
+description: Continuous build and integration for your Service Fabric Linux application using Jenkins
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2017
+ms.date: 11/16/2017
 ms.author: saysa
 
 ---
-# Use Jenkins to build and deploy your Linux Java application
+# Use Jenkins to build and deploy your Linux applications
 Jenkins is a popular tool for continuous integration and deployment of your apps. Here's how to build and deploy your Azure Service Fabric application by using Jenkins.
 
 ## General prerequisites
@@ -110,8 +110,8 @@ You need to have Docker installed. The following commands can be used to install
 Now when you run ``docker info`` in the terminal, you should see in the output that the Docker service is running.
 
 ### Steps
-  1. Pull the Service Fabric Jenkins container image: ``docker pull raunakpandya/jenkins:v1``
-  2. Run the container image: ``docker run -itd -p 8080:8080 raunakpandya/jenkins:v1``
+  1. Pull the Service Fabric Jenkins container image: ``docker pull raunakpandya/jenkins:9``
+  2. Run the container image: ``docker run -itd -p 8080:8080 raunakpandya/jenkins:v9``
   3. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps –a``
   4. Sign in to the Jenkins portal by using the following steps:
 
@@ -159,21 +159,34 @@ Here, you can upload a plug-in. Select **Choose file**, and then select the **se
 
    e. Under the **Build Triggers** section, select which build option you want. For this example, you want to trigger a build whenever some push to the repository happens. So you select **GitHub hook trigger for GITScm polling**. (Previously, this option was called **Build when a change is pushed to GitHub**.)
 
-   f. Under the **Build section**, from the drop-down **Add build step**, select the option **Invoke Gradle Script**. In the widget that comes open the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. If you create a project named ``MyActor`` (using the Eclipse plug-in or Yeoman generator), the root build script should contain ``${WORKSPACE}/MyActor``. See the following screenshot for an example of what this looks like:
+   f. **Build Section for Java Applications:** Under the **Build section**, from the drop-down **Add build step**, select the option **Invoke Gradle Script**. In the widget that comes open the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. If you create a project named ``MyActor`` (using the Eclipse plug-in or Yeoman generator), the root build script should contain ``${WORKSPACE}/MyActor``. See the following screenshot for an example of what this looks like:
 
     ![Service Fabric Jenkins Build action][build-step]
 
-   g. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. Here you need to provide cluster details where the Jenkins compiled Service Fabric application would be deployed. You can also provide additional application details used to deploy the application. See the following screenshot for an example of what this looks like:
+   g. **Build Section for .Net Core Applications:** Under the **Build section**, from the drop-down **Add build step**, select the option **Execute Shell**. In the command box that appears, the directory first needs to be changed to the path where the build.sh file is located. Once the directory has been changed the build.sh script can be run and will build the application.
+
+      ```sh
+      cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  # change directory to location of build.sh file
+      ./build.sh
+      ```
+
+    Below is an exmaple of the commands that are used to build the [Counter Service](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started/tree/master/Services/CounterService) sample with a Jenkins job name of CounterServiceApplication.
+
+    ![Service Fabric Jenkins Build action][build-step-dotnet]
+  
+   h. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. Here you need to provide cluster details where the Jenkins compiled Service Fabric application would be deployed. You can also provide additional application details used to deploy the application. See the following screenshot for an example of what this looks like:
 
     ![Service Fabric Jenkins Build action][post-build-step]
 
-   > [!NOTE]
-   > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
-   >
+    > [!NOTE]
+    > The cluster here could be same as the one hosting the Jenkins container application, in case you are using Service Fabric to deploy the Jenkins container image.
+    >
 
 ## Next steps
 GitHub and Jenkins are now configured. Consider making some sample change in your ``MyActor`` project in the repository example, https://github.com/sayantancs/SFJenkins. Push your changes to a remote ``master`` branch (or any branch that you have configured to work with). This triggers the Jenkins job, ``MyJob``, that you configured. It fetches the changes from GitHub, builds them, and deploys the application to the cluster endpoint you specified in post-build actions.  
 
   <!-- Images -->
-  [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png
-  [post-build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/post-build-step.png
+  [build-step]: ./media/service-fabric-cicd-your-linux-application-with-jenkins/build-step.png
+  [build-step-dotnet]: ./media/service-fabric-cicd-your-linux-application-with-jenkins/build-step-dotnet.png
+  [post-build-step]: ./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-step.png
+
