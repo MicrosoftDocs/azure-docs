@@ -92,7 +92,7 @@ If your directory has a *per-authentication* Azure Multi-Factor Authentication p
 
 **Q: Does my organization have to use and synchronize identities to use Azure Multi-Factor Authentication?**
 
-If your organization uses a consumption-based billing model, Azure Active Directory is optional, but not required. If your MFA provider is not linked to an Azure AD tenant, you can only deploy Azure Multi-Factor Authentication Server or the Azure Multi-Factor Authentication SDK on-premises.
+If your organization uses a consumption-based billing model, Azure Active Directory is optional, but not required. If your MFA provider is not linked to an Azure AD tenant, you can only deploy Azure Multi-Factor Authentication Server on-premises.
 
 Azure Active Directory is required for the license model because licenses are added to the Azure AD tenant when you purchase and assign them to users in the directory.
 
