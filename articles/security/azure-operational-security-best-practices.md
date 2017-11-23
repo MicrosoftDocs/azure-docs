@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Azure Operational Security best practices| Microsoft Docs
 description: This article provides a set of best practices for Azure Operational Security.
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 11/21/2017
 ms.author: tomsh
 
 ---
