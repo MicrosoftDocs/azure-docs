@@ -374,7 +374,7 @@ Data Lake Tools for VS Code supports the following features:
 
     ![Data Lake Tools for Visual Studio Code syntax highlights](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
-## See also
+## Next steps
 - [Develop U-SQL with Python, R, and CSharp for Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 - [U-SQL local run and local debug with Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
 - [Tutorial: Get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)
