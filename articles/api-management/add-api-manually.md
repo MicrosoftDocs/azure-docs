@@ -22,11 +22,11 @@ The steps in this article show how to use the Azure portal to add an API manuall
 
 If you want to import an existing API, see [related topics](#related-topics) section.
 
-In this article, we create a blank API and specify [httpbin.org](http://httpbin.org) (a public testing service) as a backend API.
+In this article, we create a blank API and specify [httpbin.org](http://httpbin.org) (a public testing service) as a back end API.
 
 ## Prerequisites
 
-To continue with this article, [Create an Azure API Management instance](get-started-create-service-instance.md)
+Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -36,8 +36,8 @@ To continue with this article, [Create an Azure API Management instance](get-sta
 2. From the left menu, select **+ Add API**.
 3. Select **Blank API** from the list.
 4. Enter "*Blank API*" for **Display name**.
-5. **Web Service URL** is optional. If you want to mock an API, you might not enter anything. In this case, we enter [http://httpbin.org](http://httpbin.org). This is a public testing service. If you want to import an API that is mapped to a backend automatically, see one of the topics in the [related topics](#related-topics) section.
-6. Choose a URL scheme: HTTP, HTTPS, or both. In this case even though the backend has non-secure HTTP access, we specify a secure HTTPS APIM access to the backend. This kind of scenario (HTTPS to HTTP) is called HTTPS termination. You might do it if your API exists within a virtual network (where you know the access is secure even if HTTPS is not used). You might want to use "HTTPS termination" to save on some CPU cycles.
+5. **Web Service URL** is optional. If you want to mock an API, you might not enter anything. In this case, we enter [http://httpbin.org](http://httpbin.org). This is a public testing service. If you want to import an API that is mapped to a back end automatically, see one of the topics in the [related topics](#related-topics) section.
+6. Choose a URL scheme: HTTP, HTTPS, or both. In this case even though the back end has non-secure HTTP access, we specify a secure HTTPS APIM access to the back end. This kind of scenario (HTTPS to HTTP) is called HTTPS termination. You might do it if your API exists within a virtual network (where you know the access is secure even if HTTPS is not used). You might want to use "HTTPS termination" to save on some CPU cycles.
 7. Add an API URL suffix. In this case, *hbin*. The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.
 8. Publish the API by associating the API with a product. In this case, the "*Unlimited*" product is used.  If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.
 
@@ -49,15 +49,17 @@ To continue with this article, [Create an Azure API Management instance](get-sta
     * **Unlimited** 
 9. Select **Create**.
 
-At this point, you have no operations in APIM that map to the operations in your backend API. If you call an operation that is exposed through the backend but not through the APIM, you get a **404**. 
+At this point, you have no operations in APIM that map to the operations in your back end API. If you call an operation that is exposed through the back end but not through the APIM, you get a **404**. 
 
 >[!NOTE] 
-> By default, when you add an API, even if it is connected to some backend service, APIM will not expose any operations until you whitelist them. To whitelist an operation of your backend service, creating an APIM operation.
+> By default, when you add an API, even if it is connected to some back end service, APIM will not expose any operations until you whitelist them. To whitelist an operation of your back end service, create an APIM operation that maps to the back end operation.
 >
 
-## Add an operation
+## Add and test an operation
 
-This section shows how to add a "/get" operation in order to map it to the backend "http://httpbin.org/get" operation.
+This section shows how to add a "/get" operation in order to map it to the back end "http://httpbin.org/get" operation.
+
+### Add the operation
 
 1. Select the API you created in the previous step.
 2. Click **+ Add Operation**.
@@ -75,9 +77,11 @@ Test the operation in the Azure portal. Alternatively, you can test it in the **
 
 The response that the "http://httpbin.org/get" operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
 
-## Add a parameterized operation
+## Add and test a parameterized operation
 
 This section shows how to add an operation that takes a parameter. In this case, we map the operation to "http://httpbin.org/status/200".
+
+### Add the operation
 
 1. Select the API you created in the previous step.
 2. Click **+ Add Operation**.
