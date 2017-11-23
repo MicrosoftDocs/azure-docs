@@ -100,7 +100,7 @@ A Network security group (NSG) secures inbound and outbound traffic. When a VM i
 2. Select the **network security group**. The NSG can be identified using the **Type** column. 
 3. On the left-hand menu, under settings, click **Inbound security rules**.
 4. Click on **Add**.
-5. In **Name**, type **http**. Make sure **Port range** is set to 80 and **Action** is set to **Allow**. 
+5. In **Name**, type **http**. Make sure **Source Port range** is set to *, **Destination Port range** is set to 80 and **Action** is set to **Allow**. 
 6. Click **OK**.
 
 
