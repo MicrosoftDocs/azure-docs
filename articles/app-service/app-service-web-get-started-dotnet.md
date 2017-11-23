@@ -29,7 +29,7 @@ Watch the video to see this quickstart in action and then follow the steps yours
 
 To complete this tutorial:
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+* Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the following workloads:
     - **ASP.NET and web development**
     - **Azure development**
 

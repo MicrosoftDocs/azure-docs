@@ -105,7 +105,7 @@ For information about installing the Network Policy and Access Services role ser
 
 ### Azure MFA License
 
-A license is required for Azure Multi-Factor Authentication, and it is available through an Azure AD Premium, Enterprise Mobility + Security, or a Multi-Factor Authentication subscription. Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. For more information, see [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). For testing purposes, you can use a trial subscription.
+A license is required for Azure Multi-Factor Authentication, and it is available through an Azure AD Premium, Enterprise Mobility + Security, or a Multi-Factor Authentication stand-alone license. Consumption-based licenses for Azure MFA such as per user or per authentication licenses are not compatible with the NPS extension. For more information, see [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md). For testing purposes, you can use a trial subscription.
 
 ### Windows Server software
 
