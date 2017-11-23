@@ -39,7 +39,7 @@ As an Azure Stack cloud administrator, you can create offers that let your users
 As an example, you can create an offer that lets users create DNN web content management systems. It requires the SQL Server service which you already enabled by installing the SQL Server resource provider.
 
 1.	[Set a quota](azure-stack-setting-quotas.md) and name it *AppServiceQuota*. Select **Microsoft.Web** for the **Namespace** field.
-2.	[Create a plan](azure-stack-create-plan.md). Name it *TestAppServicePlan*, select the the **Microsoft.SQL** service, and **AppService Quota** quota.
+2.	[Create a plan](azure-stack-create-plan.md). Name it *TestAppServicePlan*, select the **Microsoft.SQL** service, and **AppService Quota** quota.
 
     > [!NOTE]
     > To let users create other apps, other services might be required in the plan. For example, Azure Functions requires that the plan     include the **Microsoft.Storage** service, while Wordpress requires **Microsoft.MySQL**.
