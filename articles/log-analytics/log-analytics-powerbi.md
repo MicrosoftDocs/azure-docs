@@ -1,5 +1,5 @@
 ---
-title: Import Log Analytics data into Power BI | Microsoft Docs
+title: Import Azure Log Analytics data into Power BI | Microsoft Docs
 description: Power BI is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  This article describes how to configure import Log Analytics data into Power BI and configure it to automatically refresh.
 services: log-analytics
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 11/22/2017
 ms.author: bwren
 
 ---
-# Import Log Analytics data into Power BI
+# Import Azure Log Analytics data into Power BI
 
 
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  You can import the results of a Log Analytics log search into a Power BI dataset so you can take advantage of its features  suchas combing data from different sources and sharing reports on the web and mobile devices.
