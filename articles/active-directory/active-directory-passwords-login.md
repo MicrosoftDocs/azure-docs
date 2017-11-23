@@ -27,7 +27,7 @@ With the new Windows 10 Fall Creators Update, users with Azure AD joined devices
 
 To enable users to reset their Azure AD password from the Windows 10 login screen, the following requirements need to be met:
 
-* Windows 10, version 1709, or newer client that is [Azure AD Domain joined](device-management-azure-portal.md).
+* Windows 10, version 1709, or newer client that is [Azure AD joined](device-management-azure-portal.md).
 * Azure AD self-service password reset must be enabled.
 * Configure and deploy the setting to enable the Reset password link via one of the following methods:
    * [Intune device configuration profile](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
@@ -87,7 +87,7 @@ You have now created and assigned a device configuration policy to enable the Re
 
 We recommend using this method only to test the setting change.
 
-1. Log in to the Azure AD Domain joined device using administrative credentials
+1. Log in to the Azure AD joined device using administrative credentials
 2. Run **regedit** as an administrator
 3. Set the following registry key
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -101,7 +101,7 @@ Now that the policy is configured and assigned, what changes for the user? How d
 
 When users attempt to log in, they now see a Reset password link that opens the self-service password reset experience at the logon screen. This functionality allows users to reset their password without having to use another device to access a web browser.
 
-Your users will find guidance for using this feature in [Reset your work or school password](active-directory-passwords-update-your-own-password.md#reset-password-at-login)
+Your users will find guidance for using this feature in [Reset your work or school password](active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
 ## Common issues
 

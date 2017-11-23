@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Azure operational security overview| Microsoft Docs
 description: This article provides an overview of the Azure operational security.
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/21/2017
 ms.author: tomsh
 
 ---

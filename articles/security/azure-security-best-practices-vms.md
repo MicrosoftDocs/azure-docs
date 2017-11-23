@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure virtual machine security best practices | Microsoft Docs
 description: This article provides a variety of security best practices to be used in virtual machines located in Azure.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/21/2017
 ms.author: yurid
 
 ---
