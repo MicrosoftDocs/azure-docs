@@ -29,7 +29,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-[Create an Azure API Management instance](get-started-create-service-instance.md).
+Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

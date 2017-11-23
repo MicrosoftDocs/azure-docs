@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/20/2017
+ms.date: 11/22/2017
 ms.author: apimpm
 
 ---
@@ -35,19 +35,20 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 1. Select **APIs** from under **API MANAGEMENT**.
 2. From the left menu, select **+ Add API**.
 3. Select **Blank API** from the list.
-4. Enter "*Blank API*" for **Display name**.
-5. **Web Service URL** is optional. If you want to mock an API, you might not enter anything. In this case, we enter [http://httpbin.org](http://httpbin.org). This is a public testing service. If you want to import an API that is mapped to a back end automatically, see one of the topics in the [related topics](#related-topics) section.
-6. Choose a URL scheme: HTTP, HTTPS, or both. In this case even though the back end has non-secure HTTP access, we specify a secure HTTPS APIM access to the back end. This kind of scenario (HTTPS to HTTP) is called HTTPS termination. You might do it if your API exists within a virtual network (where you know the access is secure even if HTTPS is not used). You might want to use "HTTPS termination" to save on some CPU cycles.
-7. Add an API URL suffix. In this case, *hbin*. The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.
-8. Publish the API by associating the API with a product. In this case, the "*Unlimited*" product is used.  If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.
 
-    Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.
+    ![Blank API](media/add-api-manually/blank-api.png)
+4. Enter settings for the API.
 
-    By default, each API Management instance comes with two sample products:
+    ![Settings](media/add-api-manually/settings.png)
 
-    * **Starter**
-    * **Unlimited** 
-9. Select **Create**.
+    |Name|Value|Description|
+    |---|---|---|
+    |**Display name**|"*Blank API*" | |
+    |**Web Service URL** (optional)| "*http://httpbin.org*"| If you want to mock an API, you might not enter anything. <br/>In this case, we enter [http://httpbin.org](http://httpbin.org). This is a public testing service. <br/>If you want to import an API that is mapped to a back end automatically, see one of the topics in the [related topics](#related-topics) section.|
+    |**URL scheme**|"*HTTPS*"|In this case, even though the back end has non-secure HTTP access, we specify a secure HTTPS APIM access to the back end. <br/>This kind of scenario (HTTPS to HTTP) is called HTTPS termination. You might do it if your API exists within a virtual network (where you know the access is secure even if HTTPS is not used). <br/>You might want to use "HTTPS termination" to save on some CPU cycles.|
+    |**URL suffix**|"*hbin*"| The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.|
+    |**Products**|"*Unlimited*" |Publish the API by associating the API with a product. If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.<br/><br/>Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. <br/>Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.<br/><br/> By default, each API Management instance comes with two sample products: **Starter** and **Unlimited**.| 
+5. Select **Create**.
 
 At this point, you have no operations in APIM that map to the operations in your back end API. If you call an operation that is exposed through the back end but not through the APIM, you get a **404**. 
 
