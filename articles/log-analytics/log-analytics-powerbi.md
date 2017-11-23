@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2017
+ms.date: 11/22/2017
 ms.author: bwren
 
 ---
 # Import Log Analytics data into Power BI
 
 
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  You can import the results of a Log Analytics log search into a Power BI dataset so you can take advantage of such features as combing data from different sources and sharing reports on the web and mobile devices.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  You can import the results of a Log Analytics log search into a Power BI dataset so you can take advantage of its features  suchas combing data from different sources and sharing reports on the web and mobile devices.
 
-This article provides details on importing Log Analytics data into Power BI and scheduling it to automatically refresh.  Different processes are included for an [upgraded and a legacy workspace](log-analytics-powerbi.md).
+This article provides details on importing Log Analytics data into Power BI and scheduling it to automatically refresh.  Different processes are included for an [upgraded](#upgraded-workspace) and a [legacy](#legacy-workspace) workspace.
 
 ## Upgraded workspace
 
 
-To import data from an [upgraded Log Analytics workspace](log-analytics-powerbi.md) into Power BI, you create a dataset in Power BI based on a log search query in Log Analytics.  The query is run each time the dataset is refreshed.  You can then build Power BI reports that use data from the dataset.  To create the dataset in Power BI, you export your query from Log Analytics to [Power Query (M) language](https://msdn.microsoft.com/en-us/library/mt807488.aspx).  You then use this to create a query in Power BI Desktop and then publish it to Power BI as a dataset.  The details for this process are described below.
+To import data from an [upgraded Log Analytics workspace](log-analytics-log-search-upgrade.md) into Power BI, you create a dataset in Power BI based on a log search query in Log Analytics.  The query is run each time the dataset is refreshed.  You can then build Power BI reports that use data from the dataset.  To create the dataset in Power BI, you export your query from Log Analytics to [Power Query (M) language](https://msdn.microsoft.com/en-us/library/mt807488.aspx).  You then use this to create a query in Power BI Desktop and then publish it to Power BI as a dataset.  The details for this process are described below.
 
 ![Log Analytics to Power BI](media/log-analytics-powerbi/overview.png)
 
@@ -49,7 +49,7 @@ Power BI Desktop is a desktop application that allows you to create datasets and
 
     ![Power BI Desktop query](media/log-analytics-powerbi/desktop-new-query.png)
 
-5. The query runs, and its results are displayed.  You may be prompted for credentials to connect to Azure.  If so, use **Organizational account** to logon with your Microsoft account.
+5. The query runs, and its results are displayed.  You may be prompted for credentials to connect to Azure.  
 6. Type in a descriptive name for the query.  The default is **Query1**. Click **Close and Apply** to add the dataset to the report.
 
     ![Power BI Desktop name](media/log-analytics-powerbi/desktop-results.png)
@@ -77,8 +77,8 @@ The dataset created in Power BI will have the same data that you previously saw 
 
     ![Power BI refresh](media/log-analytics-powerbi/powerbi-schedule-refresh.png)
 
-## Legacy workspaces
-When you configure Power BI with [a legacyLog Analytics workspace](log-analytics-powerbi.md), you create log queries that export their results to corresponding datasets in Power BI.  The query and export continues to automatically run on a schedule that you define to keep the dataset up to date with the latest data collected by Log Analytics.
+## Legacy workspace
+When you configure Power BI with a [legacy Log Analytics workspace](log-analytics-powerbi.md), you create log queries that export their results to corresponding datasets in Power BI.  The query and export continues to automatically run on a schedule that you define to keep the dataset up to date with the latest data collected by Log Analytics.
 
 ![Log Analytics to Power BI](media/log-analytics-powerbi/overview-legacy.png)
 
