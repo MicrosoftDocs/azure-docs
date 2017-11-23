@@ -67,6 +67,9 @@ When you prepare to reprotect virtual machines, take or consider the following p
 > [!IMPORTANT]
 > Make sure that you take regularly scheduled backups of your configuration server. If there's a disaster, restore the server with the same IP address so that failback works.
 
+> [!WARNING]
+> A Replication Group should only have either Windows VMs or Linux VMs, and not  a mix of both because all VMs in a replictaion group uses the same Master Target server, and Linux VM requires a Linux Master Target server and like wise for Windows VM.
+
 * Set the `disk.EnableUUID=true` setting in the configuration parameters of the master target virtual machine in VMware. If this row does not exist, add it. This setting is required to provide a consistent UUID to the virtual machine disk (VMDK) so that it mounts correctly.
 
 * *You cannot use Storage vMotion on the master target server*. This can cause the failback to fail. The virtual machine can't start because the disks are not available to it. To prevent this problem, exclude the master target servers from your vMotion list.
