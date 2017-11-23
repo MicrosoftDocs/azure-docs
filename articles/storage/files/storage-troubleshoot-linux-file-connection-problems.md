@@ -152,6 +152,21 @@ Common causes for this issue are:
 
 To resolve the issue, use the [Troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). This tool helps you to validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, gives prescriptive guidance on self-fix and, collects the diagnostics traces.
 
+## ls: cannot access '&lt;path&gt;': Input/output error
+
+When you try to list files in an Azure file share by using ls command, you receive the following error:
+
+**ls: cannot access'&lt;path&gt;': Input/output error**
+
+
+### Solution
+Upgrade the Linux kernel to the following versions that have fix for this issue:
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- All versions that is greater or equal to 4.13
+
 ## Need help? Contact support.
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
