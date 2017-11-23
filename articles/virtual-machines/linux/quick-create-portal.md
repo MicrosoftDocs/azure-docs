@@ -69,7 +69,7 @@ Create an SSH connection with the virtual machine.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
-2. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal.
+2. Run the following command to create an SSH session. Replace the <privatekeyfilename> with the filename of your ssh private key from earlier in the guide and replace the connection string (azureuser@40.112.21.50) with the one you copied from the Azure portal.
 
 ```bash 
 ssh -i <privatekeyfilename> azureuser@40.112.21.50
