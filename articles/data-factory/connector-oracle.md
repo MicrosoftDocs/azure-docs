@@ -204,7 +204,7 @@ When copying data from/to Oracle, the following mappings are used from Oracle da
 | Oracle data type | Data factory interim data type |
 |:--- |:--- |
 | BFILE |Byte[] |
-| BLOB |Byte[] (only supported on Oracle 10g and higher) |
+| BLOB |Byte[]<br/>(only supported on Oracle 10g and higher) |
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
