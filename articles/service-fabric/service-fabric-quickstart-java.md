@@ -145,5 +145,5 @@ In this quickstart, you learned how to:
 > * Scale-out the application across multiple nodes
 
 * Learn more about [debugging services on Java using Eclipse](service-fabric-debugging-your-application-java.md)
-* Learn about [setting up your continuous integreation & deployment using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* Learn about [setting up your continuous integreation & deployment using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 * Checkout other [Java Samples](https://github.com/Azure-Samples/service-fabric-java-getting-started)
