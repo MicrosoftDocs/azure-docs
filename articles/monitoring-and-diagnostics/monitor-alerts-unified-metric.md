@@ -46,14 +46,14 @@ A metric alert can on triggering push information or notification using [Action 
     ![Add Alert](./media/monitor-alerts-unified/AlertsPreviewOption.png)
 
 3. Create the rule  by first clicking **Select Resource** link. Filter appropriately by choosing needed **Subscription**, **Resource Type** and finally selecting required **Resource**.
-    [Create rule](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
+    ![Create rule](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
 4. Once **resource** is selected, click **Add criteria** button to choose the specific signal from list of signal options, their monitoring service and type listed - which are applicable to the resource selected earlier.
 > [!NOTE]
 > Signal types indicated as metric from platform service - as same as Near Real Time Metric Alerts. To learn more about [Near Real Time Metric Alerts](monitoring-near-real-time-metric-alerts.md)
 
 5.  Once signal is selected, logic for alerting can be stated. For reference historic data of the selected signal is shown with option to tweak the time window from last 6 hours to last week. With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. As preview of the logic provided, the condition is shown in the visualaziation along with signal history, so as to indicate when the alert would have been triggered in the past. Finally specify in the logic, for what time Alerts should look for the specified conditon by choosing from the **Period** option along with how often Alert should run by selecting **Frequency**
-   [Configure signal logic](./media/monitor-alerts-unified/AlertsPreviewCriteria.png)
+   ![Configure signal logic](./media/monitor-alerts-unified/AlertsPreviewCriteria.png)
 
 > [!TIP]
 > Keeping **Period** value greater than **Frequency** minimizes risk of missing any issue. Also history period chosen for visualization will have no impact on alert; so ensure evaluation period is appropriately chosen
@@ -64,7 +64,7 @@ A metric alert can on triggering push information or notification using [Action 
 
 
 7. If all fields are valid and with green tick the **create alert rule** button can be clicked and Alert is created in Azure Monitor - Alerts (Preview). All Alerts can be viewed from the Alerts (Preview) Dashboard.
-   [Rule Creation](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
+   ![Rule Creation](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
 
 Within a few minutes, the alert is active and triggers as previously described.
 
@@ -73,10 +73,10 @@ Within a few minutes, the alert is active and triggers as previously described.
     ![Monitoring](./media/insights-alerts-unified/AlertsPreviewMenu.png)
 2. Select the **Manage rules** button on the top bar, to navigate to the rule management section - where all  alert rules will be listed; including alerts which have been disabled.
 3. To find for specific alert rules, one can either use the drop down filters on top which allow to shortlist alert rules for specific *Subscription, Resource Groups and/or Resource*. Alternatively on using the search pane above the alert rule list marked *Filter alerts*, one can provide keyword which will be matched against *Alert Name, Condition and Target Resource*; to show only matching rules. 
-   [Alert Management](./media/monitor-alerts-unified/AlertsPreviewManage.png)
+   ![Alert Management](./media/monitor-alerts-unified/AlertsPreviewManage.png)
 1. To view or modify specific Alert rule, click on its name which would be shown as a clickable link.
 2. Alert defined is shown - in the 3 stage structure of: 1) Alert Condition 2) Alert Detail 3) Action Group. **Target Criteria** can be clicked to modify the alert logic or  a new criteria can be added after using the bin icon to delete the earlier logic. Similarly, in Alert details section - **Description** and **Severity** can be modified. And the Action Group can be changed or a new one can be crafted to linking to the alert using the **New action group** button
-   [Modify Alert Rule](./media/monitor-alerts-unified/AlertsPreviewEdit.png)
+   ![Modify Alert Rule](./media/monitor-alerts-unified/AlertsPreviewEdit.png)
 1. Using the top panel, changes to the alert can be reflective including: *Save* to commit any changes done to alert, *Discard* to go back without committing any changes made to alert, *Disable* to deactivate the alert - after which it will no longer run or trigger any action and finally,  *Delete* to permenantly remove the entire alert rule from Azure.
 
 ## Next steps
