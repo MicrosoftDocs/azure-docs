@@ -331,6 +331,11 @@ The following program shows how to:
 
 Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md). 
 
+In order to get this sample to work, please follow these two additional steps:
+  1)  use version 4.1.0 of WindowsAzure.MediaServices.Extensions (due to compatibility issues with dependent packages). 
+  2)  use version 3.16.1 of Microsoft.IdentityModel.Clients.ActiveDirectory (due to a known bug in later versions).
+Future releases will likely remove this requirement, but this is accurate as of 24th November 2017.
+
 #### Example
 
     using System;
