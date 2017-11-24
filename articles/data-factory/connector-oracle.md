@@ -32,11 +32,11 @@ You can copy data from Oracle database to any supported sink data store, or copy
 
 Specifically, this Oracle connector supports the following versions of Oracle database, and it supports Basic or OID authentications.
 
-    - Oracle 12c R1 (12.1)
-    - Oracle 11g R1, R2 (11.1, 11.2)
-    - Oracle 10g R1, R2 (10.1, 10.2)
-    - Oracle 9i R1, R2 (9.0.1, 9.2)
-    - Oracle 8i R3 (8.1.7)
+- Oracle 12c R1 (12.1)
+- Oracle 11g R1, R2 (11.1, 11.2)
+- Oracle 10g R1, R2 (10.1, 10.2)
+- Oracle 9i R1, R2 (9.0.1, 9.2)
+- Oracle 8i R3 (8.1.7)
 
 ## Prerequisites
 
@@ -204,7 +204,7 @@ When copying data from/to Oracle, the following mappings are used from Oracle da
 | Oracle data type | Data factory interim data type |
 |:--- |:--- |
 | BFILE |Byte[] |
-| BLOB |Byte[] |
+| BLOB |Byte[] (only supported on Oracle 10g and higher) |
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |

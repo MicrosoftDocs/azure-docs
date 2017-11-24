@@ -571,7 +571,7 @@ When moving data from Oracle, the following mappings are used from Oracle data t
 | Oracle data type | .NET Framework data type |
 | --- | --- |
 | BFILE |Byte[] |
-| BLOB |Byte[] |
+| BLOB |Byte[] (only supported on Oracle 10g and higher when using Microsoft driver) |
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
