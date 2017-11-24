@@ -70,14 +70,13 @@ Within a few minutes, the alert is active and triggers as previously described.
 
 ## Managing your alerts
 1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts (Preview)**.  
-    ![Monitoring](./media/insights-alerts-unified/AlertsPreviewMenu.png)
 2. Select the **Manage rules** button on the top bar, to navigate to the rule management section - where all  alert rules will be listed; including alerts which have been disabled.
 3. To find for specific alert rules, one can either use the drop down filters on top which allow to shortlist alert rules for specific *Subscription, Resource Groups and/or Resource*. Alternatively on using the search pane above the alert rule list marked *Filter alerts*, one can provide keyword which will be matched against *Alert Name, Condition and Target Resource*; to show only matching rules. 
    ![Alert Management](./media/monitor-alerts-unified/AlertsPreviewManage.png)
-1. To view or modify specific Alert rule, click on its name which would be shown as a clickable link.
-2. Alert defined is shown - in the 3 stage structure of: 1) Alert Condition 2) Alert Detail 3) Action Group. **Target Criteria** can be clicked to modify the alert logic or  a new criteria can be added after using the bin icon to delete the earlier logic. Similarly, in Alert details section - **Description** and **Severity** can be modified. And the Action Group can be changed or a new one can be crafted to linking to the alert using the **New action group** button
+4. To view or modify specific Alert rule, click on its name which would be shown as a clickable link.
+5. Alert defined is shown - in the 3 stage structure of: 1) Alert Condition 2) Alert Detail 3) Action Group. **Target Criteria** can be clicked to modify the alert logic or  a new criteria can be added after using the bin icon to delete the earlier logic. Similarly, in Alert details section - **Description** and **Severity** can be modified. And the Action Group can be changed or a new one can be crafted to linking to the alert using the **New action group** button
    ![Modify Alert Rule](./media/monitor-alerts-unified/AlertsPreviewEdit.png)
-1. Using the top panel, changes to the alert can be reflective including: *Save* to commit any changes done to alert, *Discard* to go back without committing any changes made to alert, *Disable* to deactivate the alert - after which it will no longer run or trigger any action and finally,  *Delete* to permenantly remove the entire alert rule from Azure.
+6. Using the top panel, changes to the alert can be reflective including: *Save* to commit any changes done to alert, *Discard* to go back without committing any changes made to alert, *Disable* to deactivate the alert - after which it will no longer run or trigger any action and finally,  *Delete* to permenantly remove the entire alert rule from Azure.
 
 ## Next steps
 * [Get an overview of Azure Alerts (Preview)](monitoring-overview-unified.md) including the types of information you can collect and monitor.
