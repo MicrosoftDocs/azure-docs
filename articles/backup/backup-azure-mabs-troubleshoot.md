@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 11/24/2017
 ms.author: pullabhk;markgal;
 
 ---
@@ -22,15 +22,15 @@ ms.author: pullabhk;markgal;
 
 You can troubleshoot errors encountered while using Azure Backup Server with information listed in the following table.
 
-## Error: Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service 
+## Invalid vault credentials provided. 
 
 Follow these [troubleshooting steps] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) to resolve this issue.
 
-## Error: The agent operation failed because of a communication error with the DPM Agent Coordinator service on Server 
+## The agent operation failed because of a communication error with the DPM Agent Coordinator service on Server 
 
 Follow these [troubleshooting steps] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) to resolve this issue.
 
-## Error: Setup could not update registry metadata
+## Setup could not update registry metadata
 
 Follow these [troubleshooting steps] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#installation-issues) to resolve this issue.
 
