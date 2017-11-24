@@ -20,8 +20,10 @@ ms.custom: H1Hack27Feb2017
 ---
 # What are alerts in Microsoft Azure?
 This article describes the various sources of alerts in Microsoft Azure, what are the purposes for those alerts, their benefits, and how to get started with using them. It specifically applies to Azure Monitor, but provides pointers to other services with alerts as well. Alerts offer a method of monitoring in Azure that allows you to configure conditions over data and become notified when the conditions match the latest monitoring data.
+> [!NOTE]
+> As part of the evolution of Alerts in Microsoft Azure, a new unified experience is available in preview. Learn more about [Alerts (Preview)](monitoring-overview-unified.md)
 
-## Taxonomy of Azure Alerts
+## Taxonomy of Azure Unified Alerts
 Azure uses the following terms to describe alerts and their functions:
 * **Alert** - a definition of criteria (one or more rules or conditions) that becomes activated when met.
 * **Active** - the state when the criteria defined by an alert is met.
@@ -29,8 +31,10 @@ Azure uses the following terms to describe alerts and their functions:
 * **Notification** - the action taken based off of an alert becoming active.
 * **Action** - a specific call sent to a receiver of a notification (for example, emailing an address or posting to a webhook URL). Notifications can usually trigger multiple actions.
 
+
 ## Alerts in different Azure services
 Alerts are available across several Azure monitoring services. For information on how and when to use these services, [see this article](./monitoring-overview.md). Here is a breakdown of the alert types available across Azure:
+
 
 | Service | Alert type | Supported services | Description |
 |---|---|---|---|
@@ -77,6 +81,7 @@ Metric alerts do not yet use Action Groups. On an individual metric alert you ca
 Get information about alert rules and configuring them by using:
 
 * Learn more about [Metrics](monitoring-overview-metrics.md)
+* Configure [Alerts via Unified UX](insights-alerts-modify.md)
 * Configure [Metric Alerts via Azure portal](insights-alerts-portal.md)
 * Configure [Metric Alerts PowerShell](insights-alerts-powershell.md)
 * Configure [Metric Alerts Command-line interface (CLI)](insights-alerts-command-line-interface.md)
