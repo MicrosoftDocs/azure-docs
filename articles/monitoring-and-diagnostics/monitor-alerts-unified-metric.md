@@ -26,7 +26,7 @@ ms.author: robb
 This article shows you how to set up Azure metric alerts using the new Alerts (Preview) interface inside Azure portal. 
 **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
 
-A metric alert can on triggering push information or notification using [Action Groups](monitoring-action-groups). While [Action Groups](monitoring-action-groups) support many means of communicating an alert, a few are mentioned below:
+A metric alert can on triggering push information or notification using [Action Groups](monitoring-action-groups). While Action Groups support many means of communicating an alert, a few are mentioned below:
 
 * send email notifications to the service administrator and co-administrators
 * send email to additional emails that you specify.
@@ -46,9 +46,10 @@ A metric alert can on triggering push information or notification using [Action 
     ![Add Alert](./media/monitor-alerts-unified/AlertsPreviewOption.png)
 
 3. Create the rule  by first clicking **Select Resource** link. Filter appropriately by choosing needed **Subscription**, **Resource Type** and finally selecting required **Resource**.
-    ![Create rule](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
 4. Once **resource** is selected, click **Add criteria** button to choose the specific signal from list of signal options, their monitoring service and type listed - which are applicable to the resource selected earlier.
+    ![Create rule](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
+
 > [!NOTE]
 > Signal types indicated as metric from platform service - as same as Near Real Time Metric Alerts. To learn more about [Near Real Time Metric Alerts](monitoring-near-real-time-metric-alerts.md)
 
@@ -68,7 +69,7 @@ A metric alert can on triggering push information or notification using [Action 
 
 Within a few minutes, the alert is active and triggers as previously described.
 
-## Managing your alerts
+## Managing your metric alerts in Azure Alerts (Preview)
 1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts (Preview)**.  
 2. Select the **Manage rules** button on the top bar, to navigate to the rule management section - where all  alert rules will be listed; including alerts which have been disabled.
 3. To find for specific alert rules, one can either use the drop down filters on top which allow to shortlist alert rules for specific *Subscription, Resource Groups and/or Resource*. Alternatively on using the search pane above the alert rule list marked *Filter alerts*, one can provide keyword which will be matched against *Alert Name, Condition and Target Resource*; to show only matching rules. 
