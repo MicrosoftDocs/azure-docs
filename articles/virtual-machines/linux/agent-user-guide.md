@@ -143,6 +143,7 @@ A sample configuration file is shown below:
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ A sample configuration file is shown below:
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 The various configuration options are described in detail below. Configuration options are of three types; Boolean, String or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as detailed below.
 
@@ -208,6 +210,12 @@ Type: Boolean
 Default: n
 
 If set, waagent will execute CustomData after provisioning.
+
+**Provisioning.AllowResetSysUser**
+Type: Boolean
+Default: n
+
+This option allow reset password of sys user, Default is disabled
 
 **Provisioning.PasswordCryptId**  
 Type:String  
@@ -290,6 +298,14 @@ Type: String
 Default: None
 
 If set, the agent will use this proxy server to access the internet. 
+
+**AutoUpdate.Enabled**
+Type: Boolean
+Default: y
+
+Enable or disable goal state processing auto-update, default is enabled.
+
+
 
 ## Ubuntu Cloud Images
 Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) to perform many configuration tasks that would otherwise be managed by the Azure Linux Agent.  Please note the following differences:
