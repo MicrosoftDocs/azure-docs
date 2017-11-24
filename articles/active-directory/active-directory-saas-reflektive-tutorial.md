@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/24/2017
 ms.author: jeedes
 
 ---
@@ -106,16 +106,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Reflektive Domain and URLs single sign-on information](./media/active-directory-saas-reflektive-tutorial/tutorial_reflektive_url.png)
 
-    a. In the **Identifier** textbox, type a URL: `https://www.reflektive.com/saml/metadata`
-
-	b. In the **Reply URL** textbox, type a URL: `https://www.reflektive.com/saml/consume`
+    In the **Identifier** textbox, use one of the below URL as per confirmation from the reflective support team:
+	| |
+	|--|
+	| `reflektive.com` |
+	| `https://www.reflektive.com/saml/metadata` |
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Reflektive Domain and URLs single sign-on information](./media/active-directory-saas-reflektive-tutorial/tutorial_reflektive_url1.png)
 
     In the **Sign-on URL** textbox, type a URL: `https://www.reflektive.com/app`
-	 
+
+	> [!NOTE]
+	> For SP mode you need to get the email id registered with [Reflektive support team](https://support@reflektive.com). When you enter your ID in the **Email** textbox then the single sign-on option will be enabled.
+		 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-reflektive-tutorial/tutorial_reflektive_certificate.png) 
