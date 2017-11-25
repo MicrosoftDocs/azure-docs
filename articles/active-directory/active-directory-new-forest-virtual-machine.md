@@ -85,7 +85,7 @@ After the DC installation finishes, connect to the VM again and log on to the DC
    3. On the **Forwarders** tab, click the IP address of the forwarder and click **Edit**.  Select the IP address and click **Delete**.
    4. Click **OK** to close the editor and **Ok** again to close the DNS server properties.
 2. Update the DNS server setting for the virtual network.
-   1. Click **Virtual Networks** > double-click the virtual network you created > **Configure** > **DNS servers**, type the name and the DIP of one of the VMs that runs the DC/DNS server role and click **Save**.
+   1. Click **Virtual Networks** > double-click the virtual network you created > **Configure** > **DNS servers**, type the name and the IP of one of the VMs that runs the DC/DNS server role and click **Save**.
    2. Select the VM and click **Restart** to trigger the VM to configure DNS resolver settings with the IP address of the new DNS server.
 
 ## Create VMs for domain members
