@@ -17,7 +17,7 @@ ms.date: 11/26/2017
 ms.author: nisoneji
 
 ---
-#Requirements
+# Requirements
 The tool has three main phases for Hyper-V: get VM list, profiling, and report generation. There is also a fourth option to calculate throughput only. The requirements for the server on which the different phases need to be executed are presented in the following table:
 
 | Server requirement | Description |
@@ -27,15 +27,22 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
 | User permissions | Read-only permission for the user account that's used to access the VMware vCenter server/VMware vSphere ESXi host during profiling |
 
 
-# Steps to add servers into TrustedHosts List
+## Steps to add servers into TrustedHosts List
 1.	The VM from where the tool is to be deployed should have all the hosts to be profiled in its TrustedHosts list. To add the client into Trustedhosts list run the following command from an elevated PowerShell on the VM. The VM can be a Windows Server 2012 R2 or Windows Server 2016. 
 
             set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
 
-2.	Each Hyper-V Host that needs to be profiled should have
-a.	The VM on which the tool is going to be run in its TrustedHosts list. Run the following command from an elevated PowerShell on the Hyper-V host.
+2.	Each Hyper-V Host that needs to be profiled should have:
+    a. The VM on which the tool is going to be run in its TrustedHosts list. Run the following command from an elevated PowerShell on the Hyper-V host.
 
             set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
 
-b.	PowerShell remoting enabled.
+    b. PowerShell remoting enabled.
+
             Enable-PSRemoting -Force
+
+## Nest steps
+* [Learn more](site-recovery-hyper-v-deployment-panner-download.md) about download Site Recovery deployment planner.
+* [Learn more](site-recovery-hyper-v-deployment-planner-capabilities.md) about the tool capabilities.
+* [Learn more](site-recovery-hyper-v-deployment-planner-getvmlist.md) about how to get list of Hyper-V VMs.
+* [Learn more](site-recovery-hyper-v-deployment-planner-profiling.md) about how to profile Hyper-V VMs.

@@ -156,7 +156,7 @@
       - name: Get throughtput 
         href: site-recovery-hyper-v-deployment-planner-get-throughput.md
       - name: Recommendations with desired RPO as input 
-        href: site-recovery-hyper-v-deployment-planner-recommendation.md
+        href: site-recovery-hyper-v-deployment-planner-recommendations.md
       - name: On-premises Summary 
         href: site-recovery-hyper-v-deployment-planner-on-premises-summary.md
       - name: VM-Storage Placement 
