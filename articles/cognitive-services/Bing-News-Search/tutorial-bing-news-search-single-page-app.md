@@ -61,7 +61,7 @@ API_KEY_COOKIE   = "bing-search-api-key";
 CLIENT_ID_COOKIE = "bing-search-client-id";
 
 // Bing Search API endpoint
-BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
+BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/news";
 
 // ... omitted definitions of storeValue() and retrieveValue()
 // Browsers differ in their support for persistent storage by 
@@ -114,14 +114,16 @@ function bingSearchOptions(form) {
     options.push("mkt=" + form.where.value);
     options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
     if (form.when.value.length) options.push("freshness=" + form.when.value);
-    var category = "all";
+
     for (var i = 0; i < form.category.length; i++) {
         if (form.category[i].checked) {
             category = form.category[i].value;
             break;
         }
     }
-    options.push("category=" + category);
+    if (category.valueOf() != "all".valueOf()) { 
+        options.push("category=" + category); 
+        }
     options.push("count=" + form.count.value);
     options.push("offset=" + form.offset.value);
     return options.join("&");
@@ -145,7 +147,18 @@ function bingNewsSearch(query, options, key) {
     hideDivs("results", "related", "_json", "_http", "paging1", "paging2", "error");
 
     var request = new XMLHttpRequest();
-    var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&" + options;
+     if (category.valueOf() != "all".valueOf()) {
+        var queryurl = BING_ENDPOINT + "/search?" + "?q=" + encodeURIComponent(query) + "&" + options;
+    }
+    else
+    {
+        if (query){
+        var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&" + options;
+        }
+        else {
+            var queryurl = BING_ENDPOINT + "?" + options;
+        }
+    }
 
     // open the request
     try {
@@ -208,7 +221,6 @@ function handleBingResponse() {
         if (clientid) retrieveValue(CLIENT_ID_COOKIE, clientid);
         if (json.length) {
             if (jsobj._type === "News") {
-                if (jsobj.nextOffset) document.forms.bing.nextoffset.value = jsobj.nextOffset;
                 renderSearchResults(jsobj);
             } else {
                 renderErrorMessage("No search results in JSON response");

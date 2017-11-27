@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services 
-ms.date: 11/16/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
 
 ---
@@ -47,15 +47,13 @@ Verify that you have met the following criteria before beginning your configurat
 The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article. For more information about VPN Gateway settings in general, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 * **VNet Name:** TestVNet1
-* **Address Space:** 
-  * 10.11.0.0/16
-  * 10.12.0.0/16 (optional for this exercise)
-* **Subnets:**
-  * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24 (optional for this exercise)
-* **GatewaySubnet:** 10.11.255.0/27
+* **Address Space:** 10.11.0.0/16 and 10.12.0.0/16 (optional for this exercise)
+* **Subscription:** The subscription you want to use
 * **Resource Group:** TestRG1
 * **Location:** East US
+* **Subnet:** FrontEnd: 10.11.0.0/24, BackEnd: 10.12.0.0/24 (optional for this exercise)
+* **Gateway Subnet name:** GatewaySubnet (this will auto-fill in the portal)
+* **Gateway Subnet address range:** 10.11.255.0/27
 * **DNS Server:** Optional. The IP address of your DNS server.
 * **Virtual Network Gateway Name:** VNet1GW
 * **Public IP:** VNet1GWIP
@@ -64,6 +62,7 @@ The examples in this article use the following values. You can use these values 
 * **Gateway Type:** VPN
 * **Local Network Gateway Name:** Site2
 * **Connection Name:** VNet1toSite2
+* **Shared key:** For this example, we use abc123. But, you can use whatever is compatible with your VPN hardware. The important thing is that the values match on both sides of the connection.
 
 ## <a name="CreatVNet"></a>1. Create a virtual network
 
