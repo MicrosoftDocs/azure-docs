@@ -44,7 +44,7 @@ This command clones the repository to your local git folder. To open the Visual 
 
 ## Configure your storage connection string
 
-In the application, you must provide the connection string for your storage account. It is recommended to store this connection string within an environment variable on the local machine running the application. Follow one of the exaples below depending on your Operating System to create the evnironment variable.  Replace \<yourconnectionstring\> with your actual connection string.
+In the application, you must provide the connection string for your storage account. It is recommended to store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.  Replace \<yourconnectionstring\> with your actual connection string.
 
 ### Linux
 
@@ -67,7 +67,7 @@ Navigate to your application directory and run the application with the `dotnet 
 dotnet run
 ```
 
-The output shown is similar to the following:
+The output shown is similar to the following example:
 
 ```
 Azure Blob storage quick start sample
