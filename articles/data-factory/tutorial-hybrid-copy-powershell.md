@@ -47,7 +47,7 @@ You use an on-premises SQL Server database as a **source** data store in this tu
 1. Launch **SQL Server Management Studio** on your machine. If you do not have SQL Server Management Studio on your machine, install it from the [download center](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
 2. Connect to your SQL server by using your credentials. 
 3. Create a sample database. In the tree view, right-click **Databases**, and click **New Database**. In the **New Database** dialog box, enter a **name** for the database, and click **OK**. 
-4. Run the following query script against the database, which creates the **emp** table. In the tree view, right-click the **database** you created, and click **New Query**. 
+4. Run the following query script against the database, which creates the **emp** table and inserts some sample data into it. In the tree view, right-click the **database** you created, and click **New Query**. 
 
     ```sql   
     CREATE TABLE dbo.emp
@@ -57,13 +57,10 @@ You use an on-premises SQL Server database as a **source** data store in this tu
         LastName varchar(50),
         CONSTRAINT PK_emp PRIMARY KEY (ID)
     )
-    GO
-    ```
-2. Run the following commands against the database that insert some sample data into the table:
 
-    ```sql
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
+    GO
     ```
 
 ### Azure Storage account
@@ -101,10 +98,10 @@ In this section, you create a blob container named **adftutorial** in your Azure
 
     ![Container page](media/tutorial-hybrid-copy-powershell/container-page.png)
 
-### Azure PowerShell
+### Windows PowerShell
 
-#### Install Azure PowerShell
-Install the latest Azure PowerShell if you don't have it already on your machine. 
+#### Install PowerShell
+Install the latest PowerShell if you don't have it already on your machine. 
 
 1. In your web browser, navigate to [Azure SDK Downloads and SDKS](https://azure.microsoft.com/downloads/) page. 
 2. Click **Windows install** in the **Command-line tools** -> **PowerShell** section. 
@@ -112,9 +109,9 @@ Install the latest Azure PowerShell if you don't have it already on your machine
 
 For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-#### Log in to Azure PowerShell
+#### Log in to PowerShell
 
-1. Launch **PowerShell** on your machine. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run these commands again.
+1. Launch **PowerShell** on your machine. Keep the PowerShell window open until the end of this quickstart. If you close and reopen, you need to run these commands again.
 
     ![Launch PowerShell](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 1. Run the following command, and enter the Azure user name and password that you use to sign in to the Azure portal:
