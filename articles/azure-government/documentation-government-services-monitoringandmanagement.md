@@ -31,7 +31,7 @@ For more information, see [Azure Government Backup](documentation-government-ser
 
 ## Resource Policy
 
-[Azure resource policies](../azure-resource-manager/resource-manager-policy.md) are not available in Azure Government.
+[Azure resource policies](../azure-policy/azure-policy-introduction.md) are not available in Azure Government.
 
 ## Site Recovery
 Azure Site Recovery is generally available in Azure Government.
@@ -114,7 +114,7 @@ $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com
 Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup myrg1 -TargetResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.ClassicCompute/virtualMachines/my_vm1 -MetricName "Percentage CPU" -Operator GreaterThan -Threshold 1 -WindowSize 00:05:00 -TimeAggregationOperator Average -Actions $actionEmail, $actionWebhook -Description "alert on CPU > 1%" 
 ```
 
-For more information on using PowerShell, please see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-alert-rules).
+For more information on using PowerShell, please see [public documentation](../monitoring-and-diagnostics/insights-powershell-samples.md).
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
@@ -159,7 +159,7 @@ The following Log Analytics features behave differently in Azure Government:
     3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to Import an Operations Manager Management Pack](http://technet.microsoft.com/library/hh212691.aspx).
     4. To connect Operations Manager to Log Analytics, follow the steps in [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
   
-* To use [computer groups from System Center Configuration Manager 2016](../log-analytics/log-analytics-sccm.md), you need to be using [Technical Preview 1701](https://docs.microsoft.com/en-us/sccm/core/get-started/technical-preview) or later.
+* To use [computer groups from System Center Configuration Manager 2016](../log-analytics/log-analytics-sccm.md), you need to be using [Technical Preview 1701](https://docs.microsoft.com/sccm/core/get-started/technical-preview) or later.
 
 ### Frequently asked questions
 * Can I migrate data from Log Analytics in Microsoft Azure to Azure Government?
@@ -168,6 +168,15 @@ The following Log Analytics features behave differently in Azure Government:
   * No. The portals for Microsoft Azure and Azure Government are separate and do not share information.
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
+
+## Scheduler
+For information on this service and how to use it, see [Azure Scheduler Documentation](../scheduler/index.md). 
+
+## Azure Portal
+The Azure Government Portal can be accessed [here](https://portal.azure.us). 
+
+## Azure Resource Manager
+For information on this service and how to use it, see [Azure Resource Manager Documentation](../azure-resource-manager/resource-group-overview.md). 
 
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)

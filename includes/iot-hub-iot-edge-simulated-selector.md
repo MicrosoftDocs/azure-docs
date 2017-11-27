@@ -65,12 +65,12 @@ The MAC &lt;-&gt; IoT Hub ID module is **identitymap.c** in the source code.
 
 ### IoT Hub communication module
 
-The IoT Hub communication module opens a single HTTP connection from the gateway to the IoT Hub. HTTP is one of the three protocols understood by IoT Hub. This module keeps you from having to open a connection for each device by multiplexing connections from all the devices over the one connection. This approach enables a single gateway to connect many devices. 
+The IoT Hub communication module opens a single HTTPS connection from the gateway to the IoT Hub. HTTPS is one of the three protocols understood by IoT Hub. This module keeps you from having to open a connection for each device by multiplexing connections from all the devices over the one connection. This approach enables a single gateway to connect many devices. 
 
 In the sample, this module:
 
 1. Takes messages with an IoT Hub device key property that was assigned by the previous module. 
-1. Sends the message content to IoT Hub using the HTTP protocol. 
+1. Sends the message content to IoT Hub using the HTTPS protocol. 
 
 The IoT Hub communication module is **iothub.c** in the source code.
 

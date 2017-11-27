@@ -19,6 +19,9 @@ ms.author: saeeda
 ---
 # Configure password complexity in custom policies
 
+> [!NOTE]
+> **This feature is in preview.**  Contact [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com) to have your test tenant enabled with this feature.
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 This article is an advanced description of how password complexity works and is enabled using Azure AD B2C custom policies.

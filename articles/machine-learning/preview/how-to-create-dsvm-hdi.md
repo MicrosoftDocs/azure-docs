@@ -14,7 +14,7 @@ ms.date: 09/26/2017
 
 # Create DSVM and HDI Spark cluster as compute targets
 
-You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based DSVM (Data Science Virtual Machine), and Apache Spark for Azure HDInsight cluster. This article walks you through the steps of creating these compute targets in Azure. For more information on Azure ML compute targets, refer to [overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md).
+You can easily scale up or scale out your machine learning experiment by adding additional compute targets such as Ubuntu-based DSVM (Data Science Virtual Machine), and Apache Spark for Azure HDInsight cluster. This article walks you through the steps of creating these compute targets in Azure. For more information on Azure ML compute targets, refer to [overview of Azure Machine Learning experimentation service](experimentation-service-configuration.md).
 
 >[!NOTE]
 >You need to ensure you have proper permissions to create resources such as VM and HDI clusters in Azure before you proceed. Also both of these resources can consume many compute cores depending on your configuration. Make sure your subscription has enough capacity for the virtual CPU cores. You can always get in touch with Azure support to increase the maximum number of cores allowed in your subscription.
@@ -87,7 +87,7 @@ $ az account get-access-token
 
 # if you don't have a valid token, please log in to Azure first. 
 # if you already do, you can skip this step.
-$ az account login
+$ az login
 
 # list all subscriptions you have access to
 $ az account list -o table
@@ -104,7 +104,8 @@ $ az group create -n <resource group name> -l <azure region>
 # note we assume the mydsvm.json config file is placed in the "docs" sub-folder.
 $ az group deployment create -g <resource group name> --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/azuredeploy.json --parameters @docs/mydsvm.json
 
-# find the FQDN (fully qualified domain name) of the VM just created
+# find the FQDN (fully qualified domain name) of the VM just created. 
+# you can also use IP address from the next command if FQDN is not set.
 $ az vm show -g <resource group name> -n <vm name> --query "fqdns"
 
 # find the IP address of the VM just created
@@ -176,7 +177,7 @@ Now you should be ready to run experiments on this Spark cluster.
 ## Next steps
 
 Learn more about:
-- [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md)
-- [Azure Machine Learning Workbench execution configuration files](experiment-execution-configuration-reference.md)
+- [Overview of Azure Machine Learning experimentation service](experimentation-service-configuration.md)
+- [Azure Machine Learning Workbench experimentation service configuration files](experimentation-service-configuration-reference.md)
 - [Apache Spark for Azure HDInsight cluster](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 - [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

@@ -29,7 +29,7 @@ From your non-interactive .NET application, you need:
 * The Azure AD application secret key. See [Get application authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## Prerequisites
-* An HDInsight cluster. See the [getting started tutorial](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
+* An HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## Assign a role to the Azure AD application
 Assign your Azure AD application a [role](../active-directory/role-based-access-built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope. (For example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it.) In this tutorial, you set the scope at the resource group level. For more information, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).

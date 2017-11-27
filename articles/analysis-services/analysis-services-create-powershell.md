@@ -4,7 +4,7 @@ description: Learn how to create an Azure Analysis Services server by using Powe
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/01/2017
+ms.date: 11/01/2017
 ms.author: owend
 ms.custom: mvc
 

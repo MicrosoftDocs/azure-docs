@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/01/2017
 ms.author: TomSh
 
 ---
@@ -68,7 +68,7 @@ One problem when you administer a network is securing data that is being sent be
 
 In the authentication process, a TLS/SSL client sends a message to a TLS/SSL server, and the server responds with the information that the server needs to authenticate itself. The client and server perform an additional exchange of session keys, and the authentication dialog ends. When authentication is completed, SSL-secured communication can begin between the server and the client using the symmetric encryption keys that are established during the authentication process.
 
-All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. SQL Azure uses TLS/SSL to authenticate servers and clients and then use it to encrypt messages between the authenticated parties. In your application's connection string, you must specify parameters to encrypt the connection and not to trust the server certificate (this is done for you if you copy your connection string out of the Azure Classic Portal), otherwise the connection will not verify the identity of the server and will be susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are Encrypt=True and TrustServerCertificate=False.
+All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. SQL Azure uses TLS/SSL to authenticate servers and clients and then use it to encrypt messages between the authenticated parties. In your application's connection string, you must specify parameters to encrypt the connection and not to trust the server certificate (this is done for you if you copy your connection string out of the Azure Portal), otherwise the connection will not verify the identity of the server and will be susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are Encrypt=True and TrustServerCertificate=False.
 
 ### Encryption at rest
 You can take several precautions to help secure the database such as designing a secure system, encrypting confidential assets, and building a firewall around the database servers. However, in a scenario where the physical media (such as drives or backup tapes) are stolen, a malicious party can just restore or attach the database and browse the data.
@@ -91,7 +91,7 @@ Most data breaches involve the theft of critical data such as credit card number
 
 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server).
 
-Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access). By ensuring on-premises database administrators, cloud database operators, or other high-privileged, but unauthorized users, cannot access the encrypted data,
+Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access). By ensuring on-premises database administrators, cloud database operators, or other high-privileged, but unauthorized users, cannot access the encrypted data.
 
 In addition, Always Encrypted makes encryption transparent to applications. An Always Encrypted-enabled driver installed on the client computer so that it can automatically encrypt and decrypt sensitive data in the client application. The driver encrypts the data in sensitive columns before passing the data to the Database Engine, and automatically rewrites queries so that the semantics to the application are preserved. Similarly, the driver transparently decrypts data, stored in encrypted database columns, contained in query results.
 

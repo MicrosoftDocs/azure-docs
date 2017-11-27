@@ -16,11 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
-ms.custom: H1Hack27Feb2017, mvc
+ms.custom: H1Hack27Feb2017, mvc, devcenter
 
 ---
 
 # Deploy Kubernetes cluster for Windows containers
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a [Kubernetes](https://kubernetes.io/docs/home/) cluster in [Azure Container Service](../container-service-intro.md). Once the cluster is deployed, you connect to it with the Kubernetes `kubectl` command-line tool, and you deploy your first Windows container.
 
@@ -165,7 +167,7 @@ To expose the pod to the world with a public IP address, type the following comm
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-With this command, Kubernetes creates a service and an [Azure load balancer rule](container-service-kubernetes-load-balancing.md) with a public IP address for the service. 
+With this command, Kubernetes creates a service and an Azure load balancer rule with a public IP address for the service. 
 
 Run the following command to see the status of the service.
 

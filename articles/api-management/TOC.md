@@ -50,9 +50,10 @@
 ### [Configure using Git](api-management-configuration-repository-git.md)
 ### [Monitor using Azure Monitor](api-management-howto-use-azure-monitor.md)
 ### [Use role-based access control](api-management-role-based-access-control.md)
+### [Use Managed Service Identity](api-management-howto-use-managed-service-identity.md)
 ### Integrate with Service Fabric
 #### [Overview](../service-fabric/service-fabric-api-management-overview.md)
-#### [Quick start](../service-fabric/service-fabric-api-management-quick-start.md)
+#### [Tutorial](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/azure/overview)

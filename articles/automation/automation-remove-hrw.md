@@ -3,7 +3,7 @@ title: Remove Azure Automation Hybrid Runbook Workers  | Microsoft Docs
 description: This article provides information on managing deployed Azure Automation Hybrid Runbook Workers that allows you to run runbooks on computers in your local datacenter or cloud environment.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 

@@ -22,7 +22,6 @@ ms.author: robinsh
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
-## About this tutorial
 This tutorial will demonstrate the basics of using Python to develop applications or services that use Azure Files to store file data. In this tutorial, we will create a simple console application and show how to perform basic actions with Python and Azure Files:
 
 * Create Azure File shares
@@ -33,35 +32,55 @@ This tutorial will demonstrate the basics of using Python to develop application
 > [!Note]  
 > Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard Python I/O classes and functions. This article will describe how to write applications that use the Azure Storage Python SDK, which uses the [Azure Files REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files.
 
-### Set up your application to use Azure Files
+## Download and Install Azure Storage SDK for Python
+
+Azure Storage SDK for Python requires Python 2.7, 3.3, 3.4, 3.5, or 3.6, and comes in 4 different packages: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` and `azure-storage-queue`. In this tutorial we are going to use `azure-storage-file` package.
+ 
+## Install via PyPi
+
+To install via the Python Package Index (PyPI), type:
+
+```bash
+pip install azure-storage-file
+```
+
+
+> [!NOTE]
+> If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, you will first need to uninstall using `pip uninstall azure-storage` as we are no longer releasing the Storage SDK for Python in a single package.
+> 
+> 
+
+For alternative installation methods, visit the [Azure Storage SDK for Python on Github](https://github.com/Azure/azure-storage-python/).
+
+## Set up your application to use Azure Files
 Add the following near the top of any Python source file in which you wish to programmatically access Azure Storage.
 
 ```python
 from azure.storage.file import FileService
 ```
 
-### Set up a connection to Azure Files 
+## Set up a connection to Azure Files 
 The `FileService` object lets you work with shares, directories and files. The following code creates a `FileService` object using the storage account name and account key. Replace `<myaccount>` and `<mykey>` with your account name and key.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
-### Create an Azure File share
+## Create an Azure File share
 In the following code example, you can use a `FileService` object to create the share if it doesn't exist.
 
 ```python
 file_service.create_share('myshare')
 ```
 
-### Create a directory
+## Create a directory
 You can also organize storage by putting files inside sub-directories instead of having all of them in the root directory. Azure Files allows you to create as many directories as your account will allow. The code below will create a sub-directory named **sampledir** under the root directory.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
 ```
 
-### Enumerate files and directories in an Azure File share
+## Enumerate files and directories in an Azure File share
 To list the files and directories in a share, use the **list\_directories\_and\_files** method. This method returns a generator. The following code outputs the **name** of each file and directory in a share to the console.
 
 ```python
@@ -70,7 +89,7 @@ for file_or_dir in generator:
     print(file_or_dir.name)
 ```
 
-### Upload a file 
+## Upload a file 
 Azure File share contains at the very least, a root directory where files can reside. In this section, you'll learn how to upload a file from local storage onto the root directory of a share.
 
 To create a file and upload data, use the `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` or `create_file_from_text` methods. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
@@ -89,7 +108,7 @@ file_service.create_file_from_path(
     content_settings=ContentSettings(content_type='image/png'))
 ```
 
-### Download a file
+## Download a file
 To download data from a file, use `get_file_to_path`, `get_file_to_stream`, `get_file_to_bytes`, or `get_file_to_text`. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
 The following example demonstrates using `get_file_to_path` to download the contents of the **myfile** file and store it to the **out-sunset.png** file.
@@ -98,11 +117,62 @@ The following example demonstrates using `get_file_to_path` to download the cont
 file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 ```
 
-### Delete a file
+## Delete a file
 Finally, to delete a file, call `delete_file`.
 
 ```python
 file_service.delete_file('myshare', None, 'myfile')
+```
+
+## Create share snapshot (preview)
+You can create a point in time copy of your entire file share.
+
+```python
+snapshot = file_service.snapshot_share(share_name)
+snapshot_id = snapshot.snapshot
+```
+
+**Create share snapshot with metadata**
+
+```python
+metadata = {"foo": "bar"}
+snapshot = file_service.snapshot_share(share_name, metadata=metadata)
+```
+
+## List shares and snapshots 
+You can list all the snapshots for a particular share.
+
+```python
+shares = list(file_service.list_shares(include_snapshots=True))
+```
+
+## Browse share snapshot
+You can browse content of each share snapshot to retrieve files and directories from that point in time.
+
+```python
+directories_and_files = list(file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
+```
+
+## Get file from share snapshot
+You can download a file from a share snapshot for your restore scenario.
+
+```python
+with open(FILE_PATH, 'wb') as stream:
+    file = file_service.get_file_to_stream(share_name, directory_name, file_name, stream, snapshot=snapshot_id)
+```
+
+## Delete a single share snapshot  
+You can delete a single share snapshot.
+
+```python
+file_service.delete_share(share_name, snapshot=snapshot_id)
+```
+
+## Delete share when share snapshots exist
+A share that contains snapshots cannot be deleted unless all the snapshots are deleted first.
+
+```python
+file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ```
 
 ## Next steps

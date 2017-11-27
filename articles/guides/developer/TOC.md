@@ -1,13 +1,7 @@
 # Overview
 ## [Developer guide](azure-developer-guide.md) 
-### [What is Azure?](azure-developer-guide.md#what-is-azure)
-### [Where do I start?](azure-developer-guide.md#where-do-i-start)
-### [Azure regions](azure-developer-guide.md#azure-regions)
-### [How do I manage my applications and projects?](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [Understanding accounts, subscriptions, and billing](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
-## [Overview of Azure services](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Portal overview](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Overview of Azure services](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
+## [Portal overview](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDKs and tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Quickstart
@@ -113,6 +107,7 @@
 ## [Billing](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Resources
+## [Azure limits and quotas](../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Azure regions](https://azure.microsoft.com/regions/)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

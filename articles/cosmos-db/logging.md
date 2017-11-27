@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/12/2017
 ms.author: mimig
 
 ---
 # Azure Cosmos DB diagnostic logging
 
-Once you've started using one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed. Diagnostic logging in Azure Cosmos DB enables you to perform this monitoring. By enabling diagnostic logging, you can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/), and/or export them into an [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) workspace via [Log Analytics](https://azure.microsoft.com/services/log-analytics/).
+Once you've started using one or more Azure Cosmos DB databases, you may want to monitor how and when your databases are accessed. Diagnostic logging in Azure Cosmos DB enables you to perform this monitoring. By enabling diagnostic logging, you can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and/or export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), which is part of [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
 
 ![Diagnostic logging to Storage, Event Hubs, or Operations Management Suite via Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
 
@@ -37,7 +37,7 @@ To complete this tutorial, you must have the following resources:
 
 * An existing Azure Cosmos DB account, database, and container. For instructions on creating these resources, see [Create a database account using the Azure portal](create-documentdb-dotnet.md#create-a-database-account), [CLI samples](cli-samples.md), or [PowerShell samples](powershell-samples.md).
 
-
+<a id="#turn-on"></a>
 ## Turn on logging in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), in your Azure Cosmos DB account, click **Diagnostic logs** in the left navigation, and then click **Turn on diagnostics**.
@@ -50,12 +50,16 @@ To complete this tutorial, you must have the following resources:
 
     * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. To create a new storage account in the portal, see [Create a storage account](../storage/common/storage-create-storage-account.md) and follow instructions to create a Resource Manager, general-purpose account. Then return to this page in the portal to select your storage account. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
     * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To create an Event Hubs namespace, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
-    * **Send to Log Analytics**. To use this option, either use one of the existing workspaces or create a new Operations Management Suite workspace by following the prompts in the portal.
-    * **Log DataPlaneRequests**. If you are archiving to a storage account, you can select the retention period for the diagnostic logs by selecting **DataPlaneRequests** and choosing the number of days to retain logs. Logs are autodeleted after the retention period expires. 
+    * **Send to Log Analytics**.     To use this option, either use an existing workspace or create a new Log Analytics workspace by following the steps to [create a new workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) in the portal. For more information on viewing your logs in Log Analytics, see [View logs in Log Analytics](#view-in-loganalytics).
+    * **Log DataPlaneRequests**. Select this option to log diagnostics for DocumentDB, Graph, and Table API accounts. If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
+    * **Log MongoRequests**. Select this option to log diagnostics for MongoDB API accounts. If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
+    * **Metric Requests**. Select this option to store verbose data in [Azure Metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftdocumentdbdatabaseaccounts-cosmosdb). If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
 
 3. Click **Save**.
 
-    You can return to this page at anytime to modify the diagnostic log settings for your account.
+    If you receive an error that says "Failed to update diagnostics for \<workspace name>. The subscription \<subscription id> is not registered to use microsoft.insights." follow the [Troubleshoot Azure Diagnostics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) instructions to register the account, then retry this procedure.
+
+    If you want to change how your diagnostic logs are saved at any point in the future, you can return to this page at anytime to modify the diagnostic log settings for your account.
 
 ## Turn on logging using CLI
 
@@ -276,59 +280,35 @@ To selectively download blobs, use wildcards. For example:
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
-You're now ready to start looking at what's in the logs. But before moving onto that, two more parameters for `Get-AzureRmDiagnosticSetting` that you might need to know:
+In addition:
 
 * To query the  status of diagnostic settings for your database resource: `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 * To disable logging of **DataPlaneRequests** category for your database account resource: `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
 
-## <a id="interpret"></a>Interpret your Azure Cosmos DB logs
-Individual blobs are stored as text, formatted as a JSON blob. This JSON is an example log entry:
 
-    {
-        "records":
-        [
-            {
-               "time": "Fri, 23 Jun 2017 19:29:50.266 GMT",
-			   "resourceId": "contosocosmosdb",
-			   "category": "DataPlaneRequests",
-			   "operationName": "Query",
-			   "resourceType": "Database",
-			   "properties": {"activityId": "05fcf607-6f64-48fe-81a5-f13ac13dd1eb",`
-               "userAgent": "documentdb-dotnet-sdk/1.12.0 Host/64-bit MicrosoftWindowsNT/6.2.9200.0 AzureSearchIndexer/1.0.0",`
-               "resourceType": "Database","statusCode": "200","documentResourceId": "",`
-               "clientIpAddress": "13.92.241.0","requestCharge": "2.260","collectionRid": "",`
-               "duration": "9250","requestLength": "72","responseLength": "209", "resourceTokenUserRid": ""}
-            }
-        ]
-    }
+The blobs that are returned in each of these queries are stored as text, formatted as a JSON blob, as shown in the following code. 
 
+```json
+{
+    "records":
+    [
+        {
+           "time": "Fri, 23 Jun 2017 19:29:50.266 GMT",
+		   "resourceId": "contosocosmosdb",
+		   "category": "DataPlaneRequests",
+		   "operationName": "Query",
+		   "resourceType": "Database",
+		   "properties": {"activityId": "05fcf607-6f64-48fe-81a5-f13ac13dd1eb",`
+           "userAgent": "documentdb-dotnet-sdk/1.12.0 Host/64-bit MicrosoftWindowsNT/6.2.9200.0 AzureSearchIndexer/1.0.0",`
+           "resourceType": "Database","statusCode": "200","documentResourceId": "",`
+           "clientIpAddress": "13.92.241.0","requestCharge": "2.260","collectionRid": "",`
+           "duration": "9250","requestLength": "72","responseLength": "209", "resourceTokenUserRid": ""}
+        }
+    ]
+}
+```
 
-The following table lists the field names and descriptions.
-
-| Field name | Description |
-| --- | --- |
-| time |The date and time (UTC) when the operation occurred. |
-| resourceId |The Azure Cosmos DB account for which logs are enabled.|
-| category |For Azure Cosmos DB logs, DataPlaneRequests is the only available value. |
-| operationName |Name of the operation. This value can be any of the following operations: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed, or Upsert.   |
-| properties |The contents of this field are described in the following table. |
-
-The following table lists the fields logged inside the properties field.
-
-| Property field name | Description |
-| --- | --- |
-| activityId | The unique GUID for the logged operation. |
-| userAgent |A string that specifies the client user agent performing the request. The format is {user agent name}/{version}.|
-| resourceType | The type of the resource accessed. This value can be any of the following resource types: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
-| statusCode |The response status of the operation. |
-| requestResourceId | The resourceId pertaining to the request, may point to databaseRid, collectionRid or documentRid depending on the operation performed.|
-| clientIpAddress |The client's IP address. |
-| requestCharge | The number of RUs used by the operation |
-| collectionRid | The unique ID for the collection.|
-| duration | The duration of operation, in ticks. |
-| requestLength |The length of the request, in bytes. |
-| responseLength | The length of the response, in bytes.|
-| resourceTokenUserRid | This is non-empty when [resource tokens](https://docs.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data#resource-tokens) are used for authentication and points to resource ID of the user. |
+To learn about the data in each JSON blob, see [Interpret your Azure Cosmos DB logs](#interpret).
 
 ## Managing your logs
 
@@ -339,10 +319,116 @@ Logs are made available in your account two hours from the time the Azure Cosmos
 * The retention period for data plane requests archived to a 
 Storage account is configured in the portal when **Log DataPlaneRequests** is selected. To change that setting, see [Turn on logging in the Azure portal](#turn-on-logging-in-the-azure-portal).
 
+
+<a id="#view-in-loganalytics"></a>
+## View logs in Log Analytics
+
+If you selected the **Send to Log Analytics** option when you turned on logging, diagnostic data from your collection is forwarded to Log Analytics within two hours. This means that if you look at Log Analytics immediately after turning on logging, you won't see any data. Just wait two hours and try again. 
+
+Before viewing your logs, you'll want to check and see if your Log Analytics workspace has been upgraded to use the new Log Analytics query language. To check this, open the [Azure portal](https://portal.azure.com), click **Log Analytics** on the far left side, then select the workspace name as shown in the following image. The **OMS Workspace** page is displayed as shown in the following image.
+
+![Log Analytics in the Azure portal](./media/logging/azure-portal.png)
+
+If you see the following message on the **OMS Workspace** page, your workspace has not been upgraded to use the new language. For further information on upgrading to the new query language, see [Upgrade your Azure Log Analytics workspace to new log search](../log-analytics/log-analytics-log-search-upgrade.md). 
+
+![Log analytics upgrade notification](./media/logging/upgrade-notification.png)
+
+To view your diagnostic data in Log Analytics, open the Log Search page from the left menu or the Management area of the page, as shown in the following image.
+
+![Log Search options in the Azure portal](./media/logging/log-analytics-open-log-search.png)
+
+Now that you have enabled data collection, run the following log search example, using the new query language, to see the ten most recent logs `AzureDiagnostics | take 10`.
+
+![Sample take 10 log search](./media/logging/log-analytics-query.png)
+
+<a id="#queries"></a>
+### Queries
+
+Here are some additional queries you can enter into the **Log search** box to help you monitor your Azure Cosmos DB containers. These queries work with the [new language](../log-analytics/log-analytics-log-search-upgrade.md). 
+
+To learn about the meaning of the data returned by each log search, see [Interpret your Azure Cosmos DB logs](#interpret).
+
+* All diagnostic logs from Azure Cosmos DB for the specified time period.
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    ```
+
+* Ten most recently logged events.
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | take 10
+    ```
+
+* All operations, grouped by operation type.
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName
+    ```
+
+* All operations, grouped by Resource.
+
+    ```
+    AzureActivity | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    ```
+
+* All user activity, grouped by resource. Note that this is an activity log, not a diagnostic log.
+
+    ```
+    AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    ```
+
+* Which operations take longer than 3 milliseconds.
+
+    ```
+    AzureDiagnostics | where toint(duration_s) > 3000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    ```
+
+* Which agent is running the operations.
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName, userAgent_s
+    ```
+
+* When were long running operations performed.
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
+    ```
+
+For additional information on using the new Log Search language, see [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search-new.md). 
+
+## <a id="interpret"></a>Interpret your logs
+
+Diagnostic data stored in Azure Storage and Log Analytics use a very similar schema. 
+
+The following table describes the content of each log entry.
+
+| Azure Storage Field or Property | Log Analytics property | Description |
+| --- | --- | --- |
+| time | TimeGenerated | The date and time (UTC) when the operation occurred. |
+| resourceId | Resource | The Azure Cosmos DB account for which logs are enabled.|
+| category | Category | For Azure Cosmos DB logs, DataPlaneRequests is the only available value. |
+| operationName | OperationName | Name of the operation. This value can be any of the following operations: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed, or Upsert.   |
+| properties | n/a | The contents of this field are described in the following rows. |
+| activityId | activityId_g | The unique GUID for the logged operation. |
+| userAgent | userAgent_s | A string that specifies the client user agent performing the request. The format is {user agent name}/{version}.|
+| resourceType | ResourceType | The type of the resource accessed. This value can be any of the following resource types: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
+| statusCode |statusCode_s | The response status of the operation. |
+| requestResourceId | ResourceId | The resourceId pertaining to the request, may point to databaseRid, collectionRid or documentRid depending on the operation performed.|
+| clientIpAddress | clientIpAddress_s | The client's IP address. |
+| requestCharge | requestCharge_s | The number of RUs used by the operation |
+| collectionRid | collectionId_s | The unique ID for the collection.|
+| duration | duration_s | The duration of operation, in ticks. |
+| requestLength | requestLength_s | The length of the request, in bytes. |
+| responseLength | responseLength_s | The length of the response, in bytes.|
+| resourceTokenUserRid | resourceTokenUserRid_s | This is non-empty when [resource tokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) are used for authentication and points to resource ID of the user. |
+
 ## Next steps
 
 - To gain an understanding of not only how to enable logging, but also the metrics and log categories supported by the various Azure services read both the [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) and [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) articles.
 - Read these articles to learn about event hubs:
-   - [What are Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)?
+   - [What are Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-- See [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+- Read [Download metrics and diagnostic logs from Azure Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+- Read [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search-new.md)

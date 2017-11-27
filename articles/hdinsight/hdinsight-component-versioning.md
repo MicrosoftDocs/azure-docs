@@ -95,7 +95,7 @@ The following table lists the versions of HDInsight that are currently available
 ## HDInsight Windows retirement
 Microsoft Azure HDInsight version 3.3 was the last version of HDInsight on Windows. The retirement date for HDInsight on Windows is July 31, 2018. If you have any HDInsight clusters on Windows 3.3 or earlier, you must migrate to HDInsight on Linux (HDInsight version 3.5 or later) before July 31, 2018. Migrating to the Linux OS enables you to retain the ability to create or resize your HDInsight clusters. Support for HDInsight version 3.3 on Windows expired on June 27, 2016.
 
-Starting with HDInsight version 3.4, Microsoft has released HDInsight only on the Linux OS. As a result, some of the components within HDInsight are available for Linux only. These include Apache Ranger, Kafka, Interactive Hive, Spark, HDInsight applications, and Azure Data Lake Store as the primary file system. Future releases of HDInsight are available only on the Linux OS. There will be no future releases of HDInsight on Windows. 
+Starting with HDInsight version 3.4, Microsoft has released HDInsight only on the Linux OS. As a result, some of the components within HDInsight are available for Linux only. These include Apache Ranger, Kafka, Interactive Query, Spark, HDInsight applications, and Azure Data Lake Store as the primary file system. Future releases of HDInsight are available only on the Linux OS. There will be no future releases of HDInsight on Windows. 
 
 ## FAQs
 
@@ -132,7 +132,7 @@ No, the pricing is the same for HDInsight on either OS.
 * Ability to exercise active development by the open source community for Hadoop and other big data technologies
 
 ### Does HDInsight on Linux provide additional functionality beyond what is available in HDInsight on Windows?
-Starting with HDInsight version 3.4, Microsoft has released HDInsight only on the Linux OS. As a result, some of the components within HDInsight are available for Linux only. These include Apache Ranger, Kafka, Interactive Hive, Spark, HDInsight applications, and Azure Data Lake Store as the primary file system. 
+Starting with HDInsight version 3.4, Microsoft has released HDInsight only on the Linux OS. As a result, some of the components within HDInsight are available for Linux only. These include Apache Ranger, Kafka, Interactive Query, Spark, HDInsight applications, and Azure Data Lake Store as the primary file system. 
 
 ## Service level agreement for HDInsight cluster versions
 The service level agreement (SLA) is defined in terms of a _support window_. The support window is the period of time that an HDInsight cluster version is supported by Microsoft Customer Service and Support. If the version has a _support expiration date_ that has passed, the HDInsight cluster is outside the support window. For more information about supported versions, see the list of [supported HDInsight cluster versions](hdinsight-migrate-from-windows-to-linux.md). The support expiration date for a specified HDInsight version X (after a newer X+1 version is available) is calculated as the later of:  
@@ -172,7 +172,7 @@ Azure HDInsight provides the big data cloud offerings in two categories: _Standa
 
 | HDInsight Premium feature | Description |
 | --- | --- |
-| Domain-joined HDInsight clusters |Join HDInsight clusters to Azure Active Directory (Azure AD) domains for enterprise-level security. In HDInsight Premium, you can configure a list of employees from your enterprise who can authenticate through Azure AD to log on to an HDInsight cluster. The enterprise admin can configure role-based access control for Hive security by using [Apache Ranger](http://hortonworks.com/apache/ranger/) and restrict data access to use only as much as needed. Finally, the admin can audit data accessed by employees and changes to access control policies, thereby achieving a high degree of governance of their corporate resources. For more information, see [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md). |
+| Domain-joined HDInsight clusters |Join HDInsight clusters to Azure Active Directory (Azure AD) domains for enterprise-level security. In HDInsight Premium, you can configure a list of employees from your enterprise who can authenticate through Azure AD to log on to an HDInsight cluster. The enterprise admin can configure role-based access control for Hive security by using [Apache Ranger](http://hortonworks.com/apache/ranger/) and restrict data access to use only as much as needed. Finally, the admin can audit data accessed by employees and changes to access control policies, thereby achieving a high degree of governance of their corporate resources. For more information, see [Configure domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-configure.md). |
 
 ### Cluster types supported in HDInsight Premium
 The following table lists the cluster types that are supported in HDInsight Premium.
@@ -184,7 +184,7 @@ The following table lists the cluster types that are supported in HDInsight Prem
 | HBase |Yes |No |
 | Storm |Yes |No |
 | R Server |Yes |No |
-| Interactive Hive (Preview) |Yes |No |
+| Interactive Query |Yes |No |
 | Kafka (Preview) |Yes |No | 
 
 ### Support for Azure Data Lake Store in HDInsight Premium

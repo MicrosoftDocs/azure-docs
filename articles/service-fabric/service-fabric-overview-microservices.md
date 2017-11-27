@@ -107,7 +107,7 @@ In the microservices approach, each service manages and stores its own state. Ea
 Versioning is specific to the deployed version of a microservice so that multiple, different versions deploy and run side by side. Versioning addresses the scenarios where a newer version of a microservice fails during upgrade and needs to roll back to an earlier version. The other scenario for versioning is performing A/B-style testing, where different users experience different versions of the service. For example, it is common to upgrade a microservice for a specific set of customers to test new functionality before rolling it out more widely. After lifecycle management of microservices, this now brings us to communication between them.
 
 ### Interacts with other microservices over well-defined interfaces and protocols
-This topic needs little attention here, because extensive literature about service-oriented architecture that has been published over the past 10 years describes communication patterns. Generally, service communication uses a REST approach with HTTP and TCP protocols and XML or JSON as the serialization format. From an interface perspective, it is about embracing the web design approach. But nothing stops you from using binary protocols or your own data formats. Be prepared for people to have a harder time using your microservices if these are openly available.
+This topic needs little attention here, because extensive literature about service-oriented architecture that has been published over the past 10 years describes communication patterns. Generally, service communication uses a REST approach with HTTP and TCP protocols and XML or JSON as the serialization format. From an interface perspective, it is about embracing the web design approach. But nothing stops you from using binary protocols or your own data formats. Be prepared for people to have a harder time using your microservices if these protocols and formats are not openly available.
 
 ### Has a unique name (URL) used to resolve its location
 Remember how we keep saying that the microservice approach is like the web? Like the web, your microservice needs to be addressable wherever it is running. If you are thinking about machines and which one is running a particular microservice, things go bad quickly. 
@@ -144,22 +144,22 @@ Service Fabric provides three broad areas to help you build applications that us
 ### Migrating existing applications to Service Fabric
 A key approach to Service Fabric is to reuse existing code, which can then be modernized with new microservices. There are five stages to application modernization, and you can start and stop at any of the stages. These are;
 
-1) Take a traditional monolithic application
-2) Lift and Shift - Use containers or guest executables to host existing code in Service Fabric.
-3) Modernization - New microservices added alongside existing containerized code. 
-4) Innovate - Break the monolithic into microservices purely based on need.
+1) Take a traditional monolithic application  
+2) Lift and Shift - Use containers or guest executables to host existing code in Service Fabric.  
+3) Modernization - New microservices added alongside existing containerized code.  
+4) Innovate - Break the monolithic into microservices purely based on need.  
 5) Transformed into microservices - the transformation of existing monolithic applications or building new greenfield applications.
 
 ![Migration to Microservices][Image3]
 
-It is important to emphasize again, that you can **start and stop at any of these stages**. You are not compelled to progress to the next stage. Let's now look at examples for each of these stages.
+It is important to emphasize again that you can **start and stop at any of these stages**. You are not compelled to progress to the next stage. Let's now look at examples for each of these stages.
 
-**Lift and Shift** - large numbers of companies are lifting and shifting existing monolithic applications into containers to for two reasons;
+**Lift and Shift** - large numbers of companies are lifting and shifting existing monolithic applications into containers for two reasons;
 
 - Cost reduction either due to consolidation and removal  of existing hardware or running applications at higher density. 
 - Consistent deployment contract between development and operations.
 
-Cost reductions are understandable and within Microsoft large numbers of existing applications are being containerized simply to millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It says that developers can still be free to choose the technology that suites them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
+Cost reductions are understandable, and within Microsoft, large numbers of existing applications are being containerized simply to save millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It says that developers can still be free to choose the technology that suites them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
 
 Many organizations stop here. They already have the benefits of containers and Service Fabric provides the complete management experience from deployment, upgrades, versioning, rollbacks, health monitoring etc.
 

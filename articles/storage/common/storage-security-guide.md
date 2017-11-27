@@ -3,7 +3,7 @@ title: Azure Storage security guide | Microsoft Docs
 description: Details the many methods of securing Azure Storage, including but not limited to RBAC, Storage Service Encryption, Client-side Encryption, SMB 3.0, and Azure Disk Encryption.
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 
 ---
 # Azure Storage security guide
@@ -351,7 +351,7 @@ The solution does not support the following scenarios, features, and technology 
 This feature ensures that all data on your virtual machine disks is encrypted at rest in Azure Storage.
 
 #### Resources
-* [Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+* [Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### Comparison of Azure Disk Encryption, SSE, and Client-Side Encryption
 #### IaaS VMs and their VHD files
@@ -514,7 +514,7 @@ For more information about CORS and how to enable it, please check out these res
 
    **Resources**
 
-* [Why We're Not Recommending "FIPS Mode" Anymore](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
+* [Why We're Not Recommending "FIPS Mode" Anymore](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   This blog article gives an overview of FIPS and explains why they don't enable FIPS mode by default.
 * [FIPS 140 Validation](https://technet.microsoft.com/library/cc750357.aspx)

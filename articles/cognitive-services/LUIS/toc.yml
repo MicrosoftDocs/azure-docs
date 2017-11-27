@@ -1,18 +1,50 @@
 - name: LUIS Documentation
-  href: ../index.md
+  href: index.yml
 - name: Overview
   items: 
   - name: Learn about Language Understanding Intelligent Service
     href: Home.md
+  - name: Supported languages
+    href: luis-supported-languages.md
 - name: Quickstarts
   expanded: true
   items: 
   - name: Create a new app
     href: luis-get-started-create-app.md
+  - name: Call LUIS endpoint API
+    items:
+    - name: C#
+      href: luis-get-started-cs-get-intent.md
+    - name: Java
+      href: luis-get-started-java-get-intent.md
+    - name: JavaScript
+      href: luis-get-started-js-get-intent.md
+    - name: Node.js
+      href: luis-get-started-node-get-intent.md
+    - name: Python
+      href: luis-get-started-python-get-intent.md
+    - name: PHP
+      href: luis-get-started-php-get-intent.md
+    - name: Ruby
+      href: luis-get-started-ruby-get-intent.md
+  - name: Call LUIS authoring API
+    items: 
+    - name: Node.js
+      href: luis-quickstart-node-add-utterance.md
+    - name: Python
+      href: luis-quickstart-python-add-utterance.md
 - name: Tutorials
   items: 
   - name: Integrate LUIS with a bot using Node.js
     href: luis-nodejs-tutorial-build-bot-framework-sample.md
+  - name: Integrate LUIS with a bot using C#
+    href: luis-csharp-tutorial-build-bot-framework-sample.md
+  - name: Build a LUIS app programmatically using Node.js
+    href: luis-tutorial-node-import-utterances-csv.md
+- name: Samples
+  items:
+  - name: Code samples
+    href: https://github.com/Microsoft/LUIS-Samples
 - name: Concepts
   items: 
   - name: Intents
@@ -23,8 +55,6 @@
     href: luis-concept-utterance.md
   - name: Features
     href: luis-concept-feature.md
-  - name: Support for multiple languages
-    href: luis-concept-language-support.md
 - name: How-to guides
   items: 
   - name: Plan your app
@@ -47,7 +77,7 @@
       href: Label-Suggested-Utterances.md
     - name: Publish your app
       href: PublishApp.md
-  - name: Prebuilt models
+  - name: Use prebuilt models
     items: 
     - name: Use prebuilt entities
       href: Pre-builtEntities.md
@@ -69,10 +99,14 @@
       href: luis-how-to-collaborate.md    
 - name: Reference
   items: 
+  - name: Prebuilt entity reference
+    href: luis-reference-prebuilt-entities.md
+  - name: Cortana prebuilt app reference
+    href: luis-reference-cortana-prebuilt.md
   - name: Authoring APIs
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
   - name: Endpoint API
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78      
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78         
   - name: SDKs
     items:
     - name: Android
@@ -89,3 +123,7 @@
     href: https://azure.microsoft.com/roadmap/
   - name: LUIS FAQ
     href: luis-resources-faq.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/LUIS 

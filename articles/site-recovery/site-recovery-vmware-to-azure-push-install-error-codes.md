@@ -77,7 +77,7 @@ This error can be thrown by the service for multiple reasons. Choose the corresp
 
 **Error code** | **Possible causes** | **Error-specific recommendations**
 --- | --- | ---
-95265 </br>**Message:** Push installation of the mobility service to the source machine succeeded but source machine requires a restart for some system changes to take effect. <br>| An older version of the mobility service was already installed on the server.| Replication of the virtual machine continues seamlessly.M<br> Reboot the server during your next maintenance window to get benefits of the new enhancements in mobility service.|
+95265 </br>**Message:** Push installation of the mobility service to the source machine succeeded but source machine requires a restart for some system changes to take effect. <br>| An older version of the mobility service was already installed on the server.| Replication of the virtual machine continues seamlessly.<br> Reboot the server during your next maintenance window to get benefits of the new enhancements in mobility service.|
 
 
 ## Error 95224 - Protection could not be enabled (EP0883)

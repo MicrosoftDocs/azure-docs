@@ -6,7 +6,7 @@ keywords: how to use azure directory, active directory in the cloud, active dire
 documentationcenter: ''
 author: barlanmsft
 manager: femila
-editor: pblachar
+ms.reviewer: richagi
 
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication
@@ -28,7 +28,7 @@ This article helps you set up your **work or school account**. If you want to en
 
 ## Set up your account
 
-When your IT department requires you to start using two-step verification, you'll see a screen that says **Your admin has required that you set up this account for additional secuirty verification**:
+When your company support requires you to start using two-step verification, you'll see a screen that says **Your admin has required that you set up this account for additional security verification**:
 
 ![Setup](./media/multi-factor-authentication-end-user-first-time/first.png)
 

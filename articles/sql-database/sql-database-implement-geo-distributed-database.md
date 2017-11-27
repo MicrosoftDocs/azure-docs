@@ -14,7 +14,7 @@ ms.custom: mvc,business continuity
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: ''
+ms.workload: "On Demand"
 ms.date: 05/26/2017
 ms.author: carlrab
 

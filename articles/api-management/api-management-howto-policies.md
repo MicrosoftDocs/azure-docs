@@ -3,7 +3,7 @@ title: Policies in Azure API Management | Microsoft Docs
 description: Learn how to create, edit, and configure policies in API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
+author: vladvino
 manager: erikre
 editor: ''
 

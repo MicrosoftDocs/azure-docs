@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
 
 ---
@@ -56,13 +56,17 @@ For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](
 
 ## Which set of steps should I use?
 
-In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub), and another for [VNets that reside in different subscriptions](#difsub). The key difference between the sets is whether you can create and configure all virtual network and gateway resources within the same PowerShell session.
-
-The steps in this article use variables that are declared at the beginning of each section. If you already are working with existing VNets, modify the variables to reflect the settings in your own environment. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-## <a name="samesub"></a>How to connect VNets that are in the same subscription
+In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub). The steps for this configuration use TestVNet1 and TestVNet4.
 
 ![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+There is a separate article for [VNets that reside in different subscriptions](#difsub). The steps for that configuration use TestVNet1 and TestVNet5.
+
+![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+The key difference between the sets is whether you can create and configure all virtual network and gateway resources within the same PowerShell session. You must use separate PowerShell sessions when configuring the connections for VNets that reside in different subscriptions. You can combine configurations if you'd like, or just choose the one that you want to work with.
+
+## <a name="samesub"></a>How to connect VNets that are in the same subscription
 
 ### Before you begin
 
@@ -87,7 +91,7 @@ We use the following values in the examples:
 * Public IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (For VNets in different subscriptions)
 * ConnectionType: VNet2VNet
 
 **Values for TestVNet4:**
@@ -277,8 +281,6 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
 
 ## <a name="difsub"></a>How to connect VNets that are in different subscriptions
 
-![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
-
 In this scenario, we connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in a different subscription. The subscriptions do not need to be associated with the same Active Directory tenant. The difference between these steps and the previous set is that some of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription. Especially when the two subscriptions belong to different organizations.
 
 ### Step 5 - Create and configure TestVNet1
@@ -448,6 +450,7 @@ In this example, because the gateways are in the different subscriptions, we've 
   $vnet1gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet1gw.Name = "VNet1GW"
   $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
+  $Connection51 = "VNet5toVNet1"
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 

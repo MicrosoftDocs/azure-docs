@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/27/2016
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -109,7 +109,7 @@ The storage infrastructure underlying SAP HANA on Azure (Large Instances) suppor
 
 You can perform storage snapshots targeting three different classes of volumes:
 
-- A combined snapshot over /hana/data, /hana/log, and /hana/shared (includes /usr/sap). This snapshot requires the execution of an SAP HANA snapshot.
+- A combined snapshot over /hana/data, and /hana/shared (includes /usr/sap). This snapshot requires the creation of an SAP HANA snapshot as preparation for the storage snapshot. The SAP HANA snapshot will make sure that the database is in a consistent state from a storage point of view.
 - A separate snapshot over /hana/logbackups.
 - An OS partition (only for Type I of HANA Large Instances).
 
@@ -219,12 +219,12 @@ Enter the `hdbuserstore` command as follows:
 
 **For non MDC HANA setup**
 ```
-hdbuserstore set <key> <host><3[instance]15> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]15> <user> <password>
 ```
 
 **For MDC HANA setup**
 ```
-hdbuserstore set <key> <host><3[instance]13> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]13> <user> <password>
 ```
 
 In the following example, the user is **SCADMIN01**, the hostname is **lhanad01**, and the instance number is **01**:
@@ -383,7 +383,7 @@ As all the preparation steps are finished, you can start to configure the actual
 Three types of snapshot backups can be created:
 - **HANA**: Combined snapshot backup in which the volumes that contain /hana/data and /hana/shared (which contains /usr/sap as well) are covered by the coordinated snapshot. A single file restore is possible from this snapshot.
 - **Logs**: Snapshot backup of the /hana/logbackups volume. No HANA snapshot is triggered to execute this storage snapshot. This storage volume is the volume meant to contain the SAP HANA transaction-log backups. SAP HANA transaction-log backups are performed more frequently to restrict log growth and prevent potential data loss. A single file restore is possible from this snapshot. You should not lower the frequency to under five minutes.
-- **Boot**: Snapshot of the volume that contains the boot logical unit number (LUN) of the HANA Large Instance. This snapshot backup is possible only with the Type I SKUs of HANA Large Instances. You can't perform single file restores from the snapshot of the volume that contains the boot LUN.  
+- **Boot**: Snapshot of the volume that contains the boot logical unit number (LUN) of the HANA Large Instance. This snapshot backup is possible only with the Type I SKUs of HANA Large Instances. You can't perform single file restores from the snapshot of the volume that contains the boot LUN. For the Type II SKUs of HANA Large Instances, you can take the OS level backup, and restore the individual files as well. Refer the document “[How to Perform OS Backup for Type II SKUs](os-backup-type-ii-skus.md)” for more details.
 
 
 The call syntax for these three different types of snapshots looks like this:
