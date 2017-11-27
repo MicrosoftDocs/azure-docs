@@ -20,7 +20,7 @@ ms.author: gwallace
 
 # Transfer objects to/from Azure Blob storage using Azure Storage Explorer
 
-[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a multi platform user interfact used to manager the contents of your storage accounts. This guide details using Azure Storage Explorer to transfer files between local disk and Azure Blob storage.
+[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a multi platform user interface used to manager the contents of your storage accounts. This guide details using Azure Storage Explorer to transfer files between a local disk and Azure Blob storage.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
