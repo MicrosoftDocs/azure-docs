@@ -20,7 +20,7 @@ ms.author: nisoneji
 # Site Recovery Deployment planner capabilities
 
 You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following four modes: 
-1.	[Get VM list](site-recovery-hyper-v-deployment-planner-getvmlist.md) (only for Hyper-V environments)
+1.	[Get VM list](site-recovery-hyper-v-deployment-planner-getvmlist.md).
 2.	[Profiling](site-recovery-hyper-v-deployment-planner-profiling.md)
 3.	[Report generation](site-recovery-hyper-v-deployment-planner-generate-report.md)
 4.	[Get throughput](site-recovery-hyper-v-deployment-planner-get-throughput.md)
