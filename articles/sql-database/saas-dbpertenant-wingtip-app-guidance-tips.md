@@ -3,7 +3,7 @@ title: "Guidance for SQL Database multi-tenant app example - Wingtip SaaS | Micr
 description: "Provides steps and guidance for installing and running the sample multi-tenant application that uses Azure SQL Database, the Wingtip SaaS example."
 keywords: "sql database tutorial"
 services: "sql-database"
-author: "MightyPen"
+author: "ajlam"
 manager: "craigg"
 
 ms.service: "sql-database"
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: "na"
 ms.devlang: "na"
 ms.topic: "article"
 ms.date: "11/12/2017"
-ms.author: "genemi"
+ms.author: "andrela"
 ---
 # Guidance and tips for Azure SQL Database multi-tenant SaaS app example
 
