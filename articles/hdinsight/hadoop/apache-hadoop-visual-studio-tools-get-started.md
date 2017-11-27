@@ -30,7 +30,7 @@ Data Lake Tools for Visual Studio can be used to access both Data Lake Analytics
 
 To complete this tutorial and use the Data Lake Tools in Visual Studio, you need the following items:
 
-* An Azure HDInsight cluster: To create one, see [Get started using Hadoop in Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md). To learn how to run interactive Hive queries, you need a [HDInsight Interactive Query](../domain-joined/apache-hadoop-use-interactive-hive.md) cluster.
+* An Azure HDInsight cluster: To create one, see [Get started using Hadoop in Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md). To learn how to run interactive Hive queries, you need a [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md) cluster.
 * A workstation with  Visual Studio 2013/2015/2017.
     
     > [!NOTE]
@@ -99,11 +99,11 @@ After opening a container, you can use the following buttons to upload, delete, 
 ## Run interactive Hive queries
 [Apache Hive](http://hive.apache.org) is a data warehouse infrastructure built on Hadoop for providing data summarization, queries, and analysis. Data Lake Tools for Visual Studio supports running Hive queries from Visual Studio. For more information about Hive, see [Use Hive with HDInsight](hdinsight-use-hive.md).
 
-[Interactive Query](../interactive-query/apache-hadoop-use-interactive-hive.md) leverages [Hive on LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1 brings the interactivity to your complex data warehouse style queries on large datasets stored. Running Hive queries on Interactive Query is much faster comparing to the traditional Hive batch jobs.  For more information about running Hive batch jobs, see [Run Hive batch jobs](#run-hive-batch-jobs).
+[Interactive Query](../interactive-query/apache-interactive-query-get-started.md) leverages [Hive on LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1 brings the interactivity to your complex data warehouse style queries on large datasets stored. Running Hive queries on Interactive Query is much faster comparing to the traditional Hive batch jobs.  For more information about running Hive batch jobs, see [Run Hive batch jobs](#run-hive-batch-jobs).
 
 > [!note]
 >
-> Running interactive Hive queries is only supported when you connect to a [HDInsight Interactive Query](../interactive-query/apache-hadoop-use-interactive-hive.md) cluster.
+> Running interactive Hive queries is only supported when you connect to a [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md) cluster.
 
 Data Lake Tools for Visual Studio also enables users to see what’s inside the Hive job by collecting and surfacing the YARN logs of certain Hive jobs.
 
