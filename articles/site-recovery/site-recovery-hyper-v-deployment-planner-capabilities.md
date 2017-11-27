@@ -28,5 +28,5 @@ You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the follo
 First, run the tool to get the list of VMs from a single or multiple Hyper-V hosts.  Then run the tool in profiling mode to gather VM data churn and IOPS. Next, run the tool to generate the report to find the network bandwidth and storage requirements.
 
 # Next steps
-[Get the list of Hyper-V VMs](site-recovery-hyper-v-deployment-planner-getvmlist.md).
+[Get list of Hyper-V VMs](site-recovery-hyper-v-deployment-planner-getvmlist.md).
   

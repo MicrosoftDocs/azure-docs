@@ -147,7 +147,7 @@
         href: site-recovery-hyper-v-deployment-panner-download.md
       - name: Deployment planner capabilities
         href: site-recovery-hyper-v-deployment-planner-capabilities.md
-      - name: Get the list of VMs
+      - name: Get VM list
         href: site-recovery-hyper-v-deployment-planner-getvmlist.md
       - name: Pofiling 
         href: site-recovery-hyper-v-deployment-planner-profiling.md
