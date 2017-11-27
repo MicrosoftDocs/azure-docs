@@ -33,7 +33,7 @@ For an overview of SQL Data Sync (Preview), see [Sync data across multiple cloud
 
 -   **For deprovisioning**. Alter on tables part of sync; Select/ Delete on sync metadata tables; Control on sync tracking tables, stored procedures, and user-defined types.
 
-To use a single set of credentials for a database in the sync group:
+Azure SQL Database supports only a single set of credentials. To accomplish these tasks within this constraint, consider the following options:
 
 -   Change the credentials for different phases (for example, *credentials1* for setup and *credentials2* for ongoing).  
 -   Change the permission of the credentials (that is, change the permission after sync is set up).
