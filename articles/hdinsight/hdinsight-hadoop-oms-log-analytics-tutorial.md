@@ -64,15 +64,19 @@ In this section, you configure an existing HDInsight Hadoop cluster to use an Az
 
 You can enable Log Analytics using Azure PowerShell. The cmdlet is:
 
-        Enable-AzureRmHDInsightOperationsManagementSuite
+```powershell
+Enable-AzureRmHDInsightOperationsManagementSuite
+```
 
-    See [Enable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/Enable-AzureRmHDInsightOperationsManagementSuite?view=azurermps-5.0.0)
+See [Enable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/Enable-AzureRmHDInsightOperationsManagementSuite?view=azurermps-5.0.0).
 
 To disable, the cmdlet is 
 
-        Disable-AzureRmHDInsightOperationsManagementSuite
+```powershell
+Disable-AzureRmHDInsightOperationsManagementSuite
+```
 
-    See [Disable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/disable-azurermhdinsightoperationsmanagementsuite?view=azurermps-5.0.0)
+See [Disable-AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/disable-azurermhdinsightoperationsmanagementsuite?view=azurermps-5.0.0).
 
 
 ## Next steps
