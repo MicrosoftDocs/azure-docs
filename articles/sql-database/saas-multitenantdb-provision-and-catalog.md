@@ -149,7 +149,7 @@ The following are key elements of the workflow you step through while tracing th
 This exercise provisions a batch of 17 tenants. It’s recommended you provision this batch of tenants before starting other Wingtip Tickets tutorials so there are more databases to work with.
 
 
-1. In the *PowerShell ISE*, open ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*  and change the *$DemoScenario* parameter to 3:
+1. In the *PowerShell ISE*, open ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*  and change the *$DemoScenario* parameter to 4:
    * **$DemoScenario** = **4**, to *Provision a batch of tenants into a shared database*.
 1. Press **F5** and run the script.
 
@@ -161,18 +161,18 @@ At this stage you have a mix of tenants deployed into a shared database and tena
 
 While the Azure portal shows the tenant databases, it doesn't let you see the tenants *inside* the shared database. The full list of tenants can be seen in the Wingtip Tickets Events hub page and by browsing the catalog:   
 
-1. Open the Events Hub page in the browser (http:events.wingtip-mt.\<USER\>.trafficmanager.net)  
+**Using Wingtip Tickets events hub page** <br>
+Open the Events Hub page in the browser (http:events.wingtip-mt.\<USER\>.trafficmanager.net)  
 
-   The full list of tenants and their corresponding database is available in the catalog. A SQL view is provided in the tenantcatalog database that joins the tenant name stored in the Tenants table to database name in the Shard Management tables. This view nicely demonstrates the value of extending the metadata stored in the catalog.
+**Using catalog database** <br>
+The full list of tenants and their corresponding database is available in the catalog. A SQL view is provided in the tenantcatalog database that joins the tenant name stored in the Tenants table to database name in the Shard Management tables. This view nicely demonstrates the value of extending the metadata stored in the catalog.
 
-
-* In *SQL Server Management Studio (SSMS)* connect to the tenants server at **catalog-mt.\<USER\>.database.windows.net**, with Login: **developer**, Password: **P@ssword1**
-
+1. In *SQL Server Management Studio (SSMS)* connect to the tenants server at **catalog-mt.\<USER\>.database.windows.net**, with Login: **developer**, Password: **P@ssword1**
 
     ![SSMS connection dialog](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. In the *Object Explorer*, browse to the views in the *tenantcatalog* database.
-2. Right click on the view *TenantsExtended* and choose **Select Top 1000 Rows**. Note the mapping between tenant name and database for the different tenants.
+1. In the *Object Explorer*, browse to the views in the *tenantcatalog* database.
+1. Right click on the view *TenantsExtended* and choose **Select Top 1000 Rows**. Note the mapping between tenant name and database for the different tenants.
 
     ![ExtendedTenants view in SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
       
