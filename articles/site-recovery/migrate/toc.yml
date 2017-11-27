@@ -38,6 +38,7 @@
   - name: FAQ
     href: ../site-recovery-faq.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
 - name: How-to Guides
+  items:
   - name: Migration
     items:
     - name: Migrate Azure VMs to another region
