@@ -1,6 +1,6 @@
 ---
 title: Azure Storage migration FAQ | Microsoft Docs
-description: Anwesers the commonad  questions about migrating Azure Storage
+description: Answers to common questions about migrating Azure Storage
 services: storage
 documentationcenter: na
 author: genlin
@@ -76,12 +76,10 @@ how to use AzCopy to move the container:
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-- /source: provide source storage account URI (up to container)  
-- /dest: provide target storage account URI (up to container)  
-- /sourcekey: provide source storage account primary key, you can copy
-this key from the portal by selecting the storage account.  
-- /destkey: provide target storage account primary key , you can copy
-this key from the portal by selecting the storage account.
+        - /source: provide source storage account URI (up to container)  
+        - /dest: provide target storage account URI (up to container)  
+        - /sourcekey: provide source storage account primary key, you can copy this key from the portal by selecting the storage account.  
+        - /destkey: provide target storage account primary key , you can copy this key from the portal by selecting the storage account.
 
 After you execute this command, the container files are moved to the
 target storage account.
@@ -252,7 +250,7 @@ Linux](storage-use-azcopy-linux.md).
 
 After you enable encryption in the storage account, the existing data is not encrypted. To encrypt the existing data, you must upload again to the data to the storage account.  To do this, follow these steps:
 
-Use *AZcopy* to copy the data to a different storage account and then
+Use AZcopy to copy the data to a different storage account and then
 move back to a storage account. You can also use [Encryption at
 Rest](storage-service-encryption.md).
 
