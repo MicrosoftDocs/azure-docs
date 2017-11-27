@@ -20,7 +20,7 @@ sections:
 - title: 5-minute quickstarts
   items:
   - type: paragraph
-    text: 'Launch a map search app using Azure Location Based Services (preview)'
+    text: 'Launch a map search app using Azure Location Based Services (preview).'
   - type: list
     style: icon48
     items: 
