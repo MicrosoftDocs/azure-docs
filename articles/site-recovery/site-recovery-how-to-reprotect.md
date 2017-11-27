@@ -60,6 +60,9 @@ When you prepare to reprotect virtual machines, take or consider the following p
     * [A Linux virtual machine needs a Linux master target server](site-recovery-how-to-install-linux-master-target.md).
     * A Windows virtual machine needs a Windows master target server. You can use the on-premises process server and master target machines again.
 
+> [!NOTE]
+> All virtual machines of a replication group should be of the same operating system type (either all Windows or all Linux). A replication group with mixed operating systems is currently not supported for reprotect and failback to on-premises. This is because the master target should be of the same operating system as the virtual machine and all the virtual machines of a replication group should have the same master target. 
+
     The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 * A configuration server is required on-premises when you fail back. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback is unsuccessful. 
