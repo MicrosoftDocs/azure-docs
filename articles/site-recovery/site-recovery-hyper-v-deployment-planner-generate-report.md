@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery deployment planner generate report details for  Hyper-V-to-Azure| Microsoft Docs
-description: This article explains how to generate report  using Azure Site Recovery deployment planner for Hyper-V to Azure scenario.
+description: This article describes how to generate report  using Azure Site Recovery deployment planner for Hyper-V to Azure scenario.
 services: site-recovery
 documentationcenter: ''
 author: nsoneji
@@ -21,18 +21,20 @@ ms.author: nisoneji
 # Generate report for Hyper-V to Azure scenario
 
 The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output, which summarizes all the deployment recommendations. The report is named DeploymentPlannerReport_<unique numeric identifier>.xlsm and placed in the specified directory.
-After profiling is complete, you can run the tool in report-generation mode. The following table contains a list of mandatory and optional tool parameters to run in report-generation mode.
+After profiling is complete, you can run the tool in report-generation mode. 
 
+## Command-line parameters
+The following table contains a list of mandatory and optional tool parameters to run in report-generation mode. The tool is common for both VMware to Azure and Hyper-V to Azure scenarios. The following parameters are applicable for Hyper-V.
+```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
-
+```
 | Parameter name | Description |
 |---|---|
 | -Operation | GenerateReport |
 |-VMListFile | The file that contains the list of profiled VMs that the report is to be generated for. The file path can be absolute or relative. For Hyper-V, this file is the output file of the GetVMList operation. If you are preparing manually, the file should contain one server name or IP address followed by VM name separated by a \ per line. VM name specified in the file should be the same as the VM name on the Hyper-V host.<ul>Example: File "VMList.txt" contains the following VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Virtualization|Specify the virtualization type (VMware or Hyper-V).|
 |-Directory|(Optional) The universal naming convention (UNC) or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a name isn't specified, the directory named 'ProfiledData' under the current path will be used as the default directory.|
-| -User | (Optional) User name to connect to the Hyper-V host or Hyper-V cluster. User needs to have administrative access.
-This user and password are used to fetch the latest configuration information of the VMs like number of disks, number of cores, number of NICs, etc. to use in the report. If not provided, configuration information collected during profiling is used.|
+| -User | (Optional) User name to connect to the Hyper-V host or Hyper-V cluster. User needs to have administrative access.<br>User and password are used to fetch the latest configuration information of the VMs like number of disks, number of cores, number of NICs, etc. to use in the report. If not provided, configuration information collected during profiling is used.|
 |-Password|(Optional) The password to connect to Hyper-V host. If not specified now, you will be prompted for it later during the execution of the command.|
 | -DesiredRPO | (Optional) The desired recovery point objective, in minutes. The default is 15 minutes.|
 | -StartDate | (Optional) The start date and time in MM-DD-YYYY:HH:MM (24-hour format). *StartDate* must be specified along with *EndDate*. When StartDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
@@ -40,12 +42,10 @@ This user and password are used to fetch the latest configuration information of
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
 | -UseManagedDisks | (Optional) UseManagedDisks - Yes/No. Default is Yes. The number of virtual machines that can be placed into a single storage account is calculated considering whether Failover/Test failover of virtual machines is done on managed disk instead of unmanaged disk. |
 |-SubscriptionId |(Optional) The subscription GUID. Use this parameter to generate the cost estimation report with the latest price based on your subscription, the offer that is associated with your subscription and for your specific target Azure region in the specified currency.|
-|-TargetRegion|(Optional) The Azure region where replication is targeted. Since Azure has different costs per region, to generate report with specific target Azure region use this parameter. 
-Default is WestUS2 or the last used target region. 
-Refer to https://aka.ms/asr-dp-supported-azure-regions  for the list of supported target regions.|
+|-TargetRegion|(Optional) The Azure region where replication is targeted. Since Azure has different costs per region, to generate report with specific target Azure region use this parameter.<br>Default is WestUS2 or the last used target region.<br>Refer to https://aka.ms/asr-dp-supported-azure-regions  for the list of supported target regions.|
 |-OfferId|(Optional) The offer associated with the give subscription.
 Default is MS-AZR-0003P (Pay-As-You-Go).|
-|-Currency|(Optional) The currency in which cost is shown in the generated report. Default is US Dollar ($) or the last used currency. Refer to https://aka.ms/asr-dp-supported-currencies for the list of supported currencies.|
+|-Currency|(Optional) The currency in which cost is shown in the generated report. Default is US Dollar ($) or the last used currency.<br>Refer to https://aka.ms/asr-dp-supported-currencies for the list of supported currencies.|
 
 ## Examples
 

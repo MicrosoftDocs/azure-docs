@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery deployment planner capabilites for VMware to Azure and Hyper-V-to-Azure| Microsoft Docs
-description: This article explains how to get list of Hyper-V VMs for profiling using Azure Site Recovery deployment planner for Hyper-V to Azure scenario.
+title: Azure Site Recovery deployment planner  get vm list details for Hyper-V-to-Azure| Microsoft Docs
+description: This article describes how to get list of Hyper-V VMs for profiling using Azure Site Recovery deployment planner for Hyper-V to Azure scenario.
 services: site-recovery
 documentationcenter: ''
 author: nsoneji
@@ -18,16 +18,17 @@ ms.author: nisoneji
 
 ---
 
-# Get VM list
+# Get VM list for profiling Hyper-V VMs
 
 First, you need a list of the VMs to be profiled. Use GetVMList mode of the deployment planner tool to generate the list of VMs present on multiple Hyper-V hosts in a single command. Once you generate the complete list, you can remove VMs that you don’t want to profile from the output file. Then use the output file for all other operations - profiling, report generation and get throughput.
 
 You can generate the VM list pointing the tool to a Hyper-V cluster or a standalone Hyper-V host or a combination of all.
 
-Here is the list of mandatory and optional parameters of the tool to run in GetVMList mode. 
-
+## Command-line parameters
+The following table contains a list of mandatory and optional parameters of the tool to run in GetVMList mode. 
+```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
-
+```
 | Parameter name | Description |
 |---|---|
 | -Operation | GetVMList |

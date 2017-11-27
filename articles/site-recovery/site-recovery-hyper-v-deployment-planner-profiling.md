@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery deployment planner profiling details for  Hyper-V-to-Azure| Microsoft Docs
-description: This article explains how to profile Hyper-V VMs using Azure Site Recovery deployment planner for Hyper-V to Azure scenario.
+description: This article describes how to profile Hyper-V VMs using Azure Site Recovery deployment planner for Hyper-V to Azure scenario.
 services: site-recovery
 documentationcenter: ''
 author: nsoneji
@@ -31,11 +31,11 @@ Refer to [GetVMList](site-recovery-hyper-v-deployment-planner-getvmlist.md) oper
 
 After you have the list of VMs to be profiled, you can run the tool in profiling mode. 
 
-## Command-line parameters for profiling
-Here is the list of mandatory and optional parameters of the tool to run in profiling mode. The tool is common for both VMware to Azure and Hyper-V to Azure scenario. The following parameters are applicable for Hyper-V. 
-
+## Command-line parameters
+The following table contains a list of mandatory and optional parameters of the tool to run in profiling mode. The tool is common for both VMware to Azure and Hyper-V to Azure scenarios. The following parameters are applicable for Hyper-V. 
+```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
-
+```
 | Parameter name | Description |
 |---|---|
 | -Operation | StartProfiling |
