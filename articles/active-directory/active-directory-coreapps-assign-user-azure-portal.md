@@ -66,9 +66,7 @@ To assign a user or group to an enterprise app, you must have the appropriate pe
 		
 		# Assign the user to the app role
 		New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
-        ```
-
-	
+        ```	
 
 For more information about how to assign a user to an application role visit the documentation for [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
@@ -84,7 +82,6 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
 		$app_name = "Workplace Analytics"
         ```
 
-
 2. In this example, we don't know what is the exact name of the application role we want to assign to Britta Simon. Run the following commands to get the user ($user) and the service principal ($sp) using the user UPN and the service principal display names.
 
 		```powershell
@@ -92,7 +89,6 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
 		$user = Get-AzureADUser -ObjectId "$username"
 		$sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
         ```
-
 		
 3. Run the command `$sp.AppRoles` to display the roles available for the Workplace Analytics application. In this example, we want to assign Britta Simon the Analyst (Limited access) Role.
 	
