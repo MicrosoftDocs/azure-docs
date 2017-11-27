@@ -17,7 +17,7 @@ The main concepts in Azure Event Grid are:
 
 ## Events
 
-An event is the smallest amount of information that fully describes something that happened in the system.  Every event has common information like: source of the event, time the event took place, and unique identifier.  Every event also has specific information that is only relevant to the specific type event. For example, an event about a new file being created in Azure Storage contains details about the file, such as the `lastTimeModified` value. Or, an event about a virtual machine rebooting contains the name of the virtual machine, and the reason for reboot. Each event is limited to 64 KB of data.
+An event is the smallest amount of information that fully describes something that happened in the system.  Every event has common information like: source of the event, time the event took place, and unique identifier.  Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage contains details about the file, such as the `lastTimeModified` value. Or, an event about a virtual machine rebooting contains the name of the virtual machine, and the reason for reboot. Each event is limited to 64 KB of data.
 
 ## Event sources/publishers
 
