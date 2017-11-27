@@ -122,8 +122,6 @@
   items:
   - name: Create a storage account
     href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Authenticating requests to the Azure Storage REST API
-    href: ../common/storage-using-rest-api-including-authentication.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Develop
     items:
     - name: .NET
@@ -154,6 +152,8 @@
         href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Java
         href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Authenticating requests to the Azure Storage REST API
+      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Manage
     items:
     - name: PowerShell for Azure Blobs

@@ -89,7 +89,7 @@ This section lists the required and optional request headers. Three of the heade
 There is no request body for ListContainers. Request Body is used on all of the PUT operations when uploading blobs, as well as SetContainerAccessPolicy, which allows you to send in an XML list of stored access policies to apply. Stored access policies are discussed in the article [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 [Response Status Code](/rest/api/storageservices/fileservices/List-Containers2#status-code)**:**
-Tells of any status codes you need to know. In this example, an HTTP status code of 200 is ok. For a complete list of HTTP status codes, check out [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+Tells of any status codes you need to know. In this example, an HTTP status code of 200 is ok. For a complete list of HTTP status codes, check out [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). To see error codes specific to the Storage REST APIs, see [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes)
 
 [Response Headers](/rest/api/storageservices/fileservices/List-Containers2#response-headers)**:**
 These include *Content Type*; *x-ms-request-id* (the request id you passed in, if applicable); *x-ms-version* (indicates the version of the Blob service used), and the *Date* (UTC, tells what time the request was made).
@@ -99,7 +99,7 @@ This field is an XML structure providing the data requested. In this example, th
 
 ## Creating the REST request
 
-A couple of notes before starting – for security, always use HTTPS rather than HTTP. Also, you may want to download [Fiddler](http://www.telerik.com/fiddler) (or a similar application) so you can examine the request and response of the REST calls. In the Visual Studio solution, the storage account name and key are hardcoded in the class, and the ListContainersAsyncREST method passes the storage account name and storage account key to the methods that are used to create the various components of the REST request. In a real world application, the storage account name and key would reside in a configuration file or be retrieved from an Azure Key Vault.
+A couple of notes before starting – for security when running in production, always use HTTPS rather than HTTP. For the purposes of this exercise, you should use HTTP so you can view the request and response data. To view the request and response information in the actual REST calls, you can download [Fiddler](http://www.telerik.com/fiddler) or a similar application. In the Visual Studio solution, the storage account name and key are hardcoded in the class, and the ListContainersAsyncREST method passes the storage account name and storage account key to the methods that are used to create the various components of the REST request. In a real world application, the storage account name and key would reside in a configuration file, environment variables, or be retrieved from an Azure Key Vault.
 
 In our sample project, the code for creating the Authorization header is in a separate class, with the idea that you could take the whole class and add it to your own solution and use it "as is." The Authorization header code works for most REST API calls to Azure Storage.
 
@@ -151,7 +151,7 @@ Add the request headers for x-ms-date and x-ms-version. This place in the code i
     //   the authorization header. 
 ```
 
-Call a method to get the authorization header and add it to the request headers. You’ll see how to create the authorization header later in the article. The method name is GetAuthorizationHeader, which you can see in this code snippet:
+Call the method that creates the authorization header and add it to the request headers. You’ll see how to create the authorization header later in the article. The method name is GetAuthorizationHeader, which you can see in this code snippet:
 
 ```csharp
     // Get the authorization header and add it.
