@@ -28,7 +28,7 @@ When you have an application that must access Time Series Insights, you must set
 * You don't have to change the app's credentials if your responsibilities change.
 * You can use a certificate or an application key to automate authentication when you're running an unattended script.
 
-This topic shows how to perform those steps through the Azure portal. It focuses on a single-tenant application where the application is intended to run in only one organization. You typically use single-tenant applications for line-of-business applications that run in your organization.
+This article shows how to perform those steps through the Azure portal. It focuses on a single-tenant application where the application is intended to run in only one organization. You typically use single-tenant applications for line-of-business applications that run in your organization.
 
 The setup flow consists of three high-level steps:
 
