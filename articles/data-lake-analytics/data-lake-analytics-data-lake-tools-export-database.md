@@ -20,13 +20,13 @@ ms.author: yanacai
 
 # How to export U-SQL database
 
-In this document, we will introduce how to use [Azure Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs) to export U-SQL database as a single U-SQL script and downloaded resources. Importing the database to local account is also supported in the same process.
+In this document, we will introduce how to use [Azure Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs) to export U-SQL database as a single U-SQL script and downloaded resources. Importing the exported database to local account is also supported in the same process.
 
-Customers usually maintain multiple environments for development, test and production. These environments are hosted on both local account on developers local machine and Azure Data Lake Analytics account on Azure. When developing and tunning U-SQL queries on development and test environments, it is very common that developers need to recreate everything in the production database. **Database Export Wizard** helps accelerate this process. By using the wizard, developers can clone the existing database environment and sample data to other Azure Data Lake Analytics account.
+Customers usually maintain multiple environments for development, test and production. These environments are hosted on both local account on developers' local machine and Azure Data Lake Analytics account on Azure. When developing and tunning U-SQL queries on development and test environments, it is very common that developers need to recreate everything in production database. **Database Export Wizard** helps accelerate this process. By using the wizard, developers can clone the existing database environment and sample data to other Azure Data Lake Analytics accounts.
 
-## Step 1: Right click your database in Server Explorer and click "Export..."
+## Step 1: Right click the database in Server Explorer and click "Export..."
 
-All Azure Data Lake Analytics accounts you have permission to are listed in Server Explorer. Expand the one contains the database you want to export, and right click the database to export. If you don't find the context menu, please [update the tool to the lasted release](http://aka.ms/adltoolsvs).
+All Azure Data Lake Analytics accounts you have permission to are listed in Server Explorer. Expand the one contains the database you want to export, and right click the database to choose **Export...**. If you don't find the context menu, please [update the tool to the lasted release](http://aka.ms/adltoolsvs).
 
 ![Data Lake Analytics Tools Export Database](./media/data-lake-analytics-data-lake-tools-export-database/export-database.png)
 
@@ -40,9 +40,10 @@ Sometimes a database is very large but you just need a small part of it, then yo
 
 In this step, you can double check the selected objects at the top of the dialog. If there are some errors, you can click Previous to go back and configure the objects you want to export again.
 
-You can also do other configurations about export target, the detail definition of these configurations are listed in below table:
+You can also do other configurations about export target, the description of these configurations are listed in below table:
 
 |Configuration|Description|
+|-------------|-----------|
 |Destination Name|This name indicates where you want to save the exported database resources, like assemblies, additional files and sample data. A folder with this name will be created under your local data root folder.|
 |Project Directory|This path defines where you want to save the exported U-SQL script which includes all database object definitions.|
 |Schema Only|Selecting this option results in only database definitions and resources (like assemblies and additional files) being exported.|
@@ -65,8 +66,8 @@ The most convenient way to do this is checking **Import to Local Database Automa
 
 To import the database to other Azure Data Lake Analytics account, you need 2 steps:
 
-1. Upload the exported resources including assemblies, additional files and sample data to your default Azure Data Lake Store account. You can find the exported resource folder under the local data root folder, and upload the entire folder to the root of the default store account.
-2. Submit the exported U-SQL script to the Azure Data Lake Analytics account you want to import database to.
+1. Upload the exported resources including assemblies, additional files and sample data to the default Azure Data Lake Store account of the Azure Data Lake Analytics account you want to import to. To do this, you can find the exported resource folder under the local data root folder, and upload the entire folder to the root of the default store account.
+2. Submit the exported U-SQL script to the Azure Data Lake Analytics account you want to import database to after uploading completed.
 
 ## Known limitation
 
