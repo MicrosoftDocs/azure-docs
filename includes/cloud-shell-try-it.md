@@ -9,7 +9,7 @@ There are two ways to launch the Cloud Shell:
 	[![Cloud Shell in the portal](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
 
 - Click **Try-it** in the upper right corner of a code block.
-	![Cloud Shell in this topic](./media/cloud-shell-powershell/cli-try-it.png)]
+	![Cloud Shell in this topic](./media/cloud-shell-try-it/cli-try-it.png)]
 
 
 
