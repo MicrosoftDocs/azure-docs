@@ -183,7 +183,7 @@ In this section, you create a self-hosted integration runtime, and associate it 
     ```powershell
    $integrationRuntimeName = "<your integration runtime name>"
     ```
-1. Create a self-hosted integration runtime. Use a unique name in case if another integration runtime with the same name exists.
+1. Create a self-hosted integration runtime. Use a unique name in case if another integration runtime with the same name exists. 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -280,6 +280,7 @@ In this section, you create a self-hosted integration runtime, and associate it 
     - Enter **user** name. 
     - Enter **password** for the user name.
     - Click **Test** to confirm that integration runtime can connect to the SQL Server. You see a green check mark if the connection is successful. Otherwise, you see an error message associated with the failure. Fix any issues and ensure that the integration runtime can connect to your SQL Server.
+    - Note down these values (authentication type, server, database, user, password). You use them later in this tutorial. 
     
       
 ## Create linked services
@@ -291,7 +292,7 @@ In this step, you link your Azure Storage Account to the data factory.
 1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Create the folder ADFv2Tutorial if it does not already exist.  
 
     > [!IMPORTANT]
-    > Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before saving the file.
+    > Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your **Azure storage account** before saving the file. You took a note of them as part of the [prerequisites](#get-storage-account-name-and-account-key).
 
    ```json
 	{
@@ -307,6 +308,8 @@ In this step, you link your Azure Storage Account to the data factory.
 		"name": "AzureStorageLinkedService"
 	}
    ```
+
+    If you are using Notepad, select **All files** for the **Save as type** filed in the **Save as** dialog box. Otherwise, it may add `.txt` extension to the file. For example, `AzureStorageLinkedService.json.txt`. If you create the file in File Explorer before opening it in Notepad, you may not see the `.txt` extension since the **Hide extensions for known files types** option is set by default. Remove the `.txt` extension before proceeding to the next step. 
 2. In **Azure PowerShell**, switch to the **C:\ADFv2Tutorial** folder.
 
    Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. 
@@ -323,6 +326,8 @@ In this step, you link your Azure Storage Account to the data factory.
     DataFactoryName   : onpremdf0914
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
+
+    If you receive a "file not found" error. Run the `dir` command to confirm that the file exists. If the file name has `.txt` extension (for example, AzureStorageLinkedService.json.txt), remove it, and then run the PowerShell command again. 
 
 ### Create and encrypt a SQL Server linked service (source)
 In this step, you link your on-premises SQL Server to the data factory.
@@ -363,7 +368,7 @@ In this step, you link your on-premises SQL Server to the data factory.
                     "type": "SecureString",
                     "value": "Server=<server>;Database=<database>;Integrated Security=True"
                 },
-                "userName": "<domain>\\<user>",
+                "userName": "<user> or <domain>\\<user>",
                 "password": {
                     "type": "SecureString",
                     "value": "<password>"
