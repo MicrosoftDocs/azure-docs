@@ -149,7 +149,7 @@
         href: site-recovery-hyper-v-deployment-planner-capabilities.md
       - name: Get VM list
         href: site-recovery-hyper-v-deployment-planner-getvmlist.md
-      - name: Pofiling 
+      - name: Profiling 
         href: site-recovery-hyper-v-deployment-planner-profiling.md
       - name: Generate report 
         href: site-recovery-hyper-v-deployment-planner-generate-report.md
