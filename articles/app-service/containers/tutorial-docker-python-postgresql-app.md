@@ -5,12 +5,8 @@ services: app-service\web
 documentationcenter: python
 author: berndverst
 manager: erikre
-editor: ''
-
-ms.assetid: 2bada123-ef18-44e5-be71-e16323b20466
 ms.service: app-service-web
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 05/03/2017
@@ -142,7 +138,7 @@ Use the [az appservice list-locations](/cli/azure/appservice#list-locations) Azu
 
 ### Create an Azure Database for PostgreSQL server
 
-Create a PostgreSQL server with the [az postgres server create](/cli/azure/documentdb#create) command.
+Create a PostgreSQL server with the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command.
 
 In the following command, substitute a unique server name for the *\<postgresql_name>* placeholder and a user name for the *\<admin_username>* placeholder. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure. The user name is for the initial database admin user account. You are prompted to pick a password for this user.
 
