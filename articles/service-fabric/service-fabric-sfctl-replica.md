@@ -26,8 +26,7 @@ Manage the replicas that belong to service partitions.
 | --- | --- |
 |    deployed  | Gets the details of replica deployed on a Service Fabric node.|
 |    deployed-list| Gets the list of replicas deployed on a Service Fabric node.|
-|    health    | Gets the health of a Service Fabric stateful service replica or stateless service
-                   instance.|
+|    health    | Gets the health of a Service Fabric stateful service replica or stateless service instance.|
 |    info      | Gets the information about a replica of a Service Fabric partition.|
 |    list      | Gets the information about replicas of a Service Fabric service partition.|
 |    remove    | Removes a service replica running on a node.|
