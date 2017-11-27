@@ -84,7 +84,7 @@ The management scripts and application source code are available in the [Wingtip
 
 To understand how the Wingtip Tickets application implements new tenant provisioning with a multi-tenant database, add a breakpoint and step through the workflow while provisioning a tenant in a shared database with other tenants:
 
-1. In the _PowerShell ISE_, open ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ and set the following parameters:
+1. In the _PowerShell ISE_, open ...\\Learning Modules\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_ and set the following parameters:
    * **$TenantName** = **Bushwillow Blues**, the name of a new venue.
    * **$VenueType** = **blues**, one of the pre-defined venue types: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (lower case, no spaces).
    * **$DemoScenario** = **1**, to *Provision a tenant in a shared database with other tenants*.
@@ -118,10 +118,10 @@ The following are key elements of the workflow you step through while tracing th
 
 Now walkthrough the process when creating a tenant in its own database:
 
-1. Still in ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ set the following parameters:
+1. Still in ...\\Learning Modules\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_ set the following parameters:
    * **$TenantName** = **Sequoia Soccer**, the name of a new venue.
    * **$VenueType** = **soccer**, one of the pre-defined venue types: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (lower case, no spaces).
-   * **$DemoScenario** = **2**, to *Provision a tenant in a shared database with other tenants*.
+   * **$DemoScenario** = **2**, to *Provision a tenant into its own database*.
 
 1. Add a new breakpoint by putting your cursor anywhere on line 57, the line that says: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `*, and press **F9**.
 
@@ -149,15 +149,13 @@ The following are key elements of the workflow you step through while tracing th
 
 This exercise quickly  provisions a batch of 17 tenants. It’s recommended you provision this batch of tenants before starting other Wingtip Tickets tutorials, so there's more than just a few databases to work with.
 
-1. In the *PowerShell ISE*, open ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*  and change the *$DemoScenario* parameter to 3:
-   * **$DemoScenario** = **3**, to *Provision a batch of tenants into a shared database*.
+1. In the *PowerShell ISE*, open ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*  and change the *$DemoScenario* parameter to 3:
+   * **$DemoScenario** = **4**, to *Provision a batch of tenants into a shared database*.
 1. Press **F5** and run the script.
 
 
 ### Verify the deployed set of tenants 
-At this stage you have a mix of tenants deployed into a shared database and tenants deployed into their own databases. The Azure portal can be used to inspect the databases created:  
-
-* In the [Azure portal](https://portal.azure.com), open the **tenants1-mt-\<USER\>** server by browsing to the list of SQL servers.  The **SQL databases** list should include the shared **tenants1** database and the databases for the tenants that are in their own database:
+At this stage you have a mix of tenants deployed into a shared database and tenants deployed into their own databases. The Azure portal can be used to inspect the databases created. In the [Azure portal](https://portal.azure.com), open the **tenants1-mt-\<USER\>** server by browsing to the list of SQL servers.  The **SQL databases** list should include the shared **tenants1** database and the databases for the tenants that are in their own database:
 
    ![database list](media/saas-multitenantdb-provision-and-catalog/databases.png)
 
@@ -167,7 +165,7 @@ While the Azure portal shows the tenant databases, it let's you see the tenants 
 
 The full list of tenants and their corresponding database is available in the catalog. A SQL view is provided in the tenantcatalog database that joins the tenant name stored in the Tenants table to database name in the Shard Management tables. This view nicely demonstrates the value of extending the metadata stored in the catalog.
 
-* In *SQL Server Management Studio (SSMS)* connect to the tenants server at **tenants1-mt.\<USER\>.database.windows.net**, with Login: **developer**, Password: **P@ssword1**
+* In *SQL Server Management Studio (SSMS)* connect to the tenants server at **catalog-mt.\<USER\>.database.windows.net**, with Login: **developer**, Password: **P@ssword1**
 
     ![SSMS connection dialog](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
