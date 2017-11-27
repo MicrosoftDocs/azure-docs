@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 11/27/2017
 ms.author: apimpm
 
 ---
@@ -98,7 +98,7 @@ The steps in this section show how to create a blank API with no backend. It als
 3. Select **Send** to make a test call.
 4. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial.
 
-## View video
+## Video
 
 > [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
 > 
