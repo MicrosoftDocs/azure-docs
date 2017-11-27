@@ -170,7 +170,7 @@
       - name: On-premises storage requirement   
         href: site-recovery-hyper-v-deployment-planner-on-premises-storage-requirement.md
       - name: IR batching   
-        href: site-recovery-hyper-v-deployment-planner-ir-batchting.md
+        href: site-recovery-hyper-v-deployment-planner-ir-batching.md
       - name: Cost estimation   
         href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
       - name: Updating the deployment planner   
