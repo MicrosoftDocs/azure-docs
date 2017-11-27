@@ -95,7 +95,7 @@ your deployment. Do not insert the full URI here but just the *wss* protocol sch
 > [!NOTE]
 > Ensure that you use the correct URI for this protocol. The required scheme is *wss* (not *http* as in the client protocol). 
 
-For more information, see the [Bing Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedjswebsockets) documentation.
+For more information, see the [Bing Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedclientlibraries) documentation.
 
 ## Send requests by using HTTP
 
