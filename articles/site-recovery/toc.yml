@@ -143,9 +143,9 @@
         href: site-recovery-deployment-planner-support-matrix.md
       - name: Requirements
         href: site-recovery-hyper-v-deployment-planner-requirements.md
-      - name: Download and extract the deployment planner tool
+      - name: Download
         href: site-recovery-hyper-v-deployment-panner-download.md
-      - name: Deployment planner capabilities
+      - name: Capabilities
         href: site-recovery-hyper-v-deployment-planner-capabilities.md
       - name: Get VM list
         href: site-recovery-hyper-v-deployment-planner-getvmlist.md
