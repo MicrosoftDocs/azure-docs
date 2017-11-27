@@ -26,11 +26,11 @@ Our diagnostics tools help ensure the log collection mechanism is easy and effic
  
 ## Trace Collector
  
-The Trace Collector is enabled by default and runs continuously in the background to collect all Event Tracing for Windows (ETW) logs from Azure Stack component services. ETW logs are stored in a common local share with a five day age limit. Once this limit is reached, the oldest files are deleted as new ones are created. The default maximum size allowed for each file  is 200MB. A size check occurs periodically (currently every 2 minutes) and if the current file is >= 200 MB, it is saved and a new file is generated. There is also an 8GB  limit on the total file size generated per event session. 
+The Trace Collector is enabled by default and runs continuously in the background to collect all Event Tracing for Windows (ETW) logs from Azure Stack component services. ETW logs are stored in a common local share with a five day age limit. Once this limit is reached, the oldest files are deleted as new ones are created. The default maximum size allowed for each file  is 200MB. A size check occurs periodically (every 2 minutes) and if the current file is >= 200 MB, it is saved and a new file is generated. There is also an 8GB  limit on the total file size generated per event session. 
 
 ## Log collection tool
  
-The PowerShell command **Get-AzureStackLog** can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user-defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
+The PowerShell cmdlet **Get-AzureStackLog** can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user-defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
 
 > [!CAUTION]
 > These log files may contain personally identifiable information (PII). Take this into account before you publicly post any log files.
@@ -43,14 +43,14 @@ The following are some example log types that are collected:
 *	**Storage diagnostic logs**
 *	**ETW logs**
 
-These files are collected by the Trace Collector and stored in a share from where **Get-AzureStackLog** retrieves them.
+These files are collected and saved in a share by Trace Collector. The  **Get-AzureStackLog** PowerShell cmdlet can then be used to collect them when necessary.
  
 ### To run Get-AzureStackLog on an Azure Stack Development Kit (ASDK) system
 1. Log in as **AzureStack\CloudAdmin** on the host.
 2. Open a PowerShell window as an administrator.
 3. Run the **Get-AzureStackLog** PowerShell cmdlet.
 
-**Examples**
+**Examples:**
 
   Collect all logs for all roles:
 
