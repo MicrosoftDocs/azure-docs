@@ -77,9 +77,9 @@ Check that the .OVA file is secure, before you deploy it.
 
     **Algorithm** | **Hash value**
     --- | ---
-    MD5 | c283f00f46484bf673dc8383b01d0741 
-    SHA1 | 8f49b47f53d051af1780bbc725659ce64e717ed4
-    SHA256 | 7aecdbdb2aea712efe99d0c1444503f52d16de5768e783465e226fbbca71501d
+    MD5 | dd27dd6ace28f9195a2b5d52a4003067 
+    SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
+    SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
 
 ## Create the collector VM
 
