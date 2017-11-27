@@ -25,8 +25,8 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: media/index/http.svg
-      text: HTTP
+        src: /azure/sql-database/media/index/portal.svg
+      text: Launch demo map app
       href: /azure/location-based-services/quick-demo-map-app
 - title: Step-by-step tutorials
   items:
