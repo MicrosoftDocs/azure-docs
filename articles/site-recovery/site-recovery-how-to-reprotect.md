@@ -171,6 +171,8 @@ Currently, Azure Site Recovery supports failing back only to a virtual machine f
 
 * The master target cannot have a Paravirtual SCSI controller. The controller can only be an LSI Logic controller. Without an LSI Logic controller, reprotection fails.
 
+* At any given instance, the master target can have atmst 60 disks attached to it. If the number of virtual machines being reprotected to the on-premises master target have a sum total number of disks more than 60, then reprotects to the master target will start failing. Ensure that you have enough master target disk slots or deploy additional master target servers.
+
 <!--
 ### Failback policy
 To replicate back to on-premises, you will need a failback policy. This policy get automatically created when you create a forward direction policy. Note that
