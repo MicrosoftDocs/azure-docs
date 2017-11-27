@@ -37,7 +37,7 @@ Make sure you've copied and pasted the right information. To troubleshoot, insta
 7. Verify that the agent can connect to the project. If it can't, verify the settings. If the agent can connect but the collector can't, contact Support.
 
 
-**I installed the agent as described in the previous issue, but when I connect to the project I get a date and time synchronization error.**
+**Error 802: I get a date and time synchronization error.**
 
 The server clock might be out-of-synchronization with the current time by more than five minutes. Change the clock time on the collector VM to match the current time, as follows:
 
