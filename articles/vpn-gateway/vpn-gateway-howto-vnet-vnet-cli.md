@@ -1,6 +1,6 @@
 ---
-title: 'Connect virtual network to another VNet: Azure CLI | Microsoft Docs'
-description: This article walks you through connecting virtual networks together by using Azure Resource Manager and Azure CLI.
+title: 'Connect virtual network to another VNet using a VNet-to-VNet connection: Azure CLI | Microsoft Docs'
+description: This article walks you through connecting virtual networks together by using a VNet-to-VNet connection and Azure CLI.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
 
 ---
 # Configure a VNet-to-VNet VPN gateway connection using Azure CLI
 
-This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant. 
+This article shows you how to connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant.
 
 The steps in this article apply to the Resource Manager deployment model and use Azure CLI. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
@@ -34,13 +34,7 @@ The steps in this article apply to the Resource Manager deployment model and use
 >
 >
 
-Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. If your VNets are in the same region, you may want to consider connecting them using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
-
-VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
-
-![About connections](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
-
-### <a name="why"></a>Why connect virtual networks?
+### <a name="why"></a>Why create a VNet-to-VNet connection?
 
 You may want to connect virtual networks for the following reasons:
 
@@ -52,11 +46,20 @@ You may want to connect virtual networks for the following reasons:
 
   * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
-For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
+
+VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
+
+![About connections](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
+
+Connecting a virtual network to another virtual network using the VNet-to-VNet connection type (VNet2VNet) is similar to creating an IPsec connection to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE and both function the same way when communicating. The difference between the connection types is the way the local network gateway is configured. When you create a VNet-to-VNet connection, you do not see the local network gateway address space. It is automatically created and populated. If you update the address space for one VNet, the other VNet will automatically know to route to the updated address space.
+
+If you connect your VNets using the IPsec connection type instead, you need to create and configure the local network gateway manually. When you are working with complicated configurations, you may prefer to use the IPsec connection type, rather than VNet-to-VNet. This lets you specify additional address space manually for the local network gateway. For more information, see [Site-to-Site configurations](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
+
+Additionally, if your VNets are in the same region, you may want to consider connecting them using VNet Peering. VNet peering does not use a VPN gateway and the pricing and functionality is somewhat different. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
 ### Which set of steps should I use?
 
-In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub). The steps for this configuration use TestVNet1 and TestVNet4.
+This article helps you connect VNets using the VNet-to-VNet connection type. In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub). The steps for this configuration use TestVNet1 and TestVNet4.
 
 ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
