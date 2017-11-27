@@ -1,6 +1,7 @@
 ﻿---
 title: Map an existing custom DNS name to Azure Web Apps | Microsoft Docs 
 description: Learn how to add an existing custom DNS domain name (vanity domain) to a web app, mobile app backend, or API app in Azure App Service.
+keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -273,7 +274,7 @@ If you receive an HTTP 404 (Not Found) error when browsing to the URL of your cu
 - The custom domain configured is missing an A record and/or a CNAME record.
 - The browser client has cached the old IP address of your domain. Clear the cache and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
 
-<a name="virtualdir></a>
+<a name="virtualdir"></a>
 
 ## Direct default URL to a custom directory
 
