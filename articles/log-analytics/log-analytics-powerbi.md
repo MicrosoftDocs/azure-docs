@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2017
+ms.date: 11/27/2017
 ms.author: bwren
 
 ---
@@ -27,12 +27,12 @@ This article provides details on importing Log Analytics data into Power BI and 
 ## Upgraded workspace
 
 
-To import data from an [upgraded Log Analytics workspace](log-analytics-log-search-upgrade.md) into Power BI, you create a dataset in Power BI based on a log search query in Log Analytics.  The query is run each time the dataset is refreshed.  You can then build Power BI reports that use data from the dataset.  To create the dataset in Power BI, you export your query from Log Analytics to [Power Query (M) language](https://msdn.microsoft.com/en-us/library/mt807488.aspx).  You then use this to create a query in Power BI Desktop and then publish it to Power BI as a dataset.  The details for this process are described below.
+To import data from an [upgraded Log Analytics workspace](log-analytics-log-search-upgrade.md) into Power BI, you create a dataset in Power BI based on a log search query in Log Analytics.  The query is run each time the dataset is refreshed.  You can then build Power BI reports that use data from the dataset.  To create the dataset in Power BI, you export your query from Log Analytics to [Power Query (M) language](https://msdn.microsoft.com/library/mt807488.aspx).  You then use this to create a query in Power BI Desktop and then publish it to Power BI as a dataset.  The details for this process are described below.
 
 ![Log Analytics to Power BI](media/log-analytics-powerbi/overview.png)
 
 ### Export query
-Start by creating a [log search](log-analytics-log-search-new.md) that returns the data from Log Analytics that you want to populate the Power BI dataset.  You then export that query to [Power Query (M) language](https://msdn.microsoft.com/en-us/library/mt807488.aspx) which can be used by Power BI Desktop.
+Start by creating a [log search](log-analytics-log-search-new.md) that returns the data from Log Analytics that you want to populate the Power BI dataset.  You then export that query to [Power Query (M) language](https://msdn.microsoft.com/library/mt807488.aspx) which can be used by Power BI Desktop.
 
 1. Create the log search in Log Analytics to extract the data for your dataset.
 2. If you're using the log search portal, click **Power BI**.  If you're using the Analytics portal, select **Export** > **Power BI Query (M)**.  Both of these options export the query to a text file called **PowerBIQuery.txt**. 
