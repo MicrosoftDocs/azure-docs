@@ -9,7 +9,7 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/27/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
 ---
@@ -82,31 +82,31 @@ These files are collected by the Trace Collector and stored in a share from wher
 2. Open a PowerShell window as an administrator.
 3. Run the **Get-AzureStackLog** PowerShell cmdlet.
 
-   **Examples**
+**Examples**
 
-    Collect all logs for all roles:
+  Collect all logs for all roles:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  ```
 
-    Collect logs from VirtualMachines and BareMetal roles:
+  Collect logs from VirtualMachines and BareMetal roles:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  ```
 
-    Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the past 8 hours:
+  Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the past 8 hours:
     
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
-    Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the time period between 8 hours ago and 2 hours ago:
+  Collect logs from VirtualMachines and BareMetal roles, with date filtering for log files for the time period between 8 hours ago and 2 hours ago:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  ```
 
 ### To run Get-AzureStackLog on an Azure Stack integrated system
 
@@ -163,6 +163,13 @@ if($s)
    | URP                     | UsageBridge            | VirtualMachines    |  
    | WAS                     | WASPUBLIC              | WDS                |
 
+
+### Collect logs using a graphical user interface
+Rather than providing the required parameters for the Get-AzureStackLog cmdlet to retrieve Azure Stack logs, you can also leverage the available open source Azure Stack tools located in the main Azure Stack tools GitHub repository at http://aka.ms/azurestacktools.
+
+The **ERC_AzureStackLogs.ps1** PowerShell script is stored in the GitHub tools repository and is updated on a regular basis. Started from an administrative PowerShell session, the script connects to the privileged endpoint and runs Get-AzureStackLog with supplied parameters. If no parameters are supplied, the script will default to prompting for parameters via a graphical user interface.
+
+To learn more about the ERC_AzureStackLogs.ps1 PowerShell script you can watch [a short video](https://www.youtube.com/watch?v=Utt7pLsXEBc) or view the script’s [readme file](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) located in the Azure Stack tools GitHub repository. 
 
 ### Additional considerations
 
