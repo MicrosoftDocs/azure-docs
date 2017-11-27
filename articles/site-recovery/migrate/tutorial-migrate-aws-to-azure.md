@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.date: 11/27/2017
 ms.author: raynew
 ms.custom: MVC
 
@@ -120,7 +120,7 @@ On the **Prepare source** page, click **+ Configuration Server**.
 
 1. Use an EC2 instance running Windows Server 2012 R2 to create a configuration server and register it with your recovery vault.
 
-2. Configure the proxy on the EC2 instance VM you are using as the configuration server so that it can access the [Service URLs](site-recovery-support-matrix-to-azure.md).
+2. Configure the proxy on the EC2 instance VM you are using as the configuration server so that it can access the [Service URLs](../site-recovery-support-matrix-to-azure.md).
 
 3. Download the [Microsoft Azure Site Recovery Unified Setup](http://aka.ms/unifiedinstaller_wus) program. You can download it to your local machine and then copy it over to the VM you are using as the configuration server.
 
@@ -148,7 +148,7 @@ When you are done setting up the configuration server, go back to the portal and
 
 In this section you enter information about the resources you created when you went through the [Prepare Azure resources](#prepare-azure-resources) section, earlier in this tutorial.
 
-1. In **Subscription**, select the Azure subscription that you used for the [Prepare Azure](tutorial-prepare-azure.md) tutorial.
+1. In **Subscription**, select the Azure subscription that you used for the [Prepare Azure](../tutorial-prepare-azure.md) tutorial.
 2. Select **Resource Manager** as the deployment model.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks. These should be the resources you created when you went through the [Prepare Azure resources](#prepare-azure-resources) section, earlier in this tutorial
 4. When you are done, click **OK**.
@@ -276,4 +276,4 @@ Run an actual failover for the EC2 instances to migrate them to Azure VMs.
 In this topic, you’ve learned how to migrate AWS EC2 instances to Azure VMs. To learn more about Azure VMs, continue to the tutorials for Windows VMs.
 
 > [!div class="nextstepaction"]
-> [Azure Windows virtual machine tutorials](../virtual-machines/windows/tutorial-manage-vm.md)
+> [Azure Windows virtual machine tutorials](../../virtual-machines/windows/tutorial-manage-vm.md)
