@@ -22,9 +22,7 @@
 ## Policies
 ### [Overview](api-management-howto-policies.md)
 ### [Policy reference index](api-management-policies.md)
-## Manage in production
-### [Manage using automation](automation-manage-api-management.md)
-### [Use Role-Based Access Control](api-management-role-based-access-control.md)
+## [Manage using automation](automation-manage-api-management.md)
 ## [Error handling](api-management-error-handling-policies.md)
 ## [API import restrictions](api-management-api-import-restrictions.md)
 # How-to guides
