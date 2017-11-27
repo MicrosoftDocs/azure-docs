@@ -17,7 +17,7 @@ ms.author: mbullwin
 ---
 
 # Feed Power BI from Application Insights
-[Power BI](http://www.powerbi.com/) is a suite of business analytics tools that helps you analyze data and share insights. Rich dashboards are available on every device. You can combine data from many sources, including Analytics queries from [Azure Application Insights](app-insights-overview.md).
+[Power BI](http://www.powerbi.com/) is a suite of business tools that helps you analyze data and share insights. Rich dashboards are available on every device. You can combine data from many sources, including Analytics queries from [Azure Application Insights](app-insights-overview.md).
 
 There are three recommended methods of exporting Application Insights data to Power BI. You can use them separately or together.
 
@@ -68,7 +68,7 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
    
     ![Screenshot of Power BI Query Settings dialog box](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
-    If you need to verify the credentials, use the **Data Source Settings** menu command in the Query Editor. Be sure to specify the credentials you use for Azure, which might be different from your credentials for Power BI.
+    If you need to verify the credentials, use the **Data Source Settings** menu command in the query editor. Be sure to specify the credentials you use for Azure, which might be different from your credentials for Power BI.
 2. Choose a visualization for your query, and select the fields for x-axis, y-axis, and segmenting dimension.
    
     ![Screenshot of Power BI Desktop vizualization options](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
@@ -91,7 +91,7 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Screenshot of Power BI Desktop, with Advanced Editor highlighted](./media/app-insights-export-power-bi/advancedquery.png)
 
-4. Select items from the query, and choose Funnel visualization.
+4. Select items from the query, and choose a Funnel visualization.
 
    ![Screenshot of Power BI Desktop vizualization options](./media/app-insights-export-power-bi/selectsequence.png)
 
@@ -107,7 +107,7 @@ You might encounter errors pertaining to credentials or the size of the dataset.
 This can happen if your refresh token has not been updated. Try these steps to ensure you still have access:
 
 1. Sign into the Azure portal, and make sure you can access the resource.
-2. Try to refresh the credentials for the Dashboard.
+2. Try to refresh the credentials for the dashboard.
 
  If you do have access and refreshing the credentials does not work, please open a support ticket.
 
@@ -116,11 +116,11 @@ This is usually caused by an Analytics query that returns too much data. Try usi
 
 If reducing the dataset coming from the Analytics query doesn't meet your requirements, consider using the [API](https://dev.applicationinsights.io/documentation/overview) to pull a larger dataset. Here's how to convert the M-Query export to use the API.
 
-1. Create an [API Key](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
-2. Update the Power BI M script that you exported from Analytics by replacing the Azure Resource Manager URL with AI API.
+1. Create an [API key](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
+2. Update the Power BI M script that you exported from Analytics by replacing the Azure Resource Manager URL with the Application Insights API.
    * Replace **https://management.azure.com/subscriptions/...**
    * with, **https://api.applicationinsights.io/beta/apps/...**
-3. Finally, update the credentials to basic, and use your API Key.
+3. Finally, update the credentials to basic, and use your API key.
   
 
 **Existing script**

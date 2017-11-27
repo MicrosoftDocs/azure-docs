@@ -30,7 +30,7 @@ Here are the steps they take to create their funnel.
 1. From the **Step 3** list, select **Create**.
 1. Add a name to the funnel, and select **Save**.
 
-The following screenshot shows an example of the kind of data the Funnels tool generates. The Fabrikam owners can see that during the last 90 days, 54.3 percent of their customers who visited the home page created a customer ticket. They can also see that 2,700 of their customers came to the index from the home page. This could indicate a refresh issue.
+The following screenshot shows an example of the kind of data the Funnels tool generates. The Fabrikam owners can see that during the last 90 days, 54.3 percent of their customers who visited the home page created a customer ticket. They can also see that 2,700 of their customers came to the index from the home page. This might indicate a refresh issue.
 
 
 ![Screenshot of Funnels tool with data](./media/app-insights-understand-usage-patterns/funnel1.png)
