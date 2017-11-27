@@ -200,7 +200,7 @@ Now you are ready to run the three applications.
 In this section, you create a Storage account, connect it to your IoT hub, and configure your IoT hub to send messages to the account based on the presence of a property on the message. For more information about how to manage storage, see [Get started with Azure Storage][Azure Storage].
 
  > [!NOTE]
-   > If you are not limited to one **Endpoint**, feel free to setup the **StorageQueue** in addition to the **CriticalQueue** and run both simulatneously.
+   > If you are not limited to one **Endpoint**, feel free to setup the **StorageContainer** in addition to the **CriticalQueue** and run both simulatneously.
 
 1. Create a Storage account as described in [Azure Storage Documentation][lnk-storage]. Make a note of the account name.
 
