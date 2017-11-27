@@ -73,10 +73,10 @@ In this section, you create an Azure Stream Analytics job to take data from your
 
 5. In the Azure portal, navigate to **Create a resource** > **Internet of Things** and select **Stream Analytics Job**.
 
-6. Enter a name, choose **Edge** as the Hosting environment, and use the remaining default values.  Click **Create**.
+2. Enter a name, choose **Edge** as the Hosting environment, and use the remaining default values.  Click **Create**.
 
     >[!NOTE]
-    >Currently, there are a limited number of regions that support ASA jobs on IoT Edge. Select one of the following as the location: Central US, West Central US, North Central US, East US, Canada East, Japan East, East Asia, North Europe, UK South, Australia East, Brazil South. 
+    >Currently, ASA jobs on IoT Edge aren't supported in the US West 2 region. Please select a different location.
 
     ![ASA create][5]
 
