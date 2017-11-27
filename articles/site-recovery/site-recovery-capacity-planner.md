@@ -86,7 +86,7 @@ You can run the tool in a couple of modes:
 4. If you click **Compute IaaS VMs** here's what it does:
 
    * Validates the mandatory inputs.
-   * Calculates IOPS and suggests the best Azure VM aize match for each VMs that's eligible for replication to Azure. If an appropriate size of Azure VM can't be detected an error is issued. For example, if the number of disks attached in 65, an error is issued because the highest size Azure VM is 64.
+   * Calculates IOPS and suggests the best Azure VM size match for each VMs that's eligible for replication to Azure. If an appropriate size of Azure VM can't be detected an error is issued. For example, if the number of disks attached in 65, an error is issued because the highest size Azure VM is 64.
    * Suggests a storage account that can be used for an Azure VM.
    * Calculates the total number of standard storage accounts and premium storage accounts required for the workload. Scroll down to view the Azure storage type, and the storage account that can be used for a source server.
    * Completes and sorts the rest of the table based on required storage type (standard or premium) assigned for a VM, and the number of disks attached. For all VMs that meet the requirements for Azure, the column **Is VM qualified?** shows **Yes**. If a VM can't be backed up to Azure, an error is shown.
