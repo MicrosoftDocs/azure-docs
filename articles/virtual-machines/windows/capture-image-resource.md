@@ -108,7 +108,7 @@ For more information, see [Azure PowerShell Versioning](/powershell/azure/overvi
     ```	
 ## Create an image from a managed disk using PowerShell
 
-If you only want to create an image of the OS disk, you can also crate an image by specifying the managed disk ID as the OS disk.
+If you only want to create an image of the OS disk, you can also create an image by specifying the managed disk ID as the OS disk.
 
 	
 1. Create some variables. 
