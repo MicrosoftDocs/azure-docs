@@ -27,7 +27,7 @@ sections:
     - image: 
         src: media/index/http.svg
       text: HTTP
-      href: /articles/location-based-services/quick-demo-map-app
+      href: /azure/location-based-services/quick-demo-map-app
 - title: Step-by-step tutorials
   items:
   - type: paragraph
