@@ -2,7 +2,7 @@
 
 If you want to try your stack, install a sample app. As an example, the following steps install the open source [WordPress](https://wordpress.org/) platform to create websites and blogs. Other workloads to try include [Drupal](http://www.drupal.org) and [Moodle](https://moodle.org/). 
 
-This WordPress setup is only for proof of concept. For more information and settings for production installation with the latest WordPress version, see the [WordPress documentation](https://codex.wordpress.org/Main_Page). 
+This WordPress setup is only for proof of concept. To install the latest WordPress in production with recommended security settings, see the [WordPress documentation](https://codex.wordpress.org/Main_Page). 
 
 
 
