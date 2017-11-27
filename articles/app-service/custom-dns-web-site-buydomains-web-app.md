@@ -85,6 +85,11 @@ In the **Custom domains** page, click **Buy Domain**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
+> [!NOTE]
+> If you cannot see the **App Service Domains** section, you need to remove the spending limit on your Azure account (see [Prerequisites](#prerequisites).
+>
+>
+
 ### Configure the domain purchase
 
 In the **App Service Domain** page, in the **Search for domain** box, type the domain name you want to buy and type `Enter`. The suggested available domains are shown just below the text box. Select one or more domains you want to buy.
@@ -185,8 +190,6 @@ You should now see the newly assigned hostname(s) in your app's **Custom domains
 
 Navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to _abc.kontoso.net_.
 
-<a name="custom" />
-
 ## Renew the domain
 
 The App Service domain you bought is valid for one year from the time of purchase. By default, the domain is configured to renew automatically by charging your payment method for the next year. If you want to turn off automatic renewal, or if you want to manually renew your domain, follow the steps here.
@@ -204,6 +207,8 @@ From the left navigation of the domain, select **Domain renewal**. To stop renew
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
 To manually renew your domain, select **Renew domain**. However, this button is not active until 90 days before the domain's expiration.
+
+<a name="custom"></a>
 
 ## Manage custom DNS records
 
