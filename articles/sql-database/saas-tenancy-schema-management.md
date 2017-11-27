@@ -60,7 +60,7 @@ There is a new version of Elastic Jobs that is now an integrated feature of Azur
 
 ## Get the Wingtip Tickets SaaS Database Per Tenant application scripts
 
-The Wingtip Tickets SaaS Database Per Tenant scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)  github repo. [Steps to download the Wingtip Tickets SaaS Database Per Tenant scripts](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
+The Wingtip Tickets SaaS Database Per Tenant scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)  github repo. [Steps to download the Wingtip Tickets SaaS Database Per Tenant scripts](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
 
 ## Create a job account database and new job account
 

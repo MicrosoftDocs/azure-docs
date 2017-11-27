@@ -4,8 +4,6 @@
   href: Home.md
 - name: How to
   items:
-  - name: Call the Emotion API for video
-    href: emotion-api-how-to-topics/HowtoCallEmotionForVideo.md
   - name: Analyze videos in real time
     href: emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md
 - name: Quickstarts
@@ -35,8 +33,6 @@
   items: 
   - name: Emotion Reference
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89
-  - name: Emotion Recognition Video
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e
   - name: SDKs
     items:
     - name: Android
