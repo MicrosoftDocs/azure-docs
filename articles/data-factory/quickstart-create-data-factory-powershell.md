@@ -90,20 +90,20 @@ In this section, you create a blob container named **adftutorial** in your Azure
     ![Close upload blob page](media/quickstart-create-data-factory-powershell/close-upload-blob.png)
 1. Keep the **container** page open. You use it to verify the output at the end of this quickstart. 
 
-### Azure PowerShell
+### Windows PowerShell
 
-#### Install Azure PowerShell
-Install the latest Azure PowerShell if you don't have it on your machine. 
+#### Install PowerShell
+Install the latest PowerShell if you don't have it on your machine. 
 
 1. In your web browser, navigate to [Azure SDK Downloads and SDKS](https://azure.microsoft.com/downloads/) page. 
 2. Click **Windows install** in the **Command-line tools** -> **PowerShell** section. 
-3. To install Azure PowerShell, run the **MSI** file. 
+3. To install PowerShell, run the **MSI** file. 
 
-For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+For detailed instructions, see [How to install and configure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-#### Log in to Azure PowerShell
+#### Log in to PowerShell
 
-1. Launch **PowerShell** on your machine. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run these commands again.
+1. Launch **PowerShell** on your machine. Keep PowerShell open until the end of this quickstart. If you close and reopen, you need to run these commands again.
 
     ![Launch PowerShell](media/quickstart-create-data-factory-powershell/search-powershell.png)
 1. Run the following command, and enter the same Azure user name and password that you use to sign in to the Azure portal:
@@ -123,27 +123,32 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
     ```
 
 ## Create a data factory
-1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`.
+1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>";
+    $resourceGroupName = "ADFQuickStartRG";
     ```
-2. Define a variable for the data factory name. 
+
+    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again
+2. To create the Azure resource group, run the following command: 
 
     ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>";
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again. 
+3. Define a variable for the data factory name. 
+
+    > [!IMPORTANT]
+    >  Update the data factory name to be globally unique. For example, ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFQuickStartFactory";
     ```
 1. Define a variable for the location of the data factory: 
 
     ```powershell
     $location = "East US"
     ```
-4. To create the Azure resource group, run the following command: 
-
-    ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
-    ``` 
-    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again. 
 5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet: 
     
     ```powershell       
@@ -184,7 +189,7 @@ Create linked services in a data factory to link your data stores and compute se
     }
     ```
 
-2. In **Azure PowerShell**, switch to the **ADFv2QuickStartPSH** folder.
+2. In **PowerShell**, switch to the **ADFv2QuickStartPSH** folder.
 
 3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. 
 
