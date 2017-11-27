@@ -20,7 +20,7 @@
 
 ## Create jobs
 ### [Create inputs](stream-analytics-define-inputs.md)
-### [Sample input data](stream-analytics-sample-data-input.md)
+### [Test queries and sample input data](stream-analytics-sample-data-input.md)
 ### [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
 ### [Window functions](stream-analytics-window-functions.md)
 
