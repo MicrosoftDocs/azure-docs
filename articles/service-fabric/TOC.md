@@ -243,6 +243,7 @@
 ### [Debug a .NET service in VS](service-fabric-debugging-your-application.md)
 ### [Common errors and exceptions](service-fabric-errors-and-exceptions.md)
 ### [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+### [Set up a Linux cluster on Windows](service-fabric-local-linux-cluster-windows.md)
 
 ## Work in a Linux dev environment
 ### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
@@ -278,7 +279,9 @@
 ##### [Using test scenarios](service-fabric-testability-scenarios.md)
 ##### [Using the node transition APIs](service-fabric-node-transition-apis.md)
 
-### [Deploy your Linux Java application using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### Set up continuous integration
+#### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
+#### [Deploy your Linux applications using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 
 ## Create and manage clusters
 ### Clusters on Azure

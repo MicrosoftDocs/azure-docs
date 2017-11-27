@@ -117,7 +117,7 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-Here's the F# script code:
+Here's the JavaScript script code:
 
 ```JavaScript
 module.exports = function (context, myTimer) {

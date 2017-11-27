@@ -33,7 +33,7 @@ These are must read topics and resources to start learning about the DocumentDB 
 
 ## Quickstarts
 
-The Quickstart topics are the fastest way to create a working application with Azure Cosmos DB. In each Quickstart, you learn how to use the UI-based Azure portal and your favorite coding language to create database solutions with Azure Cosmos DB. Cloneable web apps from GitHub area available for each Quickstart. 
+The Quickstart topics are the fastest way to create a working application with Azure Cosmos DB. In each Quickstart, you learn how to use the UI-based Azure portal and your favorite coding language to create database solutions with Azure Cosmos DB. Cloneable web apps from GitHub are available for each Quickstart. 
 
 - [.NET + Azure portal + Web apps](create-documentdb-dotnet.md)
 - [Java + Azure portal + Web apps](create-documentdb-java.md)

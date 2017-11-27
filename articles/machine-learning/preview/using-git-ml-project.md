@@ -126,7 +126,7 @@ You might want to use Git to commit your changes to the current branch before yo
 ## Step 6. Use the master branch
 One way to avoid accidentally losing your current project state is to commit the project to the master branch of the Git repo (or to any branch that you created yourself). You can use Git from the command line or from your favorite Git client tool to operate on the master branch. For example:
 
-```
+```sh
 # Check status to make sure you are on the master branch (or branch of your choice).
 $ git status
 
