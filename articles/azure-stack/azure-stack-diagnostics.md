@@ -167,9 +167,9 @@ if($s)
 ### Collect logs using a graphical user interface
 Rather than providing the required parameters for the Get-AzureStackLog cmdlet to retrieve Azure Stack logs, you can also leverage the available open source Azure Stack tools located in the main Azure Stack tools GitHub repository at http://aka.ms/azurestacktools.
 
-The **ERC_AzureStackLogs.ps1** PowerShell script is stored in the GitHub tools repository and is updated on a regular basis. Started from an administrative PowerShell session, the script connects to the privileged endpoint and runs Get-AzureStackLog with supplied parameters. If no parameters are supplied, the script will default to prompting for parameters via a graphical user interface.
+The **ERCS_AzureStackLogs.ps1** PowerShell script is stored in the GitHub tools repository and is updated on a regular basis. Started from an administrative PowerShell session, the script connects to the privileged endpoint and runs Get-AzureStackLog with supplied parameters. If no parameters are supplied, the script will default to prompting for parameters via a graphical user interface.
 
-To learn more about the ERC_AzureStackLogs.ps1 PowerShell script you can watch [a short video](https://www.youtube.com/watch?v=Utt7pLsXEBc) or view the script’s [readme file](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) located in the Azure Stack tools GitHub repository. 
+To learn more about the ERCS_AzureStackLogs.ps1 PowerShell script you can watch [a short video](https://www.youtube.com/watch?v=Utt7pLsXEBc) or view the script’s [readme file](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) located in the Azure Stack tools GitHub repository. 
 
 ### Additional considerations
 
