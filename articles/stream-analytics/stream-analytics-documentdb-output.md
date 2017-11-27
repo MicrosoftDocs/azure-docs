@@ -24,8 +24,8 @@ Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/servic
 For those who are unfamiliar with Cosmos DB, take a look at [Azure Cosmos DB’s learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to get started. 
 
 > [!Note]
-> At this time, Azure Stream Analytics only supports connection to CosmosDB using **DocumentDB API**.
-> Other APIs to access Cosmos DB collections are not supported. 
+> At this time, Azure Stream Analytics only supports connection to CosmosDB using **DocumentDB (SQL) API**.
+> Other Azure Cosmos DB APIs are not yet supported. If you point Azure Stream Analytics to the Azure Cosmos DB accounts created with other APIs, the data might not be properly stored. 
 
 ## Basics of Cosmos DB as an output target
 The Azure Cosmos DB output in Stream Analytics enables writing your stream processing results as JSON output into your Cosmos DB collection(s). Stream Analytics does not create collections in your database, instead requiring you to create them upfront. This is so that the billing costs of Cosmos DB collections are transparent to you, and so that you can tune the performance, consistency and capacity of your collections directly using the [Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx). We recommend using one Cosmos DB Database per streaming job to logically separate your collections for a streaming job.
