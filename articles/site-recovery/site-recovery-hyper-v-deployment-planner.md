@@ -65,7 +65,7 @@ The tool provides the following details:
 
 >[!IMPORTANT]
 >
->Because usage is likely to increase over time, all the preceding tool calculations are performed assuming a 30 percent growth factor in  workload characteristics, and using a 95th percentile value of all the profiling metrics (read/write IOPS, churn, and so forth). Both of these elements (growth factor and percentile calculation) are configurable. To learn more about growth factor, see the "Growth-factor considerations" section. To learn more about  percentile value, see the "Percentile value used for the calculation" section.
+>Because usage is likely to increase over time, all the preceding tool calculations are performed assuming a 30% growth factor in  workload characteristics, and using a 95th percentile value of all the profiling metrics (read/write IOPS, churn, and so forth). Both of these elements (growth factor and percentile calculation) are configurable. To learn more about growth factor, see the "Growth-factor considerations" section. To learn more about  percentile value, see the "Percentile value used for the calculation" section.
 >
 
 ## Next steps
