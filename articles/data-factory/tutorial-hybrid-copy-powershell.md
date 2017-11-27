@@ -144,7 +144,7 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
     ``` 
 
     If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again.
-3. Define a variable for the data factory name that you can use in PowerShell commands later. 
+3. Define a variable for the data factory name that you can use in PowerShell commands later. Name must start with a letter or a number, and can contain only letters, numbers, and the dash (-) character.
 
     > [!IMPORTANT]
     >  Update the data factory name to be globally unique. For example, ADFTutorialFactorySP1127. 
@@ -178,12 +178,12 @@ Note the following points:
 
 In this section, you create a self-hosted integration runtime, and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from SQL Server on your machine to the Azure blob storage. 
 
-1. Create a variable for the name of integration runtime. Note down this name. You use it later in this tutorial. 
+1. Create a variable for the name of integration runtime. Use a unique name, and note down the name. You use it later in this tutorial. 
 
     ```powershell
-   $integrationRuntimeName = "<your integration runtime name>"
+   $integrationRuntimeName = "ADFTutorialIR"
     ```
-1. Create a self-hosted integration runtime. Use a unique name in case if another integration runtime with the same name exists. 
+1. Create a self-hosted integration runtime. 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
