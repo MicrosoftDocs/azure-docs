@@ -61,7 +61,7 @@
       href: ../site-recovery-runbook-automation.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json 
     - name: Run a failover
       href: ../site-recovery-failover.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json 
-- name: Configure
+  - name: Configure
     items:
     - name: Set up the source environment
       items:
