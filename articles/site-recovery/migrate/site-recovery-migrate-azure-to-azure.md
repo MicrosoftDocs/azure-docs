@@ -38,7 +38,7 @@ This section describes the deployment steps in the new Azure portal.
   >[!NOTE]
   >
   > Currently, native replication of Azure VMs using managed disks are not supported. You can use "Physical to Azure" option in [this document](../site-recovery-vmware-to-azure.md) to migrate VMs with managed disks.
-3. [Run a failover](../site-recovery-failover.md). After initial replication is complete, you can run a failover from one Azure region to another. Optionally, you can create a recovery plan and run a failover, to migrate multiple virtual machines between regions. [Learn more](site-recovery-create-recovery-plans.md) about recovery plans.
+3. [Run a failover](../site-recovery-failover.md). After initial replication is complete, you can run a failover from one Azure region to another. Optionally, you can create a recovery plan and run a failover, to migrate multiple virtual machines between regions. [Learn more](../site-recovery-create-recovery-plans.md) about recovery plans.
 
 ## Next steps
 Learn more about other replication scenarios in [What is Azure Site Recovery?](../site-recovery-overview.md)
