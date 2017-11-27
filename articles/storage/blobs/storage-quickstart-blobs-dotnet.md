@@ -107,7 +107,7 @@ Once you have the [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storag
 
 In this section, you create an instance of the objects, create a new container, and then set permissions on the container so the blobs are public and can be accessed with just a URL. The container is called **quickstartblobs**.
 
-This example uses [CreateIfNotExists](dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexists?view=azure-dotnet) because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, it's better practice to only call **CreateIfNotExists** once. Alternatively, to create the container ahead of time so you don't need to create it in the code.
+This example uses [CreateIfNotExists](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexists?view=azure-dotnet) because we want to create a new container each time the sample is run. In a production environment where you use the same container throughout an application, it's better practice to only call **CreateIfNotExists** once. Alternatively, to create the container ahead of time so you don't need to create it in the code.
 
 ```csharp
 // Load the connection string for use with the application. The storage connection string is stored
