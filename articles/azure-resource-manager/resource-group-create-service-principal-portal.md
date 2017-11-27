@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2017
+ms.date: 11/16/2017
 ms.author: tomfitz
 
 ---
@@ -24,11 +24,11 @@ When you have an application that needs to access or modify resources, you must 
 * You do not have to change the app's credentials if your responsibilities change. 
 * You can use a certificate to automate authentication when executing an unattended script.
 
-This topic shows you how to perform those steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
+This article shows you how to perform those steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
 
 ## Required permissions
 
-To complete this topic, you must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription. Let's make sure you have the right permissions to perform those steps.
+To complete this article, you must have sufficient permissions to register an application with your Azure AD tenant, and assign the application to a role in your Azure subscription. Let's make sure you have the right permissions to perform those steps.
 
 ### Check Azure Active Directory permissions
 
@@ -101,7 +101,7 @@ To check your subscription permissions:
 
    ![add app](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
+1. Provide a name and URL for the application. Select **Web app / API** for the type of application you want to create. You cannot create credentials for a **Native** application; therefore, that type does not work for an automated application. After setting the values, select **Create**.
 
    ![name application](./media/resource-group-create-service-principal-portal/create-app.png)
 

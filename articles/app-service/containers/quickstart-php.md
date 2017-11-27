@@ -29,8 +29,8 @@ You can follow the steps below using a Mac, Windows, or Linux machine.
 
 To complete this quickstart:
 
-* [Install Git](https://git-scm.com/)
-* [Install PHP](https://php.net)
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
+* <a href="https://php.net" target="_blank">Install PHP</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -67,7 +67,7 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## Create a web app with built-in image
+## Create a web app
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
@@ -122,7 +122,7 @@ The PHP sample code is running in a web app with built-in image.
 
 ## Update locally and redeploy the code
 
-Using a local text editor, open the `index.php` file within the PHP app, and make a small change to the text within the string next to `echo`:
+In the local directory, open the `index.php` file within the PHP app, and make a small change to the text within the string next to `echo`:
 
 ```php
 echo "Hello Azure!";

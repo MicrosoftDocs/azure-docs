@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/17/2017
 ms.author: glenga
 
 ---
@@ -53,12 +53,12 @@ In this section, you update your client Android app to handle push notifications
 ### Verify Android SDK version
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the manifest must conform to.
+Your next step is to install Google Play services. Firebase Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the manifest must conform to.
 
-If you are testing with an older device, consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.
+If you are testing with an older device, consult [Add Firebase to Your Android Project] to determine how low you can set this value, and set it appropriately.
 
-### Add Google Play services to the project
-[!INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
+### Add Firebase Cloud Messaging to the project
+[!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
 
 ### Add code
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
@@ -76,5 +76,4 @@ Now that you completed this tutorial, consider continuing on to one of the follo
 
 <!-- URLs -->
 [Android quick start]: app-service-mobile-android-get-started.md
-
-[Set Up Google Play Services SDK]:https://developers.google.com/android/guides/setup
+[Add Firebase to Your Android Project]:https://firebase.google.com/docs/android/setup
