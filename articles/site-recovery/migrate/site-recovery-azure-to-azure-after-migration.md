@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 11/27/2017
 ms.author: ponatara
 
 ---
@@ -99,5 +99,5 @@ After you uninstall the Mobility service, restart the VM before you set up repli
 
 
 ## Next steps
-- Start protecting your workloads by [replicating Azure virtual machines](azure-to-azure-quickstart.md).
-- Learn more about [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md).
+- Start protecting your workloads by [replicating Azure virtual machines](../azure-to-azure-quickstart.md).
+- Learn more about [networking guidance for replicating Azure virtual machines](../site-recovery-azure-to-azure-networking-guidance.md).
