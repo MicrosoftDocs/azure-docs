@@ -29,7 +29,7 @@
     href: project-ic-tasks.md
 - name: Project structure
   href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
-- name: Project planning 
+- name: Project planning
   href: team-data-science-process-project-templates.md
 - name: Project execution
   items:
@@ -56,12 +56,12 @@
   - name: Spark with PySpark and Scala
     href: walkthroughs-spark.md
     items:
-    - name: Explore data
+    - name: Explore and model data
       href: spark-data-exploration-modeling.md
-    - name: Score models
-      href: spark-model-consumption.md
     - name: Advanced data exploration
       href: spark-advanced-data-exploration-modeling.md
+    - name: Score models
+      href: spark-model-consumption.md
   - name: Hive with HDInsight Hadoop
     href: walkthroughs-hdinsight-hadoop.md
   - name: U-SQL with Azure Data Lake
