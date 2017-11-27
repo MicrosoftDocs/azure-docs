@@ -162,7 +162,7 @@ Allowed operators
 | companyName | Any string value or *null* | (user.companyName -eq "value") |
 | department |Any string value or *null* |(user.department -eq "value") |
 | displayName |Any string value |(user.displayName -eq "value") |
-| employeeId |Any string value |(user.employeeId -eq "value")<br>(user.EmployeeId -ne *null*) |
+| employeeId |Any string value |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |Any string value or *null* |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |Any string value or *null* |(user.givenName -eq "value") |
 | jobTitle |Any string value or *null* |(user.jobTitle -eq "value") |
