@@ -38,13 +38,13 @@ Snapshot collector logs are sent to your Application Insight account if the [Sna
     ```
 * Note: change the *Time range* if needed.
 
-![Search Snapshot Collector logs](./media/app-insights-troubleshoot-snapshot-debugger/search-snapshot-collector-logs.png)
+![Search Snapshot Collector logs](./media/app-insights-troubleshoot-snapshot-debugger/001.png)
 
 
 ### Examine Snapshot collector logs
 When searching for Snapshot Collector logs, there should be 'UploadSnapshotFinish' events in the targeted time range. If you still don't see the 'Open Debug Snapshot' button to open the Snapshot, please send email to snapshothelp@microsoft.com with your Application Insights' Instrumentation Key.
 
-![Examine snapshot collector logs](./media/app-insights-troubleshoot-snapshot-debugger/examine-snapshot-logs.png)
+![Examine snapshot collector logs](./media/app-insights-troubleshoot-snapshot-debugger/005.png)
 
 ## I cannot find a snapshot to Open
 If the following steps don't help you solve the issue, please send email to snapshothelp@microsoft.com with your Application Insights' Instrumentation Key.
@@ -81,11 +81,11 @@ In the snapshot collector logs, search for ```RequestSnapshots```.  If none are 
 ### Step 7: Make sure snapshots are uploaded correctly
 In the snapshot collector logs, search for ```UploadSnapshotFinish```.  If this is not present, please send email to snapshothelp@microsoft.com with your Application Insights' Instrumentation Key. If this event exists, open one of the logs and copy the 'SnapshotId' value in the Custom Data. Then search for the value. This will find the exception corresponding to the snapshot. Then click the exception and open debug snapshot. (If there is no corresponding exception, the exception telemetry may be sampled, due to high volume, please try another snapshotId.)
 
-![Find SnapshotId](./media/app-insights-troubleshoot-snapshot-debugger/find-snapshotId.png)
+![Find SnapshotId](./media/app-insights-troubleshoot-snapshot-debugger/002.png)
 
-![Open Exception](./media/app-insights-troubleshoot-snapshot-debugger/open-snapshot-exception.png)
+![Open Exception](./media/app-insights-troubleshoot-snapshot-debugger/004b.png)
 
-![Open debug snapshot](./media/app-insights-troubleshoot-snapshot-debugger/open-debug-snapshot.png)
+![Open debug snapshot](./media/app-insights-troubleshoot-snapshot-debugger/003.png)
 
 ## Snapshot View Local Variables are not complete
 
