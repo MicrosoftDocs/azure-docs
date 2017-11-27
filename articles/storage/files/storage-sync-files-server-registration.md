@@ -66,7 +66,7 @@ Before a Windows Server can be used as a *Server Endpoint* in an Azure File Sync
 
 3. Pick the correct subscription, resource group, and Storage Sync Service from the dialog.
 
-    ![Storage Sync Service information](media/storage-sync-files-server-registration/server-registration-ui-2.png)
+![Storage Sync Service information](media/storage-sync-files-server-registration/server-registration-ui-2.png)
 
 4. In preview, one more sign-in is required to complete the process. 
 
@@ -83,7 +83,14 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
 Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
 ```
+### Limit the network usage of Sync
+If you need to constrain the amount of network bandwidth that Sync uses on your server, you can set policy on a registered server to accomplish this. You need to use our PowerShell commandlet in order to manage networking limits.
 
+Example: this constrains Sync to 1Mbps from 9 to 17 (5PM) 
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+c:\Users\Alias> New-StorageSyncNetworkLimit -Day Monday, Tuesday, Wednesday, Thursday, Friday -StartHour 9 -EndHour 17 -LimitKbps 1000
+```
 ## Unregister the server with Storage Sync Service
 There are several steps that are required to unregister a server with a Storage Sync Service. Let's take a look at how to properly unregister a server.
 
