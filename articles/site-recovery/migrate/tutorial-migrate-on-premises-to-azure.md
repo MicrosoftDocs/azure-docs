@@ -47,7 +47,7 @@ Here's what you need to do for this tutorial.
 
 ## Create a Recovery Services vault
 
-[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
+[!INCLUDE [site-recovery-create-vault](../includes/site-recovery-create-vault.md)]
 
 ## Select a protection goal
 
