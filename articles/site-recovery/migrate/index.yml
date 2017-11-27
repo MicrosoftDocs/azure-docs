@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Site Recovery - Azure to Azure Disaster Recovery Documentation
+title: Azure Site Recovery Documentation
 metadata:
   title: Azure Site Recovery Documentation - Tutorials, API Reference | Microsoft Docs
   meta.description: Learn how to migrate to Azure with Azure Site Recovery
@@ -16,10 +16,10 @@ metadata:
 abstract:
   description: In addition to orchestrating disaster recovery of Azure VMs and on-premises machines, Azure Site Recovery orchestrates and manages migration of on-premises machines to Azure, and migration of Azure VMs between Azure regions. Learn how to set up migration with our tutorials.
 sections:
-  - title: Step-by-step Tutorials
+- title: Step-by-step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to set up disaster recovery, failover, and failback for Azure VMs.'
+    text: 'Learn how to migrate on-premises VMs.'
   - type: list
     style: ordered
     items:
