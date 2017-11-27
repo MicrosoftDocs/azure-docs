@@ -18,11 +18,18 @@ ms.author: abnarain
 ---
 
 # Azure Data Factory - Security considerations for data movement
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](v1/data-factory-data-movement-security-considerations.md)
+> * [Version 2 - Preview](data-movement-security-considerations.md)
+
 This article describes basic security infrastructure that data movement services in Azure Data Factory use to secure your data. Azure Data Factory management resources are built on Azure security infrastructure and use all possible security measures offered by Azure.
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [data movement security considerations for Data Factory version 1](v1/data-factory-data-movement-security-considerations.md).
 
 In a Data Factory solution, you create one or more data [pipelines](concepts-pipelines-activities.md). A pipeline is a logical grouping of activities that together perform a task. These pipelines reside in the region where the data factory was created. 
 
-Even though Data Factory is available in only **East US** and **East US 2** region (version 2 preview), the data movement service is available [globally in several regions](concepts-integration-runtime.md#azure-ir). If the data movement service is not yet deployed to that region, the Data Factory service ensures that data does not leave a geographical area/ region unless you explicitly instruct the service to use an alternate region. 
+Even though Data Factory is available in only **East US**, **East US 2**, and **West Europe** regions (version 2 preview), the data movement service is available [globally in several regions](concepts-integration-runtime.md#azure-ir). If the data movement service is not yet deployed to that region, the Data Factory service ensures that data does not leave a geographical area/ region unless you explicitly instruct the service to use an alternate region. 
 
 Azure Data Factory itself does not store any data except for linked service credentials for cloud data stores, which are encrypted using certificates. It lets you create data-driven workflows to orchestrate movement of data between [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) and processing of data using [compute services](compute-linked-services.md) in other regions or in an on-premises environment. It also allows you to monitor and manage workflows using SDKs and Azure Monitor.
 
@@ -93,9 +100,9 @@ The credentials for your on-premises data stores are always encrypted and stored
 
 1. You can choose to **store credentials locally**. If you want to encrypt and store credentials locally on the self-hosted integration runtime, follow the steps in [encrypting credentials on self-hosted integration runtime](encrypt-credentials-self-hosted-integration-runtime.md). All connectors support this option. The self-hosted integration runtime uses Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) to encrypt the sensitive data/ credential information. 
 
-   Use **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** cmdlet to encrypt Linked Service credentials/ encrypt sensitive details in Linked Service. You can then use the JSON returned (with  **EncryptedCredential** element in the **connectionString**) to create a Linked Service by **Set-AzureRmDataFactoryV2LinkedSevrice** cmdlet.  
+   Use **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet to encrypt Linked Service credentials/ encrypt sensitive details in Linked Service. You can then use the JSON returned (with  **EncryptedCredential** element in the **connectionString**) to create a Linked Service by **Set-AzureRmDataFactoryV2LinkedSevrice** cmdlet.  
 
-2. If you do not use **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** cmdlet as described in the above step, and instead directly use **Set-AzureRmDataFactoryV2LinkedSevrice** cmdlet with the connection strings/ credentials inline in the JSON then the Linked Service will be **encrypted and stored on Azure Data Factory managed storage**. The sensitive information is still encrypted by certificate and these certificates are managed by Microsoft.
+2. If you do not use **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet as described in the above step, and instead directly use **Set-AzureRmDataFactoryV2LinkedSevrice** cmdlet with the connection strings/ credentials inline in the JSON then the Linked Service will be **encrypted and stored on Azure Data Factory managed storage**. The sensitive information is still encrypted by certificate and these certificates are managed by Microsoft.
 
 
 

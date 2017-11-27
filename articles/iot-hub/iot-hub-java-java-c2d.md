@@ -74,7 +74,7 @@ In this section, you modify the simulated device app you created in [Get started
     ```
 
     > [!NOTE]
-    > If you use HTTP instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTP support, and IoT Hub throttling, see the [IoT Hub developer guide][IoT Hub developer guide - C2D].
+    > If you use HTTPS instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTPS support, and IoT Hub throttling, see the [IoT Hub developer guide][IoT Hub developer guide - C2D].
 
 4. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
 

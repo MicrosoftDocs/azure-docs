@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
 
 ---
@@ -21,6 +21,8 @@ ms.author: tomfitz
 This topic shows you how to iterate in your Azure Resource Manager template to create multiple instances of a resource, or multiple instances of a property on a resource.
 
 If you need to add logic to your template that enables you to specify whether a resource is deployed, see [Conditionally deploy resource](#conditionally-deploy-resource).
+
+For an example of creating multiple elements in an array variable, see [Variables](resource-group-authoring-templates.md#variables).
 
 ## Resource iteration
 To create multiple instances of a resource type, add a `copy` element to the resource type. In the copy element, you specify the number of iterations and a name for this loop. The count value must be a positive integer and cannot exceed 800. Resource Manager creates the resources in parallel. Therefore, the order in which they are created is not guaranteed. To create iterated resources in sequence, see [Serial copy](#serial-copy). 

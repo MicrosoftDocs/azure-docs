@@ -2,37 +2,46 @@
 title: Manage your keys in LUIS | Microsoft Docs
 description: Use Language Understanding Intelligent Services (LUIS) to manage your programmatic API, endpoint, and external keys. 
 services: cognitive-services
-author: cahann
+author: DeniseMak
 manager: hsalama
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 09/27/2017
 ms.author: cahann
 ---
 
 # Manage your keys
-A key is your passport to the server allowing you to publish your app to be used by end users. LUIS has three different types of keys:
+A key is your passport to the server that allows you to publish your LUIS app to end users. LUIS has two different types of keys:
 
-* **Programmatic API Key:** Created automatically for LUIS account and it's free. It enables you to author and edit your application using the LUIS Programmatic APIs. 
+* **Starter Key or Programmatic Key:** A starter key, also known as a programmatic key, is created automatically for LUIS account and it's free. It gives you 1000 endpoint hits per month so you can start using your LUIS app. It also gives you unlimited hits for authoring and editing your application using the LUIS Programmatic APIs. 
 [Click here for a complete API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+    > [!TIP]
+    > To find the Programmatic Key, log in to https://www.luis.ai and click on the account name in the upper-right navigation bar to open **Account Settings**, which displays the Programmatic Key.
 
-* **Endpoint Key(s):** You need to buy it from the Microsoft Azure portal. It is essential for publishing your app and accessing your HTTP endpoint. This key reflects your quota of endpoint hits based on the usage plan you specified while creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
+* **Endpoint Key(s):** If you need more than 1000 hits per month you can buy a key from the Microsoft Azure portal. It is essential for publishing your app and accessing your HTTP endpoint. This key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
-* **External Key(s):** You need to buy an external key only if you want to use any external services with LUIS.
  
-The process of creating and using endpoint and external keys involves the following tasks in the same order:
+The process of creating and using endpoint keys involves the following tasks:
 
- 1. Create a key on the Azure portal.
+1. Create a key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).
  
- 2. Add the key to your LUIS account (on the **My Keys** page). 
- 3. Assign the key to your app on the **Publish** page. 
+2. On the **Publish app** page, click the **Add Key** button to open the **Assign a key to your app** dialog. 
 
+    ![Assign a key to your app](./media/luis-manage-keys/luis-assign-key-to-app.png)
+3. Select a Tenant ID in the dialog. In Azure, a tenant represents the client or organization associated with a service.
+
+4. Choose the subscription associated with the key you want to add.
+
+    ![Choose a subscription](./media/luis-manage-keys/luis-assign-key-subscription.png)
+5. Select a key associated with the subscription.
+
+    ![Choose the key](./media/luis-manage-keys/luis-assign-key-select.png)
 
 ## Regions and keys
 
-The region to which you publish your LUIS app must correspond to the region or location you specify in the Azure portal when you create a key. To publish a LUIS app to more than one region, you need at least one key per region. LUIS apps created on https://www.luis.ai can be published to endpoints in the following regions:
+The region to which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create a key. When you [publish an app](./PublishApp.md), LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region. LUIS apps created on https://www.luis.ai can be published to endpoints in the following regions:
 
  Azure region   |   Endpoint URL format   |   
 ------|------|
@@ -40,6 +49,11 @@ West US     |   https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-A
 East US 2     |   https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 West Central US     |   https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 Southeast Asia     |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+
+> [!IMPORTANT]
+> If you attempt to publish to https://www.luis.ai using a key in the Europe Azure region, LUIS displays a warning message. Instead, use https://eu.luis.ai.
+
+### Publishing to Europe
 
 To publish to the European regions, you can create LUIS apps at https://eu.luis.ai.  
 
@@ -50,7 +64,7 @@ To publish to the European regions, you can create LUIS apps at https://eu.luis.
 ------|------|
 West Europe     | https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY |
 
-
+<!-- 
 
 ## Reset your Programmatic API key
 You can reset your Programmatic API key to get a new one generated for your account.
@@ -113,3 +127,8 @@ External keys are the keys required for any external services that you want to u
 2. Click **Add Key Association** ![Add Key Association button](./Images/MyKeys-AddKeyAssociation-btn.JPG).
 
 3. Select Bing Spell Check as the key type from the **Key Type** list, and select from the **Key Value** list the external key that you want to assign to the app. 
+
+-->
+## Next steps
+
+Use your key to publish your app in the **Publish app** page. For instructions on publishing, see [Publish app](PublishApp.md).

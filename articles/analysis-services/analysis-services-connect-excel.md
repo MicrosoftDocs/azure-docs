@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure Analysis Services server by using 
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: ''
 tags: ''
 
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
 
 ---

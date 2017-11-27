@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/12/2017
 ms.author: billmath
 ---
 
@@ -123,6 +123,10 @@ The configuration takes some time to take effect - the time period depends on yo
 
 Depending on the type of issue you may have, you need to look in different places for Pass-through Authentication Agent logs.
 
+### Azure AD Connect logs
+
+For errors related to installation, check the Azure AD Connect logs at **%ProgramData%\AADConnect\trace-\*.log**.
+
 ### Authentication Agent event logs
 
 For errors related to the Authentication Agent, open up the Event Viewer application on the server and check under **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
@@ -131,7 +135,7 @@ For detailed analytics, enable the "Session" log. Don't run the Authentication A
 
 ### Detailed trace logs
 
-To troubleshoot user sign-in failures, look for trace logs at **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the preceding [table](#sign-in-failure-reasons-on-the-Azure-portal). Following is an example log entry:
+To troubleshoot user sign-in failures, look for trace logs at **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the preceding [table](#sign-in-failure-reasons-on-the-Azure-portal). Following is an example log entry:
 
 ```
 	AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

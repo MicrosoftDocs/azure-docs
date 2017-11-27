@@ -51,6 +51,10 @@ Here are the main features of group-based licensing:
 
 - During public preview, a paid or trial subscription for Azure AD Basic or Premium editions is required in the tenant to use group-based license management.
 
+## Your feedback is welcome!
+
+If you have feedback or feature requests, please share them with us using [this forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/317677-group-based-licensing).
+
 ## Next steps
 
 To learn more about other scenarios for license management through group-based licensing, see:

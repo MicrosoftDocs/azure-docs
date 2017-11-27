@@ -3,7 +3,7 @@ title: Import an API into Azure API Management | Microsoft Docs
 description: Learn how to import an API and its operations into Azure API Management.
 services: api-management
 documentationcenter: ''
-author: steved0x
+author: juliako
 manager: erikre
 editor: ''
 

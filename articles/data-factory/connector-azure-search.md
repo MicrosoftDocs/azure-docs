@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/30/2017
 ms.author: jingwang
 ---
 
@@ -27,7 +27,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Azure Search connector in V1](v1/data-factory-azure-search-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from any supported source data store into Azure Search index. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -48,7 +48,7 @@ The following properties are supported for Azure Search linked service:
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 > [!IMPORTANT]
-> When copying data from a cloud data store into Azure Search index, in Azure Search linked service, you need to refer a Azure Integration Runtime with explicit region in connactVia. Set the region as the one your Azure Search resides. Learn more from [Azure Integration Runtime] (concepts-integration-runtime.md#azure-integration-runtime).
+> When copying data from a cloud data store into Azure Search index, in Azure Search linked service, you need to refer a Azure Integration Runtime with explicit region in connactVia. Set the region as the one your Azure Search resides. Learn more from [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Example:**
 
@@ -112,8 +112,8 @@ To copy data into Azure Search, set the source type in the copy activity to **Az
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **AzureSearchIndexSink** | Yes |
-| WriteBehavior | Specifies whether to merge or replace when a document already exists in the index. See the [WriteBehavior property](#writebehavior-property).<br/><br/>Allowed values are: **Merge** (default), and **Upload**. | No |
-| WriteBatchSize | Uploads data into the Azure Search index when the buffer size reaches writeBatchSize. See the [WriteBatchSize property](#writebatchsize-property) for details.<br/><br/>Allowed values are: integer 1 to 1,000; default is 1000. | No |
+| writeBehavior | Specifies whether to merge or replace when a document already exists in the index. See the [WriteBehavior property](#writebehavior-property).<br/><br/>Allowed values are: **Merge** (default), and **Upload**. | No |
+| writeBatchSize | Uploads data into the Azure Search index when the buffer size reaches writeBatchSize. See the [WriteBatchSize property](#writebatchsize-property) for details.<br/><br/>Allowed values are: integer 1 to 1,000; default is 1000. | No |
 
 ### WriteBehavior property
 
@@ -155,7 +155,7 @@ Azure Search service supports writing documents as a batch. A batch can contain 
             },
             "sink": {
                 "type": "AzureSearchIndexSink",
-                "WriteBehavior": "Merge"
+                "writeBehavior": "Merge"
             }
         }
     }

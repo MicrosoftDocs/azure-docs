@@ -83,7 +83,7 @@ Add AppSettings to the App.Config.
 </appSettings>
 ```
 
-Add the following `using` statements and make sure to add a reference to System.Configuration to the project.
+Add the following `using` directives and make sure to add a reference to System.Configuration to the project.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;

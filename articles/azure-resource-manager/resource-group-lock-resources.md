@@ -167,6 +167,6 @@ In the request, include a JSON object that specifies the properties for the lock
 * For more information about working with resource locks, see [Lock Down Your Azure Resources](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
 * To learn about logically organizing your resources, see [Using tags to organize your resources](resource-group-using-tags.md)
 * To change which resource group a resource resides in, see [Move resources to new resource group](resource-group-move-resources.md)
-* You can apply restrictions and conventions across your subscription with customized policies. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+* You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 

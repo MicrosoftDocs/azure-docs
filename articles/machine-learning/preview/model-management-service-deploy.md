@@ -159,7 +159,7 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->You can also use a single command to perform both actions. Use -h with the service create command for more details.
+>You can also use a single command to perform the previous 4 steps. Use -h with the service create command for more details.
 
 ### 8. Test the service
 Use the following command to get information on how to call the service:

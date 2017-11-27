@@ -96,7 +96,7 @@ The entries for adding the service used are all shown:
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: suhuruli.azurecr.io/azure-vote-back:v1
+? Input the Image Name: <acrName>.azurecr.io/azure-vote-back:v1
 ? Commands: 
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -215,7 +215,7 @@ To deploy the application to a cluster in Azure, use your own cluster, or use a 
 
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure. It is maintained by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
 
-For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
+For information about creating your own cluster, see [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## Build and deploy the application to the cluster
 You can deploy the application the Azure cluster using the Service Fabric CLI. If Service Fabric CLI is not installed on your machine, follow instructions [here](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) to install it. 

@@ -61,7 +61,7 @@ The [Azure portal](https://portal.azure.com) provides a user interface for manag
 -  Click **Connect** to get the command line for mounting the file share from Windows and Linux. For Linux users, you can also refer to [How to use Azure Files with Linux](../storage-how-to-use-files-linux.md) for more mounting instructions for other Linux distributions.
 
     ![Screenshot that shows how to mount the file share](./media/storage-how-to-use-files-portal/use-files-portal-connect.png)
--  You can copy the commands for mounting file share on Windows or Linux and run it from you Azure VM or on-premises machine.
+-  You can copy the commands for mounting file share on Windows or Linux and run it from your Azure VM or on-premises machine.
 
     ![Screenshot that shows the mount commands for Windows and Linux](./media/storage-how-to-use-files-portal/use-files-portal-show-mount-commands.png)
 

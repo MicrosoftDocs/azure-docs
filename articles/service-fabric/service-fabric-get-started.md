@@ -59,9 +59,9 @@ If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK 2.8.211
-* Service Fabric runtime 6.0.211
-* Service Fabric Tools for Visual Studio 2015 1.7.50721
+* Service Fabric SDK 2.8.219
+* Service Fabric runtime 6.0.219
+* Service Fabric Tools for Visual Studio 2015 1.8.50927.3
 * Visual Studio 2017 Update 3 includes Service Fabric Tools for Visual Studio 1.7.20170817
 * Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) includes Service Fabric Tools for Visual Studio 1.7.20170721
 
@@ -79,6 +79,7 @@ Now that you've finished setting up your development environment, start building
 
 * [Create your first Service Fabric application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 * [Learn how to deploy and manage applications on your local cluster](service-fabric-get-started-with-a-local-cluster.md)
+* [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * [Learn about the programming models: Reliable Services and Reliable Actors](service-fabric-choose-framework.md)
 * [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)

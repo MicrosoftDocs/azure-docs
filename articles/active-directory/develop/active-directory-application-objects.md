@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: bryanla
 ms.custom: aaddev
 
@@ -31,7 +31,9 @@ When you register an Azure AD application in the [Azure portal][AZURE-Portal], t
 An Azure AD application is defined by its one and only application object, which resides in the Azure AD tenant where the application was registered, known as the application's "home" tenant. The Azure AD Graph [Application entity][AAD-Graph-App-Entity] defines the schema for an application object's properties. 
 
 #### Service principal object
-The service principal object defines the policy and permissions for an application's use in a specific tenant, providing the basis for a security principal to represent the application at run-time. The Azure AD Graph [ServicePrincipal entity][AAD-Graph-Sp-Entity] defines the schema for a service principal object's properties. 
+In order to access resources that are secured by an Azure AD tenant, the entity that requires access must be represented by a security principal. This is true for both users (user principal) and applications (service principal). The security principal defines the access policy and permissions for the user/application in that tenant. This enables core features such as authentication of the user/application during sign-in, and authorization during resource access.
+
+When an application is given permission to access resources in a tenant (upon registration or [consent](active-directory-dev-glossary.md#consent)), a service principal object is created. The Azure AD Graph  [ServicePrincipal entity][AAD-Graph-Sp-Entity] defines the schema for a service principal object's properties.  
 
 #### Application and service principal relationship
 Consider the application object as the *global* representation of your application for use across all tenants, and the service principal as the *local* representation for use in a specific tenant. The application object serves as the template from which common and default properties are *derived* for use in creating corresponding service principal objects. An application object therefore has a 1:1 relationship with the software application, and a 1:many relationships with its corresponding service principal object(s).

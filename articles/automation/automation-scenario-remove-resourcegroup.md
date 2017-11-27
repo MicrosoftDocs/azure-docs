@@ -3,7 +3,7 @@ title: Automate removal of resource groups | Microsoft Docs
 description: PowerShell Workflow version of an Azure Automation scenario including runbooks to remove all resource groups in your subscription.
 services: automation
 documentationcenter: ''
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: ''
 

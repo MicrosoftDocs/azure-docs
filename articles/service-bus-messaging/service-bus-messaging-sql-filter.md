@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 10/16/2017
 ms.author: sethm
 
 ---
 
 # SQLFilter syntax
 
-A *SqlFilter* is an instance of the [SqlFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), and represents a SQL language-based filter expression that is evaluated against a [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). A SqlFilter supports a subset of the SQL-92 standard.  
+A *SqlFilter* object is an instance of the [SqlFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), and represents a SQL language-based filter expression that is evaluated against a [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). A SqlFilter supports a subset of the SQL-92 standard.  
   
  This topic lists details about SqlFilter grammar.  
   
@@ -278,5 +278,6 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
 
 ## Next steps
 
-- [SQLFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLFilter class (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLFilter class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter)
 - [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)

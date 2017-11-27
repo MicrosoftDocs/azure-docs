@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/13/2017
 ms.author: cherylmc
 
 ---
@@ -161,7 +161,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 1. Create a secure string for the RADIUS secret.
 
   ```powershell
-  $Secure_Secret=Read-Host -AsSecureStrinng -Prompt "RadiusSecret"
+  $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
   ```
 
 2. You are prompted to enter the RADIUS secret. The characters that you enter will not be displayed and instead will be replaced by the "*" character.
@@ -174,26 +174,27 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
   For SSTP configurations:
 
     ```powershell
-    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName '
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols "SSTP" '
+    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+    -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "SSTP" `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
   For IKEv2 configurations:
 
     ```powershell
-    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName '
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols "IKEv2" '
+    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+    -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "IKEv2" `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
   For SSTP + IKEv2
 
     ```powershell
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols @{ "SSTP", "IkeV2" } '
+    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+    -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 

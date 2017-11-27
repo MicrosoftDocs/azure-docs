@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/03/2017
+ms.date: 10/12/2017
 ms.author: cherylmc
 
 ---
@@ -30,9 +30,9 @@ This article shows you how to create a VNet with a Point-to-Site connection in t
 > * [Azure portal (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
-A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. 
+A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. A P2S VPN connection is established by starting it from the client computer.
 
-P2S uses the Secure Socket Tunneling Protocol (SSTP), which is an SSL-based VPN protocol. A P2S VPN connection is established by starting it from the client computer.
+The classic deployment model supports Windows VPN clients only and uses the Secure Socket Tunneling Protocol (SSTP), an SSL-based VPN protocol. In order to support non-Windows VPN clients, your VNet must be created using the Resource Manager deployment model. The Resource Manager deployment model supports IKEv2 VPN, in addition to SSTP. For more information, see [About P2S connections](point-to-site-about.md).
 
 
 ![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
@@ -93,7 +93,7 @@ If you don't already have a virtual network, create one. Screenshots are provide
 9. After clicking Create, a tile appears on your dashboard that will reflect the progress of your VNet. The tile changes as the VNet is being created.
 
   ![Creating virtual network tile](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
-10. Once your virtual network has been created, you see **Created** listed under **Status** on the networks page in the Azure classic portal.
+10. Once your virtual network has been created, you see **Created**.
 11. Add a DNS server (optional). After you create your virtual network, you can add the IP address of a DNS server for name resolution. The DNS server IP address that you specify should be the address of a DNS server that can resolve the names for the resources in your VNet.<br>To add a DNS server, open the settings for your virtual network, click DNS servers, and add the IP address of the DNS server that you want to use.
 
 ### <a name="gateway"></a>Part 2: Create gateway subnet and a dynamic routing gateway

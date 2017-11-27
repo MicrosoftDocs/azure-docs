@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/03/2017
 ms.author: genli
 
 ---
@@ -144,7 +144,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### Resolution
 
-We are working to update Hybrid Connection Manager to fix this issue. For workarounds, see [Hybrid Connections error with SQL Server: System.OverflowException: Arithmetic operation resulted in an overflow](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/).
+The exception was caused by an issue with the Hybrid Connection Manager that has since been fixed. Be sure to [update your Hybrid Connection Manager](https://go.microsoft.com/fwlink/?LinkID=841308) to resolve this issue.
 
 ## How do I add or edit a URL rewrite rule?
 
@@ -316,4 +316,4 @@ You also can specify the specific dynamic and static MIME types that you want to
 
 ## How do I migrate from an on-premises environment to App Service?
 
-To migrate sites from Windows and Linux web servers to App Service, you can use Azure App Service Migration Assistant. The migration tool creates web apps and databases in Azure as needed, and then publishes the content. For more information, see [Azure App Service Migration Assistant](https://www.movemetothecloud.net/).
+To migrate sites from Windows and Linux web servers to App Service, you can use Azure App Service Migration Assistant. The migration tool creates web apps and databases in Azure as needed, and then publishes the content. For more information, see [Azure App Service Migration Assistant](https://www.migratetoazure.net/).
