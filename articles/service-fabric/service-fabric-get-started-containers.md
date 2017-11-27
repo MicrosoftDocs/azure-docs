@@ -293,7 +293,7 @@ Windows supports two isolation modes for containers: process and Hyper-V. With t
 ```
    > [!NOTE]
    > The hyperv isolation mode is available on Ev3 and Dv3 Azure SKUs which have nested virtualization support. 
-   >
+   > Ensure the hyperv role is installed on the hosts. Verify this by connecting to the hosts.
    >
 
 ## Configure resource governance
@@ -325,7 +325,7 @@ The application is ready when it's in ```Ready``` state:
 Open a browser and navigate to http://containercluster.westus2.cloudapp.azure.com:8081. You should see the heading "Hello World!" display in the browser.
 
 ## Clean up
-You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Party clusters](https://try.servicefabric.azure.com/) are automatically deleted after a few hours.
+You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  [Party clusters](https://try.servicefabric.azure.com/) are automatically deleted after a few hours.
 
 After you push the image to the container registry you can delete the local image from your development computer:
 

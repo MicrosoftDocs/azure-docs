@@ -148,7 +148,7 @@ For more information about Data Factory concepts, see the following articles:
 For Azure Data Factory pricing details, see [Data Factory pricing details](https://azure.microsoft.com/pricing/details/data-factory/).
 
 ## What regions support Azure Data Factory version 2?
-Currently, you can create data factories of version 2 in the East US and East US 2 regions. However, a data factory can use integration runtime in another region to move data between data stores, dispatch activities against compute services, or dispatch SSIS packages. For more information, see [Data Factory locations](concepts-integration-runtime.md#integration-runtime-location).
+Currently, you can create data factories of version 2 in the East US, East US 2, and West Europe regions. However, a data factory can use integration runtime in another region to move data between data stores, dispatch activities against compute services, or dispatch SSIS packages. For more information, see [Data Factory locations](concepts-integration-runtime.md#integration-runtime-location).
 
 ## How can I stay up to date with information about Data Factory?
 For the most up-to-date information about Azure Data Factory, go to the following sites:

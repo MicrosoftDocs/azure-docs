@@ -188,7 +188,7 @@ John is a user in contoso.com. You want John to use the on-premises UPN john@con
 ### Non-routable on-premises domains and UPN for Azure AD
 Some organizations have non-routable domains, like contoso.local, or simple single label domains like contoso. You are not able to verify a non-routable domain in Azure AD. Azure AD Connect can sync to only a verified domain in Azure AD. When you create an Azure AD directory, it creates a routable domain that becomes default domain for your Azure AD for example, contoso.onmicrosoft.com. Therefore, it becomes necessary to verify any other routable domain in such a scenario in case you don't want to sync to the default onmicrosoft.com domain.
 
-Read [Add your custom domain name to Azure Active Directory](../active-directory-add-domain.md) for more info on adding and verifying domains.
+Read [Add your custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md) for more info on adding and verifying domains.
 
 Azure AD Connect detects if you are running in a non-routable domain environment and would appropriately warn you from going ahead with express settings. If you are operating in a non-routable domain, then it is likely that the UPN of the users have non-routable suffixes too. For example, if you are running under contoso.local, Azure AD Connect suggests you to use custom settings rather than using express settings. Using custom settings, you are able to specify the attribute that should be used as UPN to sign in to Azure after the users are synced to Azure AD.
 

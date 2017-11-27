@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: ''
 author: seanmck
 manager: timlt
-editor: ''
+editor: mmacy
 tags:
 keywords:
 
@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/18/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
 
 # Troubleshoot deployment issues with Azure Container Instances
 
-This article shows how to troubleshoot issues when deploying containers to Azure Container Instances. It also describes some of the common issues you may run into.
+This article shows how to troubleshoot issues when deploying containers to Azure Container Instances. It also describes some of the common issues you might run into.
 
-## Getting diagnostic events
+## Get diagnostic events
 
 To view logs from your application code within a container, you can use the [az container logs](/cli/azure/container#logs) command. But if your container does not deploy successfully, you need to review the diagnostic information provided by the Azure Container Instances resource provider. To view the events for your container, run the following command:
 
@@ -88,7 +88,7 @@ The output includes the core properties of your container, along with deployment
 
 There are a few common issues that account for most errors in deployment.
 
-### Unable to pull image
+## Unable to pull image
 
 If Azure Container Instances is unable to pull your image initially, it retries for some period before eventually failing. If the image cannot be pulled, events like the following are shown:
 
@@ -120,75 +120,54 @@ If Azure Container Instances is unable to pull your image initially, it retries 
 
 To resolve, delete the container and retry your deployment, paying close attention that you have typed the image name correctly.
 
-### Container continually exits and restarts
+## Container continually exits and restarts
 
-Currently, Azure Container Instances only supports long-running services. If your container runs to completion and exits, it automatically restarts and runs again. If this happens, events like those following are shown. Note that the container successfully starts, then quickly restarts. The Container Instances API includes a `retryCount` property that shows how many times a particular container has restarted.
+If your container runs to completion and automatically restarts, you might need to set a [restart policy](container-instances-restart-policy.md) of **OnFailure** or **Never**. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
 
-```bash
-"events": [
-  {
-    "count": 5,
-    "firstTimestamp": "2017-08-03T22:21:55+00:00",
-    "lastTimestamp": "2017-08-03T22:23:22+00:00",
-    "message": "Pulling: pulling image \"alpine\"",
-    "type": "Normal"
-  },
-  {
-    "count": 5,
-    "firstTimestamp": "2017-08-03T22:21:57+00:00",
-    "lastTimestamp": "2017-08-03T22:23:23+00:00",
-    "message": "Pulled: Successfully pulled image \"alpine\"",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:57+00:00",
-    "lastTimestamp": "2017-08-03T22:21:57+00:00",
-    "message": "Created: Created container with id ad2bf9bc51761c5f935260b4bab53b164d52d9cbc045b16afcb26fb4d14d0a70",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:57+00:00",
-    "lastTimestamp": "2017-08-03T22:21:57+00:00",
-    "message": "Started: Started container with id ad2bf9bc51761c5f935260b4bab53b164d52d9cbc045b16afcb26fb4d14d0a70",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:58+00:00",
-    "lastTimestamp": "2017-08-03T22:21:58+00:00",
-    "message": "Created: Created container with id 7687b9bd15dc01731fa66fc45f6f0241495600602dd03841e559453245e7f70b",
-    "type": "Normal"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:21:58+00:00",
-    "lastTimestamp": "2017-08-03T22:21:58+00:00",
-    "message": "Started: Started container with id 7687b9bd15dc01731fa66fc45f6f0241495600602dd03841e559453245e7f70b",
-    "type": "Normal"
-  },
-  {
-    "count": 13,
-    "firstTimestamp": "2017-08-03T22:21:59+00:00",
-    "lastTimestamp": "2017-08-03T22:24:36+00:00",
-    "message": "BackOff: Back-off restarting failed container",
-    "type": "Warning"
-  },
-  {
-    "count": 1,
-    "firstTimestamp": "2017-08-03T22:22:13+00:00",
-    "lastTimestamp": "2017-08-03T22:22:13+00:00",
-    "message": "Created: Created container with id 72e347e891290e238135e4a6b3078748ca25a1275dbbff30d8d214f026d89220",
-    "type": "Normal"
-  },
-  ...
+The Container Instances API includes a `restartCount` property. To check the number of restarts for a container, you can use the [az container show](/cli/azure/container#az_container_show) command in the Azure CLI 2.0. In following example output (which has been truncated for brevity), you can see the `restartCount` property at the end of the output.
+
+```json
+...
+ "events": [
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:06+00:00",
+     "lastTimestamp": "2017-11-13T21:20:06+00:00",
+     "message": "Pulling: pulling image \"myregistry.azurecr.io/aci-tutorial-app:v1\"",
+     "type": "Normal"
+   },
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:14+00:00",
+     "lastTimestamp": "2017-11-13T21:20:14+00:00",
+     "message": "Pulled: Successfully pulled image \"myregistry.azurecr.io/aci-tutorial-app:v1\"",
+     "type": "Normal"
+   },
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:14+00:00",
+     "lastTimestamp": "2017-11-13T21:20:14+00:00",
+     "message": "Created: Created container with id bf25a6ac73a925687cafcec792c9e3723b0776f683d8d1402b20cc9fb5f66a10",
+     "type": "Normal"
+   },
+   {
+     "count": 1,
+     "firstTimestamp": "2017-11-13T21:20:14+00:00",
+     "lastTimestamp": "2017-11-13T21:20:14+00:00",
+     "message": "Started: Started container with id bf25a6ac73a925687cafcec792c9e3723b0776f683d8d1402b20cc9fb5f66a10",
+     "type": "Normal"
+   }
+ ],
+ "previousState": null,
+ "restartCount": 0
+...
+}
 ```
 
 > [!NOTE]
-> Most container images for Linux distributions set a shell, such as bash, as the default command. Since a shell on its own is not a long-running service, these containers immediately exit and fall into a restart loop.
+> Most container images for Linux distributions set a shell, such as bash, as the default command. Since a shell on its own is not a long-running service, these containers immediately exit and fall into a restart loop when configured with the default **Always** restart policy.
 
-### Container takes a long time to start
+## Container takes a long time to start
 
 If your container takes a long time to start, but eventually succeeds, start by looking at the size of your container image. Because Azure Container Instances pulls your container image on demand, the startup time you experience is directly related to its size.
 
@@ -209,7 +188,7 @@ The key to keeping image sizes small is ensuring that your final image does not 
 
 The other way to reduce the impact of the image pull on your container's startup time is to host the container image using the Azure Container Registry in the same region where you intend to use Azure Container Instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
 
-### Resource not available error
+## Resource not available error
 
 Due to varying regional resource load in Azure, you might receive the following error when attempting to deploy a container instance:
 
