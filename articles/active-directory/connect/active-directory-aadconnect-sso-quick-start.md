@@ -71,12 +71,12 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 
 ## Step 3: Roll out the feature
 
-To roll out the feature to your users, add the following Azure AD URLs to the users' Intranet zone settings by using Group Policy in Active Directory:
+To roll out the feature to your users, you need to add the following Azure AD URLs to the users' Intranet zone settings by using Group Policy in Active Directory:
 
 - https://autologon.microsoftazuread-sso.com
 - https://aadg.windows.net.nsatc.net
 
-In addition, you need to enable an Intranet zone policy setting called "Allow updates to status bar via script" through Group Policy. 
+In addition, you need to enable an Intranet zone policy setting called **Allow updates to status bar via script** through Group Policy. 
 
 >[!NOTE]
 > The following instructions work only for Internet Explorer and Google Chrome on Windows (if it shares a set of trusted site URLs with Internet Explorer). Read the next section for instructions on how to set up Mozilla Firefox and Google Chrome on Mac.
