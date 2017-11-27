@@ -18,7 +18,7 @@
 - name: Concepts
   items:
   - name: Migration to Azure
-    href: site-recovery-migrate-to-azure.md
+    href: ../site-recovery-migrate-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
   - name: On-premises to Azure support matrix
     href: ../site-recovery-support-matrix-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
   - name: Azure to Azure support matrix
