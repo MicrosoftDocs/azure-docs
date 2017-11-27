@@ -1,5 +1,5 @@
 - name: Azure Location Based Services Documentation 
-#  href: index.yml
+  href: index.yml
 - name: Overview
   items:
   - name: About Azure Location Based Services
@@ -27,6 +27,8 @@
   items:
   - name: Manage account and keys
     href: how-to-manage-account-keys.md
+  - name: How to use the Map Control
+    href: how-to-use-map-control.md
 - name: Reference
   items:
   - name: Resources
