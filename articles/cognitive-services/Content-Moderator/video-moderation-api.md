@@ -1,5 +1,5 @@
 ---
-title: Video Moderation API in Azure Content Moderator | Microsoft Docs
+title: Video Moderation in Azure Content Moderator | Microsoft Docs
 description: Use video moderation to scan for possible adult and racy content.
 services: cognitive-services
 author: sanjeev3
@@ -12,7 +12,7 @@ ms.date: 11/20/2017
 ms.author: sajagtap
 ---
 
-# Video Moderation API
+# Video moderation
 
 Today, online viewers generate billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you lower the cost of your moderation efforts.
 
@@ -50,7 +50,7 @@ After getting access to the Content Moderator media processor, use the following
 	{
 
 	class Program
-    {
+       {
         // declare constants and globals
         private static CloudMediaContext _context = null;
         private static readonly string _accountName = { ACCOUNT_NAME };
@@ -59,15 +59,12 @@ After getting access to the Content Moderator media processor, use the following
         private static readonly string _inputFile = { INPUT_FILE_PATH };
         private static readonly string _outputFolder = { OUTPUT_FOLDER_PATH };
 
-        //a json file with the configuration and version the supported Modes are Speed, Balance, Quality, 
-	//which provide Moderator readings over a 16-/32-/48-frame granularity.
-        //Example file:
-       //        {
-        //             "version": "2.0",
-        //             "Options": { "Mode": "Quality" }
-        //        }
-
+        //a configuration file in the json format with the version number.
         private static readonly string _moderatorConfiguration = { CONFIGURATION_FILE_PATH };
+        //Example file:
+        //        {
+        //             "version": "2.0",
+        //        }
 
         static void Main(string[] args)
         {

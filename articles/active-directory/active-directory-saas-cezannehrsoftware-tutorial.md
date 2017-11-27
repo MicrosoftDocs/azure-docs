@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeedes
 
 ---
@@ -106,11 +106,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Cezanne HR Software Domain and URLs single sign-on information](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. In the **Sign-on URL** textbox, type the URL: `https://w3.cezanneondemand.com/CezanneOnDemand/-/optyma`
+    a. In the **Sign-on URL** textbox, type the URL: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
 	b. In the **Identifier** textbox, type the URL: `https://w3.cezanneondemand.com/CezanneOnDemand/`
 
-	c. In the **Reply URL** textbox, type the URL: `https://w3.cezanneondemand.com:443/cezanneondemand/-/optyma/Saml/samlp`
+	c. In the **Reply URL** textbox, type the URL: `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`
+	
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign-On URL and Reply URL. Contact [Cezanne HR Software Client support team](https://cezannehr.com/services/support/) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
@@ -144,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	a. Enter the name of your Identity Provider as the **Display Name**.
 
-	b. In the **Entity Identifier** textbox, paste the value of **SAML Entity ID** which you have copied from the Azure portal . 
+	b. In the **Entity Identifier** textbox, paste the value of **SAML Entity ID** which you have copied from the Azure portal. 
 
 	c. Change the **SAML Binding** to 'POST'.
 
