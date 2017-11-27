@@ -262,7 +262,7 @@ If the cancellation period on the purchased domain has not elapsed, select **Can
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-Select **OK** to confirm the operation. If you don't want to proceed, click anywhere outside of the confirmation dialog.
+To confirm the operation, select **Yes**.
 
 After the operation is complete, the domain is released from your subscription and available for anyone to purchase again. 
 
