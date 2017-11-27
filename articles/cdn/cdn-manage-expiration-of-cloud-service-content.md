@@ -26,7 +26,7 @@ ms.author: mazha
 The files from any publicly accessible origin web server can be cached in Azure Content Delivery Network (CDN) until their time-to-live (TTL) elapses. The TTL is determined by the `Cache-Control` header in the HTTP response from the origin server. This article describes how to set `Cache-Control` headers for the Web Apps feature of Microsoft Azure App Service, Azure Cloud Services, ASP.NET applications, and Internet Information Services (IIS) sites, all of which are configured similarly. You can set the `Cache-Control` header either by using configuration files or programmatically.
 
 > [!TIP]
-> You can choose to set no TTL on a file. In this case, Azure CDN automatically applies a default TTL of seven days.
+> You can choose to set no TTL on a file. In this case, Azure CDN automatically applies a default TTL of seven days. This default TTL applies only to general web delivery optimizations. For large file optimizations, the default TTL is one day, and for media streaming optimizations, the default TTL is one year.
 > 
 > For more information about how Azure CDN works to speed up access to files and other resources, see [Overview of the Azure Content Delivery Network](cdn-overview.md).
 > 

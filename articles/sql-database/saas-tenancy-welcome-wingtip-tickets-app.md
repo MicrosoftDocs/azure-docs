@@ -23,7 +23,7 @@ The same *Wingtip Tickets* application is implemented in each of three samples. 
 
 ## Three SaaS application patterns
 
-Three vesions of the app are available; each explores a different database tenancy pattern on Azure SQL Database.  The first uses a single-tenant application with an isolated single-tenant database. The second uses a multi-tenant app, with a database per tenant. The third sample uses a multi-tenant app with sharded multi-tenant databases.
+Three versions of the app are available; each explores a different database tenancy pattern on Azure SQL Database.  The first uses a single-tenant application with an isolated single-tenant database. The second uses a multi-tenant app, with a database per tenant. The third sample uses a multi-tenant app with sharded multi-tenant databases.
 
 ![Three tenancy patterns][image-three-tenancy-patterns]
 
@@ -39,7 +39,7 @@ Check out the [tutorials][docs-tutorials-for-wingtip-sa] and code on GitHub  [..
 
 The database per tenant pattern is effective for service providers that are concerned with tenant isolation and want to run a centralized service that allows cost-efficient use of shared resources. A database is created for each venue, or tenant, and all the databases are centrally managed. Databases can be hosted in elastic pools to provide cost-efficient and easy performance management, which leverages the unpredictable workload patterns of the tenants. A catalog database holds the mapping between tenants and their databases. This mapping is managed using the shard map management features of the [Elastic Database Client Library](sql-database-elastic-database-client-library.md), which  provides efficient connection management to the application.
 
-Check out the [tutorials][docs-tutorials-for-wingtip-dpt] and code  on GitHub  [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
+Check out the [tutorials][docs-tutorials-for-wingtip-dpt] and code on GitHub  [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
 ## Sharded multi-tenant database pattern
 
@@ -47,7 +47,7 @@ Multi-tenant databases are effective for service providers looking for lower cos
 
 This pattern also allows a hybrid model in which you can optimize for cost with multiple tenants in a database, or optimize for isolation with a single tenant in their own database. The choice can be made on a tenant-by-tenant basis, either when the tenant is provisioned or later, with no impact on the application.
 
-Check out the [tutorials][docs-tutorials-for-wingtip-mt] and code  on GitHub  [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
+Check out the [tutorials][docs-tutorials-for-wingtip-mt] and code on GitHub  [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## Next steps
 
@@ -59,15 +59,15 @@ Check out the [tutorials][docs-tutorials-for-wingtip-mt] and code  on GitHub  [.
 
 - Standalone app:
     - [Tutorials for standalone app][docs-tutorials-for-wingtip-sa].
-    - [Code for standalone, on Github][github-code-for-wingtip-sa].
+    - [Code for standalone, on GitHub][github-code-for-wingtip-sa].
 
 - Database per tenant:
     - [Tutorials for database per tenant][docs-tutorials-for-wingtip-dpt].
-    - [Code for database per tenant, on Github][github-code-for-wingtip-dpt].
+    - [Code for database per tenant, on GitHub][github-code-for-wingtip-dpt].
 
 - Sharded multi-tenant:
     - [Tutorials for sharded multi-tenant][docs-tutorials-for-wingtip-mt].
-    - [Code for sharded multi-tenant, on Github][github-code-for-wingtip-mt].
+    - [Code for sharded multi-tenant, on GitHub][github-code-for-wingtip-mt].
 
 
 

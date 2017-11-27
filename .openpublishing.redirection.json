@@ -15373,7 +15373,13 @@
              "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md",
              "redirect_url": "/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase",
              "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-provision.md",
+             "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-portal",
+             "redirect_document_id": false
         }
+
 
     ]
 }

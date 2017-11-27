@@ -121,6 +121,8 @@
         href: connector-postgresql.md
       - name: Salesforce
         href: connector-salesforce.md
+      - name: Salesforce Service Cloud
+        href: connector-salesforce.md
       - name: SAP Business Warehouse
         href: connector-sap-business-warehouse.md
       - name: SAP HANA
