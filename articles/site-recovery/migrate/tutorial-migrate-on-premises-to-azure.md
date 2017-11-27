@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.date: 11/27/2017
 ms.author: raynew
 ms.custom: MVC
 ---
 # Migrate on-premises machines to Azure
 
-The [Azure Site Recovery](site-recovery-overview.md) service manages and orchestrates replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
+The [Azure Site Recovery](../site-recovery-overview.md) service manages and orchestrates replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
 This tutorial shows you how to migrate on-premises VMs and physical servers to Azure, with Site Recovery. In this tutorial, you learn how to:
 
@@ -40,8 +40,8 @@ You migrate a machine by enabling replication for it, and failing it over to Azu
 
 Here's what you need to do for this tutorial.
 
-- [Prepare](tutorial-prepare-azure.md) Azure resources, including an Azure subscription, an Azure virtual network, and a storage account.
-- [Prepare](tutorial-prepare-on-premises-vmware.md) VMware on-premises VMware servers and VMs.
+- [Prepare](../tutorial-prepare-azure.md) Azure resources, including an Azure subscription, an Azure virtual network, and a storage account.
+- [Prepare](../tutorial-prepare-on-premises-vmware.md) VMware on-premises VMware servers and VMs.
 - Note that devices exported by paravirtualized drivers aren't supported.
 
 
@@ -62,9 +62,9 @@ Select what you want to replicate, and where you want to replicate to.
 
 ## Set up the source environment
 
-- [Set up](tutorial-vmware-to-azure.md#set-up-the-source-environment) the source environment for VMware VMs.
-- [Set up](tutorial-physical-to-azure.md#set-up-the-source-environment) the source environment for physical servers.
-- [Set up](tutorial-hyper-v-to-azure.md#set-up-the-source-environment) the source environment for Hyper-V VMs.
+- [Set up](../tutorial-vmware-to-azure.md#set-up-the-source-environment) the source environment for VMware VMs.
+- [Set up](../tutorial-physical-to-azure.md#set-up-the-source-environment) the source environment for physical servers.
+- [Set up](../tutorial-hyper-v-to-azure.md#set-up-the-source-environment) the source environment for Hyper-V VMs.
 
 ## Set up the target environment
 
@@ -76,17 +76,17 @@ Select and verify target resources.
 
 ## Create a replication policy
 
-- [Set up a replication policy](tutorial-vmware-to-azure.md#create-a-replication-policy) for VMware VMs.
+- [Set up a replication policy](../tutorial-vmware-to-azure.md#create-a-replication-policy) for VMware VMs.
 
 
 ## Enable replication
 
-- [Enable replication](tutorial-vmware-to-azure.md#enable-replication) for VMware VMs.
+- [Enable replication](../tutorial-vmware-to-azure.md#enable-replication) for VMware VMs.
 
 
 ## Run a test migration
 
-Run a [test failover](tutorial-dr-drill-azure.md) to Azure, to make sure everything's working as expected.
+Run a [test failover](../tutorial-dr-drill-azure.md) to Azure, to make sure everything's working as expected.
 
 
 ## Migrate to Azure
