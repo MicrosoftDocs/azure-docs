@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/27/2017
 ms.author: bradsev;
 
 ---
@@ -25,9 +25,7 @@ This document describes how developers can execute a data science project in a s
 This article includes instructions on how to: 
 
 1. do **sprint planning** for work items involved in a project.<br> If you are unfamiliar with sprint planning, you can find details and general information [here](https://en.wikipedia.org/wiki/Sprint_(software_development) "here"). 
-2. **add work items** to sprints.
-3. **link the work items with coding activities** tracked by git.
-4. do **code review**. 
+2. **add work items** to sprints. 
 
 > [!NOTE]
 > The steps needed to set up a TDSP team environment using Visual Studio Team Services (VSTS) are outlined in the following set of instructions. They specify how to accomplish these tasks with VSTS because that is how to implement TDSP at Microsoft.  If you choose to use VSTS, items (3) and (4) in the previous list are benefits that you get naturally. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different. For example, the item in section six, **Link a work item with a git branch**, might not be as easy as it is on VSTS.
@@ -73,7 +71,7 @@ Sprint planning is useful for project prioritization, and resource planning and 
 Follow [this link](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning) for the step-by-step instructions on sprint planning in VSTS. 
 
 
-## 3. <a name='AddFeature-3'></a>Add a Feature  
+## 3. <a name='AddFeature-3'></a>Add a feature  
 
 After your project repository is created under a team project, go to the team **Overview** page and click **Manage work**.
 
@@ -88,7 +86,7 @@ Double-click the feature you created. Fill in the descriptions, assign team memb
 You can also link this feature to the project repository. Click **Add link** under the **Development** section. After you have finished editing the feature, click **Save & Close** to exit.
 
 
-## 4. <a name='AddStoryunderfeature-4'></a>Add Story under Feature 
+## 4. <a name='AddStoryunderfeature-4'></a>Add Story under feature 
 
 Under the feature, stories can be added to describe major steps needed to finish the (feature) project. To add a new story, click the **+** sign to the left of the feature in backlog view.  
 
@@ -118,7 +116,7 @@ After the features, stories, and tasks are created, you can view them in the **B
 ![9](./media/agile-development/9-link-to-a-new-branch.png)
 
 
-## 6. <a name='set-up-agile-dsp-6'></a> Set up agile data science process in Visual Studio Online
+## 6. <a name='set-up-agile-dsp-6'></a> Set up an Agile TDSP work template in Visual Studio Online
 
 This article explains how to set up an agile data science process template that uses the TDSP data science lifecycle stages and tracks work items with Visual Studio Online (vso). The steps below walk through an example of setting up the data science-specific agile process template *AgileDataScienceProcess* and show how to create data science work items based on the template.
 
@@ -192,5 +190,3 @@ Here are additional links to resources on agile processes.
 
 
 Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
-
-For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](http://aka.ms/datascienceprocess) learning path.

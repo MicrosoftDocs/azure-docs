@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/27/2017
 ms.author: bradsev;
 
 ---
@@ -20,7 +20,7 @@ ms.author: bradsev;
 
 # Collaborative coding with Git
 
-In this article we describe how to do collaborative code development for data science projects using Git as the shared code development framework and how to link these coding activities to the work planned in [Agile development](agile-development.md).
+In this article we describe how to do collaborative code development for data science projects using Git as the shared code development framework. It covers how to link these coding activities to the work planned in [Agile development](agile-development.md) and how to do code reviews.
 
 
 ## 1. <a name='Linkaworkitemwithagitbranch-1'></a>Link a work item with a git branch 
@@ -108,11 +108,10 @@ You can also use the following Git commands to merge your working branch to its 
 ![13](./media/collaborative-coding-with-git/13-spring-branch-deleted-commandline.png)
 
 
-
  
 ## Next steps
 
-[Execute of data science tasks](execute-data-science-tasks.md)
+[Execute of data science tasks](execute-data-science-tasks.md) shows how to use utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation.
 
 Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
