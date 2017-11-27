@@ -144,7 +144,7 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
     ``` 
 
     If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again.
-3. Define a variable for the data factory name that you can use in PowerShell commands later. 
+3. Define a variable for the data factory name that you can use in PowerShell commands later. Name must start with a letter or a number, and can contain only letters, numbers, and the dash (-) character.
 
     > [!IMPORTANT]
     >  Update the data factory name to be globally unique. For example, ADFTutorialFactorySP1127. 
