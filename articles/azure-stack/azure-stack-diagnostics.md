@@ -26,40 +26,8 @@ Our diagnostics tools help ensure the log collection mechanism is easy and effic
  
 ## Trace Collector
  
-The Trace Collector is enabled by default. It continuously runs in the background and collects all Event Tracing for Windows (ETW) logs from component services on Azure Stack and stores them on a common local share. 
+The Trace Collector is enabled by default and runs continuously in the background to collect all Event Tracing for Windows (ETW) logs from Azure Stack component services. ETW logs are stored in a common local share with a five day age limit. Once this limit is reached, the oldest files are deleted as new ones are created. The default maximum size allowed for each file  is 200MB. A size check occurs periodically (currently every 2 minutes) and if the current file is >= 200 MB, it is saved and a new file is generated. There is also an 8GB  limit on the total file size generated per event session. 
 
-The following are important things to know about the Trace Collector:
- 
-* The Trace Collector runs continuously with default size limits. The default maximum size allowed for each file (200 MB) is **not** a cutoff size. A size check occurs periodically (currently every 2 minutes) and if the current file is >= 200 MB, it is saved and a new file is generated. There is also an 8 GB (configurable) limit on the total file size generated per event session. Once this limit is reached, the oldest files are deleted as new ones are created.
-* There is a 5-day age limit on the logs. This limit is also configurable. 
-* Each component defines the trace configuration properties through a JSON file. The JSON files are stored in **C:\TraceCollector\Configuration**. If necessary, these files can be edited to change the age and size limits of the collected logs. Changes to these files require a restart of the *Microsoft Azure Stack Trace Collector* service for the changes to take effect.
-
-The following example is a trace configuration JSON file for FabricRingServices Operations from the XRP VM: 
-
-```json
-{
-    "LogFile": 
-    {
-        "SessionName": "FabricRingServicesOperationsLogSession",
-        "FileName": "\\\\SU1FileServer\\SU1_ManagementLibrary_1\\Diagnostics\\FabricRingServices\\Operations\\AzureStack.Common.Infrastructure.Operations.etl",
-        "RollTimeStamp": "00:00:00",
-        "MaxDaysOfFiles": "5",
-        "MaxSizeInMB": "200",
-        "TotalSizeInMB": "5120"
-    },
-    "EventSources":
-    [
-        {"Name": "Microsoft-AzureStack-Common-Infrastructure-ResourceManager" },
-        {"Name": "Microsoft-OperationManager-EventSource" },
-        {"Name": "Microsoft-Operation-EventSource" }
-    ]
-}
-```
-
-* **MaxDaysOfFiles**. This parameter controls the age of files to keep. Older log files are deleted.
-* **MaxSizeInMB**. This parameter controls the size threshold for a single file. If the size is reached, a new .etl file is created.
-* **TotalSizeInMB**. This parameter controls the total size of the .etl files generated from an event session. If the total file size is greater than this parameter value, older files are deleted.
-  
 ## Log collection tool
  
 The PowerShell command **Get-AzureStackLog** can be used to collect logs from all the components  in an Azure Stack environment. It saves them in zip files in a user-defined location. If our technical support team needs your logs to help troubleshoot an issue, they may ask you to run this tool.
@@ -155,7 +123,7 @@ if($s)
    | Domain                  | ECE                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
    | Gateway                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController |KeyVaultAdminResourceProvider|
+   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
    | SeedRingServices        | SLB                    | SQL                |   
