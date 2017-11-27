@@ -11,7 +11,7 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 11/27/2017
 ---
 
 # Authentication and authorization for Azure Time Series Insights API
