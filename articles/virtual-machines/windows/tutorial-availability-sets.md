@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # How to use availability sets
 
-In this tutorial, you learn how to increase the availability and reliability of your Virtual Machine solutions on Azure using a capability called Availability Sets. Availability sets ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware clusters. Doing this ensures that if a hardware or software failure within Azure happens, only a sub-set of your VMs are impacted and that your overall solution remains available and operational. 
+In this tutorial, you learn how to increase the availability and reliability of your Virtual Machine solutions on Azure using a capability called Availability Sets. Availability sets ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. Doing this ensures that if a hardware or software failure within Azure happens, only a sub-set of your VMs are impacted and that your overall solution remains available and operational. 
 
 In this tutorial, you learn how to:
 
