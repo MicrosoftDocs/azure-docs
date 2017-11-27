@@ -31,3 +31,5 @@ Number of servers that can be profiled per running instance of the Site Recovery
 >The tool is primarily for the Hyper-V to Azure disaster recovery scenario. For Hyper-V to secondary site disaster recovery, it can be used only to understand source side recommendations like required network bandwidth, required free storage space on each of the source Hyper-V servers, and initial replication batching numbers and batch definitions.  Ignore the Azure recommendations and costs from the report. Also, the Get Throughput operation is not applicable for the Hyper-V to secondary site disaster recovery scenario.
 >
 
+## Next steps
+* [Download](site-recovery-hyper-v-deployment-panner-download.md) Site Recovery deployment planner.

@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery deployment planner profiling details for VMware to Azure and Hyper-V-to-Azure| Microsoft Docs
+title: Azure Site Recovery deployment planner profiling details for  Hyper-V-to-Azure| Microsoft Docs
 description: This article explains how to profile Hyper-V VMs using Azure Site Recovery deployment planner for Hyper-V to Azure scenario.
 services: site-recovery
 documentationcenter: ''
@@ -40,7 +40,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |---|---|
 | -Operation | StartProfiling |
 | -User | User name to connect to the Hyper-V host or Hyper-V cluster. User needs to have administrative access.|
-| -VMListFile | The file with the list of VMs to be profiled. The file path can be absolute or relative. For Hyper-V, this is the output file of the GetVMList operation. If you are preparing manually, the file should contain one server name or IP address followed by VM name separated by a \ per line. VM name specified in the file should be the same as the VM name on the Hyper-V host.<ul><br>Example: File "VMList.txt" contains the following VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C\</li><ul>
+| -VMListFile | The file with the list of VMs to be profiled. The file path can be absolute or relative. For Hyper-V, this file is the output file of the GetVMList operation. If you are preparing manually, the file should contain one server name or IP address followed by VM name separated by a \ per line. VM name specified in the file should be the same as the VM name on the Hyper-V host.<ul>Example: File "VMList.txt" contains the following VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-NoOfMinutesToProfile|The number of minutes for which profiling is to be run. Minimum is 30 minutes.|
 |-NoOfHoursToProfile|The number of hours for which profiling is to be run.|
 |-NoOfDaysToProfile |The number of days for which profiling is to be run. It is recommended to run profiling for more than 31 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation.|
@@ -93,8 +93,8 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Dire
 * Azure Site Recovery does not support VMs that have iSCSI and pass-through disks. However, the tool cannot detect, and profile iSCSI and pass-through disks attached to VMs.
 
 ## Next steps
-Learn more about [generate report](site-recovery-hyper-v-deployment-planner-generate-report.md).
-
+* Learn more about [generate report](site-recovery-hyper-v-deployment-planner-generate-report.md).
+* Learn more about [get throughput](site-recovery-hyper-v-deployment-planner-get-throughput.md).
 
 
 

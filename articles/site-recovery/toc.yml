@@ -167,6 +167,8 @@
         href: site-recovery-hyper-v-deployment-planner-incompatible-vms.md
       - name: Site Recovery limits   
         href: site-recovery-hyper-v-deployment-planner-site-recovery-limits.md
+      - name: On-premises storage requirement   
+        href: site-recovery-hyper-v-deployment-planner-on-premises-storage-requirement.md
       - name: IR batching   
         href: site-recovery-hyper-v-deployment-planner-ir-batchting.md
       - name: Cost estimation   
