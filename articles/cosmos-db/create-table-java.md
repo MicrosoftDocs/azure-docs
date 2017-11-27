@@ -41,6 +41,10 @@ In addition:
 
 ## Create a database account
 
+> [!IMPORTANT] 
+> You need to create a new Table API account to work with the generally available Table API SDKs. Table API accounts created during preview are not supported by the generally available SDKs.
+>
+
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
 ## Add a table
@@ -98,7 +102,7 @@ Now go back to the Azure portal to get your connection string information and co
 6. Paste your PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value in line 2. 
 
     > [!IMPORTANT]
-    > If your Endpoint uses documents.azure.com, that means you have a preview acct, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK.
+    > If your Endpoint uses documents.azure.com, that means you have a preview account, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK.
     >
 
 7. Save the config.properties file.
