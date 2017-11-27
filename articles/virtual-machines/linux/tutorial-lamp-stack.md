@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/21/2017
 ms.author: danlep
 
 ---
@@ -39,7 +39,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Install Apache, MySQL, and PHP
 
-Run the following command to update Ubuntu package sources and install Apache, MySQL, and PHP. Note the caret (^) at the end of the command.
+Run the following command to update Ubuntu package sources and install Apache, MySQL, and PHP. Note the caret (^) at the end of the command, which installs the `lamp-server` meta-package. 
 
 
 ```bash

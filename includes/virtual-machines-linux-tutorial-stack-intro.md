@@ -57,7 +57,7 @@ If you don't already know the public IP address of your VM, run the [az network 
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-Use the following command to create an SSH session with the virtual machine. Substitute the correct public IP address of your virtual machine. In this example, the IP address is *40.68.254.142*.
+Use the following command to create an SSH session with the virtual machine. Substitute the correct public IP address of your virtual machine. In this example, the IP address is *40.68.254.142*. *azureuser* is the user name passed with the `--admin-username` parameter when you created the VM.
 
 ```bash
 ssh azureuser@40.68.254.142
