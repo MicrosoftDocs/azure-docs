@@ -1,5 +1,5 @@
 ---
-title: Calling Azure Storage Services REST API operations inclusing authentication | Microsoft Docs
+title: Calling Azure Storage Services REST API operations including authentication | Microsoft Docs
 description: Calling Azure Storage Services REST API operations including authentication
 services: storage
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: robinsh
 ---
 
-# Calling Azure Storage Services REST API Operations
+# Using the Azure Storage REST API
 
 This article shows you how to use the Blob Storage Service REST APIs and how to authenticate the call to the service. It is written from the point of view of someone who knows nothing about REST and no idea how to make a REST call, but is a developer. We look at the reference documentation for a REST call and see how to translate it into an actual REST call – which fields go where? After learning how to set up a REST call, you can leverage this knowledge to use any of the other Storage Service REST APIs.
 
