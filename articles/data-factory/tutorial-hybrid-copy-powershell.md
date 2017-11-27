@@ -226,7 +226,7 @@ In this section, you create a self-hosted integration runtime, and associate it 
    State                     : NeedRegistration
    ```
 
-3. Run the following command to retrieve **authentication keys** to register the self-hosted integration runtime with Data Factory service in the cloud. Copy one of the keys (exclude double quotes) for registering the self-hosted integration runtime that you install on your machine in the next step.  
+3. Run the following command to retrieve **authentication keys** to register the self-hosted integration runtime with Data Factory service in the cloud. 
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -239,7 +239,8 @@ In this section, you create a self-hosted integration runtime, and associate it 
        "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
-   ```
+   ```    
+4. Copy one of the keys (exclude double quotes) for registering the self-hosted integration runtime that you install on your machine in the next step.  
 
 ## Install integration runtime
 1. [Download](https://www.microsoft.com/download/details.aspx?id=39717) the self-hosted integration runtime on a local windows machine, and run the installation. 
@@ -380,7 +381,7 @@ In this step, you link your on-premises SQL Server to the data factory.
     > - Select the right section based on the **authentication** you use to connect to SQL Server.
     > - Replace  **&lt;integration** **runtime** **name>** with the name of your integration runtime.
     > - Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, and **&lt;password>** with values of your SQL Server before saving the file.
-    > - If you need to use a slash character (`\`) in your user account or server name, use the escape character (`\`). For example `mydomain\\myuser`. 
+    > - If you need to use a slash character (`\`) in your user account or server name, use the escape character (`\`). For example, `mydomain\\myuser`. 
 
 2. To encrypt the sensitive data (user name, password, etc.), run the **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet. This encryption ensures  that the credentials are encrypted using Data Protection Application Programming Interface (DPAPI). The encrypted credentials are stored locally on the self-hosted integration runtime node (local machine). The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json') which contains encrypted credentials.
     
