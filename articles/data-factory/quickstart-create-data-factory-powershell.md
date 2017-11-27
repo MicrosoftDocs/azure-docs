@@ -50,7 +50,7 @@ You use the name and key of your Azure storage account in this quickstart. The f
 4. In the **Storage account** page, select **Access keys** on the menu.
 
     ![Get storage account name and key](media/quickstart-create-data-factory-powershell/storage-account-name-key.png)
-5. Copy the values for **Storage account name** and **key1** fields to the clipboard. Paste them into a notepad or any other editor and save it.  
+5. Copy the values for **Storage account name** and **key1** fields to the clipboard. Paste them into a notepad or any other editor and save it. You use them later in this quickstart.   
 
 #### Create input folder and files
 In this section, you create a blob container named **adftutorial** in your Azure blob storage. Then, you create a folder named **input** in the container, and then upload a sample file to the input folder. 
@@ -188,7 +188,7 @@ Create linked services in a data factory to link your data stores and compute se
         }
     }
     ```
-
+    If you are using Notepad, select **All files** for the **Save as type** filed in the **Save as** dialog box. Otherwise, it may add `.txt` extension to the file. For example, `AzureStorageLinkedService.json.txt`. If you create the file in File Explorer before opening it in Notepad, you may not see the `.txt` extension since the **Hide extensions for known files types** option is set by default. Remove the `.txt` extension before proceeding to the next step.
 2. In **PowerShell**, switch to the **ADFv2QuickStartPSH** folder.
 
 3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. 
