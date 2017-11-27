@@ -123,27 +123,32 @@ For detailed instructions, see [How to install and configure PowerShell](/powers
     ```
 
 ## Create a data factory
-1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`.
+1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>";
+    $resourceGroupName = "ADFQuickStartRG";
     ```
-2. Define a variable for the data factory name. 
+
+    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again
+2. To create the Azure resource group, run the following command: 
 
     ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>";
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again. 
+3. Define a variable for the data factory name. 
+
+    > [!IMPORTANT]
+    >  Update the data factory name to be globally unique. For example, ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFQuickStartFactory";
     ```
 1. Define a variable for the location of the data factory: 
 
     ```powershell
     $location = "East US"
     ```
-4. To create the Azure resource group, run the following command: 
-
-    ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
-    ``` 
-    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again. 
 5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet: 
     
     ```powershell       
