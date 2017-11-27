@@ -265,3 +265,11 @@ If the cancellation period on the purchased domain has not elapsed, select **Can
 Select **OK** to confirm the operation. If you don't want to proceed, click anywhere outside of the confirmation dialog.
 
 After the operation is complete, the domain is released from your subscription and available for anyone to purchase again. 
+
+## Direct default URL to a custom directory
+
+By default, App Service directs web requests to the root directory of your app code. To direct them to a subdirectory, such as `public`, see [Direct default URL to a custom directory](app-service-web-tutorial-custom-domain.md#virtualdir).
+
+## More resources
+
+[FAQ : App Service Domain (preview) and Custom Domains](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)
