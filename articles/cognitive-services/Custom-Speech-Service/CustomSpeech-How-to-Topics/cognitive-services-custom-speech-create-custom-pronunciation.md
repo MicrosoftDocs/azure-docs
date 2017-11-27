@@ -39,7 +39,7 @@ Each .txt file can have several entries. For example, see the following screensh
 The spoken form is the phonetic sequence of the display form. It is composed of letters, words, or syllables. Currently, there is no further guidance or set of standards to help you formulate the spoken form. 
 
 ## Supported pronunciation characters
-Custom Pronunciation is currently supported for English (en-US) and German (de-de). The character set that can be used to express the spoken form of a term is shown in the following table.
+Custom Pronunciation is currently supported for English (en-US) and German (de-de). The character set that can be used to express the spoken form of a term (in the custom pronunciation file) is shown in the following table. Please note, that a term's diplay form (in a pronunciation file) should be writen the same way in a language adaptation data set.
 
 | Language | Characters |
 |----------	|----------|
