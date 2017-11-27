@@ -33,96 +33,45 @@ Register Python and, R extensions assemblies for your ADL account.
 
   ![Set up the environment for python and R](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
 
+  > [!Note]
+  > For best experiences on Python and R language service, please install VSCode Python and R extension. 
+
 ## Develop Python file
 1. Click the **New File** in your workspace.
-2. Write your code in U-SQL and CS file. The following is a code sample.
+2. Write your code in U-SQL. The following is a code sample.
     ```U-SQL
     REFERENCE ASSEMBLY [ExtPython];
-    @Input =
-        EXTRACT SepalLength float,
-                SepalWidth float,
-                PetalLength float,
-                PetalWidth float,
-                Name string
-        FROM @"/usqlext/samples/python/iris.csv"
-        USING new USQLApplication6.CSharpExtractor();
+    @t  = 
+        SELECT * FROM 
+        (VALUES
+            ("D1","T1","A1","@foo Hello World @bar"),
+            ("D2","T2","A2","@baz Hello World @beer")
+        ) AS 
+            D( date, time, author, tweet );
 
-    @Out =
-        REDUCE @Input ALL
-        PRODUCE SepalLength double,
-                SepalWidth double,
-                PetalLength double,
-                PetalWidth double,
-                Name string,
-                SepalRatio double,
-                PetalRatio double
-        USING new Extension.Python.Reducer("pythonClusterRun.usql.py", pyVersion : "3.5.1");
+    @m  =
+        REDUCE @t ON date
+        PRODUCE date string, mentions string
+        USING new Extension.Python.Reducer("pythonSample.usql.py", pyVersion : "3.5.1");
 
-    OUTPUT @Out
-    TO @"/mandyw/Python/Output/sample_python.txt"
-    USING Outputters.Csv();
+    OUTPUT @m
+        TO "/tweetmentions.csv"
+        USING Outputters.Csv();
     ```
-    ```CS
-    namespace USQLApplication6
-    {
-        [SqlUserDefinedExtractor]
-        public class CSharpExtractor : IExtractor
-        {
-            public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
-            {
-                char column_delimiter = ',';
-                string line;
-                var reader = new StreamReader(input.BaseStream);
-                while ((line = reader.ReadLine()) != null)
-                {
-                    var tokens = line.Split(column_delimiter);
-                    output.Set("SepalLength", Convert.ToSingle(tokens[0]));
-                    output.Set("SepalWidth", Convert.ToSingle(tokens[1]));
-                    output.Set("PetalLength", Convert.ToSingle(tokens[2]));
-                    output.Set("PetalWidth", Convert.ToSingle(tokens[3]));
-                    output.Set("Name", USQLApplication6.IrisUtility.SimplifyIrisName(tokens[4]));
-                    yield return output.AsReadOnly();
-                }
-            }
-        }
-
-        public static class IrisUtility
-        {
-            public static string SimplifyIrisName(string irisName)
-            {
-                if (string.IsNullOrWhiteSpace(irisName))
-                {
-                    return irisName;
-                }
-
-                string simplifiedName = irisName;
-
-                if (irisName.StartsWith(IrisPrefix, StringComparison.InvariantCultureIgnoreCase))
-                {
-                    simplifiedName = irisName.Substring(IrisPrefix.Length);
-                }
-
-                return simplifiedName;
-            }
-
-            private const string IrisPrefix = "Iris-";
-        }
-    }
-    ```
-3. Right-click a script file, and then select **DL: Generate Python Code Behind File**. 
+    
+3. Right-click a script file, and then select **ADL: Generate Python Code Behind File**. 
 4. The **xxx.usql.py** file is generated in your working folder. Write your code in Python file. The following is a code sample.
 
     ```Python
-    '''
-    Single quote doc string \\
-    '''
-    """
-    Double quote doc string \\
-    """
-    def usqlml_main(df):
-        df1 = df.query('SepalLength > 5').assign(SepalRatio = lambda x: x.SepalWidth / x.SepalLength, PetalRatio = lambda x: x.PetalWidth / x.PetalLength)
-        return df1,
+    def get_mentions(tweet):
+        return ';'.join( ( w[1:] for w in tweet.split() if w[0]=='@' ) )
 
+    def usqlml_main(df):
+        del df['time']
+        del df['author']
+        df['mentions'] = df.tweet.apply(get_mentions)
+        del df['tweet']
+        return df
     ```
 5. Right-click in **USQL** file, you can click **Compile Script** or **Submit Job** to running job.
 
@@ -167,7 +116,7 @@ Register Python and, R extensions assemblies for your ADL account.
     TO @OutputFilePredictions
     USING Outputters.Tsv();
     ```
-3. Right-click in **USQL** file, and then select **DL: Generate R Code Behind File**. 
+3. Right-click in **USQL** file, and then select **ADL: Generate R Code Behind File**. 
 4. The **xxx.usql.r** file is generated in your working folder. Write your code in R file. The following is a code sample.
 
     ```R
@@ -209,7 +158,7 @@ A code-behind file is a C# file associated with a single U-SQL script. You can d
         TO @"/output/SearchLogtest.txt" 
         USING Outputters.Tsv();
     ```
-3. Right-click in **USQL** file, and then select **DL: Generate CS Code Behind File**. 
+3. Right-click in **USQL** file, and then select **ADL: Generate CS Code Behind File**. 
 4. The **xxx.usql.cs** file is generated in your working folder. Write your code in CS file. The following is a code sample.
 
     ```CS
