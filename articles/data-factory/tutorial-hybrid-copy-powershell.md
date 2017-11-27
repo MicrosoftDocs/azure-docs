@@ -135,25 +135,28 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>"
+    $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-2. Define a variable for the data factory name that you can use in PowerShell commands later. 
-
-    ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>"
-    ```
-1. Define a variable for the location of the data factory: 
-
-    ```powershell
-    $location = "East US"
-    ```
-4. To create the Azure resource group, run the following command: 
+2. To create the Azure resource group, run the following command: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
 
-    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again.   
+    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again.
+3. Define a variable for the data factory name that you can use in PowerShell commands later. 
+
+    > [!IMPORTANT]
+    >  Update the data factory name to be globally unique. For example, ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFTutorialFactory"
+    ```
+1. Define a variable for the location of the data factory: 
+
+    ```powershell
+    $location = "East US"
+    ```  
 5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet: 
     
     ```powershell       
@@ -223,7 +226,7 @@ In this section, you create a self-hosted integration runtime, and associate it 
    State                     : NeedRegistration
    ```
 
-3. Run the following command to retrieve **authentication keys** to register the self-hosted integration runtime with Data Factory service in the cloud. Copy one of the keys (exclude double quotes) for registering the self-hosted integration runtime that you install on your machine in the next step.  
+3. Run the following command to retrieve **authentication keys** to register the self-hosted integration runtime with Data Factory service in the cloud. 
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -236,7 +239,8 @@ In this section, you create a self-hosted integration runtime, and associate it 
        "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
-   ```
+   ```    
+4. Copy one of the keys (exclude double quotes) for registering the self-hosted integration runtime that you install on your machine in the next step.  
 
 ## Install integration runtime
 1. [Download](https://www.microsoft.com/download/details.aspx?id=39717) the self-hosted integration runtime on a local windows machine, and run the installation. 
@@ -377,7 +381,7 @@ In this step, you link your on-premises SQL Server to the data factory.
     > - Select the right section based on the **authentication** you use to connect to SQL Server.
     > - Replace  **&lt;integration** **runtime** **name>** with the name of your integration runtime.
     > - Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, and **&lt;password>** with values of your SQL Server before saving the file.
-    > - If you need to use a slash character (`\`) in your user account or server name, use the escape character (`\`). For example `mydomain\\myuser`. 
+    > - If you need to use a slash character (`\`) in your user account or server name, use the escape character (`\`). For example, `mydomain\\myuser`. 
 
 2. To encrypt the sensitive data (user name, password, etc.), run the **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet. This encryption ensures  that the credentials are encrypted using Data Protection Application Programming Interface (DPAPI). The encrypted credentials are stored locally on the self-hosted integration runtime node (local machine). The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json') which contains encrypted credentials.
     
