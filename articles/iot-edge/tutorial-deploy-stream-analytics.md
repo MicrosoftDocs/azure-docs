@@ -70,15 +70,12 @@ An Azure Storage account is required to provide an endpoint to be used as an out
 
 ### Create a Stream Analytics job
 
-<<<<<<< HEAD
 1. In the Azure portal, navigate to **Create a resource** > **Internet of Things** and select **Stream Analytics Job**.
 
-=======
->>>>>>> 0f5f775aca9d7282b66446d31a87cd18a4f88fb5
 2. Enter a name, choose **Edge** as the Hosting environment, and use the remaining default values.  Click **Create**.
 
     >[!NOTE]
-    >Currently, ASA jobs on IoT Edge aren't supported in the US West 2 region. Please select a different location.
+    >Currently, ASA jobs on IoT Edge aren't supported in the US West 2 region. 
 
     ![ASA create][5]
 
