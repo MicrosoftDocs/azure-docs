@@ -90,20 +90,20 @@ In this section, you create a blob container named **adftutorial** in your Azure
     ![Close upload blob page](media/quickstart-create-data-factory-powershell/close-upload-blob.png)
 1. Keep the **container** page open. You use it to verify the output at the end of this quickstart. 
 
-### Azure PowerShell
+### Windows PowerShell
 
-#### Install Azure PowerShell
-Install the latest Azure PowerShell if you don't have it on your machine. 
+#### Install PowerShell
+Install the latest PowerShell if you don't have it on your machine. 
 
 1. In your web browser, navigate to [Azure SDK Downloads and SDKS](https://azure.microsoft.com/downloads/) page. 
 2. Click **Windows install** in the **Command-line tools** -> **PowerShell** section. 
-3. To install Azure PowerShell, run the **MSI** file. 
+3. To install PowerShell, run the **MSI** file. 
 
-For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+For detailed instructions, see [How to install and configure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-#### Log in to Azure PowerShell
+#### Log in to PowerShell
 
-1. Launch **PowerShell** on your machine. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run these commands again.
+1. Launch **PowerShell** on your machine. Keep PowerShell open until the end of this quickstart. If you close and reopen, you need to run these commands again.
 
     ![Launch PowerShell](media/quickstart-create-data-factory-powershell/search-powershell.png)
 1. Run the following command, and enter the same Azure user name and password that you use to sign in to the Azure portal:
@@ -184,7 +184,7 @@ Create linked services in a data factory to link your data stores and compute se
     }
     ```
 
-2. In **Azure PowerShell**, switch to the **ADFv2QuickStartPSH** folder.
+2. In **PowerShell**, switch to the **ADFv2QuickStartPSH** folder.
 
 3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. 
 
