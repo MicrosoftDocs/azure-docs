@@ -1,6 +1,6 @@
 ---
-title: Calling the Azure Storage Services REST API including authentication | Microsoft Docs
-description: Calling the Azure Storage Services REST API including authentication
+title: Calling Azure Storage Services REST API operations inclusing authentication | Microsoft Docs
+description: Calling Azure Storage Services REST API operations including authentication
 services: storage
 documentationcenter: na
 author: robinsh
@@ -16,7 +16,7 @@ ms.date: 11/16/2017
 ms.author: robinsh
 ---
 
-# Calling the Storage Services REST API including authentication
+# Calling Azure Storage Services REST API Operations
 
 This article shows you how to use the Blob Storage Service REST APIs and how to authenticate the call to the service. It is written from the point of view of someone who knows nothing about REST and no idea how to make a REST call, but is a developer. We look at the reference documentation for a REST call and see how to translate it into an actual REST call – which fields go where? After learning how to set up a REST call, you can leverage this knowledge to use any of the other Storage Service REST APIs.
 
@@ -31,7 +31,7 @@ The application lists the containers in blob storage for a storage account. To t
 
 * A general-purpose storage account. If you don't have any storage accounts, you can create one using the [Azure portal](https://portal.azure.com), [PowerShell](storage-quickstart-create-storage-account-powershell.md), or [Azure CLI](storage-quickstart-create-storage-account-cli.md).
 
-* To see output from the code, add some containers to blob storage in the storage account.
+* The example in this article shows how to list the containers in a storage account. To see output, add some containers to blob storage in the storage account before you start.
 
 ## Download the sample application
 
@@ -47,20 +47,18 @@ This command clones the repository to your local git folder. To open the Visual 
 
 ## Why do I need to know REST?
 
-Knowing how to use REST is a useful skill. The Azure product team frequently releases new features. Many times, the new features are accessible through the REST interface, but have not yet been surfaced through a storage client library or the UI (such as the Azure portal). If you always want to use the latest and greatest, learning REST is a requirement. Also, if you want to access Azure Storage with a programming language that does not have an SDK or storage client library, such as Go, you can use the REST API.
+Knowing how to use REST is a useful skill. The Azure product team frequently releases new features. Many times, the new features are accessible through the REST interface, but have not yet been surfaced through **all** of the  storage client libraries or the UI (such as the Azure portal). If you always want to use the latest and greatest, learning REST is a requirement. Also, if you want to write your own library to interact with Azure Storage, or you want to access Azure Storage with a programming language that does not have an SDK or storage client library, you can use the REST API.
 
 ## What is REST?
 
-REST means *representational state transfer*. [Wikipedia starts explaining REST this way:](http://en.wikipedia.org/wiki/Representational_state_transfer):
+REST means *representational state transfer*. For a specific definition, check out [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer).
 
-*REST is an architectural style consisting of a coordinated set of architectural constraints applied to components, connectors, and data elements, within a distributed hypermedia system. REST ignores the details of component implementation and protocol syntax in order to focus on the roles of components, the constraints upon their interaction with other components, and their interpretation of significant data elements.*
-
-What does that mean? Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It is independent of what’s happening on either side, and what other software is being used when sending or receiving the REST calls. You can write an application that runs on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site, and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn’t care from what platform it’s
+Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It is independent of what’s happening on either side, and what other software is being used when sending or receiving the REST calls. You can write an application that runs on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site, and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn’t care from what platform it’s
 called – what’s important is the information passed in the request and the data provided in the response.
 
 ## Here's the plan
 
-The example project lists the containers in a storage account. Once you understand how the information in the REST API documentation correlates to your actual code, the other calls are easier to figure out. 
+The example project lists the containers in a storage account. Once you understand how the information in the REST API documentation correlates to your actual code, other REST calls are easier to figure out. 
 
 If you look at the [Blob Service REST
 API](/rest/api/storageservices/fileservices/Blob-Service-REST-API), you see all of the operations you can perform on blob storage. The storage client libraries are wrappers around the REST APIs – they make it easy for you to access storage without using the REST APIs directly. But as noted above, sometimes you want to use the REST API instead of a storage client library.
@@ -101,14 +99,14 @@ This field is an XML structure providing the data requested. In this example, th
 
 ## Creating the REST request
 
-A couple of notes before starting – for security, always use HTTPS rather than HTTP. Also, you may want to download [Fiddler](http://www.telerik.com/fiddler) (or a similar application) so you can examine the request and response of the REST calls. In the Visual Studio solution, the storage account name and key are hardcoded in the class, and the ListContainersAsync method passes the storage account name and storage account key to the methods that are used to create the various components of the REST request. In a real world application, the storage account name and key would reside in a configuration file or be retrieved from an Azure Key Vault.
+A couple of notes before starting – for security, always use HTTPS rather than HTTP. Also, you may want to download [Fiddler](http://www.telerik.com/fiddler) (or a similar application) so you can examine the request and response of the REST calls. In the Visual Studio solution, the storage account name and key are hardcoded in the class, and the ListContainersAsyncREST method passes the storage account name and storage account key to the methods that are used to create the various components of the REST request. In a real world application, the storage account name and key would reside in a configuration file or be retrieved from an Azure Key Vault.
 
-The code for creating the Authorization header is in a separate class, with the idea that you could take the whole class and add it to your own solution and use it "as is." The Authorization header code works for most REST API calls to Azure Storage.
+In our sample project, the code for creating the Authorization header is in a separate class, with the idea that you could take the whole class and add it to your own solution and use it "as is." The Authorization header code works for most REST API calls to Azure Storage.
 
-To build the request, which is an HttpRequestMessage object, go to ListContainersAsync in Program.cs. The steps for building the request are: 
+To build the request, which is an HttpRequestMessage object, go to ListContainersAsyncREST in Program.cs. The steps for building the request are: 
 
 * Create the URI to be used for calling the service. 
-* Create the HttpRequestMessage object and set the payload (null for ListContainersAsync.)
+* Create the HttpRequestMessage object and set the payload. The payload is null for ListContainersAsyncREST because we're not passing anything in.
 * Add the request headers for x-ms-date and x-ms-version.
 * Get the authorization header and add it.
 
@@ -116,7 +114,7 @@ Some basic information you need:
 
 *  For ListContainers, the **method** is `GET`. This value is set when instantiating the request. 
 *  The **resource** is the query portion of the URI that indicates which API is being called, so the value is `/?comp=list`. As noted earlier, the resource is on the reference documentation page that shows the information about the [ListContainers API](/rest/api/storageservices/fileservices/List-Containers2).
-*  The uri is constructed by creating the Blob service endpoint for that storage account and concatenating the resource. The value for **request URI** ends up being `http://contosorest.blob.core.windows.net/?comp=list`.
+*  The URI is constructed by creating the Blob service endpoint for that storage account and concatenating the resource. The value for **request URI** ends up being `http://contosorest.blob.core.windows.net/?comp=list`.
 *  For ListContainers, **requestBody** is null and there are no extra **headers**.
 
 Different APIs may have other parameters to pass in such as *ifMatch*. An example of where you might use ifMatch  is when calling PutBlob. In that case, you set ifMatch to an eTag, and it only updates the blob if the eTag you provide matches the current eTag on the blob. If someone else has updated the blob since retrieving the eTag, their change won't be overridden. 
@@ -133,7 +131,7 @@ String uri = string.Format("http://{0}.blob.core.windows.net?comp=list", storage
 Byte[] requestPayload = null;
 ```
 
-Next, instantiate the request, setting the method to `GET` and providing the uri.
+Next, instantiate the request, setting the method to `GET` and providing the URI.
 
 ```csharp 
 //Instantiate the request message with a null payload.
@@ -165,7 +163,7 @@ At this point, `httpRequestMessage` contains the REST request complete with the 
 
 ## Call the REST API with the request
 
-Now that you have the request, you can call SendAsync to send the REST request. SendAsync calls the API and gets the response back. Examine the response StatusCode (200 is OK), then parse the response. In this case, you get an XML list of containers. Let’s look at the code for calling the GetRESTRequest method to set the request, execute the request, and then examine the response for the list of containers.
+Now that you have the request, you can call SendAsync to send the REST request. SendAsync calls the API and gets the response back. Examine the response StatusCode (200 is OK), then parse the response. In this case, you get an XML list of containers. Let’s look at the code for calling the GetRESTRequest method to create the request, execute the request, and then examine the response for the list of containers.
 
 ```csharp 
     // Send the request.
@@ -448,7 +446,7 @@ If you look at the reference documentation for [ListBlobs](/rest/api/storageserv
 https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list
 ```
 
-In ListContainersAsync, change the code that sets the URI to the API for ListBlobs. The container name is **container-1**.
+In ListContainersAsyncREST, change the code that sets the URI to the API for ListBlobs. The container name is **container-1**.
 
 ```csharp
 String uri = 
