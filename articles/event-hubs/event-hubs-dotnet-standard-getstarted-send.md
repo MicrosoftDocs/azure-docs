@@ -32,11 +32,11 @@ This tutorial shows how to write a .NET Core console application that sends a se
 * An Azure subscription.
 * [An event hub namespace and an event hub](event-hubs-quickstart-namespace-portal.md).
 
-To send messages to an event hub, we will use Visual Studio to write a C# console application.
+To send messages to an event hub, this tutorial uses Visual Studio to write a C# console application.
 
 ## Create an Event Hubs namespace and an event hub
 
-To create a namespace and an event hub, follow the procedure in [this article](event-hubs-quickstart-namespace-portal.md), and then proceed with the following steps.
+To create a namespace and an event hub, follow the procedure in [this article](event-hubs-quickstart-namespace-portal.md), and then proceed with this tutorial.
 
 ## Create a console application
 

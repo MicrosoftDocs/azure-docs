@@ -35,7 +35,7 @@ This tutorial shows how to write a .NET Core console application that receives m
 
 ## Create an Event Hubs namespace and an event hub  
 
-To create a namespace and an event hub, follow the procedure in [this article](event-hubs-quickstart-namespace-portal.md), and then proceed with the following steps.  
+To create a namespace and an event hub, follow the procedure in [this article](event-hubs-quickstart-namespace-portal.md), and then proceed with this tutorial.
 
 ## Create a console application
 
@@ -109,7 +109,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 	using System.Threading.Tasks;
     ```
 
-2. Add constants to the `Program` class for the event hub connection string, event hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values.
+2. Add constants to the `Program` class for the event hub connection string, event hub name, storage account container name, storage account name, and storage account key. Add the following code, replacing the placeholders with their corresponding values:
 
     ```csharp
     private const string EventHubConnectionString = "{Event Hubs connection string}";
