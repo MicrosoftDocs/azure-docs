@@ -14,7 +14,7 @@ ms.author: sajagtap
 
 # Content moderation job from the online console
 
-Use the Review API's [Job operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to initiate end-to-end scan-and-review moderation jobs with image or text content. The moderation job scans your content by using the image or text moderation APIs. It then uses the default and custom workflows (defined within the Review Tool) to generate reviews within the Review Tool. Once your human moderators have reviewed the auto-assigned tags and prediction data and submitted their final decision, the Review API submits all information to your API endpoint.
+Use the Review API's [Job operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) to initiate end-to-end content moderation jobs with image or text content. The moderation job scans your content by using the image or text moderation APIs. It then uses the default and custom workflows (defined within the Review Tool) to generate reviews within the Review Tool. Once your human moderators have reviewed the auto-assigned tags and prediction data and submitted their final decision, the Review API submits all information to your API endpoint.
 
 ## Use the API console
 Before you can test-drive the API from the online console, you will need a few values.
