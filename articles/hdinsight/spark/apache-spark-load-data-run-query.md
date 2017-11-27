@@ -15,15 +15,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
-ms.author: nitinme
+ms.date: 11/22/2017
+ms.author: jgao
 
 ---
-# Run interactive queries on an HDInsight Spark cluster
+# Run interactive queries on Spark clusters in HDInsight
 
-In this article, you use a Jupyter notebook to run interactive Spark SQL queries against a Spark cluster. Jupyter notebook is a browser-based application that extends the console-based interactive experience to the Web. For more information, see [The Jupyter notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html).
+Learn how to use Jupyter notebook to run interactive Spark SQL queries against a Spark cluster. [Jupyter notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) is a browser-based application that extends the console-based interactive experience to the Web. 
 
-For this tutorial, you use the **PySpark** kernel in the Jupyter notebook to run an interactive Spark SQL query. Jupyter notebooks on HDInsight clusters also support two other kernels - **PySpark3** and **Spark**. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
+Jupyter notebooks on HDInsight clusters support three kernels - **PySpark**, **PySpark3** and **Spark**. The **PySpark** kernel is used in this tutorial. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
 ## Prerequisites
 
@@ -38,11 +38,9 @@ To run queries, we use sample data that is by default available in the storage a
 
 Let's get started.
 
-1. Open the [Azure portal](https://portal.azure.com/). If you opted to pin the cluster to the dashboard, click the cluster tile from the dashboard to launch the cluster blade.
-
-	If you did not pin the cluster to the dashboard, from the left pane, click **HDInsight clusters**, and then click the cluster you created.
-
-3. From **Quick links**, click **Cluster dashboards**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
+1. Open the [Azure portal](https://portal.azure.com/).
+2. Open your Spark cluster.  For the instructions, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)
+3. From **Quick links**, click **Cluster dashboards**, and then click **Jupyter Notebook**. 
 
    ![Open Jupyter notebook to run interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-start-jupyter-interactive-spark-sql-query.png "Open Jupyter notebook to run interactive Spark SQL query")
 
@@ -51,7 +49,8 @@ Let's get started.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
-   >
+  
+4. Enter the cluster admin credentials.
 3. Create a notebook. Click **New**, and then click **PySpark**.
 
    ![Create a Jupyter notebook to run interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Create a Jupyter notebook to run interactive Spark SQL query")
