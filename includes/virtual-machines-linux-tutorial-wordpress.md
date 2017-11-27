@@ -41,7 +41,11 @@ Run the following command to create the database:
 cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
 ```
 
-After the command completes, delete the file `wordpress.sql`.
+Because the file `wordpress.sql` contains database credentials, delete it after use:
+
+```bash
+sudo rm wordpress.sql
+```
 
 To configure PHP, run the following command to open a text editor of your choice and create the file `/etc/wordpress/config-localhost.php`:
 

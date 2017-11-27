@@ -74,7 +74,7 @@ Check the version of MySQL with the following command (note the capital `V` para
 mysql -V
 ```
 
-To help secure the installation of MySQL, run the `mysql_secure_installation` script. If you are only setting up a temporary server, you can skip to the PHP section.
+To help secure the installation of MySQL, run the `mysql_secure_installation` script. If you are only setting up a temporary server, you can skip this step.
 
 ```bash
 mysql_secure_installation
