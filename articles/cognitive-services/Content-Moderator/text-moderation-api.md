@@ -12,7 +12,7 @@ ms.date: 08/06/2017
 ms.author: sajagtap
 ---
 
-# Text Moderation
+# Text moderation
 
 Content Moderator’s Text Moderation API does more than screen text: it also matches against custom and shared lists that are specific to your business and users, and search for PII (personally identifiable information). In addition, it can auto-correct text before screening it, which helps catch deliberately misspelled words. After content is processed, results are sent, along with relevant information, either to the Review Tool or to a specified system. You use this information to make decisions about content: take it down, send to a human judge, etc.
 
