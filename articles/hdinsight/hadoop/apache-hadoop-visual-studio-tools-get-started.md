@@ -108,7 +108,7 @@ After opening a container, you can use the following buttons to upload, delete, 
 Data Lake Tools for Visual Studio also enables users to see what’s inside the Hive job by collecting and surfacing the YARN logs of certain Hive jobs.
 
 ### View the **hivesampletable**
-All HDInsight clusters come with a sample Hive table called *hivesampletable*. We use this table to show you how to list Hive tables, view the table schemas, and list the rows in the Hive table.
+All HDInsight clusters come with a sample Hive table called *hivesampletable*. This Hive table is used to show how to list Hive tables, view the table schemas, and list the rows in the Hive table.
 
 **To list Hive tables and view Hive table schema**
 
@@ -135,10 +135,10 @@ You can use the GUI to create a Hive table or use Hive queries. For information 
 ### <a name="run.queries"></a>Validate and run Hive queries
 There are two ways to create and run Hive queries:
 
-* Create ad-hoc queries
+* Create ad hoc queries
 * Create a Hive application
 
-**To create, validate, and run ad-hoc queries**
+**To create, validate, and run ad hoc queries**
 
 1. From **Server Explorer**, expand **Azure**, and then expand **HDInsight Clusters**.
 2. Right-click the cluster where you want to run the query, and then click **Write a Hive Query**.
@@ -149,7 +149,7 @@ There are two ways to create and run Hive queries:
     ![Data Lake Tools: HDInsight Visual Studio Tools IntelliSense](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.column.names.png "U-SQL IntelliSense")
    
    > [!NOTE]
-   > Only the metadata of the clusters that is selected in HDInsight Toolbar is suggested.
+   > Only the metadata of the cluster that is selected in HDInsight Toolbar is suggested.
    > 
    > 
 4. (Optional) Click **Validate Script** to check the script syntax errors.
@@ -248,8 +248,8 @@ To learn more about how to run Hive batch jobs, see the [Run interactive Hive qu
 Data Lake Tools for Visual Studio supports creating and submit Pig scripts to HDInsight clusters. Users can create a Pig project from template, and then submit the script to HDInsight clusters.
 
 ## Feedbacks & Known issues
-* Currently HiveServer2 results are displayed in pure text fashion, which is not ideal. We are working on fixing that.
-* If the results are started with NULL values, currently the results are not shown. We have fixed this issue and if you are blocked on this issue, feel free to drop us an email or contact support team.
+* Currently HiveServer2 results are displayed in pure text fashion, which is not ideal. Microsoft is working on fixing that.
+* If the results are started with NULL values, currently the results are not shown. We have fixed this issue and if you are blocked on this issue, contact the support team.
 * The HQL script created by Visual Studio is encoded depending on user’s local region setting. It may not execute correctly if user uploads the script to cluster as binary.
 
 ## Next steps
