@@ -86,7 +86,7 @@ In the **Custom domains** page, click **Buy Domain**.
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
 > [!NOTE]
-> If you cannot see the **App Service Domains** section, you need to remove the spending limit on your Azure account (see [Prerequisites](#prerequisites).
+> If you cannot see the **App Service Domains** section, you need to remove the spending limit on your Azure account (see [Prerequisites](#prerequisites)).
 >
 >
 
@@ -133,7 +133,7 @@ If you have assigned default hostnames to your web app, you also see a success n
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-You also see the selected hostnames in the **Custom domains** page, in the **Hostnames** section. 
+You also see the selected hostnames in the **Custom domains** page, in the **Custom Hostnames** section. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
