@@ -5681,6 +5681,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/saas-dbpertenant-wingtip-app-guidance-tips.md",
+            "redirect_url": "/azure/sql-database/saas-tenancy-wingtip-app-guidance-tips",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md",
             "redirect_url": "/azure/sql-database/sql-database-export",
             "redirect_document_id": false
