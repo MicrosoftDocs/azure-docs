@@ -107,6 +107,7 @@ If you have multiple projects, make sure you identify the ID and key for each on
     ![Project ID](./media/how-to-scale-assessment/project-id.png)
 
 ## vCenter Statistics level to collect the performance counters
+Following is the list of counters that are collected during the discovery. The counters are by default available at various level in the vCenter server. We recommend you set the highest common level (Level 3) for the statistics level so that all the counters are collected correctly. If you have vCenter set at a lower level, only a few counters might get collected completely, with the rest set to 0. Hence the assessment might show incomplete data. The below table also lists the assessment results that will be impacted if a particular counter is not collected.
 
 |Counter                                  |Level    |Per device level  |Assessment impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
@@ -120,7 +121,7 @@ If you have multiple projects, make sure you identify the ID and key for each on
 |net.transmitted.average                  | 2       |3                 |VM Size and network cost                        |
 
 > [!WARNING]
-> If you have just set a higher level, it will take upto a day to generate the performance counters. Hence, it is recommended that you run the discovery after one day.
+> If you have just set a higher statistics level, it will take upto a day to generate the performance counters. Hence, it is recommended that you run the discovery after one day.
 
 ## Run the collector to discover VMs
 
