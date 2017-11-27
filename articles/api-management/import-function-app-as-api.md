@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 11/22/2017
 ms.author: apimpm
 
 ---
@@ -29,8 +29,8 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-+ [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ A Function App
++ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
++ Make sure there is a Function App in your subscription. For more information, see [Create a Function App](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -38,6 +38,8 @@ In this article, you learn how to:
 
 1. Select **APIs** from under **API MANAGEMENT**.
 2. Select **Function App** from the **Add a new API** list.
+
+    ![Function app](./media/import-function-app-as-api/function-app-api.png)
 3. Press **Browse** to see the list of Function Apps in your subscription.
 4. Select the app. APIM finds the swagger associated with the selected app, fetches it, and imports it. 
 5. Add an API URL suffix. The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.
@@ -51,9 +53,9 @@ In this article, you learn how to:
     * **Unlimited**   
 7. Select **Create**.
 
-### Test the new APIM API in the administrative portal
+## Test the new APIM API in the Azure portal
 
-Operations can be called directly from the administrative portal, which provides a convenient way to view and test the operations of an API.  
+Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.  
 
 1. Select the API you created in the previous step.
 2. Press the **Test** tab.
@@ -64,7 +66,7 @@ Operations can be called directly from the administrative portal, which provides
 
     Backend responds with **200 OK** and some data.
 
-### <a name="call-operation"> </a>Call an operation from the developer portal
+## <a name="call-operation"> </a>Call an operation from the developer portal
 
 Operations can also be called **Developer portal** to test APIs. 
 

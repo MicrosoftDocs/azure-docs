@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 11/22/2017
 ms.author: apimpm
 
 ---
 # Import an API App as an API
 
-This article shows how to import a API App as an API. The article also shows how to test the APIM API.
+This article shows how to import an API App as an API. The article also shows how to test the APIM API.
 
 In this article, you learn how to:
 
@@ -29,8 +29,8 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-+ [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ An API App
++ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
++ Make sure there is an API App in your subscription. For more information, see [App Service Documentation][https://docs.microsoft.com/azure/app-service/]
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -38,6 +38,8 @@ In this article, you learn how to:
 
 1. Select **APIs** from under **API MANAGEMENT**.
 2. Select **API App** from the **Add a new API** list.
+
+    !(API app)[./media/import-api-app-as-api/api-app.png]
 3. Press **Browse** to see the list of API Apps in your subscription.
 4. Select the app. APIM finds the swagger associated with the selected app, fetches it, and imports it. 
 
@@ -53,9 +55,9 @@ In this article, you learn how to:
     * **Unlimited**   
 7. Select **Create**.
 
-### Test the new APIM API in the administrative portal
+## Test the new APIM API in the Azure portal
 
-Operations can be called directly from the administrative portal, which provides a convenient way to view and test the operations of an API.  
+Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.  
 
 1. Select the API you created in the previous step.
 2. Press the **Test** tab.
@@ -66,7 +68,7 @@ Operations can be called directly from the administrative portal, which provides
 
     Backend responds with **200 OK** and some data.
 
-### <a name="call-operation"> </a>Call an operation from the developer portal
+## <a name="call-operation"> </a>Call an operation from the developer portal
 
 Operations can also be called **Developer portal** to test APIs. 
 
