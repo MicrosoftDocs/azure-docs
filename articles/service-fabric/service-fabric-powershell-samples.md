@@ -33,7 +33,7 @@ The following table includes links to PowerShell scripts samples that create and
 | [Update the RDP port range on cluster VMs](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Changes the RDP port range on cluster node VMs in a deployed cluster.|
 | [Update the admin user and password for cluster node VMs](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | Updates the admin username and password for cluster node VMs. |
 | [Open a port in the load balancer](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Open an application port in the Azure load balancer to allow inbound traffic on a specific port. |
-| [Create an inbound network security group rule](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Create an inbound network security group rule to allow inbound traffic to the cluster on a specific port. |
+| [Create an inbound network security group rule](./scripts/service-fabric-powershell-add-nsg-rule.md) | Create an inbound network security group rule to allow inbound traffic to the cluster on a specific port. |
 | **Manage applications** ||
 | [Deploy an application](./scripts/service-fabric-powershell-deploy-application.md)| Deploy an application to a cluster.|
 | [Upgrade an application](./scripts/service-fabric-powershell-upgrade-application.md)| Upgrade an application.|
