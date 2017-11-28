@@ -1,6 +1,11 @@
 {
     "redirections": [
-        {
+    {
+        "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
+        "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
+        "redirect_document_id": false 
+    },
+    {
 	    "source_path": "articles/cognitive-services/Video/Home.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
 	    "redirect_document_id": false 
