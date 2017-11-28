@@ -188,7 +188,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## Attributes for precompiled C#
+## Attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio).
 
