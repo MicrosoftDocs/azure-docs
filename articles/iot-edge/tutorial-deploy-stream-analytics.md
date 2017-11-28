@@ -83,9 +83,6 @@ An Azure Storage account is required to provide an endpoint to be used as an out
 
    ![ASA input](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-   > [!NOTE]
-   > Additional inputs can include IoT Edge specific endpoints.
-
 5. Select **Outputs** then click **Add**.
 
 6. For the output alias enter `alert`, and use defaults for the other parameters. Click **Create**.
@@ -93,7 +90,7 @@ An Azure Storage account is required to provide an endpoint to be used as an out
    ![ASA output](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 
-7. Under **Job Topology**, select **Query**.
+7. Select **Query**.
 8. Replace the default text with the following query:
 
     ```sql
@@ -116,7 +113,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 1. Select **Set modules**.
 1. If you previously deployed the tempSensor module on this device, it may autopopulate. If not, use the following steps to add that module:
    1. Click **Add IoT Edge Module**
-   1. Enter `tempSensor` as the name, and `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` for the Image URL. 
+   1. Enter `tempSensor` as the name, and `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` for the Image URI. 
    1. Leave the other settings unchanged, and click **Save**.
 1. To add your ASA Edge job, select **Import Azure Stream Analytics IoT Edge Module**.
 1. Select your subscription and the ASA Edge job that you created. 
@@ -167,6 +164,8 @@ See all system logs and metrics data. Use the Stream Analytics module name:
    ```cmd/sh
    docker logs -f {moduleName}  
    ```
+
+You should be able to watch the machine's temperature gradually rise until it reaches 70 degrees for 30 seconds. Then the Stream Analytics module triggers a reset and the machine temperature drops back to 21. 
 
    ![docker log][9]
 
