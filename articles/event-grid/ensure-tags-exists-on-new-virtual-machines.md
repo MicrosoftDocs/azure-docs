@@ -47,7 +47,7 @@ To complete this tutorial, the following are required.
 
 ## Create an optional Microsoft Teams webhook that messages are sent to.
 1.	In Microsoft Teams, choose More Options (...) next to the channel name and choose connectors.
-![Teams connections](media/ensure-tags-exists-on-new-virtual-machines/teams-Webhook.png)
+![Teams connections](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
 2.  Scroll through the list of connectors to Incoming Webhook, and click Add.
 ![Teams webhook connection](media/ensure-tags-exists-on-new-virtual-machines/select-teams-webhook.png)
 3.	Enter AzureAutomationIntegration for the name and click Create.
