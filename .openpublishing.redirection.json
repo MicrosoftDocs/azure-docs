@@ -2996,6 +2996,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-service/dcos-swarm/container-service-deployment.md",
+            "redirect_url": "/azure/container-service/dcos-swarm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/data-lake-store/data-lake-store-get-started-cli.md",
             "redirect_url": "/azure/data-lake-store/data-lake-store-get-started-cli-2.0",
             "redirect_document_id": false
@@ -6468,6 +6473,11 @@
         {
             "source_path": "articles/vpn-gateway/vpn-gateway-point-to-site-create.md",
             "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
             "redirect_document_id": false
         },
         {
