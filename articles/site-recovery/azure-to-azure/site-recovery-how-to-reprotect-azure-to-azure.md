@@ -26,7 +26,6 @@ ms.author: ruturajd
 > Site Recovery replication for Azure virtual machines (VMs) is currently in preview.
 
 
-## Overview
 When you [fail over](../site-recovery-failover.md) VMs from one Azure region to another, the failed over VMs are in an unprotected state. If you want to bring them back to the primary region, you need to first start replicating the VMs, and then fail over again. There is no difference in failover in one direction or other. Similarly, after you enable VM replication, there is no difference between reprotection post-failover, or post-failback.
 
 To explain the reprotection process, as an example we assume that the primary site of the protected VMs is East Asia region, and the recovery site is South East Asia. During failover, you fail over the VMs to the South East Asia region. Before you fail back, you need to replicate the VMs from South East Asia, back to East Asia. This article describes the steps needed for reprotection.
@@ -46,15 +45,15 @@ Follow these steps to reprotect a VM using the default settings.
 
 1. In **Vault** > **Replicated items**, right-click the VM that failed over, and then select **Re-Protect**. You can also click the machine and select **Re-Protect** from the command buttons.
 
-![Reprotection](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+  ![Reprotection](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 2. Verify that the replication direction **Southeast Asia to East Asia**, is selected.
 
-![Reprotect](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotectblade.png)
+  ![Reprotect](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotectblade.png)
 
 3. Review the **Resource group, Network, Storage, and Availability sets** information, and click **OK**. If there are any resources marked (new), they are created during reprotection.
 
-This will trigger a reprotection job that seeds the target site with the latest data, and once that completes, replicates the deltas before you fail back to Southeast Asia.
+This triggers a reprotection job that seeds the target site with the latest data, and once that completes, replicates the deltas before you fail back to Southeast Asia.
 
 ### Reprotect customization
 If you want to choose the extract storage account or the network during reprotect, you can do so using the customize option provided on the reprotection page.
@@ -80,7 +79,7 @@ Just like after the first enable protection, following are the artifacts that ge
 1. A cache storage account gets created in the East Asia region.
 2. If the target storage account (the original storage account of the Southeast Asia VM) does not exist, a new one is created. The name is the East Asia virtual machine's storage account suffixed with "asr".
 3. If the target AV set does not exist, and the defaults detect that it needs to create a new AV set, then it will be created as part of the reprotection job. If you have customized reprotection, then the selected AV set will be used.
-4.
+
 
 The following are the list of steps that happen when you trigger a reprotection job. This is in the case the target side virtual machine exists.
 
