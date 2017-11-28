@@ -31,38 +31,8 @@ This quickstart describes how to use an Azure Resource Manager template to creat
 In this article, you use an Azure Resource Manager template to create your first Azure data factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list.
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
 
-### Windows PowerShell
-
-#### Install PowerShell
-Install the latest PowerShell if you don't have it on your machine. 
-
-1. In your web browser, navigate to [Azure SDK Downloads and SDKS](https://azure.microsoft.com/downloads/) page. 
-2. Click **Windows install** in the **Command-line tools** -> **PowerShell** section. 
-3. To install PowerShell, run the **MSI** file. 
-
-For detailed instructions, see [How to install and configure PowerShell](/powershell/azure/install-azurerm-ps). 
-
-#### Log in to PowerShell
-
-1. Launch **PowerShell** on your machine. Keep PowerShell open until the end of this quickstart. If you close and reopen, you need to run these commands again.
-
-    ![Launch PowerShell](media/quickstart-create-data-factory-powershell/search-powershell.png)
-1. Run the following command, and enter the same Azure user name and password that you use to sign in to the Azure portal:
-       
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-2. If you have multiple Azure subscriptions, run the following command to view all the subscriptions for this account:
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-3. Run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"   	
-    ```
 ## Authoring Azure Resource Manager templates
 To learn about Azure Resource Manager templates in general, see [Authoring Azure Resource Manager Templates](../../azure-resource-manager/resource-group-authoring-templates.md). 
 
@@ -96,7 +66,7 @@ The top-level Resource Manager template for defining a data factory is:
     ]
 }
 ```
-Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder with the following content:
+Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder with the following content:
 
 ```json
 {
@@ -400,46 +370,24 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1. 
 
 	```PowerShell
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
+    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 	```
 
 ## Monitor pipeline
 1. After logging in to the [Azure portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
      ![Browse->Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
-2. In the **Data Factories** blade, click the data factory (**TutorialFactoryARM**) you created.    
-3. In the **Data Factory** blade for your data factory, click **Diagram**.
-
-     ![Diagram Tile](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
-4. In the **Diagram View**, you see an overview of the pipelines, and datasets used in this tutorial.
-   
-   ![Diagram View](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
-5. In the Diagram View, double-click the dataset **AzureBlobOutput**. You see that the slice that is currently being processed.
-   
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-6. When processing is done, you see the slice in **Ready** state. Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.
-   
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
-7. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
-
-See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure portal blades to monitor the pipeline and datasets you have created in this tutorial.
-
-You can also use Monitor and Manage App to monitor your data pipelines. See [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) for details about using the application. 
-
-> [!IMPORTANT]
-> The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
-> 
-> 
+2. In the **Data Factories** page, click the data factory (**TutorialFactoryARM**) you created.    
 
 ### Defining Data Factory entities
 The following Data Factory entities are defined in the JSON template: 
 
 1. [Azure Storage linked service](#azure-storage-linked-service)
 3. [Azure blob input dataset](#azure-blob-input-dataset)
-4. [Azure Blob output dataset dataset](#azure-blob-output-dataset)
+4. [Azure Blob output dataset](#azure-blob-output-dataset)
 5. [Data pipeline with a copy activity](#data-pipeline)
 
 #### Azure Storage linked service
-The AzureStorageLinkedService links your Azure storage account to the data factory. You created a container and uploaded data to this storage account as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). You specify the name and key of your Azure storage account in this section. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details about JSON properties used to define an Azure Storage linked service. 
+The AzureStorageLinkedService links your Azure storage account to the data factory. You created a container and uploaded data to this storage account as part of prerequisites. You specify the name and key of your Azure storage account in this section. See [Azure Storage linked service](connector-azure-blob-storage.md#linked-service-properties) for details about JSON properties used to define an Azure Storage linked service. 
 
 ```json
 {
@@ -465,7 +413,7 @@ The AzureStorageLinkedService links your Azure storage account to the data facto
 The connectionString uses the storageAccountName and storageAccountKey parameters. The values for these parameters passed by using a configuration file. The definition also uses variables: azureStroageLinkedService and dataFactoryName defined in the template. 
 
 #### Azure blob input dataset
-The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. In Azure blob dataset definition, you specify names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](data-factory-azure-blob-connector.md#dataset-properties) for details about JSON properties used to define an Azure Blob dataset. 
+The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. In Azure blob dataset definition, you specify names of blob container, folder, and file that contains the input data. See [Azure Blob dataset properties](connector-azure-blob-storage.md#dataset-properties) for details about JSON properties used to define an Azure Blob dataset. 
 
 ```json
 {
@@ -499,7 +447,7 @@ The Azure storage linked service specifies the connection string that Data Facto
 ```
 
 #### Azure blob output dataset
-You specify the name of the folder in the Azure Blob Storage that holds the copied data from the input folder. See [Azure SQL dataset properties](data-factory-azure-sql-connector.md#dataset-properties) for details about JSON properties used to define an Azure SQL dataset. 
+You specify the name of the folder in the Azure Blob Storage that holds the copied data from the input folder. See [Azure Blob dataset properties](connector-azure-blob-storage.md#dataset-properties) for details about JSON properties used to define an Azure SQL dataset. 
 
 ```json
 {
@@ -532,7 +480,7 @@ You specify the name of the folder in the Azure Blob Storage that holds the copi
 ```
 
 #### Data pipeline
-You define a pipeline that copies data from the Azure blob dataset to the Azure SQL dataset. See [Pipeline JSON](data-factory-create-pipelines.md#pipeline-json) for descriptions of JSON elements used to define a pipeline in this example. 
+You define a pipeline that copies data from the Azure blob dataset to the Azure SQL dataset. See [Pipeline JSON](concepts-pipelines-activities.md#pipeline-json) for descriptions of JSON elements used to define a pipeline in this example. 
 
 ```json
 {
