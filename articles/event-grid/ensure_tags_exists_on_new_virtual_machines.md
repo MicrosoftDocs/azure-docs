@@ -82,9 +82,9 @@ To complete this tutorial, the following are required.
 ## Trigger a write action on a virtual machine and see the runbook get triggered
 1.  Create a new virtual machine in the resource group you specified in the Event grid subscription prefix filter.
 2.  The Watch-VMWrite runbook should be called and a new Tag added to the VM.
-![Event Grid list](media/ensure_tags_exists_on_new_virtual_machines/VMTag.png)
+![VMTag](media/ensure_tags_exists_on_new_virtual_machines/VMTag.png)
 3.  A new message is sent to the Teams channel.
-![Event Grid list](media/ensure_tags_exists_on_new_virtual_machines/TeamsVMMessage.png)
+![Teams notification](media/ensure_tags_exists_on_new_virtual_machines/TeamsVMMessage.png)
 
 ## Next steps
 
