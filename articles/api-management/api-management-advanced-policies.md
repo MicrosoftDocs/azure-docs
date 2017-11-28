@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/27/2017
 ms.author: apimpm
 ---
 # API Management advanced policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AdvancedPolicies"></a> Advanced policies  
   
 -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).  
@@ -954,12 +954,16 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 |for|Determines whether the `wait` policy waits for all immediate child policies to be completed or just one. Allowed values are:<br /><br /> -   `all` - wait for all immediate child policies to complete<br />-   any - wait for any immediate child policy to complete. Once the first immediate child policy has completed, the `wait` policy completes and execution of any other immediate child policies is terminated.|No|all|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ 
+This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound, outbound, backend  
--   **Policy scopes:**all scopes  
+-   **Policy scopes:** all scopes  
   
 ## Next steps
+
 For more information working with policies, see:
--	[Policies in API Management](api-management-howto-policies.md) 
--	[Policy expressions](api-management-policy-expressions.md)
++	[Policies in API Management](api-management-howto-policies.md) 
++	[Policy expressions](api-management-policy-expressions.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	
