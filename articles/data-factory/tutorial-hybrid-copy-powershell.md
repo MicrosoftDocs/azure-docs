@@ -135,25 +135,28 @@ For detailed instructions, see [How to install and configure Azure PowerShell](/
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>"
+    $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-2. Define a variable for the data factory name that you can use in PowerShell commands later. 
-
-    ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>"
-    ```
-1. Define a variable for the location of the data factory: 
-
-    ```powershell
-    $location = "East US"
-    ```
-4. To create the Azure resource group, run the following command: 
+2. To create the Azure resource group, run the following command: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
 
-    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again.   
+    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again.
+3. Define a variable for the data factory name that you can use in PowerShell commands later. Name must start with a letter or a number, and can contain only letters, numbers, and the dash (-) character.
+
+    > [!IMPORTANT]
+    >  Update the data factory name to be globally unique. For example, ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFTutorialFactory"
+    ```
+1. Define a variable for the location of the data factory: 
+
+    ```powershell
+    $location = "East US"
+    ```  
 5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet: 
     
     ```powershell       
@@ -175,12 +178,12 @@ Note the following points:
 
 In this section, you create a self-hosted integration runtime, and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from SQL Server on your machine to the Azure blob storage. 
 
-1. Create a variable for the name of integration runtime. Note down this name. You use it later in this tutorial. 
+1. Create a variable for the name of integration runtime. Use a unique name, and note down the name. You use it later in this tutorial. 
 
     ```powershell
-   $integrationRuntimeName = "<your integration runtime name>"
+   $integrationRuntimeName = "ADFTutorialIR"
     ```
-1. Create a self-hosted integration runtime. Use a unique name in case if another integration runtime with the same name exists.
+1. Create a self-hosted integration runtime. 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -223,7 +226,7 @@ In this section, you create a self-hosted integration runtime, and associate it 
    State                     : NeedRegistration
    ```
 
-3. Run the following command to retrieve **authentication keys** to register the self-hosted integration runtime with Data Factory service in the cloud. Copy one of the keys (exclude double quotes) for registering the self-hosted integration runtime that you install on your machine in the next step.  
+3. Run the following command to retrieve **authentication keys** to register the self-hosted integration runtime with Data Factory service in the cloud. 
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -236,7 +239,8 @@ In this section, you create a self-hosted integration runtime, and associate it 
        "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
-   ```
+   ```    
+4. Copy one of the keys (exclude double quotes) for registering the self-hosted integration runtime that you install on your machine in the next step.  
 
 ## Install integration runtime
 1. [Download](https://www.microsoft.com/download/details.aspx?id=39717) the self-hosted integration runtime on a local windows machine, and run the installation. 
@@ -276,6 +280,7 @@ In this section, you create a self-hosted integration runtime, and associate it 
     - Enter **user** name. 
     - Enter **password** for the user name.
     - Click **Test** to confirm that integration runtime can connect to the SQL Server. You see a green check mark if the connection is successful. Otherwise, you see an error message associated with the failure. Fix any issues and ensure that the integration runtime can connect to your SQL Server.
+    - Note down these values (authentication type, server, database, user, password). You use them later in this tutorial. 
     
       
 ## Create linked services
@@ -287,7 +292,7 @@ In this step, you link your Azure Storage Account to the data factory.
 1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFv2Tutorial** folder with the following content: Create the folder ADFv2Tutorial if it does not already exist.  
 
     > [!IMPORTANT]
-    > Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your Azure storage account before saving the file.
+    > Replace &lt;accountName&gt; and &lt;accountKey&gt; with name and key of your **Azure storage account** before saving the file. You took a note of them as part of the [prerequisites](#get-storage-account-name-and-account-key).
 
    ```json
 	{
@@ -303,6 +308,8 @@ In this step, you link your Azure Storage Account to the data factory.
 		"name": "AzureStorageLinkedService"
 	}
    ```
+
+    If you are using Notepad, select **All files** for the **Save as type** filed in the **Save as** dialog box. Otherwise, it may add `.txt` extension to the file. For example, `AzureStorageLinkedService.json.txt`. If you create the file in File Explorer before opening it in Notepad, you may not see the `.txt` extension since the **Hide extensions for known files types** option is set by default. Remove the `.txt` extension before proceeding to the next step. 
 2. In **Azure PowerShell**, switch to the **C:\ADFv2Tutorial** folder.
 
    Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. 
@@ -319,6 +326,8 @@ In this step, you link your Azure Storage Account to the data factory.
     DataFactoryName   : onpremdf0914
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
+
+    If you receive a "file not found" error. Run the `dir` command to confirm that the file exists. If the file name has `.txt` extension (for example, AzureStorageLinkedService.json.txt), remove it, and then run the PowerShell command again. 
 
 ### Create and encrypt a SQL Server linked service (source)
 In this step, you link your on-premises SQL Server to the data factory.
@@ -359,7 +368,7 @@ In this step, you link your on-premises SQL Server to the data factory.
                     "type": "SecureString",
                     "value": "Server=<server>;Database=<database>;Integrated Security=True"
                 },
-                "userName": "<domain>\\<user>",
+                "userName": "<user> or <domain>\\<user>",
                 "password": {
                     "type": "SecureString",
                     "value": "<password>"
@@ -377,7 +386,7 @@ In this step, you link your on-premises SQL Server to the data factory.
     > - Select the right section based on the **authentication** you use to connect to SQL Server.
     > - Replace  **&lt;integration** **runtime** **name>** with the name of your integration runtime.
     > - Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, and **&lt;password>** with values of your SQL Server before saving the file.
-    > - If you need to use a slash character (`\`) in your user account or server name, use the escape character (`\`). For example `mydomain\\myuser`. 
+    > - If you need to use a slash character (`\`) in your user account or server name, use the escape character (`\`). For example, `mydomain\\myuser`. 
 
 2. To encrypt the sensitive data (user name, password, etc.), run the **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet. This encryption ensures  that the credentials are encrypted using Data Protection Application Programming Interface (DPAPI). The encrypted credentials are stored locally on the self-hosted integration runtime node (local machine). The output payload can be redirected to another JSON file (in this case 'encryptedLinkedService.json') which contains encrypted credentials.
     
