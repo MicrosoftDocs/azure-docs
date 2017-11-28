@@ -15,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -41,18 +41,20 @@ Please revisit this page regularly as we are updating it on a monthly basis.
 
 ## November 2017
  
+### Retiring ACS
+
 
 
 **Type:** Plan for change  
 **Service Category:** ACS  
 **Product Capability:** Access Control Service 
 
-**Retiring ACS**
 
 Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) will be retired in late 2018.  Further information, including a detailed schedule & high-level migration guidance, will be provided in the next few weeks. In the meantime, leave comments on this page with any questions regarding ACS, and a member of our team will help to answer.
 
 ---
 
+### Restrict browser access to the Intune managed browser 
 
 
 **Type:** Plan for change  
@@ -60,7 +62,6 @@ Microsoft Azure Active Directory Access Control (also known as Access Control Se
 **Product Capability:** Identity Security & Protection
 
 
-**Restrict browser access to the Intune managed browser** 
 
 
 With this behavior, you will be able to restrict browser access to Office 365 and other Azure AD-connected cloud apps using the Intune Managed Browser as an approved app. 
@@ -80,6 +81,7 @@ For more information, see [Conditional access in Azure Active Directory](active-
  
 ---
 
+### New approved client apps for Azure AD app-based conditional access
 
  
 **Type:** Plan for change  
@@ -87,7 +89,6 @@ For more information, see [Conditional access in Azure Active Directory](active-
 **Product Capability:** Identity Security & Protection
 
 
-**New approved client apps for Azure AD app-based conditional access**
 
 
 The following apps are planned to be added to the list of [approved client apps](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement):
@@ -106,6 +107,9 @@ For more information, see:
 
 ---
 
+### Terms of use support for multiple languages
+
+
 
 **Type:** New feature    
 **Service Category:** Terms of Use  
@@ -113,7 +117,6 @@ For more information, see:
 
 
 
-**Terms of use support for multiple languages**
 
 
 Administrators can now create new terms of use (TOU) that contains multiple PDF documents. You can tag these PDF documents with a corresponding language. Users that fall in scope are shown the PDF with the matching language based on their preferences. If there is no match, the default language is shown.
@@ -122,13 +125,15 @@ Administrators can now create new terms of use (TOU) that contains multiple PDF 
 ---
  
 
+### Realtime password writeback client status
+
+
 
 **Type:** New feature  
 **Service Category:** SSPR  
 **Product Capability:** User Authentication
 
 
-**Realtime password writeback client status**
  
 
 You can now review the status of your on-premises password writeback client. This option is available in the **On-premises integration** section of the **[Password reset](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)** page. 
@@ -143,6 +148,12 @@ For more information, see [On-premises integration](active-directory-passwords-h
 
  
 ---
+
+
+### Azure AD app-based conditional access 
+
+
+
  
 **Type:** New feature  
 **Service Category:** Azure AD  
@@ -150,7 +161,6 @@ For more information, see [On-premises integration](active-directory-passwords-h
 
 
 
-**Azure AD app-based conditional access** 
 
 
 You can now restrict access to Office 365 and other Azure AD-connected cloud apps to [approved client apps](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) that support Intune App Protection policies using [Azure AD app-based conditional access](active-directory-conditional-access-mam.md). Intune app protection policies are used to configure and protect company data on these client applications.
@@ -178,6 +188,8 @@ For more information, see [Azure Active Directory app-based conditional access](
  
 ---
 
+### Managing Azure AD devices in the Azure portal
+
 
 
 **Type:** New feature  
@@ -186,7 +198,6 @@ For more information, see [Azure Active Directory app-based conditional access](
 
  
 
-**Managing Azure AD devices in the Azure portal**
 
 
 You can now find all your devices connected to Azure AD and the device-related activities in one place. There is a new administration experience to manage all your device identities and settings in the Azure portal. In this release you can:
