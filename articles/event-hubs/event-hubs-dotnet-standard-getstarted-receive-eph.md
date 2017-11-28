@@ -41,12 +41,12 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).  
 2. In the left navigation pane of the portal, click **New**, click **Storage**, and then click **Storage Account**.  
-3. Complete the fields in the storage account blade, and then click **Create**.
+3. Complete the fields in the storage account window, and then click **Create**.
 
 	![Create storage account][1]
 
-4. After you see the **Deployments Succeeded** message, click the name of the new storage account. In the **Essentials** blade, click **Blobs**. When the **Blob service** blade opens, click **+ Container** at the top. Give the container a name, and then close the **Blob service** blade.  
-5. Click **Access keys** in the left blade and copy the name of the storage container, the storage account, and the value of **key1**. Save these values to Notepad or some other temporary location.  
+4. After you see the **Deployments Succeeded** message, click the name of the new storage account. In the **Essentials** window, click **Blobs**. When the **Blob service** dialog box opens, click **+ Container** at the top. Give the container a name, and then close **Blob service**.  
+5. Click **Access keys** in the left hand window and copy the name of the storage container, the storage account, and the value of **key1**. Save these values to Notepad or some other temporary location.  
 
 ## Create a console application
 
