@@ -23,7 +23,7 @@ ms.author: robb
 
 This document keeps track of all the known issues for the Alerts service in Azure Monitor, including in public preview.  
 
-## Log Search Alerts in Azure Alerts (Preview) with Queries across workspaces and apps
+## Log Search Alerts with Queries across workspaces and apps
 Azure Alerts accepts any valid log analytics query without syntax errors for running log search alerts. In the recent past, Azure log analytics has introduced ability to create complex queries which can span across workspaces as well as apps. More details on [Query across resources in Azure log analytics](https://azure.microsoft.com/en-us/blog/query-across-resources/). Log Search Alerts currently accepts such queries for alerting, but will fail in alerting for them.
 
 **Explanation:**
