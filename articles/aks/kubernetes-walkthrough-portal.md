@@ -34,17 +34,17 @@ Log in to the Azure portal at http://portal.azure.com
 
 ## Create service principal
 
-[Create service principal one][service-principal-one]
+![Create service principal one](/media/container-service-walkthrough-portal/create-sp-one.png)
 
-[Create service principal two][service-principal-two]
+![Create service principal two](/media/container-service-walkthrough-portal/create-sp-two.png)
 
-[Create service principal three][service-principal-three]
+![Create service principal three](/media/container-service-walkthrough-portal/create-sp-three.png)
 
 ## Create AKS cluster
 
-[Create AKS cluster one][aks-create-one]
+![Create AKS cluster one](/media/container-service-walkthrough-portal/create-aks-portal-one.png)
 
-[Create AKS cluster two][aks-create-two]
+![Create AKS cluster two](/media/container-service-walkthrough-portal/create-aks-portal-two.png)
 
 ## Connect to the cluster
 
@@ -206,11 +206,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 
 > [!div class="nextstepaction"]
 > [Manage an AKS cluster](./tutorial-kubernetes-prepare-app.md)
-
-<!-- LINKS -->
-[service-principal-one]: /media/container-service-walkthrough-portal/create-sp-one.png
-[service-principal-two]: /media/container-service-walkthrough-portal/create-sp-two.png
-[service-principal-three]: /media/container-service-walkthrough-portal/create-sp-three.png
-[aks-create-one]: /media/container-service-walkthrough-portal/create-aks-portal-one.png
-[aks-create-two]: /media/container-service-walkthrough-portal/create-aks-portal-two.png
 
