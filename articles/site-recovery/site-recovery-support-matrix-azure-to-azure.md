@@ -161,9 +161,10 @@ GRS | Supported |
 RA-GRS | Supported |
 ZRS | Not supported |  
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
+Virtual Network Service Endpoints (Azure Storage firewalls and Virtual networks)  | No | Allowing access to specific Azure virtual networks on cache storage accounts used to store replicated data is not supported. 
 
 >[!IMPORTANT]
-> Ensure that you follow the [storage guidance](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) for your source Azure virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required storage accounts based on the source configuration. If you customize and select your own settings, ensure you follow the (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) as your source VMs.
+> Ensure that you observe the VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtual machines to avoid any performance issues. If you follow the default settings, Site Recovery will create the required disks and storage accounts based on the source configuration. If you customize and select your own settings, ensure that you follow the disk scalability and performance targets for your source VMs.
 
 ## Support for Network configuration
 **Configuration** | **Supported/Not supported** | **Remarks**

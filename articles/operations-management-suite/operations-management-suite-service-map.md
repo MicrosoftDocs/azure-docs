@@ -230,16 +230,16 @@ The **Machine Performance** pane displays standard performance metrics for the s
 To see performance data, you may need to [enable the appropriate Log Analytics performance counters](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  The counters you will want to enable:
 
 Windows:
-- Processor(*)\% Processor Time
-- Memory\% Committed Bytes In Use
-- Network Adapter(*)\Bytes Sent/sec
-- Network Adapter(*)\Bytes Received/sec
+- Processor(*)\\% Processor Time
+- Memory\\% Committed Bytes In Use
+- Network Adapter(*)\\Bytes Sent/sec
+- Network Adapter(*)\\Bytes Received/sec
 
 Linux:
-- Processor(*)\% Processor Time
-- Memory(*)\% Used Memory
-- Network Adapter(*)\Bytes Sent/sec
-- Network Adapter(*)\Bytes Received/sec
+- Processor(*)\\% Processor Time
+- Memory(*)\\% Used Memory
+- Network Adapter(*)\\Bytes Sent/sec
+- Network Adapter(*)\\Bytes Received/sec
 
 To get the network performance data, you must also have enabled the Wire Data 2.0 solution in Operations Management Suite.
  
