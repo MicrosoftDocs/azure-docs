@@ -31,7 +31,7 @@ Before exporting an API, you must describe the API using an OpenAPI definition (
 
 To export the API definition, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Functions or App Service application.
+1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Functions or another App Service application.
 
     If using Azure Functions, select your function app, choose **Platform features**, and then **API definition**.
 
@@ -45,11 +45,11 @@ To export the API definition, follow these steps:
 
     ![Export to PowerApps + Microsoft Flow button](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
-3. Select the **Export mode**:
+3. Select the **Export Mode**:
 
-    **Express** lets you create the custom connector from within the Azure portal. It requires that you are signed into PowerApps or Microsoft Flow and have permission to create connectors in the target environment. This is the recommended approach if that requirement can be met. If using this mode, follow the [Use express export](#express) instructions below.
+    **Express** lets you create the custom connector from within the Azure portal. It requires that you are signed into PowerApps or Microsoft Flow and have permission to create connectors in the target environment. This is the recommended approach if those requirements can be met. If using this mode, follow the [Use express export](#express) instructions below.
 
-    **Manual** lets you export the API definition, which you then import using the PowerApps or Microsoft Flow portals. This is the recommended approach if the Azure user and the user with permission to create connectors are different people or if the connector needs to be created in another tenant. If using this mode, follow the [Use manual export](#manual) instructions below.
+    **Manual** lets you export the API definition, which you then import using the PowerApps or Microsoft Flow portals. This is the recommended approach if the Azure user and the user with permission to create connectors are different people or if the connector needs to be created in another Azure tenant. If using this mode, follow the [Use manual export](#manual) instructions below.
 
     ![Export mode](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 
