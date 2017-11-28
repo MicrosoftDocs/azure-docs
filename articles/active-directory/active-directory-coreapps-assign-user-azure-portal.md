@@ -22,7 +22,7 @@ ms.reviewer: luleon
 # Assign a user or group to an enterprise app in Azure Active Directory
 To assign a user or group to an enterprise app, you must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory.
 > [!NOTE]
-> For Office 365 apps, you have to use PowerShell to assign users to an enterprise app.
+> For Office 365 apps, use PowerShell to assign users to an enterprise app.
 
 ## How do I assign user access to an enterprise app in the Azure portal?
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
@@ -45,28 +45,30 @@ To assign a user or group to an enterprise app, you must have the appropriate pe
 
 ## How do I assign a user to an enterprise app using PowerShell?
 
-1. Open an elevated Windows PowerShell command prompt
+1. Open an elevated Windows PowerShell command prompt.
 
 	>[!NOTE] 
-	> You need to install the AzureAD module. Use the command `Install-Module -Name AzureAD`. If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
+	> You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
 
 2. Run `Connect-AzureAD` and sign in with a Global Admin user account.
-3. Use the following script to assign a user and role to an application
+3. Use the following script to assign a user and role to an application:
 
-		```powershell
-        # Assign the values to the variables
-		$username = "<You user's UPN>"
-		$app_name = "<Your App's display name>"
-		$app_role_name = "<App role display name>"
-		
-		# Get the user to assign, and the service principal for the app to assign to
-		$user = Get-AzureADUser -ObjectId "$username"
-		$sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
-		$appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
-		
-		# Assign the user to the app role
-		New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
-        ```	
+```powershell
+# Assign the values to the variables
+$username = "<You user's UPN>"
+$app_name = "<Your App's display name>"
+$app_role_name = "<App role display name>"
+
+# Get the user to assign, and the service principal for the app to assign to
+$user = Get-AzureADUser -ObjectId "$username"
+$sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+$appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
+
+# Assign the user to the app role
+New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
+```
+
+        	
 
 For more information about how to assign a user to an application role visit the documentation for [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
@@ -94,14 +96,14 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
 	
 	![Workplace Analytics Role](media/active-directory-coreapps-assign-user-azure-portal/workplace-analytics-role.png)
 
-4. Assign the role name to the `$app_role_name` variable
+4. Assign the role name to the `$app_role_name` variable.
 		
 		```powershell
         # Assign the values to the variables
 		$app_role_name = "Analyst (Limited access)"
         ```
 
-5. Run the following command to assign the user to the app role.
+5. Run the following command to assign the user to the app role:
 
 		```powershell
         # Assign the user to the app role
