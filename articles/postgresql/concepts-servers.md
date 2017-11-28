@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/27/2017
 ---
 # Azure Database for PostgreSQL Servers
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL servers.
@@ -39,7 +39,6 @@ The following elements help ensure safe access to your database.
 | **Protocol** | The service supports a message-based protocol used by PostgreSQL. |
 | **TCP/IP** | The protocol is supported over TCP/IP, and over Unix-domain sockets. |
 | **Firewall** | To help protect your data, a firewall rule prevents all access to your server and to its databases, until you specify which computers have permission. See [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md). |
-|||
 
 ## How do I manage a server?
 You can manage Azure Database for PostgreSQL servers by using the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/postgres).
