@@ -28,7 +28,7 @@ These release notes provide information about improvements, fixes, and known iss
 
 ### New features and fixes
 
-- See the [new features and fixes](azure-stack-update-1710.md#new-features-and-fixes) section of the Azure Stack 1711 update release notes for Azure Stack integrated systems.
+- See the [new features and fixes](azure-stack-update-1711.md#new-features-and-fixes) section of the Azure Stack 1711 update release notes for Azure Stack integrated systems.
 
 	> [!IMPORTANT]
 	> Some of the items listed in the **new features and fixes** section are relevant only to Azure Stack integrated systems.
