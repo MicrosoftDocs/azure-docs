@@ -342,57 +342,94 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 	```
 
 ## Start the trigger
-Get the **status of the trigger** by running the following PowerShell command after specifying the name of your data factory and trigger:
 
-```powershell
-Get-AzureRmDataFactoryV2Trigger -ResourceGroupName "ADFTutorialResourceGroup" -DataFactoryName "<datafactoryname>" -Name "<triggername>"
-```
+1. In the PowerShell window, create a variable for the name of the resource group. 
 
-Here is the sample output: 
+    ```powershell
+    $resourceGroupName = "ADFTutorialResourceGroup"
+    ``` 
+1. Set a variable for the name of the data factory. 
 
-```json
-TriggerName       : ArmTemplateTestTrigger
-ResourceGroupName : ADFTutorialResourceGroup
-DataFactoryName   : ARMFactory1128
-Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
-RuntimeState      : Stopped
-```
-**Start the trigger**, which runs the pipeline hourly: 
+    ```powershell
+    $dataFactoryName = "<yourdatafactoryname>"
+    ```
+3. Set a variable for the name of the trigger. 
 
-```powershell
-Start-AzureRmDataFactoryV2Trigger -ResourceGroupName "ADFTutorialResourceGroup" -DataFactoryName "<datafactoryname>" -TriggerName "<triggername>"
-```
+    ```powershell
+    $triggerName = "ArmTemplateTestTrigger"
+    ```
+4. Get the **status of the trigger** by running the following PowerShell command after specifying the name of your data factory and trigger:
 
-Here is the sample output: 
+    ```powershell
+    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    ```
 
-```
-Confirm
-Are you sure you want to start trigger 'ArmTemplateTestTrigger' in data factory 'ARMFactory1128'?
-[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-True
-```
+    Here is the sample output: 
 
-**Confirm that the trigger has been started:** 
+    ```json
+    TriggerName       : ArmTemplateTestTrigger
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : ARMFactory1128
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
+    RuntimeState      : Stopped
+    ```
+5. **Start the trigger**, which runs the pipeline hourly: 
 
-```powershell
-Get-AzureRmDataFactoryV2Trigger -ResourceGroupName "ADFTutorialResourceGroup" -DataFactoryName "ARMFactory1128" -Name "ArmTemplateTestTrigger"
-```
+    ```powershell
+    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    ```
+    
+    Here is the sample output: 
+    
+    ```
+    Confirm
+    Are you sure you want to start trigger 'ArmTemplateTestTrigger' in data factory 'ARMFactory1128'?
+    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+    True
+    ```
+6. Confirm that the trigger has been started by running the following PowerShell command:  
 
-Here is the sample output:
-
-```
-TriggerName       : ArmTemplateTestTrigger
-ResourceGroupName : ADFTutorialResourceGroup
-DataFactoryName   : ARMFactory1128
-Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
-RuntimeState      : Started
-```
+    ```powershell
+    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    ```
+    
+    Here is the sample output:
+    
+    ```
+    TriggerName       : ArmTemplateTestTrigger
+    ResourceGroupName : ADFTutorialResourceGroup
+    DataFactoryName   : ARMFactory1128
+    Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
+    RuntimeState      : Started
+    ```
 
 The pipeline runs hourly at the hour. For example, if the current time is 4:25 PM, it runs at 5:00 PM for the first time. 
 
 ## Monitor the pipeline
-1. After logging in to the [Azure portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
-2. In the **Data Factories** page, click the data factory (**TutorialFactoryARM**) you created.    
+1. After logging in to the [Azure portal](https://portal.azure.com/), Click **More services**, search with the keyword such as `data fa`, and select **Data factories**.
+
+    ![Browse data factories menu](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
+2. In the **Data Factories** page, click the data factory you created. If needed, filter the list with the name of your data factory.  
+
+    ![Select data factory](media/quickstart-create-data-factory-resource-manager-template/select-data-factory.png)
+3. In the Data factory page, click **Monitor & Manage** tile. 
+
+    ![Monitor and manage tile](media/quickstart-create-data-factory-resource-manager-template/monitor-manage-tile.png)
+4. The **Data Integration Application** should open in a separate tab in the web browser. If the monitor tab is not active, switch to the **monitor tab**. Notice that the pipeline run was triggered by a **scheduler trigger**. 
+
+    ![Monitor pipeline run](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)    
+
+    > [!IMPORTANT]
+    > You see pipeline runs only at the hour clock (for example: 4 AM, 5 AM, 6 AM, etc...). Click **Refresh** on the toolbar to refresh the list.
+5. Click the link in the **Actions** columns. 
+
+    ![Pipeline actions link](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
+6. You see the activity runs associated with the pipelie run. In this quickstart, the pipeline has only one activity of type: Copy. Therefore, you see a run for that activity. 
+
+    ![Activity runs](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
+1. Click the link under **Output** column to see the output. Click the maximize button to see the full output. 
+
+    ![Output window](media/quickstart-create-data-factory-resource-manager-template/output-window.png)
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
