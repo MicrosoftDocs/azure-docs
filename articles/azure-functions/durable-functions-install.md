@@ -82,22 +82,23 @@ Visual Studio Code provides local development experience covering all major plat
 ### Start with an empty project
  
 1. In Command Prompt/Terminal navigate to folder that will host your function app
-2. Create a Function App project by running the following command:
-
-```javascript
-   func init
-```
-3. Install Azure Durable Extension by running in command prompt / terminal the following command :
+2. Install Azure Durable Extension by running in command prompt / terminal the following command :
 
 ```javascript
    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.0.0-beta
 ```
-4. Next, create new Function by running the following command and follow the wizard steps:
+3. Run Azure Storage Emulator on Windows and on Mac update the *local.appsettings.json* file with real Azure Storage connection string
+4. Create a Function App project by running the following command:
+
+```javascript
+   func init
+```
+5. Next, create new Function by running the following command and follow the wizard steps:
 
 ```javascript
    func new
 ```
-5. Open the project folder in Visual Studio Code and continue for modify the template code 
+6. Open the project folder in Visual Studio Code and continue for modify the template code 
 
 ## Azure portal
 
