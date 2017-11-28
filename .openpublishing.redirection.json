@@ -2996,6 +2996,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-service/dcos-swarm/container-service-deployment.md",
+            "redirect_url": "/azure/container-service/dcos-swarm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/data-lake-store/data-lake-store-get-started-cli.md",
             "redirect_url": "/azure/data-lake-store/data-lake-store-get-started-cli-2.0",
             "redirect_document_id": false
