@@ -15,16 +15,20 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/28/2017
 ms.author: larryfr
 ---
 # Apache Spark streaming (DStream) example with Kafka on HDInsight
 
 Learn how to use Spark Apache Spark to stream data into or out of Apache Kafka on HDInsight using DStreams. This example uses a Jupyter notebook that runs on the Spark cluster.
+
 > [!NOTE]
 > The steps in this document create an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
 >
 > When you are done with the steps in this document, remember to delete the clusters to avoid excess charges.
+
+> [!IMPORTANT]
+> This example uses DStreams, which is an older Spark streaming technology. For an example that uses newer Spark streaming features, see the [Spark Structured Streaming with Kafka](hdinsight-apache-kafka-spark-structured-streaming.md) document.
 
 ## Create the clusters
 
