@@ -359,7 +359,7 @@ module.exports = function (context, data) {
 };
 ```
 
-## Trigger - attributes for precompiled C#
+## Trigger - attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribute, defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
