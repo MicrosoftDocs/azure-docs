@@ -3,7 +3,7 @@ title: How to Reprotect from failed over Azure virtual machines back to primary 
 description: After failover of VMs from one Azure region to another, you can use Azure Site Recovery to protect the machines in reverse direction. Learn the steps how to do a reprotect before a failover again.
 services: site-recovery
 documentationcenter: ''
-author: ruturaj
+author: rajani-janaki-ram 
 manager: gauravd
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
+ms.date: 11/22/2017
+ms.author: rajanaki
+
 
 ---
 # Reprotect from failed over Azure region back to primary region
