@@ -94,6 +94,10 @@ To configure and test Azure AD single sign-on with Trello, you need to complete 
 
 In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Trello application.
 
+>[!NOTE]
+    >You should get the **\<enterprise\>** slug from Trello. If you don't have the slug value, contact [Trello support team](mailto:support@trello.com) to get the slug for you enterprise.
+    > 
+
 **To configure Azure AD single sign-on with Trello, perform the following steps:**
 
 1. In the Azure portal, on the **Trello** application integration page, click **Single sign-on**.
@@ -104,23 +108,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_samlbase.png)
 
-3. On the **Trello Domain and URLs** section, If you wish to configure the application in **IDP initiated mode**, perform the following steps:
+3. On the **Trello Domain and URLs** section, if you wish to configure the application in **IDP initiated mode**, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
 
 	In the **Reply URL** textbox, type a URL using the following pattern: `https://trello.com/auth/saml/consume/<enterprise>`
 
-4. On the **Trello Domain and URLs** section, If you wish to configure the application in **SP initiated mode**, perform the following steps:
-	
-	![Configure Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+4. If you wish to configure the application in **SP initiated mode**, perform the following steps:
+
+  ![Configure Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
 	a. Click on the **Show advanced URL settings**.
 
-	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://trello.com/auth/saml/consume/<enterprise>`
+	b. In the **Sign On URL** textbox, type a URL using the following pattern: `https://trello.com/auth/saml/login/<enterprise>`
 
-	>[!NOTE]
-    >You should get the **\<enterprise\>** slug from Trello. If you don't have the slug value, contact [Trello support team](mailto:support@trello.com) to get the slug for you enterprise.
-    > 
+  c. In the **Identifier** textbox, type the following URL: `https://trello.com/auth/saml/metadata`
 
 5. Trello application expects the SAML assertions to contain specific attributes. Configure the following attributes  for this application. You can manage the values of these attributes from the **"User Attributes"** of the application. The following screenshot shows an example for this.
 
