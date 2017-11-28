@@ -126,25 +126,26 @@ with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on
 
 Use AzCopy to copy the data. For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
 
-**How can I move data from on-premises to Azure File Service?**
+**How can I move data from on-premises to Azure Files?**
 
 Use AzCopy to move data. For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
 
 **How do I map a container folder on a virtual machine?**
 
-Use Azure file share.
+Use an Azure file share.
 
 **How do I back up Azure file storage?**
 
-There is no backup solution. However Azure Files also support async
-copy. So, you can copy files from a share to another share (within a
-storage account or to a different storage account) or to a blob
-container (within a storage account or to a different storage account).
+There is no backup solution. However, Azure Files also support asynchronous copy. So, you can copy files:
+
+- From a share to another share within a storage account or to a different storage account.
+- From a share to a blob container within a storage account or to a different storage account.
+
 For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md).
 
 **How do I move managed disks to another storage account?**
 
-To do this, follow these steps:
+Follow these steps:
 
 1.  Stop the virtual machine that the managed disk is attached to.
 
@@ -163,8 +164,7 @@ To do this, follow these steps:
     Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
-3.  Create a managed disk by using the VHD file in another region to which you
-    copied the VHD. To do this, run following Azure PowerShell script:  
+3.  Create a managed disk by using the VHD file in another region to which you copied the VHD. To do this, run the following Azure PowerShell script:  
 
     ```
     $resourceGroupName = 'MDDemo'
@@ -184,8 +184,7 @@ To do this, follow these steps:
     $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
-For more information about how to deploy a virtual machine from a managed disk,
-see [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
+For more information about how to deploy a virtual machine from a managed disk, see [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
 
 **How can I download about 1-2 TB of data from the Azure portal?**
 
@@ -196,54 +195,51 @@ with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on
 storage account?**
 
 When you create a storage account, you select the primary region for the
-account. The selection of the secondary region is based on the primary region, and it cannot be changed. See [Azure Storage replication](storage-redundancy.md).
+account. The selection of the secondary region is based on the primary region, and it cannot be changed. For more information, see [Azure Storage replication](storage-redundancy.md).
 
 **Where can I get more information about Azure Storage Service
 Encryption (SSE)?**  
   
 See the following articles:
 
--  [Azure Storage security
-    guide](storage-security-guide.md)
+-  [Azure Storage security guide](storage-security-guide.md)
 
--   [Azure Storage Service Encryption for Data at
-    Rest](storage-service-encryption.md)
+-  [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md)
 
 **How do I move or download data from a storage account?**
 
-Use AzCopy to download the data. For more information, For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
+Use AzCopy to download the data. For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
 
 
 **How do I encrypt data in a storage account?**
 
-After you enable encryption in the storage account, the existing data is not encrypted. To encrypt the existing data, you must upload again to the data to the storage account.  To do this, follow these steps:
+After you enable encryption in the storage account, the existing data is not encrypted. To encrypt the existing data, you must upload again to the data to the storage account.
 
 Use AzCopy to copy the data to a different storage account and then
-move back to a storage account. You can also use [Encryption at
-Rest](storage-service-encryption.md).
+move back to a storage account. You can also use [encryption at
+rest](storage-service-encryption.md).
 
 **How can I download a VHD to a local machine, other than by using the
 download option on the portal?**
 
-You can use [Storage
-Explorer](https://azure.microsoft.com/features/storage-explorer/) to
+You can use [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to
 download a VHD.
 
 **Are there any prerequisites for changing the replication of a storage
-account from GRS to LRS?**
+account from geo-redundant storage to locally redundant storage?**
 
 No. 
 
 **How do I access Azure Files redundant storage?**
 
-Read-Access Geo-Redundant Storage (RA-GRS) is required to access redundant storage. However, Azure Files supports only LRS and standard GRS that does not allow read-only access. 
+Read-access geo-redundant storage is required to access redundant storage. However, Azure Files supports only locally redundant storage and standard geo-redundant storage that does not allow read-only access. 
 
 **How do I move from Premium Storage to Standard Storage?**
 
-To do this, follow these steps:
+Follow these steps:
 
-1.  Create a new Standard Storage account (or you can use an existing
-    Standard Storage account in your subscription).
+1.  Create a standard storage account. (Or use an existing
+    standard storage account in your subscription.)
 
 2.  Download AzCopy. Run one of the following AzCopy commands.
       
@@ -262,52 +258,36 @@ To do this, follow these steps:
    
 It may take several hours to complete the operation.
 
-To make sure that the transfer completed successfully, you examine the
+To make sure that the transfer finished successfully, examine the
 destination storage account container in the Azure portal. After the
 disks are copied to the standard storage account, you can attach them to
-the virtual machine as an existing disk. For more information, see [How to attach a
-managed data disk to a Windows virtual machine in the Azure
+the virtual machine as an existing disk. For more information, see [How to attach a managed data disk to a Windows virtual machine in the Azure
 portal](../../virtual-machines/windows/attach-managed-disk-portal.md).  
   
-**How do I convert to Premium Storage for a file share?**
+**How do I convert to Azure Premium Storage for a file share?**
 
-Premium storage is not allowed on Azure File Share.
+Premium Storage is not allowed on an Azure file share.
 
-**How do I upgrade from a Standard Storage to a Premium Storage
-account? How do I downgrade from a Premium Storage to a Standard
-Storage account?**
+**How do I upgrade from a standard storage account to a premium storage
+account? How do I downgrade from a premium storage account to a standard
+storage account?**
 
-- You must create the destination storage account, copy data from the
-    source account to the destination account, and then delete the
-    source account.
+You must create the destination storage account, copy data from the source account to the destination account, and then delete the source account. You can use a tool such as AzCopy to copy the data.
 
-- You can use a tool such as AzCopy to perform the data copy.
+If you have virtual machines, there are several additional steps that you must take before you migrate the storage account data. For more information, see [Migrating to Azure Premium Storage (Unmanaged Disks)](storage-migration-to-premium-storage.md).
 
-- If you also have virtual machines, there are several additional
-    steps that you must take before you migrate the storage account data. For more
-    information, see [Migrating to Azure Premium Storage
-    (Unmanaged Disks)](storage-migration-to-premium-storage.md).
+**How do I move from a classic storage account to an Azure Resource Manager storage account?**
 
-**How do I move from a classic storage account to an Azure Resource Manager Storage
-account?**
+You can use the **Move-AzureStorageAccount** cmdlet. This cmdlet has multiple steps (validate, prepare, commit), and you can validate the move before you make it.
 
-1.  You can use the Move-AzureStorageAccount cmdlet.
-
-2.  This cmdlet has multiple steps (Validate, Prepare, Commit) and you can validate the
-    move before you actually make it.
-
-3.  If you also have virtual machines, there are several additional
-    steps you must take before you migrate the storage account data. For more
-    information, see [Migrate IaaS resources from classic to Azure
-    Resource Manager by using Azure
-    PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
+If you have virtual machines, there are several additional steps that you must take before you migrate the storage account data. For more information, see [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
 **How do I download data to a Linux-based computer from an Azure storage
 account, or upload data from a Linux machine?**
 
 You can use the Azure CLI.
 
--   Download a single blob
+-   Download a single blob:
 
         azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
 
@@ -317,10 +297,9 @@ You can use the Azure CLI.
 
 **How can I give other people access to my storage resources?**
 
-To give other people access to the storage
-resources:
+To give other people access to the storage resources:
 
--   Use a Shared Access Signature (SAS) token to provide access to a
+-   Use a shared access signature (SAS) token to provide access to a
     resource. 
 
 -   Provide a user with the primary or secondary key for the
@@ -329,57 +308,46 @@ resources:
 
 -   Change the access policy to allow anonymous access. For more
     information, see [Grant anonymous users permissions to containers
-    and
-    blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+    and blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
 **Where is AzCopy installed?**
 
--   If you access AzCopy from the "Microsoft Azure Storage command
-    line," type 'AzCopy.' The command-line is
-    installed alongside AzCopy.
+-   If you access AzCopy from the Microsoft Azure Storage command
+    line, type **AzCopy**. The command line is installed alongside AzCopy.
 
 -   If you installed the 32-bit version, it will be located
-    here: **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy.**
+    here: **%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy**.
 
 -   If you installed the 64-bit version, it will be located
     here: **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**.
 
-**For a replicated storage account (such as ZRS, GRS, or
-RA-GRS), how do I access data that is stored in the secondary region?**
+**For a replicated storage account (such as zone- redundant storage, geo-redundant storage, or read-access geo-redundant storage), how do I access data that is stored in the secondary region?**
 
--   If you are using Zone-Redundant Storage (ZRS) or Geo-Redundant
-    Storage (GRS), you cannot access data from the secondary region
-    unless a failover occurs. For more information about the failover
-    process, see [What to expect if a storage failover
-    occurs](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs).
+-   If you are using zone-redundant storage or geo-redundant storage, you cannot access data from the secondary region unless a failover occurs. For more information about the failover process, see [What to expect if a storage failover occurs](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs).
 
--   If you are using Read-Access Geo-Redundant Storage (**RA-GRS**), you
-    can access data from the secondary region at any time. To do this, use one of the following methods:  
+-   If you are using read-access geo-redundant storage, you can access data from the secondary region at any time. To do this, use one of the following methods:  
       
-    AzCopy: append '-secondary' to the Storage Account name in the URL
+    - **AzCopy**: Append '-secondary' to the Storage Account name in the URL
     to access the secondary endpoint. For example:  
      
-    https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
+      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    SAS Token: use a SAS token to access data from the endpoint. For more
-    information, see [Using shared access signatures
-    (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+    - **SAS token**: Use an SAS token to access data from the endpoint. For more information, see [Using shared access signatures](storage-dotnet-shared-access-signature-part-1.md).
 
-**How do I use an HTTPS custom domain with my Storage Account? For
+**How do I use an HTTPS custom domain with my storage account? For
 example, how do I make
 "https://mystorageaccountname.blob.core.windows.net/images/image.gif"
 appear as "https://www.contoso.com/images/image.gif"?**
 
-SSL is not currently supported on Storage Accounts with custom domains.
+SSL is not currently supported on storage accounts with custom domains.
 But you can use non-HTTPS custom domains. For more information,
-see [Configure a custom domain name for your Blob storage
-endpoint](../blobs/storage-custom-domain-name.md).
+see [Configure a custom domain name for your Blob storage endpoint](../blobs/storage-custom-domain-name.md).
 
-**How do I use FTP to access data that is in a Storage Account?**
+**How do I use FTP to access data that is in a storage account?**
 
 There is no way to access a storage account directly by using FTP. However, you can set up an Azure virtual machine, and then install an FTP server on the virtual machine. You can have the FTP server store files in an Azure Files share or in a data disk that is available to the virtual machine.
-If you want only to download data without having to use Storage Explorer or a similar application, they may be able to use an SAS token. For more information, see [Using shared access signatures
-(SAS)](storage-dotnet-shared-access-signature-part-1.md).
+
+If you want only to download data without having to use Storage Explorer or a similar application, you might be able to use an SAS token. For more information, see [Using shared access signatures](storage-dotnet-shared-access-signature-part-1.md).
 
 ## Need help? Contact support.
 
