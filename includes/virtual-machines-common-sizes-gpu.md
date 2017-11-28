@@ -9,6 +9,7 @@ GPU optimized VM sizes are specialized virtual machines available with single or
 
 The NC instances are powered by the [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf) card. Users can crunch through data faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The NC24r configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
 | Standard_NC6 |6 |56 | 380 | 1 | 24 |
@@ -23,6 +24,10 @@ The NC instances are powered by the [NVIDIA Tesla K80](http://images.nvidia.com/
 ## NCv2 instances
 
 NCv2 instance are the next generation of the NC-series machines, powered by [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPUs. These GPUs can provide more than 2x the computational performance of the current NC-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. Like the NC-series, the NCv2-series offers a configuration with a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
+
+> [!IMPORTANT]
+> For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. You must [request a vCPU quota increase](../azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
+>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
@@ -39,6 +44,9 @@ NCv2 instance are the next generation of the NC-series machines, powered by [NVI
 
 The ND-series virtual machines are a new addition to the GPU family specifically designed for AI and Deep Learning workloads. They offer excellent performance for training and inference. ND instances are powered by [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs. These instances provide excellent performance for single-precision floating point operations, for AI workloads utilizing Microsoft Cognitive Toolkit, TensorFlow, Caffe, and other frameworks. The ND-series also offers a much larger GPU memory size (24 GB), enabling to fit much larger neural net models. Like the NC-series, the ND-series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
 
+> [!IMPORTANT]
+> For this size family, the vCPU (core) quota per region in your subscription is initially set to 0. You must [request a vCPU quota increase](../azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
+>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
