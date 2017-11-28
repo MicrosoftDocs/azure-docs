@@ -29,7 +29,7 @@ Visual Studio currently provides the best experience for developing apps that us
 
 ### Prerequisites
 
-* Install the [latest version of Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 or greater). Include the Azure tools in your setup options.
+* Install the [latest version of Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 or greater). Include the **Azure development** workload in your setup options.
 
 ### Start with sample functions
 
