@@ -77,10 +77,9 @@ This section provides a reference for the following API Management policies. For
 > 
 
 ## Next steps
-For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  
+For more information working with policies, see:
 
-For more information on policy expressions, see the following video.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
-> 
->   
++ [Policies in API Management](api-management-howto-policies.md)
++ [Transform APIs](transform-api.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	
