@@ -1,10 +1,9 @@
 ---
 title: Troubleshoot issues in Azure Monitor - Alerts | Microsoft Docs
 description: Learn about issues related to Alerts in Azure Monitor and how to work around those.
-services: hdinsight
 documentationcenter: ''
-author: vinagara
-manager: kmadnani
+author: msvijayn
+manager: kmadnani1
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -15,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
-ms.author: robb
+ms.date: 11/28/2017
+ms.author: vinagara
 
 ---
 # Known issues for Alerts on Azure Monitor
@@ -24,7 +23,7 @@ ms.author: robb
 This document keeps track of all the known issues for the Alerts service in Azure Monitor, including in public preview.  
 
 ## Log Search Alerts with Queries across workspaces and apps
-Azure Alerts accepts any valid log analytics query without syntax errors for running log search alerts. In the recent past, Azure log analytics has introduced ability to create complex queries that can span across workspaces as well as apps. More details on [Query across resources in Azure log analytics](https://azure.microsoft.com/en-us/blog/query-across-resources/). Log Search Alerts currently accepts such queries for creating an alert rule, but will not trigger any alerts for such rules.
+Azure Alerts accepts any valid log analytics query without syntax errors for running log search alerts. In the recent past, Azure log analytics has introduced ability to create complex queries that can span across workspaces as well as apps. More details on [Query across resources in Azure log analytics](https://azure.microsoft.com/en-us/blog/query-across-resources/). Log Search Alerts currently accepts such queries for creating an alert rule, but not trigger any alerts for such rules.
 
 **Explanation:**
 Due to complexities in execution as well as authentication of cross workspace and app queries;  currently Alerts (Preview) fails to execute query that is defined beyond current workspace or app boundaries. As a result, the alert query fail on execution and no action is ever triggered. 
@@ -34,15 +33,15 @@ Support for **Query across resources** in Azure Alerts is planned and will be an
 A workaround the issue until that time, is creating multiple alerts instead of a combined query across workspaces or apps; with same periodicity as well as frequency. By doing this, one can get alerts across each individual workspace in the same time period and can compare both before making any intervention.
 
 ## Log Search Alerts fails to post entire data through Webhook
-Azure Alerts allow users to configure means of notification using Action Groups. More details on [Action Groups](monitoring-action-groups.md) here. Action Groups currently support multiple notification means including e-mail, SMS, JSON based Webhook, and ITSM Connection.
+Azure Alerts allow users to configure means of notification using Action Groups. More details on [Action Groups](monitoring-action-groups.md) here. Action Groups currently support multiple notification options including e-mail, SMS, JSON-based Webhook, and ITSM Connection.
 
 **Explanation:**
-Webhooks pass information as JSON objects and very large query results can result in a JSON with many value pair across the various array data types. To prevent abuse of Webhook, Azure has implementated limits to JSON objects that can be created and passed - which for Log Search Alerts is 2 Mb. All log search query results and alert tags need to fit into the 2 Mb limit to qualify for successful JSON creation for use with Webhooks via Action Groups.
+Webhooks pass information as JSON objects and very large query results can result in a JSON with many value pair across the various array data types. To prevent abuse of Webhook, Azure has implemented limits to JSON objects that can be created and passed - which for Log Search Alerts is 2 Mb. All log search query results and alert tags need to fit into the 2 Mb limit to qualify for successful JSON creation for use with Webhooks via Action Groups.
 
 **Mitigation:**
-Customer can customize their alert queries and their frequency to lower values; so that results are limited. This would result in lesser rows of results and smaller JSONs for Webhook - allowing all results to be pushed to end system without failure, abit at a faster frequency.
+Customer can customize their alert queries and their frequency to lower values; so that results are limited. This would result in lesser rows of results and smaller JSONs for Webhook - allowing all results to be pushed to end system without failure, abet at a faster frequency.
 
-Alternatively customers can look at using [ITSM connector](../log-analytics/log-analytics-itsmc-overview.md) as an alternative, if their end system for Webhook are common IT Service Management solutions.
+Alternatively customers can look at using [ITSM connector](../log-analytics/log-analytics-itsmc-overview.md) as an alternative, if the end system for Webhook is an IT Service Management solution like ServiceNow.
 
 
 ## Related Articles

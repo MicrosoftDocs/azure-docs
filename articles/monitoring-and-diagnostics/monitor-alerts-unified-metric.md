@@ -1,8 +1,8 @@
 ---
 title: Metric based alerts in Azure Monitor for Azure services - Alerts (Preview) | Microsoft Docs
 description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the conditions you specify are met for Azure Alerts (Preview).
-author: vinagara
-manager: kmadnani
+author: msvijayn
+manager: kmadnani1
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
-ms.author: robb
+ms.date: 11/28/2017
+ms.author: vinagara
 
 ---
 # Metric based alerts in Azure Monitor for Azure services - Alerts (Preview)
