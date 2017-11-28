@@ -53,22 +53,20 @@ To assign a user or group to an enterprise app, you must have the appropriate pe
 2. Run `Connect-AzureAD` and sign in with a Global Admin user account.
 3. Use the following script to assign a user and role to an application:
 
-```powershell
-# Assign the values to the variables
-$username = "<You user's UPN>"
-$app_name = "<Your App's display name>"
-$app_role_name = "<App role display name>"
-
-# Get the user to assign, and the service principal for the app to assign to
-$user = Get-AzureADUser -ObjectId "$username"
-$sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
-$appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
-
-# Assign the user to the app role
-New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
-```
-
-        	
+    ```powershell
+    # Assign the values to the variables
+    $username = "<You user's UPN>"
+    $app_name = "<Your App's display name>"
+    $app_role_name = "<App role display name>"
+    
+    # Get the user to assign, and the service principal for the app to assign to
+    $user = Get-AzureADUser -ObjectId "$username"
+    $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+    $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
+    
+    # Assign the user to the app role
+    New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
+    ``` 	
 
 For more information about how to assign a user to an application role visit the documentation for [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
@@ -78,19 +76,19 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
 
 1. In PowerShell, assign the corresponding values to the variables $username, $app_name and $app_role_name. 
 
-		```powershell
-        # Assign the values to the variables
-		$username = "britta.simon@contoso.com"
-		$app_name = "Workplace Analytics"
-        ```
+    ```powershell
+    # Assign the values to the variables
+    $username = "britta.simon@contoso.com"
+    $app_name = "Workplace Analytics"
+    ```
 
 2. In this example, we don't know what is the exact name of the application role we want to assign to Britta Simon. Run the following commands to get the user ($user) and the service principal ($sp) using the user UPN and the service principal display names.
 
-		```powershell
-        # Get the user to assign, and the service principal for the app to assign to
-		$user = Get-AzureADUser -ObjectId "$username"
-		$sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
-        ```
+    ```powershell
+    # Get the user to assign, and the service principal for the app to assign to
+    $user = Get-AzureADUser -ObjectId "$username"
+    $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+    ```
 		
 3. Run the command `$sp.AppRoles` to display the roles available for the Workplace Analytics application. In this example, we want to assign Britta Simon the Analyst (Limited access) Role.
 	
@@ -98,17 +96,17 @@ This example assigns the user Britta Simon to the [Microsoft Workplace Analytics
 
 4. Assign the role name to the `$app_role_name` variable.
 		
-		```powershell
-        # Assign the values to the variables
-		$app_role_name = "Analyst (Limited access)"
-        ```
+    ```powershell
+    # Assign the values to the variables
+    $app_role_name = "Analyst (Limited access)"
+    ```
 
 5. Run the following command to assign the user to the app role:
 
-		```powershell
-        # Assign the user to the app role
-		New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
-        ```
+    ```powershell
+    # Assign the user to the app role
+    New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
+    ```
 
 ## Next steps
 * [See all of my groups](active-directory-groups-view-azure-portal.md)
