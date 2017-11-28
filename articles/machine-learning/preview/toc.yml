@@ -39,7 +39,7 @@
       href: how-to-use-tdsp-in-azure-ml.md
     - name: Roaming and collaboration
       href: roaming-and-collaboration.md
-  - name: IDE Extensions
+  - name: IDE extensions
     items:
       - name: Use Visual Studio Tools for AI
         href: quickstart-visual-studio-tools.md
