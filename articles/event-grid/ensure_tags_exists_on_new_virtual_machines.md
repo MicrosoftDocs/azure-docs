@@ -1,5 +1,5 @@
 ---
-title: Integrating Azure Automation with Event grid | Microsoft Docs
+title: Integrating Azure Automation with Event Grid | Microsoft Docs
 description: Learn how to automatically add a tag when a new VM is created and send a notification to Microsoft Teams.
 keywords: automation, runbook, teams, event grid, virtual machine, VM
 services: automation
@@ -19,22 +19,22 @@ ms.author: eamono
 
 ---
 
-# Integrating Azure Automation with Event grid and Microsoft Teams
+# Integrating Azure Automation with Event Grid and Microsoft Teams
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Import an Automation runbook that adds a tag to a new virtual machine and sends a notification to Microsoft Teams.
 > * Create an optional Microsoft Teams webhook that messages are sent to.
-> * Create a webhook for the runbook that is called from the Event grid subscription.
-> * Create an Event grid subscription to look for Azure writes on virtual machines.
+> * Create a webhook for the runbook that is called from the event grid subscription.
+> * Create an event grid subscription to look for Azure writes on virtual machines.
 > * Trigger a write action on a virtual machine and see the runbook get triggered.
 
 ## Prerequisites
 
 To complete this tutorial, the following are required.
 + Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-+ [Automation account](automation-offering-get-started.md) to hold the runbook that is triggered from the Event grid subscription.
++ [Automation account](automation-offering-get-started.md) to hold the runbook that is triggered from the event grid subscription.
 
 ## Import an Automation runbook that adds a tag to a new virtual machine and sends a notification to Microsoft Teams
 1.	Open the Automation account, and click on the Runbooks page.
@@ -55,7 +55,7 @@ To complete this tutorial, the following are required.
 4.  Copy the webhook to the clipboard and save it. The webhook URL is used for sending information to Microsoft Teams.
 5.  Select Done to save the webhook.
 
-## Create a webhook for the runbook that is called from the Event grid subscription
+## Create a webhook for the runbook that is called from the event grid subscription
 1.  Open up the Watch-VMWrite runbook.
 2.  Click on Webhooks and the Add webhook button
 ![Create webhook](media/ensure_tags_exists_on_new_virtual_machines/AddWebhook.png)
@@ -65,7 +65,7 @@ To complete this tutorial, the following are required.
 ![Configure webhook parameters](media/ensure_tags_exists_on_new_virtual_machines/ConfigureWebhookParameters.png)
 4.  Select OK to create the Automation runbook webhook.
 
-## Create an Event grid subscription to look for Azure writes on virtual machines
+## Create an event grid subscription to look for Azure writes on virtual machines
 1.	Click on the Event Grid page from the Automation Account overview.
 ![Event Grid list](media/ensure_tags_exists_on_new_virtual_machines/EventGridList.png)
 2.	Click on the new Event subscription button.
@@ -80,7 +80,7 @@ To complete this tutorial, the following are required.
 6.  Click "Create" to save the event grid subscription.
 
 ## Trigger a write action on a virtual machine and see the runbook get triggered
-1.  Create a new virtual machine in the resource group you specified in the Event grid subscription prefix filter.
+1.  Create a new virtual machine in the resource group you specified in the event grid subscription prefix filter.
 2.  The Watch-VMWrite runbook should be called and a new Tag added to the VM.
 ![VMTag](media/ensure_tags_exists_on_new_virtual_machines/VMTag.png)
 3.  A new message is sent to the Teams channel.

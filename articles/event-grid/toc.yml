@@ -18,6 +18,8 @@
     href: monitor-virtual-machine-changes-event-grid-logic-app.md
   - name: Resize uploaded images
     href: resize-images-on-storage-blob-upload-event.md
+  - name: Integrating Azure Automation with Event Grid
+    href: ensure_tags_exists_on_new_virtual_machines.md
 - name: Concepts
   items:
   - name: Event Grid concepts
