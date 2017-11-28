@@ -79,7 +79,10 @@ For each VM in your virtual network, add the IP configuration for the secondary 
 
 After the second IP configuration for the secondary NIC is complete, it's displayed under the **IP configurations** settings for the given NIC.
 
-### Step 2: Create the load balancer
+### Step 2: Add IP addresses to a VM operating system
+[!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
+
+### Step 3: Create the load balancer
 
 Create your load balancer for the configuration:
 
@@ -95,7 +98,7 @@ Create your load balancer for the configuration:
 
 The load balancer starts to deploy. Deployment can take a few minutes to successfully complete. After deployment is complete, the load balancer is displayed as a resource in your resource group.
 
-### Step 3: Configure the front-end IP pool
+### Step 4: Configure the front-end IP pool
 
 For each website (contoso.com and fabrikam.com), configure the front-end IP pool on your load balancer:
 
@@ -127,7 +130,7 @@ For each website (contoso.com and fabrikam.com), configure the front-end IP pool
 
 After the front-end pool is configured, the IP addresses are displayed under your load balancer **Frontend IP Pool** settings. 
     
-### Step 4: Configure the back-end pool
+### Step 5: Configure the back-end pool
 
 For each website (contoso.com and fabrikam.com), configure the back-end address pool on your load balancer:
         
@@ -153,7 +156,7 @@ For each website (contoso.com and fabrikam.com), configure the back-end address 
 
 After the back-end pool is configured, the addresses are displayed under your load balancer **Backend pool** settings.
 
-### Step 5: Configure the health probe
+### Step 6: Configure the health probe
 
 Configure a health probe for your load balancer:
 
@@ -165,7 +168,7 @@ Configure a health probe for your load balancer:
 
 4. Type a name for the health probe (for example, **HTTP**). Select **OK**.
 
-### Step 6: Configure load balancing rules
+### Step 7: Configure load balancing rules
 
 For each website (contoso.com and fabrikam.com), configure the load balancing rules:
     
@@ -185,7 +188,7 @@ For each website (contoso.com and fabrikam.com), configure the load balancing ru
 
 After the rules are configured, they are displayed under your load balancer **Load balancing rules** settings.
 
-### Step 7: Configure DNS records
+### Step 8: Configure DNS records
 
 As the last step, configure your DNS resource records to point to the respective front-end IP addresses for your load balancer. You can host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).
 
