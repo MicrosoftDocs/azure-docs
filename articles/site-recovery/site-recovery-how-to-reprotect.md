@@ -3,7 +3,7 @@ title: Reprotect from Azure to an on-premises site | Microsoft Docs
 description: After failover of VMs to Azure, you can initiate a failback to bring VMs back to on-premises. Learn how to reprotect before a failback.
 services: site-recovery
 documentationcenter: ''
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
+ms.date: 06/05/2017
+ms.author: rajanaki
 
 ---
 # Reprotect from Azure to an on-premises site
@@ -69,6 +69,9 @@ When you prepare to reprotect virtual machines, take or consider the following p
 
 > [!IMPORTANT]
 > Make sure that you take regularly scheduled backups of your configuration server. If there's a disaster, restore the server with the same IP address so that failback works.
+
+> [!WARNING]
+> A Replication Group should only have either Windows VMs or Linux VMs, and not  a mix of both because all VMs in a replictaion group uses the same Master Target server, and Linux VM requires a Linux Master Target server and like wise for Windows VM.
 
 * Set the `disk.EnableUUID=true` setting in the configuration parameters of the master target virtual machine in VMware. If this row does not exist, add it. This setting is required to provide a consistent UUID to the virtual machine disk (VMDK) so that it mounts correctly.
 
