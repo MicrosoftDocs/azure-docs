@@ -65,7 +65,7 @@ An alert can on triggering push information or notification using [Action Groups
 > [!TIP]
 > Currently in Alerts (Preview) - log search alerts can be generated only on *Number of Records*; where Alerts will automatically summarize your query results for count and trigger alerts based Threshold value/condition specified
 
-6. As the second step, define a name for your alert in the **Alert rule name** field along with a **Description** detailing specifics for the alert and **Severity** value from the options provided. These details will are reused in all alert emails, notifications, or push done by Azure Monitor. Additionally, user can choose to immediately activate the alert rule on creation by appropriately toggling **Enable rule upon creation** option.
+6. As the second step, define a name for your alert in the **Alert rule name** field along with a **Description** detailing specifics for the alert and **Severity** value from the options provided. These details are reused in all alert emails, notifications, or push done by Azure Monitor. Additionally, user can choose to immediately activate the alert rule on creation by appropriately toggling **Enable rule upon creation** option.
 
 7. As the third and final step, specify if any **Action Group** needs to be triggered for the alert rule when alert condition is met. You can choose any existing Action Group with alert or create a new Action Group. According to selected Action Group, when alert is trigger Azure will: send email(s), send SMS(s), call Webhook(s), push to your ITSM tool, etc. Learn more about [Action Groups](monitoring-action-groups.md).
 
@@ -74,7 +74,7 @@ An alert can on triggering push information or notification using [Action Groups
    ![Rule Creation](./media/monitor-alerts-unified/AlertsPreviewCreateLog.png)
 
 > [!NOTE]
-> Alerts (Preview) currently doesn't support [querying across workspaces](https://azure.microsoft.com/en-us/blog/query-across-resources/). For more details and workaround,view [Alerts Known Issues](monitor-alerts-known-issues.md) page
+> Alerts (Preview) currently doesn't support [querying across workspaces](https://azure.microsoft.com/en-us/blog/query-across-resources/). For more details and workaround, view [Alerts Known Issues](monitor-alerts-known-issues.md) page
 
 Within a few minutes, the alert is active and triggers as previously described.
 
@@ -86,7 +86,7 @@ Within a few minutes, the alert is active and triggers as previously described.
 4. To view or modify specific Alert rule, click on its name that would be shown as a clickable link.
 5. Alert defined is shown - in the three stage structure of: 1) Alert Condition 2) Alert Detail 3) Action Group. **Target Criteria** can be clicked to modify the alert logic or a new criteria can be added after using the bin icon to delete the earlier logic. Similarly, in Alert details section - **Description** and **Severity** can be modified. And the Action Group can be changed or a new one can be crafted to linking to the alert using the **New action group** button
    ![Modify Alert Rule](./media/monitor-alerts-unified/AlertsPreviewEditLog.png)
-6. Using the top panel, changes to the alert can be reflective including: *Save* to commit any changes done to alert, *Discard* to go back without committing any changes made to alert, *Disable* to deactivate the alert and prevent it from running without deletion and finally,  *Delete* to permenantly remove the entire alert rule from Azure.
+6. Using the top panel, changes to the alert can be reflective including: *Save* to commit any changes done to alert, *Discard* to go back without committing any changes made to alert, *Disable* to deactivate the alert and prevent it from running without deletion and finally,  *Delete* to permanently remove the entire alert rule from Azure.
 
 ## Next steps
 * [Get an overview of Azure Alerts (Preview)](monitoring-overview-unified.md) including the types of information you can collect and monitor.
