@@ -22,7 +22,7 @@ ms.service: iot-edge
 
 # Create an IoT Edge device that acts as a transparent gateway - preview
 
-The [How an IoT Edge device can be used as a gateway][lnk-edge-as-gateway] article gives a conceptual overviwe of how an IoT Edge device can be used as a transparent, opaque, or proxy gateway. This article provides detailed instructions for using an IoT Edge device as a transparent gateway. For the rest of this article, an *IoT Edge gateway* is an IoT Edge device used as a transparent gateway.
+The [How an IoT Edge device can be used as a gateway][lnk-edge-as-gateway] article gives a conceptual overviwe of how an IoT Edge device can be used as a transparent gateway or perform protocol or identity translation. This article provides detailed instructions for using an IoT Edge device as a transparent gateway. For the rest of this article, an *IoT Edge gateway* is an IoT Edge device used as a transparent gateway.
 
 >[!NOTE]
 >Currently:
