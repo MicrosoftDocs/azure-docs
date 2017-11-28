@@ -111,7 +111,7 @@ This can happen if your refresh token has not been updated. Try these steps to e
 
  If you do have access and refreshing the credentials does not work, please open a support ticket.
 
-### Bad gateway (502)
+### Bad Gateway (502)
 This is usually caused by an Analytics query that returns too much data. Try using a smaller time range for the query. 
 
 If reducing the dataset coming from the Analytics query doesn't meet your requirements, consider using the [API](https://dev.applicationinsights.io/documentation/overview) to pull a larger dataset. Here's how to convert the M-Query export to use the API.
