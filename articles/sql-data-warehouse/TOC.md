@@ -1,10 +1,10 @@
 # Overview
 
-## [About SQL DW](sql-data-warehouse-overview-what-is.md)
+## [About SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
 
 # Quickstarts
 
-## [Create DW - Portal](create-data-warehouse-portal.md)
+## [Create and connect - portal](create-data-warehouse-portal.md)
 
 # Tutorials
 ## [1 - Load data from blob](load-data-from-azure-blob-storage-using-polybase.md)
@@ -76,14 +76,14 @@
 #### [Variable assignment](sql-data-warehouse-develop-variable-assignment.md)
 #### [Views](sql-data-warehouse-develop-views.md)
 
-# How to guides
+# How-to guides
 ## Service features
-### [Restore data warehouse - Portal](sql-data-warehouse-restore-database-portal.md)
-### [Restore data warehouse - PowerShell](sql-data-warehouse-restore-database-powershell.md)
+### [Restore a data warehouse - portal](sql-data-warehouse-restore-database-portal.md)
+### [Restore a data warehouse - PowerShell](sql-data-warehouse-restore-database-powershell.md)
 ### [Restore a data warehouse - REST  API](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Security
-### [Enable encryption - Portal](sql-data-warehouse-encryption-tde.md)
+### [Enable encryption - portal](sql-data-warehouse-encryption-tde.md)
 ### [Enable encryption - T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [Threat detection](sql-data-warehouse-security-threat-detection.md)
 
@@ -110,8 +110,8 @@
 ### [Analyze your workload](analyze-your-workload.md)
 
 ## Scale out
-### [Manage compute - Portal](sql-data-warehouse-manage-compute-portal.md)
-### [Manage compute - Powershell](sql-data-warehouse-manage-compute-powershell.md)
+### [Manage compute - portal](sql-data-warehouse-manage-compute-portal.md)
+### [Manage compute - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [Manage compute - REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [Automate compute levels](manage-compute-with-azure-functions.md)
 
