@@ -37,7 +37,7 @@ Choose Blob from the **SUB SERVICE** drop-down.
 
 Under **METRIC**, select one of the metrics found in the following table:
 
-The following metrics give you an idea of the latency and throughput of the application. The metrics you configure in the portal are in 1-minute averages if a transaction finished in the middle of a minute that minute data is halfed for the average. In the application, the upload and download operations were timed and give you output of actual amount of time it took to upload and download the files. This information can be used in conjunction with the portal metrics to fully understand throughput.
+The following metrics give you an idea of the latency and throughput of the application. The metrics you configure in the portal are in 1-minute averages. If a transaction finished in the middle of a minute that minute data is halfed for the average. In the application, the upload and download operations were timed and provided you output of the actual amount of time it took to upload and download the files. This information can be used in conjunction with the portal metrics to fully understand throughput.
 
 |Metric|Definition|
 |---|---|
@@ -51,7 +51,7 @@ Select **Last 24 hours (Automatic)** next to **Time**. Choose **Last hour** and 
 
 ![Storage account metrics](./media/storage-blob-scalable-app-verify-metrics/figure1.png)
 
-Charts can have more than one metric assigned to them, but by doing so disables the ability to group by dimensions.
+Charts can have more than one metric assigned to them, but assigning more than one metric disables the ability to group by dimensions.
 
 ## Dimensions
 

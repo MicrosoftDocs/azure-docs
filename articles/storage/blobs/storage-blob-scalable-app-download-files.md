@@ -19,7 +19,7 @@ ms.custom: mvc
 
 # Download large amounts of random data from Azure storage
 
-This tutorial is part three of a series. This tutorial shows you can download large amounts of data from Azure storage.
+This tutorial is part three of a series. This tutorial shows you how to download large amounts of data from Azure storage.
 
 In part three of the series, you learn how to:
 
