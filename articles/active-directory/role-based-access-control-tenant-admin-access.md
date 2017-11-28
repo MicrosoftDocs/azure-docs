@@ -98,7 +98,7 @@ The basic process works with the following steps:
 
 When you call *elevateAccess* you create a role assignment for yourself, so to revoke those privileges you need to delete the assignment.
 
-1.  Call GET role definitions where roleName = User Access Administrator to determine the name GUID of the User Access Administrator role.
+1.  Call GET roleDefinitions where roleName = User Access Administrator to determine the name GUID of the User Access Administrator role.
 	1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
     	```
