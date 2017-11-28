@@ -19,6 +19,10 @@
 ### [Resource Manager template](application-gateway-create-gateway-arm-template.md)
 ### [Azure CLI](application-gateway-create-gateway-cli.md)
 # How to
+## Create application gateway with VMSS
+### [Azure portal](tutorial-create-vmss-portal.md)
+### [Azure PowerShell](tutorial-create-vmss-powershell.md)
+### [Azure CLI](tutorial-create-vmss-cli.md)
 ## Configure web application firewall
 ### [Azure portal](application-gateway-web-application-firewall-portal.md)
 ### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
