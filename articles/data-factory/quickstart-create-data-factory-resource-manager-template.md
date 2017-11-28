@@ -33,13 +33,13 @@ In this article, you use an Azure Resource Manager template to create your first
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 [!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
 
-## Authoring Azure Resource Manager templates
+## Authoring Resource Manager templates
 To learn about Azure Resource Manager templates in general, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md). 
 
 
 The following section provides the complete Resource Manager template for defining Data Factory entities so that you can quickly run through the tutorial and test the template. To understand how each Data Factory entity is defined, see [Data Factory entities in the template](#data-factory-entities-in-the-template) section.
 
-## Data Factory JSON template
+## Data Factory JSON 
 The top-level Resource Manager template for defining a data factory is: 
 
 ```json
@@ -353,7 +353,7 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 > 
 > 
 
-## Create data factory
+## Create a data factory and a pipeline
 1. Start **Azure PowerShell** and run the following command: 
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 	```PowerShell
@@ -373,11 +373,11 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 	```
 
-## Monitor pipeline
+## Monitor the pipeline
 1. After logging in to the [Azure portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
 2. In the **Data Factories** page, click the data factory (**TutorialFactoryARM**) you created.    
 
-### Defining Data Factory entities
+### JSON definitions for entities
 The following Data Factory entities are defined in the JSON template: 
 
 1. [Azure Storage linked service](#azure-storage-linked-service)
@@ -581,34 +581,37 @@ Here is a sample Resource Manager template for creating a logical gateway in the
 
 ```json
 {
-    "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "parameters": {
-    },
-    "variables": {
-        "dataFactoryName":  "GatewayUsingArmDF",
-        "apiVersion": "2015-10-01",
-        "singleQuote": "'"
-    },
-    "resources": [
-        {
-            "name": "[variables('dataFactoryName')]",
-            "apiVersion": "[variables('apiVersion')]",
-            "type": "Microsoft.DataFactory/datafactories",
-            "location": "eastus",
-            "resources": [
-                {
-                    "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
-                    "type": "gateways",
-                    "apiVersion": "[variables('apiVersion')]",
-                    "name": "GatewayUsingARM",
-                    "properties": {
-                        "description": "my gateway"
-                    }
-                }            
-            ]
-        }
-    ]
+  "contentVersion": "1.0.0.0",
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "parameters": {
+  },
+  "variables": {
+      "dataFactoryName":  "Factory1128",
+      "apiVersion": "2017-09-01-preview",
+      "integrationRuntimeName": "Gateway1128"
+  },
+  "resources": [
+      {
+          "name": "[variables('dataFactoryName')]",
+          "apiVersion": "[variables('apiVersion')]",
+          "type": "Microsoft.DataFactory/factories",
+          "location": "eastus",
+          "resources": [
+              {
+                "type": "integrationruntimes",                
+                "name": "[variables('integrationRuntimeName')]",
+                  "dependsOn": [ 
+                    "[variables('dataFactoryName')]" 
+                  ],
+                  "apiVersion": "[variables('apiVersion')]",
+                  "properties": {
+                    "type": "selfhosted",                                                                          
+                    "description": "my gateway"
+                  }
+              }            
+          ]
+      }
+  ]
 }
 ```
 This template creates a data factory named GatewayUsingArmDF with a gateway named: GatewayUsingARM. 
