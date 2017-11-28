@@ -18,19 +18,19 @@ ms.date: 11/20/2017
 ms.author: barbkess
 
 ---
-# Create an Azure SQL data warehouse in the Azure portal
+# Create and query an Azure SQL data warehouse in the Azure portal
 
-This quick start tutorial creates a data warehouse using the Azure SQL Data Warehouse service, and initializes it with the AdventureWorksDW sample data. Then, you connect to the data warehouse and run a query on the data. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS)
+Quickly create and query an Azure SQL data warehouse using the Azure portal.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Before you begin
 
-Before you begin this quickstart, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
 
 ## Log in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a data warehouse
 
@@ -199,14 +199,6 @@ Follow these steps to clean up resources as you desire.
 
 
 ## Next steps
-
-Now that you have a database, you can connect and query using your favorite tools. Learn more by choosing your tool below:
-
-- [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Visual Studio Code](../sql-database/sql-database-connect-query-vscode.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [.NET](../sql-database/sql-database-connect-query-dotnet.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [PHP](../sql-database/sql-database-connect-query-php.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Node.js](../sql-database/sql-database-connect-query-nodejs.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Java](../sql-database/sql-database-connect-query-java.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Python](../sql-database/sql-database-connect-query-python.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Ruby](../sql-database/sql-database-connect-query-ruby.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
+You have now created a data warehouse, created a firewall rule, connected to your data warehouse, and run a few queries. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
+> [!div class="nextstepaction"]
+>[Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
