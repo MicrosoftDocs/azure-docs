@@ -25,7 +25,7 @@ ms.author: rajanaki
 This article describes how to reprotect Azure virtual machines from Azure to an on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure (as described in [Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> You cannot failback after you have either [completed migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), moved a virtual machine to another resource group, or deleted the Azure virtual machine. If you disable protection of the virtual machine, you cannot failback.
+> You cannot failback after you have either [completed migration](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), moved a virtual machine to another resource group, or deleted the Azure virtual machine. If you disable protection of the virtual machine, you cannot failback. If the virtual machine was first created in Azure (born in the cloud) then you cannot reprotect it back to on-premises. The machine should have been initially protected on-premises and failed over to Azure before reprotect.
 
 
 After reprotection finishes and the protected virtual machines are replicating, you can initiate a failback on the virtual machines to bring them to the on-premises site.
@@ -59,6 +59,9 @@ When you prepare to reprotect virtual machines, take or consider the following p
   * **Master target server**: The master target server receives failback data. The on-premises management server that you created has a master target server installed by default. However, depending on the volume of failed-back traffic, you might need to create a separate master target server for failback.
     * [A Linux virtual machine needs a Linux master target server](site-recovery-how-to-install-linux-master-target.md).
     * A Windows virtual machine needs a Windows master target server. You can use the on-premises process server and master target machines again.
+
+> [!NOTE]
+> All virtual machines of a replication group should be of the same operating system type (either all Windows or all Linux). A replication group with mixed operating systems is currently not supported for reprotect and failback to on-premises. This is because the master target should be of the same operating system as the virtual machine and all the virtual machines of a replication group should have the same master target. 
 
     The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
@@ -170,6 +173,8 @@ Currently, Azure Site Recovery supports failing back only to a virtual machine f
 * The master target server cannot have snapshots on the disks. If there are snapshots, reprotection and failback fail.
 
 * The master target cannot have a Paravirtual SCSI controller. The controller can only be an LSI Logic controller. Without an LSI Logic controller, reprotection fails.
+
+* At any given instance, the master target can have atmst 60 disks attached to it. If the number of virtual machines being reprotected to the on-premises master target have a sum total number of disks more than 60, then reprotects to the master target will start failing. Ensure that you have enough master target disk slots or deploy additional master target servers.
 
 <!--
 ### Failback policy

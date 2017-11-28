@@ -19,9 +19,9 @@ ms.date: 05/10/2017
 ms.author: billgib;sstein
 
 ---
-# Restore a single tenants Azure SQL database in a multi-tenant SaaS app
+# Restore a single tenant's Azure SQL database in a multi-tenant SaaS app
 
-The Wingtip SaaS app is built using a database-per-tenant model, where each tenant has their own database. One of the benefits of this model is that it is easy to restore a single tenant’s data in isolation without impacting other tenants.
+The Wingtip Tickets SaaS app is built using a database-per-tenant model, where each tenant has their own database. One of the benefits of this model is that it is easy to restore a single tenant’s data in isolation without impacting other tenants.
 
 In this tutorial you learn two data recovery patterns:
 
@@ -50,9 +50,9 @@ In the first pattern, data is restored into a new database. The tenant is then g
 
 In the second pattern, which assumes that the tenant has suffered a loss or corruption of data, the tenant’s production database is restored to a prior point in time. In the restore in place pattern, the tenant is taken offline for a brief time while the database is restored and brought back online. The original database is deleted, but can still be restored from if you need to go back to an even earlier point in time. A variation of this pattern could rename the database instead of deleting it, although renaming the database offers no additional advantage in terms of data security.
 
-## Get the Wingtip application scripts
+## Get the Wingtip Tickets SaaS Database Per Tenant application scripts
 
-The Wingtip SaaS scripts and application source code are available in the [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github repo. [Steps to download the Wingtip SaaS scripts](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub repo. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 
 ## Simulate a tenant accidentally deleting data
 
@@ -143,6 +143,6 @@ In this tutorial, you learned how to:
 
 ## Additional resources
 
-* Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Additional tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Overview of business continuity with Azure SQL Database](sql-database-business-continuity.md)
 * [Learn about SQL Database backups](sql-database-automated-backups.md)
