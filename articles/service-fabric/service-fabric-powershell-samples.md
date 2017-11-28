@@ -28,10 +28,11 @@ The following table includes links to PowerShell scripts samples that create and
 |-|-|
 | **Create cluster** ||
 | [Create a cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Creates an Azure Service Fabric cluster. |
-| **Manage cluster** ||
+| **Manage cluster, nodes, and infrastructure** ||
 | [Add an application certificate](./scripts/service-fabric-powershell-add-application-certificate.md)| Adds an application X.509 certificate to all nodes in a cluster. |
+| [Open a port in the load balancer](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Open an application port in the Azure load balancer to allow inbound traffic on a specific port. |
+| [Create an inbound network security group rule](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Create an inbound network security group rule to allow inbound traffic to the cluster on a specific port. |
 | **Manage applications** ||
 | [Deploy an application](./scripts/service-fabric-powershell-deploy-application.md)| Deploy an application to a cluster.|
 | [Upgrade an application](./scripts/service-fabric-powershell-upgrade-application.md)| Upgrade an application |
 | [Remove an application](./scripts/service-fabric-powershell-remove-application.md)| Remove an application from a cluster.|
-| [Open a port in the load balancer](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Open an application port in the Azure load balancer. |
