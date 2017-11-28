@@ -40,10 +40,6 @@ You must first install the Azure Stack [1710 Update](https://docs.microsoft.com/
 ### New features and fixes
 
 This update includes the following improvements and fixes for Azure Stack.
- 
-#### Windows Server 2016 new features and fixes
-
-- [November 14, 2017—KB4048953 (OS Build 14393.1884) ](https://support.microsoft.com/help/4048953)
 
 #### New features
 
@@ -59,6 +55,10 @@ This update includes the following improvements and fixes for Azure Stack.
 - Fixed race condition in DNS during field replaceable unit (FRU) and also updated cluster logging
 - Fix for restart-ability of disable-host in field replaceable unit (FRU)
 - Various other performance, security and stability fixes
+
+#### Windows Server 2016 new features and fixes
+
+- [November 14, 2017—KB4048953 (OS Build 14393.1884) ](https://support.microsoft.com/help/4048953)
  
 ### Known issues with the update process
 
@@ -90,10 +90,6 @@ This section contains post-installation known issues with build **20171122.1**.
    To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
-  
-#### Backup
-
-- Do not enable infrastructure backup on the **Infrastructure backup** blade.
 
 #### Health and monitoring
 
