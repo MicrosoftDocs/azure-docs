@@ -107,7 +107,7 @@ will be hosted.
 10. Review and confirm the settings, then click **Finish**.
 
 > [!NOTE]
-> The collector only supports "English (United States)" as the operating system language and the colelctor interface language. Support for more languages is coming soon.
+> The collector only supports "English (United States)" as the operating system language and the collector interface language. Support for more languages is coming soon.
 
 ## Run the collector to discover VMs
 
