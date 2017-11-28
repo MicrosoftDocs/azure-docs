@@ -68,7 +68,7 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 * [VNets that reside in different subscriptions:](#difsub) The steps for this configuration use TestVNet1 and TestVNet5.
 
-![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+  ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
 
 ## <a name="samesub"></a>Connect VNets that are in the same subscription
