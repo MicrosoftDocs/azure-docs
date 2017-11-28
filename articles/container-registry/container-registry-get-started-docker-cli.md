@@ -38,10 +38,10 @@ You can also log in with [docker login](https://docs.docker.com/engine/reference
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
-Both commands returns `Login Succeeded` once completed. If you use `docker login`, you might also see a security warning recommending the use of the `--password-stdin` parameter. While its use is outside the scope of this article, we recommend following this best practice. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
+Both commands return `Login Succeeded` once completed. If you use `docker login`, you might also see a security warning recommending the use of the `--password-stdin` parameter. While its use is outside the scope of this article, we recommend following this best practice. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
 
 > [!TIP]
-> Always specify the fully qualified registry name (all lowercase) when you use `docker login` and when you tag your images. In the examples in this article, the fully qualified name is *myregistry.azurecr.io*.
+> Always specify the fully qualified registry name (all lowercase) when you use `docker login` and when you tag images for pushing to your registry. In the examples in this article, the fully qualified name is *myregistry.azurecr.io*.
 
 ## Pull the official Nginx image
 
