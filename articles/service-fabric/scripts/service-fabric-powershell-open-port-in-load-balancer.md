@@ -1,0 +1,48 @@
+﻿---
+title: Azure PowerShell Script Sample - Open application port in load balancer| Microsoft Docs
+description: Azure PowerShell Script Sample - Open a port in the Azure load balancer for a Service Fabric application.
+services: service-fabric
+documentationcenter: 
+author: rwike77
+manager: timlt
+editor: 
+tags: azure-service-management
+
+ms.assetid: 
+ms.service: service-fabric
+ms.workload: multiple
+ms.devlang: na
+ms.topic: sample
+ms.date: 08/15/2017
+ms.author: ryanwi
+ms.custom: mvc
+---
+
+# Open an application port in the Azure load balancer
+
+A Service Fabric application running in Azure sits behind the Azure load balancer. This sample script opens a port in an Azure load balancer so that a Service Fabric application can communicate with external clients. Customize the parameters as needed. 
+
+If needed, install the Service Fabric PowerShell module with the [Service Fabric SDK](../service-fabric-get-started.md). 
+
+## Sample script
+
+[!code-powershell[main](../../../powershell_scripts/service-fabric/open-port-in-load-balancer/open-port-in-load-balancer.ps1 "Open a port in the load balancer")]
+
+## Script explanation
+
+This script uses the following commands. Each command in the table links to command-specific documentation.
+
+| Command | Notes |
+|---|---|
+| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Gets an Azure resource.  |
+| [Get-AzureRmLoadBalancer](/powershell/module/azurerm.network/get-azurermloadbalancer) | Gets the Azure load balancer. |
+| [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig) | Adds a probe configuration to a load balancer.|
+| [Get-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/get-azurermloadbalancerprobeconfig) | Gets a probe configuration for a load balancer. |
+| [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig) | Adds a rule configuration to a load balancer. |
+| [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer) | Sets the goal state for a load balancer. |
+
+## Next steps
+
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+
+Additional Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).

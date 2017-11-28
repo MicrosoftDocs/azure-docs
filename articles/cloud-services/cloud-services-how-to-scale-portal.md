@@ -18,9 +18,6 @@ ms.author: adegeo
 ---
 
 # How to configure auto scaling for a Cloud Service in the portal
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-how-to-scale-portal.md)
-> * [Azure classic portal](cloud-services-how-to-scale.md)
 
 Conditions can be set for a cloud service worker role that trigger a scale in or out operation. The conditions for the role can be based on the CPU, disk, or network load of the role. You can also set a condition based on a message queue or the metric of some other Azure resource associated with your subscription.
 
@@ -34,7 +31,7 @@ You should consider the following information before you configure scaling for y
 
     Larger role instances use more cores. You can scale an application only within the limit of cores for your subscription. For example, say your subscription has a limit of 20 cores. If you run an application with two medium-sized cloud services (a total of 4 cores), you can only scale up other cloud service deployments in your subscription by the remaining 16 cores. For more information about sizes, see [Cloud Service Sizes](cloud-services-sizes-specs.md).
 
-* You can scale based on a queue message threshold. For more information about how to use queues, see [How to use the Queue Storage Service](../storage/storage-dotnet-how-to-use-queues.md).
+* You can scale based on a queue message threshold. For more information about how to use queues, see [How to use the Queue Storage Service](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
 * You can also scale other resources associated with your subscription.
 

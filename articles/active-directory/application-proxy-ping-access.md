@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -26,7 +26,7 @@ Azure Active Directory Application Proxy and PingAccess have partnered together 
 
 PingAccess for Azure Active Directory is an offering of PingAccess that enables you to give users access and single sign-on to applications that use headers for authentication. Application Proxy treats these apps like any other, using Azure AD to authenticate access and then passing traffic through the connector service. PingAccess sits in front of the apps and translates the access token from Azure AD into a header so that the application receives the authentication in the format it can read.
 
-Your users won’t notice anything different when they sign in to use your corporate apps. They can still work from anywhere on any device. When your users are at the office, neither Application Proxy nor PingAccess intercept the traffic, so your users get the same experience as always.
+Your users won’t notice anything different when they sign in to use your corporate apps. They can still work from anywhere on any device. 
 
 Since the Application Proxy connectors direct remote traffic to all apps regardless of their authentication type, they’ll continue to load balance automatically, as well.
 
@@ -106,6 +106,9 @@ select **Assign a user for testing**, and add at least one user to the applicati
 
   ![Select permissions](./media/application-proxy-ping-access/select-permissions.png)
 
+17. Grant permissions before you close the permissions screen. 
+![Grant Permissions](media/application-proxy-ping-access/grantperms.png)
+
 ### Collect information for the PingAccess steps
 
 1. On your app settings blade, select **Properties**. 
@@ -127,6 +130,28 @@ select **Assign a user for testing**, and add at least one user to the applicati
 6. Close the App registrations blade or scroll all the way to the left to return to the Azure Active Directory menu.
 7. Select **Properties**.
 8. Save the **Directory ID** GUID.
+
+### Optional - Update GraphAPI to send custom fields
+
+For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](./develop/active-directory-token-and-claims.md). If you need a custom claim that sends other tokens, use GraphAPI to set the app field *acceptMappedClaims* to **True**. You can only use Azure AD Graph Explorer to make this configuration. 
+
+This example uses Graph Explorer:
+
+```
+PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application> 
+
+{
+  "acceptMappedClaims":true
+}
+```
+
+>[!NOTE]
+>To use a custom claim, you must also have a custom policy defined and assigned to the application.  This policy should include all required custom attributes.
+>
+>Policy definition and assignment can be done through PowerShell, Azure AD Graph Explorer, or MS Graph.  If you are doing this in PowerShell, you may need to first use `New-AzureADPolicy `and then assign it to the application with `Set-AzureADServicePrincipalPolicy`.  For more information see the [Azure AD Policy documentation](active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+### Optional - Use a custom claim
+To make your application use a custom claim and include additional fields, be sure that you have also [created a custom claims mapping policy and assigned it to the application](active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## Download PingAccess and configure your app
 

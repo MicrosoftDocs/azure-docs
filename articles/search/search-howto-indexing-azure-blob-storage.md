@@ -23,21 +23,7 @@ This article shows how to use Azure Search to index documents (such as PDFs, Mic
 ## Supported document formats
 The blob indexer can extract text from the following document formats:
 
-* PDF
-* Microsoft Office formats: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
-* HTML
-* XML
-* ZIP
-* EML
-* RTF
-* Plain text files (see also [Indexing plain text](#IndexingPlainText))
-* JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md))
-* CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview feature)
-
-> [!IMPORTANT]
-> Support for CSV and JSON arrays is currently in preview. These formats are available only using version **2016-09-01-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
->
->
+[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## Setting up blob indexing
 You can set up an Azure Blob Storage indexer using:
@@ -89,7 +75,7 @@ You can provide the credentials for the blob container in one of these ways:
 -  **Container shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`
  The SAS should have the list and read permissions on the container.
 
-For more info on storage shared access signatures, see [Using Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md).
+For more info on storage shared access signatures, see [Using Shared Access Signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to `Credentials provided in the connection string are invalid or have expired.`.  
@@ -265,7 +251,7 @@ Azure Search document extraction logic isn't perfect and will sometimes fail to 
 
 You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values:
 
-* `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/storage-properties-metadata.md) are indexed.
+* `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/blobs/storage-properties-metadata.md) are indexed.
 * `allMetadata` - specifies that storage metadata and the [content-type specific metadata](#ContentSpecificMetadata) extracted from the blob content are indexed.
 * `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
 

@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -38,8 +38,7 @@ After the purchase of SAP HANA on Azure (Large Instances) is finalized between y
 - Business contact information (including e-mail address and phone number)
 - Technical contact information (including e-mail address and phone number)
 - Technical networking contact information (including e-mail address and phone number)
-- Azure deployment region (West US, East US, Australia East, Australia Southeast, West Europe, and North Europe as of July 
-- 2017)
+- Azure deployment region (West US, East US, Australia East, Australia Southeast, West Europe, and North Europe as of July 2017)
 - Confirm SAP HANA on Azure (Large Instances) SKU (configuration)
 - As already detailed in the Overview and Architecture document for HANA Large Instances, for every Azure Region being deployed to:
 	- A /29 IP address range for ER-P2P Connections that connect Azure VNets to HANA Large Instances
@@ -167,7 +166,7 @@ At the end of the deployment process, Microsoft delivers the following data to y
      - ExpressRoute PeerID
 - Data to access HANA Large Instances after you established ExpressRoute circuit and Azure VNet.
 
-You can also find the sequence of connecting HANA Large Instances in the document [End to End Setup for SAP HANA Large Instances](https://msdnshared.blob.core.windows.net/media/2017/06/End-to-End-Setup-of-SAP-HANA-Large-Instances.pdf). Many of the following steps are shown in an example deployment in that document. 
+You can also find the sequence of connecting HANA Large Instances in the document [End to End Setup for SAP HANA Large Instances](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/). Many of the following steps are shown in an example deployment in that document. 
 
 
 ## Connecting a VNet to HANA Large Instance ExpressRoute

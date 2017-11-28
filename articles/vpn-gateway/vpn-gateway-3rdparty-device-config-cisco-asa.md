@@ -1,6 +1,6 @@
 ---
-title: Sample configuration - Cisco ASA device connecting to Azure VPN gateways | Microsoft Docs
-description: This article provides a sample configuration for Cisco ASA device connecting to Azure VPN gateways.
+title: Sample configuration for connecting Cisco ASA devices to Azure VPN gateways | Microsoft Docs
+description: This article provides a sample configuration for connecting Cisco ASA devices to Azure VPN gateways.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -19,109 +19,114 @@ ms.author: yushwang
 
 ---
 # Sample configuration: Cisco ASA device (IKEv2/no BGP)
-This article provides sample configurations for Cisco ASA devices connecting to Azure VPN gateways.
+This article provides sample configurations for connecting Cisco Adaptive Security Appliance (ASA) devices to Azure VPN gateways. The example applies to Cisco ASA devices that are running IKEv2 without the Border Gateway Protocol (BGP). 
 
 ## Device at a glance
 
 |                        |                                   |
 | ---                    | ---                               |
 | Device vendor          | Cisco                             |
-| Device model           | ASA (Adaptive Security Appliance) |
-| Target version         | 8.4+                              |
+| Device model           | ASA                               |
+| Target version         | 8.4 and later                     |
 | Tested model           | ASA 5505                          |
 | Tested version         | 9.2                               |
-| IKE version            | **IKEv2**                         |
-| BGP                    | **No**                            |
-| Azure VPN gateway type | **Route-based** VPN gateway       |
+| IKE version            | IKEv2                             |
+| BGP                    | No                                |
+| Azure VPN gateway type | Route-based VPN gateway           |
 |                        |                                   |
 
 > [!NOTE]
-> 1. The configuration below connects a Cisco ASA device to an Azure **route-based** VPN gateway using custom IPsec/IKE policy with "UserPolicyBasedTrafficSelectors" option, as described in [this article](vpn-gateway-connect-multiple-policybased-rm-ps.md).
-> 2. It requires ASA devices to use **IKEv2** with access-list-based configurations, not VTI-based.
-> 3. Please consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices.
+> The sample configuration connects a Cisco ASA device to an Azure **route-based** VPN gateway. The connection uses a custom IPsec/IKE policy with the **UsePolicyBasedTrafficSelectors** option, as described in [this article](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+>
+> The sample requires that ASA devices use the **IKEv2** policy with access-list-based configurations, not VTI-based. Consult your VPN device vendor specifications to verify that the IKEv2 policy is supported on your on-premises VPN devices.
+
 
 ## VPN device requirements
-Azure VPN gateways use standard IPsec/IKE protocol suites to establish S2S VPN tunnels. Refer to [About VPN devices](vpn-gateway-about-vpn-devices.md) for the detailed IPsec/IKE protocol parameters and default cryptographic algorithms for Azure VPN gateways. You can optionally specify the exact combination of cryptographic algorithms and key strengths for a specific connection as described in [About cryptographic requirements](vpn-gateway-about-compliance-crypto.md). If you select a specific combination of cryptographic algorithms and key strengths, please make sure you use the corresponding specifications on your VPN devices.
+Azure VPN gateways use the standard IPsec/IKE protocol suites to establish Site-to-Site (S2S) VPN tunnels. For the detailed IPsec/IKE protocol parameters and default cryptographic algorithms for Azure VPN gateways, see [About VPN devices](vpn-gateway-about-vpn-devices.md).
+
+> [!NOTE]
+> You can optionally specify an exact combination of cryptographic algorithms and key strengths for a specific connection, as described in [About cryptographic requirements](vpn-gateway-about-compliance-crypto.md). If you specify an exact combination of algorithms and key strengths, be sure to use the corresponding specifications on your VPN devices.
 
 ## Single VPN tunnel
-This topology consists of a single S2S VPN tunnel between an Azure VPN gateway and your on-premises VPN device. You can optionally configure BGP across the VPN tunnel.
+This configuration consists of a single S2S VPN tunnel between an Azure VPN gateway and an on-premises VPN device. You can optionally configure the [BGP across the VPN tunnel](#bgp).
 
-![single tunnel](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
+![Single S2S VPN tunnel](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 
-Refer to [Single tunnel setup](vpn-gateway-3rdparty-device-config-overview.md#singletunnel) for detailed, step-by-step instructions to build the Azure configurations.
+For step-by-step instructions to build the Azure configurations, see [Single VPN tunnel setup](vpn-gateway-3rdparty-device-config-overview.md#singletunnel).
 
-### Network and VPN gateway information
-This section list the parameters for the this sample.
+### Virtual network and VPN gateway information
+This section lists the parameters for the sample.
 
 | **Parameter**                | **Value**                    |
 | ---                          | ---                          |
-| VNet address prefixes        | 10.11.0.0/16<br>10.12.0.0/16 |
+| Virtual network address prefixes        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Azure VPN gateway IP         | Azure_Gateway_Public_IP      |
 | On-premises address prefixes | 10.51.0.0/16<br>10.52.0.0/16 |
 | On-premises VPN device IP    | OnPrem_Device_Public_IP     |
-| *VNet BGP ASN                | 65010                        |
-| *Azure BGP peer IP           | 10.12.255.30                 |
-| *On-premises BGP ASN         | 65050                        |
-| *On-premises BGP peer IP     | 10.52.255.254                |
+| * Virtual network BGP ASN                | 65010                        |
+| * Azure BGP peer IP           | 10.12.255.30                 |
+| * On-premises BGP ASN         | 65050                        |
+| * On-premises BGP peer IP     | 10.52.255.254                |
 |                              |                              |
 
-* (*) Optional parameters for BGP only.
+\* Optional parameter for BGP only.
 
-### IPsec/IKE policy & parameters
-
-The table below lists the IPsec/IKE algorithms and parameters used in the sample. Please consult your VPN device specifications to make sure all algorithms listed above are supported by your VPN device models and firmware versions.
+### IPsec/IKE policy and parameters
+The following table lists the IPsec/IKE algorithms and parameters that are used in the sample. Consult your VPN device specifications to verify the algorithms that are supported for your VPN device models and firmware versions.
 
 | **IPsec/IKEv2**  | **Value**                            |
 | ---              | ---                                  |
 | IKEv2 Encryption | AES256                               |
 | IKEv2 Integrity  | SHA384                               |
 | DH Group         | DHGroup24                            |
-| IPsec Encryption | AES256                               |
-| IPsec Integrity  | SHA1                                 |
+| * IPsec Encryption | AES256                               |
+| * IPsec Integrity  | SHA1                                 |
 | PFS Group        | PFS24                                |
-| QM SA Lifetime   | 7200 seconds                         |
+| QM SA Lifetime   | 7,200 seconds                         |
 | Traffic Selector | UsePolicyBasedTrafficSelectors $True |
 | Pre-Shared Key   | PreSharedKey                         |
 |                  |                                      |
 
-- (*) On some device, IPsec integrity must be "null" if GCM-AES is used as IPsec encryption algorithm.
+\* On some devices, IPsec Integrity must be a null value when the IPsec Encryption algorithm is AES-GCM.
 
-### Device notes
+### ASA device support
 
->[!NOTE]
->
-> 1. IKEv2 support requires ASA version 8.4 and above.
-> 2. Higher DH and PFS group support (beyond Group 5) requires ASA version 9.x.
-> 3. IPsec encryption with AES-GCM and IPsec integrity with SHA-256, SHA-384, SHA-512 support requires ASA version 9.x on newer ASA hardware; ASA 5505, 5510, 5520, 5540, 5550, 5580 are **not** supported. (Please check the vendor specifications to confirm.)
->
+* Support for IKEv2 requires ASA version 8.4 and later.
+
+* Support for DH Group and PFS Group beyond Group 5 requires ASA version 9.x.
+
+* Support for IPsec Encryption with AES-GCM and IPsec Integrity with SHA-256, SHA-384, or SHA-512, requires ASA version 9.x. This support requirement applies to newer ASA devices.
+
+    > [!NOTE]
+    > ASA device models 5505, 5510, 5520, 5540, 5550, and 5580 are not supported. Consult your VPN device specifications to verify the algorithms that are supported for your VPN device models and firmware versions.
 
 
-### Sample device configurations
-The script below provides a sample configuration based on the topology and parameters listed above. The S2S VPN tunnel configuration consists of the following parts:
+### Sample device configuration
+The script provides a sample that is based on the configuration and parameters that are described in the previous sections. The S2S VPN tunnel configuration consists of the following parts:
 
-1. Interfaces & routes
+1. Interfaces and routes
 2. Access lists
-3. IKE policy and parameters (Phase 1 or Main Mode)
-4. IPsec policy and parameters (Phase 2 or Quick Mode)
-5. Other parameters (TCP MSS clamping, etc.)
+3. IKE policy and parameters (phase 1 or main mode)
+4. IPsec policy and parameters (phase 2 or quick mode)
+5. Other parameters, such as TCP MSS clamping
 
->[!IMPORTANT] 
->Please make sure you complete the additional configuration listed below and replace the placeholders with the actual values:
-> 
-> - Interface configuration for both inside and outside interfaces
-> - Routes for your inside/private and outside/public networks
-> - Ensure all names and policy numbers are unique on the device
-> - Ensure the cryptographic algorithms are supported on your device
-> - Replace the following place holders with the actual values
->   - Outside interface name: "outside"
->   - Azure_Gateway_Public_IP
->   - OnPrem_Device_Public_IP
->   - IKE Pre_Shared_Key
->   - VNet and local network gateway names (VNetName, LNGName)
->   - VNet and on-premises network address prefixes
->   - Proper netmasks
+> [!IMPORTANT]
+> Complete the following steps before you use the sample script. Replace the placeholder values in the script with the device settings for your configuration.
 
-#### Sample configuration
+* Specify the interface configuration for both inside and outside interfaces.
+* Identify the routes for your inside/private and outside/public networks.
+* Ensure all names and policy numbers are unique on your device.
+* Ensure that the cryptographic algorithms are supported on your device.
+* Replace the following **placeholder values** with actual values for your configuration:
+  - Outside interface name: **outside**
+  - **Azure_Gateway_Public_IP**
+  - **OnPrem_Device_Public_IP**
+  - IKE: **Pre_Shared_Key**
+  - Virtual network and local network gateway names: **VNetName** and **LNGName**
+  - Virtual network and on-premises network address **prefixes**
+  - Proper **netmasks**
+
+#### Sample script
 
 ```
 ! Sample ASA configuration for connecting to Azure VPN gateway
@@ -276,18 +281,31 @@ sysopt connection tcpmss 1350
 
 ## Simple debugging commands
 
-Here are some ASA commands for debugging purposes:
+Use the following ASA commands for debugging purposes:
 
-1. Show the IPsec and IKE SA's
-    - "show crypto ipsec sa"
-    - "show crypto ikev2 sa"
-2. Entering debug mode - this can get very noisy on the console
-    - "debug crypto ikev2 platform <level>"
-    - "debug crypto ikev2 protocol <level>"
-3. List current configurations
-    - "show run" - shows the current configurations on the device; you can use the various sub-commands to list specific parts of the configuration. E.g., "show run crypto", "show run access-list", "show run tunnel-group", etc.
+* Show the IPsec or IKE security association (SA):
+    ```
+    show crypto ipsec sa
+    show crypto ikev2 sa
+    ```
 
+* Enter debug mode:
+    ```
+    debug crypto ikev2 platform <level>
+    debug crypto ikev2 protocol <level>
+    ```
+    The `debug` commands can generate significant output on the console.
+
+* Show the current configurations on the device:
+    ```
+    show run
+    ```
+    Use `show` subcommands to list specific parts of the device configuration, for example:
+    ```
+    show run crypto
+    show run access-list
+    show run tunnel-group
+    ```
 
 ## Next steps
-See [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections](vpn-gateway-activeactive-rm-powershell.md) for steps to configure active-active cross-premises and VNet-to-VNet connections.
-
+To configure active-active cross-premises and VNet-to-VNet connections, see [Configure active-active VPN gateways](vpn-gateway-activeactive-rm-powershell.md).

@@ -4,7 +4,7 @@ description: Frequently asked questions (FAQs)
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 5374f7f4-c189-43ef-8b7f-f2f4141e2748
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 09/29/2017
 ms.author: juliako
 
 ---
@@ -22,6 +22,11 @@ ms.author: juliako
 This article addresses frequently asked questions raised by the Azure Media Services (AMS) user community.
 
 ## General AMS FAQs
+
+Q: How do you stream to Apple iOS devices
+
+A: add "(format=m3u8-aapl)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back HLS content for consumption on Apple iOS native devices (for details, see (delivering content)[media-services-deliver-content-overview.md]),
+
 Q: How do you scale indexing?
 
 A: The reserved units are the same for Encoding and Indexing tasks. Follow instructions on [How to Scale Encoding Reserved Units](media-services-scale-media-processing-overview.md). **Note** that Indexer performance is not affected by Reserved Unit Type.
@@ -52,7 +57,7 @@ A: Media Services uses the value of the IAssetFile.Name property when building U
 
 Q: How to connect using REST?
 
-A: After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md).
+A: For information on how to connect to the AMS API, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI. 
 
 Q: How can I rotate a video during the encoding process.
 
@@ -70,8 +75,6 @@ A: The [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-
     "Codecs": [
 
     ...
-
-
 
 
 ## Media Services learning paths

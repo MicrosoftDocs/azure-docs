@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/30/2017
+ms.date: 11/10/2017
 ms.author: larryfr
 
 ---
@@ -36,13 +36,16 @@ The following Web UIs require an SSH tunnel:
 
 If you use Script Actions to customize your cluster, any services or utilities that you install that expose a web UI require an SSH tunnel. For example, if you install Hue using a Script Action, you must use an SSH tunnel to access the Hue web UI.
 
+> [!IMPORTANT]
+> If you have direct access to HDInsight through a virtual network, you do not need to use SSH tunnels. For an example of directly accessing HDInsight through a virtual network, see the [Connect HDInsight to your on-premises network](connect-on-premises-network.md) document.
+
 ## What is an SSH tunnel
 
 [Secure Shell (SSH) tunneling](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) routes traffic sent to a port on your local workstation. The traffic is routed through an SSH connection to your HDInsight cluster head node. The request is resolved as if it originated on the head node. The response is then routed back through the tunnel to your workstation.
 
 ## Prerequisites
 
-* An SSH client. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* An SSH client. Most operating systems provide an SSH client through the `ssh` command. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * A web browser that can be configured to use a SOCKS5 proxy.
 
@@ -68,9 +71,9 @@ This command creates a connection that routes traffic to local port 9876 to the 
 * **C** - Compress all data, because web traffic is mostly text.
 * **2** - Force SSH to try protocol version 2 only.
 * **q** - Quiet mode.
-* **T** - Disable pseudo-tty allocation, since we are just forwarding a port.
-* **n** - Prevent reading of STDIN, since we are just forwarding a port.
-* **N** - Do not execute a remote command, since we are just forwarding a port.
+* **T** - Disable pseudo-tty allocation, since you are just forwarding a port.
+* **n** - Prevent reading of STDIN, since you are just forwarding a port.
+* **N** - Do not execute a remote command, since you are just forwarding a port.
 * **f** - Run in the background.
 
 Once the command finishes, traffic sent to port 9876 on the local computer is routed to the cluster head node.
@@ -109,7 +112,7 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
    > [!NOTE]
    > Selecting **Remote DNS** resolves Domain Name System (DNS) requests by using the HDInsight cluster. This setting resolves DNS using the head node of the cluster.
 
-2. Verify that the tunnel works by visiting a site such as [http://www.whatismyip.com/](http://www.whatismyip.com/). If the proxy is correctly configured, the IP address returned is from a machine in the Microsoft Azure datacenter.
+2. Verify that the tunnel works by visiting a site such as [http://www.whatismyip.com/](http://www.whatismyip.com/). The IP returned should be one used by the Microsoft Azure datacenter.
 
 ## Verify with Ambari web UI
 
@@ -129,7 +132,7 @@ Once the cluster has been established, use the following steps to verify that yo
     ![Image with the QuickLinks menu expanded](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
    > [!NOTE]
-   > When you select __Quick Links__, you may get a wait indicator. This can happen if you have a slow internet connection. Wait a minute or two for the data to be received from the server, then try the list again.
+   > When you select __Quick Links__, you may get a wait indicator. This condition can occur if you have a slow internet connection. Wait a minute or two for the data to be received from the server, then try the list again.
    >
    > Some entries in the **Quick Links** menu may be cut off by the right side of the screen. If so, expand the menu using your mouse and use the right arrow key to scroll the screen to the right to see the rest of the menu.
 

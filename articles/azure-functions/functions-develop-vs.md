@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 services: functions
 documentationcenter: .net
 author: ggailey777  
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.service: functions
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
-ms.author: glenga, donnam
+ms.date: 09/06/2017
+ms.author: glenga
 ---
 # Azure Functions Tools for Visual Studio  
 
@@ -31,24 +31,15 @@ This topic shows you how to use the Azure Functions Tools for Visual Studio 2017
 
 ## Prerequisites
 
-Before you install Azure Functions Tools, you must have installed [Visual Studio 2017 Preview version 15.3](https://www.visualstudio.com/vs/preview/), including one of the following workloads:
+Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2017 installation:
 
-* Azure development
-* ASP.NET and web development
+![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 To create and deploy functions, you also need:
 
 * An active Azure subscription. If you don't have an Azure subscription, [free accounts](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) are available.
 
-* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account).  
-
-## Install the Azure Functions Tools
-
-You can [download and install the extension package](https://marketplace.visualstudio.com/vsgallery/e3705d94-7cc3-4b79-ba7b-f43f30774d28), or use the following steps to install it from Visual Studio.  
-
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)] 
-
-
+* An Azure Storage account. To create a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
 ## Create an Azure Functions project 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
@@ -58,7 +49,7 @@ You can [download and install the extension package](https://marketplace.visuals
 
 When you create a new project using the Azure Functions template, you get an empty C# project that contains the following files:
 
-* **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) reference article.
+* **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
     
 * **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify settings, such as connection strings to other Azure services. Add a new key to the **Values** array for each connection required by functions in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools topic.
 
@@ -108,11 +99,13 @@ In pre-compiled functions, the bindings used by the function are defined by appl
     } 
     ````
  
-    A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, The first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters.  
+    A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters. In the previous example, the first parameter has a **QueueTrigger** attribute applied, indicating queue triggered function. The queue name and connection string setting name are passed as parameters.  
 
 ## Testing functions
 
-[!INCLUDE [Test the function locally](../../includes/functions-vstools-test.md)]
+Azure Functions Core Tools lets you run Azure Functions project on your local development computer. You are prompted to install these tools the first time you start a function from Visual Studio.  
+
+To test your function, press F5. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools.  You may also need to enable a firewall exception so that the tools can handle HTTP requests.
 
 With the project running, you can test your code as you would test deployed function. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md). When running in debug mode, breakpoints are hit in Visual Studio as expected. 
 

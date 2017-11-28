@@ -13,11 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 09/25/2017
 ms.author: helaw
 
 ---
 # Key features and concepts in Azure Stack
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+
 If you’re new to Microsoft Azure Stack, these terms and feature descriptions might be helpful.
 
 ## Personas
@@ -105,7 +108,7 @@ The Compute Resource Provider (CRP) allows Azure Stack tenants to create their o
 The Network Resource Provider (NRP) delivers a series of Software Defined Networking (SDN) and Network Function Virtualization (NFV) features for the private cloud.  You can use the NRP to create resources like software load balancers, public IPs, network security groups, virtual networks.
 
 ### Storage RP
-The Storage RP delivers four Azure-consistent storage services: blob, table, queue, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
+The Storage RP delivers four Azure-consistent storage services: blob, table, queue, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 #### Blob storage
 Blob storage stores any data set. A blob can be any type of text or binary data, such as a document, media file, or application installer. Table storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data. Queue storage provides reliable messaging for workflow processing and for communication between components of cloud services.
@@ -138,5 +141,5 @@ In-development builds will provide the following benefits:
 - Other improvements
 
 ## Next steps
-[Deploy Azure Stack Development Kit](azure-stack-deploy.md)
+[Azure Stack deployment prerequisites](azure-stack-deploy.md)
 

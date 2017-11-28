@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2016
+ms.date: 10/05/2017
 ms.author: juanpere
 
 ---
@@ -36,7 +36,7 @@ At the end of this tutorial, you have a Node.js console device app and a .NET (C
 To complete this tutorial, you need the following:
 
 * Visual Studio 2015 or Visual Studio 2017.
-* Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+* Node.js version 4.0.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -57,14 +57,15 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 4. Add the following `using` statements at the top of the **Program.cs** file:
    
         using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
         
-5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section and the target device.
+5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the section "Create an IoT hub." 
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
         static JobClient jobClient;
-        static string targetDevice = "{deviceIdForTargetDevice}";
+        static string targetDevice = "myDeviceId";
         
 6. Add the following method to the **Program** class.  This code gets the device twin for the rebooting device and outputs the reported properties.
    

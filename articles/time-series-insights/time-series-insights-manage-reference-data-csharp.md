@@ -1,32 +1,32 @@
 ---
-title: Manage reference data for an Azure Time Series Insights environment by using C# | Microsoft Docs
-description: This tutorial covers how to manage reference data for an Azure Time Series Insights environment by using C#
-keywords:
+title: Manage reference data in Azure Time Series Insights environment by using C# | Microsoft Docs
+description: This article describes how to manage reference data for an Azure Time Series Insights environment by creating a custom application written in the C# (c-sharp) .NET language.
 services: time-series-insights
-documentationcenter:
-author: venkatgct
-manager: almineev
-editor: cgronlun
-
-ms.assetid:
 ms.service: time-series-insights
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/29/2017
+author: venkatgct
 ms.author: venkatja
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/21/2017
 ---
 # Manage reference data for an Azure Time Series Insights environment by using C#
 
-This C# sample demonstrates how to manage reference data for an Azure Time Series Insights environment.
-Before running the sample, ensure the following steps are completed.
-1. A reference data set has been created using [this article](time-series-insights-add-reference-data-set.md).
-2. The access token used when running the application is acquired through the Azure Active Directory API. This token should be passed in the `Authorization` header of every Query API request. For setting up non-interactive applications, see the [Authentication and authorization](time-series-insights-authentication-and-authorization.md) article.
-3. All the constants defined at the beginning of the sample are correctly set.
+This topic describes the C# sample code you can compile to manage reference data for an Azure Time Series Insights environment.
 
-## C# sample
+Complete the following steps before you compile and run the sample code:
+1. [Create a reference data set](time-series-insights-add-reference-data-set.md).
 
+2. Configure the authorization access token for the application. Be sure the token is acquired through the Azure Active Directory API. You should pass this token in the `Authorization` header of every query API request. 
+ 
+   For information about how to set up non-interactive applications, see [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
+
+3. Edit the sample code to replace the example constants, designated at **#DUMMY#**, near the beginning of the code. 
+
+## C# sample code 
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -58,6 +58,9 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
         // SET the application key of the application registered in your Azure Active Directory
         private static string ApplicationClientSecret = "#DUMMY#";
+
+        // SET the Azure Active Directory tenant.
+        private static string Tenant = "#DUMMY#.onmicrosoft.com";
 
         private static async Task DemoReferenceDataAsync()
         {
@@ -145,14 +148,14 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
         private static async Task<string> AcquireAccessTokenAsync()
         {
-            if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#")
+            if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#" || Tenant.StartsWith("#DUMMY#"))
             {
                 throw new Exception(
-                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId' and 'ApplicationClientSecret'.");
+                    $"Use the link {"https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
             }
 
             var authenticationContext = new AuthenticationContext(
-                "https://login.microsoftonline.com/common",
+                $"https://login.windows.net/{Tenant}",
                 TokenCache.DefaultShared);
 
             AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
@@ -165,7 +168,9 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
             // Suitable for native apps, and not on server-side of a web application.
             //AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
             //    resource: "https://api.timeseries.azure.com/",
+            //    // Set well-known client ID for Azure PowerShell
             //    clientId: "1950a258-227b-4e31-a9cf-717495945fc2",
+            //    // Set redirect URI for Azure PowerShell
             //    redirectUri: new Uri("urn:ietf:wg:oauth:2.0:oob"),
             //    parameters: new PlatformParameters(PromptBehavior.Auto));
 
@@ -224,5 +229,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## Next steps
-
-For the complete API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.
+[Reference data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

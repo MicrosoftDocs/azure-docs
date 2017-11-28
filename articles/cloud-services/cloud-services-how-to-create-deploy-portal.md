@@ -18,12 +18,6 @@ ms.author: adegeo
 
 ---
 # How to create and deploy a cloud service
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-how-to-create-deploy-portal.md)
-> * [Azure classic portal](cloud-services-how-to-create-deploy.md)
->
->
-
 The Azure portal provides two ways for you to create and deploy a cloud service: *Quick Create* and *Custom Create*.
 
 This article explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using Custom Create.

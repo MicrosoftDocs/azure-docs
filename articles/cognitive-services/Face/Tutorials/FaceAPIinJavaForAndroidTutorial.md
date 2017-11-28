@@ -152,8 +152,8 @@ Follow the instructions below to configure the client library:
 
 5. Open MainActivity.java in your 'app' project and insert the following import directives: 
 	
-		import com.microsoft.projectoxford.face.\*;  
-		import com.microsoft.projectoxford.face.contract.\*;  
+		import com.microsoft.projectoxford.face.*;  
+		import com.microsoft.projectoxford.face.contract.*;  
 	
    And then insert the following code in the MainActivity class:
 

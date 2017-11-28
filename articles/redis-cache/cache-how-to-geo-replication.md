@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 09/15/2017
 ms.author: sdanie
 
 ---
@@ -98,6 +98,9 @@ After Geo-replication is configured, the following restrictions apply to your li
 - [Can I link two caches with different sizes?](#can-i-link-two-caches-with-different-sizes)
 - [Can I use Geo-replication with clustering enabled?](#can-i-use-geo-replication-with-clustering-enabled)
 - [Can I use Geo-replication with my caches in a VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- [What is the replication schedule for Redis geo-replication?](#what-is-the-replication-schedule-for-redis-geo-replication)
+- [How long does geo-replication replication take?](#how-long-does-geo-replication-replication-take)
+- [Is the replication recovery point guaranteed?](#is-the-replication-recovery-point-guaranteed)
 - [Can I use PowerShell or Azure CLI to manage Geo-replication?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
 - [How much does it cost to replicate my data across Azure regions?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
 - [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
@@ -135,6 +138,18 @@ Yes, Geo-replication of caches in VNETs are supported.
 
 - Geo-replication between caches in the same VNET is supported.
 - Geo-replication between caches in different VNETs is also supported, as long as the two VNETs are configured in such a way that resources in the VNETs are able to reach each other via TCP connections.
+
+### What is the replication schedule for Redis geo-replication?
+
+Replication does not happen on a specific schedule, it is continuous and asynchronous i.e all the writes done to the primary are instantaneously asynchronously replicated on the secondary.
+
+### How long does geo-replication replication take?
+
+Replication is incremental, asynchronous and continuous and the time taken is usually not much different from the latency across regions. Under certain circumstances, at certain times, the secondary may be required to do a full sync of the data from the primary. The replication time in this case is dependent on number of factors like: load on the primary cache, bandwidth available on the cache machine, inter region latency etc. As an example, based on some testing we have found out that replication time for a full 53 GB geo-replicated pair in East US and West US regions can be anywhere between 5 to 10 minutes.
+
+### Is the replication recovery point guaranteed?
+
+Currently, for caches in a geo-replicated mode, persistence and import/export functionality is disabled. So in case of a customer initiated failover or in cases where a replication link has been broken between the geo-replicated pair, the secondary will retain the in memory data that it has synced from the primary until that point of time. There is no recovery point guarantee provided in such situations.
 
 ### Can I use PowerShell or Azure CLI to manage Geo-replication?
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 11/17/2017
 ms.author: bwren
 
 ---
@@ -31,6 +31,10 @@ The log files to be collected must match the following criteria.
 - The log file must not allow circular updates where the file is overwritten with new entries.
 - The log file must use ASCII or UTF-8 encoding.  Other formats such as UTF-16 are not supported.
 
+>[!NOTE]
+>If there are duplicate entries in the log file, Log Analytics will collect them.  However, the search results will be inconsistent where the filter results show more events than the result count.  It will be important that you validate the log to determine if the application that creates it is causing this behavior and address it if possible before creating the custom log collection definition.  
+>
+  
 ## Defining a custom log
 Use the following procedure to define a custom log file.  Scroll to the end of this article for a walkthrough of a sample of adding a custom log.
 
@@ -49,10 +53,6 @@ You start by uploading a sample of the custom log.  The wizard will parse and di
 
 If a timestamp delimiter is used, then the TimeGenerated property of each record stored in OMS will be populated with the date/time specified for that entry in the log file.  If a new line delimiter is used, then TimeGenerated is populated with date and time that Log Analytics collected the entry.
 
-> [!NOTE]
-> Log Analytics currently treats the date/time collected from a log using a timestamp delimiter as UTC.  This will soon be changed to use the time zone on the agent.
->
->
 
 1. Click **Browse** and browse to a sample file.  Note that this may button may be labeled **Choose File** in some browsers.
 2. Click **Next**.
@@ -129,14 +129,6 @@ Records from custom logs are stored in the OMS repository just like records from
 The following table provides different examples of log searches that retrieve records from custom logs.
 
 | Query | Description |
-|:--- |:--- |
-| Type=MyApp_CL |All events from a custom log named MyApp_CL. |
-| Type=MyApp_CL Severity_CF=error |All events from a custom log named MyApp_CL with a value of *error* in a custom field named *Severity_CF*. |
-
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above queries would change to the following.
-
-> | Query | Description |
 |:--- |:--- |
 | MyApp_CL |All events from a custom log named MyApp_CL. |
 | MyApp_CL &#124; where Severity_CF=="error" |All events from a custom log named MyApp_CL with a value of *error* in a custom field named *Severity_CF*. |

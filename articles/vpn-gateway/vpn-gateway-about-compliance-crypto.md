@@ -49,7 +49,7 @@ You can create an IPsec/IKE policy and apply to a new or existing connection.
 
 ## IPsec/IKE policy FAQ
 
-[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
 ## Next steps

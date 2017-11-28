@@ -1,10 +1,10 @@
----
+﻿---
 
 title: Azure database security best practices| Microsoft Docs
 description: This article provides a set of best practices for Azure database security.
 services: security
 documentationcenter: na
-author: UnifyCloud
+author: unifycloud
 manager: swadhwa
 editor: tomsh
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2017
+ms.date: 11/21/2017
 ms.author: tomsh
 
 ---
@@ -25,7 +25,7 @@ Security is a top concern when managing databases, and it has always been a prio
 
 In this article, we will discuss a collection of Azure database security best practices. These best practices are derived from our experience with Azure database security and the experiences of customers like yourself.
 
-For each best practice, we’ll explain:
+For each best practice, we explain:
 
 -	What the best practice is
 -	Why you want to enable that best practice

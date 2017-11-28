@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/04/2017
+ms.date: 10/11/2017
 ms.author: larryfr
 
 ---
@@ -48,6 +48,9 @@ The Ambari Web UI is available on your HDInsight cluster at HTTPS://CLUSTERNAME.
 While Ambari for your cluster is accessible directly over the Internet, some links from the Ambari Web UI (such as to the JobTracker) are not exposed on the internet. To access these services, you must create an SSH tunnel. For more information, see [Use SSH Tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## Ambari Web UI
+
+> [!WARNING]
+> Not all features of the Ambari Web UI are supported on HDInsight. For more information, see the [Unsupported operations](#unsupported-operations) section of this document.
 
 When connecting to the Ambari Web UI, you are prompted to authenticate to the page. Use the cluster admin user (default Admin) and password you used during cluster creation.
 
@@ -145,7 +148,7 @@ Selecting any of these links opens a new tab in your browser, which displays the
 
 ### Ambari users, groups, and permissions
 
-Working with users, groups, and permissions are supported when using a [domain joined](hdinsight-domain-joined-introduction.md) HDInsight cluster. For information on using the Ambari Management UI on a domain-joined cluster, see [Manage domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md).
+Working with users, groups, and permissions are supported when using a [domain joined](./domain-joined/apache-domain-joined-introduction.md) HDInsight cluster. For information on using the Ambari Management UI on a domain-joined cluster, see [Manage domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md).
 
 > [!WARNING]
 > Do not change the password of the Ambari watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password breaks the ability to use script actions or perform scaling operations with your cluster.
@@ -230,6 +233,16 @@ Ambari Views allow developers to plug UI elements into the Ambari Web UI using t
 
 * Yarn Queue Manager: The queue manager provides a simple UI for viewing and modifying YARN queues.
 
-* Hive View: The Hive View allows you to run Hive queries directly from your web browser. You can save queries, view results, save results to the cluster storage, or download results to your local system. For more information on using Hive Views, see [Use Hive Views with HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
+* Hive View: The Hive View allows you to run Hive queries directly from your web browser. You can save queries, view results, save results to the cluster storage, or download results to your local system. For more information on using Hive Views, see [Use Hive Views with HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
 * Tez View: The Tez View allows you to better understand and optimize jobs. You can view information on how Tez jobs are executed and what resources are used.
+
+## Unsupported operations
+
+The following Ambari operations are not supported on HDInsight:
+
+* __Moving the Metrics Collector service__. When viewing information on the Metrics Collector service, one of the actions available from the Service Actions menu is __Move Metrics collector__. This is not supported with HDInsight.
+
+## Next steps
+
+Learn how to use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) with HDInsight.

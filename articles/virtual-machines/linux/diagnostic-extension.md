@@ -37,7 +37,7 @@ You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI s
 
 The Azure portal cannot be used to enable or configure LAD 3.0. Instead, it installs and configures version 2.3. Azure portal graphs and alerts work with data from both versions of the extension.
 
-These installation instructions and a [downloadable sample configuration](https://github.com/Azure/azure-linux-extensions/blob/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configure LAD 3.0 to:
+These installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configure LAD 3.0 to:
 
 * capture and store the same metrics as were provided by LAD 2.3;
 * capture a useful set of file system metrics, new to LAD 3.0;
@@ -50,7 +50,8 @@ The downloadable configuration is just an example; modify it to suit your own ne
 
 * **Azure Linux Agent version 2.2.0 or later**. Most Azure VM Linux gallery images include version 2.2.7 or later. Run `/usr/sbin/waagent -version` to confirm the version installed on the VM. If the VM is running an older version of the guest agent, follow [these instructions](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) to update it.
 * **Azure CLI**. [Set up the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) environment on your machine.
-* An existing storage account to store the data and an associated SAS token that grants the needed access rights.
+* The wget command, if you don't already have it: Run `sudo apt-get install wget`.
+* An existing Azure subscription and an existing storage account within it to store the data.
 
 ### Sample installation
 
@@ -65,8 +66,11 @@ my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnos
 # Should login to Azure first before anything else
 az login
 
+# Select the subscription containing the storage account
+az account set --subscription <your_azure_subscription_id>
+
 # Download the sample Public settings. (You could also use curl or any web browser)
-wget https://github.com/Azure/azure-linux-extensions/blob/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
+wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
 
 # Build the VM resource ID. Replace storage account name and resource ID in the public settings.
 my_vm_resource_id=$(az vm show -g $my_resource_group -n $my_linux_vm --query "id" -o tsv)
@@ -311,7 +315,7 @@ displayName | The label (in the language specified by the associated locale sett
 
 The counterSpecifier is an arbitrary identifier. Consumers of metrics, like the Azure portal charting and alerting feature, use counterSpecifier as the "key" that identifies a metric or an instance of a metric. For `builtin` metrics, we recommend you use counterSpecifier values that begin with `/builtin/`. If you are collecting a specific instance of a metric, we recommend you attach the identifier of the instance to the counterSpecifier value. Some examples:
 
-* `/builtin/Processor/PercentIdleTime` - Idle time averaged across all cores
+* `/builtin/Processor/PercentIdleTime` - Idle time averaged across all vCPUs
 * `/builtin/Disk/FreeSpace(/mnt)` - Free space for the /mnt filesystem
 * `/builtin/Disk/FreeSpace` - Free space averaged across all mounted filesystems
 
@@ -416,7 +420,7 @@ The builtin metric provider is a source of metrics most interesting to a broad s
 
 ### builtin metrics for the Processor class
 
-The Processor class of metrics provides information about processor usage in the VM. When aggregating percentages, the result is the average across all CPUs. In a two core VM, if one core was 100% busy and the other was 100% idle, the reported PercentIdleTime would be 50. If each core was 50% busy for the same period, the reported result would also be 50. In a four core VM, with one core 100% busy and the others idle, the reported PercentIdleTime would be 75.
+The Processor class of metrics provides information about processor usage in the VM. When aggregating percentages, the result is the average across all CPUs. In a two-vCPU VM, if one vCPU was 100% busy and the other was 100% idle, the reported PercentIdleTime would be 50. If each vCPU was 50% busy for the same period, the reported result would also be 50. In a four-vCPU VM, with one vCPU 100% busy and the others idle, the reported PercentIdleTime would be 75.
 
 counter | Meaning
 ------- | -------
@@ -430,7 +434,7 @@ PercentPrivilegedTime | Of non-idle time, the percentage spent in privileged (ke
 
 The first four counters should sum to 100%. The last three counters also sum to 100%; they subdivide the sum of PercentProcessorTime, PercentIOWaitTime, and PercentInterruptTime.
 
-To obtain a single metric aggregated across all processors, set `"condition": "IsAggregate=TRUE"`. To obtain a metric for a specific processor, such as the second logical processor of a four core VM, set `"condition": "Name=\\"1\\""`. Logical processor numbers are in the range `[0..n-1]`.
+To obtain a single metric aggregated across all processors, set `"condition": "IsAggregate=TRUE"`. To obtain a metric for a specific processor, such as the second logical processor of a four-vCPU VM, set `"condition": "Name=\\"1\\""`. Logical processor numbers are in the range `[0..n-1]`.
 
 ### builtin metrics for the Memory class
 

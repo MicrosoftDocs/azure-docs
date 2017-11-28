@@ -9,7 +9,6 @@ editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Mesos, Azure
 
-ms.assetid: d148ed1e-b582-4d51-944f-1ac7ae3c4fd6
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -17,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
+ms.custom: mvc
 
 ---
 # Manage an Azure Container Service DC/OS cluster through the Marathon web UI

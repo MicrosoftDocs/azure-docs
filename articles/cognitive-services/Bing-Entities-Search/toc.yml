@@ -16,7 +16,7 @@
     href: resize-and-crop-thumbnails.md
 - name: Reference
   items:
-  - name: REST v7 Preview
+  - name: REST v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
 - name: Resources
   items:

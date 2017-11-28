@@ -169,7 +169,7 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 Azure Data Lake Analytics currently supports the following data sources:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage](../storage/storage-introduction.md)
+* [Azure Storage](../storage/common/storage-introduction.md)
 
 When you create an Analytics account, you must designate a Data Lake Store account to be the default 
 data source. The default Data Lake Store account is used to store job metadata and job audit logs. After you have 
@@ -327,86 +327,26 @@ $d = [DateTime]::Now.AddDays(-7)
 Get-AdlJob -Account $adla -SubmittedAfter $d
 ```
 
-### Common scenarios for listing jobs
+### Analyzing job history
 
+Using Azure PowerShell to analyze the history of jobs that have run in Data Lake analytics is a powerful technique. You can use it to gain insights into usage and cost. You can learn more by looking at the [Job History Analysis sample repo](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
-```
-# List jobs submitted in the last five days and that successfully completed.
-$d = (Get-Date).AddDays(-5)
-Get-AdlJob -Account $adla -SubmittedAfter $d -State Ended -Result Succeeded
+## Get information about pipelines and recurrences
 
-# List all failed jobs submitted by "joe@contoso.com" within the past seven days.
-Get-AdlJob -Account $adla `
-    -Submitter "joe@contoso.com" `
-    -SubmittedAfter (Get-Date).AddDays(-7) `
-    -Result Failed
-```
-
-## Filtering a list of jobs
-
-Once you have a list of jobs in your current PowerShell session. You can use normal PowerShell cmdlets to filter the list.
-
-Filter a list of jobs to the jobs submitted in the last 24 hours
-
-```
-$upperdate = Get-Date
-$lowerdate = $upperdate.AddHours(-24)
-$jobs | Where-Object { $_.EndTime -ge $lowerdate }
-```
-
-Filter a list of jobs to the jobs that ended in the last 24 hours
-
-```
-$upperdate = Get-Date
-$lowerdate = $upperdate.AddHours(-24)
-$jobs | Where-Object { $_.SubmitTime -ge $lowerdate }
-```
-
-Filter a list of jobs to the jobs that started running. A job might fail at compile time - and so it never starts. Let's look at the failed
-jobs that actually started running and then failed.
+Use the `Get-AdlJobPipeline` cmdlet to see the pipeline information previously submitted jobs.
 
 ```powershell
-$jobs | Where-Object { $_.StartTime -ne $null }
+$pipelines = Get-AdlJobPipeline -Account $adla
+
+$pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 
-### Analyzing a list of jobs
+Use the `Get-AdlJobRecurrence` cmdlet to see the recurrence information for previously submitted jobs.
 
-Use the `Group-Object` cmdlet to analyze a list of jobs.
+```powershell
+$recurrences = Get-AdlJobRecurrence -Account $adla
 
-```
-# Count the number of jobs by Submitter
-$jobs | Group-Object Submitter | Select -Property Count,Name
-
-# Count the number of jobs by Result
-$jobs | Group-Object Result | Select -Property Count,Name
-
-# Count the number of jobs by State
-$jobs | Group-Object State | Select -Property Count,Name
-
-#  Count the number of jobs by DegreeOfParallelism
-$jobs | Group-Object DegreeOfParallelism | Select -Property Count,Name
-```
-When performing an analysis, it can be useful to add properties to the Job objects to make filtering and grouping simpler. The following  snippet shows how to annotate a JobInfo with calculated properties.
-
-```
-function annotate_job( $j )
-{
-    $dic1 = @{
-        Label='AUHours';
-        Expression={ ($_.DegreeOfParallelism * ($_.EndTime-$_.StartTime).TotalHours)}}
-    $dic2 = @{
-        Label='DurationSeconds';
-        Expression={ ($_.EndTime-$_.StartTime).TotalSeconds}}
-    $dic3 = @{
-        Label='DidRun';
-        Expression={ ($_.StartTime -ne $null)}}
-
-    $j2 = $j | select *, $dic1, $dic2, $dic3
-    $j2
-}
-
-$jobs = Get-AdlJob -Account $adla -Top 10
-$jobs = $jobs | %{ annotate_job( $_ ) }
+$recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>"
 ```
 
 ## Get information about a job
@@ -419,7 +359,6 @@ Get the status of a specific job.
 Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```
 
-
 ### Examine the job outputs
 
 After the job has ended, check if the output file exists by listing the files in a folder.
@@ -428,7 +367,7 @@ After the job has ended, check if the output file exists by listing the files in
 Get-AdlStoreChildItem -Account $adls -Path "/"
 ```
 
-## Managing running jobs
+## Manage running jobs
 
 ### Cancel a job
 
@@ -436,7 +375,7 @@ Get-AdlStoreChildItem -Account $adls -Path "/"
 Stop-AdlJob -Account $adls -JobID $jobID
 ```
 
-### Waiting for a job to finish
+### Wait for a job to finish
 
 Instead of repeating `Get-AdlAnalyticsJob` until a job finishes, you can use the `Wait-AdlJob` cmdlet to wait for the job to end.
 
@@ -444,6 +383,25 @@ Instead of repeating `Get-AdlAnalyticsJob` until a job finishes, you can use the
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
+## Manage compute policies
+
+### List existing compute policies
+
+The `Get-AdlAnalyticsComputePolicy` cmdlet retrieves info about compute policies for a Data Lake Analytics account.
+
+```powershell
+$policies = Get-AdlAnalyticsComputePolicy -Account $adla
+```
+
+### Create a compute policy
+
+The `New-AdlAnalyticsComputePolicy` cmdlet creates a new compute policy for a Data Lake Analytics account. This example sets  the maximum AUs available to the specified user to 50, and the minimum job priority to 250.
+
+```powershell
+$userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
+
+New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
+```
 
 ## Check for the existence of a file.
 
@@ -564,6 +522,7 @@ Write-Host '$subid' " = ""$adla_subid"" "
 Write-Host '$adla' " = ""$adla_name"" "
 Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
+
 ## Working with Azure
 
 ### Get details of AzureRm errors

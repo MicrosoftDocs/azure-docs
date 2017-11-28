@@ -26,10 +26,10 @@ ExpressRoute is generally available (GA) in Azure Government.
 
 * Government customers connect to a physically isolated capacity over a dedicated Azure Government (Gov)  ExpressRoute (ER) connection
 * Azure Gov provides Increased availability & durability by leveraging multiple region pairs located a minimum of 500 miles apart 
-* By default all Azure Gov ER connectivity is configured active-active redundant with support for bursting and delivers up to 10G circuit capacity (smallest is 50MB)
+* By default all Azure Gov ER connectivity is configured active-active redundant with support for bursting and delivers up to 10G circuit capacity (smallest is 50 MB)
 * Azure Gov ER locations provide optimized pathways (shortest hops, low latency, high performance, etc.) for customers and Azure Gov geo-redundant regions
 * The Azure Gov ER private connection does not utilize, traverse, or depend on the Internet
-* Azure Gov physical and logical infrastructure is physically dedicated and separated, and access is restricted to U.S. persons
+* Azure Gov physical and logical infrastructure are physically dedicated and separated, and access is restricted to U.S. persons
 * Microsoft owns and operates all fiber infrastructure between Azure Gov Regions and Azure Gov ER Meet-Me locations
 * Azure Gov ER provides connectivity to Microsoft Azure, O365, and CRM cloud services
 
@@ -55,7 +55,7 @@ The following information identifies the Azure Government boundary for Azure Exp
 
 | **Regulated/controlled data permitted**| **Regulated/controlled data not permitted** |
 | --- | --- |
-| Data entered, transmitted, and processed within ExpressRoute dedicated connections can contain export controlled data. | Azure ExpressRoute metadata is not permitted to contain export controlled data. This metadata includes configuration data entered when creating and maintaining your ExpressRoute circuit. Do not enter regulated/controlled data into the Circuit name field when configuring the initial ExpressRoute circuit. |
+| Data entered, transmitted, and processed within ExpressRoute dedicated connections can contain export-controlled data. | Azure ExpressRoute metadata is not permitted to contain export-controlled data. This metadata includes configuration data entered when creating and maintaining your ExpressRoute circuit. Do not enter regulated/controlled data into the Circuit name field when configuring the initial ExpressRoute circuit. |
 
 ## Support for BGP communities
 This section provides an overview of how BGP communities will be used with ExpressRoute in AzureGov. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
@@ -68,7 +68,7 @@ Refer to the "Overview" tab on [ExpressRoute public documentation](../expressrou
 
 You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services. 
 
-Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.  For additional details refer to the "Get started" tab on [ExpressRoute public documentation](../expressroute/index.md) and click on "Optimize routing."
+Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers.  For additional details, refer to the "Get started" tab on [ExpressRoute public documentation](../expressroute/index.md) and click on "Optimize routing."
 
 | **National Clouds Azure Region**| **BGP community value** |
 | --- | --- |
@@ -92,10 +92,13 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
 
+## Support for Virtual Network
+Virtual Network is generally available in Azure Government. For more information, see the [Virtual Network public documentation](../virtual-network/virtual-networks-overview.md). 
+
 ## Support for Load Balancer
 Load Balancer is generally available in Azure Government. For more information, see the [Load Balancer public documentation](../load-balancer/load-balancer-overview.md). 
 
-## Support for Traffic Manger
+## Support for Traffic Manager
 Traffic Manager is generally available in Azure Government. For more information, see the [Traffic Manager public documentation](../traffic-manager/traffic-manager-overview.md). 
 
 ## Support for VNet Peering 
@@ -103,6 +106,24 @@ VNet Peering is generally available in Azure Government. For more information, s
 
 ## Support for VPN Gateway 
 VPN Gateway is generally available in Azure Government. For more information, see the [VPN Gateway public documentation](../vpn-gateway/vpn-gateway-about-vpngateways.md). 
+
+## Support for Application Gateway 
+Application Gateway is generally available in Azure Government. For more information, see the [Application Gateway public documentation](../application-gateway/application-gateway-introduction.md). 
+
+## Support for Network Watcher
+Network Watcher is available through Preview in Azure Government. For more information, see the [Network Watcher public documentation](../network-watcher/index.md). 
+
+## Support for Service Bus
+Service Bus is generally available in Azure Government. For more information, see the [Service Bus public documentation](../service-bus/index.md).
+
+### Variations
+The URLs for accessing and managing the Service Bus service are different:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| Service Bus | *.servicebus.windows.net | *.servicebus.usgovcloudapi.net |
+
+
 
 ## Next Steps
 For supplemental information and updates please subscribe to the

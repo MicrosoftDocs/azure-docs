@@ -1,9 +1,9 @@
 ---
 title: Azure Windows VM sizes - HPC | Microsoft Docs
-description: Lists the different sizes available for Windows high performance computing virtual machines in Azure.
+description: Lists the different sizes available for Windows high performance computing virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: jonbeck7
 manager: timlt
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/30/2017
-ms.author: cynthn
+ms.date: 07/28/2017
+ms.author: jonbeck
 
 ---
 

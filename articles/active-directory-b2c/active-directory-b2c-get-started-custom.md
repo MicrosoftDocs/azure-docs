@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 04/04/2017
+ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
 ---
 # Azure Active Directory B2C: Get started with custom policies
@@ -26,7 +26,8 @@ After you complete the steps in this article, your custom policy will support "l
 
 Before proceeding, ensure that you have an Azure AD B2C tenant, which is a container for all your users, apps, policies, and more. If you don't have one already, you need to [create an Azure AD B2C tenant](active-directory-b2c-get-started.md). We strongly encourage all developers to complete the Azure AD B2C built-in policy walkthroughs and configure their applications with built-in policies before proceeding. Your applications will work with both types of policies once you make a minor change to the policy name to invoke the custom policy.
 
-To access custom policy editing, you need a valid Azure subscription linked to your tenant.
+>[!NOTE]
+>To access custom policy editing, you need a valid Azure subscription linked to your tenant. If you haven't [linked your Azure AD B2C tenant to an Azure subscription](active-directory-b2c-how-to-enable-billing.md) or your Azure subscription is disabled, the Identity Experience Framework button won't be available.
 
 ## Add signing and encryption keys to your B2C tenant for use by custom policies
 
@@ -78,8 +79,8 @@ Azure AD B2C requires you to register two extra applications that are used by th
    * For **Sign-on URL**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, where `yourtenant` is your Azure AD B2C tenant domain name.
 5. Select **Create**.
 6. Once it is created, select the newly created application **IdentityExperienceFramework**.<br>
-   a. Select **Properties**.<br>
-   b. Copy the application ID and save it for later.
+   * Select **Properties**.<br>
+   * Copy the application ID and save it for later.
 
 ### Create the ProxyIdentityExperienceFramework application
 
@@ -90,8 +91,8 @@ Azure AD B2C requires you to register two extra applications that are used by th
    * For **Redirect URI**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, where `yourtenant` is your Azure AD B2C tenant.
 1. Select **Create**.
 1. Once it has been created, select the application **ProxyIdentityExperienceFramework**.<br>
-   a. Select **Properties**. <br>
-   b. Copy the application ID and save it for later.
+   * Select **Properties**. <br>
+   * Copy the application ID and save it for later.
 1. Select **Required permissions**.
 1. Select **Add**.
 1. Select **Select an API**.
@@ -105,17 +106,17 @@ Azure AD B2C requires you to register two extra applications that are used by th
 Custom policies are a set of XML files that need to be uploaded to your Azure AD B2C tenant. We provide starter packs to get you going quickly. Each starter pack in the following list contains the smallest number of technical profiles and user journeys needed to achieve the scenarios described:
  * LocalAccounts. Enables the use of local accounts only.
  * SocialAccounts. Enables the use of social (or federated) accounts only.
- * **SocialAndLocalAccounts**. We will use this file for the walkthrough.
+ * **SocialAndLocalAccounts**. We use this file for the walkthrough.
  * SocialAndLocalAccountsWithMFA. Social, local, and Multi-Factor Authentication options are included here.
 
 Each starter pack contains:
 
 * The [base file](active-directory-b2c-overview-custom.md#policy-files) of the policy. Few modifications are required to the base.
 * The [extension file](active-directory-b2c-overview-custom.md#policy-files) of the policy.  This file is where most configuration changes are made.
-* [Relying party files](active-directory-b2c-overview-custom.md#policy-files). These are task-specific files called by your application.
+* [Relying party files](active-directory-b2c-overview-custom.md#policy-files) are task-specific files called by your application.
 
 >[!NOTE]
->If your XML editor supports validation, you might want to validate the files against the TrustFrameworkPolicy_0.3.0.0.xsd XML schema file that is located in the root directory of the starter pack. XML schema validation identifies errors before uploading.
+>If your XML editor supports validation, validate the files against the TrustFrameworkPolicy_0.3.0.0.xsd XML schema that is located in the root directory of the starter pack. XML schema validation identifies errors before uploading.
 
  Let's get started:
 
@@ -138,7 +139,7 @@ Each starter pack contains:
     PublicPolicyUri="http://yourtenant.onmicrosoft.com">
     ```
    >[!NOTE]
-   >`PolicyId` is the policy name that you will see in the portal and the name by which this policy file will be referenced by other policy files.
+   >`PolicyId` is the policy name that you see in the portal and the name by which this policy file is referenced by other policy files.
 
 5. Save the file.
 6. Open TrustFrameworkExtensions.xml. Make the same two changes by replacing `yourtenant.onmicrosoft.com` with your Azure AD B2C tenant. Make the same replacement in the `<TenantId>` element for a total of three changes. Save the file.
@@ -161,7 +162,7 @@ Add the application IDs to the extensions file (`TrustFrameworkExtensions.xml`):
 
 1. In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and open the **Azure AD B2C** blade.
 2. Select **Identity Experience Framework**.
-3. Select **Upload Policy** to upload policy files.
+3. Select **Upload Policy**.
 
     >[!WARNING]
     >The custom policy files must be uploaded in the following order:

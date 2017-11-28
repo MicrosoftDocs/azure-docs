@@ -25,9 +25,9 @@ To support seamless interoperability across protocols, IoT Hub defines a common 
 * A set of *application properties*. A dictionary of string properties that the application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties.
 * An opaque binary body.
 
-Property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` when you:
+Property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` when you:
 
-* Send device-to-cloud messages using the HTTP protocol.
+* Send device-to-cloud messages using the HTTPS protocol.
 * Send cloud-to-device messages.
 
 For more information about how to encode and decode messages sent using different protocols, see [Azure IoT SDKs][lnk-sdks].
@@ -70,6 +70,6 @@ To learn how to create and read IoT Hub messages in various programming language
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md
-[[lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
+[lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-properties

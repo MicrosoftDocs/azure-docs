@@ -4,7 +4,7 @@ description: This document contains walkthroughs that show how to perform advanc
 services: media-services
 documentationcenter: ''
 author: xstof
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b

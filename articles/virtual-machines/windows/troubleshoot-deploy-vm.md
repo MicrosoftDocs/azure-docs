@@ -13,8 +13,8 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/22/2017
+ms.topic: troubleshooting
+ms.date: 11/03/2017
 ms.author: genli
 
 ---
@@ -106,7 +106,7 @@ You can check the availability from the [Products available by region table](htt
 You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios provided you have an appropriate Visual Studio (formerly MSDN) subscription. 
 
 - Windows 10 images are available from the Azure Gallery within [eligible dev/test offers](client-images.md#eligible-offers). 
-- Visual Studio subscribers within any type of offer can also [adequately prepare and create](prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](upload-image.md). The use remains limited to dev/test by active Visual Studio subscribers.
+- Visual Studio subscribers within any type of offer can also [adequately prepare and create](prepare-for-upload-vhd-image.md) a 64-bit Windows 7, Windows 8, or Windows 10 image and then [upload to Azure](upload-generalized-managed.md). The use remains limited to dev/test by active Visual Studio subscribers.
 
 This [article](client-images.md) outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
 

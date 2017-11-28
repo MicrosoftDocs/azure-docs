@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ---
 
@@ -40,9 +40,9 @@ Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azu
 
 Yes, this scenario needs version 2.1 or later of the [workplace-join client](https://www.microsoft.com/download/details.aspx?id=53554).
 
-## How can I roll over the Kerberos decryption key of the `AZUREADSSOACCT` computer account?
+## How can I roll over the Kerberos decryption key of the `AZUREADSSOACC` computer account?
 
-It is important to frequently roll over the Kerberos decryption key of the `AZUREADSSOACCT` computer account (which represents Azure AD) created in your on-premises AD forest.
+It is important to frequently roll over the Kerberos decryption key of the `AZUREADSSOACC` computer account (which represents Azure AD) created in your on-premises AD forest.
 
 >[!IMPORTANT]
 >We highly recommend that you roll over the Kerberos decryption key at least every 30 days.
@@ -61,7 +61,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 ### Step 2. Update the Kerberos decryption key on each AD forest that it was set it up on
 
 1. Call `$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
-2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSOACCT` computer account in this specific AD forest and updates it in Azure AD.
+2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSOACC` computer account in this specific AD forest and updates it in Azure AD.
 3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
 >[!IMPORTANT]

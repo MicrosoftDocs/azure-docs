@@ -1,4 +1,3 @@
-# Scale agent nodes in a Container Service cluster
 After [deploying an Azure Container Service cluster](../articles/container-service/dcos-swarm/container-service-deployment.md), you might need to change the number of agent nodes. For example, you might need more agents so you can run more container applications or instances. 
 
 You can change the number of agent nodes in a DC/OS, Docker Swarm, or Kubernetes cluster by using the Azure portal or the Azure CLI 2.0. 
@@ -32,7 +31,7 @@ To change the number of agent nodes, run the `az acs scale` command and supply t
 For example, to change the number of agents in the previous cluster to 10, type the following command:
 
 ```azurecli
-azure acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
+az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
 The Azure CLI 2.0 returns a JSON string representing the new configuration of the container service, including the new agent count.

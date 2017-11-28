@@ -1,6 +1,6 @@
 ---
 title: Connection libraries for SQL Database | Microsoft Docs
-description: Provides links for downloads of modules which enable connection to SQL Server and SQL Database from a broad variety of client programming languages. The modules are released by the community or by Microsoft.
+description: Provides links for downloads of modules which enable connection to SQL Server and SQL Database from a broad variety of client programming languages. 
 services: sql-database
 documentationcenter: ''
 author: MightyPen
@@ -10,7 +10,7 @@ editor: genemi
 ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -27,7 +27,7 @@ The table below lists connectivity libraries or *drivers* that client applicatio
 | Language | Platform | Additional resources | Download | Get Started |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET for SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Download](https://www.microsoft.com/net/download/) | [Get Started](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Microsoft JDBC Driver for SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Download](http://go.microsoft.com/fwlink/?LinkId=245496) |  [Get Started](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
+| Java | Windows, Linux, macOS | [Microsoft JDBC Driver for SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Download](https://go.microsoft.com/fwlink/?linkid=852460) |  [Get Started](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [PHP SQL Driver for SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Operating System: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Get Started](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
 | Node.js | Windows, Linux, macOS | [Node.js Driver for SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Install](https://msdn.microsoft.com/library/mt652094.aspx) |  [Get Started](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, macOS | [Python SQL Driver](http://msdn.microsoft.com/library/mt652092.aspx) | Install choices: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Get Started](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)

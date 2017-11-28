@@ -14,17 +14,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/01/2017
 ms.author: curtand
+ms.reviewer: kairaz.contractor
 
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017;it-pro
 
 ---
 # Manage the settings for a group in Azure Active Directory
 This article explains how to change the settings for a group in Azure Active Directory (Azure AD).
 
 ## How do I find and change the settings?
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
    ![Opening users and groups blade](./media/active-directory-groups-settings-azure-portal/search-user-management.png)

@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 08/16/2017
 ms.author: xshi
 
 ---
@@ -187,6 +187,14 @@ The sample application can simulate temperature and humidity data in case you do
 
 1. In the Arduino IDE, click **Tool** > **Port**, and then click the serial port for Sparkfun ESP8266 Thing Dev.
 1. Click **Sketch** > **Upload** to build and deploy the sample application to Sparkfun ESP8266 Thing Dev.
+
+> [!Note]
+> If you are using macOS you could probably see the following messages during uploading. `warning: espcomm_sync failed`,`error: espcomm_open failed`. Please open your ternimal window and finish below actions to solve this issue.
+> ```bash
+> cd /System/Library/Extensions/IOUSBFamily.kext/Contents/PlugIns
+> sudo mv AppleUSBFTDI.kext AppleUSBFTDI.disabled
+> sudo touch /System/Library/Extensions
+> ```
 
 ### Enter your credentials
 

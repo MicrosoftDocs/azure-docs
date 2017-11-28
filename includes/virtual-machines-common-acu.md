@@ -11,7 +11,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 
 <br>
 
-| SKU Family | ACU/Core |
+| SKU Family | ACU \ vCPU |
 | --- | --- |
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 |
@@ -27,6 +27,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 | [Ds_v3](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |160-190* ** |
 | [E_v3](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160-190* ** |
 | [Es_v3](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160-190* ** |
+| [F2s_v2-F72s_v2](../articles/virtual-machines/windows/sizes-compute.md) |195-210* |
 | [F1-F16](../articles/virtual-machines/windows/sizes-compute.md) |210-250* |
 | [F1s-F16s](../articles/virtual-machines/windows/sizes-compute.md) |210-250* |
 | [G1-G5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* |

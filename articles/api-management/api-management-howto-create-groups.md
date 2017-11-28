@@ -3,7 +3,7 @@ title: Manage developer accounts using groups in Azure API Management | Microsof
 description: Learn how to manage developer accounts using groups in Azure API Management
 services: api-management
 documentationcenter: ''
-author: steved0x
+author: vladvino
 manager: erikre
 editor: ''
 

@@ -10,10 +10,10 @@ tags: ''
 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/21/2017
+ms.date: 11/03/2017
 ms.author: genli
 ---
 

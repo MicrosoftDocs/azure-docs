@@ -1,6 +1,6 @@
 ---
-title: 'Connect an Azure virtual network to another VNet: PowerShell | Microsoft Docs'
-description: This article walks you through connecting virtual networks together by using Azure Resource Manager and PowerShell.
+title: 'Connect an Azure virtual network to another VNet using a VNet-to-VNet connection: PowerShell | Microsoft Docs'
+description: This article walks you through connecting virtual networks together using a VNet-to-VNet connection and PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -14,33 +14,35 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
 
 ---
 # Configure a VNet-to-VNet VPN gateway connection using PowerShell
 
-This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant. 
+This article shows you how to connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant.
 
 The steps in this article apply to the Resource Manager deployment model and use PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Resource Manager - Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Resource Manager - Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Classic - Azure portal](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure portal (classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connect different deployment models - Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connect different deployment models - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
-Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. If your VNets are in the same region, you may want to consider connecting them using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
+## <a name="about"></a>About connecting VNets
 
-VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
+Connecting a virtual network to another virtual network using the VNet-to-VNet connection type (VNet2VNet) is similar to creating an IPsec connection to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE and both function the same way when communicating. The difference between the connection types is the way the local network gateway is configured. When you create a VNet-to-VNet connection, you do not see the local network gateway address space. It is automatically created and populated. If you update the address space for one VNet, the other VNet will automatically know to route to the updated address space.
 
-![About connections](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
+If you are working with a complicated configuration, you may prefer to use the IPsec connection type, rather than VNet-to-VNet. This lets you specify additional address space for the local network gateway in order to route traffic. If you connect your VNets using the IPsec connection type, you need to create and configure the local network gateway manually. For more information, see [Site-to-Site configurations](vpn-gateway-create-site-to-site-rm-powershell.md).
 
-### Why connect virtual networks?
+Additionally, if your VNets are in the same region, you may want to consider connecting them using VNet Peering. VNet peering does not use a VPN gateway and the pricing and functionality is somewhat different. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
+
+### <a name="why"></a>Why create a VNet-to-VNet connection?
 
 You may want to connect virtual networks for the following reasons:
 
@@ -52,17 +54,24 @@ You may want to connect virtual networks for the following reasons:
 
   * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
-For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
+VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
 
 ## Which set of steps should I use?
 
-In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub), and another for [VNets that reside in different subscriptions](#difsub). The key difference between the sets is whether you can create and configure all virtual network and gateway resources within the same PowerShell session.
+In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub) and one for [VNets that reside in different subscriptions](#difsub).
+The key difference between the sets is that you must use separate PowerShell sessions when configuring the connections for VNets that reside in different subscriptions. 
 
-The steps in this article use variables that are declared at the beginning of each section. If you already are working with existing VNets, modify the variables to reflect the settings in your own environment. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+For this exercise, you can combine configurations, or just choose the one that you want to work with. All of the configurations use the VNet-to-VNet connection type. Network traffic flows between the VNets that are directly connected to each other. In this exercise, traffic from TestVNet4 does not route to TestVNet5.
+
+* [VNets that reside in the same subscription](#samesub): The steps for this configuration use TestVNet1 and TestVNet4.
+
+  ![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+* [VNets that reside in different subscriptions](#difsub): The steps for this configuration use TestVNet1 and TestVNet5.
+
+  ![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 ## <a name="samesub"></a>How to connect VNets that are in the same subscription
-
-![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### Before you begin
 
@@ -70,7 +79,7 @@ Before beginning, you need to install the latest version of the Azure Resource M
 
 ### <a name="Step1"></a>Step 1 - Plan your IP address ranges
 
-In the following steps, we create two virtual networks along with their respective gateway subnets and configurations. We then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+In the following steps, you create two virtual networks along with their respective gateway subnets and configurations. You then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 We use the following values in the examples:
 
@@ -87,7 +96,7 @@ We use the following values in the examples:
 * Public IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (For VNets in different subscriptions)
 * ConnectionType: VNet2VNet
 
 **Values for TestVNet4:**
@@ -277,9 +286,7 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
 
 ## <a name="difsub"></a>How to connect VNets that are in different subscriptions
 
-![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
-
-In this scenario, we connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in a different subscription. The subscriptions do not need to be associated with the same Active Directory tenant. The difference between these steps and the previous set is that some of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription. Especially when the two subscriptions belong to different organizations.
+In this scenario, you connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in a different subscription. The subscriptions do not need to be associated with the same Active Directory tenant. The difference between these steps and the previous set is that some of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription. Especially when the two subscriptions belong to different organizations.
 
 ### Step 5 - Create and configure TestVNet1
 
@@ -448,6 +455,7 @@ In this example, because the gateways are in the different subscriptions, we've 
   $vnet1gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet1gw.Name = "VNet1GW"
   $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
+  $Connection51 = "VNet5toVNet1"
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 
@@ -459,7 +467,7 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 ## <a name="faq"></a>VNet-to-VNet FAQ
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## Next steps
 

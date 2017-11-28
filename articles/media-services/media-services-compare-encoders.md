@@ -4,7 +4,7 @@ description: This topic compares the encoding capabilities of **Media Encoder St
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: a79437c0-4832-423a-bca8-82632b2c47cc

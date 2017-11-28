@@ -1,10 +1,10 @@
----
+﻿---
 title: Application Insights for Azure Cloud Services | Microsoft Docs
 description: Monitor your web and worker roles effectively with Application Insights
 services: application-insights
 documentationcenter: ''
 keywords: "WAD2AI, Azure Diagnostics"
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 editor: alancameronwills
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: ibiza
 ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 # Application Insights for Azure Cloud Services
