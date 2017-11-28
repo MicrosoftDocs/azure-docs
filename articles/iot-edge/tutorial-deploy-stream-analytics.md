@@ -28,7 +28,7 @@ IoT Edge takes advantage of pre-built Azure Service IoT Edge modules for quick d
 
 Azure Stream Analytics provides a richly structured query syntax for data analysis both in the cloud and on IoT Edge devices. For more information about ASA on IoT Edge, see [ASA documentation](../stream-analytics/stream-analytics-edge.md).
 
-This tutorial walks you through the creation of an Azure Stream Analytics job, and its deployment on an IoT Edge device in order to process a local telemetry stream directly on the device, and generate alerts to drive immediate action on the device.  There are two modules involved in this tutorial. A simulated temperature sensor module (tempSensor) that generates temperature data from 20 to 120 degrees, incremented by 1 every 5 seconds, and an ASA module that filters out temperatures greater than 100 degrees. The ASA module also resets the tempSensor when the 30 seconds average reaches 100.
+This tutorial walks you through the creation of an Azure Stream Analytics job, and its deployment on an IoT Edge device in order to process a local telemetry stream directly on the device, and generate alerts to drive immediate action on the device.  There are two modules involved in this tutorial. A simulated temperature sensor module (tempSensor) generates temperature data from 20 to 120 degrees, incremented by 1 every 5 seconds. A Stream Analytics module resets the tempSensor when the 30 seconds average reaches 70. In a production environment, this functionality might be used to shut off a machine or take preventative measures when the temperature reaches dangerous levels. 
 
 You learn how to:
 
@@ -104,7 +104,7 @@ An Azure Storage account is required to provide an endpoint to be used as an out
     FROM 
        temperature TIMESTAMP BY timeCreated 
     GROUP BY TumblingWindow(second,30) 
-    HAVING Avg(machine.temperature) > 100
+    HAVING Avg(machine.temperature) > 70
     ```
 9. Click **Save**.
 
@@ -164,15 +164,12 @@ Check that all the modules are running in Docker:
 
 See all system logs and metrics data. Use the Stream Analytics module name:
 
-    ```cmd/sh
-    docker logs -f {moduleName}  
-    ```
+   ```cmd/sh
+   docker logs -f {moduleName}  
+   ```
 
-    ![docker log][9]
+   ![docker log][9]
 
-1. In the Azure portal, in your Storage account, under **Blob Service**, click **Browse blobs**, select your container, and select newly created JSON file.
-
-1. Click **Download** and view the results.
 
 ## Next steps
 
