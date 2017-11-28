@@ -23,9 +23,10 @@ ms.custom: H1Hack27Feb2017
 ---
 # Azure Functions hosting plans comparison
 
-## Introduction
-
 You can run Azure Functions in two different modes: Consumption plan and Azure App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. So, you don't have to pay for idle VMs and don't have to reserve capacity in advance. This article focuses on the Consumption plan, a [serverless](https://azure.microsoft.com/overview/serverless-computing/) app model. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+
+>[!NOTE]  
+> Linux hosting is currently only available on an App Service plan.
 
 If you aren't familiar with Azure Functions, see the [Azure Functions overview](functions-overview.md).
 
@@ -53,7 +54,7 @@ The Consumption plan is the default hosting plan and offers the following benefi
 
 ## App Service plan
 
-In the App Service plan, your function apps run on dedicated VMs on Basic, Standard, Premium, and Isolated SKUs, similar to Web Apps, API Apps, and Mobile Apps. Dedicated VMs are allocated to your App Service apps, which means the functions host is always running.
+In the App Service plan, your function apps run on dedicated VMs on Basic, Standard, Premium, and Isolated SKUs, similar to Web Apps, API Apps, and Mobile Apps. Dedicated VMs are allocated to your App Service apps, which means the functions host is always running. App Service plans support Linux.
 
 Consider an App Service plan in the following cases:
 - You have existing, underutilized VMs that are already running other App Service instances.
@@ -61,6 +62,7 @@ Consider an App Service plan in the following cases:
 - You need more CPU or memory options than what is provided on the Consumption plan.
 - You need to run longer than the maximum execution time allowed on the Consumption plan (of 10 minutes).
 - You require features that are only available on an App Service plan, such as support for App Service Environment, VNET/VPN connectivity, and larger VM sizes. 
+- You want to run your function app on Linux, or you want to provide a custom image on which to run your functions.
 
 A VM decouples cost from number of executions, execution time, and memory used. As a result, you won't pay more than the cost of the VM instance that you allocate. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 

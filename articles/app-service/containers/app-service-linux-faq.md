@@ -63,6 +63,15 @@ Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to *false
 
 ## Language support
 
+**I want to use websockets in my Node.js application, any special settings or configurations to set?**
+
+Yes, disable `perMessageDeflate` in your server side Node.js code. For example, if you are using socket.io, do the following:
+```
+var io = require('socket.io')(server,{
+  perMessageDeflate :false
+});
+```
+
 **Do you support uncompiled .NET Core apps?**
 
 Yes.

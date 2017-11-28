@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: barlan
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: end-user
 experiment_id: 34685ebc-9bdb-4e
 ---

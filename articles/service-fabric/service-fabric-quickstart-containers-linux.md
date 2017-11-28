@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure Service Fabric container application on Linux | Microsoft Docs
 description: Create your first Linux container application on Azure Service Fabric.  Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
@@ -31,11 +31,11 @@ In this quickstart, you learn how to:
 > * Scale and failover containers in Service Fabric
 
 ## Prerequisite
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
   
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the command-line interface (CLI) locally, ensure you are running the Azure CLI version 2.0.4 or later. To find the version, run az --version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+If you choose to install and use the command-line interface (CLI) locally, ensure you are running the Azure CLI version 2.0.4 or later. To find the version, run az --version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Get application package
 To deploy containers to Service Fabric, you need a set of manifest files (the application definition), which describe the individual containers and the application.
@@ -57,7 +57,7 @@ To deploy the application to a cluster in Azure, use your own cluster, or use a 
 
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure. They are maintained by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
 
-For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
+For information about creating your own cluster, see [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
 > The web front-end service is configured to listen on port 80 for incoming traffic. Make sure that port is open in your cluster. If you are using a Party cluster, this port is open.
