@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 iOS Getting Started - Intro | Microsoft Docs
-description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2 endpoint    
+title: "Azure AD v2.0 iOS getting started: Introduction | Microsoft Docs"
+description: How iOS (Swift) applications can call APIs that require access tokens by using Azure Active Directory v2.0 endpoint.    
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -17,33 +17,33 @@ ms.author: andret
 
 ---
 
-# Call the Microsoft Graph API from an iOS app
+# Call the Microsoft Graph API from an iOS application
 
-This guide demonstrates how a native iOS application (Swift) can get an access token and call the Microsoft Graph API or other APIs that require access tokens from Azure Active Directory v2 endpoint.
+This guide shows how a native iOS application (Swift) can call APIs that require access tokens from Azure Active Directory v2.0 endpoint. The guide explains how to obtain access tokens and use them in calls to the Microsoft Graph API and other APIs.
 
-At the end of this guide, your application will be able to call a protected API using personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has Azure Active Directory.
+After completing the exercises in this guide, your application can call a protected API from any company or organization that has Azure Active Directory (Azure AD). Your application can make protected API calls by using personal accounts like outlook.com, live.com, and others, as well as work and school accounts.
 
-> ### Pre-requisites
-> - XCode 8.x is required for this guide. You can download XCode [from here](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
-> - [Carthage](https://github.com/Carthage/Carthage) for package management
+## Prerequisites
+- XCode version 8.x is required for the sample that is created in this guide. You can download XCode from the [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
+- The [Carthage](https://github.com/Carthage/Carthage) dependency manager is required for package management.
 
-### How this guide works
+## How this guide works
 
 ![How this guide works](media/active-directory-mobileanddesktopapp-ios-introduction/iosintro.png)
 
-The sample application created by this guide enables an iOS application to query the Microsoft Graph API or a Web API that accepts tokens from Azure Active Directory v2 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Token acquisition and renewal is handled by the Microsoft Authentication Library (MSAL).
+In this guide, the sample application enables an iOS application to query the Microsoft Graph API or a web API that accepts tokens from Azure AD v2.0 endpoint. For this scenario, a token is added to HTTP requests by using the **Authorization** header. Token acquisition and renewal are handled by the Microsoft Authentication Library (MSAL).
 
 
-### Handling token acquisition for accessing protected Web APIs
+### Handle token acquisition for access to protected web APIs
 
-After the user authenticates, the sample application receives a token that can be used to query the Microsoft Graph API or a Web API secured by Microsoft Azure Active Directory v2.
+After the user authenticates, the sample application receives a token. The token is used to query the Microsoft Graph API or a web API that is secured by Azure AD v2.0 endpoint.
 
-APIs such as Microsoft Graph require an access token to allow accessing specific resources – for example, to read a user’s profile, access user’s calendar or send an email. Your application can request an access token using MSAL by specifying API scopes. This access token is then added to the HTTP Authorization header for every call made against the protected resource.
+APIs, such as Microsoft Graph, require an access token to allow access to specific resources. For example, to read a user’s profile, access a user’s calendar, or to send an email. Your application can request an access token by using MSAL and specifying API scopes. The access token is added to the HTTP **Authorization** header for every call that is made against the protected resource.
 
 MSAL manages caching and refreshing access tokens for you, so your application doesn't need to.
 
 
-### Libraries
+## Libraries
 
 This guide uses the following library:
 
