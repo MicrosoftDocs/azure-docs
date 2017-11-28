@@ -37,7 +37,7 @@ Make sure you've copied and pasted the right information. To troubleshoot, insta
 7. Verify that the agent can connect to the project. If it can't, verify the settings. If the agent can connect but the collector can't, contact Support.
 
 
-**I installed the agent as described in the previous issue, but when I connect to the project I get a date and time synchronization error.**
+**Error 802: I get a date and time synchronization error.**
 
 The server clock might be out-of-synchronization with the current time by more than five minutes. Change the clock time on the collector VM to match the current time, as follows:
 
@@ -54,6 +54,10 @@ Yes, every project key ends with “==”. The collector encrypts the project ke
 This can occur if the statistics setting level on the vCenter server is set to less than three. At level three or higher, vCenter stores VM performance history for compute, storage, and network. For less than level three, vCenter doesn't store storage and network data, but CPU and memory data only. In this scenario, performance data shows as zero in Azure Migrate, and Azure Migrate provides size recommendation for disks and networks based on the metadata collected from the on-premises machines.
 
 To enable collection of disk and network performance data, change the statistics settings level to three. Then, wait at least a day to discover your environment and assess it. 
+
+**I installed agents and used the dependency visualization to create groups. Now post failover, the machines show "Install agent" action instead of "View dependencies"**
+* Post planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether the user chose to retain on-premises IP address or not. If both MAC and IP addresses differ, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
+* Post test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP address. Unless the user blocks outgoing OMS traffic from these machines, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
 
 
 ## Troubleshoot readiness issues

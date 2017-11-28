@@ -75,7 +75,7 @@ Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Dire
 
 ### Registration of the Authentication Agent failed due to blocked ports
 
-Ensure that the server on which the Authentication Agent has been installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Ensure that the server on which the Authentication Agent has been installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### Registration of the Authentication Agent failed due to token or account authorization errors
 
@@ -101,7 +101,7 @@ You need to have at least one active Authentication Agent to enable Pass-through
 
 ### Enabling the feature failed due to blocked ports
 
-Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### Enabling the feature failed due to token or account authorization errors
 

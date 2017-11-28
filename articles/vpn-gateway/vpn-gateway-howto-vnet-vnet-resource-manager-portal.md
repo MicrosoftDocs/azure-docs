@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
 
 ---
 # Configure a VNet-to-VNet VPN gateway connection using the Azure portal
 
-This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant. 
+This article shows you how to connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant. 
 
 The steps in this article apply to the Resource Manager deployment model and use the Azure portal. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
@@ -36,15 +36,15 @@ The steps in this article apply to the Resource Manager deployment model and use
 
 ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. It is possible to create Site-to-site (IPsec) connections between VNets, rather than VNet-to-VNet. Both connection types function the same way when communicating. However, when you create a VNet-to-VNet connection, if you update the address space for one VNet, the other VNet will automatically know to route to the updated address space. If you create Site-to-site (IPsec) connections, you need configure the address space for the local network gateway manually. When you are working with complex configurations, you may prefer to create IPsec connections, rather than VNet-to-VNet. Doing so allows you to specify additional address space manually for the local network gateway.
+## <a name="about"></a>About connecting VNets
 
-If your VNets are in the same region, you may want to consider connecting them using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
+Connecting a virtual network to another virtual network using the VNet-to-VNet connection type is similar to creating an IPsec connection to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE and both function the same way when communicating. The difference between the connection types is the way the local network gateway is configured. When you create a VNet-to-VNet connection, you do not see the local network gateway address space. It is automatically created and populated. If you update the address space for one VNet, the other VNet will automatically know to route to the updated address space.
 
-VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
+If you are working with a complicated configuration, you may prefer to use the IPsec connection type, rather than VNet-to-VNet. This lets you specify additional address space for the local network gateway in order to route traffic. If you connect your VNets using the IPsec connection type, you need to create and configure the local network gateway manually. For more information, see [Site-to-Site configurations](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-![About connections](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+Additionally, if your VNets are in the same region, you may want to consider connecting them using VNet Peering. VNet peering does not use a VPN gateway and the pricing and functionality is somewhat different. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
-### Why connect virtual networks?
+### <a name="why"></a>Why create a VNet-to-VNet connection?
 
 You may want to connect virtual networks for the following reasons:
 
@@ -56,7 +56,11 @@ You may want to connect virtual networks for the following reasons:
 
   * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
-When using these steps as an exercise, you can use the example settings values. In the example, the virtual networks are in the same subscription, but in different resource groups. If your VNets are in different subscriptions, you can't create the connection in the portal. You can use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) or [CLI](vpn-gateway-howto-vnet-vnet-cli.md). For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
+VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
+
+![About connections](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+
+This article helps you connect VNets using the VNet-to-VNet connection type. When using these steps as an exercise, you can use the example settings values. In the example, the virtual networks are in the same subscription, but in different resource groups. If your VNets are in different subscriptions, you can't create the connection in the portal. You can use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) or [CLI](vpn-gateway-howto-vnet-vnet-cli.md). For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
 
 ### <a name="values"></a>Example settings
 
