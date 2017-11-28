@@ -59,6 +59,11 @@ You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot
 
 #### Create an ASA Edge job
 1. From the Azure portal, create a new "Stream Analytics job". [Direct link to create a new ASA job here](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
+
+> [!Note]
+> You can create Edge jobs in all regions supported by ASA, **except in "West US 2" region**.
+> This limitation will be removed shortly.
+
 2. In the creation screen, select **Edge** as **hosting environment** (see the following picture)
 ![Job creation](media/stream-analytics-edge/ASAEdge_create.png)
 3. Job Definition

@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/24/2017
 ms.author: cephalin
 
 ---
@@ -29,6 +29,7 @@ This article is for Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Ap
 To complete this tutorial:
 
 * [Create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.
+* [Remove the spending limit on your subscription](../billing/billing-spending-limit.md#remove). You cannot buy App Service domains with free subscription credits.
 
 ## Prepare the app
 
@@ -80,15 +81,25 @@ In the **Web Apps** tab, click the name of your web app, select **Settings**, an
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-In the **Custom domains** page, click **Buy domains**.
+In the **Custom domains** page, click **Buy Domain**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
+> [!NOTE]
+> If you cannot see the **App Service Domains** section, you need to remove the spending limit on your Azure account (see [Prerequisites](#prerequisites)).
+>
+>
+
 ### Configure the domain purchase
 
-In the **App Service Domain** page, in the **Search for domain** box, type the domain name you want to buy and type `Enter`. The suggested available domains are shown just below the text box. Select one or more domains you want to buy. 
+In the **App Service Domain** page, in the **Search for domain** box, type the domain name you want to buy and type `Enter`. The suggested available domains are shown just below the text box. Select one or more domains you want to buy.
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+
+> [!NOTE]
+> The following [top-level domains](https://wikipedia.org/wiki/Top-level_domain) are supported by App Service domains: _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_, and _co.in_.
+>
+>
 
 Click the **Contact Information** and fill out the domain's contact information form. When finished, click **OK** to return to the App Service Domain page.
    
@@ -98,8 +109,7 @@ Next, select the desired options for your domain. See the following table for ex
 
 | Setting | Suggested Value | Description |
 |-|-|-|
-|Auto renew | **Enable** | Renews your App Service Domain automatically every year. Your credit card is charged the same purchase price at the time of renewal. |
-|Privacy protection | Enable | Opt in to "Privacy protection", which is included in the purchase price _for free_ (except for top-level domains whose registry do not support privacy protection, such as _.co.in_, _.co.uk_, and so on). |
+|Privacy protection | Enable | Opt in to "Privacy protection", which is included in the purchase price _for free_. Some top-level domains are managed by registrars that do not support privacy protection, and they are listed on the **Privacy protection** page. |
 | Assign default hostnames | **www** and **@** | Select the desired hostname bindings, if desired. When the domain purchase operation is complete, your web app can be accessed at the selected hostnames. If the web app is behind [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), you don't see the option to assign the root domain (@), because Traffic Manager does not support A records. You can make changes to the hostname assignments after the domain purchase completes. |
 
 ### Accept terms and purchase
@@ -123,7 +133,7 @@ If you have assigned default hostnames to your web app, you also see a success n
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-You also see the selected hostnames in the **Custom domains** page, in the **Hostnames** section. 
+You also see the selected hostnames in the **Custom domains** page, in the **Custom Hostnames** section. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
@@ -180,7 +190,25 @@ You should now see the newly assigned hostname(s) in your app's **Custom domains
 
 Navigate to the listed hostnames in the browser. In the example in the preceding screenshot, try navigating to _abc.kontoso.net_.
 
-<a name="custom" />
+## Renew the domain
+
+The App Service domain you bought is valid for one year from the time of purchase. By default, the domain is configured to renew automatically by charging your payment method for the next year. If you want to turn off automatic renewal, or if you want to manually renew your domain, follow the steps here.
+
+In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+
+In the **App Service Domains** section, select the domain you want to configure.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+
+From the left navigation of the domain, select **Domain renewal**. To stop renewing your domain automatically, select **Off**, and then **Save**. 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+
+To manually renew your domain, select **Renew domain**. However, this button is not active until 90 days before the domain's expiration.
+
+<a name="custom"></a>
 
 ## Manage custom DNS records
 
@@ -234,6 +262,14 @@ If the cancellation period on the purchased domain has not elapsed, select **Can
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-Select **OK** to confirm the operation. If you don't want to proceed, click anywhere outside of the confirmation dialog.
+To confirm the operation, select **Yes**.
 
 After the operation is complete, the domain is released from your subscription and available for anyone to purchase again. 
+
+## Direct default URL to a custom directory
+
+By default, App Service directs web requests to the root directory of your app code. To direct them to a subdirectory, such as `public`, see [Direct default URL to a custom directory](app-service-web-tutorial-custom-domain.md#virtualdir).
+
+## More resources
+
+[FAQ : App Service Domain (preview) and Custom Domains](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)
