@@ -6471,6 +6471,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-network/virtual-network-accelerated-networking-portal.md",
             "redirect_url": "/azure/virtual-network/virtual-network-create-vm-accelerated-networking",
             "redirect_document_id": false
