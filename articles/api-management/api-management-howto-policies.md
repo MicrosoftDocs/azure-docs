@@ -1,3 +1,4 @@
+
 ---
 title: Policies in Azure API Management | Microsoft Docs
 description: Learn how to create, edit, and configure policies in API Management.
@@ -7,24 +8,25 @@ author: vladvino
 manager: erikre
 editor: ''
 
-ms.assetid: 537e5caf-708b-430e-a83f-72b70af28aa9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 11/27/2017
 ms.author: apimpm
 
 ---
 # Policies in Azure API Management
 In Azure API Management, policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of Statements that are executed sequentially on the request or response of an API. Popular Statements include format conversion from XML to JSON and call rate limiting to restrict the amount of incoming calls from a developer. Many more policies are available out of the box.
 
-See the [Policy Reference][Policy Reference] for a full list of policy statements and their settings.
-
 Policies are applied inside the gateway which sits between the API consumer and the managed API. The gateway receives all requests and usually forwards them unaltered to the underlying API. However a policy can apply changes to both the inbound request and outbound response.
 
 Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][Control flow] and [Set variable][Set variable] policies are based on policy expressions. For more information, see [Advanced policies][Advanced policies] and [Policy expressions][Policy expressions].
+
+>[!TIP]
+> See the [Policy Reference][Policy Reference] for a full list of policy statements and their settings.
+> Also, see [Policy samples](policy-samples.md) for code examples.
 
 ## <a name="scopes"> </a>How to configure policies
 Policies can be configured globally or at the scope of a [Product][Product], [API][API] or [Operation][Operation]. To configure a policy, navigate to the Policies editor in the publisher portal.
@@ -133,12 +135,15 @@ In the example policy definition above, the `cross-domain` statement would execu
 
 To see the policies in the current scope in the policy editor, click **Recalculate effective policy for selected scope**.
 
-## Next steps
-Check out following video on policy expressions.
+## Video
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
 > 
 > 
+
+## Next steps
+
+[Policy samples](policy-samples.md)
 
 [Policy Reference]: api-management-policy-reference.md
 [Product]: api-management-howto-add-products.md
