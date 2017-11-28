@@ -13,23 +13,21 @@ ms.author: marsma
 
 # Azure Container Registry webhook reference
 
-The following specification details the Azure Container Registry webhook schema.
+Webhook events are triggered when certain actions are performed against your registry, such as container image `push` and `delete` operations. When a webhook is triggered, Azure Container Registry issues a request to an endpoint you specify. Your endpoint can then process the webhook and act accordingly.
 
-## Webhook request schema
+The following sections detail the schema of the webhook requests for supported events. Each section contains an example command that would trigger the webhook event, and example JSON body of the resulting request, and tables that detail the schema objects in the request.
 
-TODO: Insert schema here.
+For information about configuring webhooks for your Azure container registry, see [Using Azure Container Registry webhooks](container-registry-webhook.md).
 
-## Webhook request examples
+## Push image
 
-### Image pushed to repository
-
-Example command:
+Sample command triggering this webhook:
 
 ```bash
-docker push myregistry.azurecr.io/hello-world:v1:
+docker push myregistry.azurecr.io/hello-world:v1
 ```
 
-Triggered webhook request:
+Request body:
 
 ```JSON
 {
@@ -53,9 +51,37 @@ Triggered webhook request:
 }
 ```
 
-### Repository or manifest deleted
+|Element name|Type|Description|
+|-------------|----------|-----------|
+|id|String|The ID of the webhook event.|
+|timestamp|DateTime|The time at which the webhook event was triggered.|
+|action|String|The action that triggered the webhook event. This can be either 'push' or 'delete'.|
+|[target](#target)|Complex Type|The target of the event that triggered the webhook event.|
+|[request](#request)|Complex Type|The request that generated the webhook event.|
 
-Example commands:
+### target
+
+|Element name|Type|Description|
+|------------------|----------|-----------|
+|mediaType|String|The MIME type of the referenced object.|
+|size|Int32|The number of bytes of the content. Same as Length field.|
+|digest|String|The digest of the content, as defined by the Registry V2 HTTP API Specificiation.|
+|length|Int32|The number of bytes of the content. Same as Size field.|
+|repository|String|The repository name.|
+|tag|String|The image tag name.|
+
+### request
+
+|Element name|Type|Description|
+|------------------|----------|-----------|
+|id|String|The ID of the request that initiated the event.|
+|host|String|The externally accessible hostname of the registry instance, as specified by the HTTP host header on incoming requests.|
+|method|String|The request method that generated the event.|
+|useragent|String|The user agent header of the request.|
+
+### Delete repository or manifest
+
+Sample commands triggering this webhook:
 
 ```azurecli
 # Delete repository
@@ -65,7 +91,7 @@ az acr repository delete -n MyRegistry --repository MyRepository
 az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
 ```
 
-Triggered webhook request:
+Request body:
 
 ```JSON
 {
