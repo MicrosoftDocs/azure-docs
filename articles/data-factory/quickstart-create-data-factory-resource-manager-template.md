@@ -68,232 +68,209 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 
 ```json
 {
-  "contentVersion": "1.0.0.0",
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "parameters": {
-    "dataFactoryName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the data factory. Must be globally unique."
-      }
-    },
-    "dataFactoryLocation": {
-      "type": "string",
-      "allowedValues": [
-        "East US",
-        "East US 2"
-      ],
-      "defaultValue": "East US",      
-      "metadata": {
-        "description": "Location of the data factory. Currently, only East US and East US 2 are supported. "
-      }
-    },
-    "storageAccountName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the Azure storage account that contains the input/output data."
-      }
-    },
-    "storageAccountKey": {
-      "type": "securestring",
-      "metadata": {
-        "description": "Key for the Azure storage account."
-      }
-    },
-    "blobContainer": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the blob container in the Azure Storage account."
-      }
-    },
-    "inputBlobFolder": {
-      "type": "string",
-      "metadata": {
-        "description": "The folder in the blob container that has the input file."
-      }
-    },
-    "inputBlobName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the input file/blob."
-      }
-    },
-    "outputBlobFolder": {
-      "type": "string",
-      "metadata": {
-        "description": "The folder in the blob container that will hold the transformed data."
-      }
-    },
-    "outputBlobName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the output file/blob."
-      }
-    }
-  },
-  "variables": {
-    "azureStorageLinkedServiceName": "ArmtemplateStorageLinkedService",
-    "inputDatasetName": "ArmtemplateTestDatasetIn",
-    "outputDatasetName": "ArmtemplateTestDatasetOut",
-    "pipelineName": "ArmtemplateSampleCopyPipeline",
-    "triggerName": "ArmTemplateTestTrigger"
-  },
-  "resources": [
-      {
-      "name": "[parameters('dataFactoryName')]",
-      "apiVersion": "2017-09-01-preview",
-      "type": "Microsoft.DataFactory/factories",
-      "location": "[parameters('dataFactoryLocation')]",
-      "properties": {
-        "loggingStorageAccountName": "[parameters('storageAccountName')]",
-        "loggingStorageAccountKey": "[parameters('storageAccountKey')]"
-      },
-      "resources": [
-        {
-          "type": "linkedservices",
-          "name": "[variables('azureStorageLinkedServiceName')]",
-          "dependsOn": [
-            "[parameters('dataFactoryName')]"
-          ],
-          "apiVersion": "2017-09-01-preview",
-          "properties": {
-            "type": "AzureStorage",
-            "description": "Azure Storage linked service",
-            "typeProperties": {
-              "connectionString": {
-                "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]",
-                "type": "SecureString"
-              }
-            }
-          }
-        },
-        {
-          "type": "datasets",
-          "name": "[variables('inputDatasetName')]",
-          "dependsOn": [
-            "[parameters('dataFactoryName')]",
-            "[variables('azureStorageLinkedServiceName')]"
-          ],
-          "apiVersion": "2017-09-01-preview",
-          "properties": {
-            "type": "AzureBlob",
-            "typeProperties": {
-              "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ",",
-                "nullValue": "\\N",
-                "treatEmptyAsNull": false,
-                "firstRowAsHeader": false
-              },
-              "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'), '/')]",
-              "fileName": "[parameters('inputBlobName')]"
-            },
-            "linkedServiceName": {
-              "referenceName": "[variables('azureStorageLinkedServiceName')]",
-              "type": "LinkedServiceReference"
-            }
-          }
-        },
-        {
-          "type": "datasets",
-          "name": "[variables('outputDatasetName')]",
-          "dependsOn": [
-            "[parameters('dataFactoryName')]",
-            "[variables('azureStorageLinkedServiceName')]"
-          ],
-          "apiVersion": "2017-09-01-preview",
-          "properties": {
-            "type": "AzureBlob",
-            "typeProperties": {
-              "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ",",
-                "nullValue": "\\N",
-                "treatEmptyAsNull": false,
-                "firstRowAsHeader": false
-              },
-              "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'), '/')]",
-              "fileName": "[parameters('outputBlobName')]"
-            },
-            "linkedServiceName": {
-              "referenceName": "[variables('azureStorageLinkedServiceName')]",
-              "type": "LinkedServiceReference"
-            }
-          }
-        },
-        {
-          "type": "pipelines",
-          "name": "[variables('pipelineName')]",
-          "dependsOn": [
-            "[parameters('dataFactoryName')]",
-            "[variables('azureStorageLinkedServiceName')]",
-            "[variables('inputDatasetName')]",
-            "[variables('outputDatasetName')]"
-          ],
-          "apiVersion": "2017-09-01-preview",
-          "properties": {
-            "activities": [
-              {
-                "type": "Copy",
-                "typeProperties": {
-                  "source": {
-                    "type": "BlobSource"
-                  },
-                  "sink": {
-                    "type": "BlobSink"
-                  }
-                },
-                "name": "MyCopyActivity",
-                "inputs": [
-                  {
-                    "referenceName": "[variables('inputDatasetName')]",
-                    "type": "DatasetReference"
-                  }
-                ],
-                "outputs": [
-                  {
-                    "referenceName": "[variables('outputDatasetName')]",
-                    "type": "DatasetReference"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "type": "triggers",
-          "name": "[variables('triggerName')]",
-          "dependsOn": [
-            "[parameters('dataFactoryName')]",
-            "[variables('azureStorageLinkedServiceName')]",
-            "[variables('inputDatasetName')]",
-            "[variables('outputDatasetName')]",
-            "[variables('pipelineName')]"
-          ],
-          "apiVersion": "2017-09-01-preview",
-          "properties": {
-            "type": "ScheduleTrigger",
-            "typeProperties": {
-              "recurrence": {
-                "frequency": "Hour",
-                "interval": 1,
-                "startTime": "2017-11-28T00:00:00",
-                "endTime": "2017-11-29T00:00:00",
-                "timeZone": "UTC"				
-              }
-            },
-            "pipelines": [{
-              "pipelineReference": {
-                "type": "PipelineReference",
-                "referenceName": "ArmtemplateSampleCopyPipeline"
-              },
-              "parameters": {}
-            }]
-          }
-        }        
-      ]
-    }
-  ]
+	"contentVersion": "1.0.0.0",
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"parameters": {
+		"dataFactoryName": {
+			"type": "string",
+			"metadata": {
+				"description": "Name of the data factory. Must be globally unique."
+			}
+		},
+		"dataFactoryLocation": {
+			"type": "string",
+			"allowedValues": [
+				"East US",
+				"East US 2"
+			],
+			"defaultValue": "East US",
+			"metadata": {
+				"description": "Location of the data factory. Currently, only East US and East US 2 are supported. "
+			}
+		},
+		"storageAccountName": {
+			"type": "string",
+			"metadata": {
+				"description": "Name of the Azure storage account that contains the input/output data."
+			}
+		},
+		"storageAccountKey": {
+			"type": "securestring",
+			"metadata": {
+				"description": "Key for the Azure storage account."
+			}
+		},
+		"blobContainer": {
+			"type": "string",
+			"metadata": {
+				"description": "Name of the blob container in the Azure Storage account."
+			}
+		},
+		"inputBlobFolder": {
+			"type": "string",
+			"metadata": {
+				"description": "The folder in the blob container that has the input file."
+			}
+		},
+		"inputBlobName": {
+			"type": "string",
+			"metadata": {
+				"description": "Name of the input file/blob."
+			}
+		},
+		"outputBlobFolder": {
+			"type": "string",
+			"metadata": {
+				"description": "The folder in the blob container that will hold the transformed data."
+			}
+		},
+		"outputBlobName": {
+			"type": "string",
+			"metadata": {
+				"description": "Name of the output file/blob."
+			}
+		}
+	},
+	"variables": {
+		"azureStorageLinkedServiceName": "ArmtemplateStorageLinkedService",
+		"inputDatasetName": "ArmtemplateTestDatasetIn",
+		"outputDatasetName": "ArmtemplateTestDatasetOut",
+		"pipelineName": "ArmtemplateSampleCopyPipeline",
+		"triggerName": "ArmTemplateTestTrigger"
+	},
+	"resources": [{
+		"name": "[parameters('dataFactoryName')]",
+		"apiVersion": "2017-09-01-preview",
+		"type": "Microsoft.DataFactory/factories",
+		"location": "[parameters('dataFactoryLocation')]",
+		"properties": {
+			"loggingStorageAccountName": "[parameters('storageAccountName')]",
+			"loggingStorageAccountKey": "[parameters('storageAccountKey')]"
+		},
+		"resources": [{
+				"type": "linkedservices",
+				"name": "[variables('azureStorageLinkedServiceName')]",
+				"dependsOn": [
+					"[parameters('dataFactoryName')]"
+				],
+				"apiVersion": "2017-09-01-preview",
+				"properties": {
+					"type": "AzureStorage",
+					"description": "Azure Storage linked service",
+					"typeProperties": {
+						"connectionString": {
+							"value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageAccountName'),';AccountKey=',parameters('storageAccountKey'))]",
+							"type": "SecureString"
+						}
+					}
+				}
+			},
+			{
+				"type": "datasets",
+				"name": "[variables('inputDatasetName')]",
+				"dependsOn": [
+					"[parameters('dataFactoryName')]",
+					"[variables('azureStorageLinkedServiceName')]"
+				],
+				"apiVersion": "2017-09-01-preview",
+				"properties": {
+					"type": "AzureBlob",
+					"typeProperties": {
+						"folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'), '/')]",
+						"fileName": "[parameters('inputBlobName')]"
+					},
+					"linkedServiceName": {
+						"referenceName": "[variables('azureStorageLinkedServiceName')]",
+						"type": "LinkedServiceReference"
+					}
+				}
+			},
+			{
+				"type": "datasets",
+				"name": "[variables('outputDatasetName')]",
+				"dependsOn": [
+					"[parameters('dataFactoryName')]",
+					"[variables('azureStorageLinkedServiceName')]"
+				],
+				"apiVersion": "2017-09-01-preview",
+				"properties": {
+					"type": "AzureBlob",
+					"typeProperties": {
+						"folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'), '/')]",
+						"fileName": "[parameters('outputBlobName')]"
+					},
+					"linkedServiceName": {
+						"referenceName": "[variables('azureStorageLinkedServiceName')]",
+						"type": "LinkedServiceReference"
+					}
+				}
+			},
+			{
+				"type": "pipelines",
+				"name": "[variables('pipelineName')]",
+				"dependsOn": [
+					"[parameters('dataFactoryName')]",
+					"[variables('azureStorageLinkedServiceName')]",
+					"[variables('inputDatasetName')]",
+					"[variables('outputDatasetName')]"
+				],
+				"apiVersion": "2017-09-01-preview",
+				"properties": {
+					"activities": [{
+						"type": "Copy",
+						"typeProperties": {
+							"source": {
+								"type": "BlobSource"
+							},
+							"sink": {
+								"type": "BlobSink"
+							}
+						},
+						"name": "MyCopyActivity",
+						"inputs": [{
+							"referenceName": "[variables('inputDatasetName')]",
+							"type": "DatasetReference"
+						}],
+						"outputs": [{
+							"referenceName": "[variables('outputDatasetName')]",
+							"type": "DatasetReference"
+						}]
+					}]
+				}
+			},
+			{
+				"type": "triggers",
+				"name": "[variables('triggerName')]",
+				"dependsOn": [
+					"[parameters('dataFactoryName')]",
+					"[variables('azureStorageLinkedServiceName')]",
+					"[variables('inputDatasetName')]",
+					"[variables('outputDatasetName')]",
+					"[variables('pipelineName')]"
+				],
+				"apiVersion": "2017-09-01-preview",
+				"properties": {
+					"type": "ScheduleTrigger",
+					"typeProperties": {
+						"recurrence": {
+							"frequency": "Hour",
+							"interval": 1,
+							"startTime": "2017-11-28T00:00:00",
+							"endTime": "2017-11-29T00:00:00",
+							"timeZone": "UTC"
+						}
+					},
+					"pipelines": [{
+						"pipelineReference": {
+							"type": "PipelineReference",
+							"referenceName": "ArmtemplateSampleCopyPipeline"
+						},
+						"parameters": {}
+					}]
+				}
+			}
+		]
+	}]
 }
 ```
 
@@ -468,13 +445,6 @@ The Azure storage linked service specifies the connection string that Data Facto
     "properties": {
     "type": "AzureBlob",
     "typeProperties": {
-        "format": {
-        "type": "TextFormat",
-        "columnDelimiter": ",",
-        "nullValue": "\\N",
-        "treatEmptyAsNull": false,
-        "firstRowAsHeader": false
-        },
         "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'), '/')]",
         "fileName": "[parameters('inputBlobName')]"
     },
@@ -502,13 +472,6 @@ You specify the name of the folder in the Azure Blob Storage that holds the copi
     "properties": {
     "type": "AzureBlob",
     "typeProperties": {
-        "format": {
-        "type": "TextFormat",
-        "columnDelimiter": ",",
-        "nullValue": "\\N",
-        "treatEmptyAsNull": false,
-        "firstRowAsHeader": false
-        },
         "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'), '/')]",
         "fileName": "[parameters('outputBlobName')]"
     },
