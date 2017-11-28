@@ -116,10 +116,6 @@ This section contains post-installation known issues with build **20171122.1**.
  
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
- 
-#### Field replaceable unit (FRU) procedures
-
-- During the update run, offline images are not patched. If you need to replace a scale unit node, work with your OEM hardware vendor to make sure the replaced node has the latest patch level.
 
 ## Download the update
 
