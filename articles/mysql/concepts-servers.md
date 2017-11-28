@@ -33,7 +33,6 @@ Within an Azure Database for MySQL server, you can create one or multiple databa
 ## How do I connect and authenticate to an Azure Database for MySQL server?
 
 The following elements help ensure safe access to your database.
-
 |||
 | :-- | :-- |
 | **Authentication and authorization** | Azure Database for MySQL server supports native MySQL authentication. You can connect and authenticate to a server with the server's admin login. |
@@ -41,7 +40,6 @@ The following elements help ensure safe access to your database.
 | **TCP/IP** | The protocol is supported over TCP/IP and over Unix-domain sockets. |
 | **Firewall** | To help protect your data, a firewall rule prevents all access to your database server, until you specify which computers have permission. See [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md). |
 | **SSL** | The service supports enforcing SSL connections between your applications and your database server.  See [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md). |
-|||
 
 ## How do I manage a server?
 You can manage Azure Database for MySQL servers by using the Azure portal or the Azure CLI.
