@@ -23,7 +23,7 @@ ms.author: raynew
 The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses migration suitability and performance-based sizing, and provides cost estimations for running your on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration, to migrate the machines to Azure.
 
 > [!NOTE]
-> Azure Migrate is currently in preview.
+> Azure Migrate is currently in preview and supports production workloads.
 
 ## Why use Azure Migrate?
 
@@ -36,11 +36,11 @@ Azure Migrate helps you to:
 
 ## Current limitations
 
-- Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs.
+- Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. Support for Hyper-V is in the roadmap and will be enabled in few months. In the interim, use Azure Site Recovery Deployment Planner to plan migration for Hyper-V workloads.
 - You can assess up to 1000 VMs in a single assessment, and up to 1500 machines in a single Azure Migrate project. If you need to assess more, you can increase the number of projects or assessments. [Learn more](how-to-scale-assessment.md).
 - VM you want to assess must be managed by a vCenter server, version 5.5, 6.0, or 6.5.
 - The Azure Migrate portal is currently available in English only.
-- You can only create an Azure Migrate project in the West Central US region. However, you can assess VMs for a different target Azure location. 
+- You can only create an Azure Migrate project in the West Central US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment. 
 - Azure Migrate currently supports only [Locally Redundant Storage (LRS)](../storage/common/storage-introduction.md#replication) replication.
 
 ## What do I need to pay for?
