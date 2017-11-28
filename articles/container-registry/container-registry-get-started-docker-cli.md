@@ -38,7 +38,7 @@ You can also log in with [docker login](https://docs.docker.com/engine/reference
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
-Both commands returns `Login Succeeded` once completed. If you use `docker login`, you might also see a security warning recommending the use of the `--password-stdin` parameter. While its use is outside the scope of this article, we recommend following this best practice. See the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference for more information.
+Both commands returns `Login Succeeded` once completed. If you use `docker login`, you might also see a security warning recommending the use of the `--password-stdin` parameter. While its use is outside the scope of this article, we recommend following this best practice. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
 
 > [!TIP]
 > Always specify the fully qualified registry name (all lowercase) when you use `docker login` and when you tag your images. In the examples in this article, the fully qualified name is *myregistry.azurecr.io*.
@@ -51,17 +51,17 @@ First, pull the public NGINX image to your local computer.
 docker pull nginx
 ```
 
-You can optionally execute following command to start a local NGINX container interactively on port 8080, allowing you to see output from NGINX. It removes the running container once stopped.
+You can optionally execute following [docker run](https://docs.docker.com/engine/reference/run/) command to start a local instance of the NGINX container interactively (`-it`) on port 8080. The `--rm` parameter specifies that the container should be removed when you stop it.
 
 ```Bash
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Browse to [http://localhost:8080](http://localhost:8080) to view the running container. You should see a page similar to the following:
+Browse to [http://localhost:8080](http://localhost:8080) to view default web page served by NGINX in the running in the container. You should see a page similar to the following:
 
 ![Nginx on local computer](./media/container-registry-get-started-docker-cli/nginx.png)
 
-To stop the container, press `Control`+`C`.
+Because you started the container interactively with `-it`, you can see the NGINX server's output on the command line. To stop the container, press `Control`+`C`.
 
 ## Create an alias of the image
 
@@ -73,11 +73,15 @@ docker tag nginx myregistry.azurecr.io/samples/nginx
 
 ## Push the image to your registry
 
+Now that you've tagged the image with the fully qualified path to your private registry, you can push it to the registry with [docker push](https://docs.docker.com/engine/reference/commandline/push/):
+
 ```Bash
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
 ## Pull the image from your registry
+
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to pull the image from your registry:
 
 ```Bash
 docker pull myregistry.azurecr.io/samples/nginx
@@ -85,18 +89,28 @@ docker pull myregistry.azurecr.io/samples/nginx
 
 ## Start the NGINX container
 
+Use the [docker run](https://docs.docker.com/engine/reference/run/) command to run the image you've pulled from your registry:
+
 ```Bash
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
 Browse to [http://localhost:8080](http://localhost:8080) to view the running container.
 
-To stop the running container, press `Control`+`C`.
+To stop and remove the container, press `Control`+`C`.
 
 ## Remove the image (optional)
 
+If you no longer need the NGINX image in your registry, you can delete it with the [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) command.
+
 ```Bash
 docker rmi myregistry.azurecr.io/samples/nginx
+```
+
+You can also use the Azure CLI command [az acr repository delete](/cli/azure/acr/repository#az_acr_repository_delete) to remove images from your registry. For example, the following command deletes the manifest referenced by a tag. It also deletes any associated layer data and all other tags referencing the manifest.
+
+```azurecli
+az acr repository delete --name myregistry --repository myregistry.azurecr.io/samples/nginx --tag latest --manifest
 ```
 
 ## Next steps
