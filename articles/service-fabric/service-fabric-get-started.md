@@ -61,7 +61,7 @@ If you only need the SDK, you can install this package:
 The current versions are:
 * Service Fabric SDK 2.8.232
 * Service Fabric runtime 6.0.232
-* Service Fabric Tools for Visual Studio 2015 1.8.50927.3
+* Service Fabric Tools for Visual Studio 2015 1.8.51024.1
 * Visual Studio 2017 Update 3 includes Service Fabric Tools for Visual Studio 1.7.20170817
 * Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) includes Service Fabric Tools for Visual Studio 1.7.20170721
 
