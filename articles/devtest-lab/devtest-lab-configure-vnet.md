@@ -18,7 +18,7 @@ ms.author: tarcher
 
 ---
 # Configure a virtual network in Azure DevTest Labs
-As explained in the article [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md), when you create a VM in a lab, you can specify a configured virtual network. 
+As explained in the article [Add a VM to a lab](devtest-lab-add-vm.md), when you create a VM in a lab, you can specify a configured virtual network. 
 For example, you might need to access your corpnet resources from your VMs using the virtual network that was configured with ExpressRoute or site-to-site VPN.
 
 This article explains how to add your existing virtual network into a lab's Virtual Network settings so that it is available to choose when creating VMs.
