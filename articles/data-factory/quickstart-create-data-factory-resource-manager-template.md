@@ -34,7 +34,7 @@ In this article, you use an Azure Resource Manager template to create your first
 [!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
 
 ## Authoring Azure Resource Manager templates
-To learn about Azure Resource Manager templates in general, see [Authoring Azure Resource Manager Templates](../../azure-resource-manager/resource-group-authoring-templates.md). 
+To learn about Azure Resource Manager templates in general, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md). 
 
 
 The following section provides the complete Resource Manager template for defining Data Factory entities so that you can quickly run through the tutorial and test the template. To understand how each Data Factory entity is defined, see [Data Factory entities in the template](#data-factory-entities-in-the-template) section.
@@ -375,7 +375,6 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 
 ## Monitor pipeline
 1. After logging in to the [Azure portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
-     ![Browse->Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2. In the **Data Factories** page, click the data factory (**TutorialFactoryARM**) you created.    
 
 ### Defining Data Factory entities
