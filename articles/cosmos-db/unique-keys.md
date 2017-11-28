@@ -44,56 +44,91 @@ If you did want users to be able to create multiple records with the same email 
 |    |Duperre|gaby@fabrikam.com|
 |    |       |gaby@fabraikam.com|
 
-If you attempted to insert another record with any of the combinations listed in the table above, you would receive an error indicating that the unique key constraint was not met. 
+If you attempted to insert another record with any of the combinations listed in the table above, you would receive an error indicating that the unique key constraint was not met. The error Azure Cosmos DB returns is "Resource with specified id or name already exists." or "Resource with specified id, name, or unique index already exists." 
 
 ## Using unique keys
 
-Unique keys must be defined when the container is created, and the unique key is scoped to the partition key. To build on the earlier example, if you partition based on zip code, you could have the records from the table duplicated in each partition. 
+Unique keys must be defined when the container is created, and the unique key is scoped to the partition key. To build on the earlier example, if you partition based on zip code, you could have the records from the table duplicated in each partition.
 
-A maximum of 16 path values (for example /firstName, /lastName, etc.) can be included in each unique key. 
+Existing containers cannot be updated to use unique keys.
+
+Once a container is created with a unique key policy, the policy cannot be changed unless you recreate the container. If you have existing data that you'd like to implement unique keys on, create the new container, and then use the appropriate data migration tool to move the data to the new container. For DocumentDB (SQL) containers, use the [Data Migration Tool](import-data.md). For MongoDB containers, use [mongoimport.exe or mongorestore.exe](mongodb-migrate.md).
+
+A maximum of 16 path values (for example /firstName, /lastName, /address/zipCode, etc.) can be included in each unique key. 
 
 Each unique key policy can have a maximum of 10 unique key constraints or combinations. So the earlier example that uses first name, last name, and email address is just one constraint, and it uses three of the 16 possible paths available. 
 
-Once a container is created with a unique key definition, it cannot be changed unless you recreate the collection. If you have existing data that you'd like to implement unique keys on, create the new container, and then use the appropriate data migration tool to move the data to the new container. For DocumentDB (SQL) collections, use the [Data Migration Tool](import-data.md). For MongoDB collections, use [mongoimport.exe or mongorestore.exe](mongodb-migrate.md).
+Request unit charges for creating, updating, and deleting an item are slightly higher when there is a unique key policy on the container. 
 
-Unique key constraints do add to the request unit charge associated with creating or updating an item. 
+Sparse unique keys are not supported. If values for some unique paths are missing, they are treated as a special null value, which takes part in the uniqueness constraint.
 
-## Create a collection with a unique key policy 
+## DocumentDB (SQL) API Sample
 
-The following code sample shows how to create a new DocumentDB (SQL) collection with two unique key constraints. The first constraint is the firstName, lastName, email constraint described in the earlier example. The second constraint is the users address. 
+The following code sample shows how to create a new DocumentDB (SQL) container with two unique key constraints. The first constraint is the firstName, lastName, email constraint described in the earlier example. The second constraint is the users address/zipCode. A sample JSON file that uses the paths in this unique key policy follows the code example. 
 
 ```csharp
+// Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,
+// and /email, and another for /address/zipCode.
 private static async Task CreateCollectionIfNotExistsAsync(string dataBase, string collection)
-       {
-           try
-           {
-               await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(dataBase, collection));
-           }
-           catch (DocumentClientException e)
-           {
-               if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-               {
-                   DocumentCollection myCollection = new DocumentCollection();
-                   myCollection.Id = collection;
-                   myCollection.PartitionKey.Paths.Add("/pk");
-                   myCollection.UniqueKeyPolicy  = new UniqueKeyPolicy
-                   {
-                       UniqueKeys =
-                       new Collection<UniqueKey> { new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
-                                                   new UniqueKey { Paths = new Collection<string> { "/address" } },
-                                                   
-                       }
-                  };
-                   await client.CreateDocumentCollectionAsync(
-                       UriFactory.CreateDatabaseUri(dataBase),
-                       myCollection,
-                       new RequestOptions { OfferThroughput = 2500 });
-              }
-               else
-               {
-                   throw;
-               }
-           }
+{
+    try
+    {
+        await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(dataBase, collection));
+    }
+    catch (DocumentClientException e)
+    {
+        if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
+        {
+            DocumentCollection myCollection = new DocumentCollection();
+            myCollection.Id = collection;
+            myCollection.PartitionKey.Paths.Add("/pk");
+            myCollection.UniqueKeyPolicy = new UniqueKeyPolicy
+            {
+                UniqueKeys =
+                new Collection<UniqueKey>
+                {
+                    new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
+                    new UniqueKey { Paths = new Collection<string> { "/address/zipCode" } },
+
+                }
+            };
+            await client.CreateDocumentCollectionAsync(
+                UriFactory.CreateDatabaseUri(dataBase),
+                myCollection,
+                new RequestOptions { OfferThroughput = 2500 });
+        }
+        else
+        {
+            throw;
+        }
+    }
+```
+
+Sample JSON document.
+
+```json
+{
+    "id": "1",
+    "firstName": "Gaby",
+    "lastName": "Duperre",
+    "email": "gaby@contoso.com",
+    "address": [
+        {            
+            "line1": "100 Some Street",
+            "line2": "Unit 1",
+            "city": "Seattle",
+            "state": "WA",
+            "zipCode": 98012
+        }
+    ],
+}
+```
+## MongoDB API Sample
+
+The following command sample shows how to create a unique index on firstName, lastName, and email fields of the users collection. This ensures the uniqueness for a combination of all three fields across all documents in the collection.
+
+```
+db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
 
 ## Next steps
