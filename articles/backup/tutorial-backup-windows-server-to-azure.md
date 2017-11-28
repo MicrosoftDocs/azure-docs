@@ -39,9 +39,9 @@ Log in to the Azure portal at http://portal.azure.com.
 
 Before you can back up Windows Server, you must create a place for the backups, or restore points, to be stored. A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is a container in Azure that stores the backups from your Windows Server. Follow the steps below to create a Recovery Services vault in the Azure portal. 
 
-1. On the left-hand menu, select **More services** and in the services list,type **Recovery Services**. Click **Recovery Services vaults**.
+1. On the left-hand menu, select **All services** and in the services list, type **Recovery Services**. Click **Recovery Services vaults**.
 
-   ![open Recovery Services vault](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+   ![open Recovery Services vault](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.	On the **Recovery Services vaults** menu, click **Add**.
 
@@ -131,7 +131,7 @@ You have established the schedule when backup jobs run. However, you have not ba
 
 1.	In the Microsoft Azure Recovery Services agent console, click **Back Up Now**.
 
-    ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.	On the **Back Up Now** wizard, select one from **Files and Folders** or **System State** that you want to back up and click **Next** 
 3. On the **Confirmation** page, review the settings that the **Back Up Now** wizard uses to back up your server. Then click **Back Up**.

@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell (Preview) limitations | Microsoft Docs
+title: Azure Cloud Shell limitations | Microsoft Docs
 description: Overview of limitations of Azure Cloud Shell
 services: azure
 documentationcenter: ''
@@ -67,7 +67,7 @@ Your history of bash commands may be inconsistent because of Cloud Shell session
 
 ### Slow startup time
 
-PowerShell in Azure Cloud Shell could take up to 60 seconds to initialize during preview.
+PowerShell in Azure Cloud Shell (Preview) could take up to 60 seconds to initialize during preview.
 
 ### No $Home directory persistence
 

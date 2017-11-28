@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
+ms.reviewer: richagi
 
 ---
 # Configure Azure Multi-Factor Authentication settings - Public preview
@@ -26,7 +26,7 @@ This article helps you manage Azure Multi-Factor Authentication now that you are
 
 | Feature | Description | 
 |:--- |:--- |
-| [Block/unblock users](#block/unblock-users) |Block/unblock users can prevent users from receiving authentication requests. |
+| [Block and unblock users](#block-and-unblock) |Block/unblock users can prevent users from receiving authentication requests. |
 | [Fraud alert](#fraud-alert) |Fraud alert can be configured and set up so that your users can report fraudulent attempts to access their resources. |
 | [One-time bypass](#one-time-bypass) |A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication. |
 | [Custom Voice Messages](#custom-voice-messages) |Custom voice messages allow you to use your own recordings or greetings with multi-factor authentication. |
@@ -36,8 +36,8 @@ This article helps you manage Azure Multi-Factor Authentication now that you are
 | [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-that-users-trust) |Allows you to remember devices for a set number of days after a user has successfully signed in using MFA. |
 | [Selectable Verification Methods](#selectable-verification-methods) |Allows you to choose the authentication methods that are available for users to use. |
 
-## Block/unblock users
-Block/unblock users can be used to prevent users from receiving authentication requests. Any authentication attempts for blocked users will be automatically denied. Blocked users will remain blocked for 90 days from the time they are blocked.
+## Block and unblock
+Block/unblock users can be used to prevent users from receiving authentication requests. Any authentication attempts for blocked users are automatically denied. Blocked users remain blocked for 90 days from the time they are blocked.
 
 ### Block a user
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
@@ -67,7 +67,7 @@ Fraud alert can be configured and set up so that your users can report fraudulen
 
 ### Configuration options
 
-- **Block user when fraud is reported** - If a user reports fraud, their account is blocked.
+- **Block user when fraud is reported** - If a user reports fraud, their account is blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
 - **Code to report fraud during initial greeting** - When users receive a phone call to perform two-step verification, they normally press # to confirm their sign-in. If they want to report fraud, they enter a code before pressing #. This code is **0** by default, but you can customize it.
 
 > [!NOTE]
@@ -82,7 +82,7 @@ Fraud alert can be configured and set up so that your users can report fraudulen
 6. At the bottom of the Service Settings page, select **Go to the portal**.
 7. In the Azure Multi-Factor Authentication Management Portal, under View A Report, click **Fraud Alert**.
 8. Specify the date range that you wish to view in the report. You can also specify usernames, phone numbers, and the user's status.
-9. Click **Run**. This brings up a report of fraud alerts. Click **Export to CSV** if you wish to export the report.
+9. Click **Run** to bring up a report of fraud alerts. Click **Export to CSV** if you wish to export the report.
 
 ## One-time bypass
 A one-time bypass allows a user to authenticate a single time without performing two-step verification. The bypass is temporary and expires after a specified number of seconds. In situations where the mobile app or phone is not receiving a notification or phone-call, you can enable a one-time bypass so the user can access the desired resource.
@@ -95,7 +95,7 @@ A one-time bypass allows a user to authenticate a single time without performing
    ![One-time bypass](./media/multi-factor-authentication-whats-next/onetimebypass.png)
 3. Select **Add**.
 4. If necessary, select the replication group for this bypass.
-5. Enter the username (in the form of username@domain.com), the number of seconds that the bypass will exist, and the reason for the bypass. 
+5. Enter the username (in the form of username@domain.com), the number of seconds that the bypass should last for, and the reason for the bypass. 
 6. Select **Add**. The time limit goes into effect immediately, so the user needs to sign in before the one-time bypass expires. 
 
 ### View the one-time bypass report
@@ -107,16 +107,16 @@ A one-time bypass allows a user to authenticate a single time without performing
 6. At the bottom of the Service Settings page, select **Go to the portal**.
 7. In the Azure Multi-Factor Authentication Management Portal, under View A Report, click **One-Time Bypass**.
 8. Specify the date range that you wish to view in the report. You can also specify usernames, phone numbers, and the user's status.
-9. Click **Run**. This brings up a report of bypasses. Click **Export to CSV** if you wish to export the report.
+9. Click **Run** to bring up a report of bypasses. Click **Export to CSV** if you wish to export the report.
 
 ## Custom voice messages
 Custom voice messages allow you to use your own recordings or greetings for two-step verification. These can be used in addition to or to replace the Microsoft records.
 
-Before you begin be aware of the following:
+Before you begin be aware of the following restrictions:
 
 * The supported file formats are .wav and .mp3.
 * The file size limit is 5 MB.
-* Authentication messages should be shorter than 20 seconds. Anything longer than this could cause the verification to fail because the user may not respond before the message finishes, causing the verification to time out.
+* Authentication messages should be shorter than 20 seconds. Anything longer than 20 seconds could cause the verification to fail because the user may not respond before the message finishes, causing the verification to time out.
 
 ### Set up a custom message
 
@@ -131,7 +131,7 @@ Before you begin be aware of the following:
 6. Select **Add**.
 
 ## Caching in Azure Multi-Factor Authentication
-Caching allows you to set a specific time period so that subsequent authentication attempts within that time period succeed automatically. This is primarily used when on-premises systems such as VPN send multiple verification requests while the first request is still in progress. This allows the subsequent requests to succeed automatically after the user succeeds the first verification in progress. 
+Caching allows you to set a specific time period so that subsequent authentication attempts within that time period succeed automatically. This is primarily used when on-premises systems such as VPN send multiple verification requests while the first request is still in progress. Caching allows the subsequent requests to succeed automatically after the user succeeds the first verification in progress. 
 
 Caching is not intended to be used for sign-ins to Azure AD.
 
@@ -175,7 +175,7 @@ Whether Trusted IPs is enabled or not, two-step verification is required for bro
 5. Under Multi-Factor Authentication, select **Manage service settings**.
 6. On the Service Settings page, under Trusted IPs, you have two options:
    
-   * **For requests from federated users originating from my intranet** – Check the box. All federated users who are signing in from the corporate network will bypass two-step verification using a claim issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. You should create the following rule in AD FS if it does not already exist: "c:[Type
+   * **For requests from federated users originating from my intranet** – Check the box. All federated users who are signing in from the corporate network will bypass two-step verification using a claim issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS: "c:[Type
 == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
 
 
@@ -197,11 +197,11 @@ Some apps, like Office 2010 or older and Apple Mail, don't support two-step veri
 ### Important things to know about app passwords
 The following is an important list of things that you should know about app passwords.
 
-* App passwords should only need to be entered once per app. Users don't have to keep track of them and enter them every time.
+* App passwords only need to be entered once per app. Users don't have to keep track of them and enter them every time.
 * The actual password is automatically generated and is not supplied by the user. This is because the automatically generated password is harder for an attacker to guess and is more secure.
 * There is a limit of 40 passwords per user. 
 * Apps which cache passwords and use it in on-premises scenarios might start failing since the app password isn't known outside of the organizational id. An example is Exchange emails that are on-premises but the archived mail is in the cloud. The same password doesn't work.
-* Once multi-factor authentication is enabled on a user's account, app passwords can be used with most non-browser clients such as Outlook and Lync, but administrative actions cannot be performed using app passwords through non-browser applications such as Windows PowerShell even if that user has an administrative account.  Ensure you create a service account with a strong password to run PowerShell scripts and do not enable that account for two-step verification.
+* Once multi-factor authentication is enabled on a user's account, app passwords can be used with most non-browser clients such as Outlook and Lync. Administrative actions cannot be performed using app passwords through non-browser applications such as Windows PowerShell even if that user has an administrative account.  Create a service account with a strong password to run PowerShell scripts and do not enable that account for two-step verification.
 
 > [!WARNING]
 > App passwords don't work in hybrid environments where clients communicate with both on-premises and cloud autodiscover endpoints. This is because domain passwords are required to authenticate on-premises and app passwords are required to authenticate with the cloud.
@@ -215,7 +215,7 @@ Microsoft recommends creating one app password per device, not one app password 
 Azure AD supports federation (single sign-on) with on-premises Windows Server Active Directory Domain Services (AD DS). If your organization is federated with Azure AD and you are going to be using Azure Multi-Factor Authentication, then the following information about app passwords is important for you. This section only applies to federated (SSO) customers.
 
 * App passwords are verified by Azure AD and therefore bypass federation. Federation is only actively used when setting up app passwords.
-* For federated (SSO) users, we never go to the Identity Provider (IdP) unlike the passive flow. The passwords are stored in the organizational id. If the user leaves the company, that info has to flow to organizational id using DirSync in real time. Account disable/deletion may take up to three hours to sync, delaying disable/deletion of App Password in Azure AD.
+* For federated (SSO) users, the Identity Provider (IdP) is not contacted, unlike the passive flow. The passwords are stored in the organizational id. If the user leaves the company, that info has to flow to organizational id using DirSync in real time. Account disable/deletion may take up to three hours to sync, delaying disable/deletion of App Password in Azure AD.
 * On-premises Client Access Control settings are not honored by App Password.
 * No on-premises authentication logging/auditing capability is available for App Password.
 * Certain advanced architectural designs may require a combination of organizational username and passwords and app passwords when using two-step verification with clients, depending on where they authenticate. For clients that authenticate against an on-premises infrastructure, you would use an organizational username and password. For clients that authenticate against Azure AD, you would use the app password.
@@ -252,13 +252,13 @@ Users can create app passwords during their initial registration. They are given
 Users can also create app passwords after registration by changing their settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication](./end-user/multi-factor-authentication-end-user-app-passwords.md).
 
 ## Remember Multi-Factor Authentication for devices that users trust
-Remembering Multi-Factor Authentication for devices and browsers that users trust is a free feature for all MFA users. It allows you to give users the option to by-pass MFA for a set number of days after performing a successful sign-in using MFA. This can enhance usability by minimizing the number of times a user may perform two-step verification on the same device.
+Remembering Multi-Factor Authentication for devices and browsers that users trust is a free feature for all MFA users. This setting gives users the option to bypass MFA for a set number of days after performing a successful sign-in using MFA. This can enhance usability by minimizing the number of times a user may perform two-step verification on the same device.
 
 However, if an account or device is compromised, remembering MFA for trusted devices may affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [restore Multi-Factor Authentication on all devices](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). This action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore MFA on their own devices with the instructions in [Manage your settings for two-step verification](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)
 
 ### How it works
 
-Remembering Multi-Factor Authentication works by setting a persistent cookie on the browser when a user checks the "Don't ask again for **X** days" box at sign-in. The user won't be prompted for MFA again from that broswer until the cookie expires. If the user opens a different browser on the same device or clears their cookies, they are prompted to verify again. 
+Remembering Multi-Factor Authentication works by setting a persistent cookie on the browser when a user checks the "Don't ask again for **X** days" box at sign-in. The user won't be prompted for MFA again from that browser until the cookie expires. If the user opens a different browser on the same device or clears their cookies, they are prompted to verify again. 
 
 The "Don't ask again for **X** days" checkbox isn't shown on non-browser apps, whether or not they support modern authentication. These apps use refresh tokens that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last time two-step verification was performed was within the configured number of days. 
 
@@ -286,16 +286,16 @@ Once you enable this feature, users can mark a device as trusted when they sign 
 ![Don't ask again - screenshot](./media/multi-factor-authentication-whats-next/trusted.png)
 
 ## Selectable Verification Methods
-You can choose which verification methods are available for your users. The table below provides a brief overview of each method.
+You can choose which verification methods are available for your users. The table following provides a brief overview of each method.
 
 When your users enroll their accounts for MFA, they choose their preferred verification method out of the options that you enabled. The guidance for their enrollment process is covered in [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md)
 
 | Method | Description |
 |:--- |:--- |
 | Call to phone |Places an automated voice call. The user answers the call and presses # in the phone keypad to authenticate. This phone number is not synchronized to on-premises Active Directory. |
-| Text message to phone |Sends a text message containing a verification code. The user is prompted to either reply to the text message with the verification code or to enter the verification code into the sign-in interface. |
+| Text message to phone |Sends a text message containing a verification code. The user is prompted to enter the verification code into the sign-in interface. This process is called one-way SMS. Two-way SMS means that the user must text back a particular code. Two-way SMS has been deprecated and will no longer be supported as of November 14, 2018. Users configured for two-way SMS will be automatically switched to "call to phone" authentication at that time.|
 | Notification through mobile app |Sends a push notification to your phone or registered device. The user views the notification and selects **Verify** to complete verification. <br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| Verification code from mobile app |The Microsoft Authenticator app generates a new OATH verification code every thirty seconds. The user enters this verification code into the sign-in interface.<br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Verification code from mobile app |The Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters this verification code into the sign-in interface.<br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### How to enable/disable authentication methods
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).

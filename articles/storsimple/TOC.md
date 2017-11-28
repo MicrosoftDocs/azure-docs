@@ -2,6 +2,7 @@
 
 ## Overview
 ### [What is the solution?](storsimple-ova-overview.md)
+### [Region availability](storsimple-regions.md)
 
 ## Get started
 ### Plan
@@ -59,6 +60,7 @@
 ### [What is the solution?](storsimple-overview.md)
 ### [StorSimple learning map](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Security considerations](storsimple-8000-security.md)
+### [Region availability](storsimple-regions.md)
 ### [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md)
 
 ## Get started
@@ -174,6 +176,7 @@
 
 ### Migrate
 #### [Subscriptions and storage accounts](storsimple-8000-migrate-classic-azure-portal.md)
+#### [From 5000/7000 series devices](storsimple-8000-migrate-from-5000-7000.md)
 #### [From other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Update

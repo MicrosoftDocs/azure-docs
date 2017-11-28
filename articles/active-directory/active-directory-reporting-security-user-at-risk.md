@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 

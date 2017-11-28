@@ -219,7 +219,7 @@ To copy data to Azure SQL Database, set the sink type in the copy activity to **
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **SqlSink** | Yes |
+| type | The type property of the copy activity sink must be set to: **SqlSink** | Yes |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are: integer (number of rows). |No (default is 10000) |
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: timespan. Example: “00:30:00” (30 minutes). |No |
 | sqlWriterStoredProcedureName |Name of the stored procedure that upserts (updates/inserts) data into the target table. |No |

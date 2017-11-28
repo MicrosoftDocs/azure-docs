@@ -78,7 +78,7 @@ Application Insights defines the [extension](https://github.com/lmolkova/correla
 - `dependency` maps to **Span** with `span.kind = client`
 - `id` of a `request` and `dependency` maps to **Span.Id**
 - `operation_Id` maps to **TraceId**
-- `operation_ParentId` maps to **Reference** of type `ChileOf`
+- `operation_ParentId` maps to **Reference** of type `ChildOf`
 
 See [data model](application-insights-data-model.md) for Application Insights types and data model.
 

@@ -18,6 +18,8 @@
     href: storage-quickstart-blobs-cli.md
   - name: Work with blobs - .NET 
     href: storage-quickstart-blobs-dotnet.md
+  - name: Work with blobs - Java
+    href: storage-quickstart-blobs-java.md
   - name: Work with blobs - Python 
     href: storage-quickstart-blobs-python.md
   - name: Work with blobs - Node.js
@@ -275,6 +277,8 @@
         href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Diagnostics and error recovery for Import/Export jobs
         href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Storage migration FAQ
+      href: ../common/storage-migration-faq.md
 - name: Reference
   items:
   - name: PowerShell

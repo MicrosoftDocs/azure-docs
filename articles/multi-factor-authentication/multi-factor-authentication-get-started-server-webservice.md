@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2017
 ms.author: joflore
-ms.reviewer: alexwe
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 # Enable mobile app authentication with Azure Multi-Factor Authentication Server

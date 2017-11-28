@@ -26,7 +26,7 @@ This article summarizes what's supported when you use the [Azure Site Recovery](
 
 **Deployment** | **Details** 
 --- | ---
-**VMware to VMware** | Disaster recovery of on-premises VMware VMs to secondary VMware site.<br/><br/> Download the [InMage Scout user guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**VMware to VMware** | Disaster recovery of on-premises VMware VMs to secondary VMware site.<br/><br/> Download the [InMage Scout user guide](https://aka.ms/asr-scout-user-guide)
 **Hyper-V to Hyper-V** | Disaster recovery of on-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud.<br></br> Not supported without VMM.
 
 
@@ -37,7 +37,7 @@ This article summarizes what's supported when you use the [Azure Site Recovery](
 
 **Deployment** | **Support**
 --- | ---
-**VMware VM/physical server** | vCenter 5.5 or 6.0 (support for 5.5 features only)
+**VMware VM/physical server** | vCenter 5.5, 6.0 and 6.5 (support for 5.5 features only)
 **Hyper-V with VMM** | Windows Server 2016 and Windows Server 2012 R2 with the latest updates.<br/><br/> Windows Server 2016 hosts should be managed by VMM 2016.<br/><br/> VMM 2016 clouds with a mixture of Windows Server 2016 and 2012 R2 hosts aren't currently supported.<br/><br/> Deployment that include an upgrade of an existing VMM 2012 R2 to System Center 2016 aren't currently supported.
 
 
@@ -47,7 +47,7 @@ The following table summarizes operating system support for machines replicated 
 
 **VMware/physical server** | **Hyper-V (with VMM)**
 --- | ---
-64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 or 6.5 running the Red Hat compatible kernel, or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest operating system [supported by Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+64-bit Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 running the Red Hat compatible kernel, or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Any guest operating system [supported by Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## Linux machine storage
 
@@ -102,15 +102,15 @@ VHD/VHDX | N/A | Yes (up to 16 disks)
 Gen 2 VM | N/A | Yes
 Shared cluster disk | Yes  | No
 Encrypted disk | No | No
-UEFI| No | N/A
+UEFI| Yes | N/A
 NFS | No | No
 SMB 3.0 | No | No
 RDM | Yes | N/A
-Disk > 1 TB | No | Yes
+Disk > 1 TB | Yes | Yes
 Volume with striped disk > 1 TB<br/><br/> LVM | Yes | Yes
 Storage Spaces | No | Yes
-Hot add/remove disk | No | No
-Exclude disk | No | Yes
+Hot add/remove disk | Yes | No
+Exclude disk | Yes | Yes
 Multi-path (MPIO) | N/A | Yes
 
 ## Vaults

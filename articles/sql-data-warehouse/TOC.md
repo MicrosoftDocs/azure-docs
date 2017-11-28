@@ -5,7 +5,7 @@
 
 # Get Started
 
-## [Beginner tutorial](sql-data-warehouse-get-started-tutorial.md)
+## [Load data tutorial](load-data-from-azure-blob-storage-using-polybase.md)
 ## [Elastic Query tutorial](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Best practices](sql-data-warehouse-best-practices.md)
 ## [Manage](sql-data-warehouse-overview-manage.md)
@@ -16,6 +16,7 @@
 ### [MPP architecture](massively-parallel-processing-mpp-architecture.md)
 ### [Performance tiers](performance-tiers.md)
 ### [Data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
 ### [Frequently asked questions](sql-data-warehouse-overview-faq.md)
 
 ## Backup and restore
@@ -36,7 +37,7 @@
 ### [Connection strings](sql-data-warehouse-connection-strings.md)
 
 ## Create
-### [Azure portal](sql-data-warehouse-get-started-provision.md)
+### [Azure portal](create-data-warehouse-portal.md)
 ### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
@@ -82,7 +83,6 @@
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
-
 ### [Elastic Query with SQL Database and SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## Load
@@ -120,6 +120,7 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### [Automate compute levels](manage-compute-with-azure-functions.md)
 ### Resource classes
 #### [Guidelines](resource-classes-for-workload-management.md)
 #### [Analyze your workload](analyze-your-workload.md)
@@ -131,7 +132,6 @@
 ### [Monitor](sql-data-warehouse-manage-monitor.md)
 
 ## Security
-
 ### [Overview](sql-data-warehouse-overview-manage-security.md)
 ### [Auditing](sql-data-warehouse-auditing-overview.md)
 ### [Auditing for down-level clients](sql-data-warehouse-auditing-downlevel-clients.md)
@@ -141,11 +141,11 @@
 ### [Threat detection](sql-data-warehouse-security-threat-detection.md)
 
 ## Troubleshoot
+
 ### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
 
 # Reference
 
-## [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
 ## T-SQL
 ### [Full reference](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [SQL DW language elements](sql-data-warehouse-reference-tsql-language-elements.md)
@@ -154,6 +154,7 @@
 ## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Resources
+
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=databases)
 ## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)

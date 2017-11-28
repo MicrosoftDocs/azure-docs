@@ -65,7 +65,9 @@ You can follow the instructions in the [Install and create Quickstart](quickstar
    ![Select iris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
-   >Make sure you select the **iris.csv** file from within the current project directory for this exercise. Otherwise, later steps might fail. 
+   >Make sure you select the **iris.csv** file from within the current project directory for this exercise. Otherwise, later steps might fail.
+   
+4. After selecting the file, select the **Finish** button.
 
 4. A new file named **iris-1.dsource** is created. The file is named uniquely with a dash-1, because the sample project already comes with an unnumbered **iris.dsource** file.  
 

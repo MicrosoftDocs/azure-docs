@@ -68,7 +68,7 @@ Now let's take a look at how we would model the same data as a self-contained en
             }
         ],
         "contactDetails": [
-            {"email: "thomas@andersen.com"},
+            {"email": "thomas@andersen.com"},
             {"phone": "+1 555 555-5555", "extension": 5555}
         ] 
     }
