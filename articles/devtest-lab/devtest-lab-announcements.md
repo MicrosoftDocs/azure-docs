@@ -19,15 +19,15 @@ ms.author: tarcher
 ---
 # Post announcements to a lab in Azure DevTest Labs
 
-As a lab administrator, you can post announcements for an existing lab to notify users about recent changes or additions to the lab. For example, you might want to notify users about:
+As a lab administrator, you can post announcements in an existing lab to notify users about recent changes or additions to the lab. For example, you might want to notify users about:
 
+- New VM sizes that are available
 - Images that are currently unusable
 - Updates to lab policies
-- New VM sizes that are available
 
-Once posted, an announcement is displayed on the lab's Overview page and the user can select it for more details.
+Once posted, the announcement is displayed on the lab's Overview page and the user can select it for more details.
 
-The announcement feature is meant to be used for temporary notifications.  You can easily disable an announcement after it is no longer applicable.
+The announcement feature is meant to be used for temporary notifications.  You can easily disable an announcement after it is no longer needed.
 
 ## Steps to post an announcement in an existing lab
 
@@ -55,7 +55,7 @@ The announcement feature is meant to be used for temporary notifications.  You c
 
 1. Select **Save** once your announcement is ready to post.
 
-When you no longer need to show this announcement to lab users, return to the **Lab announcement** page and set **Enabled** to **No**.
+When you no longer want to show this announcement to lab users, return to the **Lab announcement** page and set **Enabled** to **No**.
 
 ## Steps for users to view an announcement
 
