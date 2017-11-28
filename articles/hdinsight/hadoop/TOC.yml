@@ -156,6 +156,8 @@
     - name: Analyze Application Insights telemetry logs
       href: ../spark/apache-spark-analyze-application-insight-logs.md
       maintainContext: true
+    - name: Advanced analytics for HDInsight
+      href: apache-hadoop-deep-dive-advanced-analytics.md
   - name: Extend clusters
     items:
     - name: Use secure enabled storage account
@@ -226,6 +228,9 @@
       maintainContext: true
     - name: Authorize users for Ambari Views
       href: ../hdinsight-authorize-users-to-ambari.md
+      maintainContext: true
+    - name: Manage user permissions at the file and folder levels
+      href: ../hdinsight-add-acls-at-file-folder-levels.md
       maintainContext: true
   - name: Manage
     items:
@@ -329,6 +334,8 @@
     - name: Monitor cluster performance
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
+    - name: Analyze Hadoop logs
+      href: apache-hadoop-debug-jobs.md
   - name: Troubleshoot
     href: ../hdinsight-troubleshoot-guide.md
     maintainContext: true
