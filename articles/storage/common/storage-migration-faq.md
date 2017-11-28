@@ -33,26 +33,26 @@ example:
     /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
     /S
 
-AzCopy uses [Copy Blob
+AzCopy uses the [Copy Blob
 API](https://docs.microsoft.com/rest/api/storageservices/copy-blob) to
 do the copy for each file in the container.  
   
-You can use any virtual machine or local machine that has Internet access to run
+You can use any virtual machine or local machine that has internet access to run
 AzCopy. You can also use Azure Batch Schedule to do this automatically,
 but it's more complicated.  
   
-The Automation script is designed for Azure Resource Manager deployment instead of
+The automation script is designed for Azure Resource Manager deployment instead of
 storage content manipulation. For more information, see [Deploy
 resources with Resource Manager templates and Azure
 PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
-**Is there any charge involved for copying  data between two
-different file shares on the same storage account within the same
+**Is there any charge involved for copying data between two
+file shares on the same storage account within the same
 region?**
 
 No. There is no charge for this process.
 
-**How do I back up my entire storage account to other storage account?**
+**How do I back up my entire storage account to another storage account?**
 
 There is no option to back up an entire storage account directly. But
 you can manually move the container in that storage account to another
@@ -60,16 +60,15 @@ account by using AzCopy or Storage Explorer. The following steps show
 how to use AzCopy to move the container:  
  
 
-1.  Install the [AzCopy](storage-use-azcopy.md) command-line tool. This tool helps you move
-    the VHD file between storage accounts.
+1.  Install the [AzCopy](storage-use-azcopy.md) command-line tool. This tool helps you move the VHD file between storage accounts.
 
 2.  After you install AzCopy on Windows by using the installer, open a
-    Command POromprt window and then navigate to the AzCopy installation
+    Command Prompt window and then browse to the AzCopy installation
     folder on your computer. By default, AzCopy is installed to
     **%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy** or
     **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
-3.   Run the following command to move the container. You must replace
+3.  Run the following command to move the container. You must replace
     the text with the actual value.   
      
             AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
@@ -84,74 +83,52 @@ how to use AzCopy to move the container:
 After you execute this command, the container files are moved to the
 target storage account.
 
-**The AzCopy CLI does not work together with the "Pattern" switch when you copy
-from one Azure blob to another.**
-
-You can directly copy and edit the AzCopy cmd, and cross-check to make sure that the Pattern matches the Source. Also make sure that **/S** wildcards are in
-effect. For more information, see [AzCopy Parameters](storage-use-azcopy.md).
+> [!NOTE]
+> The AzCopy CLI does not work together with the **Pattern** switch when you copy from one Azure blob to another.
+>
+> You can directly copy and edit the AzCopy command, and cross-check to make sure that **Pattern** matches the source. Also make sure that **/S** wildcards are in effect. For more information, see [AzCopy parameters](storage-use-azcopy.md).
 
 **How do I move data from one storage container to another?**
 
-To do this, follow these steps:
+Follow these steps:
 
 1.  Create the container (folder) in the destination blob.
 
-2.  Use [Azcopy](https://azure.microsoft.com/en-us/blog/azcopy-5-1-release/) to copy the contents from the original blob container to a different Blob container.
+2.  Use [AzCopy](https://azure.microsoft.com/en-us/blog/azcopy-5-1-release/) to copy the contents from the original blob container to a different blob container.
 
 **How do I create a PowerShell script to move data from one Azure file
-share to another Azure storage?**
+share to another in Azure Storage?**
 
-Use AzCopy to move the data from one Azure file share to another azure
-storage. For more information, see [Transfer data with the AzCopy on
-Windows](storage-use-azcopy.md) and [Transfer
-data with AzCopy on
-Linux](storage-use-azcopy-linux.md).
+Use AzCopy to move the data from one Azure file share to another in Azure
+Storage. For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
 
-**How do I upload large .csv files to Azure storage?**
+**How do I upload large .csv files to Azure Storage?**
 
-Use AzCopy to upload large .csv files to Azure Storage. For more
-information, see [Transfer data with the AzCopy on
-Windows](storage-use-azcopy.md) and [Transfer
-data with AzCopy on
-Linux](storage-use-azcopy-linux.md).
+Use AzCopy to upload large .csv files to Azure Storage. For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
 
-**I have to move the logs from "drive D" to my Azure storage account
+**I have to move the logs from drive D to my Azure storage account
 every day. How do I automate this?**
 
-You can use AzCopy, and create a task in Task Scheduler. Upload files to an Azure storage account by using an AzCopy batch script. For more information, see [How to configure and run startup tasks for a cloud
+You can use AzCopy and create a task in Task Scheduler. Upload files to an Azure storage account by using an AzCopy batch script. For more information, see [How to configure and run startup tasks for a cloud
 service](../../cloud-services/cloud-services-startup-tasks.md).
 
 **How do I move my storage account between subscriptions?**
 
 Use AzCopy to move your storage account between subscriptions. For more
-information, see [Transfer data with the AzCopy on
-Windows](storage-use-azcopy.md) and [Transfer
-data with AzCopy on
-Linux](storage-use-azcopy-linux.md).
+information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
 
 **How can I move about 10 TB of data to storage at another region?**
 
 Use AzCopy to move the data. For more information, see [Transfer data
-with the AzCopy on
-Windows](storage-use-azcopy.md) and [Transfer
-data with AzCopy on
-Linux](storage-use-azcopy-linux.md).
+with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
 
-**How can I copy data from on-premises to Azure storage?**
+**How can I copy data from on-premises to Azure Storage?**
 
-Use AzCopy to copy the data. For more information, see [Transfer data
-with the AzCopy on
-Windows](storage-use-azcopy.md) and [Transfer
-data with AzCopy on
-Linux](storage-use-azcopy-linux.md).
+Use AzCopy to copy the data. For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
 
 **How can I move data from on-premises to Azure File Service?**
 
-Use AzCopy to move data. For more information, For more information, see [Transfer data
-with the AzCopy on
-Windows](storage-use-azcopy.md) and [Transfer
-data with AzCopy on
-Linux](storage-use-azcopy-linux.md).
+Use AzCopy to move data. For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
 
 **How do I map a container folder on a virtual machine?**
 
@@ -163,7 +140,7 @@ There is no backup solution. However Azure Files also support async
 copy. So, you can copy files from a share to another share (within a
 storage account or to a different storage account) or to a blob
 container (within a storage account or to a different storage account).
-For more information, see [Transfer data with the AzCopy on Windows](storage-use-azcopy.md).
+For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md).
 
 **How do I move managed disks to another storage account?**
 
@@ -213,18 +190,13 @@ see [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-dis
 **How can I download about 1-2 TB of data from the Azure portal?**
 
 Use AzCopy to download the data. For more information, see [Transfer data
-with the AzCopy on
-Windows](storage-use-azcopy.md) and [Transfer
-data with AzCopy on
-Linux](storage-use-azcopy-linux.md).
+with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
 
 **How do I change the secondary location to the Europe region for a
 storage account?**
 
 When you create a storage account, you select the primary region for the
-account. The selection of the secondary region is based on the primary region
-and it cannot be changed. See [Azure Storage
-replication](storage-redundancy.md).
+account. The selection of the secondary region is based on the primary region, and it cannot be changed. See [Azure Storage replication](storage-redundancy.md).
 
 **Where can I get more information about Azure Storage Service
 Encryption (SSE)?**  
@@ -239,18 +211,14 @@ See the following articles:
 
 **How do I move or download data from a storage account?**
 
-Use AzCopy to download the data. For more information, For more information, see [Transfer data
-with the AzCopy on
-Windows](storage-use-azcopy.md) and [Transfer
-data with AzCopy on
-Linux](storage-use-azcopy-linux.md).
+Use AzCopy to download the data. For more information, For more information, see [Transfer data with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md).
 
 
 **How do I encrypt data in a storage account?**
 
 After you enable encryption in the storage account, the existing data is not encrypted. To encrypt the existing data, you must upload again to the data to the storage account.  To do this, follow these steps:
 
-Use AZcopy to copy the data to a different storage account and then
+Use AzCopy to copy the data to a different storage account and then
 move back to a storage account. You can also use [Encryption at
 Rest](storage-service-encryption.md).
 
@@ -285,7 +253,7 @@ To do this, follow these steps:
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /S 
 
-    To copy only one disk, provide the name of the disk in pattern
+    To copy only one disk, provide the name of the disk in **Pattern**:
 
         AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
