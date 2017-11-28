@@ -69,12 +69,10 @@ Properties.communicationId | The communication this event is associated.
     ![Monitor](./media/monitoring-service-notifications/home-monitor.png)
 2.	Click the **Monitor** option to open up the Monitor blade. This blade brings together all your monitoring settings and data into one consolidated view. It first opens to the **Activity log** section.
 
-3.	Now click on **Service Notifications** section
+3.	Now click on **Alerts** section
 
     ![Monitor](./media/monitoring-service-notifications/service-health-summary.png)
-4.	Click on any of the line items to view more details
-
-5. Click on the **+Add Activity Log Alert** operation to receive notifications to ensure you are notified for future service notifications of this type. To learn more on configuring alerts on service notifications [click here](monitoring-activity-log-alerts-on-service-notifications.md)
+4. Click on the **+Add Activity Log Alert** and configure an alert to ensure you are notified for future service notifications. To learn more on configuring alerts on service notifications [click here](monitoring-activity-log-alerts-on-service-notifications.md)
 
 ## Next Steps:
 Receive [alert notifications whenever a service health notification](monitoring-activity-log-alerts-on-service-notifications.md) is posted  
