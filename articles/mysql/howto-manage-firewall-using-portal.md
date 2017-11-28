@@ -15,7 +15,7 @@ Server-level firewall rules enable administrators to access an Azure Database fo
 
 ## Create a server-level firewall rule in the Azure portal
 
-1. On the MySQL server blade, under Settings heading, click **Connection Security** to open the Connection Security blade for the Azure Database for MySQL.
+1. On the MySQL server page, under Settings heading, click **Connection Security** to open the Connection Security page for the Azure Database for MySQL.
 
    ![Azure portal - click Connection Security](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
