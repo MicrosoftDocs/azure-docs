@@ -99,6 +99,14 @@ class Program
 ### Azure Storage Explorer
 With [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), you can view and edit your blob storage resources, including properties such as the *CacheControl* property. 
 
+To update the *CacheControl* property of a blob with Azure Storage Explorer:
+   1. Select a blob, then select **Properties** from the context menu. 
+   2. Scroll down to the *CacheControl* property.
+   3. Enter a value, then click **Save**.
+
+
+![Azure Storage Explorer properties](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
+
 ### Azure Command-Line Interface
 When you upload a blob, you can set the *cacheControl* property with the `-p` switch in the [Azure Command-Line Interface](../cli-install-nodejs.md). The following example shows how to set the TTL to one hour (3600 seconds):
   
