@@ -47,4 +47,4 @@ Repeat the steps to manage the firewall rules.
 * Click **Save** to save the changes.
 
 ## Next steps
-- For help in connecting to an Azure Database for MySQL server, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md)
+For help in connecting to an Azure Database for MySQL server, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md)
