@@ -1,4 +1,4 @@
-﻿---
+---
 title: Telemetry sampling in Azure Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 services: application-insights
@@ -307,8 +307,9 @@ When presenting telemetry back to you, the Application Insights service adjusts 
 
 The accuracy of the approximation largely depends on the configured sampling percentage. Also, the accuracy increases for applications that handle a large volume of generally similar requests from lots of users. On the other hand, for applications that don't work with a significant load, sampling is not needed as these applications can usually send all their telemetry while staying within the quota, without causing data loss from throttling. 
 
-[!WARNING]
-**Note that Application Insights does not sample Metrics and Sessions telemetry types, since for these types, reduction in the precision can be highly undesirable.** 
+> [!WARNING]
+> Application Insights does not sample metrics and sessions telemetry types. Reduction in the precision can be highly undesirable for these telemetry types.
+> 
 
 ### Adaptive sampling
 Adaptive sampling adds a component that monitors the current rate of transmission from the SDK, and adjusts the sampling percentage to try to stay within the target maximum rate. The adjustment is recalculated at regular intervals, and is based on a moving average of the outgoing transmission rate.
