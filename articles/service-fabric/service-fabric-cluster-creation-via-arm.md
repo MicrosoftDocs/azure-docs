@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/22/2017
+ms.date: 11/14/2017
 ms.author: chackdan
 
 ---
@@ -31,15 +31,20 @@ The guide covers the following procedures:
 * Creating a secured cluster in Azure by using Azure Resource Manager
 * Authenticating users by using Azure Active Directory (Azure AD) for cluster management
 
-A secure cluster is a cluster that prevents unauthorized access to management operations. This includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, we highly recommend that you create a secure cluster from the outset. Because an unsecure cluster cannot be secured later, a new cluster must be created.
+Service fabric mandates that you to use an x509 certificate to secure your cluster and its endpoints. For client access/performing management operations on the cluster,including deploying, upgrading, and deleting applications, services, and the data they contain, Service Fabric you can use certificates or Azure Active Directory. The use of Azure Active Directory is highly encouraged, since that is the only way to prevent sharing of certificates on your clients. 
+
+If you are unclear of the security scenarios, then please review [service-fabric-cluster-security][service-fabric-cluster-security] document.
+
 
 The concept of creating secure clusters is the same, whether they are Linux or Windows clusters. For more information and helper scripts for creating secure Linux clusters, see [Creating secure clusters on Linux](#secure-linux-clusters).
 
-## Sign in to your Azure account
-This guide uses [Azure PowerShell][azure-powershell]. When you start a new PowerShell session, sign in to your Azure account and select your subscription before you execute Azure commands.
+## Prerequisites 
+This guide covers the use of azure powershell or  azure CLI to create new clusters. The prerequisites are either 
 
-Sign in to your Azure account:
+-  [Azure PowerShell 4.1 and above][azure-powershell] or [Azure CLI 2.0 and above][azure-CLI].
+-  you can find details on the service fabic modules here - []  and [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
+###Powershell
 ```powershell
 Login-AzureRmAccount
 ```
@@ -50,11 +55,82 @@ Select your subscription:
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
+###
 
-## Set up a key vault
-This section discusses creating a key vault for a Service Fabric cluster in Azure and for Service Fabric applications. For a complete guide to Azure Key Vault, refer to the [Key Vault getting started guide][key-vault-get-started].
+## Use service fabric RM module to deploy a cluster
 
-Service Fabric uses X.509 certificates to secure a cluster and provide application security features. You use Key Vault to manage certificates for Service Fabric clusters in Azure. When a cluster is deployed in Azure, the Azure resource provider that's responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs.
+Service Fabric uses X.509 certificates to secure a cluster and provide application security features. You use [Key Vault][key-vault-get-started] to manage certificates for Service Fabric clusters in Azure. 
+
+In this document, we would use the service fabric RM powershell and CLI module to deploy a cluster, the powershell or the CLI module command allows for multiple scenarios. Let us go through each of the them
+
+### Sign-in to Azure and select your subscription
+
+Run the following to sign in to your Azure account select your subscription
+
+```Powershell
+
+Login-AzureRmAccount
+
+Set-AzureRmContext -SubscriptionId <guid>
+
+```
+
+```CLI
+
+az login
+az account set --subscription <guid>
+
+```
+
+### Create new cluster - using the certificate you bought from a CA.
+
+Use the following command to create cluster, if you have a certificate that you want to use to secure your cluster with.
+
+If this is a CA signed certificate that you will end up using for other purposes as well, then it is recommended that you provide a distinct 
+
+```Powershell
+
+Login-AzureRmAccount
+
+Set-AzureRmContext -SubscriptionId <guid>
+
+$resourceGroupLocation="westus"
+$resourceGroupName="mylinux"
+$vaultName="myvault"
+$vaultResourceGroupName="myvaultrg"
+$keyvaultSubjectName="mylinuxsecure.westus.cloudapp.azure.com"
+$parameterFilePath="c:\mytemplates\linuxtemplate.json"
+$templateFilePath="c:\mytemplates\linuxtemplateparm.json"
+
+New-AzureRmResourceGroup -Location $locName -Name $resourceGroup
+
+```
+Here is the equivalent CLI command to do the same. Change the values in the declare statements to appopriate values.
+
+```CLI
+
+declare subscriptionId="<guid>"
+declare password=""
+
+declare resourceGroupLocation="westus"
+declare resourceGroupName="mylinux"
+declare vaultResourceGroupName="myvaultrg"
+declare vaultName="myvault"
+declare keyvaultSubjectName="mylinuxsecure.westus.cloudapp.azure.com"
+declare parameterFilePath="c:\mytemplates\linuxtemplate.json"
+declare templateFilePath="c:\mytemplates\linuxtemplateparm.json"
+
+azure login
+azure account set $subscriptionId
+
+az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
+	--certificate-output-folder . --certificate-password $password  \
+	--certificate-subject-name $keyvaultSubjectName  \
+    --vault-name $vaultName --vault-resource-group $resourceGroupName  \
+    --template-file $templateFilePath --parameter-file $parametersFilePath
+
+```
+
 
 The following diagram illustrates the relationship between Azure Key Vault, a Service Fabric cluster, and the Azure resource provider that uses certificates stored in a key vault when it creates a cluster:
 
@@ -655,6 +731,7 @@ FabricClient and FabricGateway perform a mutual authentication. During Azure AD 
 
 <!-- Links -->
 [azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-classic-portal]: https://manage.windowsazure.com
