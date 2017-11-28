@@ -95,7 +95,7 @@ To configure and test Azure AD single sign-on with Trello, you need to complete 
 In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Trello application.
 
 >[!NOTE]
-    >You should get the **\<enterprise\>** slug from Trello. If you don't have the slug value, contact [Trello support team](mailto:support@trello.com) to get the slug for you enterprise.
+    >You should get the **\<enterprise\>** slug from Trello. If you don't have the slug value, contact [Trello support team](mailto:support@trello.com) to get the slug for your enterprise.
     > 
 
 **To configure Azure AD single sign-on with Trello, perform the following steps:**
