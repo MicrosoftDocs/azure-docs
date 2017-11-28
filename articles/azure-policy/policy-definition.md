@@ -84,13 +84,21 @@ For example, you could define a policy for a resource property to limit the loca
     "type": "array",
     "metadata": {
       "description": "The list of allowed locations for resources.",
-      "displayName": "Allowed locations"
+      "displayName": "Allowed locations",
+      "strongType": "location"
     }
   }
 }
 ```
 
 The type of a parameter can be either string or array. The metadata property is used for tools like the Azure portal to display user-friendly information.
+
+Within the metadata property you can use **strongType** to provide a multi-select list of options within the Azure portal.  Allowed values for **strongType** currently include:
+
+* `"location"`
+* `"resourceTypes"`
+* `"storageSkus"`
+* `"vmSKUs"`
 
 In the policy rule, you reference parameters with the following syntax:
 
