@@ -8,7 +8,7 @@ author: msebolt
 manager: timlt
 
 ms.author: v-masebo
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -75,26 +75,26 @@ An Azure Storage account is required to provide an endpoint to be used as an out
 2. Enter a name, choose **Edge** as the Hosting environment, and use the remaining default values.  Click **Create**.
 
     >[!NOTE]
-    >Currently, ASA jobs on IoT Edge aren't supported in the US West 2 region. 
+    >Currently, ASA jobs on IoT Edge aren't supported in the West US 2 region. 
 
-    ![ASA create][5]
+3. Go into the created job. Select **Inputs** then click **Add**.
 
-3. Go into the created job, under **Job Topology**, select **Inputs**, click **Add**.
+4. For the input alias enter `temperature`, set the source type to **Data stream**, and use defaults for the other parameters. Click **Create**.
 
-4. Enter name `temperature`, choose **Data stream** as the source type, and use defaults for the other parameters. Click **Create**.
+   ![ASA input](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-    ![ASA input][2]
+   > [!NOTE]
+   > Additional inputs can include IoT Edge specific endpoints.
 
-    > [!NOTE]
-    > Additional inputs can include IoT Edge specific endpoints.
+5. Select **Outputs** then click **Add**.
 
-5. Under **Job Topology**, select **Outputs**, click **Add**.
+6. For the output alias enter `alert`, and use defaults for the other parameters. Click **Create**.
 
-6. Enter name `alert` and use defaults. Click **Create**.
+   ![ASA output](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-    ![ASA output][3]
 
-7. Under **Job Topology**, select **Query**, and enter the following:
+7. Under **Job Topology**, select **Query**.
+8. Replace the default text with the following query:
 
     ```sql
     SELECT  
@@ -106,27 +106,30 @@ An Azure Storage account is required to provide an endpoint to be used as an out
     GROUP BY TumblingWindow(second,30) 
     HAVING Avg(machine.temperature) > 100
     ```
+9. Click **Save**.
 
 ## Deploy the job
 
 You are now ready to deploy the ASA job on your IoT Edge device.
 
 1. In the Azure portal, in your IoT hub, navigate to **IoT Edge (preview)** and open the details page for your IoT Edge device.
-1. Select **Set modules**, then select **Import Azure Service IoT Edge Module**.
-1. Select the subscription and the ASA Edge job that you created. Then select your storage account. Click **Save**.
-
-    ![set module][6]
-
+1. Select **Set modules**.
 1. If you previously deployed the tempSensor module on this device, it may autopopulate. If not, use the following steps to add that module:
    1. Click **Add IoT Edge Module**
    1. Enter `tempSensor` as the name, and `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` for the Image URL. 
    1. Leave the other settings unchanged, and click **Save**.
+1. To add your ASA Edge job, select **Import Azure Stream Analytics IoT Edge Module**.
+1. Select your subscription and the ASA Edge job that you created. 
+1. Select your subscription and the storage account that you created. Click **Save**.
+
+    ![set module][6]
+
+1. Copy the name that was automatically generated for your ASA module. 
 
     ![temperature module][11]
 
-1. Copy the name of the ASA module. Click **Next** to configure routes.
-
-1. Copy the following to **Routes**.  Replace _{moduleName}_ with the module name you copied:
+1. Click **Next** to configure routes.
+1. Copy the following to **Routes**.  Replace _{moduleName}_ with the module name that you copied:
 
     ```json
     {
@@ -143,7 +146,7 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
 1. In the **Review Template** step, click **Submit**.
 
-1. Return to the device details page and click **Refresh**.  You should see the new _{moduleName}_ module running along with the **IoT Edge agent** module and the **IoT Edge hub**.
+1. Return to the device details page and click **Refresh**.  You should see the new Stream Analytics module running along with the **IoT Edge agent** module and the **IoT Edge hub**.
 
     ![module output][7]
 
@@ -151,27 +154,15 @@ You are now ready to deploy the ASA job on your IoT Edge device.
 
 Now you can go to your IoT Edge device to check out the interaction between the ASA module and the tempSensor module.
 
-1. At a command prompt, configure the runtime with your IoT Edge device connection string:
+Check that all the modules are running in Docker:
 
-    ```cmd/sh
-    iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords  
-    ```
+   ```cmd/sh
+   docker ps  
+   ```
 
-1. Run the command to start the runtime:
+   ![docker output][8]
 
-    ```cmd/sh
-    iotedgectl start  
-    ```
-
-1. Run the command to see the modules running:
-
-    ```cmd/sh
-    docker ps  
-    ```
-
-    ![docker output][8]
-
-1. Run the command to see all system logs and metrics data. Use the module name from above:
+See all system logs and metrics data. Use the Stream Analytics module name:
 
     ```cmd/sh
     docker logs -f {moduleName}  
@@ -192,8 +183,6 @@ In this tutorial, you configured an Azure Storage container and a Streaming Anal
 
 <!-- Images. -->
 [1]: ./media/tutorial-deploy-stream-analytics/storage.png
-[2]: ./media/tutorial-deploy-stream-analytics/asa_input.png
-[3]: ./media/tutorial-deploy-stream-analytics/asa_output.png
 [4]: ./media/tutorial-deploy-stream-analytics/add_device.png
 [5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
 [6]: ./media/tutorial-deploy-stream-analytics/set_module.png
