@@ -55,7 +55,7 @@ Once the Azure Database for MySQL server is created, you can use the first serve
 
 3. Edit and run the following SQL code. Replace the placeholder value `db_user` with your intended new user name, and placeholder value `testdb` with your own database name.
 
-   This sql code syntax creates a new database named testdb for example purposes. Then it creates a new user in the MySQL service, and grants all privileges to the new database schema (testdb.*) for that user. 
+   This sql code syntax creates a new database named testdb for example purposes. Then it creates a new user in the MySQL service, and grants all privileges to the new database schema (testdb.\*) for that user. 
 
    ```sql
    CREATE DATABASE testdb;
@@ -74,7 +74,7 @@ Once the Azure Database for MySQL server is created, you can use the first serve
    SHOW GRANTS FOR 'db_user'@'%';
    ```
 
-5. Log in to the server, specifying the designated database, using the new user name and password. For example using mysql command line. You will be prompted for the password.
+5. Log in to the server, specifying the designated database, using the new user name and password. This example shows the mysql command line. With this command, you are prompted for the password for the user name. Replace your own server name, database name, and user name.
 
 ```azurecli-interactive
    mysql --host myserver4demo.mysql.database.azure.com --database testdb --user db_user@myserver4demo -p
