@@ -26,7 +26,7 @@ In this quickstart, an AKS cluster is deployed using the Azure portal. A multi-c
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-This quickstart assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation]( https://kubernetes.io/docs/home/).
+This quickstart assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation](https://kubernetes.io/docs/home/).
 
 ## Log in to Azure
 
@@ -34,17 +34,17 @@ Log in to the Azure portal at http://portal.azure.com
 
 ## Create service principal
 
-![Create service principal one](/media/container-service-walkthrough-portal/create-sp-one.png)
+![Create service principal one](media/container-service-walkthrough-portal/create-sp-one.png)
 
-![Create service principal two](/media/container-service-walkthrough-portal/create-sp-two.png)
+![Create service principal two](media/container-service-walkthrough-portal/create-sp-two.png)
 
-![Create service principal three](/media/container-service-walkthrough-portal/create-sp-three.png)
+![Create service principal three](media/container-service-walkthrough-portal/create-sp-three.png)
 
 ## Create AKS cluster
 
-![Create AKS cluster one](/media/container-service-walkthrough-portal/create-aks-portal-one.png)
+![Create AKS cluster one](media/container-service-walkthrough-portal/create-aks-portal-one.png)
 
-![Create AKS cluster two](/media/container-service-walkthrough-portal/create-aks-portal-two.png)
+![Create AKS cluster two](media/container-service-walkthrough-portal/create-aks-portal-two.png)
 
 ## Connect to the cluster
 
