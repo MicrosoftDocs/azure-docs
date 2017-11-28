@@ -116,7 +116,7 @@ Here's the JavaScript code:
 	}
 ```
 
-## Trigger - attributes for precompiled C#
+## Trigger - attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
@@ -375,7 +375,7 @@ module.exports = function (context, input) {
 };
 ```
 
-## Input - attributes for precompiled C#
+## Input - attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
@@ -631,7 +631,7 @@ module.exports = function (context) {
 };
 ```
 
-## Output - attributes for precompiled C#
+## Output - attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
