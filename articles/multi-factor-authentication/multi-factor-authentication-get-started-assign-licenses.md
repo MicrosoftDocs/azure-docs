@@ -39,4 +39,4 @@ If you have purchased Azure MFA, Azure AD Premium, or Enterprise Mobility Suite 
 
 ## Next steps
 
-- For more information, see [What is Microsoft Azure Active Directory licensing?](../active-directory/active-directory-licensing-what-is.md)
+- For more information, see [What is Microsoft Azure Active Directory licensing?](../active-directory/active-directory-licensing-whatis-azure-portal.md)

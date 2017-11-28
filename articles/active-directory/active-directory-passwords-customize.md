@@ -37,7 +37,7 @@ This email is sent to the following recipients in the following order:
 
 In all cases, a maximum of 100 recipients are notified.
 
-To find out more about the different administrator roles and how to assign them see the document [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md)
+To find out more about the different administrator roles and how to assign them see the document [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
 
 ### Disable contact your administrator emails
 

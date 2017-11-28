@@ -22,7 +22,7 @@ ms.author: mbullwin
 There are three recommended methods of exporting Application Insights data to Power BI. You can use them separately or together.
 
 * [**Power BI adapter**](#power-pi-adapter) - set up a complete dashboard of telemetry from your app. The set of charts is predefined, but you can add your own queries from any other sources.
-* [**Export Analytics queries**](#export-analytics-queries) - write any query you want using Analytics, and export it to Power BI. You can place this query on a dashboard along with any other data.
+* [**Export Analytics queries**](#export-analytics-queries) - write any query you want using Analytics or from the Usage Funnels, and export it to Power BI. You can place this query on a dashboard along with any other data.
 * [**Continuous export and Stream Analytics**](app-insights-export-stream-analytics.md) - This involves more work to set up. It is useful if you want to keep your data for long periods. Otherwise, the other methods are recommended.
 
 ## Power BI adapter
@@ -45,7 +45,7 @@ You can edit the dashboard, combining the Application Insights charts with those
 After the initial import, the dashboard and the reports continue to update daily. You can control the refresh schedule on the dataset.
 
 ## Export Analytics queries
-This route allows you to write any Analytics query you like, and then export that to a Power BI dashboard. (You can add to the dashboard created by the adapter.)
+This route allows you to write any Analytics query you like or export from Usage Funnels, and then export that to a Power BI dashboard. (You can add to the dashboard created by the adapter.)
 
 ### One time: install Power BI Desktop
 To import your Application Insights query, you use the desktop version of Power BI. But then you can publish it to the web or to your Power BI cloud workspace. 
@@ -79,10 +79,32 @@ Install [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Select visualization](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Refresh the report manually at intervals, or set up a scheduled refresh on the options page.
 
+### Export a Funnel
+1. [Make your Funnel](usage-funnels.md)
+2. Click on the Power BI Button 
+
+   ![PowerBI Button](./media/app-insights-export-power-bi/button.png)
+   
+3. In Power BI Desktop select **Get Data, Blank Query** and then  in the query editor, under **View** select **Advanced Query Editor**.
+
+   ![Blank Query](./media/app-insights-export-power-bi/blankquery.png)
+
+   Paste the exported M Language script into the Advanced Query Editor. 
+
+   ![Advanced Query Editor](./media/app-insights-export-power-bi/advancedquery.png)
+
+4. Select items from the query and choose Funnel visualization
+
+   ![Select sequence and Funnel](./media/app-insights-export-power-bi/selectsequence.png)
+
+5. Change the title to make it meaningful and publish your report to your Power BI cloud workspace. 
+
+   ![Change title](./media/app-insights-export-power-bi/changetitle.png)
+
 ## Troubleshooting
 
 ### 401 or 403 Unauthorized 
-This can happen if your refesh token has not been updated. Try these steps to ensure you still have access. If you do have access and refershing the credentials does not work, please open a support ticket.
+This can happen if your refresh token has not been updated. Try these steps to ensure you still have access. If you do have access and refreshing the credentials does not work, please open a support ticket.
 
 1. Log into the Azure Portal and make sure you can access the resource
 2. Try to refresh the credentials for the Dashboard

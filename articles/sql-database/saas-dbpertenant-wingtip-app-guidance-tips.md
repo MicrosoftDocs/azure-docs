@@ -1,0 +1,96 @@
+---
+title: "Guidance for SQL Database multi-tenant app example - Wingtip SaaS | Microsoft Docs"
+description: "Provides steps and guidance for installing and running the sample multi-tenant application that uses Azure SQL Database, the Wingtip SaaS example."
+keywords: "sql database tutorial"
+services: "sql-database"
+author: "MightyPen"
+manager: "craigg"
+
+ms.service: "sql-database"
+ms.custom: "scale out apps"
+ms.workload: "On Demand"
+ms.tgt_pltfrm: "na"
+ms.devlang: "na"
+ms.topic: "article"
+ms.date: "11/12/2017"
+ms.author: "genemi"
+---
+# Guidance and tips for Azure SQL Database multi-tenant SaaS app example
+
+
+## Download and unblock the Wingtip SaaS scripts
+
+Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the scripts from a zip file, ***follow the steps below to unblock the .zip file before extracting***. This ensures the scripts are allowed to run.
+
+1. Browse to [the Wingtip SaaS github repo](https://github.com/Microsoft/WingtipSaaS).
+2. Click **Clone or download**.
+3. Click **Download ZIP** and save the file.
+4. Right-click the **WingtipSaaS-master.zip** file, and select **Properties**.
+5. On the **General** tab, select **Unblock**.
+6. Click **OK**.
+7. Extract the files.
+
+Scripts are located in the *..\\WingtipSaaS-master\\Learning Modules* folder.
+
+
+## Working with the Wingtip SaaS PowerShell Scripts
+
+To get the most out of the sample you need to dive into the provided scripts. Use breakpoints and step through the scripts, examining the details of how the different SaaS patterns are implemented. To easily step through the provided scripts and modules for the best understanding, we recommend using the [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
+
+### Update the configuration file for your deployment
+
+Edit the **UserConfig.psm1** file with the resource group and user value that you set during deployment:
+
+1. Open the *PowerShell ISE* and load ...\\Learning Modules\\*UserConfig.psm1* 
+2. Update *ResourceGroupName* and *Name* with the specific values for your deployment (on lines 10 and 11 only).
+3. Save the changes!
+
+Setting these values here simply keeps you from having to update these deployment-specific values in every script.
+
+### Execute Scripts by pressing F5
+
+Several scripts use *$PSScriptRoot* to navigate folders, and *$PSScriptRoot* is only evaluated when scripts are executed by pressing **F5**.  Highlighting and running a selection (**F8**) can result in errors, so press **F5** when running scripts.
+
+### Step through the scripts to examine the implementation
+
+The best way to understand the scripts is by stepping through them to see what they do. Check out the included **Demo-** scripts that present an easy to follow high-level workflow. The **Demo-** scripts show the steps required to accomplish each task, so set breakpoints and drill deeper into the individual calls to see implementation details for the different SaaS patterns.
+
+Tips for exploring and stepping through PowerShell scripts:
+
+- Open **Demo-** scripts in the PowerShell ISE.
+- Execute or continue with **F5** (using **F8** is not advised because *$PSScriptRoot* is not evaluated when running selections of a script).
+- Place breakpoints by clicking or selecting a line and pressing **F9**.
+- Step over a function or script call using **F10**.
+- Step into a function or script call using **F11**.
+- Step out of the current function or script call using **Shift + F11**.
+
+
+## Explore database schema and execute SQL queries using SSMS
+
+Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect and browse the application servers and databases.
+
+The deployment initially has two SQL Database servers to connect to - the *tenants1-&lt;User&gt;* server, and the *catalog-&lt;User&gt;* server. To ensure a successful demo connection, both servers have a [firewall rule](sql-database-firewall-configure.md) allowing all IPs through.
+
+
+1. Open *SSMS* and connect to the *tenants1-&lt;User&gt;.database.windows.net* server.
+2. Click **Connect** > **Database Engine...**:
+
+   ![catalog server](media/saas-dbpertenant-wingtip-app-guidance-tips/connect.png)
+
+3. Demo credentials are: Login = *developer*, Password = *P@ssword1*
+
+   ![connection](media/saas-dbpertenant-wingtip-app-guidance-tips/tenants1-connect.png)
+
+4. Repeat steps 2-3 and connect to the *catalog-&lt;User&gt;.database.windows.net* server.
+
+
+After successfully connecting you should see both servers. Your list of databases might be different, depending on the tenants you have provisioned.
+
+![object explorer](media/saas-dbpertenant-wingtip-app-guidance-tips/object-explorer.png)
+
+
+
+## Next steps
+
+[Deploy the Wingtip SaaS application](saas-dbpertenant-get-started-deploy.md)
+

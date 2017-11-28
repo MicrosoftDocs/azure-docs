@@ -200,9 +200,9 @@
   - name: Multi-tenant SaaS
     items:
     - name: SaaS design patterns
-      href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+      href: saas-tenancy-app-design-patterns.md
     - name: SaaS app security
-      href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+      href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
   - name: Develop databases
     items:
     - name: JSON data
@@ -337,24 +337,30 @@
       href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Multi-tenant SaaS
     items:
-    - name: Tutorial intro
-      href: sql-database-wtp-overview.md
-    - name: Deploy example app
-      href: sql-database-saas-tutorial.md
-    - name: Provision tenants
-      href: sql-database-saas-tutorial-provision-and-catalog.md
-    - name: Monitor database performance
-      href: sql-database-saas-tutorial-performance-monitoring.md 
-    - name: Monitor with log analytics
-      href: sql-database-saas-tutorial-log-analytics.md 
-    - name: Restore single tenant
-      href: sql-database-saas-tutorial-restore-single-tenant.md 
-    - name: Manage tenant schema
-      href: sql-database-saas-tutorial-schema-management.md 
-    - name: Run ad-hoc queries
-      href: sql-database-saas-tutorial-adhoc-analytics.md 
-    - name: ETL for analysis
-      href: sql-database-saas-tutorial-tenant-analytics.md 
+    - name: Welcome to Wingtips
+      href: saas-tenancy-welcome-wingtip-tickets-app.md
+    - name: Database per tenant
+      items:
+      - name: Tutorial intro
+        href: saas-dbpertenant-wingtip-app-overview.md
+      - name: App guidance
+        href: saas-dbpertenant-wingtip-app-guidance-tips.md
+      - name: Deploy example app
+        href: saas-dbpertenant-get-started-deploy.md
+      - name: Provision tenants
+        href: saas-dbpertenant-provision-and-catalog.md
+      - name: Monitor database performance
+        href: saas-dbpertenant-performance-monitoring.md
+      - name: Monitor with log analytics
+        href: saas-dbpertenant-log-analytics.md
+      - name: Restore one tenant
+        href: saas-dbpertenant-restore-single-tenant.md
+      - name: Manage tenant schema
+        href: saas-tenancy-schema-management.md
+      - name: Run ad-hoc queries
+        href: saas-tenancy-adhoc-analytics.md
+      - name: ETL for analysis
+        href: saas-tenancy-tenant-analytics.md
   - name: Develop apps
     items:
     - name: C and C ++

@@ -29,7 +29,7 @@ Before getting started, you need to do the following:
 
 * Get a Visual Studio Team Services account. You can get one for free at [Visual Studio Team Services](https://www.visualstudio.com).
 * Get and install Visual Studio 2013 or Visual Studio 2015. This article uses Visual Studio 2015 Enterprise edition, but Visual Studio 2013 and other editions should work similarly.
-* Deploy your application to a staging environment. See [How to deploy applications to a remote cluster using Visual Studio](service-fabric-publish-app-remote-cluster.md) for information about this.
+* Deploy your application to a staging environment. See [How to deploy applications to a remote cluster using Visual Studio](service-fabric-manage-application-in-visual-studio.md) for information about this.
 * Understand your application’s usage pattern. This information is used to simulate the load pattern.
 * Understand the goal for your load testing. This helps you interpret and analyze the load test results.
 
