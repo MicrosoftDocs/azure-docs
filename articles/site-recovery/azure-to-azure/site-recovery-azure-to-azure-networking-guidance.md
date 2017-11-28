@@ -180,4 +180,4 @@ Follow these best practices for ExpressRoute configuration:
  > If the primary region is completely down, the disconnect operation can fail. That will prevent the target virtual network from getting ExpressRoute connectivity.
 
 ## Next steps
-Start protecting your workloads by [replicating Azure virtual machines]azure-to-azure-quickstart.md).
+Start protecting your workloads by [replicating Azure virtual machines](azure-to-azure-quickstart.md).
