@@ -32,7 +32,7 @@ While both queuing technologies exist concurrently, Storage queues were introduc
 ## Technology selection considerations
 Both Storage queues and Service Bus queues are implementations of the message queuing service currently offered by Microsoft Azure. Each has a slightly different feature set, which means you can choose one or the other, or use both, depending on the needs of your particular solution or business/technical problem you are solving.
 
-When determining which queuing technology fits the purpose for a given solution, solution architects and developers should consider the recommendations below. For more details, see the next section.
+When determining which queuing technology fits the purpose for a given solution, solution architects and developers should consider these recommendations. For more details, see the next section.
 
 As a solution architect/developer, **you should consider using Storage queues** when:
 
@@ -86,7 +86,7 @@ This section compares some of the fundamental queuing capabilities provided by S
 * Service Bus queues provide support for local transactions in the context of a single queue.
 * The **Receive and Delete** mode supported by Service Bus provides the ability to reduce the messaging operation count (and associated cost) in exchange for lowered delivery assurance.
 * Storage queues provide leases with the ability to extend the leases for messages. This allows the workers to maintain short leases on messages. Thus, if a worker crashes, the message can be quickly processed again by another worker. In addition, a worker can extend the lease on a message if it needs to process it longer than the current lease time.
-* Storage queues offer a visibility timeout that you can set upon the enqueueing or dequeuing of a message. In addition, you can update a message with different lease values at run-time, and update different values across messages in the same queue. Service Bus lock timeouts are defined in the queue metadata; however, you can renew the lock by calling the [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) method.
+* Storage queues offer a visibility timeout that you can set upon the enqueuing or dequeuing of a message. In addition, you can update a message with different lease values at run-time, and update different values across messages in the same queue. Service Bus lock timeouts are defined in the queue metadata; however, you can renew the lock by calling the [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) method.
 * The maximum timeout for a blocking receive operation in Service Bus queues is 24 days. However, REST-based timeouts have a maximum value of 55 seconds.
 * Client-side batching provided by Service Bus enables a queue client to batch multiple messages into a single send operation. Batching is only available for asynchronous send operations.
 * Features such as the 200 TB ceiling of Storage queues (more when you virtualize accounts) and unlimited queues make it an ideal platform for SaaS providers.
@@ -129,7 +129,7 @@ This section compares Storage queues and Service Bus queues from the perspective
 | Comparison Criteria | Storage queues | Service Bus Queues |
 | --- | --- | --- |
 | Maximum queue size |**500 TB**<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |**1 GB to 80 GB**<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section) |
-| Maximum message size |**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200GB for a single item. |**256 KB** or **1 MB**<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
+| Maximum message size |**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |**256 KB** or **1 MB**<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
 | Maximum message TTL |**7 days** |**TimeSpan.Max** |
 | Maximum number of queues |**Unlimited** |**10,000**<br/><br/>(per service namespace) |
 | Maximum number of concurrent clients |**Unlimited** |**Unlimited**<br/><br/>(100 concurrent connection limit only applies to TCP protocol-based communication) |
