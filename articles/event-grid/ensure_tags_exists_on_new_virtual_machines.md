@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date:11/28/2017
+ms.date: 11/28/2017
 ms.author: eamono
 
 ---
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, the following are required.
 + Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-+ [Automation account](automation-offering-get-started.md) to hold the runbook that is triggered from the event grid subscription.
++ [Automation account](../automation/automation-offering-get-started.md) to hold the runbook that is triggered from the event grid subscription.
 
 ## Import an Automation runbook that adds a tag to a new virtual machine and sends a notification to Microsoft Teams
 1.	Open the Automation account, and click on the Runbooks page.
