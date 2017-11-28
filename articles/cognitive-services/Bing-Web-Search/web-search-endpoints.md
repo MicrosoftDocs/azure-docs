@@ -2,7 +2,7 @@
 title: Web search endpoint | Microsoft Docs
 description: Summary of the Web search API endpoint.
 services: cognitive-services
-author: v-gedod
+author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
 ms.technology: bing-web-search
