@@ -55,7 +55,15 @@ Visual Studio Code provides local development experience covering all major plat
 
 ### Prerequisites
 
-* Install the [latest version of Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 or greater). Include the Azure tools in your setup options.
+* Install the [latest version of Visual Studio Code](https://code.visualstudio.com/Download) 
+
+* Follow the instructions under "Install the Azure Functions Core Tools" at [Code and test Azure Functions locally](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
+
+>[!IMPORTANT]
+> If you already have the Azure Functions Cross Platform Tools, please be sure to update them to the latest available version.
+
+* On Windows install [Azure Storage Emulator](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) and for Mac create storage account on Azure 
+
 
 ### Start with sample functions
 
