@@ -6,7 +6,7 @@ keywords:
 documentationcenter: ''
 author: barlanmsft
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory

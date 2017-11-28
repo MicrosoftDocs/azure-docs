@@ -133,6 +133,8 @@
     href: distribute-data-globally.md
   - name: Partitioning
     href: partition-data.md
+  - name: Unique keys
+    href: unique-keys.md
   - name: Consistency
     href: consistency-levels.md
   - name: Throughput
