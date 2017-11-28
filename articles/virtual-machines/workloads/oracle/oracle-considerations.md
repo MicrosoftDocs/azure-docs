@@ -11,14 +11,14 @@ ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 011/28/2017
 ms.author: rclaus
 
 ---
 # Oracle solutions and their deployment on Microsoft Azure
-This article covers information required to succesfully deploy various Oracle solutions on Microsoft Azure. These solutions are based on Virtual Machine images published by Oracle in the Azure Marketplace. To get a list of currently available images, run the following command:
+This article covers information required to successfully deploy various Oracle solutions on Microsoft Azure. These solutions are based on Virtual Machine images published by Oracle in the Azure Marketplace. To get a list of currently available images, run the following command:
 ```azurecli-interactive
 az vm image list --publisher oracle -o table --all
 ```
@@ -43,7 +43,7 @@ These images are considered "Bring Your Own License" and as such you will only b
 Individuals can also choose to base their solutions on custom images they create from scratch in Azure or upload a custom images from their on premises environments.
 
 ## Support for JD Edwards
-According to Oracle Support note [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4) , JD Edwards EnterpriseOne verions 9.2 and above are supported on **any public cloud offering** that meets their specific `Minimum Technical Requirements` (MTR).  You will need to create custom images that meet their MTR specifications for OS and software application compatability. 
+According to Oracle Support note [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4) , JD Edwards EnterpriseOne verions 9.2 and above are supported on **any public cloud offering** that meets their specific `Minimum Technical Requirements` (MTR).  You will need to create custom images that meet their MTR specifications for OS and software application compatibility. 
 
 ## Oracle Database virtual machine images
 Oracle supports running Oracle DB 12.1 Standard and Enterprise editions in Azure on virtual machine images based on Oracle Linux.  For the best performance for production workloads of Oracle DB on Azure, be sure to properly size the VM image and use Managed Disks that are backed by Premium Storage. For instructions on how to quickly get an Oracle DB up and running in Azure using the Oracle published VM image, [try the Oracle DB Quickstart walkthrough](oracle-database-quick-create.md).
@@ -52,8 +52,8 @@ Oracle supports running Oracle DB 12.1 Standard and Enterprise editions in Azure
 
 Attached disks rely on the Azure Blob storage service. Each standard disk is capable of a theoretical maximum of approximately 500 input/output operations per second (IOPS). Our premium disk offering is preferred for high performance database workloads and can achieve up to 5000 IOps per disk. While you can use a single disk if that meets your performance needs - you can improve the effective IOPS performance if you use multiple attached disks, spread database data across them, and then use Oracle Automatic Storage Management (ASM). See [Oracle Automatic Storage overview](http://www.oracle.com/technetwork/database/index-100339.html) for more Oracle ASM specific information. For an example of how to install and configure Oracle ASM on a Linux Azure VM - you can try the [Installing and Configuring Oracle Automated Storage Management](configure-oracle-asm.md) tutorial.
 
-### Oracle Realtime Application Cluster (RAC)
-Oracle RAC is designed to mitigate the failure of a single node in an on-premises multi-node cluster configuration.  It relies on two on-premises technologies which are not native to hyper-scale public cloud environments: network multi-cast and shared disk. There are third party solutions created by companies [such as FlashGrid](https://www.flashgrid.io/oracle-rac-in-azure/) that emulate these technologies if you need to deploy Oracle RAC in Azure. 
+### Oracle Real Application Cluster (RAC)
+Oracle RAC is designed to mitigate the failure of a single node in an on-premises multi-node cluster configuration. It relies on two on-premises technologies which are not native to hyper-scale public cloud environments: network multi-cast and shared disk. If your database solution requires Oracle RAC in Azure, you will need 3rd party software to enable these technologies.  A **Microsoft Azure Certified** offering called [FlashGrid Node for Oracle RAC](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-racnode?tab=Overview) is available in the Azure Marketplace, published by FlashGrid Inc. For more information please see the [FlashGrid solution page](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ### High availability and disaster recovery considerations
 When using Oracle Databases in Azure, you are responsible for implementing a high availability and disaster recovery solution to avoid any downtime. 
@@ -64,9 +64,9 @@ We have a tutorial "[Implement Oracle DataGuard on Azure](configure-oracle-datag
 
 With Oracle Data Guard, high availability can be achieved with a primary database in one virtual machine, a secondary (standby) database in another virtual machine, and one-way replication set up between them. The result is read access to the copy of the database. With Oracle GoldenGate, you can configure bi-directional replication between the two databases. To learn how to set up a high-availability solution for your databases using these tools, see [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) and [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) documentation at the Oracle website. If you need read-write access to the copy of the database, you can use [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
-We have a tutorial "[Implement Oracle GoldenGate on Azure](configure-oracle-golden-gate.md)" which walks you through the basic seup procedure to trial this on Azure.
+We have a tutorial "[Implement Oracle GoldenGate on Azure](configure-oracle-golden-gate.md)" which walks you through the basic setup procedure to trial this on Azure.
 
-Despite having an HA and DR solution architected in Azure, you will want to ensure you have a backup strategy in place to restore your database.  We have a tutorial [Backup and recover an Oracle Database](oracle-backup-recovery.md) which walks you through the basic procedure for establishing a consistant backup.
+Despite having an HA and DR solution architected in Azure, you will want to ensure you have a backup strategy in place to restore your database.  We have a tutorial [Backup and recover an Oracle Database](oracle-backup-recovery.md) which walks you through the basic procedure for establishing a consistent backup.
 
 ## Oracle WebLogic Server virtual machine images
 * **Clustering is supported on Enterprise Edition only.** You are licensed to use WebLogic clustering only when using the Enterprise Edition of WebLogic Server. Do not use clustering with WebLogic Server Standard Edition.
