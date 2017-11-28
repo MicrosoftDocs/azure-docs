@@ -170,11 +170,11 @@ Now that you've started running a load against the collection of tenants, let’
 
 If the load generator has been running for several minutes, enough data should be available to start looking at some of the monitoring capabilities built into pools and databases.
 
-1. Browse to the server **tenants1-dpt-&lt;USER&gt;**, and click **Pool1** to view resource utilization for the pool (the load generator ran for an hour in the following charts):
+Browse to the server **tenants1-dpt-&lt;USER&gt;**, and click **Pool1** to view resource utilization for the pool (the load generator ran for an hour in the following charts):
 
    ![monitor pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
-The upper chart shows pool eDTU utilization, while the bottom chart shows eDTU utiization of the top 5 databases in the pool.  What these two charts nicely illustrate, is how well suited elastic pools and SQL Database are for SaaS application workloads. Four databases that are each bursting to as much as 40 eDTUs are easily being supported in a 50 eDTU pool. If they were provisioned as standalone databases, they would each need to be an S2 (50 DTU) to support the bursts. The cost of 4 standalone S2 databases would be nearly 3 times the price of the pool, and the pool still has plenty of headroom for many more databases. In real-world situations, SQL Database customers are currently running up to 500 databases in 200 eDTU pools. For more information, see the [performance monitoring tutorial](saas-dbpertenant-performance-monitoring.md).
+The upper chart shows pool eDTU utilization, while the bottom chart shows eDTU utilization of the top 5 databases in the pool.  What these two charts nicely illustrate, is how well suited elastic pools and SQL Database are for SaaS application workloads. Four databases that are each bursting to as much as 40 eDTUs are easily being supported in a 50 eDTU pool. If they were provisioned as standalone databases, they would each need to be an S2 (50 DTU) to support the bursts. The cost of 4 standalone S2 databases would be nearly 3 times the price of the pool, and the pool still has plenty of headroom for many more databases. In real-world situations, SQL Database customers are currently running up to 500 databases in 200 eDTU pools. For more information, see the [performance monitoring tutorial](saas-dbpertenant-performance-monitoring.md).
 
 
 ## Next steps
