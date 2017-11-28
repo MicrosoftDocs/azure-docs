@@ -16,12 +16,15 @@ The **Bing** APIs support search actions that return various kinds of results. T
 
 All search endpoints return results as JSON response objects.  All endpoints support queries that return results in a specific language and/or location by longitude, latitude, and search radius. For complete information about the parameters supported by each endpoint, see the [Search API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-news-api-v7-reference).
 
+##Endpoint
 To request Web search results using the Bing API send the following `GET` request with headers and URL parameters as needed: 
 
 Endpoint: https://api.cognitive.microsoft.com/bing/v7.0/search
 
+##Response JSON
 The response to a **Bing Web search** request includes all types of results. Parsing the various types will require different procedures for each type. See the [tutorial](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app) and [source code](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app-source) for examples.
 
-For examples of basic requests, see [Search the web](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web).
+##Next steps
+For examples of basic requests, see [Search the Web Quick-starts](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web).
 For the details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Web API v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) reference.
 
