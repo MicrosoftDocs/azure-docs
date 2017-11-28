@@ -1,5 +1,5 @@
 - name: LUIS Documentation
-  href: ../index.md
+  href: index.yml
 - name: Overview
   items: 
   - name: Learn about Language Understanding Intelligent Service

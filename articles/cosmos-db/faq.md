@@ -191,9 +191,11 @@ There are some behavior differences that users coming from Azure Table storage w
 * Azure Cosmos DB Table API uses a reserved capacity model in order to ensure guaranteed performance but this means that one pays for the capacity as soon as the table is created, even if the capacity isn't being used. With Azure Table storage one only pays for capacity that is actually used. This helps to explain why Table API can offer a 10 ms read and 15 ms write SLA at the 99th percentile while Azure Table storage offers a 10 second SLA. But as a consequence, with Table API tables, even empty tables without any requests, cost money in order to ensure the capacity is available to handle any requests to them at the SLA offered by Azure Cosmos DB.
 * Query results returned by the Table API are not sorted in partition key/row key order as they are in Azure Table storage.
 * Row keys can only be up to 255 bytes
+* Batches can only contain up to 2 MBs
 * CreateIfNotExists calls are throttled by a management throttle that is fixed and separate from other table operations that are covered by RUs. This means that those making large numbers of CreateIfNotExists get throttled and won't be able to do anything about it because the limit is not coming from their RUs.
 * CORS is not currently supported
 * Table names in Azure Table storage are not case-sensitive, but they are in Azure Cosmos DB Table API
+* Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full 1 Meg of a table entity to store binary data because the encoding increases the data's size.
 
 In terms of the REST API there are a number of endpoints/query options that are not supported by Azure Cosmos DB Table API:
 | Rest Method(s) | Rest Endpoint/Query Option | Doc URLs | Explanation |
@@ -430,7 +432,7 @@ You can elastically change throughput to benefit from the seasonality of your ap
 The throughput concept is explained in the [Request Units in Azure Cosmos DB](request-units.md) article. The throughput for a table is distributed across the underlying physical partitions equally.  
 
 ### What is the default RU/s of table when created through CQL? What If I need to change it?
-Azure Cosmos DB uses request units per second (RU/s) as a currency for providing throughput. Tables created through CQL have 400 RU. You can change the RU from the portal to 10,000 RU. If you need more than 10,000 RU in private preview - you can create it first from portal. Or if you want this capability for CQL - please connect with us on [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com). 
+Azure Cosmos DB uses request units per second (RU/s) as a currency for providing throughput. Tables created through CQL have 400 RU. You can change the RU from the portal. 
 
 CQL
 ```

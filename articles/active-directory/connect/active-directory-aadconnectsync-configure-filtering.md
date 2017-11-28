@@ -293,7 +293,14 @@ Now it's time to enable the scheduler again.
 ## Group-based filtering
 You can configure group-based filtering the first time that you install Azure AD Connect by using [custom installation](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). It's intended for a pilot deployment where you want only a small set of objects to be synchronized. When you disable group-based filtering, it can't be enabled again. It's *not supported* to use group-based filtering in a custom configuration. It's only supported to configure this feature by using the installation wizard. When you've completed your pilot, then use one of the other filtering options in this topic. When using OU-based filtering in conjunction with group-based filtering, the OU(s) where the group and its members are located must be included.
 
-When synchronizing multiple AD forests, you can configure group-based filtering by specifying a different group for each AD connector. If you wish to synchronize a user in one AD forest and the same user has one or more corresponding FSP (Foreign Security Principal) objects in other AD forests, you must ensure that the user object and all its corresponding FSP objects are within group-based filtering scope. If one or more of the FSP objects are excluded by group-based filtering, the user object will not be synchronized to Azure AD.
+When synchronizing multiple AD forests, you can configure group-based filtering by specifying a different group for each AD connector. If you wish to synchronize a user in one AD forest and the same user has one or more corresponding objects in other AD forests, you must ensure that the user object and all its corresponding objects are within group-based filtering scope. For examples:
+
+* You have a user in one forest that has a corresponding FSP (Foreign Security Principal) object in another forest. Both objects must be within group-based filtering scope. Otherwise, the user will not be synchronized to Azure AD.
+
+* You have a user in one forest that has a corresponding resource account (e.g., linked mailbox) in another forest. Further, you have configured Azure AD Connect to link the user with the resource account. Both objects must be within group-based filtering scope. Otherwise, the user will not be synchronized to Azure AD.
+
+* You have a user in one forest that has a corresponding mail contact in another forest. Further, you have configured Azure AD Connect to link the user with the mail contact. Both objects must be within group-based filtering scope. Otherwise, the user will not be synchronized to Azure AD.
+
 
 ## Next steps
 - Learn more about [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
