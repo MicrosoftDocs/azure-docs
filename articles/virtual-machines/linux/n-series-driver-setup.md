@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 11/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -31,177 +31,7 @@ For N-series VM specs, storage capacities, and disk details, see [GPU Linux VM s
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## Install GRID drivers for NV VMs
-
-To install NVIDIA GRID drivers on NV VMs, make an SSH connection to each VM and follow the steps for your Linux distribution. 
-
-### Ubuntu 16.04 LTS
-
-1. Run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
-
-2. Install updates.
-
-  ```bash
-  sudo apt-get update
-
-  sudo apt-get upgrade -y
-
-  sudo apt-get dist-upgrade -y
-
-  sudo apt-get install build-essential ubuntu-desktop -y
-  ```
-3. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
-
-  ```
-  blacklist nouveau
-
-  blacklist lbm-nouveau
-  ```
-
-
-4. Reboot the VM and reconnect. Exit X server:
-
-  ```bash
-  sudo systemctl stop lightdm.service
-  ```
-
-5. Download and install the GRID driver:
-
-  ```bash
-  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
-
-  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
-
-  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
-  ``` 
-
-6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
-
-7. After installation completes, copy /etc/nvidia/gridd.conf.template to a new file gridd.conf at location /etc/nvidia/
-
-  ```bash
-  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
-  ```
-
-8. Add the following to `/etc/nvidia/gridd.conf`:
- 
-  ```
-  IgnoreSP=TRUE
-  ```
-9. Reboot the VM and proceed to verify the installation.
-
-
-### CentOS-based 7.3 or Red Hat Enterprise Linux 7.3
-
-> [!IMPORTANT]
-> Do not run `sudo yum update` to update the kernel version on CentOS 7.3 or Red Hat Enterprise Linux 7.3. Currently, driver installation and updates do not work if the kernel is updated.
->
-
-1. Update the kernel and DKMS.
- 
-  ```bash  
-  sudo yum update
- 
-  sudo yum install kernel-devel
- 
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
- 
-  sudo yum install dkms
-  ```
-
-2. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
-
-  ```
-  blacklist nouveau
-
-  blacklist lbm-nouveau
-  ```
- 
-3. Reboot the VM, reconnect, and install the latest Linux Integration Services for Hyper-V:
- 
-  ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
-
-  tar xvzf lis-rpms-4.2.3.tar.gz
-
-  cd LISISO
-
-  sudo ./install.sh
-
-  sudo reboot
-
-  ```
- 
-4. Reconnect to the VM and run the `lspci` command. Verify that the NVIDIA M60 card or cards are visible as PCI devices.
- 
-5. Download and install the GRID driver:
-
-  ```bash
-  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
-
-  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
-
-  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
-  ``` 
-6. When you're asked whether you want to run the nvidia-xconfig utility to update your X configuration file, select **Yes**.
-
-7. After installation completes, copy /etc/nvidia/gridd.conf.template to a new file gridd.conf at location /etc/nvidia/
-  
-  ```bash
-  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
-  ```
-  
-8. Add the following to `/etc/nvidia/gridd.conf`:
- 
-  ```
-  IgnoreSP=TRUE
-  ```
-9. Reboot the VM and proceed to verify the installation.
-
-### Verify driver installation
-
-
-To query the GPU device state, SSH to the VM and run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
-
-Output similar to the following appears. Your driver version and GPU details may be different from the ones shown.
-
-![NVIDIA device status](./media/n-series-driver-setup/smi-nv.png)
- 
-
-### X11 server
-If you need an X11 server for remote connections to an NV VM, [x11vnc](http://www.karlrunge.com/x11vnc/) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the xconfig file (`etc/X11/xorg.conf` on Ubuntu 16.04 LTS, `/etc/X11/XF86config` on CentOS 7.3 or Red Hat Enterprise Server 7.3). Add a `"Device"` section similar to the following:
- 
-```
-Section "Device"
-    Identifier     "Device0"
-    Driver         "nvidia"
-    VendorName     "NVIDIA Corporation"
-    BoardName      "Tesla M60"
-    BusID          "your-BusID:0:0:0"
-EndSection
-```
- 
-Additionally, update your `"Screen"` section to use this device.
- 
-The BusID can be found by running
-
-```bash
-/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
-```
- 
-The BusID can change when a VM gets reallocated or rebooted. Therefore, you may want to use a script to update the BusID in the X11 configuration when a VM is rebooted. For example:
-
-```bash 
-#!/bin/bash
-BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
-
-if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
-```
-
-This file can be invoked as root on boot by creating an entry for it in `/etc/rc.d/rc3.d`.
-
-
-## Install CUDA drivers for NC VMs
+## Install CUDA drivers for NC, NCv2, and ND VMs
 
 Here are steps to install NVIDIA drivers on Linux NC VMs from the NVIDIA CUDA Toolkit. 
 
@@ -331,13 +161,13 @@ Output similar to the following appears:
 
 
 
-## RDMA network for NC24r VMs
+## RDMA network connecity
 
-RDMA network connectivity can be enabled on NC24r VMs deployed in the same availability set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI 5.x or a later version. Additional requirements follow:
+RDMA network connectivity can be enabled on RDMA-capable N-series VMs such as NC24r deployed in the same availability set. The RDMA network supports Message Passing Interface (MPI) traffic for applications running with Intel MPI 5.x or a later version. Additional requirements follow:
 
 ### Distributions
 
-Deploy NC24r VMs from one of the following images in the Azure Marketplace that supports RDMA connectivity:
+Deploy RDMA-capable N-series VMs from one of the following images in the Azure Marketplace that supports RDMA connectivity:
   
 * **Ubuntu** - Ubuntu Server 16.04 LTS. Configure RDMA drivers on the VM and register with Intel to download Intel MPI:
 
@@ -350,13 +180,9 @@ Deploy NC24r VMs from one of the following images in the Azure Marketplace that 
 
 * There is a known issue with CUDA drivers on Azure N-series VMs running the 4.4.0-75 Linux kernel on Ubuntu 16.04 LTS. If you are upgrading from an earlier kernel version, upgrade to at least kernel version 4.4.0-77.
 
-* You can set persistence mode using `nvidia-smi` so the output of the command is faster when you need to query cards. To set persistence mode, execute `nvidia-smi -pm 1`. Note that if the VM is restarted, the  mode setting will go away. You can always script the mode setting to execute upon startup.
+* You can set persistence mode using `nvidia-smi` so the output of the command is faster when you need to query cards. To set persistence mode, execute `nvidia-smi -pm 1`. Note that if the VM is restarted, the mode setting goes away. You can always script the mode setting to execute upon startup.
 
 
 ## Next steps
-
-* For more information about the NVIDIA GPUs on the N-series VMs, see:
-    * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (for Azure NC VMs)
-    * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (for Azure NV VMs)
 
 * To capture a Linux VM image with your installed NVIDIA drivers, see [How to generalize and capture a Linux virtual machine](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

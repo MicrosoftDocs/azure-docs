@@ -1,5 +1,5 @@
 
-GPU optimized VM sizes are specialized virtual machines targeted for heavy graphic rendering and video editing. They are available with single or multiple NVIDIA GPUs. This article provides information about the number and type of GPUs, vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for each size in this grouping. 
+GPU optimized VM sizes are specialized virtual machines available with single or multiple NVIDIA GPUs, designed for compute-intensive, graphics-intensive, and visualization workloads. This article provides information about the number and type of GPUs, vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for each size in this grouping. 
 
 * **NC, NCv2, and ND** sizes are optimized for compute-intensive and network-intensive applications and algorithms, including CUDA- and OpenCL-based applications and simulations, AI, and Deep Learning. 
 * **NV** sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios utilizing frameworks such as OpenGL and DirectX.  
@@ -7,7 +7,7 @@ GPU optimized VM sizes are specialized virtual machines targeted for heavy graph
 
 ## NC instances
 
-The NC instances are powered by NVIDIA’s Tesla K80 card. Users can crunch through data faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The Tesla K80 delivers 4992 CUDA cores with a dual-GPU design, up to 2.91 Teraflops of double-precision and up to 8.93 Teraflops of single-precision performance.
+The NC instances are powered by the [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf) card. Users can crunch through data faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The NC24r configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
@@ -22,7 +22,7 @@ The NC instances are powered by NVIDIA’s Tesla K80 card. Users can crunch thro
 
 ## NCv2 instances
 
-NCv2 instance are the next generation of the popular NC-series machines, powered by NVIDIA Tesla P100 GPUs based on the Pascal architecture. These GPUs can provide more than 2x the computational performance of the current NC-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. Like the NC-series, the NCv2-series offers a configuration that provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
+NCv2 instance are the next generation of the NC-series machines, powered by [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPUs. These GPUs can provide more than 2x the computational performance of the current NC-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. Like the NC-series, the NCv2-series offers a configuration with a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
@@ -37,7 +37,7 @@ NCv2 instance are the next generation of the popular NC-series machines, powered
 
 ## ND instances
 
-The ND-series virtual machines are a new addition to the GPU family specifically designed for AI and Deep Learning workloads. They offer excellent performance for training and inference. ND instances are powered by NVIDIA Tesla P40 GPUs based on the Pascal architecture. These instances provide excellent performance for single-precision floating point operations, for AI workloads utilizing Microsoft Cognitive Toolkit, TensorFlow, Caffe, and other frameworks. The ND-series also offers a much larger GPU memory size (24 GB), enabling to fit much larger neural net models. Like the NC-series, the ND-series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
+The ND-series virtual machines are a new addition to the GPU family specifically designed for AI and Deep Learning workloads. They offer excellent performance for training and inference. ND instances are powered by [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs. These instances provide excellent performance for single-precision floating point operations, for AI workloads utilizing Microsoft Cognitive Toolkit, TensorFlow, Caffe, and other frameworks. The ND-series also offers a much larger GPU memory size (24 GB), enabling to fit much larger neural net models. Like the NC-series, the ND-series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
@@ -55,7 +55,7 @@ The ND-series virtual machines are a new addition to the GPU family specifically
 
 
 
-The NV instances are powered by NVIDIA’s Tesla M60 GPU card and NVIDIA GRID for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. The Tesla M60 delivers 4096 CUDA cores in a dual-GPU design with up to 36 streams of 1080p H.264. 
+The NV instances are powered by [NVIDIA Tesla M60 ](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
