@@ -44,7 +44,7 @@ The Azure Functions Runtime Preview Installer guides you through the installatio
 
     ![Azure Functions Runtime Preview Installer][1]
 
-1. Click **Next** advance past the first stage of the setup.
+1. Click **Next**.
 1. Once you have read the terms of the **EULA**, **check the box** to accept the terms and click **Next** to advance.
 1. Now select the roles you want to install on this machine **Functions Management Role** and/or **Functions Worker Role** and click **Next**.
 
@@ -53,8 +53,8 @@ The Azure Functions Runtime Preview Installer guides you through the installatio
     > [!NOTE]
     > You can install the **Functions Worker Role** on many other machines. To do so, follow these instructions, and only select **Functions Worker Role** in the installer.
 
-1. Click **Next** to have the **Azure Functions Runtime Setup** begin the installation process on your machine.
-1. Once complete, the setup wizard will launch the **Azure Functions Runtime configuration tool**.
+1. Click **Next** to have the **Azure Functions Runtime Setup Wizard** begin the installation process on your machine.
+1. Once complete, the setup wizard will launch the **Azure Functions Runtime** configuration tool.
 
     ![Azure Functions Runtime Preview Installer Complete][5]
 
@@ -65,7 +65,7 @@ The Azure Functions Runtime Preview Installer guides you through the installatio
 
 To complete the Azure Functions Runtime installation you must complete the configuration.
 
-1. The **Azure Functions Runtime configuration tool** shows which roles are installed on your machine.
+1. The **Azure Functions Runtime** configuration tool shows which roles are installed on your machine.
 
     ![Azure Functions Runtime Preview Configuration Tool][6]
 
