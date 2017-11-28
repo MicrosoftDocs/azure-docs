@@ -48,7 +48,7 @@ The following steps illustrate how to view the contents of an ADLS account withi
      ![main pane](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-toolbar-mainpane.png) 
 
 ## Manage resources in Azure Storage Explorer
-Once you've created an Azure Data Lake Store account, you can upload folders and files, download resources to your local computer, open on your local computer. And you can pin to quick access, new folder, copy URL, select All. In addition, you are able to copy, paste, rename, delete, folder statistics, refresh.
+Once you've created an Azure Data Lake Store account, you can upload folders and files, download and open resources on your local computer. And you can pin to quick access, new folder, copy URL, select All. In addition, you are able to copy, paste, rename, delete, folder statistics, refresh.
 
 The following items illustrate how to manage resources within an Azure Data Lake Store account. Follow these steps depending on the task you wish to perform:
    * **Upload files**
@@ -78,7 +78,7 @@ The following items illustrate how to manage resources within an Azure Data Lake
 
      1. Select the folders or files you wish to download.
      2. On the main pane's toolbar, select **Download**.
-     3. In the **Select a folder to save the downloaded files into** dialog or **Specify where to save the downloaded file** dialog, specify the location where you want folders or files downloaded , and the name you wish to give it.  
+     3. In the **Select a folder to save the downloaded files into** dialog, specify the location where you want folders or files downloaded and the name you wish to give it.
      4. Select **Save**.
    * **Open folder or file on your local computer**
 
@@ -94,7 +94,7 @@ The following items illustrate how to manage resources within an Azure Data Lake
 
       > [!NOTE] 
           > + Copy/Paste across storage type **is not** supported. You can copy ADLS folders or files and paste to another ADLS account. But you **cannot** copy ADLS folders or files and paste to blob storage or the other way around. 
-          > + The Copy-Paste works by downloading the folders or files to local and then upload to the destination. The tool **does not** performed the action in the backend. **Do not** Copy/Paste on large files because you are **charged** by network traffic. 
+          > + The Copy-Paste works by downloading the folders or files to local and then upload to the destination. The tool **does not** perform the action in the backend. **Do not** Copy/Paste on large files because you are **charged** by network traffic. 
    * **Delete folders or files**
 
      1. Select the folders or files you wish to delete.
@@ -107,6 +107,7 @@ The following items illustrate how to manage resources within an Azure Data Lake
      3. In the left pane, you see the selected folder is added to **Quick Access** node.
 
         ![pin to quick access](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-quick-access.png)
+     4. After Create the quick access, you can easily get access to the resources.
   * **Deep Links**
      1. If you have a URL, you can just enter the URL into the address path in **File Explorer**.
      2. Then **Storage Explorer.exe** is launched automatically to navigate to the location of the URL you just entered.
