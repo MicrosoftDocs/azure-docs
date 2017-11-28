@@ -106,9 +106,6 @@ will be hosted.
 9. In **Network Mapping**, specify the network to which the collector VM will connect. The network needs internet connectivity, to send metadata to Azure. 
 10. Review and confirm the settings, then click **Finish**.
 
-> [!NOTE]
-> The collector only supports "English (United States)" as the operating system language and the collector interface language. Support for more languages is coming soon.
-
 ## Run the collector to discover VMs
 
 1. In the vSphere Client console, right-click the VM > **Open Console**.
@@ -127,6 +124,9 @@ will be hosted.
     - In **Tag category for grouping**, select **None**.
 1. In **Select Project**, specify the Azure Migrate project ID and key that you copied from the portal. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.  
 2. In **Complete Discovery**, monitor discovery, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
+
+> [!NOTE]
+> The collector only supports "English (United States)" as the operating system language and the collector interface language. Support for more languages is coming soon.
 
 
 ### Verify VMs in the portal
