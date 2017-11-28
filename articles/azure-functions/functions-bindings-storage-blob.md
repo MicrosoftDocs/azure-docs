@@ -56,7 +56,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-For more information about the `BlobTrigger` attribute, see [Trigger - Attributes for precompiled C#](#trigger---attributes-for-precompiled-c).
+For more information about the `BlobTrigger` attribute, see [Trigger - attributes](#trigger---attributes-for-precompiled-c).
 
 ### Trigger - C# script example
 
@@ -135,7 +135,7 @@ module.exports = function(context) {
 };
 ```
 
-## Trigger - attributes for precompiled C#
+## Trigger - attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a blob trigger:
 
@@ -448,7 +448,7 @@ module.exports = function(context) {
 };
 ```
 
-## Input & output - attributes for precompiled C#
+## Input & output - attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -478,7 +478,7 @@ public static void Run(
 
 For a complete example, see [Input & output - precompiled C# example](#input--output---c-example).
 
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - Attributes for precompiled C#](#trigger---attributes-for-precompiled-c).
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](#trigger---attributes-for-precompiled-c).
 
 ## Input & output - configuration
 

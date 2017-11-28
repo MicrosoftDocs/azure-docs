@@ -148,7 +148,7 @@ module.exports = function (context) {
 
 The [usage](#trigger---usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#trigger---message-metadata) explains all of the other variables shown.
 
-## Trigger - attributes for precompiled C#
+## Trigger - attributes
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a queue trigger:
 
@@ -396,7 +396,7 @@ module.exports = function(context) {
 };
 ```
 
-## Output - attributes for precompiled C#
+## Output - attributes
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -424,7 +424,7 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 
 For a complete example, see [Output - precompiled C# example](#output---c-example).
 
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes for precompiled C#](#trigger---attributes-for-precompiled-c).
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](#trigger---attributes-for-precompiled-c).
 
 ## Output - configuration
 

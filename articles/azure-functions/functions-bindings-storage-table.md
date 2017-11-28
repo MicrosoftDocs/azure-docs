@@ -280,7 +280,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## Input - attributes for precompiled C#
+## Input - attributes
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a table input binding:
 
@@ -563,7 +563,7 @@ module.exports = function (context) {
 };
 ```
 
-## Output - attributes for precompiled C#
+## Output - attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -595,7 +595,7 @@ public static MyPoco TableOutput(
 
 For a complete example, see [Output - precompiled C# example](#output---c-example).
 
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - Attributes for precompiled C#](#input---attributes-for-precompiled-c).
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - attributes](#input---attributes-for-precompiled-c).
 
 ## Output - configuration
 

@@ -141,7 +141,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-## Trigger - attributes for precompiled C#
+## Trigger - attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a Service Bus trigger:
 
@@ -407,7 +407,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## Output - attributes for precompiled C#
+## Output - attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -435,7 +435,7 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 
 For a complete example, see [Output - precompiled C# example](#output---c-example).
 
-You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - Attributes for precompiled C#](#trigger---attributes-for-precompiled-c).
+You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](#trigger---attributes-for-precompiled-c).
 
 ## Output - configuration
 
