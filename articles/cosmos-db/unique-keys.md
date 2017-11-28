@@ -62,7 +62,7 @@ Request unit charges for creating, updating, and deleting an item are slightly h
 
 Sparse unique keys are not supported. If values for some unique paths are missing, they are treated as a special null value, which takes part in the uniqueness constraint.
 
-## DocumentDB (SQL) API Sample
+## DocumentDB (SQL) API sample
 
 The following code sample shows how to create a new DocumentDB (SQL) container with two unique key constraints. The first constraint is the firstName, lastName, email constraint described in the earlier example. The second constraint is the users address/zipCode. A sample JSON file that uses the paths in this unique key policy follows the code example. 
 
@@ -123,7 +123,7 @@ Sample JSON document.
     ],
 }
 ```
-## MongoDB API Sample
+## MongoDB API sample
 
 The following command sample shows how to create a unique index on firstName, lastName, and email fields of the users collection. This ensures the uniqueness for a combination of all three fields across all documents in the collection.
 
