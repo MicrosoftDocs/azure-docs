@@ -43,6 +43,22 @@ The optional fields can be configured in Multi-Factor Authentication Server.
 
 The verification result (success or denial), and the reason if it was denied, is stored with the authentication data. This data is available in authentication and usage reports.
 
+**Q: What SMS short codes are used for sending SMS messages to my users?**
+
+In the United States Microsoft uses the following SMS short codes:
+
+   * 97671
+   * 69829
+   * 51789
+   * 99399
+
+In Canada Microsoft uses the following SMS short codes:
+
+   * 759731 
+   * 673801
+
+Microsoft does not guarantee consistent SMS or Voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, Microsoft may add or remove Short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft does not support short codes for countries besides the United States and Canada
+
 ## Billing
 Most billing questions can be answered by referring to either the [Multi-Factor Authentication Pricing page](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) or the documentation about [How to get Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).
 
