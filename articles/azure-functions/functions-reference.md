@@ -78,11 +78,8 @@ The function editor built into the Azure portal lets you update the *function.js
 Function apps are built on App Service, so all the [deployment options available to standard web apps](../app-service/app-service-deploy-local-git.md) are also available for function apps. Here are some methods you can use to upload or update function app files. 
 
 #### To use App Service Editor
-1. In the Azure Functions portal, click **Function app settings**.
-2. In the **Advanced Settings** section, click **Go to App Service Settings**.
-3. Click **App Service Editor** in App Menu Nav under **DEVELOPMENT TOOLS**.
-4. click **Go**.
-   
+1. In the Azure Functions portal, click **Platform features**.
+2. In the **DEVELOPMENT TOOLS** section, click **App Service Editor**.   
    After App Service Editor loads, you'll see the *host.json* file and function folders under *wwwroot*. 
 5. Open files to edit them, or drag and drop from your development machine to upload files.
 
