@@ -44,6 +44,8 @@ Customer can customize their alert queries and their frequency to lower values; 
 
 Alternatively customers can look at using [ITSM connector](../log-analytics/log-analytics-itsmc-overview.md) as an alternative, if their end system for Webhook are common IT Service Management solutions.
 
+
+## Related Articles
 * [Get an overview of Azure Alerts (Preview)](monitoring-overview-unified.md) including the types of information you can collect and monitor.
 * Learn more about the [near real-time metric alerts (preview)](monitoring-near-real-time-metric-alerts.md)
 * Get an [overview of metrics collection](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
