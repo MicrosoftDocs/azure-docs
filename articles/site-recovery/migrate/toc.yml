@@ -148,10 +148,6 @@
     href: /powershell/module/azure/?view=azuresmps-3.7.0
   - name: REST
     href: https://msdn.microsoft.com/en-us/library/mt750497
-- name: Related
-  items:
-  - name: Azure Automation
-    href: /azure/automation/
 - name: Resources
   items:
   - name: Azure Roadmap
