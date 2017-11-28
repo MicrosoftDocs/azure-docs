@@ -15,9 +15,9 @@ ms.custom: H1Hack27Feb2017
 
 # Push your first image to a private Docker container registry using the Docker CLI
 
-An Azure container registry stores and manages private [Docker](http://hub.docker.com) container images, similar to the way [Docker Hub](https://hub.docker.com/) stores public Docker images. You use the [Docker command-line interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for [login](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/), and other operations on your container registry.
+An Azure container registry stores and manages private [Docker](http://hub.docker.com) container images, similar to the way [Docker Hub](https://hub.docker.com/) stores public Docker images. You can use the [Docker command-line interface](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) for [login](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/), and other operations on your container registry.
 
-In the following steps, you download an official NGINX image from the public Docker Hub registry, tag it for your private Azure container registry, push it to your registry, and then pull it from the registry.
+In the following steps, you download an official [Nginx image](https://store.docker.com/images/nginx) from the public Docker Hub registry, tag it for your private Azure container registry, push it to your registry, and then pull it from the registry.
 
 ## Prerequisites
 
@@ -43,29 +43,33 @@ Both commands returns `Login Succeeded` once completed. If you use `docker login
 > [!TIP]
 > Always specify the fully qualified registry name (all lowercase) when you use `docker login` and when you tag your images. In the examples in this article, the fully qualified name is *myregistry.azurecr.io*.
 
-## Pull the official NGINX image
+## Pull the official Nginx image
 
-First, pull the public NGINX image to your local computer.
+First, pull the public Nginx image to your local computer.
 
 ```Bash
 docker pull nginx
 ```
 
-You can optionally execute following [docker run](https://docs.docker.com/engine/reference/run/) command to start a local instance of the NGINX container interactively (`-it`) on port 8080. The `--rm` parameter specifies that the container should be removed when you stop it.
+## Run the container locally
+
+Execute following [docker run](https://docs.docker.com/engine/reference/run/) command to start a local instance of the Nginx container interactively (`-it`) on port 8080. The `--rm` argument specifies that the container should be removed when you stop it.
 
 ```Bash
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Browse to [http://localhost:8080](http://localhost:8080) to view default web page served by NGINX in the running in the container. You should see a page similar to the following:
+Browse to [http://localhost:8080](http://localhost:8080) to view default web page served by Nginx in the running in the container. You should see a page similar to the following:
 
 ![Nginx on local computer](./media/container-registry-get-started-docker-cli/nginx.png)
 
-Because you started the container interactively with `-it`, you can see the NGINX server's output on the command line. To stop the container, press `Control`+`C`.
+Because you started the container interactively with `-it`, you can see the Nginx server's output on the command line.
+
+To stop the container, press `Control`+`C`.
 
 ## Create an alias of the image
 
-The following command creates an alias of the image, with a fully qualified path to your registry. This example specifies the `samples` namespace to avoid clutter in the root of the registry.
+Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to create an alias of the image with the fully qualified path to your registry. This example specifies the `samples` namespace to avoid clutter in the root of the registry.
 
 ```Bash
 docker tag nginx myregistry.azurecr.io/samples/nginx
@@ -87,7 +91,7 @@ Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
-## Start the NGINX container
+## Start the Nginx container
 
 Use the [docker run](https://docs.docker.com/engine/reference/run/) command to run the image you've pulled from your registry:
 
@@ -101,7 +105,7 @@ To stop and remove the container, press `Control`+`C`.
 
 ## Remove the image (optional)
 
-If you no longer need the NGINX image in your registry, you can delete it with the [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) command.
+If you no longer need the Nginx image in your registry, you can delete it with the [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) command.
 
 ```Bash
 docker rmi myregistry.azurecr.io/samples/nginx
@@ -110,7 +114,7 @@ docker rmi myregistry.azurecr.io/samples/nginx
 You can also use the Azure CLI command [az acr repository delete](/cli/azure/acr/repository#az_acr_repository_delete) to remove images from your registry. For example, the following command deletes the manifest referenced by a tag. It also deletes any associated layer data and all other tags referencing the manifest.
 
 ```azurecli
-az acr repository delete --name myregistry --repository myregistry.azurecr.io/samples/nginx --tag latest --manifest
+az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
 ```
 
 ## Next steps
