@@ -154,9 +154,9 @@ all instances.
 Metrics for an application and app service plan are logged and aggregated by
 the service with the following granularities and retention policies:
 
-* **Minute** granularity metrics are retained for **48 hours**
+* **Minute** granularity metrics are retained for **30 hours**
 * **Hour** granularity metrics are retained for **30 days**
-* **Day** granularity metrics are retained for **90 days**
+* **Day** granularity metrics are retained for **30 days**
 
 ## Monitoring Quotas and Metrics in the Azure portal.
 You can review the status of the different **quotas** and **metrics**
