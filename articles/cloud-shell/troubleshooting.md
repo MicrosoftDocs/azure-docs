@@ -61,9 +61,7 @@ Known resolutions for issues in Azure Cloud Shell include:
 
 ### GUI applications are not supported
 
-- **Details**: If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Login-AzureRMAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
-
- If a user launches a GUI app, the prompt does not return. For example, when a user clones a private GitHub repo that is two factor authentication enabled, a dialog box is displayed for completing the two factor authentication.  
+- **Details**: If a user launches a GUI app, the prompt does not return. For example, when a user clones a private GitHub repo that is two factor authentication enabled, a dialog box is displayed for completing the two factor authentication.  
 - **Resolution**: Close and reopen the shell.
 
 
