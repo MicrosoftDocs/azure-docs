@@ -84,9 +84,9 @@ to the following URLs used by Site Recovery.
 When using any IP-based firewall, proxy, or NSG rules to control outbound connectivity, the
 following IP address ranges need to be whitelisted. Download a list of ranges from the following links:
 
-  - [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
-  - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
-  - [Windows Azure Datacenter IP Ranges in China](http://www.microsoft.com/en-us/download/details.aspx?id=42064)
+  - [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=41653)
+  - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/download/details.aspx?id=54770)
+  - [Windows Azure Datacenter IP Ranges in China](http://www.microsoft.com/download/details.aspx?id=42064)
   - [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)
 
