@@ -64,13 +64,22 @@ This update includes the following improvements and fixes for Azure Stack.
 
 This section contains known issues that you may encounter during the 1711 update installation.
 
-| Symptom | Cause | Resolution |
-| --- | --- | --- |
-| Azure Stack operators may see the following error during the update process:<br>*"name":"Install Update.", "description": "Install Update on Hosts and Infra VMs.", "errorMessage": "Type 'LiveUpdate' of Role 'VirtualMachines' raised an exception:\n\nThere is not enough space on the disk.\n\nat <ScriptBlock>, <No file>: line22", "status": "Error", "startTimeUtc": "2017-11-10T16:46:59.123Z", "endTimeUtc": "2017-11-10T19:20:29.669Z", "steps": [ ]* | This issue is caused by a lack of free disk space on one or more virtual machines that are part of the Azure Stack infrastructure | Contact Microsoft Customer Service and Support (CSS) for assistance. |<br>
-| After the update has been applied, Azure Stack operators may be unable to deploy, delete,<br>modify VNETs or Network Security Groups.  This issue is primarily seen on subsequent update attempts of the same package. | This issue is caused by a packaging issue with an update, currently under investigation. | Contact Microsoft Customer Service and Support (CSS) for assistance. |<br>
-| Azure Stack operators may see the following error during the update process:<br>*Exception calling "ExtractToFile" with "3" argument(s):<br>"The process cannot access the file '<\\<machineName>-ERCS01\C$\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Diagnostics\Microsoft.AzureStack.Common.Tools.Diagnostics.AzureStackDiagnostics.dll>'* | This issue is caused when resuming an update from the portal that was previously resumed using a Privileged End Point (PEP). | Contact Microsoft Customer Service and Support (CSS) for assistance. |<br>
-| Azure Stack operators may see the following error during the update process:<br>*Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for <machineName>-ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c*  | This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates. | Contact Microsoft Customer Service and Support (CSS) for assistance. |<br>
-| Azure Stack operators may see the following error during the update process:<br>*Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262*  | This issue is caused by a failed or incomplete background download of Windows Defender definition updates. | Please attempt to resume the update after up to 8 hours have passed since the first update try. |
+
+1. **Symptom:** Azure Stack operators may see the following error during the update process: *"name:Install Update.", "description": "Install Update on Hosts and Infra VMs.", "errorMessage": "Type 'LiveUpdate' of Role 'VirtualMachines' raised an exception:\n\nThere is not enough space on the disk.\n\nat <ScriptBlock>, <No file>: line22", "status": "Error", "startTimeUtc": "2017-11-10T16:46:59.123Z", "endTimeUtc": "2017-11-10T19:20:29.669Z", "steps": [ ]"*
+	2. **Cause:** This issue is caused by a lack of free disk space on one or more virtual machines that are part of the Azure Stack infrastructure
+	3. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
+<br><br>
+2. **Symptom:** Azure Stack operators may see the following error during the update process:*Exception calling "ExtractToFile" with "3" argument(s):"The process cannot access the file '<\\<machineName>-ERCS01\C$\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Diagnostics\Microsoft.AzureStack.Common.Tools.Diagnostics.AzureStackDiagnostics.dll>'*
+	1. **Cause:** This issue is caused when resuming an update from the portal that was previously resumed using a Privileged End Point (PEP).
+	2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
+<br><br>
+3. Azure Stack operators may see the following error during the update process:*"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for <machineName>-ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c".*
+	1. **Cause:** This issue is caused by a Windows Server issue that is intended to be addressed in subsequent Window server updates.
+	2. **Resolution:** Contact Microsoft Customer Service and Support (CSS) for assistance.
+<br><br>
+4. Azure Stack operators may see the following error during the update process:*"Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262"*
+	1. **Cause:** This issue is caused by a failed or incomplete background download of Windows Defender definition updates.
+	2. **Resolution:** Please attempt to resume the update after up to 8 hours have passed since the first update try.
 
 ### Known issues (post-installation)
 
@@ -87,7 +96,9 @@ This section contains post-installation known issues with build **20171122.1**.
    - If the list of items in the drop-down list is short, you may not be able to view any of the item names.
    - If you have multiple user subscriptions, the resource group drop-down list may be empty. 
 
-   To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
+		> [!NOTE]
+		> To work around the last two issues, you can type the name of the subscription or resource group (if you know it), or you can use PowerShell instead.
+
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 - You are not able to view permissions to your subscription using the Azure Stack portals. As a workaround, you can verify permissions by using PowerShell.
 
@@ -109,6 +120,7 @@ This section contains post-installation known issues with build **20171122.1**.
 - You can't create a load balancer with a public IP address by using the portal. As a workaround, you can use PowerShell to create the load balancer.
 - You must create a network address translation (NAT) rule when you create a network load balancer. If you don't, you'll receive an error when you try to add a NAT rule after the load balancer is created.
 - You can't disassociate a public IP address from a virtual machine (VM) after the VM has been created and associated with that IP address. Disassociation will appear to work, but the previously assigned public IP address remains associated with the original VM. This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one. Currently, you must only use new public IP addresses for new VM creation.
+- Azure Stack operators may be unable to deploy, delete, modify VNETs or Network Security Groups. This issue is primarily seen on subsequent update attempts of the same package. This is caused by a packaging issue with an update which is currently under investigation.
  
 #### SQL/MySQL
 - It can take up to an hour before tenants can create databases in a new SQL or MySQL SKU. 
@@ -116,6 +128,13 @@ This section contains post-installation known issues with build **20171122.1**.
  
 #### App Service
 - A user must register the storage resource provider before they create their first Azure Function in the subscription.
+
+#### Identity
+
+In Azure Active Directory Federation Services (ADFS) deployed environments, the **azurestack\azurestackadmin** account is no longer the owner of the Default Provider Subscription. Instead of logging into the **Admin portal / adminmanagement endpoint** with the **azurestack\azurestackadmin**, you can use the **azurestack\cloudadmin** account, so that you can manage and use the Default Provider Subscription.
+
+> [!IMPORTANT]
+> Even the **azurestack\cloudadmin** account is the owner of the Default Provider Subscription in ADFS deployed environments, it does not have permissions to RDP into the host. Continue to use the **azurestack\azurestackadmin** account or the local administrator account to login, access and manage the host as needed.
 
 ## Download the update
 
