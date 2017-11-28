@@ -44,7 +44,7 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 > [!WARNING]
 > To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions.
 
-## C# script
+## C# script (Visual Studio Code and Azure Portal Sample Code) 
 
 Here is the source code:
 
