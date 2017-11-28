@@ -41,7 +41,7 @@ You can use any virtual machine or local machine that has internet access to run
 The automation script is designed for Azure Resource Manager deployment instead of storage content manipulation. For more information, see [Deploy
 resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
-**Is there any charge involved for copying data between two file shares on the same storage account within the same region?**
+**Is there any charge for copying data between two file shares on the same storage account within the same region?**
 
 No. There is no charge for this process.
 
@@ -62,16 +62,16 @@ how to use AzCopy to move the container:
     **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
 3.  Run the following command to move the container. You must replace
-    the text with the actual value.   
+    the text with the actual values.   
      
             AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-        - /source: provide source storage account URI (up to container)  
-        - /dest: provide target storage account URI (up to container)  
-        - /sourcekey: provide source storage account primary key, you can copy this key from the portal by selecting the storage account.  
-        - /destkey: provide target storage account primary key , you can copy this key from the portal by selecting the storage account.
+    - `/Source`: Provide the URI for the source storage account (up to the container).  
+    - `/Dest`: Provide the URI for the target storage account (up to the container).  
+    - `/SourceKey`: Provide the primary key for the source storage account. You can copy this key from the Azure portal by selecting the storage account.  
+    - `/DestKey`: Provide the primary key for the target storage account. You can copy this key from the portal by selecting the storage account.
 
 After you run this command, the container files are moved to the
 target storage account.
@@ -209,7 +209,7 @@ Use AzCopy to copy the data to a different storage account and then
 move the data back. You can also use [encryption at
 rest](storage-service-encryption.md).
 
-**How can I download a VHD to a local machine, other than by using the download option on the portal?**
+**How can I download a VHD to a local machine, other than by using the download option in the portal?**
 
 You can use [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to download a VHD.
 
