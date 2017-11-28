@@ -55,7 +55,7 @@ Medium, Large) and **instance count** (1, 2, 3, ...) of the **App Service plan**
 * **Filesystem**
   * Total amount of storage allowed.
 
-The only quota applicable to apps hosted on **Basic**, **Standard** and
+The only quota applicable to apps hosted on **Basic**, **Standard**, and
 **Premium** plans is **Filesystem**.
 
 More information about the specific quotas, limits, and features available to
