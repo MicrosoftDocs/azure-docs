@@ -19,6 +19,8 @@ Application Insights provides interactive analysis tools but also stores all dat
 
 
 ## Management solutions
+Management solutions are packaged sets of logic that use other Azure services for management functions 
+
 
 ## Power BI
 Power BI 
