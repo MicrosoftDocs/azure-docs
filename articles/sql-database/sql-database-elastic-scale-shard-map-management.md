@@ -101,7 +101,7 @@ A **ShardMapManager** object is constructed using a factory ([.NET](/dotnet/api/
 
 In this code, an application tries to open an existing **ShardMapManager** with the TryGetSqlShardMapManager ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager)) method.  If objects representing a Global **ShardMapManager** (GSM) do not yet exist inside the database, the client library creates them there using the CreateSqlShardMapManager ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager)) method.
 
-```C#
+```csharp
 // Try to get a reference to the Shard Map Manager via the Shard Map Manager database.  
 // If it doesn't already exist, then create it. 
 ShardMapManager shardMapManager; 
@@ -150,8 +150,8 @@ For the .NET version, you can use Powershell to create a new Shard Map Manager. 
 ## Get a RangeShardMap or ListShardMap
 After creating a shard map manager, you can get the RangeShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)) or ListShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn807370.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)) using the TryGetRangeShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap)), the TryGetListShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap)), or the GetShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap)) method.
 
-```C#
-/// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
+```csharp
+// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
 public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
 {
     // Try to get a reference to the Shard Map.
@@ -174,22 +174,27 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 ```
 
 ```Java
-/// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
-public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
-{
+// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
+static <T> RangeShardMap<T> createOrGetRangeShardMap(ShardMapManager shardMapManager,
+            String shardMapName,
+            ShardKeyType keyType) {
     // Try to get a reference to the Shard Map.
-    RangeShardMap<T> shardMap;
-    bool shardMapExists = shardMapManager.TryGetRangeShardMap(shardMapName, out shardMap);
+    ReferenceObjectHelper<RangeShardMap<T>> refRangeShardMap = new ReferenceObjectHelper<>(null);
+    boolean isGetSuccess = shardMapManager.tryGetRangeShardMap(shardMapName, keyType, refRangeShardMap);
+    RangeShardMap<T> shardMap = refRangeShardMap.argValue;
 
-    if (shardMapExists)
-    {
-        ConsoleUtils.WriteInfo("Shard Map {0} already exists", shardMap.Name);
+    if (isGetSuccess && shardMap != null) {
+        ConsoleUtils.writeInfo("Shard Map %1$s already exists", shardMap.getName());
     }
-    else
-    {
+    else {
         // The Shard Map does not exist, so create it
-        shardMap = shardMapManager.CreateRangeShardMap<T>(shardMapName);
-        ConsoleUtils.WriteInfo("Created Shard Map {0}", shardMap.Name);
+        try {
+            shardMap = shardMapManager.createRangeShardMap(shardMapName, keyType);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        ConsoleUtils.writeInfo("Created Shard Map %1$s", shardMap.getName());
     }
 
     return shardMap;
