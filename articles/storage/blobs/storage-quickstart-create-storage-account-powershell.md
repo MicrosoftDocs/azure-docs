@@ -41,7 +41,7 @@ Get-AzureRmLocation | select Location
 $location = "eastus"
 ```
 
-## Create resource group
+## Create a resource group
 
 Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
 

@@ -32,7 +32,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a container
 
-Blobs are always uploaded into a container. Containers allow you to organize groups of blobs like you organize files in directories on your computer.
+Blobs are always uploaded into a container. This allows you to organize groups of blobs like you organize your files on your computer in folders.
 
 Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container#create) command.
 
