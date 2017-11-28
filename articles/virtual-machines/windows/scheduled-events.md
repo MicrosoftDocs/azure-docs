@@ -50,7 +50,12 @@ Scheduled Events provides events in the following use cases:
 Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint accessible from within the VM. The information is available via a non-routable IP so that it is not exposed outside the VM.
 
 ### Scope
-Scheduled events are surfaced to all Virtual Machines in a cloud service or to all Virtual Machines in an Availability Set. As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
+Scheduled events are delivered to:
+- All Virtual Machines in a Cloud Service
+- All Virtual Machines in an Availability Set
+- All Virtual Machines in a Scale Set Placement Group. 
+
+As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
 
 ### Discovering the endpoint
 In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from a static non-routable IP, `169.254.169.254`.
@@ -73,9 +78,6 @@ The first time you make a request for scheduled events, Azure implicitly enables
 User initiated virtual machine maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. This allows you to test the maintenance preparation logic in your application and allows your application to prepare for user initiated maintenance.
 
 Restarting a virtual machine schedules an event with type `Reboot`. Redeploying a virtual machine schedules an event with type `Redeploy`.
-
-> [!NOTE] 
-> Currently a maximum of 10 user initiated maintenance operations can be simultaneously scheduled. This limit will be relaxed before Scheduled Events general availability.
 
 > [!NOTE] 
 > Currently user initiated maintenance resulting in Scheduled Events is not configurable. Configurability is planned for a future release.
