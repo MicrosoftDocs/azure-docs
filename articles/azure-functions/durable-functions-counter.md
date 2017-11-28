@@ -41,9 +41,23 @@ Durable Functions makes this kind of scenario trivial to implement because orche
 
 This article walks through the **E3_Counter** function in the sample app.
 
-The following sections explain the code that is used for Visual Studio development. The code for Azure portal development is similar.
+
 
 ## The counter orchestration
+
+The following sections explain the code that is used for Visual Studio Code and Azure Portal development.
+
+## function.json file
+
+[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+
+## run.csx file
+
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+
+## Visual Studio Code Sample
+
+The following sections explain the code that is used for Visual Studio development.
 
 Here is the code that implements the orchestrator function:
 
