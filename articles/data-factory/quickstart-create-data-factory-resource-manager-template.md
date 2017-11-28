@@ -28,14 +28,12 @@ This quickstart describes how to use an Azure Resource Manager template to creat
 >
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
-In this article, you use an Azure Resource Manager template to create your first Azure data factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list.
-
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+
 [!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
 
-## Authoring Resource Manager templates
+## Resource Manager templates
 To learn about Azure Resource Manager templates in general, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md). 
-
 
 The following section provides the complete Resource Manager template for defining Data Factory entities so that you can quickly run through the tutorial and test the template. To understand how each Data Factory entity is defined, see [Data Factory entities in the template](#data-factory-entities-in-the-template) section.
 
@@ -299,18 +297,13 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 }
 ```
 
-> [!NOTE]
-> You can find another example of Resource Manager template for creating an Azure data factory on [Tutorial: Create a pipeline with Copy Activity using an Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md).  
-> 
-> 
-
 ## Parameters JSON
 Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template.  
 
 > [!IMPORTANT]
 > Specify the name and key of your Azure Storage account for the **storageAccountName** and **storageAccountKey** parameters in this parameter file. 
 > 
-> 
+> Specify a globally unique name for the data factory for the **dataFactoryName** parameter. 
 
 ```json
 {
@@ -350,8 +343,6 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 
 > [!IMPORTANT]
 > You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments. 
-> 
-> 
 
 ## Create a data factory and a pipeline
 1. Start **Azure PowerShell** and run the following command: 
@@ -373,9 +364,60 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 	```
 
+## Start the trigger
+Get the **status of the trigger** by running the following PowerShell command after specifying the name of your data factory and trigger:
+
+```powershell
+Get-AzureRmDataFactoryV2Trigger -ResourceGroupName "ADFTutorialResourceGroup" -DataFactoryName "<datafactoryname>" -Name "<triggername>"
+```
+
+Here is the sample output: 
+
+```json
+TriggerName       : ArmTemplateTestTrigger
+ResourceGroupName : ADFTutorialResourceGroup
+DataFactoryName   : ARMFactory1128
+Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
+RuntimeState      : Stopped
+```
+**Start the trigger**, which runs the pipeline hourly: 
+
+```powershell
+Start-AzureRmDataFactoryV2Trigger -ResourceGroupName "ADFTutorialResourceGroup" -DataFactoryName "<datafactoryname>" -TriggerName "<triggername>"
+```
+
+Here is the sample output: 
+
+```
+Confirm
+Are you sure you want to start trigger 'ArmTemplateTestTrigger' in data factory 'ARMFactory1128'?
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
+True
+```
+
+**Confirm that the trigger has been started:** 
+
+```powershell
+Get-AzureRmDataFactoryV2Trigger -ResourceGroupName "ADFTutorialResourceGroup" -DataFactoryName "ARMFactory1128" -Name "ArmTemplateTestTrigger"
+```
+
+Here is the sample output:
+
+```
+TriggerName       : ArmTemplateTestTrigger
+ResourceGroupName : ADFTutorialResourceGroup
+DataFactoryName   : ARMFactory1128
+Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
+RuntimeState      : Started
+```
+
+The pipeline runs hourly at the hour. For example, if the current time is 4:25 PM, it runs at 5:00 PM for the first time. 
+
 ## Monitor the pipeline
 1. After logging in to the [Azure portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
 2. In the **Data Factories** page, click the data factory (**TutorialFactoryARM**) you created.    
+
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
 ### JSON definitions for entities
 The following Data Factory entities are defined in the JSON template: 
@@ -446,7 +488,7 @@ The Azure storage linked service specifies the connection string that Data Facto
 ```
 
 #### Azure blob output dataset
-You specify the name of the folder in the Azure Blob Storage that holds the copied data from the input folder. See [Azure Blob dataset properties](connector-azure-blob-storage.md#dataset-properties) for details about JSON properties used to define an Azure SQL dataset. 
+You specify the name of the folder in the Azure Blob Storage that holds the copied data from the input folder. See [Azure Blob dataset properties](connector-azure-blob-storage.md#dataset-properties) for details about JSON properties used to define an Azure Blob dataset. 
 
 ```json
 {
@@ -479,7 +521,7 @@ You specify the name of the folder in the Azure Blob Storage that holds the copi
 ```
 
 #### Data pipeline
-You define a pipeline that copies data from the Azure blob dataset to the Azure SQL dataset. See [Pipeline JSON](concepts-pipelines-activities.md#pipeline-json) for descriptions of JSON elements used to define a pipeline in this example. 
+You define a pipeline that copies data from one Azure blob dataset to another Azure blob dataset. See [Pipeline JSON](concepts-pipelines-activities.md#pipeline-json) for descriptions of JSON elements used to define a pipeline in this example. 
 
 ```json
 {
@@ -574,9 +616,9 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 ```
 Notice that the first command uses parameter file for the development environment, second one for the test environment, and the third one for the production environment.  
 
-You can also reuse the template to perform repeated tasks. For example, you need to create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure storage and Azure SQL Database accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories. 
+You can also reuse the template to perform repeated tasks. For example, you need to create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure storage accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories. 
 
-## Resource Manager template for creating a gateway
+## Create an integration runtime
 Here is a sample Resource Manager template for creating a logical gateway in the back. Install a gateway on your on-premises computer or Azure IaaS VM and register the gateway with Data Factory service using a key. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) for details.
 
 ```json
