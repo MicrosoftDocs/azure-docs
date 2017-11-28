@@ -18,7 +18,7 @@ ms.author: andredm
 
 ---
 
-# Azure Stack 1711 Update
+# Azure Stack 1711 update
 
 *Applies to: Azure Stack integrated systems*
 
@@ -29,7 +29,7 @@ This article describes the improvements and fixes in this update package, known 
 
 ## Build reference
 
-The Azure Stack 1711 update build number is **201711nn.n**.
+The Azure Stack 1711 update build number is **20171122.1**.
 
 ## Before you begin
 
@@ -37,25 +37,28 @@ The Azure Stack 1711 update build number is **201711nn.n**.
 
 You must first install the Azure Stack [1710 Update](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) before applying this update.
 
-### Improvements and fixes
+### New features and fixes
 
 This update includes the following improvements and fixes for Azure Stack.
  
-#### Windows Server 2016 improvements and fixes
+#### Windows Server 2016 new features and fixes
 
 - [November 14, 2017—KB4048953 (OS Build 14393.1884) ](https://support.microsoft.com/help/4048953)
 
-#### Additional improvements and fixes
+#### New features
+
+- Support for Syndicating solution templates
+- Updates in the Azure Stack Graph logging and error handling
+- Ability to turn hosts on and off
+- Users can now activate Windows VMs automatically
+- Added privileged endpoint PowerShell cmdlet to retrieve BitLocker recovery keys for retention purposes
+- Support for updating the offline images when updating infrastructure
+
+#### Fixes
 
 - Fixed race condition in DNS during field replaceable unit (FRU) and also updated cluster logging
-- Updates in the Azure Stack Graph logging and error handling
-- Added support for Syndicating solution templates
 - Fix for restart-ability of disable-host in field replaceable unit (FRU)
-- Added ability to turn hosts on and off
-- Ability for users to activate Windows VMs automatically
 - Various other performance, security and stability fixes
-- Added privileged endpoint PowerShell cmdlet to retrieve BitLocker recovery keys for retention purposes
-- Added support for updating the offline images when updating infrastructure (added 11/27)
  
 ### Known issues with the update process
 
@@ -71,7 +74,7 @@ This section contains known issues that you may encounter during the 1711 update
 
 ### Known issues (post-installation)
 
-This section contains post-installation known issues with build 201711nn.n.
+This section contains post-installation known issues with build **20171122.1**.
 
 #### Portal
 
