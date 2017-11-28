@@ -194,6 +194,5 @@ Now that you understand the Azure storage options, use the following links to di
 
 * [Overview of R Server on HDInsight](r-server-overview.md)
 * [Get started with R server on Hadoop](r-server-get-started.md)
-* [Add RStudio Server to HDInsight (if not added during cluster creation)](r-server-install-r-studio.md)
 * [Compute context options for R Server on HDInsight](r-server-compute-contexts.md)
 

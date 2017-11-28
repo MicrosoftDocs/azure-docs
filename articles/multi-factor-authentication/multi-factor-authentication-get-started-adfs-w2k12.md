@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.reviewer:
+ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017
 ---
 # Configure Azure Multi-Factor Authentication Server to work with AD FS in Windows Server

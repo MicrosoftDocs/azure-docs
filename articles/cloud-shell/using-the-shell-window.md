@@ -1,5 +1,5 @@
 ---
-title: Using the Azure Cloud Shell (Preview) window | Microsoft Docs
+title: Using the Azure Cloud Shell window | Microsoft Docs
 description: Overview of how to use the Azure Cloud Shell window.
 services: azure
 documentationcenter: ''

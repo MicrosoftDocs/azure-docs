@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2017
+ms.date: 11/17/2017
 ms.author: saysa
 
 ---
@@ -25,12 +25,12 @@ ms.author: saysa
 >
 >  
 
-You can build Service Fabric applications to run on Linux clusters using Mac OS X. This article covers how to set up your Mac for development.
+You can build Service Fabric applications to run on Linux clusters using Mac OS X. This document covers how to set up your Mac for development.
 
 ## Prerequisites
-Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, we provide a pre-configured Docker container image. Before you get started, you need:
+Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, a pre-configured Docker container image is provided. Before you get started, you need:
 
-* At least 4 GB RAM
+* At least 4-GB RAM
 * Latest version of [Docker](https://www.docker.com/)
 * Access to Service Fabric One-box Docker container [image](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/)
 
@@ -40,7 +40,7 @@ Service Fabric does not run natively on OS X. To run a local Service Fabric clus
 
 
 ## Create a local container and setup Service Fabric
-To setup a local Docker container and have a service fabric cluster running on it, perform the following steps:
+To set up a local Docker container and have a service fabric cluster running on it, perform the following steps:
 
 1. Pull the image from Docker hub repository:
 
@@ -56,7 +56,7 @@ To setup a local Docker container and have a service fabric cluster running on i
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    You can directly update this on daemon.json in your docker installation path (location of which might vary from machine to machine, e.g. - ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json). The advised way to update is - go to Docker Icon > Preferences > Daemon > Advanced and update it there.
+    You can directly update this on daemon.json in your docker installation path (location of which might vary from machine to machine, for example - ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json). The advised way to update is - go to Docker Icon > Preferences > Daemon > Advanced and update it there.
 
 3. Start a Service Fabric One-box container instance with the image:
 
@@ -64,9 +64,10 @@ To setup a local Docker container and have a service fabric cluster running on i
     docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
     ```
     >[!TIP]
-    >By specifying a name for your container instance, you can handle it in a more readable manner. 
+    > * By specifying a name for your container instance, you can handle it in a more readable manner. 
+    > * If your application is listening on certain ports, it must be specified using additional -p tags. For example, if your application is listening on port 8080, run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox
 
-4. Login to the Docker container in interactive ssh mode:
+4. Log in to the Docker container in interactive ssh mode:
 
     ```bash
     docker exec -it sfonebox bash
@@ -90,7 +91,7 @@ The CLI commands for interacting with Service Fabric entities, including cluster
 
 Service Fabric provides scaffolding tools, which helps you create a Service Fabric application from terminal using Yeoman template generator. Follow the steps below to ensure you have the Service Fabric yeoman template generator working on your machine.
 
-1. You need to have Node.js and NPM installed on your Mac. If not, you can install Node.js and NPM using Homebrew using the following step. To check the versions of Node.js and NPM installed on your Mac, you can use the ``-v`` option.
+1. You need to have Node.js and NPM installed on your Mac. If not, you can install Node.js and NPM using Homebrew using the following step:
 
     ```bash
     brew install node
@@ -152,7 +153,7 @@ where ``/Users/sayantan/work/workspaces/mySFWorkspace`` is the fully qualified p
 
 > [!NOTE]
 >1. If your workspace name/path is different, update the same accordingly in the ``docker run`` command above.
->2. If you start the container with a different name other than ``sfonebox``, please update the same in the ``testclient.sh`` file in your Service Fabric actor Java application.
+>2. If you start the container with a different name other than ``sfonebox``, update the same in the ``testclient.sh`` file in your Service Fabric actor Java application.
 
 ## Next steps
 <!-- Links -->
@@ -162,6 +163,7 @@ where ``/Users/sayantan/work/workspaces/mySFWorkspace`` is the fully qualified p
 * [Create a Service Fabric cluster using the Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Understand the Service Fabric application model](service-fabric-application-model.md)
 * [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md)
+* [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png

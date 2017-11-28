@@ -80,6 +80,5 @@ In this article, you learned about the options that are available to specify whe
 
 * [Overview of R Server for Hadoop](r-server-overview.md)
 * [Get started with R Server for Hadoop](r-server-get-started.md)
-* [Add RStudio Server to HDInsight (if not added during cluster creation)](r-server-install-r-studio.md)
 * [Azure Storage options for R Server on HDInsight](r-server-storage.md)
 

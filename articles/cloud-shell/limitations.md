@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell (Preview) limitations | Microsoft Docs
+title: Azure Cloud Shell limitations | Microsoft Docs
 description: Overview of limitations of Azure Cloud Shell
 services: azure
 documentationcenter: ''
@@ -67,14 +67,19 @@ Your history of bash commands may be inconsistent because of Cloud Shell session
 
 ### Slow startup time
 
-PowerShell in Azure Cloud Shell could take up to 60 seconds to initialize during preview.
+PowerShell in Azure Cloud Shell (Preview) could take up to 60 seconds to initialize during preview.
 
 ### No $Home directory persistence
 
 Data written to `$Home` by any application (such as: git, vim, and others) does not persist across PowerShell sessions. For a workaround, [see here](troubleshooting.md#powershell-resolutions).
 
 ### Default file location when created from Azure drive:
+
 Using PowerShell cmdlets, users can not create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to C:\Users folder by default. 
+
+### GUI applications are not supported
+
+If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Login-AzureRMAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ## Next steps
 

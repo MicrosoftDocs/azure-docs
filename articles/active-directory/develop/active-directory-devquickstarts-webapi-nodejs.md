@@ -49,7 +49,7 @@ Once `package.json` is created, run `npm install` in your command prompt to inst
 
 ### Configure the project to use Active Directory
 
-To get started configuring the application, there are a few account-specific values you can obtain the Azure CLI. The easiest way to get started with the CLI is to use the Azure Cloud Shell.
+To get started configuring the application, there are a few account-specific values you can obtain from the Azure CLI. The easiest way to get started with the CLI is to use the Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

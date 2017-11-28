@@ -223,7 +223,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -Public
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp 
 
 # Create the redirect configuration that will point traffic to the 
-$redirectconfig = New-AzureRmApplicationGatewayRedirectConfiguration -Name myredirect -RedirectType Temporary -TargetUrl "http://bing.com" -IncludePath $true -IncludeQueryString $true
+$redirectconfig = New-AzureRmApplicationGatewayRedirectConfiguration -Name myredirect -RedirectType Temporary -TargetUrl "http://bing.com"
 
 #Create a load balancer routing rule that configures the load balancer behavior. In this example, a basic round robin rule is created.
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -HttpListener $listener -RedirectConfiguration $redirectconfig 

@@ -1,10 +1,10 @@
 ---
-title: Manage network security groups - Azure CLI 2.0 | Microsoft Docs
-description: Learn how to manage network security groups using the Azure command-line interface (CLI) 2.0.
+title: Manage network security groups - Azure CLI | Microsoft Docs
+description: Learn how to manage network security groups using the Azure command-line interface.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -19,17 +19,9 @@ ms.author: jdial
 ms.custom: H1Hack27Feb2017
 
 ---
-# Manage network security groups using the Azure CLI 2.0
+# Manage network security groups using the Azure CLI
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
-
-## CLI versions to complete the task 
-
-You can complete the task using one of the following CLI versions: 
-
-- [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md) – our CLI for the classic and resource management deployment models 
-- [Azure CLI 2.0](#View-existing-NSGs) - our next generation CLI for the resource management deployment model (this article)
-
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -41,7 +33,6 @@ You can complete the task using one of the following CLI versions:
 
 ## Prerequisite
 If you haven't yet, install and configure the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login). 
-
 
 ## View existing NSGs
 To view the list of NSGs in a specific resource group, run the [az network nsg list](/cli/azure/network/nsg#list) command with a `-o table` output format:
@@ -81,18 +72,18 @@ Expected output:
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> You can also use [az network nsg rule list](/cli/azure/network/nsg/rule#list) to list only the custom rules from an NSG .
+> You can also use [az network nsg rule list](/cli/azure/network/nsg/rule#list) to list only the custom rules from an NSG.
 >
 
 ## View NSG associations
 
-To view what resources the **NSG-FrontEnd** NSG is associate with, run the `az network nsg show` command as shown below. 
+To view what resources the **NSG-FrontEnd** NSG is associate with, run the `az network nsg show` command: 
 
 ```azurecli
 az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterfaces]'
 ```
 
-Look for the **networkInterfaces** and **subnets** properties as shown below:
+Look for the **networkInterfaces** and **subnets** properties, as shown in the following example output:
 
 ```json
 [
@@ -114,7 +105,7 @@ Look for the **networkInterfaces** and **subnets** properties as shown below:
 ]
 ```
 
-In the example above, the NSG is not associated to any network interfaces (NICs), and it is associated to a subnet named **FrontEnd**.
+In the previous example, the NSG is not associated to any network interfaces (NICs), and it is associated to a subnet named **FrontEnd**.
 
 ## Add a rule
 To add a rule allowing **inbound** traffic to port **443** from any machine to the **NSG-FrontEnd** NSG, enter the following command:
@@ -157,7 +148,7 @@ Expected output:
 ```
 
 ## Change a rule
-To change the rule created above to allow inbound traffic from the **Internet** only, run the [az network nsg rule update](/cli/azure/network/nsg/rule#update) command:
+To change the rule created previously, to allow inbound traffic from the **Internet** only, run the [az network nsg rule update](/cli/azure/network/nsg/rule#update) command:
 
 ```azurecli
 az network nsg rule update \
@@ -336,7 +327,7 @@ In the output, the `networkSecurityGroup` key has something similar for the valu
   ```
 
 ## Delete an NSG
-You can only delete an NSG if it's not associated to any resource. To delete an NSG, follow the steps below.
+You can only delete an NSG if it's not associated to any resource. To delete an NSG, complete the following steps:
 
 1. To check the resources associated to an NSG, run the `azure network nsg show` as shown in [View NSGs associations](#View-NSGs-associations).
 2. If the NSG is associated to any NICs, run the `azure network nic set` as shown in [Dissociate an NSG from a NIC](#Dissociate-an-NSG-from-a-NIC) for each NIC. 

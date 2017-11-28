@@ -162,7 +162,7 @@ To copy data from Azure Cosmos DB, set the sink type in the copy activity to **D
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **DocumentDbCollectionSink** |Yes |
+| type | The type property of the copy activity sink must be set to: **DocumentDbCollectionSink** |Yes |
 | nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example, `Name.First` in the output dataset structure generates the following JSON structure in the Cosmos DB document:`"Name": {"First": "[value maps to this column from source]"}` when the nestedSeparator is dot. |No (default is dot `.`) |
 | writeBatchTimeout |Wait time for the operation to complete before it times out.<br/><br/>Allowed values are: timespan. Example: "00:30:00" (30 minutes). |No |
 

@@ -37,7 +37,7 @@ After the function app is created, you can create individual functions in one or
 
 Azure Functions has two different service plans: Consumption plan and App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales-out as necessary to handle load, and then scales-in when code is not running. The App Service plan gives your function app access to all the facilities of App Service. You must choose your service plan when your function app is created, and it cannot currently be changed. For more information, see [Choose an Azure Functions hosting plan](functions-scale.md).
 
-If you are planning to run JavaScript functions on an App Service plan, you should choose a plan with fewer cores. For more information, see the [JavaScript reference for Functions](functions-reference-node.md#choose-single-core-app-service-plans).
+If you are planning to run JavaScript functions on an App Service plan, you should choose a plan with fewer cores. For more information, see the [JavaScript reference for Functions](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 
