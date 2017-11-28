@@ -51,14 +51,21 @@ If you don't already have a Jenkins Master, start with the [solution template](i
 You can install/update this plugin in Jenkins update center (Manage Jenkins -> Manage Plugins, search Azure Container Agents Plugin).
 
 ### Install the plugin manually
-You can also manually install the plugin if you want to try the latest feature before it's officially released. To manually install the plugin:
+If you want to try the latest features for a given Jenkins plugin before it's officially released, you can also manually install the plugin using the following steps:
 
-Clone the repo and build:
- mvn package
-Open your Jenkins dashboard, go to Manage Jenkins -> Manage Plugins
-Go to Advanced tab, under Upload Plugin section, click Choose File.
-Select azure-container-agents.hpi in target folder of your repo, click Upload.
-Restart your Jenkins instance after install is completed.
+1. Clone the repo and build:
+
+    ```bash
+    mvn package
+    ```
+
+1. Open your Jenkins dashboard, go to Manage Jenkins -> Manage Plugins
+
+1. Go to Advanced tab, under Upload Plugin section, click Choose File.
+
+1. Select azure-container-agents.hpi in target folder of your repo, click Upload.
+
+1. Restart your Jenkins instance after install is completed.
 
 ## Next steps
 You learned how to:
