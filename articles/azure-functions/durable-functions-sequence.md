@@ -42,7 +42,7 @@ If you use the Azure portal for development, here's the content of the *function
 The important thing is the `orchestrationTrigger` binding type. All orchestrator functions must use this trigger type.
 
 > [!WARNING]
-> To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions which are called by the orchestrator.
+> To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions, which are called by the orchestrator.
 
 ## C# script
 
