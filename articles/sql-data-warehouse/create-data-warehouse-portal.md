@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -69,9 +69,9 @@ Follow these steps to create a SQL data warehouse that contains the AdventureWor
 
 5. Click **Select**.
 
-6. Click **Performance tier** to specify whether the data warehouse is optimized for elasticity or compute, and the number of data warehouse units. 
+6. Click **Performance tier** to specify the performance configuration for the data warehouse.
 
-7. For this tutorial, select the **Optimized for Elasticity** service tier. The slider, by default, is set to **DW400**.  Try moving it up and down to see how it works. 
+7. For this tutorial, select the **Optimized for Elasticity** performance tier. The slider, by default, is set to **DW400**.  Try moving it up and down to see how it works. 
 
     ![configure performance](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -95,11 +95,12 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20171113.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. Then click on the server name to open server settings.
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. To open server settings, click the server name.
 
    ![find server name](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
 
-3. Click the server name to open server settings.
+3. To open server settings, 
+4. click the server name.
 
    ![server settings](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
@@ -107,7 +108,7 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 
    ![server firewall rule](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
 
-4. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
+4. To add your current IP address to a new firewall rule, click **Add client IP** on the toolbar. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
 5. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
 
@@ -120,9 +121,9 @@ You can now connect to the SQL server and its data warehouses using this IP addr
 
 ## Get the fully qualified server name
 
-Get the fully qualified server name for your SQL server in the Azure portal. Later you will use the fully qualified name when connecting to the server.
+Get the fully qualified server name for your SQL server in the Azure portal. Later you use the fully qualified name when connecting to the server.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20171113.database.windows.net. 
 
@@ -139,8 +140,8 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Server type | Database engine | This value is required |
-   | Server name | The fully qualified server name | The name should be something like this: **mynewserver-20171113.database.windows.net**. |
-   | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
+   | Server name | The fully qualified server name | Here's an example: **mynewserver-20171113.database.windows.net**. |
+   | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
    | Login | The server admin account | This is the account that you specified when you created the server. |
    | Password | The password for your server admin account | This is the password that you specified when you created the server. |
 
@@ -154,7 +155,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 ## Run some queries
 
-SQL Data Warehouse uses T-SQL as the query language. To open a query window and run some T-SQL queries, use the following steps.
+SQL Data Warehouse uses T-SQL as the query language. To open a query window and run some T-SQL queries, use the following steps:
 
 1. Right-click **mySampleDataWarehouse** and select **New Query**.  A new query window opens.
 2. In the query window, enter the following command to see a list of databases.
@@ -178,22 +179,22 @@ SQL Data Warehouse uses T-SQL as the query language. To open a query window and 
 
 ## Clean up resources
 
-You are being charged for compute resources and data that you loaded into your data warehouse. These are billed separately. 
+You are being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately. 
 
-- If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute you will only be charge for data storage and you can resume the compute whenever you are ready to work with the data.
+- If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you are only charged for data storage. You can resume compute whenever you are ready to work with the data.
 - If you want to remove future charges, you can delete the data warehouse. 
 
 Follow these steps to clean up resources as you desire.
 
-1. Login to the [Azure portal](https://portal.azure.com), click on your data warehouse.
+1. Sign in to the [Azure portal](https://portal.azure.com), click on your data warehouse.
 
     ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. To pause compute, click the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, click **Start**.
+1. To pause compute, click the **Pause** button. When the data warehouse is paused, you see a **Start** button.  To resume compute, click **Start**.
 
-2. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
+2. To remove the data warehouse so you are not charged for compute or storage, click **Delete**.
 
-3. To remove the SQL server you created, click **mynewserver-20171113.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this as deleting the server will delete all databases assigned to the server.
+3. To remove the SQL server you created, click **mynewserver-20171113.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
 4. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
 
