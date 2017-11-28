@@ -73,11 +73,15 @@ Visual Studio Code provides local development experience covering all major plat
 3. Install Azure Durable Extension by running in command prompt / terminal the following command :
 
 ```javascript
-   func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.0.0-beta
+https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence   func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.0.0-beta
 ```
 4. Run Azure Storage Emulator on Windows and on Mac update the *local.appsettings.json* file with real Azure Storage connection string
 3. Open the project in Visual Studio Code 
-5. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
+5. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure
+6. Start the project by running in command prompt / terminal the following command:
+```javascript
+   func host start
+```
 
 ### Start with an empty project
  
@@ -98,7 +102,14 @@ Visual Studio Code provides local development experience covering all major plat
 ```javascript
    func new
 ```
+>[!IMPORTANT]
+> Currently Durable Function template is not available but you can start with one of the supported options and then modify the code. Please use for reference the samples we have for [Orchestration Client](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/HttpStart), [Orchestration Trigger](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence) and [Activity Trigger](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence)
+
 6. Open the project folder in Visual Studio Code and continue for modify the template code 
+7. Start the project by running in command prompt / terminal the following command:
+```javascript
+   func host start
+```
 
 ## Azure portal
 
