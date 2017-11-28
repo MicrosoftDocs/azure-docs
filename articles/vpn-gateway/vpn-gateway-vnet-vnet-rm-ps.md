@@ -79,7 +79,7 @@ Before beginning, you need to install the latest version of the Azure Resource M
 
 ### <a name="Step1"></a>Step 1 - Plan your IP address ranges
 
-In the following steps, we create two virtual networks along with their respective gateway subnets and configurations. We then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+In the following steps, you create two virtual networks along with their respective gateway subnets and configurations. You then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 We use the following values in the examples:
 
@@ -286,7 +286,7 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
 
 ## <a name="difsub"></a>How to connect VNets that are in different subscriptions
 
-In this scenario, we connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in a different subscription. The subscriptions do not need to be associated with the same Active Directory tenant. The difference between these steps and the previous set is that some of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription. Especially when the two subscriptions belong to different organizations.
+In this scenario, you connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in a different subscription. The subscriptions do not need to be associated with the same Active Directory tenant. The difference between these steps and the previous set is that some of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription. Especially when the two subscriptions belong to different organizations.
 
 ### Step 5 - Create and configure TestVNet1
 
