@@ -49,9 +49,9 @@ Follow the same directions as for starting with the sample, but do the following
    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
    ```
    
-## Visual Studio 2017
+## Visual Studio Code
 
-Visual Studio currently provides the best experience for developing apps that use Durable Functions.  Your functions can be run locally and can also be published to Azure. You can start with an empty project or with a set of sample functions.
+Visual Studio Code provides local development experience covering all major platforms - Windows, Mac and Linux.  Your functions can be run locally and can also be published to Azure. You can start with an empty project or with a set of sample functions.
 
 ### Prerequisites
 
