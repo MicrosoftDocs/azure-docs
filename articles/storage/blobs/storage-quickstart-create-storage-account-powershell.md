@@ -34,7 +34,7 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 Login-AzureRmAccount
 ```
 
-If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This example will use **eastus**. Store this in a variable and use the variable so you can change it in one place.
+If you don't know which location you want to use, you can list the available locations. After the list is displayed, find the one you want to use. This example uses **eastus**. Store this in a variable and use the variable so you can change it in one place.
 
 ```powershell
 Get-AzureRmLocation | select Location 
