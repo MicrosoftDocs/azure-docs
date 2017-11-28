@@ -57,7 +57,7 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 
 1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
 2. Configure the function app to [use the 2.0 runtime version](functions-versions.md).
-3. Create a new function, and select the **Durable Functions Orchestrator - C#** template.
+3. Create a new function, by choosing "C#" for language and "All" for Scenario. Then select the **Durable Functions Orchestrator - C#** template.
 4. Under **Extensions not installed**, click **Install** to download the extension from NuGet.org.
 
 ### Copy sample code to the function app
