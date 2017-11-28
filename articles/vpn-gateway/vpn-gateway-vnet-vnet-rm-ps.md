@@ -54,21 +54,22 @@ You may want to connect virtual networks for the following reasons:
 
   * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
-VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
-
-![About connections](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
+VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
 
 ## Which set of steps should I use?
 
-In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub). The steps for this configuration use TestVNet1 and TestVNet4.
+In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub) and one for [VNets that reside in different subscriptions](#difsub).
+The key difference between the sets is that you must use separate PowerShell sessions when configuring the connections for VNets that reside in different subscriptions. 
 
-![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+For this exercise, you can combine configurations, or just choose the one that you want to work with. All of the configurations use the VNet-to-VNet connection type. Network traffic flows between the VNets that are directly connected to each other. In this exercise, traffic from TestVNet4 does not route to TestVNet5.
 
-There is a separate article for [VNets that reside in different subscriptions](#difsub). The steps for that configuration use TestVNet1 and TestVNet5.
+* [VNets that reside in the same subscription](#samesub): The steps for this configuration use TestVNet1 and TestVNet4.
 
-![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+  ![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-The key difference between the sets is whether you can create and configure all virtual network and gateway resources within the same PowerShell session. You must use separate PowerShell sessions when configuring the connections for VNets that reside in different subscriptions. You can combine configurations if you'd like, or just choose the one that you want to work with.
+* [VNets that reside in different subscriptions](#difsub): The steps for this configuration use TestVNet1 and TestVNet5.
+
+  ![v2v diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 ## <a name="samesub"></a>How to connect VNets that are in the same subscription
 
@@ -78,7 +79,7 @@ Before beginning, you need to install the latest version of the Azure Resource M
 
 ### <a name="Step1"></a>Step 1 - Plan your IP address ranges
 
-In the following steps, we create two virtual networks along with their respective gateway subnets and configurations. We then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+In the following steps, you create two virtual networks along with their respective gateway subnets and configurations. You then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 We use the following values in the examples:
 
@@ -285,7 +286,7 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
 
 ## <a name="difsub"></a>How to connect VNets that are in different subscriptions
 
-In this scenario, we connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in a different subscription. The subscriptions do not need to be associated with the same Active Directory tenant. The difference between these steps and the previous set is that some of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription. Especially when the two subscriptions belong to different organizations.
+In this scenario, you connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in a different subscription. The subscriptions do not need to be associated with the same Active Directory tenant. The difference between these steps and the previous set is that some of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription. Especially when the two subscriptions belong to different organizations.
 
 ### Step 5 - Create and configure TestVNet1
 

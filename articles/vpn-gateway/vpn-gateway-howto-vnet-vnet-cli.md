@@ -54,21 +54,22 @@ You may want to connect virtual networks for the following reasons:
 
   * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
-VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
-
-![About connections](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
+VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
 
 ### Which set of steps should I use?
 
-This article helps you connect VNets using the VNet-to-VNet connection type. In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub). The steps for this configuration use TestVNet1 and TestVNet4.
+This article helps you connect VNets using the VNet-to-VNet connection type. In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub) and one for [VNets that reside in different subscriptions](#difsub). 
 
-![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+For this exercise, you can combine configurations, or just choose the one that you want to work with. All of the configurations use the VNet-to-VNet connection type. Network traffic flows between the VNets that are directly connected to each other. In this exercise, traffic from TestVNet4 does not route to TestVNet5.
 
-There is a separate article for [VNets that reside in different subscriptions](#difsub). The steps for that configuration use TestVNet1 and TestVNet5.
+* [VNets that reside in the same subscription:](#samesub) The steps for this configuration use TestVNet1 and TestVNet4.
 
-![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+  ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-You can combine configurations if you'd like, or just choose the one that you want to work with.
+* [VNets that reside in different subscriptions:](#difsub) The steps for this configuration use TestVNet1 and TestVNet5.
+
+  ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
 
 ## <a name="samesub"></a>Connect VNets that are in the same subscription
 
@@ -78,7 +79,7 @@ Before beginning, install the latest version of the CLI commands (2.0 or later).
 
 ### <a name="Plan"></a>Plan your IP address ranges
 
-In the following steps, we create two virtual networks along with their respective gateway subnets and configurations. We then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+In the following steps, you create two virtual networks along with their respective gateway subnets and configurations. You then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 We use the following values in the examples:
 
@@ -262,7 +263,7 @@ You now have two VNets with VPN gateways. The next step is to create VPN gateway
 
 ## <a name="difsub"></a>Connect VNets that are in different subscriptions
 
-In this scenario, we connect TestVNet1 and TestVNet5. The VNets reside different subscriptions. The subscriptions do not need to be associated with the same Active Directory tenant. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5.
+In this scenario, you connect TestVNet1 and TestVNet5. The VNets reside different subscriptions. The subscriptions do not need to be associated with the same Active Directory tenant. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Step 5 - Create and configure TestVNet1
 
@@ -328,7 +329,7 @@ This step must be done in the context of the new subscription, Subscription 5. T
 
 ### <a name="connections5"></a>Step 8 - Create the connections
 
-We split this step into two CLI sessions marked as **[Subscription 1]**, and **[Subscription 5]** because the gateways are in the different subscriptions. To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
+This step is split into two CLI sessions marked as **[Subscription 1]**, and **[Subscription 5]** because the gateways are in the different subscriptions. To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
 
 1. **[Subscription 1]** Log in and connect to Subscription 1. Run the following command to get the name and ID of the Gateway from the output:
 
