@@ -55,10 +55,10 @@ This article summarizes supported configurations and components for Azure Site R
 
 >[!NOTE]
 >
-> 1. Replicating Azure virtual machines from one subscription to another for disaster recovery scenarios is not supported.
-> 2. Migrating Azure virtual machines across subscriptions is not supported.
-> 3. Migrating Azure virtual machines within the same region is not supported.
-> 4. Migrating Azure virtual machines from Classic deployment model to Resource manager deployment model is not supported.
+> - Replicating Azure virtual machines from one subscription to another for disaster recovery scenarios is not supported.
+> - Migrating Azure virtual machines across subscriptions is not supported.
+> - Migrating Azure virtual machines within the same region is not supported.
+> - Migrating Azure virtual machines from Classic deployment model to Resource manager deployment model is not supported.
 
 ## Support for replicated machine OS versions
 
