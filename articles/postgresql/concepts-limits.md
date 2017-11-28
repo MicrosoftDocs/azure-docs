@@ -19,6 +19,7 @@ Azure Database for PostgreSQL has multiple service tiers you can choose from whe
 
 There is a maximum number of connections, compute units, and storage in each service tier during the service preview, as follows: 
 
+| | |
 | :------------------------- | :---------------- |
 | **Max connections**        |                   |
 | Basic 50 Compute Units     | 50 connections    |
