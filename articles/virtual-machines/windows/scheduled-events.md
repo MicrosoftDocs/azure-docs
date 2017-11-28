@@ -30,18 +30,20 @@ For information about Scheduled Events on Linux, see [Scheduled Events for Linux
 
 ## Why Scheduled Events?
 
-With Scheduled Events, you can take steps to limit the impact of platform-intiated maintenance or user-initiated actions on your service. 
+Many applications can benefit from time to prepare for virtual machine maintenance. The time can be used to perform application specific tasks that improve availability, reliability, and serviceability including: 
 
-Multi-instance workloads, which use replication techniques to maintain state, may be vulnerable to outages happening across multiple instances. Such outages may result in expensive tasks (for example, rebuilding indexes) or even a replica loss. 
+- Checkpoint and restore
+- Connection draining
+- Primary replica failover 
+- Removal from load balancer pool
+- Event logging
+- Graceful shutdown 
 
-In many other cases, the overall service availability may be improved by performing a graceful shutdown sequence such as completing (or canceling) in-flight transactions, reassigning tasks to other VMs in the cluster (manual failover), or removing the Virtual Machine from a network load balancer pool. 
+Using Scheduled Events your application can discover when maintenance will occur and trigger tasks to limit its impact.  
 
-There are cases where notifying an administrator about an upcoming event or logging such an event help improving the serviceability of applications hosted in the cloud.
-
-Azure Metadata Service surfaces Scheduled Events in the following use cases:
--	Platform initiated maintenance (for example, Host OS rollout)
--	User-initiated calls (for example, user restarts or redeploys a VM)
-
+Scheduled Events provides events in the following use cases:
+- Platform initiated maintenance (e.g. Host OS Update)
+- User initiated maintenance (e.g. user restarts or redeploys a VM)
 
 ## The basics  
 
