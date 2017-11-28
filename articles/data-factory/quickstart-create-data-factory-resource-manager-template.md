@@ -420,14 +420,14 @@ The pipeline runs hourly at the hour. For example, if the current time is 4:25 P
     ![Monitor pipeline run](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)    
 
     > [!IMPORTANT]
-    > You see pipeline runs only at the hour clock (for example: 4 AM, 5 AM, 6 AM, etc...). Click **Refresh** on the toolbar to refresh the list.
+    > You see pipeline runs only at the hour clock (for example: 4 AM, 5 AM, 6 AM, etc.). Click **Refresh** on the toolbar to refresh the list.
 5. Click the link in the **Actions** columns. 
 
     ![Pipeline actions link](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
-6. You see the activity runs associated with the pipelie run. In this quickstart, the pipeline has only one activity of type: Copy. Therefore, you see a run for that activity. 
+6. You see the activity runs associated with the pipeline run. In this quickstart, the pipeline has only one activity of type: Copy. Therefore, you see a run for that activity. 
 
     ![Activity runs](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-1. Click the link under **Output** column to see the output. Click the maximize button to see the full output. 
+1. Click the link under **Output** column. You see the output from the copy operation in an **Output** window. Click the maximize button to see the full output. You can close the maximized output window or close it. 
 
     ![Output window](media/quickstart-create-data-factory-resource-manager-template/output-window.png)
 
@@ -656,13 +656,7 @@ Here is a sample Resource Manager template for creating a logical gateway in the
   ]
 }
 ```
-This template creates a data factory named GatewayUsingArmDF with a gateway named: GatewayUsingARM. 
+This sample template creates a data factory named Factory1128 with a gateway named: Gateway1128. 
 
-## See Also
-| Topic | Description |
-|:--- |:--- |
-| [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory and how to use them to construct end-to-end data-driven workflows for your scenario or business. |
-| [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
-| [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
-| [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) |This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. |
-
+## Next steps
+The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios. 
