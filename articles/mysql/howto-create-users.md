@@ -8,13 +8,13 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/27/2017
 ---
 
 # Create users in Azure Database for MySQL server 
 This article describes how you can create users in an Azure Database for MySQL server.
 
-When you first created your Azure Database for MySQL, you provided a server admin login user name and password. For more information, you can follow the [Quickstart](quickstart-create-mysql-server-database-using-azure-portal). You can locate your server admin login user name from the Azure portal.
+When you first created your Azure Database for MySQL, you provided a server admin login user name and password. For more information, you can follow the [Quickstart](quickstart-create-mysql-server-database-using-azure-portal.md). You can locate your server admin login user name from the Azure portal.
 
 The server admin user gets certain privileges for your server as listed:
 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
