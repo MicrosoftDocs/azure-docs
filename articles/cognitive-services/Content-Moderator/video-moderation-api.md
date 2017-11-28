@@ -12,7 +12,7 @@ ms.date: 11/20/2017
 ms.author: sajagtap
 ---
 
-# Video Moderation
+# Video moderation
 
 Today, online viewers generate billions of video views across popular and regional social media web sites and increasing. By applying machine-learning based services to predict potential adult and racy content, you lower the cost of your moderation efforts.
 
