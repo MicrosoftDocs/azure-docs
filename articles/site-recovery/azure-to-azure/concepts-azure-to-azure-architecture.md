@@ -80,6 +80,5 @@ When you initiate a failover, the VMs are created in the target resource group, 
 
 ## Next steps
 
-Review the support matrix
-Follow the tutorial to enable Azure VM replication to a secondary region.
-Run a failover and failback.
+Follow the [quickstart](azure-to-azure-quickstart.md) to enable replication of an Azure VM to a secondary region.
+
