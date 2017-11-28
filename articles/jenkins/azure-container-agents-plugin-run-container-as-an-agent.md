@@ -40,15 +40,23 @@ If you don't already have a Jenkins Master, start with the [solution template](i
 1. Open and log in to the Jenkins dashboard.
 
 1. Select **Manage Jenkins**.
-    ![](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
+    ![Manage Jenkins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
 
 1. Select **Manage Plugins**.
+    ![Manage Jenkins plugins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-plugins.png)
 
 1. Select **Available**.
+    ![View available Jenkins plugins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-view-available-plugins.png)
 
-1. Enter `Azure Container Agents` into the **Filter** text box
+1. Enter `Azure Container Agents` into the **Filter** text box. (The list will filter as you enter the text.)
+    ![Filter the available Jenkins plugins on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-filter-available-plugins.png)
 
-You can install/update this plugin in Jenkins update center (Manage Jenkins -> Manage Plugins, search Azure Container Agents Plugin).
+1. Select the checkbox next to the **Azure Container Agents** plugin, and one of the install options. For purposes of this demo, I've selected the **Install without restart** option.
+    ![Install the Azure Container Agents plugins from the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-install-aks-agent-plugin.png)
+
+Once you are done, the Jenkins dashboard will display a page detailing the status of what you're installing.
+
+![Installation status of installing the Azure Container Agents plugins from the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-install-aks-agent-plugin-confirmation.png)
 
 ### Install the plugin manually
 If you want to try the latest features for a given Jenkins plugin before it's officially released, you can also manually install the plugin using the following steps:
