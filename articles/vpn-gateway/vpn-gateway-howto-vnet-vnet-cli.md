@@ -54,21 +54,22 @@ You may want to connect virtual networks for the following reasons:
 
   * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
-VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
-
-![About connections](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
+VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
 
 ### Which set of steps should I use?
 
-This article helps you connect VNets using the VNet-to-VNet connection type. In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub). The steps for this configuration use TestVNet1 and TestVNet4.
+This article helps you connect VNets using the VNet-to-VNet connection type. In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub) and one for [VNets that reside in different subscriptions](#difsub). 
 
-![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+For this exercise, you can combine configurations, or just choose the one that you want to work with. All of the configurations use the VNet-to-VNet connection type. Network traffic flows between the VNets that are directly connected to each other. In this exercise, traffic from TestVNet4 does not route to TestVNet5.
 
-There is a separate article for [VNets that reside in different subscriptions](#difsub). The steps for that configuration use TestVNet1 and TestVNet5.
+* [VNets that reside in the same subscription:](#samesub) The steps for this configuration use TestVNet1 and TestVNet4.
+
+  ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+* [VNets that reside in different subscriptions](#difsub). The steps for this configuration use TestVNet1 and TestVNet5.
 
 ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
-You can combine configurations if you'd like, or just choose the one that you want to work with.
 
 ## <a name="samesub"></a>Connect VNets that are in the same subscription
 
