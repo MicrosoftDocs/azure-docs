@@ -30,18 +30,18 @@ Due to complexities in execution as well as authentication of cross workspace an
 
 **Mitigation:**
 Support for **Query across resources** in Azure Alerts is planned and will be announced soon.
-A workaround the issue until that time, is creating multiple alerts instead of a combined query across workspaces or apps; with same periodicity as well as frequency. By doing this, one can get alerts across each individual workspace in the same time period and can compare both before making any intervention.
+A workaround the issue until that time, is creating multiple alerts instead of a combined query across workspaces or apps; with same periodicity as well as frequency. Thus one can get alerts across each individual workspace in the same time period and can compare both before making any intervention.
 
 ## Log Search Alerts fails to post entire data through Webhook
 Azure Alerts allow users to configure means of notification using Action Groups. More details on [Action Groups](monitoring-action-groups.md) here. Action Groups currently support multiple notification options including e-mail, SMS, JSON-based Webhook, and ITSM Connection.
 
 **Explanation:**
-Webhooks pass information as JSON objects and very large query results can result in a JSON with many value pair across the various array data types. To prevent abuse of Webhook, Azure has implemented limits to JSON objects that can be created and passed - which for Log Search Alerts is 2 Mb. All log search query results and alert tags need to fit into the 2 Mb limit to qualify for successful JSON creation for use with Webhooks via Action Groups.
+Webhooks pass information as JSON objects and  large query results can result in a JSON with many value pair across the various array data types. To prevent abuse of Webhook, Azure has implemented limits to JSON objects that can be created and passed - which for Log Search Alerts is 2 Mb. All log search query results and alert tags need to fit into the 2 Mb limit to qualify for successful JSON creation for use with Webhooks via Action Groups.
 
 **Mitigation:**
-Customer can customize their alert queries and their frequency to lower values; so that results are limited. This would result in lesser rows of results and smaller JSONs for Webhook - allowing all results to be pushed to end system without failure, abet at a faster frequency.
+Customer can customize their alert queries and their frequency to lower values; so that results are limited. This work-around would result in lesser rows of results and smaller JSONs for Webhook; allowing results to be pushed to end system without failure, abet at a faster frequency.
 
-Alternatively customers can look at using [ITSM connector](../log-analytics/log-analytics-itsmc-overview.md) as an alternative, if the end system for Webhook is an IT Service Management solution like ServiceNow.
+If the end system for Webhook is an IT Service Management solution like ServiceNow, then customers can look at using [ITSM connector](../log-analytics/log-analytics-itsmc-overview.md) as an alternative.
 
 
 ## Related Articles
