@@ -29,22 +29,26 @@ Typical data science tasks include data exploration, modeling, and deployment. T
 
 ## 1. <a name='DataQualityReportUtility-1'></a> Exploration 
 
-A data scientist can perform exploration and reporting in a variety of ways, for example, using libraries and packages available in Python (for example, matplotlib) or R (for example, ggplot, lattice). Data scientists can customize such code to fit the needs of data exploration for specific scenarios. Typically, such needs are different for structured data and unstructured data (such as text or images). Products such as Azure Machine Learning Workbench also provide [features](../preview/tutorial-bikeshare-dataprep.md) for data wrangling and exploration. The user should decide on the tools, libraries, or packages that best suite their needs. At the end of this phase, however, the deliverable should be a data exploration report, which provides a fairly comprehensive view of the data to be used for modeling and an assessment if such data is suitable for moving forward to the modeling step.
+A data scientist can perform exploration and reporting in a variety of ways: by using libraries and packages available for Python (matplotlib for example) or with R (ggplot or lattice for example). Data scientists can customize such code to fit the needs of data exploration for specific scenarios. The needs for dealing with structured data are different that for unstructured data such as text or images. 
 
-Below, we show the use of a couple of utilities developed by TDSP for (semi-)automated exploration, modeling, and reporting. An important functionality of these utilities is that they provide standardized data exploration or modeling reports. 
+Products such as Azure Machine Learning Workbench also provide [features](../preview/tutorial-bikeshare-dataprep.md) for data wrangling and exploration. The user should decide on the tools, libraries, and packages that best suite their needs. 
+
+The deliverable at the end of this phase is a data exploration report. The report should provide a fairly comprehensive view of the data to be used for modeling and an assessment of whether the data is suitable to proceed to the modeling step. The Team Data Science Process (TDSP) utilities discussed in the following sections for semi-automated exploration, modeling, and reporting also provide standardized data exploration and modeling reports. 
 
 ### Interactive data exploration, analysis, and reporting using the IDEAR utility
 
 This R markdown-based or Python notebook-based utility provides a flexible and interactive tool to evaluate and explore data sets. Users can quickly generate reports from the data set with minimal coding. Users can click buttons to export the exploration results in the interactive tool to a final report, which can be delivered to clients or used to make decisions on which variables to include in the subsequent modeling step.
 
-At this time, the tool only works on data-frames in memory. A.yaml file is needed to specify the parameters of the data-set to be explored. For more information, see [IDEAR in TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
+At this time, the tool only works on data-frames in memory. A YAML file is needed to specify the parameters of the data-set to be explored. For more information, see [IDEAR in TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
 ## 2. <a name='ModelingUtility-2'></a> Modeling
 
-There are numerous toolkits and packages for training models in a variety of languages. Data scientists should feel free to use whatever they are comfortable with, as long as considerations for performance (both in terms of accuracy and latency) are met satisfactorily for the business use case and production scenario (in case the model is to be put in production).
+There are numerous toolkits and packages for training models in a variety of languages. Data scientists should feel free to use which ever ones they are comfortable with, as long as performance considerations regarding accuracy and latency are satisfied for the relevant business use cases and production scenarios.
 
-Below, we show how to use an R-based utility developed by TDSP for (semi-) automated modeling. This can easily be used to generate base line models quickly, and as needed, the parameters to be tuned over can be expanded to provide a better performing model.
+The next section shows how to use an R-based TDSP utility for semi-automated modeling. This AMAR utility can be used to generate base line models quickly as well as the parameters that need to be tuned to provide a better performing model.
+The following model management section shows how to have a system for registering and managing multiple models.
+
 
 ### Model training: modeling and reporting using the AMAR utility
 
@@ -52,7 +56,7 @@ The [Automated Modeling and Reporting (AMAR) Utility](https://github.com/Azure/A
 
 The model creation utility is an R Markdown file that can be run to produce self-contained HTML output with a table of contents for easy navigation through its different sections. Three algorithms are executed when the Markdown file is run (knit): regularized regression using the glmnet package, random forest using the randomForest package, and boosting trees using the xgboost package). Each of these algorithms produces a trained model. The accuracy of these models is then compared and the relative feature importance plots are reported. Currently, there are two utilities: one is for a binary classification task and one is for a regression task. The primary differences between them is the way control parameters and accuracy metrics are specified for these learning tasks. 
 
-A Yaml file is used to specify:
+A YAML file is used to specify:
 
 - the data input (a SQL source or an R-Data file) 
 - what portion of the data is used for training and what portion for testing
@@ -68,7 +72,7 @@ The number of algorithms, the number of folds for optimization, the hyper-parame
 For more information, see [Automated Modeling and Reporting Utility in TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling).
 
 ### Model management
-After multiple models have been built, you usually need to have a system for registering and managing the models. Typically you need a combination of scripts or APIs and a backend database or versioning system. A few options that you can consider for this are:
+After multiple models have been built, you usually need to have a system for registering and managing the models. Typically you need a combination of scripts or APIs and a backend database or versioning system. A few options that you can consider for these management tasks are:
 
 1. [Azure Machine Learning - model management service](../preview/model-management-overview)
 2. [ModelDB from MIT](https://mitdbg.github.io/modeldb/) 
@@ -78,7 +82,7 @@ After multiple models have been built, you usually need to have a system for reg
 ## 3. <a name='Deployment-3'></a> Deployment
 
 ### Deployment
-Production deployment enables a model to play an active role in a business. Predictions from a deployed model can used for business decisions. Prior to deployment, one has to keep the latency of model scoring in consideration.  
+Production deployment enables a model to play an active role in a business. Predictions from a deployed model can be used for business decisions. Prior to deployment, one has to keep the latency of model scoring in consideration.  
 
 There are various approaches and platforms to put models into production. Here are a few options:
 1. [Model deployment in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
