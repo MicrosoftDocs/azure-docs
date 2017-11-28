@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell Script Sample - Change the RDP port range. | Microsoft Docs
+title: Azure PowerShell Script Sample - Change the RDP port range | Microsoft Docs
 description: Azure PowerShell Script Sample - Changes the RDP port range of a deployed cluster.
 services: service-fabric
 documentationcenter: 
