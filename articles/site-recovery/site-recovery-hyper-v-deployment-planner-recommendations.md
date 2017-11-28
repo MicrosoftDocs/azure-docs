@@ -17,7 +17,7 @@ ms.date: 11/27/2017
 ms.author: nisoneji
 
 ---
-# Recommendations
+# Recommendations with desired RPO as input 
 The recommendations sheet of the Hyper-V to Azure report has the following details.
 
 ## Profile data
@@ -30,9 +30,9 @@ The recommendations sheet of the Hyper-V to Azure report has the following detai
 ## Profiling overview
 **Total Profiled Virtual Machines**: The total number of VMs whose profiled data is available. If the VMListFile has names of any VMs which were not profiled, those VMs are not considered in the report generation and are excluded from the total profiled VMs count.
 
-**Compatible Virtual Machines**: The number of VMs that can be protected to Azure by using Site Recovery. It is the total number of compatible VMs for which the required network bandwidth, number of storage accounts, number of Azure cores are calculated. The details of every compatible VM are available in the "Compatible VMs" section.
+**Compatible Virtual Machines**: The number of VMs that can be protected to Azure by using Azure Site Recovery. It is the total number of compatible VMs for which the required network bandwidth, number of storage accounts, number of Azure cores are calculated. The details of every compatible VM are available in the "Compatible VMs" section.
 
-**Incompatible Virtual Machines**: The number of profiled VMs that are incompatible for protection with Site Recovery. The reasons for incompatibility are noted in the "Incompatible VMs" section. If the VMListFile has names of any VMs that were not profiled, those VMs are excluded from the incompatible VMs count. These VMs are listed as "Data not found" at the end of the "Incompatible VMs" section.
+**Incompatible Virtual Machines**: The number of profiled VMs that are incompatible for protection with Azure Site Recovery. The reasons for incompatibility are noted in the "Incompatible VMs" section. If the VMListFile has names of any VMs that were not profiled, those VMs are excluded from the incompatible VMs count. These VMs are listed as "Data not found" at the end of the "Incompatible VMs" section.
 
 **Desired RPO**: Your desired recovery point objective, in minutes. The report is generated for three RPO values: 15 (default), 30, and 60 minutes. The bandwidth recommendation in the report is changed based on your selection in the Desired RPO drop-down list given at the top right of the sheet. If you have generated the report by using the -DesiredRPO parameter with a custom value, this custom value shows as the default in the Desired RPO drop-down list.
 
@@ -41,15 +41,15 @@ The recommendations sheet of the Hyper-V to Azure report has the following detai
 
 **To meet RPO 90 percent of the time**: Because of broadband pricing or for any other reason, if you cannot set the bandwidth needed to meet your desired RPO 100 percent of the time, you can choose to go with a lower bandwidth setting that can meet your desired RPO 90 percent of the time. To understand the implications of setting this lower bandwidth, the report provides a what-if analysis on the number and duration of RPO violations to expect.
 
-**Achieved Throughput**: The throughput from the server on which you have run the GetThroughput command to the Azure region where the storage account is located. This throughput number indicates the estimated level that you can achieve when you protect the compatible VMs by using Site Recovery, provided that Hyper-V server storage and network characteristics remain the same as that of the server from which you have run the tool.
+**Achieved Throughput**: The throughput from the server on which you have run the GetThroughput command to the Azure region where the storage account is located. This throughput number indicates the estimated level that you can achieve when you protect the compatible VMs by using Azure Site Recovery, provided that Hyper-V server storage and network characteristics remain the same as that of the server from which you have run the tool.
 
-For all enterprise Site Recovery deployments, we recommend that you use [ExpressRoute](https://aka.ms/expressroute).
+For all enterprise Azure Site Recovery deployments, we recommend that you use [ExpressRoute](https://aka.ms/expressroute).
 
 ## Required storage accounts
 The following chart shows the total number of storage accounts (standard and premium) that are required to protect all the compatible VMs. To learn which storage account to use for each VM, see the "VM-storage placement" section.
 
 ## Required number of Azure cores
-This result is the total number of cores to be set up before failover or test failover of all the compatible VMs. If too few cores are available in the subscription, Site Recovery fails to create VMs at the time of test failover or failover.
+This result is the total number of cores to be set up before failover or test failover of all the compatible VMs. If too few cores are available in the subscription, Azure Site Recovery fails to create VMs at the time of test failover or failover.
 
 ## Additional on-premises storage requirement
 The total free storage required on Hyper-V servers for successful initial replication and delta replication to ensure that the VM replication will not cause any undesirable downtime for your production applications. Detail of each volume requirement is available in [on-premises storage requirement](site-recovery-hyper-v-deployment-planner-on-premises-storage-requirement.md) sheet. 
@@ -94,7 +94,7 @@ It shows the total storage cost that will be incurred for premium and standard s
 You can view detailed cost analysis per VM in the [Cost Estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md) sheet.
 
 ## Recommendations with available bandwidth as input
-You might have a situation where you know that you cannot set a bandwidth of more than x Mbps for Site Recovery replication. The tool allows you to input available bandwidth (using the -Bandwidth parameter during report generation) and get the achievable RPO in minutes. With this achievable RPO value, you can decide whether you need to provision additional bandwidth or you are OK with having a disaster recovery solution with this RPO.
+You might have a situation where you know that you cannot set a bandwidth of more than x Mbps for Azure Site Recovery replication. The tool allows you to input available bandwidth (using the -Bandwidth parameter during report generation) and get the achievable RPO in minutes. With this achievable RPO value, you can decide whether you need to provision additional bandwidth or you are OK with having a disaster recovery solution with this RPO.
 
 
 ## Next steps

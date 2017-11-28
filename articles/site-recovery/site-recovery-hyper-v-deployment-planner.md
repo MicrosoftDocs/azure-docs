@@ -17,16 +17,16 @@ ms.date: 11/26/2017
 ms.author: nisoneji
 
 ---
-# Site Recovery deployment planner
-This article is the Site Recovery Deployment Planner user guide for Hyper-V-to-Azure production deployments.
+# Azure Site Recovery deployment planner
+This article is the Azure Site Recovery Deployment Planner user guide for Hyper-V-to-Azure production deployments.
 
 ## Overview
 
 Before you begin protecting any Hyper-V virtual machines (VMs) using Site Recovery, allocate sufficient bandwidth based on your daily data-change rate to meet your desired Recovery Point Objective (RPO), and allocate sufficient free storage space on each volume of Hyper-V storage on-premises.
 
-You also need to create the right type and number of target Azure storage accounts. You create either standard or premium storage accounts, factoring in growth on your source production servers because of increased usage over time. You choose the storage type per VM, based on workload characteristics, for example, read/write I/O operations per second (IOPS), or data churn, and Site Recovery limits. 
+You also need to create the right type and number of target Azure storage accounts. You create either standard or premium storage accounts, factoring in growth on your source production servers because of increased usage over time. You choose the storage type per VM, based on workload characteristics, for example, read/write I/O operations per second (IOPS), or data churn, and Azure Site Recovery limits. 
 
-The Site Recovery deployment planner (version 2) is a command-line tool available for both Hyper-V to Azure and VMware to Azure disaster recovery scenarios. You can remotely profile your Hyper-V VMs present on multiple Hyper-V hosts using this tool (with no production impact whatsoever) to understand the bandwidth and Azure storage requirements for successful replication and test failover / failover. You can run the tool without installing any Site Recovery components on-premises. However, to get accurate achieved throughput results, we recommend that you run the planner on a Windows Server that has the same hardware configuration as that of one of the Hyper-V servers that you will use to enable disaster recovery protection to Azure. 
+The Azure Site Recovery deployment planner (version 2) is a command-line tool available for both Hyper-V to Azure and VMware to Azure disaster recovery scenarios. You can remotely profile your Hyper-V VMs present on multiple Hyper-V hosts using this tool (with no production impact whatsoever) to understand the bandwidth and Azure storage requirements for successful replication and test failover / failover. You can run the tool without installing any Azure Site Recovery components on-premises. However, to get accurate achieved throughput results, we recommend that you run the planner on a Windows Server that has the same hardware configuration as that of one of the Hyper-V servers that you will use to enable disaster recovery protection to Azure. 
 
 The tool provides the following details:
 
@@ -37,7 +37,7 @@ The tool provides the following details:
 **Network bandwidth need versus RPO assessment**
 
 * The estimated network bandwidth that's required for delta replication
-* The throughput that Site Recovery can get from on-premises to Azure
+* The throughput that Azure Site Recovery can get from on-premises to Azure
     
 **Azure infrastructure requirements**
 
@@ -69,5 +69,5 @@ The tool provides the following details:
 >
 
 ## Next steps
-* [Learn more](site-recovery-hyper-v-deployment-planner-requirements.md) about the requirements for Site Recovery deployment planner.
-*  [Learn more](site-recovery-hyper-v-deployment-panner-download.md) about download Site Recovery deployment planner.
+* [Learn more](site-recovery-hyper-v-deployment-planner-requirements.md) about the requirements for Azure Site Recovery deployment planner.
+*  [Learn more](site-recovery-hyper-v-deployment-panner-download.md) about download Azure Site Recovery deployment planner.

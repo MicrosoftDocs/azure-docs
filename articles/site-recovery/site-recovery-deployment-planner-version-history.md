@@ -21,7 +21,7 @@ ms.author: nisoneji
 # Version history
 
 ## 2.0
-Updated: November 27, 2017
+Updated: November 28, 2017
 
 Following new features are added.
 * Added support for Hyper-V to Azure scenario.

@@ -18,7 +18,7 @@ ms.author: nisoneji
 
 ---
 
-# Profile Hyper-V VMs using Site Recovery deployment planner
+# Profile Hyper-V VMs using Azure Site Recovery deployment planner
 
 In profiling mode, the deployment planner tool connects to each of the Hyper-V hosts to collect performance data about the VMs. 
 
@@ -49,11 +49,11 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Password|(Optional) The password to connect to Hyper-V host. If not specified now, you will be prompted for it later during the execution of the command.|
 |-StorageAccountName|(Optional) The storage-account name that's used to find the throughput achievable for replication of data from on-premises to Azure. The tool uploads test data to this storage account to calculate throughput.|
 |-StorageAccountKey|(Optional) The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <Storage account name> > Settings > Access Keys > Key1 (or primary access key for classic storage account).|
-|-Environment|(optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China clouds.|
+|-Environment|(Optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China clouds.|
 
 We recommend that you profile your VMs for at least 15 to 31 days. During the profiling period, ASRDeploymentPlanner.exe keeps running. The tool takes profiling time input in days. For a quick test of the tool or for proof of concept you can profile for few hours or minutes. The minimum allowed profiling time is 30 minutes. 
 
-During profiling, you can optionally pass a storage-account name and key to find the throughput that Site Recovery can achieve at the time of replication from the Hyper-V server to Azure. If the storage account name and key are not passed during profiling, the tool does not calculate achievable throughput.
+During profiling, you can optionally pass a storage-account name and key to find the throughput that Azure Site Recovery can achieve at the time of replication from the Hyper-V server to Azure. If the storage account name and key are not passed during profiling, the tool does not calculate achievable throughput.
 
 You can run multiple instances of the tool for various sets of VMs. Ensure that the VM names are not repeated in any of the profiling sets. For example, if you have profiled 10 VMs (VM1 through VM10) and after few days you want to profile another five VMs (VM11 through VM15), you can run the tool from another command-line console for the second set of VMs (VM11 through VM15). Ensure that the second set of VMs do not have any VM names from the first profiling instance or you use a different output directory for the second run. If two instances of the tool are used for profiling the same VMs and use the same output directory, the generated report will be incorrect. 
 

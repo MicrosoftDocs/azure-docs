@@ -17,12 +17,12 @@ ms.date: 11/26/2017
 ms.author: nisoneji
 
 ---
-# Site Recovery Deployment planner requirements for Hyper-V to Azure
+# Azure Site Recovery deployment planner requirements for Hyper-V to Azure
 The tool has three main phases for Hyper-V: get VM list, profiling, and report generation. There is also a fourth option to calculate throughput only. The requirements for the server on which the different phases need to be executed are presented in the following table:
 
 | Server requirement | Description |
 |---|---|
-|Get VM list, profiling, and throughput measurement |<ul><li>Operating system: Microsoft Windows Server 2016 or 2Microsoft Windows Server 2012 R2 </li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure from this server</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1000 VMs with an average of three disks each, profiled for 30 days)</li><li>The VM from where you are running the Site Recovery deployment planner tool must be added to TrustedHosts list of all the Hyper-V servers.</li><li>All Hyper-V servers’ VMs to be profiled must be added to TrustedHosts list of the client VM from where the tool is being run. [Learn more](./site-recovery-hyper-v-deployment-planner-requirements.md#steps-to-add-servers-into-trustedhosts-list). </li><li> The tool should be run from Administrative privileges from PowerShell or command-line console on the client</ul></ul>|
+|Get VM list, profiling, and throughput measurement |<ul><li>Operating system: Microsoft Windows Server 2016 or 2Microsoft Windows Server 2012 R2 </li><li>Machine configuration: 8 vCPUs, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet access to Azure from this server</li><li>Azure storage account</li><li>Administrator access on the server</li><li>Minimum 100 GB of free disk space (assuming 1000 VMs with an average of three disks each, profiled for 30 days)</li><li>The VM from where you are running the Azure Site Recovery deployment planner tool must be added to TrustedHosts list of all the Hyper-V servers.</li><li>All Hyper-V servers’ VMs to be profiled must be added to TrustedHosts list of the client VM from where the tool is being run. [Learn more](./site-recovery-hyper-v-deployment-planner-requirements.md#steps-to-add-servers-into-trustedhosts-list). </li><li> The tool should be run from Administrative privileges from PowerShell or command-line console on the client</ul></ul>|
 | Report generation | A Windows PC or Windows Server with Microsoft Excel 2013 or later |
 | User permissions | Administrator account to access Hyper-V cluster/Hyper-V host during get VM list and profiling operations.<br>All the hosts that need to be profiled should have a domain administrator account with the same credentials i.e. user name and password
  |
@@ -43,7 +43,7 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
             Enable-PSRemoting -Force
 
 ## Next steps
-* [Download](site-recovery-hyper-v-deployment-panner-download.md) Site Recovery deployment planner.
+* [Download](site-recovery-hyper-v-deployment-panner-download.md) Azure Site Recovery deployment planner.
 * Learn more about the tool [capabilities](site-recovery-hyper-v-deployment-planner-capabilities.md).
 * Learn more about how to [get list of Hyper-V VMs](site-recovery-hyper-v-deployment-planner-getvmlist.md).
 * Learn more about how to [profile Hyper-V VMs](site-recovery-hyper-v-deployment-planner-profiling.md).

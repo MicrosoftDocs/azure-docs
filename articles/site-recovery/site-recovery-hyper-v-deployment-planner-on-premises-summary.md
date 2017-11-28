@@ -18,8 +18,8 @@ ms.author: nisoneji
 
 ---
 
-## On-premises summary report
-The Input worksheet provides an overview of the profiled Hyper-V environment
+# On-premises summary report
+The On-premises summary worksheet provides an overview of the profiled Hyper-V environment
 
 **Start Date** and **End Date**: The start and end dates of the profiling data considered for report generation. By default, the start date is the date when profiling starts, and the end date is the date when profiling stops. This can be the ‘StartDate’ and ‘EndDate’ values if the report is generated with these parameters.
 
@@ -39,5 +39,5 @@ The Input worksheet provides an overview of the profiled Hyper-V environment
 
 **Observed typical data churn per day (GB)**: The average data churn observed across all profiling days.
 
-## Next steps:
+## Next steps
 Learn more about [VM-Storage placement](site-recovery-hyper-v-deployment-planner-vm-storage-placement.md).

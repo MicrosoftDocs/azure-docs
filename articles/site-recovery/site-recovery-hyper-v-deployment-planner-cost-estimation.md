@@ -59,7 +59,7 @@ Select the appropriate setting as per your requirements.
 If you have any domain controller or DNS VM or SQL Server VM with Always On Availability Groups  running on Azure for DR you can provide the number of VMs and the size to consider their compute cost in the total DR cost. 
 
 ## Apply overall discount if applicable
-If you are an Azure partner or a customer and are entitled to any discount on overall Azure pricing, you can use this field. The tool will apply the discount (in%) on all components.
+If you are an Azure partner or a customer and are entitled to any discount on overall Azure pricing, you can use this field. The tool will apply the discount (in %) on all components.
 
 ## Number of virtual machines type and compute cost (per year)
 This table shows the number of Windows and non-Windows VMs and DR drill compute cost for them.
@@ -78,6 +78,7 @@ To manually add VMs:
 1.	Click on the 'Insert row' button to insert a new row between the Start and End rows
 
 2.	Fill the following columns based on approximate VM size and number of VMs that match this configuration: 
+
 * Number of VMs, IaaS size (Your selection)
 * Storage Type (Standard/Premium)
 * VM total storage size (GB)
@@ -91,7 +92,7 @@ To manually add VMs:
 
 4.	Click 'Re-calculate cost' to update cost
 
-*VM Name**: The name of the VM.
+**VM Name**: The name of the VM.
 
 **Number of VMs**: The number of VMs that match the configuration. You can update the number of the existing VMs if similar configuration VMs are not profiled but will be protected.
 
@@ -101,7 +102,7 @@ To manually add VMs:
 
 **Storage type**: The type of the storage that will be used by the VM. It is either standard or premium storage.
 
-**VM total storage size(GB)**: The total storage of the VM.
+**VM total storage size (GB)**: The total storage of the VM.
 
 **Number of DR-Drills in a year**: The number of times you will perform DR-Drills in a year. By default, it is 4 times in a year. You can modify the period for specific VMs or apply the new value to all VMs by entering the new value on the top row and clicking the ‘Apply to all’ button. Based on number of DR-Drills in a year and each DR-Drill duration period, the total DR-Drill cost will be calculated.  
 

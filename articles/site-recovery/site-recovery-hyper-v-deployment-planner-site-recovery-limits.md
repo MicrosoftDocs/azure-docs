@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery deployment planner Site Recovery limit| Microsoft Docs
-description: This article describes Site Recovery limits for VMware to Azure and Hyper-V to Azure scenarios.
+description: This article describes Azure Site Recovery limits.
 services: site-recovery
 documentationcenter: ''
 author: nsoneji
@@ -18,8 +18,8 @@ ms.author: nisoneji
 
 ---
 
-# Site Recovery limits
-The following table provides the Site Recovery limits. These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. For best results, even after deployment planning, we always recommend that you perform extensive application testing by issuing a test failover to get the true performance picture of the application.
+# Azure Site Recovery limits
+The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they cannot cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. For best results, even after deployment planning, we always recommend that you perform extensive application testing by issuing a test failover to get the true performance picture of the application.
  
 **Replication storage target** | **Average source disk I/O size** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
@@ -30,8 +30,8 @@ Premium P10 or P15 disk | 32 KB or greater | 8 MBps | 672 GB per disk
 Premium P20 or P30 disk | 8 KB	| 5 MBps | 421 GB per disk
 Premium P20 or P30 disk | 16 KB or greater |10 MBps | 842 GB per disk
 
-These limits are average numbers assuming a 30 percent I/O overlap. Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior. The preceding numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
+These limits are average numbers assuming a 30 percent I/O overlap. Azure Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior. The preceding numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
 
 
 ## Next steps
-* [Download](site-recovery-hyper-v-deployment-panner-download.md) and run Site Recovery deployment planner to understand the data churn and IOPS of your VMs.
+* [Download](site-recovery-hyper-v-deployment-panner-download.md) and run Azure Site Recovery deployment planner to understand the data churn and IOPS of your VMs.

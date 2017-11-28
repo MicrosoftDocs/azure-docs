@@ -17,12 +17,12 @@ ms.date: 11/27/2017
 ms.author: nisoneji
 
 ---
-# Ge throughput using Site Recovery deployment planner
+# Ge throughput using Azure Site Recovery deployment planner
 
-To estimate the throughput that Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server that the tool is running on. Ideally, this server is the Hyper-V server whose VMs are to be protected. 
+To estimate the throughput that Azure Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server that the tool is running on. Ideally, this server is the Hyper-V server whose VMs are to be protected. 
 
 ## Command-line parameters 
-Open a command-line console and go to the Site Recovery deployment planning tool folder. Run ASRDeploymentPlanner.exe with the following parameters
+Open a command-line console and go to the Azure Site Recovery deployment planning tool folder. Run ASRDeploymentPlanner.exe with the following parameters
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
@@ -37,9 +37,9 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 |-Environment|(Optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud, AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China clouds|
 
 
-The tool creates several 64-MB asrvhdfile<#>.vhd files (where "#" is the number of files) on the specified directory. The tool uploads the files to the storage account to find the throughput. After the throughput is measured, the tool deletes all the files from the storage account and from the local server. If the tool is terminated for any reason while it is calculating throughput, it doesn't delete the files from the storage or from the local server. You will have to delete them manually.
+The tool creates several 64 MB asrvhdfile<#>.vhd files (where "#" is the number of files) on the specified directory. The tool uploads the files to the storage account to find the throughput. After the throughput is measured, the tool deletes all the files from the storage account and from the local server. If the tool is terminated for any reason while it is calculating throughput, it doesn't delete the files from the storage or from the local server. You will have to delete them manually.
 
-The throughput is measured at a specified point in time, and it is the maximum throughput that Site Recovery can achieve during replication, provided that all other factors remain the same. For example, if any application starts consuming more bandwidth on the same network, the actual throughput varies during replication. The result of the measured throughput is different if the GetThroughput operation is run when the protected VMs have high data churn. We recommend that you run the tool at various points in time during profiling to understand what throughput levels can be achieved at various times. In the report, the tool shows the last measured throughput.
+The throughput is measured at a specified point in time, and it is the maximum throughput that Azure Site Recovery can achieve during replication, provided that all other factors remain the same. For example, if any application starts consuming more bandwidth on the same network, the actual throughput varies during replication. The result of the measured throughput is different if the GetThroughput operation is run when the protected VMs have high data churn. We recommend that you run the tool at various points in time during profiling to understand what throughput levels can be achieved at various times. In the report, the tool shows the last measured throughput.
     
 ## Example
 ```
@@ -52,9 +52,9 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Direc
 >
 > For replication, set the recommended bandwidth to meet the RPO 100 percent of the time. After you set the right bandwidth, if you don’t see an increase in the achieved throughput reported by the tool, do the following:
 >
->  1. Check to determine whether there is any network Quality of Service (QoS) that is limiting Site Recovery throughput.
+>  1. Check to determine whether there is any network Quality of Service (QoS) that is limiting Azure Site Recovery throughput.
 >
->  2. Check to determine whether your Site Recovery vault is in the nearest physically supported Microsoft Azure region to minimize network latency.
+>  2. Check to determine whether your Azure Site Recovery vault is in the nearest physically supported Microsoft Azure region to minimize network latency.
 >
 >  3. Check your local storage characteristics to determine whether you can improve the hardware (for example, HDD to SSD).
 >

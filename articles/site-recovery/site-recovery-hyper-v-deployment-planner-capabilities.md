@@ -17,7 +17,7 @@ ms.date: 11/26/2017
 ms.author: nisoneji
 
 ---
-# Site Recovery Deployment planner capabilities
+# Azure Site Recovery Deployment planner capabilities
 
 You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following four modes: 
 1.	[Get VM list](site-recovery-hyper-v-deployment-planner-getvmlist.md).
@@ -27,6 +27,6 @@ You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the follo
 
 First, run the tool to get the list of VMs from a single or multiple Hyper-V hosts.  Then run the tool in profiling mode to gather VM data churn and IOPS. Next, run the tool to generate the report to find the network bandwidth and storage requirements.
 
-# Next steps
+## Next steps
 [Get list of Hyper-V VMs](site-recovery-hyper-v-deployment-planner-getvmlist.md).
   

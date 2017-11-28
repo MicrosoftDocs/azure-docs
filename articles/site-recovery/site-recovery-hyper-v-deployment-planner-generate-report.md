@@ -105,7 +105,7 @@ It is critical to account for growth in your workload characteristics, assuming 
 For example, let's say that today your VM fits in a standard storage replication account. Over the next three months, several changes are likely to occur:
 
 * The number of users of the application that runs on the VM will increase.
-* The resulting increased churn on the VM will require the VM to go to premium storage so that Site Recovery replication can keep pace.
+* The resulting increased churn on the VM will require the VM to go to premium storage so that Azure Site Recovery replication can keep pace.
 * Consequently, you will have to disable and re-enable protection to a premium storage account.
 
 We strongly recommend that you plan for growth during deployment planning and while the default value is 30 percent, you are the expert on your application usage pattern and growth projections, and you can change this number accordingly while generating a report. Moreover, you can generate multiple reports with various growth factors with the same profiled data and determine what target storage and source bandwidth recommendations work best for you. 

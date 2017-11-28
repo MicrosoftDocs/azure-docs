@@ -27,9 +27,7 @@ This worksheet provides the detail view of each batch for initial replication (I
 
 Once you have followed the on-premises storage requirement recommendation for each volume, the main information that you need to replicate is the list of VMs that can be protected in parallel. These VMs are group together in a batch. There can be multiple batches. You must protect the VMs in the given batch order. First protect Batch 1 VMs and once initial replication is completed, protect Batch 2 VMs, and so on. You can get the list of batches and corresponding VMs from this sheet. 
 
-Each batch provides the following information:
-
-Each batch provides the following information:  
+## Each batch provides the following information 
 **Hyper-V host**: The Hyper-V host of the VM to be protected.
 Virtual machine: The VM to be protected. 
 
@@ -38,7 +36,7 @@ Virtual machine: The VM to be protected.
 **Volume (VHD path)**:  The volume name where the VM’s VHDs reside. 
 Free space available on the volume (GB):  The free disk space available on the volume for the VM. While calculating available free space on the volumes, it considers the disk space used for delta replication by the VMs of the previous batches whose VHDs are on the same volume.  
 
-For example, VM1, VM2 and VM3 reside on a volume say E:\VHDpath. Before replication, free space on the volume is 500 GB. VM1 is part Batch 1, VM2 is part of Batch 2, and VM3 is part of Batch3.  For VM1, the free space available is 500 GB. For VM2, the free space available would be 500 – disk space required for delta replication for VM1.  Say VM1 requires 300 GB space for delta replication then free space available for VM2 would be 500 GB – 300 GB = 200 GB.  Similarly, VM2 requires 300 GB for delta replication then the free space available for VM3 would be 200 GB - -300 GB = -100 GB
+For example, VM1, VM2 and VM3 reside on a volume say E:\VHDpath. Before replication, free space on the volume is 500 GB. VM1 is part Batch 1, VM2 is part of Batch 2, and VM3 is part of Batch3.  For VM1, the free space available is 500 GB. For VM2, the free space available would be 500 – disk space required for delta replication for VM1.  Say VM1 requires 300 GB space for delta replication then free space available for VM2 would be 500 GB – 300 GB = 200 GB.  Similarly, VM2 requires 300 GB for delta replication then the free space available for VM3 would be 200 GB - 300 GB = -100 GB
 
 **Storage required on the volume for initial replication (GB)**: The free storage space required on the volume for the VM for initial replication.
 
@@ -50,10 +48,13 @@ For example, VM1, VM2 and VM3 reside on a volume say E:\VHDpath. Before replicat
 
 **Minimum bandwidth required for delta replication (Mbps)**: The minimum bandwidth required for delta replication for the VM
 
-Below each batch’s details, a summary of network utilization is provided in the Network Utilization Details for Batch table.
+## Network utilization details for each batch 
+Each batch table provides a summary of network utilization of the batch.
 
 **Bandwidth available for Batch**: The bandwidth available for the batch after considering the previous batch’s delta replication bandwidth.
+
 **Approximate bandwidth available for initial replication of batch**: The bandwidth available for initial replication of the VMs of the batch. 
+
 **Approximate bandwidth consumed for delta replication of batch**: The bandwidth needed for delta replication of the VMs of the batch. 
 
 **Estimated Initial Replication time for Batch (HH:MM)**: The estimated initial replication time in Hours:Minutes.
@@ -63,5 +64,5 @@ When you generate the report with -bandwidth parameter, an additional IR batchin
 
 If the specified bandwidth is not sufficient for initial replication and delta replication, the sheet calls out in red and suggests the minimum bandwidth required for the successful replication. The IR batching guideline would be based on the specified bandwidth.
 
-## Next steps:
+## Next steps
 Learn more about [cost estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md) of the report.
