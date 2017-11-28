@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Site Recovery Documentation
+title: Azure Site Recovery documentation
 metadata:
-  title: Azure Site Recovery Documentation - Tutorials, API Reference | Microsoft Docs
+  title: Azure Site Recovery documentation - tutorials, API reference | Microsoft Docs
   meta.description: Learn how to migrate to Azure with Azure Site Recovery
   services: site-recovery
   author: rayne-wiselman
@@ -16,7 +16,7 @@ metadata:
 abstract:
   description: In addition to orchestrating disaster recovery of Azure VMs and on-premises machines, Azure Site Recovery orchestrates and manages migration of on-premises machines to Azure, and migration of Azure VMs between Azure regions. Learn how to set up migration with our tutorials.
 sections:
-- title: Step-by-step Tutorials
+- title: Step-by-step tutorials
   items:
   - type: paragraph
     text: 'Learn how to migrate on-premises VMs.'
@@ -26,3 +26,13 @@ sections:
     - html: <a href="tutorial-prepare-azure">Prepare Azure</a>
     - html: <a href="tutorial-migrate-on-premises-to-azure">Migrate on-premises machines to Azure</a>
     - html: <a href="tutorial-migrate-aws-to-azure">Migrate AWS instances to Azure</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/site-recovery/">REST API Reference</a></p>
