@@ -74,7 +74,7 @@ For more information, see [Automated Modeling and Reporting Utility in TDSP Data
 ### Model management
 After multiple models have been built, you usually need to have a system for registering and managing the models. Typically you need a combination of scripts or APIs and a backend database or versioning system. A few options that you can consider for these management tasks are:
 
-1. [Azure Machine Learning - model management service](../preview/model-management-overview)
+1. [Azure Machine Learning - model management service](../preview/index)
 2. [ModelDB from MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL-seerver as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
