@@ -75,7 +75,7 @@ import azure.mgmt.batchai.models as models
 creds = ServicePrincipalCredentials(
 		client_id=client_id, secret=secret, token_uri=token_uri)
 
-client = batchai.BatchAIManagementClient(credentials=creds,
+batchai_client = batchai.BatchAIManagementClient(credentials=creds,
                                          subscription_id=subscription_id
 )
 ```
@@ -89,10 +89,10 @@ from azure.mgmt.resource import ResourceManagementClient
 
 resource_group_name = 'myresourcegroup'
 
-client = ResourceManagementClient(
+resource_management_client = ResourceManagementClient(
         credentials=creds, subscription_id=subscription_id)
 
-resource = client.resource_groups.create_or_update(
+resource = resource_management_client.resource_groups.create_or_update(
         resource_group_name, {'location': 'eastus'})
 ```
 
@@ -169,7 +169,7 @@ parameters = models.ClusterCreateParameters(
          ), 
     ), 
 ) 
-client.clusters.create(resource_group_name, cluster_name, parameters).result() 
+batchai_client.clusters.create(resource_group_name, cluster_name, parameters).result() 
 ```
 
 ## Get cluster status
@@ -177,7 +177,7 @@ client.clusters.create(resource_group_name, cluster_name, parameters).result()
 Monitor the cluster status using the following command: 
 
 ```Python
-cluster = client.clusters.get(resource_group_name, cluster_name)
+cluster = batchai_client.clusters.get(resource_group_name, cluster_name)
 print('Cluster state: {0} Target: {1}; Allocated: {2}; Idle: {3}; '
       'Unusable: {4}; Running: {5}; Preparing: {6}; leaving: {7}'.format(
     cluster.allocation_state,
@@ -243,16 +243,16 @@ parameters = models.job_create_parameters.JobCreateParameters(
  ) 
  
 # Create the job 
-client.jobs.create(resource_group_name, job_name, parameters).result() 
+batchai_client.jobs.create(resource_group_name, job_name, parameters).result() 
 ```
 
 ## Monitor job
 You can inspect the job’s state using the following command: 
  
 ```Python
-job = client.jobs.get(resource_group_name, job_name) 
+job = batchai_client.jobs.get(resource_group_name, job_name) 
  
-print(`Job state: {0} `.format(job.execution_state.name))
+print('Job state: {0} '.format(job.execution_state.name))
 ```
 
 Output is similar to: `Job state: running`.
@@ -266,7 +266,7 @@ The `executionState` contains the current execution state of the job:
 Use the following command to list links to the stdout and stderr log files:
 
 ```Python
-files = client.jobs.list_output_files(resource_group_name, job_name, models.JobsListOutputFilesOptions("stdouterr")) 
+files = batchai_client.jobs.list_output_files(resource_group_name, job_name, models.JobsListOutputFilesOptions("stdouterr")) 
  
 for file in list(files):
      print('file: {0}, download url: {1}'.format(file.name, file.download_url)) 
@@ -275,12 +275,12 @@ for file in list(files):
 
 Use the following command to delete the job:
 ```Python
-client.jobs.delete(resource_group_name, job_name) 
+batchai_client.jobs.delete(resource_group_name, job_name) 
 ```
 
 Use the following command to delete the cluster:
 ```Python
-client.clusters.delete(resource_group_name, cluster_name)
+batchai_client.clusters.delete(resource_group_name, cluster_name)
 ```
 ## Next steps
 

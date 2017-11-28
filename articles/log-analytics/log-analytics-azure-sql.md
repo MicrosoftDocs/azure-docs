@@ -26,6 +26,11 @@ Currently, this preview solution supports up to 150,000 Azure SQL Databases and 
 
 The Azure SQL Analytics solution, like others available for Log Analytics, helps you monitor and receive notifications about the health of your Azure resources—in this case, Azure SQL Database. Microsoft Azure SQL Database is a scalable relational database service that provides familiar SQL-Server-like capabilities to applications running in the Azure cloud. Log Analytics helps you to collect, correlate, and visualize structured and unstructured data.
 
+For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
+  		  
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
+
 ## Connected sources
 
 The Azure SQL Analytics solution doesn't use agents to connect to the Log Analytics service.
@@ -99,6 +104,7 @@ Selecting any of the tiles, opens a drill-down report into the specific perspect
 Each perspective, provides summaries on subscription, server, elastic pool, and database level. In addition, each perspective shows perspective specific report on the right. Selecting subscription, server, pool, or database from the list continues the drill down.
 
 | Perspective | Description |
+| --- | --- |
 | Resource by type | Perspective that counts all the resources monitored. Drill-down provides the summary of DTU and GB metrics. |
 | Insights | Provides hierarchical drill-down into Intelligent Insights. Learn more about intelligent insights. |
 | Errors | Provides hierarchical drill-down into SQL errors that happened on the databases. |
@@ -110,7 +116,7 @@ Each perspective, provides summaries on subscription, server, elastic pool, and 
 
 ### Intelligent Insights report
 
-All Intelligent Insights collected can be visualized and accessed through the Insights perspective. 
+Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) lets you know what is happening with your database performance. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
 
 ![Azure SQL Analytics Insights](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 

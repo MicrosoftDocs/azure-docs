@@ -11,10 +11,14 @@
   items:
     - name: Create first instance
       href: quick-start.md
+- name: Tutorials
+  items:
+    - name: Build a Custom Search web page
+      href: ./tutorials/custom-search-web-page.md
 - name: How-to  
   items:        
     - name: Define your custom view
-      href: define-your-custom-view.md    
+      href: define-your-custom-view.md
     - name: Search your custom view
       href: search-your-custom-view.md
       items:

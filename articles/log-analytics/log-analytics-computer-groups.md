@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: bwren
 
 ---
@@ -106,13 +106,29 @@ Click the **x** in the **Remove** column to delete the computer group.  Click th
 
 
 ## Using a computer group in a log search
-You use a Computer group in a query by treating its alias as a function, typically with the following syntax:
+You use a Computer group created from a log search in a query by treating its alias as a function, typically with the following syntax:
 
   `Table | where Computer in (ComputerGroup)`
 
 For example, you could use the following to return UpdateSummary records for only computers in a computer group called mycomputergroup.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+Imported computer groups and their included computers are stored in the **ComputerGroup** table.  For example, the following query would return a list of computers in the Domain Computers group from Active Directory. 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+The following query would return UpdateSummary records for only computers in Domain Computers.
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+  
 
 >[!NOTE]
 > If your workspace is still using the [legacy Log Analytics query language](log-analytics-log-search-upgrade.md)>, then you use the following syntax to refer to a computer group in a log search.  Specifying the **Category** >is optional and only required if you have computer groups with the same name in different categories. 

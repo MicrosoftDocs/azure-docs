@@ -4,7 +4,7 @@ description: Configure Secure LDAP (LDAPS) for an Azure AD Domain Services manag
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/15/2017
 ms.author: maheshu
 
 ---
@@ -52,31 +52,39 @@ Acquire a valid certificate per the following guidelines, before you enable secu
 ## Task 1 - obtain a certificate for secure LDAP
 The first task involves obtaining a certificate used for secure LDAP access to the managed domain. You have two options:
 
-* Obtain a certificate from a certification authority. The authority may be a public certification authority.
+* Obtain a certificate from a public certification authority.
 * Create a self-signed certificate.
-
-### Option A (Recommended) - Obtain a secure LDAP certificate from a certification authority
-If your organization obtains its certificates from a public certification authority, you need to obtain the secure LDAP certificate from that public certification authority.
-
-When requesting a certificate, ensure that you satisfy all the requirements outlined in [Requirements for the secure LDAP certificate](#requirements-for-the-secure-ldap-certificate).
 
 > [!NOTE]
 > Client computers that need to connect to the managed domain using secure LDAP must trust the issuer of the secure LDAP certificate.
 >
+
+### Option A (Recommended) - Obtain a secure LDAP certificate from a certification authority
+If your organization obtains its certificates from a public certification authority, obtain the secure LDAP certificate from that public certification authority.
+
+> [!TIP]
+> **Use self-signed certificates for managed domains with '.onmicrosoft.com' domain suffixes.**
+> If the DNS domain name of your managed domain ends in '.onmicrosoft.com', you cannot obtain a secure LDAP certificate from a public certification authority. Since Microsoft owns the 'onmicrosoft.com' domain, public certification authorities refuse to issue a secure LDAP certificate to you for a domain with this suffix. In this scenario, create a self-signed certificate and use that to configure secure LDAP.
 >
 
+Ensure the certificate you obtain from the public certificate authority satisfies all the requirements outlined in [requirements for the secure LDAP certificate](#requirements-for-the-secure-ldap-certificate).
+
+
 ### Option B - Create a self-signed certificate for secure LDAP
-If you do not expect to use a certificate from a public certification authority, you may choose to create a self-signed certificate for secure LDAP.
+If you do not expect to use a certificate from a public certification authority, you may choose to create a self-signed certificate for secure LDAP. Pick this option if the DNS domain name of your managed domain ends in '.onmicrosoft.com'.
 
 **Create a self-signed certificate using PowerShell**
 
 On your Windows computer, open a new PowerShell window as **Administrator** and type the following commands, to create a new self-signed certificate.
 
-    $lifetime=Get-Date
+```powershell
+$lifetime=Get-Date
+New-SelfSignedCertificate -Subject *.contoso100.com `
+  -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
+  -Type SSLServerAuthentication -DnsName *.contoso100.com
+```
 
-    New-SelfSignedCertificate -Subject *.contoso100.com -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment -Type SSLServerAuthentication -DnsName *.contoso100.com
-
-In the preceding sample, replace '*.contoso100.com' with the DNS domain name of your managed domain. For example, if you created a managed domain called 'contoso100.onmicrosoft.com', replace '*.contoso100.com' in the above script with '*.contoso100.onmicrosoft.com').
+In the preceding sample, replace '*.contoso100.com' with the DNS domain name of your managed domain. For example, if you created a managed domain called 'contoso100.onmicrosoft.com', replace '*.contoso100.com' in the preceding script with '*.contoso100.onmicrosoft.com').
 
 ![Select Azure AD Directory](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: terrylan
 
 ---
@@ -124,6 +124,15 @@ Azure Security Center has visibility into antimalware installed through Azure ex
 
 ### Why do I get the message "Missing Scan Data" for my VM?
 This message appears when there is no scan data for a VM. It can take some time (less than an hour) for scan data to populate after Data Collection is enabled in Azure Security Center. After the initial population of scan data, you may receive this message because there is no scan data at all or there is no recent scan data. Scans do not populate for a VM in a stopped state. This message could also appear if scan data has not populated recently (in accordance with the retention policy for the Windows agent, which has a default value of 30 days).
+
+### How often does Security Center scan for operating system vulnerabilities, system updates, and endpoint protection issues?
+The latency in Security Center scans for vulnerabilities, updates, and issues is:
+
+- Operating system vulnerabilities (by Microsoft) – data is updated within 48 hours
+- System updates – data is updated within 24 hours
+- Endpoint Protection issues – data is updated within 8 hours
+
+Security Center typically scans for new data every hour. The latency values above are a worst case scenario where there is not a recent scan or a scan failed.
 
 ### Why do I get the message "VM Agent is Missing?"
 The VM Agent must be installed on VMs to enable Data Collection. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. For information on how to install the VM Agent on other VMs, see the blog post [VM Agent and Extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

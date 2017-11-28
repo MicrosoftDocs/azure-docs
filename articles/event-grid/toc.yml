@@ -4,6 +4,8 @@
   items:
   - name: About Event Grid
     href: overview.md
+  - name: Compare messaging services
+    href: compare-messaging-services.md
 - name: Quickstarts
   items:
   - name: Route Blob storage events - Azure CLI
@@ -44,6 +46,15 @@
     href: subscription-creation-schema.md
   - name: Event schema
     href: event-schema.md
+    items:
+    - name: Azure subscriptions
+      href: event-schema-subscriptions.md
+    - name: Blob storage
+      href: event-schema-blob-storage.md
+    - name: Event hubs
+      href: event-schema-event-hubs.md
+    - name: Resource groups
+      href: event-schema-resource-groups.md
 - name: Resources
   items:
   - name: Azure Roadmap

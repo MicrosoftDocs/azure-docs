@@ -1,6 +1,6 @@
 ---
 title: Azure Linux VM sizes - Compute optimized | Microsoft Docs
-description: Lists the different compute optimized sizes available for Linux virtual machines in Azure.
+description: Lists the different compute optimized sizes available for Linux virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/23/2017
+ms.date: 11/08/2017
 ms.author: jonbeck
 
 ---
 
-# Compute optimized Linux VM sizes
+# Compute optimized virtual machine sizes
 
 [!INCLUDE [virtual-machines-common-sizes-compute](../../../includes/virtual-machines-common-sizes-compute.md)]
 

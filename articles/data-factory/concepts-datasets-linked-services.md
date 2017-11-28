@@ -181,7 +181,7 @@ The following guidelines help you determine when to include structure informatio
 Learn more on how data factory maps source data to sink from [Schema and type mapping]( copy-activity-schema-and-type-mapping.md) and when to specify structure information.
 
 ## Create datasets
-You can create datasets by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell]((quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal
+You can create datasets by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal
 
 ## V1 vs. V2 datasets
 

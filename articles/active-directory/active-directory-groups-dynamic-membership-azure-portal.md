@@ -71,7 +71,7 @@ For the complete list of supported parameters and expression rule operators, see
 The total length of the body of your advanced rule cannot exceed 2048 characters.
 
 > [!NOTE]
-> String and regex operations are not case sensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
+> String and regex operations are not case sensitive. You can also perform Null checks, using *null* as a constant, for example, user.department -eq *null*.
 > Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
 
 ## Supported expression rule operators
@@ -157,31 +157,32 @@ Allowed operators
 
 | Properties | Allowed values | Usage |
 | --- | --- | --- |
-| city |Any string value or $null |(user.city -eq "value") |
-| country |Any string value or $null |(user.country -eq "value") |
-| companyName | Any string value or $null | (user.companyName -eq "value") |
-| department |Any string value or $null |(user.department -eq "value") |
+| city |Any string value or *null* |(user.city -eq "value") |
+| country |Any string value or *null* |(user.country -eq "value") |
+| companyName | Any string value or *null* | (user.companyName -eq "value") |
+| department |Any string value or *null* |(user.department -eq "value") |
 | displayName |Any string value |(user.displayName -eq "value") |
-| facsimileTelephoneNumber |Any string value or $null |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |Any string value or $null |(user.givenName -eq "value") |
-| jobTitle |Any string value or $null |(user.jobTitle -eq "value") |
-| mail |Any string value or $null (SMTP address of the user) |(user.mail -eq "value") |
+| employeeId |Any string value |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
+| facsimileTelephoneNumber |Any string value or *null* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |Any string value or *null* |(user.givenName -eq "value") |
+| jobTitle |Any string value or *null* |(user.jobTitle -eq "value") |
+| mail |Any string value or *null* (SMTP address of the user) |(user.mail -eq "value") |
 | mailNickName |Any string value (mail alias of the user) |(user.mailNickName -eq "value") |
-| mobile |Any string value or $null |(user.mobile -eq "value") |
+| mobile |Any string value or *null* |(user.mobile -eq "value") |
 | objectId |GUID of the user object |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | On-premises security identifier (SID) for users who were synchronized from on-premises to the cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Any string value or $null |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |Any string value or $null |(user.postalCode -eq "value") |
+| physicalDeliveryOfficeName |Any string value or *null* |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |Any string value or *null* |(user.postalCode -eq "value") |
 | preferredLanguage |ISO 639-1 code |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Any string value or $null |(user.sipProxyAddress -eq "value") |
-| state |Any string value or $null |(user.state -eq "value") |
-| streetAddress |Any string value or $null |(user.streetAddress -eq "value") |
-| surname |Any string value or $null |(user.surname -eq "value") |
-| telephoneNumber |Any string value or $null |(user.telephoneNumber -eq "value") |
+| sipProxyAddress |Any string value or *null* |(user.sipProxyAddress -eq "value") |
+| state |Any string value or *null* |(user.state -eq "value") |
+| streetAddress |Any string value or *null* |(user.streetAddress -eq "value") |
+| surname |Any string value or *null* |(user.surname -eq "value") |
+| telephoneNumber |Any string value or *null* |(user.telephoneNumber -eq "value") |
 | usageLocation |Two lettered country code |(user.usageLocation -eq "US") |
 | userPrincipalName |Any string value |(user.userPrincipalName -eq "alias@domain") |
-| userType |member guest $null |(user.userType -eq "Member") |
+| userType |member guest *null* |(user.userType -eq "Member") |
 
 ### Properties of type string collection
 Allowed operators
@@ -224,14 +225,10 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## Use of Null values
 
-To specify a null value in a rule, you can use "null" or $null. Example:
+To specify a null value in a rule, you can use the *null* value. Be careful not to use quotes around the word *null* - if you do, it will be interpreted as a literal string value. The correct way to reference the null value is as follows:
 ```
    user.mail –ne null
 ```
-is equivalent to
-```
-   user.mail –ne $null
-   ```
 
 ## Extension attributes and custom attributes
 Extension attributes and custom attributes are supported in dynamic membership rules.
@@ -295,7 +292,7 @@ You can also create a rule that selects device objects for membership in a group
 ## Changing dynamic membership to static, and vice versa
 It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
 
-We are in the process of updating the Azure portal to support this functionality. In the meantime, you can use the [Azure classic portal](https://manage.windowsazure.com) (follow the instructions [here](active-directory-accessmanagement-groups-with-advanced-rules.md#changing-dynamic-membership-to-static-and-vice-versa)) or use PowerShell cmdlets as shown below.
+We are in the process of updating the Azure portal to support this functionality. In the meantime, you can use the [Azure classic portal](https://manage.windowsazure.com) (follow the instructions [here](active-directory-groups-dynamic-membership-azure-portal.md)) or use PowerShell cmdlets as shown below.
 
 > [!WARNING]
 > When changing an existing static group to a dynamic group, all existing members will be removed from the group, and then the membership rule will be processed to add new members. If the group is used to control access to apps or resources, the original members may lose access until the membership rule is fully processed.

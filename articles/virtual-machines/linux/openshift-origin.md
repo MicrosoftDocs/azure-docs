@@ -20,14 +20,16 @@ ms.author: haroldw
 
 # Deploy OpenShift Origin in Azure
 
-There are multiple ways to deploy OpenShift Origin in Azure. You can manually deploy all the necessary Azure infrastructure components and then follow the OpenShift Origin [documentation](https://docs.openshift.org/3.6/welcome/index.html).
-You can also use an existing Resource Manager template that simplifies the deployment of the OpenShift Origin cluster. Once such template is located [here](https://github.com/Microsoft/openshift-origin).
+You can use one of two ways to deploy OpenShift Origin in Azure:
 
-## Deploy using the OpenShift Origin template
+- You can manually deploy all the necessary Azure infrastructure components, and then follow the OpenShift Origin [documentation](https://docs.openshift.org/3.6/welcome/index.html).
+- You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-origin) that simplifies the deployment of the OpenShift Origin cluster.
 
-Use the `appId` value from the service principal you created earlier for the `aadClientId` parameter.
+## Deploy by using the OpenShift Origin template
 
-The following example creates a parameters file named **azuredeploy.parameters.json** with all the required inputs.
+Use the `appId` value from the service principal that you created earlier for the `aadClientId` parameter.
+
+The following example creates a parameters file named azuredeploy.parameters.json with all the required inputs.
 
 ```json
 {
@@ -89,13 +91,13 @@ The following example creates a parameters file named **azuredeploy.parameters.j
 }
 ```
 
-### Deploy using Azure CLI
+### Deploy by using Azure CLI
 
 
 > [!NOTE] 
-> The following command requires Azure CLI 2.0.8 or later. You can verify the az CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-The following example deploys the OpenShift cluster and all related resources into a resource group named myResourceGroup with a deployment name of myOpenShiftCluster. The template is referenced directly from the github repo and a local parameters file named **azuredeploy.parameters.json** file is used.
+The following example deploys the OpenShift cluster and all related resources into a resource group named myResourceGroup, with a deployment name of myOpenShiftCluster. The template is referenced directly from the GitHub repo by using a local parameters file named azuredeploy.parameters.json.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -103,7 +105,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-The deployment takes at least 25 minutes to complete depending on the total number of nodes deployed. The URL of the OpenShift console and DNS name of the OpenShift master is printed to the terminal when the deployment completes.
+The deployment takes at least 25 minutes to finish, depending on the total number of nodes deployed. The URL of the OpenShift console and the DNS name of the OpenShift master prints to the terminal when the deployment finishes.
 
 ```json
 {
@@ -114,7 +116,7 @@ The deployment takes at least 25 minutes to complete depending on the total numb
 
 ## Connect to the OpenShift cluster
 
-When the deployment completes, connect to the OpenShift console using the browser using the `OpenShift Console Uri`. Alternatively, you can connect to the OpenShift master using the following command:
+When the deployment finishes, connect to the OpenShift console with your browser by using the `OpenShift Console Uri`. Alternatively, you can connect to the OpenShift master by using the following command:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -122,7 +124,7 @@ $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, OpenShift cluster, and all related resources.
+Use the [az group delete](/cli/azure/group#delete) command to remove the resource group, OpenShift cluster, and all related resources when they're no longer needed.
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -130,6 +132,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-- [Post Deployment Tasks](./openshift-post-deployment.md)
-- [Troubleshooting OpenShift Deployment](./openshift-troubleshooting.md)
-- [Getting Started with OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+- [Post-deployment tasks](./openshift-post-deployment.md)
+- [Troubleshoot OpenShift deployment](./openshift-troubleshooting.md)
+- [Getting started with OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)

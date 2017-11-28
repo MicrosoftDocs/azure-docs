@@ -85,7 +85,7 @@ This example sets the user ID to an identifier that expires after the session. I
 ```
 
 ## Next steps
-- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     * [Usage overview](app-insights-usage-overview.md)
     * [Users, Sessions, and Events](app-insights-usage-segmentation.md)

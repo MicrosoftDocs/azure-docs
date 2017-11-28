@@ -1,6 +1,6 @@
 ---
-title: 'Connect virtual network to another VNet: Azure CLI | Microsoft Docs'
-description: This article walks you through connecting virtual networks together by using Azure Resource Manager and Azure CLI.
+title: 'Connect virtual network to another VNet using a VNet-to-VNet connection: Azure CLI | Microsoft Docs'
+description: This article walks you through connecting virtual networks together by using a VNet-to-VNet connection and Azure CLI.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
 
 ---
 # Configure a VNet-to-VNet VPN gateway connection using Azure CLI
 
-This article shows you how to create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant. 
+This article shows you how to connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions do not need to be associated with the same Active Directory tenant.
 
 The steps in this article apply to the Resource Manager deployment model and use Azure CLI. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
@@ -34,13 +34,15 @@ The steps in this article apply to the Resource Manager deployment model and use
 >
 >
 
-Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. If your VNets are in the same region, you may want to consider connecting them using VNet Peering. VNet peering does not use a VPN gateway. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
+## <a name="about"></a>About connecting VNets
 
-VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
+Connecting a virtual network to another virtual network using the VNet-to-VNet connection type (VNet2VNet) is similar to creating an IPsec connection to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE and both function the same way when communicating. The difference between the connection types is the way the local network gateway is configured. When you create a VNet-to-VNet connection, you do not see the local network gateway address space. It is automatically created and populated. If you update the address space for one VNet, the other VNet will automatically know to route to the updated address space.
 
-![About connections](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
+If you are working with a complicated configuration, you may prefer to use the IPsec connection type, rather than VNet-to-VNet. This lets you specify additional address space for the local network gateway in order to route traffic. If you connect your VNets using the IPsec connection type, you need to create and configure the local network gateway manually. For more information, see [Site-to-Site configurations](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
-### <a name="why"></a>Why connect virtual networks?
+Additionally, if your VNets are in the same region, you may want to consider connecting them using VNet Peering. VNet peering does not use a VPN gateway and the pricing and functionality is somewhat different. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
+
+### <a name="why"></a>Why create a VNet-to-VNet connection?
 
 You may want to connect virtual networks for the following reasons:
 
@@ -52,15 +54,24 @@ You may want to connect virtual networks for the following reasons:
 
   * Within the same region, you can set up multi-tier applications with multiple virtual networks connected together due to isolation or administrative requirements.
 
-For more information about VNet-to-VNet connections, see the [VNet-to-VNet FAQ](#faq) at the end of this article.
+VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
 
 ### Which set of steps should I use?
 
-In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub), and another for [VNets that reside in different subscriptions](#difsub).
+This article helps you connect VNets using the VNet-to-VNet connection type. In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub) and one for [VNets that reside in different subscriptions](#difsub). 
+
+For this exercise, you can combine configurations, or just choose the one that you want to work with. All of the configurations use the VNet-to-VNet connection type. Network traffic flows between the VNets that are directly connected to each other. In this exercise, traffic from TestVNet4 does not route to TestVNet5.
+
+* [VNets that reside in the same subscription:](#samesub) The steps for this configuration use TestVNet1 and TestVNet4.
+
+  ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+* [VNets that reside in different subscriptions:](#difsub) The steps for this configuration use TestVNet1 and TestVNet5.
+
+  ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
 
 ## <a name="samesub"></a>Connect VNets that are in the same subscription
-
-![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
 ### Before you begin
 
@@ -68,7 +79,7 @@ Before beginning, install the latest version of the CLI commands (2.0 or later).
 
 ### <a name="Plan"></a>Plan your IP address ranges
 
-In the following steps, we create two virtual networks along with their respective gateway subnets and configurations. We then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+In the following steps, you create two virtual networks along with their respective gateway subnets and configurations. You then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 We use the following values in the examples:
 
@@ -85,7 +96,7 @@ We use the following values in the examples:
 * Public IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (For VNets in different subscriptions)
 * ConnectionType: VNet2VNet
 
 **Values for TestVNet4:**
@@ -252,9 +263,7 @@ You now have two VNets with VPN gateways. The next step is to create VPN gateway
 
 ## <a name="difsub"></a>Connect VNets that are in different subscriptions
 
-![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
-
-In this scenario, we connect TestVNet1 and TestVNet5. The VNets reside different subscriptions. The subscriptions do not need to be associated with the same Active Directory tenant. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5.
+In this scenario, you connect TestVNet1 and TestVNet5. The VNets reside different subscriptions. The subscriptions do not need to be associated with the same Active Directory tenant. The steps for this configuration add an additional VNet-to-VNet connection in order to connect TestVNet1 to TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Step 5 - Create and configure TestVNet1
 
@@ -320,7 +329,7 @@ This step must be done in the context of the new subscription, Subscription 5. T
 
 ### <a name="connections5"></a>Step 8 - Create the connections
 
-We split this step into two CLI sessions marked as **[Subscription 1]**, and **[Subscription 5]** because the gateways are in the different subscriptions. To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
+This step is split into two CLI sessions marked as **[Subscription 1]**, and **[Subscription 5]** because the gateways are in the different subscriptions. To switch between subscriptions use 'az account list --all' to list the subscriptions available to your account, then use 'az account set --subscription <subscriptionID>' to switch to the subscription that you want to use.
 
 1. **[Subscription 1]** Log in and connect to Subscription 1. Run the following command to get the name and ID of the Gateway from the output:
 
@@ -359,7 +368,7 @@ We split this step into two CLI sessions marked as **[Subscription 1]**, and **[
 ## <a name="verify"></a>Verify the connections
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>VNet-to-VNet FAQ
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

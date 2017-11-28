@@ -51,7 +51,7 @@ Here are the steps you perform as part of this quickstart:
          
       Some of the steps in this quickstart assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
 4. Select **V2 (Preview)** for the **version**.
-5. Select the **location** for the data factory. Currently, you can create V2 data factories only in **East US** region. However, the compute and data stores used in data factories can be in other regions. 
+5. Select the **location** for the data factory. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 6. Select **Pin to dashboard**.     
 7. Click **Create**.
       
