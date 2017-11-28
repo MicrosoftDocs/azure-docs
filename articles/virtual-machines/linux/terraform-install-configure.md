@@ -23,7 +23,7 @@ ms.author: echuvyrov
 Terraform provides an easy way to define, preview, and deploy cloud infrastructure by using a [simple templating language](https://www.terraform.io/docs/configuration/syntax.html). This article describes the necessary steps to use Terraform to provision resources in Azure. 
 
 > [!TIP]
-To learn more about how to use Terraform with Azure, visit the [Terraform Hub](/azure/terraform). Terraform is installed by default in the [Cloud Shell](/terraform/terraform-cloud-shell). By using Cloud Shell, you can skip the install/setup portions of this document.
+To learn more about how to use Terraform with Azure, visit the [Terraform Hub](/azure/terraform). Terraform is installed by default in the [Cloud Shell](/azure/terraform/terraform-cloud-shell). By using Cloud Shell, you can skip the install/setup portions of this document.
 
 ## Install Terraform
 

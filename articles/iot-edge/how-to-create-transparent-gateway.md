@@ -1,14 +1,14 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Create a gateway device with Azure IoT Edge | Microsoft Docs 
-description: Use Azure IoT Edge to create a gateway device that can process information for multiple devices
+title: Create a transparent gateway device with Azure IoT Edge | Microsoft Docs 
+description: Use Azure IoT Edge to create a transparent gateway device that can process information for multiple devices
 services: iot-edge
 keywords: 
 author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 11/27/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -20,20 +20,9 @@ ms.service: iot-edge
 # ms.reviewer:
 ---
 
-# Create an IoT Edge gateway device to process data from other IoT devices - preview
+# Create an IoT Edge device that acts as a transparent gateway - preview
 
-There are two ways to use IoT Edge devices as gateways:
-
-* Connect downstream devices that use [Azure IoT device SDK][lnk-devicesdk];
-* Connect devices that do not use the IoT Hub protocol.
-
-When you use an IoT Edge device as a gateway you get the following advantages:
-
-* **Connection multiplexing**. All devices connecting to IoT Hub through an IoT Edge device will use the same underlying connection.
-* **Traffic smoothing**. The IoT Edge device will automatically implement exponential backoff in case of IoT Hub throttling, while persisting the messages locally. This will make your solution resilient to spikes in traffic.
-* **Limited offline support**. The gateway device will store locally messages that cannot be delivered to IoT Hub.
-
-In this article we will call *IoT Edge gateway* an IoT Edge device used as a gateway.
+The [How an IoT Edge device can be used as a gateway][lnk-edge-as-gateway] article gives a conceptual overviwe of how an IoT Edge device can be used as a transparent gateway or perform protocol or identity translation. This article provides detailed instructions for using an IoT Edge device as a transparent gateway. For the rest of this article, an *IoT Edge gateway* is an IoT Edge device used as a transparent gateway.
 
 >[!NOTE]
 >Currently:
@@ -41,6 +30,7 @@ In this article we will call *IoT Edge gateway* an IoT Edge device used as a gat
 > * IoT Edge devices cannot connect to IoT Edge gateways.
 
 ## Use the Azure IoT device SDK
+
 
 The Edge hub that is installed in all IoT Edge devices exposes the following primitives to downstream devices:
 
@@ -162,34 +152,13 @@ This is done by appending the `GatewayHostName` property to your device connecti
 
 These two steps will enable your device application to connect to the gateway device.
 
-## Use other protocols
-
-One of the main functions of a gateway device is to interpret protocols of downstream devices. To connect devices that do not use the IoT Hub protocol, you can develop an IoT Edge module which performs this translation and connects on behalf of the downstream device to IoT Hub.
-
-You can decide to create a *transparent* or *opaque* gateway:
-
-| &nbsp; | Transparent gateway | Opaque gateway|
-|--------|-------------|--------|
-| Identities that are stored in the IoT Hub identity registry | Identities of all connected devices | Only the identity of the gateway device |
-| Device twin | Each connected device has its own device twin | Only the gateway has a device and module twins |
-| Direct methods and cloud-to-device messages | The cloud can address each connected device individually | The cloud can only address the gateway device |
-| [IoT Hub throttles and quotas][lnk-iothub-throttles-quotas] | Apply to each device | Apply to the gateway device |
-
-When using an opaque gateway pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
-
-When implementing an opaque gateway, your protocol translation module uses the module connection string.
-
-When implementing a transparent gateway, the module creates multiple instances of the IoT Hub device client, using the connection strings for the downstream devices.
-
-The [Azure IoT Edge Modbus Module][lnk-modbus-module] is an open implementation of a protocol-adaptor module for an opaque gateway.
-
 ## Next steps
-
-- [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
+[Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev].
 
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
+[lnk-edge-as-gateway]: ./iot-edge-as-gateway.md
 [lnk-module-dev]: module-development.md
 [lnk-iothub-getstarted]: ../iot-hub/iot-hub-csharp-csharp-getstarted.md
 [lnk-iothub-x509]: ../iot-hub/iot-hub-x509ca-overview.md
