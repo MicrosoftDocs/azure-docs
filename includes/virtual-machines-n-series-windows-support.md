@@ -1,7 +1,7 @@
 ## Supported operating systems and drivers
 
 
-### NC instances - NVIDIA Tesla drivers
+### NC, NCv2, and ND instances - NVIDIA Tesla drivers
 
 | OS | Driver |
 | -------- |------------- |
@@ -11,6 +11,7 @@
 > [!NOTE]
 > Tesla driver download links are current at time of publication. For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/) website.
 >
+
 ### NV instances - NVIDIA GRID drivers
 
 | OS | Driver |
