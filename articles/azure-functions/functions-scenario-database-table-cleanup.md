@@ -58,7 +58,7 @@ A function app hosts the execution of your functions in Azure. It is a best prac
     | Setting       | Suggested value | Description             | 
     | ------------ | ------------------ | --------------------- | 
     | **Name**  |  sqldb_connection  | Used to access the stored connection string in your function code.    |
-    | **Value** | Copied string  | Paste the connection string you copied in the previous section and replace `{your_username}` and `{your_password}` placeholders with real values |
+    | **Value** | Copied string  | Paste the connection string you copied in the previous section and replace `{your_username}` and `{your_password}` placeholders with real values. |
     | **Type** | SQL Database | Use the default SQL Database connection. |   
 
 3. Click **Save**.
