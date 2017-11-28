@@ -1,4 +1,3 @@
-
 ---
 title: Policies in Azure API Management | Microsoft Docs
 description: Learn how to create, edit, and configure policies in API Management.
@@ -24,18 +23,6 @@ In Azure API Management (APIM), policies are a powerful capability of the system
 Policies are applied inside the gateway which sits between the API consumer and the managed API. The gateway receives all requests and usually forwards them unaltered to the underlying API. However a policy can apply changes to both the inbound request and outbound response.
 
 Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][Control flow] and [Set variable][Set variable] policies are based on policy expressions. For more information, see [Advanced policies][Advanced policies] and [Policy expressions][Policy expressions].
-
-## Policy samples
-
-See [Policy samples](policy-samples.md) for code examples.
-
-## <a name="scopes"> </a>How to configure policies
-
-For information on how to configure policies, see [Set or edit policies](set-edit-policies.md)
-
-## Policy Reference
-
-See the [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings.
 
 ## <a name="sections"> </a>Understanding policy configuration
 
@@ -69,6 +56,18 @@ The configuration is divided into `inbound`, `backend`, `outbound`, and `on-erro
 ```
 
 If there is an error during the processing of a request, any remaining steps in the `inbound`, `backend`, or `outbound` sections are skipped and execution jumps to the statements in the `on-error` section. By placing policy statements in the `on-error` section you can review the error by using the `context.LastError` property, inspect and customize the error response using the `set-body` policy, and configure what happens if an error occurs. There are error codes for built-in steps and for errors that may occur during the processing of policy statements. For more information, see [Error handling in API Management policies](https://msdn.microsoft.com/library/azure/mt629506.aspx).
+
+## <a name="scopes"> </a>How to configure policies
+
+For information on how to configure policies, see [Set or edit policies](set-edit-policies.md).
+
+## Policy Reference
+
+See the [Policy reference](api-management-policy-reference.md) for a full list of policy statements and their settings.
+
+## Policy samples
+
+See [Policy samples](policy-samples.md) for code examples.
 
 ## Examples
 
