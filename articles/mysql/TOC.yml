@@ -109,6 +109,8 @@
       href: howto-restore-server-cli.md
   - name: Connect applications
     items:
+    - name: Create users
+      href: howto-create-users.md
     - name: Connection strings
       href: howto-connection-string.md
     - name: Configure SSL
