@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/27/2017
+ms.date: 11/28/2017
 ms.author: tomfitz
 ---
 # Using linked templates when deploying Azure resources
@@ -24,7 +24,7 @@ When using linked template, you create a main template that receives the paramet
 
 ![linked templates](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## Linking to a template
+## Link to a template
 
 To link to another template, add a **deployments** resource to your main template.
 
@@ -150,11 +150,11 @@ You can also use [deployment()](resource-group-template-functions-deployment.md#
 }
 ```
 
-## Get output values from linked template
+## Get values from linked template
 
-To get an output value from a linked template, retrieve the property value with syntax like `"[reference('linkedTemplate').outputs.exampleProperty.value]"`.
+To get an output value from a linked template, retrieve the property value with syntax like: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
 
-The following examples demonstate how to reference a linked template and retrieve an output value. The linked template returns a simple message.
+The following examples demonstrate how to reference a linked template and retrieve an output value. The linked template returns a simple message.
 
 ```json
 {
@@ -172,7 +172,7 @@ The following examples demonstate how to reference a linked template and retriev
 }
 ```
 
-The parent template deploys the linked template and gets the returned value.
+The parent template deploys the linked template and gets the returned value. Notice that it references the deployment resource by name, and it uses the name of the property returned by the linked template.
 
 ```json
 {
@@ -203,24 +203,107 @@ The parent template deploys the linked template and gets the returned value.
 }
 ```
 
-To deploy this linked example with PowerShell, use:
+Like other resource types, you can set dependencies between the linked template and other resources. Therefore, when other resources require an output value from the linked template, you can make sure the linked template is deployed before them. Or, when the linked template relies on other resources, you can make sure other resources are deployed before the linked template.
 
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/helloworldparent.json
+The following example shows a template that deploys a public IP address and returns the resource ID:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "publicIPAddresses_name": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddresses_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "eastus",
+            "properties": {
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4
+            },
+            "dependsOn": []
+        }
+    ],
+    "outputs": {
+        "resourceID": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+        }
+    }
+}
 ```
 
-To deploy this linked example with Azure CLI, use:
+To use the public IP address from the preceding template when deploying a load balancer, link to the template and add a dependency on the deployment resource. The public IP address on the load balancer is set to the output value from the linked template.
 
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/helloworldparent.json
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "loadBalancers_name": {
+            "defaultValue": "mylb",
+            "type": "string"
+        },
+        "publicIPAddresses_name": {
+            "defaultValue": "myip",
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/loadBalancers",
+            "name": "[parameters('loadBalancers_name')]",
+            "apiVersion": "2017-06-01",
+            "location": "eastus",
+            "properties": {
+                "frontendIPConfigurations": [
+                    {
+                        "name": "LoadBalancerFrontEnd",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[reference('linkedTemplate').outputs.resourceID.value]"
+                            }
+                        }
+                    }
+                ],
+                "backendAddressPools": [],
+                "loadBalancingRules": [],
+                "probes": [],
+                "inboundNatRules": [],
+                "outboundNatRules": [],
+                "inboundNatPools": []
+            },
+            "dependsOn": [
+                "linkedTemplate"
+            ]
+        },
+        {
+            "apiVersion": "2017-05-10",
+            "name": "linkedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'publicip.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters":{
+                    "publicIPAddresses_name":{"value": "[parameters('publicIPAddresses_name')]"}
+                }
+            }
+        }
+    ]
+}
 ```
-
-Like other resource types, you can set dependencies between the linked template and other resources. Therefore, when other resources require an output value from the linked template, you can make sure the linked template is deployed before them. Or, when the linked template relies on other resources, you can make sure other resources are deployed before the linked template. You can retrieve a value from a linked template with the following syntax:
-
 
 ```powershell
 $loopCount = 5
@@ -231,7 +314,6 @@ for ($i = 0; $i -lt $loopCount; $i++)
     Write-Output "deployment $($deployment.DeploymentName) returned $($deployment.Outputs.finalValue.value)"
 }
 ```
-
 
 
 ## Securing an external template
@@ -267,10 +349,6 @@ Even though the token is passed in as a secure string, the URI of the linked tem
 Resource Manager handles each linked template as a separate deployment. In the deployment history for the resource group, you see separate deployments for the parent and nested templates.
 
 ![deployment history](./media/resource-group-linked-templates/linked-deployment-history.png)
-
-
-
-## Complete example
 
 The following example templates show a simplified arrangement of linked templates to illustrate several of the concepts in this article. It assumes the templates have been added to the same container in a storage account with public access turned off. The linked template passes a value back to the main template in the **outputs** section.
 
@@ -355,6 +433,28 @@ url=$(az storage blob url \
 parameter='{"containerSasToken":{"value":"?'$token'"}}'
 az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
+
+## Example templates
+
+### Hello World from linked template
+
+To deploy this linked example with PowerShell, use:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/helloworldparent.json
+```
+
+To deploy this linked example with Azure CLI, use:
+
+```azurecli-interactive
+az group deployment create \
+  -g examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/helloworldparent.json
+```
+
+
 
 ## Next steps
 
