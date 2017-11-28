@@ -42,7 +42,7 @@ To perform the steps described in this article, you must have:
 ### Enable VNET connectivity using the Azure portal
 
 1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **Custom domains and SSL**.
+2. Select **Virtual Network**.
 3. Configure the API Management instance to be deployed inside a Virtual network.
 
     ![Virtual network menu of API Management][api-management-using-vnet-menu]
