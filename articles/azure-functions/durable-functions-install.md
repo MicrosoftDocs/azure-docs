@@ -73,7 +73,7 @@ Visual Studio Code provides local development experience covering all major plat
 3. Install Azure Durable Extension by running in command prompt / terminal the following command :
 
 ```javascript
-https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence   func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.0.0-beta
+func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.0.0-beta
 ```
 4. Run Azure Storage Emulator on Windows and on Mac update the *local.appsettings.json* file with real Azure Storage connection string
 3. Open the project in Visual Studio Code 
