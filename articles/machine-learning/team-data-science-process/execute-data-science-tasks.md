@@ -12,29 +12,45 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/28/2017
 ms.author: bradsev;
 
 ---
 
 
-# Execute data science tasks
+# Execute data science tasks: exploration, modeling, and deployment
 
-This article shows how to use the **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** and **Automated Modeling and Reporting (AMAR)** utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation.
+Typical data science tasks include data exploration, modeling, and deployment. This article shows how to use the **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** and **Automated Modeling and Reporting (AMAR)** utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. It also outlines options for deploying a model into a production environment using a variety of toolkits and data platforms, such as:
 
-
-## 1. <a name='DataQualityReportUtility-1'></a>Interactive data exploration, analysis, and reporting using the IDEAR utility
-
-This R markdown-based utility provides a flexible and interactive tool to evaluate and explore data sets. Users can quickly generate reports from the data set with minimal coding. Users can click buttons to export the exploration results in the interactive tool to a final report, which can be delivered to clients or used to make decisions on which variables to include in the subsequent modeling step.
-
-At this time, the tool only works on data-frames in memory. A .yaml file is needed to specify the parameters of the data-set to be explored. For more information, see [IDEAR in TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
+- [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/), 
+- [SQL-Server with ML services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server), and 
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server).
 
 
-## 2. <a name='ModelingUtility-2'></a>Modeling and reporting using the AMAR utility
+## 1. <a name='DataQualityReportUtility-1'></a> Exploration 
 
-The Automated Modeling and Reporting Utility provides a customizable, semi-automated tool to perform model creation with hyper-parameter sweeping and to compare the accuracy of those models. 
+A data scientist can perform exploration and reporting in a variety of ways, for example, using libraries and packages available in Python (for example, matplotlib) or R (for example, ggplot, lattice). Data scientists can customize such code to fit the needs of data exploration for specific scenarios. Typically, such needs are different for structured data and unstructured data (such as text or images). Products such as Azure Machine Learning Workbench also provide [features](../preview/tutorial-bikeshare-dataprep.md) for data wrangling and exploration. The user should decide on the tools, libraries, or packages that best suite their needs. At the end of this phase, however, the deliverable should be a data exploration report, which provides a fairly comprehensive view of the data to be used for modeling and an assessment if such data is suitable for moving forward to the modeling step.
 
-The model creation utility is an R markdown file that can be run to produce self-contained HTML output with a table of contents for easy navigation through its different sections. Three algorithms are executed when the markdown file is run (knit): regularized regression using the glmnet package, random forest using the randomForest package, and boosting trees using the xgboost package). Each of these algorithms produces a trained model. The accuracy of these models is then compared and the relative feature importance plots are reported. Currently, there are two utilities: one is for a binary classification task and one is for a regression task. The primary differences between them is the way control parameters and accuracy metrics are specified for these learning tasks. 
+Below, we show the use of a couple of utilities developed by TDSP for (semi-)automated exploration, modeling, and reporting. An important functionality of these utilities is that they provide standardized data exploration or modeling reports. 
+
+### Interactive data exploration, analysis, and reporting using the IDEAR utility
+
+This R markdown-based or Python notebook-based utility provides a flexible and interactive tool to evaluate and explore data sets. Users can quickly generate reports from the data set with minimal coding. Users can click buttons to export the exploration results in the interactive tool to a final report, which can be delivered to clients or used to make decisions on which variables to include in the subsequent modeling step.
+
+At this time, the tool only works on data-frames in memory. A.yaml file is needed to specify the parameters of the data-set to be explored. For more information, see [IDEAR in TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
+
+
+## 2. <a name='ModelingUtility-2'></a> Modeling
+
+There are numerous toolkits and packages for training models in a variety of languages. Data scientists should feel free to use whatever they are comfortable with, as long as considerations for performance (both in terms of accuracy and latency) are met satisfactorily for the business use case and production scenario (in case the model is to be put in production).
+
+Below, we show how to use an R-based utility developed by TDSP for (semi-) automated modeling. This can easily be used to generate base line models quickly, and as needed, the parameters to be tuned over can be expanded to provide a better performing model.
+
+### Model training: modeling and reporting using the AMAR utility
+
+The [Automated Modeling and Reporting (AMAR) Utility](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling) provides a customizable, semi-automated tool to perform model creation with hyper-parameter sweeping and to compare the accuracy of those models. 
+
+The model creation utility is an R Markdown file that can be run to produce self-contained HTML output with a table of contents for easy navigation through its different sections. Three algorithms are executed when the Markdown file is run (knit): regularized regression using the glmnet package, random forest using the randomForest package, and boosting trees using the xgboost package). Each of these algorithms produces a trained model. The accuracy of these models is then compared and the relative feature importance plots are reported. Currently, there are two utilities: one is for a binary classification task and one is for a regression task. The primary differences between them is the way control parameters and accuracy metrics are specified for these learning tasks. 
 
 A Yaml file is used to specify:
 
@@ -51,11 +67,36 @@ The number of algorithms, the number of folds for optimization, the hyper-parame
 
 For more information, see [Automated Modeling and Reporting Utility in TDSP Data Science Utilities](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling).
 
+### Model management
+After multiple models have been built, you usually need to have a system for registering and managing the models. Typically you need a combination of scripts or APIs and a backend database or versioning system. A few options that you can consider for this are:
+
+1. [Azure Machine Learning - model management service](../preview/model-management-overview)
+2. [ModelDB from MIT](https://mitdbg.github.io/modeldb/) 
+3. [SQL-seerver as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
+4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+
+## 3. <a name='Deployment-3'></a> Deployment
+
+### Deployment
+Production deployment enables a model to play an active role in a business. Predictions from a deployed model can used for business decisions. Prior to deployment, one has to keep the latency of model scoring in consideration.  
+
+There are various approaches and platforms to put models into production. Here are a few options:
+1. [Model deployment in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+2. [Deployment of a model in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+3. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+
+
+Further examples are available in walkthroughs that demonstrate all the steps in the process for **specific scenarios**. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
+
+NOTE: For deployment using Azure Machine Learning Studio, see [here](../studio/publish-a-machine-learning-web-service.md).
+
+### A/B testing
+When multiple models are in production, it can be useful to perform [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) to compare performance of the models. 
 
  
 ## Next steps
 
 [Track progress of data science projects](track-progress.md) shows how a data scientist can track the progress of a data science project.
+ 
 
-Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 

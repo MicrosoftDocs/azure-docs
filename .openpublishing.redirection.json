@@ -5041,6 +5041,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/machine-learning/team-data-science-process/project-execution.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/agile-development",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/machine-learning-automated-data-pipeline-cheat-sheet.md",
             "redirect_url": "/azure/machine-learning/team-data-science-process/automated-data-pipeline-cheat-sheet",
             "redirect_document_id": false
