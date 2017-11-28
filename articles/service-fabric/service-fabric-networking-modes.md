@@ -25,8 +25,8 @@ If you have one container service with a static endpoint in your service manifes
 
 When a container service restarts or moves to another node in the cluster, the IP address changes. For this reason, using the dynamically assigned IP address to discover container services is not recommended. Only the Service Fabric Naming Service or the DNS Service should be used for service discovery. 
 
-> [!WARNING]
-> Azure allows a total of 4,096 IPs per virtual network. The sum of the number of nodes and the number of container service instances (that are using Open mode) can't exceed 4,096 IPs within a virtual network. For high-density scenarios, nat networking mode is recommended.
+>[!WARNING]
+>Azure allows a total of 4,096 IPs per virtual network. The sum of the number of nodes and the number of container service instances (that are using Open mode) can't exceed 4,096 IPs within a virtual network. For high-density scenarios, nat networking mode is recommended.
 >
 
 ## Set up Open networking mode
@@ -211,11 +211,12 @@ When a container service restarts or moves to another node in the cluster, the I
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-You can mix and match different networking modes across services within an application for a Windows cluster. Some services can use Open mode while others use nat mode. When a service is configured to use nat mode, the port that the service is listening on must be unique.
 
-> [!NOTE]
-> On Linux clusters, mixing networking modes for different services is not supported. 
->
+    You can mix and match different networking modes across services within an application for a Windows cluster. Some services can use Open mode while others use nat mode. When a service is configured to use nat mode, the port that the service is listening on must be unique.
+
+    >[!NOTE]
+    >On Linux clusters, mixing networking modes for different services is not supported. 
+    >
 
 ## Next steps
 * [Understand the Service Fabric application model](service-fabric-application-model.md).

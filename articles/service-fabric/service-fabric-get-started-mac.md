@@ -35,6 +35,7 @@ Azure Service Fabric doesn't run natively on Mac OS X. To run a local Service Fa
 * Access to the Service Fabric [onebox Docker container image](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/).
 
 >[!TIP]
+>
 >To install Docker on your Mac, follow the steps in the [Docker documentation](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install). After installing, [verify your installation](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine).
 >
 
@@ -58,6 +59,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     You can update these settings directly in the daemon.json file in your Docker installation path.
     
     >[!NOTE]
+    >
     >The location of the daemon.json file can vary from machine to machine. For example, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
     >The recommended approach is to directly modify the daemon configuration settings in Docker. Select the **Docker icon**, then select **Preferences** > **Daemon** > **Advanced**.
@@ -163,8 +165,10 @@ The attributes are defined as follows:
 * `/tmp/mySFWorkspace` is the path that is inside of the container to where the workspace should be mapped.
 
 >[!NOTE]
->1. If you have a different name/path for your workspace, update these values in the `docker run` command.
->2. If you start the container with a name other than `sfonebox`, update the name value in the testclient.sh file in your Service Fabric actor Java application.
+> 
+>If you have a different name/path for your workspace, update these values in the `docker run` command.
+> 
+>If you start the container with a name other than `sfonebox`, update the name value in the testclient.sh file in your Service Fabric actor Java application.
 >
 
 ## Next steps
