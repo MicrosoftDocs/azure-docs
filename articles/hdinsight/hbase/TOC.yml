@@ -134,6 +134,8 @@
     - name: Upload data for Hadoop jobs
       href: ../hdinsight-upload-data.md
       maintainContext: true
+    - name: Bulk load data into Phoenix using psql
+      href: apache-hbase-phoenix-psql.md
     - name: Multiple HDInsight clusters with Data Lake Store
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
