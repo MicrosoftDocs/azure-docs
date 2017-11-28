@@ -30,7 +30,7 @@ For information about Scheduled Events on Linux, see [Scheduled Events for Linux
 
 ## Why Scheduled Events?
 
-Many applications can benefit from time to prepare for virtual machine maintenance. The time can be used to perform application specific tasks that improve availability including: 
+Many applications can benefit from time to prepare for virtual machine maintenance. The time can be used to perform application specific tasks that improve availability, reliability, and serviceability including: 
 
 - Checkpoint and restore
 - Connection draining
