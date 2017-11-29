@@ -12,31 +12,70 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.author: tarcher
 ms.custom: jenkins
 ---
 
 # Run a container as an agent in Jenkins using the Azure Container Agents plugin
 
-In this tutorial, 
+The Azure Container Agents plugin for Jenkins enables you to quickly and easily get your Jenkins build agents running in the cloud. In this tutorial, you'll use Azure Container agent to add on-demand capacity and use Azure Container Instances (ACI) to build the Spring PetClinic Sample Applicaiton. 
 
 You learn how to:
 > [!div class="checklist"]
-> * Create and configure a Jenkins instance
+> * Add an Azure service principal to the Jenkins credentials
+> * Install the Azure Container Agents plugin for Jenkins
 
-## Create and configure a Jenkins instance
+## Prerequisites
 
-If you don't already have a Jenkins Master, start with the [solution template](install-jenkins-solution-template.md), which includes the Java Development Kit (JDK) version 8 and the following required Jenkins plugins:
+- **Azure subscription** - You need an Azure Subscription to complete this tutorial. If you don’t currently have an Azure subscription, you can sign up for a [free Azure account](https://tutorials.visualstudio.com/jenkins-azure/new/create-azure.html). 
+- **Jenkins Master** - Jenkins supports the *master/slave* pattern where the workload of building projects is delegated to multiple *slave* nodes. The master/slave pattern allows a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. If you don't currently have a Jenkins Master, start with the [solution template](install-jenkins-solution-template.md), which includes the Java Development Kit (JDK) version 8 and other required Jenkins plugins.
 
-* [Jenkins Git client plugin](https://plugins.jenkins.io/git-client) version 2.4.6 
-* [Docker Commons plugin](https://plugins.jenkins.io/docker-commons) version 1.4.0
-* [Azure Credentials](https://plugins.jenkins.io/azure-credentials) version 1.2
-* [Azure App Service](https://plugins.jenkins.io/azure-app-server) version 0.1
+## Add an Azure service principal to the Jenkins credentials
+
+You need an Azure service principal to deploy to Azure. 
+
+1. [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). While creating the principal, Make note of the values for the subscription ID, tenant, appId, and password.
+
+1. Open the Jenkins dashboard.
+
+1. Select **Credentials**.
+
+    ![Manage credentials option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials.png)
+
+1. Under **Credentials**, select **System**.
+
+    ![Manage system credentials option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-system.png)
+
+1. Under **System**, select **Global credentials**.
+
+    ![Manage global system credentials option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-global.png)
+
+1. Select **Adding some credentials**
+
+    ![Add credentials on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-adding-credentials.png)
+
+1. In the **Kind** dropdown list, select **Microsoft Azure Service Principal** to cause the page to display fields specific to adding a service principal.
+
+1. Supply the requested values as follows:
+
+    - Scope - Select the option for **Global (Jenkins, nodes, items, all child items, etc.)**.
+    - Subscription ID - Use the Azure subscription ID you specified when running `az account set`.
+    - Client ID - Use the `appId` value returned from `az ad sp create-for-rbac`.
+    - Client Secret - Use the `password` value returned from `az ad sp create-for-rbac`.
+    - Tenant ID - Use the `tenant` value returned from `az ad sp create-for-rbac`.
+    - Azure Environment - Select `Azure`.
+    - ID - Enter `myTestSp`. This value will be used again later in this tutorial.
+    - Description - (Optional) Enter a description value for this principal.
+
+    ![Specify new service principal properties on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-principal-properties.png)
+
+1. Once you have entered the information defining the principal, you can optionally select **Verify Service Principal** to ensure that everything is working correctly. If your service principal is correctly defined, you see a message stating, "Successfully verified the Microsoft Azure Service Principal." below the **Description** field.
+
+1. When you are finished, select **OK** to add the principal to Jenkins. The Jenkins dashboard displays the newly added principal on the **Global Credentials** page.
 
 ## Install the Azure Container Agents plugin for Jenkins
 
-### Install the plugin via the Jenkins dashboard
 1. Open and log in to the Jenkins dashboard.
 
 1. Select **Manage Jenkins**.
@@ -65,25 +104,5 @@ If you don't already have a Jenkins Master, start with the [solution template](i
 
     To return the main page of the Jenkins dashboard, select **Go back to the top page**.
 
-### Install the plugin manually
-If you want to try the latest features for a given Jenkins plugin before it's officially released, you can also manually install the plugin using the following steps:
-
-1. Clone the repo and build:
-
-    ```bash
-    mvn package
-    ```
-
-1. Open your Jenkins dashboard, go to Manage Jenkins -> Manage Plugins
-
-1. Go to Advanced tab, under Upload Plugin section, click Choose File.
-
-1. Select **azure-container-agents.hpi** in target folder of your repo, click Upload.
-
-1. Restart your Jenkins instance after install is completed.
-
 ## Next steps
-You learned how to:
 
-> [!div class="checklist"]
-> * 
