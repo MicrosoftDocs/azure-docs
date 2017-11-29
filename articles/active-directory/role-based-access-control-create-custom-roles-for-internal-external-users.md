@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: a-crradu
 
 ---
-## Intro on role-based access control
+# Intro on role-based access control
 
 Role-based access control is an Azure portal only feature allowing the owners of a subscription to assign granular roles to other users who can manage specific resource scopes in their environment.
 
