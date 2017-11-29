@@ -16,7 +16,6 @@ ms.author: mahender
 ---
 
 # Azure Functions Microsoft Graph bindings
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and work with Microsoft Graph triggers and bindings in Azure Functions.
 With these, you can use Azure Functions to work with data, insights, and events from the [Microsoft Graph](https://graph.microsoft.io).
@@ -1060,3 +1059,8 @@ public class UserSubscription {
 
 [HTTP trigger]: functions-bindings-http-webhook.md
 [Working with webhooks in Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)

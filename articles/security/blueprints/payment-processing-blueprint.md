@@ -77,9 +77,9 @@ User roles used to illustrate the use case, and provide insight into the user in
 | Name: |`Global Admin Azure PCI Samples`|
 |User type:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
-* The admin account cannot read credit card information unmasked. All actions are logged.
-* The admin account cannot manage or log into SQL Database.
-* The admin account can manage Active Directory and subscription.
+- The admin account cannot read credit card information unmasked. All actions are logged.
+- The admin account cannot manage or log into SQL Database.
+- The admin account can manage Active Directory and subscription.
 
 #### Role: SQL administrator
 
@@ -91,8 +91,8 @@ User roles used to illustrate the use case, and provide insight into the user in
 |Last name: |`PCI Samples`|
 |User type:| `Administrator`|
 
-* The sqladmin account cannot view unfiltered credit card information. All actions are logged.
-* The sqladmin account can manage SQL database.
+- The sqladmin account cannot view unfiltered credit card information. All actions are logged.
+- The sqladmin account can manage SQL database.
 
 #### Role: Clerk
 
@@ -379,8 +379,10 @@ The solution was reviewed by Coalfire systems, Inc. (PCI-DSS Qualified Security 
 - This document is for informational purposes only. MICROSOFT AND AVYAN MAKE NO WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, AS TO THE INFORMATION IN THIS DOCUMENT. This document is provided “as-is.” Information and views expressed in this document, including URL and other Internet website references, may change without notice. Customers reading this document bear the risk of using it.  
 - This document does not provide customers with any legal rights to any intellectual property in any Microsoft or Avyan product or solutions.  
 - Customers may copy and use this document for internal reference purposes.  
+
   > [!NOTE]
   > Certain recommendations in this paper may result in increased data, network, or compute resource usage in Azure, and may increase a customer’s Azure license or subscription costs.  
+
 - The solution in this document is intended as a foundational architecture and must not be used as-is for production purposes. Achieving PCI compliance requires that customers consult with their Qualified Security Assessor.  
 - All customer names, transaction records, and any related data on this page are fictitious, created for the purpose of this foundational architecture and provided for illustration only. No real association or connection is intended, and none should be inferred.  
 - This solution was developed jointly by Microsoft and Avyan Consulting, and is available under the [MIT License](https://opensource.org/licenses/MIT).
@@ -388,8 +390,8 @@ The solution was reviewed by Coalfire systems, Inc. (PCI-DSS Qualified Security 
 
 ### Document authors
 
-* *Frank Simorjay (Microsoft)*  
-* *Gururaj Pandurangi (Avyan Consulting)*
+- *Frank Simorjay (Microsoft)*  
+- *Gururaj Pandurangi (Avyan Consulting)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code Repository"
