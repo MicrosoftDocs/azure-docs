@@ -283,7 +283,7 @@ You can also use Azure AD for server-to-server authentication by using the Azure
 | How to register a client | Create a service identity in Access Control management portal | Create another Azure AD web application in the Azure portal |
 | Protocol used |- OAuth WRAP protocol<br />- OAuth 2.0 Draft 13 client credentials grant | OAuth 2.0 client credentials grant |
 | Client authentication methods |- Simple password<br />- Signed SWT<br />- SAML token from a federated identity provider |- Simple password<br />Signed JWT |
-| Token formats | JWT<br />SAML 1.1<br />SAML 2.0<br />SWT<br /> | JWT only |
+| Token formats |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | JWT only |
 | Token transformation |- Add custom claims<br />- Simple if-then claim issuance logic | Add custom claims | 
 | Automate configuration and management tasks | Supported via Access Control Management Service | Supported via Microsoft Graph and Azure AD Graph API |
 
