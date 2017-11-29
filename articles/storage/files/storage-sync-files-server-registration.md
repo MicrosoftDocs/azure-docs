@@ -66,7 +66,7 @@ Before a Windows Server can be used as a *Server Endpoint* in an Azure File Sync
 
 3. Pick the correct subscription, resource group, and Storage Sync Service from the dialog.
 
-![Storage Sync Service information](media/storage-sync-files-server-registration/server-registration-ui-2.png)
+    ![Storage Sync Service information](media/storage-sync-files-server-registration/server-registration-ui-2.png)
 
 4. In preview, one more sign-in is required to complete the process. 
 
