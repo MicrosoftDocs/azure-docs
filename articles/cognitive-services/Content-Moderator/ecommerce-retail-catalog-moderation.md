@@ -12,7 +12,7 @@ ms.date: 09/25/2017
 ms.author: sajagtap
 ---
 
-# eCommerce catalog moderation with machine learning and AI
+# eCommerce catalog moderation with machine learning
 
 In this tutorial, we learn how to implement machine-learning-based intelligent ecommerce catalog moderation by combining machine-assisted AI technologies with human moderation to provide an intelligent catalog system.
 
