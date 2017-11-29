@@ -24,26 +24,24 @@ When an operation on an ExpressRoute circuit does not complete successfully, the
 
 ## Reset a circuit
 
-1. Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install and configure Azure PowerShelll](/powershell/azure/install-azurerm-ps).
+1. Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 2. Open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
 
   ```powershell
   Login-AzureRmAccount
   ```
-
-  If you have multiple Azure subscriptions, check the subscriptions for the account.
+3. If you have multiple Azure subscriptions, check the subscriptions for the account.
 
   ```powershell
   Get-AzureRmSubscription
   ```
-
-  Specify the subscription that you want to use.
+4. Specify the subscription that you want to use.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
-3. Run the following commands to reset a circuit that is in a failed state:
+5. Run the following commands to reset a circuit that is in a failed state:
 
   ```powershell
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -52,7 +50,6 @@ When an operation on an ExpressRoute circuit does not complete successfully, the
   ```
 
 The circuit should now be healthy. Open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if the circuit is still in a failed state.
-
 
 ## Next steps
 
