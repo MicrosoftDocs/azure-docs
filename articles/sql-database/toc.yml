@@ -352,8 +352,6 @@
       items:
       - name: Tutorial intro
         href: saas-dbpertenant-wingtip-app-overview.md
-      - name: App guidance
-        href: saas-dbpertenant-wingtip-app-guidance-tips.md
       - name: Deploy example app
         href: saas-dbpertenant-get-started-deploy.md
       - name: Provision tenants
