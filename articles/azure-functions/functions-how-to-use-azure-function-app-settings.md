@@ -3,7 +3,7 @@ title: Configure Azure Function App Settings | Microsoft Docs
 description: Learn how to configure Azure function app settings.
 services: ''
 documentationcenter: .net
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: ''
 
