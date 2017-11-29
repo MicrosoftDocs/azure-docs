@@ -4,7 +4,7 @@ title: Azure IoT Edge C# module | Microsoft Docs
 description: Create an IoT Edge module with C# code and deploy it to an edge device
 services: iot-edge
 keywords: 
-author: JimacoMS2
+author: kgremban
 manager: timlt
 
 ms.author: v-jamebr
