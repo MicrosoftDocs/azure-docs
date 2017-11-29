@@ -61,19 +61,17 @@ Yes.
 
 Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to *false*.
 
-**Git deployment of my application fails on using Linux web app. How to workaround the issue ?**
+**Git deployment of my application fails when using Linux web app. How can I workaround the issue?**
 
-If Git deployment fails to your Linux web app , you can choose the following alternate options to deploy your application code :
+If Git deployment fails to your Linux web app, you can choose the following alternate options to deploy your application code:
 
-- Using Continuous Delivery(Preview) feature : You can store your app’s source code in a Team Services Git repo or GitHub repo to use Azure Continuous Delivery. See details on [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) .
+- Use the Continuous Delivery (Preview) feature: You can store your app’s source code in a Team Services Git repo or GitHub repo to use Azure Continuous Delivery. For more details, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Using [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) : To do this , [SSH into your web app](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) and go to the folder where you want to deploy your code . Run the following 
+- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) and go to the folder where you want to deploy your code. Run the following:
 
    ```curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy```
 
-   If you get an error curl command not found , make sure you install curl using ```apt-get install curl``` before you run the above command.
-
-
+   If you get an error that the `curl` command is not found, make sure you install curl by using ```apt-get install curl``` before you run the previous `curl` command.
 
 ## Language support
 
