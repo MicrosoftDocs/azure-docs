@@ -28,7 +28,7 @@ Returns news items based on the user's search query. If the search query is empt
 
 Endpoint 3:
 
-https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics   
+https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics  
 Returns news topics that are currently trending on social networks. When the `/trendingtopics` option is included, Bing search ignores several other parameters, such as `freshness` and `?q=""`.
 
 For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing News search API v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-news-api-v7-reference) reference.
