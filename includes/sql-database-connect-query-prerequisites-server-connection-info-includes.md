@@ -12,5 +12,5 @@ Get the connection information needed to connect to the Azure SQL database. You 
 
    ![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png) 
 
-4. If you forget your server login information, navigate to the SQL Database server page to view the server admin name and, if necessary, reset the password.     
+4. If you forget your server login information, navigate to the SQL Database server page to view the server admin name. If necessary, reset the password.
 

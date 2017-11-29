@@ -16,7 +16,7 @@ ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/21/2017
+ms.date: 06/22/2017
 ms.author: carlrab
 ---
 # Azure SQL Database: Use Visual Studio Code to connect and query data

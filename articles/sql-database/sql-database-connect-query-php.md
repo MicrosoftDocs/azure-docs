@@ -14,7 +14,7 @@ ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 08/08/2017
+ms.date: 08/09/2017
 ms.author: carlrab
 ---
 # Use PHP to query an Azure SQL database
@@ -29,7 +29,7 @@ To complete this quickstart tutorial, make sure you have the following:
 
 - A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quickstart tutorial.
 
-- You have installed PHP and related software for your operating system.
+- You have installed PHP and related software for your operating system:
 
     - **MacOS**: Install Homebrew and PHP, install the ODBC driver and SQLCMD, and then install the PHP Driver for SQL Server. See [Steps 1.2, 1.3, and 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
     - **Ubuntu**:  Install PHP and other required packages, and then install the PHP Driver for SQL Server. See [Steps 1.2 and 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).

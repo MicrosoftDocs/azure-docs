@@ -29,7 +29,7 @@ To complete this quickstart tutorial, make sure you have the following prerequis
 
 - A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quickstart tutorial.
 
-- You have installed Go and related software for your operating system.
+- You have installed Go and related software for your operating system:
 
     - **MacOS**: Install Homebrew and GoLang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
     - **Ubuntu**:  Install GoLang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).

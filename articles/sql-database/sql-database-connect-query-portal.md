@@ -16,7 +16,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/01/2017
+ms.date: 08/02/2017
 ms.author: ayolubek
 ---
 # Azure portal: Use the SQL Query Editor to connect and query data

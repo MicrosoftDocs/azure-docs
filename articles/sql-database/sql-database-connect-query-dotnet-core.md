@@ -14,7 +14,7 @@ ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: carlrab
 ---
 # Use .NET Core (C#) to query an Azure SQL database

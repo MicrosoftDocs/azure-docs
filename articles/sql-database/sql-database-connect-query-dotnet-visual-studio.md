@@ -14,7 +14,7 @@ ms.workload: "Active"
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: carlrab
 ms.custom: devcenter
 ---
@@ -36,9 +36,11 @@ To complete this quickstart tutorial, make sure you have the following:
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-5. Click **Show database connection strings**.
+#### For ADO.NET
 
-6. Review the complete **ADO.NET** connection string.
+1. Continue by clicking **Show database connection strings**.
+
+2. Review the complete **ADO.NET** connection string.
 
     ![ADO.NET connection string](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 

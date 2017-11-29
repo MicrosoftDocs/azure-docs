@@ -14,10 +14,9 @@ ms.workload: "Inactive"
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 07/14/2017
+ms.date: 07/15/2017
 ms.author: carlrab
 ---
-
 # Use Ruby to query an Azure SQL database
 
 This quickstart tutorial demonstrates how to use [Ruby](https://www.ruby-lang.org) to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.
@@ -30,7 +29,7 @@ To complete this quickstart tutorial, make sure you have the following prerequis
 
 - A [server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quickstart tutorial.
 
-- You have installed Ruby and related software for your operating system.
+- You have installed Ruby and related software for your operating system:
     - **MacOS**: Install Homebrew, install rbenv and ruby-build, install Ruby, and then install FreeTDS. See [Step 1.2, 1.3, 1.4, and 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
     - **Ubuntu**: Install prerequisites for Ruby, install rbenv and ruby-build, install Ruby, and then install FreeTDS. See [Step 1.2, 1.3, 1.4, and 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
 
