@@ -17,9 +17,9 @@ ms.author: mbullwin
 ---
 # Snapshot Debugger: Troubleshooting Guide
 
-## How does Application Insights Snapshot Debugger work
-
 Application Insights Snapshot Debugger allows you to automatically collect a debug snapshot from live web applications. The snapshot shows the state of source code and variables at the moment an exception was thrown. If you are having difficulty getting the Application Insights snapshot debugger up and running this article walks you through how the debugger works, along with solutions to common troubleshooting scenarios. 
+
+## How does Application Insights Snapshot Debugger work
 
 Application Insights Snapshot Debugger is part of the Application Insights telemetry pipeline (an instance of ITelemetryProcessor), the snapshot collector monitors both the exceptions thrown in your code (AppDomain.FirstChanceException) and the exceptions that get tracked by the Application Insights Exception Telemetry pipeline. Once you have successfully added the snapshot collector to your project, and it has detected one exception in the Application Insights telemetry pipeline, an Application Insights custom event with the name 'AppInsightsSnapshotCollectorLogs' and 'SnapshotCollectorEnabled' in the Custom Data will be sent. At the same time, it will start a process with the name of 'MinidumpUploader.exe', to upload the collected snapshot data files to Application Insights.  When the 'MinidumpUploader.exe' process starts, a custom event with the name 'UploaderStart' will be sent. After the previous steps, the snapshot collector will enter its normal monitoring behavior.
 
