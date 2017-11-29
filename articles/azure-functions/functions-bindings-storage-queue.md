@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Queue storage bindings
+title: Azure Queue storage bindings for Azure Functions
 description: Understand how to use the Azure Queue storage trigger and output binding in Azure Functions.
 services: functions
 documentationcenter: na
@@ -18,13 +18,13 @@ ms.date: 10/23/2017
 ms.author: glenga
 ---
 
-# Azure Functions Queue storage bindings
+# Azure Queue storage bindings for Azure Functions
 
 This article explains how to work with Azure Queue storage bindings in Azure Functions. Azure Functions supports trigger and output bindings for queues.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Queue storage trigger
+## Trigger
 
 Use the queue trigger to start a function when a new item is received on a queue. The queue message is provided as input to the function.
 
@@ -148,7 +148,7 @@ module.exports = function (context) {
 
 The [usage](#trigger---usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#trigger---message-metadata) explains all of the other variables shown.
 
-## Trigger - Attributes for precompiled C#
+## Trigger - attributes
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the following attributes to configure a queue trigger:
 
@@ -161,6 +161,9 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
   public static void Run(
       [QueueTrigger("myqueue-items")] string myQueueItem, 
       TraceWriter log)
+  {
+      ...
+  }
   ```
 
   You can set the `Connection` property to specify the storage account to use, as shown in the following example:
@@ -170,8 +173,13 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
   public static void Run(
       [QueueTrigger("myqueue-items", Connection = "StorageConnectionAppSetting")] string myQueueItem, 
       TraceWriter log)
+  {
+      ....
+  }
   ```
  
+  For a complete example, see [Trigger - precompiled C# example](#trigger---c-example).
+
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
   Provides another way to specify the storage account to use. The constructor takes the name of an app setting that contains a storage connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
@@ -183,6 +191,9 @@ For [precompiled C#](functions-dotnet-class-library.md) functions, use the follo
       [FunctionName("QueueTrigger")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ...
+  }
   ```
 
 The storage account to use is determined in the following order:
@@ -203,7 +214,9 @@ The following table explains the binding configuration properties that you set i
 |**direction**| n/a | In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a |The name of the variable that represents the queue in function code.  | 
 |**queueName** | **QueueName**| The name of the queue to poll. | 
-|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br/>When you're developing locally, app settings go into the values of the [local.settings.json file](functions-run-local.md#local-settings-file).|
+|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Trigger - usage
  
@@ -242,7 +255,7 @@ The [host.json](functions-host-json.md#queues) file contains settings that contr
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
-## Queue storage output binding
+## Output
 
 Use the Azure Queue storage output binding to write messages to a queue.
 
@@ -383,7 +396,7 @@ module.exports = function(context) {
 };
 ```
 
-## Output - Attributes for precompiled C#
+## Output - attributes
  
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), which is defined in NuGet package [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -393,6 +406,9 @@ The attribute applies to an `out` parameter or the return value of the function.
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+{
+    ...
+}
 ```
 
 You can set the `Connection` property to specify the storage account to use, as shown in the following example:
@@ -401,9 +417,14 @@ You can set the `Connection` property to specify the storage account to use, as 
 [FunctionName("QueueOutput")]
 [return: Queue("myqueue-items, Connection = "StorageConnectionAppSetting")]
 public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
+{
+    ...
+}
 ```
 
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - Attributes for precompiled C#](#trigger---attributes-for-precompiled-c).
+For a complete example, see [Output - precompiled C# example](#output---c-example).
+
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](#trigger---attributes-for-precompiled-c).
 
 ## Output - configuration
 
@@ -415,7 +436,9 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.| 
 |**queueName** |**QueueName** | The name of the queue. | 
-|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br>When you're developing locally, app settings go into the values of the [local.settings.json file](functions-run-local.md#local-settings-file).|
+|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Output - usage
  

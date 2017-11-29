@@ -3,7 +3,7 @@ title: Azure Quickstart - Create a storage account using the Azure CLI | Microso
 description: Quickly learn to create a new storage account using the Azure CLI.
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 
