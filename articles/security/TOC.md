@@ -96,6 +96,7 @@
 ## [Cybersecurity consulting](azure-security-cyber-services.md)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Security Recommendations for Azure Marketplace images](security-recommendations-azure-marketplace-images.md)
+## [How to Log a Security Event Support Ticket](azure-security-event-support-ticket.md)
 ## Scenarios
 ### [Manage personal data in Azure](manage-personal-data-azure.md)
 ### [Discover, identify, and classify personal data in Azure](how-to-discover-classify-personal-data-azure.md)
