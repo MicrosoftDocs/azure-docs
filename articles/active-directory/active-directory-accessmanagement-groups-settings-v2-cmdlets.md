@@ -165,7 +165,7 @@ To delete groups from your directory, use the Remove-AzureADGroup cmdlet as foll
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## Manage members of groups
+## Manage group membership 
 ### Add members
 To add new members to a group, use the Add-AzureADGroupMember cmdlet. This command adds a member to the Intune Administrators group we used in the previous example:
 
@@ -208,7 +208,7 @@ Now, if we want to check the group memberships of a user with ObjectID 72cd4bbd-
 
 The value returned is a list of groups of which this user is a member. You can also apply this method to check Contacts, Groups or Service Principals membership for a given list of groups, using Select-AzureADGroupIdsContactIsMemberOf, Select-AzureADGroupIdsGroupIsMemberOf or Select-AzureADGroupIdsServicePrincipalIsMemberOf
 
-## Disable group creation by non-admin users
+## Disable group creation by your users
 You can prevent non-admin users from creating security groups. The default behavior in Microsoft Online Directory Services (MSODS) is to allow non-admin users to create groups, whether or not self-service group management (SSGM) is also enabled. The SSGM setting  controls behavior only in the My Apps access panel. 
 
 To disable group creation for non-admin users:
