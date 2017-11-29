@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: apimpm
 ---
 
@@ -52,6 +52,8 @@ Log in to the Azure portal at http://portal.azure.com.
 
     > [!TIP]
     > It usually takes between 20 and 30 minutes to create an API Management service. Selecting **Pin to dashboard** makes finding a newly created service easier.
+
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## Clean up resources
 
