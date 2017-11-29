@@ -12,7 +12,7 @@ ms.author: v-gedod
 ---
 
 # Web Search endpoint
-The **Web Search API** returns Web pages, news, images, videos, and [entities](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-entities-search/search-the-web) that contain summary information about a person, place, or topic.
+The **Web Search API** returns Web pages, news, images, videos, and [entities](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-entities-search/search-the-web). Entities contain summary information about a person, place, or topic.
 ##Endpoint
 To get Web search results using the Bing API, send a `GET` request to the following endpoint. The headers and URL parameters define further specifications.
 
