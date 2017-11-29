@@ -5,9 +5,6 @@ services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: ''
-
-ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -102,7 +99,7 @@ composer install
 
 In the repository root, create a file named *.env*. Copy the following variables into the *.env* file. Replace the _&lt;root_password>_ placeholder with the MySQL root user's password.
 
-```
+```txt
 APP_ENV=local
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -232,7 +229,7 @@ In this step, you connect the PHP application to the MySQL database you created 
 
 In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder _&lt;mysql_server_name>_.
 
-```
+```txt
 APP_ENV=production
 APP_DEBUG=true
 APP_KEY=SomeRandomString
