@@ -34,7 +34,7 @@ The Actual Cost Analysis report shows your main cost contributors, including ong
 
 #### To use the Actual Cost Analysis report
 
-At a minimum, do the following. You can also use other options and fields.
+At a minimum, perform the following steps. You can also use other options and fields.
 
 1. Select a date range.
 2. Select a filter.
@@ -55,7 +55,7 @@ Use the Actual Cost Over Time report to:
 
 #### To use the Actual Cost Over Time report:
 
-At a minimum, do the following. You can also use other options and fields.
+At a minimum, perform the following steps. You can also use other options and fields.
 
 - Select a date range.
 
@@ -67,7 +67,7 @@ For example, you can select groups to view their cost over time. And then add fi
 
 ### Amortized Cost reports
 
-This set of amortized cost reports allows to view linearized non-usage based service fees, or one-time payable costs and spread their cost over time evenly during their lifespan.
+This set of amortized cost reports shows linearized non-usage based service fees, or one-time payable costs and spread their cost over time evenly during their lifespan.
 
 For example, one-time fees might include:
 
@@ -78,18 +78,18 @@ For example, one-time fees might include:
 
 In the billing file, one-time fees are characterized when the service consumption start and end dates, or timestamp, have equal values. Cloudyn then recognizes them as one-time fees that can be amortized. Other consumption-based services with on-demand usage costs cannot be amortized.
 
-To illustrate amortized costs, review the following example image of an Actual Cost Over time report. In the example, it shows a cost spike on August 23. It might seem an anomaly compared to the usual daily cost trend. Root cause analysis and data navigation identified this cost as an annual AWS service APN reservation, which is a one-time fee purchased and billed on that day. We'll see how this cost is amortized in the next section.
+To illustrate amortized costs, review the following example image of an Actual Cost Over time report. In the example, it shows a cost spike on August 23. It might seem an anomaly compared to the usual daily cost trend. Root cause analysis and data navigation identified this cost as an annual AWS service APN reservation, which is a one-time fee purchased and billed on that day. You can see how this cost is amortized in the next section.
 
 ![Actual Cost Over Time report example showing one-time cost](./media/use-reports/actual-amort-example.png)
 
 #### To use the Amortized Cost Over Time report:
 
-At a minimum, do the following. You can also use other options and fields.
+At a minimum, perform the following steps. You can also use other options and fields.
 
 1. Select a date range.
 2. Select a Service and a Provider.
 
-Carrying-forward the previous example, you can see that the one-time cost is now amortized in the following image.
+Carrying-forward the previous example, you can see that the one-time cost is now amortized in the following image:
 
 ![Amortized Cost Over Time report example](./media/use-reports/amort-cost-over-time.png)
 
@@ -101,11 +101,11 @@ Cost Allocation Analysis reports are available after you create a cost model usi
 
 ### Cost Analysis report
 
-The Cost Analysis report provides insight into your cloud consumption and spend during a selected time frame. The policies set in the Cost Allocation Manager are used in the Cost Analysis report.
+The Cost Analysis report provides insight into your cloud consumption and spending during a selected time frame. The policies set in the Cost Allocation Manager are used in the Cost Analysis report.
 
 How does Cloudyn calculate this report?
 
-Cloudyn ensures allocation retains the integrity of each linked account by applying Account Affinity. This ensures an account that does not use a specific service does not have any costs of this service allocated to it. The costs accrued in that account remain in that account and are not calculated by the allocation policies. For example, if you have five linked accounts and only three of them use storage services, then the cost of storage services is only allocated across tags in the three accounts.
+Cloudyn ensures allocation retains the integrity of each linked account by applying Account Affinity. Affinity ensures an account that does not use a specific service does not have any costs of this service allocated to it. The costs accrued in that account remain in that account and are not calculated by the allocation policies. For example, you might have five linked accounts. If only three of them use storage services, then the cost of storage services is only allocated across tags in the three accounts.
 
  Use the Cost Analysis report to:
 
