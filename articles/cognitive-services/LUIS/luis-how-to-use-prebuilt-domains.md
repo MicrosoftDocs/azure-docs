@@ -81,4 +81,7 @@ LUIS offers 20 prebuilt domains.
 | Weather | Getting weather reports and forecasts.|
 | Web | Navigating to a website.|
 
+## Next step
 
+> [!div class="nextstepaction"]
+> [Add example utterances](./Add-example-utterances.md)
