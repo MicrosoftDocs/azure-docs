@@ -3,7 +3,7 @@ title: Azure Quickstart - Transfer objects to/from Azure Blob storage using the 
 description: Quickly learn to transfer objects to/from Azure Blob storage using the Azure CLI
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 

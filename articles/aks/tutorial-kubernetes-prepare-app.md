@@ -1,5 +1,5 @@
 ---
-title: Kubernertes on Azure tutorial  - Prepare App | Microsoft Docs
+title: Kubernetes on Azure tutorial  - Prepare App | Microsoft Docs
 description: AKS tutorial - Prepare App 
 services: container-service
 documentationcenter: ''

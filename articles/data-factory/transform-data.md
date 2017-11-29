@@ -3,7 +3,7 @@ title: 'Transform data using Azure Data Factory | Microsoft Docs'
 description: Learn how to transform data or process data in Azure Data Factory using Hadoop, Machine Learning, or Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: shengcmsft
 manager: jhubbard
 editor: monicar
 
@@ -12,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: shlo
+ms.date: 11/09/2017
+ms.author: shengc
 
 ---
 # Transform data in Azure Data Factory

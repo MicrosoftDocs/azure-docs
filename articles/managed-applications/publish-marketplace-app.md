@@ -10,7 +10,7 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 11/08/2017
 ms.author: gauravbh
 ---
 
@@ -120,7 +120,7 @@ A SKU appears under the parent offer in the marketplace. It appears as its own p
    Fill out the following fields:
 
    * **Current Version**: Enter a version for the package you upload. It should be in the format `{number}.{number}.{number}{number}`.
-   * **Select a package file**: This package contains the required file compressed into a .zip package. For more information, see [Create service catalog application](publish-service-catalog-app.md).
+   * **Select a package file**: This package contains two required files compressed into a .zip package. One file is a Resource Manager template that defines the resources to deploy for the managed application. The other file defines the [user interface](create-uidefinition-overview.md) for consumers deploying the managed application through the portal. In the user interface, you specify elements that enable consumers to provide parameter values.
    * **PrincipalId**: This property is the Azure Active Directory (Azure AD) identifier of a user, user group, or application that's granted access to the resources in the customer's subscription. The Role Definition describes the permissions.
    * **Role Definition**: This property is a list of all the built-in Role-Based Access Control (RBAC) roles provided by Azure AD. You can select the role that's most appropriate to use to manage the resources on behalf of the customer.
 

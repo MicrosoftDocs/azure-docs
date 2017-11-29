@@ -8,7 +8,7 @@
   href: ./interactive-query/apache-interactive-query-get-started.md
 - name: Kafka
   href: ./kafka/apache-kafka-introduction.md
-- name: Multi-user
+- name: Enterprise Security
   href: ./domain-joined/apache-domain-joined-introduction.md
 - name: R Server
   href: ./r-server/r-server-overview.md

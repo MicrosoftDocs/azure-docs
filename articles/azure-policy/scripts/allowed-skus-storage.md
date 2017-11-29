@@ -27,7 +27,6 @@ This policy requires that storage accounts and virtual machines use approved SKU
 
 [!code-json[main](../../../policy-templates/samples/PolicyInitiatives/skus-for-mutiple-types/azurepolicyset.json "Allowed SKUs for Storage Accounts and Virtual Machines")]
 
-
 You can deploy this template using the [Azure portal](#deploy-with-the-portal) or with [PowerShell](#deploy-with-powershell).
 
 ## Deploy with the portal
@@ -38,15 +37,14 @@ You can deploy this template using the [Azure portal](#deploy-with-the-portal) o
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-
-````powershell
+```powershell
 $policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-mutiple-types/azurepolicyset.definitions.json"
 $policysetparameters = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-mutiple-types/azurepolicyset.parameters.json"
 
 $policyset= New-AzureRmPolicySetDefinition -Name "skus-for-mutiple-types" -DisplayName "Allowed SKUs for Storage Accounts and Virtual Machines" -Description "This policy allows you to speficy what skus are allowed for storage accounts and virtual machines" -PolicyDefinition $policydefinitions -Parameter $policysetparameters
 
 New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -LISTOFALLOWEDSKUS_1 <VM SKUs> -LISTOFALLOWEDSKUS_2 <Storage Account SKUs >  -Sku @{"Name"="A1";"Tier"="Standard"}
-````
+```
 
 ### Clean up PowerShell deployment
 
@@ -55,8 +53,6 @@ Run the following command to remove the resource group, VM, and all related reso
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
-
-
 
 ## Next steps
 
