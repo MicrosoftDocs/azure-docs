@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: spunukol
 
 ---
 # Azure Active Directory conditional access technical reference
 
-You can use [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md) to fine-tune how authorized users can access your resources.  
+You can use [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md) to fine-tune how authorized users can access your resources.   
 
-This topic provides support information for the following configuration options for a conditional access policy: 
+This article provides you with support information for the following configuration options for a conditional access policy: 
 
 - Cloud applications assignments
 
@@ -35,7 +35,7 @@ This topic provides support information for the following configuration options 
 
 ## Cloud apps assignments
 
-When you configure a conditional access policy, you need to [select the cloud apps that use your policy](active-directory-conditional-access-azure-portal.md#who). 
+With conditional access policies, you control how your users access your [cloud apps](active-directory-conditional-access-azure-portal.md#who). When you configure a conditional access policy, you need to select at least one cloud app. 
 
 ![Select the cloud apps for your policy](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -109,7 +109,7 @@ When you configure a conditional access policy, you can [select client apps](act
 
 ### Supported browsers 
 
-Control browser access by using the **Browser** option in your conditional access policy. Access is granted only when the access attempt is made by a supported browser. When an access attempt is made by an unsupported browser, the attempt is blocked.
+Control browser access by using the Browser option in your conditional access policy. Access is granted only when the access attempt is made by a supported browser. When an access attempt is made by an unsupported browser, the attempt is blocked.
 
 ![Control access for supported browsers](./media/active-directory-conditional-access-technical-reference/05.png)
 
