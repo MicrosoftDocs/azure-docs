@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Network Security Best Practices | Microsoft Docs
 description: This article provides a set of best practices for network security using built in Azure capabilities.
 services: security
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: TomSh
 
 ---
 # Azure Network Security Best Practices
-Microsoft Azure enables you to connect virtual machines and appliances to other networked devices by placing them on Azure Virtual Networks. An Azure Virtual Network is a virtual network construct that allows you to connect virtual network interface cards to a virtual network to allow TCP/IP-based communications between network enabled devices. Azure Virtual Machines connected to an Azure Virtual Network are able to connect to devices on the same Azure Virtual Network, different Azure Virtual Networks, on the Internet or even on your own on-premises networks.
+Microsoft Azure enables you to connect virtual machines and appliances to other networked devices by placing them on Azure Virtual Networks. An Azure Virtual Network is a construct that allows you to connect virtual network interface cards to a virtual network to allow TCP/IP-based communications between network enabled devices. Azure Virtual Machines connected to an Azure Virtual Network are able to connect to devices on the same Azure Virtual Network, different Azure Virtual Networks, on the Internet or even on your own on-premises networks.
 
 In this article we will discuss a collection of Azure network security best practices. These best practices are derived from our experience with Azure networking and the experiences of customers like yourself.
 
@@ -47,9 +47,9 @@ Azure Network security best practices discussed in this article include:
 * Extend your datacenter into Azure
 
 ## Logically segment subnets
-[Azure Virtual Networks](https://azure.microsoft.com/documentation/services/virtual-network/) are similar to a LAN on your on-premises network. The idea behind an Azure Virtual Network is that you create a single private IP address space-based network on which you can place all your [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/). The private IP address spaces available are in the Class A (10.0.0.0/8), Class B (172.16.0.0/12) and Class C (192.168.0.0/16) ranges.
+[Azure Virtual Networks](https://azure.microsoft.com/documentation/services/virtual-network/) are similar to a LAN on your on-premises network. The idea behind an Azure Virtual Network is that you create a single private IP address space-based network on which you can place all your [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/). The private IP address spaces available are in the Class A (10.0.0.0/8), Class B (172.16.0.0/12), and Class C (192.168.0.0/16) ranges.
 
-Similar to what you do on-premises, you’ll want to segment the larger address space into subnets. You can use [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) based subnetting principles to create your subnets.
+Similar to what you do on-premises, you should segment the larger address space into subnets. You can use [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) based subnetting principles to create your subnets.
 
 Routing between subnets will happen automatically and you do not need to manually configure routing tables. However, the default setting is that there are no network access controls between the subnets you create on the Azure Virtual Network. In order to create network access controls between subnets, you’ll need to put something between the subnets.
 
@@ -71,7 +71,7 @@ While the default system routes are useful for many deployment scenarios, there 
 We recommend that you configure User Defined Routes when you deploy a virtual network security appliance, which we’ll talk about in a later best practice.
 
 > [!NOTE]
-> user Defined Routes are not required and the default system routes will work in most instances.
+> user Defined Routes are not required and the default system routes works in most instances.
 >
 >
 
@@ -79,7 +79,7 @@ You can learn more about User Defined Routes and how to configure them by readin
 
 ## Enable Forced Tunneling
 To better understand forced tunneling, it’s useful to understand what “split tunneling” is.
-The most common example of split tunneling is seen with VPN connections. Imagine that you establish a VPN connection from your hotel room to your corporate network. This connection allows you to connect to resources on your corporate network and all communications to resources on your corporate network go through the VPN tunnel.
+The most common example of split tunneling is seen with VPN connections. Imagine that you establish a VPN connection from your hotel room to your corporate network. This connection allows you to access corporate resources and all communications to your corporate network go through the VPN tunnel.
 
 What happens when you want to connect to resources on the Internet? When split tunneling is enabled, those connections go directly to the Internet and not through the VPN tunnel. Some security experts consider this to be a potential risk and therefore recommend that split tunneling be disabled and all connections, those destined for the Internet and those destined for corporate resources, go through the VPN tunnel. The advantage of doing this is that connections to the Internet are then forced through the corporate network security devices, which wouldn’t be the case if the VPN client connected to the Internet outside of the VPN tunnel.
 
@@ -141,9 +141,9 @@ Confidentiality, integrity and availability (CIA) comprise the triad of today’
 Availability can be thought of as being about uptime and performance. If a service is down, information can’t be accessed. If performance is so poor as to make the data unusable, then we can consider the data to be inaccessible. Therefore, from a security perspective, we need to do whatever we can to make sure our services have optimal uptime and performance.
 A popular and effective method used to enhance availability and performance is to use load balancing. Load balancing is a method of distributing network traffic across servers that are part of a service. For example, if you have front-end web servers as part of your service, you can use load balancing to distribute the traffic across your multiple front-end web servers.
 
-This distribution of traffic increases availability because if one of the web servers becomes unavailable, the load balancer will stop sending traffic to that server and redirect traffic to the servers that are still online. Load balancing also helps performance, because the processor, network and memory overhead for serving requests is distributed across all the load balanced servers.
+This distribution of traffic increases availability because if one of the web servers becomes unavailable, the load balancer stops sending traffic to that server and redirects it to the servers that are still online. Load balancing also helps performance, because the processor, network and memory overhead for serving requests is distributed across all the load balanced servers.
 
-We recommend that you employ load balancing whenever you can, and as appropriate for your services. We’ll address appropriateness in the following sections.
+We recommend that you employ load balancing whenever you can, and as appropriate for your services. We’ll address appropriateness in the following sections:
 At the Azure Virtual Network level, Azure provides you with three primary load balancing options:
 
 * HTTP-based load balancing
@@ -159,7 +159,7 @@ We recommend that you us Azure Application Gateway when:
 * Applications that want to free web server farms from SSL termination overhead by taking advantage of Application Gateway’s [SSL offload](https://f5.com/glossary/ssl-offloading) feature.
 * Applications, such as a content delivery network, that require multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
-To learn more about how Azure Application Gateway works and how you can use it in your deployments, please read the article [Application Gateway Overview](../application-gateway/application-gateway-introduction.md).
+To learn more about how Azure Application Gateway works and how you can use it in your deployments, read the article [Application Gateway Overview](../application-gateway/application-gateway-introduction.md).
 
 ## External Load Balancing
 External load balancing takes place when incoming connections from the Internet are load balanced among your servers located in an Azure Virtual Network. The Azure External Load balancer can provide you this capability and we recommend that you use it when you don’t require the sticky sessions or SSL offload.
@@ -173,7 +173,7 @@ To learn more about how the Azure External Load Balancer works and how you can d
 ## Internal Load Balancing
 Internal load balancing is similar to external load balancing and uses the same mechanism to load balance connections to the servers behind them. The only difference is that the load balancer in this case is accepting connections from virtual machines that are not on the Internet. In most cases, the connections that are accepted for load balancing are initiated by devices on an Azure Virtual Network.
 
-We recommend that you use internal load balancing for scenarios that will benefit from this capability, such as when you need to load balance connections to SQL Servers or internal web servers.
+We recommend that you use internal load balancing for scenarios that benefit from this capability, such as when you need to load balance connections to SQL Servers or internal web servers.
 
 To learn more about how Azure Internal Load Balancing works and how you can deploy it, please read the article [Get Started Creating an Internal Load Balancer using PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md#update-an-existing-load-balancer).
 

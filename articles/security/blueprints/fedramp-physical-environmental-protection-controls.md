@@ -19,12 +19,10 @@ ms.author: jomolesk
 
 ---
 
+# Physical and Environmental Protection (PE)
+
 > [!NOTE]
 > These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
-    
-    
-
-# Physical and Environmental Protection (PE)
 
 ## NIST 800-53 Control PE-1
 

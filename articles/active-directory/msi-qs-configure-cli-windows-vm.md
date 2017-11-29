@@ -26,7 +26,7 @@ In this article, you will learn how to enable and remove MSI for an Azure VM, us
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 To run the CLI script examples, you have three options:
 

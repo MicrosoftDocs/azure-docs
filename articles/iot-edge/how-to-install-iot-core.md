@@ -36,7 +36,7 @@ The Azure IoT Edge Runtime can run even on tiny Single Board Computer (SBC) devi
    ```
 
    >[!NOTE]
-   >This PowerShell script is from the Moby project build server, and is intended for evaluation purposes only. It's not tested, endorsed, or supported by Docker.
+   >This container runtime is from the Moby project build server, and is intended for evaluation purposes only. It's not tested, endorsed, or supported by Docker.
 
 1. Install the IoT Edge runtime and verify your configuration:
 
@@ -48,7 +48,7 @@ The Azure IoT Edge Runtime can run even on tiny Single Board Computer (SBC) devi
    * Python 3.6
    * The IoT Edge control script (iotedgectl.exe)
 
-You may see informational output from the iotedgectl.exe tool in red in the remote PowerShell window. This doesn't necessarily indicate errors. 
+You may see informational output from the iotedgectl.exe tool in green in the remote PowerShell window. This doesn't necessarily indicate errors. 
 
 ## Next steps
 

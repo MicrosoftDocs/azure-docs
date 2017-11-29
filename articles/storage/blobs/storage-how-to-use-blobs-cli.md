@@ -3,7 +3,7 @@ title: Perform operations on Azure Blob storage (object storage) with the Azure 
 description: Learn how to upload and download blobs in Azure Blob storage, as well as construct a shared access signature (SAS) to manage access to a blob in your storage account.
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -158,6 +158,18 @@ Delete the blob from the container using the [az storage blob delete](/cli/azure
 az storage blob delete \
     --container-name mystoragecontainer \
     --name blobName
+```
+
+## Set the content type
+
+The content type, also known as the MIME type, identitifies the format of the data in the blob. Browsers and other software use the content type to determine how to process the data. The following example sets the content type to `image/png`.
+
+```azurecli-interactive
+# Set the content type
+az storage blob update
+    --container-name mystoragecontainer 
+    --name blobName 
+    --content-type image/png
 ```
 
 ## Display and modify blob properties and metadata

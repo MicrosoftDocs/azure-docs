@@ -1,5 +1,5 @@
 ---
-title: Work with triggers and bindings in Azure Functions | Microsoft Docs
+title: Work with triggers and bindings in Azure Functions
 description: Learn how to use triggers and bindings in Azure Functions to connect your code execution to online events and cloud-based services.
 services: functions
 documentationcenter: na
@@ -9,15 +9,13 @@ editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
-ms.assetid: cbc7460a-4d8a-423f-a63e-1cd33fef7252
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 11/21/2017
 ms.author: glenga
-
 ---
 
 # Azure Functions triggers and bindings concepts
@@ -25,7 +23,7 @@ Azure Functions allows you to write code in response to events in Azure and othe
 
 ## Overview
 
-Triggers and bindings are a declarative way to define how a function is invoked and what data it works with. A *trigger* defines how a function is invoked. A function must have exactly one trigger. Triggers have associated data, which is usually the payload that triggered the function. 
+Triggers and bindings are a declarative way to define how a function is invoked and what data it works with. A *trigger* defines how a function is invoked. A function must have exactly one trigger. Triggers have associated data, which is usually the payload that triggered the function.
 
 Input and output *bindings* provide a declarative way to connect to data from within your code. Similar to triggers, you specify connection strings and other properties in your function configuration. Bindings are optional and a function can have multiple input and output bindings. 
 
@@ -33,11 +31,13 @@ Using triggers and bindings, you can write code that is more generic and does no
 
 You can configure triggers and bindings in the **Integrate** tab in the Azure Functions portal. Under the covers, the UI modifies a file called *function.json* file in the function directory. You can edit this file by changing to the **Advanced editor**.
 
-The following table shows the triggers and bindings that are supported with Azure Functions. 
+## Supported bindings
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### Example: queue trigger and table output binding
+For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
+
+## Example: queue trigger and table output binding
 
 Suppose you want to write a new row to Azure Table Storage whenever a new message appears in Azure Queue Storage. This scenario can be implemented using an Azure Queue trigger and an Azure Table Storage output binding. 
 
@@ -124,9 +124,9 @@ To view and edit the contents of *function.json* in the Azure portal, click the 
 
 For more code examples and details on integrating with Azure Storage, see [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md).
 
-### Binding direction
+## Binding direction
 
-All triggers and bindings have a `direction` property:
+All triggers and bindings have a `direction` property in the *function.json* file:
 
 - For triggers, the direction is always `in`
 - Input and output bindings use `in` and `out`

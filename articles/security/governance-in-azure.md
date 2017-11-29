@@ -23,7 +23,7 @@ ms.author: TomSh
 
 We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of its wide array of security tools and capabilities. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform.
 
-To help you better understand the array of Governance controls implemented within Microsoft Azure from both the customer's and Microsoft operations' perspectives, this article, "Governance in Azure", is written that provides a comprehensive look at the Governance features available with Microsoft Azure.
+To help you better understand the array of Governance controls implemented within Microsoft Azure from both the customer's and Microsoft operations' perspectives, this article, "Governance in Azure", is written to provide a comprehensive look at the Governance features available with Microsoft Azure.
 
 ## Azure platform
 

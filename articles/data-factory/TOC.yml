@@ -18,7 +18,9 @@
     - name: REST   
       href: quickstart-create-data-factory-rest-api.md
     - name: Portal   
-      href: quickstart-create-data-factory-portal.md      
+      href: quickstart-create-data-factory-portal.md  
+    - name: Resource Manager template   
+      href: quickstart-create-data-factory-resource-manager-template.md          
 - name: Tutorials
   items:
   - name: 1 - Deploy SSIS packages to Azure
@@ -120,6 +122,8 @@
       - name: PostgreSQL
         href: connector-postgresql.md
       - name: Salesforce
+        href: connector-salesforce.md
+      - name: Salesforce Service Cloud
         href: connector-salesforce.md
       - name: SAP Business Warehouse
         href: connector-sap-business-warehouse.md
