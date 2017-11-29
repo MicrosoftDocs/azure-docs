@@ -16,7 +16,7 @@ ms.tgt_pltfrm:
 ms.workload: 
 ms.date: 11/28/2017
 ms.author: danlep
-ms.custom: mvc
+ms.custom: jiata
 ---
 
 # Run a parallel R simulation with Azure Batch 
@@ -52,7 +52,7 @@ install.packages("devtools")
 devtools::install_github("Azure/rAzureBatch") 
 devtools::install_github("Azure/doAzureParallel") 
  
-# Import the doAzureParallel library 
+# Load the doAzureParallel library 
 library(doAzureParallel) 
 ```
 Installation can take several minutes.
@@ -63,13 +63,13 @@ Installation can take several minutes.
 
 The `doAzureParallel` package needs to access your Azure Batch and storage accounts. 
 
-Start by generating a credentials file in your working directory: 
+Start by generating a credentials file called `credentials.json` in your working directory: 
 
 ```R
 generateCredentialsConfig("credentials.json") 
 ``` 
 
-You populate this file with your Batch and storage account names and keys. Get the necessary information from the Azure portal, or use Azure CLI or Azure PowerShell commands. For example, to get the account keys, use the [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) and [az storage account keys list](/cli/azure/storage/account/keys##az_storage_account_keys_list) commands. 
+You populate this file with your Batch and storage account names and keys. Get the necessary information from the [Azure portal](https://portal.azure.com), or use Azure CLI or Azure PowerShell commands. For example, to get the account keys, use the [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) and [az storage account keys list](/cli/azure/storage/account/keys##az_storage_account_keys_list) commands. 
 
 When complete, the credentials file looks similar to the following: 
 
@@ -124,7 +124,7 @@ The default configuration includes 3 dedicated nodes and 3 [low priority](batch-
     },
     "autoscaleFormula": "QUEUE"
   },
-  "containerImage": "",
+  "containerImage": "rocker/tidyverse:latest",
   "rPackages": {
     "cran": [],
     "github": [],
@@ -155,7 +155,7 @@ Now that your cluster is created, you are ready to run your `foreach` loop with 
 
 The following example shows how to run the loop with a fictitious function called *myParallelAlgorithm*:
 
-``` 
+```R 
 results <- foreach(i = 1:100) %dopar% { 
 myParallelAlgorithm(i) 
 } 
@@ -186,24 +186,64 @@ getClosingPrice <- function() {
   return(closingPrice) 
 } 
 ```
-Simulate 1,000,000 outcomes in Azure. To parallelize the simulation with Batch, run 20 iterations of 50,000 outcomes:
+
+First run 10,000 simulations locally using a standard `foreach` loop:
 
 ```R
-start_s <- Sys.time()  
-closingPrices_s <- foreach(i = 1:20, .combine='c') %dopar% { 
-  replicate(50000, getClosingPrice()) 
+start_s <- Sys.time() 
+# Run 10,000 simulations in series 
+closingPrices_s <- foreach(i = 1:10, .combine='c') %do% { 
+  replicate(1000, getClosingPrice()) 
 } 
 end_s <- Sys.time() 
 ```
 
-The simulation distributes tasks to the nodes in the Batch pool. You can see the activity in the heat map for the pool in the [Azure portal](https://portal.azure.com). Bo to **Batch accounts** > *myBatchAccount*. Click **Pools** > **myPoolName**. 
+
+Plot the closing prices in a histogram to show the distribution of outcomes:
+
+```R
+hist(closingPrices_s)
+``` 
+
+Output is similar to the following:
+
+![Distribution of closing prices](media/tutorial-r-doazureparallel/closing-prices-local.png)
+  
+How long did the local simulation take? 
+
+```R
+difftime(end_s, start_s) 
+```
+
+Estimated runtime for 10 million outcomes locally, using a linear approximation:
+
+```R 
+1000 * difftime(end_s, start_s, unit = "min") 
+```
+
+
+Now run the code using `doAzureParallel` to compare how long it takes to run 10,000,000 simulations in Azure. To parallelize the simulation with Batch, run 100 iterations of 100,000 simulations:
+
+```R
+opt <- list(chunkSize = 13) 
+# Optimize runtime. Chunking allows running multiple iterations on a single R instance. 
+start_p <- Sys.time()  
+closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar% { 
+  replicate(100000, getClosingPrice()) 
+} 
+end_p <- Sys.time() 
+```
+
+The simulation distributes tasks to the nodes in the Batch pool. You can see the activity in the heat map for the pool in the [Azure portal](https://portal.azure.com). Go to **Batch accounts** > *myBatchAccount*. Click **Pools** > **myPoolName**. 
 
 ![Heat map of pool running parallel R tasks](media/tutorial-r-doazureparallel/pool.png)
 
-After a few minutes, the simulation finishes. The package automatically merges the results and pulls them down from the nodes. Then, you are ready to use the results in your R session. For example, plot the 1,000,000 closing prices in a histogram to show the distribution of outcomes:
+After several minutes, the simulation finishes. The package automatically merges the results and pulls them down from the nodes. Then, you are ready to use the results in your R session. 
+
+
 
 ```R
-hist(closingPrices_s) 
+hist(closingPrices_p) 
 ```
 
 Output is similar to the following:
@@ -211,14 +251,13 @@ Output is similar to the following:
 ![Distribution of closing prices](media/tutorial-r-doazureparallel/closing-prices.png)
 
  
-How long did the simulation take? Run the following command:
+How long did the parallel simulation take? 
 
-[Q: I saw only about 2x speedup with the dopar versus do, with 20 iterations of 50,000. Expected?
-]
 ```R
-difftime(end_s, start_s) 
+difftime(end_p, start_p, unit = "min")  
 ```
-  
+
+You should see that running the same simulation on `doAzureParallel` gives you a significant increase in performance. 
 
 ## Clean up resources
 
@@ -233,7 +272,9 @@ In this tutorial, you learned about how to:
 > * Run a parallel R simulation on the pool
 
 
-Advance to the next tutorial to learn about ....  
+## Next steps
 
-> [!div class="nextstepaction"]
+For more information about `doAzureParallel`, see the [documentation](https://github.com/Azure/doAzureParallel/tree/master/docs) and [samples](https://github.com/Azure/doAzureParallel/tree/master/samples) on GitHub.
+
+
 
