@@ -64,7 +64,7 @@
       href: Review-Tool-User-Guide/View-Dashboard.md
 - name: Tutorials
   items:
-  - name: Facebook post moderation
+  - name: Facebook moderation
     href: facebook-post-moderation.md
   - name: eCommerce catalog moderation
     href: ecommerce-retail-catalog-moderation.md
