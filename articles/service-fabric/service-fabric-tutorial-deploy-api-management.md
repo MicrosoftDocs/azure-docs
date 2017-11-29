@@ -335,7 +335,7 @@ In this tutorial, you learned how to:
 > * Configure a backend policy
 > * Add the API to a product
 
-Next, advance to the following tutorial to learn how to deploy an application and use API management.
+Next, advance to the following tutorial to learn how to upgrade the cluster runtime.
 > [!div class="nextstepaction"]
 > [Upgrade the Azure Service Fabric cluster runtime](service-fabric-tutorial-upgrade-cluster.md)
 
