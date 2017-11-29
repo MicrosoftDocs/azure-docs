@@ -107,7 +107,7 @@ For web applications that use Access Control for user authentication, Access Con
 - Support for the following token formats: JSON Web Token (JWT), SAML 1.1, SAML 2.0, and Simple Web Token (SWT).
 - A home realm discovery experience, integrated into WIF, that allows users to pick the type of account they use to sign in. This experience is hosted by the web application and is fully customizable.
 - Token transformation that allows rich customization of the claims received by the web application from Access Control, including:
-    - Passing through claims from identity providers.
+    - Passthrough claims from identity providers.
     - Adding additional custom claims.
     - Simple if-then logic to issue claims under certain conditions.
 
