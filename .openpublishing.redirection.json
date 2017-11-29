@@ -1,6 +1,11 @@
 {
     "redirections": [
-        {
+    {
+        "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
+        "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
+        "redirect_document_id": false 
+    },
+    {
 	    "source_path": "articles/cognitive-services/Video/Home.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
 	    "redirect_document_id": false 
@@ -2993,6 +2998,11 @@
         {
             "source_path": "articles/container-service/container-service-setup-ci-cd.md",
             "redirect_url": "https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/dcos-swarm/container-service-deployment.md",
+            "redirect_url": "/azure/container-service/dcos-swarm",
             "redirect_document_id": false
         },
         {
@@ -6468,6 +6478,11 @@
         {
             "source_path": "articles/vpn-gateway/vpn-gateway-point-to-site-create.md",
             "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
             "redirect_document_id": false
         },
         {
@@ -15368,6 +15383,18 @@
              "source_path": "articles/redis-cache/cache-java-spring-boot-initializer-with-redis-cache.md",
              "redirect_url": "/java/azure/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache",
              "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md",
+             "redirect_url": "/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-provision.md",
+             "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-portal",
+             "redirect_document_id": false
         }
+
+
     ]
 }

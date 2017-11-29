@@ -42,7 +42,7 @@ To perform the steps described in this article, you must have:
 ### Enable VNET connectivity using the Azure portal
 
 1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **Custom domains and SSL**.
+2. Select **Virtual Network**.
 3. Configure the API Management instance to be deployed inside a Virtual network.
 
     ![Virtual network menu of API Management][api-management-using-vnet-menu]
@@ -114,6 +114,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 14000 - 14999 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|**Access to Azure SQL V12** |External & Internal |
 | * / 5671 |Outbound |AMQP |VIRTUAL_NETWORK / INTERNET|Dependency for Log to Event Hub policy and monitoring agent |External & Internal |
 | * / 445 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Dependency on Azure File Share for GIT |External & Internal |
+| * / 25028 |Outbound |TCP |VIRTUAL_NETWORK / INTERNET|Connect to SMTP Relay for sending Emails |External & Internal |
 | * / 6381 - 6383 |Inbound & Outbound |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Access Redis Cache Instances between RoleInstances |External & Internal |
 | * / * | Inbound |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure Infrastructure Load Balancer |External & Internal |
 

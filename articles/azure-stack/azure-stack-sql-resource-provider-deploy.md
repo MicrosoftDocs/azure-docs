@@ -22,14 +22,14 @@ ms.author: JeffGo
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 Use the SQL Server resource provider adapter to expose SQL databases as a service of [Azure Stack](azure-stack-poc.md). After you install the resource provider and connect it to one or more SQL Server instances, you and your users can create:
-- databases for cloud-native apps
-- websites that are based on SQL
-- workloads that are based on SQL
+- Databases for cloud-native apps
+- Websites that are based on SQL
+- Workloads that are based on SQL
 You don't have to provision a virtual machine (VM) that hosts SQL Server each time.
 
 The resource provider does not support all the database management capabilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, elastic database pools and the ability to dial database performance up and down automatically aren't available. However, the resource provider does support similar create, read, update, and delete (CRUD) operations. The API is not compatible with SQL DB.
 
-## SQL Server Resource Provider Adapter architecture
+## SQL Resource Provider Adapter architecture
 The resource provider is made up of three components:
 
 - **The SQL resource provider adapter VM**, which is a Windows virtual machine running the provider services.
@@ -49,6 +49,9 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
     b. On multi-node systems, the host must be a system that can access the Privileged Endpoint.
 
 3. [Download the SQL resource provider binaries file](https://aka.ms/azurestacksqlrp) and execute the self-extractor to extract the contents to a temporary directory.
+
+    > [!NOTE]
+    > If you running on an Azure Stack build 20170928.3 or earlier, [Download this version](https://aka.ms/azurestacksqlrp1709).
 
 4. The Azure Stack root certificate is retrieved from the Privileged Endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
@@ -84,8 +87,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
 $domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\SQLRP'
 
@@ -107,7 +114,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### DeploySqlProvider.ps1 parameters
@@ -127,7 +139,7 @@ You can specify these parameters in the command line. If you do not, or any para
 | **DebugMode** | Prevents automatic cleanup on failure | No |
 
 
-## Verify the deployment using the Azure Stack Portal
+## Verify the deployment using the Azure Stack portal
 
 > [!NOTE]
 >  After the installation script completes, you will need to refresh the portal to see the admin blade.
@@ -140,27 +152,25 @@ You can specify these parameters in the command line. If you do not, or any para
       ![Verify Deployment of the SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-
-
-
-## Removing the SQL Adapter Resource Provider
+## Remove the SQL Resource Provider Adapter
 
 In order to remove the resource provider, it is essential to first remove any dependencies.
 
-1. Ensure you have the original deployment package that you downloaded for this version of the Resource Provider.
+1. Ensure you have the original deployment package that you downloaded for this version of the SQL Resource Provider Adapter.
 
 2. All user databases must be deleted from the resource provider (this doesn't delete the data). This should be performed by the users themselves.
 
-3. Administrator must delete the hosting servers from the SQL Adapter
+3. Administrator must delete the hosting servers from the SQL Resource Provider Adapter
 
-4. Administrator must delete any plans that reference the SQL Adapter.
+4. Administrator must delete any plans that reference the SQL Resource Provider Adapter.
 
-5. Administrator must delete any SKUs and quotas associated to the SQL Adapter.
+5. Administrator must delete any SKUs and quotas associated to the SQL Resource Provider Adapter.
 
 6. Rerun the deployment script with the -Uninstall parameter, Azure Resource Manager endpoints, DirectoryTenantID, and credentials for the service administrator account.
 
 
 ## Next steps
 
+[Add Hosting Servers](azure-stack-sql-resource-provider-hosting-servers.md) and [Create databases](azure-stack-sql-resource-provider-databases.md).
 
 Try other [PaaS services](azure-stack-tools-paas-services.md) like the [MySQL Server resource provider](azure-stack-mysql-resource-provider-deploy.md) and the [App Services resource provider](azure-stack-app-service-overview.md).
