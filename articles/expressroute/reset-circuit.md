@@ -18,9 +18,11 @@ ms.date: 11/28/2017
 ms.author: anzaman;cherylmc
 
 ---
-# Reset a failed  ExpressRoute circuit
+# Reset a failed ExpressRoute circuit
 
 When an operation on an ExpressRoute circuit does not complete successfully, the circuit may go into a 'failed' state. This article helps you reset a failed Azure ExpressRoute circuit.
+
+## Reset a circuit
 
 1. Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install and configure Azure PowerShelll](/powershell/azure/install-azurerm-ps).
 
