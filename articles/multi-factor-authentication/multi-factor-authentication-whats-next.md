@@ -290,7 +290,9 @@ Therefore, remembering MFA on trusted devices reduces the number of authenticati
 3. Select **Multi-Factor Authentication**
 4. Under Multi-Factor Authentication, select **service settings**.
 5. On the Service Settings page, under **manage remember multi-factor authentication**, check the **Allow users to remember multi-factor authentication on devices they trust** box.
+
    ![Remember devices](./media/multi-factor-authentication-whats-next/remember.png)
+
 6. Set the number of days that you want to allow the trusted devices to bypass two-step verification. The default is 14 days.
 7. Select **Save**.
 
@@ -318,5 +320,7 @@ When your users enroll their accounts for MFA, they choose their preferred verif
 3. Select **Multi-Factor Authentication**
 4. Under Multi-Factor Authentication, select **service settings**.
 5. On the Service Settings page, under **verification options**, select/unselect the options you wish to use.
+
    ![Verification options](./media/multi-factor-authentication-whats-next/authmethods.png)
+
 6. Click **Save**.
