@@ -12,7 +12,7 @@ ms.author: v-gedod
 ---
 
 # News Search endpoint
-The **News Search API** returns news ariticles, Web pages, images, videos, and [entities](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-entities-search/search-the-web) that contain summary information about a person, place, or topic. 
+The **News Search API** returns news articles, Web pages, images, videos, and [entities](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-entities-search/search-the-web) that contain summary information about a person, place, or topic. 
 ##Endpoint
 To get News search results using the Bing API, send a `GET` request to one of the following endpoints. The headers and URL parameters define further specifications.
 
