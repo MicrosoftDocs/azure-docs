@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/28/2017
 ms.author: bradsev;
 
 ---
@@ -20,24 +20,34 @@ ms.author: bradsev;
 
 # Track progress of data science projects
 
+Data science group managers, team leads, and project leads need to track the progress of their team projects, what work has been done on them and by whom, and remains on the to-do lists. 
 
-Data science group managers, team leads, and project leads need to track the progress of their projects. They need to know what work has been done on them, who has done the work, and what work remains on the to-do lists. If you are using Visual Studio Team Services (VSTS), you are able to build Power BI dashboards to track the activities and the work items associated with a Git repository. 
+## VSTS dashboards
+If you are using Visual Studio Team Services (VSTS), you are able to build dashboards to track the activities and the work items associated with a given Agile project. 
 
-For more information on how to connect Power BI to Visual Studio Team Services, see [Connect Power BI to Team Services](https://www.visualstudio.com/en-us/docs/report/powerbi/connect-vso-pbi-vs). 
+For more information on how to create and customize dashboards and widgets on Visual Studio Team Services, see the following sets of instructions:
 
-To learn how to create Power BI dashboards and reports to track your Git repository activities and your work items after the data of VSTS is connected to Power BI, see [Create Power BI dashboards and reports](https://www.visualstudio.com/en-us/docs/report/powerbi/report-on-vso-with-power-bi-vs). 
+- [Add and manage dashboards](https://docs.microsoft.com/vsts/report/dashboards/dashboards)
+- [Add widgets to a dashboard](https://docs.microsoft.com/vsts/report/dashboards/add-widget-to-dashboard).
 
-Here are two simple example dashboards that are built to track Git activities and work items. In the first example dashboard, the git commitment activities are listed by different users, on different dates, and on different repositories. You can easily slice and dice to filter the ones that you are interested in.
+## Example dashboard
 
-![23](./media/track-progress/1-powerbi-git.png)
+Here is a simple example dashboard that is built to track the sprint activities of an Agile data science project, as well as the number of commits to associated repositories. The **top left** panel shows:
 
-In the second example dashboard, the work items (stories and tasks) in different iterations are presented. They are grouped by assignees and priority levels, and colored by state.
+- the countdown of the current sprint, 
+- the number of commits for each repository in the last 7 days
+- the work item for specific users. 
 
-![24](./media/track-progress/2-powerbi-workitem.png)
+The remaining panels show the cumulative flow diagram (CFD), burndown, and burnup for a project:
 
+- **Bottom left**:  CFD the quantity of work in a given state, showing approved in gray, committed in blue, and done in green.
+- **Top right**: burndown chart the work left to complete versus the time remaining).
+- **Bottom right**: burnup chart the work that has been completed versus the total amount of work.
+
+![dashboard](./media/track-progress/dashboard.png)
+
+For a description of how to build these charts, see  the quickstarts and tutorials at [Dashboards](https://docs.microsoft.com/vsts/report/dashboards/).
  
 ## Next steps
 
 Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
-
-For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](http://aka.ms/datascienceprocess) learning path.
