@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
 
 ---
@@ -116,6 +116,7 @@ If you already have a VNet with a VPN gateway, verify that the gateway is Dynami
 
 1. On the **New VPN Connection** page, select the **Create gateway immediately** checkbox.
 2. Click **Optional gateway configuration** to open the **Gateway configuration** page.
+
   ![Open gateway configuration page](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Open gateway configuration page")
 3. Click **Subnet - Configure required settings** to open the **Add subnet** page. The **Name** is already configured with the required value: **GatewaySubnet**.
 4. The **Address range** refers to the range for the gateway subnet. Although you can create a gateway subnet with a /29 address range (3 addresses), we recommend creating a gateway subnet that contains more IP addresses. This will accommodate future configurations that may require more available IP addresses. If possible, use /27 or /28. If you are using these steps as an exercise, you can refer to the [Example values](#values). For this example, we use '10.0.0.32/28'. Click **OK** to create the gateway subnet.
@@ -139,23 +140,19 @@ In this section, you create the virtual network gateway and the local network ga
 
 **Example values:**
 
-VNet name = RMVNet <br>
-Address space = 192.168.0.0/16 <br>
-Resource Group = RG1 <br>
-Location = East US <br>
-Subnet name = Subnet-1 <br>
-Address range = 192.168.1.0/24 <br>
+* VNet name = RMVNet <br>
+* Address space = 192.168.0.0/16 <br>
+* Resource Group = RG1 <br>
+* Location = East US <br>
+* Subnet name = Subnet-1 <br>
+* Address range = 192.168.1.0/24 <br>
 
 
 If you don't have a Resource Manager VNet and are running these steps as an exercise, you can create a VNet by using [this article](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) and the Example values.
 
-Connection name = RMtoClassic
-
 ### 2. Create a gateway subnet
 
-**Example values:**
-
-GatewaySubnet = 192.168.0.0/26
+**Example value:** GatewaySubnet = 192.168.0.0/26
 
 Before creating a virtual network gateway, you first need to create the gateway subnet. Create a gateway subnet with CIDR count of /28 or larger (/27, /26, etc.). If you are creating this as part of an exercise, you can use the Example values.
 
@@ -167,21 +164,19 @@ Before creating a virtual network gateway, you first need to create the gateway 
 
 **Example values:**
 
-Virtual network gateway name = RMGateway <br>
-Gateway type = VPN <br>
-VPN type = Route-based <br>
-SKU = VpnGw1 <br>
-Location = East US <br>
-Virtual network = RMVNet <br>
-First IP configuration = rmgwpip <br>
+* Virtual network gateway name = RMGateway <br>
+* Gateway type = VPN <br>
+* VPN type = Route-based <br>
+* SKU = VpnGw1 <br>
+* Location = East US <br>
+* Virtual network = RMVNet <br>
+* First IP configuration = rmgwpip <br>
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 ### <a name="createlng"></a>4. Create a local network gateway
 
-**Example values:**
-
-Local network gateway = ClassicVNetLocal <br>
+**Example values:** Local network gateway = ClassicVNetLocal
 
 | Virtual Network | Address Space | Region | Connects to local network site |Gateway Public IP address|
 |:--- |:--- |:--- |:--- |:--- |
