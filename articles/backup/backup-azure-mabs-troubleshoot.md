@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 11/24/2017
 ms.author: pullabhk;markgal;
 
 ---
@@ -22,15 +22,15 @@ ms.author: pullabhk;markgal;
 
 You can troubleshoot errors that you encounger while using Azure Backup Server with the information that's listed in the following table.
 
-## Error: Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service 
+## Invalid vault credentials provided 
 
 Follow these [troubleshooting steps] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) to resolve this issue.
 
-## Error: The agent operation failed because of a communication error with the DPM Agent Coordinator service on Server 
+## The agent operation failed because of a communication error with the DPM Agent Coordinator service on Server 
 
 Follow these [troubleshooting steps](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) to resolve this issue.
 
-## Error: Setup could not update registry metadata
+## Setup could not update registry metadata
 
 Follow these [troubleshooting steps](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#installation-issues) to resolve this issue.
 
@@ -63,7 +63,7 @@ Follow these [troubleshooting steps](https://docs.microsoft.com/en-us/azure/back
 ## Backup
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Backup | Replica is inconsistent | Verify that the automatic consitency check option in Protection Group wizard is turned on. For more information about the causes of replica inconsistency and relevant suggestions, see [Replica is inconsistent](https://technet.microsoft.com/library/cc161593.aspx) on Microsoft TechNet.<br> <ol><li> In case of System State/BMR backup, verify that Windows Server Backup is installed on the protected server.</li><li> Check for space-related issues in the DPM storage pool on the DPM/MABS server, and allocate storage as required.</li><li> Check the state of the Volume shadow copy service on the protected server. If it is in a disabled state, set it to start manually. Start the service on the server. Then go back to the DPM/MABS console and start the sync with consistency check job.</li></ol>|
+| Backup | Replica is inconsistent | Verify that the automatic consistency check option in Protection Group wizard is turned on. For more information about the causes of replica inconsistency and relevant suggestions, see [Replica is inconsistent](https://technet.microsoft.com/library/cc161593.aspx) on Microsoft TechNet.<br> <ol><li> In case of System State/BMR backup, verify that Windows Server Backup is installed on the protected server.</li><li> Check for space-related issues in the DPM storage pool on the DPM/MABS server, and allocate storage as required.</li><li> Check the state of the Volume shadow copy service on the protected server. If it is in a disabled state, set it to start manually. Start the service on the server. Then go back to the DPM/MABS console and start the sync with consistency check job.</li></ol>|
 | Backup | An unexpected error occurred while the job was running, The device is not ready. | **If the recommended action shown in the product doesn't work**, <br> <ol><li>Set the Shadow Copy Storage space to unlimited on the items in the protection group, and then run the consistency check.<br></li> (OR) <li>Try deleting the existing protection group and creating multiple new ones. Each new protection group should have an individual item in it.</li></ol> |
 | Backup | If you are backing up only system state, verify that there is enough free space on the protected computer to store the system state backup. | <ol><li>Verify that the WSB on the protected machine is installed.</li><li>Verify that there is enough space on the protected computer for the system state. The easiest way to do this is to go to the protected computer, open WSB, click through the selections, and then select BMR. The UI then tells you how much space is required for this. Open **WSB** > **Local backup** > **Backup schedule** > **Select Backup Configuration** > **Full server** (size is displayed). Use this size for verification.</li></ol>
 | Backup | Online recovery point creation failed | If the error message says "Windows Azure Backup Agent was unable to create a snapshot of the selected volume",  try increasing the space in replica and recovery point volume.
@@ -85,4 +85,4 @@ Follow these [troubleshooting steps](https://docs.microsoft.com/en-us/azure/back
 ## Configure email notifications
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Trying to set up email notifications using Office365 account. | getting Error ID: 2013| **Cause:**<br/> Trying to use Office 365 account <br/> **Recommended Action:**<br/> The first thing to ensure is that “Allow Anonymous Relay on a Receive Connector” for your DPM server is setup on Exchange. Here is a link on how to configure this: http://technet.microsoft.com/en-us/library/bb232021.aspx <br/> If you can't use an internal SMTP relay and need to set up using your Office 365 server, you can set up IIS to be a relay for this. <br/> You will need to configure the DPM server to be able to relay the SMTP to O365 using IIS https://technet.microsoft.com/en-us/library/aa995718(v=exchg.65).aspx to setup IIS to relay to O365 <br/> Important note:  On step 3->g->ii, be sure to use user@domain.com format and NOT domain\user <br/> Point DPM to use the local servername as SMTP server, port 587 and then the user email that the emails should come from. <br/> The username and password on the DPM SMTP setup page should be a domain account in the domain DPM is on. <br/> NOTE:  When changing the SMTP server address, make the change to new settings, close the settings box and then reopen to be sure it reflects the new value.  Simply changing and testing will not always take the new settings so testing this way is best practice. <br/> At any time during this process, you can clear these settings out by closing DPM console and editing the following registry keys:<br/> HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Delete SMTPPassword and SMTPUserName keys. <br/> You can add them back in the UI when you launch it again.
+| Trying to set up email notifications using Office365 account. | getting Error ID: 2013| **Cause:**<br/> Trying to use Office 365 account <br/> **Recommended Action:**<br/> 1. The first thing to ensure is that “Allow Anonymous Relay on a Receive Connector” for your DPM server is setup on Exchange. Here is [a link](http://technet.microsoft.com/en-us/library/bb232021.aspx) on how to configure this.  <br/> 2. If you can't use an internal SMTP relay and need to set up using your Office 365 server, you can set up IIS to be a relay for this. You need to configure the DPM server to be [able to relay the SMTP to O365 using IIS](https://technet.microsoft.com/en-us/library/aa995718(v=exchg.65).aspx) <br/><br/> Important note:  On step 3->g->ii, be sure to use user@domain.com format and NOT domain\user <br/> Point DPM to use the local servername as SMTP server, port 587 and then the user email that the emails should come from. <br/> The username and password on the DPM SMTP setup page should be a domain account in the domain DPM is on. <br/><br/> NOTE:  When changing the SMTP server address, make the change to new settings, close the settings box and then reopen to be sure it reflects the new value.  Simply changing and testing may not always take the new settings so testing this way is best practice. <br/><br/> At any time during this process, you can clear these settings out by closing DPM console and editing the following registry keys:<br/> HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Delete SMTPPassword and SMTPUserName keys. <br/> You can add them back in the UI when you launch it again.
