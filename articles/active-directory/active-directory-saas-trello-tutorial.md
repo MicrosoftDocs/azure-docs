@@ -92,10 +92,6 @@ To configure and test Azure AD single sign-on with Trello, you need to complete 
 
 In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Trello application.
 
->[!NOTE]
-    >You should get the **\<enterprise\>** slug from Trello. If you don't have the slug value, contact [Trello support team](mailto:support@trello.com) to get the slug for your enterprise.
-    > 
-
 **To configure Azure AD single sign-on with Trello, perform the following steps:**
 
 1. In the Azure portal, on the **Trello** application integration page, click **Single sign-on**.
@@ -107,7 +103,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Single sign-on dialog box](./media/active-directory-saas-trello-tutorial/tutorial_trello_samlbase.png)
 
 3. On the **Trello Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
-	
+
 	![Trello Domain and URLs single sign-on information](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
 	
 	a. In the **Identifier** textbox, type a URL: `https://trello.com/auth/saml/metadata`
@@ -123,7 +119,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	>[!NOTE]
     >You should get the **\<enterprise\>** slug from Trello. If you don't have the slug value, contact [Trello support team](mailto:support@trello.com) to get the slug for you enterprise.
     >  
-    
+
 5. Trello application expects the SAML assertions to contain specific attributes. Configure the following attributes  for this application. You can manage the values of these attributes from the **"User Attributes"** of the application. The following screenshot shows an example for this.
 
     ![Configure Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_attribute.png)
