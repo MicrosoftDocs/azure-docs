@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Site Recovery - Azure to Azure Disaster Recovery Documentation
+title: Site Recovery documentation - Azure to Azure disaster recovery 
 metadata:
-  title: Azure Site Recovery Documentation - Tutorials, API Reference | Microsoft Docs
+  title: Azure Site Recovery documentation - Tutorials, API Reference | Microsoft Docs
   meta.description: Learn how to set up disaster recovery for Azure VMs
   services: site-recovery
   author: rayne-wiselman
@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/26/2017
   ms.author: raynew
 abstract:
-  description: Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs. Learn how to replicate to a secondary region, fail over, and fail back with our quickstarts and tutorials.
+  description: Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs. Learn how to replicate to a secondary region, and run a failover and failback, with our quickstarts and tutorials.
 sections:
 - title: 5-Minute Quickstarts
   items: 
@@ -27,7 +27,7 @@ sections:
         src: /azure/site-recovery/azure-to-azure/media/index/portal.svg
       text: Azure portal
       href: /azure/site-recovery/azure-to-azure-quickstart
-  - title: Step-by-step Tutorials
+- title: Step-by-step Tutorials
   items:
   - type: paragraph
     text: 'Learn how to set up disaster recovery, failover, and failback for Azure VMs.'
