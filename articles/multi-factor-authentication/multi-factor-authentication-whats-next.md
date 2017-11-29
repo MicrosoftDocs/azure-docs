@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
 
@@ -167,22 +167,40 @@ When Trusted IPs is enabled, two-step verification is *not* required for browser
 
 Whether Trusted IPs is enabled or not, two-step verification is required for browser flows, and app passwords are required for older rich client apps. 
 
-### To enable Trusted IPs
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. On the left, select **Active Directory**.
-3. Select the directory you want to manage. 
-4. Select **Configure**
-5. Under Multi-Factor Authentication, select **Manage service settings**.
-6. On the Service Settings page, under Trusted IPs, you have two options:
+### Enable named locations using conditional access
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the left, select **Azure Active Directory** > **Conditional access** > **Named locations**
+3. Select **New location**
+4. Provide a name for the location
+5. Select **Mark as trusted location**
+6. Specify the IP Range in CIDR notation (Example 192.168.1.1/24)
+7. Select **Create**
+
+### Enable Trusted IPs using conditional access
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the left, select **Azure Active Directory** > **Conditional access** > **Named locations**
+3. Select **Configure MFA trusted IPs**
+4. On the Service Settings page, under Trusted IPs, you have two options:
    
-   * **For requests from federated users originating from my intranet** – Check the box. All federated users who are signing in from the corporate network will bypass two-step verification using a claim issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS: "c:[Type
-== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
-
-
+   * **For requests from federated users originating from my intranet** – Check the box. All federated users who are signing in from the corporate network will bypass two-step verification using a claim issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS: "c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
 
    * **For requests from a specific range of public IPs** – Enter the IP addresses in the text box provided using CIDR notation. For example: xxx.xxx.xxx.0/24 for IP addresses in the range xxx.xxx.xxx.1 – xxx.xxx.xxx.254, or xxx.xxx.xxx.xxx/32 for a single IP address. You can enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
-7. Click **Save**.
-8. Once the updates have been applied, click **Close**.
+5. Select **Save**.
+
+### Enable Trusted IPs using service settings
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**
+3. Select **Multi-Factor Authentication**
+4. Under Multi-Factor Authentication, select **service settings**.
+5. On the Service Settings page, under Trusted IPs, you have two options:
+   
+   * **For requests from federated users originating from my intranet** – Check the box. All federated users who are signing in from the corporate network will bypass two-step verification using a claim issued by AD FS. Ensure that AD FS has a rule to add the intranet claim to the appropriate traffic. If the rule does not exist, create the following rule in AD FS: "c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
+
+   * **For requests from a specific range of public IPs** – Enter the IP addresses in the text box provided using CIDR notation. For example: xxx.xxx.xxx.0/24 for IP addresses in the range xxx.xxx.xxx.1 – xxx.xxx.xxx.254, or xxx.xxx.xxx.xxx/32 for a single IP address. You can enter up to 50 IP address ranges. Users who sign in from these IP addresses bypass two-step verification.
+6. Select **Save**.
 
 ![Trusted IPs](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
@@ -237,11 +255,10 @@ Azure AD supports federation (single sign-on) with on-premises Windows Server Ac
 ### Allow app password creation
 By default, users cannot create app passwords. This feature must be enabled. To allow users the ability to create app passwords, use the following procedure:
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. On the left, select **Active Directory**.
-3. Select the directory you want to manage. 
-4. Select **Configure**
-5. Under Multi-Factor Authentication, select **Manage service settings**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**
+3. Select **Multi-Factor Authentication**
+4. Under Multi-Factor Authentication, select **service settings**.
 6. Select the radio button next to **Allow users to create app passwords to sign into non-browser apps**.
 
 ![Create App Passwords](./media/multi-factor-authentication-whats-next/trustedips3.png)
@@ -268,16 +285,14 @@ Therefore, remembering MFA on trusted devices reduces the number of authenticati
 >This feature is not compatible with the "Keep me signed in" feature of AD FS when users perform two-step verification for AD FS through the Azure MFA Server or a third-party MFA solution. If your users select "Keep me signed in" on AD FS and also mark their device as trusted for MFA, they won't be able to verify after the "Remember MFA" number of days expires. Azure AD requests a fresh two-step verification, but AD FS returns a token with the original MFA claim and date instead of performing two-step verification again. This sets off a verification loop between Azure AD and AD FS. 
 
 ### Enable Remember multi-factor authentication
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. On the left, select **Active Directory**.
-3. Select the directory you want to manage. 
-4. Select **Configure**
-5. Under Multi-Factor Authentication, select **Manage service settings**.
-6. On the Service Settings page, under manage user device settings, check the **Allow users to remember multi-factor authentication on devices they trust** box.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**
+3. Select **Multi-Factor Authentication**
+4. Under Multi-Factor Authentication, select **service settings**.
+5. On the Service Settings page, under **manage remember multi-factor authentication**, check the **Allow users to remember multi-factor authentication on devices they trust** box.
    ![Remember devices](./media/multi-factor-authentication-whats-next/remember.png)
-7. Set the number of days that you want to allow the trusted devices to bypass two-step verification. The default is 14 days.
-8. Click **Save**.
-9. Click **Close**.
+6. Set the number of days that you want to allow the trusted devices to bypass two-step verification. The default is 14 days.
+7. Select **Save**.
 
 ### Mark a device as trusted
 
@@ -298,13 +313,10 @@ When your users enroll their accounts for MFA, they choose their preferred verif
 | Verification code from mobile app |The Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters this verification code into the sign-in interface.<br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### How to enable/disable authentication methods
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. On the left, select **Active Directory**.
-3. Select the directory you want to manage. 
-4. Select **Configure**
-5. Under Multi-Factor Authentication, select **Manage service settings**.
-6. On the Service Settings page, under verification options, select/unselect the options you wish to use.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**
+3. Select **Multi-Factor Authentication**
+4. Under Multi-Factor Authentication, select **service settings**.
+5. On the Service Settings page, under **verification options**, select/unselect the options you wish to use.
    ![Verification options](./media/multi-factor-authentication-whats-next/authmethods.png)
-7. Click **Save**.
-8. Click **Close**.
-
+6. Click **Save**.
