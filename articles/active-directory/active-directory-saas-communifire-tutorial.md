@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.author: jeedes
 
 ---
@@ -123,7 +123,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/active-directory-saas-communifire-tutorial/tutorial_communifire_certificate.png) 
 
-6.  Check **Show advanced certificate Signing settings** and Select Signing option as **Sign SAML response and assertion**.
+6.  Check **Show advanced certificate Signing settings** and select **Signing Option** as **Sign SAML response and assertion**.
 
 	![The Certificate option](./media/active-directory-saas-communifire-tutorial/tutorial_communifire_certificateoption.png) 
 
