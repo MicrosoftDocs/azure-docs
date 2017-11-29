@@ -22,7 +22,7 @@ ms.author: bradsev;
 
 Typical data science tasks include data exploration, modeling, and deployment. This article shows how to use the **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** and **Automated Modeling and Reporting (AMAR)** utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. It also outlines options for deploying a model into a production environment using a variety of toolkits and data platforms, such as the following:
 
-- [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/)
+- [Azure Machine Learning](../preview/overview-what-is-azure-ml.md)
 - [SQL-Server with ML services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
