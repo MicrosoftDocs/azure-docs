@@ -71,7 +71,7 @@ If Git deployment fails to your Linux web app, you can choose the following alte
 
    ```curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy```
 
-   If you get an error that the `curl` command is not found, make sure you install curl by using ```apt-get install curl``` before you run the previous `curl` command.
+   If you get an error that the `curl` command is not found, make sure you install curl by using `apt-get install curl` before you run the previous `curl` command.
 
 ## Language support
 
