@@ -35,18 +35,20 @@ If you're using **python 3.x**, you need to use the command **pip3** for the fol
     ```
     sudo pip install jupyter
     ```
-    +  You might see the following error message on Linux and macOS:
+You might see the following error message on Linux and macOS:
 
-        ![Error 1](./media/set-up-pyspark-interactive-environment/error1.png)
-        ```Resolve:
-        sudo pip uninstall asyncio
-        sudo pip install trollies
-        ```
+   ![Error 1](./media/set-up-pyspark-interactive-environment/error1.png)
+
+   ```Resolve:
+    sudo pip uninstall asyncio
+    sudo pip install trollies
+    ```
 
 3. Install **libkrb5-dev** (for Linux only). You might see the following error message:
 
         ![Error 2](./media/set-up-pyspark-interactive-environment/error2.png)
-        ```Resolve:
+       
+       ```Resolve:
         sudo apt-get install libkrb5-dev 
         ```
 
@@ -92,7 +94,7 @@ If you're using **python 3.x**, you need to use the command **pip3** for the fol
 ## Next steps
 
 ### Demo
-* HDInsight for VScode: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight for VS Code: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### Tools and extensions
 * [Use Azure HDInsight Tool for Visual Studio Code](hdinsight-for-vscode.md)
