@@ -41,6 +41,8 @@
       href: create-graph-java.md
     - name: Node.js
       href: create-graph-nodejs.md
+    - name: Python
+      href: create-graph-python.md
   - name: Table
     items:
     - name: .NET
