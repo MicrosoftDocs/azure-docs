@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/27/2017
+ms.date: 11/20/2017
 ms.author: skwan
 ---
 
@@ -28,8 +28,11 @@ This tutorial shows you how to use a Managed Service Identity (MSI) for a Window
 > * Grant your VM access to an Azure SQL server
 > * Get an access token using the VM identity and use it to query an Azure SQL server
 
+## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## Sign in to Azure
 
