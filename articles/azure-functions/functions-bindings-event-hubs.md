@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Event Hubs bindings
+title: Azure Event Hubs bindings for Azure Functions
 description: Understand how to use Azure Event Hubs bindings in Azure Functions.
 services: functions
 documentationcenter: na
@@ -19,13 +19,13 @@ ms.date: 11/08/2017
 ms.author: wesmc
 
 ---
-# Azure Functions Event Hubs bindings
+# Azure Event Hubs bindings for Azure Functions
 
 This article explains how to work with [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) bindings for Azure Functions. Azure Functions supports trigger and output bindings for Event Hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Event Hubs trigger
+## Trigger
 
 Use the Event Hubs trigger to respond to an event sent to an event hub event stream. You must have read access to the event hub to set up the trigger.
 
@@ -173,7 +173,7 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-## Trigger - Attributes for precompiled C#
+## Trigger - attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -182,7 +182,12 @@ The attribute's constructor takes the name of the event hub, the name of the con
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
 public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+{
+    ...
+}
 ```
+
+For a complete example, see [Trigger - precompiled C# example](#trigger---c-example).
 
 ## Trigger - configuration
 
@@ -195,7 +200,9 @@ The following table explains the binding configuration properties that you set i
 |**name** | n/a | The name of the variable that represents the event item in function code. | 
 |**path** |**EventHubName** | The name of the event hub. | 
 |**consumerGroup** |**ConsumerGroup** | An optional property that sets the [consumer group](../event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. | 
-|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have at least read permissions to activate the trigger.<br/>When you're developing locally, app settings go into the values of the [local.settings.json file](functions-run-local.md#local-settings-file).|
+|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Trigger - host.json properties
 
@@ -203,7 +210,7 @@ The [host.json](functions-host-json.md#eventhub) file contains settings that con
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## Event Hubs output binding
+## Output
 
 Use the Event Hubs output binding to write events to an event stream. You must have send permission to an event hub to write events to it.
 
@@ -338,7 +345,7 @@ module.exports = function(context) {
 };
 ```
 
-## Output - Attributes for precompiled C#
+## Output - attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -348,7 +355,12 @@ The attribute's constructor takes the name of the event hub and the name of an a
 [FunctionName("EventHubOutput")]
 [return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
+{
+    ...
+}
 ```
+
+For a complete example, see [Output - precompiled C# example](#output---c-example).
 
 ## Output - configuration
 
@@ -360,7 +372,9 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to "out". This parameter is set automatically when you create the binding in the Azure portal. |
 |**name** | n/a | The variable name used in function code that represents the event. | 
 |**path** |**EventHubName** | The name of the event hub. | 
-|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have send permissions to send the message to the event stream.<br/>When you're developing locally, app settings go into the values of the [local.settings.json file](functions-run-local.md#local-settings-file).|
+|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub itself. This connection string must have send permissions to send the message to the event stream.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## Output - usage
 
