@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 11/29/2017
 ms.author: cherylmc
 
 ---
@@ -36,11 +36,17 @@ The steps in this article apply to the Resource Manager deployment model and use
 
 ## <a name="about"></a>About connecting VNets
 
-Connecting a virtual network to another virtual network using the VNet-to-VNet connection type (VNet2VNet) is similar to creating an IPsec connection to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE and both function the same way when communicating. The difference between the connection types is the way the local network gateway is configured. When you create a VNet-to-VNet connection, you do not see the local network gateway address space. It is automatically created and populated. If you update the address space for one VNet, the other VNet will automatically know to route to the updated address space.
+### VNet-to-VNet
 
-If you are working with a complicated configuration, you may prefer to use the IPsec connection type, rather than VNet-to-VNet. This lets you specify additional address space for the local network gateway in order to route traffic. If you connect your VNets using the IPsec connection type, you need to create and configure the local network gateway manually. For more information, see [Site-to-Site configurations](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
+Connecting a virtual network to another virtual network using the VNet-to-VNet connection type (VNet2VNet) is similar to creating an IPsec connection to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE and both function the same way when communicating. The difference between the connection types is the way the local network gateway is configured. When you create a VNet-to-VNet connection, you do not see the local network gateway address space. It is automatically created and populated. If you update the address space for one VNet, the other VNet automatically knows to route to the updated address space.
 
-Additionally, if your VNets are in the same region, you may want to consider connecting them using VNet Peering. VNet peering does not use a VPN gateway and the pricing and functionality is somewhat different. For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
+### Connecting VNets using Site-to-Site (IPsec) steps
+
+If you are working with a complicated configuration, you may prefer to connect your VNets using the [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-cli.md) steps, instead of the VNet-to-VNet steps. When you use the Site-to-Site steps, you create and configure the local network gateways manually. The local network gateway for each VNet treats the other VNet as a local site. This lets you specify additional address space for the local network gateway in order to route traffic. If the address space for a VNet that you connect to changes, you need to manually update the corresponding local network gateway to reflect the change. It does not automatically update.
+
+### VNet peering
+
+You may want to consider connecting your VNets using VNet Peering. VNet peering does not use a VPN gateway and has different constraints. Additionally, [VNet peering pricing](https://azure.microsoft.com/pricing/details/virtual-network) is calculated differently than [VNet-to-VNet VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway). For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="why"></a>Why create a VNet-to-VNet connection?
 
@@ -97,7 +103,6 @@ We use the following values in the examples:
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
 * Connection(1to5): VNet1toVNet5 (For VNets in different subscriptions)
-* ConnectionType: VNet2VNet
 
 **Values for TestVNet4:**
 
@@ -112,8 +117,6 @@ We use the following values in the examples:
 * Public IP: VNet4GWIP
 * VPNType: RouteBased
 * Connection: VNet4toVNet1
-* ConnectionType: VNet2VNet
-
 
 ### <a name="Connect"></a>Step 1 - Connect to your subscription
 
