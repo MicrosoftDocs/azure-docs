@@ -30,8 +30,8 @@ A new virtual network is created as part of Databricks provisioning. In this rel
 
 Follow these steps:
 1. In Azure Active Directory (Azure AD), provision a service principal, and record its key.
-2. Assign the necessary permissions to the service principal in Azure Data Lake Store.
-3. To access a file in Azure Data Lake Store, use the service principal credentials in Notebook.
+2. Assign the necessary permissions to the service principal in Data Lake Store.
+3. To access a file in Data Lake Store, use the service principal credentials in Notebook.
 
 For more information, see [Use Data Lake Store with Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
 
@@ -56,7 +56,7 @@ Here are a few problems you might encounter with Databricks.
 
 #### Error message
 
-"Your account {email} does not have Owner or Contributor role on the Databricks workspace resource in the Azure portal. This error can also occur if you are a guest user in the tenant. Ask your administrator to grant you access or add you as A user directly in the Databricks workspace." 
+"Your account {email} does not have Owner or Contributor role on the Databricks workspace resource in the Azure portal. This error can also occur if you are a guest user in the tenant. Ask your administrator to grant you access or add you as a user directly in the Databricks workspace." 
 
 #### Solution
 
@@ -64,7 +64,7 @@ The following are a couple of solutions to this issue:
 
 * To initialize the tenant, you must be logged in as a regular user of the tenant, not as a guest user. You must also have a contributor role on the Databricks workspace resource. You can grant a user access from the **Access control (IAM)** tab within your Databricks workspace in the Azure portal.
 
-* This error may also occur if your email domain name is assigned to multiple directories in Azure AD. To work around this issue, create a new user in the Azure AD containing the subscription with your Databricks workspace.
+* This error might also occur if your email domain name is assigned to multiple directories in Azure AD. To work around this issue, create a new user in the Azure AD containing the subscription with your Databricks workspace.
 
     a. In the Azure portal, go to Azure AD. Select **Users and Groups** > **Add a user**.
 
