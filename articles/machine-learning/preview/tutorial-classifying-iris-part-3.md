@@ -272,10 +272,10 @@ You are now ready to run the web service.
 
 To test the **irisapp** web service that's running, use a JSON-encoded record containing an array of four random numbers:
 
-1. The web service includes sample data. When running in local mode, you can call the **az ml service show realtime** command. That call retrieves a sample run command that's useful for you to use to test the service. The call also retrieves the scoring URL that you can use to incorporate the service into your own custom app:
+1. The web service includes sample data. When running in local mode, you can call the **az ml service usage realtime** command. That call retrieves a sample run command that's useful for you to use to test the service. The call also retrieves the scoring URL that you can use to incorporate the service into your own custom app:
 
    ```azurecli
-   az ml service show realtime -i <web service ID>
+   az ml service usage realtime -i <web service ID>
    ```
 
 2. To test the service, execute the returned service run command:
