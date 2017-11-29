@@ -20,7 +20,7 @@ ms.author: byvinyal
 # How to: Monitor Apps in Azure App Service
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) provides
 built in monitoring functionality in the [Azure portal](https://portal.azure.com).
-This includes the ability to review **quotas** and **metrics** for an app as
+The Azure portal includes the ability to review **quotas** and **metrics** for an app as
 well as the App Service plan, setting up **alerts** and even **scaling**
 automatically based on these metrics.
 
@@ -43,7 +43,7 @@ Medium, Large) and **instance count** (1, 2, 3, ...) of the **App Service plan**
 
 * **CPU(Short)**
   * Amount of CPU allowed for this application in a 5-minute interval. This
-    quota resets every 5 minutes.
+    quota resets every five minutes.
 * **CPU(Day)**
   * Total amount of CPU allowed for this application in a day. This quota
     resets every 24 hours at midnight UTC.
@@ -63,7 +63,7 @@ the different App Service SKUs can be found here:
 [Azure Subscription Service Limits](../azure-subscription-service-limits.md#app-service-limits)
 
 #### Quota Enforcement
-If an application in its usage exceeds the **CPU (short)**, **CPU (Day)**, or
+If an application exceeds the **CPU (short)**, **CPU (Day)**, or
 **bandwidth** quota then the application is stopped until the quota
 resets. During this time, all incoming requests result in an **HTTP 403**.
 ![][http403]
@@ -146,8 +146,8 @@ There are two metrics that reflect CPU usage. **CPU time** and **CPU percentage*
 one of their quotas is defined in CPU minutes used by the app.
 
 **CPU percentage** is useful for apps hosted in
-**basic**, **standard** and **premium** plans since they can be
-scaled out and this metric is a good indication of the overall usage across
+**basic**, **standard**, and **premium** plans since they can be
+scaled out. CPU percentage is a good indication of the overall usage across
 all instances.
 
 ## Metrics Granularity and Retention Policy
@@ -180,10 +180,10 @@ Metrics for an App or App Service plan can be hooked up to alerts. To learn
 more about it, see [Receive alert notifications](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
 App Service apps hosted in basic, standard, or premium App Service plans
-support **autoscale**. This allows you to configure rules that monitor the
-App Service plan metrics and can increase or decrease the instance count
-providing additional resources as needed, or saving money when the application
-is over-provision. You can learn more about auto scale here: [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) and here [Best practices for Azure Monitor autoscaling](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+support **autoscale**. Autoscale allows you to configure rules that monitor the
+App Service plan metrics. Rules can increase or decrease the instance count
+providing additional resources as needed. Rules can also help you save money when the application
+is over-provisioned. You can learn more about auto scale here: [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) and here [Best practices for Azure Monitor autoscaling](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
