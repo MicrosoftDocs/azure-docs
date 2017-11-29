@@ -37,8 +37,7 @@ This article explains how to assign an administrative role to a user in Azure Ac
 6. Select **Save**.
 
 ## Next steps
-* [Add a user](active-directory-users-create-azure-portal.md)
-* [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
-* [Change a user's work information](active-directory-users-work-info-azure-portal.md)
+* [Quickstart: Add or delete users in Azure Active Directory](add-users-azure-active-directory.md)
 * [Manage user profiles](active-directory-users-profile-azure-portal.md)
-* [Delete a user in your Azure AD](active-directory-users-delete-user-azure-portal.md)
+* [Add guest users from another directory](active-directory-b2b-what-is-azure-ad-b2b.md) 
+* [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)

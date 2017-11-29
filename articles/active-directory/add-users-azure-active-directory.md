@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/29/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 
 ---
 # Quickstart: Add new users to Azure Active Directory
-This article explains how to add new users in your organization in the Azure Active Directory (Azure AD) one at a time using the Azure portal or by synchronizing your on-premises Windows Server AD user account data. 
+This article explains how to delete or add users in your organization into your orgnization's Azure Active Directory (Azure AD) tenant using the Azure portal or by synchronizing your on-premises Windows Server AD user account data. 
 
 ## Add cloud-based users
 1. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
@@ -45,8 +45,9 @@ This article explains how to add new users in your organization in the Azure Act
 
 ### Learn more 
 * [Add guest users from another directory](active-directory-b2b-what-is-azure-ad-b2b.md) 
-
 * [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)
+* [Manage user profiles](active-directory-users-profile-azure-portal.md)
+
 
 ## Next steps
 In this quickstart, you’ve learned how to add new users to Azure AD Premium. 
