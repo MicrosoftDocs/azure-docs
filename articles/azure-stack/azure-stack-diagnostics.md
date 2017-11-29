@@ -9,7 +9,7 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/28/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
 ---
@@ -133,7 +133,7 @@ if($s)
 
 
 ### Collect logs using a graphical user interface
-Rather than providing the required parameters for the Get-AzureStackLog cmdlet to retrieve Azure Stack logs, you can also leverage the available open source Azure Stack tools located in the main Azure Stack tools GitHub repository at http://aka.ms/azurestacktools.
+Rather than providing the required parameters for the Get-AzureStackLog cmdlet to retrieve Azure Stack logs, you can also leverage the available open source Azure Stack tools located in the main Azure Stack tools GitHub repository at http://aka.ms/AzureStackTools.
 
 The **ERCS_AzureStackLogs.ps1** PowerShell script is stored in the GitHub tools repository and is updated on a regular basis. Started from an administrative PowerShell session, the script connects to the privileged endpoint and runs Get-AzureStackLog with supplied parameters. If no parameters are supplied, the script will default to prompting for parameters via a graphical user interface.
 
