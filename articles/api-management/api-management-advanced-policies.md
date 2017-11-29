@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/28/2017
 ms.author: apimpm
 ---
 # API Management advanced policies
@@ -787,7 +787,6 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** outbound, backend, on-error  
-  
 -   **Policy scopes:** all scopes  
 
 ##  <a name="set-variable"></a> Set variable  
@@ -823,7 +822,6 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound, outbound, backend, on-error  
-  
 -   **Policy scopes:** all scopes  
   
 ###  <a name="set-variableAllowedTypes"></a> Allowed types  
@@ -963,7 +961,7 @@ This policy can be used in the following policy [sections](http://azure.microsof
 ## Next steps
 
 For more information working with policies, see:
-+	[Policies in API Management](api-management-howto-policies.md) 
-+	[Policy expressions](api-management-policy-expressions.md)
++ [Policies in API Management](api-management-howto-policies.md) 
++ [Policy expressions](api-management-policy-expressions.md)
 + [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
 + [Policy samples](policy-samples.md)	

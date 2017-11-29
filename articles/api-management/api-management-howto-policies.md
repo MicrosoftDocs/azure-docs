@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/28/2017
 ms.author: apimpm
 
 ---
@@ -121,7 +121,11 @@ To limit inbound requests and accept only those from an IP address of 1.2.3.4 mo
 
 ## Next steps
 
-[Policy samples](policy-samples.md)
+For more information working with policies, see:
+
++ [Transform APIs](transform-api.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	
 
 [Policy Reference]: api-management-policy-reference.md
 [Product]: api-management-howto-add-products.md

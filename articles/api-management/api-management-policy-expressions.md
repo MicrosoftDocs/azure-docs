@@ -13,13 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
 ---
 # API Management policy expressions
 Policy expressions syntax is C# 6.0. Each expression has access to the implicitly provided [context](api-management-policy-expressions.md#ContextVariables) variable and an allowed [subset](api-management-policy-expressions.md#CLRTypes) of .NET Framework types.  
   
-> [!NOTE]
+> [!TIP]
 >  For more information about policy expressions, see the [Policy Expressions](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) video.  
 >   
 >  For demonstrations of configuring policies using policy expressions, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). This video contains the following policy expression demonstrations.  
@@ -207,4 +207,10 @@ Policy expressions syntax is C# 6.0. Each expression has access to the implicitl
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
 >
 ## Next steps
-For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  
+
+For more information working with policies, see:
+
++ [Policies in API Management](api-management-howto-policies.md)
++ [Transform APIs](transform-api.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	
