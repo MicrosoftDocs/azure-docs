@@ -63,23 +63,23 @@ In this procedure, we use East Asia as the source location, and South East Asia 
 	- **Replication Policy**. Site Recovery defines the settings for recovery point retention history, and app-consistent snapshot frequency. By default, Site Recovery creates a new replication policy with default settings of 24 hours for recovery point retention, and 60 minutes for app-consistent snapshot frequency.
 
 	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
-9. Click **Enable Replication**
+9. Click **Enable Replication** to start protecting VMs.
 
 ## Customize target resources
 
 1. Modify any of these target defaults:
 
-- **Target resource group:**. Select any resource group from the list of all the resource groups in the target location, within the subscription.
-- **Target Virtual Network**. Select from the list of all the virtual networks in the target location.
-- **Availability set** You can only add availability sets settings to VMs which are a part of the set in source region.
-- **Target Storage accounts:**: Add any account that's available.
+	- **Target resource group:**. Select any resource group from the list of all the resource groups in the target location, within the subscription.
+	- **Target Virtual Network**. Select from the list of all the virtual networks in the target location.
+	- **Availability set** You can only add availability sets settings to VMs which are a part of the set in source region.
+	- **Target Storage accounts:**: Add any account that's available.
 
-	![Enable replication](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
+		![Enable replication](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
 
 2. Click on **Create target resource** > **Enable Replication**. During initial replication, VM status might take some time to refresh. Click **Refresh** to get the latest status.
 
-	
 	![Enable replication](./media/site-recovery-replicate-azure-to-azure/replicateditems.PNG)
+	
 3. After VMs are protected, check VM health in **Replicated items**.
 
 
