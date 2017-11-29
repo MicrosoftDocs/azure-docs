@@ -48,7 +48,7 @@ The prerequisites to run this example are as follows:
 3. A Windows machine. Windows OS is necessary since the Workbench supports only Windows and MacOS, while Microsoft's Cognitive Toolkit (which we use as deep learning library) only supports Windows and Linux.
 4. A dedicated GPU is not required to execute the SVM training in part 1, however it is needed for refining of the DNN described in part 2. If you lack a strong GPU, want to train on multiple GPUs, or do not have a Windows machine, then consider using Azure's Deep Learning Virtual Machine with Windows operating system. See [here](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) for a 1-click deployment guide. Once deployed, connect to the VM via a remote desktop connection, install Workbench there, and execute the code locally from the VM.
 5. Various Python libraries such as OpenCV need to be installed. Click *Open Command Prompt* from the *File* menu in the Workbench and run the following commands to install these dependencies:  
-    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
+    - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.3-cp35-cp35m-win_amd64.whl`  
     - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` after downloading the OpenCV wheel from http://www.lfd.uci.edu/~gohlke/pythonlibs/ (the exact filename and version can change)
     - `conda install pillow`
     - `pip install -U numpy`
