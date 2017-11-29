@@ -28,7 +28,8 @@ You learn how to:
 
 ## Prerequisites
 
-- **Azure subscription** - You need an Azure Subscription to complete this tutorial. If you don’t currently have an Azure subscription, you can sign up for a [free Azure account](https://tutorials.visualstudio.com/jenkins-azure/new/create-azure.html). 
+- **Azure subscription** - You need an Azure subscription to complete this tutorial. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+ 
 - **Jenkins Master** - Jenkins supports the *master/slave* pattern where the workload of building projects is delegated to multiple *slave* nodes. The master/slave pattern allows a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. If you don't currently have a Jenkins Master, start with the [solution template](install-jenkins-solution-template.md), which includes the Java Development Kit (JDK) version 8 and other required Jenkins plugins.
 
 ## Add an Azure service principal to the Jenkins credentials
@@ -47,17 +48,15 @@ You need an Azure service principal to deploy to Azure.
 
     ![Manage system credentials option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-system.png)
 
-1. Under **System**, select **Global credentials**.
+1. Select **Global credentials (unrestricted)**.
 
     ![Manage global system credentials option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-global.png)
 
-1. Select **Adding some credentials**
+1. Select **Adding some credentials**.
 
     ![Add credentials on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-adding-credentials.png)
 
-1. In the **Kind** dropdown list, select **Microsoft Azure Service Principal** to cause the page to display fields specific to adding a service principal.
-
-1. Supply the requested values as follows:
+1. In the **Kind** dropdown list, select **Microsoft Azure Service Principal** to cause the page to display fields specific to adding a service principal. Then, supply the requested values as follows:
 
     - Scope - Select the option for **Global (Jenkins, nodes, items, all child items, etc.)**.
     - Subscription ID - Use the Azure subscription ID you specified when running `az account set`.
