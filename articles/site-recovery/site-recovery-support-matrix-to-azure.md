@@ -142,6 +142,7 @@ Multi-NIC | Yes | Yes
 Reserved IP | Yes | Yes
 IPv4 | Yes | Yes
 Retain source IP | Yes | Yes
+Virtual Network Service Endpoints (Azure Storage firewalls and Virtual networks) | No | No
 
 
 ## Support for storage
@@ -185,9 +186,11 @@ GRS | Yes | Yes
 RA-GRS | Yes | Yes
 Cool storage | No | No
 Hot storage| No | No
+Block Blobs | No | No
 Encryption at rest(SSE)| Yes | Yes
 Premium storage | Yes | Yes
 Import/export service | No | No
+Virtual Network Service Endpoints (Azure Storage firewalls and Virtual networks) configured on target storage account or cache storage account used for storing replication data | No | No
 
 
 ## Support for Azure compute configuration

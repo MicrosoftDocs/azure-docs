@@ -67,11 +67,16 @@ If you wish to run the sample using Maven at the commandline, open a shell and n
 The following is an example of output if you were to run the application on Windows.
 
 ```
-Location of file: C:\Users\<user>\Documents\results.txt
-File has been written
-URI of blob is: http://myexamplesacct.blob.core.windows.net/quickstartblobs/results.txt
+Azure Blob storage quick start sample
+Creating container: quickstartcontainer
+Creating a sample file at: C:\Users\<user>\AppData\Local\Temp\sampleFile514658495642546986.txt
+Uploading the sample file 
+URI of blob is: https://myexamplesacct.blob.core.windows.net/quickstartcontainer/sampleFile514658495642546986.txt
 The program has completed successfully.
 Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
+
+Deleting the container
+Deleting the source, and downloaded files
 ```
 
  Before you continue, check your default directory (My Documents, for windows users) for the two files. You can open them and see they are identical. Copy the URL for the blob out of the console window and paste it into a browser to view the contents of the file in Blob storage. When you press the enter key, it deletes the storage container and the files.

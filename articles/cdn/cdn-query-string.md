@@ -1,5 +1,5 @@
 ---
-title: Control Azure CDN caching behavior with query strings | Microsoft Docs
+title: Control Azure Content Delivery Network caching behavior with query strings | Microsoft Docs
 description: Azure CDN query string caching controls how files are cached when they contain query strings.
 services: cdn
 documentationcenter: ''
@@ -24,7 +24,7 @@ ms.author: mazha
 > 
 
 ## Overview
-With Azure Content Delivery Network (CDN), you can control how files are cached for a web request that contains a query string. In a web request with a query string, the query string is that portion of the request that occurs after the `?` character. A query string can contain one or more parameters, which are separated by a `&` character. For example, `http://www.domain.com/content.mov?data1=true&data2=false`. If there is more than one query string parameter in a request, the order of the parameters does not matter. 
+With Azure Content Delivery Network (CDN), you can control how files are cached for a web request that contains a query string. In a web request with a query string, the query string is that portion of the request that occurs after a question mark (?). A query string can contain one or more key-value pairs, in which the field name and its value are separated by an equals sign (=). Each key-value pair is separated by an ampersand (&). For example `http://www.contoso.com/content.mov?field1=value1&field2=value2`. If there is more than one key-value pair in a query string of a request, their order does not matter. 
 
 > [!IMPORTANT]
 > The standard and premium CDN products provide the same query string caching functionality, but the user interface is different.  This article describes the interface for **Azure CDN Standard from Akamai** and **Azure CDN Standard from Verizon**. For query string caching with **Azure CDN Premium from Verizon**, see [Controlling caching behavior of CDN requests with query strings - Premium](cdn-query-string-premium.md).
