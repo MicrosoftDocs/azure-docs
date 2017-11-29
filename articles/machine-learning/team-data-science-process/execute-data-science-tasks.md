@@ -22,7 +22,7 @@ ms.author: bradsev;
 
 Typical data science tasks include data exploration, modeling, and deployment. This article shows how to use the **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** and **Automated Modeling and Reporting (AMAR)** utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. It also outlines options for deploying a model into a production environment using a variety of toolkits and data platforms, such as the following:
 
-- [Azure Machine Learning](../preview/overview-what-is-azure-ml.md)
+- [Azure Machine Learning](../preview/index.yml)
 - [SQL-Server with ML services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -74,7 +74,7 @@ For more information, see [Automated Modeling and Reporting Utility in TDSP Data
 ### Model management
 After multiple models have been built, you usually need to have a system for registering and managing the models. Typically you need a combination of scripts or APIs and a backend database or versioning system. A few options that you can consider for these management tasks are:
 
-1. [Azure Machine Learning - model management service](../preview/index)
+1. [Azure Machine Learning - model management service](../preview/index.yml)
 2. [ModelDB from MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL-seerver as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
