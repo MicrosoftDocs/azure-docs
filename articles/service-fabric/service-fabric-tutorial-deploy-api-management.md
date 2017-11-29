@@ -325,7 +325,7 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## Conclusion
+## Next steps
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
@@ -334,6 +334,10 @@ In this tutorial, you learned how to:
 > * Create an API operation
 > * Configure a backend policy
 > * Add the API to a product
+
+Next, advance to the following tutorial to learn how to deploy an application and use API management.
+> [!div class="nextstepaction"]
+> [Upgrade the Azure Service Fabric cluster runtime](service-fabric-tutorial-upgrade-cluster.md)
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
