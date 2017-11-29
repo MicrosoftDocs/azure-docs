@@ -54,6 +54,7 @@ You might find that a prebuilt domain contains an intent that is similar to an i
 > Check out the Utilities domain for prebuilt intents that you can customize for use in any domain. 
 > For example, you can add `Utilities.Repeat` to your app and train it recognize whatever actions user might want to repeat in your application.
 
+<!--
 ## List of prebuilt domains
 LUIS offers 20 prebuilt domains. 
 
@@ -80,6 +81,7 @@ LUIS offers 20 prebuilt domains.
 | Utilities  | Handling requests that are common in many domains, like "help", "repeat", "start over."|
 | Weather | Getting weather reports and forecasts.|
 | Web | Navigating to a website.|
+-->
 
 ## Next step
 
