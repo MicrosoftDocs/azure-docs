@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # Azure Cosmos DB: Create a document database using Java and the Azure portal
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+[!INCLUDE [cosmos-db-sql-api-2](../../includes/cosmos-db-sql-api-2.md)] 
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, table, and graph databases.
 
