@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Build an app with Node.js and the DocumentDB API | Microsoft Docs'
-description: Presents a Node.js code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
+title: 'Azure Cosmos DB: Build an app with Node.js and the SQL API | Microsoft Docs'
+description: Presents a Node.js code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -14,15 +14,17 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 05/10/2017
+ms.date: 11/29/2017
 ms.author: mimig
 
 ---
-# Azure Cosmos DB: Build a DocumentDB API app with Node.js and the Azure portal
+# Azure Cosmos DB: Build a SQL API app with Node.js and the Azure portal
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You then build and run a console app built on the [DocumentDB Node.js API](documentdb-sdk-node.md).
+This quick start demonstrates how to create an Azure Cosmos DB account, document database, and collection using the Azure portal. You then build and run a console app built on the [SQL Node.js API](documentdb-sdk-node.md).
 
 ## Prerequisites
 
@@ -43,7 +45,7 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 ## Clone the sample application
 
-Now let's clone a DocumentDB API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically. 
+Now let's clone a SQL API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically. 
 
 1. Open a git terminal window, such as git bash, and `CD` to a working directory.  
 

@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Cosmos DB document database with Java | Microsoft Docs | Microsoft Docs'
-description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB DocumentDB API
+description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -14,15 +14,17 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/20/2017
+ms.date: 11/29/2017
 ms.author: mimig
 
 ---
 # Azure Cosmos DB: Create a document database using Java and the Azure portal
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
+
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, table, and graph databases.
 
-This quickstart creates a document database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using the [DocumentDB Java API](documentdb-sdk-java.md). The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying document database resources in either the UI or programmatically, whichever is your preference.
+This quickstart creates a document database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using the [SQL Java API](documentdb-sdk-java.md). The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying document database resources in either the UI or programmatically, whichever is your preference.
 
 ## Prerequisites
 
@@ -41,7 +43,7 @@ In addition:
 
 ## Create a database account
 
-Before you can create a document database, you need to create a SQL (DocumentDB) database account with Azure Cosmos DB.
+Before you can create a document database, you need to create a SQL database account with Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -92,7 +94,7 @@ That completes our work in Data Explorer. Before we move on to working with code
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone a DocumentDB API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's switch to working with code. Let's clone a SQL API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 

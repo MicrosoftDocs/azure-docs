@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 11/29/2017
 ms.author: b-hoedid
 
 ---
@@ -52,7 +52,7 @@ This solution requires three Logic Apps to meet the above requirements and compl
 
 ### Azure services used in the solution
 
-#### Azure Cosmos DB DocumentDB API
+#### Azure Cosmos DB SQL API
 Azure Cosmos DB is the repository for the FHIR resources as shown in the following figure.
 
 ![The Azure Cosmos DB account used in this HL7 FHIR healthcare tutorial](./media/change-feed-hl7-fhir-logic-apps/account.png)

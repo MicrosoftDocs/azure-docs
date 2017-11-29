@@ -116,8 +116,8 @@ In this document, you've learned following items:
 
 Now that you have Connected Services up and running with your Azure Cosmos DB account, proceed to one of the tutorials to start developing your solution:
 
-* [Develop with the DocumentDB API in .NET](tutorial-develop-documentdb-dotnet.md).
-* [Azure Cosmos DB: DocumentDB API getting started tutorial](documentdb-get-started.md).
+* [Develop with the SQL API in .NET](tutorial-develop-documentdb-dotnet.md).
+* [Azure Cosmos DB: SQL API getting started tutorial](documentdb-get-started.md).
 * Want to perform scale and performance testing with Azure Cosmos DB? See [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md).
 * Learn how to [Monitor an Azure Cosmos DB account](monitor-accounts.md).
 
