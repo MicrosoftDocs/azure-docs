@@ -43,6 +43,8 @@ The SendGrid binding supports the following properties:
 
 Example of **function.json**:
 
+The binding doesn't need To & From Address to be able to map the parameters. 
+
 ```json 
 {
     "bindings": [
@@ -50,10 +52,7 @@ Example of **function.json**:
             "name": "$return",
             "type": "sendGrid",
             "direction": "out",
-            "apiKey" : "MySendGridKey",
-            "to": "{ToEmail}",
-            "from": "{FromEmail}",
-            "subject": "SendGrid output bindings"
+            "apiKey" : "MySendGridKey"
         }
     ]
 }
@@ -71,16 +70,16 @@ Example of **function.json**:
 using System;
 using SendGrid.Helpers.Mail;
 
-public static Mail Run(TraceWriter log, string input, out Mail message)
+public static Mail Run(TraceWriter log, string input)
 {
-     message = new Mail
+    Mail message = new Mail
     {        
         Subject = "Azure news"          
     };
 
     var personalization = new Personalization();
     personalization.AddTo(new Email("recipient@contoso.com"));   
-
+    personalization.From=new Email ("sender@contoso.com");
     Content content = new Content
     {
         Type = "text/plain",
@@ -88,6 +87,7 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
     };
     message.AddContent(content);
     message.AddPersonalization(personalization);
+    return message;
 }
 ```
 
@@ -96,7 +96,7 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 ```javascript
 module.exports = function (context, input) {    
     var message = {
-         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+         "personalizations": [ { "to": [ { "email": "recipient@sample.com" } ] } ],
         from: { email: "sender@contoso.com" },        
         subject: "Azure news",
         content: [{
