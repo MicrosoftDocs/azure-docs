@@ -264,10 +264,10 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template.  
 
 > [!IMPORTANT]
-> - Specify the name and key of your Azure Storage account for the **storageAccountName** and **storageAccountKey** parameters in this parameter file. This is the storage account in which you created the adftutorial container and uploaded the sample file (emp.txt) to the input folder. 
+> - Specify the name and key of your Azure Storage account for the **storageAccountName** and **storageAccountKey** parameters in this parameter file. You created the adftutorial container and uploaded the sample file (emp.txt) to the input folder in this Azure blob storage. 
 > - Specify a globally unique name for the data factory for the **dataFactoryName** parameter. For example: ARMTutorialFactoryJohnDoe11282017. 
-> - For the **triggerStartTime**, specify the current day in the format: 2017-11-28T00:00:00.
-> - For the **triggerEndTime**, specify the next day in the format: 2017-11-29T00:00:00. You can also check the current UTC time and specify the next hour or two as the end time. For example, if the UTC time now is 1:32 AM, specify 2017-11-29:03:00:00 as the end time. In this case, the trigger runs the pipeline twice (at 2 AM and 3 AM).
+> - For the **triggerStartTime**, specify the current day in the format: `2017-11-28T00:00:00`.
+> - For the **triggerEndTime**, specify the next day in the format: `2017-11-29T00:00:00`. You can also check the current UTC time and specify the next hour or two as the end time. For example, if the UTC time now is 1:32 AM, specify `2017-11-29:03:00:00` as the end time. In this case, the trigger runs the pipeline twice (at 2 AM and 3 AM).
 
 ```json
 {
@@ -358,14 +358,14 @@ The template deploys the following Data Factory entities:
 - Pipeline with a copy activity
 - Trigger to trigger the pipeline
 
-The deployed trigger is in stopped state. You need to start the trigger manually. One of the ways to start the trigger is to use the **Start-AzureRmDataFactoryV2Trigger** PowerShell cmdlet. The following procedure provides detailed steps: 
+The deployed trigger is in stopped state. One of the ways to start the trigger is to use the **Start-AzureRmDataFactoryV2Trigger** PowerShell cmdlet. The following procedure provides detailed steps: 
 
 1. In the PowerShell window, create a variable to hold the name of the resource group. Copy the following command into the PowerShell window, and press ENTER. If you have specified a different resource group name for the New-AzureRmResourceGroupDeployment command, update the value here. 
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
     ``` 
-1. Create a variable to hold the name of the data factory. This is the name you specified in the ADFTutorialARM-Parameters.json file.   
+1. Create a variable to hold the name of the data factory. Specify the same name that you specified in the ADFTutorialARM-Parameters.json file.   
 
     ```powershell
     $dataFactoryName = "<yourdatafactoryname>"
@@ -589,7 +589,7 @@ You define a pipeline that copies data from one Azure blob dataset to another Az
 ```
 
 #### Trigger
-You define a trigger that runs the pipeline once an hour. The deployed trigger is in stopped state. You need to start the trigger by using the **Start-AzureRmDataFactoryV2Trigger** cmdlet. For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers) article. 
+You define a trigger that runs the pipeline once an hour. The deployed trigger is in stopped state. Start the trigger by using the **Start-AzureRmDataFactoryV2Trigger** cmdlet. For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers) article. 
 
 ```json
 {
@@ -639,7 +639,7 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 ```
 Notice that the first command uses parameter file for the development environment, second one for the test environment, and the third one for the production environment.  
 
-You can also reuse the template to perform repeated tasks. For example, you need to create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure storage accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories. 
+You can also reuse the template to perform repeated tasks. For example, create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure storage accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories. 
 
 
 ## Next steps
