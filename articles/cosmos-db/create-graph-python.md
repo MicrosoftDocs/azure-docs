@@ -20,7 +20,7 @@ ms.author: lbosq
 ---
 # Azure Cosmos DB: Create a graph database using Python and the Azure portal
 
-This quickstart shows how to use .NET and the Azure Cosmos DB [Graph API](graph-introduction.md) to build a console app by cloning an example from GitHub. This quickstart also walks you through the creation of an Azure Cosmos DB account by using the web-based Azure portal.   
+This quickstart shows how to use Python and the Azure Cosmos DB [Graph API](graph-introduction.md) to build a console app by cloning an example from GitHub. This quickstart also walks you through the creation of an Azure Cosmos DB account by using the web-based Azure portal.   
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.  
 
