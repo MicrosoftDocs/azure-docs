@@ -25,7 +25,7 @@ This sample script creates a Function App and Storage Account.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you use the CLI locally, make sure that you are running the Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## Sample script
 
@@ -36,7 +36,7 @@ This sample creates an Azure Function app and adds the storage connection string
 
 ## Clean up deployment
 
-After the script sample has been run, the following command can be used to remove the resource group, App Service app, and all related resources:
+After the script sample has been run, run the following command to remove the resource group and all related resources:
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -46,7 +46,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/#login) | Login to Azure. |
+| [az login](https://docs.microsoft.com/cli/azure/#login) | Log in to Azure. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Create a resource group with location |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Create a storage account |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Create a new function app |
