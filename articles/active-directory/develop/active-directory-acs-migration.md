@@ -30,7 +30,7 @@ Access Control is a cloud authentication service that offers an easy way to auth
 Use cases for Access Control can be broken down into three main categories:
 
 - Authenticating to certain Microsoft cloud services, including Azure Service Bus and Dynamics CRM. Client applications obtain tokens from Access Control to authenticate to these services to perform various actions.
-- Adding authentication to web applications, both custom and prepackaged (like SharePoint). By using Access Control "passive" authentication, web applications can support sign-in with accounts from Google, Facebook, Yahoo, Azure Active Directory (Azure AD), and Active Directory Federation Services (AD FS), and Microsoft accounts (formerly Live ID).
+- Adding authentication to web applications, both custom and prepackaged (like SharePoint). By using Access Control "passive" authentication, web applications can support sign-in with a Microsoft account (formerly Live ID), and with accounts from Google, Facebook, Yahoo, Azure Active Directory (Azure AD), and Active Directory Federation Services (AD FS).
 - Securing custom web services with tokens issued by Access Control. By using "active" authentication, web services can ensure that they allow access only to known clients that have authenticated with Access Control.
 
 Each of these use cases and their recommended migration strategies are discussed in the following sections. 
@@ -107,7 +107,7 @@ For web applications that use Access Control for user authentication, Access Con
 - Support for the following token formats: JSON Web Token (JWT), SAML 1.1, SAML 2.0, and Simple Web Token (SWT).
 - A home realm discovery experience, integrated into WIF, that allows users to pick the type of account they use to sign in. This experience is hosted by the web application and is fully customizable.
 - Token transformation that allows rich customization of the claims received by the web application from Access Control, including:
-    - Passthrough claims from identity providers.
+    - Pass through claims from identity providers.
     - Adding additional custom claims.
     - Simple if-then logic to issue claims under certain conditions.
 
@@ -150,7 +150,7 @@ At a high level, **Azure Active Directory is probably the best choice for your m
 | **Customizations** | | |
 | Customizable home realm discovery/account-picking UI | Downloadable code that can be incorporated into apps | Not supported |
 | Upload custom token-signing certificates | Supported | Supported |
-| Customize claims in tokens | Passthrough input claims from identity providers<br />Get access token from identity provider as a claim<br />Issue output claims based on values of input claims<br />Issue output claims with constant values | Cannot passthrough claims from federated identity providers<br />Cannot get access token from identity provider as a claim<br />Cannot issue output claims based on values of input claims<br />Can issue output claims with constant values<br />Can issue output claims based on properties of users synced to Azure AD |
+| Customize claims in tokens | Pass through input claims from identity providers.<br />Get access token from identity provider as a claim.<br />Issue output claims based on values of input claims.<br />Issue output claims with constant values. | Can't pass through claims from federated identity providers.<br />Can't get access token from identity provider as a claim.<br />Can't issue output claims based on values of input claims.<br />Can issue output claims with constant values.<br />Can issue output claims based on properties of users synced to Azure AD. |
 | **Automation** | | |
 | Automate configuration and management tasks | Supported via Access Control Management Service | Supported via Microsoft Graph and Azure AD Graph API |
 
@@ -186,7 +186,7 @@ If you can integrate with Azure AD via the OpenID Connect or OAuth protocols, we
 
 The other migration path to consider is Azure AD B2C. Azure AD B2C is a cloud authentication service that, like Access Control, allows developers to outsource their authentication and identity management logic to a cloud service. It's a paid service (with free and premium tiers) that is designed for consumer-facing applications that might have up to millions of active users.
 
-Like Access Control, one of the most attractive features of Azure AD B2C is that it supports many different types of accounts. With Azure AD B2C, you can sign in users by using their Facebook, Google, Microsoft, LinkedIn, GitHub, or Yahoo accounts, and more. Azure AD B2C also supports "local accounts," or username and passwords that users create specifically for your application. Azure AD B2C also provides rich extensibility that you can use to customize your sign-in flows. 
+Like Access Control, one of the most attractive features of Azure AD B2C is that it supports many different types of accounts. With Azure AD B2C, you can sign in users by using their Microsoft account, or Facebook, Google, LinkedIn, GitHub, or Yahoo accounts, and more. Azure AD B2C also supports "local accounts," or username and passwords that users create specifically for your application. Azure AD B2C also provides rich extensibility that you can use to customize your sign-in flows. 
 
 However, Azure AD B2C doesn't support the breadth of authentication protocols and token formats that Access Control customers might require. You also can't use Azure AD B2C to get tokens and query for additional information about the user from the identity provider, Microsoft or otherwise.
 
@@ -213,9 +213,9 @@ The following table compares the features of Access Control that are relevant to
 | **Customizations** | | |
 | Customizable home realm discovery/account-picking UI | Downloadable code that can be incorporated into apps | Fully customizable UI via custom CSS |
 | Upload custom token-signing certificates | Supported | Custom signing keys, not certificates, supported via custom policies |
-| Customize claims in tokens | Passthrough input claims from identity providers<br />Get access token from identity provider as a claim<br />Issue output claims based on values of input claims<br />Issue output claims with constant values | Can pass through claims from identity providers. Custom policies required for some claims.<br />Cannot get access token from identity provider as a claim<br />Can issue output claims based on values of input claims via custom policies<br />Can issue output claims with constant values via custom policies |
+| Customize claims in tokens | Pass through input claims from identity providers.<br />Get access token from identity provider as a claim.<br />Issue output claims based on values of input claims.<br />Issue output claims with constant values. | Can pass through claims from identity providers. Custom policies required for some claims.<br />Can't get access token from identity provider as a claim.<br />Can issue output claims based on values of input claims via custom policies.<br />Can issue output claims with constant values via custom policies. |
 | **Automation** | | |
-| Automate configuration and management tasks | Supported via Access Control Management Service | Creation of users allowed via Azure AD Graph API<br /> Cannot create B2C tenants, applications, or policies programmatically |
+| Automate configuration and management tasks | Supported via Access Control Management Service | Creation of users allowed via Azure AD Graph API.<br /> Can't create B2C tenants, applications, or policies programmatically. |
 
 If you decide that Azure AD B2C is the best migration path for your applications and services, begin with the following resources:
 
@@ -318,4 +318,4 @@ Our aim in working with Ping Identity and Auth0 is to ensure that all Access Con
 
 ## Questions, concerns, and feedback
 
-We understand that many Access Control customers won't find a clear migration path after reading this article. You might need some assistance or guidance in determining the right plan. If you would like to discuss your migration scenarios and questions, leave a comment on this page.
+We understand that many Access Control customers won't find a clear migration path after reading this article. You might need some assistance or guidance in determining the right plan. If you would like to discuss your migration scenarios and questions, please leave a comment on this page.
