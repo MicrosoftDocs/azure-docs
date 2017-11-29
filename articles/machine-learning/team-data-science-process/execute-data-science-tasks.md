@@ -1,5 +1,5 @@
 ---
-title: Execute data science tasks - Azure Machine Learning  | Microsoft Docs
+title: Execute data science tasks - Azure Machine Learning | Microsoft Docs
 description: How a data scientist can execute a data science project in a trackable, version controlled, and collaborative way.
 documentationcenter: ''
 author: bradsev
@@ -20,11 +20,11 @@ ms.author: bradsev;
 
 # Execute data science tasks: exploration, modeling, and deployment
 
-Typical data science tasks include data exploration, modeling, and deployment. This article shows how to use the **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** and **Automated Modeling and Reporting (AMAR)** utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. It also outlines options for deploying a model into a production environment using a variety of toolkits and data platforms, such as:
+Typical data science tasks include data exploration, modeling, and deployment. This article shows how to use the **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** and **Automated Modeling and Reporting (AMAR)** utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. It also outlines options for deploying a model into a production environment using a variety of toolkits and data platforms, such as the following:
 
-- [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview.yml), 
-- [SQL-Server with ML services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server), and 
-- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server).
+- [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview.yml)
+- [SQL-Server with ML services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
 ## 1. <a name='DataQualityReportUtility-1'></a> Exploration 
@@ -81,18 +81,24 @@ After multiple models have been built, you usually need to have a system for reg
 
 ## 3. <a name='Deployment-3'></a> Deployment
 
-### Deployment
-Production deployment enables a model to play an active role in a business. Predictions from a deployed model can be used for business decisions. Prior to deployment, one has to keep the latency of model scoring in consideration.  
+Production deployment enables a model to play an active role in a business. Predictions from a deployed model can be used for business decisions.
 
+### Production platforms
 There are various approaches and platforms to put models into production. Here are a few options:
-1. [Model deployment in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
-2. [Deployment of a model in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-3. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
+
+- [Model deployment in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Deployment of a model in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+
+>
+>
+>NOTE: Prior to deployment, one has to insure the latency of model scoring is low enough to use in production.
+>
 
 Further examples are available in walkthroughs that demonstrate all the steps in the process for **specific scenarios**. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
 
-NOTE: For deployment using Azure Machine Learning Studio, see [here](../studio/publish-a-machine-learning-web-service.md).
+NOTE: For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md).
 
 ### A/B testing
 When multiple models are in production, it can be useful to perform [A/B testing](https://en.wikipedia.org/wiki/A/B_testing) to compare performance of the models. 
