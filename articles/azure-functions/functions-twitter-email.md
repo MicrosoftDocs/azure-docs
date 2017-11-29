@@ -77,14 +77,14 @@ Functions provides a great way to offload processing tasks in a logic apps workf
 
     ![Create Azure Function App](media/functions-twitter-email/create_fun.png)
 
-| Setting      |  Suggested value   | Description       |
-| --- | --- | --- |
-| **Name** | MyFunctionApp | Choose a unique account name. |
-| **Resource group** | myResourceGroup | Use the same resource group for all services in this tutorial.|
-| **Hosting plan** | Consumption Plan | This defines your cost and usage allocations.
-| **Location** | West US | Use the location nearest you. |
-| **Storage** | Create New | Automatically generates a new storage account.|
-| **Pricing tier** | F0 | Start with the lowest tier. If you run out of calls, scale to a higher tier.|
+    | Setting      |  Suggested value   | Description       |
+    | --- | --- | --- |
+    | **Name** | MyFunctionApp | Choose a unique account name. |
+    | **Resource group** | myResourceGroup | Use the same resource group for all services in this tutorial.|
+    | **Hosting plan** | Consumption Plan | This defines your cost and usage allocations.
+    | **Location** | West US | Use the location nearest you. |
+    | **Storage** | Create New | Automatically generates a new storage account.|
+    | **Pricing tier** | F0 | Start with the lowest tier. If you run out of calls, scale to a higher tier.|
 
 2. Select your functions app from your dashboard and expand your function, click the **+** button next to **Functions**, click the **Webhook + API**, **CSharp**, then **Create This Function**. This will create a function using the HTTPTrigger C# template. Your code will appear in a new window as `run.csx`
 
