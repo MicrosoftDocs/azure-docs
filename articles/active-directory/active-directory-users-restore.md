@@ -23,15 +23,15 @@ ms.custom: it-pro
 
 # Restore a deleted user in Azure Active Directory
 
-When you delete a user in the Azure Active Directory (Azure AD), the deleted group is retained but not visible for 30 days from the deletion date. This is so that the user and its properties can be restored if needed. 
+This article contains instructions to restore or permanently delete a previously deleted user. When you delete a user in the Azure Active Directory (Azure AD), the deleted user is retained for 30 days from the deletion date. During that time, the user and its properties can be restored. 
 
-## Reuired permissions
-The permissions required to restore a group can be any of the following:
+## Required permissions
+The following permissions are sufficient to restore a group:
 
 Role  | Permissions 
 --------- | ---------
-Company Administrator, Partner Tier2 support, and InTune Service Admins | Can restore any deleted user 
-User Account Administrator and Partner Tier1 support | Can restore any deleted user except those assigned to the Company Administrator role
+Company Administrator, Partner Tier2 support, and Intune Service Admins | Can restore any deleted user 
+User Account Administrator and Partner Tier1 support | Can restore any deleted user except those users assigned to the Company Administrator role
 
 ## How to restore a deleted user
 In the Azure portal, you can now
