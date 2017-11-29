@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/14/2017
+ms.date: 11/29/2017
 ---
 
 # Classify Iris part 3: Deploy a model
