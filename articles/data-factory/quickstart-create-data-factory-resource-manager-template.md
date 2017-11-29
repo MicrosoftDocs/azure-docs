@@ -455,14 +455,14 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
-### JSON definitions for entities
+## JSON definitions for entities
 The following Data Factory entities are defined in the JSON template: 
 
-1. [Azure Storage linked service](#azure-storage-linked-service)
-2. [Azure blob input dataset](#azure-blob-input-dataset)
-3. [Azure Blob output dataset](#azure-blob-output-dataset)
-4. [Data pipeline with a copy activity](#data-pipeline)
-5. [Trigger](#trigger)
+- [Azure Storage linked service](#azure-storage-linked-service)
+- [Azure blob input dataset](#azure-blob-input-dataset)
+- [Azure Blob output dataset](#azure-blob-output-dataset)
+- [Data pipeline with a copy activity](#data-pipeline)
+- [Trigger](#trigger)
 
 #### Azure Storage linked service
 The AzureStorageLinkedService links your Azure storage account to the data factory. You created a container and uploaded data to this storage account as part of prerequisites. You specify the name and key of your Azure storage account in this section. See [Azure Storage linked service](connector-azure-blob-storage.md#linked-service-properties) for details about JSON properties used to define an Azure Storage linked service. 
