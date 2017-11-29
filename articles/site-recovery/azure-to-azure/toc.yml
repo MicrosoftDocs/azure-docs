@@ -27,7 +27,7 @@
     href: ../site-recovery-role-based-linked-access-control.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
   - name: FAQ
     href: ../site-recovery-faq.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
-- name: How-to Guides
+- name: How-to guides
   items:
   - name: Networking
     items:
@@ -45,8 +45,9 @@
       href: ../site-recovery-create-recovery-plans.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
     - name: Add Azure runbooks to recovery plans
       href: ../site-recovery-runbook-automation.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
-    - name: Enable replication
-    - name: Migrate
+    - name: Reprotect machines after failover    
+      href: site-recovery-how-to-reprotect-azure-to-azure.md
+  - name: Migrate
     items:
     - name: Migrate Azure VMs to another Azure region
       href: ../site-recovery-migrate-azure-to-azure.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
