@@ -5,12 +5,8 @@ services: app-service\web
 documentationcenter: python
 author: berndverst
 manager: erikre
-editor: ''
-
-ms.assetid: 2bada123-ef18-44e5-be71-e16323b20466
 ms.service: app-service-web
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 05/03/2017
@@ -19,7 +15,7 @@ ms.custom: mvc
 ---
 # Build a Docker Python and PostgreSQL web app in Azure
 
-Web App for Containers provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a basic Docker Python web app in Azure. You'll connect this app to a PostgreSQL database. When you're done, you'll have a Python Flask application running within a Docker container on [App Service on Linux](app-service-linux-intro.md).
+Web App for Containers provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a basic Docker Python web app in Azure. You connect this app to a PostgreSQL database. When you are done, you have a Python Flask application running within a Docker container on [App Service on Linux](app-service-linux-intro.md).
 
 ![Docker Python Flask app in App Service on Linux](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -116,7 +112,7 @@ To stop the Flask server at anytime, type Ctrl+C in the terminal.
 
 ## Create a production PostgreSQL database
 
-In this step, you create a PostgreSQL database in Azure. When your app is deployed to Azure, it will use this cloud database.
+In this step, you create a PostgreSQL database in Azure. When your app is deployed to Azure, it uses this cloud database.
 
 ### Log in to Azure
 
@@ -142,7 +138,7 @@ Use the [az appservice list-locations](/cli/azure/appservice#list-locations) Azu
 
 ### Create an Azure Database for PostgreSQL server
 
-Create a PostgreSQL server with the [az postgres server create](/cli/azure/documentdb#create) command.
+Create a PostgreSQL server with the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command.
 
 In the following command, substitute a unique server name for the *\<postgresql_name>* placeholder and a user name for the *\<admin_username>* placeholder. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure. The user name is for the initial database admin user account. You are prompted to pick a password for this user.
 
@@ -203,7 +199,7 @@ In this step, you connect your Python Flask sample application to the Azure Data
 
 ### Create an empty database and set up a new database application user
 
-Create a database user with access to a single database only. You'll use these credentials to avoid giving the application full access to the server.
+Create a database user with access to a single database only. You use these credentials to avoid giving the application full access to the server.
 
 Connect to the database (you're prompted for your admin password).
 
@@ -289,7 +285,7 @@ The database already contains the registration you created previously.
 
 ## Upload the Docker container to a container registry
 
-In this step, you upload the Docker container to a container registry. You'll use Azure Container Registry, but you could also use other popular ones such as Docker Hub.
+In this step, you upload the Docker container to a container registry. Use Azure Container Registry, but you could also use other popular ones such as Docker Hub.
 
 ### Create an Azure Container Registry
 

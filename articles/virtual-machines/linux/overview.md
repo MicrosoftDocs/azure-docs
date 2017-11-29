@@ -49,7 +49,7 @@ When you deploy a VM in Azure, you are going to select a VM size within one of o
 Here are some basic guidelines for selecting a VM size from one of our series (A, D, DS, G and GS).
 * A-series VMs are our value priced entry-level VMs for light workloads and Dev/Test scenarios. They are widely available in all regions and can connect and use all standard resources available to virtual machines.
 * A-series sizes (A8 - A11) are special compute intensive configurations suitable for high-performance computing cluster applications.
-* D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk.
+* D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-vCPU ratio, and a solid-state drive (SSD) for the temporary disk.
 * Dv2-series, is the latest version of our D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haskell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 * G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
 

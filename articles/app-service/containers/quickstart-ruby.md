@@ -26,9 +26,8 @@ ms.custom: mvc
 
 ## Prerequisites
 
-* [Ruby 2.4.1 or higher](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller).
-* [Git](https://git-scm.com/downloads).
-* An [active Azure subscription](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.4.1 or higher</a>
+* <a href="https://git-scm.com/" target="_blank">Install Git</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

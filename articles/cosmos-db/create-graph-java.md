@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/20/2017
+ms.date: 11/20/2017
 ms.author: denlee
 
 ---
@@ -69,13 +69,19 @@ You can now use the Data Explorer tool in the Azure portal to create a graph dat
 
 Now let's switch to working with code. Let's clone a Graph API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically.  
 
-1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app.  
+1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app.  
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
@@ -83,7 +89,7 @@ Now let's switch to working with code. Let's clone a Graph API app from GitHub, 
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `Program.java` file in the C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `Program.java` file in the C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
 
 * The Gremlin `Client` is initialized from the configuration in `src/remote.yaml`.
 
@@ -145,11 +151,23 @@ Now go back to the Azure portal to get your connection information and copy it i
     cd "C:\git-samples\azure-cosmos-db-graph-java-getting-started"
     ```
 
-2. In the git terminal window, type `mvn package` to install the required Java packages.
+2. In the git terminal window, use the following command to install the required Java packages.
 
-3. In the git terminal window, run `mvn exec:java -D exec.mainClass=GetStarted.Program` to start your Java application.
+   ```
+   mvn package
+   ```
 
-    The terminal window displays the vertices being added to the graph. Once the program stops, switch back to the Azure portal in your internet browser. 
+3. In the git terminal window, use the following command to start the Java application.
+    
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    The terminal window displays the vertices being added to the graph. 
+    
+    If you experience timeout errors, check that you updated the connection information correctly in [Update your connection information](#update-your-connection-information), and also try running the last command again. 
+    
+    Once the program stops, press Enter, then switch back to the Azure portal in your internet browser. 
 
 <a id="add-sample-data"></a>
 ## Review and add sample data
@@ -197,11 +215,11 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 10. Click **OK**. 
 
-11. Click **Apply Filter** with the default `g.V()` filter to display all the values in the graph. All of the users now show in the **Results** list. 
+11. Click the **Apply Filter** button with the default `g.V()` filter to display all the values in the graph. All of the users now show in the **Results** list. 
 
     As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change it to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and click **Apply Filter** to display all the results again.
 
-12. Now we can connect rakesh and ashley. Ensure **ashley** in selected in the **Results** list, then click the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
+12. Now we can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then click the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
 
    ![Change the target of a vertex in a graph](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
