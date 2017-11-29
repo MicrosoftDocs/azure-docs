@@ -159,7 +159,7 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
 3. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
 
-Note that the following setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command using `-g` the flag. 
+   Note that the following setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command using `-g` the flag. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
