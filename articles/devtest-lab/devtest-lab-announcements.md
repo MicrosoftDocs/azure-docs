@@ -48,7 +48,7 @@ The announcement feature is meant to be used for temporary notifications.  You c
 
    The title can be up to 100 characters and is shown to the user on the lab's Overview page. If the user selects the title, the announcement text is displayed.
 
-   The announcement text accepts markdown. As you enter the announcement text, you can preview the message below.
+   The announcement text accepts markdown. As you enter the announcement text, you can view the message in the Preview area at the bottom of the screen.
 
     ![Lab announcement screen to create the message.](./media/devtest-lab-announcements/devtestlab-post-announcement.png)
 
@@ -72,5 +72,5 @@ When you no longer want to show this announcement to lab users, return to the **
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
-* You can apply restrictions and conventions across your subscription by using customized policies. If you were to change or set a lab policy, you might want to post an announcement to inform users. For more information, see [Set policies and schedules](devtest-lab-set-lab-policy.md).
+* If you change or set a lab policy, you might want to post an announcement to inform users. [Set policies and schedules](devtest-lab-set-lab-policy.md) provides information about applying restrictions and conventions across your subscription by using customized policies.
 * Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
