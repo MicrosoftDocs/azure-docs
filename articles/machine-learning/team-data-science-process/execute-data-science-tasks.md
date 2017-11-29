@@ -1,5 +1,5 @@
 ---
-title: Execute data science tasks - Azure  | Microsoft Docs
+title: Execute data science tasks - Azure Machine Learning  | Microsoft Docs
 description: How a data scientist can execute a data science project in a trackable, version controlled, and collaborative way.
 documentationcenter: ''
 author: bradsev

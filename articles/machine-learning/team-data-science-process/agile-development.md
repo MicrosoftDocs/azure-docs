@@ -1,5 +1,5 @@
 ---
-title: Agile development of data science projects - Azure  | Microsoft Docs
+title: Agile development of data science projects - Azure Machine Learning | Microsoft Docs
 description: How developers can execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.
 documentationcenter: ''
 author: bradsev
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/28/2017
 ms.author: bradsev;
 
 ---
@@ -28,7 +28,7 @@ This article includes instructions on how to:
 2. **add work items** to sprints. 
 
 > [!NOTE]
-> The steps needed to set up a TDSP team environment using Visual Studio Team Services (VSTS) are outlined in the following set of instructions. They specify how to accomplish these tasks with VSTS because that is how to implement TDSP at Microsoft.  If you choose to use VSTS, items (3) and (4) in the previous list are benefits that you get naturally. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different. For example, the item in section six, **Link a work item with a git branch**, might not be as easy as it is on VSTS.
+> The steps needed to set up a TDSP team environment using Visual Studio Team Services (VSTS) are outlined in the following set of instructions. They specify how to accomplish these tasks with VSTS because that is how to implement TDSP at Microsoft.  If you choose to use VSTS, items (3) and (4) in the previous list are benefits that you get naturally. If another code hosting platform is used for your group, the tasks that need to be completed by the team lead generally do not change. But the way to complete these tasks is going to be different. For example, the item in section six, **Link a work item with a Git branch**, might not be as easy as it is on VSTS.
 >
 >
 
@@ -39,7 +39,7 @@ The following figure illustrates a typical sprint planning, coding, and source-c
 
 ##  1. <a name='Terminology-1'></a>Terminology 
 
-In the TDSP sprint planning framework, there are four frequently used types of **work items**: **Feature**, **User Story**, **Task**, and **Bug**. Each team project maintains a single backlog for all work items. There is no backlog at the git repository level under a team project. Here are their definitions:
+In the TDSP sprint planning framework, there are four frequently used types of **work items**: **Feature**, **User Story**, **Task**, and **Bug**. Each team project maintains a single backlog for all work items. There is no backlog at the Git repository level under a team project. Here are their definitions:
 
 - **Feature**: A feature corresponds to a project engagement. Different engagements with a client are considered different features. Similarly, it is best to consider different phases of a project with a client as different features. If you choose a schema such as ***ClientName-EngagementName*** to name your features, then you can easily recognize the context of the project/engagement from the names themselves.
 - **Story**: Stories are different work items that are needed to complete a feature (project) end-to-end. Examples of stories include:
