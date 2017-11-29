@@ -4,8 +4,8 @@ description: Use data visualization tools for analytics using Apache Spark BI on
 keywords: apache spark bi,spark bi, spark data visualization, spark business intelligence
 services: hdinsight
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: mumian
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: nitinme
+ms.author: jgao
 
 ---
 # Apache Spark BI using data visualization tools with Azure HDInsight

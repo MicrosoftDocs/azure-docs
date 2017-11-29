@@ -1,6 +1,11 @@
 {
     "redirections": [
-        {
+    {
+        "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
+        "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
+        "redirect_document_id": false 
+    },
+    {
 	    "source_path": "articles/cognitive-services/Video/Home.md",
 	    "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
 	    "redirect_document_id": false 
@@ -2996,6 +3001,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/container-service/dcos-swarm/container-service-deployment.md",
+            "redirect_url": "/azure/container-service/dcos-swarm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/data-lake-store/data-lake-store-get-started-cli.md",
             "redirect_url": "/azure/data-lake-store/data-lake-store-get-started-cli-2.0",
             "redirect_document_id": false
@@ -5041,6 +5051,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/machine-learning/team-data-science-process/project-execution.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/agile-development",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/machine-learning-automated-data-pipeline-cheat-sheet.md",
             "redirect_url": "/azure/machine-learning/team-data-science-process/automated-data-pipeline-cheat-sheet",
             "redirect_document_id": false
@@ -5678,6 +5693,11 @@
         {
             "source_path": "articles/sql-database/sql-database-saas-tutorial-tenant-analytics.md",
             "redirect_url": "/azure/sql-database/saas-tenancy-tenant-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/saas-dbpertenant-wingtip-app-guidance-tips.md",
+            "redirect_url": "/azure/sql-database/saas-tenancy-wingtip-app-guidance-tips",
             "redirect_document_id": false
         },
         {
@@ -6468,6 +6488,11 @@
         {
             "source_path": "articles/vpn-gateway/vpn-gateway-point-to-site-create.md",
             "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
             "redirect_document_id": false
         },
         {
@@ -15378,7 +15403,13 @@
              "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md",
              "redirect_url": "/azure/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase",
              "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-provision.md",
+             "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-portal",
+             "redirect_document_id": false
         }
+
 
     ]
 }
