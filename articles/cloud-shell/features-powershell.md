@@ -34,7 +34,7 @@ PowerShell in Cloud Shell (Preview) securely and automatically authenticates acc
 
 ### Files persistence across sessions
 
-To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
+To persist files across sessions, Cloud Shell walks you through attaching a Microsoft Azure Files share on first launch.
 Once completed, Cloud Shell will automatically attach your storage (mounted as `$home\clouddrive`) for all future sessions.
 Since each request for Cloud Shell is allocating a temporary machine, files outside of your `$home\clouddrive` and machine state are not persisted across sessions.
 
