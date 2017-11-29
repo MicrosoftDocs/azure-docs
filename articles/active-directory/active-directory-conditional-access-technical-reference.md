@@ -167,11 +167,11 @@ The following mobile apps and desktop clients support conditional access for Off
 
 ## Approved client app requirement 
 
-Control client connections by using the **Require approved client app** option in your conditional access policy. Access is granted only when a connection attempt is made by an approved client app.
+In your conditional access policy, you can require that an access attempt to the selected cloud apps needs to be made from an approved client app. 
 
 ![Control access for approved client apps](./media/active-directory-conditional-access-technical-reference/21.png)
 
-The following client apps can be used with the approved client application requirement:
+This setting applies to the following client apps:
 
 
 - Microsoft Azure Information Protection
