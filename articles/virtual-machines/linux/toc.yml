@@ -172,8 +172,6 @@
       href: change-vm-size.md
     - name: Tag a VM
       href: tag.md
-    - name: Use cloud-init
-      href: using-cloud-init.md
     - name: Run scripts on a VM
       href: extensions-customscript.md
     - name: Use Remote Desktop
@@ -252,6 +250,16 @@
         href: terraform-install-configure.md
       - name: Create a complete VM
         href: terraform-create-complete-vm.md
+    - name: Cloud-init
+      items:
+      - name: Use cloud-init
+        href: using-cloud-init.md
+      - name: Update vm hostname
+        href: cloudinit-update-vm-hostname.md
+      - name: Update a VM
+        href: cloudinit-update-vm.md
+      - name: Add a user to a VM
+        href: cloudinit-add-user.md  
     - name: Jenkins
       href: ../../jenkins/overview.md
       items:
