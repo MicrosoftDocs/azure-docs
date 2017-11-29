@@ -18,7 +18,7 @@ ms.author: eamono
 
 ---
 
-# Perform Update, Change Tracking, and Inventory management from Azure Automation
+# Onboard update and change tracking solutions to Azure Automation
 
 In this tutorial, you learn how to automatically onboard Update, Change Tracking, and Inventory solutions to Azure Automation:
 
@@ -26,7 +26,7 @@ In this tutorial, you learn how to automatically onboard Update, Change Tracking
 > * Onboard an Azure virtual machine manually.
 > * Install and update required Azure modules.
 > * Import runbook that onboards Azure VMs.
-> * Start runbook to onboard Azure VMs in a resource group automatically.
+> * Start runbook to onboard Azure VMs automatically.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ To complete this tutorial, the following are required.
 ![Import onboarding runbook](media/automation-onboard-solutions/publish-runbook.png)
 
 
-## Start runbook to onboard Azure VMs in a resource group automatically
+## Start runbook to onboard Azure VMs automatically
 
 1.	Open the Enable-MultipleSolution runbook.
 ![Multiple solution runbooks](media/automation-onboard-solutions/runbook-overview.png)

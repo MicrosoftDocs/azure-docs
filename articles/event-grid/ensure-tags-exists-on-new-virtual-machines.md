@@ -24,11 +24,11 @@ ms.author: eamono
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Import an Automation runbook that adds a tag to a new virtual machine and sends a notification to Microsoft Teams.
-> * Create an optional Microsoft Teams webhook that messages are sent to.
-> * Create a webhook for the runbook that is called from the event grid subscription.
-> * Create an event grid subscription to look for Azure writes on virtual machines.
-> * Trigger a write action on a virtual machine and see the runbook get triggered.
+> * Import runbook that adds a VM tag and sends a notification to Microsoft Teams.
+> * Create an optional Microsoft Teams webhook.
+> * Create a webhook for the runbook.
+> * Create an event grid subscription.
+> * Create VM that triggers runbook.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ To complete this tutorial, the following are required.
 + Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 + [Automation account](../automation/automation-offering-get-started.md) to hold the runbook that is triggered from the event grid subscription.
 
-## Import an Automation runbook that adds a tag to a new virtual machine and sends a notification to Microsoft Teams
+## Import runbook that adds a VM tag and sends a notification to Microsoft Teams
 1.	Open the Automation account, and click on the Runbooks page.
 2.	Click on the “Browse gallery” button.
 ![Runbook list from UI](media/ensure-tags-exists-on-new-virtual-machines/event-grid-runbook-list.png)
@@ -45,7 +45,7 @@ To complete this tutorial, the following are required.
 4.	Click on “Edit” to view the Runbook source and click on the “Publish” button.
 ![Publish runbook from UI](media/ensure-tags-exists-on-new-virtual-machines/publish-runbook.png)
 
-## Create an optional Microsoft Teams webhook that messages are sent to.
+## Create an optional Microsoft Teams webhook
 1.	In Microsoft Teams, choose More Options (...) next to the channel name and choose connectors.
 ![Teams connections](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
 2.  Scroll through the list of connectors to Incoming Webhook, and click Add.
@@ -55,7 +55,7 @@ To complete this tutorial, the following are required.
 4.  Copy the webhook to the clipboard and save it. The webhook URL is used for sending information to Microsoft Teams.
 5.  Select Done to save the webhook.
 
-## Create a webhook for the runbook that is called from the event grid subscription
+## Create a webhook for the runbook
 1.  Open up the Watch-VMWrite runbook.
 2.  Click on Webhooks and the Add webhook button
 ![Create webhook](media/ensure-tags-exists-on-new-virtual-machines/add-webhook.png)
@@ -65,7 +65,7 @@ To complete this tutorial, the following are required.
 ![Configure webhook parameters](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 4.  Select OK to create the Automation runbook webhook.
 
-## Create an event grid subscription to look for Azure writes on virtual machines
+## Create an event grid subscription
 1.	Click on the Event Grid page from the Automation Account overview.
 ![Event Grid list](media/ensure-tags-exists-on-new-virtual-machines/event-grid-list.png)
 2.	Click on the new Event subscription button.
@@ -79,11 +79,12 @@ To complete this tutorial, the following are required.
 ![Event Grid list](media/ensure-tags-exists-on-new-virtual-machines/configure-event-grid-subscription.png)
 6.  Click "Create" to save the event grid subscription.
 
-## Trigger a write action on a virtual machine and see the runbook get triggered
+## Create VM that triggers runbook
 1.  Create a new virtual machine in the resource group you specified in the event grid subscription prefix filter.
 2.  The Watch-VMWrite runbook should be called and a new Tag added to the VM.
 ![VMTag](media/ensure-tags-exists-on-new-virtual-machines/vm-tag.png)
 3.  A new message is sent to the Teams channel.
+
 ![Teams notification](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## Next steps
