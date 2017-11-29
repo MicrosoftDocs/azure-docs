@@ -15,6 +15,8 @@ ms.author: nepeters
 
 An Azure container registry stores and manages private Docker container images, similar to the way Docker Hub stores public Docker images. You can use webhooks to trigger events when certain actions take place in one of your registry repositories. Webhooks can respond to events at the registry level, or they can be scoped down to a specific repository tag.
 
+For webhook request schema reference, see [Azure Container Registry schema reference](container-registry-webhook-reference.md)
+
 ## Prerequisites
 
 * Azure container registry - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
@@ -22,13 +24,11 @@ An Azure container registry stores and manages private Docker container images, 
 
 ## Create webhook Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the registry in which you want to create webhooks.
-
-2. In the container blade, select **Webhooks** under **SERVICES**.
-
-3. Select **Add** in the webhook blade toolbar.
-
-4. Complete the *Create webhook* form with the following information:
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Navigate to the container registry in which you want to create a webhook.
+1. Under **SERVICES**, select **Webhooks**.
+1. Select **Add** in the webhook toolbar.
+1. Complete the *Create webhook* form with the following information:
 
 | Value | Description |
 |---|---|
@@ -55,7 +55,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### Azure portal
 
-Prior to using the webhook on container image push and delete actions, you can test it with the **Ping** button. Ping sends a generic POST request to the specified endpoint and logs the response. This can help you verify you've correctly configured the webhook.
+Prior to using the webhook on container image push and delete actions, you can test it with the **Ping** button. Ping sends a generic POST request to the specified endpoint and logs the response. Using the ping feature can help you verify you've correctly configured the webhook.
 
 1. Select the webhook you want to test.
 2. In the top toolbar, select **Ping**.
@@ -88,3 +88,7 @@ Each webhook can be deleted by selecting the webhook and then the **Delete** but
 ```azurecli-interactive
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 ```
+
+## Next steps
+
+[Azure Container Registry webhook schema reference](container-registry-webhook-reference.md)
