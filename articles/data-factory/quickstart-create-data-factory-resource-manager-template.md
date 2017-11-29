@@ -617,45 +617,6 @@ Notice that the first command uses parameter file for the development environmen
 
 You can also reuse the template to perform repeated tasks. For example, you need to create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure storage accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories. 
 
-## Create an integration runtime
-Here is a sample Resource Manager template for creating a logical self-hosted integration runtime in the cloud. Install the integration runtime on your on-premises computer or Azure IaaS VM, and register it with the Data Factory service by using a key. For details about the self-hosted integration runtime, See [Tutorial: Copy data from on-premises SQL Server to Azure Blob Storage](tutorial-hybrid-copy-powershell.md).
-
-```json
-{
-  "contentVersion": "1.0.0.0",
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "parameters": {
-  },
-  "variables": {
-      "dataFactoryName":  "Factory1128",
-      "apiVersion": "2017-09-01-preview",
-      "integrationRuntimeName": "Gateway1128"
-  },
-  "resources": [
-      {
-          "name": "[variables('dataFactoryName')]",
-          "apiVersion": "[variables('apiVersion')]",
-          "type": "Microsoft.DataFactory/factories",
-          "location": "eastus",
-          "resources": [
-              {
-                "type": "integrationruntimes",                
-                "name": "[variables('integrationRuntimeName')]",
-                  "dependsOn": [ 
-                    "[variables('dataFactoryName')]" 
-                  ],
-                  "apiVersion": "[variables('apiVersion')]",
-                  "properties": {
-                    "type": "selfhosted",                                                                          
-                    "description": "my gateway"
-                  }
-              }            
-          ]
-      }
-  ]
-}
-```
-This sample template creates a data factory named Factory1128 with a gateway named: Gateway1128. 
 
 ## Next steps
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios. 
