@@ -83,5 +83,7 @@ LUIS offers 20 prebuilt domains.
 
 ## Next step
 
+Customize a prebuilt domain by adding more example utterances to it.
+
 > [!div class="nextstepaction"]
 > [Add example utterances](./Add-example-utterances.md)
