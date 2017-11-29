@@ -45,6 +45,7 @@ With conditional access policies, you control how your users access your [cloud 
 You can assign a conditional access policy to the following cloud apps from Microsoft:
 
 - Azure Information Protection - [Learn more](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -100,7 +101,7 @@ In a conditional access policy, you can configure the device platform condition 
 
 ## Client apps condition 
 
-When you configure a conditional access policy, you can [select client apps](active-directory-conditional-access-azure-portal.md#client-apps) for the client app condition. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
+In your conditional access policy, you can configure the [client apps](active-directory-conditional-access-azure-portal.md#client-apps) condition to tie the policy to the client app that has initiated an access attempt. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
 
 - Browser
 - Mobile apps and desktop apps
@@ -109,11 +110,11 @@ When you configure a conditional access policy, you can [select client apps](act
 
 ### Supported browsers 
 
-Control browser access by using the Browser option in your conditional access policy. Access is granted only when the access attempt is made by a supported browser. When an access attempt is made by an unsupported browser, the attempt is blocked.
+In your conditional access policy, you can select **Browsers** as client app.
 
 ![Control access for supported browsers](./media/active-directory-conditional-access-technical-reference/05.png)
 
-In your conditional access policy, the following browsers are supported: 
+This setting has an impact on access attempts made from the following browsers: 
 
 
 | OS                     | Browsers                            | Support     |
@@ -137,11 +138,13 @@ In your conditional access policy, the following browsers are supported:
 
 ### Supported mobile applications and desktop clients
 
-Control app and client access by using the **Mobile apps and desktop clients** option in your conditional access policy. Access is granted only when the access attempt is made by a supported mobile app or desktop client. When an access attempt is made by an unsupported app or client, the attempt is blocked.
+In your conditional access policy, you can select **Mobile apps and desktop clients** as client app.
+
 
 ![Control access for supported mobile apps or desktop clients](./media/active-directory-conditional-access-technical-reference/06.png)
 
-The following mobile apps and desktop clients support conditional access for Office 365 and other Azure AD-connected service applications:
+
+This setting has an impact on access attempts made from the following mobile apps and desktop clients: 
 
 
 |Client apps|Target Service|Platform|
