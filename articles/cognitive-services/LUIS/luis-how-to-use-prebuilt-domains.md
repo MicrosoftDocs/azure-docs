@@ -14,19 +14,27 @@ ms.author: cahann
 
 # Use prebuilt domains in LUIS apps  
 
-LUIS provides *prebuilt domains*, which are prebuilt sets of [intents](Add-intents.md) and [entities](luis-concept-entity-types.md) that work together for domains or common categories of apps. 
-The prebuilt domains have been pre-trained and are ready for use. The intents and entities in a prebuilt domain are fully customizable once you've added them to your app - you can train them with utterances from your system so they work for your users.  You can use an entire prebuilt domain as a starting point for customization, or just borrow a few intents or entities from a domain for your application. 
+LUIS provides *prebuilt domains*, which are prebuilt sets of [intents](Add-intents.md) and [entities](luis-concept-entity-types.md) that work together for domains or common categories of client applications. 
+The prebuilt domains have been pre-trained and are ready for you to add to your LUIS app. The intents and entities in a prebuilt domain are fully customizable once you've added them to your app - you can train them with utterances from your system so they work for your users.  You can use an entire prebuilt domain as a starting point for customization, or just borrow a few intents or entities from a prebuilt domain. 
 
-Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click on the tile for a domain to add it to your app, or click on "learn more" in its tile to learn about its intents and entities.
+Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click on the tile for a domain to add it to your app, or click on **Learn more** in its tile to learn about its intents and entities.
 
 > [!TIP]
 > You can find a full listing of the prebuilt domains at [https://www.luis.ai/prebuilts](https://www.luis.ai/prebuilts).
 
 ![Add prebuilt domain](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
 
+<!-- The UI refererred to below is not ready on testing server as of 11/17 -->
+<!-- 
 Within a domain, look for individual intents and entities that you want to use.
 
 ![Add prebuilt entity](./media/luis-how-to-prebuilt-domain-entities/select-prebuilt-domain-entities.png)
+-->
+
+## Add a prebuilt domain
+In the **Prebuilt domains** tab, find the RestaurantReservation domain and click **Add domain**. Once the prebuilt domain has been added to your LUIS app, open **Intents** and click on the RestaurantReservation.Reserve intent. You can see that many example utterances have already been provided and labeled with entities.
+
+![RestaurantReservation.Reserve intent](./media/luis-how-to-prebuilt-domain-entities/prebuilt-domain-restaurant-reservation.png)
 
 
 ## Designing LUIS apps from prebuilt domains
