@@ -19,9 +19,14 @@ ms.author: mbullwin
 
 ## How does Application Insights Snapshot Debugger work
 
-Application Insights Snapshot debugger is part of the Application Insights telemetry pipeline (an instance of ITelemetryProcessor), the snapshot collector monitors both the exceptions thrown in your code (AppDomain.FirstChanceException) and the exceptions that get tracked by the Application Insights Exception Telemetry pipeline. Once you have successfully added the snapshot collector to your project, and it has detected one exception in the Application Insights telemetry pipeline, an Application Insights custom event with the name 'AppInsightsSnapshotCollectorLogs' and 'SnapshotCollectorEnabled' in the Custom Data will be sent. At the same time, it will start a process with the name of 'MinidumpUploader.exe', to upload the collected snapshot data files to Application Insights.  When the 'MinidumpUploader.exe' process starts, a custom event with the name 'UploaderStart' will be sent. After the previous steps, the snapshot collector will enter its normal monitoring behavior.
+Application Insights Snapshot Debugger allows you to automatically collect a debug snapshot from live web applications. The snapshot shows the state of source code and variables at the moment an exception was thrown. If you are having difficulty getting the Application Insights snapshot debugger up and running this article walks you through how the debugger works, along with solutions to common troubleshooting scenarios. 
 
-While the snapshot collector is monitoring Application Insights exception telemetry, it will use the parameters (e.g. ThresholdForSnapshotting, MaximumSnapshotsRequired, MaximumCollectionPlanSize, ProblemCounterResetInterval) defined in the configuration to determine when to collect a snapshot. When all the rules are met, the collector will request a snapshot for the next exception thrown at the same place. While this is going on, an Application Insights custom event with the name 'AppInsightsSnapshotCollectorLogs' and 'RequestSnapshots' will be sent. Since the compiler will optimize 'Release' code, local variables may not be visible in the collected snapshot. The snapshot collector will try to deoptimize the method that threw the exception, when it requests snapshots. During this time, an Application Insights custom event with name 'AppInsightsSnapshotCollectorLogs' and 'ProductionBreakpointsDeOptimizeMethod' in the custom data will be sent.  When the snapshot of the next exception is collected, the local variables will be available. After the snapshot is collected, it will reoptimize the code to ensure the performance. Note that the deoptimization requires the Application Insights site extension to be installed.
+Application Insights Snapshot Debugger is part of the Application Insights telemetry pipeline (an instance of ITelemetryProcessor), the snapshot collector monitors both the exceptions thrown in your code (AppDomain.FirstChanceException) and the exceptions that get tracked by the Application Insights Exception Telemetry pipeline. Once you have successfully added the snapshot collector to your project, and it has detected one exception in the Application Insights telemetry pipeline, an Application Insights custom event with the name 'AppInsightsSnapshotCollectorLogs' and 'SnapshotCollectorEnabled' in the Custom Data will be sent. At the same time, it will start a process with the name of 'MinidumpUploader.exe', to upload the collected snapshot data files to Application Insights.  When the 'MinidumpUploader.exe' process starts, a custom event with the name 'UploaderStart' will be sent. After the previous steps, the snapshot collector will enter its normal monitoring behavior.
+
+While the snapshot collector is monitoring Application Insights exception telemetry, it uses the parameters (for example, ThresholdForSnapshotting, MaximumSnapshotsRequired, MaximumCollectionPlanSize, ProblemCounterResetInterval) defined in the configuration to determine when to collect a snapshot. When all the rules are met, the collector will request a snapshot for the next exception thrown at the same place. Simultaneously, an Application Insights custom event with the name 'AppInsightsSnapshotCollectorLogs' and 'RequestSnapshots' will be sent. Since the compiler will optimize 'Release' code, local variables may not be visible in the collected snapshot. The snapshot collector will try to deoptimize the method that threw the exception, when it requests snapshots. During this time, an Application Insights custom event with name 'AppInsightsSnapshotCollectorLogs' and 'ProductionBreakpointsDeOptimizeMethod' in the custom data will be sent.  When the snapshot of the next exception is collected, the local variables will be available. After the snapshot is collected, it will reoptimize the code to ensure the performance. 
+
+> [!NOTE]
+> Deoptimization requires the Application Insights site extension to be installed.
 
 When a snapshot is requested for a specific exception, the snapshot collector will start monitoring your application's exception handling pipeline (AppDomain.FirstChanceException). When the exception happens again, the collector will start a snapshot (Application Insights custom event with the name 'AppInsightsSnapshotCollectorLogs' and 'SnapshotStart' in the custom data). Then a shadow copy of the running process is made (the page table will be duplicated). This normally will take 10 to 20 milliseconds. After this, an Application Insights custom event with the name 'AppInsightsSnapshotCollectorLogs' and 'SnapshotStop' in the custom data will be sent. When the forked process is created, the total paged memory will be increased by the same amount as the paged memory of your running application (the working set will be much smaller). While your application process is running normally, the shadow copied process's memory will be dumped to disk and uploaded to Application Insights. After the snapshot is uploaded, an Application Insights custom event with the name 'UploadSnapshotFinish' will be sent.
 
@@ -38,13 +43,13 @@ Snapshot collector logs are sent to your Application Insight account if the [Sna
     ```
 * Note: change the *Time range* if needed.
 
-![Search Snapshot Collector logs](./media/app-insights-troubleshoot-snapshot-debugger/001.png)
+![Screenshot of Search Snapshot Collector logs](./media/app-insights-troubleshoot-snapshot-debugger/001.png)
 
 
 ### Examine Snapshot collector logs
 When searching for Snapshot Collector logs, there should be 'UploadSnapshotFinish' events in the targeted time range. If you still don't see the 'Open Debug Snapshot' button to open the Snapshot, please send email to snapshothelp@microsoft.com with your Application Insights' Instrumentation Key.
 
-![Examine snapshot collector logs](./media/app-insights-troubleshoot-snapshot-debugger/005.png)
+![Screenshot of Examine snapshot collector logs](./media/app-insights-troubleshoot-snapshot-debugger/005.png)
 
 ## I cannot find a snapshot to Open
 If the following steps don't help you solve the issue, please send email to snapshothelp@microsoft.com with your Application Insights' Instrumentation Key.
@@ -81,11 +86,11 @@ In the snapshot collector logs, search for ```RequestSnapshots```.  If none are 
 ### Step 7: Make sure snapshots are uploaded correctly
 In the snapshot collector logs, search for ```UploadSnapshotFinish```.  If this is not present, please send email to snapshothelp@microsoft.com with your Application Insights' Instrumentation Key. If this event exists, open one of the logs and copy the 'SnapshotId' value in the Custom Data. Then search for the value. This will find the exception corresponding to the snapshot. Then click the exception and open debug snapshot. (If there is no corresponding exception, the exception telemetry may be sampled, due to high volume, please try another snapshotId.)
 
-![Find SnapshotId](./media/app-insights-troubleshoot-snapshot-debugger/002.png)
+![Screenshot of Find SnapshotId](./media/app-insights-troubleshoot-snapshot-debugger/002.png)
 
-![Open Exception](./media/app-insights-troubleshoot-snapshot-debugger/004b.png)
+![Screenshot of Open Exception](./media/app-insights-troubleshoot-snapshot-debugger/004b.png)
 
-![Open debug snapshot](./media/app-insights-troubleshoot-snapshot-debugger/003.png)
+![Screenshot of Open debug snapshot](./media/app-insights-troubleshoot-snapshot-debugger/003.png)
 
 ## Snapshot View Local Variables are not complete
 
@@ -100,5 +105,5 @@ Some of the local variables are missing. If your application is running release 
 
 If your case is different, it could be a bug. Please send email to snapshothelp@microsoft.com with your Application Insights' Instrumentation Key along with the code snippet.
 
-## Snapshot View: Cannot obtain value of the local variable or argument because it is not available at this instruction pointer
+## Snapshot View: Cannot obtain value of the local variable or argument
 Please make sure the [Application Insights site extension](https://www.siteextensions.net/packages/Microsoft.ApplicationInsights.AzureWebSites/) is installed. If the issue persists, please send email to snapshothelp@microsoft.com with your Application Insights' Instrumentation Key.
