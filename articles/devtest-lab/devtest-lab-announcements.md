@@ -1,5 +1,5 @@
 ---
-title: Post announcments to a lab in Azure DevTest Labs | Microsoft Docs
+title: Post an announcment to a lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to add an announcement to a lab in Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -17,9 +17,9 @@ ms.date: 11/30/2017
 ms.author: tarcher
 
 ---
-# Post announcements to a lab in Azure DevTest Labs
+# Post an announcement to a lab in Azure DevTest Labs
 
-As a lab administrator, you can post announcements in an existing lab to notify users about recent changes or additions to the lab. For example, you might want to notify users about:
+As a lab administrator, you can post a custom announcement in an existing lab to notify users about recent changes or additions to the lab. For example, you might want to inform users about:
 
 - New VM sizes that are available
 - Images that are currently unusable
@@ -46,7 +46,7 @@ The announcement feature is meant to be used for temporary notifications.  You c
 
 1. Enter an **Announcement title** and the **Announcement text**.
 
-   The title can be up to 100 characters and is shown to the user on the lab's main page. If the user selects the title, the announcement text is displayed.
+   The title can be up to 100 characters and is shown to the user on the lab's Overview page. If the user selects the title, the announcement text is displayed.
 
    The announcement text accepts markdown. As you enter the announcement text, you can preview the message below.
 
