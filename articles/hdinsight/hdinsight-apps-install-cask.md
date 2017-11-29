@@ -51,10 +51,6 @@ Here is an illustration of how data is flowing in the above pipeline:
 
 ![CDAP tracker](./media/hdinsight-apps-install-cask/tracker.png)
 
-## Instal the CDAP published application
-
-For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
-
 ## Prerequisites
 
 To install this app on a new HDInsight cluster, or an existing cluster, you must have the following configuration:
@@ -63,69 +59,73 @@ To install this app on a new HDInsight cluster, or an existing cluster, you must
 * Cluster type: HBase
 * Cluster version: 3.4, 3.5
 
+## Install the CDAP published application
+
+For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
+
 ## Launch CDAP
 
-After installation, launch CDAP from your cluster in Azure portal by going to the **Settings** pane, then selecting **Applications** under the **General** category. The Installed Apps pane lists all the installed applications.
+1. After installation, launch CDAP from your cluster in Azure portal by going to the **Settings** pane, then selecting **Applications** under the **General** category. The Installed Apps pane lists all the installed applications.
 
-![Installed CDAP app](./media/hdinsight-apps-install-cask/cdap-app.png)
+    ![Installed CDAP app](./media/hdinsight-apps-install-cask/cdap-app.png)
 
-When you select CDAP, you see a link to the web page and HTTP Endpoint, and also the SSH endpoint path. Select the WEBPAGE link.
+2. When you select CDAP, you see a link to the web page and HTTP Endpoint, and also the SSH endpoint path. Select the WEBPAGE link.
 
-When prompted, enter your cluster administrator credentials.
+3. When prompted, enter your cluster administrator credentials.
 
-![Authentication](./media/hdinsight-apps-install-cask/auth.png)
+    ![Authentication](./media/hdinsight-apps-install-cask/auth.png)
 
-After signing in, you see the Cask CDAP GUI home page.
+4. After signing in, you see the Cask CDAP GUI home page.
 
-![Cask GUI home page](./media/hdinsight-apps-install-cask/gui.png)
+    ![Cask GUI home page](./media/hdinsight-apps-install-cask/gui.png)
 
-To explore the CDAP interface, click the **Cask Market** menu link on top of the page.
+5. To explore the CDAP interface, click the **Cask Market** menu link on top of the page.
 
-![Cask Market link](./media/hdinsight-apps-install-cask/cask-market.png)
+    ![Cask Market link](./media/hdinsight-apps-install-cask/cask-market.png)
 
-Select **Access Log Sample** from the list.
+6. Select **Access Log Sample** from the list.
 
-![Access Log Sample](./media/hdinsight-apps-install-cask/market-log-sample.png)
+    ![Access Log Sample](./media/hdinsight-apps-install-cask/market-log-sample.png)
 
-Click **Load** to confirm.
+7. Click **Load** to confirm.
 
-![Click Load](./media/hdinsight-apps-install-cask/market-load.png)
+    ![Click Load](./media/hdinsight-apps-install-cask/market-load.png)
 
-A view of the included sample data is displayed. select **Next**.
+8. A view of the included sample data is displayed. select **Next**.
 
-![Access Log Sample - View Data](./media/hdinsight-apps-install-cask/market-view-data.png)
+    ![Access Log Sample - View Data](./media/hdinsight-apps-install-cask/market-view-data.png)
 
-Select **Stream** as the Destination Type, enter a Destination Name, then select **Finish**.
+9. Select **Stream** as the Destination Type, enter a Destination Name, then select **Finish**.
 
-![Access Log Sample - Select Destination](./media/hdinsight-apps-install-cask/market-destination.png)
+    ![Access Log Sample - Select Destination](./media/hdinsight-apps-install-cask/market-destination.png)
 
-After the datapack has been successfully loaded, select **View Stream Details**.
+10. After the datapack has been successfully loaded, select **View Stream Details**.
 
-![Datapack successfully uploaded](./media/hdinsight-apps-install-cask/market-view-details.png)
+    ![Datapack successfully uploaded](./media/hdinsight-apps-install-cask/market-view-details.png)
 
-To enable metadata for the namespace, select **Enable** in the Usage tab on the Access Log details page.
+11. To enable metadata for the namespace, select **Enable** in the Usage tab on the Access Log details page.
 
-![Access Log Sample - Loaded - enable metadata](./media/hdinsight-apps-install-cask/log-loaded.png)
+    ![Access Log Sample - Loaded - enable metadata](./media/hdinsight-apps-install-cask/log-loaded.png)
 
-After metadata is enabled, you see a graph displaying audit message information.
+12. After metadata is enabled, you see a graph displaying audit message information.
 
-![Access Log Sample - Metadata enabled](./media/hdinsight-apps-install-cask/log-metadata.png)
+    ![Access Log Sample - Metadata enabled](./media/hdinsight-apps-install-cask/log-metadata.png)
 
-To explore the log data, select the **Explore** icon on top of the page.
+13. To explore the log data, select the **Explore** icon on top of the page.
 
-![Access Log Sample - Explore](./media/hdinsight-apps-install-cask/log-explore.png)
+    ![Access Log Sample - Explore](./media/hdinsight-apps-install-cask/log-explore.png)
 
-You see a sample SQL query. Feel free to modify it as desired, then select **Execute**.
+14. You see a sample SQL query. Feel free to modify it as desired, then select **Execute**.
 
-![Access Log Sample - Explore dataset with a query](./media/hdinsight-apps-install-cask/log-query.png)
+    ![Access Log Sample - Explore dataset with a query](./media/hdinsight-apps-install-cask/log-query.png)
 
-After the query has finished, select the **View** icon under the Actions column.
+15. After the query has finished, select the **View** icon under the Actions column.
 
-![Access Log Sample - View completed query](./media/hdinsight-apps-install-cask/log-query-view.png)
+    ![Access Log Sample - View completed query](./media/hdinsight-apps-install-cask/log-query-view.png)
 
-You see the query results.
+16. You see the query results.
 
-![Access Log Sample - Query results](./media/hdinsight-apps-install-cask/log-query-results.png)
+    ![Access Log Sample - Query results](./media/hdinsight-apps-install-cask/log-query-results.png)
 
 ## Next steps
 

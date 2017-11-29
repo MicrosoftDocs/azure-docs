@@ -40,10 +40,6 @@ StreamSets Data Collector is designed to logically isolate each stage in a pipel
 * [Slack Public StreamSets Channel](https://streamsetters.slack.com/)
 * [Source Code](https://github.com/streamsets)
 
-## Install the StreamSets Data Collector published application
-
-For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
-
 ## Prerequisites
 
 To install this app on a new HDInsight cluster, or an existing cluster, you must have the following configuration:
@@ -51,27 +47,31 @@ To install this app on a new HDInsight cluster, or an existing cluster, you must
 * Cluster tier(s): Standard or Premium
 * Cluster version(s): 3.5 and above
 
+## Install the StreamSets Data Collector published application
+
+For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
+
 ## Launch StreamSets Data Collector
 
-After installation, you can launch StreamSets from your cluster in Azure portal by going to the **Settings** pane, then selecting **Applications** under the **General** category. The Installed Apps pane lists the installed applications.
+1. After installation, you can launch StreamSets from your cluster in Azure portal by going to the **Settings** pane, then selecting **Applications** under the **General** category. The Installed Apps pane lists the installed applications.
 
-![Installed StreamSets app](./media/hdinsight-apps-install-streamsets/streamsets.png)
+    ![Installed StreamSets app](./media/hdinsight-apps-install-streamsets/streamsets.png)
 
-When you select StreamSets Data Collector, you see a link to the web page, and the SSH endpoint path. Select the WEBPAGE link.
+2. When you select StreamSets Data Collector, you see a link to the web page, and the SSH endpoint path. Select the WEBPAGE link.
 
-In the Login dialog box, use the following credentials to log in: `admin` and `admin`.
+3. In the Login dialog box, use the following credentials to log in: `admin` and `admin`.
 
-* On the Get Started page, click **Create New Pipeline**.
+4. On the Get Started page, click **Create New Pipeline**.
 
     ![Create new pipeline](./media/hdinsight-apps-install-streamsets/get-started.png)
 
-* In the New Pipeline window, enter a name for the pipeline ("Hello World"), optionally enter a description, and select **Save**.
+5. In the New Pipeline window, enter a name for the pipeline ("Hello World"), optionally enter a description, and select **Save**.
 
-* The Data Collector console is shown. The Properties panel displays pipeline properties.
+6. The Data Collector console is shown. The Properties panel displays pipeline properties.
  
     ![Data Collector console](./media/hdinsight-apps-install-streamsets/pipeline-canvas.png)
 
-* You are now ready to follow the [StreamSets tutorial](https://streamsets.com/documentation/datacollector/latest/help/#Tutorial/Tutorial-title.html). The tutorial provides step-by-step directions for creating your first pipeline.
+7. You are now ready to follow the [StreamSets tutorial](https://streamsets.com/documentation/datacollector/latest/help/#Tutorial/Tutorial-title.html). The tutorial provides step-by-step directions for creating your first pipeline.
 
 ## Next steps
 

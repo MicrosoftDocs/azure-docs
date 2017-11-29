@@ -33,10 +33,6 @@ You can install DSS on HDInsight using Hadoop or Spark clusters. You can install
 
 You can use DSS to build projects, which then can generate MapReduce or Spark jobs. These jobs are executed as regular MapReduce or Spark jobs on HDInsight, so you can scale the cluster on demand.
 
-## Install the Dataiku DSS published application
-
-For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
-
 ## Prerequisites
 
 To install this app on a new HDInsight cluster, or an existing cluster, you must have the following configuration:
@@ -45,46 +41,51 @@ To install this app on a new HDInsight cluster, or an existing cluster, you must
 * Cluster type(s): Hadoop, Spark
 * Cluster version(s): 3.4, 3.5
 
+## Install the Dataiku DSS published application
+
+For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
+
 ## Launch Dataiku DSS
 
-After installation, you can launch DSS from your cluster in Azure portal by going to the **Settings** pane, then clicking **Applications** under the **General** category. The Installed Apps pane lists the installed applications.
+1. After installation, you can launch DSS from your cluster in Azure portal by going to the **Settings** pane, then clicking **Applications** under the **General** category. The Installed Apps pane lists the installed applications.
 
-![Installed Dataiku DSS app](./media/hdinsight-apps-install-dataiku/app.png)
+    ![Installed Dataiku DSS app](./media/hdinsight-apps-install-dataiku/app.png)
 
-When you select DSS on HDInsight, you see a link to the web page, and the SSH endpoint path. Select the WEBPAGE link.
+2. When you select DSS on HDInsight, you see a link to the web page, and the SSH endpoint path. Select the WEBPAGE link.
 
-On first launch, you are presented with a form to create a new Dataiku account for free, or to sign in to an existing account. You also have the option to start a free 2-week trial of [Enterprise Edition](https://www.dataiku.com/dss/editions/). From this point, you have the option of continuing with entering a license key for Enterprise Edition, or using the Community Edition.
+3. On first launch, you are presented with a form to create a new Dataiku account for free, or to sign in to an existing account. You also have the option to start a free 2-week trial of [Enterprise Edition](https://www.dataiku.com/dss/editions/). From this point, you have the option of continuing with entering a license key for Enterprise Edition, or using the Community Edition.
 
-After completing your selected license option, you are presented with a login form. Enter the default credentials displayed prior to the login form.
+4. After completing your selected license option, you are presented with a login form. Enter the default credentials displayed prior to the login form.
 
 The following steps provide a simple demonstration.
 
-* [Download the sample orders CSV](https://doc.dataiku.com/tutorials/data/101/haiku_shirt_sales.csv).
-* From the DSS dashboard, select the **+** (New project) link on the left-hand menu to create a new project.
+1. [Download the sample orders CSV](https://doc.dataiku.com/tutorials/data/101/haiku_shirt_sales.csv).
+
+2. From the DSS dashboard, select the **+** (New project) link on the left-hand menu to create a new project.
 
     ![New project link](./media/hdinsight-apps-install-dataiku/new-project.png)
 
-* In the New project form, type in a **Name**. The **Project Key** is automatically filled with a suggested value. In this case, enter "Orders". Click **CREATE**.
+3. In the New project form, type in a **Name**. The **Project Key** is automatically filled with a suggested value. In this case, enter "Orders". Click **CREATE**.
 
     ![New project form](./media/hdinsight-apps-install-dataiku/new-project-form.png)
 
-* Select **+ IMPORT YOUR FIRST DATASET** in your new project page.
+4. Select **+ IMPORT YOUR FIRST DATASET** in your new project page.
 
     ![File Upload](./media/hdinsight-apps-install-dataiku/import-dataset.png)
 
-* Select **Upload your files** under the **Files** dataset list. You are presented with the Upload dialog. Click on Add a file, select the `haiku_shirt_sales.csv` file you downloaded, and validate.
+5. Select **Upload your files** under the **Files** dataset list. You are presented with the Upload dialog. Click on Add a file, select the `haiku_shirt_sales.csv` file you downloaded, and validate.
 
-* The file is uploaded to DSS. Check if DSS detected the CSV format correctly by clicking on the Preview button.
+6. The file is uploaded to DSS. Check if DSS detected the CSV format correctly by clicking on the Preview button.
 
     ![File Upload](./media/hdinsight-apps-install-dataiku/preview.png)
 
-* The import is almost perfect. The CSV file is using a Tab separator. You can see the data is in a tabular format, with columns called features, and lines that represent observations. The one error is that apparently the file contained a blank line between the header and the data. To fix this error, enter `1` in the **Skip next lines** field.
+7. The import is almost perfect. The CSV file is using a Tab separator. You can see the data is in a tabular format, with columns called features, and lines that represent observations. The one error is that apparently the file contained a blank line between the header and the data. To fix this error, enter `1` in the **Skip next lines** field.
 
     ![Save](./media/hdinsight-apps-install-dataiku/skip-lines.png)
 
-* Give the new dataset a name. Enter **haiku_shirt_sales** in the field on top of the screen, then select the **Create** button.
+8. Give the new dataset a name. Enter **haiku_shirt_sales** in the field on top of the screen, then select the **Create** button.
 
-* You see a tabular view of your data where you can start exploring it. For each column, you should see that Dataiku Science Studio has detected a data type, in _blue_ - in this case, Text, Number, or Date (unparsed). A gauge indicates the ratio of the column for which the values do not seem to match the type (in red) or are missing (blank). In this example dataset, the department has both empty values and invalid data.
+9. You see a tabular view of your data where you can start exploring it. For each column, you should see that Dataiku Science Studio has detected a data type, in _blue_ - in this case, Text, Number, or Date (unparsed). A gauge indicates the ratio of the column for which the values do not seem to match the type (in red) or are missing (blank). In this example dataset, the department has both empty values and invalid data.
 
     ![Tabular view](./media/hdinsight-apps-install-dataiku/viewing-dataset.png)
 
@@ -92,19 +93,19 @@ The following steps provide a simple demonstration.
 
 Real-world data is almost always messy, and rarely is it neatly packaged. Cleaning up data typically requires a chain of scripts and associated business logic. Dataiku DSS provides a dedicated **Lab** tool to make this task more user-friendly.
 
-* Click on **Lab** in the upper-right corner.
+1. Click on **Lab** in the upper-right corner.
 
     ![Lab button](./media/hdinsight-apps-install-dataiku/lab-button.png)
 
-* The Lab window opens. The lab is where you iteratively work on your dataset to get further into it. This tutorial demonstrates the Visual analysis aspect. Select the **New** button below Visual analysis. You are prompted to specify a name for your analysis. Leave the default name for now, then click **CREATE**.
+2. The Lab window opens. The lab is where you iteratively work on your dataset to get further into it. This tutorial demonstrates the Visual analysis aspect. Select the **New** button below Visual analysis. You are prompted to specify a name for your analysis. Leave the default name for now, then click **CREATE**.
 
     ![Create lab](./media/hdinsight-apps-install-dataiku/create-lab.png)
 
-* Select the **Quick columns stats** button on the upper-right corner of the page.
+3. Select the **Quick columns stats** button on the upper-right corner of the page.
 
     ![Quick columns stats](./media/hdinsight-apps-install-dataiku/quick-column-stats.png)
 
-* You see statistics for data types and values displayed in timeline-based graphs under the **Columns quick view** pane.
+4. You see statistics for data types and values displayed in timeline-based graphs under the **Columns quick view** pane.
 
     ![Columns quick view](./media/hdinsight-apps-install-dataiku/columns-quick-view.png)
 

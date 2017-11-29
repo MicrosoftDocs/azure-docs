@@ -42,10 +42,6 @@ H2O Sparkling Water provides:
 * [H2O.ai Support](https://support.h2o.ai/)
 * [H2O.ai Open Source Codebase](https://github.com/h2oai/)
 
-## Install the H2O Sparkling Water published application
-
-For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
-
 ## Prerequisites
 
 To install this app on a new HDInsight cluster, or an existing cluster, you must have the following configuration:
@@ -54,44 +50,46 @@ To install this app on a new HDInsight cluster, or an existing cluster, you must
 * Cluster type: Spark
 * Cluster version(s): 3.5 or 3.6
 
+## Install the H2O Sparkling Water published application
+
+For step-by-step instructions on installing this and other available ISV applications, read [Install third-party Hadoop applications](hdinsight-apps-install-applications.md).
+
 ## Launch H2O Sparkling Water
 
-After installation, you can start using H2O Sparkling Water (h2o-sparklingwater) from your cluster in Azure portal by opening Jupyter Notebooks (`https://<ClusterName>.azurehdinsight.net/jupyter`). You can also get to Jupyter by selecting **Cluster dashboard** from your cluster pane in the portal, then selecting **Jupyter Notebook**. You are prompted to enter your credentials. Enter the cluster's Hadoop credentials as specified on cluster creation.
+1. After installation, you can start using H2O Sparkling Water (h2o-sparklingwater) from your cluster in Azure portal by opening Jupyter Notebooks (`https://<ClusterName>.azurehdinsight.net/jupyter`). You can also get to Jupyter by selecting **Cluster dashboard** from your cluster pane in the portal, then selecting **Jupyter Notebook**. You are prompted to enter your credentials. Enter the cluster's Hadoop credentials as specified on cluster creation.
 
-In Jupyter, you see three folders: H2O-PySparkling-Examples, PySpark Examples, and Scala Examples. Select the **H2O-PySparkling-Examples** folder.
+2. In Jupyter, you see three folders: H2O-PySparkling-Examples, PySpark Examples, and Scala Examples. Select the **H2O-PySparkling-Examples** folder.
 
-![Jupyter Notebooks home](./media/hdinsight-apps-install-h2o/jupyter-home.png)
+    ![Jupyter Notebooks home](./media/hdinsight-apps-install-h2o/jupyter-home.png)
 
-Follow these steps for a "Hello World" demonstration:
-
-* The first step when creating a new notebook is to configure the Spark environment. This information is included in the **Sentiment_analysis_with_Sparkling_Water** example. When configuring the Spark environment, be sure to use the correct jar, and specify the IP address provided by the output of the first cell.
+3. The first step when creating a new notebook is to configure the Spark environment. This information is included in the **Sentiment_analysis_with_Sparkling_Water** example. When configuring the Spark environment, be sure to use the correct jar, and specify the IP address provided by the output of the first cell.
 
     ![Jupyter Notebooks home](./media/hdinsight-apps-install-h2o/spark-config.png)
 
-* Start the H2O Cluster.
+4. Start the H2O Cluster.
 
     ![Start cluster](./media/hdinsight-apps-install-h2o/start-cluster.png)
 
-* After the H2O Cluster is up and running, open H2O Flow by going to **`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`**.
+5. After the H2O Cluster is up and running, open H2O Flow by going to **`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`**.
 
     > [!NOTE]
     > If you are unable to open H2O Flow, try clearing your browser cache. If you still unable to reach it, you probably do not have enough resources on your cluster. Try increasing the number of Worker nodes under the **Scale cluster** option in your cluster pane.
 
     ![H2O Flow dashboard](./media/hdinsight-apps-install-h2o/h2o-flow.png)
 
-* Select the **Million_Songs.flow** example from the menu on the right. When prompted with a warning, click **Load Notebook**. This demo is designed to run in a few minutes using real data. The goal is to predict from the data whether the song was released before or after 2004 using binary classification.
+6. Select the **Million_Songs.flow** example from the menu on the right. When prompted with a warning, click **Load Notebook**. This demo is designed to run in a few minutes using real data. The goal is to predict from the data whether the song was released before or after 2004 using binary classification.
 
     ![Select Million_Songs.flow](./media/hdinsight-apps-install-h2o/million-songs.png)
 
-* Find the path containing **milsongs-cls-train.csv.gz**, and replace the entire path with **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
+7. Find the path containing **milsongs-cls-train.csv.gz**, and replace the entire path with **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
 
-* Find the path containing **milsongs-cls-test.csv.gz** and replace it with **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
+8. Find the path containing **milsongs-cls-test.csv.gz** and replace it with **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
 
-* To execute all statements within the notebook cells, select the **Run All** button on the toolbar.
+9. To execute all statements within the notebook cells, select the **Run All** button on the toolbar.
 
     ![Run All](./media/hdinsight-apps-install-h2o/run-all.png)
 
-* After a few minutes, you should see an output similar to the following.
+10. After a few minutes, you should see an output similar to the following.
 
     ![Output](./media/hdinsight-apps-install-h2o/output.png)
 
