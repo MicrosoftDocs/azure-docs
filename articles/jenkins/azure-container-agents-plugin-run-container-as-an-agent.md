@@ -19,7 +19,7 @@ ms.custom: jenkins
 
 # Run a container as an agent in Jenkins using the Azure Container Agents plugin
 
-The Azure Container Agents plugin for Jenkins enables you to quickly and easily get your Jenkins build agents running in the cloud. In this tutorial, you'll use Azure Container agent to add on-demand capacity and use Azure Container Instances (ACI) to build the Spring PetClinic Sample Applicaiton. 
+The Azure Container Agents plugin for Jenkins enables you to quickly and easily get your Jenkins build agents running in the cloud. In this tutorial, you use Azure Container agent to add on-demand capacity and use Azure Container Instances (ACI) to build the [Spring PetClinic Sample Application](https://github.com/spring-projects/spring-petclinic). 
 
 You learn how to:
 > [!div class="checklist"]
@@ -65,7 +65,7 @@ You need an Azure service principal to deploy to Azure.
     - Client Secret - Use the `password` value returned from `az ad sp create-for-rbac`.
     - Tenant ID - Use the `tenant` value returned from `az ad sp create-for-rbac`.
     - Azure Environment - Select `Azure`.
-    - ID - Enter `myTestSp`. This value will be used again later in this tutorial.
+    - ID - Enter `myTestSp`. This value is used again later in this tutorial.
     - Description - (Optional) Enter a description value for this principal.
 
     ![Specify new service principal properties on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-principal-properties.png)
