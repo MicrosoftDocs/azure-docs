@@ -22,6 +22,8 @@ ms.author: mahender
 
 This article explains how to work with HTTP bindings in Azure Functions. Azure Functions supports HTTP triggers and output bindings.
 
+An HTTP trigger can be customized to respond to [webhooks](https://en.wikipedia.org/wiki/Webhook). A webhook trigger accepts only a  JSON payload and validates the JSON. There are special versions of the webhook trigger that make it easier to handle webhooks from certain providers, such as GitHub and Slack.
+
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
@@ -227,8 +229,6 @@ module.exports = function(context, req) {
 ```
      
 ## Trigger - webhook example
-
-An HTTP trigger can be customized to respond to [webhooks](https://en.wikipedia.org/wiki/Webhook).
 
 See the language-specific example:
 
