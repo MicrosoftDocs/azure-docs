@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight Tools - Use Visual Studio Code for Hive, LLAP or pySpark | Microsoft Docs
 description: Learn how to use the Azure HDInsight Tools for Visual Studio Code to create and submit queries and scripts.
-Keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
 documentationcenter: ''
 author: jejiang
@@ -52,7 +52,7 @@ After you have installed the prerequisites, you can install the Azure HDInsight 
 
 ## Open HDInsight workspace
 
-Create a workspace in VSCode before you can connect to Azure.
+Create a workspace in VS Code before you can connect to Azure.
 
 **To open a workspace**
 
@@ -255,7 +255,7 @@ HDInsight Tools for VS Code also enables you to submit interactive PySpark queri
 
    ![Submit Python job result](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
-After you submit a Python job, submission logs appear in the **OUTPUT** window in VSCode. The **Spark UI URL** and **Yarn UI URL** are shown as well. You can open the URL in a web browser to track the job status.
+After you submit a Python job, submission logs appear in the **OUTPUT** window in VS Code. The **Spark UI URL** and **Yarn UI URL** are shown as well. You can open the URL in a web browser to track the job status.
 
 
 ## Additional features
@@ -273,7 +273,7 @@ HDInsight for VS Code supports the following features:
 ## Next steps
 
 ### Demo
-* HDInsight for VScode: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight for VS Code: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### Tools and extensions
 
