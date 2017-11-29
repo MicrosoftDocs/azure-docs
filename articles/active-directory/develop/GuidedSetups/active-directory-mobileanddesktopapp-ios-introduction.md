@@ -27,6 +27,8 @@ At the end of this guide, your application will be able to call a protected API 
 > - XCode 8.x is required for this guide. You can download XCode [from here](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 > - [Carthage](https://github.com/Carthage/Carthage) for package management
 
+>Important: The MSAL library is not supported by the [Microsoft Graph client library for iOS](https://github.com/microsoftgraph/msgraph-sdk-ios). You must make REST requests to the Microsoft Graph API.
+
 ### How this guide works
 
 ![How this guide works](media/active-directory-mobileanddesktopapp-ios-introduction/iosintro.png)
