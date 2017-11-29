@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/19/2017
+ms.date: 11/29/2017
 ms.author: genli
 
 ---
