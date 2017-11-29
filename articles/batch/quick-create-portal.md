@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # Run your first Batch job in the portal
 
-This quickstart shows how to use the Azure portal to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs a *task* on the pool. This example is very basic but introduces you to the key concepts of the Batch service.
+This quickstart shows how to use the Azure portal to create a Batch account, a *pool* of compute nodes (virtual machines), and a sample *job* that runs  *tasks* on the pool. This example is very basic but introduces you to the key concepts of the Batch service.
 
 ## Log in to Azure 
 
@@ -27,7 +27,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create Batch account
 
-Follow these steps to create a sample Batch account for test purposes. You create compute resources (pools of compute nodes) and Batch jobs in an account. As shown in this example, you can optionally associate an Azure storage account with the Batch account, which is useful to deploy applications and store input and output data.
+Follow these steps to create a sample Batch account for test purposes. You need an account to create compute resources (pools of compute nodes) and Batch jobs. As shown in this example, you can link an Azure storage account with the Batch account, which is useful to deploy applications and store input and output data.
 
 
 1. Select **New** > **Compute** > **Batch Service**. 
@@ -48,7 +48,7 @@ When the **Deployment succeeded** message appears, go to the Batch account in th
 
 ## Create a Batch pool
 
-Create a sample pool of Windows virtual machines for test purposes. The pool consists of 4 size A1 nodes running Windows Server 2016 from the Azure Marketplace. If you prefer a Linux pool, select one of the available Linux distributions.
+Create a sample pool of Windows virtual machines for test purposes. The pool consists of 2 size A1 nodes running Windows Server 2016 from the Azure Marketplace. If you prefer a Linux pool, select one of the available Linux distributions.
 
 
 1. Click **Pools** > **Add**.
@@ -76,7 +76,7 @@ While the compute nodes are starting, you see a **Resizing** message. You can go
 
 ## Create a Batch job
 
-A Batch job specifies a pool to run tasks on and optionally a priority and schedule for the work. The following example creates a job to run on the pool you created.
+A Batch job specifies a pool to run tasks on and optionally a priority and schedule for the work. The following example creates a job on the pool you created. Initially the job has no tasks.
 
 1. In the account view, click **Jobs** > **Add**. 
 
@@ -88,13 +88,13 @@ After the job is crated, the **Tasks** page opens.
 
 ## Create tasks
 
-Now create sample tasks to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example you create two identical tasks. Each task is a command to wait 90 seconds and then run the `set` command on a compute nodes. This `cmd` command dispays the Windows environment variables. When you use Batch, the command line is where you specify your app or script. 
+Now create sample tasks to run in the job. Typically you create multiple tasks that Batch queues and distributes to run on the compute nodes. In this example, you create two identical tasks. Each task runs a **Command line** to run the `set` command on a compute node, and then wait 90 seconds. The `set` command dispays the Windows environment variables. When you use Batch, the **Command line** is where you specify your app or script. 
 
 1. Click **Add**.
 
 2. Enter a **Task ID**, such as *mytask-windows*. 
 
-3. In **Command line**, enter `cmd /c "timeout /t 90 /nobreak > NUL & set"`. Keep the defaults for the remaining setttings, and click **OK**.
+3. In **Command line**, enter `cmd /c "set & timeout /t 90 > NUL"`. Keep the defaults for the remaining setttings, and click **OK**.
 
   ![Create a task][task_create]
 
@@ -103,12 +103,12 @@ After the task is created, it starts running on one of the nodes in the pool.
 While the task runs, create a second task with an identical command line. If the first task is still running, Batch starts the second task on the other node in the pool.
 
 > [!TIP]
-> If you are running a task on a Linux pool, try a similar **Command line** like `/bin/bash -c "sleep 90s; printenv"`.
+> If you are running a task on a Linux pool, try a similar **Command line** like `/bin/bash -c "printenv; sleep 90s"`.
 >
 
 ## View task output
 
-The preceding task examples should complete in a couple of minutes. To view the output of one of the tasks, click **Files on node**, and then select the file stdout.txt. This file shows the standard output of the task command. The contents are similar to the following:
+The preceding task examples complete in a couple of minutes. To view the output of one of the tasks, click **Files on node**, and then select the file `stdout.txt`. This file shows the standard output of the task. The contents are similar to the following:
 
 
 ![View task output][task_output]

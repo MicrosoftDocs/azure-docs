@@ -14,7 +14,7 @@ ms.devlang:
 ms.topic: tutorial
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/21/2017
+ms.date: 11/28/2017
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -24,17 +24,18 @@ ms.custom: mvc
 Azure Batch provides cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service supports Autodesk Maya, 3ds Max, Arnold, and V-Ray. This tutorial shows you the steps to render a 3ds Max scene with Batch using the Arnold ray-tracing renderer. You learn how to:
 
 > [!div class="checklist"]
-> * W
-> * X
-> * Y
-> * Z
+> * Upload scenes to Azure storage
+> * Create a Batch pool for rendering
+> * Render a single-frame scene with Arnold
+> * Scale the pool, and render a multi-frame scene
+> * Download rendered output
 
 
 ## Prerequisites
 
 This tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-Download sample 3ds Max scene files and Batch configuration files from [here](TBD) to a working directory on your local computer. 
+Download sample 3ds Max scene files and Batch configuration files from [here](TBD) [*Need to find location*] to a working directory on your local computer. 
 
 ## Create a Batch account
 
@@ -78,7 +79,7 @@ Create a blob container in the storage account for the scene file data. The foll
 az storage container create --public-access blob --name scenefiles
 ```
 
-Now upload the scene files from your local working folder to the blob container, using the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command:
+Upload the scene files from your local working folder to the blob container, using the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command:
 
 ```azurecli-interactive
 az storage blob upload-batch --destination scenefiles --source ./scenes
@@ -89,7 +90,7 @@ az storage blob upload-batch --destination scenefiles --source ./scenes
 
 Create a Batch pool for rendering using the [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) command. In this example, you specify the pool settings in a JSON file called *mypool.json*, included in the files you downloaded for this tutorial.
 
-The pool specified contains a single dedicated compute node (VM) running a Windows Server rendering image that Batch can use for the Rendering service. This pool is licensed to render with 3ds Max and Arnold. In a later step, the pool is scaled up to a larger number of nodes.
+The pool specified contains a single dedicated compute node (VM) running a Windows Server image with software for the Batch Rendering service. This pool is licensed to render with 3ds Max and Arnold. In a later step, you scale the pool to a larger number of nodes.
 
 ```json
 {
@@ -136,13 +137,13 @@ Before scheduling a rendering job, create a blob container in your storage accou
 az storage container create --public-access blob --name job-myrenderjob
 ```
 
-To write output files to the container, Batch needs to use a Shared Access Signature (SAS) token. For this example, create the token with the [az storage account generate-sas](/cli/azure/storage/account#az_storage_account_generate_sas) command. This example creates a token to use to write to any blob containers in the account, and the token expires on November 15, 2018:
+To write output files to the container, Batch needs to use a Shared Access Signature (SAS) token. For this example, create the token with the [az storage account generate-sas](/cli/azure/storage/account#az_storage_account_generate_sas) command. This example creates a token to write to any blob container in the account, and the token expires on November 15, 2018:
 
 ```azurecli-interactive
 az storage account generate-sas --permissions w --resource-types co --services b --expiry 2018-11-15
 ```
 
-Take note of the token returned by the command, which looks similar to the following:
+Take note of the token returned by the command, which looks similar to the following. You use this token in a later step.
 
 ```
 se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -157,12 +158,12 @@ Create a rendering job to run on the pool by using the [az batch job create](/cl
 az batch job create --id myrenderjob --pool-id myrenderpool
 ```
 
-Use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create a rendering task in the job. In this example, you specify the task settings in a JSON file.called *myrendertask.json*, included in the files you downloaded for this tutorial. The task specified uses an Arnold command line to render a single frame of the 3ds Max scene *Robo_Dummy_Lo_Res.max*.
+Use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create a rendering task in the job. In this example, you specify the task settings in a JSON file called *myrendertask.json*, included in the files you downloaded for this tutorial. The task specified uses an Arnold command line to render a single frame of the 3ds Max scene *Robo_Dummy_Lo_Res.max*.
 
  Modify the `blobSource` and `containerURL` elements in the JSON file to include the name of your storage account and the SAS token you generated previously. 
 
 > [!TIP]
-> Your `containerURL` is similar to:
+> Your `containerURL` ends with your SAS token and is similar to:
 > 
 > ```
 > https://mystorageaccount.blob.core.windows.net/job-myrenderjob/$TaskOutput?se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -220,7 +221,7 @@ The task takes a few minutes to run. Use the [az batch task show](/cli/azure/bat
 az batch task show --job-id myrenderjob --task-id myrendertask
 ```
 
-The task generates *image0001.jpg* on the compute node and uploads it to the *job-myrenderjob* container in your storage account. To view the output, download the file to your local computer using the [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) command.
+The task generates *image0001.jpg* on the compute node and uploads it to the *job-myrenderjob* container in your storage account. To view the output, download the file from storage to your local computer using the [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) command.
 
 ```azurecli-interactive
 az storage blob download --container-name job-myrenderjob --file image.jpg --name image0001.jpg
@@ -236,7 +237,7 @@ Open the file on your computer. The rendered image looks similar to the followin
 
 Now modify the pool to prepare for a larger rendering job, with multiple frames. 
 
-[Q: For simplicity, should this section simply update pool to have a larger number of dedicated nodes, like 6?]
+[*Q: For simplicity, should this section simply update pool to have a larger number of dedicated nodes, like 6?*]
 
 Apply an autoscaling formula to the pool using the [az batch pool autoscale enable](/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_enable) command. The autoscale formula in this example keeps a minimum of one dedicated node, and adjusts the node count according to the active tasks, up to a maximum of 8. This is just one way to scale the compute resources.
 
@@ -249,7 +250,7 @@ az batch pool autoscale enable --pool-id myrenderpool --auto-scale-formula "$ave
 
 As in the single-frame example, use the [az batch task create](/cli/azure/batch/task#az_batch_task_create) command to create rendering tasks in the job. In this example, you specify the task settings in a JSON file called *myrendertask_multi.json*, included in the files you downloaded for this tutorial. Each of the six tasks specified uses an Arnold command line to render one frame of the 3ds Max scene *MotionBlur-DragonFlying.max*.
 
-As you did in the preceding example, modify the `blobSource` and `containerURL` elements in the JSON file to include the name of your storage account and your SAS token. Be sure to change the settings for each of the six frames to be processed. Save the file and run the following command to queue the tasks:
+As you did in the preceding example, modify the `blobSource` and `containerURL` elements in the JSON file to include the name of your storage account and your SAS token. Be sure to change the settings for each of the six tasks. Save the file and run the following command to queue the tasks:
 
 ```azurecli-interactive
 az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
@@ -268,30 +269,35 @@ To see how Batch allocates tasks to the pool, in the [Azure portal](https://port
 
 ![Pool running multiple tasks](./media/tutorial-rendering-cli/pool.png)
  
-The tasks generate files *dragon0001.jpg* - *dragon0006.jpg* on the compute nodes and upload them to the *job-myrenderjob* container in your storage account. To view the output, download the files to your local computer using the [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download) command. For example:
+The tasks generate output files named *dragon000x.jpg* on the compute nodes and upload them to the *job-myrenderjob* container in your storage account. To view the output, download the files to a folder on your local computer using the [az storage blob download-batch](/cli/azure/storage/blob#az_storage_blob_download_batch) command. For example:
 
 ```azurecli-interactive
-az storage blob download --container-name job-myrenderjob --file dragon.jpg --name dragon0001.jpg
+az storage blob download --source job-myrenderjob --destination .
 
 ```
 
-Open the file on your computer. The rendered image looks similar to the following:
+Open one of the files on your computer. A rendered image looks similar to the following:
 
 ![Rendered dragon frame](./media/tutorial-rendering-cli/dragon-frame.png) 
 
-Download other dragon images to see additional rendered frames from the tasks.
+
 
 ## Clean up resources
 
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, Batch account, pools, and all related resources. Delete the resources as follows:
 
+```azurecli-interactive 
+az group delete --name myResourceGroup
+```
 
 In this tutorial, you learned about how to:
 
 > [!div class="checklist"]
-> * W
-> * X
-> * Y
-> * Z
+> * Upload scenes to Azure storage
+> * Create a Batch pool for rendering
+> * Render a single-frame scene with Arnold
+> * Scale the pool, and render a multi-frame scene
+> * Download rendered output
 
 Advance to the next tutorial to learn about ....  
 
