@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Calculate blob container size | Microsoft Docs
 description: Calculate the size of a container in Azure Blob storage by totaling the size of the blobs in the container.
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 
