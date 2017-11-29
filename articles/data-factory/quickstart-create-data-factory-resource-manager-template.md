@@ -103,6 +103,18 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 			"metadata": {
 				"description": "Name of the output file/blob."
 			}
+		},
+		"triggerStartTime": {
+			"type": "string",
+			"metadata": {
+				"description": "Start time for the trigger."
+			}
+		},
+		"triggerEndTime": {
+			"type": "string",
+			"metadata": {
+				"description": "End time for the trigger."
+			}
 		}
 	},
 	"variables": {
@@ -302,28 +314,40 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 > [!IMPORTANT]
 > You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments. 
 
-## Create a data factory and a pipeline
-1. Start **Azure PowerShell** and run the following command: 
-   * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
+## Deploy Data Factory entities 
+In PowerShell, run the following command to deploy Data Factory entities using the Resource Manager template you created earlier in this quickstart. 
 
-    	```PowerShell
-    	Login-AzureRmAccount
-    	```  
-   * Run the following command to view all the subscriptions for this account.
+```PowerShell
+New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
+```
 
-    	```PowerShell
-    	Get-AzureRmSubscription
-    	``` 
-   * Run the following command to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
+You see output similar to the following sample: 
 
-    	```
-	    Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
-	    ```   
-2. Run the following command to deploy Data Factory entities using the Resource Manager template you created earlier in this quickstart. 
+```
+DeploymentName          : MyARMDeployment
+ResourceGroupName       : ADFTutorialResourceGroup
+ProvisioningState       : Succeeded
+Timestamp               : 11/29/2017 3:11:13 AM
+Mode                    : Incremental
+TemplateLink            :
+Parameters              :
+                          Name                 Type            Value
+                          ===============      ============    ==========
+                          dataFactoryName      String          <data factory name>
+                          dataFactoryLocation  String          East US
+                          storageAccountName   String          <storage account name>
+                          storageAccountKey    SecureString
+                          blobContainer        String          adftutorial
+                          inputBlobFolder      String          input
+                          inputBlobName        String          emp.txt
+                          outputBlobFolder     String          output
+                          outputBlobName       String          emp.txt
+                          triggerStartTime     String          11/29/2017 12:00:00 AM
+                          triggerEndTime       String          11/29/2017 4:00:00 AM
 
-	```PowerShell
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
-	```
+Outputs                 :
+DeploymentDebugLogLevel :
+```
 
 ## Start the trigger
 
