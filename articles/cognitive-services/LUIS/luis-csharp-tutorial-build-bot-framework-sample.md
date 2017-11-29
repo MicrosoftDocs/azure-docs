@@ -8,8 +8,8 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 10/16/2017
-ms.author: v-g-berr
+ms.date: 11/29/2017
+ms.author: v-geberr
 ---
 
 # Integrate LUIS with a bot using the Bot Builder SDK for C#
