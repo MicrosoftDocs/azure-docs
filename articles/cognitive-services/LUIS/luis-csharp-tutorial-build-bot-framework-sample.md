@@ -16,6 +16,13 @@ ms.author: v-g-berr
 
 This tutorial walks you through connecting to a bot built with [Bot Framework][BotFramework] integrated with a LUIS app.
 
+The bot recognizes the following intents and entities: 
+
+| Intent | Example utterance | Recognized entity in utterance |Entity type |
+|:----:|:----------:|:-----:|:-----:|
+| SearchForHotels | Find hotels in Seattle. | Seattle | Location |
+| FindHotelReviews | Get a review of the Contoso hotel. | Contoso | HotelName |
+
 When a user talks to your bot with a phrase such as "Search hotels in Seattle", the bot calls into your LUIS app with the LUIS endpoint URL. LUIS returns a response to the bot and the bot constructs a response to the user. 
 
 In the Bot Framework Emulator, you can see what is happening from the user's view as well as the HTTP request/response log in the log panel.
