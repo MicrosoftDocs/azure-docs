@@ -14,15 +14,15 @@ ms.author: marsma
 
 # Azure Container Registry webhook reference
 
-Webhook events are triggered when certain actions are performed against your registry, such as container image `push` and `delete` operations. When a webhook is triggered, Azure Container Registry issues a request to an endpoint you specify. Your endpoint can then process the webhook and act accordingly.
+You can [configure webhooks](container-registry-webhook.md) for your container registry that generate events when certain actions are performed against it. For example, you can enable webhooks that are triggered on container image `push` and `delete` operations. When a webhook is triggered, Azure Container Registry issues an HTTP or HTTPS request containing information about the event to an endpoint you specify. Your endpoint can then process the webhook and act accordingly.
 
-The following sections detail the schema of the webhook requests for supported events. Each section contains one or more example commands that would trigger the webhook event, an example JSON body of the resulting request, and tables that detail the schema objects in the request.
+The following sections detail the schema of the webhook requests for supported events. Each section contains one or more example commands that would trigger the webhook event, an example JSON body of the resulting request, and tables that detail the request's schema objects and their properties.
 
 For information about configuring webhooks for your Azure container registry, see [Using Azure Container Registry webhooks](container-registry-webhook.md).
 
 ## Push image
 
-Example command that triggers this webhook:
+Example command that triggers a webhook on image push:
 
 ```bash
 docker push myregistry.azurecr.io/hello-world:v1
