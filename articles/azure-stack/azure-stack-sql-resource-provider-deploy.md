@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/29/2017
 ms.author: JeffGo
 
 ---
@@ -48,10 +48,15 @@ You must create one (or more) SQL servers and/or provide access to external SQL 
 
     b. On multi-node systems, the host must be a system that can access the Privileged Endpoint.
 
-3. [Download the SQL resource provider binaries file](https://aka.ms/azurestacksqlrp) and execute the self-extractor to extract the contents to a temporary directory.
+3. Download the SQL resource provider binary and execute the self-extractor to extract the contents to a temporary directory.
+    >[!NOTE] The resource provider build corresponds to Azure Stack builds. You must download the correct binary for the version of Azure Stack that is running.
 
-    > [!NOTE]
-    > If you running on an Azure Stack build 20170928.3 or earlier, [Download this version](https://aka.ms/azurestacksqlrp1709).
+    | Azure Stack Build | SQL RP installer |
+    | --- | --- |
+    | 1.0.171122.1 | [SQL RP version 1.1.10.0](https://aka.ms/azurestacksqlrp) |
+    | 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
+    | 1.0.170928.3 | [SQL RP version 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
+   
 
 4. The Azure Stack root certificate is retrieved from the Privileged Endpoint. For ASDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
 
@@ -101,7 +106,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the Resource Provider VM
+# Set credentials for the new Resource Provider VM
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
