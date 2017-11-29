@@ -87,7 +87,9 @@ This article lists the various servers and workloads that you can protect with A
 |Hyper-V host - DPM protection agent on Hyper-V host server, cluster, or VM|Windows Server 2008 R2 SP1 - Enterprise and Standard|Physical server<br /><br />On-premises Hyper-V virtual machine|Y|Y|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
 |Hyper-V host - DPM protection agent on Hyper-V host server, cluster, or VM|Windows Server 2008|Physical server<br /><br />On-premises Hyper-V virtual machine|N|N|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
 |VMware VMs|VMware server 5.5 or 6.0 or 6.5 |On-premises Hyper-V virtual machine|Y|Y (with UR1)|VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage<br /> Item-level recovery of files and folders available only for Windows<br /> VMware vApps not supported|
-|Linux|Linux running as Hyper-V or VMware guest|On-premises Hyper-V virtual machine|Y|Y|Hyper-V must be running on Windows Server 2012 R2 or Windows Server 2016. Protect: Entire virtual machine<br /><br />Recover: Entire virtual machine|
+|Linux|Linux* running as Hyper-V or VMware guest|On-premises Hyper-V virtual machine|Y|Y|Hyper-V must be running on Windows Server 2012 R2 or Windows Server 2016. Protect: Entire virtual machine<br /><br />Recover: Entire virtual machine|
+
+*Supported Linux distros are the Same distributions that endorsed for Azure: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
 
 ## Cluster support
 Azure Backup Server can protect data in the following clustered applications:
