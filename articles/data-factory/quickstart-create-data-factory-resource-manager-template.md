@@ -38,32 +38,6 @@ To learn about Azure Resource Manager templates in general, see [Authoring Azure
 The following section provides the complete Resource Manager template for defining Data Factory entities so that you can quickly run through the tutorial and test the template. To understand how each Data Factory entity is defined, see [Data Factory entities in the template](#data-factory-entities-in-the-template) section.
 
 ## Data Factory JSON 
-The top-level Resource Manager template for defining a data factory is: 
-
-```json
-{
-    "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "parameters": { ...
-    },
-    "variables": { ...
-    },
-    "resources": [
-        {
-            "name": "<yourdatafactoryname>",
-            "apiVersion": "2017-09-01-preview",
-            "type": "Microsoft.DataFactory/datafactories",
-            "location": "<region. for example: East US>",
-            "resources": [
-                { ... },
-                { ... },
-                { ... },
-                { ... }
-            ]
-        }
-    ]
-}
-```
 Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder with the following content:
 
 ```json
@@ -255,8 +229,8 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 						"recurrence": {
 							"frequency": "Hour",
 							"interval": 1,
-							"startTime": "2017-11-28T00:00:00",
-							"endTime": "2017-11-29T00:00:00",
+							"startTime": "[parameters('triggerStartTime')]",
+							"endTime": "[parameters('triggerEndTime')]",
 							"timeZone": "UTC"
 						}
 					},
@@ -278,9 +252,10 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template.  
 
 > [!IMPORTANT]
-> Specify the name and key of your Azure Storage account for the **storageAccountName** and **storageAccountKey** parameters in this parameter file. 
-> 
-> Specify a globally unique name for the data factory for the **dataFactoryName** parameter. 
+> - Specify the name and key of your Azure Storage account for the **storageAccountName** and **storageAccountKey** parameters in this parameter file. This is the storage account in which you created the adftutorial container and uploaded the sample file (emp.txt) to the input folder. 
+> - Specify a globally unique name for the data factory for the **dataFactoryName** parameter. For example: ARMTutorialFactoryJohnDoe11282017. 
+> - For the **triggerStartTime**, specify the current day in the format: 2017-11-28T00:00:00.
+> - For the **triggerEndTime**, specify the next day in the format: 2017-11-29T00:00:00. You can also check the current UTC time and specify the next hour or two as the end time. For example, if the UTC time now is 1:32 AM, specify 2017-11-29:03:00:00 as the end time. In this case, the trigger runs the pipeline twice (at 2 AM and 3 AM).
 
 ```json
 {
@@ -313,6 +288,12 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
     },
     "outputBlobName": {
       "value": "emp.txt"
+    },
+    "triggerStartTime": {
+        "value": "2017-11-28T00:00:00. Set to today"
+    },
+    "triggerEndTime": {
+        "value": "2017-11-29T00:00:00. Set to tomorrow"
     }
   }
 }
@@ -324,18 +305,21 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 ## Create a data factory and a pipeline
 1. Start **Azure PowerShell** and run the following command: 
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
-	```PowerShell
-	Login-AzureRmAccount
-	```  
+
+    	```PowerShell
+    	Login-AzureRmAccount
+    	```  
    * Run the following command to view all the subscriptions for this account.
-	```PowerShell
-	Get-AzureRmSubscription
-	``` 
+
+    	```PowerShell
+    	Get-AzureRmSubscription
+    	``` 
    * Run the following command to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
-	```
-	Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
-	```   
-2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1. 
+
+    	```
+	    Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
+	    ```   
+2. Run the following command to deploy Data Factory entities using the Resource Manager template you created earlier in this quickstart. 
 
 	```PowerShell
     New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
@@ -343,17 +327,26 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 
 ## Start the trigger
 
-1. In the PowerShell window, create a variable for the name of the resource group. 
+The template deploys the following Data Factory entities: 
+
+- Azure Storage linked service
+- Azure Blob datasets (input and output)
+- Pipeline with a copy activity
+- Trigger to trigger the pipeline
+
+The deployed trigger is in stopped state. You need to start the trigger manually. One of the ways to start the trigger is to use the **Start-AzureRmDataFactoryV2Trigger** PowerShell cmdlet. The following procedure provides detailed steps: 
+
+1. In the PowerShell window, create a variable to hold the name of the resource group. Copy the following command into the PowerShell window, and press ENTER. If you have specified a different resource group name for the New-AzureRmResourceGroupDeployment command, update the value here. 
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
     ``` 
-1. Set a variable for the name of the data factory. 
+1. Create a variable to hold the name of the data factory. This is the name you specified in the ADFTutorialARM-Parameters.json file.   
 
     ```powershell
     $dataFactoryName = "<yourdatafactoryname>"
     ```
-3. Set a variable for the name of the trigger. 
+3. Set a variable for the name of the trigger. The name of the trigger is hardcoded in the Resource Manager template file (ADFTutorialARM.json).
 
     ```powershell
     $triggerName = "ArmTemplateTestTrigger"
@@ -373,7 +366,9 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
     Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
     RuntimeState      : Stopped
     ```
-5. **Start the trigger**, which runs the pipeline hourly: 
+    
+    Notice that the runtime state of the trigger is **Stopped**. 
+5. **Start the trigger**. The trigger runs the pipeline defined in the template at the hour. That's, if you executed this command at 2:25 PM, the trigger runs the pipeline at 3 PM for the first time. Then, it runs the pipeline hourly until the  end time you specified for the trigger. 
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
@@ -387,7 +382,7 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Confirm that the trigger has been started by running the following PowerShell command:  
+6. Confirm that the trigger has been started by running the Get-AzureRmDataFactoryV2Trigger command again.  
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
@@ -402,8 +397,6 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
     Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
     RuntimeState      : Started
     ```
-
-The pipeline runs hourly at the hour. For example, if the current time is 4:25 PM, it runs at 5:00 PM for the first time. 
 
 ## Monitor the pipeline
 1. After logging in to the [Azure portal](https://portal.azure.com/), Click **More services**, search with the keyword such as `data fa`, and select **Data factories**.
@@ -420,7 +413,7 @@ The pipeline runs hourly at the hour. For example, if the current time is 4:25 P
     ![Monitor pipeline run](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)    
 
     > [!IMPORTANT]
-    > You see pipeline runs only at the hour clock (for example: 4 AM, 5 AM, 6 AM, etc.). Click **Refresh** on the toolbar to refresh the list.
+    > You see pipeline runs only at the hour clock (for example: 4 AM, 5 AM, 6 AM, etc.). Click **Refresh** on the toolbar to refresh the list when the time reaches the next hour. 
 5. Click the link in the **Actions** columns. 
 
     ![Pipeline actions link](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
@@ -430,6 +423,11 @@ The pipeline runs hourly at the hour. For example, if the current time is 4:25 P
 1. Click the link under **Output** column. You see the output from the copy operation in an **Output** window. Click the maximize button to see the full output. You can close the maximized output window or close it. 
 
     ![Output window](media/quickstart-create-data-factory-resource-manager-template/output-window.png)
+7. Stop the trigger once you see a successful/failure run. The trigger runs the pipeline once an hour. The pipeline copies the same file from the input folder to the output folder for each run. To stop the trigger, run the following command in the PowerShell window. 
+    
+    ```powershell
+    Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    ```
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
@@ -437,9 +435,10 @@ The pipeline runs hourly at the hour. For example, if the current time is 4:25 P
 The following Data Factory entities are defined in the JSON template: 
 
 1. [Azure Storage linked service](#azure-storage-linked-service)
-3. [Azure blob input dataset](#azure-blob-input-dataset)
-4. [Azure Blob output dataset](#azure-blob-output-dataset)
-5. [Data pipeline with a copy activity](#data-pipeline)
+2. [Azure blob input dataset](#azure-blob-input-dataset)
+3. [Azure Blob output dataset](#azure-blob-output-dataset)
+4. [Data pipeline with a copy activity](#data-pipeline)
+5. [Trigger](#trigger)
 
 #### Azure Storage linked service
 The AzureStorageLinkedService links your Azure storage account to the data factory. You created a container and uploaded data to this storage account as part of prerequisites. You specify the name and key of your Azure storage account in this section. See [Azure Storage linked service](connector-azure-blob-storage.md#linked-service-properties) for details about JSON properties used to define an Azure Storage linked service. 
@@ -566,7 +565,7 @@ You define a pipeline that copies data from one Azure blob dataset to another Az
 ```
 
 #### Trigger
-JSON definition: 
+You define a trigger that runs the pipeline once an hour. The deployed trigger is in stopped state. You need to start the trigger by using the **Start-AzureRmDataFactoryV2Trigger** cmdlet. For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers) article. 
 
 ```json
 {
@@ -619,7 +618,7 @@ Notice that the first command uses parameter file for the development environmen
 You can also reuse the template to perform repeated tasks. For example, you need to create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure storage accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories. 
 
 ## Create an integration runtime
-Here is a sample Resource Manager template for creating a logical gateway in the back. Install a gateway on your on-premises computer or Azure IaaS VM and register the gateway with Data Factory service using a key. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) for details.
+Here is a sample Resource Manager template for creating a logical self-hosted integration runtime in the cloud. Install the integration runtime on your on-premises computer or Azure IaaS VM, and register it with the Data Factory service by using a key. For details about the self-hosted integration runtime, See [Tutorial: Copy data from on-premises SQL Server to Azure Blob Storage](tutorial-hybrid-copy-powershell.md).
 
 ```json
 {
