@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 11/28/2017
 ms.author: jeedes
 
 ---
@@ -134,11 +134,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     | |
     |--|
+	| `google.com`|
+	| `http://google.com`|
+	| `google.com/<yourdomain.com>`|
     | `http://google.com/a/<yourdomain.com>`|
-    | `http://google.com`|    
-    | `google.com/<yourdomain.com>`|
-    | `google.com`|
-
+       
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Google Apps Client support team](https://www.google.com/contact/) to get these values. 
 
