@@ -133,8 +133,8 @@ At a high level, **Azure Active Directory is probably the best choice for your m
 | ---------- | ----------- | ---------------- |
 | **Types of accounts** | | |
 | Microsoft work and school accounts | Supported | Supported |
-| Accounts from Windows Server Active Directory and AD FS | Supported via federation with an Azure AD tenant <br /> Supported via direct federation with AD FS | Only supported via federation with an Azure AD tenant | 
-| Accounts from other enterprise identity management systems | Possible via federation with an Azure AD tenant <br />Supported via direct federation | Possible via federation with an Azure AD tenant |
+| Accounts from Windows Server Active Directory and AD FS |- Supported via federation with an Azure AD tenant <br />- Supported via direct federation with AD FS | Only supported via federation with an Azure AD tenant | 
+| Accounts from other enterprise identity management systems |- Possible via federation with an Azure AD tenant <br />- Supported via direct federation | Possible via federation with an Azure AD tenant |
 | Microsoft accounts for personal use | Supported | Supported via the Azure AD v2.0 OAuth protocol, but not over any other protocols | 
 | Facebook, Google, Yahoo accounts | Supported | Not supported whatsoever |
 | **Protocols and SDK compatibility** | | |
@@ -150,7 +150,7 @@ At a high level, **Azure Active Directory is probably the best choice for your m
 | **Customizations** | | |
 | Customizable home realm discovery/account-picking UI | Downloadable code that can be incorporated into apps | Not supported |
 | Upload custom token-signing certificates | Supported | Supported |
-| Customize claims in tokens | Pass through input claims from identity providers.<br />Get access token from identity provider as a claim.<br />Issue output claims based on values of input claims.<br />Issue output claims with constant values. | Can't pass through claims from federated identity providers.<br />Can't get access token from identity provider as a claim.<br />Can't issue output claims based on values of input claims.<br />Can issue output claims with constant values.<br />Can issue output claims based on properties of users synced to Azure AD. |
+| Customize claims in tokens |- Pass through input claims from identity providers<br />- Get access token from identity provider as a claim<br />- Issue output claims based on values of input claims<br />- Issue output claims with constant values |- Cannot pass through claims from federated identity providers<br />- Cannot get access token from identity provider as a claim<br />- Cannot issue output claims based on values of input claims<br />- Can issue output claims with constant values<br />- Can issue output claims based on properties of users synced to Azure AD |
 | **Automation** | | |
 | Automate configuration and management tasks | Supported via Access Control Management Service | Supported via Microsoft Graph and Azure AD Graph API |
 
@@ -213,9 +213,9 @@ The following table compares the features of Access Control that are relevant to
 | **Customizations** | | |
 | Customizable home realm discovery/account-picking UI | Downloadable code that can be incorporated into apps | Fully customizable UI via custom CSS |
 | Upload custom token-signing certificates | Supported | Custom signing keys, not certificates, supported via custom policies |
-| Customize claims in tokens | Pass through input claims from identity providers.<br />Get access token from identity provider as a claim.<br />Issue output claims based on values of input claims.<br />Issue output claims with constant values. | Can pass through claims from identity providers. Custom policies required for some claims.<br />Can't get access token from identity provider as a claim.<br />Can issue output claims based on values of input claims via custom policies.<br />Can issue output claims with constant values via custom policies. |
+| Customize claims in tokens |- Pass through input claims from identity providers<br />- Get access token from identity provider as a claim<br />- Issue output claims based on values of input claims<br />- Issue output claims with constant values |- Can pass through claims from identity providers; custom policies required for some claims<br />- Cannot get access token from identity provider as a claim<br />- Can issue output claims based on values of input claims via custom policies<br />- Can issue output claims with constant values via custom policies. |
 | **Automation** | | |
-| Automate configuration and management tasks | Supported via Access Control Management Service | Creation of users allowed via Azure AD Graph API.<br /> Can't create B2C tenants, applications, or policies programmatically. |
+| Automate configuration and management tasks | Supported via Access Control Management Service |- Creation of users allowed via Azure AD Graph API<br />- Cannot create B2C tenants, applications, or policies programmatically |
 
 If you decide that Azure AD B2C is the best migration path for your applications and services, begin with the following resources:
 
@@ -281,10 +281,10 @@ You can also use Azure AD for server-to-server authentication by using the Azure
 | ---------- | ----------- | ---------------- |
 | How to register a web service | Create a relying party in the Access Control management portal | Create an Azure AD web application in the Azure portal |
 | How to register a client | Create a service identity in Access Control management portal | Create another Azure AD web application in the Azure portal |
-| Protocol used | OAuth WRAP protocol<br />OAuth 2.0 Draft 13 client credentials grant | OAuth 2.0 client credentials grant |
-| Client authentication methods | Simple password<br />Signed SWT<br />SAML token from a federated identity provider | Simple password<br />Signed JWT |
+| Protocol used |- OAuth WRAP protocol<br />- OAuth 2.0 Draft 13 client credentials grant | OAuth 2.0 client credentials grant |
+| Client authentication methods |- Simple password<br />- Signed SWT<br />- SAML token from a federated identity provider |- Simple password<br />Signed JWT |
 | Token formats | JWT<br />SAML 1.1<br />SAML 2.0<br />SWT<br /> | JWT only |
-| Token transformation | Add custom claims<br />Simple if-then claim issuance logic | Add custom claims | 
+| Token transformation |- Add custom claims<br />- Simple if-then claim issuance logic | Add custom claims | 
 | Automate configuration and management tasks | Supported via Access Control Management Service | Supported via Microsoft Graph and Azure AD Graph API |
 
 For guidance about implementing server-to-server scenarios, see the following resources:
