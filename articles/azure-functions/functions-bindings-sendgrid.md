@@ -3,7 +3,7 @@ title: Azure Functions SendGrid bindings | Microsoft Docs
 description: Azure Functions SendGrid bindings reference
 services: functions
 documentationcenter: na
-author: rachelappel
+author: tdykstra
 manager: cfowler
 
 ms.service: functions
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/26/2017
-ms.author: rachelap
+ms.author: tdykstra
 
 ---
 # Azure Functions SendGrid bindings
