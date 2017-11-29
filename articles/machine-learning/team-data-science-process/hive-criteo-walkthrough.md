@@ -4,7 +4,7 @@ description: Using the Team Data Science Process for an end-to-end scenario empl
 services: machine-learning,hdinsight
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 72d958c4-3205-49b9-ad82-47998d400d2b
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/29/2017
 ms.author: bradsev
 
 ---
