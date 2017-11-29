@@ -191,6 +191,20 @@ To get the most accurate results, the filter should be mapped before all other f
     </filter-mapping>
 ```
 
+#### If you're using Spring Boot
+Add a bean registration to your `SpringBootApplication` class:
+
+```java
+    @Bean
+    public FilterRegistrationBean registerApplicationInsightsFilter(){
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setFilter(new WebRequestTrackingFilter());
+        registration.addUrlPatterns("/**");
+        registration.setOrder(1);
+        return registration;
+    }
+```
+
 #### If you're using Spring Web MVC 3.1 or later
 Edit these elements in *-servlet.xml to include the Application Insights package:
 
