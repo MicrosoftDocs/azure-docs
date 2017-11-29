@@ -34,7 +34,7 @@ To complete this tutorial:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Test local PostgreSQL installation and create a database
 
@@ -255,7 +255,7 @@ Docker displays a confirmation that it successfully created the container.
 Successfully built 7548f983a36b
 ```
 
-Add database environment variables to an environment variable file *db.env*. The app will connect to the PostgreSQL production database in Azure.
+Add database environment variables to an environment variable file *db.env*. The app connects to the Azure Database for PostgreSQL production database.
 
 ```text
 DBHOST="<postgresql_name>.postgres.database.azure.com"
