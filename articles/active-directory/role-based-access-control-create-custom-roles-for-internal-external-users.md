@@ -32,7 +32,7 @@ Using RBAC in the Azure environment requires:
 * Make sure to have the following Resource Providers registered for the user subscription: **Microsoft.Authorization**. For more information on how to register the resource providers, see [Resource Manager providers, regions, API versions and schemas](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the O365 portal don't quality for using RBAC.
+> Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the O365 portal don't qualify for using RBAC.
 
 ## How can RBAC be used
 RBAC can be applied at three different scopes in Azure. From the highest scope to the lowest one, they are as follows:
@@ -160,7 +160,7 @@ The normal behavior for this external user with this built-in role is to see and
 
 
 
-![virtual machine contributor role overview in azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
+![virtual machine contributor role overview in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
 
 ## Grant access at a subscription level for a user in the same directory
 The process flow is identical to adding an external user, both from the admin perspective granting the RBAC role as well as the user being granted access to the role. The difference here is that the invited user will not receive any email invitations as all the resource scopes within the subscription will be available in the dashboard after signing in.
@@ -337,7 +337,7 @@ The new role is now available in the Azure portal and the assignation process is
 
 ![Azure portal screenshot of custom RBAC role created using CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
 
-As of the latest Build 2017, the Azure Cloud Shell is generally available. Azure Cloud Shell is a complement to IDE and the Azure Portal. With this service, you get a browser-based shell that is authenticated and hosted within Azure and you can use it instead of CLI installed on your machine.
+As of the latest Build 2017, the Azure Cloud Shell is generally available. Azure Cloud Shell is a complement to IDE and the Azure portal. With this service, you get a browser-based shell that is authenticated and hosted within Azure and you can use it instead of CLI installed on your machine.
 
 
 
