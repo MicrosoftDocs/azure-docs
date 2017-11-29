@@ -25,7 +25,9 @@ This quickstart demonstrates how to use [Go](https://godoc.org/github.com/denise
 
 To complete this quickstart tutorial, make sure you have the following prerequisites:
 
-[!INCLUDE [prerequisites-create-db-firewall](../../includes/sql-database-connect-query-prerequisites-create-db-firewall-includes.md)]
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+
+- A [server-level firewall rule](../articles/sql-database/sql-database-get-started-portal.md#create-a-server-level-firewall-rule) for the public IP address of the computer you use for this quickstart tutorial.
 
 - You have installed Go and related software for your operating system.
 
