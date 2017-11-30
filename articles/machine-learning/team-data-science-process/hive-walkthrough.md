@@ -7,7 +7,7 @@ description: Using the Team Data Science Process for an end-to-end scenario empl
 services: machine-learning,hdinsight
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
@@ -16,10 +16,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-
-ms.date: 01/29/2017
-
-ms.author: hangzh;bradsev
+ms.date: 11/29/2017
+ms.author: bradsev
 
 ---
 # The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters
@@ -61,15 +59,15 @@ Here are three examples of prediction problems that we address in this walkthrou
 
 1. **Binary classification**: Predict whether or not a tip was paid for a trip, i.e. a *tip\_amount* that is greater than $0 is a positive example, while a *tip\_amount* of $0 is a negative example.
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0
 2. **Multiclass classification**: To predict the range of tip amounts paid for the trip. We divide the *tip\_amount* into five bins or classes:
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0 and tip_amount <= $5
+        Class 2: tip_amount > $5 and tip_amount <= $10
+        Class 3: tip_amount > $10 and tip_amount <= $20
+        Class 4: tip_amount > $20
 3. **Regression task**: To predict the amount of the tip paid for a trip.  
 
 ## <a name="setup"></a>Set up an HDInsight Hadoop cluster for advanced analytics
@@ -134,7 +132,7 @@ The data should now in Azure Blob Storage and ready to be consumed within the HD
 > 
 > 
 
-To access the head node of the cluster for exploratory data analysis and down sampling of the data, follow the procedure outlined in [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md#headnode).
+To access the head node of the cluster for exploratory data analysis and down sampling of the data, follow the procedure outlined in [Access the Head Node of Hadoop Cluster](customize-hadoop-cluster.md).
 
 In this walkthrough, we primarily use queries written in [Hive](https://hive.apache.org/), a SQL-like query language, to perform preliminary data explorations. The Hive queries are stored in .hql files. We then down sample this data to be used within Azure Machine Learning for building models.
 
@@ -325,7 +323,7 @@ Of interest is the how the number of trips varies during the calendar year. Grou
 
     hive -e "select month, count(*) from nyctaxidb.trip group by month;"
 
-This gives us the output :
+This gives us the output:
 
     1       14776615
     2       13990176
@@ -378,7 +376,7 @@ Counting the total number of records in the fare data set can be done using the 
 
     hive -e "select count(*) from nyctaxidb.fare;"
 
-This yields :
+This yields:
 
     173179759
     Time taken: 186.683 seconds, Fetched: 1 row(s)
@@ -415,7 +413,7 @@ Here is the content of *sample\_hive\_trip\_count\_by\_medallion.hql* file for i
     HAVING med_count > 100
     ORDER BY med_count desc;
 
-From the Hive directory prompt, issue the command below :
+From the Hive directory prompt, issue the command below:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
@@ -438,7 +436,7 @@ The *sample\_hive\_trip\_count\_by\_medallion\_license.hql* file groups the fare
 
 This query returns cab and particular driver combinations ordered by descending number of trips.
 
-From the Hive directory prompt, run :
+From the Hive directory prompt, run:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion_license.hql" > C:\temp\queryoutput.tsv
 
@@ -462,7 +460,7 @@ Here is the content of *sample\_hive\_quality\_assessment.hql* file for inspecti
         OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
 
 
-From the Hive directory prompt, run :
+From the Hive directory prompt, run:
 
     hive -S -f "C:\temp\sample_hive_quality_assessment.hql"
 
@@ -525,7 +523,7 @@ Run the following command from Hadoop Command Line console:
 
 Having a measure of the direct distance allows us to find out the discrepancy between it and the actual trip distance. We motivate this feature by pointing out that a passenger might be less likely to tip if they figure out that the driver has intentionally taken them by a much longer route.
 
-To see the comparison between actual trip distance and the [Haversine distance](http://en.wikipedia.org/wiki/Haversine_formula) between two longitude-latitude points (the "great circle" distance), we use the trigonometric functions available within Hive, thus :
+To see the comparison between actual trip distance and the [Haversine distance](http://en.wikipedia.org/wiki/Haversine_formula) between two longitude-latitude points (the "great circle" distance), we use the trigonometric functions available within Hive, thus:
 
     set R=3959;
     set pi=radians(180);
@@ -559,7 +557,7 @@ From the Hive directory prompt, run:
 
 The query results are written to 9 Azure blobs ***queryoutputdir/000000\_0*** to  ***queryoutputdir/000008\_0*** under the default container of the Hadoop cluster.
 
-To see the size of the individual blobs, we run the following command from the Hive directory prompt :
+To see the size of the individual blobs, we run the following command from the Hive directory prompt:
 
     hdfs dfs -ls wasb:///queryoutputdir
 
@@ -583,7 +581,7 @@ A key advantage of having this data reside in an Azure blob is that we may explo
 After the exploratory data analysis phase, we are now ready to down sample the data for building models in Azure Machine Learning. In this section, we show how to use a Hive query to down sample the data, which is then accessed from the [Import Data][import-data] module in Azure Machine Learning.
 
 ### Down sampling the data
-There are two steps in this procedure. First we join the **nyctaxidb.trip** and **nyctaxidb.fare** tables on three keys that are present in all records : "medallion", "hack\_license", and "pickup\_datetime". We then generate a binary classification label **tipped** and a multi-class classification label **tip\_class**.
+There are two steps in this procedure. First we join the **nyctaxidb.trip** and **nyctaxidb.fare** tables on three keys that are present in all records: "medallion", "hack\_license", and "pickup\_datetime". We then generate a binary classification label **tipped** and a multi-class classification label **tip\_class**.
 
 To be able to use the down sampled data directly from the [Import Data][import-data] module in Azure Machine Learning, it is necessary to store the results of the above query to an internal Hive table. In what follows, we create an internal Hive table and populate its contents with the joined and down sampled data.
 
@@ -714,7 +712,7 @@ Below are the contents of *sample\_hive\_prepare\_for\_aml\_full.hql* file that 
         on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
         where t.sample_key<=0.01
 
-To run this query, from the Hive directory prompt :
+To run this query, from the Hive directory prompt:
 
     hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
@@ -723,26 +721,26 @@ We now have an internal table "nyctaxidb.nyctaxi_downsampled_dataset" which can 
 ### Use the Import Data module in Azure Machine Learning to access the down sampled data
 As prerequisites for issuing Hive queries in the [Import Data][import-data] module of Azure Machine Learning, we need access to an Azure Machine Learning workspace and access to the credentials of the cluster and its associated storage account.
 
-Some details on the [Import Data][import-data] module and the parameters to input :
+Some details on the [Import Data][import-data] module and the parameters to input:
 
-**HCatalog server URI**: If the cluster name is abc123, then this is simply : https://abc123.azurehdinsight.net
+**HCatalog server URI**: If the cluster name is abc123, this is simply: https://abc123.azurehdinsight.net
 
-**Hadoop user account name** : The user name chosen for the cluster (**not** the remote access user name)
+**Hadoop user account name**: The user name chosen for the cluster (**not** the remote access user name)
 
-**Hadoop ser account password** : The password chosen for the cluster (**not** the remote access password)
+**Hadoop ser account password**: The password chosen for the cluster (**not** the remote access password)
 
-**Location of output data** : This is chosen to be Azure.
+**Location of output data**: This is chosen to be Azure.
 
-**Azure storage account name** : Name of the default storage account associated with the cluster.
+**Azure storage account name**: Name of the default storage account associated with the cluster.
 
-**Azure container name** : This is the default container name for the cluster, and is typically the same as the cluster name. For a cluster called "abc123", this is just abc123.
+**Azure container name**: This is the default container name for the cluster, and is typically the same as the cluster name. For a cluster called "abc123", this is just abc123.
 
 > [!IMPORTANT]
 > **Any table we wish to query using the [Import Data][import-data] module in Azure Machine Learning must be an internal table.** A tip for determining if a table T in a database D.db is an internal table is as follows.
 > 
 > 
 
-From the Hive directory prompt, issue the command :
+From the Hive directory prompt, issue the command:
 
     hdfs dfs -ls wasb:///D.db/T
 
@@ -763,7 +761,7 @@ We are now able to proceed to model building and model deployment in [Azure Mach
 
 **Learner used:** Two-class logistic regression
 
-a. For this problem, our target (or class) label is "tipped". Our original down-sampled dataset has a few columns that are target leaks for this classification experiment. In particular : tip\_class, tip\_amount, and total\_amount reveal information about the target label that is not available at testing time. We remove these columns from consideration using the [Select Columns in Dataset][select-columns] module.
+a. For this problem, our target (or class) label is "tipped". Our original down-sampled dataset has a few columns that are target leaks for this classification experiment. In particular: tip\_class, tip\_amount, and total\_amount reveal information about the target label that is not available at testing time. We remove these columns from consideration using the [Select Columns in Dataset][select-columns] module.
 
 The snapshot below shows our experiment to predict whether or not a tip was paid for a given trip.
 
@@ -783,9 +781,9 @@ As a result, we obtain an AUC of 0.987 as shown in the figure below.
 
 **Learner used:** Multiclass logistic regression
 
-a. For this problem, our target (or class) label is "tip\_class" which can take one of five values (0,1,2,3,4). As in the binary classification case, we have a few columns that are target leaks for this experiment. In particular : tipped, tip\_amount, total\_amount reveal information about the target label that is not available at testing time. We remove these columns using the [Select Columns in Dataset][select-columns] module.
+a. For this problem, our target (or class) label is "tip\_class" which can take one of five values (0,1,2,3,4). As in the binary classification case, we have a few columns that are target leaks for this experiment. In particular: tipped, tip\_amount, total\_amount reveal information about the target label that is not available at testing time. We remove these columns using the [Select Columns in Dataset][select-columns] module.
 
-The snapshot below shows our experiment to predict in which bin a tip is likely to fall ( Class 0: tip = $0, class 1 : tip > $0 and tip <= $5, Class 2 : tip > $5 and tip <= $10, Class 3 : tip > $10 and tip <= $20, Class 4 : tip > $20)
+The snapshot below shows our experiment to predict in which bin a tip is likely to fall ( Class 0: tip = $0, class 1: tip > $0 and tip <= $5, Class 2: tip > $5 and tip <= $10, Class 3: tip > $10 and tip <= $20, Class 4: tip > $20)
 
 ![Experiment snapshot](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -797,13 +795,13 @@ b. For this experiment, we use a confusion matrix to look at our prediction accu
 
 ![Confusion matrix](./media/hive-walkthrough/cxFmErM.png)
 
-Note that while our class accuracies on the prevalent classes is quite good, the model does not do a good job of "learning" on the rarer classes.
+Note that while our class accuracies on the prevalent classes are quite good, the model does not do a good job of "learning" on the rarer classes.
 
 **3. Regression task**: To predict the amount of tip paid for a trip.
 
 **Learner used:** Boosted decision tree
 
-a. For this problem, our target (or class) label is "tip\_amount". Our target leaks in this case are : tipped, tip\_class, total\_amount ; all these variables reveal information about the tip amount that is typically unavailable at testing time. We remove these columns using the [Select Columns in Dataset][select-columns] module.
+a. For this problem, our target (or class) label is "tip\_amount". Our target leaks in this case are: tipped, tip\_class, total\_amount ; all these variables reveal information about the tip amount that is typically unavailable at testing time. We remove these columns using the [Select Columns in Dataset][select-columns] module.
 
 The snapshot belows shows our experiment to predict the amount of the given tip.
 
@@ -816,12 +814,12 @@ b. For regression problems, we measure the accuracies of our prediction by looki
 We see that about the coefficient of determination is 0.709, implying about 71% of the variance is explained by our model coefficients.
 
 > [!IMPORTANT]
-> To learn more about Azure Machine Learning and how to access and use it, please refer to [What's Machine Learning?](../studio/what-is-machine-learning.md). A very useful resource for playing with a bunch of Machine Learning experiments on Azure Machine Learning is the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). The Gallery covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Azure Machine Learning.
+> To learn more about Azure Machine Learning and how to access and use it, please refer to [What's Machine Learning](../studio/what-is-machine-learning.md). A very useful resource for playing with a bunch of Machine Learning experiments on Azure Machine Learning is the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). The Gallery covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Azure Machine Learning.
 > 
 > 
 
 ## License Information
-This sample walkthrough and its accompanying scripts are shared by Microsoft under the MIT license. Please check the LICENSE.txt file in in the directory of the sample code on GitHub for more details.
+This sample walkthrough and its accompanying scripts are shared by Microsoft under the MIT license. Please check the LICENSE.txt file in the directory of the sample code on GitHub for more details.
 
 ## References
 •    [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  

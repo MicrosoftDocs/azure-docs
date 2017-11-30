@@ -22,7 +22,6 @@ ms.custom: H1Hack27Feb2017
 # Create a group and add members in Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-groups-create-azure-portal.md)
-> * [Azure classic portal](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >

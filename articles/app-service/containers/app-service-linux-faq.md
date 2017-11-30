@@ -1,11 +1,11 @@
 ---
-title: Azure App Service Web App for Containers FAQ | Microsoft Docs
-description: Azure App Service Web App for Containers FAQ.
+title: Azure App Service on Linux FAQ | Microsoft Docs
+description: Azure App Service on Linux FAQ.
 keywords: azure app service, web app, faq, linux, oss
 services: app-service
 documentationCenter: ''
 author: ahmedelnably
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid:
@@ -16,11 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-
 ---
-# Azure App Service Web App for Containers FAQ
+# Azure App Service on Linux FAQ
 
-With the release of Web App for Containers, we're working on adding features and making improvements to our platform. This article provides answers to questions that our customers have been asking us recently.
+With the release of App Service on Linux, we're working on adding features and making improvements to our platform. This article provides answers to questions that our customers have been asking us recently.
 
 If you have a question, comment on the article and we'll answer it as soon as possible.
 
@@ -52,7 +51,7 @@ You need to set the **reserved** field of the app service to *true*.
 
 **My web app still uses an old Docker container image after I've updated the image on Docker Hub. Do you support continuous integration and deployment of custom containers?**
 
-**A:** To set up continuous integration/deployment for Azure Container Registry or DockerHub images by check the following article [Continuous Deployment with Azure Web App for Containers](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
+To set up continuous integration/deployment for Azure Container Registry or DockerHub images by check the following article [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md). For private registries, you can refresh the container by stopping and then starting your web app. Or you can change or add a dummy application setting to force a refresh of your container.
 
 **Do you support staging environments?**
 
@@ -62,7 +61,30 @@ Yes.
 
 Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to *false*.
 
+**Git deployment of my application fails when using Linux web app. How can I workaround the issue?**
+
+If Git deployment fails to your Linux web app, you can choose the following alternate options to deploy your application code:
+
+- Use the Continuous Delivery (Preview) feature: You can store your app’s source code in a Team Services Git repo or GitHub repo to use Azure Continuous Delivery. For more details, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+
+- Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) and go to the folder where you want to deploy your code. Run the following:
+
+   ```
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+   ```
+
+   If you get an error that the `curl` command is not found, make sure you install curl by using `apt-get install curl` before you run the previous `curl` command.
+
 ## Language support
+
+**I want to use websockets in my Node.js application, any special settings or configurations to set?**
+
+Yes, disable `perMessageDeflate` in your server side Node.js code. For example, if you are using socket.io, do the following:
+```
+var io = require('socket.io')(server,{
+  perMessageDeflate :false
+});
+```
 
 **Do you support uncompiled .NET Core apps?**
 
@@ -91,7 +113,7 @@ Provide the full registry URL, including `http://` or `https://`.
 
 **What is the format for the image name in the private registry option?**
 
-Add the full image name, including the private registry URL (for example, myacr.azurecr.io/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command-line tool](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
+Add the full image name, including the private registry URL (for example, myacr.azurecr.io/dotnet:latest). Image names that use a custom port [cannot be entered through the portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). To set `docker-custom-image-name`, use the [`az` command-line tool](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
 
 **Can I expose more than one port on my custom container image?**
 
@@ -131,6 +153,6 @@ You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps
 
 ## Next steps
 
-* [What is Azure Web App for Containers?](app-service-linux-intro.md)
+* [What is Azure App Service on Linux?](app-service-linux-intro.md)
 * [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Continuous Deployment with Azure Web App for Containers](./app-service-linux-ci-cd.md)
+* [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md)

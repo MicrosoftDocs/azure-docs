@@ -3,7 +3,7 @@ title: How to Choose Recognition Mode | Microsoft Docs
 description: How to choose the best recognition mode.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech

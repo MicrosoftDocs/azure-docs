@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
 ---
@@ -48,7 +48,7 @@ The following table helps you determine whether Flow or Logic Apps is best for a
 | Audience |Office workers, business users |IT pros, developers |
 | Scenarios |Self-service |Mission-critical |
 | Design Tool |In-browser and mobile app, UI only |In-browser and [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Code view](../logic-apps/logic-apps-author-definitions.md) available |
-| DevOps |Ad-hoc, develop in production |source control, testing, support, and automation and manageability in [Azure Resource Management](../logic-apps/logic-apps-arm-provision.md) |
+| DevOps |Ad-hoc, develop in production |source control, testing, support, and automation and manageability in [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | Admin Experience |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
 | Security |Standard practices: [data sovereignty](https://wikipedia.org/wiki/Technological_Sovereignty), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. |Security assurance of Azure: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
 
@@ -81,12 +81,12 @@ The following table summarizes the differences between Functions and WebJobs:
 | Scaling |Configurationless scaling |Scale with App Service plan |
 | Pricing |Pay-per-use or part of App Service plan |Part of App Service plan |
 | Run-type |Triggered, scheduled (by timer trigger) |Triggered, continuous, scheduled |
-| Trigger events |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage-blob.md) |[Azure Storage](functions-bindings-storage-blob.md), [Azure Service Bus](functions-bindings-service-bus.md) |
+| Trigger events |[Timer](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Azure Storage queues and blobs](functions-bindings-storage-blob.md), [Azure Service Bus queues and topics](functions-bindings-service-bus.md) |[Azure Storage queues and blobs](functions-bindings-storage-blob.md), [Azure Service Bus queues and topics](functions-bindings-service-bus.md) |
 | In-browser development |Supported |Not Supported |
 | C# |Supported |Supported |
 | F# |Supported |Not Supported |
 | JavaScript |Supported |Supported |
-| Java |Supported | Not supported |
+| Java |Preview | Not supported |
 | Bash |Experimental |Supported |
 | Windows scripting (.cmd, .bat) |Experimental |Supported |
 | PowerShell |Experimental |Supported |

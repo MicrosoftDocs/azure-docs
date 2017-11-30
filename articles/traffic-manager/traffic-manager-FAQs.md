@@ -215,7 +215,7 @@ Traffic View creates its output by processing the data from the seven days prece
 
 ### How does Traffic View handle external endpoints?
 
-When you use external endpoints hosted outside Azure regions in a Traffic Manager profile you can choose to have it mapped to an Azure region which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If its has this Azure region mapping, that Azure region’s latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
+When you use external endpoints hosted outside Azure regions in a Traffic Manager profile you can choose to have it mapped to an Azure region which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If it has this Azure region mapping, that Azure region’s latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
 
 ### Do I need to enable Traffic View for each profile in my subscription?
 During the preview period, Traffic View is enabled at a subscription level and is available for all Traffic Manager profiles under that subscription.
@@ -251,6 +251,10 @@ Traffic Manager responds with the DNS name of the endpoint. To support an IPv6 e
 
 Typically, Traffic Manager is used to direct traffic to applications deployed in different regions. However, it can also be used where an application has more than one deployment in the same region. The Traffic Manager Azure endpoints do not permit more than one Web App endpoint from the same Azure region to be added to the same Traffic Manager profile.
 
+### How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?
+
+Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, Classic Cloud Service, WebApp, or another Traffic Manager profile used in a nested manner) is moved to a different resource group, its resource ID changes. In this scenario, currently, you must update the Traffic Manager profile by first deleting and then adding back the endpoints to the profile. 
+
 ##  Traffic Manager endpoint monitoring
 
 ### Is Traffic Manager resilient to Azure region failures?
@@ -272,7 +276,7 @@ Azure Resource Manager requires all resource groups to specify a location, which
 
 The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../cli-install-nodejs.md).
 
-Azure does not provide historical information about past endpoint health or the ability to raise alerts about changes to endpoint health.
+You can also use Azure Monitor to track the health of your endpoints and see a visual representation of them. For more about using Azure Monitor, see the [Azure Monitoring documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### Can I monitor HTTPS endpoints?
 
@@ -283,6 +287,10 @@ Traffic manager cannot provide any certificate validation, including:
 * Server-side certificates are not validated
 * SNI server-side certificates are not supported
 * Client certificates are not supported
+
+### I stopped an Azure cloud service / web application endpoint in my Traffic Manager profile but I am not receiving any traffic even after I restarted it. How can I fix this?
+
+When an Azure cloud service / web application endpoint is stopped Traffic Manager stops checking its health and restarts the health checks only after it detects that the endpoint has restarted. To prevent this delay, disable and then reenable that endpoint in the Traffic Manager profile after you restart the endpoint.   
 
 ### Can I use Traffic Manager even if my application does not have support for HTTP or HTTPS?
 

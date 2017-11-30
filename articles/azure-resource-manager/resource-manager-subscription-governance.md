@@ -86,7 +86,7 @@ The first pillar of the scaffold is naming standards. Well-designed naming stand
 > The preceding tips help you implement a consistent naming convention.
 
 ## Policies and auditing
-The second pillar of the scaffold involves creating [Azure Resource Manager policies](resource-manager-policy.md) and [auditing the activity log](resource-group-audit.md). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
+The second pillar of the scaffold involves creating [Azure policies](../azure-policy/azure-policy-introduction.md) and [auditing the activity log](resource-group-audit.md). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
 
 * Policy is a default **allow** system. You control actions by defining and assigning policies to resources that deny or audit actions on resources.
 * Policies are described by policy definitions in a policy definition language (if-then conditions).

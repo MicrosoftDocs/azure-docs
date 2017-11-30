@@ -11,13 +11,12 @@ editor: ''
 ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: sql-database
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/29/2017
 ms.author: daleche
-
 ---
 # Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database
 This article describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient errors that your client application encounters when it interacts with Azure SQL Database. Learn how to configure retry logic, build the connection string, and adjust other connection settings.
@@ -38,16 +37,17 @@ You'll retry the SQL connection or establish it again, depending on the followin
 * **A transient error occurs during a connection try**: The connection should be retried after delaying for several seconds.
 * **A transient error occurs during a SQL query command**: The command should not be immediately retried. Instead, after a delay, the connection should be freshly established. Then the command can be retried.
 
+
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-### Retry logic for transient errors
+## Retry logic for transient errors
 Client programs that occasionally encounter a transient error are more robust when they contain retry logic.
 
 When your program communicates with Azure SQL Database through a 3rd party middleware, inquire with the vendor whether the middleware contains retry logic for transient errors.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-#### Principles for retry
+### Principles for retry
 * An attempt to open a connection should be retried if the error is transient.
 * A SQL SELECT statement that fails with a transient error should not be retried directly.
   
@@ -56,30 +56,31 @@ When your program communicates with Azure SQL Database through a 3rd party middl
   
   * The retry logic must ensure that either the entire database transaction completed, or that the entire transaction is rolled back.
 
-#### Other considerations for retry
+### Other considerations for retry
 * A batch program that is automatically started after work hours, and which will complete before morning, can afford to very patient with long time intervals between its retry attempts.
 * A user interface program should account for the human tendency to give up after too long a wait.
   
   * However, the solution must not be to retry every few seconds, because that policy can flood the system with requests.
 
-#### Interval increase between retries
+### Interval increase between retries
 We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
 
 A discussion of the *blocking period* for clients that use ADO.NET is available in [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 You might also want to set a maximum number of retries before the program self-terminates.
 
-#### Code samples with retry logic
-Code samples with retry logic, in a variety of programming languages, are available at:
+### Code samples with retry logic
+Code examples with retry logic are available at:
 
-* [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
+- [Connect resiliently to SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Connect resiliently to SQL with PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-#### Test your retry logic
+### Test your retry logic
 To test your retry logic, you must simulate or cause an error than can be corrected while your program is still running.
 
-##### Test by disconnecting from the network
+#### Test by disconnecting from the network
 One way you can test your retry logic is to disconnect your client computer from the network while the program is running. The error will be:
 
 * **SqlException.Number** = 11001
@@ -96,7 +97,7 @@ To make this practical, you unplug your computer from the network before you sta
    * Pause further execution by using either the **Console.ReadLine** method or a dialog with an OK button. The user presses the Enter key after the computer plugged into the network.
 5. Attempt again to connect, expecting success.
 
-##### Test by misspelling the database name when connecting
+#### Test by misspelling the database name when connecting
 Your program can purposely misspell the user name before the first connection attempt. The error will be:
 
 * **SqlException.Number** = 18456
@@ -112,15 +113,15 @@ To make this practical, your program could recognize a run time parameter that c
 4. Remove 'WRONG_' from the user name.
 5. Attempt again to connect, expecting success.
 
+
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-### .NET SqlConnection parameters for connection retry
+## .NET SqlConnection parameters for connection retry
 If your client program connects to to Azure SQL Database by using the .NET Framework class **System.Data.SqlClient.SqlConnection**, you should use .NET 4.6.1 or later (or .NET Core) so you can leverage its connection retry feature. Details of the feature are [here](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
-
 
 When you build the [connection string](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) for your **SqlConnection** object, you should coordinate the values among the following parameters:
 
@@ -136,7 +137,7 @@ For example, if the count = 3, and interval = 10 seconds, a timeout of only 29 s
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### Connection versus command
+## Connection versus command
 The **ConnectRetryCount** and **ConnectRetryInterval** parameters let your **SqlConnection** object retry the connect operation without telling or bothering your program, such as returning control to your program. The retries can occur in the following situations:
 
 * mySqlConnection.Open method call
@@ -144,8 +145,9 @@ The **ConnectRetryCount** and **ConnectRetryInterval** parameters let your **Sql
 
 There is a subtlety. If a transient error occurs while your *query* is being executed, your **SqlConnection** object does not retry the connect operation, and it certainly does not retry your query. However, **SqlConnection** very quickly checks the connection before sending your query for execution. If the quick check detects a connection problem, **SqlConnection** retries the connect operation. If the retry succeeds, you query is sent for execution.
 
-#### Should ConnectRetryCount be combined with application retry logic?
+### Should ConnectRetryCount be combined with application retry logic?
 Suppose your application has robust custom retry logic. It might retry the connect operation 4 times. If you add **ConnectRetryInterval** and **ConnectRetryCount** =3 to your connection string, you will increase the retry count to 4 * 3 = 12 retries. You might not intend such a high number of retries.
+
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -374,9 +376,7 @@ For details see:
 ### EntLib60 IsTransient method source code
 Next, from the **SqlDatabaseTransientErrorDetectionStrategy** class, is the C# source code for the **IsTransient** method. The source code clarifies which errors were considered to be transient and worthy of retry, as of April 2013.
 
-Numerous **//comment** lines have been removed from this copy to emphasize readability.
-
-```
+```csharp
 public bool IsTransient(Exception ex)
 {
   if (ex != null)
@@ -445,6 +445,14 @@ public bool IsTransient(Exception ex)
 
 ## Next steps
 * For troubleshooting other common Azure SQL Database connection issues, visit [Troubleshoot connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
-* [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
+* [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
+* [SQL Server Connection Pooling (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 * [*Retrying* is an Apache 2.0 licensed general-purpose retrying library, written in **Python**, to simplify the task of adding retry behavior to just about anything.](https://pypi.python.org/pypi/retrying)
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
 

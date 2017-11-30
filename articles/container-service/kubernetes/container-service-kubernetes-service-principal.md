@@ -22,6 +22,7 @@ ms.custom: mvc
 
 # Set up an Azure AD service principal for a Kubernetes cluster in Container Service
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 In Azure Container Service, a Kubernetes cluster requires an [Azure Active Directory service principal](../../active-directory/develop/active-directory-application-objects.md) to interact with Azure APIs. The service principal is needed to dynamically manage
 resources such as [user-defined routes](../../virtual-network/virtual-networks-udr-overview.md)
@@ -35,7 +36,7 @@ This article shows different options to set up a service principal for your Kube
 
 You can use an existing Azure AD service principal that meets the following requirements, or create a new one.
 
-* **Scope**: the subscription used to deploy the cluster.
+* **Scope**: the resource group used to deploy the cluster.
 
 * **Role**: **Contributor**
 

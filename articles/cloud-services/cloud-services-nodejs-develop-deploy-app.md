@@ -3,7 +3,7 @@ title: Node.js Getting Started Guide | Microsoft Docs
 description: Learn how to create a simple Node.js web application and deploy it to an Azure cloud service.
 services: cloud-services
 documentationcenter: nodejs
-author: TomArcher
+author: craigshoemaker
 manager: routlaw
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
-ms.author: tarcher
+ms.author: cshoe
 
 ---
 # Build and deploy a Node.js application to an Azure Cloud Service

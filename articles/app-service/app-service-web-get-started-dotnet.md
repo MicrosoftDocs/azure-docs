@@ -4,7 +4,7 @@ description: Learn how to run web apps in Azure App Service by deploying the def
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: wpickett
+manager: cfowler
 editor: ''
 
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
@@ -29,7 +29,7 @@ Watch the video to see this quickstart in action and then follow the steps yours
 
 To complete this tutorial:
 
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
+* Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the following workloads:
     - **ASP.NET and web development**
     - **Azure development**
 
@@ -102,7 +102,7 @@ In the **Configure App Service Plan** dialog, use the settings in the table foll
 |-|-|-|
 |App Service Plan| myAppServicePlan | Name of the App Service plan. |
 | Location | West Europe | The datacenter where the web app is hosted. |
-| Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/) determines hosting features. |
+| Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
 
 Select **OK**.
 

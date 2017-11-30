@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 10/15/2017
 ms.author: shlo
 
 robots: noindex
@@ -30,6 +30,10 @@ robots: noindex
 > * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [transform data using MapReduce activity in Data Factory version 2](../transform-data-using-hadoop-map-reduce.md).
+
 
 The HDInsight MapReduce activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes MapReduce programs on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 

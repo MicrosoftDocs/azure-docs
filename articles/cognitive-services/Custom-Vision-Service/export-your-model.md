@@ -42,4 +42,4 @@ Once your project has finished training, you can export your model. To do so:
  ![Export project.](./media/export-your-model/export-project.png)
 
 ## Next Steps
-A sample of how to [use your exported CoreML model in an iOS application](https://go.microsoft.com/fwlink/?linkid=857726) for real-time image classification is available in Swift, as is an example iOS application for [using your exported CoreML model with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel.)
+A sample of how to [use your exported CoreML model in an iOS application](https://go.microsoft.com/fwlink/?linkid=857726) for real-time image classification is available in Swift, as is an example iOS application for [using your exported CoreML model with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel).

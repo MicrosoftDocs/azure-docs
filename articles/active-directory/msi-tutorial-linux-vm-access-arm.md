@@ -3,7 +3,7 @@ title: Use a Linux VM MSI to access Azure Resource Manager
 description: A tutorial that walks you through the process of using a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
-ms.author: elkuzmen
+ms.date: 11/20/2017
+ms.author: bryanla
 ---
 
-# Use Managed Service Identity with a Linux VM to access Azure Resource Manager
+# Use a Linux VM Managed Service Identity (MSI) to access Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
@@ -28,8 +28,11 @@ You learn how to:
 > * Grant your VM access to a Resource Group in Azure Resource Manager 
 > * Get an access token using the VM identity and use it to call Azure Resource Manager 
 
+## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## Sign in to Azure
 
@@ -41,7 +44,7 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 
 1. Click the **New** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
-3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials will allow you to login to the VM.
+3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
@@ -55,12 +58,12 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 
 1. Select the **Virtual Machine** that you want to enable MSI on.
 2. On the left navigation bar click **Configuration**.
-3. You will see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
+3. You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** will appear on the list.
+5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** appears on the list.
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
@@ -78,9 +81,9 @@ Using MSI your code can get access tokens to authenticate to resources that supp
 
     ![Alt image text](media/msi-tutorial-linux-vm-access-arm/msi-permission-linux.png)
 
-## Get an access token using the VM Identity and use it to call Resource Manager 
+## Get an access token using the VM's identity and use it to call Resource Manager 
 
-To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). 
+To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
 2. **Connect** to the VM with the SSH client of your choice. 
@@ -100,13 +103,19 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     Response:  
 
     ```bash
-    {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyIsImtpZCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3LyIsImlhdCI6MTUwNDEyNjYyNywibmJmIjoxNTA0MTI2NjI3LCJleHAiOjE1MDQxMzA1MjcsImFpbyI6IlkyRmdZTGg2dENWSzRkSDlGWGtuZzgyQ21ZNVdBZ0E9IiwiYXBwaWQiOiI2ZjJmNmU2OS04MGExLTQ3NmEtOGRjZi1mOTgzZDZkMjUxYjgiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwib2lkIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwic3ViIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoib0U5T3JVZFJMMHVKSEw4UFdvOEJBQSIsInZlciI6IjEuMCJ9.J6KS7b9kFgDkegJ-Vfff19LMnu3Cfps4dL2uNGucb5M76rgDM5f73VO-19wZSRhQPxWmZLETzN3SljnIMQMkYWncp79MVdBud_xqXYyLdQpGkNinpKVJhTo1j1dY27U_Cjl4yvvpBTrtH3OX9gG0GtQs7PBFTTLznqcH3JR9f-bTSEN4wUhalaIPHPciVDtJI9I24_vvMfVqxkXOo6gkL0mEPfpXZRLwrBNd607AzX0KVmLFrwA1vYJnCV-sSV8bwTh2t6CVEj240t0iyeVWVc2usJ0NY2rxPzKd_UckQ_zzrECG3kS4vuYePKz6GqNJFVzm2w2c61lX0-O1CwvQ9w","refresh_token":"","expires_in":"3599","expires_on":"1504130527","not_before":"1504126627","resource":"https://management.azure.com","token_type":"Bearer"} 
+    {"access_token":"eyJ0eXAiOi...",
+    "refresh_token":"",
+    "expires_in":"3599",
+    "expires_on":"1504130527",
+    "not_before":"1504126627",
+    "resource":"https://management.azure.com",
+    "token_type":"Bearer"} 
     ```
     
     You can use this access token to access Azure Resource Manager, for example to read the details of the Resource Group to which you previously granted this VM access. Replace the values of \<SUBSCRIPTION ID\>, \<RESOURCE GROUP\>, and \<ACCESS TOKEN\> with the ones you created earlier. 
     
     > [!NOTE]
-    > The URL is case sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase “G” in “resourceGroup”.  
+    > The URL is case-sensitive, so ensure if you are using the exact same case as you used earlier when you named the Resource Group, and the uppercase “G” in “resourceGroup”.  
     
     ```bash 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 

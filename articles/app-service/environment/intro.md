@@ -44,13 +44,13 @@ An ASE is composed of front ends and workers. Front ends are responsible for HTT
 
 Workers are roles that host customer apps. Workers are available in three fixed sizes:
 
-* One core/3.5 GB RAM
-* Two core/7 GB RAM
-* Four core/14 GB RAM
+* One vCPU/3.5 GB RAM
+* Two vCPU/7 GB RAM
+* Four vCPU/14 GB RAM
 
 Customers do not need to manage front ends and workers. All infrastructure is automatically added as customers scale out their App Service plans. As App Service plans are created or scaled in an ASE, the required infrastructure is added or removed as appropriate.
 
-There is a flat monthly rate for an ASE that pays for the infrastructure and doesn't change with the size of the ASE. In addition, there is a cost per App Service plan core. All apps hosted in an ASE are in the Isolated pricing SKU. For information on pricing for an ASE, see the [App Service pricing][Pricing] page and review the available options for ASEs.
+There is a flat monthly rate for an ASE that pays for the infrastructure and doesn't change with the size of the ASE. In addition, there is a cost per App Service plan vCPU. All apps hosted in an ASE are in the Isolated pricing SKU. For information on pricing for an ASE, see the [App Service pricing][Pricing] page and review the available options for ASEs.
 
 ## Virtual network support ##
 
@@ -64,13 +64,15 @@ Apps also frequently need to access corporate resources such as internal databas
 
 For more information on how ASEs work with virtual networks and on-premises networks, see [App Service Environment network considerations][ASENetwork].
 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
+
 ## App Service Environment v1 ##
 
 App Service Environment has two versions: ASEv1 and ASEv2. The preceding information was based on ASEv2. This section shows you the differences between ASEv1 and ASEv2. 
 
 In ASEv1, you need to manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based SSL. Before you can scale out your App Service plan, you need to first scale out the worker pool where you want to host it.
 
-ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each core allocated. That includes cores used for front ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
+ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU allocated. That includes vCPUs used for front ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md
