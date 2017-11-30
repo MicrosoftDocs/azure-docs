@@ -139,46 +139,16 @@
     - name: Scale out process servers for VMware replication
       href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
     - name: Deployment planning and tool for Hyper-V replication to Azure
-      href: site-recovery-hyper-v-deployment-planner.md
+      href: 
       items:
-      - name: Support matrix
-        href: site-recovery-deployment-planner-support-matrix.md
-      - name: Requirements
-        href: site-recovery-hyper-v-deployment-planner-requirements.md
-      - name: Download
-        href: site-recovery-hyper-v-deployment-panner-download.md
-      - name: Capabilities
-        href: site-recovery-hyper-v-deployment-planner-capabilities.md
-      - name: Get VM list
-        href: site-recovery-hyper-v-deployment-planner-getvmlist.md
-      - name: Profiling 
-        href: site-recovery-hyper-v-deployment-planner-profiling.md
-      - name: Generate report 
-        href: site-recovery-hyper-v-deployment-planner-generate-report.md
-      - name: Get throughtput 
-        href: site-recovery-hyper-v-deployment-planner-get-throughput.md
-      - name: Recommendations
-        href: site-recovery-hyper-v-deployment-planner-recommendations.md
-      - name: On-premises Summary 
-        href: site-recovery-hyper-v-deployment-planner-on-premises-summary.md
-      - name: VM-Storage Placement 
-        href: site-recovery-hyper-v-deployment-planner-vm-storage-placement.md
-      - name: Compatible VMs 
-        href: site-recovery-hyper-v-deployment-planner-compatible-vms.md
-      - name: Incompatible VMs 
-        href: site-recovery-hyper-v-deployment-planner-incompatible-vms.md
-      - name: Azure Site Recovery limits   
-        href: site-recovery-hyper-v-deployment-planner-site-recovery-limits.md
-      - name: On-premises storage requirement   
-        href: site-recovery-hyper-v-deployment-planner-on-premises-storage-requirement.md
-      - name: Initial replication batching   
-        href: site-recovery-hyper-v-deployment-planner-ir-batching.md
-      - name: Cost estimation   
+      - name: Overview and prerequisites 
+        href: site-recovery-hyper-v-deployment-planner.md
+      - name: Run the deployment planner 
+        href: site-recovery-hyper-v-deployment-planner-run.md
+      - name: Analyzing the generated report
+        href: site-recovery-hyper-v-deployment-planner-analyze-report.md
+      - name: Cost Estimation for Disaster Recovery 
         href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
-      - name: Updating the deployment planner   
-        href: site-recovery-deployment-planner-update.md
-      - name: Version history   
-        href: site-recovery-deployment-planner-version-history.md
     - name: Performance scale tests for Hyper-V replication between on-premises sites
       href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
   - name: Configure

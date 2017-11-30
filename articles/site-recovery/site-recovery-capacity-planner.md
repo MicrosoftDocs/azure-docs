@@ -31,7 +31,7 @@ The tool provides following guideline:
 
 The Azure Site Recovery Capacity Planner tool helps you to figure out your capacity requirements when replicating Hyper-V VMs with Azure Site Recovery.
 
-Use the Site Recovery Capacity Planner to analyze your source environment and workloads, estimate bandwidth needs and server resources you'll need for the source location, and the resources (virtual machines and storage etc), that you need in the target location.
+Use the Site Recovery Capacity Planner to analyze your source environment and workloads, estimate bandwidth needs, and server resources you'll need for the source location, and the resources (virtual machines and storage etc.), that you need in the target location.
 
 You can run the tool in a couple of modes:
 

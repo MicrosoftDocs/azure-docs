@@ -59,10 +59,5 @@ Each batch table provides a summary of network utilization of the batch.
 
 **Estimated Initial Replication time for Batch (HH:MM)**: The estimated initial replication time in Hours:Minutes.
 
-## IR batching for a given bandwidth
-When you generate the report with -bandwidth parameter, an additional IR batching sheet for the specified bandwidth will be created. If the specified bandwidth is sufficient for successful initial replication and delta replication, the sheet provides IR batching guidelines based on the specified bandwidth.
-
-If the specified bandwidth is not sufficient for initial replication and delta replication, the sheet calls out in red and suggests the minimum bandwidth required for the successful replication. The IR batching guideline would be based on the specified bandwidth.
-
 ## Next steps
 Learn more about [cost estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md) of the report.

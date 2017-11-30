@@ -17,7 +17,7 @@ ms.date: 11/27/2017
 ms.author: nisoneji
 
 ---
-# Cost estimation
+# Cost estimation report of Azure Site Recovery deployment planner  
 The Cost estimation sheet has the detailed cost analysis per VM for disaster recovery (DR) to Azure.
 
 Azure prices for compute, storage, network, etc. varies across Azure regions. You can generate a cost estimation report with the latest Azure prices based on your subscription, the offer that is associated with your subscription and for the specified target Azure region in the specified currency. By default, the tool uses West US 2 Azure region and US dollar (USD) currency. If you have used any other region and currency, the next time when you generate a report without subscription id, offer id, target region and currency, it will use prices of the last used target region and last used currency for cost estimation.
