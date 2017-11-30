@@ -276,7 +276,7 @@ Azure Resource Manager requires all resource groups to specify a location, which
 
 The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), and [cross-platform Azure CLI](../cli-install-nodejs.md).
 
-Azure does not provide historical information about past endpoint health or the ability to raise alerts about changes to endpoint health.
+You can also use Azure Monitor to track the health of your endpoints and see a visual representation of them. For more about using Azure Monitor, see the [Azure Monitoring documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### Can I monitor HTTPS endpoints?
 
@@ -287,6 +287,10 @@ Traffic manager cannot provide any certificate validation, including:
 * Server-side certificates are not validated
 * SNI server-side certificates are not supported
 * Client certificates are not supported
+
+### I stopped an Azure cloud service / web application endpoint in my Traffic Manager profile but I am not receiving any traffic even after I restarted it. How can I fix this?
+
+When an Azure cloud service / web application endpoint is stopped Traffic Manager stops checking its health and restarts the health checks only after it detects that the endpoint has restarted. To prevent this delay, disable and then reenable that endpoint in the Traffic Manager profile after you restart the endpoint.   
 
 ### Can I use Traffic Manager even if my application does not have support for HTTP or HTTPS?
 

@@ -38,20 +38,18 @@ You also need the Azure CLI version 2.0.21 or later installed and configured. Ru
 
 When deploying an AKS cluster with the `az aks create` command, you have the option to automatically generate a service principal.
 
-In the following an example, and AKS cluster is created, and because an existing service principal is not specified, a service principal is created for the cluster. In order to complete this operation, your account must have the proper rights for creating a service principal.
+In the following example, an AKS cluster is created, and because an existing service principal is not specified, a service principal is created for the cluster. In order to complete this operation, your account must have the proper rights for creating a service principal.
 
 ```azurecli
-az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
+az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## Use an existing SP
 
-An existing Azure AD service principal can be used or pre-created for use with an AKS cluster. This is helpful when deploying a cluster form the Azure portal where you are required to provide the service principal information.
+An existing Azure AD service principal can be used or pre-created for use with an AKS cluster. This is helpful when deploying a cluster from the Azure portal where you are required to provide the service principal information.
 
 When using an existing service principal, it must meet the following requirements:
 
-- Scope: the subscription used to deploy the cluster
-- Role: Contributor
 - Client secret: must be a password
 
 ## Pre-create a new SP
@@ -59,8 +57,7 @@ When using an existing service principal, it must meet the following requirement
 To create the service principal with the Azure CLI, use the [az ad sp create-for-rbac]() command.
 
 ```azurecli
-id=$(az account show --query id --output tsv)
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
+az ad sp create-for-rbac --skip-assignment
 ```
 
 Output is similar to the following. Take note of the `appId` and `password`. These values are used when creating an AKS cluster.
@@ -80,7 +77,7 @@ Output is similar to the following. Take note of the `appId` and `password`. The
 When using a pre-created service principal, provide the `appId` and `password` as argument values to the `az aks create` command.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> ----client-secret <password>
+az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
 ```
 
 If deploying an AKS cluster from the Azure portal, enter these values in the AKS cluster configuration form.
@@ -97,6 +94,7 @@ When working with AKS and Azure AD service principals, keep the following in min
 * On the master and node VMs in the Kubernetes cluster, the service principal credentials are stored in the file /etc/kubernetes/azure.json.
 * When you use the `az aks create` command to generate the service principal automatically, the service principal credentials are written to the file ~/.azure/acsServicePrincipal.json on the machine used to run the command.
 * When you use the `az aks create` command to generate the service principal automatically, the service principal can also authenticate with an [Azure container registry](../container-registry/container-registry-intro.md) created in the same subscription.
+* When deleting an AKS cluster which was created by `az aks create`, the service principal which was created automatically will not deleted. You can use `az ad sp delete --id $clientID` to delete it.
 
 ## Next steps
 
