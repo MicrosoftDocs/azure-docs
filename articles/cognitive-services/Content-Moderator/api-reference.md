@@ -12,20 +12,20 @@ ms.date: 06/25/2017
 ms.author: sajagtap
 ---
 
-# API Reference
+# API reference
 You get started with the Content Moderator APIs in the following ways:
 
   1. [Subscribe to the Content Moderator API](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) on the Microsoft Azure portal.
-  1. Sign up for the [content moderator review tool](http://contentmoderator.cognitive.microsoft.com/). See the screenshot in the [Overview](overview.md) article.
+  1. Sign up for the [Content Moderator review tool](http://contentmoderator.cognitive.microsoft.com/). See the screenshot in the [Overview](overview.md) article.
 
-## Content Moderation
+## Content moderation
 
 | API Description | API Reference |
 | -------------------- |-------------|
-| **Image Moderation** : Scan images and detect possible adult and racy content, with tags and confidence scores, and other extracted information. Use this information to implement your post-moderation workflow: publish, reject, or review the content.   | [Image Moderation API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Image Moderation API Reference")   |
-| **Text Moderation** : Scan text content and get back identified profanity terms and Personal Identifiable Information (PII). Use this information to implement your post-moderation workflow: publish, reject, or review the content. | [Text Moderation API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Text Moderation API Reference")   |
-| **Video Moderation** : Scan videos and detect potential adult and racy content. Use this information to implement your post-moderation workflow: publish, reject, or review the content. | [Video Moderation API Overview](video-moderation-api.md "Video Moderation API Overview")   |
-| **List Management** : Create and manage custom exclusion or inclusion lists of images and text. If enabled, the Image/Match and Text/Screen operations do fuzzy matching of the submitted content against your custom lists, and skip the ML-based moderation step for efficiency. | [List Management API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "List Management API Reference")   |
+| **Image Moderation**: Scan images and detect possible adult and racy content, with tags and confidence scores, and other extracted information. Use this information to implement your post-moderation workflow: publish, reject, or review the content.   | [Image Moderation API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Image Moderation API Reference")   |
+| **Text Moderation**: Scan text content and get back identified profanity terms and Personal Identifiable Information (PII). Use this information to implement your post-moderation workflow: publish, reject, or review the content. | [Text Moderation API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Text Moderation API Reference")   |
+| **Video Moderation**: Scan videos and detect potential adult and racy content. Use this information to implement your post-moderation workflow: publish, reject, or review the content. | [Video Moderation API Overview](video-moderation-api.md "Video Moderation API Overview")   |
+| **List Management**: Create and manage custom exclusion or inclusion lists of images and text. If enabled, the Image/Match and Text/Screen operations do fuzzy matching of the submitted content against your custom lists, and skip the ML-based moderation step for efficiency. | [List Management API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "List Management API Reference")   |
 
 ## Review API
 
