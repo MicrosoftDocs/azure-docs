@@ -4,7 +4,7 @@ title: Azure IoT Edge C# module | Microsoft Docs
 description: Create an IoT Edge module with C# code and deploy it to an edge device
 services: iot-edge
 keywords: 
-author: JimacoMS2
+author: kgremban
 manager: timlt
 
 ms.author: v-jamebr
@@ -274,7 +274,7 @@ Add the credentials for your registry to the Edge runtime on the computer where 
     {
        "routes":{
           "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterModule/inputs/input1\")",
-          "filterToIoTHub":"FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+          "filterToIoTHub":"FROM /messages/modules/filterModule/outputs/output1 INTO $upstream"
        }
     }
     ```
