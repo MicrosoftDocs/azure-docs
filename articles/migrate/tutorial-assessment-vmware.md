@@ -167,13 +167,16 @@ This view shows the readiness status for each machine.
 
 #### Monthly cost estimate
 
-This view shows costing for compute and storage, for each machine. Cost estimates are calculated using the performance-based size recommendations for a machine and its disks, and the assessment properties.
+This view shows the total compute and storage cost of running the VMs in Azure along with the details for each machine. Cost estimates are calculated using the performance-based size recommendations for a machine and its disks, and the assessment properties. 
 
-Estimated monthly costs for compute and storage are aggregated for all VMs in the group. You can click on each machine to drill down for details. 
+> [!NOTE]
+> The cost estimation provided by Azure Migrate is for running the on-premises VMs as Azure Infrastructure as a service (IaaS) VMs. It does not consider any Platform as a service (PaaS) or Software as a service (SaaS) costs. 
+
+Estimated monthly costs for compute and storage are aggregated for all VMs in the group. 
 
 ![Assessment VM cost](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-You can drill down to see costs for a specific machine.
+You can drill down to see details for a specific machine.
 
 ![Assessment VM cost](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 

@@ -31,14 +31,16 @@ Azure Migrate helps you to:
 
 - **Assess Azure readiness**: Assess whether your on-premises machines are suitable for running in Azure. 
 - **Get size recommendations**: Recommended sizing for Azure VMs after migration, based on the performance history of on-premises VMs. 
-- **Estimate monthly costs**: Estimated costs for running on-premises machines in Azure.
+- **Estimate monthly costs**: Estimated costs for running on-premises machines in Azure.  
 - **Migrate with high confidence**: As you group on-premises machines for assessment, you can increase assessment confidence by visualizing dependencies. You can accurately view dependencies for a specific machine, or for all machines in a group.
 
 ## Current limitations
 
 - Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs.
+
 > [!NOTE]
 > Support for Hyper-V is in the roadmap and will be enabled in few months. In the interim, we recommend you to use Azure Site Recovery Deployment Planner to plan migration of Hyper-V workloads. 
+
 - You can assess up to 1000 VMs in a single assessment, and up to 1500 machines in a single Azure Migrate project. If you need to assess more, you can increase the number of projects or assessments. [Learn more](how-to-scale-assessment.md).
 - VM you want to assess must be managed by a vCenter Server, version 5.5, 6.0, or 6.5.
 - You can only create an Azure Migrate project in the West Central US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment.
