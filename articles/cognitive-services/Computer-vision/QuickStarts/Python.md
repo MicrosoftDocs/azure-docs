@@ -642,7 +642,7 @@ body = "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomis
 
 try:
     # Execute the REST API call and get the response.
-    conn = httplib.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
+    conn = httplib.HTTPSConnection(uri_base)
     conn.request("POST", "/vision/v1.0/ocr?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
@@ -696,7 +696,7 @@ body = "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomis
 
 try:
     # Execute the REST API call and get the response.
-    conn = http.client.HTTPSConnection('westcentralus.api.cognitive.microsoft.com')
+    conn = http.client.HTTPSConnection(uri_base)
     conn.request("POST", "/vision/v1.0/ocr?%s" % params, body, headers)
     response = conn.getresponse()
     data = response.read()
