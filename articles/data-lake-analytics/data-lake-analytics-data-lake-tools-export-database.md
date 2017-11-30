@@ -1,6 +1,6 @@
 ---
 title: Export a U-SQL database using Azure Data Lake Tools for Visual Studio | Microsoft Docs
-description: Learn how to use Azure Data Lake Tools for Visual Studio to export a U-SQL database and import it to a local account.
+description: Learn how to use Azure Data Lake Tools for Visual Studio to export a U-SQL database and automatically import it to a local account.
 services: data-lake-analytics
 documentationcenter: ''
 author: yanancai 
@@ -30,7 +30,7 @@ When you develop and tune U-SQL queries in development and test environments, de
 
 ### Step 1: Export the database in Server Explorer
 
-All Data Lake Analytics accounts that you have permission to are listed in Server Explorer. To export the database:
+All Data Lake Analytics accounts that you have permissions for are listed in Server Explorer. To export the database:
 
 1. In Server Explorer, expand the account that contains the database that you want to export.
 2. Right-click the database, and then select **Export**. 
@@ -41,7 +41,7 @@ All Data Lake Analytics accounts that you have permission to are listed in Serve
 
 ### Step 2: Configure the objects that you want to export
 
-If you need only a small part of a large database, you can configure the subset of objects that you want to export in the export wizard. 
+If you need only a small part of a large database, you can configure a subset of objects that you want to export in the export wizard. 
 
 The export action is completed by running a U-SQL job. Therefore, exporting from an Azure account incurs some cost.
 
@@ -49,13 +49,13 @@ The export action is completed by running a U-SQL job. Therefore, exporting from
 
 ### Step 3: Check the objects list and other configurations
 
-In this step, you can verify the selected objects at the top of the dialog box. If there are any errors, select **Previous** to go back and correctly configure the objects that you want to export.
+In this step, you can verify the selected objects in the **Export object list** box. If there are any errors, select **Previous** to go back and correctly configure the objects that you want to export.
 
 You can also configure other settings for the export target. Configuration descriptions are listed in the following table:
 
 |Configuration|Description|
 |-------------|-----------|
-|Destination Name|This name indicates where you want to save the exported database resources. Examples are assemblies, additional files, and sample data. A folder with this name is created in your local data root folder.|
+|Destination Name|This name indicates where you want to save the exported database resources. Examples are assemblies, additional files, and sample data. A folder with this name is created under your local data root folder.|
 |Project Directory|This path defines where you want to save the exported U-SQL script. All database object definitions are saved at this location.|
 |Schema Only|If you select this option, only database definitions and resources (like assemblies and additional files) are exported.|
 |Schema and Data|If you select this option, database definitions, resources, and data are exported. The top N rows of tables are exported.|
@@ -65,28 +65,28 @@ You can also configure other settings for the export target. Configuration descr
 
 ### Step 4: Check the export results
 
-When exporting is finished, you can view the exported results in the log window in the wizard. To find exported U-SQL script and database resources, including assemblies, additional files, and sample data, see the following example:
+When exporting is finished, you can view the exported results in the log window in the wizard. The following example shows how to find exported U-SQL script and database resources, including assemblies, additional files, and sample data:
 
 ![Database Export Wizard - Export results](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-completed.png)
 
 ## Import the exported database to a local account
 
-The most convenient way to import the exported database is to select the **Import to Local Database Automatically** check box during the exporting progress in Step 3. If you didn't check this box, first, find the exported U-SQL script in the exporting log. Then, run the U-SQL script locally to import the database to your local account.
+The most convenient way to import the exported database is to select the **Import to Local Database Automatically** check box during the exporting process in Step 3. If you didn't check this box, first, find the exported U-SQL script in the export log. Then, run the U-SQL script locally to import the database to your local account.
 
-## Import the exported database to an Azure Data Lake Analytics account
+## Import the exported database to a Data Lake Analytics account
 
-To import the database to other Azure Data Lake Analytics account:
+To import the database to different Data Lake Analytics account:
 
-1. Upload the exported resources, including assemblies, additional files, and sample data, to the default Azure Data Lake Store account of the Azure Data Lake Analytics account that you want to import to. You can find the exported resource folder under the local data root folder. Upload the entire folder to the root of the default store account.
-2. Submit the exported U-SQL script to the Azure Data Lake Analytics account that you want to import the database to when uploading is finished.
+1. Upload the exported resources, including assemblies, additional files, and sample data, to the default Azure Data Lake Store account of the Data Lake Analytics account that you want to import to. You can find the exported resource folder under the local data root folder. Upload the entire folder to the root of the default Data Lake Store account.
+2. When uploading is finished, submit the exported U-SQL script to the Data Lake Analytics account that you want to import the database to.
 
 ## Known limitations
 
-Currently, if you select the **Schema and Data** option in the wizard, the tool runs a U-SQL job to export the data stored in tables. Because of this, the data exporting process might be slow and you might incur costs. 
+Currently, if you select the **Schema and Data** option in Step 3, the tool runs a U-SQL job to export the data stored in tables. Because of this, the data exporting process might be slow and you might incur costs. 
 
 ## Next steps
 
-* [Understand U-SQL database](https://msdn.microsoft.com/library/azure/mt621299.aspx) 
+* [Learn about U-SQL databases](https://msdn.microsoft.com/library/azure/mt621299.aspx) 
 * [Test and debug U-SQL jobs by using a local run and the Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
 
 
