@@ -12,9 +12,9 @@ ms.author: mikedodaro
 ---
 
 # Image Search endpoint
-The **Image Search API**  endpoint 1 returns images from the Web based on a query. Endpoint 2 returns [ImageInsightsResponse](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Endpoint 3 returns trending images.
+The **Image Search API**  includes three endpoints.  Endpoint 1 returns images from the Web based on a query. Endpoint 2 returns [ImageInsights](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Endpoint 3 returns trending images.
 ##Endpoints
-To get Image search results using the Bing API, send a request to one of the following endpoints. Use the headers and URL parameters define further specifications.
+To get image results using the Bing API, send a request to one of the following endpoints. Use the headers and URL parameters define further specifications.
 
 Endpoint 1 `GET`:  
 https://api.cognitive.microsoft.com/bing/v7.0/images/search
@@ -25,9 +25,9 @@ Endpoint 2 `GET` or `POST`:
  
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 
-Returns insights about an image, such as Web pages that include the image. Include the [insightsToken](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) parameter with a `GET` request.
+A GET request returns insights about an image, such as Web pages that include the image. Include the [insightsToken](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) parameter with a `GET` request.
 
-Or, you can specify a binary image in the body of a `POST` request and set the [modules](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter to `RecognizedEntities`. To specify the image in the body of the `POST` request, you must include the `Content-Type` header and set its value to `multipart/form-data`.
+Or, you can include a binary image in the body of a `POST` request and set the [modules](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) parameter to `RecognizedEntities`. To specify the image in the body of the `POST` request, you must include the `Content-Type` header and set its value to `multipart/form-data`.
 
 
 Endpoint 3 `GET`:
