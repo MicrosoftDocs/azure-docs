@@ -33,17 +33,17 @@ The Azure Functions Runtime consists of two pieces:
 
 The Azure Functions Management Role provides a host for the management of your Functions on-premises. This role performs the following tasks:
 
-* Hosting of the Azure Functions Management Portal, which is the same one you see in the [Azure portal](https://portal.azure.com). The consistent experience lets you develop your functions in the same way as you would in the Azure portal.
+* Hosting of the Azure Functions Management Portal, which is the same one you see in the [Azure portal](https://portal.azure.com). This provides a consistent experience that lets you develop your functions in the same way as you would in the Azure portal.
 * Distributing functions across multiple Functions workers.
-* Providing a publishing endpoint so that you can publish your functions direct from Microsoft Visual Studio.
+* Providing a publishing endpoint so that you can publish your functions direct from Microsoft Visual Studio by downloading and importing the publishing profile.
 
 ## Azure Functions Worker Role
 
-The Azure Functions Worker Roles are deployed in Windows Containers and are where your function code executes.  You can deploy multiple Worker Roles throughout your organization and is a key way in which customers can make use of spare compute power.  One example of where spare compute in many organizations is machines powered on constantly but not being used for large periods of time.
+The Azure Functions Worker Roles are deployed in Windows Containers and are where your function code executes.  You can deploy multiple Worker Roles throughout your organization and this is a key way in which customers can make use of spare compute power.  One example of where spare compute exists in many organizations is machines powered on constantly but not being used for large periods of time.
 
 ## Minimum Requirements
 
-To get started with the Azure Functions Runtime, you must have a machine with **Windows Server 2016 or Windows 10 Creators Update** with access to a **SQL Server** instance.
+To get started with the Azure Functions Runtime, you must have a machine with Windows Server 2016 or Windows 10 Creators Update with access to a SQL Server instance.
 
 ## Next Steps
 
