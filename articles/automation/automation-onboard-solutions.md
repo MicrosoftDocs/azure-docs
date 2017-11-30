@@ -20,13 +20,13 @@ ms.author: eamono
 
 # Onboard update and change tracking solutions to Azure Automation
 
-In this tutorial, you learn how to automatically onboard Update, Change Tracking, and Inventory solutions to Azure Automation:
+In this tutorial, you learn how to automatically onboard Update, Change Tracking, and Inventory solutions for VMs to Azure Automation:
 
 > [!div class="checklist"]
 > * Onboard an Azure virtual machine manually.
 > * Install and update required Azure modules.
 > * Import runbook that onboards Azure VMs.
-> * Start runbook to onboard Azure VMs automatically.
+> * Start runbook that onboards Azure VMs automatically.
 
 ## Prerequisites
 
@@ -56,6 +56,7 @@ To complete this tutorial, the following are required.
 
 ## Install and update required Azure modules
 
+It is required to update to the latest Azure modules and import AzureRM.OperationalInsights to successfully automate onboarding.
 1.	Click on the Modules page.
 ![Update modules](media/automation-onboard-solutions/update-modules.png)
 2.	Click on the Update Azure Modules to update to the latest version. Wait for updates to complete.
@@ -72,17 +73,17 @@ To complete this tutorial, the following are required.
 4.	Click on “Edit” to view the Runbook source and click on the “Publish” button.
 ![Import onboarding runbook](media/automation-onboard-solutions/publish-runbook.png)
 
+## Start runbook that onboards Azure VMs automatically
 
-## Start runbook to onboard Azure VMs automatically
-
+You must have onboarded either change tracking or update solutions to an Azure VM in order to start this runbook. It requires an existing virtual machine and resource group with the solution onboarded for parameters.
 1.	Open the Enable-MultipleSolution runbook.
 ![Multiple solution runbooks](media/automation-onboard-solutions/runbook-overview.png)
 2.	Click the start button and enter the following values for parameters.
-    *	VMNAME. The name of a new VM to onboard. Leave blank and all VMs in the resource group are onboarded.
+    *	VMNAME. The name of an existing VM to onboard to update or change tracking solution. Leave blank and all VMs in the resource group are onboarded.
     *	VMRESOURCEGROUP. The name of the resource group that the VM is a member of.
-    *	SUBSCRIPTIONID. The subscription ID the new VM to onboard is located. Leave bland and the subscription of the workspace is used. When a different subscription ID is given, the RunAs account for this automation account should be added as a contributor for this subscription also.
-    *	EXISTINGVM. The name of the VM that was manually onboarded.
-    *	EXISTINGVMRESOURCEGROUP. The name of the resource group that the VM is a member of.
+    *	SUBSCRIPTIONID. The subscription ID the new VM to onboard is located. Leave blank and the subscription of the workspace is used. When a different subscription ID is given, the RunAs account for this automation account should be added as a contributor for this subscription also.
+    *	ALREADYONBOARDEDVM. The name of the VM that was manually onboarded.
+    *	ALREADYONBOARDEDVMRESOURCEGROUP. The name of the resource group that the VM is a member of.
     *	SOLUTIONTYPE. Enter "Updates" or "ChangeTracking"
 
 ![Multiple solution runbook parameters](media/automation-onboard-solutions/runbook-parameters.png)
@@ -90,15 +91,6 @@ To complete this tutorial, the following are required.
 3.  Click OK to start the runbook job.
 4.  Monitor progress and any errors on the runbook job page.
 
-
 ## Next steps
 
 For more information, see [Scheduling runbooks](automation-schedules.md).
-
-
-
-
-
-
-
-
