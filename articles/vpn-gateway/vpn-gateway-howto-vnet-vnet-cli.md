@@ -36,7 +36,7 @@ The steps in this article apply to the Resource Manager deployment model and use
 
 ## <a name="about"></a>About connecting VNets
 
-There are multiple ways to connect VNets. This article helps you connect your VNets by using a VNet-to-VNet connection. This is ideal when you want to connect 2 VNets quickly, but there are certain limitations to this type of connection. The sections below describe different ways to connect virtual networks.
+There are multiple ways to connect VNets. The sections below describe different ways to connect virtual networks.
 
 ### VNet-to-VNet
 
@@ -64,9 +64,9 @@ You may want to connect virtual networks for the following reasons:
 
 VNet-to-VNet communication can be combined with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
 
-## <a name="steps"></a>Which set of steps should I use?
+## <a name="steps"></a>Which VNet-to-VNet steps should I use?
 
-This article helps you connect VNets using the VNet-to-VNet connection type. In this article, you see two different sets of steps. One set of steps for [VNets that reside in the same subscription](#samesub) and one for [VNets that reside in different subscriptions](#difsub). 
+In this article, you see two different sets of VNet-to-VNet connection steps. One set of steps for [VNets that reside in the same subscription](#samesub) and one for [VNets that reside in different subscriptions](#difsub). 
 
 For this exercise, you can combine configurations, or just choose the one that you want to work with. All of the configurations use the VNet-to-VNet connection type. Network traffic flows between the VNets that are directly connected to each other. In this exercise, traffic from TestVNet4 does not route to TestVNet5.
 

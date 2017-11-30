@@ -38,7 +38,7 @@ The steps in this article apply to the Resource Manager deployment model and use
 
 ## <a name="about"></a>About connecting VNets
 
-There are multiple ways to connect VNets. This article helps you connect your VNets by using a VNet-to-VNet connection. This is ideal when you want to connect 2 VNets quickly, but there are certain limitations to this type of connection. The sections below describe different ways to connect virtual networks.
+There are multiple ways to connect VNets. The sections below describe different ways to connect virtual networks.
 
 ### VNet-to-VNet
 
