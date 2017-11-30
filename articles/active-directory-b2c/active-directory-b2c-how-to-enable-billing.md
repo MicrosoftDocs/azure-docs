@@ -83,7 +83,7 @@ You can use this resource to:
 
 ### CSP Subscriptions
 
-Currently, an Azure AD B2C tenant **cannot** link to CSP subscriptions. Vote [here](https://aka.ms/aadb2cfeedback) to request this feature.
+Currently, an Azure AD B2C tenant **cannot** link to CSP subscriptions.
 
 ### Self-imposed restrictions
 
