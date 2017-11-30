@@ -24,25 +24,25 @@ Microsoft Azure is a growing collection of integrated public cloud services incl
 If you are familiar with the various features of Amazon's AWS, you can examine the Azure vs AWS [definition mapping document](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/).
 
 ## Regions
-Microsoft Azure resources are distributed across multiple geographical regions around the world.  A "region" represents multiple data centers in a single geographical area.  We currently (as of November 2017) have 36 regions generally available around the world with an additional 6 regions announced. An updated list of existing and newly announced regions can be found at the following:
+Microsoft Azure resources are distributed across multiple geographical regions around the world.  A "region" represents multiple data centers in a single geographical area. Azure currently (as of November 2017) has 36 regions generally available around the world with an additional 6 regions announced. An updated list of existing and newly announced regions can be found in the following page:
 
 * [Azure Regions](https://azure.microsoft.com/regions/)
 
 ## Availability
-We announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks.  In order for your deployment to qualify for our standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. This will ensure your VMs are distributed across multiple fault domains in our data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explains the guaranteed availability of Azure as a whole.
+Azure announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks.  In order for your deployment to qualify for the standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. An availability set ensures that your VMs are distributed across multiple fault domains in the Azure data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) explains the guaranteed availability of Azure as a whole.
 
 ## Managed Disks
 
-Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You simply specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk for you. Even as you add disks or scale the VM up and down, you don't have to worry about the storage being used. If you're creating new VMs, [use the Azure CLI 2.0](quick-create-cli.md) or the Azure portal to create VMs with Managed OS and data disks. If you have VMs with unmanaged disks, you can [convert your VMs to be backed with Managed Disks](convert-unmanaged-to-managed-disks.md).
+Managed Disks handles Azure Storage account creation and management in the background for you, and ensures that you do not have to worry about the scalability limits of the storage account. You specify the disk size and the performance tier (Standard or Premium), and Azure creates and manages the disk. As you add disks or scale the VM up and down, you don't have to worry about the storage being used. If you're creating new VMs, [use the Azure CLI 2.0](quick-create-cli.md) or the Azure portal to create VMs with Managed OS and data disks. If you have VMs with unmanaged disks, you can [convert your VMs to be backed with Managed Disks](convert-unmanaged-to-managed-disks.md).
 
-You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, please see the [Managed Disks Overview](../linux/managed-disks-overview.md).
+You can also manage your custom images in one storage account per Azure region, and use them to create hundreds of VMs in the same subscription. For more information about Managed Disks, see the [Managed Disks Overview](../linux/managed-disks-overview.md).
 
 ## Azure Virtual Machines & Instances
-Microsoft Azure supports running a number of popular Linux distributions provided and maintained by a number of partners.  You will find distributions such as Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD, and more in the Azure Marketplace. We actively work with various Linux communities to add even more flavors to the [Azure endorsed Linux Distros](endorsed-distros.md) list.
+Microsoft Azure supports running a number of popular Linux distributions provided and maintained by a number of partners.  You can find distributions such as Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD, and more in the Azure Marketplace. Microsoft actively works with various Linux communities to add even more flavors to the [Azure endorsed Linux Distros](endorsed-distros.md) list.
 
 If your preferred Linux distro of choice is not currently present in the gallery, you can "Bring your own Linux" VM by [creating and uploading a Linux VHD in Azure](create-upload-generic.md).
 
-Azure virtual machines allow you to deploy a wide range of computing solutions in an agile way. You can deploy virtually any workload and any language on nearly any operating system - Windows, Linux, or a custom created one from any one of our growing list of partners. Still don't see what you are looking for?  Don't worry - you can also bring your own images from on-premises.
+Azure virtual machines allow you to deploy a wide range of computing solutions in an agile way. You can deploy virtually any workload and any language on nearly any operating system - Windows, Linux, or a custom created one from any one of the growing list of partners. Still don't see what you are looking for?  Don't worry - you can also bring your own images from on-premises.
 
 ## VM Sizes
 The [size](sizes.md) of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, and storage capacity. Azure offers a wide variety of sizes to support many types of uses.
@@ -55,7 +55,7 @@ To achieve a proper DevOps culture, all infrastructure must be code.  When all t
 * [Azure Templates](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most Linux Distros that support it.  Currently Canonical's Ubuntu VMs are deployed with cloud-init enabled by default.  Red Hats RHEL, CentOS, and Fedora support cloud-init, however the Azure images maintained by RedHat do not currently have cloud-init installed.  To use cloud-init on a RedHat family OS, you must create a custom image with cloud-init installed.
+Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most Linux Distros that support it.  Currently Canonical's Ubuntu VMs are deployed with cloud-init enabled by default.  Red Hat's RHEL, CentOS, and Fedora support cloud-init, however the Azure images maintained by RedHat do not currently have cloud-init installed.  To use cloud-init on a RedHat family OS, you must create a custom image with cloud-init installed.
 
 * [Using cloud-init on Azure Linux VMs](using-cloud-init.md)
 
@@ -65,7 +65,7 @@ Each Azure Subscription has default quota limits in place that could impact the 
 * [Azure Subscription Service Limits](../../azure-subscription-service-limits.md)
 
 ## Partners
-Microsoft works closely with our partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on our partners check their marketplace pages below.
+Microsoft works closely with partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on Azure partners, see the following links:
 
 * Linux on Azure - [Endorsed Distributions](endorsed-distros.md)
 * SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
@@ -81,13 +81,13 @@ Microsoft works closely with our partners to ensure the images available are upd
 * Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
 ## Getting started with Linux on Azure
-To begin using Azure you need an Azure account, the Azure CLI installed, and a pair of SSH public and private keys.
+To begin using Azure, you need an Azure account, the Azure CLI installed, and a pair of SSH public and private keys.
 
 ### Sign up for an account
 The first step in using the Azure Cloud is to sign up for an Azure account.  Go to the [Azure Account Signup](https://azure.microsoft.com/pricing/free-trial/) page to get started.
 
 ### Install the CLI
-With your new Azure account, you can get started immediately using the Azure portal, which is a web-based admin panel.  To manage the Azure Cloud via the command-line, you install the `azure-cli`.  Install the [Azure CLI 2.0](/cli/azure/install-azure-cli) on your Mac or Linux workstation.
+With your new Azure account, you can get started immediately using the Azure portal, which is a web-based admin panel.  To manage the Azure Cloud via the command line, you install the `azure-cli`.  Install the [Azure CLI 2.0](/cli/azure/install-azure-cli) on your Mac or Linux workstation.
 
 ### Create an SSH key pair
 Now you have an Azure account, the Azure web portal, and the Azure CLI.  The next step is to create an SSH key pair that is used to SSH into Linux without using a password.  [Create SSH keys on Linux and Mac](mac-create-ssh-keys.md) to enable password-less logins and better security.
@@ -102,8 +102,8 @@ Creating a Linux VM in the Azure web portal is a way to easily point and click t
 
 * [Create a Linux VM using the Portal](quick-create-portal.md)
 
-### Login using SSH without a password
-The VM is now running on Azure and you are ready to log in.  Using passwords to log in via SSH is insecure and time consuming.  Using SSH keys is the most secure way and also the quickest way to login.  When you create you Linux VM via the portal or the CLI, you have two authentication choices.  If you choose a password for SSH, Azure configures the VM to allow logins via passwords.  If you chose to use an SSH public key, Azure configures the VM to only allow logins via SSH keys and disables password logins. To secure your Linux VM by only allowing SSH key logins, use the SSH public key option during the VM creation in the portal or CLI.
+### Log in using SSH without a password
+The VM is now running on Azure and you are ready to log in.  Using passwords to log in via SSH is insecure and time consuming.  Using SSH keys is the most secure way and also the quickest way to log in.  When you create you Linux VM via the portal or the CLI, you have two authentication choices.  If you choose a password for SSH, Azure configures the VM to allow logins via passwords.  If you chose to use an SSH public key, Azure configures the VM to only allow logins via SSH keys and disables password logins. To secure your Linux VM by only allowing SSH key logins, use the SSH public key option during the VM creation in the portal or CLI.
 
 ## Related Azure components
 ## Storage
@@ -125,4 +125,4 @@ The VM is now running on Azure and you are ready to log in.  Using passwords to 
 ## Next steps
 You now have an overview of Linux on Azure.  The next step is to dive in and create a few VMs!
 
-* [Explore our growing list of Sample Scripts for common tasks via AzureCLI](cli-samples.md)
+* [Explore the growing list of sample scripts for common tasks via AzureCLI](cli-samples.md)
