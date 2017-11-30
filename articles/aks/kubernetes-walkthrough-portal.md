@@ -38,7 +38,9 @@ Before creating the AKS cluster in the Azure portal you need to create a service
 
 Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-Enter a name for the for the application, this can be any value. Select `Web app / API` for the application type. Enter a value for the Sign-on URL, this can be any value with a valid URL format. Select **Create** when finished.
+Enter a name for the for the application, this can be any value. Select `Web app / API` for the application type. Enter a value for the Sign-on URL, this can be any value with a valid URL format. 
+
+Select **Create** when finished.
 
 ![Create service principal one](media/container-service-walkthrough-portal/create-sp-one.png)
 
@@ -46,7 +48,11 @@ Select the newly created registered application, and take note of the Applicatio
 
 ![Create service principal two](media/container-service-walkthrough-portal/create-sp-two.png)
 
-Select **All Settings** and enter a key description, this can be any value. Select a duration, this is the time for which the service principal will be valid. Click **Save** and take note of the password value, this value is needed when creating a AKS cluster.  
+Select **All Settings** > **Keys**, and enter a key description, this can be any value. 
+
+Select a duration, this is the time for which the service principal will be valid. 
+
+Click **Save** and take note of the password value, this value is needed when creating a AKS cluster.  
 
 ![Create service principal three](media/container-service-walkthrough-portal/create-sp-three.png)
 
@@ -60,7 +66,11 @@ Select **OK** when complete.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/create-aks-portal-one.png)
 
-Enter a user name, this will be the administrative account created on the cluster nodes. Enter an SSH public key value, and the service principal ID and password from the newly created service principal. Select the number of nodes for the cluster, and the VM size for these nodes. Optionally, the node disk size can be configured.
+Enter a user name, this will be the administrative account created on the cluster nodes. 
+
+Enter an SSH public key value, and the service principal ID and password from the newly created service principal. 
+
+Select the number of nodes for the cluster, and the VM size for these nodes. Optionally, the node disk size can be configured.
 
 Select **OK** when complete.
 
