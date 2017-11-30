@@ -58,7 +58,7 @@ Before you can use the marketplace syndication tool, make sure that you have the
 
 From the machine that has internet connectivity, use the following steps to download the required marketplace items:
 
-1. Add the Azure account that you have used to register Azure Stack. To do this, run the “Add-AzureRmAccount” cmdlet without any parameters. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.  
+1. Add the Azure account that you have used to register Azure Stack. To do this, run the **Add-AzureRmAccount** cmdlet without any parameters. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.  
 
 2. If you have multiple subscriptions, run the following command to select the one you have used for registration:  
 
@@ -102,7 +102,7 @@ From the machine that has internet connectivity, use the following steps to down
 
    ![Azure Marketplace items popup](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-6. Select the image that you want to download (you can select multiple images by holding the Ctrl key) and make a note of the image version, you will use this to import the image > click **Ok** > accept the legal terms by clicking on **Yes**. You can also filter the list of images by using the **Add criteria** option. The download takes a while depending on the size of the image. Once the image downloads, it is available in the destination path that you provided earlier. The download contains the VHD file and gallery items in the Azpkg format.  
+6. Select the image that you want to download (you can select multiple images by holding the Ctrl key) and make a note of the image version, you will use this version to import the image in next section > click **Ok** > accept the legal terms by clicking on **Yes**. You can also filter the list of images by using the **Add criteria** option. The download takes a while depending on the size of the image. Once the image downloads, it is available in the destination path that you provided earlier. The download contains the VHD file and gallery items in the Azpkg format.  
 
 ### Import the image and publish it to Azure Stack marketplace
 
@@ -110,7 +110,7 @@ From the machine that has internet connectivity, use the following steps to down
 
 2. Before importing the image, you must connect to the Azure Stack operator’s environment by using the steps described in [configure Azure Stack operator’s PowerShell environment](azure-stack-powershell-configure-admin.md).  
 
-3. Import the image to Azure Stack by using the Add-AzsVMImage cmdlet. When using this cmdlet, make sure to replace the publisher, offer and other parameter values with the values of the image that you are importing. You can get the “publisher”, “offer” and “sku” values of the image from the Azpkg file that was downloaded earlier and the “Version” value from step 6 in previous section.
+3. Import the image to Azure Stack by using the Add-AzsVMImage cmdlet. When using this cmdlet, make sure to replace the publisher, offer and other parameter values with the values of the image that you are importing. You can get the “publisher”, “offer” and “sku” values of the image from the imageReference object of the Azpkg file that you downloaded earlier and the “version” value from step 6 in the previous section.
 
    ```json
    "imageReference": {
