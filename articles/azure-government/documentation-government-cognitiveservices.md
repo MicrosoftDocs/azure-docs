@@ -1,5 +1,5 @@
 ---
-title: Azure Government Cognitive Services quickStart | Microsoft Docs
+title: Cognitive Services on Azure Government | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
@@ -18,7 +18,7 @@ ms.author: yujhong
 
 ---
 
-# Cognitive Services – Computer Vision, Face, Translator Text APIs
+# Cognitive Services on Azure Government – Computer Vision, Face, Translator Text APIs
 
 To see an overview of Cognitive Services on Azure Government, [click here](documentation-government-services-aiandcognitiveservices.md).
 
