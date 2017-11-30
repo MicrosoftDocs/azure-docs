@@ -264,26 +264,26 @@ This topic provides a reference for the following API Management policies. For i
 -   **Policy scopes:** all scopes  
   
 ##  <a name="LimitConcurrency"></a> Limit concurrency  
- The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at a given time. Upon exceeding the threshold, new requests are added to a queue, until the maximum queue length is achieved. Upon queue exhaustion, new requests will fail immediately.
+ The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at a given time. Upon exceeding that number, new requests will fail immediately with 429 Too Many Requests status code.
   
 ###  <a name="LimitConcurrencyStatement"></a> Policy statement  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### Examples  
   
-####  <a name="ChooseExample"></a> Example  
+#### Example  
  The following example demonstrates how to limit number of requests forwarded to a backend based on the value of a context variable.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -303,10 +303,8 @@ This topic provides a reference for the following API Management policies. For i
 |---------------|-----------------|--------------|--------------|  
 |key|A string. Expression allowed. Specifies the concurrency scope. Can be shared by multiple policies.|Yes|N/A|  
 |max-count|An integer. Specifies a maximum number of requests that are allowed to enter the policy.|Yes|N/A|  
-|timeout|An integer. Expression allowed. Specifies the number of seconds a request should wait to enter a scope before failing with "429 Too Many Requests"|No|Infinity|  
-|max-queue-length|An integer. Expression allowed. Specifies the maximum queue length. Incoming requests trying to enter this policy will be terminated with “429 Too Many Requests” immediately when the queue is exhausted.|No|Infinity|  
   
-###  <a name="ChooseUsage"></a> Usage  
+### Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound, outbound, backend, on-error  

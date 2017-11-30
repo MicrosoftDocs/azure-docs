@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/25/2017
+ms.date: 11/06/2017
 ---
 
 # Classify Iris part 2: Build a model
@@ -227,7 +227,7 @@ With Machine Learning, you can easily configure additional execution environment
 
 2. Use the command prompt to log in to Azure. 
 
-   The workbench app and CLI use independent credential caches when authenticating against Azure resources. You only need to do this once until the cached token expires. The **az account list** command returns the list of subscriptions available to your login. If there is more than one, use the ID value from the desired subscription. Set that subscription as the default account to use with the **az set account -s** command, and then provide the subscription ID value. Then confirm the setting by using the account **show** command.
+   The workbench app and CLI use independent credential caches when authenticating against Azure resources. You only need to do this once until the cached token expires. The **az account list** command returns the list of subscriptions available to your login. If there is more than one, use the ID value from the desired subscription. Set that subscription as the default account to use with the **az account set -s** command, and then provide the subscription ID value. Then confirm the setting by using the account **show** command.
 
    ```azurecli
    REM login by using the aka.ms/devicelogin site
@@ -237,7 +237,7 @@ With Machine Learning, you can easily configure additional execution environment
    az account list -o table
    
    REM sets the current Azure subscription to the one you want to use
-   az set account -s <subscriptionId>
+   az account set -s <subscriptionId>
    
    REM verifies that your current subscription is set correctly
    az account show
@@ -288,7 +288,7 @@ With Machine Learning, you can easily configure additional execution environment
    When `run.py` finishes, you see a graph in your run history list view in the workbench.
 
 ## Execute in a Docker container on a remote machine
-To execute your script in a Docker container on a remote Linux machine, you need to have SSH access (username and password) to that remote machine. In addition, that remote machine must have a Docker engine installed and running. The easiest way to obtain such a Linux machine is to create an [Ubuntu-based Data Science Virtual Machine (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) on Azure. 
+To execute your script in a Docker container on a remote Linux machine, you need to have SSH access (username and password) to that remote machine. In addition, that remote machine must have a Docker engine installed and running. The easiest way to obtain such a Linux machine is to create an Ubuntu-based Data Science Virtual Machine (DSVM) on Azure. Learn [how to create an Ubuntu DSVM to use in Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >The CentOS-based DSVM is *not* supported.
@@ -331,7 +331,7 @@ To execute your script in a Docker container on a remote Linux machine, you need
    ```yaml
    "Framework": "PySpark"
    ```
-   Don't make any changes to the `myvm.compute` file. The same Docker image on the same VM gets used for the Spark execution. In the new `myvy-spark.runconfig`, the `target` field points to the same `myvm.compute` file via its name `myvm`.
+   Don't make any changes to the `myvm.compute` file. The same Docker image on the same VM gets used for the Spark execution. In the new `myvm-spark.runconfig`, the `target` field points to the same `myvm.compute` file via its name `myvm`.
 
 5. Type the following command to run it in the Spark instance in the remote Docker container:
    ```azureli
@@ -340,7 +340,9 @@ To execute your script in a Docker container on a remote Linux machine, you need
    ```
 
 ## Execute script in an HDInsight cluster
-You can also run this script in an actual Spark cluster. 
+You can also run this script in an HDInsight Spark cluster. Learn [how to create HDInsight Spark Cluster to use in Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
+
+>![NOTE] The HDInsight cluster must use Azure Blob as the primary storage. Using Azure Data Lake storage is not supported yet.
 
 1. If you have access to Spark for Azure HDInsight cluster, generate an HDInsight run configuration command as shown here. Provide the HDInsight cluster name and your HDInsight username and password as the parameters. Use the following command:
 

@@ -29,8 +29,18 @@
     href: project-ic-tasks.md
 - name: Project structure
   href: https://github.com/Azure/Azure-TDSP-ProjectTemplate
+- name: Project planning
+  href: team-data-science-process-project-templates.md
 - name: Project execution
-  href: project-execution.md
+  items:
+  - name: Agile development
+    href: agile-development.md
+  - name: Collaborative coding with Git
+    href: collaborative-coding-with-git.md
+  - name: Execute data science tasks
+    href: execute-data-science-tasks.md
+  - name: Track progress
+    href: track-progress.md
 - name: Examples
   href: walkthroughs.md
   items:
@@ -46,12 +56,12 @@
   - name: Spark with PySpark and Scala
     href: walkthroughs-spark.md
     items:
-    - name: Explore data
+    - name: Explore and model data
       href: spark-data-exploration-modeling.md
-    - name: Score models
-      href: spark-model-consumption.md
     - name: Advanced data exploration
       href: spark-advanced-data-exploration-modeling.md
+    - name: Score models
+      href: spark-model-consumption.md
   - name: Hive with HDInsight Hadoop
     href: walkthroughs-hdinsight-hadoop.md
   - name: U-SQL with Azure Data Lake
@@ -62,9 +72,9 @@
     href: walkthroughs-sql-data-warehouse.md
 - name: Training
   items:
-  - name: TDSP for data scientists
+  - name: For data scientists
     href: team-data-science-process-for-data-scientists.md
-  - name: TDSP for DevOps
+  - name: For DevOps
     href: team-data-science-process-for-devops.md
 - name: How To
   items:
@@ -79,8 +89,23 @@
       maintainContext: true
     - name: Platforms and tools
       href: platforms-and-tools.md
-    - name: Customize Hadoop
-      href: customize-hadoop-cluster.md
+    - name: R and Python on HDInsight clusters
+      items:
+      - name: Introduction to Spark on HDInsight
+        href: ../../hdinsight/spark/apache-spark-overview.md
+        maintainContext: true
+      - name: Create an Apache Spark cluster in Azure HDInsight
+        href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md
+        maintainContext: true
+      - name: PySpark kernels for Jupyter Notebook
+        href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md
+        maintainContext: true
+      - name: R Server on HDInsight
+        href: ../../hdinsight/r-server/r-server-overview.md
+        maintainContext: true
+      - name: Get started using R Server on HDInsight
+        href: ../../hdinsight/r-server/r-server-get-started.md
+        maintainContext: true
     - name: Azure Machine Learning workspace
       href: ../studio/create-workspace.md
       maintainContext: true

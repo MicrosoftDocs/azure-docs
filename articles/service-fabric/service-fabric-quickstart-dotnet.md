@@ -55,12 +55,14 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ## Run the application locally
 Right-click the Visual Studio icon in the Start Menu and choose **Run as administrator**. In order to attach the debugger to your services, you need to run Visual Studio as administrator.
 
-Open the **Voting.sln** Visual Studio solution from the repository you cloned.
+Open the **Voting.sln** Visual Studio solution from the repository you cloned.  
+
+By default, the Voting application is set to listen on port 8080.  The application port is set in the */VotingWeb/PackageRoot/ServiceManifest.xml* file.  You can change the application port by updating the **Port** attribute of the **Endpoint** element.  To deploy and run the application locally, the application port must be open and available on your computer.  If you change the application port, substitute the new application port value for "8080" throughout this article.
 
 To deploy the application, press **F5**.
 
 > [!NOTE]
-> The first time you run and deploy the application, Visual Studio creates a local cluster for debugging. This operation may take some time. The cluster creation status is displayed in the Visual Studio output window.
+> The first time you run and deploy the application, Visual Studio creates a local cluster for debugging. This operation may take some time. The cluster creation status is displayed in the Visual Studio output window.  In the output, you see the message "The application URL is not set or is not an HTTP/HTTPS URL so the browser will not be opened to the application."  This message does not indicate an error, but that a browser will not auto-launch.
 
 When the deployment is complete, launch a browser and open this page: `http://localhost:8080` - the web front-end of the application.
 
@@ -83,43 +85,44 @@ When you vote in the application the following events occur:
 3. The back-end service takes the incoming request, and stores the updated result in a reliable dictionary, which gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
 
 ## Debug in Visual Studio
-When debugging application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, we store data in our back-end service, using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
+When debugging application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, data is stored in back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
 
 To look at what happens in the code, complete the following steps:
-1. Open the **VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 47) - You can search for the file in the Solution Explorer in Visual Studio.
+1. Open the **/VotingWeb/Controllers/VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 47) - You can search for the file in the Solution Explorer in Visual Studio.
 
-2. Open the **VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
+2. Open the **/VotingData/ControllersVoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 50).
 
 3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
     - This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
     
     ![Add Vote Front-End Service](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    - First we construct the URL to the ReverseProxy for our back-end service **(1)**.
-    - Then we send the HTTP PUT Request to the ReverseProxy **(2)**.
-    - Finally the we return the response from the back-end service to the client **(3)**.
+    - First, construct the URL to the ReverseProxy for our back-end service **(1)**.
+    - Then, send the HTTP PUT Request to the ReverseProxy **(2)**.
+    - Finally, return the response from the back-end service to the client **(3)**.
 
 4. Press **F5** to continue
     - You are now at the break point in the back-end service.
     
     ![Add Vote Back-End Service](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    - In the first line in the method **(1)** we are using the `StateManager` to get or add a reliable dictionary called `counts`.
+    - In the first line in the method **(1)** the `StateManager` gets or adds a reliable dictionary called `counts`.
     - All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
-    - In the transaction, we then update the value of the relevant key for the voting option and commits the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
+    - In the transaction, update the value of the relevant key for the voting option and commit the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
 5. Press **F5** to continue
 
 To stop the debugging session, press **Shift+F5**.
 
 ## Deploy the application to Azure
-To deploy the application to a cluster in Azure, you can either choose to create your own cluster, or use a Party Cluster.
+To deploy the application to Azure, you need a Service Fabric cluster which runs the application. 
 
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. To get access to a Party Cluster, [follow the instructions](http://aka.ms/tryservicefabric). 
+### Join a Party cluster
+Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. 
 
-For information about creating your own cluster, see [Create your first Service Fabric cluster on Azure](service-fabric-get-started-azure-cluster.md).
+Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Remember the **Connection endpoint** value, which is used in following steps.
 
 > [!Note]
-> The web front-end service is configured to listen on port 8080 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
+> By default, the web front-end service is configured to listen on port 8080 for incoming traffic. Port 8080 is open in the Party Cluster.  If you need to change the application port, change it to one of the ports that are open in the Party Cluster.
 >
 
 ### Deploy the application using Visual Studio
@@ -129,14 +132,16 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
     ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Type in the Connection Endpoint of the cluster in the **Connection Endpoint** field and click **Publish**. When signing up for the Party Cluster, the Connection Endpoint is provided in the browser. - for example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field and click **Publish**. For example, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
 
-3. Open a browser and type in the cluster address foolowed by ':8080' to get to the applicaiton in the cluster - for example, `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. You should now see the application running in the cluster in Azure.
+    Each application in the cluster must have a unique name.  Party clusters are a public, shared environment however and there may be a conflict with an existing application.  If there is a name conflict, rename the Visual Studio project and deploy again.
+
+3. Open a browser and type in the cluster address followed by ':8080' to get to the application in the cluster - for example, `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. You should now see the application running in the cluster in Azure.
 
 ![Application front-end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## Scale applications and services in a cluster
-Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Service Fabric CLI (sfctl). In this example, we are using Service Fabric Explorer.
+Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Service Fabric CLI (sfctl). In this example, use Service Fabric Explorer.
 
 Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
 
@@ -154,22 +159,17 @@ To scale the web front-end service, do the following steps:
 
     ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
 
-    You can now see that the service has two instances, and in the tree view you see which nodes the instances run on.
+    After a delay, you can see that the service has two instances.  In the tree view you see which nodes the instances run on.
 
-By this simple management task, we doubled the resources available for our front-end service to process user load. It's important to understand that you do not need multiple instances of a service to have it run reliably. If a service fails, Service Fabric makes sure a new service instance runs in the cluster.
+By this simple management task, the resources available doubled for the front-end service to process user load. It's important to understand that you do not need multiple instances of a service to have it run reliably. If a service fails, Service Fabric makes sure a new service instance runs in the cluster.
 
 ## Perform a rolling application upgrade
 When deploying new updates to your application, Service Fabric rolls out the update in a safe way. Rolling upgrades gives you no downtime while upgrading as well as automated rollback should errors occur.
 
 To upgrade the application, do the following:
 
-1. Open the **Index.cshtml** file in Visual Studio - You can search for the file in the Solution Explorer in Visual Studio.
-2. Change the heading on the page by adding some text - for example.
-    ```html
-        <div class="col-xs-8 col-xs-offset-2 text-center">
-            <h2>Service Fabric Voting Sample v2</h2>
-        </div>
-    ```
+1. Open the **/VotingWeb/Views/Home/Index.cshtml** file in Visual Studio.
+2. Change the <h2> heading on the page by adding or updating the text. For example, change the heading to "Service Fabric Voting Sample v2".
 3. Save the file.
 4. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 5. Click the **Manifest Version** button to change the version of the service and application.
@@ -180,7 +180,7 @@ To upgrade the application, do the following:
 
     ![Publish Dialog Upgrade Setting](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 8. Open your browser and browse to the cluster address on port 19080 - for example, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
-9. Click on the **Applications** node in the tree view, and then **Upgrades in Progress** in the right-hand pane. You see how the upgrade rolls through the upgrade domains in your cluster, making sure each domain is healthy before proceeding to the next.
+9. Click on the **Applications** node in the tree view, and then **Upgrades in Progress** in the right-hand pane. You see how the upgrade rolls through the upgrade domains in your cluster, making sure each domain is healthy before proceeding to the next. An upgrade domain in the progress bar appears green when the health of the domain has been verified.
     ![Upgrade View in Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric makes upgrades safe by waiting two minutes after upgrading the service on each node in the cluster. Expect the entire update to take approximately eight minutes.

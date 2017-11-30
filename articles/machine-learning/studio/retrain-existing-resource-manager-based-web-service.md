@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 11/07/2017
 ms.author: v-donglo
 
 ---
@@ -85,7 +85,7 @@ The BES sample code uploads a file from a local drive (for example, "C:\temp\Cen
 
 After running your experiment, the resulting workflow should be similar to the following:
 
-![Resulting workflow after run][4]ng values in the code.
+![Resulting workflow after run][4]
 
 1. Sign in to the Azure portal.
 2. In the left navigation column, click **More services**, search for **Storage accounts**, and select it.
@@ -117,6 +117,7 @@ When you specify the output location in the Request Payload, the extension of th
         },
 
 The following is an example of retraining output:
+
 ![Retraining output][6]
 
 ## Evaluate the retraining results

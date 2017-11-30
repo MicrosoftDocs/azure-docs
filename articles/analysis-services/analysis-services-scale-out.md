@@ -29,7 +29,7 @@ With scale-out, you can create a query pool with up to seven additional query re
 
 Regardless of the number of query replicas you have in a query pool, processing workloads are not distributed among query replicas. A single server serves as the processing server. Query replicas serve only queries against the models synchronized between each replica in the query pool. 
 
-When processing operations are completed, a synchronization must be performed between the processing server and the query replica servers. When automating processing operations, it's important to configure a synchronization operation upon successful completion of processing operations.
+When processing operations are completed, a synchronization must be performed between the processing server and the query replica servers. When automating processing operations, it's important to configure a synchronization operation upon successful completion of processing operations. Synchronization can be performed manually in the portal, or by using PowerShell or REST API.
 
 > [!NOTE]
 > Scale-out is available for servers in the Standard pricing tier. Each query replica is billed at the same rate as your server.
@@ -55,13 +55,10 @@ When processing operations are completed, a synchronization must be performed be
 
 Tabular models on your primary server are synchronized with the replica servers. When synchronization is complete, the query pool begins distributing incoming queries among the replica servers. 
 
-### PowerShell
-Use 
-[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) cmdlet. Specify the `-Capacity` parameter value > 1.
 
 ## Synchronization 
 
-When you provision new query replicas, Azure Analysis Services automatically replicates your models across all replicas. You can also perform a manual synchronization. When you process your models, you should perform a synchronization so updates are synchronized among query replicas.
+When you provision new query replicas, Azure Analysis Services automatically replicates your models across all replicas. You can also perform a manual synchronization by using the portal or REST API. When you process your models, you should perform a synchronization so updates are synchronized among your query replicas.
 
 ### In Azure portal
 
@@ -70,18 +67,22 @@ In **Overview** > model > **Synchronize model**.
 ![Scale-out slider](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### REST API
+Use the **sync** operation.
 
-Synchronize a model   
-`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### Synchronize a model   
+`POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
-Get the status of a model synchronization  
-`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### Get sync status  
+`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+### PowerShell
+In order to run sync from PowerShell, [update to the latest](https://github.com/Azure/azure-powershell/releases) 5.01 or higher AzureRM module. Use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## Connections
 
 On your server's Overview page, there are two server names. If you haven't yet configured scale-out for a server, both server names work the same. Once you configure scale-out for a server, you will need to specify the appropriate server name depending on the connection type. 
 
-For end-user client connections like Power BI Desktop, Excel and custom apps, use **Server name**. 
+For end-user client connections like Power BI Desktop, Excel, and custom apps, use **Server name**. 
 
 For SSMS, SSDT, and connection strings in PowerShell, Azure Function apps, and AMO, use **Management server name**. The management server name includes a special `:rw` (read-write) qualifier. All processing operations occur on the management server.
 

@@ -216,6 +216,8 @@ _**Overview of remote vm execution for a Python script:**_
 ## Running a script on an HDInsight cluster
 HDInsight is a popular platform for big-data analytics supporting Apache Spark. Workbench enables experimentation on big data using HDInsight Spark clusters. 
 
+>![NOTE] The HDInsight cluster must use Azure Blob as the primary storage. Using Azure Data Lake storage is not supported yet.
+
 You can create a compute target and run configuration for an HDInsight Spark cluster using the following command:
 
 ```

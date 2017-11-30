@@ -3,7 +3,7 @@ title: Virtual machine extensions and features for Windows in Azure | Microsoft 
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-windows
 documentationcenter: ''
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/06/2017
-ms.author: nepeters
+ms.author: danis
 ms.custom: H1Hack27Feb2017
 
 ---

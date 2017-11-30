@@ -8,14 +8,14 @@ There are three scenarios that can lead to virtual machine in Azure being impact
 
   Virtual machines can also experience downtime in the unlikely event of an outage or disaster that affects an entire datacenter, or even an entire region. For these scenarios, Azure provides protection options including  [availability zones](../articles/availability-zones/az-overview.md) and [paired regions](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-* **Planned Maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. Most of these updates are performed without any impact upon your Virtual Machines or Cloud Services (see [VM Preserving Maintenance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/preserving-maintenance)). While the Azure platform attempts to use VM Preserving Maintenance in all possible occasions, there are rare instances when these updates require a reboot of your virtual machine to apply the required updates to the underlying infrastructure. In this case, you can perform Azure Planned Maintenance with Maintenance-Redeploy operation by initiating the maintenance for their VMs in the suitable time window. For more information, see [Planned Maintenance for Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/planned-maintenance/).
+* **Planned Maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. Most of these updates are performed without any impact upon your Virtual Machines or Cloud Services (see [VM Preserving Maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/preserving-maintenance)). While the Azure platform attempts to use VM Preserving Maintenance in all possible occasions, there are rare instances when these updates require a reboot of your virtual machine to apply the required updates to the underlying infrastructure. In this case, you can perform Azure Planned Maintenance with Maintenance-Redeploy operation by initiating the maintenance for their VMs in the suitable time window. For more information, see [Planned Maintenance for Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/planned-maintenance/).
 
 
 To reduce the impact of downtime due to one or more of these events, we recommend the following high availability best practices for your virtual machines:
 
 * [Configure multiple virtual machines in an availability set for redundancy]
 * [Use managed disks for VMs in an availability set]
-* [Use Scheduled Events to proactively response to VM impacting events ] (https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Use Scheduled Events to proactively response to VM impacting events ] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configure each application tier into separate availability sets]
 * [Combine a Load Balancer with availability sets]
 * [Use availability zones to protect from datacenter level failures]

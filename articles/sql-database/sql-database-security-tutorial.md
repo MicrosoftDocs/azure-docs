@@ -239,7 +239,7 @@ For example, Threat Detection detects certain anomalous database activities indi
 In this tutorial, you learned to improve the protection of your database against malicious users or unauthorized access with just a few simple steps.  You learned how to: 
 
 > [!div class="checklist"]
-> * Set up firewall rules for your sever and or database
+> * Set up firewall rules for your server and or database
 > * Connect to your database using a secure connection string
 > * Manage user access
 > * Protect your data with encryption

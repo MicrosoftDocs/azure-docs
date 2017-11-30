@@ -257,10 +257,7 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
 
    > [!NOTE]
    > Azure ML Workbench synthesizes a program based on the examples provided by you and applies the same program on remaining rows. All other rows are automatically populated based on the example you provided. Workbench also analyzes your data and tries to identify edge cases. 
-
-   > [!IMPORTANT]
-   > Identification of edge cases may not work on Mac in the current version of the Workbench. Skip the __step 3__ and __step 4__ below on Mac. Instead, press __OK__ once all the rows get populated with the derived values.
-   
+  
 3. The text **Analyzing Data** above the grid indicates that Workbench is trying to detect edge cases. When done, the status changes to **Review next suggested row** or **No suggestions**. In this example, **Review next suggested row** is returned.
 
 4. To review the suggested changes, select **Review next suggested row**. The cell that you should review and correct (if needed) is highlighted on the display.
@@ -290,11 +287,6 @@ To use the data in a prediction for two-hour time blocks, you must compute the a
 
    ![Image of the example `Jan 01, 2015 12AM-2AM](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
-   > [!IMPORTANT]
-   > On Mac, follow the following step instead of __step 8__ below.
-   >
-   > * Go to the first cell that contains `Feb 01, 2015 12AM-2AM`. It should be the __row 15__. Correct the value to `Jan 02, 2015 12AM-2AM`, and press __Enter__. 
-   
 
 8. Wait for the status to change from **Analyzing Data** to **Review next suggested row**. This may take several seconds. Select the status link to navigate to the suggested row. 
 
@@ -343,7 +335,6 @@ Changing the data in the numeric columns to a range of 0-1 allows some models to
     > The script expects the column names used previously in this tutorial. If you have different column names, you must change the names in the script.
 
    ```python
-   maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
    maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
    minVal = min(df["HOURLYDRYBULBTEMPF_Mean"])
    df["HOURLYDRYBULBTEMPF_Mean"] = (df["HOURLYDRYBULBTEMPF_Mean"]-minVal)/(maxVal-minVal)
@@ -510,12 +501,7 @@ To summarize bike demand for a 2-hour period, use derived columns.
     > You can give an example against any of the rows. For this example, the value of `Jan 01, 2017 12AM-2AM` is valid for the first row of data.
 
     ![Image of the example data](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-
-   > [!IMPORTANT]
-   > On Mac, follow the following step instead of __step 3__ below.
-   >
-   > * Go to the first cell that contains `Jan 01, 2017 1AM-2AM`. It should be the __row 14__. Correct the value to `Jan 01, 2017 12AM-2AM`, and Press __Enter__. 
-
+   
 3. Wait until the application computes the values against all the rows. It may take several seconds. After analyzing is complete, use the __Review next suggested row__ link to review data.
 
    ![Image of the completed analysis with review link](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)

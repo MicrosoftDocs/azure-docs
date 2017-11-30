@@ -106,7 +106,7 @@ Each service instance is also partitioned using the Int64 partition scheme with 
 
 ## Next steps
 
-Follow the [quick start guide](service-fabric-api-management-quick-start.md) to set up your first Service Fabric cluster with API Management and flow requests through API Management to your services.
+Follow the [tutorial](service-fabric-tutorial-deploy-api-management.md) to set up your first Service Fabric cluster with API Management and flow requests through API Management to your services.
 
 <!-- links -->
 

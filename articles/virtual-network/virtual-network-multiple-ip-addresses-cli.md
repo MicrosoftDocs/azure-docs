@@ -1,10 +1,10 @@
 ---
-title: VM with multiple IP addresses using the Azure CLI 2.0 | Microsoft Docs
-description: Learn how to assign multiple IP addresses to a virtual machine using the Azure CLI 2.0 | Resource Manager.
+title: VM with multiple IP addresses using the Azure CLI | Microsoft Docs
+description: Learn how to assign multiple IP addresses to a virtual machine using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: jimdial
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,20 +15,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: annahar
+ms.author: jimdial
 
 ---
-# Assign multiple IP addresses to virtual machines using the Azure CLI 2.0
+# Assign multiple IP addresses to virtual machines using the Azure CLI
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure CLI 2.0. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
+This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure CLI. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 
-You can complete this task using the Azure CLI 2.0 (this article) or the [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md). Change the values, as appropriate, for your environment. The steps that follow explain how to create an example VM with multiple IP addresses, as described in the scenario. Change variable values in "" and IP address types as required for your implementation. 
+The steps that follow explain how to create an example virtual machine with multiple IP addresses, as described in the scenario. Change variable values in "" and IP address types, as required, for your implementation. 
 
 1. Install the [Azure CLI 2.0](/cli/azure/install-az-cli2) if you don't already have it installed.
 2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

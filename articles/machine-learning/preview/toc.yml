@@ -39,8 +39,12 @@
       href: how-to-use-tdsp-in-azure-ml.md
     - name: Roaming and collaboration
       href: roaming-and-collaboration.md
-  - name: Use Visual Studio Code Tools for AI
-    href: quickstart-visual-studio-tools.md
+  - name: IDE extensions
+    items:
+      - name: Use Visual Studio Tools for AI
+        href: quickstart-visual-studio-tools.md
+      - name: Use Visual Studio Code Tools for AI
+        href: quickstart-visual-studio-code-tools.md
   - name: Configure compute environment
     items: 
     - name: Configure experimentation
@@ -118,6 +122,8 @@
       href: scenario-tdsp-biomedical-recognition.md  
     - name: Classify US incomes - TDSP project
       href: scenario-tdsp-classifying-us-incomes.md
+    - name: Image classification using CNTK
+      href: scenario-image-classification-using-cntk.md     
 - name: Reference
   items:  
   - name: Data preparation
@@ -150,6 +156,8 @@
       href: experimentation-service-configuration-reference.md
     - name: Logging API
       href: reference-logging-api.md
+    - name: Experimentation Service template
+      href: experimentation-service-template.md
   - name: Model Management
     items:
     - name: Model Management API
@@ -162,6 +170,8 @@
     items:
     - name: Sprint 0 - October 2017
       href: release-notes-sprint-0.md
+    - name: Sprint 1 - November 2017
+      href: release-notes-sprint-1.md
 - name: Resources
   items:  
   - name: Frequently asked questions

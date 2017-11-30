@@ -58,6 +58,9 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
+  - name: Azure Databricks
+    tocHref: /azure/azure-databricks/
+    topicHref: /azure/azure-databricks/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -67,12 +70,15 @@
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
-  - name: Government
+  - name: Azure Government
     tocHref: /azure/azure-government/
     topicHref: /azure/azure-government/
-  - name: Germany
+  - name: Azure Germany
     tocHref: /azure/germany/
     topicHref: /azure/germany/
+  - name: Azure China 21Vianet
+    tocHref: /azure/china/
+    topicHref: /azure/china/
   - name: Azure portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
@@ -214,7 +220,7 @@
       - name: Kafka
         tocHref: /azure/hdinsight/kafka
         topicHref: /azure/hdinsight/kafka/apache-kafka-introduction
-      - name: Multi-user
+      - name: Enterprise Security
         tocHref: /azure/hdinsight/domain-joined
         topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
       - name: R Server
@@ -377,6 +383,9 @@
   - name: Stream Analytics
     tocHref: /azure/stream-analytics/
     topicHref: /azure/stream-analytics/
+  - name: Time Series Insights
+    tocHref: /azure/time-series-insights/
+    topicHref: /azure/time-series-insights/
   - name: Traffic Manager
     tocHref: /azure/traffic-manager/
     topicHref: /azure/traffic-manager/
