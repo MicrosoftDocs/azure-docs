@@ -51,6 +51,7 @@ The **Cognitive Insights** widget can interact with a video on your application.
 
 ### Cross-origin communications
 
+
 To get Video Indexer widgets to communicate with other components, the Video Indexer service does the following:
 
 - Uses the cross-origin communication HTML5 method **postMessage** and 
@@ -85,6 +86,7 @@ This section shows how to achieve interaction between a **Cognitive Insights** w
 
 
 2. Instantiate Azure Media Player with the Video Indexer plugin.
+
 		// Init Source
 		function initSource() {
 		    var tracks = [{
