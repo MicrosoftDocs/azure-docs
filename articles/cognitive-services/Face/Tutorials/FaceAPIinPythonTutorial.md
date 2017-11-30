@@ -37,7 +37,7 @@ import cognitive_face as CF
 
 KEY = 'subscription key'  # Replace with a valid subscription key (keeping the quotes in place).
 CF.Key.set(KEY)
-# If you need to you can change your base api url with:
+# If you need to, you can change your base API url with:
 #CF.BaseUrl.set('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/')
 
 # You can use this example JPG or replace the URL below with your own URL to a JPEG image.
@@ -54,7 +54,7 @@ Below is an example result. It's a `list` of detected faces. Each item in the li
 
 ## Draw rectangles around the faces
 
-Using the json coordinates received above, you can draw rectangles on the image to visually represent each face. At the top of the file add
+Using the json coordinates that you received from the previous command, you can draw rectangles on the image to visually represent each face. At the top of the file, add the following:
 
 ```python
 import requests
@@ -62,7 +62,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Then after `print(faces)` include the following in your script.
+Then, after `print(faces)`, include the following in your script:
 
 ```python
 #Convert width height to a point in a rectangle
