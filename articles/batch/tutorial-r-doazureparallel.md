@@ -14,7 +14,7 @@ ms.devlang: r
 ms.topic: tutorial
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/28/2017
+ms.date: 11/30/2017
 ms.author: danlep
 ms.custom: jiata
 ---
@@ -33,8 +33,8 @@ This tutorial details how you can deploy a Batch pool and run a parallel R job i
 
 
 ## Prerequisites
-[*Q: Any version limitations in the following?*]
-* An installed [R](https://www.r-project.org/) distribution, such as [Microsoft R Open](https://mran.microsoft.com/open)
+
+* An installed [R](https://www.r-project.org/) distribution, such as [Microsoft R Open](https://mran.microsoft.com/open). Use R version 3.3.1 or later.
 
 * [RStudio](https://www.rstudio.com/). For this tutorial, you can use the open source [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop). 
 
@@ -69,11 +69,9 @@ Start by generating a credentials file called `credentials.json` in your working
 generateCredentialsConfig("credentials.json") 
 ``` 
 
-You populate this file with your Batch and storage account names and keys. Get the necessary information from the [Azure portal](https://portal.azure.com), or use Azure CLI or Azure PowerShell commands. For example, to get the account keys, use the [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) and [az storage account keys list](/cli/azure/storage/account/keys##az_storage_account_keys_list) commands. 
+You populate this file with your Batch and storage account names and keys. Get the necessary information from the [Azure portal](https://portal.azure.com), or use Azure CLI commands. For example, to get the account keys, use the [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) and [az storage account keys list](/cli/azure/storage/account/keys##az_storage_account_keys_list) commands. Leave the `githubAuthenticationToken` setting unchanged.
 
 When complete, the credentials file looks similar to the following: 
-
-[*Question: Is githubAuthenticationToken setting required? Ignore?*]
 
 ```json
 {
@@ -104,23 +102,23 @@ setCredentials("credentials.json")
 generateClusterConfig("cluster.json")
 ``` 
  
-The default configuration includes 3 dedicated nodes and 3 [low priority](batch-low-pri-vms.md) nodes: 
+Open the file to view the default configuration, which includes 3 dedicated nodes and 3 [low priority](batch-low-pri-vms.md) nodes. 
 
-[*Questions: Necessary to include containerImage and Packages settings, or tell customer to ignore? This cluster deployment took a long while, perhaps 10 mins. Perhaps choose smaller node numbers?*]
+For this tutorial, increase the `maxTasksPerNode` to 2, set `dedicatedNodes` to 5 and `lowPriorityNodes` to 0. Leave defaults for the remaing settings, and save the file.
 
 ```json
 {
   "name": "myPoolName",
   "vmSize": "Standard_D2_v2",
-  "maxTasksPerNode": 1,
+  "maxTasksPerNode": 2,
   "poolSize": {
     "dedicatedNodes": {
-      "min": 3,
-      "max": 3
+      "min": 5,
+      "max": 5
     },
     "lowPriorityNodes": {
-      "min": 3,
-      "max": 3
+      "min": 0,
+      "max": 0
     },
     "autoscaleFormula": "QUEUE"
   },
@@ -133,8 +131,6 @@ The default configuration includes 3 dedicated nodes and 3 [low priority](batch-
   "commandLine": []
 ```
 
-
-If you want to make changes to the cluster configuration, edit the settings. Then, save the file. 
 
 Now create the cluster and register it as the parallel backend for your R session. 
 
@@ -234,7 +230,7 @@ closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar
 end_p <- Sys.time() 
 ```
 
-The simulation distributes tasks to the nodes in the Batch pool. You can see the activity in the heat map for the pool in the [Azure portal](https://portal.azure.com). Go to **Batch accounts** > *myBatchAccount*. Click **Pools** > **myPoolName**. 
+The simulation distributes tasks to the nodes in the Batch pool. You can see the activity in the heat map for the pool in the [Azure portal](https://portal.azure.com). Go to **Batch accounts** > *myBatchAccount*. Click **Pools** > *myPoolName*. 
 
 ![Heat map of pool running parallel R tasks](media/tutorial-r-doazureparallel/pool.png)
 
@@ -261,7 +257,11 @@ You should see that running the same simulation on `doAzureParallel` gives you a
 
 ## Clean up resources
 
-When no longer needed, you can use the [Azure portal](https://portal.azure.com) to remove the resource group, Batch account, pools, and all related resources. Go to **Resource groups** > *myResourceGroup* and click **Delete resource group**.
+When the cluster is longer needed, you can use the `stopCluster` function in the `doAzureParallel` package to delete it:
+
+```R
+stopCluster(cluster)
+```
 
 
 In this tutorial, you learned about how to:
