@@ -1,6 +1,6 @@
 ---
-title: How to use an Azure VM Managed Service Identity for sign-in
-description: Step by step instructions and examples for using an Azure VM MSI service principal for sign-in and resource access.
+title: How to use an Azure VM Managed Service Identity for sign in
+description: Step by step instructions and examples for using an Azure VM MSI service principal for script client sign in and resource access.
 services: active-directory
 documentationcenter: 
 author: bryanla
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/23/2017
+ms.date: 12/01/2017
 ms.author: bryanla
 ---
 
-# How to use an Azure VM Managed Service Identity (MSI) for sign-in 
+# How to use an Azure VM Managed Service Identity (MSI) for sign in 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
-An MSI provides a [*service principal*](develop/active-directory-dev-glossary.md#service-principal-object), which is [created upon enabling MSI](msi-overview.md#how-does-it-work) on the VM. The service principal can then be given access to Azure resources, and used as an identity by client applications for sign-in and resource access. Traditionally, in order for a client to be able to access secured resources under its own identity, it must:  
+An MSI provides a [service principal](develop/active-directory-dev-glossary.md#service-principal-object), which is [created upon enabling MSI](msi-overview.md#how-does-it-work) on the VM. The service principal can then be given access to Azure resources, and used as an identity by script/command-line clients for sign in and resource access. Traditionally, in order to be able to access secured resources under its own identity, it must:  
 
    - be registered with Azure AD as a confidential/web client application, and consented for use by a tenant's user(s)/admin
-   - sign in under its service principal, using the ID+secret credentials generated during registration (which are likely embedded in the client code)
+   - sign in under its service principal, using the ID+secret credentials generated during registration (which are likely embedded in the script)
 
-With MSI, your client application no longer needs to do either, as it can sign in under the MSI service principal. 
+With MSI, your script client no longer needs to do either, as it can sign in under the MSI service principal. 
 
 ## Prerequisites
 
@@ -33,12 +33,10 @@ With MSI, your client application no longer needs to do either, as it can sign i
 If you plan to use the Azure PowerShell or Azure CLI examples in this article, be sure to install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) or [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
-> - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
+> - All sample script in this article assumes the command-line client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
 > - To prevent errors during resource access, the VM's MSI must be given at least "Reader" access at the appropriate scope (the VM or higher) to allow Azure Resource Manager operations on the VM. See [Assign a Managed Service Identity (MSI) access to a resource using the Azure portal](msi-howto-assign-access-portal.md) for details.
 
-## Code examples
-                           
-### Azure CLI
+## Azure CLI
 
 The following script demonstrates how to:
 
@@ -51,7 +49,7 @@ spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
 echo The MSI service principal ID is $spID
 ```
 
-### Azure PowerShell
+## Azure PowerShell
 
 The following script demonstrates how to:
 
@@ -76,13 +74,11 @@ $spID = $vmInfoPs.Identity.PrincipalId
 echo "The MSI service principal ID is $spID"
 ```
 
-## Additional information
-
-### Resource IDs for Azure services
+## Resource IDs for Azure services
 
 See [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with MSI, and their respective resource IDs.
 
-### PowerShell/CLI error handling guidance 
+## Error handling guidance 
 
 Responses such as the following may indicate that the VM's MSI has not been correctly configured:
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/23/2017
+ms.date: 12/01/2017
 ms.author: bryanla
 ---
 
 # How to use an Azure VM Managed Service Identity (MSI) for token acquisition 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
-A client application can request an MSI [*app-only access token*](develop/active-directory-dev-glossary.md#access-token) for accessing a given resource. The token is [based on the MSI service principal](msi-overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
+A client application can request an MSI [app-only access token](develop/active-directory-dev-glossary.md#access-token) for accessing a given resource. The token is [based on the MSI service principal](msi-overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
 
 ## Prerequisites
 
@@ -32,8 +32,22 @@ If you plan to use the Azure PowerShell examples in this article, be sure to ins
 > - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
 
 ## Code examples
-                               
-### HTTP/REST 
+
+The sections below provide various code and script examples, as well as details on important topics such as access token and error handling, including:
+
+|  |  |
+| -------------- | -------------------- |
+| [HTTP/REST](#httprest) | Protocol details for the MSI token endpoint |
+| [.NET/C# example](#netc) | Example of using the MSI REST endpoint from a C# client |
+| [Go example](#go) | Example of using the MSI REST endpoint from a Go client |
+| [Azure PowerShell example](#azure-powershell) | Example of using the MSI REST endpoint from a PowerShell client |
+| [Bash/CURL example](#bashcurl) | Example of using the MSI REST endpoint from a Bash/CURL client |
+| [Token expiration](#token-expiration) | Guidance for handling expired access tokens |
+| [Azure service resource IDs](#resource-ids-for-azure-services) | Where to get resource IDs for supported Azure services |
+| [Error handling](#http-error-handling-guidance) | Guidance for handling HTTP errors returned from the MSI token endpoint |
+
+
+## HTTP/REST 
 
 The fundamental interface for acquiring an access token is based on REST, making it accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs an Azure AD endpoint).
 
@@ -77,9 +91,7 @@ Content-Type: application/json
 | `resource` | The resource the access token was requested for, which matches the `resource` query string parameter of the request. |
 | `token_type` | The type of token, which is a "Bearer" access token, which means the resource can give access to the bearer of this token. |
 
-### .NET C#
-
-The following example demonstrates how to use the MSI REST endpoint from a C# client:
+## .NET C#
 
 ```csharp
 using System;
@@ -112,9 +124,7 @@ catch (Exception e)
 
 ```
 
-### Go
-
-The following example demonstrates how to use the MSI REST endpoint from a Go client:
+## Go
 
 ```
 package main
@@ -192,7 +202,7 @@ func main() {
 }
 ```
 
-### Azure PowerShell
+## Azure PowerShell
 
 The following example demonstrates how to use the MSI REST endpoint from a PowerShell client to:
 
@@ -214,9 +224,7 @@ echo $vmInfoRest
 
 ```
 
-### Bash/CURL
-
-The following example demonstrates how to use the MSI REST endpoint from a Bash client:
+## Bash/CURL
 
 ```bash
 response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
@@ -224,9 +232,7 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The MSI access token is $access_token
 ```
 
-## Additional information
-
-### Token expiration
+## Token expiration
 
 The local MSI subsystem caches tokens. Therefore, you can call it as often as you like, and an on-the-wire call to Azure AD results only if:
 - a cache miss occurs due to no token in the cache
@@ -234,11 +240,11 @@ The local MSI subsystem caches tokens. Therefore, you can call it as often as yo
 
 If you cache the token in your code, you should be prepared to handle scenarios where the resource indicates that the token is expired.
 
-### Resource IDs for Azure services
+## Resource IDs for Azure services
 
 See [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with MSI, and their respective resource IDs.
 
-### HTTP error handling guidance
+## HTTP error handling guidance
 
 The MSI endpoint signals errors via the status code field of the HTTP response message header, as either 4xx or 5xx errors:
 
@@ -254,7 +260,7 @@ If an error occurs, the corresponding HTTP response body contains JSON with the 
 | error   | Error identifier. |
 | error_description | Verbose description of error. **Error descriptions can change at any time. Do not write code that branches based on values in the error description.**|
 
-#### HTTP response reference
+### HTTP response reference
 
 This section documents the possible error responses. A "200 OK" status is a successful response, and the access token is contained in the response body JSON, in the access_token element.
 
