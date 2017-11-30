@@ -332,4 +332,3 @@ The following code example shows how to create a common content key and get Play
 [Using PlayReady and/or Widevine Dynamic Common Encryption](media-services-protect-with-playready-widevine.md)
 
 [Using AES-128 Dynamic Encryption and Key Delivery Service](media-services-protect-with-aes128.md)
-
