@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items: 
-  - name: Learn about Language Understanding Intelligent Service
+  - name: Learn about Language Understanding
     href: Home.md
   - name: Supported languages
     href: luis-supported-languages.md
@@ -29,10 +29,18 @@
       href: luis-get-started-ruby-get-intent.md
   - name: Call LUIS authoring API
     items: 
+    - name: C#
+      href: luis-quickstart-cs-add-utterance.md
+    - name: Java
+      href: luis-quickstart-java-add-utterance.md
     - name: Node.js
       href: luis-quickstart-node-add-utterance.md
     - name: Python
       href: luis-quickstart-python-add-utterance.md
+    - name: PHP
+      href: luis-quickstart-php-add-utterance.md
+    - name: Ruby
+      href: luis-quickstart-ruby-add-utterance.md
 - name: Tutorials
   items: 
   - name: Integrate LUIS with a bot using Node.js
@@ -101,8 +109,6 @@
   items: 
   - name: Prebuilt entity reference
     href: luis-reference-prebuilt-entities.md
-  - name: Prebuilt domain reference
-    href: luis-reference-prebuilt-domains.md
   - name: Cortana prebuilt app reference
     href: luis-reference-cortana-prebuilt.md
   - name: Authoring APIs
