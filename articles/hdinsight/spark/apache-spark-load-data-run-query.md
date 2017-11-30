@@ -1,4 +1,4 @@
----
+
 title: Run interactive queries on an Azure HDInsight Spark cluster | Microsoft Docs
 description: HDInsight Spark quickstart on how to create an Apache Spark cluster in HDInsight.
 keywords: spark quickstart,interactive spark,interactive query,hdinsight spark,azure spark
@@ -25,43 +25,25 @@ Learn how to use Jupyter notebook to run interactive Spark SQL queries against a
 
 Jupyter notebooks on HDInsight clusters support three kernels - **PySpark**, **PySpark3** and **Spark**. The **PySpark** kernel is used in this tutorial. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
+In this tutorial, you query data in a csv file.  You must first load that data into Spark as a dataframe. Then, you can run queries on the dataframe using  Jupyter Notebook. 
+
+
 ## Prerequisites
 
-* **An Azure HDInsight Spark cluster**. For instructions, see [Create an Apache Spark cluster in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* **An Azure HDInsight Spark cluster**. For the instructions, see [Create an Apache Spark cluster in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* **A Jupyter notebook using PySpark**. For the instructions, see [Create a Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-## Create a Jupyter notebook to run interactive queries
+## Create a dataframe from a csv file
 
-To run queries, we use sample data that is by default available in the storage associated with the cluster. However, you must first load that data into Spark as a dataframe. Once you have the dataframe, you can run queries on it using the Jupyter notebook. In this article, you look at how to:
+With a SQLContext, applications can create DataFrames from an existing RDD, from a Hive table, or from data sources. 
 
-* Register a sample data set as a Spark dataframe.
-* Run queries on the dataframe.
+**To create a dataframe from a csv file**
 
-Let's get started.
+1. Create a Jupyter notebook using PySpark if you don't have one.  See [Prerequisites](#prerequisites).
 
-1. Open the [Azure portal](https://portal.azure.com/).
-2. Open your Spark cluster.  For the instructions, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)
-3. From **Quick links**, click **Cluster dashboards**, and then click **Jupyter Notebook**. 
+2. Run the following code in an empty cell of the notebook, and then press **SHIFT + ENTER** to run the code. The code imports the types required for this scenario:
 
-   ![Open Jupyter notebook to run interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-start-jupyter-interactive-spark-sql-query.png "Open Jupyter notebook to run interactive Spark SQL query")
-
-   > [!NOTE]
-   > You may also access the Jupyter notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
-   >
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-  
-4. Enter the cluster admin credentials.
-3. Click **New**, and then click **PySpark** to create a notebook
-
-   ![Create a Jupyter notebook to run interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Create a Jupyter notebook to run interactive Spark SQL query")
-
-   A new notebook is created and opened with the name Untitled(Untitled.pynb). Click the notebook name at the top, and enter a friendly name if you want.
-
-    ![Provide a name for the Jupter notebook to run interactive Spark query from](./media/apache-spark-load-data-run-query/hdinsight-spark-jupyter-notebook-name.png "Provide a name for the Jupter notebook to run interactive Spark query from")
-
-5. Paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. The code imports the types required for this scenario:
-
-    ```
+    ```PySpark
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
@@ -71,9 +53,9 @@ Let's get started.
 
     ![Status of interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status of interactive Spark SQL query")
 
-6. Run the following code to create a dataframe and a temporary table (**hvac**) by running the following code. For this tutorial, we do not create all the columns available in the CSV file. 
+3. Run the following code to create a dataframe and a temporary table (**hvac**) by running the following code. For this tutorial, we do not create all the columns available in the CSV file. 
 
-    ```
+    ```PySpark
     # Create an RDD from sample data
     hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
     
@@ -94,9 +76,15 @@ Let's get started.
 
     ![Snapshot of data for interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot of data for interactive Spark SQL query")
 
-7. Once the table is created, run an interactive query on the data, use the following code.
+## Run queries on the dataframe
 
-    ```
+Once the table is created, you can run an interactive query on the data.
+
+**To run a query**
+
+1. Run the following code in an empty cell of the notebook:
+
+    ```PySpark
     %%sql
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
@@ -107,7 +95,7 @@ Let's get started.
 
      ![Table output of interactive Spark query result](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Table output of interactive Spark query result")
 
-9. You can also see the results in other visualizations as well. To see an area graph for the same output, select **Area** then set other values as shown.
+3. You can also see the results in other visualizations as well. To see an area graph for the same output, select **Area** then set other values as shown.
 
     ![Area graph of interactive Spark query result](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Area graph of interactive Spark query result")
 

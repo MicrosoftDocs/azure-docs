@@ -30,7 +30,7 @@ Learn how to create an Apache Spark cluster on Azure HDInsight, and then run a S
 
 ## Create HDInsight Spark cluster
 
-Create an HDInsight Spark cluster using an [Azure Resource Manager template](../hdinsight-hadoop-create-linux-clusters-arm-templates.md. The template can be found in [github](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). For other cluster creation methods, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).
+Create an HDInsight Spark cluster using an [Azure Resource Manager template](../hdinsight-hadoop-create-linux-clusters-arm-templates.md). The template can be found in [github](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). For other cluster creation methods, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Click the following image to open the template in the Azure portal.         
 
@@ -56,9 +56,9 @@ If you run into an issue with creating HDInsight clusters, it could be that you 
 >
 >
 
-## Create a Jupyter Notebook using PySpark
+## Create a Jupyter notebook
 
-[Jupyter Notebook](jupyter.org) is an interactive notebook environment which supports various programming languages which allows you to interact with your data, combine code with markdown text and perform simple visualizations. Spark on HDInsight also include [Zeppelin Notebook](apache-spark-zeppelin-notebook.md). Jupyter Notebook is used in this tutorial.
+[Jupyter Notebook](http://jupyter.org) is an interactive notebook environment which supports various programming languages which allows you to interact with your data, combine code with markdown text and perform simple visualizations. Spark on HDInsight also include [Zeppelin Notebook](apache-spark-zeppelin-notebook.md). Jupyter Notebook is used in this tutorial.
 
 **To create a Jupyter notebook**
 
@@ -78,7 +78,7 @@ If you run into an issue with creating HDInsight clusters, it could be that you 
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. Click **New**, and then click **PySpark** to create a notebook.
+3. Click **New**, and then click **PySpark** to create a notebook. Jupyter notebooks on HDInsight clusters support three kernels - **PySpark**, **PySpark3** and **Spark**. The **PySpark** kernel is used in this tutorial. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
    ![Create a Jupyter Notebook to run interactive Spark SQL query](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter Notebook to run interactive Spark SQL query")
 
@@ -94,7 +94,7 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 Spark SQL supports both SQL and HiveQL as query languages. Its capabilities include binding in Python, Scala, and Java. With it, you can query data stored in many locations, such as external databases, structured data files (example: JSON), and Hive tables.
 
-When you use a Jupyter Notebook configured for your HDInsight Spark cluster, you get a preset `sqlContext` that you can use to run Hive queries using Spark SQL. In this section, you learn how to start a Jupyter Notebook and then run a basic Spark SQL query on an existing Hive table (**hivesampletable**) that is available on all HDInsight clusters.
+For an example of reading data from a csv file instead of a Hive table, see [Run interactive queries on Spark clusters in HDInsight](apache-spark-load-data-run-qyery.md).
 
 **To run Spark SQL**
 
@@ -107,7 +107,7 @@ When you use a Jupyter Notebook configured for your HDInsight Spark cluster, you
 
     ![Hive query in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Hive query in HDInsight Spark")
 
-    When you use a Jupyter Notebook with your HDInsight Spark cluster, you get a preset `sqlContext` that you can use to run Hive queries using Spark SQL. `%%sql` tells Jupyter Notebook to use the preset `sqlContext` to run the Hive query. The query retrieves the top 10 rows from a Hive table (**hivesampletable**) that is available by default on all HDInsight clusters. For more information on the `%%sql` magic and the preset contexts, see [Jupyter kernels available for an HDInsight cluster](apache-spark-jupyter-notebook-kernels.md).
+    When you use a Jupyter Notebook with your HDInsight Spark cluster, you get a preset `sqlContext` that you can use to run Hive queries using Spark SQL. `%%sql` tells Jupyter Notebook to use the preset `sqlContext` to run the Hive query. The query retrieves the top 10 rows from a Hive table (**hivesampletable**) that comes with all HDInsight clusters by default. For more information on the `%%sql` magic and the preset contexts, see [Jupyter kernels available for an HDInsight cluster](apache-spark-jupyter-notebook-kernels.md).
 
     > [!NOTE]
     > Every time you run a query in Jupyter, your web browser window title shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, it changes to a hollow circle.
