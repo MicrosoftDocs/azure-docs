@@ -33,8 +33,7 @@ With the [Elastic Database tools](sql-database-elastic-scale-introduction.md), y
 The following code illustrates the usage of multi-shard querying using a given **ShardMap** named *myShardMap*. 
 
 ```csharp
-using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards(), myShardConnectionString) 
-          ) 
+using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards(), myShardConnectionString)) 
 { 
     using (MultiShardCommand cmd = conn.CreateCommand())
     { 
