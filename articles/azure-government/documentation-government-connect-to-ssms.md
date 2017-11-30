@@ -18,21 +18,21 @@ ms.author: yujhong
 ---
 
 
-# Connect to Azure Government with Sql Server Management Studio 
+# Connect to Azure Government with SQL Server Management Studio 
 To use SSMS with Azure Government, you need to specify Azure Government as the environment to connect to instead of Azure Public. 
 To connect to SQL Servers in your Azure Government subscription, you must configure SSMS to connect to the Azure Government cloud. 
 
 For general information on SSMS, [navigate to the documentation](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## Specifying Azure Government as the environment to connect to
-1. Open SSMS and navigate to Tools -> Options -> Azure Services:
+1. Open SSMS and navigate to **Tools -> Options -> Azure Services:**
 
     ![img1](./media/documentation-government-connect-with-ssms-img1.png)
-2. Select the dropdown under "Select an Azure Cloud" and click on "AzureUSGovernment":
+2. Select the dropdown under **"Select an Azure Cloud"** and click on **"AzureUSGovernment":**
 
     ![img2](./media/documentation-government-connect-with-ssms-img2.png)
 
-3. Navigate to File -> Connect Object Explorer and enter in your Azure SQL server name and authentication. 
+3. Navigate to **File -> Connect Object Explorer** and enter in your Azure SQL server name and authentication. 
 
     >[!Note]
     >Notice that the server name ends with ".usgovcloudapi.net"
