@@ -33,7 +33,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 ## Create a database account
 
 > [!IMPORTANT] 
-> You need to create a new Table API account to work with the generally available Table API SDKs. Table API accounts created during preview are not supported by the generally available SDKs.
+> You must create a new Table API account to work with the generally available Table API SDKs. Table API accounts created during preview are not supported by the generally available SDKs.
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
@@ -49,17 +49,17 @@ You can now add data to your new table using Data Explorer.
 1. In Data Explorer, expand **sample-table**, click **Entities**, and then click **Add Entity**.
 
    ![Create new entities in Data Explorer in the Azure portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Now add data to the PartitionKey value box and RowKey value boxes, and click **Add Entity**.
+2. Now add data to the PartitionKey value box and RowKey value box, and click **Add Entity**.
 
    ![Set the Partition Key and Row Key for a new entity](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
-    You can now add more entities to your table, edit your entities, or query your data in Data Explorer. Data Explorer is also where you can scale your throughput and add stored procedures, user defined functions, and triggers to your table.
+    You can now add more entities to your table, edit your entities, or query your data in Data Explorer. Data Explorer is also where you can scale your throughput and add stored procedures, user-defined functions, and triggers to your table.
 
 ## Clone the sample application
 
-Now let's clone a Table app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
+1. Open a Git terminal window, such as Git Bash, and use the `cd` command to change to a folder to install the sample app. 
 
     ```bash
     cd "C:\git-samples"
@@ -71,7 +71,7 @@ Now let's clone a Table app from github, set the connection string, and run it. 
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
-3. Then open the TableStorage solution file in Visual Studio. 
+3. Then open the TableStorage.sln solution file in Visual Studio. 
 
 ## Update your connection string
 
@@ -79,26 +79,26 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
 
-    Use the copy buttons on the right side of the screen to copy the PRIMARY CONNECTION STRING.
+    Use the copy button on the right side of the window to copy the **PRIMARY CONNECTION STRING**.
 
     ![View and copy the PRIMARY CONNECTION STRING in the Connection String pane](./media/create-table-dotnet/connection-string.png)
 
 2. In Visual Studio, open the App.config file. 
 
-3. Uncomment the StorageConnectionString on line 8 and comment out the StorageConnectionString on line 7 as this tutorial does not use the Storage Emulator. Line 7 and 8 should now look like this:
+3. Uncomment the StorageConnectionString on line 8 and comment out the StorageConnectionString on line 7, because this tutorial does not use the Azure SDK Storage Emulator. Lines 7 and 8 should now look like this:
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. Paste the PRIMARY CONNECTION STRING from the portal into the StorageConnectionString value on line 8. Paste the string inside the quotes. 
+4. Paste the **PRIMARY CONNECTION STRING** from the portal into the StorageConnectionString value on line 8. Paste the string inside the quotes. 
 
     > [!IMPORTANT]
-    > If your Endpoint uses documents.azure.com, that means you have a preview account, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK. 
+    > If your Endpoint uses documents.azure.com, that means you have a preview account, and you must create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK. 
     > 
 
-    Line 8 should now look similar to:
+    Line 8 should now appear similar to:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -112,11 +112,12 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 1. In Visual Studio, right-click on the **TableStorage** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
+   ![Manage NuGet Packages](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
 2. In the NuGet **Browse** box, type *Microsoft.Azure.CosmosDB.Table*.
 
-3. From the results, install the **Microsoft.Azure.CosmosDB.Table** library. This installs the Azure Cosmos DB Table API package as well as all dependencies.
+3. From the results, install the **Microsoft.Azure.CosmosDB.Table** library. This installs the Azure Cosmos DB Table API package and all dependencies.
 
-4. Open BasicSamples.cs and add a breakpoint to line 30 and line 52.
+4. Open BasicSamples.cs and add a breakpoint to lines 30 and line 52.
 
 5. Click CTRL + F5 to run the application.
 
