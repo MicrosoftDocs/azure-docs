@@ -35,7 +35,7 @@ These are the key security aspects of this feature:
 - Only standard ports (80 and 443) are used for outbound communication from the Authentication Agents to Azure AD. You don't need to open inbound ports on your firewall. 
   - Port 443 is used for all authenticated outbound communication.
   - Port 80 is used only for downloading the Certificate Revocation Lists (CRLs) to ensure that none of the certificates used by this feature have been revoked.
-  - For the complete list of the network requirements, see [Azure Active Directory Pass-through Authentication: Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+  - For the complete list of the network requirements, see [Azure Active Directory Pass-through Authentication: Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Passwords that users provide during sign-in are encrypted in the cloud before the on-premises Authentication Agents accept them for validation against Active Directory.
 - The HTTPS channel between Azure AD and the on-premises Authentication Agent is secured by using mutual authentication.
 - The feature seamlessly integrates with Azure AD cloud-protection capabilities, such as conditional access policies (including Azure Multi-Factor Authentication), identity protection, and Smart Lockout.

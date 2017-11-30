@@ -34,7 +34,7 @@ To send requests to your custom endpoint by using the speech client library, sta
   *   ```CreateMicrophoneClient(...)```: A microphone recognition client.
   *   ```CreateMicrophoneClientWithIntent(...)```: A microphone recognition client with intent.
 
-For detailed documentation, see the [Bing Speech API](https://www.microsoft.com/cognitive-services/Speech-api/documentation/GetStarted/GetStartedCSharpDesktop). The Custom Speech Service endpoints support the same SDK.
+For detailed documentation, see the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home). The Custom Speech Service endpoints support the same SDK.
 
 The data recognition client is appropriate for speech recognition from data, such as a file or other audio source. The microphone recognition client is appropriate for speech recognition from the microphone. The use of intent in either client can return structured intent results from the [Language Understanding Intelligent Service](https://www.luis.ai/) (LUIS), if you've built a LUIS application for your scenario.
 
@@ -95,7 +95,7 @@ your deployment. Do not insert the full URI here but just the *wss* protocol sch
 > [!NOTE]
 > Ensure that you use the correct URI for this protocol. The required scheme is *wss* (not *http* as in the client protocol). 
 
-For more information, see the [Bing Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedjswebsockets) documentation.
+For more information, see the [Bing Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/getstarted/getstartedclientlibraries) documentation.
 
 ## Send requests by using HTTP
 

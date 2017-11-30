@@ -42,7 +42,7 @@ If you use the Azure portal for development, here's the content of the *function
 The important thing is the `orchestrationTrigger` binding type. All orchestrator functions must use this trigger type.
 
 > [!WARNING]
-> To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions.
+> To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions, which are called by the orchestrator.
 
 ## C# script
 
@@ -50,7 +50,7 @@ Here is the source code:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
 
-All C# orchestration functions must have a `DurableOrchestrationContext` parameter, which exists in the `Microsoft.Azure.WebJobs.Extensions.DurableTask` assembly. If you're using C# script, the assembly can be referenced using the `#r` notation. This context object lets you call other *activity* functions and pass input parameters using its [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) method.
+All C# orchestration functions must have a parameter of type `DurableOrchestrationContext`, which exists in the `Microsoft.Azure.WebJobs.Extensions.DurableTask` assembly. If you're using C# script, the assembly can be referenced using the `#r` notation. This context object lets you call other *activity* functions and pass input parameters using its [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) method.
 
 The code calls `E1_SayHello` three times in sequence with different parameter values. The return value of each call is added to the `outputs` list, which is returned at the end of the function.
 
@@ -65,7 +65,7 @@ The implementation of `E1_SayHello` is a relatively trivial string formatting op
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
-This function has a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html)parameter, which it uses to get input that was passed to it by the orchestrator function's call to [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_)>.
+This function has a parameter of type [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), which it uses to get the input that was passed to it by the orchestrator function's call to [`CallActivityAsync<T>`](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
 
 ## Run the sample
 
