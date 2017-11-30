@@ -153,9 +153,10 @@ tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
     - **Cloud name** - (Optional as this value defaults to an auto-generated name) Specify a name for this instance. 
     - **Azure Credential** - Select the dropdown arrow, and then select the `myTestSp` entry that identifies the Azure service principal you created earlier.
     - **Resource Group** - Select the dropdown arrow, and then select the `myJenkinsAgentRG` entry that identifies the Azure resource group you created earlier.
-    - **Add Container Template** - Select the dropdown arrow, and then select **Aci Container Template**.
 
-    need image here
+    ![Defining the Azure Container Instance properties](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-properties.png)
+
+1. Select the **Add Container Template** dropdown arrow, and then select **Aci Container Template**.
 
 1. In the **Aci container Template** section, specify the following values:
 
@@ -163,6 +164,20 @@ tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
     - **Labels** - Enter `ACI-container`.
     - **Docker Image** - Enter `cloudbees/jnlp-slave-with-java-build-tools`
 
-    need image here
+    ![Defining the Azure Container Instance image properties](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-image-properties.png)
+
+1. Select **Advanced**.
+
+1. Select the **Retention Strategy** dropdown arrow, and select **Container Idle Retention Strategy**. By selecting this option, Jenkins will keep the agent up until no new job is executed on the agent and the idle time specified has elapsed.
+
+    ![Defining the Azure Container Instance retention strategy](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-aci-retention-strategy.png)
+
+1. Select **Save**.
+
+## Create a job in Jenkins
+
+In this section, you'll create a Jenkins freestyle project to build the Spring PetClinic Application.
+
+
 
 ## Next steps
