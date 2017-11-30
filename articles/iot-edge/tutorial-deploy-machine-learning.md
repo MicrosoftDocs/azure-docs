@@ -94,12 +94,8 @@ $ sudo iotedgectl login --address ADDRESS --username USERNAME --password PASSWOR
     1. In the **Image** field, enter your image address; for example `<ACR_name>.azureacr.io/machinelearningmodule:1`.
     1. Click **Save**.
 1. Back in the **Add Modules** step, click **Next**.
-<<<<<<< HEAD
-1. In the **Specify Routes** step, copy the JSON below into the text box. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial you need two routes. The first route transports messages from the temperature sensor to the machine learning module via the "amlInput" endpoint, which is the endpoint that all Azure Machine Learning modules use. The second route transports messages from the machine learning module to IoT Hub. In this route, ''amlOutput'' is the endput that all Azure Machine Learning modules use to output data, and ''upstream'' is a special destination that tells Edge Hub to send messages to IoT Hub. 
-=======
 1. Update routes for your module:
 1. In the **Specify Routes** step, copy the JSON below into the text box. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial you need two routes. The first route transports messages from the temperature sensor to the machine learning module via the "amlInput" endpoint, which is the endpoint that all Azure Machine Learning modules use. The second route transports messages from the machine learning module to IoT Hub. In this route, ''amlOutput'' is the endpoint that all Azure Machine Learning modules use to output data, and ''$upstream'' is a special destination that tells Edge Hub to send messages to IoT Hub. 
->>>>>>> a94af937623930092d9d9198e0895da8a1c7612f
 
     ```json
     {
