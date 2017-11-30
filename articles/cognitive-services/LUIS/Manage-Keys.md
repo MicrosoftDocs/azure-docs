@@ -52,30 +52,28 @@ On the **Publish app** page, there is already a key in the **Resources and Keys*
 
 The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create a Azure LUIS endpoint key. When you [publish an app](./PublishApp.md), LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region. 
 
-## Publishing outside Europe
+## Publishing regions
 
-LUIS apps created on https://www.luis.ai can be published to endpoints in the following regions:
+LUIS apps created on https://www.luis.ai can be published to all endpoints except the European region. To publish to the European regions, you create LUIS apps at https://eu.luis.ai. 
 
- Azure region   |   Endpoint URL format   |   
-------|------|
-West US     |   https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
-East US 2     |   https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-West Central US     |   https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-Southeast Asia     |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-
-> [!IMPORTANT]
-> If you attempt to publish to https://www.luis.ai using a key in the Europe region, LUIS displays a warning message. Instead, use https://eu.luis.ai.
+ Global region | Azure region   |   Endpoint URL format   | Notes |  
+|-----|------|------|---|
+| Asia | East Asia     |   https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   ||
+| Asia | Southeast Asia     |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   ||
+| Australia | Australia East     |   https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   ||
+| *Europe | North Europe     |   https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | See [Publishing to Europe](#publishing-to-europe)
+| *Europe | West Europe     |   https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | See [Publishing to Europe](#publishing-to-europe)
+| South America | Brazil South     |   https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   ||
+| U.S. | South Central US     |   https://southcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | |
+| U.S. | West US |   https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  ||
+| U.S. | West US 2    |   https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  ||
+| U.S. |East US      |   https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   ||
+| U.S. |East US 2     |   https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   ||
+| U.S. |West Central US     |   https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   ||
 
 ## Publishing to Europe
 
-To publish to the European regions, you create LUIS apps at https://eu.luis.ai.  
-
-> [!NOTE]
-> LUIS apps created at [https://eu.luis.ai](https://eu.luis.ai) don't automatically migrate to [https://www.luis.ai](https://www.luis.ai). You need to export and then import the LUIS app in order to migrate it.
-
- Azure region   |   Endpoint URL format   |   
-------|------|
-West Europe     | https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY |
+To publish to the European regions, you create LUIS apps at https://eu.luis.ai only. If you attempt to publish to https://www.luis.ai using a key in the Europe region, LUIS displays a warning message. Instead, use https://eu.luis.ai. LUIS apps created at [https://eu.luis.ai](https://eu.luis.ai) don't automatically migrate to [https://www.luis.ai](https://www.luis.ai). You need to export and then import the LUIS app in order to migrate it.
 
 ## Unassign key
 
