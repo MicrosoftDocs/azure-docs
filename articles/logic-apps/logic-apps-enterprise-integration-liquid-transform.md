@@ -51,12 +51,12 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 * Choose **Add** and provide the Map details
   * **Name**: The name used to identify the map, which is JsontoJsonTemplate in this example.
-  * **Map type**: The type of map, which must be liquid for Json to Json transformation
+  * **Map type**: The type of map, which must be liquid for JSON to JSON transformation
   * **Map**: The liquid map or template for transformation. Use file picker to select the file, which is SimpleJsonToJsonTemplate.liquid in this example.
 
     ![Add liquid template](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
 
-    Liquid template defines how you want to transform Json input. Here are the content of Map used in previous step.
+    Liquid template defines how you want to transform JSON input. Here are the content of Map used in previous step.
 
     ```
     {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -76,7 +76,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
     }
     ```
     > [!NOTE]
-    > If you are using any [filters](https://shopify.github.io/liquid/basics/introduction/#filters) in liquid template, they should start with upper case. 
+    > If you are using any [filters](https://shopify.github.io/liquid/basics/introduction/#filters) in liquid template, they must start with an upper case. 
 
 
 ### Use Liquid action for JSON to JSON transformation
@@ -91,11 +91,11 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 * In the **Content** , select **Body** from Dynamic content picker. 
   
-  ![Select-body] (./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
+  ![Select-body](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
  
 * In the **Map**, select your map from the drop-down, which is JsonToJsonTemplate in this example. Select **Save** to save your logic app.
 
-  ![Select-map] (./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
+  ![Select-map](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
    If the drop-down is empty, you likely do not have an integration account associated to the logic app. Follow these steps to link the logic app to your integration account that contains the liquid template or map.
 
