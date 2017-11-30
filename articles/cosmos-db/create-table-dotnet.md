@@ -70,8 +70,15 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
     ```bash
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
+## Open the sample application in Visual Studio
 
-3. Then open the TableStorage.sln solution file in Visual Studio. 
+1. In Visual Studio, from the **File** menu, choose **Open**, then choose **Project/Solution**. 
+
+   ![Open the solution](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
+
+2. Navigate to the folder where you cloned the sample application, and open the TableStorage.sln file.
+
+   ![Open the cloned application](media/create-table-dotnet/azure-cosmos-db-open-clone.png) 
 
 ## Update your connection string
 
@@ -113,25 +120,35 @@ You've now updated your app with all the info it needs to communicate with Azure
 1. In Visual Studio, right-click on the **TableStorage** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
    ![Manage NuGet Packages](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
-2. In the NuGet **Browse** box, type *Microsoft.Azure.CosmosDB.Table*.
+2. In the NuGet **Browse** box, type *Microsoft.Azure.CosmosDB.Table*. This will find the Cosmos DB Table API client library.
+   
+   ![NuGet Browse tab](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 
-3. From the results, install the **Microsoft.Azure.CosmosDB.Table** library. This installs the Azure Cosmos DB Table API package and all dependencies.
+3. Click **Install** to install the **Microsoft.Azure.CosmosDB.Table** library. This installs the Azure Cosmos DB Table API package and all dependencies.
 
-4. Open BasicSamples.cs and add a breakpoint to lines 30 and line 52.
+    ![Click Install](media/create-table-dotnet/azure-cosmosdb-nuget-install.png)
 
-5. Click CTRL + F5 to run the application.
+4. Open BasicSamples.cs. Right-click on line 30, select **Breakpoint**, then select **Insert Breakpoint**. Repeat this step on lines 52 and 55.
 
-    The console window displays the table data being added to the new table database in Azure Cosmos DB. 
+   ![Add a breakpoint](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
+
+5. Press F5 to run the application.
+
+    The console window displays the name of the new table database in Azure Cosmos DB. 
     
+    ![Console output](media/create-table-dotnet/azure-cosmosdb-console.png)
+
     If you get an error about dependencies, see [Troubleshooting](table-sdk-dotnet.md#troubleshooting).
 
     When you hit the first breakpoint, go back to Data Explorer in the Azure portal and expand the demo* table and click **Entities**. The **Entities** tab on the right shows the new entity that was added, note that phone number for the user is 425-555-0101.
-    
-6. Close the Entities tab in Data Explorer.
-    
-7. Continue to run the app to the next breakpoint.
 
-    When you hit the breakpoint, switch back to the portal, click Entities again to open the Entities tab, and note that the phone number has been updated to 425-555-0105.
+    ![New entity](media/create-table-dotnet/azure-cosmosdb-entity.png)
+    
+6. Close the **Entities** tab in Data Explorer.
+    
+7. Press F5 to run the app to the next breakpoint.
+
+    When you hit the breakpoint, switch back to the portal, click **Entities** again to open the **Entities** tab, and note that the phone number has been updated to 425-555-0105.
 
 8. Back in the console window, press CTRL + C to end the execution of the app. 
 
