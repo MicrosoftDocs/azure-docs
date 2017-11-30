@@ -17,20 +17,20 @@ ms.date: 11/28/2017
 ms.author: anwestg
 
 ---
-# Install the Azure Functions Runtime Preview 2
+# Install the Azure Functions Runtime preview 2
 
-If you would like to install the Azure Functions Runtime preview 2, you must follow these steps:
+If you would like to install the Azure Functions Runtime preview 2, follow these steps:
 
 1. Ensure your machine passes the minimum requirements.
 1. Download the [Azure Functions Runtime Preview Installer](https://aka.ms/azafr).
 1. Uninstall the Azure Functions Runtime preview 1.
 1. Install the Azure Functions Runtime preview 2.
 1. Complete the configuration of the Azure Functions Runtime preview 2.
-1. Create your first Function in Azure Functions Runtime Preview
+1. Create your first function in Azure Functions Runtime Preview
 
 ## Prerequisites
 
-Before you install the Azure Functions Runtime preview, you must have the following resource available:
+Before you install the Azure Functions Runtime preview, you must have the following resources available:
 
 1. A machine running Microsoft Windows Server 2016 or Microsoft Windows 10 Creators Update (Professional or Enterprise Edition).
 1. A SQL Server instance running within your network.  Minimum edition required is SQL Server Express.
@@ -74,15 +74,15 @@ To complete the Azure Functions Runtime installation, you must complete the conf
 
     ![Azure Functions Runtime Preview Configuration Tool][7]
 
-1. Click the **Database** tab, enter the connection details for your SQL Server Instance and click **Apply**.  Connectivity to a SQL Server instance is required in order for the Azure Functions Runtime to create a database to support the Runtime.
+1. Click the **Database** tab, enter the connection details for your SQL Server instance and click **Apply**.  Connectivity to a SQL Server instance is required in order for the Azure Functions Runtime to create a database to support the Runtime.
 
-    ![Azure Functions Runtime Preview Database Configuration][8]
+    ![Azure Functions Runtime preview database configuration][8]
 
-1. Click the **Credentials** tab.  Here, you must create two new credentials for use with a FileShare for hosting all your Azure Functions.  Specify **User name** and **Password** combinations for the **file share owner** and for the **file share user**, then click **Apply**.
+1. Click the **Credentials** tab.  Here, you must create two new credentials for use with a file share for hosting all your function apps.  Specify **User name** and **Password** combinations for the **file share owner** and for the **file share user**, then click **Apply**.
 
     ![Azure Functions Runtime Preview Credentials][9]
 
-1. Click the **File Share** tab.  Here you must specify the details of the **File Share**  location.  The file share can be created for you or you can use an existing File Share and click **Apply**.  If you select a new File Share location, you must specify a directory for use by the Azure Functions Runtime.
+1. Click the **File Share** tab.  Here you must specify the details of the file share  location.  The file share can be created for you or you can use an existing File Share and click **Apply**.  If you select a new File Share location, you must specify a directory for use by the Azure Functions Runtime.
 
     ![Azure Functions Runtime Preview File Share][10]
 
@@ -90,24 +90,24 @@ To complete the Azure Functions Runtime installation, you must complete the conf
 
     ![Azure Functions Runtime Preview IIS][11]
 
-1. Click the **Services** tab.  This tab shows the status of the services in your Azure Functions Runtime configuration tool.  Should the **Azure Functions Host Activation Service** not be running after initial configuration, click **Start Service**.
+1. Click the **Services** tab.  This tab shows the status of the services in your Azure Functions Runtime configuration tool.  If the  the **Azure Functions Host Activation Service** is not running after initial configuration, click **Start Service**.
 
     ![Azure Functions Runtime Preview Configuration Complete][12]
 
-1. Finally browse to the **Azure Functions Runtime Portal** as `https://<machinename>/`.
+1. Browse to the **Azure Functions Runtime Portal** as `https://<machinename>.<domain>/`.
 
     ![Azure Functions Runtime Preview Portal][13]
 
-## Create your first Function in Azure Functions Runtime Preview
+## Create your first function in Azure Functions Runtime preview
 
-To create your first Function in Azure Functions Runtime preview
+To create your first function in Azure Functions Runtime preview
 
 1. Browse to the **Azure Functions Runtime Portal** as https://<machinename>.<domain> for example https://mycomputer.mydomain.com
 1. You are prompted to **Log in**, if deployed in a domain use your domain account username and password, otherwise use your local account username and password to log in to the portal.
 
 ![Azure Functions Runtime Preview Portal Login][14]
 
-1. To create Function Apps, you must create a **Subscription**.  In the top left-hand corner of the portal, click the **+ option next to the subscriptions**
+1. To create function apps, you must create a Subscription.  In the top left-hand corner of the portal, click the **+** option next to the subscriptions
 
 ![Azure Functions Runtime Preview Portal Subscriptions][15]
 
@@ -115,21 +115,21 @@ To create your first Function in Azure Functions Runtime preview
 
 ![Azure Functions Runtime Preview Portal Subscription Plan and Name][16]
 
-1. All of your Function Apps are listed in the left-hand pane of the portal.  To create a new Function App, select the heading **Function Apps** and click the **+** option.
+1. All of your function apps are listed in the left-hand pane of the portal.  To create a new Function App, select the heading **Function Apps** and click the **+** option.
 
-1. Enter a name for your Function App, select the correct Subscription, choose which version of the Azure Functions runtime you wish to program against and click **Create**
+1. Enter a name for your function app, select the correct Subscription, choose which version of the Azure Functions runtime you wish to program against and click **Create**
 
 ![Azure Functions Runtime Preview Portal New Function App][17]
 
-1. Your new Function App is listed in the left-hand pane of the portal.  Select Functions and then click **New Function** at the top of the center pane in the portal.
+1. Your new function app is listed in the left-hand pane of the portal.  Select Functions and then click **New Function** at the top of the center pane in the portal.
 
 ![Azure Functions Runtime Preview Templates][18]
 
-1. Select the Timer Trigger function, in the right-hand flyout Name your Function and change the Schedule to */5 * * * * * (this cron expression causes your timer function to execute every five seconds), and click Create
+1. Select the Timer Trigger function, in the right-hand flyout name your function and change the Schedule to `*/5 * * * * *` (this cron expression causes your timer function to execute every five seconds), and click **Create**
 
 ![Azure Functions Runtime Preview New Timer Function Configuration][19]
 
-1. Your Function has now been created.  You can view the execution log of your Function app by expanding the **log** pane at the bottom of the portal.
+1. Your function has now been created.  You can view the execution log of your Function app by expanding the **log** pane at the bottom of the portal.
 
 ![Azure Functions Runtime Preview Function Executing][20]
 
