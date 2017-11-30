@@ -50,18 +50,16 @@ Log in to the Azure portal at http://portal.azure.com
 
 To manage a Kubernetes cluster, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client.
 
-If you're using Azure Cloud Shell, kubectl is already installed. If you want to install it locally, run the following command.
+Open Cloud Shell using the button on the top right hand corner of the Azure portal.
 
 
-```azurecli
-az aks install-cli
-```
-
-To configure kubectl to connect to your Kubernetes cluster, run the following command. This step downloads credentials and configures the Kubernetes CLI to use them.
+Use the [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials) command to configure kubectl to connect to your Kubernetes cluster.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
 ```
+
+![Cloud shell](media/container-service-walkthrough-portal/kubectl-cs.png)
 
 To verify the connection to your cluster, use the [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command to return a list of the cluster nodes.
 
