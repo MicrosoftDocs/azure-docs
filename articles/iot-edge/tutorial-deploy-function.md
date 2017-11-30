@@ -55,39 +55,62 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 
 ## Create a function project
 The following steps show you how to create an IoT Edge function using Visual Studio Code and the Azure IoT Edge extension.
-1. Open VS Code.
-2. Use the **View | Integrated Terminal** menu command to open the VS Code integrated terminal.
-3. In the integrated terminal, enter the following command to install (or update) the **AzureIoTEdgeFunction** template in dotnet:
+1. Open Visual Studio Code.
+2. To open the VS Code integrated terminal, select **View** > **Integrated Terminal**.
+3. To install (or update) the **AzureIoTEdgeFunction** template in dotnet, run the following command in the integrated terminal:
 
     ```cmd/sh
     dotnet new -i Microsoft.Azure.IoT.Edge.Function
     ```
-2. In the integrated terminal, enter the following command to create a project for the new module:
+2. Create a project for the new module. The following command creates the project folder, **FilterFunction**, in the current working folder:
 
     ```cmd/sh
     dotnet new aziotedgefunction -n FilterFunction
     ```
 
-    >[!NOTE]
-    > This command creates the project folder, **FilterFunction**, in the current working folder. If you want to create it in another location, change directories before running the command.
+3. Select **File** > **Open Folder**, then browse to the **FilterFunction**  folder and open the project in VS Code.
+4. In VS Code explorer, expand the **EdgeHubTrigger-Csharp** folder, then open the **run.csx** file.
+5. Replace the contents of the file with the following code:
 
-3. Use the  **File | Open Folder** menu command, browse to the **FilterFunction**  folder, and click **Select Folder** to open the project in VS Code.
-4. In VS Code explorer, click the **EdgeHubTrigger-Csharp** folder, then click the **run.csx** file to open it.
-5. Add the following statement after the `#r "Microsoft.Azure.Devices.Client"` statement:
+   ```csharp
+   #r "Microsoft.Azure.Devices.Client"
+   #r "Newtonsoft.Json"
 
-    ```csharp
-    #r "Newtonsoft.Json"
-    ```
+   using System.IO;
+   using Microsoft.Azure.Devices.Client;
+   using Newtonsoft.Json;
 
-5. Add the following using statements after the existing `using` statements:
+   // Filter messages based on the temperature value in the body of the message and the temperature threshold value.
+   public static async Task Run(Message messageReceived, IAsyncCollector<Message> output, TraceWriter log)
+   {
+        const int temperatureThreshold = 25;
+        byte[] messageBytes = messageReceived.GetBytes();
+        var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
 
-    ```csharp
-    using Newtonsoft.Json;
-    ```
+        if (!string.IsNullOrEmpty(messageString))
+        {
+            // Get the body of the message and deserialize it
+            var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
 
-1. Add the following classes. These classes define the expected schema for the body of incoming messages.
+            if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+            {
+                // Send the message to the output as the temperature value is greater than the threashold
+                var filteredMessage = new Message(messageBytes);
+                // Copy the properties of the original message into the new Message object
+                foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                {
+                    filteredMessage.Properties.Add(prop.Key, prop.Value);
+                }
+                // Add a new property to the message to indicate it is an alert
+                filteredMessage.Properties.Add("MessageType", "Alert");
+                // Send the message        
+                await output.AddAsync(filteredMessage);
+                log.Info("Received and transferred a message with temperature above the threshold");
+            }
+        }
+    }
 
-    ```csharp
+    //Define the expected schema for the body of incoming messages
     class MessageBody
     {
         public Machine machine {get;set;}
@@ -104,38 +127,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
        public double temperature {get; set;}
        public int humidity {get; set;}         
     }
-    ```
-
-1. Replace the body of the **Run** method with the following code. It filters messages based on the temperature value in the body of the message and the temperature threshold value.
-
-    ```csharp
-    const int temperatureThreshold = 25;
-
-    byte[] messageBytes = messageReceived.GetBytes();
-    var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
-
-    if (!string.IsNullOrEmpty(messageString))
-    {
-        // Get the body of the message and deserialize it
-        var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
-        
-        if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
-        {
-            // We will send the message to the output as the temperature value is greater than the threashold
-            var filteredMessage = new Message(messageBytes);
-            // We need to copy the properties of the original message into the new Message object
-            foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
-            {
-                filteredMessage.Properties.Add(prop.Key, prop.Value);
-            }
-            // We are adding a new property to the message to indicate it is an alert
-            filteredMessage.Properties.Add("MessageType", "Alert");
-            // Send the message        
-            await output.AddAsync(filteredMessage);
-            log.Info("Received and transferred a message with temperature above the threshold");
-        }
-    }
-    ```
+   ```
 
 11. Save the file.
 
