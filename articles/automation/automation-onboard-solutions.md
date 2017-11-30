@@ -25,8 +25,8 @@ In this tutorial, you learn how to automatically onboard Update, Change Tracking
 > [!div class="checklist"]
 > * Onboard an Azure virtual machine manually.
 > * Install and update required Azure modules.
-> * Import runbook that onboards Azure VMs.
-> * Start runbook that onboards Azure VMs automatically.
+> * Import a runbook that onboards Azure VMs.
+> * Start the runbook that onboards Azure VMs automatically.
 
 ## Prerequisites
 
@@ -56,15 +56,15 @@ To complete this tutorial, the following are required.
 
 ## Install and update required Azure modules
 
-It is required to update to the latest Azure modules and import AzureRM.OperationalInsights to successfully automate onboarding.
+It is required to update to the latest Azure modules and import AzureRM.OperationalInsights to successfully automate solution onboarding.
 1.	Click on the Modules page.
 ![Update modules](media/automation-onboard-solutions/update-modules.png)
-2.	Click on the Update Azure Modules to update to the latest version. Wait for updates to complete.
+2.	Click on the Update Azure Modules button that updates to the latest version. Wait for updates to complete.
 3.	Click on the Browse gallery button to open up the module gallery.
 ![Import OperationalInsights module](media/automation-onboard-solutions/import-operational-insights-module.png)
 4.  Search for AzureRM.OperationalInsights and import this module into the Automation account.
 
-## Import runbook that onboards solutions to Azure VMs
+## Import a runbook that onboards solutions to Azure VMs
 
 1.	Click on the Runbooks page under the “PROCESS AUTOMATION” category.
 2.	Click on the “Browse gallery” button.
@@ -73,7 +73,7 @@ It is required to update to the latest Azure modules and import AzureRM.Operatio
 4.	Click on “Edit” to view the Runbook source and click on the “Publish” button.
 ![Import onboarding runbook](media/automation-onboard-solutions/publish-runbook.png)
 
-## Start runbook that onboards Azure VMs automatically
+## Start the runbook that onboards Azure VMs automatically
 
 You must have onboarded either change tracking or update solutions to an Azure VM in order to start this runbook. It requires an existing virtual machine and resource group with the solution onboarded for parameters.
 1.	Open the Enable-MultipleSolution runbook.
