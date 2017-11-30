@@ -89,7 +89,7 @@ Factory creation is an expensive operation. ServiceProxyFactory maintains an int
 Best practice is to cache ServiceProxyFactory for as long as possible.
 
 ## Remoting Exception Handling
-All the remote exception thrown by service API, are sent back to the client as AggregateException. RemoteExceptions should be DataContract Serializable otherwise [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) is thrown to the proxy API with the serialization error in it.
+All remote exceptions thrown by the service API are sent back to the client as AggregateException. RemoteExceptions should be DataContract Serializable; if they are not, the proxy API throws [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) with the serialization error in it.
 
 ServiceProxy does handle all Failover Exception for the service partition it  is created for. It re-resolves the endpoints if there is Failover Exceptions(Non-Transient Exceptions) and retries the call with the correct endpoint. Number of retries for failover Exception is indefinite.
 If Transient Exceptions occurs, proxy retries the call.
