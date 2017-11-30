@@ -34,25 +34,23 @@ Log in to the Azure portal at http://portal.azure.com
 
 ## Create service principal
 
-Before creating the AKS cluster in the Azure portal you need to create a service principal. This service principal is used to manage the Azure infrastructure associated with the AKS cluster.
+Before creating the AKS cluster in the Azure portal, you need to create a service principal. This service principal is used to manage the Azure infrastructure associated with the AKS cluster.
 
 Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-Enter a name for the for the application, this can be any value. Select `Web app / API` for the application type. Enter a value for the Sign-on URL, this can be any value with a valid URL format. 
+Enter a name for the application, this can be any value. Select `Web app / API` for the application type. Enter a value for the Sign-on URL, this can be any value with a valid URL format. 
 
 Select **Create** when finished.
 
 ![Create service principal one](media/container-service-walkthrough-portal/create-sp-one.png)
 
-Select the newly created registered application, and take note of the Application ID. This value will be needed when creating the AKS cluster. 
+Select the newly created registered application, and take note of the Application ID. This value is needed when creating the AKS cluster. 
 
 ![Create service principal two](media/container-service-walkthrough-portal/create-sp-two.png)
 
-Select **All Settings** > **Keys**, and enter a key description, this can be any value. 
+Select **All Settings** > **Keys**, and enter a key description, this can be any value. Select a duration, this is the time for which the service principal is valid. 
 
-Select a duration, this is the time for which the service principal will be valid. 
-
-Click **Save** and take note of the password value, this value is needed when creating a AKS cluster.  
+Click **Save** and take note of the password value, this value is needed when creating an AKS cluster.  
 
 ![Create service principal three](media/container-service-walkthrough-portal/create-sp-three.png)
 
@@ -66,23 +64,19 @@ Select **OK** when complete.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/create-aks-portal-one.png)
 
-Enter a user name, this will be the administrative account created on the cluster nodes. 
-
-Enter an SSH public key value, and the service principal ID and password from the newly created service principal. 
-
-Select the number of nodes for the cluster, and the VM size for these nodes. Optionally, the node disk size can be configured.
+Enter a **User name**, this is used for the administrative account created on the cluster nodes. Enter an **SSH public key** value, and the **Service principal ID** and **Service principal secret** from the newly created service principal. Select the number of nodes for the cluster, and the VM size for these nodes. Optionally, the node disk size can be configured.
 
 Select **OK** when complete.
 
 ![Create AKS cluster two](media/container-service-walkthrough-portal/create-aks-portal-two.png)
 
-After a short wait, the ASK cluster will be deployed and ready to use.
+After a short wait, the ASK cluster is deployed and ready to use.
 
 ## Connect to the cluster
 
 To manage a Kubernetes cluster, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), the Kubernetes command-line client. The kubectl client is pre-installed in the Azure Cloud Shell.
 
-Open Cloud Shell using the button on the top right hand corner of the Azure portal.
+Open Cloud Shell using the button on the top right-hand corner of the Azure portal.
 
 ![Cloud shell](media/container-service-walkthrough-portal/kubectl-cs.png)
 
@@ -218,7 +212,7 @@ You can now browse to the external IP address to see the Azure Vote App.
 
 ## Delete cluster
 
-When the cluster is no longer needed, the cluster resource group can be deleted, which will delete all associated resources. This can be completed by selecting the resource group and clicking the delete button. Alternatively, the [az group delete](/cli/azure/group#delete) command can be used in the Cloud Shell.
+When the cluster is no longer needed, the cluster resource group can be deleted, which deletes all associated resources. This can be completed by selecting the resource group and clicking the delete button. Alternatively, the [az group delete](/cli/azure/group#delete) command can be used in the Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait
