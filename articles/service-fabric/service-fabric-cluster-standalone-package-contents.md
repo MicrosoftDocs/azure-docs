@@ -12,7 +12,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/10/2017
+ms.date: 8/10/2017
 ms.author: chackdan;maburlik
 
 ---
@@ -49,6 +49,9 @@ In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabri
 
 ## Cluster Configuration Samples
 Latest versions of cluster configuration templates can be found at the GitHub page: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+
+## Independent Runtime Package
+The latest runtime package is downloaded automatically during cluster deployment from [Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).
 
 ## Related
 * [Create a standalone Azure Service Fabric cluster](service-fabric-cluster-creation-for-windows-server.md)

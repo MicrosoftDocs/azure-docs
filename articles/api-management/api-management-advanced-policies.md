@@ -23,7 +23,9 @@ This topic provides a reference for the following API Management policies. For i
   
 -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).  
   
--   [Forward request](#ForwardRequest) - Forwards the request to the backend service.  
+-   [Forward request](#ForwardRequest) - Forwards the request to the backend service.
+
+-   [Limit concurrency](#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
   
 -   [Log to Event Hub](#log-to-eventhub) - Sends messages in the specified format to an Event Hub defined by a Logger entity. 
 
@@ -261,6 +263,54 @@ This topic provides a reference for the following API Management policies. For i
   
 -   **Policy scopes:** all scopes  
   
+##  <a name="LimitConcurrency"></a> Limit concurrency  
+ The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at a given time. Upon exceeding that number, new requests will fail immediately with 429 Too Many Requests status code.
+  
+###  <a name="LimitConcurrencyStatement"></a> Policy statement  
+  
+```xml  
+<limit-concurrency key="expression" max-count="number">
+        <!— nested policy statements -->  
+</limit-concurrency>
+``` 
+
+### Examples  
+  
+#### Example  
+ The following example demonstrates how to limit number of requests forwarded to a backend based on the value of a context variable.
+ 
+```xml  
+<policies>
+  <inbound>…</inbound>
+  <backend>
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
+      <forward-request timeout="120"/>
+    <limit-concurrency/>
+  </backend>
+  <outbound>…</outbound>
+</policies>
+```
+
+### Elements  
+  
+|Element|Description|Required|  
+|-------------|-----------------|--------------|    
+|limit-concurrency|Root element.|Yes|  
+  
+### Attributes  
+  
+|Attribute|Description|Required|Default|  
+|---------------|-----------------|--------------|--------------|  
+|key|A string. Expression allowed. Specifies the concurrency scope. Can be shared by multiple policies.|Yes|N/A|  
+|max-count|An integer. Specifies a maximum number of requests that are allowed to enter the policy.|Yes|N/A|  
+  
+### Usage  
+ This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Policy sections:** inbound, outbound, backend, on-error  
+  
+-   **Policy scopes:** all scopes  
+
 ##  <a name="log-to-eventhub"></a> Log to Event Hub  
  The `log-to-eventhub` policy sends messages in the specified format to an Event Hub defined by a Logger entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.  
   

@@ -1,9 +1,9 @@
----
+﻿---
 title: Explore .NET trace logs in Application Insights
 description: Search logs generated with Trace, NLog, or Log4Net.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
@@ -12,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/3/2017
-ms.author: cfreeman
+ms.date: 05/03/2017
+ms.author: mbullwin
 
 ---
 # Explore .NET trace logs in Application Insights

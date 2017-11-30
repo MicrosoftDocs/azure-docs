@@ -57,7 +57,7 @@ In this section, you create a Java console app that responds to a method called 
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 
@@ -107,7 +107,7 @@ In this section, you create a Java console app that responds to a method called 
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. Currently, to use direct methods you must use the MQTT protocol.
+    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. 
 
 1. To return a status code to your IoT hub, add the following nested class to the **App** class:
 
@@ -204,7 +204,7 @@ In this section, you create a Java console app that invokes a direct method and 
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```

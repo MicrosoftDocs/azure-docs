@@ -3,7 +3,7 @@ title: Azure CDN Overview | Microsoft Docs
 description: Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content.
 services: cdn
 documentationcenter: ''
-author: lichard
+author: smcevoy
 manager: akucer
 editor: ''
 
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
-ms.author: rli
+ms.author: v-semcev
 
 ---
 # Overview of the Azure Content Delivery Network (CDN)
+The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. 
+
 > [!NOTE]
-> This document describes what the Azure Content Delivery Network (CDN) is, how it works, and the features of each Azure CDN product.  If you want to skip this information and go straight to a tutorial on how to create a CDN endpoint, see [Using Azure CDN](cdn-create-new-endpoint.md).  If you want to see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
+> This article describes the Azure CDN, how it works, and the features of each Azure CDN product. To skip this information and view a tutorial about how to create a CDN endpoint, see [Getting started with Azure CDN](cdn-create-new-endpoint.md). To see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
 > 
-> 
 
-The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users.  The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. 
+The benefits of using a CDN to cache web site assets include:
 
-The benefits of using the CDN to cache web site assets include:
+* Better performance and user experience for end users, especially when using applications in which multiple round-trips are required to load content.
+* Large scaling to better handle instantaneous high loads, such as the start of a product launch event.
+* Distribution of user requests and serving of content directly from edge servers so that less traffic is sent to the origin.
 
-* Better performance and user experience for end users, especially when using applications where multiple round-trips are required to load content.
-* Large scaling to better handle instantaneous high load, like at the start of a product launch event.
-* By distributing user requests and serving content from edge servers, less traffic is sent to the origin.
 
 ## How it works
 ![CDN Overview](./media/cdn-overview/cdn-overview.png)
@@ -46,28 +46,39 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
-| Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md), and [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), or [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| HTTPS support with CDN endpoint |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Custom domain HTTPS | |**&#x2713;** |**&#x2713;** |
-| Load balancing |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) protection |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| IPv4/IPv6 dual-stack |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Custom domain name support](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Query string caching](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Geo-filtering](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Performance Features and Optimizations__ |
+| [Dynamic Site Acceleration](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamic Site Acceleration - Adaptive Image Compression](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only) | **&#x2713;**  |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Dynamic Site Acceleration - Object Prefetch](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-akamai-only) | **&#x2713;**  |  |  |
+| [Video Streaming Optimization](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&#x2713;**  | \* |  \* |
+| [Large File Optimization](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&#x2713;**  | \* |  \* |
+| [Global Server Load balancing (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Fast purge](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Asset pre-loading](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
-| [Core analytics](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
+| [Query string caching](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| IPv4/IPv6 dual-stack |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 support](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Security__ |
+| HTTPS support with CDN endpoint |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Custom domain HTTPS](cdn-custom-ssl.md) | |**&#x2713;** |**&#x2713;** |
+| [Custom domain name support](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Geo-filtering](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Token authentication](cdn-token-auth.md)|  |  |**&#x2713;**| 
+| [DDOS protection](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Analytics and Reporting__ |
+| [Core analytics](cdn-analyze-usage-patterns.md) | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Advanced HTTP reports](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Real-time stats](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Real-time alerts](cdn-real-time-alerts.md) | | |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Ease of Use__ |
+| Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md), and [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), or [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | |**&#x2713;** |
 | Cache/header settings (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | URL redirect/rewrite  (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Mobile device rules (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
-| [Token authentication](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
+\* Verizon supports delivering large files and media directly via General Web Delivery.
 
 
 > [!TIP]
@@ -76,13 +87,13 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 > 
 
 ## Next steps
-To get started with CDN, see [Using Azure CDN](cdn-create-new-endpoint.md).
+To get started with CDN, see [Getting started with Azure CDN](cdn-create-new-endpoint.md).
 
 If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 
-To see the CDN in action, check out the [video of our Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+To see the CDN in action, check out the [video of the Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
 Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
 
-For pricing information, see [CDN Pricing](https://azure.microsoft.com/pricing/details/cdn/).
+For pricing information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 

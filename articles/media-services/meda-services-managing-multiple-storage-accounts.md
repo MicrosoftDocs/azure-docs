@@ -4,7 +4,7 @@ description: This articles give you guidance on how to manage media services ass
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858

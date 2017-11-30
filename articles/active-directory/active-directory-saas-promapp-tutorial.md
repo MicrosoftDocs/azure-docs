@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 10/17/2017
 ms.author: jeedes
 
 ---
@@ -104,40 +104,57 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Configure Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_samlbase.png)
 
-3. On the **Promapp Domain and URLs** section, perform the following steps:
+3. On the **Promapp Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Configure Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
+    a. In the **Identifier** textbox, type a URL using the following pattern:
+	| |
+	|--|
+	| `https://demo.promapp.com/TENANTNAME`|
+	| `https://go.promapp.com/TENANTNAME`|
+	| `https://demoau.promapp.com/TENANTNAME`|
+	| `https://au.promapp.com/TENANTNAME`|
+	| `https://demous.promapp.com/TENANTNAME`|
+	| `https://us.promapp.com/TENANTNAME`|
+	| `https://dev.promapp.com/TENANTNAME`|
+	| `https://test.promapp.com/TENANTNAME`|
+	| `https://staging.promapp.com/TENANTNAME`|
+	
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://DOMAINNAME.promapp.com/TENANTNAME`
+4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+	![Configure Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url1.png)
+
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Promapp Client support team](https://www.promapp.com/about-us/contact-us/) to get these values.
+	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Promapp Client support team](https://www.promapp.com/about-us/contact-us/) to get these values.
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+5. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_certificate.png) 
 
-5. Click **Save** button.
+6. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_general_400.png)
 
-6. On the **Promapp Configuration** section, click **Configure Promapp** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **Promapp Configuration** section, click **Configure Promapp** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_configure.png) 
 
-7. Sign-on to your Promapp company site as administrator. 
+8. Sign-on to your Promapp company site as administrator. 
 
-8. In the menu on the top, click **Admin**. 
+9. In the menu on the top, click **Admin**. 
    
     ![Azure AD Single Sign-On][12]
 
-9. Click **Configure**. 
+10. Click **Configure**. 
    
     ![Azure AD Single Sign-On][13]
 
-10. On the **Security** dialog, perform the following steps:
+11. On the **Security** dialog, perform the following steps:
    
     ![Azure AD Single Sign-On][14]
 	
@@ -145,7 +162,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. As **SSO - Single Sign-on Mode**, select **Optional**, and then click **Save**.
 
-	c. Open the downloaded certificate in notepad, copy the certificate content without the first line (-----BEGIN CERTIFICATE-----) and the last line (-----END CERTIFICATE-----), paste it into the **SSO-x.509 Certificate** textbox, and then click **Save**.
+	> [!NOTE]
+	> **Optional** mode is for testing only. Once you are happy with the configuration, Select **Required** mode to enforce all users to authenticate using Azure AD.
+
+	c. Open the downloaded certificate in notepad, copy the certificate content without the first line (-----**BEGIN CERTIFICATE**-----) and the last line (-----**END CERTIFICATE**-----), paste it into the **SSO-x.509 Certificate** textbox, and then click **Save**.
 		
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -220,7 +240,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 The objective of this section is to test your Azure AD SSO configuration using the Access Panel.
 
-When you click the Promapp tile in the Access Panel, you should get automatically signed-on to your Promapp application.
+To test your application in **IDP** initiated mode, When you click the Promapp tile in the Access Panel, you should get automatically signed-on to your Promapp application.
+
+To test your application in **SP** initiated mode, you will need to initiate the authentication from your Promapp site. This can be done by leaving the password field blank when logging in whilst **Optional** mode is enabled.
 
 ## Additional resources
 

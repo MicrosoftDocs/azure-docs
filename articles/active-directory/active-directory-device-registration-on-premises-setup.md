@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 11/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -163,9 +163,9 @@ There are many different ways to communicate this URL to your users. For example
 4. When prompted, sign in with your credentials. The device is now joined.
 
 ### Join a Windows 7 device by using Azure Active Directory device registration
-To register Windows 7 domain-joined devices, you need to deploy the device registration software package. The software package is called Workplace Join for Windows 7, and it's available for download at the [Microsoft Connect website](https://connect.microsoft.com/site1164). 
+To register Windows 7 domain-joined devices, you need to deploy the [device registration software package](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Instructions about how to use the package are available in [How to configure automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+For instructions about how to use the package, see [Windows Installer packages for non-Windows 10 computers](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
 
 ## Verify that registered devices are written back to Active Directory
 You can view and verify that your device objects have been written back to your Active Directory by using LDP.exe or ADSI Edit. Both are available with the Active Directory administrator tools.
@@ -217,8 +217,5 @@ In the preceding commands, **relying party trust name** is the name of your appl
 And **yourdomain.com** is the domain name that you have configured with Azure Active Directory (for example, contoso.com).
 Be sure to remove any line breaks (if any) from the HTML content that you pass to the **Set-AdfsRelyingPartyWebContent** cmdlet.
 
-Now when users access your application from a device that's not registered with the Azure Active Directory device registration service, they see a page that looks similar to the following screenshot.
-
-![Screenshot of an error when users haven't registered their device with Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
-
+Now when users access your application from a device that's not registered with the Azure Active Directory device registration service, they see an error.
 

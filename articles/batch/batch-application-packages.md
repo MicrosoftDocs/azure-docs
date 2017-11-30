@@ -74,7 +74,7 @@ You can specify application packages at the pool and task levels. You can specif
 ### Benefits of application packages
 Application packages can simplify the code in your Batch solution and lower the overhead required to manage the applications that your tasks run.
 
-With application packages, your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of your application files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide access to the files in your Storage account. Batch works in the background with Azure Storage to store application packages and deploy them to compute nodes.
+With application packages, your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of your application files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/common/storage-dotnet-shared-access-signature-part-1.md) to provide access to the files in your Storage account. Batch works in the background with Azure Storage to store application packages and deploy them to compute nodes.
 
 > [!NOTE] 
 > The total size of a start task must be less than or equal to 32768 characters, including resource files and environment variables. If your start task exceeds this limit, then using application packages is another option. You can also create a zipped archive containing your resource files, upload it as a blob to Azure Storage, and then unzip it from the command line of your start task. 
@@ -88,7 +88,7 @@ You can use the [Azure portal][portal] or the [Batch Management .NET](batch-mana
 To use application packages, you must first link an Azure Storage account to your Batch account. If you have not yet configured a Storage account, the Azure portal displays a warning the first time you click the **Applications** tile in the **Batch account** blade.
 
 > [!IMPORTANT]
-> Batch currently supports *only* the **General-purpose** storage account type as described in step 5, [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/storage-create-storage-account.md). When you link an Azure Storage account to your Batch account, link *only* a **General-purpose** storage account.
+> Batch currently supports *only* the **General-purpose** storage account type as described in step 5, [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/common/storage-create-storage-account.md). When you link an Azure Storage account to your Batch account, link *only* a **General-purpose** storage account.
 > 
 > 
 
@@ -98,7 +98,7 @@ The Batch service uses the associated Storage account to store your application 
 
 ![Choose storage account blade in Azure portal][10]
 
-We recommend that you create a Storage account *specifically* for use with your Batch account, and select it here. For details about how to create a storage account, see "Create a Storage account" in [About Azure Storage accounts](../storage/storage-create-storage-account.md). After you've created a Storage account, you can then link it to your Batch account by using the **Storage Account** blade.
+We recommend that you create a Storage account *specifically* for use with your Batch account, and select it here. For details about how to create a storage account, see "Create a Storage account" in [About Azure Storage accounts](../storage/common/storage-create-storage-account.md). After you've created a Storage account, you can then link it to your Batch account by using the **Storage Account** blade.
 
 > [!WARNING]
 > The Batch service uses Azure Storage to store your application packages as block blobs. You are [charged as normal][storage_pricing] for the block blob data. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize costs.
@@ -259,11 +259,11 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-On Linux nodes, the format is slightly different. Periods (.), hypens (-) and number signs (#) are flattened to underscores in the environment variable. For example:
+On Linux nodes, the format is slightly different. Periods (.), hypens (-) and number signs (#) are flattened to underscores in the environment variable. Also, note that the case of the application ID is preserved. For example:
 
 ```
 Linux:
-AZ_BATCH_APP_PACKAGE_APPLICATIONID_version
+AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
 `APPLICATIONID` and `version` are values that correspond to the application and package version you've specified for deployment. For example, if you specified that version 2.7 of application *blender* should be installed on Windows nodes, your task command lines would use this environment variable to access its files:
@@ -273,11 +273,11 @@ Windows:
 AZ_BATCH_APP_PACKAGE_BLENDER#2.7
 ```
 
-On Linux nodes, specify the environment variable in this format:
+On Linux nodes, specify the environment variable in this format. Flatten the periods (.), hypens (-) and number signs (#) to underscores, and preserve the case of the application ID:
 
 ```
 Linux:
-AZ_BATCH_APP_PACKAGE_BLENDER_2_7
+AZ_BATCH_APP_PACKAGE_blender_2_7
 ``` 
 
 When you upload an application package, you can specify a default version to deploy to your compute nodes. If you have specified a default version for an application, you can omit the version suffix when you reference the application. You can specify the default application version in the Azure portal, on the Applications blade, as shown in [Upload and manage applications](#upload-and-manage-applications).

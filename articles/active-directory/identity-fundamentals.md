@@ -2,13 +2,13 @@
 # required metadata
 
 title: Fundamentals of Azure identity management | Microsoft Docs
-description:
+description: Cloud-based identities are now the best way to maintain control over, and visibility into, how and when users access corporate applications and data.
 keywords:
 author: jeffgilb
 manager: femila
 ms.reviewr: jsnow
 ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.date: 07/05/2017
 ms.topic: article
 ms.prod:
 ms.service: azure

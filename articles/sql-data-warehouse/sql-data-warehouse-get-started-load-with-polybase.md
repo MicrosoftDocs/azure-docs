@@ -3,7 +3,7 @@ title: PolyBase in SQL Data Warehouse Tutorial | Microsoft Docs
 description: Learn what PolyBase is and how to use it for data warehousing scenarios.
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
+author: barbkess
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 03/01/2017
-ms.author: cakarst;barbkess
+ms.author: barbkess
 
 
 ---
@@ -250,8 +250,8 @@ See the [PolyBase guide][PolyBase guide] for further information you should know
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
-[Getting Started with the AzCopy Command-Line Utility]: ../storage/storage-use-azcopy.md
-[latest version of AzCopy]: ../storage/storage-use-azcopy.md
+[Getting Started with the AzCopy Command-Line Utility]:../storage/common/storage-use-azcopy.md
+[latest version of AzCopy]:../storage/common/storage-use-azcopy.md
 
 <!--External references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx

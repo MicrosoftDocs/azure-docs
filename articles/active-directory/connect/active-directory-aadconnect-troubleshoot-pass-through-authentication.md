@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 10/12/2017
 ms.author: billmath
 ---
 
@@ -45,9 +45,9 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 |AADSTS80005|Validation encountered unpredictable WebException|A transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the agent logs for more information and verify that Active Directory is operating as expected.
 
-### Sign-in failure reasons on the Azure Active Directory admin center
+### Sign-in failure reasons on the Azure Active Directory admin center (needs Premium license)
 
-Start troubleshooting user sign-in issues by looking at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
 ![Azure Active Directory admin center - Sign-ins report](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 
@@ -75,7 +75,7 @@ Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Dire
 
 ### Registration of the Authentication Agent failed due to blocked ports
 
-Ensure that the server on which the Authentication Agent has been installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Ensure that the server on which the Authentication Agent has been installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### Registration of the Authentication Agent failed due to token or account authorization errors
 
@@ -101,7 +101,7 @@ You need to have at least one active Authentication Agent to enable Pass-through
 
 ### Enabling the feature failed due to blocked ports
 
-Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Ensure that the server on which Azure AD Connect is installed can communicate with our service URLs and ports listed [here](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### Enabling the feature failed due to token or account authorization errors
 
@@ -123,6 +123,10 @@ The configuration takes some time to take effect - the time period depends on yo
 
 Depending on the type of issue you may have, you need to look in different places for Pass-through Authentication Agent logs.
 
+### Azure AD Connect logs
+
+For errors related to installation, check the Azure AD Connect logs at **%ProgramData%\AADConnect\trace-\*.log**.
+
 ### Authentication Agent event logs
 
 For errors related to the Authentication Agent, open up the Event Viewer application on the server and check under **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
@@ -131,7 +135,7 @@ For detailed analytics, enable the "Session" log. Don't run the Authentication A
 
 ### Detailed trace logs
 
-To troubleshoot user sign-in failures, look for trace logs at **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the preceding [table](#sign-in-failure-reasons-on-the-Azure-portal). Following is an example log entry:
+To troubleshoot user sign-in failures, look for trace logs at **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. These logs include reasons why a specific user sign-in failed using the Pass-through Authentication feature. These errors are also mapped to the sign-in failure reasons shown in the preceding [table](#sign-in-failure-reasons-on-the-Azure-portal). Following is an example log entry:
 
 ```
 	AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

@@ -4,7 +4,7 @@ description: Azure Media Analytics OCR (optical character recognition) enables y
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6

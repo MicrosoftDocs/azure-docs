@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 10/20/2017
 ms.author: cynthn
 
 ---
@@ -28,9 +28,9 @@ All subscribers can run server software on an Azure virtual machine. For informa
 Certain versions of Windows 7, Windows 8.1, and Windows 10 are available to MSDN Azure benefit subscribers and MSDN Dev and Test Pay-As-You-Go subscribers, for development and test tasks. For details, including instructions and limitations, see [Windows Client images for MSDN subscribers](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
 ## How much storage can I use with a virtual machine?
-Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Each data disk can be up to 4 TB (4,095 GB). The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Azure Managed Disks are the new and recommended disk storage offerings for use with Azure Virtual Machines for persistent storage of data. You can use multiple Managed Disks with each Virtual Machine. Managed Disks offer two types of durable storage options: Premium and Standard Managed Disks. For pricing information, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
+Azure Managed Disks are the recommended disk storage offerings for use with Azure Virtual Machines for persistent storage of data. You can use multiple Managed Disks with each Virtual Machine. Managed Disks offer two types of durable storage options: Premium and Standard Managed Disks. For pricing information, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Azure storage accounts can also provide storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -73,10 +73,10 @@ Yes. To quickly create a Linux VM to try out, see [Create a Linux VM on Azure us
 Yes, this is now possible. The VM first needs to be stopped deallocated. Then you can add or remove a NIC (unless it's the last NIC on the VM). 
 
 ## Are there any computer name requirements?
-Yes. The computer name can be a maximum of 15 characters in length. See [Infrastructure naming guidelines](infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for more information around naming your resources.
+Yes. The computer name can be a maximum of 15 characters in length. See [Naming conventions rules and restrictions](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for more information around naming your resources.
 
 ## Are there any resource group name requirements?
-Yes. The resource group name can be a maximum of 90 characters in length. See [Infrastructure resource group guidelines](infrastructure-resource-groups-guidelines.md) for more information about resource groups.
+Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for more information about resource groups.
 
 ## What are the username requirements when creating a VM?
 

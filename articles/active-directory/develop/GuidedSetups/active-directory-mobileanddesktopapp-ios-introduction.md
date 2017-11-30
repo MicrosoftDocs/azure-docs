@@ -1,3 +1,21 @@
+---
+title: Azure AD v2 iOS Getting Started - Intro | Microsoft Docs
+description: How iOS (Swift) applications can call an API that require access tokens by Azure Active Directory v2 endpoint    
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: ''
+
+ms.service: active-directory   
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+
+---
 
 # Call the Microsoft Graph API from an iOS app
 
@@ -25,9 +43,9 @@ APIs such as Microsoft Graph require an access token to allow accessing specific
 MSAL manages caching and refreshing access tokens for you, so your application doesn't need to.
 
 
-### NuGet packages
+### Libraries
 
-This guide uses the following NuGet packages:
+This guide uses the following library:
 
 |Library|Description|
 |---|---|

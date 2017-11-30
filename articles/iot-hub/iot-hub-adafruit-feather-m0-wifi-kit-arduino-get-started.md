@@ -14,7 +14,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/12/2017
+ms.date: 8/16/2017
 ms.author: xshi
 
 ---

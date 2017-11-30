@@ -157,27 +157,53 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon11.png)
 
-14. On **SAML SingleSignOn Plugin Configuration** page, click **Add additional Identity Provider** button to configure the settings of Identity Provider.
+14. On **SAML SingleSignOn Plugin Configuration** page, click **Add new IdP** button to configure the settings of Identity Provider.
 
 	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon4.png)
 
-15. Perform following steps on this page:
+15. On **Choose your SAML Identity Provider** page, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5.png)
+	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5a.png)
  
-	a. Add **Name** of the Identity Provider (e.g Azure AD).
+	a. Set **Azure AD** as the IdP type.
 	
-	b. Add **Description** of the Identity Provider (e.g Azure AD).
+	b. Add **Name** of the Identity Provider (e.g Azure AD).
+	
+	c. Add **Description** of the Identity Provider (e.g Azure AD).
+	
+	d. Click **Next**.
+	
+16. On **Identity provider configuration** page, click **Next** button.
 
-	c. Click **XML** and select the **Metadata** file, which you have downloaded from Azure portal.
+	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5b.png)
 
-	d. Click **Load** button.
+17. On **Import SAML IdP Metadata** page, perform the following steps:
 
-    e. It reads the IdP metadata and populates the fields as highlighted in the screenshot.	
+	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5c.png)
 
-16. Click **Save settings** button to save the settings.
+    a. Click **Load File** button and pick Metadata XML file you downloaded in Step 5.
 
-	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon6.png)
+    b. Click **Import** button.
+    
+    c. Wait briefly until import succeeds.
+    
+    d. Click **Next** button.
+    
+18. On **User ID attribute and transformation** page, click **Next** button.
+
+	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5d.png)
+	
+19. On **User creation and update** page, click **Save & Next** to save settings.	
+	
+	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon6a.png)
+	
+20. On **Test your settings** page, click **Skip test & configure manually** to skip the user test for now. This will be performed in the next section and requires some settings in Azure portal. 
+	
+	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon6b.png)
+	
+21. In the apprearing dialog reading **Skipping the test means...**, click **OK**.
+	
+	![Configure Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon6c.png)
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)

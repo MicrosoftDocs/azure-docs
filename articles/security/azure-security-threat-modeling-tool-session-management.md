@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
+ms.date: 08/17/2017
 ms.author: rodsan
 
 ---
@@ -21,24 +21,24 @@ ms.author: rodsan
 # Security Frame: Session Management | Articles 
 | Product/Service | Article |
 | --------------- | ------- |
-| Azure AD    | <ul><li>[Implement proper logout using ADAL methods when using Azure AD](#logout-adal)</li></ul> |
+| **Azure AD**    | <ul><li>[Implement proper logout using ADAL methods when using Azure AD](#logout-adal)</li></ul> |
 | IoT Device | <ul><li>[Use finite lifetimes for generated SaS tokens](#finite-tokens)</li></ul> |
-| Azure Document DB | <ul><li>[Use minimum token lifetimes for generated Resource tokens](#resource-tokens)</li></ul> |
-| ADFS | <ul><li>[Implement proper logout using WsFederation methods when using ADFS](#wsfederation-logout)</li></ul> |
-| Identity Server | <ul><li>[Implement proper logout when using Identity Server](#proper-logout)</li></ul> |
-| Web Application | <ul><li>[Applications available over HTTPS must use secure cookies](#https-secure-cookies)</li><li>[All http based application should specify http only for cookie definition](#cookie-definition)</li><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET web pages](#csrf-asp)</li><li>[Set up session for inactivity lifetime](#inactivity-lifetime)</li><li>[Implement proper logout from the application](#proper-app-logout)</li></ul> |
-| Web API | <ul><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET Web APIs](#csrf-api)</li></ul> |
+| **Azure Document DB** | <ul><li>[Use minimum token lifetimes for generated Resource tokens](#resource-tokens)</li></ul> |
+| **ADFS** | <ul><li>[Implement proper logout using WsFederation methods when using ADFS](#wsfederation-logout)</li></ul> |
+| **Identity Server** | <ul><li>[Implement proper logout when using Identity Server](#proper-logout)</li></ul> |
+| **Web Application** | <ul><li>[Applications available over HTTPS must use secure cookies](#https-secure-cookies)</li><li>[All http based application should specify http only for cookie definition](#cookie-definition)</li><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET web pages](#csrf-asp)</li><li>[Set up session for inactivity lifetime](#inactivity-lifetime)</li><li>[Implement proper logout from the application](#proper-app-logout)</li></ul> |
+| **Web API** | <ul><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET Web APIs](#csrf-api)</li></ul> |
 
 ## <a id="logout-adal"></a>Implement proper logout using ADAL methods when using Azure AD
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Azure AD | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Generic |
-| Attributes              | N/A  |
-| References              | N/A  |
-| Steps | If the application relies on access token issued by Azure AD, the logout event handler should call |
+| **Component**               | Azure AD | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Generic |
+| **Attributes**              | N/A  |
+| **References**              | N/A  |
+| **Steps** | If the application relies on access token issued by Azure AD, the logout event handler should call |
 
 ### Example
 ```C#
@@ -68,34 +68,34 @@ It should also destroy user's session by calling Session.Abandon() method. Follo
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | IoT Device | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Generic |
-| Attributes              | N/A  |
-| References              | N/A  |
-| Steps | SaS tokens generated for authenticating to Azure IoT Hub should have a finite expiry period. Keep the SaS token lifetimes to a minimum to limit the amount of time they can be replayed in case the tokens are compromised.|
+| **Component**               | IoT Device | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Generic |
+| **Attributes**              | N/A  |
+| **References**              | N/A  |
+| **Steps** | SaS tokens generated for authenticating to Azure IoT Hub should have a finite expiry period. Keep the SaS token lifetimes to a minimum to limit the amount of time they can be replayed in case the tokens are compromised.|
 
 ## <a id="resource-tokens"></a>Use minimum token lifetimes for generated Resource tokens
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Azure Document DB | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Generic |
-| Attributes              | N/A  |
-| References              | N/A  |
-| Steps | Reduce the timespan of resource token to a minimum value required. Resource tokens have a default valid timespan of 1 hour.|
+| **Component**               | Azure Document DB | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Generic |
+| **Attributes**              | N/A  |
+| **References**              | N/A  |
+| **Steps** | Reduce the timespan of resource token to a minimum value required. Resource tokens have a default valid timespan of 1 hour.|
 
 ## <a id="wsfederation-logout"></a>Implement proper logout using WsFederation methods when using ADFS
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | ADFS | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Generic |
-| Attributes              | N/A  |
-| References              | N/A  |
-| Steps | If the application relies on STS token issued by ADFS, the logout event handler should call WSFederationAuthenticationModule.FederatedSignOut() method to log out the user. Also the current session should be destroyed, and the session token value should be reset and nullified.|
+| **Component**               | ADFS | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Generic |
+| **Attributes**              | N/A  |
+| **References**              | N/A  |
+| **Steps** | If the application relies on STS token issued by ADFS, the logout event handler should call WSFederationAuthenticationModule.FederatedSignOut() method to log out the user. Also the current session should be destroyed, and the session token value should be reset and nullified.|
 
 ### Example
 ```C#
@@ -139,23 +139,23 @@ It should also destroy user's session by calling Session.Abandon() method. Follo
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Identity Server | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Generic |
-| Attributes              | N/A  |
-| References              | [IdentityServer3-Federated Signout](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
-| Steps | IdentityServer supports the ability to federate with external identity providers. When a user signs out of an upstream identity provider, depending upon the protocol used, it might be possible to receive a notification when the user has signed out. This would then allow IdentityServer to notify its clients so they can also sign the user out. Check the documentation in the references section for the implementation details.|
+| **Component**               | Identity Server | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Generic |
+| **Attributes**              | N/A  |
+| **References**              | [IdentityServer3-Federated sign out](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
+| **Steps** | IdentityServer supports the ability to federate with external identity providers. When a user signs out of an upstream identity provider, depending upon the protocol used, it might be possible to receive a notification when the user signs out. It allows IdentityServer to notify its clients so they can also sign the user out. Check the documentation in the references section for the implementation details.|
 
 ## <a id="https-secure-cookies"></a>Applications available over HTTPS must use secure cookies
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web Application | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Generic |
-| Attributes              | EnvironmentType - OnPrem |
-| References              | [httpCookies Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure Property](http://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
-| Steps | Cookies are normally only accessible to the domain for which they were scoped. Unfortunately, the definition of "domain" does not include the protocol so cookies that are created over HTTPS are accessible over HTTP. The "secure" attribute indicates to the browser that the cookie should only be made available over HTTPS. Ensure that all cookies set over HTTPS use the **secure** attribute. This requirement can be enforced in the web.config file by setting the requireSSL attribute to true. This is the preferred approach because it will enforce the **secure** attribute for all current and future cookies without the need to make any additional code changes.|
+| **Component**               | Web Application | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Generic |
+| **Attributes**              | EnvironmentType - OnPrem |
+| **References**              | [httpCookies Element (ASP.NET Settings Schema)](http://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure Property](http://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **Steps** | Cookies are normally only accessible to the domain for which they were scoped. Unfortunately, the definition of "domain" does not include the protocol so cookies that are created over HTTPS are accessible over HTTP. The "secure" attribute indicates to the browser that the cookie should only be made available over HTTPS. Ensure that all cookies set over HTTPS use the **secure** attribute. The requirement can be enforced in the web.config file by setting the requireSSL attribute to true. It is the preferred approach because it will enforce the **secure** attribute for all current and future cookies without the need to make any additional code changes.|
 
 ### Example
 ```C#
@@ -165,16 +165,16 @@ It should also destroy user's session by calling Session.Abandon() method. Follo
   </system.web>
 </configuration>
 ```
-This setting is enforced even if HTTP is used to access the application. If HTTP is used to access the application, this setting will break the application because the cookies will be set with the secure attribute and the browser will not send them back to the application.
+The setting is enforced even if HTTP is used to access the application. If HTTP is used to access the application, the setting breaks the application because the cookies are set with the secure attribute and the browser will not send them back to the application.
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web Application | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Web Forms, MVC5 |
-| Attributes              | EnvironmentType - OnPrem |
-| References              | N/A  |
-| Steps | When the web application is the Relying Party, and the IdP is ADFS server, the FedAuth token's secure attribute can be configured by setting requireSSL to True in `system.identityModel.services` section of web.config:|
+| **Component**               | Web Application | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Web Forms, MVC5 |
+| **Attributes**              | EnvironmentType - OnPrem |
+| **References**              | N/A  |
+| **Steps** | When the web application is the Relying Party, and the IdP is ADFS server, the FedAuth token's secure attribute can be configured by setting requireSSL to True in `system.identityModel.services` section of web.config:|
 
 ### Example
 ```C#
@@ -191,12 +191,12 @@ This setting is enforced even if HTTP is used to access the application. If HTTP
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web Application | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Generic |
-| Attributes              | N/A  |
-| References              | [Secure Cookie Attribute](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
-| Steps | To mitigate the risk of information disclosure with a cross-site scripting (XSS) attack, a new attribute - httpOnly - was introduced to cookies and is supported by all major browsers. This attribute specifies that a cookie is not accessible through script. By using HttpOnly cookies, a web application reduces the possibility that sensitive information contained in the cookie can be stolen via script and sent to a attacker's website. |
+| **Component**               | Web Application | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Generic |
+| **Attributes**              | N/A  |
+| **References**              | [Secure Cookie Attribute](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
+| **Steps** | To mitigate the risk of information disclosure with a cross-site scripting (XSS) attack, a new attribute - httpOnly - was introduced to cookies and is supported by all major browsers. The attribute specifies that a cookie is not accessible through script. By using HttpOnly cookies, a web application reduces the possibility that sensitive information contained in the cookie can be stolen via script and sent to an attacker's website. |
 
 ### Example
 All HTTP-based applications that use cookies should specify HttpOnly in the cookie definition, by implementing following configuration in web.config:
@@ -212,12 +212,12 @@ All HTTP-based applications that use cookies should specify HttpOnly in the cook
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web Application | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Web Forms |
-| Attributes              | N/A  |
-| References              | [FormsAuthentication.RequireSSL Property](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| Steps | The RequireSSL property value is set in the configuration file for an ASP.NET application by using the requireSSL attribute of the configuration element. You can specify in the Web.config file for your ASP.NET application whether SSL (Secure Sockets Layer) is required to return the forms-authentication cookie to the server by setting the requireSSL attribute.|
+| **Component**               | Web Application | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Web Forms |
+| **Attributes**              | N/A  |
+| **References**              | [FormsAuthentication.RequireSSL Property](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
+| **Steps** | The RequireSSL property value is set in the configuration file for an ASP.NET application by using the requireSSL attribute of the configuration element. You can specify in the Web.config file for your ASP.NET application whether SSL (Secure Sockets Layer) is required to return the forms-authentication cookie to the server by setting the requireSSL attribute.|
 
 ### Example 
 The following code example sets the requireSSL attribute in the Web.config file.
@@ -229,15 +229,15 @@ The following code example sets the requireSSL attribute in the Web.config file.
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web Application | 
-| SDL Phase               | Build |  
-| Applicable Technologies | MVC5 |
-| Attributes              | EnvironmentType - OnPrem |
-| References              | [Windows Identity Foundation (WIF) Configuration – Part II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
-| Steps | To set httpOnly attribute for FedAuth cookies, hideFromCsript attribute value should be set to True. |
+| **Component**               | Web Application | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | MVC5 |
+| **Attributes**              | EnvironmentType - OnPrem |
+| **References**              | [Windows Identity Foundation (WIF) Configuration – Part II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
+| **Steps** | To set httpOnly attribute for FedAuth cookies, hideFromCsript attribute value should be set to True. |
 
 ### Example
-Following configuration shows the the correct configuration:
+Following configuration shows the correct configuration:
 ```XML
 <federatedAuthentication>
 <cookieHandler mode="Custom"
@@ -254,21 +254,21 @@ Following configuration shows the the correct configuration:
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web Application | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Generic |
-| Attributes              | N/A  |
-| References              | N/A  |
-| Steps | Cross-site request forgery (CSRF or XSRF) is a type of attack in which an attacker can carry out actions in the security context of a different user's established session with a web site, such as to modify or delete content, if the targeted web site relies exclusively on session cookies to authenticate received request. An attacker could exploit this vulnerability by getting a different user's browser to load an URL with a command from a vulnerable site on which the user is already logged in. There are many ways for an attacker to do that, such as by hosting a different web site that loads a resource from the vulnerable server, or getting the user to click a link. This type of attack can be prevented if the server sends an additional token to the client, requires the client to include that token in all future requests, and verifies that all future requests include a token that pertains to the current session, such as by using the ASP.NET AntiForgeryToken or ViewState. |
+| **Component**               | Web Application | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Generic |
+| **Attributes**              | N/A  |
+| **References**              | N/A  |
+| **Steps** | Cross-site request forgery (CSRF or XSRF) is a type of attack in which an attacker can carry out actions in the security context of a different user's established session on a web site. The goal is to modify or delete content, if the targeted web site relies exclusively on session cookies to authenticate received request. An attacker could exploit this vulnerability by getting a different user's browser to load a URL with a command from a vulnerable site on which the user is already logged in. There are many ways for an attacker to do that, such as by hosting a different web site that loads a resource from the vulnerable server, or getting the user to click a link. The attack can be prevented if the server sends an additional token to the client, requires the client to include that token in all future requests, and verifies that all future requests include a token that pertains to the current session, such as by using the ASP.NET AntiForgeryToken or ViewState. |
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web Application | 
-| SDL Phase               | Build |  
-| Applicable Technologies | MVC5, MVC6 |
-| Attributes              | N/A  |
-| References              | [XSRF/CSRF Prevention in ASP.NET MVC and Web Pages](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
-| Steps | Anti-CSRF and ASP.NET MVC forms - Use the `AntiForgeryToken` helper method on Views; put an `Html.AntiForgeryToken()` into the form, e.g.,|
+| **Component**               | Web Application | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | MVC5, MVC6 |
+| **Attributes**              | N/A  |
+| **References**              | [XSRF/CSRF Prevention in ASP.NET MVC and Web Pages](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
+| **Steps** | Anti-CSRF and ASP.NET MVC forms - Use the `AntiForgeryToken` helper method on Views; put an `Html.AntiForgeryToken()` into the form, for example,|
 
 ### Example
 ```C#
@@ -279,7 +279,6 @@ Following configuration shows the the correct configuration:
 ```
 
 ### Example
-This will output something like the following:
 ```C#
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
@@ -288,18 +287,18 @@ This will output something like the following:
 ```
 
 ### Example
-At the same time, Html.AntiForgeryToken() will give the visitor a cookie called __RequestVerificationToken, with the same value as the random hidden value shown above. Next, to validate an incoming form post, add the [ValidateAntiForgeryToken] filter to the target action method. For example:
+At the same time, Html.AntiForgeryToken() gives the visitor a cookie called __RequestVerificationToken, with the same value as the random hidden value shown above. Next, to validate an incoming form post, add the [ValidateAntiForgeryToken] filter to the target action method. For example:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
 {
-// ... etc
+// ... etc.
 }
 ```
-This is an authorization filter that checks that:
+Authorization filter that checks that:
 * The incoming request has a cookie called __RequestVerificationToken
-* The incoming request has a Request.Form entry called __RequestVerificationToken
-* These cookie and Request.Form values match
+* The incoming request has a `Request.Form` entry called __RequestVerificationToken
+* These cookie and `Request.Form` values match
 Assuming all is well, the request goes through as normal. But if not, then an authorization failure with message “A required anti-forgery token was not supplied or was invalid”. 
 
 ### Example
@@ -351,12 +350,12 @@ void ValidateRequestHeader(HttpRequestMessage request)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web Application | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Web Forms |
-| Attributes              | N/A  |
-| References              | [Take Advantage of ASP.NET Built-in Features to Fend Off Web Attacks](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
-| Steps | CSRF attacks in WebForm based applications can be mitigated by setting ViewStateUserKey to a random string that varies for each user - user ID or, better yet, session ID. For a number of technical and social reasons, session ID is a much better fit because a session ID is unpredictable, times out, and varies on a per-user basis.|
+| **Component**               | Web Application | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Web Forms |
+| **Attributes**              | N/A  |
+| **References**              | [Take Advantage of ASP.NET Built-in Features to Fend Off Web Attacks](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
+| **Steps** | CSRF attacks in WebForm based applications can be mitigated by setting ViewStateUserKey to a random string that varies for each user - user ID or, better yet, session ID. For a number of technical and social reasons, session ID is a much better fit because a session ID is unpredictable, times out, and varies on a per-user basis.|
 
 ### Example
 Here's the code you need to have in all of your pages:
@@ -371,12 +370,12 @@ void Page_Init (object sender, EventArgs e) {
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web Application | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Generic |
-| Attributes              | N/A  |
-| References              | [HttpSessionState.Timeout Property](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
-| Steps | Session timeout represents the event occurring when a user do not perform any action on a web site during a interval (defined by web server). The event, on server side, change the status of the user session to 'invalid' (ie. "not used anymore") and instruct the web server to destroy it (deleting all data contained into it). The following code example sets the timeout session attribute to 15 minutes in the Web.config file.|
+| **Component**               | Web Application | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Generic |
+| **Attributes**              | N/A  |
+| **References**              | [HttpSessionState.Timeout Property](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
+| **Steps** | Session timeout represents the event occurring when a user does not perform any action on a web site during a interval (defined by web server). The event, on server side, change the status of the user session to 'invalid' (for example  "not used anymore") and instruct the web server to destroy it (deleting all data contained into it). The following code example sets the timeout session attribute to 15 minutes in the Web.config file.|
 
 ### Example
 ```XML code 
@@ -392,12 +391,12 @@ void Page_Init (object sender, EventArgs e) {
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web Application | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Web Forms |
-| Attributes              | N/A  |
-| References              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| Steps | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
+| **Component**               | Web Application | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Web Forms |
+| **Attributes**              | N/A  |
+| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
 ```XML code
@@ -407,12 +406,12 @@ void Page_Init (object sender, EventArgs e) {
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web Application | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Web Forms, MVC5 |
-| Attributes              | EnvironmentType - OnPrem |
-| References              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
-| Steps | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
+| **Component**               | Web Application | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Web Forms, MVC5 |
+| **Attributes**              | EnvironmentType - OnPrem |
+| **References**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
+| **Steps** | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
 
 ### Example
 ```XML
@@ -423,7 +422,7 @@ void Page_Init (object sender, EventArgs e) {
       <!-- Set requireHttps=true; -->
       <wsFederation passiveRedirectEnabled="true" issuer="http://localhost:39529/" realm="https://localhost:44302/" reply="https://localhost:44302/" requireHttps="true"/>
       <!--
-      Uncomment this section to enable encryption-decryption of claims received from ADFS. Thumbprint value varies based on the certificate being used.
+      Use the code below to enable encryption-decryption of claims received from ADFS. Thumbprint value varies based on the certificate being used.
       <serviceCertificate>
         <certificateReference findValue="4FBBBA33A1D11A9022A5BF3492FF83320007686A" storeLocation="LocalMachine" storeName="My" x509FindType="FindByThumbprint" />
       </serviceCertificate>
@@ -442,32 +441,32 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web Application | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Generic |
-| Attributes              | N/A  |
-| References              | N/A  |
-| Steps | Perform proper Sign Out from the application, when user presses log out button. Upon logout, application should destroy user's session, and also reset and nullify session cookie value, along with resetting and nullifying authentication cookie value. Also, when multiple sessions are tied to a single user identity, they must be collectively terminated on the server side at timeout or logout. Lastly, ensure that Logout functionality is available on every page. |
+| **Component**               | Web Application | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Generic |
+| **Attributes**              | N/A  |
+| **References**              | N/A  |
+| **Steps** | Perform proper Sign Out from the application, when user presses log out button. Upon logout, application should destroy user's session, and also reset and nullify session cookie value, along with resetting and nullifying authentication cookie value. Also, when multiple sessions are tied to a single user identity, they must be collectively terminated on the server side at timeout or logout. Lastly, ensure that Logout functionality is available on every page. |
 
 ## <a id="csrf-api"></a>Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET Web APIs
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web API | 
-| SDL Phase               | Build |  
-| Applicable Technologies | Generic |
-| Attributes              | N/A  |
-| References              | N/A  |
-| Steps | Cross-site request forgery (CSRF or XSRF) is a type of attack in which an attacker can carry out actions in the security context of a different user's established session with a web site, such as to modify or delete content, if the targeted web site relies exclusively on session cookies to authenticate received request. An attacker could exploit this vulnerability by getting a different user's browser to load an URL with a command from a vulnerable site on which the user is already logged in. There are many ways for an attacker to do that, such as by hosting a different web site that loads a resource from the vulnerable server, or getting the user to click a link. This type of attack can be prevented if the server sends an additional token to the client, requires the client to include that token in all future requests, and verifies that all future requests include a token that pertains to the current session, such as by using the ASP.NET AntiForgeryToken or ViewState. |
+| **Component**               | Web API | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | Generic |
+| **Attributes**              | N/A  |
+| **References**              | N/A  |
+| **Steps** | Cross-site request forgery (CSRF or XSRF) is a type of attack in which an attacker can carry out actions in the security context of a different user's established session on a web site. The goal is to modify or delete content, if the targeted web site relies exclusively on session cookies to authenticate received request. An attacker could exploit this vulnerability by getting a different user's browser to load a URL with a command from a vulnerable site on which the user is already logged in. There are many ways for an attacker to do that, such as by hosting a different web site that loads a resource from the vulnerable server, or getting the user to click a link. The attack can be prevented if the server sends an additional token to the client, requires the client to include that token in all future requests, and verifies that all future requests include a token that pertains to the current session, such as by using the ASP.NET AntiForgeryToken or ViewState. |
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web API | 
-| SDL Phase               | Build |  
-| Applicable Technologies | MVC5, MVC6 |
-| Attributes              | N/A  |
-| References              | [Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET Web API](http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
-| Steps | Anti-CSRF and AJAX: The form token can be a problem for AJAX requests, because an AJAX request might send JSON data, not HTML form data. One solution is to send the tokens in a custom HTTP header. The following code uses Razor syntax to generate the tokens, and then adds the tokens to an AJAX request. |
+| **Component**               | Web API | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | MVC5, MVC6 |
+| **Attributes**              | N/A  |
+| **References**              | [Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET Web API](http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
+| **Steps** | Anti-CSRF and AJAX: The form token can be a problem for AJAX requests, because an AJAX request might send JSON data, not HTML form data. One solution is to send the tokens in a custom HTTP header. The following code uses Razor syntax to generate the tokens, and then adds the tokens to an AJAX request. |
 
 ### Example
 ```Javascript
@@ -515,16 +514,17 @@ void ValidateRequestHeader(HttpRequestMessage request)
 ```
 
 ### Example
-Anti-CSRF and ASP.NET MVC forms - Use the AntiForgeryToken helper method on Views; put an Html.AntiForgeryToken() into the form, e.g.,
+Anti-CSRF and ASP.NET MVC forms - Use the AntiForgeryToken helper method on Views; put an Html.AntiForgeryToken() into the form, for example,
 ```C#
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
     <fieldset> 
+}
 ```
 
 ### Example
-This will output something like the following:
+The example above will output something like the following:
 ```C#
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
@@ -533,31 +533,31 @@ This will output something like the following:
 ```
 
 ### Example
-At the same time, Html.AntiForgeryToken() will give the visitor a cookie called __RequestVerificationToken, with the same value as the random hidden value shown above. Next, to validate an incoming form post, add the [ValidateAntiForgeryToken] filter to the target action method. For example:
+At the same time, Html.AntiForgeryToken() gives the visitor a cookie called __RequestVerificationToken, with the same value as the random hidden value shown above. Next, to validate an incoming form post, add the [ValidateAntiForgeryToken] filter to the target action method. For example:
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
 {
-// ... etc
+// ... etc.
 }
 ```
-This is an authorization filter that checks that:
+Authorization filter that checks that:
 * The incoming request has a cookie called __RequestVerificationToken
-* The incoming request has a Request.Form entry called __RequestVerificationToken
-* These cookie and Request.Form values match
+* The incoming request has a `Request.Form` entry called __RequestVerificationToken
+* These cookie and `Request.Form` values match
 Assuming all is well, the request goes through as normal. But if not, then an authorization failure with message “A required anti-forgery token was not supplied or was invalid”.
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| Component               | Web API | 
-| SDL Phase               | Build |  
-| Applicable Technologies | MVC5, MVC6 |
-| Attributes              | Identity Provider - ADFS, Identity Provider - Azure AD |
-| References              | [Secure a Web API with Individual Accounts and Local Login in ASP.NET Web API 2.2](http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
-| Steps | If the Web API is secured using OAuth 2.0, then it expects a bearer token in Authorization request header and grants access to the request only if the token is valid. Unlike cookie based authentication, browsers do not attach the bearer tokens to requests. The requesting client needs to explicitly attach the bearer token in the request header. Therefore, for ASP.NET Web APIs protected using OAuth 2.0, bearer tokens are considered as a defense against CSRF attacks. Please note that if the MVC portion of the application uses forms authentication (i.e., uses cookies), anti-forgery tokens have to be used by the MVC web app. |
+| **Component**               | Web API | 
+| **SDL Phase**               | Build |  
+| **Applicable Technologies** | MVC5, MVC6 |
+| **Attributes**              | Identity Provider - ADFS, Identity Provider - Azure AD |
+| **References**              | [Secure a Web API with Individual Accounts and Local Login in ASP.NET Web API 2.2](http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
+| **Steps** | If the Web API is secured using OAuth 2.0, then it expects a bearer token in Authorization request header and grants access to the request only if the token is valid. Unlike cookie based authentication, browsers do not attach the bearer tokens to requests. The requesting client needs to explicitly attach the bearer token in the request header. Therefore, for ASP.NET Web APIs protected using OAuth 2.0, bearer tokens are considered as a defense against CSRF attacks. Please note that if the MVC portion of the application uses forms authentication (i.e., uses cookies), anti-forgery tokens have to be used by the MVC web app. |
 
 ### Example
-In this case, the Web API has to be informed to rely ONLY on bearer tokens and not on cookies. This can be done by the following configuration in `WebApiConfig.Register` method:
+The Web API has to be informed to rely ONLY on bearer tokens and not on cookies. It can be done by the following configuration in `WebApiConfig.Register` method:
 ```C-Sharp code
 config.SuppressDefaultHostAuthentication();
 config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));

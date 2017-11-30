@@ -17,6 +17,9 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2017
 ms.author: saudas
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ---
+
+# Scale agent nodes in a Container Service cluster
+
 [!INCLUDE [container-service-scale.md](../../../includes/container-service-scale.md)]

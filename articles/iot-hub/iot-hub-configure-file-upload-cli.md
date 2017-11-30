@@ -142,7 +142,7 @@ Follow these links to learn more about managing Azure IoT Hub:
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 * [Secure your IoT solution from the ground up][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
@@ -156,7 +156,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
 
@@ -169,6 +169,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
 [lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
 [lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-manage-storage]: ../storage/storage-azure-cli.md#manage-storage-accounts
-[lnk-portal-storage]: ../storage/storage-create-storage-account.md
-[lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#create
+[lnk-manage-storage]:../storage/common/storage-azure-cli.md#manage-storage-accounts
+[lnk-portal-storage]:../storage/common/storage-create-storage-account.md
+[lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#az_iot_hub_create

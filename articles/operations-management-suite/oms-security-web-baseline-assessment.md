@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2017
+ms.date: 08/18/2017
 ms.author: yurid
 
 ---
@@ -25,6 +25,9 @@ This document helps you use OMS Security and Audit web baseline assessment capab
 Currently OMS Security provides security baseline assessment for operating systems. It scans the OS settings of your servers every 24 hours, and provides a view into potentially vulnerable settings. Read [Baseline Assessment in Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline) for more information on this.
 
 The goal of the Web Baseline assessment is to find potentially vulnerable web server settings. The three primary sources for the web baseline configurations are: .NET, ASP.NET, and IIS configuration.  Just like the operating system baseline assessment, OMS Security is going to scan your web servers every 24hrs and provide a view into security state of them.  In Internet Information Service (IIS), configurations are highly customizable, which allows various site and application levels to be overridden. The scanner checks the settings at each application/site level in addition to the default root level. This helps you to identify potentially vulnerable settings and quickly remediate, along with our recommendations for those settings.
+
+>[!NOTE] 
+>You can download the Common Configuration Identifiers and Baseline Rules used by OMS Security in this [page](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335?redir=0).
 
 
 ## Web security baseline assessment

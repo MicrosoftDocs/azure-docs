@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: 
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
 
@@ -30,7 +30,8 @@ This quick start demonstrates how to create an Azure Cosmos DB account, document
 
 If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
 ## Create a database account
@@ -91,24 +92,29 @@ Now let's switch to working with code. Let's clone a DocumentDB API app from Git
 
 Let's make a quick review of what's happening in the app. Open the DocumentDBRepository.cs file and you'll find that these lines of code create the Azure Cosmos DB resources. 
 
-* The DocumentClient is initialized on line 73.
+* The DocumentClient is initialized on line 78.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* A new database is created on line 88.
+* A new database is created on line 93.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* A new collection is created on line 107.
+* A new collection is created on line 112.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
         UriFactory.CreateDatabaseUri(DatabaseId),
         new DocumentCollection { Id = CollectionId },
+        new DocumentCollection
+            {
+               Id = CollectionId,
+               PartitionKey = new PartitionKeyDefinition() { Paths = new Collection<string>() { "/category" } }
+            },
         new RequestOptions { OfferThroughput = 1000 });
     ```
 

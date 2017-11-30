@@ -13,14 +13,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/07/2017
+ms.date: 10/05/2017
 ms.author: ryanwi
 
 ---
 # Deploy and remove applications using FabricClient
 > [!div class="op_single_selector"]
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 > * [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
 > 
@@ -31,15 +32,15 @@ Once an [application type has been packaged][10], it's ready for deployment into
 
 1. Upload the application package to the image store
 2. Register the application type
-3. Create the application instance
+3. Remove the application package from the image store
+4. Create the application instance
 
 After an application is deployed and an instance is running in the cluster, you can delete the application instance and its application type. To completely remove an application from the cluster involves the following steps:
 
 1. Remove (or delete) the running application instance
 2. Unregister the application type if you no longer need it
-3. Remove the application package from the image store
 
-If you use [Visual Studio for deploying and debugging applications](service-fabric-publish-app-remote-cluster.md) on your local development cluster, all the preceding steps are handled automatically through a PowerShell script.  This script is found in the *Scripts* folder of the application project. This article provides background on what that script is doing so that you can perform the same operations outside of Visual Studio. 
+If you use Visual Studio for deploying and debugging applications on your local development cluster, all the preceding steps are handled automatically through a PowerShell script.  This script is found in the *Scripts* folder of the application project. This article provides background on what that script is doing so that you can perform the same operations outside of Visual Studio. 
  
 ## Connect to the cluster
 Connect to the cluster by creating a [FabricClient](/dotnet/api/system.fabric.fabricclient) instance before you run any of the code examples in this article. For examples of connecting to a local development cluster or a remote cluster or cluster secured using Azure Active Directory, X509 certificates, or Windows Active Directory see [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). To connect to the local development cluster, run the following:
@@ -67,6 +68,9 @@ The [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicati
 
 The [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) API provides information about all successfully registered application types. You can use this API to determine when the registration is done.
 
+## Remove an application package from the image store
+It's recommended that you remove the application package after the application is successfully registered.  Deleting application packages from the image store frees up system resources.  Keeping unused application packages consumes disk storage and leads to application performance issues. Delete the application package from the image store using the [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage) API.
+
 ## Create an application instance
 You can instantiate an application from any application type that has been registered successfully by using the [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync) API. The name of each application must start with the *"fabric:"* scheme and must be unique for each application instance (within a cluster). Any default services defined in the application manifest of the target application type are also created.
 
@@ -91,9 +95,6 @@ When an application instance is no longer needed, you can permanently remove it 
 
 ## Unregister an application type
 When a particular version of an application type is no longer needed, you should unregister that particular version of the application type using the [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync) API. Unregistering unused versions of application types releases storage space used by the image store. A version of an application type can be unregistered as long as no applications are instantiated against that version of the application type and no pending application upgrades are referencing that version of the application type.
-
-## Remove an application package from the image store
-When an application package is no longer needed, you can delete it from the image store to free up system resources using the [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage) API.
 
 ## Troubleshooting
 ### Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
@@ -215,6 +216,21 @@ static void Main(string[] args)
         }
     }
 
+    // Delete the application package from a location in the image store.
+    try
+    {
+        fabricClient.ApplicationManager.RemoveApplicationPackage(imageStoreConnectionString, packagePathInImageStore);
+        Console.WriteLine("Application package removed from {0}", packagePathInImageStore);
+    }
+    catch (AggregateException ae)
+    {
+        Console.WriteLine("Application package removal from Image Store failed: ");
+        foreach (Exception ex in ae.InnerExceptions)
+        {
+            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+        }
+    }
+
     //  Create the application instance.
     try
     {
@@ -298,21 +314,6 @@ static void Main(string[] args)
     catch (AggregateException ae)
     {
         Console.WriteLine("Un-provision application type failed: ");
-        foreach (Exception ex in ae.InnerExceptions)
-        {
-            Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
-        }
-    }
-
-    // Delete the application package from a location in the image store.
-    try
-    {
-        fabricClient.ApplicationManager.RemoveApplicationPackage(imageStoreConnectionString, packagePathInImageStore);
-        Console.WriteLine("Application package removed from {0}", packagePathInImageStore);
-    }
-    catch (AggregateException ae)
-    {
-        Console.WriteLine("Application package removal from Image Store failed: ");
         foreach (Exception ex in ae.InnerExceptions)
         {
             Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);

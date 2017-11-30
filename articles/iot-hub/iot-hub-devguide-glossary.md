@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure IoT Hub glossary of terms | Microsoft Docs
 description: Developer guide - a glossary of common terms relating to Azure IoT Hub.
 services: iot-hub
@@ -34,13 +34,13 @@ The [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is a c
 There are _device SDKs_ available for multiple languages that enable you to create [device apps](#device-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these device SDKs. You can find the source code and further information about the device SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
 
 ## Azure IoT Edge
-IoT Edge enables you to write applications that enable gateway-connected devices to communicate with [IoT Hub](#iot-hub). The IoT Edge tutorials show you how to use this service. You can find the source code and further information about Azure IoT Edge in this GitHub [repository](https://github.com/Azure/iot-edge).
+Azure IoT Edge moves cloud analytics and custom business logic to devices so that your organization can focus on business insights instead of data management. Enable your solution to truly scale by configuring your IoT software, deploying it to devices via standard containers, and monitoring it all from the cloud. Get started with a tutorial that shows you how to install and use Azure IoT Edge on a [Linux](../iot-edge/tutorial-simulate-device-linux.md) or [Windows](../iot-edge/tutorial-simulate-device-windows.md) device.
 
 ## Azure IoT service SDKs
 There are _service SDKs_ available for multiple languages that enable you to create [back-end apps](#back-end-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these service SDKs. You can find the source code and further information about the service SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
 
 ## Azure portal
-The [Microsoft Azure portal](https://portal.azure.com) is a central place where you can provision and manage your Azure resources. It organizes its content using _blades_. In some of the IoT Hub tutorials, you may be asked to use the [Azure classic portal](https://manage.windowsazure.com).
+The [Microsoft Azure portal](https://portal.azure.com) is a central place where you can provision and manage your Azure resources. It organizes its content using _blades_.
 
 ## Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) is a collection of cmdlets you can use to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform.
@@ -52,7 +52,7 @@ The [Microsoft Azure portal](https://portal.azure.com) is a central place where 
 [Service Bus](../service-bus/index.md) provides cloud-enabled communication with enterprise messaging and relayed communication that helps you connect on-premises solutions with the cloud. Some IoT Hub tutorials make use Service Bus [queues](../service-bus-messaging/service-bus-messaging-overview.md).
 
 ## Azure Storage
-[Azure Storage](../storage/storage-introduction.md) is a cloud storage solution. It includes the Blob Storage service that you can use to store unstructured object data. Some IoT Hub tutorials use blob storage.
+[Azure Storage](../storage/common/storage-introduction.md) is a cloud storage solution. It includes the Blob Storage service that you can use to store unstructured object data. Some IoT Hub tutorials use blob storage.
 
 ## Back-end app
 In the context of [IoT Hub](#iot-hub), a back-end app is an app that connects to one of the service-facing endpoints on an IoT hub. For example, a back-end app might retrieve [device-to-cloud](#device-to-cloud)messages or manage the [identity registry](#identity-registry). Typically, a back-end app runs in the cloud, but in many of the tutorials the back-end apps are console apps running on your local development machine.
@@ -186,7 +186,7 @@ Your solution back end can use [jobs](iot-hub-devguide-jobs.md) to schedule and 
 The [Jobs REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) enables you to manage [jobs](#job) running in your IoT hub.
 
 ## Module
-In [Azure IoT Edge](iot-hub-linux-iot-edge-get-started.md), a [module](iot-hub-linux-iot-edge-get-started.md) is a component that performs a specific task. Tasks might include ingesting a message from a device, transforming a message, or sending a message to an IoT hub. A broker is responsible for forwarding messages between modules. Azure IoT Edge includes a set of sample modules. You can also create your own custom modules.
+In [Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md), a [module](../iot-edge/iot-edge-modules.md) is a component that performs a specific task. Tasks might include ingesting a message from a device, transforming a message, or sending a message to an IoT hub. A broker is responsible for forwarding messages between modules. Azure IoT Edge includes a set of sample modules. You can also create your own custom modules.
 
 ## MQTT
 [MQTT](http://mqtt.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).

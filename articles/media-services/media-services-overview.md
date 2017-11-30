@@ -4,7 +4,7 @@ description: This topic gives an overview of Azure Media Services
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/04/2017
+ms.date: 10/24/2017
 ms.author: juliako;anilmur
 
 ---
@@ -56,6 +56,10 @@ To build Media Services solutions, you can use:
 	* [Azure portal](https://portal.azure.com/)
 	* [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
 
+## Code samples
+
+Find multiple code samples in the **Azure Code Samples** gallery: [Azure Media Services code samples](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+
 ## Concepts and overview
 For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
 
@@ -75,7 +79,7 @@ For detailed information, see [AMS scenarios and availability of features and se
 
 For more information, see [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
 
-For information about availability in datacenters, see the [Avaiability](scenarios-and-availability.md#availability) section.
+For information about availability in datacenters, see the [Availability](scenarios-and-availability.md#availability) section.
 
 ## Support
 

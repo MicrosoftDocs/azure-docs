@@ -4,7 +4,7 @@ description: Frequently asked questions (FAQs)
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 5374f7f4-c189-43ef-8b7f-f2f4141e2748
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/29/2017
 ms.author: juliako
 
 ---
@@ -22,6 +22,11 @@ ms.author: juliako
 This article addresses frequently asked questions raised by the Azure Media Services (AMS) user community.
 
 ## General AMS FAQs
+
+Q: How do you stream to Apple iOS devices
+
+A: add "(format=m3u8-aapl)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back HLS content for consumption on Apple iOS native devices (for details, see (delivering content)[media-services-deliver-content-overview.md]),
+
 Q: How do you scale indexing?
 
 A: The reserved units are the same for Encoding and Indexing tasks. Follow instructions on [How to Scale Encoding Reserved Units](media-services-scale-media-processing-overview.md). **Note** that Indexer performance is not affected by Reserved Unit Type.

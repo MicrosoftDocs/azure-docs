@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2017
+ms.date: 08/09/2017
 ms.author: jeedes
 
 ---
@@ -114,15 +114,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/active-directory-saas-intime-tutorial/tutorial_intime_certificate.png) 
 
-5. Click **Save** button.
+5. Your InTime application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **User Identifier** is **user.userprincipalname** but InTime expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration 
+
+    ![Configure Attribute](./media/active-directory-saas-intime-tutorial/tutorial_intime_attribute.png)
+
+6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-intime-tutorial/tutorial_general_400.png)
 
-6. On the **InTime Configuration** section, click **Configure InTime** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **InTime Configuration** section, click **Configure InTime** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![InTime Configuration](./media/active-directory-saas-intime-tutorial/tutorial_intime_configure.png) 
 
-7. To configure single sign-on on **InTime** side, you need to send the downloaded **Metadata XML**, **Sign-Out URL, and SAML Single Sign-On Service URL** to [InTime support team](mailto:hdollard@intimesoft.com). They set this setting to have the SAML SSO connection set properly on both sides.
+8. To configure single sign-on on **InTime** side, you need to send the downloaded **Metadata XML**, **Sign-Out URL, and SAML Single Sign-On Service URL** to [InTime support team](mailto:hdollard@intimesoft.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)

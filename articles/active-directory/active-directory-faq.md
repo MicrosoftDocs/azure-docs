@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 11/08/2017
 ms.author: markvi
 
 ---
@@ -24,7 +24,7 @@ For more information, see [What is Azure Active Directory?](active-directory-wha
 
 
 ## Access Azure and Azure Active Directory
-**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure classic portal (https://manage.windowsazure.com)?**
+**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure classic portal?**
 
 **A:** To access the Azure classic portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a free [Azure account](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription.
 
@@ -53,7 +53,7 @@ Azure AD paid services like Enterprise Mobility + Security complement other web 
 If others need to sign in and access services by using the same subscription, you can add them as co-admins. This role has the same access privileges as the service admin, but can’t change the association of subscriptions to Azure directories.  For additional information on subscription admins, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) and [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure classic portal. The admin's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md).
+Azure AD has a different set of admin roles to manage the directory and identity-related features.  These admins will have access to various features in the Azure portal or the Azure classic portal. The admin's role determines what they can do, like create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, or manage domains.  For additional information on Azure AD directory admins and their roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Additionally, Azure AD paid services like Enterprise Mobility + Security complement other web services, such as Office 365 and Microsoft Azure, with comprehensive enterprise-scale management and security solutions.
 
@@ -129,7 +129,6 @@ For Office 365 users, your admin can reset the password by using the steps outli
 For Azure AD accounts, admins can reset passwords by using one of the following:
 
 - [Reset accounts in the Azure portal](active-directory-users-reset-password-azure-portal.md)
-- [Reset accounts in the classic portal](active-directory-create-users-reset-password.md)
 - [Using PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
@@ -158,7 +157,7 @@ For a complete list of the pre-integrated applications, see the [Active Director
 
 For more information, see:
 
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
+* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
 
 - - -
@@ -196,7 +195,7 @@ For more information, see [How to provide secure remote access to on-premises ap
 
 **A:** With Azure AD conditional access, you can assign a unique access policy for each application. In your policy, you can require multi-factor authentication always, or when users are not connected to the local network.  
 
-For more information, see [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md).
+For more information, see [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 - - -
 **Q: What is automated user provisioning for SaaS apps?**
@@ -208,4 +207,4 @@ For more information, see [Automate user provisioning and deprovisioning to SaaS
 - - -
 **Q:  Can I set up a secure LDAP connection with Azure AD?**
 
-**A:**  No.  Azure AD does not support the LDAP protocol.
+**A:**  No. Azure AD does not support the LDAP protocol.

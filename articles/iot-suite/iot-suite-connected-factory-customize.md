@@ -1,5 +1,5 @@
 ---
-title: Customize Azure IoT Suite connected factory | Microsoft Docs
+title: Customize the connected factory solution - Azure | Microsoft Docs
 description: A description of how to customize the behavior of the connected factory preconfigured solution.
 services: ''
 suite: iot-suite
@@ -14,15 +14,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/14/2017
 ms.author: dobett
 
 ---
 # Customize how the connected factory solution displays data from your OPC UA servers
 
-## Introduction
-
-The connected factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution. For more information about OPC UA, see the [FAQ][lnk-faq].
+The connected factory solution aggregates and displays data from the OPC UA servers connected to the solution. You can browse and send commands to the OPC UA servers in your solution. For more information about OPC UA, see the [Connected factory FAQ](iot-suite-faq-cf.md).
 
 Examples of aggregated data in the solution include the Overall Equipment Efficiency (OEE) and Key Performance Indicators (KPIs) that you can view in the dashboard at the factory, line, and station levels. The following screenshot shows the OEE and KPI values for the **Assembly** station, on **Production line 1**, in the **Munich** factory:
 
@@ -171,6 +169,7 @@ Learn more about the connected factory preconfigured solution by reading the fol
 * [Connected factory preconfigured solution walkthrough][lnk-rm-walkthrough]
 * [Deploy a gateway for connected factory][lnk-connect-cf]
 * [Permissions on the azureiotsuite.com site][lnk-permissions]
+* [Connected factory FAQ](iot-suite-faq-cf.md)
 * [FAQ][lnk-faq]
 
 
@@ -185,5 +184,5 @@ Learn more about the connected factory preconfigured solution by reading the fol
 
 [lnk-rm-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
 [lnk-connect-cf]: iot-suite-connected-factory-gateway-deployment.md
-[lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-permissions]: iot-suite-v1-permissions.md
+[lnk-faq]: iot-suite-v1-faq.md

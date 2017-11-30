@@ -6,9 +6,9 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: mysql-database
-ms.topic: article
-ms.date: 06/06/2017
+ms.service: mysql
+ms.topic: tutorial
+ms.date: 11/03/2017
 ms.custom: mvc
 ---
 
@@ -37,7 +37,7 @@ An Azure Database for MySQL server is created with a defined set of [compute and
 
 2. Click **Azure Database for MySQL** tile, and then click **Create**.
 
-In our example, fill out the Azure Database for MySQL form with the following information:
+In this example, fill out the Azure Database for MySQL form with the following information:
 
 | **Setting** | **Suggested value** | **Field Description** |
 |---|---|---|
@@ -94,9 +94,9 @@ USE mysampledb;
 ```
 
 ## Create tables in the database
-Now that you know how to connect to the Azure Database for MySQL database, we can go over how to complete some basic tasks.
+Now that you know how to connect to the Azure Database for MySQL database, you can complete some basic tasks:
 
-First, we can create a table and load it with some data. Let's create a table that stores inventory information.
+First, create a table and load it with some data. Let's create a table that stores inventory information.
 ```sql
 CREATE TABLE inventory (
 	id serial PRIMARY KEY, 
@@ -106,7 +106,7 @@ CREATE TABLE inventory (
 ```
 
 ## Load data into the tables
-Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
+Now that you have a table, insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

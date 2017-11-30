@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 11/16/2017
 ms.author: glenga
 
 ---
@@ -47,7 +47,7 @@ Secure authentication requires that you define a new URL scheme for your app. Th
 
      This exception happens because the app attempts to access the back end as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
-Next, you update the app to authenticate users before requesting resources from the Mobile Apps back end. 
+Next, you update the app to authenticate users before requesting resources from the Mobile Apps back end.
 
 ## Add authentication to the app
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -76,3 +76,4 @@ Now that you completed this basic authentication tutorial, consider continuing o
 
 <!-- URLs. -->
 [Get started with Mobile Apps]: app-service-mobile-android-get-started.md
+[Azure portal]: https://portal.azure.com/

@@ -1,39 +1,60 @@
 - name: Bing Image Search Documentation
-  href: ../index.md
+  href: index.yml
 - name: Overview
   items:
-    - name: Search the web for images
-      href: search-the-web.md
-    - name: Upgrade from v5 to v7 Preview
-      href: bing-image-upgrade-guide-v5-to-v7.md
-    - name: Use and display requirements
-      href: UseAndDisplayRequirements.md
+    - name: About Bing Image Search API
+      href: overview.md
+    - name: Supported countries and markets
+      href: supported-countries-markets.md
 - name: Quickstarts
-  expanded: true
   items:
-  - name: Get started
-    href: quick-start.md
-- name: How to
+  - name: First query in C#
+    href: quickstarts/csharp.md
+  - name: First query in Java
+    href: quickstarts/java.md
+  - name: First query for Node.js
+    href: quickstarts/nodejs.md
+  - name: First query in Python
+    href: quickstarts/python.md
+  - name: First query in PHP
+    href: quickstarts/php.md
+  - name: First query in Ruby
+    href: quickstarts/ruby.md
+- name: How To Guides
   items:
+  - name: Upgrade from v5 to v7
+    href: bing-image-upgrade-guide-v5-to-v7.md
+  - name: Use and display results
+    href: UseAndDisplayRequirements.md
   - name: Get image insights
     href: image-insights.md
   - name: Get trending images
     href: trending-images.md
-  - name: Page images
+  - name: Page through images
     href: paging-images.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+- name: Tutorials
+  items:
+  - name: Single-page Web app
+    href: tutorial-bing-image-search-single-page-app.md
+  - name: Single-page Web app (source code)
+    href: tutorial-bing-image-search-single-page-app-source.md
 - name: Reference
   items:
-  - name: REST v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
-  - name: REST v7 Preview
+  - name: REST v7 API
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
+  - name: REST v5 API (old version)
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Subscription key
+  - name: Frequently asked questions
+    href: bing-image-search-resource-faq.md
+  - name: Get free access key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
   - name: Try it!
-    href: https://dev.cognitive.microsoft.com/docs/services/56b43f0ccf5ff8098cef3808/operations/571fab09dbe2d933e891028f
+    href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/bing-search
+  - name: User Voice
+    href: https://cognitive.uservoice.com/forums/555907-bing-search
