@@ -58,7 +58,7 @@ Click **Save** and take note of the password value, this value is needed when cr
 
 Select **New** > **Containers** > **Azure Container Service - AKS (preview)**.
 
-Provide a name, DNS name, resource group name, location, ans Kubernetes version for the cluster. Take note of the cluster name and resource group name, these are needed when connecting to the cluster. 
+Provide a name, DNS name, resource group name, location, and Kubernetes version for the cluster. Take note of the cluster name and resource group name, these are needed when connecting to the cluster. 
 
 Select **OK** when complete.
 
@@ -66,7 +66,7 @@ Select **OK** when complete.
 
 On the configuration for enter the following:
 
-- User Name: the name given to the administrative accounts on the cluster nodes.
+- User Name - the name given to the administrative accounts on the cluster nodes.
 - SSH public key - associated with the key that will be used to access the cluster nodes.
 - Service principal client ID - the service principle ID as created earlier in this document.
 - Service principal client secret - the service principal password created earlier in this document.
