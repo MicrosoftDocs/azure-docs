@@ -51,9 +51,7 @@ As you decide what content to include in your Azure Stack marketplace, you shoul
 When you deploy Azure Stack in a disconnected mode (without any internet connectivity), you can’t download marketplace items by using the Azure Stack portal. However, you can use the marketplace syndication tool to download the marketplace items to a machine that has internet connectivity and then transfer them to your Azure Stack environment. 
 
 ### Prerequisites
-Before you can use the marketplace syndication tool, make sure that you have the following:
-
-* [Register Azure Stack with your Azure Subscription](azure-stack-register.md).  
+Before you can use the marketplace syndication tool, make sure that you have [registered Azure Stack with your Azure Subscription](azure-stack-register.md).  
 
 From the machine that has internet connectivity, use the following steps to download the required marketplace items:
 
