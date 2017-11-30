@@ -36,6 +36,7 @@ In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure using a template
 > * [Scale a cluster in or out](/service-fabric-tutorial-scale-cluster.md)
+> * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * Deploy API Management with Service Fabric
 
 ## Prerequisites
