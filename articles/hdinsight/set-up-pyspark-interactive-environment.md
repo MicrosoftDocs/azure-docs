@@ -35,7 +35,7 @@ If you're using **python 3.x**, you need to use the command **pip3** for the fol
     ```
     sudo pip install jupyter
     ```
-You might see the following error message on Linux and macOS:
+   You might see the following error message on Linux and macOS:
 
    ![Error 1](./media/set-up-pyspark-interactive-environment/error1.png)
 
@@ -46,11 +46,11 @@ You might see the following error message on Linux and macOS:
 
 3. Install **libkrb5-dev** (for Linux only). You might see the following error message:
 
-        ![Error 2](./media/set-up-pyspark-interactive-environment/error2.png)
+   ![Error 2](./media/set-up-pyspark-interactive-environment/error2.png)
        
-       ```Resolve:
-        sudo apt-get install libkrb5-dev 
-        ```
+   ```Resolve:
+   sudo apt-get install libkrb5-dev 
+   ```
 
 3. Install **sparkmagic**.
    ```
@@ -86,8 +86,8 @@ You might see the following error message on Linux and macOS:
     ![jupyter kernelspec list](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
 
     For available kernels: 
-    - **python2** and **pysparkkernel** corresponds to **python 2.x**, and **python3**. 
-    -  **pyspark3kernel** corresponds to **python 3.x**. 
+    - **python2** and **pysparkkernel** correspond to **python 2.x***. 
+    - **python3** and **pyspark3kernel** correspond to **python 3.x**. 
 
 8. Restart VS Code, and then go back to the script editor that's running **HDInsight: PySpark Interactive**.
 
