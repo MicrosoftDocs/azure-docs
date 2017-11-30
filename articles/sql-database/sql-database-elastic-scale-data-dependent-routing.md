@@ -33,9 +33,8 @@ To download:
 ## Using a ShardMapManager in a data dependent routing application
 Applications should instantiate the **ShardMapManager** during initialization, using the factory call **GetSQLShardMapManager** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager)). In this example, both a **ShardMapManager** and a specific **ShardMap** that it contains are initialized. This example shows the GetSqlShardMapManager and GetRangeShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn824173.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getrangeshardmap)) methods.
 
-```
-ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString, 
-                      ShardMapManagerLoadPolicy.Lazy);
+```csharp
+ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString, ShardMapManagerLoadPolicy.Lazy);
 RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap"); 
 ```
 
@@ -45,12 +44,9 @@ If an application is not manipulating the shard map itself, the credentials used
 ## Call the OpenConnectionForKey method
 The **ShardMap.OpenConnectionForKey method** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkey)) returns a connection ready for issuing commands to the appropriate database based on the value of the **key** parameter. Shard information is cached in the application by the **ShardMapManager**, so these requests do not typically involve a database lookup against the **Global Shard Map** database. 
 
-```
+```csharp
 // Syntax: 
-public SqlConnection OpenConnectionForKey<TKey>(TKey key,
-        string connectionString,
-        ConnectionOptions options
-)
+public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionString, ConnectionOptions options)
 ```
 
 * The **key** parameter is used as a lookup key into the shard map to determine the appropriate database for the request. 
@@ -63,23 +59,21 @@ Use **ConnectionOptions.None** only when shard mapping changes are not expected 
 
 This example uses the value of an integer key **CustomerID**, using a **ShardMap** object named **customerShardMap**.  
 
-```
+```csharp
 int customerId = 12345; 
 int newPersonId = 4321; 
 
 // Connect to the shard for that customer ID. No need to call a SqlConnection 
 // constructor followed by the Open method.
-    using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, 
-        Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
+using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
 { 
-// Execute a simple command. 
-SqlCommand cmd = conn.CreateCommand(); 
-cmd.CommandText = @"UPDATE Sales.Customer 
-                            SET PersonID = @newPersonID 
-                            WHERE CustomerID = @customerID"; 
+    // Execute a simple command. 
+    SqlCommand cmd = conn.CreateCommand(); 
+    cmd.CommandText = @"UPDATE Sales.Customer 
+                        SET PersonID = @newPersonID WHERE CustomerID = @customerID"; 
 
-cmd.Parameters.AddWithValue("@customerID", customerId);cmd.Parameters.AddWithValue("@newPersonID", newPersonId); 
-cmd.ExecuteNonQuery(); 
+    cmd.Parameters.AddWithValue("@customerID", customerId);cmd.Parameters.AddWithValue("@newPersonID", newPersonId); 
+    cmd.ExecuteNonQuery(); 
 }  
 ```
 
