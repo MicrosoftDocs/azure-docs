@@ -87,30 +87,30 @@ A best practice in developing data access applications in the cloud is to ensure
 Transient fault handling can coexist naturally with the Data Dependent Routing pattern. The key requirement is to retry the entire data access request including the **using** block that obtained the data-dependent routing connection. The example above could be rewritten as follows (note highlighted change). 
 
 ### Example - data dependent routing with transient fault handling
-<pre><code>int customerId = 12345; 
+```csharp
+int customerId = 12345; 
 int newPersonId = 4321; 
 
-<span style="background-color:  #FFFF00">Configuration.SqlRetryPolicy.ExecuteAction(() =&gt; </span> 
-<span style="background-color:  #FFFF00">    { </span>
-        // Connect to the shard for a customer ID. 
-        using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId,  
-        Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
-        { 
-            // Execute a simple command 
-            SqlCommand cmd = conn.CreateCommand(); 
+Configuration.SqlRetryPolicy.ExecuteAction(() =&gt; 
+{
+    // Connect to the shard for a customer ID. 
+    using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
+    { 
+        // Execute a simple command 
+        SqlCommand cmd = conn.CreateCommand(); 
 
-            cmd.CommandText = @&quot;UPDATE Sales.Customer 
+        cmd.CommandText = @"UPDATE Sales.Customer 
                             SET PersonID = @newPersonID 
-                            WHERE CustomerID = @customerID&quot;; 
+                            WHERE CustomerID = @customerID"; 
 
-            cmd.Parameters.AddWithValue(&quot;@customerID&quot;, customerId); 
-            cmd.Parameters.AddWithValue(&quot;@newPersonID&quot;, newPersonId); 
-            cmd.ExecuteNonQuery(); 
+        cmd.Parameters.AddWithValue("@customerID", customerId); 
+        cmd.Parameters.AddWithValue("@newPersonID", newPersonId); 
+        cmd.ExecuteNonQuery(); 
 
-            Console.WriteLine(&quot;Update completed&quot;); 
-        } 
-<span style="background-color:  #FFFF00">    }); </span> 
-</code></pre>
+        Console.WriteLine("Update completed"); 
+    } 
+}); 
+```
 
 
 Packages necessary to implement transient fault handling are downloaded automatically when you build the elastic database sample application. 
