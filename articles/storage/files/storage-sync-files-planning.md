@@ -77,7 +77,7 @@ Future versions of Windows Server will be added as they are released. Earlier ve
 | Hard links | Skipped | |
 | Symbolic links | Skipped | |
 | Mount points | Partially supported | Mount points might be the root of a Server Endpoint, but they are skipped if they are contained in a Server Endpoint's namespace. |
-| Junctions | Skipped | |
+| Junctions | Skipped | For example, Distributed File System DfrsrPrivate and DFSRoots folders. |
 | Reparse points | Skipped | |
 | NTFS compression | Fully supported | |
 | Sparse files | Fully supported | Sparse files sync (are not blocked), but they sync to the cloud as a full file. If the file contents change in the cloud (or on another server), the file is no longer sparse when the change is downloaded. |
@@ -94,6 +94,23 @@ Windows Server Failover Clustering is supported by Azure File Sync for the "File
 
 ### Data Deduplication
 For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume. Currently, we do not support interoperability between Azure File Sync with cloud tiering enabled and Data Deduplication.
+
+### Distributed File System (DFS)
+Azure File Sync supports DFS technologies with the Azure File Sync agent 1.2 or later [(October 2017 Update Rollup)](https://support.microsoft.com/uz-latn-uz/help/4042192/update-rollup-for-azure-file-sync-agent-preview-october-2017).
+
+**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the Server Endpoints and the Cloud Endpoint.  
+ 
+**DFS Replication (DFS-R)**: In most cases, you can replace the DFS-R with Azure File Sync to replicate data across branch servers. However, it is also possible to preserve your existing DFS-R deployment while still centralizing file services in the cloud and taking advantage of Azure File Sync features, such as cloud integrated backup and fast disaster recovery. Use cases for having Azure File Sync with DFS-R topology include when on premises servers are unable to connect to the cloud, or when branch servers consolidate data into the hub server, which can be connected to the Azure cloud for backups.  
+
+You can configure Azure File Sync on DFS-R members. For interoperability between Azure File Sync and DFS-R -
+- Azure File Sync cloud tiering must be disabled on volumes with DFS-R replicated folders.
+- Server Endpoints should not be configured on DFS-R read-only replication folders.
+
+To migrate DFS-R to Azure File Sync service, you can follow these steps -
+- Install and configure Azure File Sync on the DFS-R server. Make sure cloud tiering is disabled for the Server Endpoint/s. Let data sync to the Cloud Endpoint.
+- Install Azure File Sync agent on each of the DFS-R servers, disable DFS-R, create Server Endpoint on DFS-R servers to continue syncing files through Azure File Sync, instead of DFS-R.
+- Once you test your deployment, you can retire DFS-R.
+- After the DFS-R is retired, you can enable cloud tiering on the Azure File Sync servers.
 
 ### Antivirus solutions
 Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. Because tiered files have the "offline" attribute set, we recommend consulting with your software vendor to learn how to configure their solution to skip reading offline files. 
