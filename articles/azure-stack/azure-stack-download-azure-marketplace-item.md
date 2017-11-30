@@ -54,20 +54,21 @@ When you deploy Azure Stack in a disconnected mode (without any internet connect
 Before you can use the marketplace syndication tool, make sure that you have the following:
 
 * [Register Azure Stack with your Azure Subscription](azure-stack-register.md).  
-* From the machine that has internet connectivity, open a PowerShell console as an administrator and [install Azure Stack specific PowerShell modules](azure-stack-powershell-install.md). Make sure that you install **PowerShell version 1.2.11 or higher**. 
 
 From the machine that has internet connectivity, use the following steps to download the required marketplace items:
 
-1. Add the Azure account that you have used to register Azure Stack. To do this, run the **Add-AzureRmAccount** cmdlet without any parameters. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.  
+1. Open a PowerShell console as an administrator and [install Azure Stack specific PowerShell modules](azure-stack-powershell-install.md). Make sure that you install **PowerShell version 1.2.11 or higher**.  
 
-2. If you have multiple subscriptions, run the following command to select the one you have used for registration:  
+2. Add the Azure account that you have used to register Azure Stack. To do this, run the **Add-AzureRmAccount** cmdlet without any parameters. You are prompted to enter your Azure account credentials and you may have to use 2-factor authentication based on your account’s configuration.  
+
+3. If you have multiple subscriptions, run the following command to select the one you have used for registration:  
 
    ```powershell
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    $AzureContext = Get-AzureRmContext
    ```
 
-3. Download the latest version of marketplace syndication tool by using the following script:  
+4. Download the latest version of marketplace syndication tool by using the following script:  
 
    ```PowerShell
    # Change directory to the root directory. 
@@ -87,7 +88,7 @@ From the machine that has internet connectivity, use the following steps to down
 
    ```
 
-4. Import the syndication module and launch the tool by running the following commands:  
+5. Import the syndication module and launch the tool by running the following commands:  
 
    ```powershell
    Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
@@ -98,11 +99,11 @@ From the machine that has internet connectivity, use the following steps to down
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
 
-5. When the tool runs, you are prompted to enter your Azure account credentials. Sign in to the Azure account that you have used to register Azure Stack. After the login is succeeds, you should see the following screen with the list of available marketplace items.  
+6. When the tool runs, you are prompted to enter your Azure account credentials. Sign in to the Azure account that you have used to register Azure Stack. After the login is succeeds, you should see the following screen with the list of available marketplace items.  
 
    ![Azure Marketplace items popup](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-6. Select the image that you want to download (you can select multiple images by holding the Ctrl key) and make a note of the image version, you will use this version to import the image in next section > click **Ok** > accept the legal terms by clicking on **Yes**. You can also filter the list of images by using the **Add criteria** option. The download takes a while depending on the size of the image. Once the image downloads, it is available in the destination path that you provided earlier. The download contains the VHD file and gallery items in the Azpkg format.  
+7. Select the image that you want to download (you can select multiple images by holding the Ctrl key) and make a note of the image version, you will use this version to import the image in next section > click **Ok** > accept the legal terms by clicking on **Yes**. You can also filter the list of images by using the **Add criteria** option. The download takes a while depending on the size of the image. Once the image downloads, it is available in the destination path that you provided earlier. The download contains the VHD file and gallery items in the Azpkg format.  
 
 ### Import the image and publish it to Azure Stack marketplace
 
