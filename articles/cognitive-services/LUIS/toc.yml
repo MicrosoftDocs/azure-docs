@@ -109,6 +109,8 @@
   items: 
   - name: Prebuilt entity reference
     href: luis-reference-prebuilt-entities.md
+  - name: Prebuilt domain reference
+    href: luis-reference-prebuilt-domains.md
   - name: Cortana prebuilt app reference
     href: luis-reference-cortana-prebuilt.md
   - name: Authoring APIs
