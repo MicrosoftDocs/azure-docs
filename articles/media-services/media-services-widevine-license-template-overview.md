@@ -194,5 +194,5 @@ The following example shows how to use .NET APIs to configure  a simple Widevine
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## See also
-[Using PlayReady and/or Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)
+[Using PlayReady and/or Widevine Dynamic Common Encryption](media-services-protect-with-playready-widevine.md)
 

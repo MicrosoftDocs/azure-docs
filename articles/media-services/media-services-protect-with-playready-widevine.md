@@ -20,7 +20,7 @@ ms.author: juliako
 # Using PlayReady and/or Widevine dynamic common encryption
 
 > [!div class="op_single_selector"]
-> * [.NET](media-services-protect-with-drm.md)
+> * [.NET](media-services-protect-with-playready-widevine.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 >

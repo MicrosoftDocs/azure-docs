@@ -35,7 +35,7 @@ The following image shows the **HLS + FairPlay or PlayReady dynamic encryption**
 This topic demonstrates how to use Media Services to dynamically encrypt your HLS content with Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
 
 > [!NOTE]
-> If you also want to encrypt your HLS content with PlayReady, you need to create a common content key and associate it with your asset. You also need to configure the content key’s authorization policy, as described in [Using PlayReady dynamic common encryption](media-services-protect-with-drm.md).
+> If you also want to encrypt your HLS content with PlayReady, you need to create a common content key and associate it with your asset. You also need to configure the content key’s authorization policy, as described in [Using PlayReady dynamic common encryption](media-services-protect-with-playready-widevine.md).
 >
 >
 

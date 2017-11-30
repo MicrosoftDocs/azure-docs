@@ -4,7 +4,7 @@ description: This topic gives an overview and shows how to use Azure Media Servi
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10
 documentationcenter: ''
-author: willzhan, dbgeorge
+author: willzhan
 manager: steveng
 editor: ''
 
