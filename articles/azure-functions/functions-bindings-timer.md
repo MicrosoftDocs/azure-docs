@@ -1,9 +1,9 @@
 ---
-title: Azure Functions timer trigger
+title: Timer trigger for Azure Functions
 description: Understand how to use timer triggers in Azure Functions.
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,12 +16,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: glenga
+ms.author: tdykstra
 
 ms.custom: 
 
 ---
-# Azure Functions timer trigger
+# Timer trigger for Azure Functions 
 
 This article explains how to work with timer triggers in Azure Functions. 
 A timer trigger lets you run a function on a schedule. 
@@ -117,7 +117,7 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-Here's the F# script code:
+Here's the JavaScript script code:
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -133,7 +133,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## Attributes for precompiled C#
+## Attributes
 
 For [precompiled C#](functions-dotnet-class-library.md) functions, use the [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), defined in NuGet package [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
@@ -142,9 +142,14 @@ The attribute's constructor takes a CRON expression, as shown in the following e
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+   ...
+}
  ```
 
 You can specify a `TimeSpan` instead of a CRON expression if your function app runs on an App Service plan (not a Consumption plan).
+
+For a complete example, see [Precompiled C# example](#c-example).
 
 ## Configuration
 
@@ -155,7 +160,9 @@ The following table explains the binding configuration properties that you set i
 |**type** | n/a | Must be set to "timerTrigger". This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the timer object in function code. | 
-|**schedule**|**ScheduleExpression**|On the Consumption plan, you can define schedules with a CRON expression. If you're using an App Service Plan, you can also use a `TimeSpan` string. The following sections explain CRON expressions. You can put the schedule expression in an app setting and set this property to a value wrapped in **%** signs, as in this example: "%NameOfAppSettingWithCRONExpression%". When you're developing locally, app settings go into the values of the [local.settings.json file](functions-run-local.md#local-settings-file).|
+|**schedule**|**ScheduleExpression**|On the Consumption plan, you can define schedules with a CRON expression. If you're using an App Service Plan, you can also use a `TimeSpan` string. The following sections explain CRON expressions. You can put the schedule expression in an app setting and set this property to a value wrapped in **%** signs, as in this example: "%NameOfAppSettingWithCRONExpression%". |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ### CRON format 
 

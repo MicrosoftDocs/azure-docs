@@ -24,15 +24,15 @@ ms.author: raynew
 
 This article describes how to get suggestions for a migration tool after you've run a migration assessment.
 
-## Migration methods
+## Migration tool suggestion
 
-After an assessment using Azure Migrate, here's what we suggest:
+To get suggestions regarding migration tools, you need to do a deep discovery of the on-premises environment. The deep discovery is done by installing agents on the on-premises machines.  
 
-1. Create an Azure Migrate project, discover on-premises machines, and run a migration assessment. [Learn more](tutorial-assessment-vmware.md).
+1. Create an Azure Migrate project, discover on-premises machines, and create a migration assessment. [Learn more](tutorial-assessment-vmware.md).
 2. Download and install the Azure Migrate agents on each on-premises machine for which you want to see a recommended migration method. [Follow this procedure](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) to install the agents.
 2. Identify your on-premises machines that are suitable for lift-and-shift migration. These are the VMs that don't require any changes to apps running on them, and can be migrated as is.
-3. For lift-and-shift migration, we suggest using Azure Site Recovery. [Learn more](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternately, you can use 3rd party tools that support migration to Azure.
-4. If you have on-premises machines that aren't suitable for a lift-and-shift migration, for example if you want to migrate specific app rather than an entire VM, you can use other migration tools. For example, we suggest the [Azure Database Migration service](https://azure.microsoft.com/campaigns/database-migration/) if you want to migrate on-premises databases such a SQL Server, MySQL, or Oracle to Azure.
+3. For lift-and-shift migration, we suggest using Azure Site Recovery. [Learn more](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternately, you can use third-party tools that support migration to Azure.
+4. If you have on-premises machines that aren't suitable for a lift-and-shift migration, that is, if you want to migrate specific app rather than an entire VM, you can use other migration tools. For example, we suggest the [Azure Database Migration service](https://azure.microsoft.com/campaigns/database-migration/) if you want to migrate on-premises databases such a SQL Server, MySQL, or Oracle to Azure.
 
 
 ## Review suggested migration methods

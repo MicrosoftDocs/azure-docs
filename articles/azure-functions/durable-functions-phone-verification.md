@@ -29,7 +29,7 @@ This sample implements an SMS-based phone verification system. These types of fl
 
 ## Scenario overview
 
-Phone verification is a used to verify that end users of your application are not spammers and that they are who they say they are. Multi-factor authentication is a common use case for protecting user accounts from hackers. The challenge with implementing your own phone verification is that it requires a **stateful interaction** with a human being. An end user is typically provided some code (e.g. a 4-digit number) and must respond **in a reasonable amount of time**.
+Phone verification is used to verify that end users of your application are not spammers and that they are who they say they are. Multi-factor authentication is a common use case for protecting user accounts from hackers. The challenge with implementing your own phone verification is that it requires a **stateful interaction** with a human being. An end user is typically provided some code (e.g. a 4-digit number) and must respond **in a reasonable amount of time**.
 
 Ordinary Azure Functions are stateless (as are many other cloud endpoints on other platforms), so these types of interactions will involve explicitly managing state externally in a database or some other persistent store. In addition, the interaction must be broken up into multiple functions that can be coordinated together. For example, you need at least one function for deciding on a code, persisting it somewhere, and sending it to the user's phone. Additionally, you need at least one other function to receive a response from the user and somehow map it back to the original function call in order to do the code validation. A timeout is also an important aspect to ensure security. This can get fairly complex pretty quickly.
 
@@ -39,7 +39,7 @@ The complexity of this scenario is greatly reduced when you use Durable Function
 
 This sample involves using the [Twilio](https://www.twilio.com/) service to send SMS messages to a mobile phone. Azure Functions already has support for Twilio via the [Twilio binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), and the sample uses that feature.
 
-The first thing you you need is a Twilio account. You can create one free at https://www.twilio.com/try-twilio. Once you have an account, add the following three **app settings** to your project.
+The first thing you need is a Twilio account. You can create one free at https://www.twilio.com/try-twilio. Once you have an account, add the following three **app settings** to your function app.
 
 | App setting name | Value description |
 | - | - |

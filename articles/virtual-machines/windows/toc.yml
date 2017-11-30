@@ -77,7 +77,7 @@
     - name: High performance compute
       href: sizes-hpc.md    
     - name: Azure compute units (ACU)
-      href: sizes-general.md          
+      href: acu.md          
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
@@ -224,6 +224,8 @@
     items:
     - name: Chef
       href: chef-automation.md
+    - name: Publish Web App from Visual Studio
+      href: publish-web-app-from-visual-studio.md
   - name: Run applications
     items:
     - name: SQL Server
