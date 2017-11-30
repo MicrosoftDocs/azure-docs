@@ -18,7 +18,7 @@ ms.author: cephalin
 
 # Use an SSL certificate in your application code in Azure App Service
 
-This how-to guide shows how to use one of SSL certificates you have uploaded or imported into your App Service app in your application code. You would want to do this if your app needs to act as a client to an external service, such as an REST API that requires certificate authentication. 
+This how-to guide shows how to use one of SSL certificates you have uploaded or imported into your App Service app in your application code. An example of the use case is that your app accesses an external service that requires certificate authentication. 
 
 This approach to using SSL certificates in your code makes use of the SSL functionality in App Service, which requires your app to be in **Basic** tier or above. An alternative is to include the certificate file in your application directory and load it directly (see [Load certificate as file](#file)). However, this alternative does not let you hide the private key in the certificate from the application code or the developer. Furthermore, if your application code is in an open source repository, keeping a certificate with a private key in the repository is not an option.
 
@@ -35,7 +35,7 @@ To complete this how-to guide:
 
 ## Load your certificates
 
-To use an certificate that is uploaded to or imported into App Service, you must first make it accessible to your application code. You do this with the `WEBSITE_LOAD_CERTIFICATES` app setting.
+To use a certificate that is uploaded to or imported into App Service, first make it accessible to your application code. You do this with the `WEBSITE_LOAD_CERTIFICATES` app setting.
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, open your web app page.
 
@@ -57,7 +57,7 @@ The configured certificate is now ready to be used by your code.
 
 ## Use certificate in ASP.NET
 
-In C# code, you access the certificate you just configured by its thumbprint. The following code loads a certificate with the thumbprint `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
+In C# code, you access the certificate you configured by its thumbprint. The following code loads a certificate with the thumbprint `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
 ```csharp
 using System;
