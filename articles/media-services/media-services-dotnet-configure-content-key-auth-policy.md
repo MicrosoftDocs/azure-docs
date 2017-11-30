@@ -230,7 +230,7 @@ Media Services enables you to configure the rights and restrictions that you wan
 
 When protecting your content with PlayReady, one of the things you need to specify in your authorization policy is an XML string that defines the [PlayReady license template](media-services-playready-license-template-overview.md). In Media Services SDK for .NET, the **PlayReadyLicenseResponseTemplate** and **PlayReadyLicenseTemplate** classes will help you define the PlayReady License Template.
 
-[This topic](media-services-protect-with-drm.md) shows how to encrypt your content with **PlayReady** and **Widevine**.
+[This topic](media-services-protect-with-playready-widevine.md) shows how to encrypt your content with **PlayReady** and **Widevine**.
 
 ### Open Restriction
 Open restriction means the system will deliver the key to anyone who makes a key request. This restriction might be useful for testing purposes.

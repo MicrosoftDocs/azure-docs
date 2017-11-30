@@ -243,11 +243,11 @@ The following code sample uses Azure Media Services .NET SDK Extensions.  Make s
     }
 
 ## Using Static Encryption to Protect your Smooth and MPEG DASH with PlayReady
-If you want to protect your content with PlayReady, you have a choice of using [dynamic encryption](media-services-protect-with-drm.md) (the recommended option) or static encryption (as described in this section).
+If you want to protect your content with PlayReady, you have a choice of using [dynamic encryption](media-services-protect-with-playready-widevine.md) (the recommended option) or static encryption (as described in this section).
 
 The example in this section encodes a mezzanine file (in this case MP4) into adaptive bitrate MP4 files. It then packages MP4s into Smooth Streaming and then encrypts Smooth Streaming with PlayReady. As a result you are able to stream Smooth Streaming or MPEG DASH.
 
-Media Services now provides a service for delivering Microsoft PlayReady licenses. The example in this article shows how to configure the Media Services PlayReady license delivery service (see the ConfigureLicenseDeliveryService method defined in the code below). For more information about Media Services PlayReady license delivery service, see [Using PlayReady Dynamic Encryption and License Delivery Service](media-services-protect-with-drm.md).
+Media Services now provides a service for delivering Microsoft PlayReady licenses. The example in this article shows how to configure the Media Services PlayReady license delivery service (see the ConfigureLicenseDeliveryService method defined in the code below). For more information about Media Services PlayReady license delivery service, see [Using PlayReady Dynamic Encryption and License Delivery Service](media-services-protect-with-playready-widevine.md).
 
 > [!NOTE]
 > To deliver MPEG DASH encrypted with PlayReady, make sure to use CENC options by setting the useSencBox and adjustSubSamples properties (described in the [Task Preset for Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx) topic) to true.  
@@ -974,7 +974,7 @@ The example in this section encodes a mezzanine file (in this case MP4) into mul
     }
 
 ## Using Static Encryption to Protect HLSv3 with PlayReady
-If you want to protect your content with PlayReady, you have a choice of using [dynamic encryption](media-services-protect-with-drm.md) (the recommended option) or static encryption (as described in this section).
+If you want to protect your content with PlayReady, you have a choice of using [dynamic encryption](media-services-protect-with-playready-widevine.md) (the recommended option) or static encryption (as described in this section).
 
 > [!NOTE]
 > In order to protect your content using PlayReady you must first convert/encode your content into a Smooth Streaming format.

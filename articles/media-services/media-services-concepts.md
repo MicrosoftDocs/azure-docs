@@ -151,7 +151,7 @@ For more information, see the following articles:
 
 [Protect content overview](media-services-content-protection-overview.md)
 [Protect with AES-128](media-services-protect-with-aes128.md)
-[Protect with DRM](media-services-protect-with-drm.md)
+[Protect with PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## Delivering
 ### <a id="dynamic_packaging"></a>Dynamic packaging

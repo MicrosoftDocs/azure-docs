@@ -127,11 +127,11 @@ For more information, see:
 * The [Microsoft Azure Media Services SDK for PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) blog.
 * The following [code samples](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) to help get you started quickly:
   * **vodworkflow_aes.php**: This is a PHP file that shows how to use AES-128 Dynamic Encryption and Key Delivery Service. It is based on the .NET sample explained in [this](media-services-protect-with-aes128.md) article.
-  * **vodworkflow_aes.php**: This is a PHP file that shows how to use PlayReady Dynamic Encryption and License Delivery Service. It is based on the .NET sample explained in [this](media-services-protect-with-drm.md) article.
+  * **vodworkflow_aes.php**: This is a PHP file that shows how to use PlayReady Dynamic Encryption and License Delivery Service. It is based on the .NET sample explained in [this](media-services-protect-with-playready-widevine.md) article.
   * **scale_encoding_units.php**: This is a PHP file that shows how to scale encoding reserved unit.
 
 ## <a id="nov_changes_15"></a>November 2015 Release
-Azure Media Services now offers Google Widevine license delivery service in the cloud. For more details, refer to [this announcement blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Also, see [this tutorial](media-services-protect-with-drm.md) and [GitHub repository](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
+Azure Media Services now offers Google Widevine license delivery service in the cloud. For more details, refer to [this announcement blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Also, see [this tutorial](media-services-protect-with-playready-widevine.md) and [GitHub repository](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
 
 Note that Widevine license delivery services provided by Azure Media Sevices is in preview. For more information see [this blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
