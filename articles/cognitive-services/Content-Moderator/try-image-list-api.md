@@ -1,6 +1,6 @@
 ---
-title: Try custom image lists in Azure Content Moderator | Microsoft Docs
-description: Try custom image lists with Image Moderation API
+title: Image moderation with custom lists in Azure Content Moderator | Microsoft Docs
+description: Test drive custom image lists in the Content Moderator API console
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,7 +12,7 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Custom image lists with the Image Moderation API
+# Custom image moderation lists from the API console
 
 The [Image List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) allows you to create custom lists of images for use with the Image Moderation API. The image moderation operation will evalue your image and if given a custom list, will match it against the images in your custom lists. These lists can be used to block or pass through the image.
 
