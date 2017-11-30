@@ -36,16 +36,18 @@ Azure Migrate helps you to:
 
 ## Current limitations
 
-- Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. Support for Hyper-V is in the roadmap and will be enabled in few months. In the interim, use Azure Site Recovery Deployment Planner to plan migration for Hyper-V workloads.
+- Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs.
+> [!NOTE]
+> Support for Hyper-V is in the roadmap and will be enabled in few months. In the interim, we recommend you to use Azure Site Recovery Deployment Planner to plan migration of Hyper-V workloads. 
 - You can assess up to 1000 VMs in a single assessment, and up to 1500 machines in a single Azure Migrate project. If you need to assess more, you can increase the number of projects or assessments. [Learn more](how-to-scale-assessment.md).
-- VM you want to assess must be managed by a vCenter server, version 5.5, 6.0, or 6.5.
-- The Azure Migrate portal is currently available in English only.
-- You can only create an Azure Migrate project in the West Central US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment. 
+- VM you want to assess must be managed by a vCenter Server, version 5.5, 6.0, or 6.5.
+- You can only create an Azure Migrate project in the West Central US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment.
+- The Azure Migrate portal is currently available in English only. 
 - Azure Migrate currently supports only [Locally Redundant Storage (LRS)](../storage/common/storage-introduction.md#replication) replication.
 
 ## What do I need to pay for?
 
-You don't need to pay for assessment. To support [dependency visualization](concepts-dependency-visualization.md), Azure Migrate creates a Log Analytics workspace by default. If you use dependency visualization, or use the workspace outside Azure Migrate), you're charged for workspace usage. [Learn more](https://www.microsoft.com/cloud-platform/operations-management-suite) about Service Map solution pricing. 
+Azure Migrate is available at no additional charge. However, during public preview, additional charges will apply for use of dependency visualization capabilities. To support [dependency visualization](concepts-dependency-visualization.md), Azure Migrate creates a Log Analytics workspace by default. If you use dependency visualization, or use the workspace outside Azure Migrate, you're charged for the workspace usage. [Learn more](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) about the charges. When the service becomes generally available, there will be no charge for use of dependency visualization capabilities.
 
 
 ## What's in an assessment?
