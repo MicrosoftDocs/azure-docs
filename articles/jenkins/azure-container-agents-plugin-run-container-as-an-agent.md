@@ -155,4 +155,14 @@ tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
     - **Resource Group** - Select the dropdown arrow, and then select the `myJenkinsAgentRG` entry that identifies the Azure resource group you created earlier.
     - **Add Container Template** - Select the dropdown arrow, and then select **Aci Container Template**.
 
+    need image here
+
+1. In the **Aci container Template** section, specify the following values:
+
+    - **Name** - Enter `ACI-container`.
+    - **Labels** - Enter `ACI-container`.
+    - **Docker Image** - Enter `cloudbees/jnlp-slave-with-java-build-tools`
+
+    need image here
+
 ## Next steps
