@@ -30,15 +30,15 @@ Usage charges for Azure AD B2C are billed to an Azure subscription. When an Azur
 
 A valid Azure subscription is needed to proceed.
 
-## Create an Azure AD B2C Tenant
+## Create an Azure AD B2C tenant
 
 You must first [create an Azure AD B2C tenant](active-directory-b2c-get-started.md) that you would like to link a subscription to. Skip this step if you have already created an Azure AD B2C tenant.
 
-## Open Azure portal in the Azure AD Tenant that shows your Azure subscription
+## Open Azure portal in the Azure AD tenant that shows your Azure subscription
 
 Navigate to the Azure AD tenant that shows your Azure subscription. Open the [Azure portal](https://portal.azure.com), and switch to the Azure AD tenant that shows the Azure subscription you would like to use.
 
-![Switching to your Azure AD Tenant](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
+![Switching to your Azure AD tenant](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
 ## Find Azure AD B2C in the Azure Marketplace
 
@@ -56,7 +56,7 @@ In the resource creation screen, select **Link an existing Azure AD B2C Tenant t
 
 ## Create an Azure AD B2C resource within the Azure subscription
 
-In the resource creation dialog, select an Azure AD B2C Tenant from the dropdown. You will see all of the tenants that you are the global administrator of and those that are not already linked to a subscription.
+In the resource creation dialog, select an Azure AD B2C tenent from the dropdown. You will see all of the tenants that you are the global administrator of and those that are not already linked to a subscription.
 
 The Azure AD B2C resource name will be preselected to match the domain name of the Azure AD B2C tenant.
 
@@ -66,9 +66,9 @@ Select a Resource Group and Resource Group location. The selection here has no i
 
 ![Create B2C Resource](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
-## Manage your Azure AD B2C Tenant resources
+## Manage your Azure AD B2C tenent resources
 
-Once an Azure AD B2C resource is successfully created within the Azure subscription, you should see a new resource of type "B2C Tenant" added alongside your other Azure resources.
+Once an Azure AD B2C resource is successfully created within the Azure subscription, you should see a new resource of type "B2C tenent" added alongside your other Azure resources.
 
 You can use this resource to:
 
