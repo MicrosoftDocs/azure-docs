@@ -265,13 +265,13 @@ For more information, see [Integrate your existing NPS infrastructure with Azure
  
 ---
 
+### Restore or permanently remove deleted users
+
 
 **Type:** New feature    
 **Service Category:** User Management  
 **Product Capability:** Directory 
 
-
-**Restore or permanently remove deleted users**
 
 
 In the Azure AD admin center, you can now:

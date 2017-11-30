@@ -9,7 +9,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 05/03/2017
+ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
 ---
@@ -34,7 +34,7 @@ To complete this tutorial:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Test local PostgreSQL installation and create a database
 
@@ -116,7 +116,7 @@ In this step, you create a PostgreSQL database in Azure. When your app is deploy
 
 ### Log in to Azure
 
-You are now going to use the Azure CLI 2.0 to create the resources needed to host your Python application in Web App for Containers.  Log in to your Azure subscription with the [az login](/cli/azure/#login) command and follow the on-screen directions.
+You are now going to use the Azure CLI 2.0 to create the resources needed to host your Python application in Web App for Containers.  Log in to your Azure subscription with the [az login](/cli/azure/#az_login) command and follow the on-screen directions.
 
 ```azurecli
 az login
@@ -124,7 +124,7 @@ az login
 
 ### Create a resource group
 
-Create a [resource group](../../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#create).
+Create a [resource group](../../azure-resource-manager/resource-group-overview.md) with the [az group create](/cli/azure/group#az_group_create).
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -134,7 +134,7 @@ The following example creates a resource group in the West US region:
 az group create --name myResourceGroup --location "West US"
 ```
 
-Use the [az appservice list-locations](/cli/azure/appservice#list-locations) Azure CLI command to list available locations.
+Use the [az appservice list-locations](/cli/azure/appservice#az_appservice_list_locations) Azure CLI command to list available locations.
 
 ### Create an Azure Database for PostgreSQL server
 
@@ -255,7 +255,7 @@ Docker displays a confirmation that it successfully created the container.
 Successfully built 7548f983a36b
 ```
 
-Add database environment variables to an environment variable file *db.env*. The app will connect to the PostgreSQL production database in Azure.
+Add database environment variables to an environment variable file *db.env*. The app connects to the Azure Database for PostgreSQL production database.
 
 ```text
 DBHOST="<postgresql_name>.postgres.database.azure.com"
@@ -359,7 +359,7 @@ In this step, you deploy your Docker container-based Python Flask application to
 
 ### Create an App Service plan
 
-Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#create) command.
+Create an App Service plan with the [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) command.
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -409,7 +409,7 @@ When the App Service plan is created, the Azure CLI shows information similar to
 
 ### Create a web app
 
-Create a web app in the *myAppServicePlan* App Service plan with the [az webapp create](/cli/azure/webapp#create) command.
+Create a web app in the *myAppServicePlan* App Service plan with the [az webapp create](/cli/azure/webapp#az_webapp_create) command.
 
 The web app gives you a hosting space to deploy your code and provides a URL for you to view the deployed application. Use  to create the web app.
 
@@ -440,7 +440,7 @@ When the web app has been created, the Azure CLI shows information similar to th
 
 Earlier in the tutorial, you defined environment variables to connect to your PostgreSQL database.
 
-In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config#set) command.
+In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
 
 The following example specifies the database connection details as app settings. It also uses the *PORT* variable to map PORT 5000 from your Docker Container to receive HTTP traffic on PORT 80.
 

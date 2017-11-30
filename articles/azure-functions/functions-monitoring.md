@@ -46,7 +46,7 @@ Enable Application Insights on the Function App **Create** page:
 
 ### Existing function app
 
-Get an instrumentation key and save it in a function app:
+Get the instrumentation key and save it in a function app:
 
 1. Create the Application Insights instance. Set application type to **General**.
 
@@ -56,7 +56,7 @@ Get an instrumentation key and save it in a function app:
 
    ![Copy the Application Insights instrumentation key](media/functions-monitoring/copy-ai-key.png)
 
-1. In the function app's **Application settings** page, [add an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named APPINSIGHTS_INSTRUMENTATIONKEY and paste the instrumentation key.
+1. In the function app's **Application settings** page, [add an app setting](functions-how-to-use-azure-function-app-settings.md#settings) by clicking **Add new setting**. Name the new setting APPINSIGHTS_INSTRUMENTATIONKEY and paste the copied instrumentation key.
 
    ![Add instrumentation key to app settings](media/functions-monitoring/add-ai-key.png)
 
@@ -64,7 +64,7 @@ Get an instrumentation key and save it in a function app:
 
 ## View telemetry data
 
-To navigate to Application Insights from a function app in the portal, select the **Application Insights** link on the function app's **Overview** page.
+To navigate to the connected Application Insights instance from a function app in the portal, select the **Application Insights** link on the function app's **Overview** page.
 
 For information about how to use Application Insights, see the [Application Insights documentation](https://docs.microsoft.com/azure/application-insights/). This section shows some examples of how to view data in Application Insights. If you are already familiar with Application Insights, you can go directly to [the sections about configuring and customizing the telemetry data](#configure-categories-and-log-levels).
 
@@ -80,7 +80,7 @@ On the [Performance](../application-insights/app-insights-performance-counters.m
 
 ![Performance](media/functions-monitoring/performance.png)
 
-The **Servers** tab shows resource utilization and throughput per server. This data can be useful for debugging scenarios where functions are bogging down your underlying resources. Servers are referred to as *Cloud role instances*. 
+The **Servers** tab shows resource utilization and throughput per server. This data can be useful for debugging scenarios where functions are bogging down your underlying resources. Servers are referred to as **Cloud role instances**.
 
 ![Servers](media/functions-monitoring/servers.png)
 
@@ -90,7 +90,7 @@ The [Live Metrics Stream](../application-insights/app-insights-live-stream.md) t
 
 ## Query telemetry data
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md) gives you access to all of the telemetry data in the form of tables in a database. Analytics provides a query language for extracting and manipulating the data.
+[Application Insights Analytics](../application-insights/app-insights-analytics.md) gives you access to all of the telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data.
 
 ![Select Analytics](media/functions-monitoring/select-analytics.png)
 
@@ -127,7 +127,7 @@ The runtime provides `customDimensions.LogLevel` and `customDimensions.Category`
 
 ## Configure categories and log levels
 
-You can use Application Insights without any custom configuration, but the default configuration can result in high volumes of data. If you're using a Visual Studio Azure subscription, you might hit your data cap for App Insights. The remainder of this article shows how to configure and customize the data that your functions send to Application Insights.
+You can use Application Insights without any custom configuration, but the default configuration can result in high volumes of data. If you're using a Visual Studio Azure subscription, you might hit your data cap for Application Insights. The remainder of this article shows how to configure and customize the data that your functions send to Application Insights.
 
 ### Categories
 
@@ -174,7 +174,7 @@ The *host.json* file configures how much logging a function app sends to Applica
 
 This example sets up the following rules:
 
-1. For logs with category "Host.Results" or "Function", send only `Error` level and above to Application Insights. Logs for `Information` level and below are ignored.
+1. For logs with category "Host.Results" or "Function", send only `Error` level and above to Application Insights. Logs for `Warning` level and below are ignored.
 2. For logs with category Host. Aggregator, send only `Information` level and above to Application Insights. Logs for `Debug` level and below are ignored.
 3. For all other logs, send only `Information` level and above to Application Insights.
 
@@ -213,7 +213,7 @@ All of these logs are written at `Information` level, so if you filter at `Warni
 
 These logs provide counts and averages of function invocations over a [configurable](#configure-the-aggregator) period of time. The default period is 30 seconds or 1,000 results, whichever comes first. 
 
-The logs show as "customMetrics" in Application Insights. Examples are number of runs, success rate, and duration.
+The logs are available in the **customMetrics** table in Application Insights. Examples are number of runs, success rate, and duration.
 
 ![customMetrics query](media/functions-monitoring/custom-metrics-query.png)
 
@@ -221,7 +221,7 @@ All of these logs are written at `Information` level, so if you filter at `Warni
 
 ### Other categories
 
-All logs for categories other than the ones already listed show as "traces" in Application Insights.
+All logs for categories other than the ones already listed are available in the **traces** table in Application Insights.
 
 ![traces query](media/functions-monitoring/analytics-traces.png)
 
@@ -287,7 +287,7 @@ If you keep the same message string and reverse the order of the parameters, the
 
 Placeholders are handled this way so that you can do structured logging. Application Insights stores the parameter name-value pairs in addition to the message string. The result is that the message arguments become fields that you can query on.
 
-For example, if your logger method call looks like the previous example, you could query the field `customDimensions.prop__rowKey`. The prefix is added to ensure that there are no collisions between fields the runtime adds and fields your function code adds.
+For example, if your logger method call looks like the previous example, you could query the field `customDimensions.prop__rowKey`. The `prop__` prefix is added to ensure that there are no collisions between fields the runtime adds and fields your function code adds.
 
 You can also query on the original message string by referencing the field `customDimensions.prop__{OriginalFormat}`.  
 
@@ -450,7 +450,7 @@ The `tagOverrides` parameter sets `operation_Id` to the function's invocation ID
 
 ### Dependencies
 
-Dependencies don't show up automatically, but you can write custom code to show dependencies. The sample code in the [C# custom telemetry section](#custom-telemetry-in-c-functions) shows how. The sample code results in an *application map* in Application Insights that looks like this:
+Dependencies that the function has to other services don't show up automatically, but you can write custom code to show the dependencies. The sample code in the [C# custom telemetry section](#custom-telemetry-in-c-functions) shows how. The sample code results in an *application map* in Application Insights that looks like this:
 
 ![Application map](media/functions-monitoring/app-map.png)
 
@@ -469,10 +469,10 @@ Select the **Monitor** tab for a function and you get a list of function executi
 
 ### Real-time monitoring
 
-Real-time monitoring is available by clicking **live event stream** on the function **Monitor** tab. The live event stream is displayed in a graph in a new tab in the browser
+Real-time monitoring is available by clicking **Live Event Stream** on the function **Monitor** tab. The live event stream is displayed in a graph in a new browser tab.
 
 > [!NOTE]
-> There is a known issue that may cause your data to fail to be populated. You may need to close the browser tab containing the live event stream and then click **live event stream** again to allow it to properly populate your event stream data. 
+> There is a known issue that may cause your data to fail to be populated. You may need to close the browser tab containing the live event stream and then click **Live Event Stream** again to allow it to properly populate your event stream data. 
 
 These statistics are real-time but the actual graphing of the execution data may have around 10 seconds of latency.
 
