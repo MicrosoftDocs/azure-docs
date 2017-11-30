@@ -1,5 +1,5 @@
 ---
-title: How to Log a Security Event Support Ticket | Microsoft Docs
+title: How to Log a Security Event Support Ticket - Azure | Microsoft Docs
 description: As a seller on the Azure Marketplace, having identified a potential security event, I need to know how to log an appropriate ticket.
 services: security
 documentationcenter: na
@@ -34,12 +34,12 @@ ms.author: v-dabosl
 
     iv. Do you have a message that you want to send to customers? We will work with you to craft an appropriate message if applicable.
 
-4. 4.Submission confirmation - Once you have submitted your issue, we will acknowledge receipt within one business day and assign your issue a priority and severity.
+4. Submission confirmation - Once you have submitted your issue, we will acknowledge receipt within one business day and assign your issue a priority and severity.
 
     - If you need to communicate with us about your issue, use the confirmation number in all correspondence.
     - You can view progress on your issue at any time.
 
-5. 5.What happens next? Depending on the issue and severity, the following steps may be taken:
+5. What happens next? Depending on the issue and severity, the following steps may be taken:
 
     - We will communicate the outcome of our assessment to you. Depending on the outcome, we may remove or request that you modify your offering. In this event, we will work with you to ensure that disruption to impacted customers is minimized.
     - We will work with you to help mitigate the impact of the incident/vulnerability for our mutual customers.
