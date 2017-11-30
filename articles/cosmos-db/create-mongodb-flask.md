@@ -131,8 +131,8 @@ If you don't want to create a fork of this repo, you can also click the deploy t
 <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-[!NOTE]
-If you plan to store your code in Github or other source control options, please be sure to remove your connection strings from the code. They can be set with application settings for the web app instead.
+> [!NOTE]
+> If you plan to store your code in Github or other source control options, please be sure to remove your connection strings from the code. They can be set with application settings for the web app instead.
 
 ## Review SLAs in the Azure portal
 
@@ -149,5 +149,5 @@ If you're not going to continue to use this app, delete all resources created by
 
 In this quickstart, you've learned how to create an Azure Cosmos DB account and run a Flask app using the API for MongoDB.You can now import additional data to your Cosmos DB account.
 
-[!div class="nextstepaction"]
-[Import data into Azure Cosmos DB for the MongoDB API](mongodb-migrate.md)
+> [!div class="nextstepaction"]
+> [Import data into Azure Cosmos DB for the MongoDB API](mongodb-migrate.md)
