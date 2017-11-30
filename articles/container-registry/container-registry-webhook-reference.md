@@ -86,13 +86,13 @@ docker push myregistry.azurecr.io/hello-world:v1
 
 ## Delete event
 
-Webhook triggered when a repository or manifest is deleted from the registry. Not triggered when a tag is deleted.
+Webhook triggered when a repository or manifest is deleted. Not triggered when a tag is deleted.
 
 ### Delete event payload
 
 |Element|Type|Description|
 |-------------|----------|-----------|
-|`id|String`|The ID of the webhook event.|
+|`id`|String|The ID of the webhook event.|
 |`timestamp`|DateTime|The time at which the webhook event was triggered.|
 |`action`|String|The action that triggered the webhook event.|
 |[target](#delete_target)|Complex Type|The target of the event that triggered the webhook event.|
