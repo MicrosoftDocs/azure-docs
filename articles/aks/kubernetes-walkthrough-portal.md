@@ -38,7 +38,7 @@ Before creating the AKS cluster in the Azure portal, you need to create a servic
 
 Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-Enter a name for the application, this can be any value. Select `Web app / API` for the application type. Enter a value for the Sign-on URL, this can be any value with a valid URL format. 
+Enter a name for the application, this can be any value. Select **Web app / API** for the application type. Enter a value for the Sign-on URL, this can be any value with a valid URL format. 
 
 Select **Create** when finished.
 
@@ -48,7 +48,7 @@ Select the newly created registered application, and take note of the Applicatio
 
 ![Create service principal two](media/container-service-walkthrough-portal/create-sp-two.png)
 
-Select **All Settings** > **Keys**, and enter a key description, this can be any value. Select a duration, this is the time for which the service principal is valid. 
+Next, a password needs to be created for the service principal. Select **All Settings** > **Keys**, and enter a key description, this can be any value. Select a duration, this is the time for which the service principal is valid. 
 
 Click **Save** and take note of the password value, this value is needed when creating an AKS cluster.  
 
@@ -58,15 +58,23 @@ Click **Save** and take note of the password value, this value is needed when cr
 
 Select **New** > **Containers** > **Azure Container Service - AKS (preview)**.
 
-Provide a name for the cluster, an optional DNS name, select a Kubernetes version, and a resource group name and location. Take note of the cluster name and resource group name, these are needed when connecting to the cluster. 
+Provide a name, DNS name, resource group name, location, ans Kubernetes version for the cluster. Take note of the cluster name and resource group name, these are needed when connecting to the cluster. 
 
 Select **OK** when complete.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/create-aks-portal-one.png)
 
-Enter a **User name**, this is used for the administrative account created on the cluster nodes. Enter an **SSH public key** value, and the **Service principal ID** and **Service principal secret** from the newly created service principal. Select the number of nodes for the cluster, and the VM size for these nodes. Optionally, the node disk size can be configured.
+On the configuration for enter the following:
 
-Select **OK** when complete.
+- User Name: the name given to the administrative accounts on the cluster nodes.
+- SSH public key - associated with the key that will be used to access the cluster nodes.
+- Service principal client ID - the service principle ID as created earlier in this document.
+- Service principal client secret - the service principal password created earlier in this document.
+- Node count - number of AKS nodes to create.
+- Node virtual machine size - VM size for the AKS nodes
+- OS disk size - size for the AKS nodes OS disk.
+
+Select **OK** when complete, and the **OK** again after validation has completed.
 
 ![Create AKS cluster two](media/container-service-walkthrough-portal/create-aks-portal-two.png)
 
@@ -82,7 +90,7 @@ Open Cloud Shell using the button on the top right-hand corner of the Azure port
 
 Use the [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials) command to configure kubectl to connect to your Kubernetes cluster.
 
-Copy and paste the following command into the Cloud Shell
+Copy and paste the following command into the Cloud Shell. Modify the resource group and cluster name if needed.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
@@ -97,8 +105,10 @@ kubectl get nodes
 Output:
 
 ```
-NAME                          STATUS    ROLES     AGE       VERSION
-k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
+NAME                       STATUS    ROLES     AGE       VERSION
+aks-agentpool-14693408-0   Ready     agent     6m        v1.8.1
+aks-agentpool-14693408-1   Ready     agent     6m        v1.8.1
+aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
 ```
 
 ## Run the application
