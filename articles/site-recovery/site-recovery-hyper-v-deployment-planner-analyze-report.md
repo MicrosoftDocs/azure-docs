@@ -75,9 +75,9 @@ The following chart shows the total number of storage accounts (standard and pre
 This result is the total number of cores to be set up before failover or test failover of all the compatible VMs. If too few cores are available in the subscription, Azure Site Recovery fails to create VMs at the time of test failover or failover.
 
 ### Additional on-premises storage requirement
-The total free storage required on Hyper-V servers for successful initial replication and delta replication to ensure that the VM replication will not cause any undesirable downtime for your production applications. Detail of each volume requirement is available in [on-premises storage requirement](site-recovery-hyper-v-deployment-planner-on-premises-storage-requirement.md) sheet. 
+The total free storage required on Hyper-V servers for successful initial replication and delta replication to ensure that the VM replication will not cause any undesirable downtime for your production applications. Detail of each volume requirement is available in [on-premises storage requirement](./site-recovery-hyper-v-deployment-planner-analyze-report.md#on-premises storage-requirement). 
 
-To understand why free space is required for the replication, refer to [On-premises storage requirement](site-recovery-hyper-v-deployment-planner-on-premises-storage-requirement.md) section.
+To understand why free space is required for the replication, refer to [On-premises storage requirement](#why-do-i-need-free-space-on-the-hyper-v-server-for-the-replication) section.
 
 ### Maximum copy frequency
 The recommended maximum copy frequency must be set for the replication to achieve the desired RPO. Default is 5 minutes. You can set 30 seconds copy frequency to achieve better RPO.

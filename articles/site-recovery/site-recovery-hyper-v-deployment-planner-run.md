@@ -273,7 +273,7 @@ The throughput is measured at a specified point in time, and it is the maximum t
 ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory E:\Hyp-erV_ProfiledData -VMListFile E:\Hyper-V_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
-[!NOTE]
+[NOTE!]
 >
 > Run the tool on a server that has the same storage and CPU characteristics as that of a Hyper-V server.
 >

@@ -20,10 +20,10 @@ ms.author: nisoneji
 # Cost estimation report of Azure Site Recovery deployment planner  
 The Cost estimation sheet has the detailed cost analysis per VM for disaster recovery (DR) to Azure.
 
-Azure prices for compute, storage, network, etc. varies across Azure regions. You can generate a cost estimation report with the latest Azure prices based on your subscription, the offer that is associated with your subscription and for the specified target Azure region in the specified currency. By default, the tool uses West US 2 Azure region and US dollar (USD) currency. If you have used any other region and currency, the next time when you generate a report without subscription id, offer id, target region and currency, it will use prices of the last used target region and last used currency for cost estimation.
-This section shows the subscription ID and offer ID that you have used for report generation.  If not used, it will be blank.
+Azure prices for compute, storage, network, etc. varies across Azure regions. You can generate a cost estimation report with the latest Azure prices based on your subscription, the offer that is associated with your subscription and for the specified target Azure region in the specified currency. By default, the tool uses West US 2 Azure region and US dollar (USD) currency. If you have used any other region and currency, the next time when you generate a report without subscription ID, offer ID, target region, and currency, it will use prices of the last used target region and last used currency for cost estimation.
+This section shows the subscription ID and offer ID that you have used for report generation.  If not used, it is blank.
 
-In the whole report, the cells marked in grey are read only. Cells in white can be modified per your requirements.
+In the whole report, the cells marked in gray are read only. Cells in white can be modified per your requirements.
 
 ## Overall DR cost by components
 The first section shows the overall DR cost by components and DR cost by states. 
@@ -33,49 +33,50 @@ The first section shows the overall DR cost by components and DR cost by states.
 **Storage**: Cost of Azure storage consumption for DR needs. It includes storage consumption for replication and during DR drills.
 Network: ExpressRoute and Site to Site VPN cost for DR needs. 
 
-**ASR license**: Azure Site Recovery license cost for all compatible VMs. If you have manually entered a VM in the detailed cost analysis table, it’s Azure Site Recovery license cost will also be included.
+**ASR license**: Azure Site Recovery license cost for all compatible VMs. If you have manually entered a VM in the detailed cost analysis table, Azure Site Recovery license cost is also included for that VM.
 
 ## Overall DR cost by states
 The total DR cost is categorized based on two different states - replication and DR-Drill.
-**Replication cost**: The cost that will be incurred at the time of replication. It covers the cost of storage, network and Azure Site Recovery license. 
 
-**DR-Drill cost**: The cost that will be incurred at the time of  DR drills. Azure Site Recovery spins up VMs during DR drills. The DR drill cost covers compute and storage cost of the running VMs.
+**Replication cost**: The cost incurs at the time of replication. It covers the cost of storage, network, and Azure Site Recovery license. 
+
+**DR-Drill cost**: The cost incurs at the time of  DR drills. Azure Site Recovery spins up VMs during DR drills. The DR drill cost covers compute and storage cost of the running VMs.
 Total DR drill duration in a year = Number of DR drills x Each DR drill duration (days)
 Average DR drill cost (per month) = Total DR drill cost / 12
 
-## Storage cost table
-This table shows premium and standard storage cost that will be incurred for replication and DR drills with and without discount.
+### Storage cost table:
+This table shows premium and standard storage cost incur for replication and DR drills with and without discount.
 
-## Site to Azure network
+### Site to Azure network
 Select the appropriate setting as per your requirements. 
 
-**ExpressRoute**: By default, the tool will select the nearest ExpressRoute plan that matches with the required network bandwidth for delta replication. You can change the plan as per your requirements.
+**ExpressRoute**: By default, the tool selects the nearest ExpressRoute plan that matches with the required network bandwidth for delta replication. You can change the plan as per your requirements.
 
-**VPN Gateway**: Select the VPN Gateway if you have any in your environment. By default, it will be NA.
+**VPN Gateway**: Select the VPN Gateway if you have any in your environment. By default, it is NA.
 
-**Target Region**: Specified Azure region for DR. The price used in the report for compute, storage, network and license is based on the Azure pricing for that region. 
+**Target Region**: Specified Azure region for DR. The price used in the report for compute, storage, network, and license is based on the Azure pricing for that region. 
 
-## VM running on Azure
-If you have any domain controller or DNS VM or SQL Server VM with Always On Availability Groups  running on Azure for DR you can provide the number of VMs and the size to consider their compute cost in the total DR cost. 
+### VM running on Azure
+If you have any domain controller or DNS VM or SQL Server VM with Always On Availability Groups  running on Azure for DR, you can provide the number of VMs and the size to consider their computing cost in the total DR cost. 
 
-## Apply overall discount if applicable
-If you are an Azure partner or a customer and are entitled to any discount on overall Azure pricing, you can use this field. The tool will apply the discount (in %) on all components.
+### Apply overall discount if applicable
+If you are an Azure partner or a customer and are entitled to any discount on overall Azure pricing, you can use this field. The tool applies the discount (in %) on all components.
 
-## Number of virtual machines type and compute cost (per year)
+### Number of virtual machines type and compute cost (per year)
 This table shows the number of Windows and non-Windows VMs and DR drill compute cost for them.
 
-## Settings 
+### Settings 
 
-**Using managed disk**: It specifies whether managed disk is being used  at the time of DR drills. The default is yes. If you have set -UseManagedDisks to No, it will use the unmanaged disk price for cost calculation.
+**Using managed disk**: It specifies whether managed disk is being used  at the time of DR drills. The default is yes. If you have set -UseManagedDisks to No, it uses the unmanaged disk price for cost calculation.
 
 **Currency**: The currency in which the report is generated. 
 Cost duration:  You can view all costs either for the month or for the whole year. 
 
 ## Detailed cost analysis
-The below table lists the cost breakup for each compatible VM. 
-You can also use this table to get estimated Azure DR cost of non-profiled VMs by manually adding VMs. This is useful in cases where you need to estimate Azure costs for a new disaster recovery deployment without detailed profiling being done.
+The table lists the cost breakup for each compatible VM. 
+You can also use this table to get estimated Azure DR cost of non-profiled VMs by manually adding VMs. It is useful in cases where you need to estimate Azure costs for a new disaster recovery deployment without detailed profiling being done.
 To manually add VMs: 
-1.	Click on the 'Insert row' button to insert a new row between the Start and End rows
+1.	Click on the 'Insert row' button to insert a new row between the Start and End rows.
 
 2.	Fill the following columns based on approximate VM size and number of VMs that match this configuration: 
 
@@ -86,11 +87,11 @@ To manually add VMs:
 * Each DR drill duration (Days) 
 * OS Type
 * Data redundancy 
-* Azure Hybrid Use Benefit.
+* Azure Hybrid Use Benefit
 
-3.	You can apply the same value to all VMs in the table by clicking the 'Apply to all' button for Number of DR-Drills in a year, Each DR-Drill duration (Days), Data redundancy and Azure Hybrid Use Benefit
+3.	You can apply the same value to all VMs in the table by clicking the 'Apply to all' button for Number of DR-Drills in a year, Each DR-Drill duration (Days), Data redundancy, and Azure Hybrid Use Benefit.
 
-4.	Click 'Re-calculate cost' to update cost
+4.	Click 'Re-calculate cost' to update cost.
 
 **VM Name**: The name of the VM.
 
@@ -98,23 +99,23 @@ To manually add VMs:
 
 **IaaS size (Recommendation)**: It is the VM role size of the compatible VM that the tool recommends. 
 
-**IaaS size (Your selection)**: By default, it is the same as recommended VM role size. You can change the role based on your requirement. Compute cost will be based on your selected VM role size.
+**IaaS size (Your selection)**: By default, it is the same as recommended VM role size. You can change the role based on your requirement. Compute cost is based on your selected VM role size.
 
-**Storage type**: The type of the storage that will be used by the VM. It is either standard or premium storage.
+**Storage type**: The type of the storage that is used by the VM. It is either standard or premium storage.
 
 **VM total storage size (GB)**: The total storage of the VM.
 
-**Number of DR-Drills in a year**: The number of times you will perform DR-Drills in a year. By default, it is 4 times in a year. You can modify the period for specific VMs or apply the new value to all VMs by entering the new value on the top row and clicking the ‘Apply to all’ button. Based on number of DR-Drills in a year and each DR-Drill duration period, the total DR-Drill cost will be calculated.  
+**Number of DR-Drills in a year**: The number of times you perform DR-Drills in a year. By default, it is 4 times in a year. You can modify the period for specific VMs or apply the new value to all VMs by entering the new value on the top row and clicking the ‘Apply to all’ button. Based on number of DR-Drills in a year and each DR-Drill duration period, the total DR-Drill cost is calculated.  
 
-**Each DR-Drill duration (Days)**: The duration of each DR-Drill. By default, it is 7 days every 90 days as per the [Disaster Recovery Software Assurance benefit](https://azure.microsoft.com/en-in/pricing/details/site-recovery). You can modify the period for specific VMs or you can apply a new value to all VMs by entering new value on the top row and clicking the ‘Apply to all’ button. Based on number of DR-Drills in a year and each DR-Drill duration period, the total DR-Drill cost will be calculated.
+**Each DR-Drill duration (Days)**: The duration of each DR-Drill. By default, it is 7 days every 90 days as per the [Disaster Recovery Software Assurance benefit](https://azure.microsoft.com/en-in/pricing/details/site-recovery). You can modify the period for specific VMs or you can apply a new value to all VMs by entering new value on the top row and clicking the ‘Apply to all’ button. The total DR-Drill cost is calculated based on number of DR-Drills in a year and each DR-Drill duration period.
   
 **OS Type**: The OS type of the VM. It is either Windows or Linux. If the OS type is Windows, then Azure Hybrid Use Benefit can be applied to that VM. 
 
-**Data redundancy**: It can be one of the following - Locally redundant storage (LRS), Geo-redundant storage (GRS) or Read-access geo-redundant storage (RA-GRS). Default is LRS. You can change the type based on your storage account for specific VMs or you can apply the new type to all VMs by changing the type of the top row and clicking ‘Apply to all’ button.  The cost of storage for replication will be calculated based on the price of data redundancy that you have selected. 
+**Data redundancy**: It can be one of the following - Locally redundant storage (LRS), Geo-redundant storage (GRS) or Read-access geo-redundant storage (RA-GRS). Default is LRS. You can change the type based on your storage account for specific VMs or you can apply the new type to all VMs by changing the type of the top row and clicking ‘Apply to all’ button.  The cost of storage for replication is calculated based on the price of data redundancy that you have selected. 
 
 **Azure Hybrid Use Benefit**: You can apply Azure Hybrid Use Benefit to Windows VMs if applicable.  Default is Yes. You can change the setting for specific VMs or update all VMs by clicking the ‘Apply to all’ button.
 
-**Total Azure consumption**: It incldues compute, storage and Azure Site Recovery license cost for your DR. Based on your selection it shows the cost either monthly or yearly.
+**Total Azure consumption**: It includes compute, storage, and Azure Site Recovery license cost for your DR. Based on your selection it shows the cost either monthly or yearly.
 
 **Steady state replication cost**: It includes storage cost for replication.
 
@@ -123,7 +124,7 @@ To manually add VMs:
 **ASR license cost**: Azure Site Recovery license cost.
 
 ## Supported target regions
-The Azure Site Recovery Deployment Planner provides cost estimation for the following Azure regions. If your region is not listed below, you can use any of the following regions whose pricing is nearest to your region.
+The Azure Site Recovery deployment planner provides cost estimation for the following Azure regions. If your region is not listed below, you can use any of the following regions whose pricing is nearest to your region.
 
 eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope, westeurope, eastasia, southeastasia, japaneast, japanwest, australiaeast, australiasoutheast, brazilsouth, southindia, centralindia, westindia, canadacentral, canadaeast, westus2, westcentralus, uksouth, ukwest, koreacentral, koreasouth 
 
