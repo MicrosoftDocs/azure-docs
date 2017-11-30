@@ -30,7 +30,7 @@ You learn how to:
 
 - **Azure subscription** - You need an Azure subscription to complete this tutorial. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- **Azure CLI 2.0 or Azure Cloud Shell** - Install one of the following:
+- **Azure CLI 2.0 or Azure Cloud Shell** - Install one of the following command-line/shell/terminal experiences:
 
     - [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) - Allows you to run Azure commands from a command or terminal window.
     - [Azure Cloud Shell](/azure/cloud-shell/quickstart.md) - Browser-based shell experience. Cloud Shell enables access to a browser-based command-line experience built with Azure management tasks in mind.
@@ -110,7 +110,7 @@ You need an Azure service principal to deploy to Azure.
 
 ## Create Azure resource group
 
-Azure Containter Instances must be placed in an Azure resource group. An Azure resource group is a container that holds related resources for an Azure solution.
+Azure Container Instances must be placed in an Azure resource group. An Azure resource group is a container that holds related resources for an Azure solution.
 
 Using either CLI 2.0 or Cloud Shell, enter the following command to create a resource group called myJenkinsAgentRG in eastus:
 
@@ -150,7 +150,7 @@ tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
 
 1. In the **Azure Container Instance** section, specify the following values:
 
-    - **Cloud name** - (Optional as this value defaults to a auto-generated name) Specify a name for this instance. 
+    - **Cloud name** - (Optional as this value defaults to an auto-generated name) Specify a name for this instance. 
     - **Azure Credential** - Select the dropdown arrow, and then select the `myTestSp` entry that identifies the Azure service principal you created earlier.
     - **Resource Group** - Select the dropdown arrow, and then select the `myJenkinsAgentRG` entry that identifies the Azure resource group you created earlier.
     - **Add Container Template** - Select the dropdown arrow, and then select **Aci Container Template**.
