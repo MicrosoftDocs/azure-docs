@@ -19,9 +19,9 @@ ms.author: LADocs; divswa
 ---
 # Enterprise integration with liquid template
 ## Overview
-Logic Apps support basic JSON transformations through native Data Operation actions like Compose or Parse JSON. Logic Apps now also support advanced json transformations via Liquid templates. [Liquid](https://shopify.github.io/liquid/) is an open-source, safe, customer-facing template language for flexible web apps.
+Logic Apps support basic JSON transformations through native Data Operation actions like Compose or Parse JSON. Logic Apps now also support advanced JSON transformations via Liquid templates. [Liquid](https://shopify.github.io/liquid/) is an open-source, safe, customer-facing template language for flexible web apps.
  
-In this document, we are going to cover Liquid action, which uses liquid maps or templates to support more complex json transformations, such as iteration, control flow, variables etc. To use liquid action in your logic app, you need to define JSON to JSON mapping through a liquid map, and store it in the Integration Account. 
+In this document, we are going to cover Liquid action, which uses liquid maps or templates to support more complex JSON transformations, such as iteration, control flow, variables etc. To use liquid action in your logic app, you need to define JSON to JSON mapping through a liquid map, and store it in the Integration Account. 
 
 
 ### Prerequisites
