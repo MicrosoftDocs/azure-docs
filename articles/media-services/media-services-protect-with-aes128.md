@@ -27,6 +27,7 @@ ms.author: juliako
 
 ## Overview
 > [!NOTE]
+> See this [blog post](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) for encrypting content with AES for delivery to **Safari on macOS**.
 > See [this](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption) video for an overview of how to protect your Media Content with AES encryption.
 > 
 > 

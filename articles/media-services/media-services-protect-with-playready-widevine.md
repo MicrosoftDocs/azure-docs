@@ -65,7 +65,7 @@ You will find a complete .NET example at the end of the topic.
 
 The following image demonstrates the workflow described above. Here the token is used for authentication.
 
-![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
+![Protect with PlayReady](media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
 The rest of this topic provides detailed explanations, code examples, and links to topics that show you how to achieve the tasks described above.
 

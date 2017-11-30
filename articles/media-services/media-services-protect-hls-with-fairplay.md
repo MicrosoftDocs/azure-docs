@@ -30,7 +30,7 @@ Azure Media Services enables you to dynamically encrypt your HTTP Live Streaming
 
 The following image shows the **HLS + FairPlay or PlayReady dynamic encryption** workflow.
 
-![Diagram of dynamic encryption workflow](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagram of dynamic encryption workflow](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
 This topic demonstrates how to use Media Services to dynamically encrypt your HLS content with Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
 
@@ -62,10 +62,10 @@ The following things must be set on Media Services key delivery side:
         Go to the folder where the FairPlay certificate and other files delivered by Apple are.
     2. Run the following command from the command line. This converts the .cer file to a .pem file.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. Run the following command from the command line. This converts the .pem file to a .pfx file with the private key. The password for the .pfx file is then asked by OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **App Cert password**: The password for creating the .pfx file.
   * **App Cert password ID**: You must upload the password, similar to how they upload other Media Services keys. Use the **ContentKeyType.FairPlayPfxPassword** enum value to get the Media Services ID. This is what they need to use inside the key delivery policy option.
   * **iv**: This is a random value of 16 bytes. It must match the iv in the asset delivery policy. You generate the iv, and put it in both places: the asset delivery policy and the key delivery policy option.

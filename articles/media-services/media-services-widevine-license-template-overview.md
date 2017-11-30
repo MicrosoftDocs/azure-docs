@@ -19,7 +19,7 @@ ms.author: juliako
 ---
 # Widevine license template overview
 ## Overview
-Azure Media Services now enables you to configure and request Widevine licenses. When the end user player tries to play your Widevine protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
+Azure Media Services enables you to configure and request Widevine licenses. When the end user player tries to play your Widevine protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
 
 Widevine license request is formatted as a JSON message.  
 
