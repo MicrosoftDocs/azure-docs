@@ -18,9 +18,10 @@ ms.author: rclaus
 
 ---
 # Use cloud-init to set hostname for a Linux VM in Azure
+This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to configure a specific hostname on a virtual machine (VM) or virtual machine scale sets (VMSS) at provisioning time in Azure. These cloud-init scripts run on first boot once the resources have been provisioned by Azure.
 
 ## Set the hostname with cloud-init
-Cloud-init files are written in [YAML](http://www.yaml.org). To run a cloud-init script when you create a VM in Azure with [az vm create](/cli/azure/vm#create), specify the cloud-init file with the `--custom-data` switch. Let's look at some examples of what you can configure with a cloud-init file. A common scenario is to set the hostname of a VM. By default, the hostname is the same as the VM name. 
+Cloud-init files are written in [YAML](http://www.yaml.org). To run a cloud-init script when you create a VM in Azure with [az vm create](/cli/azure/vm#create), specify the cloud-init file with the `--custom-data` switch. By default, the hostname is the same as the VM name. 
 
 First, create a resource group with [az group create](/cli/azure/group#create). The following example creates the resource group named *myResourceGroup* in the *eastus* location:
 
@@ -64,3 +65,10 @@ The VM should report the hostname as that value set in the cloud-init file, as s
 ```bash
 myhostname
 ```
+## Next steps
+For additional cloud-init examples of configuration changes, see the following:
+ 
+- [Add an additional Linux user to a VM](cloudinit-add-user.md)
+- [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
+- [Change VM local hostname](cloudinit-update-vm-hostname.md) 
+- [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md)

@@ -18,6 +18,7 @@ ms.author: rclaus
 
 ---
 # Use cloud-init to update a Linux VM in Azure
+This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to update packages on a Linux virtual machine (VM) or virtual machine scale sets (VMSS) at provisioning time in Azure. These cloud-init scripts run on first boot once the resources have been provisioned by Azure.
 
 ## Update a VM with cloud-init
 For security purposes, you may want to configure a VM to apply the latest updates on first boot. As cloud-init works across different Linux distros, there is no need to specify `apt` or `yum` for the package manager. Instead, you define `package_upgrade` and let the cloud-init process determine the appropriate mechanism for the distro in use. This workflow allows you to use the same cloud-init scripts across distros.
@@ -62,3 +63,11 @@ Reading state information... Done
 Calculating upgrade... Done
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 ```
+
+## Next steps
+For additional cloud-init examples of configuration changes, see the following:
+ 
+- [Add an additional Linux user to a VM](cloudinit-add-user.md)
+- [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
+- [Change VM local hostname](cloudinit-update-vm-hostname.md) 
+- [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md)
