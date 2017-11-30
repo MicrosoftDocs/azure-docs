@@ -46,7 +46,7 @@ Configuring a VNet-to-VNet connection is a good way to easily connect VNets. Con
 
 ### Site-to-Site (IPsec)
 
-If you are working with a complicated configuration, you may prefer to connect your VNets using the [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md) steps instead. When you use the Site-to-Site IPsec steps, you create and configure the local network gateways manually. The local network gateway for each VNet treats the other VNet as a local site. This lets you specify additional address space for the local network gateway in order to route traffic. If the address space for a VNet that you connect to changes, you need to update the corresponding local network gateway to reflect that. It does not automatically update.
+If you are working with a complicated network configuration, you may prefer to connect your VNets using the [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md) steps instead. When you use the Site-to-Site IPsec steps, you create and configure the local network gateways manually. The local network gateway for each VNet treats the other VNet as a local site. This lets you specify additional address space for the local network gateway in order to route traffic. If the address space for a VNet changes, you need to update the corresponding local network gateway to reflect that. It does not automatically update.
 
 ### VNet peering
 
