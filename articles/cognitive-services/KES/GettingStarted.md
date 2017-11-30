@@ -105,7 +105,7 @@ The grammar specifies the set of natural language queries that the service can i
 <grammar root="GetPapers">
 
   <!-- Import academic data schema-->
-  <import schema="academic.schema" name="academic"/>
+  <import schema="Academic.schema" name="academic"/>
 
   <!-- Define root rule-->
   <rule id="GetPapers">
