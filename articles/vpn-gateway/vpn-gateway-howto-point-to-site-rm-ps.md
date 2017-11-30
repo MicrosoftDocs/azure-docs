@@ -316,7 +316,7 @@ This is the most efficient method to upload a root certificate.
 
 #### <a name="certmethod2"></a>Method 2
 
-This method is has more steps than Method 1, but has the same result. It is included in case you need to view the certificate data.
+This method has more steps than Method 1, but has the same result. It is included in case you need to view the certificate data.
 
 1. Create and prepare the new root certificate to add to Azure. Export the public key as a Base-64 encoded X.509 (.CER) and open it with a text editor. Copy the values, as shown in the following example:
 
