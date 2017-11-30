@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure AD into an iOS app | Microsoft Docs
+title: Azure AD iOS Getting Started | Microsoft Docs
 description: How to build an iOS application that integrates with Azure AD for sign-in and calls Azure AD protected APIs by using OAuth.
 services: active-directory
 documentationcenter: ios
@@ -13,18 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
 
 ---
-# Integrate Azure AD into an iOS app
+# Azure AD iOS Getting Started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/iOS) that helps you get up and running with Azure Active Directory in just a few minutes!  The developer portal guides you through the process of registering an app and integrating Azure AD into your code.  When you’re finished, you'll have a simple application that can authenticate users in your tenant and a backend that can accept tokens and perform validation. 
-> 
-> 
 
 Azure Active Directory (Azure AD) provides the Active Directory Authentication Library, or ADAL, for iOS clients that need to access protected resources. ADAL simplifies the process that your app uses to obtain access tokens. To demonstrate how easy it is, in this article we build an Objective C To-Do List application that:
 
