@@ -85,9 +85,8 @@ You must have onboarded either change tracking or update solutions to an Azure V
     *	ALREADYONBOARDEDVM. The name of the VM that was manually onboarded to either the Updates or ChangeTracking solution.
     *	ALREADYONBOARDEDVMRESOURCEGROUP. The name of the resource group that the VM is a member of.
     *	SOLUTIONTYPE. Enter "Updates" or "ChangeTracking"
-
-![Multiple solution runbook parameters](media/automation-onboard-solutions/runbook-parameters.png)
-
+    
+    ![Multiple solution runbook parameters](media/automation-onboard-solutions/runbook-parameters.png)
 3.  Click OK to start the runbook job.
 4.  Monitor progress and any errors on the runbook job page.
 
