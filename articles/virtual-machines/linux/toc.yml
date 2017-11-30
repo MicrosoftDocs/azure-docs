@@ -252,9 +252,9 @@
         href: terraform-create-complete-vm.md
     - name: Cloud-init
       items:
-      - name: Use cloud-init
+      - name: Cloud-init overview
         href: using-cloud-init.md
-      - name: Update vm hostname
+      - name: Update VM hostname
         href: cloudinit-update-vm-hostname.md
       - name: Update a VM
         href: cloudinit-update-vm.md

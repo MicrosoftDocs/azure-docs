@@ -18,7 +18,7 @@ ms.author: rclaus
 
 ---
 # Use cloud-init to add a user to a Linux VM in Azure
-This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to add a user on a virtual machine (VM) or virtual machine scale sets (VMSS) at provisioning time in Azure. This cloud-init script runs on first boot once the resources have been provisioned by Azure.
+This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to add a user on a virtual machine (VM) or virtual machine scale sets (VMSS) at provisioning time in Azure. This cloud-init script runs on first boot once the resources have been provisioned by Azure. For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md).
 
 ## Add a user to a VM with cloud-init
 One of the first tasks on any new Linux VM is to add a user for yourself to avoid the use of *root*. SSH keys are best practice for security and usability. Keys are added to the *~/.ssh/authorized_keys* file with this cloud-init script.
