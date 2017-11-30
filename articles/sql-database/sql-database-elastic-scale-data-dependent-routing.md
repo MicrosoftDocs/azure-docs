@@ -51,7 +51,7 @@ The **ShardMap.OpenConnectionForKey method** ([Java](/java/api/com.microsoft.azu
 
 ```Java
 // Syntax: 
-public Connection openConnectionForKey(Shard key, String connectionString, ConnectionOptions options)
+public Connection openConnectionForKey(Object key, String connectionString, ConnectionOptions options)
 ```
 
 ```csharp
