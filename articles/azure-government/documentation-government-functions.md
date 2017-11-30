@@ -177,18 +177,18 @@ Use cURL to test the deployed function on a Mac or Linux computer or using Bash 
 Execute the following cURL command, replacing the `<app_name>` placeholder with the name of your function app. Append the query string `&name=<yourname>` to the URL.
 
 ```bash
-curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
+curl http://<app_name>.azurewebsites.us/api/HttpTriggerJS1?name=<yourname>
 ```
  
 ![Function response shown in a browser](./media/documentation-government-function2.png)  
 
 If you don't have cURL available in your command line, enter the same URL in the address of your web browser. Again, replace the `<app_name>` placeholder with the name of your function app, and append the query string `&name=<yourname>` to the URL and execute the request. 
 
-    http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
+    http://<app_name>.azurewebsites.us/api/HttpTriggerJS1?name=<yourname>
 
 ![Function response shown in a browser.](./media/documentation-government-function3.png)  
 
-## Create function using Visual Studio 
+## Create function - Visual Studio 
 
 Before starting, first check to make sure that your Visual Studio is [connected to the Azure Government environment](documentation-government-get-started-connect-with-vs.md). 
 

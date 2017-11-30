@@ -13,6 +13,8 @@
   items:
   - name: Common questions
     href: frequently-asked-questions-databricks.md
+  - name: Release notes
+    href: https://docs.azuredatabricks.net/release-notes/index.html
   - name: Databricks documentation
     href: https://docs.azuredatabricks.net/user-guide/index.html
   - name: Azure Roadmap

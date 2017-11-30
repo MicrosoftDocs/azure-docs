@@ -507,7 +507,7 @@ Use [Diagnostic logs](logging.md).
 ### Which client SDKs can work with Apache Cassandra API of Azure Cosmos DB?
 In private preview Apache Cassandra SDK's client drivers which use CQLv3 were used for client programs. If you have other drivers that you use or if you are facing issues, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com). 
 
-### Is composite primary key supported?
+### Is composite partition key supported?
 Yes, you can use regular syntax to create composite partition key. 
 
 ### Can I use sstable loader for data loading?
