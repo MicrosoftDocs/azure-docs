@@ -90,7 +90,7 @@ To complete the Azure Functions Runtime installation, you must complete the conf
 
     ![Azure Functions Runtime preview IIS][11]
 
-1. Click the **Services** tab.  This tab shows the status of the services in your Azure Functions Runtime configuration tool.  If the  the **Azure Functions Host Activation Service** is not running after initial configuration, click **Start Service**.
+1. Click the **Services** tab.  This tab shows the status of the services in your Azure Functions Runtime configuration tool.  If the  **Azure Functions Host Activation Service** is not running after initial configuration, click **Start Service**.
 
     ![Azure Functions Runtime preview configuration complete][12]
 
@@ -105,7 +105,7 @@ To create your first function in Azure Functions Runtime preview
 1. Browse to the **Azure Functions Runtime Portal** as https://<machinename>.<domain> for example https://mycomputer.mydomain.com
 1. You are prompted to **Log in**, if deployed in a domain use your domain account username and password, otherwise use your local account username and password to log in to the portal.
 
-![Azure Functions Runtime preview portal log in][14]
+![Azure Functions Runtime preview portal login][14]
 
 1. To create function apps, you must create a Subscription.  In the top left-hand corner of the portal, click the **+** option next to the subscriptions
 
