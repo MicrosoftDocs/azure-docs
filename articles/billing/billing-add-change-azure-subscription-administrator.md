@@ -18,7 +18,7 @@ ms.date: 11/30/2017
 ms.author: genli
 
 ---
-# Add or change Azure administrator roles that manage the subscription or services
+# Add or change Azure administrator roles that manage the subscription or services New Test
 
 You can change the Azure administrator that manages your Azure subscription or manages the Azure services used in your subscription. To view Azure billing information and manage subscriptions, you must sign in to the Account Center as the Account Administrator. 
 
