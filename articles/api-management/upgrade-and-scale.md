@@ -17,11 +17,11 @@ ms.author: apimpm
 
 # Upgrade and scale an API Management instance 
 
-Customers can scale an API Management (APIM) instance by adding and removing units. A **unit** is comprised of dedicated Azure resources and has a certain load-bearing capacity expressed as a number of API calls per month. This number does not represent a call limit, but rather a maximum throughput value to allow for rough capacity planning. Actual throughput and latency will vary broadly depending on factors such as number and rate of concurrent connections, the kind and number of configured policies, request and response sizes, and backend latency.
+Customers can scale an API Management (APIM) instance by adding and removing units. A **unit** is composed of dedicated Azure resources and has a certain load-bearing capacity expressed as a number of API calls per month. This number does not represent a call limit, but rather a maximum throughput value to allow for rough capacity planning. Actual throughput and latency vary broadly depending on factors such as number and rate of concurrent connections, the kind and number of configured policies, request and response sizes, and backend latency.
 
 Capacity and price of each unit depends on the **tier** in which the unit exists. You can choose between three tiers: **Developer**, **Standard**, **Premium**. If you need to increase capacity for a service within a tier, you should add a unit. If the tier that is currently selected in your APIM instance does not allow adding more units, you need to upgrade to a higher-level tier. 
 
-The price of each unit and the available features (for example, multi-region deployment) depend on the tier that you chose for your APIM instance. The [pricing details](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) article, explains the price per unit and features you get in each tier. 
+The price of each unit and the available features (for example, multi-region deployment) depends on the tier that you chose for your APIM instance. The [pricing details](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) article, explains the price per unit and features you get in each tier. 
 
 >[!NOTE]
 >The [pricing details](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) article shows approximate numbers of unit capacity in each tier. To get more accurate numbers, you need to look at a realistic scenario for your APIs. See the "How to plan for capacity" section that follows.
@@ -50,10 +50,10 @@ Use **Metrics** (uses Azure Monitor capabilities) to understand how much capacit
 2. Select **Metrics**.
 3. Select **Capacity** metric from **Available metrics**. 
 
-    The capacity metric gives you some idea of how much of the available compute capacity is being used in your tenant. Its value is derived from the compute resources being used by your tenant such as memory, CPU, and network queue lengths. It is not a direct measure of the number of requests being processed. You can test by increasing the request load on your tenant and monitoring what value of the capacity metric corresponds to your peak load. You can set a metric alert to let you know when something unexpected is happening. For example, your APIM instance has exceeded its expected peak capacity for over 10 minutes.
+    The capacity metric gives you some idea of how much of the available compute capacity is being used in your tenant. Its value is derived from the compute resources used by your tenant such as memory, CPU, and network queue lengths. It is not a direct measure of the number of requests being processed. You can test by increasing the request load on your tenant and monitoring what value of the capacity metric corresponds to your peak load. You can set a metric alert to let you know when something unexpected is happening. For example, your APIM instance has exceeded its expected peak capacity for over 10 minutes.
 
     >[!TIP]
-    > You can configure alerts to let you know when your service is running low on capacity or call into a logic app that will automatically scale by adding a unit.
+    > You can configure alerts to let you know when your service is running low on capacity or call into a logic app that automatically scale by adding a unit.
 
 ## Upgrade and scale 
 
@@ -63,7 +63,7 @@ As mentioned previously, you can choose between three tiers: **Developer**, **St
 
 The **Premium** tier enables you to distribute a single API management instance across any number of desired Azure regions. When you initially create an API Management service, the instance contains only one unit and resides in a single Azure region. The initial region is designated as the **primary** region. Additional regions can be easily added. When adding a region, you specify the number of units you want to allocate. For example, you can have one unit in the **primary** region and five units in some other region. You can tailor the number of units to the traffic you have in each region. For more information, see [How to deploy an Azure API Management service instance to multiple Azure regions](api-management-howto-deploy-multi-region.md).
 
-You can upgrade and downgrade to and from any tier. Please note that upgrading or downgrading can remove some features - for example, VNETs or multi-region deployment, when downgrading to Standard from the Premium tier.
+You can upgrade and downgrade to and from any tier. Note that upgrading or downgrading can remove some features - for example, VNETs or multi-region deployment, when downgrading to Standard from the Premium tier.
 
 >[!NOTE]
 >The upgrade or scale process can take from 15 to 45 minutes to apply. You get notification when it is done.
