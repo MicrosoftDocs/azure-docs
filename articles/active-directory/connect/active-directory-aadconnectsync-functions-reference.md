@@ -1178,9 +1178,18 @@ Process all values in a multi-valued attribute (or output of an expression) base
 * expression: an expression that returns a collection of values
 * condition: any function that can process an item in the attribute
 
+**Remarks**
+Please note that Select returns mvattr object, not mvstr, so it could not be casted into Join function later on. So the following construction will likely fail:
+`Join(Select($item,[otherPhone],Replace($item,"-","")),";")`
+Since Select returs multi-valued object, it cannot be casted into Split function either.
+`Split(Select($item,[otherPhone],Replace($item,"-","")),";")`
+Select is intended to be used as the last function in the expression or right before RemoveDuplicates:
+`RemoveDuplicates(Select($item,[otherPhone],Replace($item,"-","")))`
+
 **Examples:**  
 `Select($item,[otherPhone],Replace($item,"-",""))`  
 Return all the values in the multi-valued attribute otherPhone after hyphens (-) have been removed.
+
 
 - - -
 ### Split
