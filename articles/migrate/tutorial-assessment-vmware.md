@@ -35,10 +35,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- **VMware**: You need at least one VMware VM located on an ESXi host or cluster running version 5.0 or higher. The host or cluster must be managed by a vCenter server running version 5.5, 6.0, or 6.5.
-- **vCenter account**: You need a read-only account with administrator credentials for the vCenter server. Azure Migrate uses this account to discover VMs.
-- **Permissions**: On the vCenter server, you need permissions to create a VM by importing a file in .OVA format. 
-- **Statistics settings**: The statistics settings for the vCenter server should be set to level 3 before you start deployment. If lower than level 3 assessment will work, but performance data for storage and network isn't collected.
+- **VMware**: The VMs that you plan to migrate must be managed by a vCenter Server running version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or higher to deploy the collector VM. 
+ 
+> [!NOTE]
+> Support for Hyper-V is in our roadmap and will be enabled soon. 
+
+- **vCenter Server account**: You need a read-only account to access the vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
+- **Permissions**: On the vCenter Server, you need permissions to create a VM by importing a file in .OVA format. 
+- **Statistics settings**: The statistics settings for the vCenter Server should be set to level 3 before you start deployment. If lower than level 3, assessment will work, but performance data for storage and network isn't collected. The size recommendations in this case will be done based on performance data for CPU and memory and configuration data for disk and network adapters. 
 
 ## Log in to the Azure portal
 Log in to the [Azure portal](https://portal.azure.com).
@@ -49,7 +53,7 @@ Log in to the [Azure portal](https://portal.azure.com).
 2. Search for **Azure Migrate**, and select the service (**Azure Migrate (preview)** in the search results. Then click **Create**.
 3. Specify a project name, and the Azure subscription for the project.
 4. Create a new resource group.
-5. Specify the region in which to create the project, then click **Create**. Metadata gathered from on-premises VMs will be stored in this region. You can only create an Azure Migrate project in the West Central US region for this preview. However, you can assess VMs for a different location.
+5. Specify the region in which to create the project, then click **Create**. Metadata gathered from on-premises VMs will be stored in this region. You can only create an Azure Migrate project in the West Central US region for this preview. However, you can still plan your migration for any target Azure location. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -91,7 +95,7 @@ Check that the .OVA file is secure, before you deploy it.
 
 ## Create the collector VM
 
-Import the downloaded file to the vCenter server.
+Import the downloaded file to the vCenter Server.
 
 1. In the vSphere Client console, click **File** > **Deploy OVF Template**.
 
@@ -142,7 +146,7 @@ Discovery time depends on how many VMs you are discovering. Typically, for 100 V
 After VMs are discovered, you group them and create an assessment. 
 
 1. In the project **Overview** page, click **+Create assessment**.
-2. Click **View all** to review the assessment settings.
+2. Click **View all** to review the assessment properties.
 3. Create the group, and specify a group name.
 4. Select the machines that you want to add to the group.
 5. Click **Create Assessment**, to create the group and the assessment.
