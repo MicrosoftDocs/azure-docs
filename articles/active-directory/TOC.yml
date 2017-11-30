@@ -64,7 +64,7 @@
       items:
       - name: Acquire an access token
         href: msi-how-to-use-vm-msi-token.md
-      - name: Sign-in 
+      - name: Sign-in to PowerShell, Azure CLI
         href: msi-how-to-use-vm-msi-sign-in.md
       - name: Use with Azure SDKs
         href: msi-how-to-use-vm-msi-sdk.md

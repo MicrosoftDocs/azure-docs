@@ -19,7 +19,6 @@ ms.author: bryanla
 # How to use an Azure VM Managed Service Identity (MSI) for token acquisition 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
-
 This article provides various code and script examples for token acquisition, as well as guidance on important topics such as handling token expiration and HTTP errors.
 
 ## Prerequisites
@@ -39,7 +38,7 @@ A client application can request an MSI [app-only access token](develop/active-d
 |  |  |
 | -------------- | -------------------- |
 | [HTTP/REST](#httprest) | Protocol details for the MSI token endpoint |
-| [.NET/C# example](#netc) | Example of using the MSI REST endpoint from a C# client |
+| [.NET/C# example](#net-c) | Example of using the MSI REST endpoint from a C# client |
 | [Go example](#go) | Example of using the MSI REST endpoint from a Go client |
 | [Azure PowerShell example](#azure-powershell) | Example of using the MSI REST endpoint from a PowerShell client |
 | [Bash/CURL example](#bashcurl) | Example of using the MSI REST endpoint from a Bash/CURL client |
@@ -270,11 +269,11 @@ This section documents the possible error responses. A "200 OK" status is a succ
 | 400 Bad Request | invalid_resource | AADSTS50001: The application named *\<URI\>* was not found in the tenant named *\<TENANT-ID\>*. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.\ | (Linux only) |
 | 400 Bad Request | bad_request_102 | Required metadata header not specified | Either the `Metadata` request header field is missing from your request, or is formatted incorrectly. The value must be specified as `true`, in all lower case. See the "Sample request" in the [preceding REST section](#rest) for an example.|
 | 401 Unauthorized | unknown_source | Unknown Source *\<URI\>* | Verify that your HTTP GET request URI is formatted correctly. The `scheme:host/resource-path` portion must be specified as `http://localhost:50342/oauth2/token`. See the "Sample request" in the [preceding REST section](#rest) for an example.|
-| TBD          | invalid_request | The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed. | TBD |
-| TBD          | unauthorized_client | The client is not authorized to request an access token using this method. | Caused by a request that didn’t use local loopback to call the extension, or on a VM that doesn’t have an MSI configured correctly. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration. |
-| TBD          | access_denied | The resource owner or authorization server denied the request. | TBD |
-| TBD          | unsupported_response_type | The authorization server does not support obtaining an access token using this method. | TBD |
-| TBD          | invalid_scope | The requested scope is invalid, unknown, or malformed. | TBD |
+|           | invalid_request | The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed. |  |
+|           | unauthorized_client | The client is not authorized to request an access token using this method. | Caused by a request that didn’t use local loopback to call the extension, or on a VM that doesn’t have an MSI configured correctly. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration. |
+|           | access_denied | The resource owner or authorization server denied the request. |  |
+|           | unsupported_response_type | The authorization server does not support obtaining an access token using this method. |  |
+|           | invalid_scope | The requested scope is invalid, unknown, or malformed. |  |
 | 500 Internal server error | unknown | Failed to retrieve token from the Active directory. For details see logs in *\<file path\>* | Verify that MSI has been enabled on the VM. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.<br><br>Also verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the [preceding REST section](#rest) for an example, or [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of services and their respective resource IDs.
 
 ## Related content
