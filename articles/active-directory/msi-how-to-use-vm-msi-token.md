@@ -19,7 +19,8 @@ ms.author: bryanla
 # How to use an Azure VM Managed Service Identity (MSI) for token acquisition 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
-A client application can request an MSI [app-only access token](develop/active-directory-dev-glossary.md#access-token) for accessing a given resource. The token is [based on the MSI service principal](msi-overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
+
+This article provides various code and script examples for token acquisition, as well as guidance on important topics such as handling token expiration and HTTP errors.
 
 ## Prerequisites
 
@@ -31,9 +32,9 @@ If you plan to use the Azure PowerShell examples in this article, be sure to ins
 > [!IMPORTANT]
 > - All sample code/script in this article assumes the client is running on an MSI-enabled Virtual Machine. Use the VM "Connect" feature in the Azure portal, to remotely connect to your VM. For details on enabling MSI on a VM, see [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md), or one of the variant articles (using PowerShell, CLI, a template, or an Azure SDK). 
 
-## Code examples
+## Overview
 
-The sections below provide various code and script examples, as well as details on important topics such as access token and error handling, including:
+A client application can request an MSI [app-only access token](develop/active-directory-dev-glossary.md#access-token) for accessing a given resource. The token is [based on the MSI service principal](msi-overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in [service-to-service calls requiring client credentials](active-directory-protocols-oauth-service-to-service.md).
 
 |  |  |
 | -------------- | -------------------- |
