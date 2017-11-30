@@ -64,7 +64,7 @@ It is required to update to the latest Azure modules and import AzureRM.Operatio
 ![Import OperationalInsights module](media/automation-onboard-solutions/import-operational-insights-module.png)
 4.  Search for AzureRM.OperationalInsights and import this module into the Automation account.
 
-## Import runbook that onboards Azure VMs
+## Import runbook that onboards solutions to Azure VMs
 
 1.	Click on the Runbooks page under the “PROCESS AUTOMATION” category.
 2.	Click on the “Browse gallery” button.
@@ -82,7 +82,7 @@ You must have onboarded either change tracking or update solutions to an Azure V
     *	VMNAME. The name of an existing VM to onboard to update or change tracking solution. Leave blank and all VMs in the resource group are onboarded.
     *	VMRESOURCEGROUP. The name of the resource group that the VM is a member of.
     *	SUBSCRIPTIONID. The subscription ID the new VM to onboard is located. Leave blank and the subscription of the workspace is used. When a different subscription ID is given, the RunAs account for this automation account should be added as a contributor for this subscription also.
-    *	ALREADYONBOARDEDVM. The name of the VM that was manually onboarded.
+    *	ALREADYONBOARDEDVM. The name of the VM that was manually onboarded to either the Updates or ChangeTracking solution.
     *	ALREADYONBOARDEDVMRESOURCEGROUP. The name of the resource group that the VM is a member of.
     *	SOLUTIONTYPE. Enter "Updates" or "ChangeTracking"
 
