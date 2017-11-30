@@ -71,7 +71,7 @@ The following ports are required for Azure AD Domain Services to service and mai
 | 3389 | Optional | Management of your domain |
 | 636 | Optional | Secure LDAP (LDAPS) access to your managed domain |
 
-**Port 443**
+**Port 443 (Synchronization with Azure AD)**
 * It is used to synchronize your Azure AD directory with your managed domain.
 * It is mandatory to allow access to this port in your NSG. Without access to this port, your managed domain is not in sync with your Azure AD directory. Users may not be able to sign in as changes to their passwords are not synchronized to your managed domain.
 * You can restrict inbound access to this port to IP addresses belonging to the Azure IP address range.
@@ -83,7 +83,7 @@ The following ports are required for Azure AD Domain Services to service and mai
 * The domain controllers for your managed domain do not usually listen on this port. The service opens this port on managed domain controllers only when a management or maintenance operation needs to be performed for the managed domain. As soon as the operation completes, the service shuts down this port on the managed domain controllers.
 
 **Port 3389 (Remote desktop)** 
-* It is used for remote desktop connections to your managed domain. 
+* It is used for remote desktop connections to domain controllers for your managed domain. 
 * Opening this port through your NSG is optional. 
 * This port also remains largely turned off on your managed domain. This mechanism is not used on an ongoing basis since management and monitoring tasks are performed using PowerShell remoting. This port is used only in the rare event that Microsoft needs to connect remotely to your managed domain for advanced troubleshooting. The port is closed as soon as the troubleshooting operation is complete.
 
