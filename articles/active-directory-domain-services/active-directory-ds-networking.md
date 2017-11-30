@@ -73,7 +73,7 @@ The following ports are required for Azure AD Domain Services to service and mai
 
 **Port 443**
 * It is used to synchronize your Azure AD directory with your managed domain.
-* It is mandatory to allow access to this port in your NSG. Without access to this port, your managed domain will not be in sync with your Azure AD directory. Users may not be able to sign in as changes to their passwords are not synchronized to your managed domain.
+* It is mandatory to allow access to this port in your NSG. Without access to this port, your managed domain is not in sync with your Azure AD directory. Users may not be able to sign in as changes to their passwords are not synchronized to your managed domain.
 * You can restrict inbound access to this port to IP addresses belonging to the Azure IP address range.
 
 **Port 5986 (PowerShell remoting)** 
