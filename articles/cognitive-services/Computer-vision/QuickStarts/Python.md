@@ -146,7 +146,86 @@ except Exception as e:
     print(e)
 
 ####################################
+
+########### Python 3.6 #############
+import requests, base64
+
+headers = {
+    # Request headers.
+    'Content-Type': 'application/json',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
+}
+
+params = {
+    # Request parameters. All of them are optional.
+    'visualFeatures': 'Categories',
+    'details': 'Celebrities',
+    'language': 'en',
+}
+
+# Replace the three dots below with the URL of a JPEG image of a celebrity.
+body = {'url':'...'
+}
+
+try:
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    response = requests.post(url = 'https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze',
+                             headers = headers,
+                             params = params,
+                             json = body)
+    data = response.json()
+    print(data)
+except Exception as e:
+    print("[Errno {0}] {1}".format(e.errno, e.strerror))
+####################################
 ```
+
+
+### Analyze an Image Python Example Request for an Image Stored on Your Premises
+
+Copy the appropriate section for your version of Python and save it to a file such as `analyzePrem.py`. Replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key, change the file path to a photograph of a celebrity to the `image` variable, and change the REST URL to use the location where you obtained your subscription keys.
+
+```python
+########### Python 3.6 #############
+import requests, base64
+
+headers = {
+    # Request headers.
+    'Content-Type': 'application/octet-stream',
+
+    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
+}
+
+params = {
+    # Request parameters. All of them are optional.
+    'visualFeatures': 'Categories',
+    'details': 'Celebrities',
+    'language': 'en',
+}
+
+# Replace the three dots below with the full file path to a JPEG image of a celebrity on your computer or network.
+image = open('...','rb').read() # Read image file in binary mode
+
+try:
+    # NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
+    #   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
+    #   URL below with "westus".
+    response = requests.post(url = 'https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze',
+                             headers = headers,
+                             params = params,
+                             data = image)
+    data = response.json()
+    print(data)
+except Exception as e:
+    print("[Errno {0}] {1}".format(e.errno, e.strerror))
+####################################
+```
+
 
 ### Analyze an Image Response
 
