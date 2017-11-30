@@ -54,10 +54,9 @@ $KeyvaultDnsSuffix = “<Keyvault DNS suffix for your environment>”
     -Name "AzureStackAdmin" `
     -ArmEndpoint $ArmEndpoint
     
-   Set-AzureRmEnvironment `
-  -Name "AzureStackAdmin" `
-  -GraphAudience $GraphAudience 
-
+  Set-AzureRmEnvironment `
+    -Name "AzureStackAdmin" `
+    -GraphAudience $GraphAudience 
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
