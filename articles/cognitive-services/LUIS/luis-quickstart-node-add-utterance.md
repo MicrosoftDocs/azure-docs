@@ -14,7 +14,7 @@ ms.author: v-demak
 
 # Add utterances to a LUIS app using Node.js 
 
-This quickstart shows you how to programmatically add utterances to your Language Understanding Intelligent Service (LUIS) app and train LUIS. 
+This quickstart shows you how to programmatically add utterances to your Language Understanding (LUIS) app and train LUIS. 
 
 Using the command line is a quick way to enter many utterances and train LUIS. You can also automate this task into a larger pipeline.
 
