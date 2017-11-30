@@ -70,17 +70,16 @@ This example uses the value of an integer key **CustomerID**, using a **ShardMap
 
 ```Java 
 int customerId = 12345; 
-int newPersonId = 4321; 
+int productId = 4321; 
 // Looks up the key in the shard map and opens a connection to the shard
 try (Connection conn = shardMap.openConnectionForKey(customerId, Configuration.getCredentialsConnectionString())) {
     // Create a simple command that will insert or update the customer information
-    SQLServerStatement cmd = (SQLServerStatement) conn.createStatement();
-    String query = "UPDATE Sales.Customer 
-                    SET PersonID = @newPersonID WHERE CustomerID = @customerID";
-    cmd.setQueryTimeout(60);
+    PreparedStatement ps = conn.prepareStatement("INSERT INTO dbo.Orders (CustomerId, OrderDate, ProductId) VALUES (?, ?, ?)");
 
-    // Execute the command
-    cmd.execute(query);
+    ps.setInt(1, customerId);
+    ps.setDate(2, Date.valueOf(LocalDate.now()));
+    ps.setInt(3, productId);
+    ps.executeUpdate();
 } catch (SQLException e) {
     e.printStackTrace();
 }
@@ -116,19 +115,18 @@ Transient fault handling can coexist naturally with the Data Dependent Routing p
 ### Example - data dependent routing with transient fault handling
 ```Java 
 int customerId = 12345; 
-int newPersonId = 4321; 
+int productId = 4321; 
 try {
     SqlDatabaseUtils.getSqlRetryPolicy().executeAction(() -> {
         // Looks up the key in the shard map and opens a connection to the shard
         try (Connection conn = shardMap.openConnectionForKey(customerId, Configuration.getCredentialsConnectionString())) {
             // Create a simple command that will insert or update the customer information
-            SQLServerStatement cmd = (SQLServerStatement) conn.createStatement();
-            String query = "UPDATE Sales.Customer 
-                            SET PersonID = @newPersonID WHERE CustomerID = @customerID";
-            cmd.setQueryTimeout(60);
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO dbo.Orders (CustomerId, OrderDate, ProductId) VALUES (?, ?, ?)");
 
-            // Execute the command
-            cmd.execute(query);
+            ps.setInt(1, customerId);
+            ps.setDate(2, Date.valueOf(LocalDate.now()));
+            ps.setInt(3, productId);
+            ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
