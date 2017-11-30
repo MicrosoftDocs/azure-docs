@@ -158,9 +158,14 @@ Follow the instructions below to configure the client library:
    And then insert the following code in the MainActivity class:
 
 	    private FaceServiceClient faceServiceClient =  
-	                new FaceServiceRestClient("your subscription key");  
+	                new FaceServiceRestClient("your API endpoint", "your subscription key");  
 
-   Replace the string above with the subscription key you obtained in step 1.  
+   Replace the first parameter above with the API endpoint that was assigned to your key in step 1. For example:
+   
+            `https://eastus2.api.cognitive.microsoft.com/face/v1.0`
+   
+   Replace the second parameter with the subscription key that you obtained in step 1.
+   
 6. Open the file called AndroidManifest.xml in your 'app' project (in the app/src/main directory). Insert the following element into the manifest element:  
 
 		<uses-permission android:name="android.permission.INTERNET" />  
