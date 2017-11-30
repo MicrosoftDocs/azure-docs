@@ -46,4 +46,4 @@ The response to an image search request includes results as JSON objects. For ex
 The **Bing** APIs support search actions that return results according to their type. All search endpoints return results as JSON response objects.  All endpoints support queries that return a specific language and/or location by longitude, latitude, and search radius.
 
 For complete information about the parameters supported by each endpoint, see the reference pages for each type.
-For examples of basic requests using the Web search API, see [Search the Web Quick-starts](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web).
+For examples of basic requests using the Web search API, see [Image Search Quick-starts](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web).
