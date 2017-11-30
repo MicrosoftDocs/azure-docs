@@ -12,8 +12,8 @@ ms.author: mikedodaro
 ---
 
 # Image Search endpoint
-The **Image Search API**  endpoint 1 returns images from the Web based on a query: `/images/search?q=""`. Endpoint 2, `/images/details`, returns [ImageInsightsResponse](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Endpoint 3, `/images/trending`, returns trending images.
-##Endpoint
+The **Image Search API**  endpoint 1 returns images from the Web based on a query. Endpoint 2 returns [ImageInsightsResponse](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Endpoint 3 returns trending images.
+##Endpoints
 To get Image search results using the Bing API, send a request to one of the following endpoints. Use the headers and URL parameters define further specifications.
 
 Endpoint 1 `GET`:  
