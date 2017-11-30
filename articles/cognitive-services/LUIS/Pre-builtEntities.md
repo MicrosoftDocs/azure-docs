@@ -17,7 +17,7 @@ ms.author: cahann
 LUIS includes a set of prebuilt entities for recognizing common types of information, like dates, times, numbers, measurements and currency. Prebuilt entity support varies by the culture of your LUIS app. For a full list of the prebuilt entities that LUIS supports, including support by culture, see the [prebuilt entity reference](./luis-reference-prebuilt-entities.md).
 
 > [!NOTE]
-> **builtin.datetime** is deprecated. It is replaced by [**built-in.datetimeV2**](luis-reference-prebuilt-entities.md#builtindatetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
+> **builtin.datetime** is deprecated. It is replaced by [**builtin.datetimeV2**](luis-reference-prebuilt-entities.md#builtindatetimeV2), which provides recognition of date and time ranges, as well as improved recognition of ambiguous dates and times.
 
 ## Add a prebuilt entity
 
