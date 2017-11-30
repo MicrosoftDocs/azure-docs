@@ -38,6 +38,11 @@ ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectio
 RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap"); 
 ```
 
+```Java
+ShardMapManager smm = ShardMapManagerFactory.getSqlShardMapManager(connectionString, ShardMapManagerLoadPolicy.Lazy);
+RangeShardMap<Integer> rangeShardMap = smm.getRangeShardMap(Configuration.getRangeShardMapName(), ShardKeyType.Int32);
+```
+
 ### Use lowest privilege credentials possible for getting the shard map
 If an application is not manipulating the shard map itself, the credentials used in the factory method should have just read-only permissions on the **Global Shard Map** database. These credentials are typically different from credentials used to open connections to the shard map manager. See also [Credentials used to access the Elastic Database client library](sql-database-elastic-scale-manage-credentials.md). 
 
@@ -47,6 +52,11 @@ The **ShardMap.OpenConnectionForKey method** ([.NET](https://msdn.microsoft.com/
 ```csharp
 // Syntax: 
 public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionString, ConnectionOptions options)
+```
+
+```Java
+// Syntax: 
+public Connection openConnectionForKey(Shard key, String connectionString, ConnectionOptions options)
 ```
 
 * The **key** parameter is used as a lookup key into the shard map to determine the appropriate database for the request. 
@@ -75,6 +85,24 @@ using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Co
     cmd.Parameters.AddWithValue("@customerID", customerId);cmd.Parameters.AddWithValue("@newPersonID", newPersonId); 
     cmd.ExecuteNonQuery(); 
 }  
+```
+
+```Java 
+int customerId = 12345; 
+int newPersonId = 4321; 
+// Looks up the key in the shard map and opens a connection to the shard
+try (Connection conn = shardMap.openConnectionForKey(customerId, Configuration.getCredentialsConnectionString())) {
+    // Create a simple command that will insert or update the customer information
+    SQLServerStatement cmd = (SQLServerStatement) conn.createStatement();
+    String query = "UPDATE Sales.Customer 
+                    SET PersonID = @newPersonID WHERE CustomerID = @customerID";
+    cmd.setQueryTimeout(60);
+
+    // Execute the command
+    cmd.execute(query);
+} catch (SQLException e) {
+    e.printStackTrace();
+}
 ```
 
 The **OpenConnectionForKey** method returns a new already-open connection to the correct database. Connections utilized in this way still take full advantage of connection pooling. 
@@ -112,6 +140,29 @@ Configuration.SqlRetryPolicy.ExecuteAction(() =&gt;
 }); 
 ```
 
+```Java 
+int customerId = 12345; 
+int newPersonId = 4321; 
+try {
+    SqlDatabaseUtils.getSqlRetryPolicy().executeAction(() -> {
+        // Looks up the key in the shard map and opens a connection to the shard
+        try (Connection conn = shardMap.openConnectionForKey(customerId, Configuration.getCredentialsConnectionString())) {
+            // Create a simple command that will insert or update the customer information
+            SQLServerStatement cmd = (SQLServerStatement) conn.createStatement();
+            String query = "UPDATE Sales.Customer 
+                            SET PersonID = @newPersonID WHERE CustomerID = @customerID";
+            cmd.setQueryTimeout(60);
+
+            // Execute the command
+            cmd.execute(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    });
+} catch (Exception e) {
+    throw new StoreException(e.getMessage(), e);
+}
+```
 
 Packages necessary to implement transient fault handling are downloaded automatically when you build the elastic database sample application. 
 
