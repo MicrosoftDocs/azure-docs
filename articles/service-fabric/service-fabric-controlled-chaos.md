@@ -106,11 +106,36 @@ class Program
             var timeToRun = TimeSpan.FromMinutes(60.0);
             var maxConcurrentFaults = 3;
 
+            // Describes a map, which is a collection of (string, string) type key-value pairs. The map can be used to record information about
+            // the Chaos run. There cannot be more than 100 such pairs and each string (key or value) can be at most 4095 characters long.
+            // This map is set by the starter of the Chaos run to optionally store the context about the specific run.
+            var startContext = new Dictionary<string, string>{{"ReasonForStart", "Testing"}};
+
+            // Time-separation (in seconds) between two consecutive iterations of Chaos. The larger the value, the lower the fault injection rate.
+            var waitTimeBetweenIterations = TimeSpan.FromSeconds(10);
+
+            // Wait time (in seconds) between consecutive faults within a single iteration. 
+            // The larger the value, the lower the overlapping between faults and the simpler the sequence of state transitions that the cluster goes through. 
+            // The recommendation is to start with a value between 1 and 5 and exercise caution while moving up.
+            var waitTimeBetweenFaults = TimeSpan.Zero;
+
+            // Passed-in cluster health policy is used to validate health of the cluster in between Chaos iterations. 
+            var clusterHealthPolicy = new ClusterHealthPolicy
+            {
+                ConsiderWarningAsError = false,
+                MaxPercentUnhealthyApplications = 100,
+                MaxPercentUnhealthyNodes = 100
+            };
+
             var parameters = new ChaosParameters(
                 stabilizationTimeout,
                 maxConcurrentFaults,
                 true, /* EnableMoveReplicaFault */
-                timeToRun);
+                timeToRun,
+                startContext,
+                waitTimeBetweenIterations,
+                waitTimeBetweenFaults,
+                clusterHealthPolicy);
 
             try
             {
@@ -154,18 +179,45 @@ class Program
 ```
 
 ```powershell
-$connection = "localhost:19000"
-$timeToRun = 60
-$maxStabilizationTimeSecs = 180
-$concurrentFaults = 3
-$waitTimeBetweenIterationsSec = 60
+$clusterConnectionString = "localhost:19000"
+$timeToRunMinute = 60
 
-Connect-ServiceFabricCluster $connection
+# The maximum amount of time to wait for all cluster entities to become stable and healthy. 
+# Chaos executes in iterations and at the start of each iteration it validates the health of cluster entities. 
+# During validation if a cluster entity is not stable and healthy within MaxClusterStabilizationTimeoutInSeconds, Chaos generates a validation failed event.
+$maxClusterStabilizationTimeSecs = 30
+
+# MaxConcurrentFaults is the maximum number of concurrent faults induced per iteration. 
+# Chaos executes in iterations and two consecutive iterations are separated by a validation phase. 
+# The higher the concurrency, the more aggressive the injection of faults -- inducing more complex series of states to uncover bugs. 
+# The recommendation is to start with a value of 2 or 3 and to exercise caution while moving up.
+$maxConcurrentFaults = 3
+
+# Time-separation (in seconds) between two consecutive iterations of Chaos. The larger the value, the lower the fault injection rate.
+$waitTimeBetweenIterationsSec = 10
+
+# Wait time (in seconds) between consecutive faults within a single iteration. 
+# The larger the value, the lower the overlapping between faults and the simpler the sequence of state transitions that the cluster goes through. 
+# The recommendation is to start with a value between 1 and 5 and exercise caution while moving up.
+$waitTimeBetweenFaultsSec = 0
+
+# Passed-in cluster health policy is used to validate health of the cluster in between Chaos iterations. 
+$clusterHealthPolicy = new-object -TypeName System.Fabric.Health.ClusterHealthPolicy
+$clusterHealthPolicy.MaxPercentUnhealthyNodes = 100
+$clusterHealthPolicy.MaxPercentUnhealthyApplications = 100
+$clusterHealthPolicy.ConsiderWarningAsError = $False
+
+# Describes a map, which is a collection of (string, string) type key-value pairs. The map can be used to record information about
+# the Chaos run. There cannot be more than 100 such pairs and each string (key or value) can be at most 4095 characters long.
+# This map is set by the starter of the Chaos run to optionally store the context about the specific run.
+$context = @{"ReasonForStart" = "Testing"}
+
+Connect-ServiceFabricCluster $clusterConnectionString
 
 $events = @{}
 $now = [System.DateTime]::UtcNow
 
-Start-ServiceFabricChaos -TimeToRunMinute $timeToRun -MaxConcurrentFaults $concurrentFaults -MaxClusterStabilizationTimeoutSec $maxStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec
+Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy
 
 while($true)
 {
@@ -200,6 +252,4 @@ while($true)
 
     Start-Sleep -Seconds 1
 }
-
-Stop-ServiceFabricChaos
 ```
