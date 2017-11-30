@@ -15,7 +15,13 @@
     href: container-registry-get-started-powershell.md
 - name: Tutorials
   items:
-  - name: Geo-replication
+  - name: Azure Container Instances
+    href: ../container-instances/container-instances-tutorial-prepare-app.md
+  - name: Azure Container Service (AKS)
+    href: ../aks/tutorial-kubernetes-prepare-app.md
+  - name: Service Fabric
+    href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+  - name: Geo-replication (preview)
     items:
     - name: 1 - Prepare container registry
       href: container-registry-tutorial-prepare-registry.md
@@ -23,18 +29,14 @@
       href: container-registry-tutorial-deploy-app.md
     - name: 3 - Update web application
       href: container-registry-tutorial-deploy-update.md
-  - name: Azure Container Instances
-    href: ../container-instances/container-instances-tutorial-prepare-app.md
-  - name: Azure Container Service
-    href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
-  - name: Service Fabric
-    href: ../service-fabric/service-fabric-tutorial-create-container-images.md
 - name: Concepts
   items:
   - name: Container registry SKUs
     href: container-registry-skus.md
   - name: Geo-replication (preview)
     href: container-registry-geo-replication.md
+  - name: Registry best practices
+    href: container-registry-best-practices.md
 - name: How-to guides
   items:
   - name: Push and pull an image
@@ -55,13 +57,19 @@
     href: /rest/api/containerregistry
   - name: PowerShell
     href: /powershell/module/azurerm.containerregistry
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.containerregistry/registries
 - name: Resources
   items:
-  - name: Roadmap
-    href: https://aka.ms/acr/roadmap
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/container-registry/
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/container-registry/
+  - name: Roadmap
+    href: https://aka.ms/acr/roadmap
+  - name: Provide product feedback
+    href: https://feedback.azure.com/forums/903958-azure-container-registry
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-container-registry
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest

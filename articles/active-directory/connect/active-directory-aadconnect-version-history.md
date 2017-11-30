@@ -31,6 +31,17 @@ Required permissions | For permissions required to apply an update, see [account
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 
+## 1.1.649.0
+Status: October 27 2017
+
+>[!NOTE]
+>This build is not available to customers through the Azure AD Connect Auto Upgrade feature.
+
+### Azure AD Connect
+#### Fixed issue
+* Fixed a version compatibility issue between Azure AD Connect and Azure AD Connect Health Agent (for sync). This issue affects customers who are performing Azure AD Connect in-place upgrade to version 1.1.647.0, but currently has Health Agent version 3.0.127.0. After the upgrade, the Health Agent can no longer send health data about Azure AD Connect Synchronization Service to Azure AD Health Service. With this fix, Health Agent version 3.0.129.0 is installed during Azure AD Connect in-place upgrade. Health Agent version 3.0.129.0 does not have compatibility issue with Azure AD Connect version 1.1.649.0.
+
+
 ## 1.1.647.0
 Status: October 19 2017
 

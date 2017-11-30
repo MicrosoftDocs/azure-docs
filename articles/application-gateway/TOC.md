@@ -29,7 +29,7 @@
 ## Configure SSL
 ### [Azure portal](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
-### [Azure CLI](application-gateway-ssl.md)
+### [Azure CLI](application-gateway-ssl-cli.md)
 ### [SSL policy](application-gateway-configure-ssl-policy-powershell.md)
 ## Configure URL path based routing
 ### [Azure portal](application-gateway-create-url-route-portal.md)

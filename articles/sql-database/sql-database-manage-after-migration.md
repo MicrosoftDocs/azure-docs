@@ -13,12 +13,12 @@ ms.custom: migrate
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: "Inactive"
 ms.date: 10/14/2016
 ms.author: Joe.Sack
-ms.suite: SQL
+ms.suite: sql
 ms.prod_service: sql-database
-ms.component: management
+ms.component: migration
 ---
 
 # How should I manage my Azure SQL database after migration?

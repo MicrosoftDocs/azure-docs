@@ -97,10 +97,10 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
     var client = TopicClient.CreateFromConnectionString(connectionString, topicName);
     var message = new BrokeredMessage("This is a test message!");
 
+    client.Send(message);
+
     Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
     Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
-
-    client.Send(message);
 
     Console.WriteLine("Message successfully sent! Press ENTER to exit program");
     Console.ReadLine();
@@ -128,10 +128,10 @@ Launch Visual Studio and create a new **Console app (.NET Framework)** project.
                 var client = TopicClient.CreateFromConnectionString(connectionString, topicName);
                 var message = new BrokeredMessage("This is a test message!");
 
+                client.Send(message);
+                
                 Console.WriteLine(String.Format("Message body: {0}", message.GetBody<String>()));
                 Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
-
-                client.Send(message);
 
                 Console.WriteLine("Message successfully sent! Press ENTER to exit program");
                 Console.ReadLine();

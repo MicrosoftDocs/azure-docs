@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/18/2017
 ms.author: juliako
 
 ---
@@ -36,10 +36,42 @@ These release notes summarize changes from previous releases and known issues.
 | When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. |You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Some clients can come across a repeat tag issue in the Smooth Streaming manifest. |For more information, see [this](media-services-deliver-content-overview.md#known-issues) section. |
 | Azure Media Services .NET SDK objects cannot be serialized and as a result do not work with Azure Caching. |If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown. |
-| Encoding jobs fail with a message string "Stage: DownloadFile. Code: System.NullReferenceException". |The typical encoding workflow is to upload input video file(s) to an input Asset, and submit one or more encoding jobs for that input Asset, without further modifying that input Asset. However, if you modify the input Asset (for example by adding/deleting/renaming files within the Asset), then subsequent jobs may fail with a DownloadFile error. The workaround is to delete the input Asset, and re-upload input file(s) to a new Asset. |
+
 
 ## <a id="rest_version_history"></a>REST API Version History
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+## October 2017 Release
+> [!IMPORTANT] 
+> Reminder: Azure Media Services is going to be deprecating support for ACS authentication keys.  On June 1, 2018, you will no longer be able to authenticate with the AMS backend via code using ACS keys. You must update your code to use Azure Active Directory (AAD) per the article [Azure Active Directory (Azure AD)-based authentication](media-services-use-aad-auth-to-access-ams-api.md). You will also receive warnings in the Azure portal of this change.
+
+### Updates for October 2017 include:
+#### SDKs
+* .NET SDK Updated to support AAD authentication.  We have removed support for ACS authentication from the latest .NET SDK on Nuget.org to encourage faster migration to AAD. 
+* JAVA SDK Updated to support AAD authentication.  We have added support for AAD authentication to our Java SDK. You can read details on how to use the Java SDK with AMS in the article [Get started with the Java client SDK for Azure Media Services](media-services-java-how-to-use.md)
+
+#### File Based Encoding
+1.	You can now use the Premium Encoder to encode your content to H.265(HEVC) video codec. There is no pricing impact for choosing H.265 over other codecs like H.264. Please refer to the [Online Services Terms](https://azure.microsoft.com/support/legal/) for an important note regarding HEVC patent license(s).
+2.	If you have source video that is encoded with H.265(HEVC) video codec, such as video captured using iOS11 or GoPro Hero 6, you can now use either the Premium Encoder or the Standard Encoder to encode those videos. Please refer to the [Online Services Terms](https://azure.microsoft.com/support/legal/) for an important note about patent license(s).
+3.	If you have content that contains multiple language audio tracks, then as long as the language values are correctly labeled according to the corresponding file format specification (e.g. ISO MP4), then you can use the Standard Encoder to encode that content for streaming. The resultant streaming locator will list the available audio languages.
+4.	The Standard Encoder now supports two new audio-only system presets, “AAC Audio” and “AAC Good Quality Audio”. Both produce stereo AAC output, at bit rates of 128 kbps and 192 kbps, respectively.
+5.	The Premium Encoder now supports QuickTime/MOV file formats as input as long as the video codec is either one of the [Apple ProRes flavors listed here](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats), and the audio is either AAC or PCM.
+
+> [!NOTE]
+> The Premium Encoder does not support, for example, DVC/DVCPro video wrapped in QuickTime/MOV files, as input.  However, the Standard Encoder does support these video codecs.
+>
+>
+
+6.	Bug fixes in Encoders:
+    * You can now submit Jobs using an Input Asset, and after these complete, modify the Asset (for example by adding/deleting/renaming files within the Asset), and submit additional Jobs. 
+    * Improved quality of JPEG thumbnails produced by the Standard Encoder
+    * Improvements to Standard Encoder for short-duration videos. Better handling of input metadata and thumbnail generation in very short duration videos.
+    * Improvements to the H.264 decoder used in the Standard Encoder, eliminates certain rare artifacts. 
+
+#### Media Analytics
+* GA of Azure Media Redactor - This Media Processor (MP) will perform anonymization by blurring the faces of selected individuals, and is ideal for use in public safety and news media scenarios. For an overview on this new processor see the blog post [here](https://azure.microsoft.com/blog/azure-media-redactor/). For detailed documentation and settings, see [Redact faces with Azure Media Analytics](media-services-face-redaction.md).
+
+
 
 ## June 2017 Release
 
@@ -61,7 +93,7 @@ Starting April 1, 2017, any Job record in your account older than 90 days will b
 
 ## January 2017 Release
 
-In Microsoft Azure Media Services (AMS), a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, a video on demand, or progressive download of your asset in your Media Services account. Each Azure Media Services account includes a default StreamingEndpoint. Additional StreamingEndpoints can be created under the account. There are two versions of StreamingEndpoints, 1.0 and 2.0. Starting with January 10th, 2017, any newly created AMS accounts will include version 2.0 **default** StreamingEndpoint. Additional streaming endpoints that you add to this account will also be version 2.0. This change will not impact the existing accounts; existing StreamingEndpoints is version 1.0 and can be upgraded to version 2.0. With this change there will be behavior, billing, and feature changes (for more information, see [this](media-services-streaming-endpoints-overview.md) article).
+In Microsoft Azure Media Services (AMS), a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, a video on demand, or progressive download of your asset in your Media Services account. Each Azure Media Services account includes a default StreamingEndpoint. Additional StreamingEndpoints can be created under the account. There are two versions of StreamingEndpoints, 1.0 and 2.0. Starting with January 10, 2017, any newly created AMS accounts will include version 2.0 **default** StreamingEndpoint. Additional streaming endpoints that you add to this account will also be version 2.0. This change will not impact the existing accounts; existing StreamingEndpoints is version 1.0 and can be upgraded to version 2.0. With this change there will be behavior, billing, and feature changes (for more information, see [this](media-services-streaming-endpoints-overview.md) article).
 
 In addition, starting with the 2.15 version, Azure Media Services added the following properties to the Streaming Endpoint entity: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. For detailed overview of these properties, see [this](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
@@ -289,7 +321,7 @@ Media Services SDK for .NET is now version 3.0.0.7
 * **Origin** was renamed to [StreamingEndpoint].
 * A change in the default behavior when using the **Azure portal** to encode and then publish MP4 files.
 
-Previously, when using the Azure Classic Portal to publish a single-file MP4 video asset a SAS URL would be created (SAS URLs allow you to download the video from a blob storage). Currently, when you use the Azure Classic Portal to encode and then publish a single-file MP4 video asset, the generated URL points to an Azure Media Services streaming endpoint.  This change does not affect MP4 videos that are directly uploaded to Media Services and published without being encoded by Azure Media Services.
+Previously, when using the Azure Classic portal to publish a single-file MP4 video asset a SAS URL would be created (SAS URLs allow you to download the video from a blob storage). Currently, when you use the Azure Classic portal to encode and then publish a single-file MP4 video asset, the generated URL points to an Azure Media Services streaming endpoint.  This change does not affect MP4 videos that are directly uploaded to Media Services and published without being encoded by Azure Media Services.
 
 Currently, you have the following two options to solve the problem.
 
@@ -320,7 +352,7 @@ Currently, you have the following two options to solve the problem.
 * Streaming storage encrypted assets. For more information, see [Streaming Storage Encrypted Content].
 
 ## <a id="august_changes_14"></a>August 2014 Release
-When you encode an asset, an output asset is produced upon completion of the encoding job. Until this release, Azure Media Services Encoder produced metadata about output assets. Starting with this release the encoder also produces metadata about input assets. For more information, see the [Input Metadata] and [Output Metadata] topics.
+When you encode an asset, an output asset is produced upon completion of the encoding job. Until this release, Azure Media Services Encoder produced metadata about output assets. Starting with this release the encoder also produces metadata about input assets. For more information, see the [Input Metadata] and [Output Metadata] articles.
 
 ## <a id="july_changes_14"></a>July 2014 Release
 The following bug fixes were made for the Azure Media Services Packager and Encryptor:
@@ -386,7 +418,7 @@ The Azure Media Services .NET SDK Extensions is a set of extension methods and h
 Starting with this version, the Media Services SDK for .NET handles transient fault errors that may occur when making calls to the Media Services REST API layer.
 
 ## <a id="august_changes_13"></a>August 2013 Release
-### <a name="aug_13_powershell_changes"></a>Media Services PowerShell Cmdlets included in Azure Sdk Tools
+### <a name="aug_13_powershell_changes"></a>Media Services PowerShell Cmdlets included in Azure SDK Tools
 The following Media Services PowerShell cmdlets are now included in [azure-sdk-tools].
 
 * Get-AzureMediaServices 

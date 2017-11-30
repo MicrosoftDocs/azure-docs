@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
-ms.author: elkuzmen
+ms.date: 11/20/2017
+ms.author: bryanla
 ---
 
 
@@ -28,8 +28,11 @@ This tutorial shows you how to enable Managed Service Identity (MSI) for a Linux
 > * Grant your VM access to storage account access keys in Resource Manager 
 > * Get an access token using your VM's identity, and use it to retrieve the storage access keys from Resource Manager  
 
+## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -106,7 +109,7 @@ Azure Storage does not natively support Azure AD authentication.  However, you c
 
 For the remainder of the tutorial, we will work from the VM we created earlier.
 
-To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/install_guide).
+To complete these steps, you will need an SSH client. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. Copy the string to connect to your VM. 
 2. Connect to your VM using your SSH client.  

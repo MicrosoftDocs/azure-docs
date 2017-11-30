@@ -36,7 +36,7 @@ This article shows different options to set up a service principal for your Kube
 
 You can use an existing Azure AD service principal that meets the following requirements, or create a new one.
 
-* **Scope**: the subscription used to deploy the cluster.
+* **Scope**: the resource group used to deploy the cluster.
 
 * **Role**: **Contributor**
 

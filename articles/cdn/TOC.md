@@ -11,7 +11,7 @@
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Cross-origin resource sharing](cdn-cors.md)
 ### [Add a custom domain to your CDN endpoint](cdn-map-content-to-custom-domain.md)
-### [Enable HTTPS on a custom domain](cdn-custom-ssl.md)
+### [Configure HTTPS on a custom domain](cdn-custom-ssl.md)
 ## Optimize content
 ### [Optimization overview](cdn-optimization-overview.md)
 ####[Large file optimization](cdn-large-file-optimization.md)
@@ -21,8 +21,8 @@
 ## Manage
 ### [Manage with Azure PowerShell](cdn-manage-powershell.md)
 ### Configure time-to-live
-#### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Storage blob service content](cdn-manage-expiration-of-blob-content.md)
+#### [Azure web content](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Azure Blob storage](cdn-manage-expiration-of-blob-content.md)
 ### [Restrict access by country](cdn-restrict-access-by-country.md)
 ### [Improve performance by compressing files](cdn-improve-performance.md)
 ### Cache content by query string

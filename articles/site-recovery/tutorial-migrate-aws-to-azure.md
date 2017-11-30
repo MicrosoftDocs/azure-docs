@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/22/2017
+ms.date: 11/01/2017
 ms.author: raynew
+ms.custom: MVC
 
 ---
 # Migrate Amazon Web Services (AWS) VMs to Azure

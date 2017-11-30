@@ -13,15 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
 
 ---
 # Use the StorSimple Manager service to view and manage StorSimple jobs
+> [!NOTE]
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
 [!INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
 ## Overview
-The **Jobs** page provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Manager service. You can view scheduled, running, completed, and failed jobs for multiple devices. Results are presented in a tabular format. 
+The **Jobs** page provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Manager service. You can view scheduled, running, completed, and failed jobs for multiple devices. Results are presented in a tabular format.
 
 ![Jobs page](./media/storsimple-manage-jobs/HCS_JobsPage.png)
 
