@@ -27,7 +27,7 @@ As you decide what content to include in your Azure Stack marketplace, you shoul
 
 1. To download marketplace items, you must first [register Azure Stack with Azure](azure-stack-register.md). 
 2. Sign in to the Azure Stack administrator portal (https://portal.local.azurestack.external).
-3. Some marketplace items can be very large. Check to make sure you have enough space on your system by clicking **Resource Providers** > **Storage**.
+3. Some marketplace items can be large. Check to make sure you have enough space on your system by clicking **Resource Providers** > **Storage**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
 
@@ -111,7 +111,7 @@ From the machine that has internet connectivity, use the following steps to down
 
 2. Before importing the image, you must connect to the Azure Stack operator’s environment by using the steps described in [configure Azure Stack operator’s PowerShell environment](azure-stack-powershell-configure-admin.md).  
 
-3. Import the image to Azure Stack by using the Add-AzsVMImage cmdlet. When using this cmdlet, make sure to replace the publisher, offer and other parameter values with the values of the image that you are importing. You can get the “publisher”, “offer” and “sku” values of the image from the imageReference object of the Azpkg file that you downloaded earlier and the “version” value from step 6 in the previous section.
+3. Import the image to Azure Stack by using the Add-AzsVMImage cmdlet. When using this cmdlet, make sure to replace the publisher, offer, and other parameter values with the values of the image that you are importing. You can get the “publisher”, “offer” and “sku” values of the image from the imageReference object of the Azpkg file that you downloaded earlier and the “version” value from step 6 in the previous section.
 
    ```json
    "imageReference": {
@@ -137,8 +137,6 @@ From the machine that has internet connectivity, use the following steps to down
     -Location Local 
    ```
 
-   Note that the “CreateGalleryItem” parameter is set to false as we will publish the gallery item in the next step.  
-
 4. Use portal to upload your Marketplace item (.Azpkg) to Azure Stack Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible and note the URI.  
 
 5. Publish the marketplace item to Azure Stack by using the **Add-AzureRMGalleryItem**. For example:
@@ -149,7 +147,7 @@ From the machine that has internet connectivity, use the following steps to down
      –Verbose
    ```
 
-6. After the gallery item is published, you can view it from the **New** > **Marketplace** blade .  
+6. After the gallery item is published, you can view it from the **New** > **Marketplace** pane.  
 
    ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
 
