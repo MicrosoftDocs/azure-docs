@@ -29,6 +29,9 @@ The Azure Functions Tools provides the following benefits:
 
 This topic shows you how to use the Azure Functions Tools for Visual Studio 2017 to develop your functions in C#. You also learn how to publish your project to Azure as a .NET assembly.
 
+> [!IMPORTANT]
+> Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process will overwrite any functions that you developed in the portal.
+
 ## Prerequisites
 
 Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2017 installation:
