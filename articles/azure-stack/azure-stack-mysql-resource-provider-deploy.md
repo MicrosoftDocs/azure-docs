@@ -59,6 +59,7 @@ The system account must have the following privileges:
     b. On multi-node systems, the host must be a system that can access the Privileged Endpoint.
 
 3. Download the MySQL resource provider binary and execute the self-extractor to extract the contents to a temporary directory.
+
     >[!NOTE] The resource provider build corresponds to Azure Stack builds. You must download the correct binary for the version of Azure Stack that is running.
 
     | Azure Stack Build | MySQL RP installer |
