@@ -31,7 +31,7 @@ The Azure Machine Learning module that you create in this tutorial reads the tem
 * The Azure IoT Edge device that you created in the quickstart or first tutorial.
 * The IoT Hub connection string for the IoT hub that your IoT Edge device connects to.
 
-## Set up a Docker registry
+## Set up a container registry
 In this tutorial, you use the [AI toolkit for Azure IoT Edge](https://aka.ms/aml-iot-edge-anomaly-detection) to create Docker image containing an Azure Machine Learning model. Then you push this Docker image to [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/). Finally, you deploy your Docker image packaged as a [Docker container](https://docs.docker.com/glossary/?term=container) from your registry to your IoT Edge device.  
 
 [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) is available with a [paid subscription](https://azure.microsoft.com/en-us/pricing/details/container-registry/). For this tutorial, the **Basic** subscription is sufficient. 
