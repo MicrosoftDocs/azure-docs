@@ -86,7 +86,7 @@ If you're using **python 3.x**, you need to use the command **pip3** for the fol
     ![jupyter kernelspec list](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
 
     For available kernels: 
-    - **python2** and **pysparkkernel** correspond to **python 2.x***. 
+    - **python2** and **pysparkkernel** correspond to **python 2.x**. 
     - **python3** and **pyspark3kernel** correspond to **python 3.x**. 
 
 8. Restart VS Code, and then go back to the script editor that's running **HDInsight: PySpark Interactive**.
