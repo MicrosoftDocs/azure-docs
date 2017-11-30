@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.author: apimpm
 
 ---
@@ -110,9 +110,6 @@ To limit inbound requests and accept only those from an IP address of 1.2.3.4 mo
 </ip-filter>
 ```
 
-![Save][policies-save]
-
-
 ## Video
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
@@ -137,10 +134,4 @@ For more information working with policies, see:
 [Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
 [Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 
-[policies-menu]: ./media/api-management-howto-policies/api-management-policies-menu.png
-[policies-editor]: ./media/api-management-howto-policies/api-management-policies-editor.png
-[policies-scope]: ./media/api-management-howto-policies/api-management-policies-scope.png
-[policies-configure]: ./media/api-management-howto-policies/api-management-policies-configure.png
-[policies-edit]: ./media/api-management-howto-policies/api-management-policies-edit.png
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
-[policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
