@@ -33,8 +33,9 @@ For general information on SSMS, [navigate to the documentation](https://docs.mi
     ![img2](./media/documentation-government-connect-with-ssms-img2.png)
 
 3. Navigate to File -> Connect Object Explorer and enter in your Azure SQL server name and authentication. 
-    > [!Note]
-    > Notice that the server name ends with ".usgovcloudapi.net"
+
+    >[!Note]
+    >Notice that the server name ends with ".usgovcloudapi.net"
     >
     >
 
