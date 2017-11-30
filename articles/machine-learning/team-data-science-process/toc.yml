@@ -141,6 +141,7 @@
         href: move-data-to-azure-blob-using-azcopy.md
       - name: Use Python
         href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+        maintainContext: true
       - name: Use SSIS
         href: move-data-to-azure-blob-using-ssis.md
       - name: Move to a VM
