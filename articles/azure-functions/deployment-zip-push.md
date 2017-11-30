@@ -36,13 +36,17 @@ To complete this topic, you need:
 > If you want to get started with Azure Functions before signing up for an Azure account, go to [Try Azure Functions](https://functions.azure.com/try), where you can immediately create a starter function in a short-lived function app. No credit cards required; no commitments.  
 
 ## Create a project .zip file to deploy
-You must first create a .zip file that contains the project files for your functions. This is what gets deployed to your function app. The easiest way to do this is to download the [Azure Functions quickstart project from the GitHub repository as a .zip file](https://github.com/Azure-Samples/functions-quickstart/archive/master.zip). Make a note of the location where you downloaded this .zip file.
+You must first create a .zip file that contains the project files for your functions. This is what gets deployed to your function app. The easiest way to do this is to create a .zip file from the project files in the Azure Functions quickstart repository. 
 
-When you create a .zip file for deploying to your function app, make sure your project follows the folder structure requirements for Functions. For more information, see the guidance in the [Azure Functions developers guide](functions-reference.md#folder-structure)
+1. Browse to the [Functions quickstart repository]( https://github.com/Azure-Samples/functions-quickstart) and clone the repository to your local computer or download .zip file. 
+
+2. If you downloaded the files in a .zip file, extract the files. GitHub adds an extra folder level, which means that  you can't deploy the downloaded .zip file as is.
+
+3. Using a .zip compression utility, create a .zip files of the repository files. In this .zip file, the host.json and function folders should be in the root of the .zip file. For more information about the folder structure requirements for Functions, see the guidance in the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0.21 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Create the function app in Azure
 
@@ -86,15 +90,7 @@ az functionapp deployment source config-zip  -g myResourceGroup -n \
 
 This deploys project files from the downloaded .zip file to your function app in Azure and restarts the app.
 
-## <a name="rest"></a>Deploy using REST APIs 
- 
-You can also use the REST APIs for App Service deployment to deploy from the .zip file to your function app in Azure. For more information, see the [.zip push deployment reference topic]. The following example uses the cURL tool to push deploy the downloaded .zip file to your function. Replace the `<zip_file_path>` placeholder with the path to the location where you downloaded your project .zip file. Also replace `<app_name>` with the unique name of your function app 
-
-```
-curl -X POST -u <publishing-user> --data-binary @<zip_file_path> https://<app_name>.scm.azurewebsites.net/api/zipdeploy
-```
-
-This deploys project files from the downloaded .zip file to your function app in Azure and restarts the app.
+[!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
