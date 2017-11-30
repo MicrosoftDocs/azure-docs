@@ -18,12 +18,12 @@ ms.author: glenga
 
 ---
 # Zip push deployment for Azure Functions 
-This topic shows you how to deploy your function app project files to Azure from a .zip (compressed) file, using both the Azure CLI and the deployment REST APIs. Azure Functions has the full range of continuous deployment and integration options provided by Azure App Service, for more information see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). However, for faster prototyping and iteration during development, it is often easier to instead deploy your function app directly from a compressed .zip file that contains the files for your app.
+This topic shows you how to deploy your function app project files to Azure from a .zip (compressed) file. You learn how to do a push deployment using both the Azure CLI and the REST APIs. Azure Functions has the full range of continuous deployment and integration options provided by Azure App Service, for more information, see [Continuous deployment for Azure Functions](functions-continuous-deployment.md). However, for faster iteration during development, it is often easier to deploy your function app project files directly from a compressed .zip file.
 
-This .zip file deployment uses the same Kudu service that powers all App Service deployments. This means that not only will .zip file deployment clean-up old files from previous deployments, but you can also run deployment scripts. For more information, see the [.zip push deployment reference topic].
+This .zip file deployment uses the same Kudu service that powers all App Service deployments. Not only does .zip file deployment cleanup old files from previous deployments, but you can also run your custom deployment scripts. For more information, see the [.zip push deployment reference topic].
 
 >[!IMPORTANT]
-> When you use .zip push deployment, any files from an existing deployment not found in the .zip file are deleted from Azure.    
+> When you use .zip push deployment, any files from an existing deployment not found in the .zip file are deleted from your function app.    
 
 ## Prerequisites
 To complete this topic, you need:
@@ -36,13 +36,16 @@ To complete this topic, you need:
 > If you want to get started with Azure Functions before signing up for an Azure account, go to [Try Azure Functions](https://functions.azure.com/try), where you can immediately create a starter function in a short-lived function app. No credit cards required; no commitments.  
 
 ## Create a project .zip file to deploy
-You must first create a .zip file that contains the project files for your functions. This is what gets deployed to your function app. The easiest way to do this is to create a .zip file from the project files in the Azure Functions quickstart repository. 
+First you need a .zip file that contains the function app project files, including your function code. The contents of this file is what gets deployed to your function app in Azure. The easiest way to create a .zip compressed function app is to use the project files from the Functions quickstart repository. 
 
-1. Browse to the [Functions quickstart repository]( https://github.com/Azure-Samples/functions-quickstart) and clone the repository to your local computer or download .zip file. 
+1. Browse to the [Functions quickstart repository]( https://github.com/Azure-Samples/functions-quickstart) and clone the repository to your local computer or download the repository as a .zip file. 
 
-2. If you downloaded the files in a .zip file, extract the files. GitHub adds an extra folder level, which means that  you can't deploy the downloaded .zip file as is.
+2. If you downloaded the files in a .zip file, extract the files. 
 
-3. Using a .zip compression utility, create a .zip files of the repository files. In this .zip file, the host.json and function folders should be in the root of the .zip file. For more information about the folder structure requirements for Functions, see the guidance in the [Azure Functions developers guide](functions-reference.md#folder-structure).
+    >[!NOTE]
+    >When you create a .zip file to deploy your function app, the host.json file and individual function folders must be in the root of the .zip file. For more information about the folder structure requirements for Functions, see the guidance in the [Azure Functions developers guide](functions-reference.md#folder-structure). The .zip file you download from GitHub adds an extra folder level for the branch, which means that you can't deploy the .zip file downloaded from GitHub as is. 
+
+3. Using a .zip compression utility, create a .zip file that matches the structure of the quickstart repository. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -61,18 +64,12 @@ myfunctionapp=<app_name>
 az group create --name myResourceGroup --location westeurope
 
 # Create an azure storage account
-az storage account create \
-  --name $mystorageaccount \
-  --location westeurope \
-  --resource-group myResourceGroup \
-  --sku Standard_LRS
+az storage account create --name $mystorageaccount --location westeurope \
+  --resource-group myResourceGroup --sku Standard_LRS
 
 # Create Function App
-az functionapp create \
-  --name $myfunctionapp \
-  --storage-account $mystorageaccount \
-  --consumption-plan-location westeurope \
-  --resource-group myResourceGroup
+az functionapp create --name $myfunctionapp --storage-account $mystorageaccount \
+  --consumption-plan-location westeurope --resource-group myResourceGroup
 ```
 
 You can now deploy the function app from the downloaded .zip file using either the [Azure CLI](#cli) or the [deployment REST APIs](#rest).
@@ -88,9 +85,13 @@ az functionapp deployment source config-zip  -g myResourceGroup -n \
 <app_name> --src <zip_file_path>
 ```
 
-This deploys project files from the downloaded .zip file to your function app in Azure and restarts the app.
+This command deploys project files from the downloaded .zip file to your function app in Azure and restarts the app. To view the list of deployments for this function app, you must use the REST APIs.
+
+After you deploy the Functions quickstart project files, you can [test your code in Azure](#test). 
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
+
+After you deploy the Functions quickstart project files, you can [test your code in Azure](#test). 
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
