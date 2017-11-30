@@ -54,7 +54,7 @@ You may want to consider connecting your VNets using VNet Peering. VNet peering 
 
 ## <a name="why"></a>Why create a VNet-to-VNet connection?
 
-You may want to connect virtual networks for the following reasons:
+You may want to connect virtual networks using a VNet-to-VNet connection for the following reasons:
 
 * **Cross region geo-redundancy and geo-presence**
 
