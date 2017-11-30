@@ -1,5 +1,5 @@
 ---
-title: Call a Language Understanding Intelligent Services (LUIS) app using C# | Microsoft Docs 
+title: Call a Language Understanding (LUIS) app using C# | Microsoft Docs 
 description: Learn to call a LUIS app using C#. 
 services: cognitive-services
 author: DeniseMak
@@ -14,7 +14,7 @@ ms.author: v-demak
 
 # Call a LUIS app using C#
 
-This quickstart shows you how to call your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use C# code to pass utterances to a LUIS endpoint and get results.
+This quickstart shows you how to call your Language Understanding (LUIS) app in just a few minutes. When you're finished, you'll be able to use C# code to pass utterances to a LUIS endpoint and get results.
 
 ## Before you begin
 You need a Cognitive Services API key to make calls to the sample LUIS app we use in this walkthrough. 
