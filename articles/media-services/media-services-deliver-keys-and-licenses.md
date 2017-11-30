@@ -333,5 +333,3 @@ The following code example shows how to create a common content key and get Play
 
 [Using AES-128 Dynamic Encryption and Key Delivery Service](media-services-protect-with-aes128.md)
 
-[Using partners to deliver Widevine licenses to Azure Media Services](media-services-licenses-partner-integration.md)
-
