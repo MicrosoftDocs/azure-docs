@@ -329,7 +329,7 @@ The following code example shows how to create a common content key and get Play
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## See also
-[Using PlayReady and/or Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)
+[Using PlayReady and/or Widevine Dynamic Common Encryption](media-services-protect-with-playready-widevine.md)
 
 [Using AES-128 Dynamic Encryption and Key Delivery Service](media-services-protect-with-aes128.md)
 
