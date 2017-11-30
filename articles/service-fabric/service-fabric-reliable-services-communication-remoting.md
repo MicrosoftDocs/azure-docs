@@ -91,10 +91,10 @@ Best practice is to cache ServiceProxyFactory for as long as possible.
 ## Remoting Exception Handling
 All remote exceptions thrown by the service API are sent back to the client as AggregateException. RemoteExceptions should be DataContract Serializable; if they are not, the proxy API throws [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) with the serialization error in it.
 
-ServiceProxy does handle all Failover Exception for the service partition it  is created for. It re-resolves the endpoints if there is Failover Exceptions(Non-Transient Exceptions) and retries the call with the correct endpoint. Number of retries for failover Exception is indefinite.
+ServiceProxy does handle all Failover Exception for the service partition it is created for. It re-resolves the endpoints if there are Failover Exceptions (Non-Transient Exceptions) and retries the call with the correct endpoint. Number of retries for failover Exception is indefinite.
 If Transient Exceptions occurs, proxy retries the call.
 
-Default retry parameters are provied by [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings)
+Default retry parameters are provied by [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 User can configure these values by passing OperationRetrySettings object to ServiceProxyFactory constructor.
 ## How to use Remoting V2 stack
 With 2.8 NuGet Remoting package, you have the option to use Remoting V2 stack. Remoting V2 stack is more performant and provides features like custom serializable and more pluggable Api's.
