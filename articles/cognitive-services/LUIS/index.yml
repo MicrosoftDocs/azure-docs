@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Language Understand Intelligent Service (LUIS) Documentation
+title: Language Understanding Intelligent Service (LUIS) Documentation
 metadata:
   document_id: 
-  title: Language Understand Intelligent Service (LUIS) - Tutorials, Quickstarts, API Reference
+  title: Language Understanding Intelligent Service (LUIS) - Tutorials, Quickstarts, API Reference
   description: Learn how to use Language Understand Intelligent Service API to allow your application to understand what a person wants in their own words. 
   author: Kaiqb
   manager: carolz

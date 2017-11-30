@@ -25,7 +25,8 @@ ms.author: rasquill
 > * [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
 > [!IMPORTANT]
-> This topic describes how to install the Azure CLI 1.0, which is built on nodeJs and supports all classic deployment API calls as well as a large number of Resource Manager deployment activities. You should use the [Azure CLI 2.0](/cli/azure/overview) for new or forward-looking CLI deployments and management.
+> This topic describes how to install the Azure CLI 1.0. This CLI is deprecated and should only be used for support with the Azure Service Management (ASM) model with "classic" resources.
+> For Azure Resource Manager (ARM) deployments, use [Azure CLI 2.0](/cli/azure/overview).
 
 Quickly install the Azure Command-Line Interface (Azure CLI 1.0) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several options to install these cross-platform tools on your computer:
 
