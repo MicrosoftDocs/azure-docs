@@ -44,11 +44,11 @@ Navigate to the Azure AD tenant that shows your Azure subscription. Open the [Az
 
 Click the **New** button. In the **Search the marketplace** field, enter `B2C`.
 
-![Add button highlighted and the text Azure AD B2C in the search the marketplace field](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Add button highlighted and the text Azure AD B2C in the search the marketplace field](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
 In the results list, select **Azure AD B2C**.
 
-![Azure AD B2C selected in the results list](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
+![Azure AD B2C selected in the results list](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 
 Details about Azure AD B2C are shown. To begin configuring your new Azure Active Directory B2C tenant, click the **Create** button.
 
