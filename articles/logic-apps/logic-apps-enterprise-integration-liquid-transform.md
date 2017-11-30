@@ -19,33 +19,33 @@ ms.author: LADocs; divswa
 ---
 # Enterprise integration with liquid template
 ## Overview
-Logic apps supports basic Json transformations through native data operation actions. For more advanced transformations the customers had to either write their own mapping functions or use some thrid party services. Logic apps now also supports advanced json transformations via Liquid templates. [Liquid](https://shopify.github.io/liquid/) is an open-source, safe, customer-facing template language for flexible web apps.
+Logic Apps support basic JSON transformations through native Data Operation actions like Compose or Parse JSON. Logic Apps now also support advanced json transformations via Liquid templates. [Liquid](https://shopify.github.io/liquid/) is an open-source, safe, customer-facing template language for flexible web apps.
  
-In this document, we are going to cover Liquid action, which uses liquid maps or templates to support more complex json transformations, such as iteration, control flow, variables etc. To use liquid action in your logic app, you need to define json to json mapping through a liquid map, and store it in the Integration Account. 
+In this document, we are going to cover Liquid action, which uses liquid maps or templates to support more complex json transformations, such as iteration, control flow, variables etc. To use liquid action in your logic app, you need to define JSON to JSON mapping through a liquid map, and store it in the Integration Account. 
 
 
 ### Prerequisites
-To follow this example, you need these items:
+Here are the prerequisites to use the liquid action:
 
 * An Azure subscription. If you don't have a subscription, you can 
 [start with a free Azure account](https://azure.microsoft.com/free/). 
 Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Basic knowledge about [how to create logic apps](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Basic knowledge about [how to create logic apps](../logic-apps/logic-apps-create-a-logic-app.md). 
 
-* Basic integration account [Integration Account](logic-apps-enterprise-integration-create-integration-account.md)
+* Basic [Integration Account](logic-apps-enterprise-integration-create-integration-account.md).
 
 
 ### Upload liquid template or map to integration account
 
-* Go to your integration account. 
-  * Choose **All resources**.
-  * Provide your integration account name in the text box.
+* Follow the steps below to select your integration account
+  * Choose **All services**.
+  * Provide your integration account name in the text box, which is myintegrationaccount in this example.
   * Select your integration account.
 
     ![Select integration account](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-* On the Integration account tile, select **Maps**.
+* On the integration account tile, select **Maps**.
 
   ![Select maps](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
 
@@ -75,17 +75,19 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
         ]
     }
     ```
+    > [!NOTE]
+    > If you are using any [filters](https://shopify.github.io/liquid/basics/introduction/#filters) in liquid template, they should start with upper case. 
 
 
-### Use liquid action for Json to Json transformation
+### Use Liquid action for JSON to JSON transformation
 
 * [Create a logic app](logic-apps-create-a-logic-app.md).
 
-* Add [Request trigger] (../connectors/connectors-native-reqres.md#use-the-http-request-trigger) to your logic app.
+* Add [Request trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) to your logic app.
 
 * Choose **+ New step > Add an action**. Search for *liquid* in the search box. Select **Liquid - Transform JSON to JSON**.
 
-  ![Search-action-liquid] (./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
+  ![Search-action-liquid](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
 * In the **Content** , select **Body** from Dynamic content picker. 
   
@@ -100,12 +102,12 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
    * For your logic app, select **Workflow settings**. 
    * In **Integration Account** drop down, select your integration account name and then choose **Save**.
 
-    ![Link logic app to integration account](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+     ![Link logic app to integration account](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 
 ### Results
-* To test your logic app, post json input to your logic app from [Postman](https://www.getpostman.com/postman) or similar tool. 
-You should see transformed json in the output, like the example below.
+* To test your logic app, post JSON input to your logic app from [Postman](https://www.getpostman.com/postman) or similar tool. 
+You should see the transformed JSON in the output, like the example below.
   
   ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
 
