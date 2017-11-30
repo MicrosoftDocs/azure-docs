@@ -18,7 +18,7 @@ ms.author: chackdan
 
 ---
 # Customize Service Fabric cluster settings and Fabric Upgrade policy
-This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them through the [Azure portal](https://portal.azure.com) or using an Azure Resource Manager template.
+This document describes how to customize various fabric settings and upgrade policy for your Service Fabric cluster. You can customize them through the [Azure portal](https://portal.azure.com) or using an Azure Resource Manager template.
 
 > [!NOTE]
 > Not all settings are available in the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
@@ -769,8 +769,8 @@ PropertyGroup|X509NameMap, default is None|Dynamic| |
 |MaxPrimaryReplicationQueueMemorySize|uint, default is 0|Static|This is the maximum value of the primary replication queue in bytes.|
 |MaxSecondaryReplicationQueueSize|uint, default is 2048|Static|This is the maximum number of operations that could exist in the secondary replication queue. Note that it must be a power of 2.|
 |MaxSecondaryReplicationQueueMemorySize|uint, default is 0|Static|This is the maximum value of the secondary replication queue in bytes.|
-|QueueHealthMonitoringInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(30)|Static|Specify timespan in seconds. This value determines the time period used by the Replicator to monitor any warning/error health events in the replication operation queues. A value of '0' disables health monitoring |
-|QueueHealthWarningAtUsagePercent|uint, default is 80|Static|This value determines the replication queue usage(in percentage) after which we report warning about high queue usage. We do so after a grace interval of QueueHealthMonitoringInterval. If the queue usage falls below this percentage in the grace interval|
+|QueueHealthMonitoringInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(30)|Static|Specify timespan in seconds. This value determines the time period used by the Replicator to monitor any warning/error health events in the replication operation queues. A value of '0' disables health monitoring. |
+|QueueHealthWarningAtUsagePercent|uint, default is 80|Static|This value determines the replication queue usage(in percentage) after which we report warning about high queue usage. We do so after a grace interval of QueueHealthMonitoringInterval. If the queue usage falls below this percentage in the grace interval the warning is not reported.|
 |RetryInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(5)|Static|Specify timespan in seconds. When an operation is lost or rejected this timer determines how often the replicator will retry sending the operation.|
 
 ### Section Name: Transport
