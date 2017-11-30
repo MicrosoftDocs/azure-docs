@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: v-jamebr
-ms.date: 11/15/2017
+ms.date: 11/30/2017
 ms.topic: article
 ms.service: iot-edge
 
@@ -36,24 +36,22 @@ The Azure Function that you create in this tutorial filters the temperature data
 
 * The Azure IoT Edge device that you created in the quickstart or previous tutorial.
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). (You can install the extension from the extensions panel in Visual Studio Code.)
-* [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). (You can install the extension from the extensions panel in Visual Studio Code.)
+* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
+* [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [Docker](https://docs.docker.com/engine/installation/). The Community Edition (CE) for your platform is sufficient for this tutorial. 
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
-## Set up a Docker registry
-In this tutorial, you use the Azure IoT Edge extension for VS Code to create an Azure Function and build a [Docker image](https://docs.docker.com/glossary/?term=image) with it. Then you push this Docker image to a [Docker repository](https://docs.docker.com/glossary/?term=repository) hosted by a [Docker registry](https://docs.docker.com/glossary/?term=registry). Finally, you deploy your Docker image packaged as a [Docker container](https://docs.docker.com/glossary/?term=container) from your registry to your IoT Edge device.  
+## Create a container registry
+In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
 
-You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are **Azure Container Registry** and **Docker Hub**:
+You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
 
-- [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/) is available with a [paid subscription](https://azure.microsoft.com/en-us/pricing/details/container-registry/). For this tutorial, the **Basic** subscription is sufficient. 
-
-- [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) offers one free private repository if you sign up for a (free) Docker ID. 
-    1. To sign up for a Docker ID, follow the instructions in [Register for a Docker ID](https://docs.docker.com/docker-id/#register-for-a-docker-id) on the Docker site. 
-
-    2. To create a private Docker repository, follow the instructions in [Creating a new repository on Docker Hub](https://docs.docker.com/docker-hub/repos/#creating-a-new-repository-on-docker-hub) on the Docker site.
-
-Throughout this tutorial, where appropriate, commands are provided for both Azure Container Registry and Docker Hub.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Azure Container Registry**.
+2. Give your registry a name, choose a subscription, choose a resource group, and set the SKU to **Basic**. 
+3. Select **Create**.
+4. Once your container registry is created, navigate to it and select **Access keys**. 
+5. Toggle **Admin user** to **Enable**.
+6. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial. 
 
 ## Create a function project
 The following steps show you how to create an IoT Edge function using Visual Studio Code and the Azure IoT Edge extension.
