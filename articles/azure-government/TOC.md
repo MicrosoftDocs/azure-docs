@@ -8,11 +8,10 @@
 ## [Log in to the Azure Government portal](documentation-government-get-started-connect-with-portal.md)
 ## [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
 ## [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
-## [Set up Visual Studio for Azure Government](documentation-government-get-started-connect-with-vs.md)
+## [Connect to Azure Government from Visual Studio](documentation-government-get-started-connect-with-vs.md)
 ## [Connect to Azure Government from Visual Studio Team Services](documentation-government-get-started-connect-with-vsts.md)
 ## [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
-## [Create a Virtual Machine](documentation-government-quickstarts-vm.md) 
-## [GPUs](documentation-government-gpu.md)
+
 
 # How To
 ## Plan
@@ -23,10 +22,12 @@
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Subscription](documentation-government-manage-subscriptions.md)
 ## Develop
-### [Deploy an Azure App](documentation-government-howto-deploy-webandmobile.md)
+### [Azure App Services](documentation-government-howto-deploy-webandmobile.md)
 ### [Azure Functions](documentation-government-functions.md)
 ### [Cognitive Services](documentation-government-cognitiveservices.md)
 ### [Integrate Azure AD Authentication](documentation-government-aad-auth-qs.md)
+### [Virtual Machines](documentation-government-quickstarts-vm.md) 
+### [GPUs](documentation-government-gpu.md)
 
 # Reference
 ## [Available services](documentation-government-services.md)
