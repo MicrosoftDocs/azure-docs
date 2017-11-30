@@ -113,7 +113,7 @@ You can quickly size the map to show only the possible points by pressing the **
 
 ## Pattern Frequency 
 
-This inspector shows a list of patterns in the selected String column. The patterns are represented using a regular expression like syntax. Hovering on the pattern shows the examples of values represented by that pattern. Along with the patterns, an approximate coverage in terms of percentage is also shown.
+This inspector shows a list of patterns in the selected String column. The patterns are represented using a regular expression like syntax. Hovering on the pattern shows the examples of values represented by that pattern. Along with the patterns, the approximate coverages in terms of percentage is also shown.
 
 ![Image of the pattern inspector](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
 
