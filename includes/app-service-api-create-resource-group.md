@@ -1,4 +1,4 @@
-Create a resource group with the [az group create](/cli/azure/group#create) command.
+Create a resource group with the [az group create](/cli/azure/group#az_webapp_create) command.
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 
