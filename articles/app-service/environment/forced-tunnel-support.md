@@ -18,9 +18,9 @@ ms.author: ccompy
 
 # Configure your App Service Environment with forced tunneling
 
-The App Service Environment is a deployment of Azure App Service in a customer's instance of Azure Virtual Network. Many customers configure their virtual networks to be extensions of their on-premises networks with VPNs or ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all outbound traffic on-premises before it can go out to the internet. Changing the routing of the virtual network so that the outbound traffic from the virtual network flows through the VPN or ExpressRoute connection to on-premises is called forced tunneling. 
+The App Service Environment is a deployment of Azure App Service in a customer's instance of Azure Virtual Network. Many customers configure their virtual networks to be extensions of their on-premises networks with VPNs or Azure ExpressRoute connections. Due to corporate policies or other security constraints, they configure routes to send all outbound traffic on-premises before it can go out to the internet. Changing the routing of the virtual network so that the outbound traffic from the virtual network flows through the VPN or ExpressRoute connection to on-premises is called forced tunneling. 
 
-Forced tunneling can cause problems for an App Service Environment. The App Service Environment has a number of external dependencies, which are enumerated in this [App Service Environment Network Architecture][network] document. The App Service Environment, by default, requires that all outbound communication goes through the VIP that is provisioned with the App Service Environment.
+Forced tunneling can cause problems for an App Service Environment. The App Service Environment has a number of external dependencies, which are enumerated in the [App Service Environment network architecture][network] document. The App Service Environment, by default, requires that all outbound communication goes through the VIP that is provisioned with the App Service Environment.
 
 Routes are a critical aspect of what forced tunneling is and how to deal with it. In an Azure virtual network, routing is done based on the longest prefix match (LPM). If there is more than one route with the same LPM match, a route is selected based on its origin in the following order:
 
@@ -37,12 +37,12 @@ If you want your App Service Environment to operate in a forced tunnel virtual n
 
 ## Enable your App Service Environment to have direct internet access
 
-For your App Service Environment to work while your virtual network is configured with an ExpressRoute, you can:
+For your App Service Environment to work while your virtual network is configured with an ExpressRoute connection, you can:
 
 * Configure ExpressRoute to advertise 0.0.0.0/0. By default, it force tunnels all outbound traffic on-premises.
 * Create a UDR. Apply it to the subnet that contains the App Service Environment with an address prefix of 0.0.0.0/0 and a next hop type of Internet.
 
-If you make these two changes, internet-destined traffic that originates from the App Service Environment subnet isn't forced down the ExpressRoute, and the App Service Environment works.
+If you make these two changes, internet-destined traffic that originates from the App Service Environment subnet isn't forced down the ExpressRoute connection, and the App Service Environment works.
 
 > [!IMPORTANT]
 > The routes defined in a UDR must be specific enough to take precedence over any routes advertised by the ExpressRoute configuration. The preceding example uses the broad 0.0.0.0/0 address range. It can potentially be accidentally overridden by route advertisements that use more specific address ranges.
@@ -53,7 +53,7 @@ If you make these two changes, internet-destined traffic that originates from th
 
 This section describes how to enable an App Service Environment to operate in a forced tunnel configuration by changing the egress endpoint used by the App Service Environment. If the outbound traffic from the App Service Environment is force tunneled to an on-premises network, you need to allow that traffic to source from IP addresses other than the App Service Environment VIP address.
 
-An App Service Environment not only has external dependencies, but it also must listen for inbound traffic to manage the App Service Environment. The App Service Environment must be able to respond to such traffic. The replies can't be sent back from another address because that breaks TCP. There are thus three steps required to change the egress endpoint for the App Service Environment.
+An App Service Environment not only has external dependencies, but also must listen for inbound traffic and respond to such traffic. The replies can't be sent back from another address because that breaks TCP. There are three steps required to change the egress endpoint for the App Service Environment:
 
 1. Set a route table to ensure that inbound management traffic can go back out from the same IP address.
 
@@ -66,15 +66,11 @@ An App Service Environment not only has external dependencies, but it also must 
 You can configure the App Service Environment with different egress addresses after the App Service Environment is already up and operational, or they can be set during App Service Environment deployment.
 
 ### Change the egress address after the App Service Environment is operational ###
-1. Get the IP addresses you want to use as egress IPs for your App Service Environment. If you're doing forced tunneling, these addresses come from your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA.
+1. Get the IP addresses that you want to use as egress IPs for your App Service Environment. If you're doing forced tunneling, these addresses come from your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA.
 
-2. Set the egress addresses in your App Service Environment configuration information. Go to resource.azure.com, and go to Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Then you can see the JSON that describes your App Service Environment. Make sure it says "read/write" at the top. Select **Edit**. Scroll down to the bottom, and change **userWhitelistedIpRanges** from: 
+2. Set the egress addresses in your App Service Environment configuration information. Go to resource.azure.com, and go to Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Then you can see the JSON that describes your App Service Environment. Make sure it says **read/write** at the top. Select **Edit**. Scroll down to the bottom, and change the **userWhitelistedIpRanges** value from **null** to something like the following. Use the addresses you want to set as the egress address range. 
 
-       "userWhitelistedIpRanges": null 
-      
-   to something like the following. Use the addresses you want to set as the egress address range. 
-
-       "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
+        "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
    Select **PUT** at the top. This option triggers a scale operation on your App Service Environment and adjusts the firewall.
  
@@ -96,11 +92,11 @@ If your virtual network is already configured to force tunnel all the traffic, y
 
 4. Follow the directions in [Create an App Service Environment with a template][template]. Pull down the appropriate template.
 
-5. Edit the azuredeploy.json file "resources" section. Include a line for **userWhitelistedIpRanges** with your values like:
+5. Edit the "resources" section in the azuredeploy.json file. Include a line for **userWhitelistedIpRanges** with your values like this:
 
        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
 
-If this section is configured properly, the App Service Environment should start with no issues. 
+If this section is configured properly, the App Service Environment should start with no problems. 
 
 
 <!--IMAGES-->
