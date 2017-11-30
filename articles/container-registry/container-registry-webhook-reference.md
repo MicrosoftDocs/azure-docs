@@ -26,33 +26,33 @@ Webhook triggered when a container image is pushed to a repository.
 
 ### Push event payload
 
-|Element name|Type|Description|
+|Element|Type|Description|
 |-------------|----------|-----------|
-|id|String|The ID of the webhook event.|
-|timestamp|DateTime|The time at which the webhook event was triggered.|
-|action|String|The action that triggered the webhook event.|
+|`id`|String|The ID of the webhook event.|
+|`timestamp`|DateTime|The time at which the webhook event was triggered.|
+|`action`|String|The action that triggered the webhook event.|
 |[target](#target)|Complex Type|The target of the event that triggered the webhook event.|
 |[request](#request)|Complex Type|The request that generated the webhook event.|
 
 ### target
 
-|Element name|Type|Description|
+|Element|Type|Description|
 |------------------|----------|-----------|
-|mediaType|String|The MIME type of the referenced object.|
-|size|Int32|The number of bytes of the content. Same as Length field.|
-|digest|String|The digest of the content, as defined by the Registry V2 HTTP API Specificiation.|
-|length|Int32|The number of bytes of the content. Same as Size field.|
-|repository|String|The repository name.|
-|tag|String|The image tag name.|
+|`mediaType`|String|The MIME type of the referenced object.|
+|`size`|Int32|The number of bytes of the content. Same as Length field.|
+|`digest`|String|The digest of the content, as defined by the Registry V2 HTTP API Specification.|
+|`length`|Int32|The number of bytes of the content. Same as Size field.|
+|`repository`|String|The repository name.|
+|`tag`|String|The image tag name.|
 
 ### request
 
-|Element name|Type|Description|
+|Element|Type|Description|
 |------------------|----------|-----------|
-|id|String|The ID of the request that initiated the event.|
-|host|String|The externally accessible hostname of the registry instance, as specified by the HTTP host header on incoming requests.|
-|method|String|The request method that generated the event.|
-|useragent|String|The user agent header of the request.|
+|`id`|String|The ID of the request that initiated the event.|
+|`host`|String|The externally accessible hostname of the registry instance, as specified by the HTTP host header on incoming requests.|
+|`method`|String|The request method that generated the event.|
+|`useragent`|String|The user agent header of the request.|
 
 ### Payload example: push event
 
@@ -90,30 +90,30 @@ Webhook triggered when a repository or manifest is deleted from the registry. No
 
 ### Delete event payload
 
-|Element name|Type|Description|
+|Element|Type|Description|
 |-------------|----------|-----------|
-|id|String|The ID of the webhook event.|
-|timestamp|DateTime|The time at which the webhook event was triggered.|
-|action|String|The action that triggered the webhook event.|
+|`id|String`|The ID of the webhook event.|
+|`timestamp`|DateTime|The time at which the webhook event was triggered.|
+|`action`|String|The action that triggered the webhook event.|
 |[target](#delete_target)|Complex Type|The target of the event that triggered the webhook event.|
 |[request](#delete_request)|Complex Type|The request that generated the webhook event.|
 
 ### <a name="delete_target"></a> target
 
-|Element name|Type|Description|
+|Element|Type|Description|
 |------------------|----------|-----------|
-|mediaType|String|The MIME type of the referenced object.|
-|digest|String|The digest of the content, as defined by the Registry V2 HTTP API Specificiation.|
-|repository|String|The repository name.|
+|`mediaType`|String|The MIME type of the referenced object.|
+|`digest`|String|The digest of the content, as defined by the Registry V2 HTTP API Specification.|
+|`repository`|String|The repository name.|
 
 ### <a name="delete_request"></a> request
 
-|Element name|Type|Description|
+|Element|Type|Description|
 |------------------|----------|-----------|
-|id|String|The ID of the request that initiated the event.|
-|host|String|The externally accessible hostname of the registry instance, as specified by the HTTP host header on incoming requests.|
-|method|String|The request method that generated the event.|
-|useragent|String|The user agent header of the request.|
+|`id`|String|The ID of the request that initiated the event.|
+|`host`|String|The externally accessible hostname of the registry instance, as specified by the HTTP host header on incoming requests.|
+|`method`|String|The request method that generated the event.|
+|`useragent`|String|The user agent header of the request.|
 
 ### Payload example: delete event
 
