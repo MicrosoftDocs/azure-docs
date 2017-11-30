@@ -88,21 +88,21 @@ The city "Paris" can be either a ToLocation or a FromLocation when booking a pla
 
 1. Select "Paris" in the same utterance, then create entity "Location". "Location" is a hierarchical entity containing "ToLocation" and "FromLocation" simple entity types.
 
-![Create Hierarchical Entity Labeling](./media/add-example-utterances/create-location-hierarchical-entity.png)
+    ![Create Hierarchical Entity Labeling](./media/add-example-utterances/create-location-hierarchical-entity.png)
 
-The text "Paris" is now labeled as a top-level hierarchical entity. 
+    The text "Paris" is now labeled as a top-level hierarchical entity. 
 
 2. Once the hierarchical entity is created, click "Paris" and change the entity from "Location" to "LocationTo" entity.
 
-![Create Hierarchical Entity Labeling](./media/add-example-utterances/label-tolocation.png)
+    ![Create Hierarchical Entity Labeling](./media/add-example-utterances/label-tolocation.png)
 
-To learn more about hierarchical entities and how to add them, see [Add entities](Add-entities.md).
+    To learn more about hierarchical entities and how to add them, see [Add entities](Add-entities.md).
 
 ## Add list entity and label
 
 1. Select "business," then create entity "Seat". "Seat" is a list entity containing exact-match words "First", "Business" and "Economy" as list items. 
 
-![List Entity Labeling](./media/add-example-utterances/list-seat-type-entity.png)
+    ![List Entity Labeling](./media/add-example-utterances/list-seat-type-entity.png)
 
 2. Click **Done**.
 
