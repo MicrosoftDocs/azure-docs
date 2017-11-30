@@ -61,9 +61,9 @@ You can do this by **running the following Powershell command:**
    New-AzureRmCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
    ```
 
-After you run the command, you should see something like this: 
+   After you run the command, you should see something like this: 
 
-![cog1](./media/documentation-government-cognitiveservices-img1.png)
+   ![cog1](./media/documentation-government-cognitiveservices-img1.png)
 
 3. Copy and save the "Endpoint" attribute somewhere as you will need it when making calls to the API. 
 
