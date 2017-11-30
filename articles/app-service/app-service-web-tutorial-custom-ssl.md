@@ -135,7 +135,7 @@ Export your merged SSL certificate with the private key that your certificate re
 
 If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_ with the paths to your private key and your merged certificate file.
 
-```
+```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
@@ -147,13 +147,13 @@ If you used IIS or _Certreq.exe_ to generate your certificate request, install t
 
 To upload your SSL certificate, click **SSL certificates** in the left navigation of your web app.
 
-Click **Upload Certificate**.
+Click **Upload Certificate**. 
 
 In **PFX Certificate File**, select your PFX file. In **Certificate password**, type the password that you created when you exported the PFX file.
 
 Click **Upload**.
 
-![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 When App Service finishes uploading your certificate, it appears in the **SSL certificates** page.
 
@@ -308,6 +308,10 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## Public Certificates (Optional)
+You can upload [Public Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) to your web app. You can use Public Certificates with Web Apps on App Service or App Service Environment (ASE). If you need to store the certificate in the LocalMachine certificate store, you need to use a web app on App Service Enviroment. For more details, see [How to configure Public Certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+
+![Upload Public Certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## Next steps
 

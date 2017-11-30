@@ -134,6 +134,8 @@
     items:
     - name: Archive
       href: monitoring-archive-diagnostic-logs.md
+    - name: Send to Log Analytics
+      href: monitor-stream-diagnostic-logs-log-analytics.md
     - name: Stream to Event Hubs
       href: monitoring-stream-diagnostic-logs-to-event-hubs.md
     - name: Enable diagnostic settings using Resource Manager templates
@@ -150,10 +152,10 @@
       href: azure-diagnostics-streaming-event-hubs.md
     - name: Troubleshooting
       href: azure-diagnostics-troubleshooting.md
-  - name: Use Azure Monitor Metrics Explorer
-    items:
-    - name: Create Metrics Charts 
-      href: monitoring-metric-charts.md
+  - name: Create Metrics Charts in Metrics Explorer
+    href: monitoring-metric-charts.md
+  - name: Send metrics to Grafana
+    href: monitor-send-to-grafana.md
 - name: Reference
   items:
   - name: Azure CLI

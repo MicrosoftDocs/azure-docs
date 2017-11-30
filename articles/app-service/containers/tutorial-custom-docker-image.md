@@ -44,7 +44,7 @@ cd docker-django-webapp-linux
 
 ## Build the image from the Docker file
 
-In the Git repository, take a look at _Dockerfile_. This file describes the Python environment that is required to run our application. Additionally, the image sets up an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host.
+In the Git repository, take a look at _Dockerfile_. This file describes the Python environment that is required to run your application. Additionally, the image sets up an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host.
 
 ```docker
 FROM python:3.4
@@ -275,7 +275,7 @@ SSH enables secure communication between a container and a client. In order for 
     > [!NOTE]
     > This configuration does not allow external connections to the container. SSH is available only through the Kudu/SCM Site. The Kudu/SCM site is authenticated with the publishing credentials.
 
-* A [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction that instructs the Docker engine to copy the [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on [this sshd_config file](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+* A [COPY](https://docs.docker.com/engine/reference/builder/#copy) instruction that instructs the Docker engine to copy the [sshd_config](http://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on [this sshd_config file](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -325,7 +325,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Congratulations! You've configured a custom Docker image for an Web App for Containers.
+Congratulations! You've configured a custom Docker image for a Web App for Containers.
 
 ## Use a private image from Docker Hub (optional)
 
@@ -489,7 +489,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-In the Cloud Shell, run the [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) command to assign the custom Docker image to the web app. Replace *\<app_name>*, *\<docker-registry-server-url>*, _<registry-username>_, and _<password>_. For Azure Container Registry, *\<docker-registry-server-url>* is in the format `https://<azure-container-registry-name>.azurecr.io`. 
+In the Cloud Shell, run the [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) command to assign the custom Docker image to the web app. Replace *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_, and _\<password>_. For Azure Container Registry, *\<docker-registry-server-url>* is in the format `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -530,4 +530,5 @@ The command reveals output similar to the following JSON string, showing that th
 
 ## Next steps
 
-[Azure App Service on Linux FAQ](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [Build a Docker Python and PostgreSQL web app in Azure](tutorial-docker-python-postgresql-app.md)

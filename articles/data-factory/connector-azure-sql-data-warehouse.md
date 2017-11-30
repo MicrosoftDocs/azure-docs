@@ -26,7 +26,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Azure SQL Data Warehouse connector in V1](v1/data-factory-azure-sql-data-warehouse-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from/to Azure SQL Data Warehouse to any supported sink data store, or copy data from any supported source data store to Azure SQL Data Warehouse. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -220,7 +220,7 @@ To copy data to Azure SQL Data Warehouse, set the sink type in the copy activity
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **SqlDWSink** | Yes |
+| type | The type property of the copy activity sink must be set to: **SqlDWSink** | Yes |
 | allowPolyBase |Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism. <br/><br/> **Using PolyBase is the recommended way to load data into SQL Data Warehouse.** See [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) section for constraints and details.<br/><br/>Allowed values are: **True** (default), and **False**.  |No |
 | polyBaseSettings |A group of properties that can be specified when the **allowPolybase** property is set to **true**. |No |
 | rejectValue |Specifies the number or percentage of rows that can be rejected before the query fails.<br/><br/>Learn more about the PolyBase’s reject options in the **Arguments** section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) topic. <br/><br/>Allowed values are: 0 (default), 1, 2, … |No |

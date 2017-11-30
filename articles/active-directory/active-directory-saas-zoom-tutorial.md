@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.zoom.us`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.zoom.us`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `<companyname>.zoom.us`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Zoom Client support team](https://support.zoom.us/hc) to get these values. 
@@ -137,13 +137,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     ![Single sign-on section](./media/active-directory-saas-zoom-tutorial/IC784701.png "Single sign-on")
    
-    a. In the **Sign-in page URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+    a. In the **Sign-in page URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
    
-    b. In the **Sign-out page URL** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
+    b. In the **Sign-out page URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
      
     c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity provider certificate** textbox.
 
-    d. In the **Issuer** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal. 
+    d. In the **Issuer** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal. 
 
     e. Click **Save**.
 
@@ -250,8 +250,6 @@ When you click the Zoom tile in the Access Panel, you should get automatically s
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

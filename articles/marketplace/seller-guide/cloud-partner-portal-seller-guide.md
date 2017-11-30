@@ -1,9 +1,9 @@
 ---
 title: Azure Marketplace seller guide | Microsoft Docs
-description: This guide is for business users and product managers at independent software vendors (ISVs) who are interested in selling their Azure Certified virtual machine images to IT professionals and developers. 
+description: This guide is for business users and product managers at independent software vendors (ISVs) who are interested in selling their Azure Certified virtual machine images and managed applications to IT professionals and developers. 
 documentationcenter: ''
-author: rupeshazure
-manager: hamidm
+author: divacc
+manager: prkumar
 
 
 ms.service: marketplace
@@ -11,19 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: rupesk@microsoft.com
-ms.robots: NOINDEX, NOFOLLOW
+ms.date: 11/03/2017
+ms.author: divacc@microsoft.com
 
 
 ---
 # Azure Marketplace seller guide
 
-Welcome to the Azure Marketplace seller guide. This guide is designed for business users and product managers at independent software vendors (ISVs) who are interested in selling their Azure Certified virtual machine images to IT professionals and developers. With Azure customers located around the world, the [Marketplace](https://azuremarketplace.microsoft.com/) can provide great reach and exposure for your products.
-
+Welcome to the Azure Marketplace seller guide. This guide is designed for business users and product managers at independent software vendors (ISVs) who are interested in selling their Azure Certified virtual machine images and managed applications to IT professionals and developers. With Azure customers located around the world, [Azure Marketplace](https://azuremarketplace.microsoft.com/) can provide great reach and exposure for your products.
 
 > [!NOTE]
-> If you're interested in selling your finished software as a service (SaaS) products to business users, you can investigate options to list them in [AppSource](https://appsource.microsoft.com).
+> If you're interested in selling your [managed application](https://docs.microsoft.com/en-us/azure/managed-applications/overview), you should follow the instructions to list them in Azure Marketplace [here](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+
+> [!NOTE]
+> If you're interested in selling your finished software as a service (SaaS) products to _IT Pros and developers_, you can reach out to saas-on-amp@microsoft.com to learn more about your options.
+
+> [!NOTE]
+> If you're interested in selling your finished software as a service (SaaS) products to _business users_, you can investigate options to list them in [AppSource](https://appsource.microsoft.com).
+
 
 By the end of this guide, you'll know where to find more detailed information on these topics:
 
@@ -42,9 +47,9 @@ Let's get started.
 
 ## What's the Azure Marketplace?
 
-The Azure Marketplace is an online applications and services marketplace on which ISVs--from startups to enterprises--offer their solutions to Azure customers around the world. Through the Marketplace, Azure publishers can distribute and sell their virtual machine images to other professionals who want to quickly develop their cloud-based applications and mobile solutions in Azure. The Marketplace supports a range of offerings--from end-to-end data analytics applications with data processing, data storage, and analysis layers, to tiered e-commerce apps (data, service, and Internet).
+The Azure Marketplace is an online applications and services marketplace on which ISVs--from startups to enterprises--offer their solutions to Azure customers around the world. Through the Marketplace, Azure publishers can distribute and sell their virtual machine images, managed applications and SaaS applications to other professionals who want to quickly develop their cloud-based applications and mobile solutions in Azure. Azure Marketplace supports a range of offerings--from end-to-end data analytics applications with data processing, data storage, and analysis layers, to tiered e-commerce apps (data, service, and Internet).
 
-Cloud customers face several challenges when searching for solutions to fit their unique needs. The Marketplace provides a way to solve these challenges and connect customers with innovative ISV solutions, as explained in the following table:
+Cloud customers face several challenges when searching for solutions to fit their unique needs. Azure Marketplace provides a way to solve these challenges and connect customers with innovative ISV solutions, as explained in the following table:
 
 | Customer need | Azure Marketplace solution |
 | --- | --- |
@@ -53,14 +58,14 @@ Cloud customers face several challenges when searching for solutions to fit thei
 | Needs a scalable deployment mechanism for third-party applications and services | Enables the creation and configuration of scalable deployments for third-party applications and services |
 | Requires new applications and services to integrate and work with existing solutions | Easily integrates third-party applications and services with existing solutions on Azure |
 
-The Marketplace brings the quality, choice, and strength of the Azure partner ecosystem to global customers. Key benefits include:
+Azure Marketplace brings the quality, choice, and strength of the Azure partner ecosystem to global customers. Key benefits include:
 
 - Unified location for Azure-based offerings from Microsoft and partners.
 - More than 5,000 offers.
 - Integrated platform experience.
 - Streamlined configuration, deployment, and management.
 
-## Is the Marketplace right for my business?
+## Is Azure Marketplace right for my business?
 
 By now you might be wondering if the Azure Marketplace is the right fit for your business. And if it is, what will you get out of it? The Marketplace creates new sales opportunities for you:
 
@@ -73,23 +78,32 @@ By now you might be wondering if the Azure Marketplace is the right fit for your
 
 Marketplace customers are diverse. Also, Azure has one of the fastest-growing customer bases of all cloud providers. You gain access to IT professionals and developers working for companies ranging from start-ups to enterprises, across industries, and in both the public and private sectors.
 
-## How does the Marketplace work?
+## How does Marketplace work?
 
-It&#39;s pretty easy. After you&#39;re approved, you create your Azure Certified virtual machine image and publish it to the Marketplace. There, Azure customers can find, buy, and deploy your product in minutes. Even better, customers deploy your solution with confidence. They know that the environment is configured for success on Azure and that the infrastructure is ready to go within a few minutes.
+It&#39;s pretty easy. After you&#39;re approved, you create your Azure Certified virtual machine image or managed application and publish it to the Marketplace. There, Azure customers can find, buy, and deploy your product in minutes. Even better, customers deploy your solution with confidence. They know that the environment is configured for success on Azure and that the infrastructure is ready to go within a few minutes.
 
-The Cloud Partner Portal is the hub for creating your offer on the Marketplace. Virtual machine images are preconfigured with a fully installed operating system and one or more applications. To certify your image so that it&#39;s ready for publication, you have to meet certain prerequisites. We discuss these in the next section.
+The Cloud Partner Portal is the hub for creating your offer on the Marketplace. To certify your offer so that it&#39;s ready for publication, you have to meet certain prerequisites. We discuss these in the next section.
 
 
 ## What's next?
 
-You might be thinking that the Azure Marketplace really is the right fit for your product. So how do you get started? This section is all about getting up and running on the Marketplace (Figure 1) by: 
+You might be thinking that the Azure Marketplace really is the right fit for your product. So how do you get started? This section is focused on getting up and running on the Marketplace (Figure 1) for virtual machine images by: 
 * Becoming Azure Certified.
 * Getting approved to sell your product.
-* Creating your offer in the Cloud Partner Portal. 
+* Creating and publishing your offer via the Cloud Partner Portal. 
 
 ![Process for selling on the Azure Marketplace](./media/cloud-partner-portal-seller-guide/processforselling.png)
 
 Figure 1: Process for selling on the Azure Marketplace
+
+Depending on the workload (virtual machine or managed application) you plan to publish, you will follow a different process to publish your offer. The following content is focused on publishing _virtual machine offers_.
+
+> [!NOTE]
+> If you're interested in selling your [managed application](https://docs.microsoft.com/en-us/azure/managed-applications/overview), you should follow the instructions to list them in Azure Marketplace [here](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+
+> [!NOTE]
+> If you're interested in selling your finished software as a service (SaaS) products to _IT Pros and developers_, you can reach out to saas-on-amp@microsoft.com to learn more about your options.
+
 
 First you meet a set of technical and nontechnical prerequisites and prepare your virtual machine image. Then you nominate your product and register as a seller. Finally, you add marketing content and submit for publishing. You can review your offer in a preview/staging environment prior to making it live on the Marketplace.
 
@@ -102,6 +116,7 @@ The first step in creating your offer for the Azure Marketplace is to become Azu
 ![Requirements for becoming Azure Certified](./media/cloud-partner-portal-seller-guide/azurecertified.png)
 
 Figure 2: Requirements for becoming Azure Certified
+
 
 ### Technical prerequisites
 
@@ -146,13 +161,15 @@ Earning _Azure Certified_ status represents the successful completion of the onb
 
 ## How do I nominate my product and get approved?
 
-Now it's time to get approval to sell your product on the Marketplace (Figure 3). Microsoft makes it easy to nominate your product, complete the publishing process, and register as a seller.
+Now it's time to get approval to sell your product on the Marketplace (Figure 3). 
+
+Microsoft makes it easy to nominate your product, complete the publishing process, and register as a seller. Depending on the workload (virtual machine or managed application) you plan to publish, you will follow a different nomination process.
 
 ![getting approved to sell on the Azure Marketplace](./media/cloud-partner-portal-seller-guide/gettingapprovedsteps.png)
 
 Figure 3: Steps for getting approved to sell on the Azure Marketplace
 
-The first step toward approval is to [nominate](https://createopportunity.azurewebsites.net/) your product prior to registration and publication. Approval can take _up to three business days_.
+If you want to publish a _virtual machine offer_, you will nominate your product [here](https://createopportunity.azurewebsites.net/). Approval can take _up to three business days_.
 
 Upon approval, you receive the following:
 
@@ -171,17 +188,19 @@ You are now ready to certify your virtual machine image and publish your offer. 
 
 ## What about best practices?
 
-Here are some tools and best practices that can help you get the most out of being a seller on the Marketplace.
+Here are some best practices that can help you get the most out of being a seller on the Marketplace.
 
 ### Azure test drives
 
 [Azure test drives](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/test-drives?page=1) are a great way to showcase your product to potential customers and give them the option to try before they buy. Test drives can help increase conversion and generate leads.
 
-After providing their contact information, customers can access your prebuilt test drive. They experience a hands-on, self-guided trial of your product&#39;s key features and benefits in a real-world scenario.
+After providing their contact information, customers can access your prebuilt test drive. They experience a hands-on, self-guided trial of your product&#39;s key features and benefits in a real-world scenario. Even better? You can get up to 36% more leads by publishing a test drive associated with your offer.
 
-Currently, publishing a test drive for your product is available only on the classic publishing portal. Learn more by going to documentation on [how to publish a new test drive](https://github.com/Azure/AzureTestDrive/wiki).
+We provide you with all the guidance you need to publish a test drive in the Cloud Partner Portal during the onboarding process. Learn more about [Azure test drives](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
 
-Learn more about [Azure test drives](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
+###Lead generation
+
+One of the key value props of listing your product on Azure Marketplace is that we will send you highly qualified leads for customers that are interested in or have deployed your product. What's even better is we send these leads directly to your CRM, so that you can take action and follow up quickly, creating more opportunities and closing more deals. The integration for lead generation takes a couple of minutes and is done during the publishing process in the Cloud Partner Portal.
 
 ### Go-to-market checklist
 
@@ -197,21 +216,20 @@ Before your launch, we recommend taking a few steps to get rapid traction on you
 
 ## What about reports?
 
-The Marketplace offers reports on your orders, usage, and customers that are accessible via the Marketplace [Publisher Reporting portal](https://reports.azure.com). In addition to helpful insights and analytics, raw data is provided in a navigable table and can be downloaded as a CSV or XLS file.
+The Marketplace offers reports on your orders, usage, and customers that are accessible via the Cloud Partner Portal Insights section. In addition to helpful insights and analytics, raw data is provided in a navigable table and can be downloaded as a CSV or XLS file.
 
-[This video](https://player.vimeo.com/video/200859918) gives you a sneak peek of report features and benefits, including:
+Some of the Insights features and benefits include:
 
-- Types of reports: summary snapshot of orders, usage, and customer trends on the home page.
+- Types of reports: summary snapshot of orders, usage, deployements and customer trends on the Insights home page.
 - Detailed orders, usage, and customer data.
 - Orders and usage shown as a monthly summary or as a six-month trend view.
-- Several insights shown as a standard.
 - Usage/orders by:
   - Market
   - Channel
   - Trending offers
   - Marketplace license type
 
-Detailed reports show customer information, like company name and geographic location down to the postal code, so you can compare your customers. The following list includes the specific attributes we provide about your customers:
+Detailed reports show customer information, like company name and geographic location down to the postal code, so you can compare your customers and compensate your sellers. The following list includes the specific attributes we provide about your customers:
 
 - Reseller
 - FirstName
@@ -220,7 +238,7 @@ Detailed reports show customer information, like company name and geographic loc
 - CompanyName
 - TransactionDate
 - SubscriptionName
-- AzureSubscriptionId
+- AzureSubscriptionId (PAYG customers only)
 - CloudInstanceName
 - OrderCount
 - CustomerCountryRegion
@@ -228,7 +246,7 @@ Detailed reports show customer information, like company name and geographic loc
 - CustomerCommunicationCulture
 - CustomerZipCode
 
-We also offer training through Help documentation, a glossary, and a recorded demo. If you need help or support with your reports, you can open a [support ticket](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=15635&ccsid=636233723471685249).
+We also offer training through Help documentation, a glossary, and a recorded demo. If you need help or support with your reports, you can open a support ticket via Cloud Partner Portal at any time.
 
 We welcome you to our community of ISV sellers and look forward to seeing your offer.
 

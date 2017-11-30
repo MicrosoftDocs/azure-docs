@@ -3,9 +3,9 @@ title: How to use App Passwords in Azure MFA? | Microsoft Docs
 description: This page will help users understand what app passwords are and what they are used for with regard to Azure MFA.
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: barlanmsft
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.service: multi-factor-authentication
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 experiment_id: 429acb56-5fd8-49
 ---

@@ -13,7 +13,7 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.date: 09/20/2017
 ms.author: sstein
 

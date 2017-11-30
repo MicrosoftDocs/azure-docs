@@ -5,15 +5,11 @@ services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: ''
-
-ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 07/21/2017
+ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -102,7 +98,7 @@ composer install
 
 In the repository root, create a file named *.env*. Copy the following variables into the *.env* file. Replace the _&lt;root_password>_ placeholder with the MySQL root user's password.
 
-```
+```txt
 APP_ENV=local
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -154,7 +150,7 @@ In this step, you create a MySQL database in [Azure Database for MySQL (Preview)
 
 ### Create a MySQL server
 
-Create a server in Azure Database for MySQL (Preview) with the [az mysql server create](/cli/azure/mysql/server#create) command.
+Create a server in Azure Database for MySQL (Preview) with the [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) command.
 
 In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique.
 
@@ -179,7 +175,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 
 ### Configure server firewall
 
-Create a firewall rule for your MySQL server to allow client connections by using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create) command.
+Create a firewall rule for your MySQL server to allow client connections by using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) command.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -232,7 +228,7 @@ In this step, you connect the PHP application to the MySQL database you created 
 
 In the repository root, create an _.env.production_ file and copy the following variables into it. Replace the placeholder _&lt;mysql_server_name>_.
 
-```
+```txt
 APP_ENV=production
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -326,11 +322,11 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 ### Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
 ### Configure database settings
 
-In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command.
+In App Service, you set environment variables as _app settings_ by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
 
 The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_ and _&lt;mysql_server_name>_.
 
@@ -362,7 +358,7 @@ Use `php artisan` to generate a new application key without saving it to _.env_.
 php artisan key:generate --show
 ```
 
-Set the application key in the App Service web app by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set) command. Replace the placeholders _&lt;appname>_ and _&lt;outputofphpartisankey:generate>_.
+Set the application key in the App Service web app by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command. Replace the placeholders _&lt;appname>_ and _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -374,7 +370,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Set the virtual application path for the web app. This step is required because the [Laravel application lifecycle](https://laravel.com/docs/5.4/lifecycle) begins in the _public_ directory instead of the application's root directory. Other PHP frameworks whose lifecycle start in the root directory can work without manual configuration of the virtual application path.
 
-Set the virtual application path by using the [az resource update](/cli/azure/resource#update) command. Replace the _&lt;appname>_ placeholder.
+Set the virtual application path by using the [az resource update](/cli/azure/resource#az_resource_update) command. Replace the _&lt;appname>_ placeholder.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01

@@ -20,6 +20,7 @@
 ## [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)
 ## [Get client libraries](analysis-services-data-providers.md)
 ## [Backup and restore](analysis-services-backup.md)
+## [Configure scale-out](analysis-services-scale-out.md)
 ## [Connect with Excel](analysis-services-connect-excel.md)
 ## [Connect with Power BI](analysis-services-connect-pbi.md)
 ## [Create an .odc file](analysis-services-odc.md)

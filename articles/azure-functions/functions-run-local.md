@@ -23,6 +23,9 @@ While the [Azure portal] provides a full set of tools for developing and testing
 
 If you are a Visual Studio C# developer, Azure Functions also [integrates with Visual Studio 2017](functions-develop-vs.md).
 
+>[!IMPORTANT]  
+> Do not mix local development with portal development in the same function app. When you create and publish functions from a local project, you should not try to maintain or modify project code in the portal.
+
 ## Install the Azure Functions Core Tools
 
 [Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local development computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are two versions of Azure Functions Core Tools, one for version 1.x of the runtime and one for version 2.x. Both versions are provided as an [npm package](https://docs.npmjs.com/getting-started/what-is-npm).
@@ -80,7 +83,7 @@ func init MyFunctionProj
 
 ## Create a local Functions project
 
-When running locally, a Functions project is a directory that has the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings). This directory is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+When running locally, a Functions project is a directory that has the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file). This directory is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
@@ -99,8 +102,6 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 To create the project without a local Git repository, use the `--no-source-control [-n]` option.
-
-<a name="local-settings"></a>
 
 ## Local settings file
 

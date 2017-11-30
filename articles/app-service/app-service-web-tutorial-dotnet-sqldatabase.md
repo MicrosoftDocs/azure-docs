@@ -375,7 +375,7 @@ In the **Application Logging (File System)** dropdown, select **Verbose**. Click
 
 In your browser navigate to your web app again at *http://&lt;your app name>.azurewebsites.net*, then try clicking around the to-do list application in Azure. The trace messages are now streamed to the **Output** window in Visual Studio.
 
-```
+```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
 Application: 2017-04-06T23:30:43  PID[8132] Verbose     GET /Todos/Create
 Application: 2017-04-06T23:30:53  PID[8132] Verbose     POST /Todos/Create
