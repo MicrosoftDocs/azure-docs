@@ -70,7 +70,8 @@ You can verify the utterance was aligned with the correct intent by going to the
 ## Delete utterance
 Each utterance can be deleted from the review list. Once deleted, it will not appear in the list again. This is true even if the user enters the same utterance from the endpoint. 
 
-![TIP] If you are unsure if you should delete the utterance, either move it to the None intent, or create a new intent such as "miscellaneous" and move the utterance to that intent. 
+> ![TIP] 
+> If you are unsure if you should delete the utterance, either move it to the None intent, or create a new intent such as "miscellaneous" and move the utterance to that intent. 
 
 ## Delete several utterances
 To delete several utterances, select each item and click on the trash bin to the right of the **Add selected** button.
