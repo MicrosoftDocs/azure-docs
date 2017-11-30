@@ -23,7 +23,6 @@ ms.author: juliako
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
-> 
 
 ## Overview
 > [!NOTE]
@@ -32,13 +31,13 @@ ms.author: juliako
 > 
 > 
 
-Microsoft Azure Media Services enables you to deliver Http-Live-Streaming (HLS) and Smooth Streams encrypted with Advanced Encryption Standard (AES) (using 128-bit encryption keys). Media Services also provides the Key Delivery service that delivers encryption keys to authorized users. If you want for Media Services to encrypt an asset, you need to associate an encryption key with the asset and also configure authorization policies for the key. When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+Microsoft Azure Media Services enables you to deliver Http-Live-Streaming (HLS) and Smooth Streams encrypted with Advanced Encryption Standard (AES) (using 128-bit encryption keys). Media Services also provides the Key Delivery service that delivers encryption keys to authorized users. If you want for Media Services to encrypt an asset, you need to associate an encryption key with the asset and also configure authorization policies for the key. When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES encryption. To decrypt the stream, the player requests the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
 Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy could have one or more authorization restrictions: open or token restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the [Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) format and [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) format. For more information, see [Configure the content key’s authorization policy](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
-To take advantage of dynamic encryption, you need to have an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. You also need to configure the delivery policy for the asset (described later in this topic). Then, based on the format specified in the streaming URL, the On-Demand Streaming server will ensure that the stream is delivered in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
+To take advantage of dynamic encryption, you need to have an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. You also need to configure the delivery policy for the asset (described later in this article). Then, based on the format specified in the streaming URL, the On-Demand Streaming server ensures that the stream is delivered in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service builds and serves the appropriate response based on requests from a client.
 
-This topic would be useful to developers that work on applications that deliver protected media. The topic shows you how to configure the key delivery service with authorization policies so that only authorized clients could receive the encryption keys. It also shows how to use dynamic encryption.
+This article would be useful to developers that work on applications that deliver protected media. The article shows you how to configure the key delivery service with authorization policies so that only authorized clients could receive the encryption keys. It also shows how to use dynamic encryption.
 
 
 ## AES-128 Dynamic Encryption and Key Delivery Service Workflow
@@ -51,19 +50,19 @@ The following are general steps that you would need to perform when encrypting y
 4. [Configure the content key’s authorization policy](media-services-protect-with-aes128.md#configure_key_auth_policy). The content key authorization policy must be configured by you and met by the client in order for the content key to be delivered to the client.
 5. [Configure the delivery policy for an asset](media-services-protect-with-aes128.md#configure_asset_delivery_policy). The delivery policy configuration includes: key acquisition URL and Initialization Vector (IV) (AES 128 requires the same IV to be supplied when encrypting and decrypting), delivery protocol (for example, MPEG DASH, HLS, Smooth Streaming or all), the type of dynamic encryption (for example, envelope or no dynamic encryption).
 
-	You could apply different policy to each protocol on the same asset. For example, you could apply PlayReady encryption to Smooth/DASH and AES Envelope to HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
+	You could apply different policy to each protocol on the same asset. For example, you could apply PlayReady encryption to Smooth/DASH and AES Envelope to HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols are allowed in the clear.
 
 6. [Create an OnDemand locator](media-services-protect-with-aes128.md#create_locator) in order to get a streaming URL.
 
-The topic also shows [how a client application can request a key from the key delivery service](media-services-protect-with-aes128.md#client_request).
+The article also shows [how a client application can request a key from the key delivery service](media-services-protect-with-aes128.md#client_request).
 
-You will find a complete .NET [example](media-services-protect-with-aes128.md#example) at the end of the topic.
+You find a complete .NET [example](media-services-protect-with-aes128.md#example) at the end of the article.
 
 The following image demonstrates the workflow described above. Here the token is used for authentication.
 
 ![Protect with AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
-The rest of this topic provides detailed explanations, code examples, and links to topics that show you how to achieve the tasks described above.
+The rest of this article provides detailed explanations, code examples, and links to topics that show you how to achieve the tasks described above.
 
 ## Current limitations
 If you add or update your asset’s delivery policy, you must delete an existing locator (if any) and create a new locator.
@@ -74,7 +73,7 @@ In order to manage, encode, and stream your videos, you must first upload your c
 For detailed information, see [Upload Files into a Media Services account](media-services-dotnet-upload-files.md).
 
 ## <a id="encode_asset"></a>Encode the asset containing the file to the adaptive bitrate MP4 set
-With dynamic encryption all you need is to create an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server will ensure that you receive the stream in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. For more information, see the [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md) topic.
+With dynamic encryption all, you need is to create an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server ensures that you receive the stream in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. For more information, see the [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md) article.
 
 >[!NOTE]
 >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
@@ -101,10 +100,10 @@ Configure the delivery policy for your asset. Some things that the asset deliver
 * The asset delivery protocol (for example, MPEG DASH, HLS, Smooth Streaming or all).
 * The type of dynamic encryption (for example, AES envelope) or no dynamic encryption. 
 
-For detailed information, see [Configure asset delivery policy ](media-services-rest-configure-asset-delivery-policy.md).
+For detailed information, see [Configure asset delivery policy.
 
 ## <a id="create_locator"></a>Create an OnDemand streaming locator in order to get a streaming URL
-You will need to provide your user with the streaming URL for Smooth, DASH or HLS.
+You need to provide your user with the streaming URL for Smooth, DASH, or HLS.
 
 > [!NOTE]
 > If you add or update your asset’s delivery policy, you must delete an existing locator (if any) and create a new locator.
@@ -133,7 +132,7 @@ You can use the [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 In the previous step, you constructed the URL that points to a manifest file. Your client needs to extract the necessary information from the streaming manifest files in order to make a request to the key delivery service.
 
 ### Manifest files
-The client needs to extract the URL (that also contains content key Id (kid)) value from the manifest file. The client will then try to get the encryption key from the key delivery service. The client also needs to extract the IV value and use it do decrypt the stream.The following snippet shows the <Protection> element of the Smooth Streaming manifest.
+The client needs to extract the URL (that also contains content key ID (kid)) value from the manifest file. The client will then try to get the encryption key from the key delivery service. The client also needs to extract the IV value and use it do decrypt the stream. The following snippet shows the <Protection> element of the Smooth Streaming manifest.
 
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
@@ -158,7 +157,7 @@ For example, the root manifest is: http://test001.origin.mediaservices.windows.n
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-If you open one of the segment files in text editor (for example, http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), it should contain #EXT-X-KEY which indicates that the file is encrypted.
+If you open one of the segment files in text editor (for example, http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), it should contain #EXT-X-KEY that indicates that the file is encrypted.
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -179,7 +178,7 @@ If you open one of the segment files in text editor (for example, http://test001
 
 ### Request the key from the key delivery service
 
-The following code shows how to send a request to the Media Services key delivery service using a key delivery Uri (that was extracted from the manifest) and a token (this topic does not talk about how to get Simple Web Tokens from a Secure Token Service).
+The following code shows how to send a request to the Media Services key delivery service using a key delivery Uri (that was extracted from the manifest) and a token (this article does not talk about how to get Simple Web Tokens from a Secure Token Service).
 
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
@@ -236,7 +235,7 @@ The following code shows how to send a request to the Media Services key deliver
 Overwrite the code in your Program.cs file with the code shown in this section.
  
 >[!NOTE]
->There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) article.
 
 Make sure to update variables to point to folders where your input files are located.
 
