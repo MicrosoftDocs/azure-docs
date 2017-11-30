@@ -23,7 +23,7 @@ Use Azure File Sync (preview) to centralize your organization's file shares in A
 This article is designed to help you troubleshoot and resolve issues that you might encounter with your Azure File Sync deployment. We also describe how to collect important logs from the system if a deeper investigation of the issue is required. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
 
 1. The comments section of this article.
-2. [Azure Storage Forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. [Azure Storage Forum]((https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
