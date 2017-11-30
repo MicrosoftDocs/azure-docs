@@ -21,7 +21,7 @@ ms.author: ddove
 # Data dependent routing
 **Data dependent routing** is the ability to use the data in a query to route the request to an appropriate database. This is a fundamental pattern when working with sharded databases. The request context may also be used to route the request, especially if the sharding key is not part of the query. Each specific query or transaction in an application using data dependent routing is restricted to accessing a single database per request. For the Azure SQL Database Elastic tools, this routing is accomplished with the **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) class.
 
-The application does not need to track various connection strings or DB locations associated with different slices of data in the sharded environment. Instead, the [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) opens connections to the correct databases when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. The key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
+The application does not need to track various connection strings or DB locations associated with different slices of data in the sharded environment. Instead, the [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) opens connections to the correct databases when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. The key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request. 
 
 For more information, see [Scaling Out SQL Server with Data Dependent Routing](https://technet.microsoft.com/library/cc966448.aspx).
 
@@ -59,10 +59,10 @@ public Connection openConnectionForKey(Shard key, String connectionString, Conne
 public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionString, ConnectionOptions options)
 ```
 * The **key** parameter is used as a lookup key into the shard map to determine the appropriate database for the request. 
-* The **connectionString** is used to pass only the user credentials for the desired connection. No database name or server name are included in this *connectionString* since the method will determine the database and server using the **ShardMap**. 
+* The **connectionString** is used to pass only the user credentials for the desired connection. No database name or server name is included in this *connectionString* since the method determines the database and server using the **ShardMap**. 
 * The **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions.aspx)) should be set to **ConnectionOptions.Validate** if an environment where shard maps may change and rows may move to other databases as a result of split or merge operations. This involves a brief query to the local shard map on the target database (not to the global shard map) before the connection is delivered to the application. 
 
-If the validation against the local shard map fails (indicating that the cache is incorrect), the Shard Map Manager will query the global shard map to obtain the new correct value for the lookup, update the cache, and obtain and return the appropriate database connection. 
+If the validation against the local shard map fails (indicating that the cache is incorrect), the Shard Map Manager queries the global shard map to obtain the new correct value for the lookup, update the cache, and obtain and return the appropriate database connection. 
 
 Use **ConnectionOptions.None** only when shard mapping changes are not expected while an application is online. In that case, the cached values can be assumed to always be correct, and the extra round-trip validation call to the target database can be safely skipped. That reduces database traffic. The **connectionOptions** may also be set via a value in a configuration file to indicate whether sharding changes are expected or not during a period of time.  
 
@@ -111,7 +111,7 @@ The **OpenConnectionForKeyAsync method** ([Java](/java/api/com.microsoft.azure.e
 ## Integrating with transient fault handling
 A best practice in developing data access applications in the cloud is to ensure that transient faults are caught by the app, and that the operations are retried several times before throwing an error. Transient fault handling for cloud applications is discussed at Transient Fault Handling ([Java](/java/api/com.microsoft.azure.elasticdb.core.commons.transientfaulthandling), [.NET](https://msdn.microsoft.com/library/dn440719\(v=pandp.60\).aspx)). 
 
-Transient fault handling can coexist naturally with the Data Dependent Routing pattern. The key requirement is to retry the entire data access request including the **using** block that obtained the data-dependent routing connection. The example above could be rewritten as follows (note highlighted change). 
+Transient fault handling can coexist naturally with the Data Dependent Routing pattern. The key requirement is to retry the entire data access request including the **using** block that obtained the data-dependent routing connection. The preceding example could be rewritten as follows. 
 
 ### Example - data dependent routing with transient fault handling
 ```Java 
