@@ -44,6 +44,8 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). You just need to provide names for each of the resources and the New-AzureRMVM cmdlet will create them for you if they don't already exist.
 
+When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
+
 ```azurepowershell-interactive
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
@@ -54,7 +56,6 @@ New-AzureRmVm `
     -SecurityGroupName "myNetworkSecurityGroup" `
     -PublicIpAddressName "myPublicIpAddress" `
     -OpenPorts 80,3389  
-
 ```
 
 ## Connect to virtual machine
@@ -69,13 +70,13 @@ Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 
 Use the following command, on your local machine, to create a remote desktop session with the virtual machine. Replace the IP address with the *publicIPAddress* of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
-```bash 
+```
 mstsc /v:<publicIpAddress>
 ```
 
 ## Install IIS via PowerShell
 
-Now that you have logged in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt and run the following command:
+Now that you have logged in to the Azure VM, you can use a single line of PowerShell to install IIS and enable the local firewall rule to allow web traffic. Open a PowerShell prompt on the VM and run the following command:
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
