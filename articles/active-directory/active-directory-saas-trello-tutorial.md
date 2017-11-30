@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 11/30/2017
 ms.author: jeedes
 
 ---
@@ -102,19 +102,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 	![Single sign-on dialog box](./media/active-directory-saas-trello-tutorial/tutorial_trello_samlbase.png)
 
-3. On the **Trello Domain and URLs** section, perform the following steps if you wish to configure the application in IDP initiated mode:
+3. On the **Trello Domain and URLs** section, if you wish to configure the application in **IDP initiated mode**, perform the following steps:
 
 	![Trello Domain and URLs single sign-on information](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
 	
-	a. In the **Identifier** textbox, type a URL: `https://trello.com/auth/saml/metadata`
+	a. In the **Identifier** textbox, type the following URL: `https://trello.com/auth/saml/metadata`
 	
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://trello.com/auth/saml/consume/<enterprise>`
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+4. If you wish to configure the application in **SP initiated mode**, perform the following steps:
 
 	![Trello Domain and URLs single sign-on information](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://trello.com/auth/saml/consume/<enterprise>`
+	a. Check **Show advanced URL settings**.
+
+    b. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://trello.com/auth/saml/login/<enterprise>`
 	 
 	>[!NOTE]
     >You should get the **\<enterprise\>** slug from Trello. If you don't have the slug value, contact [Trello support team](mailto:support@trello.com) to get the slug for you enterprise.
