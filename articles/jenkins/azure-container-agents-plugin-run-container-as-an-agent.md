@@ -19,7 +19,7 @@ ms.custom: jenkins
 
 # Run a container as an agent in Jenkins using the Azure Container Agents plugin
 
-The Azure Container Agents plugin for Jenkins enables you to quickly and easily get your Jenkins build agents running in the cloud. In this tutorial, you use Azure Container agent to add on-demand capacity and use Azure Container Instances (ACI) to build the [Spring PetClinic Sample Application](https://github.com/spring-projects/spring-petclinic). 
+The Azure Container Agents plugin for Jenkins enables you to quickly and easily get your Jenkins build agents running in the cloud. In this tutorial, you use Azure Container agent to add on-demand capacity and use Azure Container Instances to build the [Spring PetClinic Sample Application](https://github.com/spring-projects/spring-petclinic). Azure Container Instances makes it easy for you to get up and running without having to provision virtual machines or adopt a higher-level service. Azure Container Instances provides per-second billing based on the capacity you need; making it a lucrative option for transient workloads like starting a container agent to run a build, output the build artifacts to data store (such as Azure Storage), and shut down the agent when you no longer need it.
 
 You learn how to:
 > [!div class="checklist"]
@@ -29,10 +29,15 @@ You learn how to:
 ## Prerequisites
 
 - **Azure subscription** - You need an Azure subscription to complete this tutorial. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
- 
-- **Jenkins Master** - Jenkins supports the *master/slave* pattern where the workload of building projects is delegated to multiple *slave* nodes. The master/slave pattern allows a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. If you don't currently have a Jenkins Master, start with the [solution template](install-jenkins-solution-template.md), which includes the Java Development Kit (JDK) version 8 and other required Jenkins plugins.
 
-## Add an Azure service principal to the Jenkins credentials
+- **Azure CLI 2.0 or Azure Cloud Shell** - Install one of the following:
+
+    - [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) - Allows you to run Azure commands from a command or terminal window.
+    - [Azure Cloud Shell](/azure/cloud-shell/quickstart.md) - Browser-based shell experience. Cloud Shell enables access to a browser-based command-line experience built with Azure management tasks in mind.
+
+- **Jenkins Master** - Jenkins supports the *master/slave* pattern where the workload of building projects is delegated to one or more *slave* nodes. The master/slave pattern allows a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. If you don't currently have a Jenkins Master, start with the [solution template](install-jenkins-solution-template.md), which includes the Java Development Kit (JDK) version 8 and other required Jenkins plugins.
+
+## Create and add an Azure service principal to the Jenkins credentials
 
 You need an Azure service principal to deploy to Azure. 
 
@@ -58,14 +63,14 @@ You need an Azure service principal to deploy to Azure.
 
 1. In the **Kind** dropdown list, select **Microsoft Azure Service Principal** to cause the page to display fields specific to adding a service principal. Then, supply the requested values as follows:
 
-    - Scope - Select the option for **Global (Jenkins, nodes, items, all child items, etc.)**.
-    - Subscription ID - Use the Azure subscription ID you specified when running `az account set`.
-    - Client ID - Use the `appId` value returned from `az ad sp create-for-rbac`.
-    - Client Secret - Use the `password` value returned from `az ad sp create-for-rbac`.
-    - Tenant ID - Use the `tenant` value returned from `az ad sp create-for-rbac`.
-    - Azure Environment - Select `Azure`.
-    - ID - Enter `myTestSp`. This value is used again later in this tutorial.
-    - Description - (Optional) Enter a description value for this principal.
+    - **Scope - Select the option for **Global (Jenkins, nodes, items, all child items, etc.)**.
+    - **Subscription ID** - Use the Azure subscription ID you specified when running `az account set`.
+    - **Client ID** - Use the `appId` value returned from `az ad sp create-for-rbac`.
+    - **Client Secret** - Use the `password` value returned from `az ad sp create-for-rbac`.
+    - **Tenant ID** - Use the `tenant` value returned from `az ad sp create-for-rbac`.
+    - **Azure Environment** - Select `Azure`.
+    - **ID** - Enter `myTestSp`. This value is used again later in this tutorial.
+    - **Description** - (Optional) Enter a description value for this principal.
 
     ![Specify new service principal properties on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-principal-properties.png)
 
@@ -103,5 +108,51 @@ You need an Azure service principal to deploy to Azure.
 
     To return the main page of the Jenkins dashboard, select **Go back to the top page**.
 
-## Next steps
+## Create Azure resource group
 
+Azure Containter Instances must be placed in an Azure resource group. An Azure resource group is a container that holds related resources for an Azure solution.
+
+Using either CLI 2.0 or Cloud Shell, enter the following command to create a resource group called myJenkinsAgentRG in eastus:
+
+```shell```
+az group create --name myJenkinsAgentRG --location eastus
+```
+
+```shell```
+tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
+{
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myJenkinsAgentRG",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "myJenkinsAgentRG",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
+
+## Configure the Azure Container Agents plugin
+
+1. Open and log in to the Jenkins dashboard.
+
+1. Select **Manage Jenkins**.
+
+    ![Manage Jenkins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
+
+1. Select **Configure System**.
+
+    ![Manage Jenkins plugins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
+
+1. Locate the **Cloud** section at the bottom of the page, and from the **Add a new cloud** dropdown list, select **Azure Container Instance**.
+
+    ![Add a new cloud provider from the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-cloud-provider.png)
+
+1. In the **Azure Container Instance** section, specify the following values:
+
+    - **Cloud name** - (Optional as this value defaults to a auto-generated name) Specify a name for this instance. 
+    - **Azure Credential** - Select the dropdown arrow, and then select the `myTestSp` entry that identifies the Azure service principal you created earlier.
+    - **Resource Group** - Select the dropdown arrow, and then select the `myJenkinsAgentRG` entry that identifies the Azure resource group you created earlier.
+    - **Add Container Template** - Select the dropdown arrow, and then select **Aci Container Template**.
+
+## Next steps
