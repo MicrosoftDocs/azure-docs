@@ -25,7 +25,7 @@ ms.author: nitinme
 In this article, you learn to process real-time telemetry using Spark Structured Streaming. To accomplish this you perform the following high-level steps:
 
 1. Compile and run on your local workstation a sample Event Producer application that generates events to send to Event Hubs.
-2. Use the [Spark Shell](hdinsight-spark-shell.md) to define and run a simple Spark Structured Streaming application.
+2. Use the [Spark Shell](apache-spark-shell.md) to define and run a simple Spark Structured Streaming application.
 
 ## Prerequisites
 
@@ -188,9 +188,8 @@ By this point your HDInsight cluster should be ready. If not, you need to wait u
 
 
 ## See also
-This article showed how to author a Spark Streaming application that processed events from Event Hubs. 
 
-* For more information on Spark Structured Streaming in HDInsight, see [Spark Structured Streaming Overview](hdinsight-spark-structured-streaming-overview.md)
+* [Overview of Spark streaming](apache-spark-streaming-overview.md)
 
 
 
