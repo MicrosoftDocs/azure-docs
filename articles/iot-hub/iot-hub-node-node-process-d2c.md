@@ -21,7 +21,7 @@ ms.author: v-masebo
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-This tutorial builds on the ([Get started with IoT Hub] tutorial.  The tutorial:
+This tutorial builds on the [Get started with IoT Hub] tutorial.  The tutorial:
 
 * Shows you how to use routing rules to dispatch device-to-cloud messages in an easy, configuration-based way.
 * Illustrates how to isolate interactive messages that require immediate action from the solution back end for further processing.  For example, a device might send an alarm message that triggers inserting a ticket into a CRM system.  In contrast, data-point messages, such as temperature telemetry, feed into an analytics engine.
