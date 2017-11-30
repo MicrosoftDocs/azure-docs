@@ -150,9 +150,9 @@ In the following examples, you create, update, link, and delete policies on appl
 If nothing is returned, it means you have no policies created in your tenant.
 
 ### Example: Set auto-acceleration for an application 
-In this example, you create a policy that auto-accelerates users to an AD FS sign-in screen when they are signing in to an application. This is done without them having to enter a username at the Azure AD sign-in page first. 
+In this example, you create a policy that auto-accelerates users to an AD FS sign-in screen when they are signing in to an application. The user can sign into AD FS withou having to enter a username on the Azure AD sign-in page first. 
 
-#### Step 1: Create an HRD policy
+#### Step 1: Create an HRD policy.
 ``` powershell
 New-AzureADPoly -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
@@ -173,7 +173,7 @@ You need the **ObjectID** of the service principals to which you want to assign 
 
 You can use the portal, or you can query the [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). You can also go to the [Graph Explorer Tool](https://graphexplorer.cloudapp.net/) and sign into your Azure AD account to see all your organization's service principals. Since you are using PowerShell, you can use the get-AzureADServicePrincipal cmdlet to list the service principles and their IDs.
 
-#### Step 3: Assign the policy to your service principal  
+#### Step 3: Assign the policy to your service principal.  
 After you have the **ObjectID** of the service principal of the application for which you want to configure auto-acceleration, run the following command. This command associates the HRD policy that you created in step 1 with the service principal that you located in step 2.
 
 ``` powershell
@@ -201,7 +201,7 @@ Get-AzureADPolicy
 
 Note the **ObjectID** of the policy that you want to list assignments for.
 
-#### Step 2: List the service principals to which the policy is assigned.   
+#### Step 2: List the service principals to which the policy is assigned.  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
