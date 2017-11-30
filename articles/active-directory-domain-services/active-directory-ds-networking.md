@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 11/30/2017
 ms.author: maheshu
 
 ---
@@ -64,17 +64,33 @@ A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) con
 ### Ports required for Azure AD Domain Services
 The following ports are required for Azure AD Domain Services to service and maintain your managed domain. Ensure that these ports are not blocked for the subnet in which you have enabled your managed domain.
 
-| Port number | Purpose |
-| --- | --- |
-| 443 |Synchronization with your Azure AD tenant |
-| 3389 |Management of your domain |
-| 5986 |Management of your domain |
-| 636 |Secure LDAP (LDAPS) access to your managed domain |
+| Port number | Required? | Purpose |
+| --- | --- | --- |
+| 443 | Mandatory |Synchronization with your Azure AD tenant |
+| 5986 | Mandatory | Management of your domain |
+| 3389 | Optional | Management of your domain |
+| 636 | Optional | Secure LDAP (LDAPS) access to your managed domain |
 
-Port 5986 is used to perform management tasks using PowerShell remoting on your managed domain. The domain controllers for your managed domain do not usually listen on this port. The service opens this port on managed domain controllers only when a management or maintenance operation needs to be performed for the managed domain. As soon as the operation completes, the service shuts down this port on the managed domain controllers.
+**Port 443**
+* It is used to synchronize your Azure AD directory with your managed domain.
+* It is mandatory to allow access to this port in your NSG. Without access to this port, your managed domain will not be in sync with your Azure AD directory. Users may not be able to sign-in as changes to their passwords will not be synchronized to your managed domain.
+* You can restrict inbound access to this port to IP addresses belonging to the Azure IP address range.
 
-Port 3389 is used for remote desktop connections to your managed domain. This port also remains largely turned off on your managed domain. The service enables this port only if we need to connect to your managed domain for troubleshooting purposes, initiated in response to a service request you initiate. This mechanism is not used on an ongoing basis since management and monitoring tasks are performed using PowerShell remoting. This port is used only in the rare event that we need to connect remotely to your managed domain for advanced troubleshooting. The port is closed as soon as the troubleshooting operation is complete.
+**Port 5986 (PowerShell remoting)** 
+* It is used to perform management tasks using PowerShell remoting on your managed domain.
+* It is mandatory to allow access through this port in your NSG. Without access to this port, your managed domain cannot be updated, configured, backed-up or monitored.
+* You can restrict inbound access to this port to the following source IP addresses: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
+* The domain controllers for your managed domain do not usually listen on this port. The service opens this port on managed domain controllers only when a management or maintenance operation needs to be performed for the managed domain. As soon as the operation completes, the service shuts down this port on the managed domain controllers.
 
+**Port 3389 (Remote desktop)** 
+* It is used for remote desktop connections to your managed domain. 
+* Opening this port through your NSG is optional. 
+* This port also remains largely turned off on your managed domain. The service enables this port only if we need to connect to your managed domain for troubleshooting purposes, initiated in response to a service request you initiate. This mechanism is not used on an ongoing basis since management and monitoring tasks are performed using PowerShell remoting. This port is used only in the rare event that we need to connect remotely to your managed domain for advanced troubleshooting. The port is closed as soon as the troubleshooting operation is complete.
+
+**Port 636 (Secure LDAP)**
+* It is used to enable secure LDAP access to your managed domain over the internet.
+* Opening this port through your NSG is optional. Open the port only if you have secure LDAP access over the internet enabled.
+* You can restrict inbound access to this port to the source IP addresses from which you expect to connect over secure LDAP.
 
 ### Sample NSG for virtual networks with Azure AD Domain Services
 The following table illustrates a sample NSG you can configure for a virtual network with an Azure AD Domain Services managed domain. This rule allows inbound traffic over the required ports to ensure your managed domain stays patched, updated and can be monitored by Microsoft. The default 'DenyAll' rule applies to all other inbound traffic from the internet.
