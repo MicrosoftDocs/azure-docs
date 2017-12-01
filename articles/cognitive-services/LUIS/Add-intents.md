@@ -54,4 +54,4 @@ On the intent details page of the newly added intent "Bookflight", you add utter
 
 ## Next steps
 
-After adding intents to your app, your next task is to start adding example utterances for the intents you've added. For instructions, see [Add example utterances](Add-example-utterances.md).
+After adding intents to your app, your next task is to start adding [example utterances](Add-example-utterances.md) for the intents you've added. 
