@@ -1,9 +1,9 @@
 ---
-title: How to Chunked Transfer Audio Stream to the Speech Service | Microsoft Docs
+title: How to Chunked Transfer Audio Stream | Microsoft Docs
 description: How to use chunked trasfer to send audio stream to the speech service
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma61
+manager: wolfma
 
 ms.service: cognitive-services
 ms.technology: speech
@@ -17,6 +17,8 @@ To transcribe speech to text, Microsoft speech recognition API allows you to sen
 
 > [!NOTE]
 > You may not upload more than 10 seconds of audio in any one request and the total request duration cannot exceed 14 seconds.
+> [!NOTE]
+> You need to specify the chunked transfer encoding only if you use the [REST APIs](../GetStarted/GetStartedREST.md) to call the speech service. Applications that use [client libraries](../GetStarted/GetStartedClientLibraries.md) do not need to configure the chunked transfer encoding.
 
 The following code shows how to set the chunked transfer encoding and to send an audio file being chunked into 1024-byte chunks.
 

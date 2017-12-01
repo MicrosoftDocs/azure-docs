@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/17/2017
 ms.author: anwestg
 
 ---
@@ -21,11 +21,12 @@ ms.author: anwestg
 
 As an Azure Stack cloud operator, you can give your users the ability to create web and API applications. To do this, you must first add the [App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment as described in this article. After you have installed the App Service resource provider, you can include it in your offers and plans. Users can then subscribe to get the service and start creating applications.
 
-To add the App Service resource provider to your Azure Stack deployment, you must complete three top-level tasks:
+> [!IMPORTANT]
+> Prior to running the installer, make sure that you have followed the guidance in [Before you get started](azure-stack-app-service-before-you-get-started.md).
+> 
+>
 
-1.	[Download and extract the installation and helper files](azure-stack-app-service-before-you-get-started.md).
-2.	[Create the required certificates](azure-stack-app-service-before-you-get-started.md#certificates-required-for-the-azure-stack-development-kit).
-3.	Run the App Service resource provider installer.
+
 
 ## Run the App Service resource provider installer
 
@@ -38,7 +39,7 @@ Installing the App Service resource provider into your Azure Stack environment c
 
 To deploy App Service resource provider, follow these steps:
 
-1. Run appservice.exe as an administrator (azurestack\AzureStackAdmin).
+1. Run appservice.exe as an administrator (azurestack\CloudAdmin).
 
 2. Click **Deploy App Service on your Azure Stack cloud**.
 
@@ -55,7 +56,7 @@ To deploy App Service resource provider, follow these steps:
 6. On the next page:
     1. Click the **Connect** button next to the **Azure Stack Subscriptions** box.
         - If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Click **Sign In**.
-        - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, azurestackadmin@azurestack.local. Enter your password, and click **Sign In**.
+        - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and click **Sign In**.
     2. In the **Azure Stack Subscriptions** box, select your subscription.
     3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
     4. Enter a **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE\<REGION\>**.
@@ -64,7 +65,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image03.png)
 
-7. Enter the information for your file share and then click **Next**.
+7. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name of your File Server, for example \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or the IP Address, for example \\\10.0.0.1\websites.
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image04.png)
 
@@ -77,7 +78,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image05.png)
 
-9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must also provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-the-required-certificates). Click **Next** after entering all the information.
+9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-deploy.md#create-the-required-certificates). Click **Next** after entering all the information.
 
     | Box | Certificate file name example |
     | --- | --- |
@@ -93,20 +94,25 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image07.png)    
 
-11. Review the role instance and SKU options. The defaults are populated with the minimum recommended instance SKUs for each role. A summary of core and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
+11. Review the role instance and SKU options. The defaults are populated with the minimum number of instance and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
-    | Role | Recommended minimum instances | Recommended minimum SKU | Notes |
+    > [!NOTE]
+    > For production deployments, following the guidance in [Capacity planning for Azure App Service server roles in Azure Stack](azure-stack-app-service-capacity-planning.md).
+    > 
+    >
+
+    | Role | Minimum instances | Minimum SKU | Notes |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 Core, 1792 MB) | Manages and maintains the health of the App Service cloud. |
-    | Management | 1 | Standard_A2 - (2 Cores, 3584 MB) | Manages the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. To support failover, increased the recommended instances to 2. |
-    | Publisher | 1 | Standard_A1 - (1 Core, 1792 MB) | Publishes content via FTP and web deployment. |
-    | FrontEnd | 1 | Standard_A1 - (1 Core, 1792 MB) | Routes requests to App Service applications. |
-    | Shared Worker | 1 | Standard_A1 - (1 Core, 1792 MB) | Hosts web or API applications and Azure Functions apps. TYou might want to add more instances. As an operator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. |
+    | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Manages and maintains the health of the App Service cloud. |
+    | Management | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Manages the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service. To support failover, increased the recommended instances to 2. |
+    | Publisher | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publishes content via FTP and web deployment. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Routes requests to App Service applications. |
+    | Shared Worker | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosts web or API applications and Azure Functions apps. You might want to add more instances. As an operator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one vCPU. |
 
     ![App Service Installer](media/azure-stack-app-service-deploy/image08.png)    
 
     > [!NOTE]
-    > In the technical previews, the App Service resource provider installer also deploys a Standard A1 instance to operate as a simple file server to support Azure Resource Manager. This instance remains for the single-node development kit. For production workloads, at general availability the App Service installer enables the use of a high-availability file server.
+    > **Windows Server 2016 Core is not a supported platform image for use with Azure App Service on Azure Stack**.
 
 12. In the **Select Platform Image** box, choose your deployment Windows Server 2016 virtual machine image from those available in the compute resource provider for the App Service cloud. Click **Next**.
 
@@ -133,20 +139,11 @@ To deploy App Service resource provider, follow these steps:
 
 ## Validate the App Service on Azure Stack installation
 
-1. In the Azure Stack admin portal, browse to the resource group created by the installer. By default, this group is **APPSERVICE-LOCAL**.
+1. In the Azure Stack admin portal, go to **Administration - App Service**.
 
-2. Locate **CN0-VM**. To connect to the VM, click **Connect** on the **Virtual Machine** blade.
+2. In the overview under status, check to see that the **Status** shows **All roles are ready**.
 
-3. On the desktop of this VM, double-click **Web Cloud Management Console**.
-
-4. Go to **Managed Servers**.
-
-5. When all the machines display **Ready** for one or more Workers, proceed to step 6.
-
-6. Close the remote desktop machine, and return to the machine where you executed the App Service installer.
-
-    ![App Service Installer](media/azure-stack-app-service-deploy/managed-servers.png)    
-
+    ![App Service Management](media/azure-stack-app-service-deploy/image12.png)    
 
 ## Test drive App Service on Azure Stack
 

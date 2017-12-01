@@ -11,7 +11,7 @@ editor: ''
 ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: drivers
+ms.workload: "Active"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article

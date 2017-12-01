@@ -60,7 +60,7 @@ module.exports = function (context, input) {
 ```
 
 > [!NOTE]
-> It is generally recommended that you use a random identifier for the instance ID. This will help ensure an equal load distribution when scaling orchestrator functions across multiple VMs. The proper time to use non-random instance IDs is when the ID must come from an external source or when implementing the [singleton orchestrator](durable-functions-counter.md) pattern.
+> We recommend that you use a random identifier for the instance ID. This will help ensure an equal load distribution when scaling orchestrator functions across multiple VMs. The proper time to use non-random instance IDs is when the ID must come from an external source or when implementing the [singleton orchestrator](durable-functions-singletons.md) pattern.
 
 ## Querying instances
 
@@ -87,7 +87,7 @@ public static async Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
     [ManualTrigger] string instanceId)
 {
-    var status = await checker.GetStatusAsync(instanceId);
+    var status = await client.GetStatusAsync(instanceId);
     // do something based on the current status.
 }
 ```

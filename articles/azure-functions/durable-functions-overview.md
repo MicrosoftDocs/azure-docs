@@ -1,5 +1,5 @@
 ---
-title: Durable Functions Overview - Azure
+title: Durable Functions Overview - Azure (preview)
 description: Introduction to the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: azfuncdf
 ---
 
-# Durable Functions overview (Azure Functions)
+# Durable Functions overview (preview)
 
 *Durable Functions* is an extension of [Azure Functions](functions-overview.md) and [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
@@ -27,7 +27,7 @@ The extension lets you define stateful workflows in a new type of function calle
 * They automatically checkpoint their progress whenever the function awaits. Local state is never lost if the process recycles or the VM reboots.
 
 > [!NOTE]
-> Durable Functions is an advanced extension for Azure Functions and is not appropriate for all applications. The rest of this article assumes that you have a strong familiarity with [Azure Functions](functions-overview.md) concepts and the challenges involved in serverless application development.
+> Durable Functions is in preview and is an advanced extension for Azure Functions that is not appropriate for all applications. The rest of this article assumes that you have a strong familiarity with [Azure Functions](functions-overview.md) concepts and the challenges involved in serverless application development.
 
 The primary use case for Durable Functions is simplifying complex, stateful coordination problems in serverless applications. The following sections describe some typical application patterns that can benefit from Durable Functions.
 
@@ -126,7 +126,7 @@ Content-Type: application/json
 
 Because the state is managed by the Durable Functions runtime, you don't have to implement your own status tracking mechanism.
 
-Even though the Durable Functions extension has built-in webhooks for managing long-running orchestrations, you can implement this pattern yourself using your own function triggers (such as HTTP, queue, or Event Hub) and the `orchestrationClient` binding.
+Even though the Durable Functions extension has built-in webhooks for managing long-running orchestrations, you can implement this pattern yourself using your own function triggers (such as HTTP, queue, or Event Hub) and the `orchestrationClient` binding. For example, you could use a queue message to trigger termination.  Or you could use an HTTP trigger protected by an Azure Active Directory authentication policy instead of the built-in webhooks that use a generated key for authentication. 
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.
@@ -157,7 +157,7 @@ The following diagram illustrates a function that runs in an infinite loop while
 
 ![Stateful singleton diagram](media/durable-functions-overview/stateful-singleton.png)
 
-While Durable Functions is not an implementation of the actor model, orchestrator functions do have many of the same runtime characteristics. For example, they are long-running (possibly endless), stateful, reliable, single-threaded, location-transparent, and globally addressable. This makes orchestrator functions useful for "actor"-like scenarios without the need for a separate framework.
+While Durable Functions is not an implementation of the actor model, orchestrator functions do have many of the same runtime characteristics. For example, they are long-running (possibly endless), stateful, reliable, single-threaded, location-transparent, and globally addressable. This makes orchestrator functions useful for "actor"-like scenarios.
 
 Ordinary functions are stateless and therefore not suited to implement a stateful singleton pattern. However, the Durable Functions extension makes the stateful singleton pattern relatively trivial to implement. The following code is a simple orchestrator function that implements a counter.
 

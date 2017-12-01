@@ -2,7 +2,7 @@
 title: Collect data about Azure Virtual Machines | Microsoft Docs
 description: Learn how to enable the OMS Agent VM Extension and enable collection of data from your Azure VMs with Log Analytics.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
 editor: ''
@@ -11,10 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/20/2017
+ms.topic: quickstart
+ms.date: 11/28/2017
 ms.author: magoedte
-
+ms.custom: mvc
 ---
 
 # Collect data about Azure Virtual Machines
@@ -42,6 +42,9 @@ While the information is verified and the workspace is created, you can track it
 
 ## Enable the Log Analytics VM Extension
 For Windows and Linux virtual machines already deployed in Azure, you install the Log Analytics agent with the Log Analytics VM Extension.  Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes.
+
+>[!NOTE]
+>The OMS agent for Linux cannot be configured to report to more than one Log Analytics workspace. 
 
 You may notice the banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.  The upgrade is not needed for the purposes of this quickstart.<br>
 

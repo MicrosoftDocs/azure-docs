@@ -26,7 +26,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 To manage Azure resources with Ansible, you need the following:
 
 - Ansible and the Azure Python SDK modules installed on your host system.
-    - Install Ansible on [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), and [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2)
+    - Install Ansible on [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), and [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
 - Azure credentials, and Ansible configured to use them.
     - [Create Azure credentials and configure Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 

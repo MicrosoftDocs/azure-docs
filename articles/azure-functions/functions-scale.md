@@ -3,7 +3,7 @@ title: Azure Functions hosting plans comparison | Microsoft Docs
 description: Learn how to choose between Azure Functions Consumption plan and App Service plan.
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -23,9 +23,10 @@ ms.custom: H1Hack27Feb2017
 ---
 # Azure Functions hosting plans comparison
 
-## Introduction
+You can run Azure Functions in two different modes: Consumption plan and Azure App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. So, you don't have to pay for idle VMs and don't have to reserve capacity in advance. This article focuses on the Consumption plan, a [serverless](https://azure.microsoft.com/overview/serverless-computing/) app model. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-You can run Azure Functions in two different modes: Consumption plan and Azure App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. So, you don't have to pay for idle VMs and don't have to reserve capacity in advance. This article focuses on the Consumption plan. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+>[!NOTE]  
+> Linux hosting is currently only available on an App Service plan.
 
 If you aren't familiar with Azure Functions, see the [Azure Functions overview](functions-overview.md).
 
@@ -53,7 +54,7 @@ The Consumption plan is the default hosting plan and offers the following benefi
 
 ## App Service plan
 
-In the App Service plan, your function apps run on dedicated VMs on Basic, Standard, Premium, and Isolated SKUs, similar to Web Apps, API Apps, and Mobile Apps. Dedicated VMs are allocated to your App Service apps, which means the functions host is always running.
+In the App Service plan, your function apps run on dedicated VMs on Basic, Standard, Premium, and Isolated SKUs, similar to Web Apps, API Apps, and Mobile Apps. Dedicated VMs are allocated to your App Service apps, which means the functions host is always running. App Service plans support Linux.
 
 Consider an App Service plan in the following cases:
 - You have existing, underutilized VMs that are already running other App Service instances.
@@ -61,12 +62,13 @@ Consider an App Service plan in the following cases:
 - You need more CPU or memory options than what is provided on the Consumption plan.
 - You need to run longer than the maximum execution time allowed on the Consumption plan (of 10 minutes).
 - You require features that are only available on an App Service plan, such as support for App Service Environment, VNET/VPN connectivity, and larger VM sizes. 
+- You want to run your function app on Linux, or you want to provide a custom image on which to run your functions.
 
 A VM decouples cost from number of executions, execution time, and memory used. As a result, you won't pay more than the cost of the VM instance that you allocate. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 With an App Service plan, you can manually scale out by adding more VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service/web-sites-scale.md). 
 
-If you are planning to run JavaScript functions on an App Service plan, you should choose a plan that has fewer cores. For more information, see the [JavaScript reference for Functions](functions-reference-node.md#choose-single-core-app-service-plans).  
+If you are planning to run JavaScript functions on an App Service plan, you should choose a plan that has fewer vCPUs. For more information, see the [Choose single-core App Service plans](functions-reference-node.md#considerations-for-javascript-functions).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -91,7 +93,7 @@ When you use the Consumption hosting plan, function code files are stored on Azu
 > [!NOTE]
 > When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this initial delay, consider one of the following options:
 > - Host the function app on an App Service plan, with Always On enabled.
-> - Use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. For an example, see [Queue trigger with blob input binding](functions-bindings-storage-blob.md#input-sample).
+> - Use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. For an example, see the [C# script and JavaScript examples for the blob input and output bindings](functions-bindings-storage-blob.md#input--output---example).
 
 ### Runtime scaling
 

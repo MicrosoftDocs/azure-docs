@@ -3,7 +3,7 @@ title: Using .NET class libraries with Azure Functions | Microsoft Docs
 description: Learn how to author .NET class libraries for use with Azure Functions
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
-ms.author: donnam
+ms.author: glenga
 
 ---
 # Using .NET class libraries with Azure Functions
@@ -34,7 +34,7 @@ This article has the following prerequisites:
 
 From Visual Studio, create a new Azure Functions project. The new project template creates the files *host.json* and *local.settings.json*. You can [customize Azure Functions runtime settings in host.json](functions-host-json.md). 
 
-The file *local.settings.json* stores app settings, connection strings, and settings for Azure Functions Core Tools. To learn more about its structure, see [Code and test Azure functions locally](functions-run-local.md#local-settings).
+The file *local.settings.json* stores app settings, connection strings, and settings for Azure Functions Core Tools. To learn more about its structure, see [Code and test Azure functions locally](functions-run-local.md#local-settings-file).
 
 ### FunctionName attribute
 
@@ -141,7 +141,7 @@ To bind to a Cosmos DB document, use the attribute `[DocumentDB]` in the NuGet p
 [FunctionName("QueueToDocDB")]        
 public static void Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
+    [DocumentDB("ToDoList", "Items", Id = "id", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
 {
     document = new { Text = myQueueItem, id = Guid.NewGuid() };
 }
@@ -283,7 +283,9 @@ public static class QueueFunctions
 
 Azure Functions supports a SendGrid output binding for sending email programmatically. To learn more, see [Azure Functions SendGrid bindings](functions-bindings-sendgrid.md).
 
-The attribute `[SendGrid]` is defined in the NuGet package [Microsoft.Azure.WebJobs.Extensions.SendGrid].
+The attribute `[SendGrid]` is defined in the NuGet package [Microsoft.Azure.WebJobs.Extensions.SendGrid]. A SendGrid binding requires an application setting named `AzureWebJobsSendGridApiKey`, which contains your SendGrid API key. This is the default setting name for your SendGrid API key. If you need to have more than one SendGrid key or choose a different setting name, you can set this name using the `ApiKey` property of the `SendGrid` binding attribute, as in the following example:
+
+    [SendGrid(ApiKey = "MyCustomSendGridKeyName")]
 
 The following is an example of using a Service Bus queue trigger and a SendGrid output binding using `SendGridMessage`:
 
@@ -308,6 +310,7 @@ public class OutgoingEmail
     public string Body { get; set; }
 }
 ```
+Note that this example requires the SendGrid API key to be storage in an application setting named `AzureWebJobsSendGridApiKey`.
 
 <a name="service-bus"></a>
 
@@ -384,7 +387,7 @@ Azure Functions has a timer trigger binding that lets you run your function code
 
 On the Consumption plan, you can define schedules with a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression). If you're using an App Service Plan, you can also use a TimeSpan string. 
 
-The following example defines a timer trigger that runs every 5 minutes:
+The following example defines a timer trigger that runs every five minutes:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -423,10 +426,8 @@ public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureW
 
 ## Next steps
 
-For more information on using Azure Functions in C# scripting, see [Azure Functions C\# script developer reference](functions-reference-csharp.md).
-
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
+> [!div class="nextstepaction"]
+> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
 
 <!-- NuGet packages --> 
 [Microsoft.Azure.WebJobs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1

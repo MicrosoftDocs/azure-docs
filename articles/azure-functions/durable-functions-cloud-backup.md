@@ -63,13 +63,13 @@ This orchestrator function essentially does the following:
 4. Waits for all uploads to complete.
 5. Returns the sum total bytes that were uploaded to Azure Blob Storage.
 
-Notice the `await Task.WhenAll(tasks);` line. All the calls to the `E2_CopyFileToBlob` function were *not* awaited. This is intentional to allow them to run in parallel. When we pass this array of tasks to `Task.WhenAll`, we get back a task that won't complete *until all the copy operations have completed*. If you're familiar with the Task Parallel Library (TPL) in .NET, then this is not new to you. The difference is that these tasks could be running on multiple VMs concurrently, and the extension ensures that the end-to-end execution is resilient to process recycling.
+Notice the `await Task.WhenAll(tasks);` line. All the calls to the `E2_CopyFileToBlob` function were *not* awaited. This is intentional to allow them to run in parallel. When we pass this array of tasks to `Task.WhenAll`, we get back a task that won't complete *until all the copy operations have completed*. If you're familiar with the Task Parallel Library (TPL) in .NET, then this is not new to you. The difference is that these tasks could be running on multiple VMs concurrently, and the Durable Functions extension ensures that the end-to-end execution is resilient to process recycling.
 
 After awaiting from `Task.WhenAll`, we know that all function calls have completed and have returned values back to us. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all those return values together.
 
 ## Helper activity functions
 
-The helper activity functions, just as with other samples, are just regular functions that use the `activityTrigger` trigger binding. For example, *the function.json* file for `E2_GetFileList` looks like the following:
+The helper activity functions, as with other samples, are just regular functions that use the `activityTrigger` trigger binding. For example, the *function.json* file for `E2_GetFileList` looks like the following:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/function.json)]
 
@@ -88,17 +88,17 @@ The implementation is also pretty straightforward. It happens to use some advanc
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-The implementation loads the file from disk and asynchronously streams the contents into a blob of the same name. The return value is the number of bytes copied to storage, that is then used by the orchestrator function to compute the aggregate sum.
+The implementation loads the file from disk and asynchronously streams the contents into a blob of the same name in the "backups" container. The return value is the number of bytes copied to storage, that is then used by the orchestrator function to compute the aggregate sum.
 
 > [!NOTE]
 > This is a perfect example of moving I/O operations into an `activityTrigger` function. Not only can the work be distributed across many different VMs, but you also get the benefits of checkpointing the progress. If the host process gets terminated for any reason, you know which uploads have already completed.
 
-## Running the sample
+## Run the sample
 
-Using the HTTP-triggered functions included in the sample, you can start the orchestration using the following HTTP POST request.
+You can start the orchestration by sending the following HTTP POST request.
 
 ```
-POST http://{host}/orchestrators/E2_BackupSiteContent HTTP/1.1
+POST http://{host}/orchestrators/E2_BackupSiteContent
 Content-Type: application/json
 Content-Length: 20
 
@@ -108,7 +108,7 @@ Content-Length: 20
 > [!NOTE]
 > The `HttpStart` function that you are invoking only works with JSON-formatted content. For this reason, the `Content-Type: application/json` header is required and the directory path is encoded as a JSON string.
 
-This will trigger the `E2_BackupSiteContent` orchestrator and pass the string `D:\home\LogFiles` as a parameter. The response provides a link to get the status of this backup operation:
+This HTTP request triggers the `E2_BackupSiteContent` orchestrator and passes the string `D:\home\LogFiles` as a parameter. The response provides a link to get the status of the backup operation:
 
 ```
 HTTP/1.1 202 Accepted
@@ -154,9 +154,7 @@ Here is the orchestration as a single C# file in a Visual Studio project:
 
 ## Next steps
 
-At this point, you should have a greater understanding of the core orchestration capabilities of Durable Functions. Subsequent samples will go into more advanced features and scenarios.
+This sample has shown how to implement the fan-out/fan-in pattern. The next sample shows how to implement the [stateful singleton](durable-functions-singletons.md) pattern in an [eternal orchestration](durable-functions-eternal-orchestrations.md).
 
 > [!div class="nextstepaction"]
 > [Run the stateful singleton sample](durable-functions-counter.md)
-
-

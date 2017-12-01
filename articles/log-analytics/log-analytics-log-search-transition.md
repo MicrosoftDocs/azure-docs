@@ -12,23 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 11/28/2017
 ms.author: bwren
 
 ---
 
 # Transitioning to Azure Log Analytics new query language
+Log Analytics recently implemented a new query language.  This article provides assistance on transitioning to this language for Log Analytics if you're already familiar with the legacy language and still need some assistance.
 
-> [!NOTE]
-> You can read more about the new Log Analytics query language and get the procedure to upgrade your workspace at Upgrade your [Azure Log Analytics workspace to new log search](log-analytics-log-search-upgrade.md).
+## Resources
 
-This article provides assistance on transitioning to the new query language for Log Analytics if you're already familiar with the legacy language.
 
 ## Language converter
 
 If you're familiar with the legacy Log Analytics query language, the easiest way to create the same query in the new language is to use the Language Converter that's installed in the Log Search portal when your workspace is converted.  Using the converter is as simple as typing in a legacy query in the top text box and then clicking **Convert**.  You can either click the search button to run the query or copy and paste it to use it somewhere else.
 
 ![Language converter](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## Resources
+The [documentation site for the Log Analytics Query Language](https://docs.loganalytics.io) has all the resources you need to come up to speed on the new language.  This includes tutorials, examples, and a complete language reference.
 
 
 ## Cheat sheet

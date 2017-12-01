@@ -1,6 +1,6 @@
 ﻿---
 title: PowerShell example-active geo-replication-pooled Azure SQL database | Microsoft Docs
-description: Azure PowerShell example script to set up active geo-replication for a pooled Azure SQL database
+description: Azure PowerShell example script to set up active geo-replication for a pooled Azure SQL database and fail it over.
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler
@@ -15,7 +15,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 07/25/2017
+ms.date: 11/29/2017
 ms.author: carlrab
 ---
 

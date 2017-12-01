@@ -19,7 +19,7 @@ ms.author: apurvajo
 ---
 # Buy and Configure an SSL Certificate for your Azure App Service
 
-In this tutorial, you will secure your web app by purchasing an SSL certificate for your **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, securely storing it in [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis), and associating it with a custom domain.
+This tutorial shows you how to secure your web app by purchasing an SSL certificate for your **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, securely storing it in [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis), and associating it with a custom domain.
 
 ## Step 1 - Log in to Azure
 
@@ -34,7 +34,7 @@ You can place an SSL Certificate order by creating a new [App Service Certificat
 Enter a friendly **Name** for your SSL certificate and enter the **Domain Name**
 
 > [!NOTE]
-> This is one of the most critical parts of the purchase process. Make sure to enter correct host name (custom domain) that you want to protect with this certificate. **DO NOT** append the Host name with WWW. 
+> This step is one of the most critical parts of the purchase process. Make sure to enter correct host name (custom domain) that you want to protect with this certificate. **DO NOT** append the Host name with WWW. 
 >
 
 Select your **Subscription**, **Resource Group**, and **Certificate SKU**
@@ -49,15 +49,15 @@ Select your **Subscription**, **Resource Group**, and **Certificate SKU**
 > [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services.
 >
 
-Once the SSL Certificate purchase is complete, you need to open [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) Resource blade.
+Once the SSL Certificate purchase is complete, you need to open the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page.
 
 ![insert image of ready to store in KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-You will notice that Certificate status is **“Pending Issuance”** as there are few more steps you need to complete before you can start using this certificate.
+The certificate status is **“Pending Issuance”** as there are few more steps you need to complete before you can start using this certificate.
 
-Click **Certificate Configuration** inside Certificate Properties blade and Click on **Step 1: Store** to store this certificate in Azure Key Vault.
+Click **Certificate Configuration** inside the Certificate Properties page and Click on **Step 1: Store** to store this certificate in Azure Key Vault.
 
-From **Key Vault Status** Blade, click **Key Vault Repository** to choose an existing Key Vault to store this certificate **OR Create New Key Vault** to create new Key Vault inside same subscription and resource group.
+From the **Key Vault Status** page, click **Key Vault Repository** to choose an existing Key Vault to store this certificate **OR Create New Key Vault** to create new Key Vault inside same subscription and resource group.
 
 > [!NOTE]
 > Azure Key Vault has minimal charges for storing this certificate.
@@ -71,9 +71,9 @@ Once you have selected the Key Vault Repository to store this certificate in, th
 ## Step 4 - Verify the Domain Ownership
 
 > [!NOTE]
-> There are three types of domain verification supported by App service Certificates: Domain, Mail, Manual Verification. These are explained in more details in the [Advanced section](#advanced).
+> There are three types of domain verification supported by App service Certificates: Domain, Mail, Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
 
-From the same **Certificate Configuration** blade you used in Step 3, click **Step 2: Verify**.
+From the same **Certificate Configuration** page you used in Step 3, click **Step 2: Verify**.
 
 **Domain Verification**
 This is the most convenient process **ONLY IF** you have **[purchased your custom domain from Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
@@ -147,7 +147,7 @@ If you need to resend the verification email, click the **Resend Email** button.
 
 1. Create an HTML file named **"starfield.html"**
 
-1. Content of this file should be the exact name of the Domain Verification Token. (You can copy the token from the Domain Verification Status Blade)
+1. Content of this file should be the exact name of the Domain Verification Token. (You can copy the token from the Domain Verification Status page)
 
 1. Upload this file at the root of the web server hosting your domain `/.well-known/pki-validation/starfield.html`
 
@@ -172,19 +172,27 @@ After you have configured an IP based SSL binding, a dedicated IP address is ass
 
 ![insert image of IP SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
-Note that this IP address is different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address is listed for this entry.
+This IP address is different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address is listed for this entry.
 
 Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
 
 ## Rekey and Sync the Certificate
 
-If you ever need to Rekey your certificate, select **Rekey and Sync** option from **Certificate Properties** Blade.
+If you ever need to rekey your certificate, select the **Rekey and Sync** option from the **Certificate Properties** page.
 
 Click **Rekey** Button to initiate the process. This process can take 1-10 minutes to complete.
 
-![insert image of ReKey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
+![insert image of Rekey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 Rekeying your certificate rolls the certificate with a new certificate issued from the certificate authority.
+
+<a name="notrenewed"></a>
+## Why is my SSL certificate not auto-renewed?
+
+If your SSL certificate is configured for auto-renewal, but it is not automatically renewed, you may have a pending domain verification. Note the following: 
+
+- GoDaddy, which generates App Service certificates, requires domain verification once every three years. The domain administrator receives an email once every three years to verify the domain. Failure to check the email or verify your domain prevents the App Service certificate from being automatically renewed. 
+- All App Service certificates issued prior to March 31 2017 require reverification of domain at the time of next renewal (even if the auto-renewal is enabled for the certificate). This is a result of change in GoDaddy policy. Check your email and complete this one-time domain verification to continue the auto-renewal of the App Service certificate. 
 
 ## Next Steps
 

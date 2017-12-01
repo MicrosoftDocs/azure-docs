@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 09/28/2017
 ms.author: markscu
 
 ---
@@ -31,8 +31,7 @@ most suitable for certain types of workloads. Use low-priority VMs for batch and
 asynchronous processing workloads where the job completion time is flexible and
 the work is distributed across many VMs.
 
-Low-priority VMs are offered at a significant price reduction compared with dedicated VMs. For pricing
-details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
+Low-priority VMs are offered at a significantly reduced price compared with dedicated VMs. For pricing details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
 
 > [!IMPORTANT]
@@ -117,7 +116,7 @@ benefit from low-priority VMs:
 -   When tasks are interrupted, Batch detects and automatically
     requeues tasks to run again.
 
--   Low-priority VMs have a separate core quota, differs from the one for dedicated VMs. 
+-   Low-priority VMs have a separate vCPU quota, differs from the one for dedicated VMs. 
     The quota for low-priority VMs is higher than the quota for dedicated VMs, because 
     low-priority VMs cost less. For more information, see [Batch service quotas and limits](batch-quota-limit.md#resource-quotas).    
 

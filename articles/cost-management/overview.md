@@ -5,9 +5,9 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/29/2017
+ms.date: 10/11/2017
 ms.topic: overview
-ms.service: Cost Management
+ms.service: cost-management
 manager: carmonm
 ms.custom: mvc
 ---
@@ -15,6 +15,8 @@ ms.custom: mvc
 # What is Azure Cost Management?
 
 Azure Cost Management by Cloudyn allows you to track cloud usage and expenditures for your Azure resources and other cloud providers including AWS and Google. Easy-to-understand dashboard reports help with cost allocation and showbacks/chargebacks as well. Cost Management helps optimize your cloud spending by identifying underutilized resources that you can then manage and adjust.
+
+To watch an introductory video, see [Introduction to Azure Cost Management by Cloudyn](https://youtu.be/NWIRny6Wpsk).
 
 ## Monitor usage and spending
 

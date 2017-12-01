@@ -3,7 +3,7 @@ title: Troubleshoot error codes for the Azure MFA NPS extension | Microsoft Docs
 description: Get help resolving issues with the NPS extension for Azure Multi-Factor Authentication with specific resolutions for common error messages
 services: multi-factor-authentication
 documentationcenter: ''
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.author: joflore
+ms.reviewer: richagi
 ms.custom: it-pro
 ---
 

@@ -1,14 +1,14 @@
 # Overview
 ## [Virtual networks](virtual-networks-overview.md)
-## [User-defined routes and IP forwarding](virtual-networks-udr-overview.md)
+## [Routing](virtual-networks-udr-overview.md)
 ## [Virtual network peering](virtual-network-peering-overview.md)
 ## [Virtual network service endpoints](virtual-network-service-endpoints-overview.md)
 ## [Virtual network for Azure services](virtual-network-for-azure-services.md)
 ## [Security](security-overview.md)
 ## [Business continuity](virtual-network-disaster-recovery-guidance.md)
-## [FAQ](virtual-networks-faq.md)
 ## [IP addressing](virtual-network-ip-addresses-overview-arm.md)
 ## [DDoS Protection](ddos-protection-overview.md)
+## [FAQ](virtual-networks-faq.md)
 ## Classic
 ### [IP addressing](virtual-network-ip-addresses-overview-classic.md)
 ### [Access control lists](virtual-networks-acl.md)
@@ -24,15 +24,13 @@
 ## Deploy
 ### [Virtual networks](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI 2.0](virtual-networks-create-vnet-arm-cli.md)
-#### [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md)
+#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Template](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Network security groups
 #### [Azure portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Azure CLI 2.0](virtual-networks-create-nsg-arm-cli.md)
-#### [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md)
+#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Template](virtual-networks-create-nsg-arm-template.md)
 #### [Application security groups](create-network-security-group-preview.md)
 #### Classic
@@ -40,9 +38,9 @@
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)
 
 ### User-defined routes
+#### [Azure portal](create-user-defined-route-portal.md)
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md)
-#### [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
+#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
 #### [Template](virtual-network-create-udr-arm-template.md)
 #### Classic
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
@@ -62,11 +60,11 @@
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Virtual machines
+#### [Virtual machine network throughput](virtual-machine-network-throughput.md)
 #### Create a VM with a static public IP address
 ##### [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-##### [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+##### [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Template](virtual-network-deploy-static-pip-arm-template.md)
 ##### Classic
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
@@ -82,8 +80,7 @@
 
 #### Create a VM with multiple network interfaces
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Azure CLI 2.0](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Azure CLI 1.0](../virtual-machines/linux/multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Template](virtual-network-deploy-multinic-arm-template.md)
 
 ##### Classic
@@ -135,7 +132,7 @@
 #### Classic
 ##### Static IP addresses
 ###### [PowerShell](virtual-networks-reserved-private-ip.md)
-###### [CLI](virtual-networks-static-private-ip-cli-nodejs.md)
+###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
 ##### [Instance level public IP address](virtual-networks-instance-level-public-ip.md)
 
 ### Classic
@@ -153,8 +150,7 @@
 ### Network security groups
 #### [Azure portal](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [Azure CLI 2.0](virtual-network-manage-nsg-arm-cli.md)
-#### [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md)
+#### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Logs](virtual-network-nsg-manage-log.md)
 ### Network interfaces (NICs)

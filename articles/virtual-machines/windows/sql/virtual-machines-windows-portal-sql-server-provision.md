@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/02/2017
+ms.date: 10/10/2017
 ms.author: jroth
 ---
 # Provision a Windows SQL Server virtual machine in the Azure portal
@@ -38,21 +38,23 @@ In this tutorial, you will:
    > [!NOTE]
    > If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-2. On the Azure portal, click **New**. The portal opens the **New** window.
+1. On the Azure portal, click **New**. The portal opens the **New** window.
 
-3. In the **New** window, click **Compute** and then click **See all**.
+1. In the **New** window, click **Compute** and then click **See all**.
 
    ![New Compute window](./media/virtual-machines-windows-portal-sql-server-provision/azure-new-compute-blade.png)
 
-4. In the search field, type **SQL Server**, and press ENTER.
+1. In the search field, type **SQL Server 2017**, and press ENTER.
 
-5. Then click the **Filter** icon and select **Microsoft** for the publisher. Click **Done** on the filter window to filter the results to Microsoft published SQL Server images.
+1. Then click the **Filter** icon.
+
+1. In the Filter windows, check the **Windows based** subcategory and **Microsoft** for the publisher. Then click **Done** to filter the results to Microsoft-published, Windows SQL Server images.
 
    ![Azure Virtual Machines window](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
 
-5. Review the available SQL Server images. Each image identifies a SQL Server version and an operating system.
+1. Review the available SQL Server images. Each image identifies a SQL Server version and an operating system.
 
-6. Select the image named **Free License: SQL Server 2016 SP1 Developer on Windows Server 2016**.
+1. Select the image named **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016**.
 
    > [!TIP]
    > The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM. However, you are free to choose any of the images to use in this tutorial.
@@ -62,9 +64,9 @@ In this tutorial, you will:
    >
    > For more information on these options, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-7. Under **Select a deployment model**, verify that **Resource Manager** is selected. Resource Manager is the recommended deployment model for new virtual machines. 
+1. Under **Select a deployment model**, verify that **Resource Manager** is selected. Resource Manager is the recommended deployment model for new virtual machines. 
 
-8. Click **Create**.
+1. Click **Create**.
 
     ![Create SQL VM with Resource Manager](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
@@ -148,7 +150,7 @@ On the **SQL Server settings** window, configure specific settings and optimizat
 | [Automated Patching](#automated-patching) |
 | [Automated Backup](#automated-backup) |
 | [Azure Key Vault Integration](#azure-key-vault-integration) |
-| [R Services](#r-services) |
+| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) |
 
 ### Connectivity
 
@@ -249,14 +251,11 @@ The following table lists the parameters required to configure Azure Key Vault I
 
 For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-ps-sql-keyvault.md).
 
-### R services
+### SQL Server Machine Learning Services
 
-You have the option to enable [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2016. Click **Enable** on the **SQL Server Settings** window.
+You have the option to enable [SQL Server Machine Learning Services](https://msdn.microsoft.com/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2017. Click **Enable** on the **SQL Server Settings** window.
 
-> [!NOTE]
-> For SQL Server 2016 Developer Edition, this option is incorrectly disabled by the portal. For Developer edition, you must enable R Services manually after creating your VM.
-
-![Enable SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+![Enable SQL Server Machine Learning Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
 When you are finished configuring SQL Server settings, click **OK**.
 
@@ -267,7 +266,7 @@ On the **Summary** window, review the summary and click **Purchase** to create S
 You can monitor the deployment from the Azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
 
 > [!NOTE]
-> To provide you with an idea on deployment times, I deployed a SQL VM to the East US region with default settings. This test deployment took a total of 26 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings.
+> To provide you with an idea on deployment times, I deployed a SQL VM to the East US region with default settings. This test deployment took approximately 12 minutes to complete. But you might experience a faster or slower deployment time based on your region and selected settings.
 
 ## <a id="remotedesktop"></a> Open the VM with Remote Desktop
 

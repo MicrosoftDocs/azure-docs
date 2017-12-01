@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 11/08/2017
 ---
 
 # Model management command-line interface reference
@@ -65,6 +65,8 @@ Local Arguments:
                      the active MLC env.
 
 **Set up the Deployment Environment**
+
+The setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command using `-g` the flag. 
 
 There are two options for deployment: *local* and *cluster*. Setting the `--cluster` (or `-c`) flag enables cluster deployment, which provisions an ACS cluster. The basic setup syntax is as follows:
 
@@ -187,7 +189,7 @@ Global Arguments
 
 You can create an image with the option of having created its manifest before. 
 
-`az ml image create -n [image name] -manifest-id [the manifest ID]`
+`az ml image create -n [image name] --manifest-id [the manifest ID]`
 
 Or you can create the manifest and image with a single command. 
 
@@ -217,6 +219,7 @@ Unregistered Manifest Arguments
 
 
 ## Service commands
+The following commands are supported for Service. To see the parameters for each command, use the -h option. For example, use `az ml service create realtime -h` to see create command details.
 
     create
     delete
