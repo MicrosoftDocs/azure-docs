@@ -12,12 +12,10 @@ manager: craigg
 ---
 # Configure the Azure-SSIS Integration Runtime for high performance
 
-This article describes how to configure the Azure-SSIS Integration Runtime (IR) for high performance when you deploy and run SSIS packages on Azure.
-
-For more info about deploying and running SSIS packages on Azure, see [Lift and shift SQL Server Integration Services workloads to the cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
+This article describes how to configure an Azure-SSIS Integration Runtime (IR) for high performance. The Azure-SSIS IR allows you to deploy and run SQL Server Integration Services (SSIS) packags in Azure. For more information about Azure-SSIS IR, see [Integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) article. For information about deploying and running SSIS packages on Azure, see [Lift and shift SQL Server Integration Services workloads to the cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
 > [!IMPORTANT]
-> This article contains performance results and observations that are the result of unofficial private testing by members of the SSIS development team. Your results may vary. Do your own testing before you finalize your configuration settings, which affect both cost and performance.
+> This article contains performance results and observations from in-house testing done by members of the SSIS development team. Your results may vary. Do your own testing before you finalize your configuration settings, which affect both cost and performance.
 
 ## Properties to configure
 
@@ -28,14 +26,14 @@ $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
 $DataFactoryName = "<Data factory name>" 
-# In public preview, only EastUS amd EastUS2 are supported.
 $DataFactoryLocation = "EastUS" 
+
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "<Specify a name for your Azure-SSIS IR>"
 $AzureSSISDescription = "<Specify description for your Azure-SSIS IR"
-# In public preview, only EastUS and NorthEurope are supported.
+# In public preview, only EastUS, NorthEurope, and WestEurope are supported.
 $AzureSSISLocation = "EastUS" 
- # In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
+# In public preview, only Standard_A4_v2, Standard_A8_v2, Standard_D1_v2, Standard_D2_v2, Standard_D3_v2, Standard_D4_v2 are supported
 $AzureSSISNodeSize = "Standard_A4_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
@@ -52,11 +50,9 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 ```
 
 ## AzureSSISLocation
-
-**AzureSSISLocation** is the location for the integration runtime worker. The worker maintains a constant connection with the SSIS Catalog database, SSISDB, on Azure SQL Database. Set the **AzureSSISLocation** to the same location as the SQL Database server, which hosts SSISDB to let the integration runtime instance work as efficiently as possible.
+**AzureSSISLocation** is the location for the integration runtime worker node. The worker node maintains a constant connection to the SSIS Catalog database (SSISDB) on an Azure SQL database. Set the **AzureSSISLocation** to the same location as the SQL Database server that hosts SSISDB, which lets the integration runtime to work as efficiently as possible.
 
 ## AzureSSISNodeSize
-
 The public preview of Azure Data Factory v2, including the Azure-SSIS IR, supports the following options:
 -   Standard\_A4\_v2
 -   Standard\_A8\_v2
@@ -65,13 +61,12 @@ The public preview of Azure Data Factory v2, including the Azure-SSIS IR, suppor
 -   Standard\_D3\_v2
 -   Standard\_D4\_v2.
 
-In unofficial private testing by the SSIS engineering team, the D series appears to be more suitable for SSIS package execution than the A series.
+In the unofficial in-house testing by the SSIS engineering team, the D series appears to be more suitable for SSIS package execution than the A series.
 
 -   The performance/price ratio of the D series is higher than the A series.
 -   The throughput for the D series is higher than the A series at the same price.
 
 ### Configure for execution speed
-
 If you don't have many packages to run, and you want packages to run quickly, use the information in the following chart to help you choose a virtual machine type suitable for your scenario.
 
 This data represents a single package execution on a single worker node. The package loads 10M records including first name and last name from Azure Blob Storage, generates a full name column, and writes the records where the full name is longer than 20 characters back to Azure Blob Storage.
