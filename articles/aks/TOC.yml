@@ -7,8 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an AKS cluster
+  - name: Create an AKS cluster - CLI
     href: kubernetes-walkthrough.md
+  - name: Create an AKS cluster - Portal
+    href: kubernetes-walkthrough-portal.md
 - name: Tutorials
   items:
   - name: 1 - Prepare application for AKS
