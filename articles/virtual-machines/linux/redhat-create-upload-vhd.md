@@ -342,8 +342,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 > [!NOTE]
 > There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
-> 
-> 
+>
+
 
 	First convert the image to raw format:
 
@@ -491,8 +491,8 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 > [!NOTE]
 > There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
-> 
-> 
+>
+
 
 	First convert the image to raw format:
 
@@ -618,8 +618,8 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 > [!NOTE]
 > There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
-> 
-> 
+>
+
 
 	First convert the image to raw format:
 
@@ -732,8 +732,8 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 > [!NOTE]
 > There is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. It is recommended to use either qemu-img 2.2.0 or lower, or update to 2.6 or higher. Reference: https://bugs.launchpad.net/qemu/+bug/1490611.
-> 
-> 
+>
+
 
 	First convert the image to raw format:
 
