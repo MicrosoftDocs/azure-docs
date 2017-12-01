@@ -47,7 +47,7 @@ $context = New-AzureStorageContext -StorageAccountName "<storage account name>" 
 $blob = Get-AzureStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
 
 # Set the CacheControl property to expire in 1 hour (3600 seconds)
-$blob.ICloudBlob.Properties.CacheControl = "public, max-age=3600"
+$blob.ICloudBlob.Properties.CacheControl = "max-age=3600"
 
 # Send the update to the cloud
 $blob.ICloudBlob.SetProperties()
@@ -82,7 +82,7 @@ class Program
         CloudBlob blob = container.GetBlobReference("<blob name>");
 
         // Set the CacheControl property to expire in 1 hour (3600 seconds)
-        blob.Properties.CacheControl = "public, max-age=3600";
+        blob.Properties.CacheControl = "max-age=3600";
 
         // Update the blob's properties in the cloud
         blob.SetProperties();
@@ -99,12 +99,20 @@ class Program
 ### Azure Storage Explorer
 With [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), you can view and edit your blob storage resources, including properties such as the *CacheControl* property. 
 
+To update the *CacheControl* property of a blob with Azure Storage Explorer:
+   1. Select a blob, then select **Properties** from the context menu. 
+   2. Scroll down to the *CacheControl* property.
+   3. Enter a value, then click **Save**.
+
+
+![Azure Storage Explorer properties](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
+
 ### Azure Command-Line Interface
 When you upload a blob, you can set the *cacheControl* property with the `-p` switch in the [Azure Command-Line Interface](../cli-install-nodejs.md). The following example shows how to set the TTL to one hour (3600 seconds):
   
-    ```text
-    azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
-    ```
+```command
+azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
+```
 
 ### Azure storage services REST API
 You can use the [Azure storage services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) to explicitly set the *x-ms-blob-cache-control* property by using the following operations on a request:

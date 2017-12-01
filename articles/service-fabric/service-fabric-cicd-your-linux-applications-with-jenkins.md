@@ -22,7 +22,7 @@ Jenkins is a popular tool for continuous integration and deployment of your apps
 
 ## General prerequisites
 - Have Git installed locally. You can install the appropriate Git version from [the Git downloads page](https://git-scm.com/downloads), based on your operating system. If you are new to Git, learn more about it from the [Git documentation](https://git-scm.com/docs).
-- Have the Service Fabric Jenkins plug-in handy. You can download it from [Service Fabric downloads](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
+- Have the Service Fabric Jenkins plug-in handy. You can download it from [Service Fabric downloads](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). If you are using edge browser rename the extension of downloaded file from .zip to .hpi.
 
 ## Set up Jenkins inside a Service Fabric cluster
 
@@ -127,8 +127,8 @@ You need to have Docker installed. The following commands can be used to install
 Now when you run ``docker info`` in the terminal, you should see in the output that the Docker service is running.
 
 ### Steps
-  1. Pull the Service Fabric Jenkins container image: ``docker pull raunakpandya/jenkins:9``
-  2. Run the container image: ``docker run -itd -p 8080:8080 raunakpandya/jenkins:v9``
+  1. Pull the Service Fabric Jenkins container image: ``docker pull rapatchi/jenkins:v9``
+  2. Run the container image: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
   3. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps –a``
   4. Sign in to the Jenkins portal by using the following steps:
 
