@@ -263,7 +263,9 @@
         name: Configure swapfile
         href: cloudinit-configure-swapfile.md
         name: Run existing bash script
-        href: cloudinit-bash-script.md  
+        href: cloudinit-bash-script.md
+        name: Prepare existing VM for cloud-init
+        href: cloudinit-prepare-custom-image.md  
     - name: Jenkins
       href: ../../jenkins/overview.md
       items:
