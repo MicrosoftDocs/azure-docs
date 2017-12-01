@@ -52,14 +52,16 @@ When you open a failed job in Azure Data Lake Tools for Visual Studio, you see a
 
 In the new launched Visual Studio instance, you may or may not find the user defined C# source code:
 
-1. ![I can find my source code in the solution](#source-code-is-included-in-debugging-solution)
-2. ![I cannot find my source code in the solution](#source-code-is-not-included-in-debugging-solution)
+1. [I can find my source code in the solution](#source-code-is-included-in-debugging-solution)
+
+2. [I cannot find my source code in the solution](#source-code-is-not-included-in-debugging-solution)
 
 ### Source code is included in debugging solution
 
 There are two cases that the C# source code is captured:
 
 1. The user code is defined in code-behind file (typically named `Script.usql.cs` in a U-SQL project).
+
 2. The user code is defined in C# class libary project for U-SQL application, and registered as assembly with **debug info**.
 
 If the source code is imported to the solution, you can use the Visual Studio debugging tools (watch, variables, etc.) to troubleshoot the problem:
@@ -97,15 +99,17 @@ After debugging, if the project completes successfully the output window shows t
 
 ![Azure Data Lake Analytics U-SQL debug succeed](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
-Before resubmit the failed job:
+To resubmit the failed job:
 
 1. For jobs with code-behind solutions, copy the C# code into the code-behind source file (typically `Script.usql.cs`).
+
 2. For jobs with assemblies, right click the assembly source code project in debugging solution and register the updated .dll assemblies into your Azure Data Lake catalog.
+
 3. Resubmit the U-SQL job.
 
 ## Next steps
 
 - [U-SQL programmability guide](data-lake-analytics-u-sql-programmability-guide.md)
 - [Develop U-SQL User-defined operators for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-- [Test and debug U-SQL jobs by using local run and the Azure Data Lake U-SQL SDK](Test and debug U-SQL jobs by using local run and the Azure Data Lake U-SQL SDK.md)
-- [How to troubleshoot an abnormal recurring job](How to troubleshoot an abnormal recurring job.md)
+- [Test and debug U-SQL jobs by using local run and the Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
+- [How to troubleshoot an abnormal recurring job](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
