@@ -1,6 +1,6 @@
 ---
-title: Test drive custom terms in Azure Content Moderator | Microsoft Docs
-description: Use custom term lists from the online console
+title: Text moderation with custom lists in Azure Content Moderator | Microsoft Docs
+description: Use custom term lists from the Content Moderator API console
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,7 +12,7 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Custom terms from the online console
+# Text moderation with custom terms from the API console
 
 The default global list of terms is usually sufficient, but you may need to screen against terms that are specific to your business. For example, you may want to tag competitors’ names for further review. The [Terms List API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) allows you to create custom lists of terms for use with the Text Moderation API. The **Text - Screen** operation scans your text for profanity, comparing it against custom and/or shared blacklists.
 
