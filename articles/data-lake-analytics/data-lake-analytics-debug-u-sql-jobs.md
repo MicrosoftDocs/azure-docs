@@ -1,5 +1,5 @@
 ---
-title: Debug user defined C# code for failed Azure Data Lake U-SQL jobs | Microsoft Docs
+title: Debug user-defined C# code for failed Azure Data Lake U-SQL jobs | Microsoft Docs
 description: 'Learn how to debug a U-SQL failed vertex using Azure Data Lake Tools for Visual Studio.'
 services: data-lake-analytics
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.author: yanacai
 
 # Debug user-defined C# code for failed U-SQL jobs
 
-U-SQL provides an extensibility model using C#. In U-SQL scripts, it is easy to call C# functions and perform analytic functions which SQL-like declarative language does not support. To learn more for U-SQL extensibility, see [U-SQL programmability guide](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL provides an extensibility model using C#. In U-SQL scripts, it is easy to call C# functions and perform analytic functions that SQL-like declarative language does not support. To learn more for U-SQL extensibility, see [U-SQL programmability guide](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
 In practice, any code may need debugging, but it is hard to debug a distributed job with custom code on the cloud with limited log files. Azure Data Lake Tools for Visual Studio provides a feature called **Failed Vertex Debug**, which helps you more easily debug the failures that occur in your custom code. When U-SQL job fails, the service keeps the failure state and the tool helps you to download the cloud failure environment to the local machine for debugging. The local download captures the entire cloud environment, including any input data and user code.
 
@@ -50,7 +50,7 @@ When you open a failed job in Azure Data Lake Tools for Visual Studio, you see a
 
 ![Azure Data Lake Analytics U-SQL debug visual studio setting](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
 
-In the new launched Visual Studio instance, you may or may not find the user defined C# source code:
+In the new launched Visual Studio instance, you may or may not find the user-defined C# source code:
 
 1. [I can find my source code in the solution](#source-code-is-included-in-debugging-solution)
 
@@ -62,7 +62,7 @@ There are two cases that the C# source code is captured:
 
 1. The user code is defined in code-behind file (typically named `Script.usql.cs` in a U-SQL project).
 
-2. The user code is defined in C# class libary project for U-SQL application, and registered as assembly with **debug info**.
+2. The user code is defined in C# class library project for U-SQL application, and registered as assembly with **debug info**.
 
 If the source code is imported to the solution, you can use the Visual Studio debugging tools (watch, variables, etc.) to troubleshoot the problem:
 
@@ -74,7 +74,7 @@ If the source code is imported to the solution, you can use the Visual Studio de
 
 ### Source code is not included in debugging solution
 
-If the user code is not included in code-behind file, or you did not register the assembly with **debug info**, then the source code is not included automatically in the dubugging solution. In this case, you need extra steps to add your source code:
+If the user code is not included in code-behind file, or you did not register the assembly with **debug info**, then the source code is not included automatically in the debugging solution. In this case, you need extra steps to add your source code:
 
 1. Right-click **Solution 'VertexDebug' > Add > Existing Project...** to find the assembly source code and add the project to the debugging solution.
 
@@ -82,7 +82,7 @@ If the user code is not included in code-behind file, or you did not register th
 
 2. Get the project folder path for **FailedVertexDebugHost** project. 
 
-3. Right-Click **the added assembly source code project > Properties**, select the **Build** tab at left, and paste the copied path ending with \bin\debug as **Output > Output path**. The final outpath is like "<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\".
+3. Right-Click **the added assembly source code project > Properties**, select the **Build** tab at left, and paste the copied path ending with \bin\debug as **Output > Output path**. The final output path is like "<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\".
 
     ![Azure Data Lake Analytics U-SQL debug set pdb path](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 
@@ -103,7 +103,7 @@ To resubmit the failed job:
 
 1. For jobs with code-behind solutions, copy the C# code into the code-behind source file (typically `Script.usql.cs`).
 
-2. For jobs with assemblies, right click the assembly source code project in debugging solution and register the updated .dll assemblies into your Azure Data Lake catalog.
+2. For jobs with assemblies, right-click the assembly source code project in debugging solution and register the updated .dll assemblies into your Azure Data Lake catalog.
 
 3. Resubmit the U-SQL job.
 
