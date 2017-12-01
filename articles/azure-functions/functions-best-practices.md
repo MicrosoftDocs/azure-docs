@@ -97,25 +97,23 @@ Asynchronous programming is a recommended best practice. However, always avoid r
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-### Recieve messages in batch whenever possible
+### Receive messages in batch whenever possible
 
-Some triggers like Event Hub and Storage Queues enable receiving a batch of messages on a single invocation.  Batching messages has much better performance.  You can configure the max batch size in the `functions.json` file as detailed in the [host.json reference documentation](functions-host-json.md)
+Some triggers like Event Hub enable receiving a batch of messages on a single invocation.  Batching messages has much better performance.  You can configure the max batch size in the `functions.json` file as detailed in the [host.json reference documentation](functions-host-json.md)
 
-For C# functions you can change the type to a strongly-typed array.  For example, instead of `EventData sensorEvent` the method signature could be `EventData[] sensorEvent`.  For other languages you'll need to explicitely set the cardinality property in your `function.json` to `many` in order to enable batching [as shown here](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+For C# functions you can change the type to a strongly-typed array.  For example, instead of `EventData sensorEvent` the method signature could be `EventData[] sensorEvent`.  For other languages you'll need to explicitly set the cardinality property in your `function.json` to `many` in order to enable batching [as shown here](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
 ### Configure host behaviors to better handle concurrency
 
-The `host.json` file in the function app allows for configuration of host runtime and trigger behaviors.  In addition to batching behaviors, you can manage concurrency for a number of triggers.  Often adjusting the values in these options can help each instance scale appropriately for the demands of the invoked functions. 
+The `host.json` file in the function app allows for configuration of host runtime and trigger behaviors.  In addition to batching behaviors, you can manage concurrency for a number of triggers.  Often adjusting the values in these options can help each instance scale appropriately for the demands of the invoked functions.
+
+Settings in the hosts file apply across all functions within the app, within a *single instance* of the function. For example, if you had a function app with 2 HTTP functions and concurrent requests set to 25, a request to either HTTP trigger would count towards the shared 25 concurrent requests.  If that function app scaled to 10 instances, the 2 functions would effectively allow 250 concurrent requests (10 instances * 25 concurrent requests per instance).
 
 **HTTP concurrency host options**
 
-* `maxOutstandingRequests` - the maximum number of outstanding requests that will be held at any given time. This limit will include requests that are queued but have not started executing, as well as any in progress executions. Any incoming requests over this limit will be rejected with a 429 "Too Busy" response. That allows callers to employ time based retry strategies, and also helps you to control maximum request latencies. Note that this only controls queuing that occurs within the script host execution path. Other queues such as the ASP.NET request queue will still be in effect and unaffected by this setting. The default is unbounded.
-* `maxConcurrentRequests` - the maximum number of http functions that will be executed in parallel. This allows you to control concurrency, which can help manage resource utilization. For example, you might have an http function that uses a lot of system resources (memory/cpu/sockets) such that it causes issues when concurrency is too high. Or you might have a function that makes outbound requests to a 3rd party service, and those calls need to be rate limited. In these cases, applying a throttle here can help. The default is unbounded.
-* `dynamicThrottlesEnabled` - When enabled, this setting will cause the request processing pipeline to periodically check system performance counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built in high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return to normal levels. The default is false.
+[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-**Service Bus concurrency host options**
-
-* `maxConcurrentCalls` - The maximum number of concurrent calls to the callback the message pump should initiate. The default is 16.
+Other host configuration options can be found [in the host configuration document](functions-host-json.md).
 
 ## Next steps
 For more information, see the following resources:

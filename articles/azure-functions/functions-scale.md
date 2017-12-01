@@ -1,5 +1,5 @@
 ---
-title: Azure Functions hosting plans comparison | Microsoft Docs
+title: Azure Functions scale and hosting | Microsoft Docs
 description: Learn how to choose between Azure Functions Consumption plan and App Service plan.
 services: functions
 documentationcenter: na
@@ -21,7 +21,7 @@ ms.author: glenga
 ms.custom: H1Hack27Feb2017
 
 ---
-# Azure Functions hosting plans comparison
+# Azure Functions scale and hosting
 
 You can run Azure Functions in two different modes: Consumption plan and Azure App Service plan. The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. You don't have to pay for idle VMs and don't have to reserve capacity in advance. This article focuses on the Consumption plan, a [serverless](https://azure.microsoft.com/overview/serverless-computing/) app model. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
@@ -112,10 +112,8 @@ Scaling can vary on a number of factors, and scale differently based on the trig
 * New instances will only be allocated at most once every 10 seconds.
 
 Different triggers may also have different scaling limits as well as documented below:
-|Trigger|Limit|Notes|
-|--|--|--|
-|Event Hub|1 instance per partition||
-<!-- JH: Are there any other limits? -->
+
+* [Event Hub](functions-bindings-event-hubs.md#trigger---scaling)
 
 ### Best practices and patterns for scalable apps
 
