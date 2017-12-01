@@ -29,39 +29,102 @@ This example shows how to request search results from your custom search instanc
 7. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
 
 ``` Java
-package com.contoso.BingCustomSearch;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.HttpClientBuilder;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import javax.net.ssl.HttpsURLConnection;
 
-public class BingCustomSearch {
-    public static void main(String[] args) throws IOException {
-        String subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-        String customConfigId = "YOUR-CUSTOM-CONFIG-ID";
-        String searchTerm = args.length > 0 ? args[0]: "microsoft";
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
-        String url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
-                "q=" + searchTerm +
-                "&customconfig=" + customConfigId;
+public class CustomSrchJava {
+	
+	
+	static String host = "https://api.cognitive.microsoft.com";
+    static String path = "/bingcustomsearch/v7.0/search";
+    static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
+    static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
 
-        HttpClient client = HttpClientBuilder.create().build();
-        HttpGet request = new HttpGet(url);
-        request.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+    static String searchTerm = "Verdi";  // Replace with search term specific to defined sources.
 
-        HttpResponse response = client.execute(request);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+    public static SearchResults SearchImages (String searchQuery) throws Exception {
+        // construct URL of search request (endpoint + query string)
+        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
+        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-        String line = "";
-        while ((line = reader.readLine()) != null) {
-            System.out.println(line);
+        // receive JSON body
+        InputStream stream = connection.getInputStream();
+        String response = new Scanner(stream).useDelimiter("\\A").next();
+
+        // construct result object for return
+        SearchResults results = new SearchResults(new HashMap<String, String>(), response);
+
+        // extract Bing-related HTTP headers
+        Map<String, List<String>> headers = connection.getHeaderFields();
+        for (String header : headers.keySet()) {
+            if (header == null) continue;      // may have null key
+            if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
+                results.relevantHeaders.put(header, headers.get(header).get(0));
+            }
+        }
+
+        stream.close();
+        return results;
+    }
+
+    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(json_text).getAsJsonObject();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+
+    public static void main (String[] args) {
+        if (subscriptionKey.length() != 32) {
+            System.out.println("Invalid Bing Search API subscription key!");
+            System.out.println("Please paste yours into the source code.");
+            System.exit(1);
+        }
+
+        try {
+            System.out.println("Searching the Web for: " + searchTerm);
+
+            SearchResults result = SearchImages(searchTerm);
+
+            System.out.println("\nRelevant HTTP Headers:\n");
+            for (String header : result.relevantHeaders.keySet())
+                System.out.println(header + ": " + result.relevantHeaders.get(header));
+
+            System.out.println("\nJSON Response:\n");
+            System.out.println(prettify(result.jsonResponse));
+        }
+        catch (Exception e) {
+            e.printStackTrace(System.out);
+            System.exit(1);
         }
     }
 }
+
+// Container class for search results encapsulates relevant headers and JSON data
+class SearchResults{
+    HashMap<String, String> relevantHeaders;
+    String jsonResponse;
+    SearchResults(HashMap<String, String> headers, String json) {
+        relevantHeaders = headers;
+        jsonResponse = json;
+    }
+
+}
+
 ```
 
 ### Next steps
