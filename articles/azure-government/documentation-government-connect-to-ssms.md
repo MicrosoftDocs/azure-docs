@@ -25,7 +25,9 @@ To connect to SQL Servers in your Azure Government subscription, you must config
 For general information on SSMS, [navigate to the documentation](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## Setting up Azure SQL Server Firewall Rule
-Before you connect to Azure Government from SSMS, you must set up an Azure SQL Server Firewall rule to allow your local IP address to access your Azure SQL Server. Follow the steps for "Manage Firewall rules using the Azure Portal" [here](../sql-database/sql-database-firewall-configure.md#manage-firewall-rules-using-the-azure-portal). 
+Before you connect to Azure Government from SSMS, you must **set up an Azure SQL Server Firewall rule** to allow your local IP address to access your Azure SQL Server. 
+
+Follow the steps for "Manage Firewall rules using the Azure Portal" [here](../sql-database/sql-database-firewall-configure.md#manage-firewall-rules-using-the-azure-portal). 
 
 ## Specifying Azure Government as the environment to connect to
 1. Open SSMS and navigate to **Tools -> Options -> Azure Services:**
