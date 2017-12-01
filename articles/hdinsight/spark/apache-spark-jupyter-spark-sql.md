@@ -58,7 +58,7 @@ If you run into an issue with creating HDInsight clusters, it could be that you 
 
 ## Create a Jupyter notebook
 
-[Jupyter Notebook](http://jupyter.org) is an interactive notebook environment which supports various programming languages which allows you to interact with your data, combine code with markdown text and perform simple visualizations. Spark on HDInsight also include [Zeppelin Notebook](apache-spark-zeppelin-notebook.md). Jupyter Notebook is used in this tutorial.
+[Jupyter Notebook](http://jupyter.org) is an interactive notebook environment which supports various programming languages which allows you to interact with your data, combine code with markdown text and perform simple visualizations. Spark on HDInsight also includes [Zeppelin Notebook](apache-spark-zeppelin-notebook.md). Jupyter Notebook is used in this tutorial.
 
 **To create a Jupyter notebook**
 
