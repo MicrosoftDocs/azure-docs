@@ -61,7 +61,7 @@ A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv
 
 ### Multi-Site
 This type of connection is a variation of the Site-to-Site connection. You create more than one VPN connection from your virtual network gateway, typically connecting to multiple on-premises sites. When working with multiple connections, you must use a RouteBased VPN type (known as a dynamic gateway when working with classic VNets). Because each virtual network can only have one VPN gateway, all connections through the gateway share the available bandwidth. This is often called a "multi-site" connection.   
-![Azure VPN Gateway Multi-Site connection example](/media//azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-multisite-connection-diagram.png)
+![Azure VPN Gateway Multi-Site connection example](/media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-multisite-connection-diagram.png)
 
 
 
