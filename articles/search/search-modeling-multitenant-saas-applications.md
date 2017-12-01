@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2016
+ms.date: 11/09/2017
 ms.author: ashmaka
 
 ---
@@ -20,7 +20,7 @@ ms.author: ashmaka
 A multitenant application is one that provides the same services and capabilities to any number of tenants who cannot see or share the data of any other tenant. This document discusses tenant isolation strategies for multitenant applications built with Azure Search.
 
 ## Azure Search concepts
-As a search-as-a-service solution, Azure Search allows developers to add rich search experiences to applications without managing any infrastructure or becoming an expert in search. Data is uploaded to the service and then stored in the cloud. Using simple requests to the Azure Search API, the data can then be modified and searched. An overview of the service can be found in [this article](http://aka.ms/whatisazsearch). Before discussing design patterns, it is important to understand some concepts in Azure Search.
+As a search-as-a-service solution, Azure Search allows developers to add rich search experiences to applications without managing any infrastructure or becoming an expert in information retrieval. Data is uploaded to the service and then stored in the cloud. Using simple requests to the Azure Search API, the data can then be modified and searched. An overview of the service can be found in [this article](http://aka.ms/whatisazsearch). Before discussing design patterns, it is important to understand some concepts in Azure Search.
 
 ### Search services, indexes, fields, and documents
 When using Azure Search, one subscribes to a *search service*. As data is uploaded to Azure Search, it is stored in an *index* within the search service. There can be a number of indexes within a single service. To use the familiar concepts of databases, the search service can be likened to a database while the indexes within a service can be likened to tables within a database.

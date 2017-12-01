@@ -16,9 +16,8 @@
 ### [4- Monitor and Diagnose](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Containerize an existing .NET app
-### [1- Create a secure cluster on Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
-### [3- Monitor your container](service-fabric-tutorial-monitoring-wincontainers.md)
+### [1- Deploy a .NET app using Docker Compose](service-fabric-host-app-in-a-container.md)
+### [2- Monitor your container](service-fabric-tutorial-monitoring-wincontainers.md)
 
 ## Create a Linux container app
 ### [1- Create container images](service-fabric-tutorial-create-container-images.md)
@@ -30,7 +29,9 @@
 #### [1a- Create a Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- Create a Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Scale the cluster](service-fabric-tutorial-scale-cluster.md)
-### [3- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [3- Upgrade the cluster runtime](service-fabric-tutorial-upgrade-cluster.md)
+### [4- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # Samples
@@ -186,19 +187,10 @@
 #### [Container networking modes](service-fabric-networking-modes.md)
 
 ### Build a Reliable Services service
-#### [Overview](service-fabric-reliable-services-introduction.md)
-#### Concepts
-##### [Reliable Services lifecycle - C#](service-fabric-reliable-services-lifecycle.md)
-##### [Reliable Services lifecycle - Java](service-fabric-reliable-services-lifecycle-java.md)
-
 #### Reliable Collections
-##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
-##### [Reliable Collection guidelines & recommendations](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
-##### [Transactions and locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 ##### [Reliable Concurrent Queue](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Reliable Collection serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Reliable State Manager and Reliable Collection internals](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-services-quick-start.md)
@@ -244,13 +236,12 @@
 ### [Debug a .NET service in VS](service-fabric-debugging-your-application.md)
 ### [Common errors and exceptions](service-fabric-errors-and-exceptions.md)
 ### [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+### [Set up a Linux cluster on Windows](service-fabric-local-linux-cluster-windows.md)
 
 ## Work in a Linux dev environment
 ### [Get started with Eclipse plugin for Java development](service-fabric-get-started-eclipse.md)
 ### [Debug a Java service in Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Monitor and diagnose locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-
-## [Deploy API Management and Service Fabric to Azure](service-fabric-api-management-quick-start.md)
 
 ## Migrate from Cloud Services
 ### [Compare Cloud Services with Service Fabric](service-fabric-cloud-services-migration-differences.md)
@@ -265,7 +256,6 @@
 #### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient APIs](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Upgrade applications
@@ -281,16 +271,14 @@
 ##### [During workloads](service-fabric-testability-workload-tests.md)
 ##### [Using test scenarios](service-fabric-testability-scenarios.md)
 ##### [Using the node transition APIs](service-fabric-node-transition-apis.md)
-#### [Load test your application](service-fabric-vso-load-test.md)
 
 ### Set up continuous integration
 #### [Set up continuous integration with VSTS](service-fabric-set-up-continuous-integration.md)
-#### [Deploy your Linux Java application using Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+#### [Deploy your Linux applications using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 
 ## Create and manage clusters
 ### Clusters on Azure
 #### Create
-##### [Create your first cluster on Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Scale
@@ -320,26 +308,13 @@
 ### [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md)
 ### [Patch cluster nodes](service-fabric-patch-orchestration-application.md)
 
-### Manage and orchestrate cluster resources
-#### [Cluster Resource Manager overview](service-fabric-cluster-resource-manager-introduction.md)
-#### [Cluster Resource Manager architecture](service-fabric-cluster-resource-manager-architecture.md)
-#### [Describe a cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Application groups overview](service-fabric-cluster-resource-manager-application-groups.md)
-#### [Configure Cluster Resource Manager settings](service-fabric-cluster-resource-manager-configure-services.md)
-#### [Resource consumption metrics](service-fabric-cluster-resource-manager-metrics.md)
-#### [Use service affinity](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [Service placement policies](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [Manage a cluster](service-fabric-cluster-resource-manager-management-integration.md)
-#### [Cluster defragmentation](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [Balance a cluster](service-fabric-cluster-resource-manager-balancing.md)
-#### [Throttling](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [Service movement](service-fabric-cluster-resource-manager-movement-cost.md)
-
 ## Monitor and diagnose
 ### OMS
 #### [Set up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
 #### [Add the OMS Agent](service-fabric-diagnostics-oms-agent.md)
 #### [Monitor containers](service-fabric-diagnostics-oms-containers.md)
+### Performance monitoring
+#### [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)

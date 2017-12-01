@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 10/06/2017
+ms.date: 11/23/2017
 ms.author: anoopkv
 ---
 

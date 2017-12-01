@@ -100,8 +100,7 @@ To copy data from Teradata, set the type property of the dataset to **Relational
 ```json
 {
     "name": "TeradataDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<Teradata linked service name>",

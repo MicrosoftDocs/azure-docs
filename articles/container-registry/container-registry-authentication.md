@@ -36,7 +36,7 @@ When working with your registry directly, such as pulling images to and pushing 
 az acr login --name <acrName>
 ```
 
-When you log in with `az acr login`, the CLI uses the token created when you executed `az login` to seamlessly authenticate your session with your registry. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands do not require a username or password. If your token expires, you can refresh it by using the `az acr login` command again to reauthenticate.
+When you log in with `az acr login`, the CLI uses the token created when you executed `az login` to seamlessly authenticate your session with your registry. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands do not require a username or password. If your token expires, you can refresh it by using the `az acr login` command again to reauthenticate. Using `az acr login` with Azure identities provides [role-based access](../active-directory/role-based-access-control-configure.md).
 
 ## Service principal
 
@@ -72,6 +72,10 @@ Depending on the version of Docker you have installed, you might see a security 
 
 Each container registry includes an admin user account, which is disabled by default. You can enable the admin user and manage its credentials in the [Azure portal](container-registry-get-started-portal.md#create-a-container-registry), or by using the Azure CLI.
 
+> [!IMPORTANT]
+> The admin account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials with multiple users. All users authenticating with the admin account appear as a single user with push and pull access to the registry. Changing or disabling this account disables registry access for all users who use its credentials. Individual identity is recommended for users and service principals for headless scenarios.
+>
+
 The admin account is provided with two passwords, both of which can be regenerated. Two passwords allow you to maintain connection to the registry by using one password while you regenerate the other. If the admin account is enabled, you can pass the username and either password to the `docker login` command for basic authentication to the registry. For example:
 
 ```
@@ -89,10 +93,6 @@ az acr update -n <acrName> --admin-enabled true
 You can enable the admin user in the Azure portal by navigating your registry, selecting **Access keys** under **SETTINGS**, then **Enable** under **Admin user**.
 
 ![Enable admin user UI in the Azure portal][auth-portal-01]
-
-> [!IMPORTANT]
-> The admin account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials with multiple users. All users authenticating with the admin account appear as a single user to the registry. Changing or disabling this account disables registry access for all users who use its credentials.
->
 
 ## Next steps
 

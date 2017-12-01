@@ -3,7 +3,7 @@ title: Create self-hosted integration runtime in Azure Data Factory | Microsoft 
 description: Learn how to create self-hosted integration runtime in Azure Data Factory, which allows data factories to access data stores in a private network.
 services: data-factory
 documentationcenter: ''
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: spelluru
+ms.author: abnarain
 
 ---
 # How to create and configure Self-hosted Integration Runtime
@@ -100,11 +100,11 @@ Self-hosted integration runtime can be installed by downloading an MSI setup pac
 
 
 ## High Availability and Scalability
-A Self-hosted Integration Runtime can be associateed to multiple on-premise machines. These machines are called nodes. You can have up to four nodes associated with a Self-hosted Integration Runtime. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:
+A Self-hosted Integration Runtime can be associated to multiple on-premise machines. These machines are called nodes. You can have up to four nodes associated with a Self-hosted Integration Runtime. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:
 1. Higher availability of Self-hosted Integration Runtime so that it is no longer the single point of failure in your Big Data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to 4 nodes.
 2. Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
-You can associate multiple nodes by simply installing the Self-hosted Integration Runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtainined from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [Tutorial](tutorial-hybrid-copy-powershell.md)
+You can associate multiple nodes by simply installing the Self-hosted Integration Runtime software from the [download center](https://www.microsoft.com/download/details.aspx?id=39717) and by registering it by either of the Authentication Keys obtained from New-AzureRmDataFactoryV2IntegrationRuntimeKey cmdlet as described in the [Tutorial](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
 > You do not need to create new Self-hosted Integration Runtime for associating each node.

@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/2/2017
+ms.date: 11/29/2017
 ---
 
 # Classify Iris part 3: Deploy a model
@@ -77,19 +77,19 @@ To deploy the web service along with the model file, you also need a scoring scr
 
 2. After the project is open, select the **Files** button (folder icon) on the left pane to open the file list in your project folder.
 
-3. Select the **iris-score.py** file. The Python script opens. This file is used as the scoring file.
+3. Select the **score_iris.py** file. The Python script opens. This file is used as the scoring file.
 
    ![Scoring file](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. To get the schema file, run the script. Select the **local** environment and the **iris_score.py** script in the command bar, and then select the **Run** button. 
+4. To get the schema file, run the script. Select the **local** environment and the **score_iris.py** script in the command bar, and then select the **Run** button. 
 
 5. This script creates a JSON file in the **Outputs** section, which captures the input data schema required by the model.
 
-6. Note the **Jobs** pane on the right side of the **Project Dashboard** pane. Wait for the latest **iris\_score.py** job to display the green **Completed** status. Then select the hyperlink **iris\_score.py [1]** for the latest job run to see the run details from the **iris_score.py** run. 
+6. Note the **Jobs** pane on the right side of the **Project Dashboard** pane. Wait for the latest **score_iris.py** job to display the green **Completed** status. Then select the hyperlink **score_iris.py [1]** for the latest job run to see the run details from the **score_iris.py** run. 
 
 7. On the **Run Properties** pane, in the **Outputs** section, select the newly created **service_schema.json** file.  Select the check box next to the file name, and then select **Download**. Save the file into your project root folder.
 
-8. Return to the previous tab where you opened the **iris-score.py** script. By using data collection, you can capture model inputs and predictions from the web service. The following steps are of particular interest for data collection.
+8. Return to the previous tab where you opened the **score_iris.py** script. By using data collection, you can capture model inputs and predictions from the web service. The following steps are of particular interest for data collection.
 
 9. Review the code at the top of the file imports class **ModelDataCollector**, because it contains the model data collection functionality:
 
@@ -115,8 +115,7 @@ To deploy the web service along with the model file, you also need a scoring scr
 
 Now you're ready to prepare your environment to operationalize the model.
 
->[!NOTE]
->Deploying models requires you to have owner access to an Azure subscription.
+
 
 ## Prepare to operationalize locally
 Use _local mode_ deployment to run in Docker containers on your local computer.
@@ -158,7 +157,9 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    The third line of the output displays **"registrationState": "Registering"**. Wait a few moments and repeat the **show** command until the output displays **"registrationState": "Registered"**.
 
-3. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later:
+3. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
+
+   Note that the following setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command using `-g` the flag. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -201,7 +202,7 @@ Now you're ready to create the real-time web service.
 1. To create a real-time web service, use the following command:
 
    ```azurecli
-   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    This command generates a web service ID you can use later.
 
@@ -243,7 +244,7 @@ First, register the model. Then generate the manifest, build the Docker image, a
    To create a manifest, use the following command and provide the model ID output from the previous step:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json
    ```
    This command generates a manifest ID.
 
@@ -271,10 +272,10 @@ You are now ready to run the web service.
 
 To test the **irisapp** web service that's running, use a JSON-encoded record containing an array of four random numbers:
 
-1. The web service includes sample data. When running in local mode, you can call the **az ml service show realtime** command. That call retrieves a sample run command that's useful for you to use to test the service. The call also retrieves the scoring URL that you can use to incorporate the service into your own custom app:
+1. The web service includes sample data. When running in local mode, you can call the **az ml service usage realtime** command. That call retrieves a sample run command that's useful for you to use to test the service. The call also retrieves the scoring URL that you can use to incorporate the service into your own custom app:
 
    ```azurecli
-   az ml service show realtime -i <web service ID>
+   az ml service usage realtime -i <web service ID>
    ```
 
 2. To test the service, execute the returned service run command:

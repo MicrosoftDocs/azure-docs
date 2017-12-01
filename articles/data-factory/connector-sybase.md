@@ -103,8 +103,7 @@ To copy data from Sybase, set the type property of the dataset to **RelationalTa
 ```json
 {
     "name": "SybaseDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<Sybase linked service name>",
@@ -168,4 +167,4 @@ Sybase supports T-SQL types. For a mapping table from SQL types to Azure Data Fa
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

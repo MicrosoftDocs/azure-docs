@@ -79,7 +79,7 @@ Currently all certificate management is through individual application pages so 
 
 ## Next steps
 * [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md) to your published apps with Azure AD authentication.
-* [Enable conditional access](active-directory-application-proxy-conditional-access.md) to your published apps.
+* [Enable conditional access](application-proxy-enable-remote-access-sharepoint.md) to your published apps.
 * [Add your custom domain name to Azure AD](active-directory-domains-add-azure-portal.md)
 
 

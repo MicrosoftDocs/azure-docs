@@ -238,7 +238,7 @@ $ az ml account modelmanagement create -n <model management account name> -g <re
 We then create a web service that returns a prediction using the model we deployed. 
 
 ```azure-cli
-$ az ml service create realtime -m asset_download/model.pkl -f iris-score.py -r python –n <web service name>
+$ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r python –n <web service name>
 ```
 
 ## Step 10. Run the web service

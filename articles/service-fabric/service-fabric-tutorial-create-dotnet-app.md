@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
 
@@ -65,7 +65,7 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
    
    ![Choosing ASP.NET web service in the new service dialog](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web Application**. 
+6. The next page provides a set of ASP.NET Core project templates. For this tutorial, choose **Web Application (MVC)**. 
    
    ![Choose ASP.NET project type](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -227,7 +227,11 @@ Open the *Views/Shared/_Layout.cshtml* file, the default layout for the ASP.NET 
 ```
 
 ### Update the VotingWeb.cs file
-Open the *VotingWeb.cs* file, which creates the ASP.NET Core WebHost inside the stateless service using the WebListener web server.  Add the `using System.Net.Http;` directive to the top of the file.  Replace the `CreateServiceInstanceListeners()` function with the following, then save your changes.
+Open the *VotingWeb.cs* file, which creates the ASP.NET Core WebHost inside the stateless service using the WebListener web server.  
+
+Add the `using System.Net.Http;` directive to the top of the file.  
+
+Replace the `CreateServiceInstanceListeners()` function with the following, then save your changes.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -256,7 +260,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ### Add the VotesController.cs file
-Add a controller which defines voting actions. Right-click on the **Controllers** folder, then select **Add->New item->Class**.  Name the file "VotesController.cs" and click **Add**.  Replace the file contents with the following, then save your changes.  Later, in [Update the VotesController.cs file](#updatevotecontroller_anchor), this file will be modified to read and write voting data from the back-end service.  For now, the controller returns static string data to the view.
+Add a controller which defines voting actions. Right-click on the **Controllers** folder, then select **Add->New item->Class**.  Name the file "VotesController.cs" and click **Add**.  
+
+Replace the file contents with the following, then save your changes.  Later, in [Update the VotesController.cs file](#updatevotecontroller_anchor), this file will be modified to read and write voting data from the back-end service.  For now, the controller returns static string data to the view.
 
 ```csharp
 using System;
@@ -295,7 +301,23 @@ namespace VotingWeb.Controllers
 }
 ```
 
+### Configure the listening port
+When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on.  The VotingWeb service acts as the front-end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port. In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** resource in the **Resources** section and change the **Port** value to 80, or to another port. To deploy and run the application locally, the application listening port must be open and available on your computer.
 
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+Also update the Application URL property value in the Voting project so a web browser opens to the correct port when you debug using 'F5'.  In Solution Explorer, select the **Voting** project and update the **Application URL** property.
+
+![Application URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### Deploy and run the application locally
 You can now go ahead and run the application. In Visual Studio, press `F5` to deploy the application for debugging. `F5` fails if you didn't previously open Visual Studio as **administrator**.

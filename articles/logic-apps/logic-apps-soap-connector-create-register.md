@@ -182,6 +182,12 @@ for example, with all Logic Apps users,
 
 ## FAQ
 
+**Q:** Is the SOAP connector generally available (GA)? </br>
+**A:** The SOAP connector is in **Preview**, and is not a GA service yet.
+
+**Q:** Are there any restrictions and known issues for SOAP connector? </br>
+**A:** Yes, see the [SOAP connector restrictions and known issues](../api-management/api-management-api-import-restrictions.md#wsdl).
+
 **Q:** Are there any limits for custom connectors? </br>
 **A:** Yes, see the [custom connector limits here](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).
 
