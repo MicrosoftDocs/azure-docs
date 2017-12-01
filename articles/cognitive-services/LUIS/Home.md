@@ -92,7 +92,7 @@ Create a [new LUIS app](LUIS-get-started-create-app.md).
 [pre-built-domains]: luis-how-to-use-prebuilt-domains.md
 [label-suggested-utterances]: label-suggested-utterances.md
 [intro-video]:https://aka.ms/LUIS-Intro-Video
-[bot-framework]:https://docs.microsoft.com/en-us/bot-framework/
+[bot-framework]:https://docs.microsoft.com/bot-framework/
 [speech]:../Speech/index.md
 [flow]:https://docs.microsoft.com/connectors/luis/
 [entity-concept]:luis-concept-entity-types.md

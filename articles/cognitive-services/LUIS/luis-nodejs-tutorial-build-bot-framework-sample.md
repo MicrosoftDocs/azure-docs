@@ -243,4 +243,4 @@ The score of .92 is a high probability for the entity **Seattle** found with the
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[LUIS-website]: https://luis.ai
+[LUIS-website]: https://wwwluis.ai

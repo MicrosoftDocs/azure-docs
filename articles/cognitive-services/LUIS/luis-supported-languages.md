@@ -17,7 +17,7 @@ ms.author: cahann
 A LUIS app is culture-specific and cannot be changed once it is set. 
 
 ## Multi-language LUIS apps
-If you need a multi-language LUIS client application such as a chat bot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use [Microsoft Translator API](https://docs.microsoft.com/azure/cognitive-services/translator/) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
+If you need a multi-language LUIS client application such as a chat bot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use [Microsoft Translator API](../Translator/translator-info-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
 
 ## Languages supported
 LUIS understands utterances in the following languages:
