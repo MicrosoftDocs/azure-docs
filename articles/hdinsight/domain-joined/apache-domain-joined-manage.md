@@ -19,7 +19,7 @@ ms.date: 10/25/2016
 ms.author: saurinsh
 
 ---
-# Manage Domain-joined HDInsight clusters (Preview)
+# Manage Domain-joined HDInsight clusters
 Learn the users and the roles in Domain-joined HDInsight, and how to manage domain-joined HDInsight clusters.
 
 ## Users of Domain-joined HDInsight clusters

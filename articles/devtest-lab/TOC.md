@@ -31,6 +31,7 @@
 ### [Configure marketplace images](devtest-lab-configure-marketplace-images.md)
 ### [Enable a licensed image](devtest-lab-enable-licensed-images.md)
 ### [Add tags to a lab](devtest-lab-add-tag.md)
+### [Post announcement in a lab](devtest-lab-announcements.md)
 
 ## [Select custom image or formula](devtest-lab-comparing-vm-base-image-types.md)
 
