@@ -23,11 +23,11 @@ ms.custom: mvc
 
 Azure virtual machines can be created through the Azure portal. This method provides a browser-based user interface for creating and configuring virtual machines and all related resources. This quickstart steps through creating a virtual machine and installing a webserver on the VM.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a <a href="https://azure.microsoft.com/free/?WT.mc_id=A261C142F" target="_blank">free account</a> before you begin.
 
 ## Log in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
+Log in to the Azure portal at <a href="http://portal.azure.com" target="_blank">http://portal.azure.com</a> .
 
 ## Create virtual machine
 
