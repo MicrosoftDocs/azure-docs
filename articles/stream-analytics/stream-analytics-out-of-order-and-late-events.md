@@ -34,8 +34,8 @@ Azure Stream Analytics job combines events from multiple timelines in few cases 
 2. Union of two or more different input sources.
 3. Joining input sources.
 
-In scenarios where multiple timelines are combined, Azure Stream Analytics will produce output for a timestamp *T1* only after all the sources that are combined are at least at time *T1*.
-For example, if the query reads from an *Eventhub* partition that has two partitions and one of the partition *P1* has events until time *T1* and other partition *P2* has events until time *T1 + x*, output is produced until time *T1*.
+In scenarios where multiple timelines are combined, Azure Stream Analytics will produce output for a timestamp *t1* only after all the sources that are combined are at least at time *t1*.
+For example, if the query reads from an *Event Hub* partition that has two partitions and one of the partition *P1* has events until time *t1* and other partition *P2* has events until time *t1 + x*, output is produced until time *t1*.
 However if there was an explicit *"Partition by PartitionId"* clause, both the partitions progresses independently.
 Late Arrival Tolerance setting is used to deal with absence of data in some partitions.
 
@@ -77,7 +77,7 @@ To reorder events received within "out of order tolerance window", output of the
    * Event 5 _Application Time_ = 00:06:00, _Arrival Time_ = 00:10:04, _System.Timestamp_ = 00:07:00, adjusted because application time is older than the out of order tolerance.
 
 ## Practical considerations
-As mentionned above, *late arrival tolerance* is the maximum difference between application time and arrival time.
+As mentioned above, *late arrival tolerance* is the maximum difference between application time and arrival time.
 Also when processing by application time, events that are later than the configured *late arrival tolerance* are adjusted before the *out of order tolerance* setting is applied. So, effective out of order is the minimum of late arrival tolerance and out of order tolerance.
 
 Out of order events within a stream happen due to reasons including,
