@@ -270,7 +270,7 @@ const Vacation_common = commonModel.discriminator('VacationDestinationsType', ne
     });
     ```
 
-1. Now, if you go back to the Azure portal, you will notice that you have only one collection called ```alldata``` with both 'Family' and 'VacationDestinations' data.
+1. Now, if you go back to the Azure portal, you notice that you have only one collection called ```alldata``` with both 'Family' and 'VacationDestinations' data.
 
 ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][mutiple-coll]
 
