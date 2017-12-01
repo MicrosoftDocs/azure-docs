@@ -31,13 +31,9 @@ Media Services supports multiple ways of authenticating users who make key reque
 
 Media Services does not provide Secure Token Services. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration (as described in this article). The Media Services key delivery service will return the encryption key to the client if the token is valid and the claims in the token match those configured for the content key.
 
-For more information, see
-
-[JWT token authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-
-[Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
-
-[Use Azure ACS to issue tokens](http://mingfeiy.com/acs-with-key-services).
+For more information, see the following articles:
+- [JWT token authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 ### Some considerations apply:
 * To be able to use dynamic packaging and dynamic encryption, make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
@@ -47,6 +43,7 @@ For more information, see
 * The Key Delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes.  If you create a ContentKeyAuthorizationPolicy and specify to use a “Token” restriction, then test it, and then update the policy to “Open” restriction, it will take roughly 15 minutes before the policy switches to the “Open” version of the policy.
 * If you add or update your asset’s delivery policy, you must delete an existing locator (if any) and create a new locator.
 * Currently, you cannot encrypt progressive downloads.
+* AMS streaming endpoint sets the value of the CORS 'Access-Control-Allow-Origin' header in preflight response as the wildcard '*'. This works well with most players including our Azure Media Player, Roku and JW, and others. However, some players that leverage dashjs do not work since, with credentials mode set to “include”, XMLHttpRequest in their dashjs does not allow wildcard “*” as the value of “'Access-Control-Allow-Origin”. As a workaround to this limitation in dashjs, if you are hosting your client from a single domain, Azure Media Services can specify that domain in the preflight response header. You can reach out by opening a support ticket through Azure portal.
 
 ## AES-128 Dynamic Encryption
 > [!NOTE]

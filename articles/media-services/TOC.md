@@ -149,8 +149,7 @@
 #### [Azure portal](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
-### Pass authentication tokens
-#### [Pass authentication tokens to AMS](media-services-pass-authentication-tokens.md)
+### [Pass authentication tokens to AMS](media-services-pass-authentication-tokens.md)
 ### Reference designs
 #### [Hybrid DRM system design](hybrid-design-drm-sybsystem.md)
 #### [Reference multi-DRM design](media-services-cenc-with-multidrm-access-control.md)
