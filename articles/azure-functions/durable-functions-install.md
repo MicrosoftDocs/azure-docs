@@ -145,19 +145,39 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 
 9. Now let’s go to **"HttpStart"** function and copy its URL
 
-![Copy Http Start Url](media/durable-functions-install/copy-url.png)
-
 10. Let’s use Postman or cURL to call the durable function. Before testing, please replace in the URL **{functionName}** with the orchestrator function name - **HelloSequence**.  No data is required, just use POST verb. 
 
-![Test with Postman](media/durable-functions-install/test-with-postman.png)
+```javascript
+   curl -X POST https://{your function app name}.azurewebsites.net/api/orchestrators/HelloSequence
+```
 
 11. Then, let’s call the **“statusQueryGetUri”** endpoint and we will see the current status of the the Durable Function
 
-![Durable Function Running Status](media/durable-functions-install/running.png)
+```javascript
+    {
+        "runtimeStatus": "Running",
+        "input": null,
+        "output": null,
+        "createdTime": "2017-12-01T05:37:33Z",
+        "lastUpdatedTime": "2017-12-01T05:37:36Z"
+    }
+```
 
 12. Continue calling the **“statusQueryGetUri”** endpoint until the status changes to **"Completed"** 
 
-![Durable Function is Completed](media/durable-functions-install/completed.png)
+```javascript
+   {
+        "runtimeStatus": "Completed",
+        "input": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2017-12-01T05:38:22Z",
+        "lastUpdatedTime": "2017-12-01T05:38:28Z"
+    }
+```
 
 Congratulations! Your first Azure Durable Functions is up and running in Azure Portal!
 
