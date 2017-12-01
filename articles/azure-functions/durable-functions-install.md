@@ -123,25 +123,15 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 
 3. Create a new function by selecting **"create your own custom function"** 
 
-![Create your own custom function](media/durable-functions-install/create-custom-function.png) 
-
 4. Change the **Language** to **C#**, **Scenario** to **Durable Functions** and select the **Durable Functions Http Starter - C#** template
 
-![Durable Function Http Starter](media/durable-functions-install/http-starter.png)
-
 5. Under **Extensions not installed**, click **Install** to download the extension from NuGet.org 
-
-![Durable Function Http Starter](media/durable-functions-install/install-extension.png)
 
 6. After the installation is complete, please proceed with the creation of an orchestration client function – **“HttpStart”** that is created by selecting **Durable Functions Http Starter - C#** template
 
 7. Now, let’s create an orchestration function **“HelloSequence”** from **Durable Functions Orchestrator - C#** template
 
-![Durable Function Orchestrator](media/durable-functions-install/orchestrator.png)
-
 8. And the last function will be called **“Hello”** from **Durable Functions Activity - C#** template
-
-![Durable Function Activity](media/durable-functions-install/activity.png)
 
 9. Now let’s go to **"HttpStart"** function and copy its URL
 
