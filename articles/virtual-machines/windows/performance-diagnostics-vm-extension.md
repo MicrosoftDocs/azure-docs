@@ -20,7 +20,7 @@ ms.author: genli
 # Azure Performance Diagnostics VM Extension for Windows
 
 ## Summary
-Azure Performance Diagnostics VM Extension helps collect performance diagnostic data from Windows VMs, performs analysis and provides a report of findings & recommendations to identify and resolve performance issues on the virtual machine. This extension installs a troubleshooting tool called [PerfInsights](http://aka.ms/perfinsights).
+Azure Performance Diagnostics VM Extension helps collect performance diagnostic data from Windows VMs, performs analysis, and provides a report of findings & recommendations to identify and resolve performance issues on the virtual machine. This extension installs a troubleshooting tool called [PerfInsights](http://aka.ms/perfinsights).
 
 ## Prerequisites
 ### Operating Systems
@@ -73,7 +73,6 @@ The following JSON shows the schema for the Azure Performance Diagnostics Extens
 |xperfTrace|x|Option to enable XPerf Trace. Valid values are **x** or empty value. If you do not want to capture this trace, just leave the value as empty.
 |storPortTrace|s|Option to enable StorPort Trace. Valid values are s or empty value. If you do not want to capture this trace, just leave the value as empty.
 |srNumber|123452016365929|Support Ticket Number if available. Leave as empty if you don’t have it.
-|requestTimeUtc|9/2/2017 11:06:00 PM|Current Date Time in Utc. You do not need to provide this value if you are using the portal to install this extension.
 |storageAccountName|mystorageaccount|Name of the Storage account to store the diagnostics logs and results.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Key for the storage account.
 
@@ -94,12 +93,12 @@ Follow these steps to install the VM Extension on Windows Virtual Machines:
 5. Provide the parameter values for the installation and click **OK** to install the extension. You can find more information on the supported troubleshooting scenarios [here](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
 
     ![Install the extension](media/performance-diagnostics-vm-extension/install-the-extension.png)
-6. Once the installation is successful, you will see a message indicating provisioning succeeded.
+6. Once the installation is successful, you see a message indicating provisioning succeeded.
 
     ![Provisioning succeeded message](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
 
     > [!NOTE]
-    > The extension execution will start once the provisioning is succeeded and it will take couple of minutes or less to complete the execution for basic scenario. For other scenarios, it will run through the duration specified during the installation.
+    > The extension execution starts once the provisioning is succeeded and it takes couple of minutes or less to complete the execution for basic scenario. For other scenarios, it runs through the duration specified during the installation.
 
 ## Remove the extension
 To remove the extension from a virtual machine, follow these steps:
@@ -221,13 +220,13 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ````
 
 ## Information on the data captured
-PerfInsights Tool collects various logs, configuration, diagnostic data etc. depending on the selected scenario. For more information on the data collected per scenario please visit [PerfInsights documentation](http://aka.ms/perfinsights).
+PerfInsights Tool collects various logs, configuration, diagnostic data etc. depending on the selected scenario. For more information on the data collected per scenario, visit [PerfInsights documentation](http://aka.ms/perfinsights).
 
 ## View and Share the results
 
 Output of the extension is stored inside a folder named log_collection under Temp drive (usually D:\log_collection) by default. Under this folder, you can see zip file(s) containing the diagnostic logs and a report with findings and recommendations.
 
-The zip file created is also uploaded to the storage account provided during the installation and is shared for 30 days using [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). A text file named *zipfilename*_saslink.txt is also created in the log_collection folder. This file contains the SAS link created to download the zip file. Anyone who has this link will be able to download the zip file.
+The zip file created is also uploaded to the storage account provided during the installation and is shared for 30 days using [Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). A text file named *zipfilename*_saslink.txt is also created in the log_collection folder. This file contains the SAS link created to download the zip file. Anyone who has this link is able to download the zip file.
 
 Microsoft may use this SAS link to download the Diagnostics data for further investigation by the Support Engineer working on your support ticket.
 
