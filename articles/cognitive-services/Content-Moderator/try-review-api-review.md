@@ -1,5 +1,5 @@
 ---
-title: Test drive review creation in Azure Content Moderator | Microsoft Docs
+title: Content moderation with human reviews in Azure Content Moderator | Microsoft Docs
 description: Create reviews from the online console
 services: cognitive-services
 author: sanjeev3
