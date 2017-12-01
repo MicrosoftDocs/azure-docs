@@ -70,7 +70,7 @@ To deploy App Service resource provider, follow these steps:
     ![App Service Installer](media/azure-stack-app-service-deploy/image04.png)
 
 8. On the next page:
-    1. In the **Identity Application ID** box, enter the GUID for the application you’re using for identity (from Azure Active  Directory).
+    1. In the **Identity Application ID** box, enter the GUID for the application you’re using for identity (from Azure AD).
     2. In the **Identity Application certificate file** box, enter (or browse to) the location of the certificate file.
     3. In the **Identity Application certificate password** box, enter the password for the certificate. This password is the one that you made note of when you used the script to create the certificates.
     4. In the **Azure Resource Manager root certificate file** box, enter (or browse to) the location of the certificate file.
