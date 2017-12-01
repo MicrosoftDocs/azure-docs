@@ -118,18 +118,48 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 ### Create an orchestrator function
 
 1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
+
 2. Configure the function app to [use the 2.0 runtime version](functions-versions.md) in Function app Settings.
-3. Create a new function by selecting **"create your own custom function"** [Add screenshot] 
-4. Change the **Scenario** to **All** and select the **Durable Functions Http Starter - C#** template [Add screenshot] 
-5. Under **Extensions not installed**, click **Install** to download the extension from NuGet.org [Add screenshot] 
-6. After the install is complete, we are ready to create our orchestration client function – **“HttpStart”** that is created by selecting **Durable Functions Http Starter - C#** template [Add screenshot]
-7. Now, let’s create our orchestration function **“HelloSequence”** from **Durable Functions Orchestrator - C#** template [Add screenshot]
-8. And our last function will be called **“Hello”** from **Durable Functions Activity - C#** template [Add screenshot]
-9. Now let’s go to **"HttpStart"** function and copy its URL [Add screenshot]
-10. Let’s use Postman or cURL to query the endpoint. No data is required to be passed just use POST verb [Add screenshot]
-11. Then let’s call the **“statusQueryGetUri”** endpoint and we will see the actual output of the Durable Function [Add screenshot]
-12. Continue calling the statusQueryGetUri endpoint until the status changes to **"Completed"** [Add screenshot]
-12. Congratulations! Your first Azure Durable Functions is up and running in Azure Portal!!!
+
+3. Create a new function by selecting **"create your own custom function"** 
+
+![Create your own custom function](media/durable-functions-install/create-custom-function.png) 
+
+4. Change the **Language** to **C#**, **Scenario** to **Durable Functions** and select the **Durable Functions Http Starter - C#** template
+
+![Durable Function Http Starter](media/durable-functions-install/http-starter.png)
+
+5. Under **Extensions not installed**, click **Install** to download the extension from NuGet.org 
+
+![Durable Function Http Starter](media/durable-functions-install/install-extension.png)
+
+6. After the installation is complete, please proceed with the creation of an orchestration client function – **“HttpStart”** that is created by selecting **Durable Functions Http Starter - C#** template
+
+7. Now, let’s create an orchestration function **“HelloSequence”** from **Durable Functions Orchestrator - C#** template
+
+![Durable Function Orchestrator](media/durable-functions-install/orchestrator.png)
+
+8. And the last function will be called **“Hello”** from **Durable Functions Activity - C#** template
+
+![Durable Function Activity](media/durable-functions-install/activity.png)
+
+9. Now let’s go to **"HttpStart"** function and copy its URL
+
+![Copy Http Start Url](media/durable-functions-install/copy-url.png)
+
+10. Let’s use Postman or cURL to call the durable function. Before testing, please replace in the URL **{functionName}** with the orchestrator function name - **HelloSequence**.  No data is required, just use POST verb. 
+
+![Test with Postman](media/durable-functions-install/test-with-postman.png)
+
+11. Then, let’s call the **“statusQueryGetUri”** endpoint and we will see the current status of the the Durable Function
+
+![Durable Function Running Status](media/durable-functions-install/running.png)
+
+12. Continue calling the **“statusQueryGetUri”** endpoint until the status changes to **"Completed"** 
+
+![Durable Function is Completed](media/durable-functions-install/completed.png)
+
+Congratulations! Your first Azure Durable Functions is up and running in Azure Portal!
 
 ### Copy sample code to the function app
 
