@@ -115,7 +115,6 @@ The following example shows how to obtain a certificate from Azure Key Vault. It
 3. Update the API Management instance by setting a custom domain name through a certificate from the Key Vault instance.
 
 ### Prerequisites
-To execute the below arm template we need the following 
 1. The Key Vault containing the pfx certificate must be in the same Azure subscription and the same Resource Group as the API Management service. This is a requirement of the Azure Resource Manager template. 
 2. The Content Type of the secret must be *application/x-pkcs12*. You can use the following script to upload the certificate:
 
