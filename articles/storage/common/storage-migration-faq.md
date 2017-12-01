@@ -305,7 +305,7 @@ To give other people access to the storage resources:
 -   If you installed the 64-bit version, it's located
     here: **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**.
 
-**For a replicated storage account (such as zone- redundant storage, geo-redundant storage, or read-access geo-redundant storage), how do I access data that is stored in the secondary region?**
+**For a replicated storage account (such as zone-redundant storage, geo-redundant storage, or read-access geo-redundant storage), how do I access data that is stored in the secondary region?**
 
 -   If you're using zone-redundant storage or geo-redundant storage, you cannot access data from the secondary region unless a failover occurs. For more information about the failover process, see [What to expect if a storage failover occurs](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs).
 
