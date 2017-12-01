@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: arramac
 
 ---
@@ -35,6 +35,10 @@ In addition:
 * [Git](http://git-scm.com/)
 
 ## Create a database account
+
+> [!IMPORTANT] 
+> You need to create a new Table API account to work with the generally available Table API SDKs. Table API accounts created during preview are not supported by the generally available SDKs.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -81,7 +85,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 2. Copy the PRIMARY CONNECTION STRING using the copy button on the right-side.
 
-3. Open the app.config file, and paste the value into the connectionString on line three. If the Endpoint portion of your connection string uses documents.azure.com, correct that portion to use table.cosmosdb.azure.com instead.
+3. Open the app.config file, and paste the value into the connectionString on line three. 
+
+    > [!IMPORTANT]
+    > If your Endpoint uses documents.azure.com, that means you have a preview account, and you need to create a [new Table API account](#create-a-database-account) to work with the generally available Table API SDK.
+    >
 
 3. Save the app.config file.
 
