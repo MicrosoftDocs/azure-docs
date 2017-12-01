@@ -25,7 +25,7 @@ Learn how to use Jupyter notebook to run interactive Spark SQL queries against a
 
 [Jupyter notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) is a browser-based application that extends the console-based interactive experience to the Web. Spark on HDInsight also includes [Zeppelin Notebook](apache-spark-zeppelin-notebook.md). Jupyter Notebook is used in this tutorial.
 
-Jupyter notebooks on HDInsight clusters support three kernels - **PySpark**, **PySpark3** and **Spark**. The **PySpark** kernel is used in this tutorial. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md). To use Zeppelin Notebook, see [Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight](./apache-spark-zeppelin-notebook.md).
+Jupyter notebooks on HDInsight clusters support three kernels - **PySpark**, **PySpark3, and **Spark**. The **PySpark** kernel is used in this tutorial. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md). To use Zeppelin Notebook, see [Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight](./apache-spark-zeppelin-notebook.md).
 
 In this tutorial, you query data in a csv file. You must first load that data into Spark as a dataframe. Then you can run queries on the dataframe using  Jupyter Notebook. 
 
@@ -48,13 +48,13 @@ With a SQLContext, applications can create dataframes from an existing RDD, from
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
-    By using the PySpark kernel to create a notebook, the Spark and Hive contexts are automatically created for you when you run the first code cell. You do not need to explicitly create any contexts.
+    By using the PySpark kernel to create a notebook, the Spark, and Hive contexts are automatically created for you when you run the first code cell. You do not need to explicitly create any contexts.
 
     When running an interactive query in Jupyter, the web browser window or tab caption shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, it changes to a hollow circle.
 
     ![Status of interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status of interactive Spark SQL query")
 
-3. Run the following code to create a dataframe and a temporary table (**hvac**) by running the following code. For this tutorial, we do not create all the columns available in the CSV file. 
+3. Run the following code to create a dataframe and a temporary table (**hvac**) by running the following code:  The code doesn't extract all the columns available in the CSV file. 
 
     ```PySpark
     # Create an RDD from sample data
@@ -106,7 +106,7 @@ Once the table is created, you can run an interactive query on the data.
 
 ## Next step
 
-In this article you learned how to run interactive queries in Spark using Jupyter notebook. Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI and Tableau. 
+In this article, you learned how to run interactive queries in Spark using Jupyter notebook. Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI and Tableau. 
 
 > [!div class="nextstepaction"]
 >[Spark BI using data visualization tools with Azure HDInsight](apache-spark-use-bi-tools.md)

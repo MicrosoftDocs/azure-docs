@@ -35,19 +35,19 @@ Learn how to use [Microsoft Power BI](http://powerbi.microsoft.com) and [Tableau
 
 The Jupyter notebook that you created in the [previous tutorial](apache-spark-load-data-run-query.md) includes code to create an `hvac` table. This table is based on the CSV file available on all HDInsight Spark clusters at **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Use the following procedure to verify the data.
 
-1. From the Jupyter notebook, paste the following code, and then press **SHIFT + ENTER**. The code verify that the existance of the tables.
+1. From the Jupyter notebook, paste the following code, and then press **SHIFT + ENTER**. The code verifies that the existence of the tables.
 
     ```PySpark
     %%sql
     SHOW TABLES
     ```
 
-    You see an output like the one shown below:
+    The output looks like:
 
     ![Show tables in Spark](./media/apache-spark-use-bi-tools/show-tables.png)
 
     If you closed the notebook before starting this tutorial, `hvactemptable` is cleaned up, so it's not included in the output.
-    Only Hive tables that are stored in the metastore (indicated by **False** under the **isTemporary** column) can be accessed from the BI tools. In this tutorial, we connect to the **hvac** table we created.
+    Only Hive tables that are stored in the metastore (indicated by **False** under the **isTemporary** column) can be accessed from the BI tools. In this tutorial, you connect to the **hvac** table that you created.
 
 2. Paste the following code in an empty cell, and then press **SHIFT + ENTER**. The code verifies the data in the table.
 
@@ -56,7 +56,7 @@ The Jupyter notebook that you created in the [previous tutorial](apache-spark-lo
     SELECT * FROM hvac LIMIT 10
     ```
 
-    You see an output like the one shown below:
+    The output looks like:
 
     ![Show rows from hvac table in Spark](./media/apache-spark-use-bi-tools/select-limit.png)
 
@@ -78,13 +78,13 @@ The Jupyter notebook that you created in the [previous tutorial](apache-spark-lo
 
 ## <a name="powerbi"></a>Use Power BI
 
-Now that you've verified that the expected data exists, you can use Power BI to create visualizations, reports, and dashboards from this data. In this article, we'll show a simple example with static data, but please let us know in the comments if you'd like to see more complex streaming examples.
+In this section, you use Power BI to create visualizations, reports, and dashboards from the Spark cluster data. 
 
 ### Create a report in Power BI Desktop
 The first steps in working with Spark are to connect to the cluster in Power BI Desktop, load data from the cluster, and create a basic visualization based on that data.
 
 > [!NOTE]
-> The connector demonstrated in this article is currently in preview, but we encourage you to use it and provide any feedback you have through the [Power BI Community](https://community.powerbi.com/) site or [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
+> The connector demonstrated in this article is currently in preview. Provide any feedback you have through the [Power BI Community](https://community.powerbi.com/) site or [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
 1. Open [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 1. From the **Home** tab, click **Get Data**, then **More**.
@@ -209,7 +209,7 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 6. Click the **Sheet1** tab at the bottom left. Make a visualization that shows the average target and actual temperatures for all buildings for each date. Drag **Date** and **Building ID** to **Columns** and **Actual Temp**/**Target Temp** to **Rows**. Under **Marks**, select **Area** to use an area map for Spark data visualization.
 
      ![Add fields for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Add fields for Spark data visualization")
-7. By default, the temperature fields are shown as aggregate. If you want to show the average temperatures instead, you can do so from the drop-down, as shown below.
+7. By default, the temperature fields are shown as aggregate. If you want to show the average temperatures instead, you can do so from the drop-down, as shown in the following screenshot.
 
     ![Take average of temperature for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Take average of temperature for Spark data visualization")
 
