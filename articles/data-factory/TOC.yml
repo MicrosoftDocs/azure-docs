@@ -4,6 +4,8 @@
   items:
   - name: Introduction to Data Factory
     href: introduction.md
+  - name: Compare versions 1 and 2
+    href: compare-versions.md   
 - name: Quickstarts
   expanded: true
   items:

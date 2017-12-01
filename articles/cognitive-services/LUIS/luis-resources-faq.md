@@ -104,7 +104,7 @@ You can turn off the logging of user utterances by setting `log=false` in the UR
 * If you delete an account, all apps and their utterances are deleted. The data is retained on the servers for 60 days before it is deleted permanently.
 
 ## What are the transaction limits on the Authoring API?
-To edit your LUIS app programmatically, you use a programmatic key with the Authoring API. Programmatic authoring allows up to 100,000 calls per month and five transactions per second.
+To edit your LUIS app programmatically, you use a programmatic key with the Authoring API. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second.
 
 ## What is the tenant ID in the "Add a key to your app" window?
 In Azure, a tenant represents the client or organization that's associated with a service. Find your tenant ID in the Azure portal in the **Directory ID** box by selecting **Azure Active Directory** > **Manage** > **Properties**.
