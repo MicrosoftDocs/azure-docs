@@ -117,7 +117,7 @@ Different triggers may also have different scaling limits as well as documented 
 
 ### Best practices and patterns for scalable apps
 
-There are many aspects of a function app that will impact how well it will scale, including host configuration, runtime footprint, and resource effeciency.  View the [scalability section of the performance considerations article](functions-best-practices.md#scalability) for more information.
+There are many aspects of a function app that will impact how well it will scale, including host configuration, runtime footprint, and resource effeciency.  View the [scalability section of the performance considerations article](functions-best-practices.md#scalability-best-practices) for more information.
 
 ### Billing model
 
