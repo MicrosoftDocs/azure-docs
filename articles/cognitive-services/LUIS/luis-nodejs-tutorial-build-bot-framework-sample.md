@@ -14,14 +14,17 @@ ms.author: v-demak
 
 # Integrate LUIS with a bot using the Bot Builder SDK for Node.js
 
-This tutorial walks you through connecting to a bot built with [Bot Framework][BotFramework] and integrated with a LUIS app.
+This tutorial walks you through building a bot with the [Bot Framework][BotFramework] that's integrated with a LUIS app.
 
+The bot provides functionality for searching for hotels, and finding hotel reviews. For each of these activities, the LUIS app provides an intent that maps to it. The bot responds to user utterances according to the intent that LUIS detects.
+
+<!-- 
 The bot recognizes the following intents and entities: 
 
 | Intent | Example utterance | Recognized entity in utterance |Entity type |
 |:----:|:----------:|:-----:|:-----:|
 | SearchForHotels | Find hotels in Seattle. | Seattle | Location |
-| FindHotelReviews | Get a review of the Contoso hotel. | Contoso | HotelName |
+| FindHotelReviews | Get a review of the Contoso hotel. | Contoso | HotelName | -->
 
 When a user talks to your bot with a phrase such as "Search hotels in Seattle", the bot calls into your LUIS app with the LUIS endpoint URL. LUIS returns a response to the bot and the bot constructs a response to the user. 
 
