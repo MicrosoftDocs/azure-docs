@@ -18,16 +18,13 @@ ms.author: rclaus
 
 ---
 # Prepare an existing Linux Azure VM image for use with cloud-init
-This article shows you how to take an existing Azure virtual machine and prepare it to be re-deployed and ready to use cloud-init. The resulting image can be used to deploy a new virtual machine or virtual machine scale sets - either of which could then be further customized by cloud-init at deployment time.  These cloud-init scripts run on first boot once the resources have been provisioned by Azure. For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
+This article shows you how to take an existing Azure virtual machine and prepare it to be redeployed and ready to use cloud-init. The resulting image can be used to deploy a new virtual machine or virtual machine scale sets - either of which could then be further customized by cloud-init at deployment time.  These cloud-init scripts run on first boot once the resources have been provisioned by Azure. For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
 
 ## Prerequisites
 This document assumes you already have a running Azure virtual machine running a supported version of the Linux operating system. You have already configured the machine to suit your needs, installed all the required modules, processed all the required updates and have tested it to ensure it meets your requirements. 
 
-If this virtual machine was deployed and configured **without using cloud-init**, follow the steps outlined in this section.  
-If this virtual machine was deployed and configured using cloud-initas a virtual machine  
-
 ## Preparing RHEL 7.4 / CentOS 7.4
-You will need to SSH into your Linux VM and run the following commands in order to install cloud-init.
+You need to SSH into your Linux VM and run the following commands in order to install cloud-init.
 
 ```bash
 sudo yum install -y cloud-init gdisk
@@ -35,13 +32,13 @@ sudo yum check-update cloud-init -y
 sudo yum install cloud-init -y
 ```
 
-Update the `cloud_init_modules` section in `/etc/cloud/cloud.cfg` to include the following modules.
+Update the `cloud_init_modules` section in `/etc/cloud/cloud.cfg` to include the following modules:
 ```bash
 - disk_setup
 - mounts
 ```
 
-Here is a sample of what a general purpose `cloud_init_modules` section looks like.
+Here is a sample of what a general-purpose `cloud_init_modules` section looks like.
 ```bash
  cloud_config_modules:
  - mounts
@@ -67,14 +64,14 @@ sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagen
 sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
 ```
-Allow only Azure as a datasource for the Azure Linux Agent by creating a new file `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` using an editor of your choice with the following lines.
+Allow only Azure as a datasource for the Azure Linux Agent by creating a new file `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` using an editor of your choice with the following lines:
 
 ```bash
 # This configuration file is provided by the WALinuxAgent package.
 datasource_list: [ Azure ]
 ```
 
-If your existing Azure image has a swap file configured and you want to change the swap file configuration for new images using cloud-init, you will need to remove the existing swap file.
+If your existing Azure image has a swap file configured and you want to change the swap file configuration for new images using cloud-init, you need to remove the existing swap file.
 
 For RedHat based images - follow the instructions in the following RedHat document explaining how to [remove the swap file](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/s2-swap-removing-file.html).
 
@@ -83,7 +80,7 @@ For CentOS images with swapfile enabled, you can run the following command to tu
 sudo swapoff /mnt/resource/swapfile
 ```
 
-Ensure the swapfile reference is removed from `/etc/fstab` - it should looks something like the following output.
+Ensure the swapfile reference is removed from `/etc/fstab` - it should look something like the following output:
 ```text
 # /etc/fstab
 # Accessible filesystems, by reference, are maintained under '/dev/disk'
@@ -115,9 +112,9 @@ All Azure platform images have the Azure Linux Agent installed, regardless if it
 sudo waagent -deprovision+user -force
 ```
 
-For additional information on the Azure Linux Agent deprovision commands, see the [Azure Linux Agent](agent-user-guide.md) for more details.
+For more information about the Azure Linux Agent deprovision commands, see the [Azure Linux Agent](agent-user-guide.md) for more details.
 
-Exit the SSH session, then from your bash shell, run the following AzureCLI commands to deallocate, generalize and create an new Azure VM image.  Replace `myResourceGroup` and `sourceVmName` with the appropriate information reflecting your sourceVM.
+Exit the SSH session, then from your bash shell, run the following AzureCLI commands to deallocate, generalize and create a new Azure VM image.  Replace `myResourceGroup` and `sourceVmName` with the appropriate information reflecting your sourceVM.
 
 ```bash
 az vm deallocate --resource-group myResourceGroup --name sourceVmName

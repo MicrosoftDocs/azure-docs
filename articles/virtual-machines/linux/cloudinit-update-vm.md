@@ -71,6 +71,8 @@ Calculating upgrade... Done
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 ```
 
+You can also view that `httpd` was installed by running `yum history` and review the output referencing `httpd`. 
+
 ## Next steps
 For additional cloud-init examples of configuration changes, see the following:
  
