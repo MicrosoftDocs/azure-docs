@@ -53,7 +53,7 @@ Individual enrollments apply to a single device and may use either X.509 certifi
 
 ## Blacklist an X.509 intermediate or root CA certificate using an enrollment group
 
-X.509 certificates are typically arranged in a certificate chain of trust. If a certificate at any stage in a chain becomes compromised, trust is broken, and the certificate must be blacklisted to prevent devices down stream in any chain that contains that certificate from being provisioned by the Device Provisioning Service. To learn more about X.509 certificates and how they are used with the provisioning service, see [X.509 certificates](./concepts-security.md#x.509-certificates). 
+X.509 certificates are typically arranged in a certificate chain of trust. If a certificate at any stage in a chain becomes compromised, trust is broken, and the certificate must be blacklisted to prevent devices down stream in any chain that contains that certificate from being provisioned by the Device Provisioning Service. To learn more about X.509 certificates and how they are used with the provisioning service, see [X.509 certificates](./concepts-security.md#x509-certificates). 
 
 An enrollment group is an entry for devices that share a common attestation mechanism of X.509 certificates signed by the same intermediate or root CA. The enrollment group entry is configured with the X.509 certificate associated with the intermediate or root CA, as well as any configuration values, such as twin state and IoT hub connection, that are shared by devices with that certificate in their certificate chain. To blacklist the certificate, you can either disable or delete its enrollment group:
 
