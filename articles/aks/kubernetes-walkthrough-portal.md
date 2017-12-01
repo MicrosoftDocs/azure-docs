@@ -1,56 +1,47 @@
 ---
-title: Quickstart - Azure Kubernetes cluster portal quickstart | Microsoft Docs
+title: Quickstart - Azure Kubernetes cluster portal quickstart
 description: Quickly learn to create a Kubernetes cluster for Linux containers in AKS with the Azure portal.
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: aks, azure-container-service, kubernetes
-keywords: ''
 
-ms.assetid: 8da267e8-2aeb-4c24-9a7a-65bdca3a82d6
 ms.service: container-service
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/28/2017
 ms.author: nepeters
-ms.custom:
 ---
 
 # Deploy an Azure Container Service (AKS) cluster
 
-In this quickstart, an AKS cluster is deployed using the Azure portal. A multi-container application consisting of web front end and a Redis instance is then run on the cluster. Once completed, the application is accessible over the internet.
+In this quickstart, you deploy an AKS cluster using the Azure portal. A multi-container application consisting of web front end and a Redis instance is then run on the cluster. Once completed, the application is accessible over the internet.
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-This quickstart assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation](https://kubernetes.io/docs/home/).
+This quickstart assumes a basic understanding of Kubernetes concepts. For detailed information on Kubernetes see the [Kubernetes documentation](https://kubernetes.io/docs/home/).
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at http://portal.azure.com
+Sign in to the Azure portal at http://portal.azure.com.
 
 ## Create service principal
 
-Before creating the AKS cluster in the Azure portal, you need to create a service principal. This service principal is used to manage the Azure infrastructure associated with the AKS cluster.
+Before creating the AKS cluster in the Azure portal, you need to create a service principal. Azure uses this service principal to manage the infrastructure associated with the AKS cluster.
 
 Select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-Enter a name for the application, this can be any value. Select **Web app / API** for the application type. Enter a value for the Sign-on URL, this can be any value with a valid URL format. 
+Enter a name for the application, this can be any value. Select **Web app / API** for the application type. Enter a value for the **Sign-on URL**; this can be any value in a valid URL format, but does not need to be a real endpoint.
 
 Select **Create** when finished.
 
 ![Create service principal one](media/container-service-walkthrough-portal/create-sp-one.png)
 
-Select the newly created registered application, and take note of the Application ID. This value is needed when creating the AKS cluster. 
+Select the newly created application registration, and take note of the Application ID. This value is needed when creating the AKS cluster.
 
 ![Create service principal two](media/container-service-walkthrough-portal/create-sp-two.png)
 
-Next, a password needs to be created for the service principal. Select **All Settings** > **Keys**, and enter a key description, this can be any value. Select a duration, this is the time for which the service principal is valid. 
+Next, you must create a password for the service principal. Select **All Settings** > **Keys**, and enter any value for the key description. Select a duration, which is the time for which the service principal is valid.
 
-Click **Save** and take note of the password value, this value is needed when creating an AKS cluster.  
+Click **Save**, and take note of the password value. The password is needed when creating an AKS cluster.
 
 ![Create service principal three](media/container-service-walkthrough-portal/create-sp-three.png)
 
@@ -58,18 +49,18 @@ Click **Save** and take note of the password value, this value is needed when cr
 
 Select **New** > **Containers** > **Azure Container Service - AKS (preview)**.
 
-Provide a name, DNS name, resource group name, location, and Kubernetes version for the cluster. Take note of the cluster name and resource group name, these are needed when connecting to the cluster. 
+Provide a cluster name, DNS prefix, resource group name, location, and Kubernetes version for the cluster. Take note of the cluster name and resource group name, these are needed when connecting to the cluster.
 
 Select **OK** when complete.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/create-aks-portal-one.png)
 
-On the configuration for enter the following:
+On the configuration form, enter the following:
 
 - User Name - the name given to the administrative accounts on the cluster nodes.
 - SSH public key - associated with the key that will be used to access the cluster nodes.
-- Service principal client ID - the service principle ID as created earlier in this document.
-- Service principal client secret - the service principal password created earlier in this document.
+- Service principal client ID - the Application ID of the service principle you created earlier in this document.
+- Service principal client secret - the service principal password you created earlier in this document.
 - Node count - number of AKS nodes to create.
 - Node virtual machine size - VM size for the AKS nodes
 - OS disk size - size for the AKS nodes OS disk.
@@ -113,9 +104,9 @@ aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
 
 ## Run the application
 
-A Kubernetes manifest file defines a desired state for the cluster, including what container images should be running. For this example, a manifest is used to create all objects needed to run the Azure Vote application.
+A Kubernetes manifest file defines a desired state for the cluster, including which container images should be running. For this example, you use a manifest to create all objects needed to run the Azure Vote application.
 
-Create a file named `azure-vote.yml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, this file can be created using vi or Nano as if working on a virtual or physical system.
+Create a file named `azure-vote.yml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, you can create the file using vi or Nano, as if working on a virtual or physical system.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -203,7 +194,7 @@ To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/us
 kubectl get service azure-vote-front --watch
 ```
 
-Initially the *EXTERNAL-IP* for the *azure-vote-front* service appears as *pending*.
+Initially, the *EXTERNAL-IP* for the *azure-vote-front* service appears as *pending*.
 
 ```
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -222,7 +213,7 @@ You can now browse to the external IP address to see the Azure Vote App.
 
 ## Delete cluster
 
-When the cluster is no longer needed, the cluster resource group can be deleted, which deletes all associated resources. This can be completed by selecting the resource group and clicking the delete button. Alternatively, the [az group delete](/cli/azure/group#delete) command can be used in the Cloud Shell.
+When the cluster is no longer needed, you can delete the cluster resource group, which deletes all associated resources. This can be completed in the Azure portal by selecting the resource group and clicking the delete button. Alternatively, the [az group delete](/cli/azure/group#delete) command can be used in the Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait
