@@ -14,7 +14,7 @@ ms.author: cahann
 
 # Manage Versions
 
-You can build and publish different versions of your application. When an app is first created, the default initial version is (0.1). 
+You can build and publish different versions of your application. When an app is first created, the default initial, active version is (0.1). When you make a change to intents, entities, or utterances, that change is made to the active version.
 
 To work with versions, open your app by selecting its name on **My Apps** page, and then select **Settings** in the top bar.
 
@@ -23,7 +23,9 @@ To work with versions, open your app by selecting its name on **My Apps** page, 
 The **Settings** page allows you to configure settings for the entire app including versions, and contributors. 
 
 ## Clone version
-You can clone a version to create a copy of an existing version and save it as a new version. You may need to clone a version to use the same content of the existing version as a starting point for the new version.  
+You can clone a version to create a copy of an existing version and save it as a new version. You may need to clone a version to use the same content of the existing version as a starting point for the new version. 
+
+Once you clone a version, the new version becomes the active version. 
 
 1. On the **Settings** page, after the App Settings and Contributors sections, find the row with the version you want to clone. Select the three dots (...) on the far-right. 
 
@@ -48,7 +50,7 @@ You can clone a version to create a copy of an existing version and save it as a
  > As shown in the preceding image, a published version is associated with a colored mark, indicating the type of slot where it has been published: Production (green), Staging (red) and both (black). The training and publishing dates are displayed for each published version.
 
 ## Set active version
-To set a version as active means to make it the current version to work on and edit. You need to set a version as active to access its data, make updates, as well as to test and publish it.
+To set a version as active means to make it the current version to work on and edit. You set a version as active to access its data, make updates, as well as to test and publish it.
 
 The initial version (0.1) is the default active version unless you set another version as active. The name of the currently active version is displayed in the top, left panel after the app name. 
 
