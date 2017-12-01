@@ -347,7 +347,7 @@ Can you check if I have a reminder about Christine's birthday?
 | Text | The text description of a reminder.|pick up dry cleaning<br/>dropping my car off at the service center|
 
 ## RestaurantReservation 
-The Reservation domain provides intents and entities related to managing restaurant reservations.
+The RestaurantReservation domain provides intents and entities related to managing restaurant reservations.
 
 ### Examples
 ```
