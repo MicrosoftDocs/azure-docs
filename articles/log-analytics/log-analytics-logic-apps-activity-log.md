@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2017
+ms.date: 12/1/2017
 ms.author: richrundmsft; bwren
 
 ---
@@ -177,47 +177,89 @@ The output from the Event Hub contains a JSON payload with an array of records. 
 ``` json-schema
 {
     "properties": {
-        "ContentData": {
+        "body": {
             "properties": {
-                "records": {
-                    "items": {
-                        "type": "object"
+                "ContentData": {
+                    "type": "string"
+                },
+                "Properties": {
+                    "properties": {
+                        "ProfileName": {
+                            "type": "string"
+                        },
+                        "x-opt-enqueued-time": {
+                            "type": "string"
+                        },
+                        "x-opt-offset": {
+                            "type": "string"
+                        },
+                        "x-opt-sequence-number": {
+                            "type": "number"
+                        }
                     },
-                    "type": "array"
+                    "type": "object"
+                },
+                "SystemProperties": {
+                    "properties": {
+                        "EnqueuedTimeUtc": {
+                            "type": "string"
+                        },
+                        "Offset": {
+                            "type": "string"
+                        },
+                        "PartitionKey": {},
+                        "SequenceNumber": {
+                            "type": "number"
+                        }
+                    },
+                    "type": "object"
                 }
             },
             "type": "object"
         },
-        "Properties": {
+        "headers": {
             "properties": {
-                "ProfileName": {
+                "Cache-Control": {
                     "type": "string"
                 },
-                "x-opt-enqueued-time": {
+                "Content-Length": {
                     "type": "string"
                 },
-                "x-opt-offset": {
+                "Content-Type": {
                     "type": "string"
                 },
-                "x-opt-sequence-number": {
-                    "type": "number"
-                }
-            },
-            "type": "object"
-        },
-        "SystemProperties": {
-            "properties": {
-                "EnqueuedTimeUtc": {
+                "Date": {
                     "type": "string"
                 },
-                "Offset": {
+                "Expires": {
                     "type": "string"
                 },
-                "PartitionKey": {
-                    "type": "any"
+                "Location": {
+                    "type": "string"
                 },
-                "SequenceNumber": {
-                    "type": "number"
+                "Pragma": {
+                    "type": "string"
+                },
+                "Retry-After": {
+                    "type": "string"
+                },
+                "Timing-Allow-Origin": {
+                    "type": "string"
+                },
+                "Transfer-Encoding": {
+                    "type": "string"
+                },
+                "Vary": {
+                    "type": "string"
+                },
+                "X-AspNet-Version": {
+                    "type": "string"
+                },
+                "X-Powered-By": {
+                    "type": "string"
+                },
+                "x-ms-request-id": {
+                    "type": "string"
                 }
             },
             "type": "object"
@@ -229,6 +271,15 @@ The output from the Event Hub contains a JSON payload with an array of records. 
 
 >[!TIP]
 > You can get a sample payload by clicking **Run** and looking at the **Raw Output** from the Event Hub.
+
+### Add Compose action
+
+1. Click **New step** > **Add an action**
+2. Type *compose* for your filter and then select the action **Data Operations - Compose**.
+
+    ![Add Compose action](media/log-analytics-logic-apps-activity-log/logic-apps-add-compose-action.png)
+
+3. Select *Body* under the **Parse JSON** activity for the **Inputs** field.
 
 
 ### Add Log Analytics Send Data action
@@ -251,7 +302,7 @@ The Azure Log Analytics Data Collector connector takes the output from the previ
 
    |Setting        | Value           | Description  |
    |---------------|---------------------------|--------------|
-   |JSON Request body  | `@body('Parse_JSON')?['ContentData']?['records']` | Retrieves the records from the body of the Parse JSON action. |
+   |JSON Request body  | **Output** from the **Compose** action | Retrieves the records from the body of the Compose action. |
    | Custom Log Name | AzureActivity | Name of the custom log table to create in Log Analytics to hold the imported data. |
    | Time-generated-field | time | 
 
