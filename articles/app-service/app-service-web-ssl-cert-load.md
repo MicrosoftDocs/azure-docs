@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 12/01/2017
 ms.author: cephalin
 ---
 
@@ -55,9 +55,9 @@ When finished, click **Save**.
 
 The configured certificate is now ready to be used by your code.
 
-## Use certificate in ASP.NET
+## Use certificate in C# code
 
-In C# code, you access the certificate you configured by its thumbprint. The following code loads a certificate with the thumbprint `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
+Once your certificate is accessible, you access it in C# code by the certificate thumbprint. The following code loads a certificate with the thumbprint `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
 ```csharp
 using System;

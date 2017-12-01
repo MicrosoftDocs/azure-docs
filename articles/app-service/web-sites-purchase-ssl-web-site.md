@@ -1,11 +1,10 @@
 ---
-title: Add an SSL certificate to your Azure App Service app | Microsoft Docs
-description: Learn how to add an SSL certificate to your App Service app.
+title: Buy and Configure an SSL Certificate for your Azure App Service | Microsoft Docs
+description: Learn how to buy an App Service certificate and bind it to your App Service app
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
@@ -14,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
 ---
 # Buy and Configure an SSL Certificate for your Azure App Service
 
@@ -70,13 +69,16 @@ Once you have selected the Key Vault Repository to store this certificate in, th
 
 ## Step 4 - Verify the Domain Ownership
 
-> [!NOTE]
-> There are three types of domain verification supported by App service Certificates: Domain, Mail, Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
-
 From the same **Certificate Configuration** page you used in Step 3, click **Step 2: Verify**.
 
-**Domain Verification**
-This is the most convenient process **ONLY IF** you have **[purchased your custom domain from Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
+Choose the preferred domain verification method. 
+
+There are four types of domain verification supported by App Service Certificates: App Service, Domain, Mail, and Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
+
+> [!NOTE]
+> **App Service Verification** is the most convenient option when the domain you want to verify is already mapped to an App Service app in the same subscription. It takes advantage of the fact that the App Service app has already verified the domain ownership.
+>
+
 Click on **Verify** button to complete this step.
 
 ![insert image of domain verification](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -139,6 +141,10 @@ To complete the Email verification step, open the email and click the verificati
 
 If you need to resend the verification email, click the **Resend Email** button.
 
+#### Domain Verification
+
+Choose this option only for [an App Service domain that you purchased from Azure.](custom-dns-web-site-buydomains-web-app.md). Azure automatically adds the verification TXT record for you and completes the process.
+
 #### Manual Verification
 
 > [!IMPORTANT]
@@ -197,3 +203,4 @@ If your SSL certificate is configured for auto-renewal, but it is not automatica
 ## Next Steps
 
 * [Add a Content Delivery Network](app-service-web-tutorial-content-delivery-network.md)
+* [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md)
