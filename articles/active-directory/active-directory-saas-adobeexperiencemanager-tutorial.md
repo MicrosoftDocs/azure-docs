@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Adobe Experience Manager Domain and URLs single sign-on information](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_spconfigure.png)
 
-	In the **Sign On URL** textbox, type your Adobe Expereince Manager server URL. 
+	In the **Sign On URL** textbox, type your Adobe Experience Manager server URL. 
 
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -141,15 +141,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
-11. Select **Account Settings** -> **Manage TrustStore**.
+11. Select **Account Settings** -> **Create/Manage TrustStore**.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
-12. Click **Select Certificate File** from **Add Certificate from CER file** button. Browse and select the certificate file which you have downloaded from Azure portal.
+12. Click **Select Certificate File** from **Add Certificate from CER file** button. Browse and select the certificate file, which you have downloaded from Azure portal.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
-13. The certificate will be added to the TrustStore. Note the alias of the certificate.
+13. The certificate is added to the TrustStore. Note the alias of the certificate.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
 
@@ -157,7 +157,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
-15. Select **Account settings** -> **Manage KeyStore**. Create KeyStore by supplying a password.
+15. Select **Account settings** -> **Create/Manage KeyStore**. Create KeyStore by supplying a password.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
@@ -165,11 +165,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
-17. This will open the Configuration page.
+17. This opens the Configuration page.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin2.png)
 
-18. Find **Adobe Granite SAML 2.0 Authentication Handler** and click on **Add** icon .
+18. Find **Adobe Granite SAML 2.0 Authentication Handler** and click on **Add** icon.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
@@ -179,21 +179,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Path** textbox, enter **/**.
 
-	b. In **IDP URL** textbox, enter the value of **SAML Sign-On Service URL** which you have copied from Azure Portal.
+	b. In **IDP URL** textbox, enter the value of **SAML Sign-On Service URL**, which you have copied from Azure Portal.
 
-	c. In **IDP Certificate Alias** textbox, enter the value of **Certificate Alias** which you have added in TrustStore.
+	c. In **IDP Certificate Alias** textbox, enter the value of **Certificate Alias**, which you have added in TrustStore.
 
-	d. In **Security Provided Entity ID** textbox, enter the value of unique **SAML Entity ID** which you have configued in Azure Portal.
+	d. In **Security Provided Entity ID** textbox, enter the value of unique **SAML Entity ID**, which you have configured in Azure Portal.
 
-	e. In **Assertion Consumer Service URL** textbox, enter the value of **Reply URL** which you have configured in Azure Portal.
+	e. In **Assertion Consumer Service URL** textbox, enter the value of **Reply URL**, which you have configured in Azure Portal.
 
-	f. In **Password of Key Store** textbox, enter the **Password** which you have set in KeyStore.
+	f. In **Password of Key Store** textbox, enter the **Password**, which you have set in KeyStore.
 
 	g. In **User Attribute ID** textbox, enter **Name ID** or other User ID which is relevant in your case.
 
 	h. Select **Autocreate CRX Users.**
 
-	i. In **Logout URL** textbox, enter the value of unique **Sign-Out URL** which you have configued in Azure Portal.
+	i. In **Logout URL** textbox, enter the value of unique **Sign-Out URL** which you have from Azure Portal.
 
 	j. Click **Save**
 
