@@ -140,6 +140,10 @@ The following template sample illustrates how to:
         },
     "retention": "[parameters('dataRetention')]"
       },
+      "features": {
+                    "legacy": 0,
+                    "searchVersion": 1
+      },
       "resources": [
         {
           "apiVersion": "2017-03-15-preview",
