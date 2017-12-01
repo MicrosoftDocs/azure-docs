@@ -43,7 +43,6 @@ The following JSON shows the schema for the Azure Performance Diagnostics Extens
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
 			      "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-			      "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
 			      "perfCounterTrace": "[parameters('perfCounterTrace')]",
 			      "networkTrace": "[parameters('networkTrace')]",
 			      "xperfTrace": "[parameters('xperfTrace')]",
@@ -69,7 +68,6 @@ The following JSON shows the schema for the Azure Performance Diagnostics Extens
 |typeHandlerVersion|1.0|Version of the Extension Handler
 |performanceScenario|basic|Performance scenario to capture the data for. Valid values are: **basic**, **vmslow**, **azurefiles**, and **custom**.
 |traceDurationInSeconds|300|Duration of the Traces if any of the trace options are selected.
-|DiagnosticsTrace|d|Option to enable Diagnostic Trace. Valid values are **d** or empty value. If you do not want to capture this trace, just leave the value as empty.
 |perfCounterTrace|p|Option to enable Performance Counter Trace. Valid values are **p** or empty value. If you do not want to capture this trace, just leave the value as empty.
 |networkTrace|n|Option to enable Netmon Trace. Valid values are **n** or empty value. If you do not want to capture this trace, just leave the value as empty.
 |xperfTrace|x|Option to enable XPerf Trace. Valid values are **x** or empty value. If you do not want to capture this trace, just leave the value as empty.
@@ -150,10 +148,6 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 	  "type": "int",
     "defaultValue": 300
 	},
-    "diagnosticsTrace": {
-      "type": "string",
-	  "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
 	  "defaultValue": "p"
@@ -189,7 +183,6 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
 			      "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-			      "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
 			      "perfCounterTrace": "[parameters('perfCounterTrace')]",
 			      "networkTrace": "[parameters('networkTrace')]",
 			      "xperfTrace": "[parameters('xperfTrace')]",
@@ -213,7 +206,7 @@ The `Set-AzureRmVMExtension` command can be used to deploy the Azure Performance
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"diagnosticsTrace":"d","perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
 $ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
