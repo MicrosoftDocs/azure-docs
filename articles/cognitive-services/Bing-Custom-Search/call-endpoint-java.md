@@ -52,7 +52,7 @@ public class CustomSrchJava {
     static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
     static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
 
-    static String searchTerm = "Verdi";  // Replace with search term specific to defined sources.
+    static String searchTerm = "Microsoft";  // Replace with search term specific to your defined sources.
 
     public static SearchResults SearchImages (String searchQuery) throws Exception {
         // construct URL of search request (endpoint + query string)
