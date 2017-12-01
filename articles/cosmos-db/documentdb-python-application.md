@@ -50,7 +50,7 @@ that you have the following installed:
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Visual Studio 2017]((https://www.visualstudio.com/downloads/)) with **Azure development** and **Python development** enabled. You can check whether these prerequisites are installed, and install them, by opening **Visual Studio Installer** locally.   
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) with **Azure development** and **Python development** enabled. You can check whether these prerequisites are installed, and install them, by opening **Visual Studio Installer** locally.   
 * [Microsoft Azure SDK for Python 2.7](https://azure.microsoft.com/downloads/). 
 * [Python 2.7](https://www.python.org/downloads/windows/). You can use the 32-bit or 64-bit installation.
 
