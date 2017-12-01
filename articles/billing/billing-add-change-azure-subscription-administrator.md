@@ -17,6 +17,7 @@ ms.topic: troubleshooting
 ms.date: 11/30/2017
 ms.author: genli
 
+
 ---
 # Add or change Azure administrator roles that manage the subscription or services New
 
