@@ -1039,6 +1039,12 @@ featureFlags:
                                                 <p>Logic Apps</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/iot-edge/">
+                                                <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                <p>Azure IoT Edge</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -2980,6 +2986,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Logic Apps</h3>
                                                     <p>Automate the access and use of data across clouds without writing code</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure IoT Edge</h3>
+                                                    <p>Extend cloud intelligence to edge devices</p>
                                                 </div>
                                             </div>
                                         </div>
