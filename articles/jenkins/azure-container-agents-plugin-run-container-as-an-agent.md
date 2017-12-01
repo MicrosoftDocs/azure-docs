@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 11/29/2017
+ms.date: 12/01/2017
 ms.author: tarcher
 ms.custom: jenkins
 ---
@@ -23,8 +23,11 @@ The Azure Container Agents plugin for Jenkins enables you to quickly and easily 
 
 You learn how to:
 > [!div class="checklist"]
-> * Add an Azure service principal to the Jenkins credentials
 > * Install the Azure Container Agents plugin for Jenkins
+> * Create Azure resource group
+> * Configure the Azure Container Agents plugin
+> * Create the Spring PetClinic Application job in Jenkins
+> * Build the Spring PetClinic Application job in Jenkins
 
 ## Prerequisites
 
@@ -190,6 +193,26 @@ The following steps guide you through creating a Jenkins job - as a freestyle pr
 
 1. Select **OK**.
 
-1. In the General tab, choose Restrict where project can be run and type ACI-container in Label Expression. You see a message confirming that the label is served by the cloud configuration created in the previous step.
+1. Select the **General** tab, and specify the following values:
+
+    - **Restrict where project can be run** - Select this option.
+    - **Label Expression** - Enter `ACI-container`. When you exit the field, a message displays confirming that the label is served by the cloud configuration created in the previous step.
+
+    ![General settings for a new freestyle project in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-freestyle-project-general.png)
+
+1. Select the **Source Code Management** tab, and specify the following values:
+
+    - **Source Code Management** - Select **Git**.
+    - **Repository URL** - Enter the following URL for the Spring PetClinic Sample Application GitHub repo: `https://github.com/spring-projects/spring-petclinic.git`.
+
+1. Select the **Build** tab, and perform the following tasks:
+
+    - Select the **Add build step** dropdown arrow, and select **Invoke top-level Maven targets**.
+
+    - For **Goals**, enter `package'.
+
+1. Select **Save** to save the new project definition.
+
+## Build the Spring PetClinic Application job in Jenkins
 
 ## Next steps
