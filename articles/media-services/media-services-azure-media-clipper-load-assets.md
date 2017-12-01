@@ -27,7 +27,7 @@ Assets can be loaded into the Azure Media Clipper by two methods:
 1. Statically passing in a library of assets
 2. Dynamically generating a list of assets via API
 
-## Loading static asset library
+## Statically load videos into Clipper
 In this case, you pass in a static set of assets to the Clipper. Each asset includes an AMS asset/filter ID, name, published streaming URL. If applicable, a content protection authentication token or array of thumbnail URLs may be passed in. If passed in, the thumbnails are populated into the interface. In scenarios where the asset library is static and small, you can pass in the asset contract for each asset in the library.
 
 To load a static asset library, use the **load** method to pass in a JSON representation of each asset. The following code sample illustrates the JSON representation for one asset.
@@ -112,7 +112,7 @@ subclipper.load(assets)
 }
 ```
 
-## Loading dynamic asset library
+## Dynamically load videos in Clipper
 Alternatively, you can load assets dynamically via a callback. In scenarios where assets are dynamically generated or the library is large, you should load via the callback. To load asset dynamically, you must implement the optional onLoadAssets callback function. This function is passed into the Clipper at initialization. The resolved assets should adhere to the same contract as statically loaded assets. The following code sample illustrates the method signature, expected input, and expected output.
 
 ```javascript

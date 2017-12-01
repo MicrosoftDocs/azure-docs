@@ -121,9 +121,10 @@
 ### [Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
 
 ## [Clip content](media-services-azure-media-clipper-overview.md)
-### [Get started with Azure Media Clipper](media-services-azure-media-clipper-getting-started.md)
-### [Load assets into Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
-### [Configure custom keyboard shortcuts](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Getting started](media-services-azure-media-clipper-getting-started.md)
+### [Load videos](media-services-azure-media-clipper-load-assets.md)
+### [Configure keyboard shortcuts](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Configure localization](media-services-azure-media-clipper-supported-languages.md)
 ### [Submit clipping jobs](media-services-azure-media-clipper-submit-job.md)
 ### [Azure portal](media-services-azure-media-clipper-portal.md)
 

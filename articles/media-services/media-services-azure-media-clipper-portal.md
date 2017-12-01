@@ -27,6 +27,11 @@ You can use Azure Media Clipper in the portal to create clips from assets in you
 
 On the **Subclip** tab, you're able to begin composing clips. In the portal, the Clipper loads single-bitrate MP4s, multi-bitrate MP4s, and live archives that are published with a valid streaming locator. Unpublished assets are not loaded.
 
+The Clipper is current released in public preview. To access the Clipper in the Azure portal, navigate to [this public preview link](https://portal.azure.com/?feature.subclipper=true) in Azure portal to reach the tool.
+
+The following image illustrates the Clipper landing page in your media services account:
+![Azure Media Clipper in Azure portal](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-portal.png)
+
 ## Producing clips
 To create a clip, drag and drop an asset onto the clip interface. If the mark-times are known, you can manually enter them into the interface. Otherwise, playback the asset or drag the playhead to find the desired mark-in and mark-out time. If a mark-in or mark-out time is not provided, the clip starts from the beginning or continues to the end of the input asset, respectively.
 
@@ -35,7 +40,10 @@ To navigate with frame-accuracy/GOP-accuracy, use the frame-forward/GOP-forward 
 ## Producing dynamic manifest filters
 [Dynamic manifest filters](https://azure.microsoft.com/blog/dynamic-manifest/) describe a set of rules based on manifest attributes and asset timeline. These rules determine how your streaming endpoint manipulates the output playlist (manifest). The filter can be used to change which segments are streamed for playback. The filters produced by the Clipper are local filters and are specific to the source asset. Unlike rendered clips, filters are not new assets and do not require an encoding job to produce. They can be quickly created via the [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-dynamic-manifest) or [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest), however, they are only GOP-accurate. Typically, assets encoded for streaming have a GOP size of two seconds.
 
-To create a dynamic manifest filter, select dynamic manifest filter as the clipping mode from the advanced settings menu. You can follow the same process to produce a clip to create the filter. Filters can only be produced against a single asset.
+To create a dynamic manifest filter, navigate to the **Assets** tab and select the desired asset. Select the **Subclip** button for the top menu. Select dynamic manifest filter as the clipping mode from the advanced settings menu. You can then follow the same process to produce a rendered clip to create the filter. Filters can only be produced from a single asset.
+
+The following image illustrates the Clipper in dynamic manifest filter mode in the Azure portal:
+![Azure Media Clipper in dynamic filter mode in Azure portal](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
 
 ## Submitting clipping jobs
 When you are finished composing the clip, select the submit job button for initiate the corresponding clipping job or dynamic manifest call.
