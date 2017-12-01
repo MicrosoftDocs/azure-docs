@@ -1,13 +1,13 @@
-### Windows PowerShell
+### Azure PowerShell
 
 #### Install PowerShell
 Install the latest PowerShell if you don't have it on your machine. 
 
-1. In your web browser, navigate to [Azure SDK Downloads and SDKS](https://azure.microsoft.com/downloads/) page. 
+1. In your web browser, navigate to [Azure Downloads](https://azure.microsoft.com/downloads/) page. 
 2. Click **Windows install** in the **Command-line tools** -> **PowerShell** section. 
 3. To install PowerShell, run the **MSI** file. 
 
-For detailed instructions, see [How to install and configure PowerShell](/powershell/azure/install-azurerm-ps). 
+For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 #### Log in to PowerShell
 
