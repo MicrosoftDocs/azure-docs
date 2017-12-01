@@ -34,7 +34,7 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 |Canonical |UbuntuServer |14.04.5-LTS |latest |yes |
 |CoreOS |CoreOS |Stable |latest |yes |
 |OpenLogic |CentOS |7-CI |latest |preview |
-|RedHat |RHEL |7.4 |latest |preview |
+|RedHat |RHEL |7-RAW-CI |latest |preview |
 
 ## What is the difference between cloud-init and the Linux Agent (WALA)?
 WALA is an Azure platform-specific agent used to provision and configure VMs, and handle Azure extensions. We are enhancing the task of configuring VMs to use cloud-init instead of the Linux Agent in order to allow existing cloud-init customers to use their current cloud-init scripts.  If you have existing investments in cloud-init scripts for configuring Linux systems, there are **no additional settings required** to enable them. 
@@ -81,7 +81,7 @@ When the VM has been created, the Azure CLI shows information specific to your d
 ## Troubleshooting cloud-init
 Once the VM has been provisioned, Cloud-init will run through all the modules and script defined in `--custom-data` in order to configure the VM.  If you need to troubleshoot any errors or omissions from the configuration, you need to search for the module name (`disk_setup` or `runcmd` for example) in the cloud-init log - located in **/var/log/cloud-init.log**.
 
-Please note: not every module failure results in a fatal cloud-init overall configuration failure. For example, using the 'runcmd' module, if the script fails, cloud-init will still report provisioning succeeded because the runcmd module executed.
+>[AZURE.NOTE] Not every module failure results in a fatal cloud-init overall configuration failure. For example, using the 'runcmd' module, if the script fails, cloud-init will still report provisioning succeeded because the runcmd module executed.
 
 For more details of cloud-init logging, refer to the [cloud-init documentation](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
