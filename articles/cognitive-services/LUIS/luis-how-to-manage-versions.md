@@ -68,7 +68,7 @@ The initial version (0.1) is the default active version unless you set another v
 
 
 ## Import version
-You can import a version from a JSON file. Once you clone a version, the new version becomes the active version.
+You can import a version from a JSON file. Once you import a version, the new version becomes the active version.
 
 **To import a version:**
 
