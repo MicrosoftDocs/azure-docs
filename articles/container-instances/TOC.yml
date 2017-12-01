@@ -49,6 +49,14 @@
     href: /rest/api/container-instances
   - name: PowerShell
     href: /powershell/module/azurerm.containerinstance#container_instances
+  - name: .NET
+    href: /dotnet/api/overview/azure/containerinstances
+  - name: Python
+    href: /python/api/overview/azure/containerinstance
+  - name: Java
+    href: /java/api/overview/azure/containerinstance
+  - name: JavaScript
+    href: /javascript/api/overview/azure/containerinstance
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerinstance/containergroups
 - name: Resources
