@@ -45,7 +45,7 @@ This article explains the following functions in the sample app:
 
 The following sections explain the configuration and code that are used for Azure portal development. The code for Visual Studio development is shown at the end of the article.
 
-## The cloud backup orchestration
+## The cloud backup orchestration (Visual Studio Code and Azure Portal Sample Code)
 
 The `E2_BackupSiteContent` function uses the standard *function.json* for orchestrator functions.
 
