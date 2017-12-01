@@ -126,6 +126,50 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 For information about passing PSCredentials as parameters, see <a href="#credential-assets">**Credential Assets**</a> below.
 
+## Composite Resources
+
+**Composite Resources** allow you to use DSC configurations as nested resources inside of a configuration.  This enables you to apply multiple configurations to a single resource.  See [Composite resources: Using a DSC configuration as a resource](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) to learn more about **Composite Resources**
+
+> [!NOTE]
+> In order for **Composite Resources** to compile correctly, you must first ensure that any DSC Resources that the composite relies on are first installed in the Azure Automation Account Modules repository or it will not import properly.
+
+To add a DSC **Composite Resource**, you must add the resource module to an archive (*.zip). Go to the Modules repository on your Azure Automation Account.  Then click on the 'Add a Module' button.
+
+![Add Module](./media/automation-dsc-compile/add_module.png)
+
+Navigate to the directory where your archive is located.  Select the archive file, and click OK.
+
+![Select Module](./media/automation-dsc-compile/select_dscresource.png)
+
+You will then be taken back to the modules directory, where you can monitor the status of your **Composite Resource** while it unpacks and registers with Azure Automation.
+
+![Import Composite Resource](./media/automation-dsc-compile/register_composite_resource.png)
+
+Once the module is registered, you can then click on it to validate that the **Composite Resources** are now available to be used in a configuration.
+
+![Validate Composite Resource](./media/automation-dsc-compile/validate_composite_resource.png)
+
+Then you can call the **Composite Resource** into your configuration like so:
+
+```powershell
+
+    Node ($AllNodes.Where{$_.Role -eq "WebServer"}).NodeName
+    {
+            
+            JoinDomain DomainJoin
+            {
+                DomainName = $DomainName
+                Admincreds = $Admincreds
+            }
+
+            PSWAWebServer InstallPSWAWebServer
+            {
+                DependsOn = "[JoinDomain]DomainJoin"
+            }        
+    }
+
+```
+
 ## ConfigurationData
 **ConfigurationData** allows you to separate structural configuration from any environment specific configuration while using PowerShell DSC. See [Separating "What" from "Where" in PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) to learn more about **ConfigurationData**.
 
