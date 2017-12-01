@@ -1,6 +1,6 @@
 ---
-title: FAQs for Content Moderator | Microsoft Docs
-description: Get answers to frequently asked questions about the Content Moderator.
+title: FAQs for Azure Content Moderator | Microsoft Docs
+description: Get answers to frequently asked questions about Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,7 +12,7 @@ ms.date: 11/21/2016
 ms.author: sajagtap
 ---
 
-# Frequently Asked Questions (FAQs) #
+# Content Moderator Frequently Asked Questions (FAQs) #
 
 #### What does my Content Moderator subscription include? ####
 Your Content Moderator subscription includes access to the review tool and the APIs. You can decide whether you want to use one or the other, or both, depending on your business needs.
