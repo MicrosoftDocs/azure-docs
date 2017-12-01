@@ -45,6 +45,7 @@ Input streams that are not in order are either:
 * Adjusted by the system, according to the user-specified policy.
 
 Stream Analytics tolerates late and out of order events when processing by **application time**. The following settings are available in the **Event ordering** option in Azure portal: 
+
 ![Stream Analytics event handling](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
 **Late Arrival tolerance**
