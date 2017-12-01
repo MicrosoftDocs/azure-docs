@@ -110,8 +110,8 @@ Unfortunately there is no easy fix on this one. You have to perform the followin
    - remove desktop shortcut that launches the above script
    - download the installer https://aka.ms/azureml-wb-msi and reinstall.
 
-## Get stuck at "Checking Experimentation account" screen after logging in
-After logging in, the Workbench app might get stuck on a blank screen with a message showing "Checking Experimentation account" with a spinning wheel. To resolve this issue, take the following steps:
+## Get stuck at "Checking experimentation account" screen after logging in
+After logging in, the Workbench app might get stuck on a blank screen with a message showing "Checking experimentation account" with a spinning wheel. To resolve this issue, take the following steps:
 1. Shutdown the app
 2. Delete the following file:
   ```
