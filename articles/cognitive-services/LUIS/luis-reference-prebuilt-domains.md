@@ -165,7 +165,15 @@ The Events domain provides intents and entities related to booking tickets for e
 | ---------------- |-----------------------|----|
 | Book| Purchase tickets to an event.|I'd like to buy a ticket for the symphony this weekend.|
 
-<!--TODO: 5 entities -->
+
+### Entities
+| Entities name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Address | Event location or address. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
+| Name | The name of an event.|Shakespeare in the Park|
+| PlaceName| The event location name.|Louvre<br/>Opera House<br/>Broadway|
+| PlaceType | The type of the location the event will be held in.|Cafe<br/>Theatre<br/>Library|
+| Type | The type of an event.|Concert<br/>Sports game|
 
 ## Fitness 
 The Fitness domain provides intents and entities related to tracking fitness activities. The intents include saving notes, remaining time or distance, or saving activity results.
@@ -178,7 +186,15 @@ The Fitness domain provides intents and entities related to tracking fitness act
 | LogActivity| Save or log completed activity results.|Save my last run<br/>Log my Saturday morning walk<br/>store my previous swim|
 | LogWeight| Save or log the user's current weight.|Save my current weight<br/>log my weight now<br/>store my current body weight|
 
-<!--TODO: 6 entities -->
+### Entities
+| Entities name | Description | Examples |
+| ---------------- |-----------------------|----|
+| ActivityType | The type of activity to track. |Run<br/>Walk<br/>Swim<br/>Cycle |
+| Food | A type of food to track in a fitness app. |Banana<br/>Salmon<br/>Protein Shake|
+| MealType| The meal type to track in a health or fitness app.|Breakfast<br/>Dinner<br/>Lunch<br/>Supper|
+| Measurement| A type of measurements for time, distance or weight, for use in a fitness or health app.|Kilometers<br/>Miles<br/>Minutes<br/>Kilograms|
+| Number | A numeric quantity for use in a fitness or health app.|19<br/>three<br/>200<br/>one|
+| StatType | A statistic type on aggregated data, for use in a fitness or health app.|Sum<br/>Average<br/>Maximum<br/>Minimum|
 
 ## Gaming 
 The Gaming domain provides intents and entities related to managing a game party in a multiplayer game.
@@ -222,15 +238,28 @@ Book me two tickets for Captain Omar and the two Musketeers
 Cancel tickets
 When is Captain Omar showing?
 ```
-<!--2Intents
-4Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Book | Purchase movie tickets.|Book me two tickets for Captain Omar and the two musketeers<br/>I want to buy a ticket for tomorrow's movie<br/>I want a ticket for Captian Omar Part 2 next Wednesday|
+|GetShowTime| Get the showtime of a movie.|When is Captain Omar showing?|
+
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Address | The address of a movie theater.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| MovieTitle | The title of a movie.|Life of Pi<br/>Hunger Games<br/>Inception|
+| PlaceName | The name of a movie theater or cinema.|Cinema Amir<br/>Alexandria Theatre<br/>New York Theater|
+| PlaceType | The type of location a movie is showing at.|cinema<br/>theater<br/>IMAX cinema|
 
 ## Music 
 The Music domain provides intents and entities related to playing music on a music player.
 
 ### Examples
 ```
-play Kevin Durant
+play Beethoven
 Increase track volume
 Skip to the next song
 ```
@@ -246,8 +275,29 @@ Add to my groceries note lettuce tomato bread coffee
 Check off bananas from my grocery list
 Remove all items from my vacation list
 ```
-<!--9Intents
-6Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| AddToNote | Add information to a note.|Add to my groceries note lettuce tomato bread coffee<br/>Add to my todo list<br/>add cupcakes to my Wunderlist|
+| CheckOffItem | Check off items from a pre-existing note.|Check off bananas from my grocery list<br/>Mark cheese cake on my holiday shopping list as done|
+| Clear | Clear all items from a pre-existing note.|Remove all items from my vacation list<br/>Clear all from my reading list|
+| Confirm | Confirm an action relating to a note.|It's okay by me<br/>yes<br/>I am confirming keeping all items on lists|
+| Create | Create a new note. | Create a list<br/>Note to remind me that Jason is in town first week of May|
+| Delete | Delete an entire note. |Delete my vacation list <br/>delete my groceries note|
+| DeleteNoteItem | Delete items from a pre-existing note.| Delete chips from my grocery list<br/>Remove pens from my school shopping list|
+| ReadAloud | Read a list out loud.|Read me the first one<br/>Read me the details|
+| ShowNext | See the next item in a list of notes.|Show the next one<br/>Next page<br/>Next|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| AppName | The note-taking application name.|Wunderlist<br/>OneNote|
+| ContactName | The name of a contact in a note.|Carol<br/>Jim<br/>Chris|
+| DataSource | Location of notes.|OneDrive<br/>Google docs<br/>my computer|
+| DataType | The type of file or document, usually associated with particular software programs.|Slides<br/>Spreadsheet<br/>Worksheet|
+| Text | The text of a note or reminder.|stretch before walking<br/>long run tomorrow|
+| Title | Title of a note.|groceries<br/>people to call<br/>to-do|
 
 ## OnDevice 
 The OnDevice domain provides intents and entities related to controlling the device.
@@ -282,8 +332,19 @@ Change my interview to 9 am tomorrow
 Remind me to buy milk on my way back home
 Can you check if I have a reminder about Christine's birthday?
 ```
-<!--4Intents
-1Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Change| Change a reminder.|Change my interview to 9 am tomorrow<br/>Move my assignment reminder to tomorrow|
+| Create| Create a new reminder.|Create a reminder<br/>Remind me to buy milk<br/>I want to remember to call Rebecca when I'm at home|
+| Delete | Delete a reminder.|Delete my picture reminder<br/>Delete this reminder|
+| Find | Find a reminder.|Do I have a reminder about my anniversary?<br/>Can you check if I have a reminder about Christine's birthday?|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Text | The text description of a reminder.|pick up dry cleaning<br/>dropping my car off at the service center|
 
 ## RestaurantReservation 
 The Reservation domain provides intents and entities related to managing restaurant reservations.
@@ -319,8 +380,18 @@ Translate to French
 Translate hello to German
 Translate this sentence to English
 ```
-<!--1Intents
-2Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Translate| Translate text to another language.|Translate to French<br/>Translate hello to German|
+
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| TargetLanguage | The target language of a translation.|French<br/>German<br/>Korean|
+| Text | The text to translate.|Hello World<br/>Good morning<br/>Good evening|
 
 ## TV 
  
@@ -332,8 +403,18 @@ Switch channel to BBC
 Show TV guide
 Watch National Geographic
 ```
-<!--3Intents
-1Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| ChangeChannel| Change a channel on a TV.|Change channel to CNN<br/>Switch channel to BBC<br/>Go to channel 4|
+| ShowGuide| Show the TV guide.|Show TV guide<br/>what is on movie channel now?<br/>show my program list|
+| WatchTV| Ask to watch a TV channel.|I want to watch the Disney channel<br/>go to TV please<br/>Watch National Geographic|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| ChannelName | The name of a TV channel.|CNN<br/>BBC<br/>Movie channel|
 
 ## Utilities  
 The Utilities domain provides intents for tasks that are common to many tasks, such as greetings, cancellation, confirmation, help, repetition, navigation, starting and stopping.
@@ -344,8 +425,20 @@ Go back to Twitter
 Please help
 Repeat last question please
 ```
-<!--10Intents
-0Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Cancel | Cancel an action.|Cancel the message<br/>I don't want to send the email anymore|
+| Confirm | Confirm an action.|Yeah ohh I confirm<br/>Good I am confirming<br/>Okay I am confirming|
+| FinishTask | Finish a task the user started.|I am done<br/>I am finished<br/>It is done|
+| GoBack | Go back one step or return to a previous step.|Go back to Twitter<br/>Go back a step<br/>Go back|
+| Help | Request for help.|Please help<br/>open help<br/>help|
+| Repeat | Repeat an action.|Repeat last question please<br/>repeat last song|
+| ShowNext | Show the next item in a series. |Show the next one<br/>go to the next page|
+| ShowPrevious | Show the previous item in a series.|show previous one|
+| StartOver | Restart the app or start a new session.|Start over<br/>New session<br/>restart|
+| Stop | Stop an action.| Stop saying this please<br/>Shut up<br/>Stop please|
 
 ## Weather 
 The Weather domain provides intents and entities for getting weather reports and forecasts.
@@ -356,11 +449,20 @@ weather in London in september
 What?s the 10 day forecast?
 What's the average temperature in India in september?
 ```
-<!--2Intents
-1Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| GetCondition | Get historic facts related to weather. |weather in London in September<br/>What's the average temperature in India in September?|
+| GetForecast | Get the current weather and forecast for the next few days. |How is the weather today?<br/>What's the 10 day forecast?<br/>How will the weather be this weekend?|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Location| The absolute location for a weather request.|Seattle<br/>Paris<br/>Palo Alto|
 
 ## Web 
-The Web domain provides intents for navigating to a website.
+The Web domain provides an intent for navigating to a website.
 
 ### Examples
 ```
@@ -368,6 +470,9 @@ Navigate to facebook.com
 Go to www.twitter.com
 Navigate to www.bing.com
 ```
-<!--1Intents
-0Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Navigate | A request to navigate to a specified website. |Navigate to facebook.com<br/>Go to www.twitter.com|
 
