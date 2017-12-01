@@ -65,14 +65,13 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', function() {
-    // we're connected!
     console.log("Connected to DB");
     });
     ```
     >[!Note]
     > Here, the environment variables are loaded using process.env.{variableName} using the 'dotenv' npm package.
 
-    Once we're connected to our Azure Cosmos DB, we can now start setting up Object models in Mongoose.
+    Once you are connected to Azure Cosmos DB, you can now start setting up Object models in Mongoose.
 
     
 ## Caveats to using Mongoose with Azure Cosmos DB
@@ -167,7 +166,7 @@ family.save((err, saveFamily) => {
     });
     ```
 
-1. Now, going into the Azure portal, we notice that we've got 2 collections created in Azure Cosmos DB.
+1. Now, going into the Azure portal, you will notice two collections created in Azure Cosmos DB.
 
 ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][alldata]
 
@@ -271,13 +270,13 @@ const Vacation_common = commonModel.discriminator('VacationDestinationsType', ne
     });
     ```
 
-1. Now, if we go to the Azure portal, we notice that we have only one collection called ```alldata``` with both 'Family' and 'VacationDestinations' data.
+1. Now, if you go back to the Azure portal, you will notice that you have only one collection called ```alldata``` with both 'Family' and 'VacationDestinations' data.
 
 ![Node.js tutorial - Screen shot of the Azure portal, showing an Azure Cosmos DB account, with the collection name highlighted - Node database][mutiple-coll]
 
-1. Also, notice that each object has another attribute called as ```__type```, which help us differentiate between our different object models.
+1. Also, notice that each object has another attribute called as ```__type```, which help you differentiate between the two different object models.
 
-1. Finally, let's read the data we stored in Azure Cosmos DB. Mongoose takes care of filtering data based on the model. So, you have to do nothing different when reading data. Just specify your model (in this case, ```Family_common```) and Mongoose handles filtering on the 'DiscriminatorKey'.
+1. Finally, let's read the data that is stored in Azure Cosmos DB. Mongoose takes care of filtering data based on the model. So, you have to do nothing different when reading data. Just specify your model (in this case, ```Family_common```) and Mongoose handles filtering on the 'DiscriminatorKey'.
 
 ```JavaScript
 Family_common.find({ 'children.gender' : "male"}, function(err, foundFamily){
