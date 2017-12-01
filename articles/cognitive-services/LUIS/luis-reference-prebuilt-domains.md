@@ -165,7 +165,15 @@ The Events domain provides intents and entities related to booking tickets for e
 | ---------------- |-----------------------|----|
 | Book| Purchase tickets to an event.|I'd like to buy a ticket for the symphony this weekend.|
 
-<!--TODO: 5 entities -->
+
+### Entities
+| Entities name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Address | Event location or address. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
+| Name | The name of an event.|Shakespeare in the Park|
+| PlaceName| The event location name.|Louvre<br/>Opera House<br/>Broadway|
+| PlaceType | The type of the location the event will be held in.|Cafe<br/>Theatre<br/>Library|
+| Type | The type of an event.|Concert<br/>Sports game|
 
 ## Fitness 
 The Fitness domain provides intents and entities related to tracking fitness activities. The intents include saving notes, remaining time or distance, or saving activity results.
@@ -178,7 +186,15 @@ The Fitness domain provides intents and entities related to tracking fitness act
 | LogActivity| Save or log completed activity results.|Save my last run<br/>Log my Saturday morning walk<br/>store my previous swim|
 | LogWeight| Save or log the user's current weight.|Save my current weight<br/>log my weight now<br/>store my current body weight|
 
-<!--TODO: 6 entities -->
+### Entities
+| Entities name | Description | Examples |
+| ---------------- |-----------------------|----|
+| ActivityType | The type of activity to track. |Run<br/>Walk<br/>Swim<br/>Cycle |
+| Food | A type of food to track in a fitness app. |Banana<br/>Salmon<br/>Protein Shake|
+| MealType| The meal type to track in a health or fitness app.|Breakfast<br/>Dinner<br/>Lunch<br/>Supper|
+| Measurement| A type of measurements for time, distance or weight, for use in a fitness or health app.|Kilometers<br/>Miles<br/>Minutes<br/>Kilograms|
+| Number | A numeric quantity for use in a fitness or health app.|19<br/>three<br/>200<br/>one|
+| StatType | A statistic type on aggregated data, for use in a fitness or health app.|Sum<br/>Average<br/>Maximum<br/>Minimum|
 
 ## Gaming 
 The Gaming domain provides intents and entities related to managing a game party in a multiplayer game.
