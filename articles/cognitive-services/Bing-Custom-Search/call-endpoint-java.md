@@ -23,10 +23,9 @@ This example shows how to request search results from your custom search instanc
   >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
 
 3. Install [Java](https://www.java.com).
-4. Download Apache [http components](http://www-us.apache.org/dist//httpcomponents/httpclient/binary/httpcomponents-client-4.5.3-bin.tar.gz) and place in your class path.
-5. Using your Java IDE of choice create a package called com.contoso.BingCustomSearch.
-6. Create the file BingCustomSearch.java and copy the following code to it.
-7. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
+4. Using your Java IDE of choice create a package.
+5. Create the file CustomSrchJava.java and copy the following code to it.
+6. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
 
 ``` Java
 import java.io.InputStream;
