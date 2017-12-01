@@ -85,7 +85,7 @@ If you have lots of packages to run, and you care most about the overall through
 
 ## AzureSSISMaxParallelExecutionsPerNode
 
-When you're already using a powerful worker node to run packages, increasing **AzureSSISMaxParallelExecutionsPerNode** may increase the overall throughput of the integration runtime. You can estimate the appropriate value based on the cost of your package and the following configurations for the worker nodes. For more information, see [General-purpose virtual machine sizes](../virtual-machines/windows/sizes-general).
+When you're already using a powerful worker node to run packages, increasing **AzureSSISMaxParallelExecutionsPerNode** may increase the overall throughput of the integration runtime. You can estimate the appropriate value based on the cost of your package and the following configurations for the worker nodes. For more information, see [General-purpose virtual machine sizes](../virtual-machines/windows/sizes-general.md).
 
 | Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network performance (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -110,7 +110,7 @@ Here are the guidelines for setting the right value for the **AzureSSISMaxParall
 
 -   Choose a more powerful database than Basic if the worker count is more than 8, or the core count is more than 50. Otherwise the database becomes the bottleneck of the integration runtime instance and the overall performance is negatively impacted.
 
-You can also adjust the database pricing tier based on [database transaction unit](sql-database/sql-database-what-is-a-dtu.md) (DTU) usage information available on the Azure portal.
+You can also adjust the database pricing tier based on [database transaction unit](../sql-database/sql-database-what-is-a-dtu.md) (DTU) usage information available on the Azure portal.
 
 ## Design for high performance
 Designing an SSIS package to run on Azure is different from designing a package for on-premises execution. Instead of combining multiple independent tasks in the same package, separate them into several packages for more efficient execution in the Azure-SSIS IR. Create a package execution for each package, so that they don’t have to wait for each other to finish. This approach benefits from the scalability of the Azure-SSIS integration runtime and improves the overall throughput.
