@@ -13,6 +13,7 @@
 ## [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
 ## [Create a Virtual Machine](documentation-government-quickstarts-vm.md) 
 ## [GPUs](documentation-government-gpu.md)
+## [Connect to Azure Government from SSMS](documentation-government-connect-ssms.md)
 
 # How To
 ## Plan
