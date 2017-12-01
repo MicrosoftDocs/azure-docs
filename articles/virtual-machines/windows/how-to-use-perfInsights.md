@@ -293,7 +293,7 @@ Within the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip file,** that is generated
 Select the **Findings** tab.
 
 ![find tab](media/how-to-use-perfInsights/findingtab.png)
-![findings](media/how-to-use-perfInsights/findings.png)
+![findings](media/how-to-use-perfInsights/findings.PNG)
 
 **Notes**
 
