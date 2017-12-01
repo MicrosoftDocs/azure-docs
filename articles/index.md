@@ -986,6 +986,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-edge/">
+                                                <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                <p>Azure IoT Edge</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
                                                 <p>Azure IoT Suite</p>
@@ -1038,13 +1044,7 @@ featureFlags:
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Logic Apps</p>
                                             </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/iot-edge/">
-                                                <img src="media/index/IOT_edge_50.svg" alt="" />
-                                                <p>Azure IoT Edge</p>
-                                            </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -2822,6 +2822,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/iot-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/IOT_edge_50.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure IoT Edge</h3>
+                                                    <p>Extend cloud intelligence to edge devices</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2991,26 +3010,7 @@ featureFlags:
                                         </div>
                                     </div>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="/azure/iot-edge/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/IOT_edge_50.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure IoT Edge</h3>
-                                                    <p>Extend cloud intelligence to edge devices</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
