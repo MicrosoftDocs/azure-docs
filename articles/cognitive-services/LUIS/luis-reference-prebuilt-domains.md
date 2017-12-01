@@ -404,8 +404,20 @@ Go back to Twitter
 Please help
 Repeat last question please
 ```
-<!--10Intents
-0Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Cancel | Cancel an action.|Cancel the message<br/>I don't want to send the email anymore|
+| Confirm | Confirm an action.|Yeah ohh I confirm<br/>Good I am confirming<br/>Okay I am confirming|
+| FinishTask | Finish a task the user started.|I am done<br/>I am finished<br/>It is done|
+| GoBack | Go back one step or return to a previous step.|Go back to Twitter<br/>Go back a step<br/>Go back|
+| Help | Request for help.|Please help<br/>open help<br/>help|
+| Repeat | Repeat an action.|Repeat last question please<br/>repeat last song|
+| ShowNext | Show the next item in a series. |Show the next one<br/>go to the next page|
+| ShowPrevious | Show the previous item in a series.|show previous one|
+| StartOver | Restart the app or start a new session.|Start over<br/>New session<br/>restart|
+| Stop | Stop an action.| Stop saying this please<br/>Shut up<br/>Stop please|
 
 ## Weather 
 The Weather domain provides intents and entities for getting weather reports and forecasts.
