@@ -53,7 +53,7 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 
 ## AzureSSISLocation
 
-**AzureSSISLocation** is the location for the integration runtime worker. The worker maintains a constant connection with the SSIS Catalog database, SSISDB, on Azure SQL Database. Set the **AzureSSISLocation** to the same location as the SQL Database server which hosts SSISDB to let the integration runtime instance work as efficiently as possible.
+**AzureSSISLocation** is the location for the integration runtime worker. The worker maintains a constant connection with the SSIS Catalog database, SSISDB, on Azure SQL Database. Set the **AzureSSISLocation** to the same location as the SQL Database server, which hosts SSISDB to let the integration runtime instance work as efficiently as possible.
 
 ## AzureSSISNodeSize
 
@@ -68,7 +68,7 @@ The public preview of Azure Data Factory v2, including the Azure-SSIS IR, suppor
 In unofficial private testing by the SSIS engineering team, the D series appears to be more suitable for SSIS package execution than the A series.
 
 -   The performance/price ratio of the D series is higher than the A series.
--   The throughput for the D series is higher than the A series at the same price point.
+-   The throughput for the D series is higher than the A series at the same price.
 
 ### Configure for execution speed
 
@@ -90,7 +90,7 @@ If you have lots of packages to run, and you care most about the overall through
 
 ## AzureSSISMaxParallelExecutionsPerNode
 
-When you're already using a powerful worker node to run packages, increasing **AzureSSISMaxParallelExecutionsPerNode** may help to increase the overall throughput of the integration runtime. You can estimate the appropriate value based on the cost of your package and the following configurations for the worker nodes. For more info, see [General purpose virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general).
+When you're already using a powerful worker node to run packages, increasing **AzureSSISMaxParallelExecutionsPerNode** may help to increase the overall throughput of the integration runtime. You can estimate the appropriate value based on the cost of your package and the following configurations for the worker nodes. For more info, see [General-purpose virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general).
 
 | Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network performance (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
