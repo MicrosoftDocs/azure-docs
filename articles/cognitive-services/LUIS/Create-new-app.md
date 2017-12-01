@@ -43,4 +43,4 @@ You can set the name (50 char max), version (10 char max), and description of an
 
 ## Next steps
 
-Your first task in the app is to add intents. For more info on how to add intents, see [Add intents](Add-intents.md).
+Your first task in the app is to [add intents](Add-intents.md).
