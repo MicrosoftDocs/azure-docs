@@ -382,8 +382,18 @@ Switch channel to BBC
 Show TV guide
 Watch National Geographic
 ```
-<!--3Intents
-1Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| ChangeChannel| Change a channel on a TV.|Change channel to CNN<br/>Switch channel to BBC<br/>Go to channel 4|
+| ShowGuide| Show the TV guide.|Show TV guide<br/>what is on movie channel now?<br/>show my program list|
+| WatchTV| Ask to watch a TV channel.|I want to watch the Disney channel<br/>go to TV please<br/>Watch National Geographic|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| ChannelName | The name of a TV channel.|CNN<br/>BBC<br/>Movie channel|
 
 ## Utilities  
 The Utilities domain provides intents for tasks that are common to many tasks, such as greetings, cancellation, confirmation, help, repetition, navigation, starting and stopping.
@@ -406,11 +416,20 @@ weather in London in september
 What?s the 10 day forecast?
 What's the average temperature in India in september?
 ```
-<!--2Intents
-1Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| GetCondition | Get historic facts related to weather. |weather in London in September<br/>What's the average temperature in India in September?|
+| GetForecast | Get the current weather and forecast for the next few days. |How is the weather today?<br/>What's the 10 day forecast?<br/>How will the weather be this weekend?|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Location| The absolute location for a weather request.|Seattle<br/>Paris<br/>Palo Alto|
 
 ## Web 
-The Web domain provides intents for navigating to a website.
+The Web domain provides an intent for navigating to a website.
 
 ### Examples
 ```
@@ -418,6 +437,9 @@ Navigate to facebook.com
 Go to www.twitter.com
 Navigate to www.bing.com
 ```
-<!--1Intents
-0Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Navigate | A request to navigate to a specified website. |Navigate to facebook.com<br/>Go to www.twitter.com|
 
