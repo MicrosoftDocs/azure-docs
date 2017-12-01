@@ -1,5 +1,5 @@
 ---
-title: Use cloud-init to add a user | Microsoft Docs
+title: Use cloud-init to add a user to a Linux VM on Azure | Microsoft Docs
 description: How to use cloud-init to add a user to a Linux VM during creation with the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
