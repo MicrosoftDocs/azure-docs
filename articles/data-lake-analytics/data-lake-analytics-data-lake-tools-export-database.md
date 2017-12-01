@@ -87,6 +87,6 @@ Currently, if you select the **Schema and Data** option in Step 3, the tool runs
 ## Next steps
 
 * [Learn about U-SQL databases](https://msdn.microsoft.com/library/azure/mt621299.aspx) 
-* [Test and debug U-SQL jobs by using a local run and the Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
+* [Test and debug U-SQL jobs by using local run and the Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
 
 
