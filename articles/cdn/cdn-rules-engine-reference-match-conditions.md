@@ -32,7 +32,7 @@ The Always match condition is designed to apply a default set of features to all
 ## Device
 
 The Device match condition identifies requests made from a mobile device based on its properties.  Mobile device detection is achieved through [WURFL](http://wurfl.sourceforge.net/).  WURFL capabilities and their CDN Rules Engine variables are listed below.
-
+<br>
 > [!NOTE] 
 > The variables below are supported in the **Modify Client Request Header** and **Modify Client Response Header** features.
 
@@ -64,10 +64,10 @@ Resolution Width | %{wurfl_cap_resolution_width} | An integer that indicates the
 
 These match conditions are designed to identify requests based on the requester's location.
 
-Name | Purpose
------|--------
-AS Number | Identifies requests that originate from a particular network.
-Country | Identifies requests that originate from the specified countries.
+Name | Purpose | Key Information
+-----|-------- | ------------------
+AS Number | Identifies requests that originate from a particular network.<br><br>This network is defined by its Autonomous System Number (ASN). An option is provided to indicate whether this condition will be met when a client's network "Matches" or "Does Not Match" the specified AS number. | Specify multiple AS numbers by delimiting each one with a single space. For example, 64514 64515 matches requests arriving from either 64514 or 64515.<br> - Certain requests may not return a valid AS number. A question mark (i.e., ?) will match requests for which a valid AS number could not be determined.<br> - The entire AS number for the desired network must be specified. Partial values will not be matched.<br> - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:<br>  - Complete Cache Fill<br>  - Default Internal Max-Age<br>  - Force Internal Max-Age<br>  - Ignore Origin No-Cache<br>  - Internal Max-Stale
+Country | Identifies requests that originate from the specified countries.<br><br>A country can be specified through its country code. An option is provided to indicate whether this condition will be met when the country from which a request originates "Matches" or "Does Not Match" the specified value(s). | Specify multiple country codes by delimiting each one with a single space.<br> - Wildcards are not supported when specifying a country code.<br>The "EU" and "AP" country codes do not encompass all IP addresses in those regions.<br> - Certain requests may not return a valid country code. A question mark (i.e., ?) will match requests for which a valid country code could not be determined.<br>Country codes are case-sensitive.<br> - Due to the manner in which cache settings are tracked, this match condition is incompatible with the following features:<br>  - Complete Cache Fill<br>  - Default Internal Max-Age<br>  - Force Internal Max-Age<br>  - Ignore Origin No-Cache<br>  - Internal Max-Stale
 
 
 ## Origin
