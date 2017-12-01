@@ -42,7 +42,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to analyze, visualize, and act on collected data.
+    text: Learn how to run compute-intensive workloads on Batch.
   - type: list
     style: ordered
     items:
