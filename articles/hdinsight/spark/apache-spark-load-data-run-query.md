@@ -25,7 +25,7 @@ Learn how to use Jupyter notebook to run interactive Spark SQL queries against a
 
 [Jupyter notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) is a browser-based application that extends the console-based interactive experience to the Web. Spark on HDInsight also includes [Zeppelin Notebook](apache-spark-zeppelin-notebook.md). Jupyter Notebook is used in this tutorial.
 
-Jupyter notebooks on HDInsight clusters support three kernels - **PySpark**, **PySpark3** and **Spark**. The **PySpark** kernel is used in this tutorial. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md). To use Zeppelin Notebook, see [Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight](./apache/spark-zeppelin-notebook.md).
+Jupyter notebooks on HDInsight clusters support three kernels - **PySpark**, **PySpark3** and **Spark**. The **PySpark** kernel is used in this tutorial. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md). To use Zeppelin Notebook, see [Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight](./apache-spark-zeppelin-notebook.md).
 
 In this tutorial, you query data in a csv file. You must first load that data into Spark as a dataframe. Then you can run queries on the dataframe using  Jupyter Notebook. 
 
