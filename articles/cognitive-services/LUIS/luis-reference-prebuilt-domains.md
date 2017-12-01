@@ -355,8 +355,24 @@ Reserve at Zucca for two for tonight
 Book a table at BJ's for tomorrow
 Table for 3 in Palo Alto at 7
 ```
-<!--1Intents
-9Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Reserve | Request a reservation for a restaurant. |Reserve at Zucca for two for tonight<br/>Book a table for tomorrow<br/>Table for 3 in Palo Alto at 7|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Address| An event location or address for a reservation.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| Amenities | An attribute describing the amenities of a place.|ocean view<br/>non smoking|
+| AppName | The name of an application for making reservations.|OpenTable<br/>Yelp<br/>TripAdvisor|
+| Atmosphere | A description of the atmosphere of a restaurant or other place.|romantic<br/>casual<br/>good for groups|
+| Cuisine | A type of food, cuisine or cuisine nationality. |Chinese<br/>Italian<br/>Mexican|
+| MealType | A meal type associated with a reservation.|breakfast<br/>dinner<br/>lunch<br/>supper|
+| PlaceName | The name of a local business, restaurant, public attraction, or institution.|IHOP<br/>Cheesecake Factory<br/>Louvre|
+| PlaceType | The type of a local business, restaurant, public attraction, or institution.|restaurant<br/>opera<br/>cinema|
+| Rating | The rating of a place or restaurant.|5 stars<br/>3 stars<br/>4 stars|
 
 ## Taxi 
  
