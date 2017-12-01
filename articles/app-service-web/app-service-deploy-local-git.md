@@ -50,7 +50,7 @@ App Service supports applications created in a variety of programming languages.
 1. If your repository already includes content skip this point and move to point 2 below. If your repository does not already include content simply populate with a static .html file as follows: 
    
    * Using a text editor, create a new file named **index.html** at the root of the Git repository
-   * Add the following text as the contents for the index.html file and save it: *Hello Git!*
+   * Add the following text as the contents of the index.html file and save it: *Hello Git!*
 2. From the command-line, verify that you are under the root of your Git repository. Then use the following command to add files to your repository:
    
         git add -A 
@@ -77,7 +77,7 @@ Use the following steps to publish your app to App Service using Local Git.
     ![](./media/app-service-deploy-local-git/git_url.png)
    
     **Git URL** is the remote reference to deploy to from your local repository. You'll use this URL in the following steps.
-2. Using the command-line, verify that you are in the root of your local Git repository.
+2. Using the command-line, verify that you are at the root of your local Git repository.
 3. Use `git remote` to add the remote reference listed in **Git URL** from step 1. Your command will look similar to the following:
    
         git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git         
