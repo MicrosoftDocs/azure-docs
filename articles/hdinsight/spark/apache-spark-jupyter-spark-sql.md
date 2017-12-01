@@ -76,7 +76,7 @@ If you run into an issue with creating HDInsight clusters, it could be that you 
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. Click **New**, and then click **PySpark** to create a notebook. Jupyter notebooks on HDInsight clusters support three kernels - **PySpark**, **PySpark3, and **Spark**. The **PySpark** kernel is used in this tutorial. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
+3. Click **New**, and then click **PySpark** to create a notebook. Jupyter notebooks on HDInsight clusters support three kernels - **PySpark**, **PySpark3**, and **Spark**. The **PySpark** kernel is used in this tutorial. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
    ![Create a Jupyter Notebook to run interactive Spark SQL query](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter Notebook to run interactive Spark SQL query")
 
