@@ -32,7 +32,7 @@ This article provides answers to frequently asked questions (FAQ) about Azure Di
 
 **Q:** How much does Azure Disk Encryption cost?
 
-**A:** There is no charge for encrypting VM disks with Azure Disk Encryption.
++**A:** Azure Disk Encryption has no cost, but it makes use of the Azure Key Vault, which is a paid service. Therefore, there is a charge for the Azure Key Vault itself, as well as a monthly charge for each key when using the HSM sku of Key Vault. [Azure Key Vault Pricing](https://azure.microsoft.com/en-us/pricing/details/key-vault/) 
 
 **Q:** Which virtual machine tiers does Azure Disk Encryption support?
 
@@ -75,19 +75,19 @@ This article provides answers to frequently asked questions (FAQ) about Azure Di
 
 **Q:** Does Azure Disk Encryption allow you to bring your own key (BYOK) capability?
 
-**A:** Yes, you can supply your own key encryption keys. These keys are safeguarded in Azure Key Vault, which is the key store for Azure Disk Encryption. For more information on the key encryption keys support scenarios, see Azure Disk Encryption deployment scenarios and experiences.
+**A:** Yes, you can supply your own key encryption keys. These keys are safeguarded in Azure Key Vault, which is the key store for Azure Disk Encryption. For more information on the key encryption keys support scenarios, see [Azure Disk Encryption deployment scenarios and experiences](https://docs.microsoft.com/en-ca/azure/security/azure-security-disk-encryption#disk-encryption-deployment-scenarios-and-user-experiences).
 
 **Q:** Can I use an Azure-created key encryption key?
 
-**A:** Yes, you can use Azure Key Vault to generate a key encryption key for Azure disk encryption use. These keys are safeguarded in Azure Key Vault, which is the key store for Azure Disk Encryption. For more information on the key encryption key support scenarios, see Azure Disk Encryption deployment scenarios and experiences.
+**A:** Yes, you can use Azure Key Vault to generate a key encryption key for Azure disk encryption use. These keys are safeguarded in Azure Key Vault, which is the key store for Azure Disk Encryption. For more information on the key encryption key support scenarios, see [Azure Disk Encryption deployment scenarios and experiences](https://docs.microsoft.com/en-ca/azure/security/azure-security-disk-encryption#disk-encryption-deployment-scenarios-and-user-experiences).
 
 **Q:** Can I use an on-premises key management service or HSM to safeguard the encryption keys?
 
-**A:** You cannot use the on-premises key management service or HSM to safeguard the encryption keys with Azure Disk Encryption. You can only use the Azure Key Vault service to safeguard the encryption keys. For more information on the key encryption key support scenarios, see Azure Disk Encryption deployment scenarios and experiences.
+**A:** You cannot use the on-premises key management service or HSM to safeguard the encryption keys with Azure Disk Encryption. You can only use the Azure Key Vault service to safeguard the encryption keys. For more information on the key encryption key support scenarios, see[Azure Disk Encryption deployment scenarios and experiences](https://docs.microsoft.com/en-ca/azure/security/azure-security-disk-encryption#disk-encryption-deployment-scenarios-and-user-experiences).
 
 **Q:** What are the prerequisites to configure Azure Disk Encryption?
 
-**A:** There is a prerequisite PowerShell script. With this script, you can create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption and safeguard secrets and keys. For more information on the key encryption key support scenarios, see Azure Disk Encryption prerequisites and deployment scenarios and experiences.
+**A:** There is a prerequisite PowerShell script. With this script, you can create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption and safeguard secrets and keys. For more information on the key encryption key support scenarios, see [Azure Disk Encryption prerequisites](https://docs.microsoft.com/en-ca/azure/security/azure-security-disk-encryption#prerequisites) and [deployment scenarios and experiences](https://docs.microsoft.com/en-ca/azure/security/azure-security-disk-encryption#disk-encryption-deployment-scenarios-and-user-experiences).
 
 **Q:** Where can I get more information on how to use PowerShell for configuring Azure Disk Encryption?
 
