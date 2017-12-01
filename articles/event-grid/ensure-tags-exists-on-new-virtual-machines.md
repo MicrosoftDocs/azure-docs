@@ -24,8 +24,8 @@ ms.author: eamono
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Import runbook that adds a VM tag and sends a notification to Microsoft Teams.
-> * Create an optional Microsoft Teams webhook.
+> * Import event grid sample runbook.
+> * Create an optional Teams webhook.
 > * Create a webhook for the runbook.
 > * Create an event grid subscription.
 > * Create VM that triggers runbook.
@@ -33,10 +33,9 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 To complete this tutorial, the following are required.
-+ Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 + [Automation account](../automation/automation-offering-get-started.md) to hold the runbook that is triggered from the event grid subscription.
 
-## Import runbook that adds a VM tag and sends a notification to Microsoft Teams
+## Import event grid sample runbook
 1.	Open the Automation account, and click on the Runbooks page.
 2.	Click on the “Browse gallery” button.
 ![Runbook list from UI](media/ensure-tags-exists-on-new-virtual-machines/event-grid-runbook-list.png)
@@ -45,7 +44,7 @@ To complete this tutorial, the following are required.
 4.	Click on “Edit” to view the Runbook source and click on the “Publish” button.
 ![Publish runbook from UI](media/ensure-tags-exists-on-new-virtual-machines/publish-runbook.png)
 
-## Create an optional Microsoft Teams webhook
+## Create an optional Teams webhook
 1.	In Microsoft Teams, choose More Options (...) next to the channel name and choose connectors.
 ![Teams connections](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
 2.  Scroll through the list of connectors to Incoming Webhook, and click Add.
@@ -71,7 +70,7 @@ To complete this tutorial, the following are required.
 2.	Click on the new Event subscription button.
 3.	Configure the subscription with the following information:
     *	Enter AzureAutomation for the name. 
-    *	In Topic Type, choose Azure Subscriptions. 
+    *	In Topic Type, choose Azure Subscriptions.
     *	Uncheck the "Subscribe to all event types"
     *	In Event Types, choose Resource Write Success.
     *	In Subscriber Endpoint, enter the Webhook URL for the Watch-VMWrite runbook.
@@ -88,5 +87,14 @@ To complete this tutorial, the following are required.
 ![Teams notification](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## Next steps
+In this tutorial, you set up integration between event grid and automation. You learned how to:
 
-* [Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
+> [!div class="checklist"]
+> * Import event grid sample runbook.
+> * Create an optional Teams webhook.
+> * Create a webhook for the runbook.
+> * Create an event grid subscription.
+> * Create VM that triggers runbook.
+
+> [!div class="nextstepaction"]
+> [Create and route custom events with Event Grid](../event-grid/custom-event-quickstart.md)
