@@ -18,15 +18,15 @@ ms.date: 12/04/2017
 
 >Here is how you can [find the version number](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
 
-Welcome to the third update of Azure Machine Learning Workbench. We continue to make improvements around security, stability and maintainability in the workbench app, the CLI and the back end services layer. Thanks very much for sending us smiles and frowns. Many of the below updates are made as direct results of your feedback. Please keep them coming!
+Welcome to the third update of Azure Machine Learning Workbench. We continue to make improvements in the workbench app, the Command-line Interface (CLI), and the back-end services. Thank you very much for sending us smiles and frowns. Many of the following updates are made as direct results of your feedback. Please keep them coming!
 
 ## Notable New Features
 - Deep Learning on Spark with GPU support using MMLSpark
 - Enabled Azure ML model management containers for Azure IoT Edge compatibility
-- Registered model list and detail views available in the Azure portal
+- Registered model list and detail views available Azure Portal
 
 ## Detailed Updates
-Below is a list of detailed updates in each component area of Azure Machine Learning in this sprint.
+Following is a list of detailed updates in each component area of Azure Machine Learning in this sprint.
 
 ### Installer
 - Installer can self update so that bugs fixes and new features can be supported without user having to reinstall it
@@ -34,11 +34,11 @@ Below is a list of detailed updates in each component area of Azure Machine Lear
 ### Workbench
 - Read-only file view now has light blue background
 - Moved Edit button to the right to make it more discoverable.
-- .dsource, .dprep, and .ipynb file can now be rendered in raw text format.
+- "dsource", "dprep", and "ipynb" file formats can now be rendered in raw text format
 
 ### MMLSpark
 - Deep Learning on Spark with GPU support
-- Support for ARM templates for easy resource deployment
+- Support for Resource Manager templates for easy resource deployment
 
 ### Data preparation 
 - A Pattern Frequency Inspector to view the string patterns in a column. You can also filter your data using these patterns.
@@ -53,7 +53,7 @@ Below is a list of detailed updates in each component area of Azure Machine Lear
 
 - Enabled "At a glance" view of row and column counts
 
-![Image of row column count at a glace](media/release-notes-sprint-2/row-col-count.png)
+![Image of row column count at a grace](media/release-notes-sprint-2/row-col-count.png)
 
 - Fixed issue with converting multiple columns to date
 
@@ -66,7 +66,7 @@ Below is a list of detailed updates in each component area of Azure Machine Lear
 - Added support for [Visual Studio Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
 
 ### Command Line Interface (CLI)
-- Added `az ml datasource create` command allowing to create a data source file from the command-line.
+- Added `az ml datasource create` command allows creating a data source file from the command-line
 
 ### Model Management and Operationalization
 
@@ -85,7 +85,7 @@ Below is a list of detailed updates in each component area of Azure Machine Lear
 - Iris and SparkMML samples updated with the new Azure ML SDK version
 
 ## BREAKING CHANGES
-We promoted the `--type` switch in `az ml computecontext attach` to a sub-command. 
+- Promoted the `--type` switch in `az ml computecontext attach` to a sub-command. 
 
 - `az ml computecontext attach --type remotedocker` is now `az ml computecontext attach remotedocker`
 
