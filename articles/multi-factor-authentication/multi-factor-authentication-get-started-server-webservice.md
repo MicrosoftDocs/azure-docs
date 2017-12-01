@@ -84,6 +84,7 @@ The Web Service SDK must be secured with an SSL certificate. A self-signed certi
 
 7. If the website that Mobile App Web Service was installed under has not already been bound with a publicly signed certificate, install the certificate on the server, open IIS Manager, and bind the certificate to the website.
 8. Open a web browser from any computer and navigate to the URL where Mobile App Web Service was installed (Example: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Ensure that no certificate warnings or errors are displayed.
+9. For more information on the methods available in the web services SDK, see the MFA server help file.
 
 ## Configure the mobile app settings in the Azure Multi-Factor Authentication Server
 
