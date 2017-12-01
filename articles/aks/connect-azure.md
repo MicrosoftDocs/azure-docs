@@ -24,7 +24,7 @@ ms.custom: mvc
 
 ## Introduction
 
-Open Service Broker API allows developers to utilize cloud managed services in cloud native platforms such as Pivotal Cloud Foundry, Kubernetes and Red Hat OpenShift. In this guide, we will focus on deploying Kubernetes Service Catalog, Open Service Broker for Azure (OSBA) and applications that use Azure managed services using Kubernetes.
+[Open Service Broker API](https://www.openservicebrokerapi.org) allows developers to utilize cloud managed services in cloud native platforms such as Pivotal Cloud Foundry, Kubernetes and Red Hat OpenShift. In this guide, we will focus on deploying Kubernetes Service Catalog, Open Service Broker for Azure (OSBA) and applications that use Azure managed sservices using Kubernetes.
 
 ## Creating a cluster
 
@@ -60,18 +60,21 @@ kubectl get apiservice
 ```
 
 Here is a quick demo of this process:
-![Installing Service Catalog](media/container-service-connect-azure/asbdemo-0.gif)
+![Installing Service Catalog](media/container-service-connect-azure/osbademo-0.gif)
 
 # Installing Open Service Broker for Azure
 
-Next part is to install [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure) which includes the catalog for the Azure managed services. So far, this includes:
+Next part is to install [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure) which includes the catalog for the Azure managed services. At the time of writing this, these are the available Azure services:
 
-*   Postgres
-*   Redis Cache
-*   MySQL
-*   Event Hub
-*   Service Bus
-*   and many others.
+*   Azure Database for PostgreSQL
+*   Azure Redis Cache
+*   Azure Database for MySQL
+*   Azure Event Hubs
+*   Azure Service Bus
+*   Azure Cosmos DB
+*   Azure Container Instances
+*   Azure Key Vault
+*   Azure SQL Database
 
 Let's start by adding Open Service Broker for Azure Helm repository:
 
@@ -91,7 +94,7 @@ AZURE_CLIENT_SECRET=[your Azure client secret]
 Installing Open Service Broker for Azure:
 
 ```azurecli-interactive
-helm install azure/azure-service-broker --name asb --namespace asb \
+helm install azure/open-service-broker-azure --name osba --namespace osba \
     --set azure.subscriptionId=$AZURE_SUBSCRIPTION_ID \
     --set azure.tenantId=$AZURE_TENANT_ID \
     --set azure.clientId=$AZURE_CLIENT_ID \
@@ -120,7 +123,7 @@ kubectl get clusterserviceplans -o=custom-columns=NAME:.metadata.name,EXTERNAL \
 ```
 
 Here is a quick demo of this process:
-![Installing Open Service Broker for Azure](media/container-service-connect-azure/asbdemo-1.gif)
+![Installing Open Service Broker for Azure](media/container-service-connect-azure/osbademo-1.gif)
 
 # Installing WordPress from Helm chart using Azure Database for MySQL
 
@@ -129,21 +132,22 @@ helm install azure/wordpress --name wordpress --namespace wordpress
 ```
 
 Here is a quick demo of this process:
-![Installing WordPress](media/container-service-connect-azure/asbdemo-2.gif)
+![Installing WordPress](media/container-service-connect-azure/osbademo-2.gif)
 
 To verify the installation has provisioned the right resources for us:
 
+Show installed service instance and bindings:
 ```azurecli-interactive
-# show installed service instance and bindings
 kubectl get serviceinstance -n wordpress -o yaml
 kubectl get servicebinding -n wordpress -o yaml
 
-# show installed secrets
+Show installed secrets:
+```azurecli-interactive
 kubectl get secrets -n wordpress -o yaml
 ```
 
 Here is a quick demo of this process:
-![Installing WordPress](media/container-service-connect-azure/asbdemo-3.gif)
+![Installing WordPress](media/container-service-connect-azure/osbademo-3.gif)
 
 If you are interested in more charts to deploy using Open Service Broker for Azure, check out [Azure/helm-charts](https://github.com/Azure/helm-charts) repository.
 
