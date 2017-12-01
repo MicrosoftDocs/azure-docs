@@ -8,22 +8,19 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 12/13/2017
 ms.author: v-demak
 ---
 
 # Create your first LUIS app
 
-This Quickstart helps you create your first Language Understanding (LUIS) app in just a few minutes. When you're finished, you'll have a LUIS endpoint running in the cloud.
-
-This article shows you how to create a LUIS app that uses the `Home.Automation` prebuilt domain. The prebuilt domain provides intents and entities for a home automation system for turning lights and appliances on and off.
+This article shows you how to create a LUIS app that uses the `Home.Automation` prebuilt domain. The prebuilt domain provides intents and entities for a home automation system for turning lights and appliances on and off. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
 ## Prerequisites
-To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-For this article, you also need a [LUIS.ai][luis.ai] account in order to author your LUIS application.
+> [!div class="checklist"]
+> * To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
+> * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+> * For this article, you also need a [LUIS.ai][luis.ai] account in order to author your LUIS application.
 
 ## Create a new app
 You can create and manage your applications on **My Apps** page of [Luis.ai](https://www.luis.ai). 
