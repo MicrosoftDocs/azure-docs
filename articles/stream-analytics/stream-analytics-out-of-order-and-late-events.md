@@ -1,3 +1,4 @@
+
 ---
 title: Handling event order and lateness with Azure Stream Analytics | Microsoft Docs
 description: Learn about how Stream Analytics works with out-of-order or late events in data streams.
@@ -64,25 +65,17 @@ To reorder events received within "out of order tolerance window", output of the
 
 **Example**
 
-Late Arrival tolerance = 10 minutes<br/>
-Out of order tolerance = 3 minutes<br/>
-Processing by application time<br/>
+* Late Arrival tolerance = 10 minutes<br/>
+* Out of order tolerance = 3 minutes<br/>
+* Processing by application time<br/>
+* Events:
+   * Event 1 _Application Time_ = 00:00:00, _Arrival Time_ = 00:10:01, _System.Timestamp_ = 00:00:01, adjusted because (_Arrival Time_ - _Application Time_) is more than late arrival tolerance.
+   * Event 2 _Application Time_ = 00:00:01, _Arrival Time_ = 00:10:01, _System.Timestamp_ = 00:00:01, not adjusted because application time is within the late arrival window.
+   * Event 3 _Application Time_ = 00:10:00, _Arrival Time_ = 00:10:02, _System.Timestamp_ = 00:10:00, not adjusted because appliation time is within the late arrival window.
+   * Event 4 _Application Time_ = 00:09:00, _Arrival Time_ = 00:10:03, _System.Timestamp_ = 00:09:00, accepted with original timestamp as application time is within the out of order tolerance.
+   * Event 5 _Application Time_ = 00:06:00, _Arrival Time_ = 00:10:04, _System.Timestamp_ = 00:07:00, adjusted because application time is older than the out of order tolerance.
 
-Events:
-
-Event 1 _Application Time_ = 00:00:00, _Arrival Time_ = 00:10:01, _System.Timestamp_ = 00:00:01, adjusted because (_Arrival Time_ - _Application Time_) is more than late arrival tolerance.
-
-Event 2 _Application Time_ = 00:00:01, _Arrival Time_ = 00:10:01, _System.Timestamp_ = 00:00:01, not adjusted because application time is within the late arrival window.
-
-Event 3 _Application Time_ = 00:10:00, _Arrival Time_ = 00:10:02, _System.Timestamp_ = 00:10:00, not adjusted because appliation time is within the late arrival window.
-
-Event 4 _Application Time_ = 00:09:00, _Arrival Time_ = 00:10:03, _System.Timestamp_ = 00:09:00, accepted with original timestamp as application time is within the out of order tolerance.
-
-Event 5 _Application Time_ = 00:06:00, _Arrival Time_ = 00:10:04, _System.Timestamp_ = 00:07:00, adjusted because application time is older than the out of order tolerance.
-
-
-
-** Practical considerations
+## Practical considerations
 As mentionned above, *late arrival tolerance* is the maximum difference between application time and arrival time.
 Also when processing by application time, events that are later than the configured *late arrival tolerance* are adjusted before the *out of order tolerance* setting is applied. So, effective out of order is the minimum of late arrival tolerance and out of order tolerance.
 
@@ -98,25 +91,22 @@ While configuring *late arrival tolerance* and *out of order tolerance* for a sp
 
 Following are few examples
 
-*** Example 1: 
+### Example 1: 
 Query has "Partition by PartitionId" clause and within a single partition, events are sent using synchronous send methods. Synchronous send methods block until the events are sent.
 In this case, out of order is zero because events are sent in order with explicit confirmation before sending next event. Late arrival is maximum delay between generating the event and sending the event + maximum latency between sender and input source
 
-*** Example 2:
+### Example 2:
 Query has "Partition by PartitionId" clause and within a single partition, events are sent using asynchronous send method. Asynchronous send methods can initiate multiple sends at the same time, which can cause out of order events.
 In this case, both out of order and late arrival are at least maximum delay between generating the event and sending the event + maximum latency between sender and input source.
 
-*** Example 3:
+### Example 3:
 Query does not have "Partition by PartitionId" and there are at least two partitions.
 Configuration is same as example 2. However, absence of data in one of the partitions can delay the output by an additional *late arrival tolerance" window.
 
-
-**To summarize**
+## To summarize
 1. Late arrival tolerance and out of order window should be configured based on correctness, latency requirements and should also consider how the events are sent.
 2. It is recommended that out of order tolerance is smaller than late arrival tolerance.
 3. When combining multiple timelines, lack of data in one of the sources or partitions can delay the output by an additional late arrival tolerance window.
-
-
 
 ## Get help
 For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
