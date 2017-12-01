@@ -55,10 +55,10 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-SSH to the public IP address of your VM shown in the output from the preceding command. Enter your own <public-IPaddress> as follows:
+SSH to the public IP address of your VM shown in the output from the preceding command. Enter your own **publicIpAddress** as follows:
 
 ```bash
-ssh 
+ssh <publicIpAddress>
 ```
 
 To confirm your user was added to the VM and the specified groups, view the contents of the */etc/group* file as follows:

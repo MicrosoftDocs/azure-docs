@@ -254,12 +254,14 @@
       items:
       - name: Cloud-init overview
         href: using-cloud-init.md
-      - name: Update VM hostname
+      - name: Configure VM hostname
         href: cloudinit-update-vm-hostname.md
-      - name: Update a VM
+      - name: Update packages in a VM
         href: cloudinit-update-vm.md
-      - name: Add a user to a VM
-        href: cloudinit-add-user.md  
+      - name: Add a user on a VM
+        href: cloudinit-add-user.md
+        name: Configure swapfile
+        href: cloudinit-configure-swapfile.md  
     - name: Jenkins
       href: ../../jenkins/overview.md
       items:
