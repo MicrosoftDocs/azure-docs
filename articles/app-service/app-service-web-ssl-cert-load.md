@@ -20,7 +20,7 @@ ms.author: cephalin
 
 This how-to guide shows how to use one of SSL certificates you have uploaded or imported into your App Service app in your application code. An example of the use case is that your app accesses an external service that requires certificate authentication. 
 
-This approach to using SSL certificates in your code makes use of the SSL functionality in App Service, which requires your app to be in **Basic** tier or above. An alternative is to include the certificate file in your application directory and load it directly (see [Load certificate as file](#file)). However, this alternative does not let you hide the private key in the certificate from the application code or the developer. Furthermore, if your application code is in an open source repository, keeping a certificate with a private key in the repository is not an option.
+This approach to using SSL certificates in your code makes use of the SSL functionality in App Service, which requires your app to be in **Basic** tier or above. An alternative is to include the certificate file in your application directory and load it directly (see [Alternative: load certificate as a file](#file)). However, this alternative does not let you hide the private key in the certificate from the application code or the developer. Furthermore, if your application code is in an open source repository, keeping a certificate with a private key in the repository is not an option.
 
 When you let App Service manage your SSL certificates, you can maintain the certificates and your application code separately and safeguard your sensitive data.
 
@@ -83,7 +83,7 @@ certStore.Close();
 ```
 
 <a name="file"></a>
-## Load certificate as a file
+## Alternative: load certificate as a file
 
 This section shows how to and load a certificate file that is in your application directory. 
 
