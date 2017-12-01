@@ -37,17 +37,16 @@ A client application can request an MSI [app-only access token](develop/active-d
 
 |  |  |
 | -------------- | -------------------- |
-| [HTTP/REST](#httprest) | Protocol details for the MSI token endpoint |
-| [.NET/C# example](#net-c) | Example of using the MSI REST endpoint from a C# client |
-| [Go example](#go) | Example of using the MSI REST endpoint from a Go client |
-| [Azure PowerShell example](#azure-powershell) | Example of using the MSI REST endpoint from a PowerShell client |
-| [Bash/CURL example](#bashcurl) | Example of using the MSI REST endpoint from a Bash/CURL client |
-| [Token expiration](#token-expiration) | Guidance for handling expired access tokens |
-| [Azure service resource IDs](#resource-ids-for-azure-services) | Where to get resource IDs for supported Azure services |
-| [Error handling](#http-error-handling-guidance) | Guidance for handling HTTP errors returned from the MSI token endpoint |
+| [Get a token using HTTP](#get-a-token-using-http) | Protocol details for the MSI token endpoint |
+| [Get a token using C#](#get-a-token-using-c) | Example of using the MSI REST endpoint from a C# client |
+| [Get a token using Go](#get-a-token-using-go) | Example of using the MSI REST endpoint from a Go client |
+| [Get a token using Azure PowerShell](#get-a-token-using-azure-powershell) | Example of using the MSI REST endpoint from a PowerShell client |
+| [Get a token using CURL](#get-a-token-using-curl) | Example of using the MSI REST endpoint from a Bash/CURL client |
+| [Handling token expiration](#handling-token-expiration) | Guidance for handling expired access tokens |
+| [Error handling](#error-handling) | Guidance for handling HTTP errors returned from the MSI token endpoint |
+| [Resource IDs for Azure services](#resource-ids-for-azure-services) | Where to get resource IDs for supported Azure services |
 
-
-## HTTP/REST 
+## Get a token using HTTP 
 
 The fundamental interface for acquiring an access token is based on REST, making it accessible to any client application running on the VM that can make HTTP REST calls. This is similar to the Azure AD programming model, except the client uses a localhost endpoint on the virtual machine (vs an Azure AD endpoint).
 
@@ -91,7 +90,7 @@ Content-Type: application/json
 | `resource` | The resource the access token was requested for, which matches the `resource` query string parameter of the request. |
 | `token_type` | The type of token, which is a "Bearer" access token, which means the resource can give access to the bearer of this token. |
 
-## .NET C#
+## Get a token using C#
 
 ```csharp
 using System;
@@ -124,7 +123,7 @@ catch (Exception e)
 
 ```
 
-## Go
+## Get a token using Go
 
 ```
 package main
@@ -202,7 +201,7 @@ func main() {
 }
 ```
 
-## Azure PowerShell
+## Get a token using Azure PowerShell
 
 The following example demonstrates how to use the MSI REST endpoint from a PowerShell client to:
 
@@ -224,7 +223,7 @@ echo $vmInfoRest
 
 ```
 
-## Bash/CURL
+## Get a token using CURL
 
 ```bash
 response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
@@ -232,7 +231,7 @@ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sy
 echo The MSI access token is $access_token
 ```
 
-## Token expiration
+## Handling token expiration
 
 The local MSI subsystem caches tokens. Therefore, you can call it as often as you like, and an on-the-wire call to Azure AD results only if:
 - a cache miss occurs due to no token in the cache
@@ -240,11 +239,7 @@ The local MSI subsystem caches tokens. Therefore, you can call it as often as yo
 
 If you cache the token in your code, you should be prepared to handle scenarios where the resource indicates that the token is expired.
 
-## Resource IDs for Azure services
-
-See [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with MSI, and their respective resource IDs.
-
-## HTTP error handling guidance
+## Error handling 
 
 The MSI endpoint signals errors via the status code field of the HTTP response message header, as either 4xx or 5xx errors:
 
@@ -275,6 +270,11 @@ This section documents the possible error responses. A "200 OK" status is a succ
 |           | unsupported_response_type | The authorization server does not support obtaining an access token using this method. |  |
 |           | invalid_scope | The requested scope is invalid, unknown, or malformed. |  |
 | 500 Internal server error | unknown | Failed to retrieve token from the Active directory. For details see logs in *\<file path\>* | Verify that MSI has been enabled on the VM. See [Configure a VM Managed Service Identity (MSI) using the Azure portal](msi-qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.<br><br>Also verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the [preceding REST section](#rest) for an example, or [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of services and their respective resource IDs.
+
+## Resource IDs for Azure services
+
+See [Azure services that support Azure AD authentication](msi-overview.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with MSI, and their respective resource IDs.
+
 
 ## Related content
 

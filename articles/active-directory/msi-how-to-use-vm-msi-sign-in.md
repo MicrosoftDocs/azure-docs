@@ -49,6 +49,7 @@ The following script demonstrates how to:
 
    ```azurecli
    az login --msi
+   
    spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The MSI service principal ID is $spID
    ```
