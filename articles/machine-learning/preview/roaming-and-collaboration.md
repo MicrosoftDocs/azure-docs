@@ -152,9 +152,9 @@ To illustrate the collaboration flow, let's walk through an example. Contoso emp
 
 7. Bob clicks on the project name, and the project is downloaded to his computer.
     
-    a. The downloaded project files are clones of the snapshot of the latest run recorded in the run history. They are not the last commit on the master branch.
+    a. The downloaded project files are a copy of the snapshot of the latest run recorded in the run history. They are not the last commit on the master branch.
     
-    b. The local project folder is set on _master_ branch with unstaged changes.
+    b. The local project folder is set on _master_ branch with the above unstaged changes.
 
 8. Bob can now browse runs executed by Alice, and restore snapshot of any previous runs.
 
