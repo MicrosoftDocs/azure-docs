@@ -157,7 +157,7 @@ For use with Azure Stack Development Kit deployments only, you can use this exam
 >[!NOTE]
 > Execute all the following commands, when configuring the File Server, in an Administrator Command Prompt session.  **Do NOT use PowerShell.**
 
-When using the ARM Template above, the users are already created.
+When using the Azure Resource Manager template above, the users are already created.
 
 1. Run the following commands to create the FileShareOwner and FileShareUser accounts. Replace <password> with your own values.
 ``` DOS
