@@ -4,7 +4,7 @@ description: Networking considerations for Azure Active Directory Domain Service
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 12/01/2017
 ms.author: maheshu
 
 ---
@@ -36,7 +36,7 @@ The following guidelines help you select a virtual network to use with Azure AD 
 * See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services is available.
 
 ### Requirements for the virtual network
-* **Proximity to your Azure workloads**: Select the virtual network that currently hosts/will host virtual machines that need access to Azure AD Domain Services. You may also choose to connect virtual networks if your workloads are deployed in a different virtual network than the managed domain.
+* **Proximity to your Azure workloads**: Select the virtual network that currently hosts/will host virtual machines that need access to Azure AD Domain Services. If your workloads are deployed in a different virtual network than the managed domain, you may also choose to connect the virtual networks.
 * **Custom/bring-your-own DNS servers**: Ensure that there are no custom DNS servers configured for the virtual network. An example of a custom DNS server is an instance of Windows Server DNS running on a Windows Server VM that you have deployed in the virtual network. Azure AD Domain Services does not integrate with any custom DNS servers deployed within the virtual network.
 * **Existing domains with the same domain name**: Ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Later, you try to enable an Azure AD Domain Services managed domain with the same domain name (that is 'contoso.com') on that virtual network. You encounter a failure when trying to enable Azure AD Domain Services. This failure is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
 
@@ -45,12 +45,11 @@ The following guidelines help you select a virtual network to use with Azure AD 
 >
 >
 
-## Network Security Groups and subnet design
-A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
+
+## Guidelines for choosing a subnet
 
 ![Recommended subnet design](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-### Guidelines for choosing a subnet
 * Deploy Azure AD Domain Services to a **separate dedicated subnet** within your Azure virtual network.
 * Do not apply NSGs to the dedicated subnet for your managed domain. If you must apply NSGs to the dedicated subnet, ensure you **do not block the ports required to service and manage your domain**.
 * Do not overly restrict the number of IP addresses available within the dedicated subnet for your managed domain. This restriction prevents the service from making two domain controllers available for your managed domain.
@@ -61,20 +60,40 @@ A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) con
 >
 >
 
-### Ports required for Azure AD Domain Services
+## Ports required for Azure AD Domain Services
 The following ports are required for Azure AD Domain Services to service and maintain your managed domain. Ensure that these ports are not blocked for the subnet in which you have enabled your managed domain.
 
-| Port number | Purpose |
-| --- | --- |
-| 443 |Synchronization with your Azure AD tenant |
-| 3389 |Management of your domain |
-| 5986 |Management of your domain |
-| 636 |Secure LDAP (LDAPS) access to your managed domain |
+| Port number | Required? | Purpose |
+| --- | --- | --- |
+| 443 | Mandatory |Synchronization with your Azure AD tenant |
+| 5986 | Mandatory | Management of your domain |
+| 3389 | Optional | Management of your domain |
+| 636 | Optional | Secure LDAP (LDAPS) access to your managed domain |
 
-Port 5986 is used to perform management tasks using PowerShell remoting on your managed domain. The domain controllers for your managed domain do not usually listen on this port. The service opens this port on managed domain controllers only when a management or maintenance operation needs to be performed for the managed domain. As soon as the operation completes, the service shuts down this port on the managed domain controllers.
+**Port 443 (Synchronization with Azure AD)**
+* It is used to synchronize your Azure AD directory with your managed domain.
+* It is mandatory to allow access to this port in your NSG. Without access to this port, your managed domain is not in sync with your Azure AD directory. Users may not be able to sign in as changes to their passwords are not synchronized to your managed domain.
+* You can restrict inbound access to this port to IP addresses belonging to the Azure IP address range.
 
-Port 3389 is used for remote desktop connections to your managed domain. This port also remains largely turned off on your managed domain. The service enables this port only if we need to connect to your managed domain for troubleshooting purposes, initiated in response to a service request you initiate. This mechanism is not used on an ongoing basis since management and monitoring tasks are performed using PowerShell remoting. This port is used only in the rare event that we need to connect remotely to your managed domain for advanced troubleshooting. The port is closed as soon as the troubleshooting operation is complete.
+**Port 5986 (PowerShell remoting)** 
+* It is used to perform management tasks using PowerShell remoting on your managed domain.
+* It is mandatory to allow access through this port in your NSG. Without access to this port, your managed domain cannot be updated, configured, backed-up, or monitored.
+* You can restrict inbound access to this port to the following source IP addresses: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
+* The domain controllers for your managed domain do not usually listen on this port. The service opens this port on managed domain controllers only when a management or maintenance operation needs to be performed for the managed domain. As soon as the operation completes, the service shuts down this port on the managed domain controllers.
 
+**Port 3389 (Remote desktop)** 
+* It is used for remote desktop connections to domain controllers for your managed domain. 
+* Opening this port through your NSG is optional. 
+* This port also remains largely turned off on your managed domain. This mechanism is not used on an ongoing basis since management and monitoring tasks are performed using PowerShell remoting. This port is used only in the rare event that Microsoft needs to connect remotely to your managed domain for advanced troubleshooting. The port is closed as soon as the troubleshooting operation is complete.
+
+**Port 636 (Secure LDAP)**
+* It is used to enable secure LDAP access to your managed domain over the internet.
+* Opening this port through your NSG is optional. Open the port only if you have secure LDAP access over the internet enabled.
+* You can restrict inbound access to this port to the source IP addresses from which you expect to connect over secure LDAP.
+
+
+## Network Security Groups
+A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
 
 ### Sample NSG for virtual networks with Azure AD Domain Services
 The following table illustrates a sample NSG you can configure for a virtual network with an Azure AD Domain Services managed domain. This rule allows inbound traffic over the required ports to ensure your managed domain stays patched, updated and can be monitored by Microsoft. The default 'DenyAll' rule applies to all other inbound traffic from the internet.
