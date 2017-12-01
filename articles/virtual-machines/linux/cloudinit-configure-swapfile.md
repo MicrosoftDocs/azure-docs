@@ -81,7 +81,7 @@ Filename                Type        Size    Used    Priority
 /dev/sdb2  partition   2494440 0   -1
 ```
 
->[AZURE.NOTE] If you have an existing Azure image that has a swap file configured and you want to change the swap file configuration for new images, you should remove the existing swap file. Please see 'Customize Images to provision by cloud-init' document for more details.
+[!NOTE] If you have an existing Azure image that has a swap file configured and you want to change the swap file configuration for new images, you should remove the existing swap file. Please see 'Customize Images to provision by cloud-init' document for more details.
 
 ## Next steps
 For additional cloud-init examples of configuration changes, see the following:
