@@ -8,7 +8,7 @@ manager: rstand
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/13/2017
 ms.author: v-demak
 ---
 
@@ -57,5 +57,5 @@ You can use Python to access the same results you saw in the browser window in t
 -->
 
 ## Next steps
-
-* See the [LUIS Endpoint API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) to learn more about the parameters for calling your LUIS endpoint.
+> [!div class="nextstepaction"]
+> [LUIS Endpoint API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)
