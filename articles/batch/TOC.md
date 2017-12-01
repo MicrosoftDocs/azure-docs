@@ -11,7 +11,7 @@
 # Tutorials
 
 ## [Parallel file processing - .NET](tutorial-parallel-dotnet.md)
-## [Basic file processing - Python](tutorial-parallel-python.md)
+## [Parallel file processing - Python](tutorial-parallel-python.md)
 ## [Scene rendering with Arnold](tutorial-rendering-cli.md)
 ## [Parallel R simulation](tutorial-r-doazureparallel.md)
 
