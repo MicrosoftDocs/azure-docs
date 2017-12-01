@@ -8746,7 +8746,7 @@
         },
         {
             "source_path": "articles/active-directory/msi-how-to-get-access-token-using-msi.md",
-            "redirect_url": "articles/active-directory/msi-how-to-use-vm-msi-token",
+            "redirect_url": "msi-how-to-use-vm-msi-token",
             "redirect_document_id": false
         },        
         {
