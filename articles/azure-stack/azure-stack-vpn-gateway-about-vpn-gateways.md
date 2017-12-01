@@ -32,15 +32,15 @@ Each virtual network can have two virtual network gateways, but only one of each
 > [!NOTE]
 > In Azure, the bandwidth throughput for VPN Gateway SKU you choose must be divided across all the Connections that are connected to it.  In Azure Stack, the bandwidth value for the VPN Gateway SKU is applied to each Connection resource that is connected to it.     
 
-> For example, In Azure, the Basic VPN Gateway SKU can accommodate approximately 100 Mbps of aggregate throughput.  If you create two Connections to that VPN Gateway, and one connection is using 50Mbps of bandwidth, then 50Mbps is available to the other Connection.   
+> For example, In Azure, the Basic VPN Gateway SKU can accommodate approximately 100 Mbps of aggregate throughput.  If you create two Connections to that VPN Gateway, and one connection is using 50 Mbps of bandwidth, then 50 Mbps is available to the other Connection.   
 
-> In Azure Stack, *each* Connection to the Basic VPN Gateway SKU gets allocated 100Mbps of throughput.
+> In Azure Stack, *each* Connection to the Basic VPN Gateway SKU gets allocated 100 Mbps of throughput.
 
 ## Configuring a VPN Gateway
 A VPN gateway connection relies on multiple resources that are configured with specific settings. Most of the resources can be configured separately, although they must be configured in a certain order in some cases.
 
 ### Settings
-The settings that you chose for each resource are critical to creating a successful connection. For information about individual resources and settings for VPN Gateway, see [About VPN gateway settings for Azure Stack](azure-stack-vpn-gateway-settings.md). You'll find information to help you understand gateway types, VPN types, connection types, gateway subnets, local network gateways, and various other resource settings that you may want to consider.
+The settings that you chose for each resource are critical to creating a successful connection. For information about individual resources and settings for VPN Gateway, see [About VPN gateway settings for Azure Stack](azure-stack-vpn-gateway-settings.md). You can find information to help you understand gateway types, VPN types, connection types, gateway subnets, local network gateways, and various other resource settings that you may want to consider.
 
 ### Deployment tools
 You can start out creating and configuring resources using one configuration tool, such as the Azure portal. You can then later decide to switch to another tool, such as PowerShell, to configure additional resources, or modify existing resources when applicable. Currently, you can't configure every resource and resource setting in the Azure portal. The instructions in the articles for each connection topology specify when a specific configuration tool is needed.
@@ -52,16 +52,17 @@ It's important to know that there are different configurations available for VPN
 - Available configuration tools
 - Links that take you directly to an article, if available
 
-Use the diagrams and descriptions in the following sections to help select the connection topology to match your requirements. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as a guideline.
+The diagrams and descriptions in the following sections can help you select a connection topology to match your requirements. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as a guideline.
 
 ## Site-to-Site and Multi-Site (IPsec/IKE VPN tunnel)
 ### Site-to-Site
 A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT. S2S connections can be used for cross-premises and hybrid configurations.    
-![Site-to-site VPN connection configuration example](media/vpngateway-site-to-site-connection-diagram.png)
+![Site-to-site VPN connection configuration example](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
 ### Multi-Site
 This type of connection is a variation of the Site-to-Site connection. You create more than one VPN connection from your virtual network gateway, typically connecting to multiple on-premises sites. When working with multiple connections, you must use a RouteBased VPN type (known as a dynamic gateway when working with classic VNets). Because each virtual network can only have one VPN gateway, all connections through the gateway share the available bandwidth. This is often called a "multi-site" connection.   
-![Azure VPN Gateway Multi-Site connection example](media/vpngateway-multisite-connection-diagram.png)
+![Azure VPN Gateway Multi-Site connection example](/media//azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-multisite-connection-diagram.png)
+
 
 
 ## Gateway SKUs

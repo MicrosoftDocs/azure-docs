@@ -28,7 +28,7 @@ A VPN gateway connection relies on the configuration of multiple resources, each
 ## VPN gateway settings
 
 ### Gateway types
-Each Azure Stack virtual network supports a single virtual network gateway, which must be of the type **Vpn**.  This differs from Azure which supports additional types.  
+Each Azure Stack virtual network supports a single virtual network gateway, which must be of the type **Vpn**.  This differs from Azure, which supports additional types.  
 
 When you are creating a virtual network gateway, you must make sure that the gateway type is correct for your configuration. A VPN gateway requires the `-GatewayType Vpn`.
 
@@ -75,7 +75,7 @@ In the Resource Manager deployment model, each configuration requires a specific
 
 - IPsec
 
-In the following PowerShell example, we create a S2S connection that requires the connection type IPsec.  
+In the following PowerShell example, a S2S connection is created that requires the connection type IPsec.  
 
 ```PowerShell
 New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
@@ -87,7 +87,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 When you create the virtual network gateway for a VPN gateway configuration, you must specify a VPN type. The VPN type that you choose depends on the connection topology that you want to create.  A VPN type can also depend on the hardware that you are using. S2S configurations require a VPN device. Some VPN devices only support a certain VPN type.
 
 > [!IMPORTANT]  
-> At this time Azure Stack only supports the Route Based VPN type.  If your device only supports Policy Based VPNs then connections to those devices from Azure Stack is not supported.
+> At this time, Azure Stack only supports the Route Based VPN type.  If your device only supports Policy Based VPNs, then connections to those devices from Azure Stack are not supported.
 
 - **PolicyBased**: *(Supported by Azure, but not by Azure Stack)* Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the IPsec policies configured with the combinations of address prefixes between your on-premises network and the Azure Stack VNet. The policy (or traffic selector) is usually defined as an access list in the VPN device configuration.
 
@@ -111,9 +111,9 @@ The following table lists the requirements for VPN gateways.
 |**Active routing support (BGP)** | Not supported | Not supported | Supported | Supported |
 
 ### Gateway subnet
-Before you create a VPN gateway, you must create a gateway subnet. The gateway subnet contains the IP addresses that the virtual network gateway VMs and services use. When you create your virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the required VPN gateway settings. You must never deploy anything else (for example, additional VMs) to the gateway subnet. The gateway subnet must be named 'GatewaySubnet' to work properly. Naming the gateway subnet 'GatewaySubnet' allows Azure Stack to know that this is the subnet to deploy the virtual network gateway VMs and services to.
+Before you create a VPN gateway, you must create a gateway subnet. The gateway subnet contains the IP addresses that the virtual network gateway VMs and services use. When you create your virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the required VPN gateway settings. Do not deploy anything else (for example, additional VMs) to the gateway subnet. The gateway subnet must be named 'GatewaySubnet' to work properly. Naming the gateway subnet 'GatewaySubnet' allows Azure Stack to know that this is the subnet to deploy the virtual network gateway VMs and services to.
 
-When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. Look at the instructions for the configuration that you want to create and verify that the gateway subnet you want to create meets those requirements. Additionally, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future additional configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26 etc.). That way, if you add functionality in the future, you won't have to tear down your gateway, then delete and recreate the gateway subnet to allow for more IP addresses.
+When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. Look at the instructions for the configuration that you want to create and verify that the gateway subnet you want to create meets those requirements. Additionally, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future additional configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /28 or larger (/28, /27, /26 etc.). That way, if you add functionality in the future, you do not have to tear down your gateway, then delete and recreate the gateway subnet to allow for more IP addresses.
 
 The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
 
@@ -140,7 +140,7 @@ Sometimes you need to modify the local network gateway settings. For example, wh
 ## IPsec/IKE parameters
 When you set up a VPN Connection in Azure Stack, you need to configure the connection at both ends.  If you are configuring a VPN Connection between Azure Stack and a hardware device such as a switch or router that is acting as a VPN Gateway, that device may ask you for additional settings.
 
-Unlike Azure which supports multiple offers as both an initiator and a responder, Azure Stack support only one offer.
+Unlike Azure, which supports multiple offers as both an initiator and a responder, Azure Stack supports only one offer.
 
 ###  IKE Phase 1 (Main Mode) parameters
 | Property              | Value|
