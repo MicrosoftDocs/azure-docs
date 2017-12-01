@@ -209,7 +209,7 @@ The following steps guide you through creating a Jenkins job - as a freestyle pr
 
     - Select the **Add build step** dropdown arrow, and select **Invoke top-level Maven targets**.
 
-    - For **Goals**, enter `package'.
+    - For **Goals**, enter `package`.
 
 1. Select **Save** to save the new project definition.
 
