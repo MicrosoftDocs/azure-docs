@@ -174,10 +174,22 @@ tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
 
 1. Select **Save**.
 
-## Create a job in Jenkins
+## Create the Spring PetClinic Application job in Jenkins
 
-In this section, you create a Jenkins freestyle project to build the Spring PetClinic Application.
+The following steps guide you through creating a Jenkins job - as a freestyle project - to build the Spring PetClinic Application.
 
+1. Open and log in to the Jenkins dashboard.
 
+1. Select **New Item**.
+
+    ![New item menu option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-item.png)
+
+1. Enter `myPetClinicProject` for the item name, and select **Freestyle project**.
+
+    ![New freestyle project in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-freestyle-project.png)
+
+1. Select **OK**.
+
+1. In the General tab, choose Restrict where project can be run and type ACI-container in Label Expression. You see a message confirming that the label is served by the cloud configuration created in the previous step.
 
 ## Next steps
