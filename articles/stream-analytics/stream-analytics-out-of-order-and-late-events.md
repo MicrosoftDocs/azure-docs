@@ -5,7 +5,7 @@ description: Learn about how Stream Analytics works with out-of-order or late ev
 keywords: out of order, late, events
 documentationcenter: ''
 services: stream-analytics
-author: jsseb225
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 
