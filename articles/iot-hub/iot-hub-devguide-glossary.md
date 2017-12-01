@@ -168,7 +168,7 @@ The part of the IoT Edge runtime responsible for deploying and monitoring module
 IoT Edge devices have the IoT Edge runtime installed and are flagged as “IoT Edge device” in the device details. Learn how to [deploy Azure IoT Edge on a simulated device in Linux - preview](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-simulate-device-linux).
 
 ## IoT Edge deployment
-An IoT Edge deployment configures a target set of IoT Edge devices to run a set of IoT Edge modules. Each deployment continuously ensures than all devices that matches its target condition are running the specified set of modules, even when new devices are created or are modified to match the target condition. Each IoT Edge device only receives the highest priority deployment whose target condition it meets. Learn more about [IoT Edge deployment](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
+An IoT Edge deployment configures a target set of IoT Edge devices to run a set of IoT Edge modules. Each deployment continuously ensures that all devices that match its target condition are running the specified set of modules, even when new devices are created or are modified to match the target condition. Each IoT Edge device only receives the highest priority deployment whose target condition it meets. Learn more about [IoT Edge deployment](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
 
 ## IoT Edge deployment manifest
 A Json document containing the information to be copied in one or more IoT Edge devices' module twin(s) to deploy a set of modules, routes and associated module desired properties.
