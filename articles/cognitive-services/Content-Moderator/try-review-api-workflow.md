@@ -1,6 +1,6 @@
 ---
-title: Test drive Workflows in Azure Content Moderator | Microsoft Docs
-description: Use moderation workflows from the online console
+title: Content moderation workflows in Azure Content Moderator | Microsoft Docs
+description: Use content moderation workflows from the online console
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
