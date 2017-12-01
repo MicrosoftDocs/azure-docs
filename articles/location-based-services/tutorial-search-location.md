@@ -193,7 +193,7 @@ This section shows how to use the Azure Location Based Services' Search Service 
     url += "&subscription-key=" + subscriptionKey;
     url += "&lat=47.6292";
     url += "&lon=-122.2337";
-    url += "&radius=100000"
+    url += "&radius=100000";
 
     xhttp.open("GET", url, true);
     xhttp.send();
