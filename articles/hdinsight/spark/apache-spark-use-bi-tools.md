@@ -26,32 +26,36 @@ Learn how to use [Microsoft Power BI](http://powerbi.microsoft.com) and [Tableau
 
 ## Prerequisites
 
-* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Sample data in the cluster. For instructions, see [Run interactive queries on an HDInsight Spark cluster](apache-spark-load-data-run-query.md).
+* **Complete [Run interactive queries on Spark clusters in HDInsight](./apache-spark-load-data-run-query.md).
 * Power BI: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) and [Power BI trial subscription](https://app.powerbi.com/signupredirect?pbi_source=web) (optional).
 * Tableau: [Tableau Desktop](http://www.tableau.com/products/desktop) and [Microsoft Spark ODBC driver](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
-## <a name="hivetable"></a>Examine the data
+## <a name="hivetable"></a>Verify the data
 
-The Jupyter notebook that you created in the [previous tutorial](apache-spark-load-data-run-query.md) includes code to create an `hvac` table. This table is based on the CSV file available on all HDInsight Spark clusters at **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Let's review the data in the Spark cluster before creating visualizations.
+The Jupyter notebook that you created in the [previous tutorial](apache-spark-load-data-run-query.md) includes code to create an `hvac` table. This table is based on the CSV file available on all HDInsight Spark clusters at **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Use the following procedure to verify the data.
 
+1. From the 
 1. Verify that the expected tables exist. In an empty cell in the notebook, copy the following snippet and press **SHIFT + ENTER**.
 
-        %%sql
-        SHOW TABLES
+    ```PySpark
+    %%sql
+    SHOW TABLES
+    ```
 
     You see an output like the one shown below:
 
     ![Show tables in Spark](./media/apache-spark-use-bi-tools/show-tables.png)
 
     If you closed the notebook before starting this tutorial, `hvactemptable` is cleaned up, so it's not included in the output.
-    Only hive tables that are stored in the metastore (indicated by **False** under the **isTemporary** column) can be accessed from the BI tools. In this tutorial, we connect to the **hvac** table we created.
+    Only Hive tables that are stored in the metastore (indicated by **False** under the **isTemporary** column) can be accessed from the BI tools. In this tutorial, we connect to the **hvac** table we created.
 
 2. Verify that the table contains the expected data. In an empty cell in the notebook, copy the following snippet and press **SHIFT + ENTER**.
 
-        %%sql
-        SELECT * FROM hvac LIMIT 10
+    ```PySpark
+    %%sql
+    SELECT * FROM hvac LIMIT 10
+    ```
 
     You see an output like the one shown below:
 

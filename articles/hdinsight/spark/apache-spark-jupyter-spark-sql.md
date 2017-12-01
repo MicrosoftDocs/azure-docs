@@ -22,7 +22,7 @@ ms.author: jgao
 ---
 # Create an Apache Spark cluster in Azure HDInsight
 
-Learn how to create an Apache Spark cluster on Azure HDInsight, and then run a Spark SQL query against a Hive table. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md).
+Learn how to create Apache Spark cluster on Azure HDInsight, and hwo to run Spark SQL queries against Hive tables. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md).
 
 ## Prerequisites
 
@@ -94,11 +94,11 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 Spark SQL supports both SQL and HiveQL as query languages. Its capabilities include binding in Python, Scala, and Java. With it, you can query data stored in many locations, such as external databases, structured data files (example: JSON), and Hive tables.
 
-For an example of reading data from a csv file instead of a Hive table, see [Run interactive queries on Spark clusters in HDInsight](apache-spark-load-data-run-qyery.md).
+For an example of reading data from a csv file instead of a Hive table, see [Run interactive queries on Spark clusters in HDInsight](apache-spark-load-data-run-query.md).
 
 **To run Spark SQL**
 
-1.  Paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. 
+1.  From the notebook, paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. 
 
     ```PySpark
 	%%sql
@@ -109,18 +109,15 @@ For an example of reading data from a csv file instead of a Hive table, see [Run
 
     When you use a Jupyter Notebook with your HDInsight Spark cluster, you get a preset `sqlContext` that you can use to run Hive queries using Spark SQL. `%%sql` tells Jupyter Notebook to use the preset `sqlContext` to run the Hive query. The query retrieves the top 10 rows from a Hive table (**hivesampletable**) that comes with all HDInsight clusters by default. For more information on the `%%sql` magic and the preset contexts, see [Jupyter kernels available for an HDInsight cluster](apache-spark-jupyter-notebook-kernels.md).
 
-    > [!NOTE]
-    > Every time you run a query in Jupyter, your web browser window title shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, it changes to a hollow circle.
-    >
-    >
+    Every time you run a query in Jupyter, your web browser window title shows a **(Busy)** status along with the notebook title. You also see a solid circle next to the **PySpark** text in the top-right corner. After the job is completed, it changes to a hollow circle.
     
-6. The screen should refresh to show the query output.
+    The screen shall refresh to show the query output.
 
     ![Hive query output in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "Hive query output in HDInsight Spark")
 
-7. Shut down the notebook to release the cluster resources after you have finished running the application. To do so, from the **File** menu on the notebook, click **Close and Halt**.
+2. From the **File** menu on the notebook, click **Close and Halt**. Shutting down the notebook releases the cluster resources.
 
-8. If you plan to complete the next steps at a later time, make sure you delete the HDInsight cluster you created in this article. 
+3. If you plan to complete the next steps at a later time, make sure you delete the HDInsight cluster you created in this article. 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 

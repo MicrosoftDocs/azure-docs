@@ -1,4 +1,4 @@
-
+---
 title: Run interactive queries on an Azure HDInsight Spark cluster | Microsoft Docs
 description: HDInsight Spark quickstart on how to create an Apache Spark cluster in HDInsight.
 keywords: spark quickstart,interactive spark,interactive query,hdinsight spark,azure spark
@@ -21,11 +21,9 @@ ms.author: jgao
 ---
 # Run interactive queries on Spark clusters in HDInsight
 
-Learn how to use Jupyter notebook to run interactive Spark SQL queries against a Spark cluster. [Jupyter notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) is a browser-based application that extends the console-based interactive experience to the Web. 
+Learn how to use Jupyter notebook to run interactive Spark SQL queries against a Spark cluster. [Jupyter notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) is a browser-based application that extends the console-based interactive experience to the Web. Jupyter notebooks on HDInsight clusters support three kernels - **PySpark**, **PySpark3** and **Spark**. The **PySpark** kernel is used in this tutorial. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md). To use Zeppelin Notebook, see [Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight](./apache/spark-zeppelin-notebook.md).
 
-Jupyter notebooks on HDInsight clusters support three kernels - **PySpark**, **PySpark3** and **Spark**. The **PySpark** kernel is used in this tutorial. For more information about the kernels, and the benefits of using **PySpark**, see [Use Jupyter notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
-
-In this tutorial, you query data in a csv file.  You must first load that data into Spark as a dataframe. Then, you can run queries on the dataframe using  Jupyter Notebook. 
+In this tutorial, you query data in a csv file. You must first load that data into Spark as a dataframe. Then you can run queries on the dataframe using  Jupyter Notebook. 
 
 
 ## Prerequisites
@@ -39,7 +37,7 @@ With a SQLContext, applications can create DataFrames from an existing RDD, from
 
 **To create a dataframe from a csv file**
 
-1. Create a Jupyter notebook using PySpark if you don't have one.  See [Prerequisites](#prerequisites).
+1. Create a Jupyter notebook using PySpark if you don't have one. For the instructions, see [Create a Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
 2. Run the following code in an empty cell of the notebook, and then press **SHIFT + ENTER** to run the code. The code imports the types required for this scenario:
 
