@@ -14,7 +14,7 @@ ms.devlang:
 ms.topic: tutorial
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 11/28/2017
+ms.date: 12/01/2017
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -36,6 +36,15 @@ Azure Batch provides cloud-scale rendering capabilities on a pay-per-use basis. 
 This tutorial requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 Download sample 3ds Max scene files and Batch configuration files from [here](TBD) [*Need to find location*] to a working directory on your local computer. 
+
+## Download sample files
+
+In a terminal window, run the following command to download sample 3ds Max scene files and Batch configuration files to your local machine.
+
+```bash
+git clone <whatever>
+```
+
 
 ## Create a Batch account
 

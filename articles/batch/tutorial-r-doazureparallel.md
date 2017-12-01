@@ -48,8 +48,7 @@ Install the `doAzureParallel` [Github package](http://www.github.com/Azure/doAzu
 # Install the devtools package  
 install.packages("devtools") 
   
-# Install the rAzureBatch and doAzureParallel packages 
-devtools::install_github("Azure/rAzureBatch") 
+# Install the doAzureParallel package 
 devtools::install_github("Azure/doAzureParallel") 
  
 # Load the doAzureParallel library 
@@ -104,7 +103,7 @@ generateClusterConfig("cluster.json")
  
 Open the file to view the default configuration, which includes 3 dedicated nodes and 3 [low priority](batch-low-pri-vms.md) nodes. 
 
-For this tutorial, increase the `maxTasksPerNode` to 2, set `dedicatedNodes` to 5 and `lowPriorityNodes` to 0. Leave defaults for the remaing settings, and save the file.
+For this tutorial, increase the `maxTasksPerNode` to 2, and set `dedicatedNodes` to 0. Set the `min` of `lowPriorityNodes` to 2. and the `max` to 10, or a smaller number if desired. Leave defaults for the remaing settings, and save the file. It should look similar to the following:
 
 ```json
 {
@@ -113,12 +112,12 @@ For this tutorial, increase the `maxTasksPerNode` to 2, set `dedicatedNodes` to 
   "maxTasksPerNode": 2,
   "poolSize": {
     "dedicatedNodes": {
-      "min": 5,
-      "max": 5
-    },
-    "lowPriorityNodes": {
       "min": 0,
       "max": 0
+    },
+    "lowPriorityNodes": {
+      "min": 5,
+      "max": 10
     },
     "autoscaleFormula": "QUEUE"
   },
@@ -145,6 +144,7 @@ registerDoAzureParallel(cluster)
 getDoParWorkers() 
 ```
 
+Output shows the number of vCPUs (cores) that are available to run jobs.
  
 ## Foreach loop with the %dopar% keyword 
 Now that your cluster is created, you are ready to run your `foreach` loop with your registered parallel backend (Azure Batch pool). To automatically use your parallel backend, substitute the `%dopar%` keyword for `%do%` when running your `foreach` loop. 
@@ -234,7 +234,7 @@ The simulation distributes tasks to the nodes in the Batch pool. You can see the
 
 ![Heat map of pool running parallel R tasks](media/tutorial-r-doazureparallel/pool.png)
 
-After several minutes, the simulation finishes. The package automatically merges the results and pulls them down from the nodes. Then, you are ready to use the results in your R session. 
+After a f minutes, the simulation finishes. The package automatically merges the results and pulls them down from the nodes. Then, you are ready to use the results in your R session. 
 
 
 

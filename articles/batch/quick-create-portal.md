@@ -46,12 +46,19 @@ Follow these steps to create a sample Batch account for test purposes. You need 
 
 When the **Deployment succeeded** message appears, go to the Batch account in the portal.
 
+## View account properties
+
+View and manage Batch account settings and properties by using the left menu. For example, click **Keys** to see the account name, URL, and access keys. Though not needed for this quickstart, this information is used to access the account through the Batch APIs.
+
+  ![View account keys][account_keys]
+
+
 ## Create a Batch pool
 
 Create a sample pool of Windows virtual machines for test purposes. The pool consists of 2 size A1 nodes running Windows Server 2016 from the Azure Marketplace. If you prefer a Linux pool, select one of the available Linux distributions.
 
 
-1. Click **Pools** > **Add**.
+1. In the Batch account, click **Pools** > **Add**.
 
 2. Enter a **Pool ID**, such as *mypool-windows*. 
 3. In **Operating System**, select the following settings (you can explore other options):
@@ -132,6 +139,8 @@ In this quick start, you created a Batch account, a Batch pool, and a Batch job.
 [marketplace_portal]: ./media/quick-create-portal/marketplace-batch.png
 
 [account_portal]: ./media/quick-create-portal/batch-account-portal.png
+
+[account_keys]: ./media/quick-create-portal/batch-account-keys.png
 
 [pool_os]: ./media/quick-create-portal/pool-operating-system.png
 
