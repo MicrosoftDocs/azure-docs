@@ -37,6 +37,8 @@
     href: kubernetes-helm.md
   - name: Develop applications with Draft
     href: kubernetes-draft.md
+  - name: Persist data with Azure Files
+    href: azure-files.md
   - name: Use Kubernetes dashboard
     href: kubernetes-dashboard.md
   - name: Create service principal
@@ -46,15 +48,17 @@
   - name: Azure CLI
     href: /cli/azure/aks
   - name: REST
-    href: /rest/api/container-service
+    href: /rest/api/aks
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/container-service/
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Provide product feedback
+    href: https://github.com/Azure/AKS/issues
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos

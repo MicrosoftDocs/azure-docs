@@ -161,7 +161,6 @@ If your solution requires data ingestion from additional sources, Python code ca
 For public preview, Workbench supports data ingestion from: 
 - Local hard drive or mapped network storage location
 - Azure BLOB or Azure Storage (requires an Azure subscription)
-- Azure Data Lake or Azure Data Lake Storage (requires an Azure subscription)
 - Azure SQL Server
 - Microsoft SQL Server
 

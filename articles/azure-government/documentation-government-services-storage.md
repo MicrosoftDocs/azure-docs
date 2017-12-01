@@ -52,7 +52,7 @@ To view the current secondary region of your geo-redundant storage or read-acces
 | [Read-access geo-redundant storage](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) |GA |GA |GA |GA |GA |GA |
 | [Zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage) |- |GA |GA |GA |GA |GA |
 | [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |GA |GA |GA |GA |
-| [Premium Storage](../storage/common/storage-premium-storage.md) |GA |- |GA |GA |GA |GA | 
+| [Premium Storage](../virtual-machines/windows/premium-storage.md) |GA |- |GA |GA |GA |GA | 
 | [StorSimple](../storsimple/storsimple-ova-overview.md) |GA |GA |GA |GA |GA |GA |
 
 ### Variations

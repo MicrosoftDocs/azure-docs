@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 10/26/2017
 ms.author: maheshu
 
 ---
@@ -42,30 +42,25 @@ In the **Basics** page of the wizard, you can specify the DNS domain name for th
 
 1. Choose the **DNS domain name** for your managed domain.
 
-   * The default domain name of the directory (with a **.onmicrosoft.com** suffix) is specified by default.
+   > [!NOTE]
+   > **Guidelines for selecting a DNS domain name**
+   > * **Built-in domain name:** By default, the wizard specifies the default/built-in domain name of the directory (with a **.onmicrosoft.com** suffix) for you. If you choose to enable secure LDAP access to the managed domain over the internet, expect issues creating a public DNS record or obtaining a secure LDAP certificate from a public CA for this domain name. Microsoft owns the *.onmicrosoft.com* domain and CAs will not issue certificates vouching for this domain.
+   * **Custom domain names:** You can also type in a custom domain name. In this example, the custom domain name is *contoso100.com*.
+   * **Non-routable domain suffixes:** We generally recommend avoiding a non-routable domain name suffix. For instance, it is better to avoid creating a domain with the DNS domain name 'contoso.local'. The '.local' DNS suffix is not routable and can cause issues with DNS resolution.
+   * **Domain prefix restrictions:** The prefix of your specified domain name (for example, *contoso100* in the *contoso100.com* domain name) must contain 15 or fewer characters. You cannot create a managed domain with a prefix longer than 15 characters.
+   * **Network name conflicts:** Ensure that the DNS domain name you have chosen for the managed domain does not already exist in the virtual network. Specifically, check whether:
+       * You already have an Active Directory domain with the same DNS domain name on the virtual network.
+       * The virtual network where you plan to enable the managed domain has a VPN connection with your on-premises network. In this scenario, ensure you don't have a domain with the same DNS domain name on your on-premises network.
+       * You have an existing cloud service with that name on the virtual network.
+    >
 
-   * You can also type in a custom domain name. In this example, the custom domain name is *contoso100.com*.
+2. Select the Azure **Subscription** in which you would like to create the managed domain.
 
-     > [!WARNING]
-     > The prefix of your specified domain name (for example, *contoso100* in the *contoso100.com* domain name) must contain 15 or fewer characters. You cannot create a managed domain with a prefix longer than 15 characters.
-     >
-     >
+3. Select the **Resource group** to which the managed domain should belong. You can choose either the **Create new** or **Use existing** options to select the resource group.
 
-2. Ensure that the DNS domain name you have chosen for the managed domain does not already exist in the virtual network. Specifically, check whether:
+4. Choose the Azure **Location** in which the managed domain should be created. On the **Network** page of the wizard, you see only virtual networks that belong to the location you have selected.
 
-   * You already have a domain with the same DNS domain name on the virtual network.
-
-   * The virtual network where you plan to enable the managed domain has a VPN connection with your on-premises network. In this scenario, ensure you don't have a domain with the same DNS domain name on your on-premises network.
-
-   * You have an existing cloud service with that name on the virtual network.
-
-3. Select the Azure **Subscription** in which you would like to create the managed domain.
-
-4. Select the **Resource group** to which the managed domain should belong. You can choose either the **Create new** or **Use existing** options to select the resource group.
-
-5. Choose the Azure **Location** in which the managed domain should be created. On the **Network** page of the wizard, you see only virtual networks that belong to the location you have selected.
-
-6. When you are done, click **OK** to move on to the **Network** page of the wizard.
+5. When you are done, click **OK** to move on to the **Network** page of the wizard.
 
 
 ## Next step

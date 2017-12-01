@@ -1,6 +1,6 @@
----
-title: Kubernertes on Azure tutorial - update cluster | Microsoft Docs
-description: Kubernertes on Azure tutorial - update cluster
+﻿---
+title: Kubernetes on Azure tutorial - update cluster | Microsoft Docs
+description: Kubernetes on Azure tutorial - update cluster
 services: container-service
 documentationcenter: ''
 author: neilpeterson
@@ -9,13 +9,13 @@ editor: ''
 tags: aks, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
+ms.assetid:
 ms.service: container-service
 ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -33,7 +33,7 @@ In this tutorial, part eight of eight, a Kubernetes cluster is upgraded. Tasks t
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into a container image, this image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. 
+In previous tutorials, an application was packaged into a container image, this image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster.
 
 If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md).
 
@@ -46,20 +46,20 @@ Before upgrading a cluster, use the `az aks get-versions` command to check which
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
 ```
 
-Here you can see that the current node version is `1.7.7` and that version `1.8.1` is available.
+Here you can see that the current node version is `1.7.7` and that version `1.7.9`, `1.8.1`, and `1.8.2` are available.
 
 ```
-Name     ResourceGroup    MasterVersion    MasterUpgrades    AgentPoolVersion    AgentPoolUpgrades
--------  ---------------  ---------------  ----------------  ------------------  -------------------
-default  myResourceGroup  1.7.7            1.8.1             1.7.7               1.8.1
+Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion     NodePoolUpgrades
+-------  ---------------  ---------------  -------------------  ------------------  -------------------
+default  myAKSCluster     1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
 ## Upgrade cluster
 
-Use the `az aks upgrade` command to upgrade the cluster nodes. The following examples updates the cluster to version `1.8.1`.
+Use the `az aks upgrade` command to upgrade the cluster nodes. The following examples updates the cluster to version `1.8.2`.
 
 ```azurecli-interactive
-az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.1
+az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
 Output:
@@ -67,7 +67,7 @@ Output:
 ```json
 {
   "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
-  "location": "westus2",
+  "location": "eastus",
   "name": "myK8sCluster",
   "properties": {
     "accessProfiles": {
@@ -93,8 +93,8 @@ Output:
       }
     ],
     "dnsPrefix": "myK8sClust-myResourceGroup-4f48ee",
-    "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.westus2.azmk8s.io",
-    "kubernetesVersion": "1.8.1",
+    "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.eastus.azmk8s.io",
+    "kubernetesVersion": "1.8.2",
     "linuxProfile": {
       "adminUsername": "azureuser",
       "ssh": {
@@ -131,7 +131,7 @@ Output:
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myK8sCluster  westus2     myResourceGroup  1.8.1                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.westus2.azmk8s.io
+myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
 ```
 
 ## Next steps

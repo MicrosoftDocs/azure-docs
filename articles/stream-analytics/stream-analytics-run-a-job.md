@@ -31,7 +31,9 @@ To start your job:
    
    ![Azure portal Start job Button](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)  
 2. Specify a **Start Output** value to determine when this job will start producing output. The default setting for jobs that have not previously been started is **Job Start Time**, which means that the job will immediately start processing data. You can also specify a **Custom** time in the past (for consuming historical data) or the future (to delay processing until a future time). For cases when a job has been previously started and stopped, the option **Last Stopped Time** is available in order to resume the job from the last output time and avoid data loss.  
-Note: When using partions, Last Stopped Time represents the minimum of last output time accross all partitions.
+
+> [!NOTE]
+> When using partitions, Last Stopped Time represents the minimum of last output time across all partitions.
    
    ![Start streaming job Time](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)  
    

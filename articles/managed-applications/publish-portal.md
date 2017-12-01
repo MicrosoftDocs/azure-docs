@@ -9,7 +9,7 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/24/2017
+ms.date: 11/02/2017
 ms.author: tomfitz
 ---
 # Publish a service catalog application through Azure portal

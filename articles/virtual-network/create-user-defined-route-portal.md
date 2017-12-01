@@ -31,7 +31,7 @@ In this tutorial, you create a virtual network with public, private, and DMZ sub
 
 ![User-defined routes](./media/create-user-defined-route/user-defined-routes.png)
 
-This article provides steps to create a user-defined route through the Resource Manager deployment model, which is the deployment model we recommend using when creating user-defined routes. If you need to create a user-defined route (classic), see [Create a user-defined route (classic)](virtual-network-create-udr-classic-ps.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). To learn more about user-defined routes, see [User-defined routes overview](virtual-networks-udr-overview.md#user-defined-routes).
+This article provides steps to create a user-defined route through the Resource Manager deployment model, which is the deployment model we recommend using when creating user-defined routes. If you need to create a user-defined route (classic), see [Create a user-defined route (classic)](virtual-network-create-udr-classic-ps.md). If you're not familiar with Azure's deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). To learn more about user-defined routes, see [User-defined routes overview](virtual-networks-udr-overview.md#user-defined).
 
 ## Create routes and network virtual appliance
 
@@ -267,6 +267,12 @@ This article provides steps to create a user-defined route through the Resource 
         - **Ubuntu**: Run the `tracepath myvm-private` command.
       Traffic passes through 10.0.2.4 (the NVA) before reaching 10.0.1.4 (the virtual machine in the Private subnet). 
     - Complete the previous steps by connecting to the *myVm-Private* virtual machine and pinging the *myVm-Public* virtual machine. The trace route shows communication traveling through 10.0.2.4 before reaching 10.0.0.4 (the virtual machine in the Public subnet).
+
+      > [!NOTE]
+      > The previous steps enable you to confirm routing between Azure private IP addresses. If you want to forward, or proxy, traffic to public IP addresses through a network virtual appliance:
+      > - The appliance must provide network address translation or proxy capability. If network address translation, the appliance must translate the source IP address to its own, and then forward that request to the public IP address. Whether the appliance has network address translated the source address, or is proxying, Azure translates the network virtual appliance's private IP address to a public IP address. For more information about the different methods Azure uses to translate private IP addresses to public IP addresses, see [Understanding outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - An additional route in the route table such as prefix: 0.0.0.0/0, next hop type VirtualAppliance, and next hop IP address 10.0.2.4 (in the previous example script).
+      >
     - **Optionally**: To validate the next hop between two virtual machines within Azure, use the next hop capability of Azure Network Watcher. Before using Network Watcher, you must first [create an Azure Network Watcher instance](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for the region you want to use it in. In this tutorial, the US East region is used. Once you've enabled a Network Watcher instance for the region, enter the following command to see the next hop information between the virtual machines in the Public and Private subnets:
      
         ```azurecli-interactive

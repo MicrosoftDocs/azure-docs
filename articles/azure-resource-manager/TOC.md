@@ -9,14 +9,6 @@
 ## [VS Code extension for templates](resource-manager-vscode-extension.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Samples
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Deploy template](resource-manager-samples-powershell-deploy.md)
-
-## Azure CLI
-### [Deploy template](resource-manager-samples-cli-deploy.md)
-
 # How to
 ## Create templates
 ### [Template sections](resource-group-authoring-templates.md)
@@ -69,43 +61,26 @@
 ### [Authentication API to access subscriptions](resource-manager-api-authentication.md)
 ### [Lock resources](resource-group-lock-resources.md)
 
-## Set resource policies
-### [What are resource policies?](resource-manager-policy.md)
-### [Use Azure portal to assign policy](resource-manager-policy-portal.md)
-### [Use scripts to assign policy](resource-manager-policy-create-assign.md)
-### Examples
-#### [Tags](resource-manager-policy-tags.md)
-#### [Naming conventions](resource-manager-policy-naming-convention.md)
-#### [Network](resource-manager-policy-network.md)
-#### [Storage](resource-manager-policy-storage.md)
-#### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
 ## Audit
 ### [View activity logs](resource-group-audit.md)
 ### [View deployment operations](resource-manager-deployment-operations.md)
 
 ## Troubleshoot
 ### [Common deployment errors](resource-manager-common-deployment-errors.md)
-### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
-### Resolve errors
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [Linux deployment issues](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [Provisioning and allocation issues for Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+#### [Provisioning and allocation issues for Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-### Virtual Machine deployment errors
-#### Linux
-##### [Deployment issues](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-##### [Provisioning and allocation issues](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-##### [Common error messages](../virtual-machines/linux/error-messages.md)
-#### Windows
-##### [Deployment issues](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-##### [Provisioning and allocation issues](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-##### [Common error messages](../virtual-machines/windows/error-messages.md)
+#### [Windows deployment issues](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+### [Understand deployment errors](resource-manager-troubleshoot-tips.md)
 
 # Reference
 ## [Template format](/azure/templates/)

@@ -98,7 +98,7 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-2. Add these static variables to the **Program class**. Replace place-holders with your own values.
+2. Add these static variables to the **Program class**. Replace place-holders with your own values. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
     ```csharp
         // Set variables
@@ -108,8 +108,6 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
         static string subscriptionId = "<Azure subscription ID>";
         static string resourceGroup = "<Azure resource group name>";
 
-        // Note that the data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
-        // Currently, only East US and East US 2 regions are supported. 
         static string region = "East US";
         static string dataFactoryName = "<Data factory name>";
 
