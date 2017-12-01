@@ -162,11 +162,11 @@ Add-AzureRMEnvironment `
 # Get the Active Directory tenantId that is used to deploy Azure Stack     
 $TenantID = Get-AzsDirectoryTenantId `
     -ADFS `
-    -EnvironmentName "AzureStackAdmin"
+    -Environment "AzureStackAdmin"
 
 # Sign in to your environment
 Login-AzureRmAccount `
-    -EnvironmentName "AzureStackAdmin" `
+    -Environment "AzureStackAdmin" `
     -TenantId $TenantID
 ```
 
