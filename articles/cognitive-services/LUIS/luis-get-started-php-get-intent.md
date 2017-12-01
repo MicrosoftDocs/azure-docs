@@ -8,7 +8,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 12/13/2017
 ms.author: v-geberr
 ---
 
