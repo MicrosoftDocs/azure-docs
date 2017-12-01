@@ -12,7 +12,7 @@ manager: craigg
 ---
 # Configure the Azure-SSIS Integration Runtime for high performance
 
-This article describes how to configure an Azure-SSIS Integration Runtime (IR) for high performance. The Azure-SSIS IR allows you to deploy and run SQL Server Integration Services (SSIS) packags in Azure. For more information about Azure-SSIS IR, see [Integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) article. For information about deploying and running SSIS packages on Azure, see [Lift and shift SQL Server Integration Services workloads to the cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
+This article describes how to configure an Azure-SSIS Integration Runtime (IR) for high performance. The Azure-SSIS IR allows you to deploy and run SQL Server Integration Services (SSIS) packages in Azure. For more information about Azure-SSIS IR, see [Integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) article. For information about deploying and running SSIS packages on Azure, see [Lift and shift SQL Server Integration Services workloads to the cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
 > [!IMPORTANT]
 > This article contains performance results and observations from in-house testing done by members of the SSIS development team. Your results may vary. Do your own testing before you finalize your configuration settings, which affect both cost and performance.
@@ -67,9 +67,9 @@ In the unofficial in-house testing by the SSIS engineering team, the D series ap
 -   The throughput for the D series is higher than the A series at the same price.
 
 ### Configure for execution speed
-If you don't have many packages to run, and you want packages to run quickly, use the information in the following chart to help you choose a virtual machine type suitable for your scenario.
+If you don't have many packages to run, and you want packages to run quickly, use the information in the following chart to choose a virtual machine type suitable for your scenario.
 
-This data represents a single package execution on a single worker node. The package loads 10M records including first name and last name from Azure Blob Storage, generates a full name column, and writes the records where the full name is longer than 20 characters back to Azure Blob Storage.
+This data represents a single package execution on a single worker node. The package loads 10 million records with first name and last name columns from Azure Blob Storage, generates a full name column, and writes the records that have the full name longer than 20 characters to Azure Blob Storage.
 
 ![SSIS Integration Runtime package execution speed](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speed.png)
 
@@ -85,7 +85,7 @@ If you have lots of packages to run, and you care most about the overall through
 
 ## AzureSSISMaxParallelExecutionsPerNode
 
-When you're already using a powerful worker node to run packages, increasing **AzureSSISMaxParallelExecutionsPerNode** may help to increase the overall throughput of the integration runtime. You can estimate the appropriate value based on the cost of your package and the following configurations for the worker nodes. For more info, see [General-purpose virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general).
+When you're already using a powerful worker node to run packages, increasing **AzureSSISMaxParallelExecutionsPerNode** may increase the overall throughput of the integration runtime. You can estimate the appropriate value based on the cost of your package and the following configurations for the worker nodes. For more information, see [General-purpose virtual machine sizes](../virtual-machines/windows/sizes-general).
 
 | Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network performance (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -96,20 +96,24 @@ When you're already using a powerful worker node to run packages, increasing **A
 | Standard\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8x500                         | 4 / 1000                                       |
 | Standard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16x500                       | 8 / 2000                                       |
 
-You can also set the **AzureSSISMaxParallelExecutionsPerNode** to a small value at first, increase it by a small amount to check whether the overall throughput is improved, and stop increasing the value when the overall throughput reaches the maximum value.
+Here teh guidelines for settings the right value for the **AzureSSISMaxParallelExecutionsPerNode** property: 
+
+1. Set it to a small value at first.
+2. Increase it by a small amount to check whether the overall throughput is improved.
+3. Stop increasing the value when the overall throughput reaches the maximum value.
 
 ## SSISDBPricingTier
 
-**SSISDBPricingTier** is the pricing tier for the SSIS Catalog database, SSISDB, on Azure SQL Database. This setting affects the maximum number of workers in the IR instance, the speed to queue a package execution, and the speed to load the execution log.
+**SSISDBPricingTier** is the pricing tier for the SSIS Catalog database (SSISDB) on an Azure SQL database. This setting affects the maximum number of workers in the IR instance, the speed to queue a package execution, and the speed to load the execution log.
 
--   If you don't care about the speed to queue package execution and to load the execution log, you can choose the lowest DB pricing tier. Azure SQL Database with Basic pricing supports 8 workers in an integration runtime instance.
+-   If you don't care about the speed to queue package execution and to load the execution log, you can choose the lowest database pricing tier. Azure SQL Database with Basic pricing supports 8 workers in an integration runtime instance.
 
 -   Choose a more powerful database than Basic if the worker count is more than 8, or the core count is more than 50. Otherwise the database becomes the bottleneck of the integration runtime instance and the overall performance is negatively impacted.
 
-You can also adjust the DB pricing tier based on DTU usage information available on the Azure portal.
+You can also adjust the database pricing tier based on [database transaction unit](sql-database/sql-database-what-is-a-dtu.md) (DTU) usage information available on the Azure portal.
 
 ## Design for high performance
-Designing an SSIS package to run on Azure is different from SSIS development for on-premises execution. Instead of combining multiple independent tasks in the same package, separate them into several packages for more efficient execution in the Azure-SSIS IR. Create a package execution for each package, so that they don’t have to wait for each other to finish. This approach benefits from the scalability of the Azure-SSIS integration runtime and improves the overall throughput.
+Designing an SSIS package to run on Azure is different from designing a package for on-premises execution. Instead of combining multiple independent tasks in the same package, separate them into several packages for more efficient execution in the Azure-SSIS IR. Create a package execution for each package, so that they don’t have to wait for each other to finish. This approach benefits from the scalability of the Azure-SSIS integration runtime and improves the overall throughput.
 
-## What's next
+## Next steps
 Learn more about the Azure-SSIS Integration Runtime. See [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime).
