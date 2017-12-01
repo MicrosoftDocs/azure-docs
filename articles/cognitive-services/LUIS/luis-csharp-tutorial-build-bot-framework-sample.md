@@ -61,8 +61,8 @@ The steps in this tutorial are summarized here. More details will be given in th
 ## Download and install the Bot Emulator
 The [Bot Framework Emulator][Github-BotFramework-Emulator-Download] is available on GitHub. Download and install the correct version for your operating system. Note where the application is on your computer so you can start it in a later step.
 
-## Clone or download the BotBuilder-Samples repository
- [BotBuilder-Samples][Github-BotBuilder-Samples] is a GitHub repository with more samples beyond just the LUIS bot. The subfolder you need for this tutorial is [./CSharp/Intelligence-LUIS][Github-BotBuilder-Samples-LUIS].
+## Clone or download the LUIS-Samples repository
+ [LUIS-Samples][Github-LUIS-Samples] is a GitHub repository with more samples beyond just the LUIS bot. The subfolder you need for this tutorial is [./CSharp/Intelligence-LUIS][Github-LUIS-Samples-cs-hotel-bot].
 
 Clone or download the repository to your computer. You edit and run the CSharp/Intelligence-LUIS sample found in this repository.
 
@@ -71,8 +71,8 @@ Create a [luis.ai][LUIS-website] account and log in.
 
 In order to get a new LUIS application set up for the bot, you need to import the **LuisBot.json** file found at ./BotBuilder-Samples/CSharp/Intelligence-LUIS folder. The file contains the application definition for the LUIS app the sample bot uses.
 
-1. On the **My Apps** page  of the [LUIS web page][LUIS-website], click **Import App**.
-2. In the **Import new app** dialog box, click **Choose file** and upload the LuisBot.json file. Name your application "Hotel Finder", and Click **Import**. <!--    ![A new app form](./Images/NewApp-Form.JPG) -->It may take a few minutes for LUIS to extract the intents and entities from the JSON file. When the import is complete, LUIS opens the Dashboard page of the Hotel Finder app<!-- which looks like the following screen-->. 
+1. On the **My Apps** page  of the [LUIS web page][LUIS-website], click **Import new app**.
+2. In the **Import new app** dialog box, click **Choose file** and upload the LuisBot.json file. Name your application "Hotel Finder", and Click **Done**. <!--    ![A new app form](./Images/NewApp-Form.JPG) -->It may take a few minutes for LUIS to extract the intents and entities from the JSON file. When the import is complete, LUIS opens the Dashboard page of the Hotel Finder app<!-- which looks like the following screen-->. 
 3. Once the app is imported, you need to change the [Assigned endpoint key][AssignedEndpointDoc] on the Publish App page to your Azure LUIS subscription. Then publish the app. Copy your endpoint URL which contains your LUIS app ID and your LUIS subscription ID.
 
 The URL looks something like the following URL: 
@@ -179,15 +179,15 @@ When the breakpoint stops in the **SearchHotels** intent's method of **Search**,
 
 ## Next steps
 
-* You can learn more about this [specific sample][BotBuilder-CSharp-Sample-Readme]. 
+* You can learn more about this [specific sample][Github-LUIS-Samples-cs-hotel-bot-readme]. 
 * Try to improve your LUIS app's performance by continuing to [add](Add-example-utterances.md) and [label utterances](Label-Suggested-Utterances.md).
 * Try adding additional [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly used patterns specific to your domain.
 
 <!-- Links -->
 [Github-BotFramework-Emulator-Download]: https://github.com/Microsoft/BotFramework-Emulator/releases/
-[Github-BotBuilder-Samples]: https://github.com/Microsoft/BotBuilder-Samples
-[Github-BotBuilder-Samples-LUIS]:https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-LUIS
-[BotBuilder-CSharp-Sample-Readme]:https://github.com/Microsoft/BotBuilder-Samples/blob/master/CSharp/intelligence-LUIS/README.md
+[Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
+[Github-LUIS-Samples-cs-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/csharp
+[Github-LUIS-Samples-cs-hotel-bot-readme]: https://github.com/Microsoft/LUIS-Samples/blob/master/bot-integration-samples/hotel-finder/csharp/README.md
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
