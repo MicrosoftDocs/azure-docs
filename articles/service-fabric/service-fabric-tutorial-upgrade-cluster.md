@@ -20,7 +20,7 @@ ms.author: adegeo
 
 # Upgrade the runtime of a Service Fabric cluster
 
-This tutorial is part four of a series, and shows you how to upgrade the Service Fabric runtime on an Azure Service Fabric cluster. This tutorial part is written for Service Fabric clusters running on Azure and does not apply to self-hosted Service Fabric clusters.
+This tutorial is part three of a series, and shows you how to upgrade the Service Fabric runtime on an Azure Service Fabric cluster. This tutorial part is written for Service Fabric clusters running on Azure and does not apply to standalone Service Fabric clusters.
 
 > [!WARNING]
 > This part of the tutorial requires PowerShell. Support for upgrading the cluster runtime is not yet supported by the Azure CLI tools. Alternatively, a cluster can be upgraded in the portal. For more information, see [Upgrade an Azure Service Fabric cluster](service-fabric-cluster-upgrade.md).
@@ -32,6 +32,13 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Read the cluster version
 > * Set the cluster version
+
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure using a template
+> * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
+> * Upgrade the runtime of a cluster
+> * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## Prerequisites
 Before you begin this tutorial:
@@ -188,3 +195,7 @@ In this tutorial, you learned how to:
 > * Get the version of the cluster runtime
 > * Upgrade the cluster runtime
 > * Monitor the upgrade
+
+Next, advance to the following tutorial to learn how to deploy API Management with a Service Fabric cluster.
+> [!div class="nextstepaction"]
+> [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)

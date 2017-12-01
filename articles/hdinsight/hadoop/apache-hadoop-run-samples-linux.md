@@ -16,7 +16,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 12/01/2017
 ms.author: larryfr
 
 ---
@@ -64,10 +64,7 @@ Learn how to run the MapReduce examples included with Hadoop on HDInsight.
 * `wordmedian`: A mapreduce program that counts the median length of the words in the input files.
 * `wordstandarddeviation`: A mapreduce program that counts the standard deviation of the length of the words in the input files.
 
-**Source code**: Source code for these samples is included on the HDInsight cluster at `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
-
-> [!NOTE]
-> The `2.2.4.9-1` in the path is the version of the Hortonworks Data Platform for the HDInsight cluster, and may be different for your cluster.
+**Source code**: Source code for these samples is included on the HDInsight cluster at `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
 ## Run the wordcount example
 
