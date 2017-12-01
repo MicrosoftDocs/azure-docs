@@ -30,9 +30,9 @@ In a temporal data stream of events, each event is assigned a timestamp. Azure S
 
 Azure Stream Analytics job combines events from multiple timelines in few cases including,
 
-1. Producing output from multiple partitions. Queries that don't have an explicit "Partition by PartitionId" would have to combine events from all the partitions.
-2. Union of two or more different input sources.
-3. Joining input sources.
+* Producing output from multiple partitions. Queries that don't have an explicit "Partition by PartitionId" would have to combine events from all the partitions.
+* Union of two or more different input sources.
+* Joining input sources.
 
 In scenarios where multiple timelines are combined, Azure Stream Analytics will produce output for a timestamp *t1* only after all the sources that are combined are at least at time *t1*.
 For example, if the query reads from an *Event Hub* partition that has two partitions and one of the partition *P1* has events until time *t1* and other partition *P2* has events until time *t1 + x*, output is produced until time *t1*.
@@ -81,12 +81,12 @@ As mentioned above, *late arrival tolerance* is the maximum difference between a
 Also when processing by application time, events that are later than the configured *late arrival tolerance* are adjusted before the *out of order tolerance* setting is applied. So, effective out of order is the minimum of late arrival tolerance and out of order tolerance.
 
 Out of order events within a stream happen due to reasons including,
-1. Clock-skew among the senders.
-2. Variable Latency between sender and input event source.
+* Clock-skew among the senders.
+* Variable Latency between sender and input event source.
 
 Late arrival happens due to reasons including,
-1. Senders batch and send the events for an interval later, after the interval.
-2. Latency between sending the event by sender and receiving the event at input source.
+* Senders batch and send the events for an interval later, after the interval.
+* Latency between sending the event by sender and receiving the event at input source.
 
 While configuring *late arrival tolerance* and *out of order tolerance* for a specific job, correctness, latency requirements, and above factors should be considered.
 
@@ -105,9 +105,9 @@ Query does not have "Partition by PartitionId" and there are at least two partit
 Configuration is same as example 2. However, absence of data in one of the partitions can delay the output by an additional *late arrival tolerance" window.
 
 ## To summarize
-1. Late arrival tolerance and out of order window should be configured based on correctness, latency requirements and should also consider how the events are sent.
-2. It is recommended that out of order tolerance is smaller than late arrival tolerance.
-3. When combining multiple timelines, lack of data in one of the sources or partitions can delay the output by an additional late arrival tolerance window.
+* Late arrival tolerance and out of order window should be configured based on correctness, latency requirements and should also consider how the events are sent.
+* It is recommended that out of order tolerance is smaller than late arrival tolerance.
+* When combining multiple timelines, lack of data in one of the sources or partitions can delay the output by an additional late arrival tolerance window.
 
 ## Get help
 For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
