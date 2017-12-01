@@ -23,10 +23,10 @@ When you create a VM in Azure using the portal or PowerShell, a Resource Manager
 
 ## Download the template using the portal
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. One the hub menu, select **Virtual Machines**.
+2. One the left menu, select **Virtual Machines**.
 3. Select the virtual machine from the list.
 4. Select **Automation script**.
-5. Select **Download** and save the .zip file to your local computer.
+5. Select **Download** from the menu at the top and save the .zip file to your local computer.
 6. Open the .zip file and extract the files to a folder. The .zip file will contain:
    
    * deploy.ps1
