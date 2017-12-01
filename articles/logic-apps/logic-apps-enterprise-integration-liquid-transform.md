@@ -93,7 +93,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
   
   ![Select-body](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
  
-* In the **Map**, select your map from the drop-down, which is JsonToJsonTemplate in this example. Select **Save** to save your logic app.
+* In the **Map**, select your map from the drop-down, which is JsonToJsonTemplate in this example.
 
   ![Select-map](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
@@ -107,7 +107,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 ### Results
 * To test your logic app, post JSON input to your logic app from [Postman](https://www.getpostman.com/postman) or similar tool. 
-You should see the transformed JSON in the output, like the following example.
+You should see the transformed JSON in the output, like the following example:
   
   ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
 
