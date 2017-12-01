@@ -61,7 +61,7 @@
     href: /dotnet/api/overview/azure/containerregistry
   - name: Python
     href: /python/api/overview/azure/container-registry
-  - name: JavaScript
+  - name: Node.js
     href: /javascript/api/overview/azure/container-registry
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerregistry/registries

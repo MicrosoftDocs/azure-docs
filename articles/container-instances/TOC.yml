@@ -55,7 +55,7 @@
     href: /python/api/overview/azure/containerinstance
   - name: Java
     href: /java/api/overview/azure/containerinstance
-  - name: JavaScript
+  - name: Node.js
     href: /javascript/api/overview/azure/containerinstance
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerinstance/containergroups
