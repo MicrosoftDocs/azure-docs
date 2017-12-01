@@ -162,7 +162,7 @@ An interactive message is a [cloud-to-device](#cloud-to-device) message that tri
 Azure IoT Edge enables cloud-driven deployment of Azure services and solution-specific code to on-premise devices. IoT Edge devices can aggregate data from other devices to perform computing and analytics before the data is sent to the cloud. For more information please see [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/).
 
 ## IoT Edge agent
-The part of the IoT Edge runtime responsible for deployming and monitoring modules.
+The part of the IoT Edge runtime responsible for deploying and monitoring modules.
 
 ## IoT Edge device
 IoT Edge devices have the IoT Edge runtime installed and are flagged as “IoT Edge device” in the device details. Learn how to [deploy Azure IoT Edge on a simulated device in Linux - preview](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-simulate-device-linux).
@@ -195,7 +195,7 @@ The docker image that is used by the IoT Edge runtime to instantiate module inst
 A Json document persisted in the IoT Hub that stores the state information for a module instance. 
 
 ## IoT Edge runtime
-IoT Edge runtime includes everything that Microsoft distributes to be installed on an IoT Edge device. It included Edge agent, Edge hub and Edge runtime ctl.
+IoT Edge runtime includes everything that Microsoft distributes to be installed on an IoT Edge device. It included Edge agent, Edge hub and Edge CTL tool.
 
 ## IoT Edge set modules to a single device
 An operation that copies the content of an IoT Edge manifest on one device' module twin. The underlying API is a generic 'apply configuration', which simply takes an IoT Edge manifest as an input.
