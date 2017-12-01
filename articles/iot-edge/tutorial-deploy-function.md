@@ -134,28 +134,21 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 ## Publish a Docker image
 
 1. Build the Docker image.
-    1. In VS Code explorer, click the **Docker** folder to open it. Then select the folder for your container platform, either **linux-x64** or **windows-nano**. 
+    1. In VS Code explorer, expand the **Docker** folder. Then expand the folder for your container platform, either **linux-x64** or **windows-nano**. 
     2. Right-click the **Dockerfile** file and click **Build IoT Edge module Docker image**. 
-    3. In the **Select Folder** box, navigate to the project folder, **FilterFunction**, and click **Select Folder as EXE_DIR**. 
-    4. In the pop-up text box at the top of the VS Code window, enter the image name. For example, `<docker registry address>/filterfunction:latest`; where *docker registry address* is your Docker ID if you are using Docker Hub or is similar to `<your registry name>.azurecr.io`, if you are using Azure Container Registry.
+    3. Navigate to the **FilterFunction** project folder and click **Select Folder as EXE_DIR**. 
+    4. In the pop-up text box at the top of the VS Code window, enter the image name. For example: `<your container registry address>/filterfunction:latest`. The container registry address is the same as the login server that you copied from your registry. It should be in the form of `<your container registry name>.azurecr.io`.
  
-4. Sign in to Docker. In integrated terminal, enter the following command: 
+4. Sign in to Docker. In the integrated terminal, enter the following command: 
 
-    - Docker Hub (enter your credentials when prompted):
+   ```csh/sh
+   docker login -u <username> -p <password> <Login server>
+   ```
         
-        ```csh/sh
-        docker login
-        ```
+   To find the user name, password and login server to use in this command, go to the [Azure portal] (https://portal.azure.com). From **All resources**, click the tile for your Azure container registry to open its properties, then click **Access keys**. Copy the values in the **Username**, **password**, and **Login server** fields. 
 
-    - Azure Container Registry:
-        
-        ```csh/sh
-        docker login -u <username> -p <password> <Login server>
-        ```
-        
-        To find the user name, password and login server to use in this command, go to the [Azure portal] (https://portal.azure.com). From **All resources**, click the tile for your Azure container registry to open its properties, then click **Access keys**. Copy the values in the **Username**, **password**, and **Login server** fields. The login server sould be of the form: `<your registry name>.azurecr.io`.
-
-3. Push the image to your Docker repository. Use the **View | Command Palette ... | Edge: Push IoT Edge module Docker image** menu command and enter the image name in the pop-up text box at the top of the VS Code window. Use the same image name you used in step 1.c.
+3. Push the image to your Docker repository. Select **View** > **Command Palette...** then search for **Edge: Push IoT Edge module Docker image**.
+4. In the pop-up text box, enter the same image name that you used in step 1.d.
 
 ## Add registry credentials to your Edge device
 Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. This gives the runtime access to pull the container. 
@@ -163,13 +156,13 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 - For Windows, run the following command:
     
     ```cmd/sh
-    iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password> 
+    iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
 - For Linux, run the following command:
     
     ```cmd/sh
-    sudo iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password> 
+    sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
 ## Run the solution
@@ -177,24 +170,24 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 1. In the **Azure portal**, navigate to your IoT hub.
 2. Go to **IoT Edge (preview)** and select your IoT Edge device.
 1. Select **Set Modules**. 
-2. Add the **tempSensor** module. This step is only required if you have not previously deployed the **tempSensor** module to your IoT Edge device.
+2. If you've already deployed the **tempSensor** module to this device, it may be automatically populated. If not, follow these steps to add it:
     1. Select **Add IoT Edge Module**.
     2. In the **Name** field, enter `tempSensor`.
     3. In the **Image URI** field, enter `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
     4. Leave the other settings unchanged and click **Save**.
-1. Add the **filterfunction** module.
+1. Add the **filterFunction** module.
     1. Select **Add IoT Edge Module** again.
-    2. In the **Name** field, enter `filterfunction`.
+    2. In the **Name** field, enter `filterFunction`.
     3. In the **Image** field, enter your image address; for example `<docker registry address>/filterfunction:latest`.
     74. Click **Save**.
 2. Click **Next**.
-3. In the **Specify Routes** step, copy the JSON below into the text box. Modules publish all messages to the Edge runtime. Declarative rules in the runtime define where those messages flow. In this tutorial, you need two routes. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint, which is the endpoint that you configured with the  **FilterMessages** handler. The second route transports messages from the filter module to IoT Hub. In this route, `upstream` is a special destination that tells Edge Hub to send messages to IoT Hub. 
+3. In the **Specify Routes** step, copy the JSON below into the text box. The first route transports messages from the temperature sensor to the filter module via the "input1" endpoint. The second route transports messages from the filter module to IoT Hub. In this route, `$upstream` is a special destination that tells Edge Hub to send messages to IoT Hub. 
 
     ```json
     {
        "routes":{
-          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterfunction/inputs/input1\")",
-          "filterToIoTHub":"FROM /messages/modules/filterfunction/outputs/* INTO $upstream"
+          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterFunction/inputs/input1\")",
+          "filterToIoTHub":"FROM /messages/modules/filterFunction/outputs/* INTO $upstream"
        }
     }
     ```
@@ -207,13 +200,13 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 
 To monitor device to cloud messages sent from your IoT Edge device to your IoT hub:
 1. Configure the Azure IoT Toolkit extension with connection string for your IoT hub: 
-    1. Use the **View | Explorer** menu command to open the VS Code explorer. 
-    3. In the explorer, click **IOT HUB DEVICES** and then click **...**. Click **Set IoT Hub Connection String** and enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window. 
+    1. In the Azure portal, navigate to your IoT hub and select **Shared access policies**. 
+    2. Select **iothubowner** then copy the value of **Connection string-primary key**.
+    1. In the VS Code explorer, click **IOT HUB DEVICES** and then click **...**. 
+    1. Select **Set IoT Hub Connection String** and enter the Iot Hub connection string in the pop-up window. 
 
-        To find the connection string, click the tile for your IoT hub in the Azure portal and then click **Shared access policies**. In **Shared access policies**, click the **iothubowner** policy and copy the IoT Hub connection string in the **iothubowner** window.   
-
-1. To monitor data arriving at the IoT hub, use the **View | Command Palette... | IoT: Start monitoring D2C message** menu command. 
-2. To stop monitoring data, use the **View | Command Palette... | IoT: Stop monitoring D2C message** menu command. 
+1. To monitor data arriving at the IoT hub, select the **View** > **Command Palette...** and search for **IoT: Start monitoring D2C message**. 
+2. To stop monitoring data, use the **IoT: Stop monitoring D2C message** command in the Command Palette. 
 
 ## Next steps
 
