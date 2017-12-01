@@ -27,7 +27,7 @@ You can use Azure Media Clipper in the portal to create clips from assets in you
 
 On the **Subclip** tab, you're able to begin composing clips. In the portal, the Clipper loads single-bitrate MP4s, multi-bitrate MP4s, and live archives that are published with a valid streaming locator. Unpublished assets are not loaded.
 
-The Clipper is current released in public preview. To access the Clipper in the Azure portal, navigate to [this public preview link](https://portal.azure.com/?feature.subclipper=true) in Azure portal to reach the tool.
+The Clipper is currently released in public preview. To access the Clipper in the Azure portal, navigate to [this public preview link](https://portal.azure.com/?feature.subclipper=true) in Azure portal to reach the tool.
 
 The following image illustrates the Clipper landing page in your media services account:
 ![Azure Media Clipper in Azure portal](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-portal.png)
