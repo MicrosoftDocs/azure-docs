@@ -263,8 +263,27 @@ play Beethoven
 Increase track volume
 Skip to the next song
 ```
-<!--11Intents
-2Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| DecreaseVolume | Decrease the device volume.|decrease track volume<br/>volume down|
+| IncreaseVolume | Increase the device volume.|increase track volume<br/>volume up|
+| Mute |Mute the playing music.|Mute song<br/>Put the track on mute<br/>Mute music |
+| Pause | Pause the playing music.|Pause<br/>Pause music<br/>Pause track|
+| PlayMusic | Play music on a device.|play Kevin Durant<br/>play Paradise by Coldplay<br/>play Hello by Adele|
+| Repeat |Repeat the playing music.|Repeat song<br/>Play the track gain<br/>Repeat music|
+| Resume | Resume the playing music.|Resume song<br/>Start music again<br/>Unpause|
+| SkipBack | Skip backwards a track.|Skip to the next song<br/>Play the next song|
+| SkipForward |Skip forward a track.|Play the previous song<br/>Go back to the previous track |
+| Stop | Stop an action relating to music playback. |Stop playing this album.|
+| Unmute | Unmute a music playback device.| Unmute.|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| ArtistName | The actor, director, producer, writer, musician or artist associated with media to play on a device.|Elvis Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
+| Genre | The genre of the music being requested.|Country music<br/>Broadway classics<br/>Play my classical music from the Baroque period|
 
 ## Note 
 The Note domain provides intents and entities related to creating, editing, and finding notes.
@@ -384,8 +403,25 @@ Get me a cab at 3 pm
 How much longer do I have to wait for my taxi?
 Cancel my Uber
 ```
-<!--3Intents
-8Entitiess -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Book | Call a taxi. |Get me a cab<br/>Find a taxi<br/>Book me an uber x|
+| Cancel | Cancel an action relating to booking a taxi.|Cancel my taxi<br/>Cancel my Uber|
+| Track | Track a taxi route.|How much longer do I have to wait for my taxi?<br/>Where is my Uber?|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Address| The address associated with booking a taxi. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| DestinationAddress| A destination location or address. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| DestinationPlaceName | The name of a destination that is a local business, restaurant, public attraction, or institution. |Central Park<br/>Safeway<br/>Walmart|
+| DestinationPlaceType | The type of a destination that is a local business, restaurant, public attraction, or institution. |Restaurant<br/>Opera<br/>Cinema|
+| PlaceName | Name of local business, restaurant, public attraction, or institution. |Central Park<br/>Safeway<br/>Walmart|
+| PlaceType| The type of place in a request to book a taxi.|Restaurant<br/>Opera<br/>Cinema|
+| TransportationCompany | The name of a transport provider.|Amtrak<br/>Acela<br/>Greyhound|
+| TransportationType | The transportation type.|Bus<br/>Train<br/>Driving|
 
 ## Translate 
 The Translate domain provides intents and entities related to translating text to a target language.
