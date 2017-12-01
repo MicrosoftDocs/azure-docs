@@ -53,11 +53,11 @@ Following are the requirements for the Azure resources used in this scenario.
 
    ![image of marketplace new event hub](media/log-analytics-logic-apps-activity-log/marketplace-new-event-hub.png)
 
-3. Under **Create namespace**, enter a namespace name. The system immediately checks to see if the name is available.
+3. Under **Create namespace**, either enter a new namespace or selecting an existing one. The system immediately checks to see if the name is available.
 
    ![image of create event hub dialog](media/log-analytics-logic-apps-activity-log/create-event-hub1.png)
 
-4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard), an Azure subscription, resource group, and location for the new resource. 
+4. Choose the pricing tier (Basic or Standard), an Azure subscription, resource group, and location for the new resource. 
 5. Click **Create** to create the namespace. You may have to wait a few minutes for the system to fully provision the resources.
 6. In the portal list of namespaces, click the newly created namespace.
 7. Click **Shared access policies** and then **RootManageSharedAccessKey**.
@@ -108,7 +108,7 @@ The Logic App includes the following:
    ![image of adding event hub trigger in logic apps](media/log-analytics-logic-apps-activity-log/log-analytics-logic-apps-activity-log-overview.png)
 
 ### Logic App Requirements
-Before creating your Logic App, me sure you have the following information from previous steps:
+Before creating your Logic App, make sure you have the following information from previous steps:
 - Event Hub name
 - Event Hub connection string (either the primary or secondary) for the Event Hub namespace.
 - Log Analytics workspace ID
@@ -120,9 +120,6 @@ To get the event Hub name and connection string, follow the steps in [Check Even
 ### Create a new blank Logic App
 
 1. In the Azure portal, choose **New** > **Enterprise Integration** > **Logic App**.
-
-    ![image of logic apps in marketplace](media/log-analytics-logic-apps-activity-log/export-activity-log2.png)
-
 2. Enter the settings in the table
    |Setting        | Suggested Value           | Description  |
    |---------------|---------------------------|--------------|
