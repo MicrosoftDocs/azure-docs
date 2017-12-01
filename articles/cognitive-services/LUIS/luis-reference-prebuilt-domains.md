@@ -275,8 +275,29 @@ Add to my groceries note lettuce tomato bread coffee
 Check off bananas from my grocery list
 Remove all items from my vacation list
 ```
-<!--9Intents
-6Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| AddToNote | Add information to a note.|Add to my groceries note lettuce tomato bread coffee<br/>Add to my todo list<br/>add cupcakes to my Wunderlist|
+| CheckOffItem | Check off items from a pre-existing note.|Check off bananas from my grocery list<br/>Mark cheese cake on my holiday shopping list as done|
+| Clear | Clear all items from a pre-existing note.|Remove all items from my vacation list<br/>Clear all from my reading list|
+| Confirm | Confirm an action relating to a note.|It's okay by me<br/>yes<br/>I am confirming keeping all items on lists|
+| Create | Create a new note. | Create a list<br/>Note to remind me that Jason is in town first week of May|
+| Delete | Delete an entire note. |Delete my vacation list <br/>delete my groceries note|
+| DeleteNoteItem | Delete items from a pre-existing note.| Delete chips from my grocery list<br/>Remove pens from my school shopping list|
+| ReadAloud | Read a list out loud.|Read me the first one<br/>Read me the details|
+| ShowNext | See the next item in a list of notes.|Show the next one<br/>Next page<br/>Next|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| AppName | The note-taking application name.|Wunderlist<br/>OneNote|
+| ContactName | The name of a contact in a note.|Carol<br/>Jim<br/>Chris|
+| DataSource | Location of notes.|OneDrive<br/>Google docs<br/>my computer|
+| DataType | The type of file or document, usually associated with particular software programs.|Slides<br/>Spreadsheet<br/>Worksheet|
+| Text | The text of a note or reminder.|stretch before walking<br/>long run tomorrow|
+| Title | Title of a note.|groceries<br/>people to call<br/>to-do|
 
 ## OnDevice 
 The OnDevice domain provides intents and entities related to controlling the device.
