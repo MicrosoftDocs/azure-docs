@@ -32,8 +32,10 @@ Pick the troubleshooting steps that correspond to the error message you encounte
 | *Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Delete the application with the application identifier d87dcbc6-a371-462e-88e3-28ad15ec4e64 and then try to enable Domain Services for your Azure AD tenant.* |[The Domain Services application is not configured properly in your tenant](active-directory-ds-troubleshooting.md#invalid-configuration) |
 | *Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant.* |[The Microsoft Graph application is disabled in your Azure AD tenant](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 | *Azure AD Domain Services and Azure AD B2C cannot be run concurrently on the same tenant. To restore your Azure AD Domain Services instance, disable Azure AD B2C and re-enable Azure AD DS.* | [Azure B2C is enabled in your tenant](active-directory-ds-troubleshooting.md#) |
-| *The IP address range for the virtual network %VIRTUAL_NETWORK% in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch and synchronize your managed domain.* | [Address is in a public IP range](active-directory-ds-troubleshooting.md#) |
+| *The IP address range for the virtual network %VIRTUAL_NETWORK% in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.* | [Address is in a public IP range](active-directory-ds-troubleshooting.md#) |
 | *We have identified that the subnet of the virtual network in this domain may not have sufficient IP addresses. Azure AD Domain Services needs at-least two available IP addresses within the subnet it is enabled in. We recommend having at-least 3-5 spare IP addresses within the subnet. This may have occurred if other virtual machines are deployed within the subnet, thus exhausting the number of available IP addresses or if there is a restriction on the number of available IP addresses in the subnet.* | [Insufficient amount of IP addresses available]() |
+| *error* | [explanation]() |
+| *error* | [explanation]() |
 
 ### Domain Name conflict
 **Error message:**
@@ -143,17 +145,17 @@ To restore your service, follow these steps:
 ### Address is in a public IP range
 **Error message:**
 
-*The IP address range for the virtual network %VIRTUAL_NETWORK% in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch and synchronize your managed domain.*
+*The IP address range for the virtual network %VIRTUAL_NETWORK% in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
 
 **Remediation:**
 
 > [!NOTE]
-> To address this issue, you must delete your existing managed domain an re-create it in a virtual network with a private IP address range. This is a disruptive process.
+> To address this issue, you must delete your existing managed domain and re-create it in a virtual network with a private IP address range. This process is disruptive.
 
 Before you begin, read the **private IP v4 address space** section in [this article](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
 1. Delete your managed domain from your tenant.
-  1. Navigate to the Azure Portal (https://portal.azure.com/)
+  1. Navigate to the Azure portal (https://portal.azure.com/)
   2. Select **Azure AD Domain Services** from the left-hand navigation.
   3. Find your domain in the table and open the context menu by clicking the "..." button on the far right of the row.
   4. Select **Delete** and follow the remaining steps to delete your domain.
@@ -168,16 +170,16 @@ Before you begin, read the **private IP v4 address space** section in [this arti
 **Remediation:**
 
 > [!NOTE]
-> To address this issue, you must delete your existing managed domain an re-create it in a subnet with a sufficient amount of IP addresses. This is a disruptive process.
+> To address this issue, you must delete your existing managed domain and re-create it in a subnet with a sufficient number of IP addresses. This is a disruptive process.
 
 
 1. Delete your managed domain from your tenant.
-  1. Navigate to the Azure Portal (https://portal.azure.com/)
+  1. Navigate to the Azure portal (https://portal.azure.com/)
   2. Select **Azure AD Domain Services** from the left-hand navigation.
   3. Find your domain in the table and open the context menu by clicking the "..." button on the far right of the row.
   4. Select **Delete** and follow the remaining steps to delete your domain.
 2. Fix the IP address range for the subnet
-  1. Navigate to the Azure Portal (https://portal.azure.com/)
+  1. Navigate to the Azure portal (https://portal.azure.com/)
   2. Select **Virtual Networks** from the left-hand navigation.
   3. Select the virtual network you plan to use for Azure AD Domain Services.
   4. Click on **Address Space** under Settings
@@ -185,6 +187,35 @@ Before you begin, read the **private IP v4 address space** section in [this arti
   6. *UPDATE SUBNET?????*
 3. Follow [the Getting Started Using Azure AD Domain Services guide](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
 4. To domain-join your virtual machines to your new domain, follow [this guide](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+
+
+### Missing tenant
+**Error message:**
+
+*error message here*
+
+**Remediation:**
+
+To restore your service, follow these steps:
+
+1. Navigate to the Azure portal (https://portal.azure.com/)
+2. C
+3. S
+4. C
+
+### Network Error
+**Error message:**
+
+*error message here*
+
+**Remediation:**
+
+To restore your service, follow these steps:
+
+1. Navigate to the Azure portal (https://portal.azure.com/)
+2. C
+3. S
+4. C
 
 
 ## Users are unable to sign in to the Azure AD Domain Services managed domain
