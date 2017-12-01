@@ -12,7 +12,7 @@ ms.date: 11/21/2016
 ms.author: sajagtap
 ---
 
-# Content Moderator Frequently Asked Questions (FAQs) #
+# Frequently Asked Questions (FAQs) #
 
 #### What does my Content Moderator subscription include? ####
 Your Content Moderator subscription includes access to the review tool and the APIs. You can decide whether you want to use one or the other, or both, depending on your business needs.
