@@ -261,7 +261,9 @@
       - name: Add a user on a VM
         href: cloudinit-add-user.md
         name: Configure swapfile
-        href: cloudinit-configure-swapfile.md  
+        href: cloudinit-configure-swapfile.md
+        name: Run existing bash script
+        href: cloudinit-bash-script.md  
     - name: Jenkins
       href: ../../jenkins/overview.md
       items:
