@@ -13,7 +13,9 @@ ms.author: cahann
 ---
 
 # Create an app
-You can create a new app two different ways. The first method to create the app is to start with an empty app and create intents, utterances and entities. The second method is to import a LUIS app from a JSON file that contains intents, utterances, and entities. 
+The app is the container for your LUIS model. The app contains [versions](luis-how-to-manage-versions.md) of your model as well as any [collaborators](luis-how-to-collaborate.md) for the app. When you create the app, you select the culture. The culture cannot be changed. The default version of a new app is "0.1." 
+
+You can create a new app in two different ways. The first method to [create the app](#create-new-app) is to start with an empty app and create intents, utterances, and entities. The second method is to [import a LUIS app](#import-new-app) from a JSON file that contains intents, utterances, and entities. 
 
 You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My apps** on the top navigation bar of [LUIS.ai](https://www.luis.ai) web page. 
 
@@ -32,6 +34,7 @@ You can create and manage your applications on **My Apps** page. You can always 
     >The culture cannot be changed once the application is created. 
 
 ## Import new app
+You can set the name (50 char max), version (10 char max), and description of an app in the JSON file. Examples of application JSON files are available at [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
 
 1. On **My Apps** page, click **Import new app**.
 2. In the **Import new app** dialog, select the JSON file defining the LUIS app.
@@ -40,4 +43,4 @@ You can create and manage your applications on **My Apps** page. You can always 
 
 ## Next steps
 
-Your first task in the app is to add intents. For more info on how to add intents, see [Add intents](Add-intents.md).
+Your first task in the app is to [add intents](Add-intents.md).
