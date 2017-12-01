@@ -31,6 +31,27 @@ Use the Event Hubs trigger to respond to an event sent to an event hub event str
 
 When an Event Hubs trigger function is triggered, the message that triggers it is passed into the function as a string.
 
+## Trigger - scaling
+
+Each instance of an Event Hub-Triggered Function is backed by only 1 EventProcessorHost (EPH) instance. Event Hubs ensures that only 1 EPH can get a lease on a given partition.
+
+For example, suppose we begin with the following setup and assumptions for an Event Hub:
+
+1. 10 partitions.
+1. 1000 events distributed evenly across all partitions => 100 messages in each partition.
+
+When your function is first enabled, there is only 1 instance of the funciton. Let's call this function instance Function_0. Function_0 will have 1 EPH that manages to get a lease on all 10 partitions. It will start reading events from partitions 0-9. From this point forward, one of the following will happen:
+
+* **Only 1 function instance is needed** - Function_0 is able to process all 1000 before the Azure Functions' scaling logic kicks in. Hence, all 1000 messages are processed by Function_0.
+
+* **Add 1 more function instance** - Azure Functions' scaling logic determines that Function_0 has more messages than it can process, so a new instance, Function_1, is created. Event Hubs detects that a new EPH instance is trying read messages. Event Hubs will start load balancing the partitions across the EPH instances, e.g., partitions 0-4 are assigned to Function_0 and partitions 5-9 are assigned to Function_1. 
+
+* **Add N more function instances** - Azure Functions' scaling logic determines that both Function_0 and Function_1 have more messages than they can process. It will scale again for Function_2...N, where N is greater than the Event Hub paritions. Event Hubs will load balance the partitions across Function_0...9 instances.
+
+Unique to Azure Functions' current scaling logic is the fact that N is greater than the number of partitions. This is done to ensure that there are always instances of EPH readily available to quickly get a lock on the partition(s) as they become available from other instances. Users are only charged for the resources used when the function instance executes, and are not charged for this over-provisioning.
+
+If all function executions succeed without errors, checkpoints are added to the associated storage account. When check-pointing succeeds, all 1000 messages should never be retrieved again.
+
 ## Trigger - example
 
 See the language-specific example:
