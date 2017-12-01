@@ -26,10 +26,10 @@ In practice, any code may need debugging, but it is hard to debug a distributed 
 
 The following video demonstrates Failed Vertex Debug in Azure Data Lake Tools for Visual Studio.
 
-> [!VIDEO https://youtu.be/3enkNvprfm4]
+> [!VIDEO https://www.youtube.com/embed/3enkNvprfm4]
 >
 
-> [!NOTE]
+> [!IMPORTANT]
 > Visual Studio requires the following two updates for using this feature: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) and the [Universal C Runtime for Windows](https://www.microsoft.com/download/details.aspx?id=50410).
 >
 
