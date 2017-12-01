@@ -265,7 +265,7 @@ The **builtin.datetimeV2** prebuilt entity automatically recognizes dates, times
 <table>
 <th> example </th><th>property descriptions</th>
 <tr><td>
-The following is an example of a JSON response containing a builtin.datetimeV2 entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href=#subtypes-of-datetimev2>Subtypes of datetimeV2</a>.
+The following is an example of a JSON response containing a builtin.datetimeV2 entity, of type <code>datetime</code>. For examples of other types of datetimeV2 entities, see <a href="#subtypes-of-datetimev2">Subtypes of datetimeV2</a>.
 <pre>
   "entities": [
     {
@@ -288,7 +288,7 @@ The following is an example of a JSON response containing a builtin.datetimeV2 e
    <td> 
    <table>
    <tr><td>entity</td><td><b>string</b>. Text extracted from the utterance, that represents a date, time, date range, or time range.</td></tr>
-   <tr><td>type</td><td><b>string</b>. One of the following <a href=#subtypes-of-datetimev2>subtypes of datetimeV2</a>: 
+   <tr><td>type</td><td><b>string</b>. One of the following <a href="#subtypes-of-datetimev2">subtypes of datetimeV2</a>: 
    <ul><li>builtin.datetimeV2.datetime
    <li>builtin.datetimeV2.date
    <li>builtin.datetimeV2.time
