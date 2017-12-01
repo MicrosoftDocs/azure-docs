@@ -111,7 +111,7 @@ Now go back to the Azure portal to get your connection string information and co
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-5. Save the App.config file.
+5. Press CTRL+S to save the App.config file.
 
 You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
@@ -128,31 +128,34 @@ You've now updated your app with all the info it needs to communicate with Azure
 
     ![Click Install](media/create-table-dotnet/azure-cosmosdb-nuget-install.png)
 
-4. Open BasicSamples.cs. Right-click on line 30, select **Breakpoint**, then select **Insert Breakpoint**. Repeat this step on lines 52 and 55.
+4. Open BasicSamples.cs. Right-click on line 52, select **Breakpoint**, then select **Insert Breakpoint**. Insert another breakpoint on line 55.
 
    ![Add a breakpoint](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
 
 5. Press F5 to run the application.
 
-    The console window displays the name of the new table database in Azure Cosmos DB. 
+    The console window displays the name of the new table database (in this case, demo91ab4) in Azure Cosmos DB. 
     
     ![Console output](media/create-table-dotnet/azure-cosmosdb-console.png)
 
     If you get an error about dependencies, see [Troubleshooting](table-sdk-dotnet.md#troubleshooting).
 
-    When you hit the first breakpoint, go back to Data Explorer in the Azure portal and expand the demo* table and click **Entities**. The **Entities** tab on the right shows the new entity that was added, note that phone number for the user is 425-555-0101.
+    When you hit the first breakpoint, go back to Data Explorer in the Azure portal. Click the **Refresh** button, expand the demo* table, and click **Entities**. The **Entities** tab on the right shows the new entity that was added for Walter Harp. Note that the phone number for the new entity is 425-555-0101.
 
     ![New entity](media/create-table-dotnet/azure-cosmosdb-entity.png)
     
 6. Close the **Entities** tab in Data Explorer.
     
-7. Press F5 to run the app to the next breakpoint.
+7. Press F5 to run the app to the next breakpoint. 
 
-    When you hit the breakpoint, switch back to the portal, click **Entities** again to open the **Entities** tab, and note that the phone number has been updated to 425-555-0105.
+    When you hit the breakpoint, switch back to the Azure portal, click **Entities** again to open the **Entities** tab, and note that the phone number has been updated to 425-555-0105.
 
-8. Back in the console window, press CTRL + C to end the execution of the app. 
+8. Press F5 to run the app. 
+ 
+   The app adds entities for use in an advanced sample app that the Table API currently does not support. The app then deletes the table created by the sample app.
 
-    You can now go back to Data Explorer and add or modify the entitites, and query the data.
+9. In the console window, press Enter to end the execution of the app. 
+  
 
 ## Review SLAs in the Azure portal
 
