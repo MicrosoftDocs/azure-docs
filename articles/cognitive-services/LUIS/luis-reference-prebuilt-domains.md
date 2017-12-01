@@ -259,7 +259,7 @@ The Music domain provides intents and entities related to playing music on a mus
 
 ### Examples
 ```
-play Kevin Durant
+play Beethoven
 Increase track volume
 Skip to the next song
 ```
@@ -311,8 +311,19 @@ Change my interview to 9 am tomorrow
 Remind me to buy milk on my way back home
 Can you check if I have a reminder about Christine's birthday?
 ```
-<!--4Intents
-1Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Change| Change a reminder.|Change my interview to 9 am tomorrow<br/>Move my assignment reminder to tomorrow|
+| Create| Create a new reminder.|Create a reminder<br/>Remind me to buy milk<br/>I want to remember to call Rebecca when I'm at home|
+| Delete | Delete a reminder.|Delete my picture reminder<br/>Delete this reminder|
+| Find | Find a reminder.|Do I have a reminder about my anniversary?<br/>Can you check if I have a reminder about Christine's birthday?|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Text | The text description of a reminder.|pick up dry cleaning<br/>dropping my car off at the service center|
 
 ## RestaurantReservation 
 The Reservation domain provides intents and entities related to managing restaurant reservations.
@@ -348,8 +359,18 @@ Translate to French
 Translate hello to German
 Translate this sentence to English
 ```
-<!--1Intents
-2Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Translate| Translate text to another language.|Translate to French<br/>Translate hello to German|
+
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| TargetLanguage | The target language of a translation.|French<br/>German<br/>Korean|
+| Text | The text to translate.|Hello World<br/>Good morning<br/>Good evening|
 
 ## TV 
  
