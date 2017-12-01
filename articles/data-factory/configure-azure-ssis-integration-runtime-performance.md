@@ -96,7 +96,7 @@ When you're already using a powerful worker node to run packages, increasing **A
 | Standard\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8x500                         | 4 / 1000                                       |
 | Standard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16x500                       | 8 / 2000                                       |
 
-Here are the guidelines for settings the right value for the **AzureSSISMaxParallelExecutionsPerNode** property: 
+Here are the guidelines for setting the right value for the **AzureSSISMaxParallelExecutionsPerNode** property: 
 
 1. Set it to a small value at first.
 2. Increase it by a small amount to check whether the overall throughput is improved.
