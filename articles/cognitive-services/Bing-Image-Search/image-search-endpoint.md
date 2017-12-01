@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.technology: bing-image-search
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: mikedodaro
+ms.author: v-gedod
 ---
 
 # Image Search endpoint
