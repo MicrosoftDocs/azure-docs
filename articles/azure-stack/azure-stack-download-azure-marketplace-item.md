@@ -69,20 +69,17 @@ From the machine that has internet connectivity, use the following steps to down
 4. Download the latest version of marketplace syndication tool by using the following script:  
 
    ```PowerShell
-   # Change directory to the root directory. 
-   cd \
-
    # Download the tools archive.
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-    -OutFile master.zip
+   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/vnext.zip `
+     -OutFile vnext.zip
 
    # Expand the downloaded files.
-   expand-archive master.zip `
-    -DestinationPath . `
-    -Force
+   expand-archive vnext.zip `
+     -DestinationPath . `
+     -Force
 
    # Change to the tools directory.
-   cd AzureStack-Tools-master
+   cd \AzureStack-Tools-vnext
 
    ```
 
