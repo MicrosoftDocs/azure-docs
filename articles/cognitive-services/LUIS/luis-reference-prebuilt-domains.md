@@ -230,7 +230,7 @@ The HomeAutomation domain provides intents and entities related to controlling s
 | Room | The location or room the device is in.|living room<br/>bedroom<br/>kitchen|
 
 ## MovieTickets 
-The Movie Tickets domain provides intents and entities related to booking tickets to movies at a movie theater.
+The MovieTickets domain provides intents and entities related to booking tickets to movies at a movie theater.
 
 ### Examples
 ```
