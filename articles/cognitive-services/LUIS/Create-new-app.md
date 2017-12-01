@@ -13,9 +13,9 @@ ms.author: cahann
 ---
 
 # Create an app
-When you create the app, you select the culture. The culture can not be changed. The default version of a new app is "0.1." 
+When you create the app, you select the culture. The culture cannot be changed. The default version of a new app is "0.1." 
 
-You can create a new app two different ways. The first method to [create the app](#create-new-app) is to start with an empty app and create intents, utterances and entities. The second method is to [import a LUIS app](#import-new-app) from a JSON file that contains intents, utterances, and entities. 
+You can create a new app in two different ways. The first method to [create the app](#create-new-app) is to start with an empty app and create intents, utterances, and entities. The second method is to [import a LUIS app](#import-new-app) from a JSON file that contains intents, utterances, and entities. 
 
 You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My apps** on the top navigation bar of [LUIS.ai](https://www.luis.ai) web page. 
 
