@@ -222,8 +222,21 @@ Book me two tickets for Captain Omar and the two Musketeers
 Cancel tickets
 When is Captain Omar showing?
 ```
-<!--2Intents
-4Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Book | Purchase movie tickets.|Book me two tickets for Captain Omar and the two musketeers<br/>I want to buy a ticket for tomorrow's movie<br/>I want a ticket for Captian Omar Part 2 next Wednesday|
+|GetShowTime| Get the showtime of a movie.|When is Captain Omar showing?|
+
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Address | The address of a movie theater.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| MovieTitle | The title of a movie.|Life of Pi<br/>Hunger Games<br/>Inception|
+| PlaceName | The name of a movie theater or cinema.|Cinema Amir<br/>Alexandria Theatre<br/>New York Theater|
+| PlaceType | The type of location a movie is showing at.|cinema<br/>theater<br/>IMAX cinema|
 
 ## Music 
 The Music domain provides intents and entities related to playing music on a music player.
