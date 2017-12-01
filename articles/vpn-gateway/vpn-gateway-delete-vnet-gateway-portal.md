@@ -32,7 +32,7 @@ This article provides the instructions for deleting an Azure VPN gateways deploy
 - If you want to keep some of the resources in your resource group, deleting a virtual network gateway becomes slightly more complicated. Before you can delete the virtual network gateway, you must first delete any resources that are dependent on the gateway. The steps you follow depend on the type of connections that you created and the dependent resources for each connection.
 
 > [!IMPORTANT]
-> The instructions below describe how to delete Azure VPN gateways deployed using the Resource Manager deployment model. To delete a VPN gateway deployed using the classic deployment model, please use Azure PowerShell as described [here](vpn-gateway-delete-vnet-gateway-classic-powershell).
+> The instructions below describe how to delete Azure VPN gateways deployed using the Resource Manager deployment model. To delete a VPN gateway deployed using the classic deployment model, please use Azure PowerShell as described [here](vpn-gateway-delete-vnet-gateway-classic-powershell.md).
 
 
 ## Delete a VPN gateway
