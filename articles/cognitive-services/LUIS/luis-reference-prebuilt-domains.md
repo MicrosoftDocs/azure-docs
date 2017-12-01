@@ -329,6 +329,27 @@ Can you make the screen brighter?
 ```
 <!--27Intents
 6Entities -->
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| AreYouListening | Ask if the device is listening.|is this on?<br/>are you listening?|
+|CloseApplication|Close the device application.|close video player|
+|FileBug|File a bug on the device.|file a bug please<br/>Can you file a bug for me ?<br/>Let me report this bug|
+|GoBack|Ask to go back one step or return to the previous step.|Go back please<br/>Go to previous screen<br/>Go back stop listening|
+|Help| Request help.|Help please<br/>Hello<br/>What can you do?<br/>I need help| 
+|LocateDevice|Locate the device.|Can you locate my phone<br/>Find tom's iphone<br/>Find my phone|
+|LogIn|Log in to a service using the device.|Login please<br/>Facebook log in<br/>Log into LinkedIn|
+|LogOut|Log out of a service using the device.|Log off my phone<br/>Log on to twitter<br/>Log out|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| AppName | Name of an application on the device.|SoundCloud<br/>YouTube|
+| BrightnessLevel | Set the brightness level on the device.|One hundred percent<br/>Fifty<br/>40%|
+| ContactName | The name of a contact on the device.|Paul<br/>Marlen Max|
+| DeviceType | The type of device. |Phone<br/>Kindle<br/>Laptop|
+| MediaType | The media type handled by the device.|Music<br/>Movie<br/>TV shows|
+| SettingType | A type of setting or settings panel that the user wants to edit.|WiFi<br/>Wireless Network<br/>Color Scheme<br/>Notification [Center]|
 
 ## Places  
 The Places domain provides intents for handling queries related to places like businesses, institution, restaurants, public spaces and addresses.
@@ -341,6 +362,27 @@ At what time does Safeway close?
 ```
 <!--30Intents
 20Entities -->
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| AddFavoritePlace | Add a location to the the user's favorites list.|Save this location to my favorites<br/>Add this address to my favorites|
+|CheckAccident|Ask whether there is an accident on a specified road.|Is there an accident on 880?<br/>Show me accident information|
+|CheckAreaTraffic|Check the traffic for a general area or highway, not on a specified route.|Traffic in Seattle<br/>What's the traffic like in Seattle?|
+|CheckIntoPlace|Check in to a place using social media.|Check me in on Foursquare<br/>Check in here|
+|CheckRouteTraffic| Check the traffic of a specific route specified by the user.|How is the traffic to Mashiko?<br/>Show me the traffice to Kirkland<br/>How is the traffic to Seattle?| 
+|Confirm|Confirm an action relating to a place.|Confirm my restaurant reservation.|
+|Exit|Action to exit a task relating to a place.|Quit please<br/>Quit giving me directions|
+|FindPlace|Search for a place (business, institution, restaurant, public space, address).|Where's the nearest library?<br/>Find me a good Italian restaurant in Mountain View|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| AbsoluteLocation | The location or address of a place.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| Amenities | The objective characteristics/benefits of a place.|kids eat free<br/>waterfront<br/>free parking|
+| Atmosphere | The atmosphere of a place.|kid-friendly<br/>casual restaurant<br/>sporty|
+| Cuisine | The cuisine of a place. |Mediterranean<br/>Italian<br/>Indian|
+| DestinationAddress| A destination location or address.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| DestinationPlaceName| The name of a destination that is a business, restaurant, public attraction, or institution.|central park<br/>safeway<br/>walmart|
 
 ## Reminder 
 The reminder domain provides intents and entities for creating, editing, and finding reminders.
