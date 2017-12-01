@@ -17,7 +17,7 @@ ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
 ---
-# Create an ASP.NET web app in Azure
+# Create an ASP.NET Core web app in Azure
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application.
 
@@ -71,7 +71,7 @@ Make sure that **Microsoft Azure App Service** is selected and select **Publish*
 
 ![Publish from project overview page](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-This opens the **Create App Service** dialog, which helps you create all the necessary Azure resources to run the ASP.NET web app in Azure.
+This opens the **Create App Service** dialog, which helps you create all the necessary Azure resources to run the ASP.NET Core web app in Azure.
 
 ## Sign in to Azure
 
@@ -118,13 +118,13 @@ Select **Create** to start creating the Azure resources.
 
 ![Configure web app name](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
-Once the wizard completes, it publishes the ASP.NET web app to Azure, and then launches the app in the default browser.
+Once the wizard completes, it publishes the ASP.NET Core web app to Azure, and then launches the app in the default browser.
 
 ![Published ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
 The web app name specified in the [create and publish step](#create-and-publish-the-web-app) is used as the URL prefix in the format `http://<app_name>.azurewebsites.net`.
 
-Congratulations, your ASP.NET web app is running live in Azure App Service.
+Congratulations, your ASP.NET Core web app is running live in Azure App Service.
 
 ## Update the app and redeploy
 
