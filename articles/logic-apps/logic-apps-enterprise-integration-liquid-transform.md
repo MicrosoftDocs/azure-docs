@@ -40,7 +40,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 * Follow the steps below to select your integration account
   * Choose **All services**.
-  * Provide your integration account name in the text box, which is myintegrationaccount in this example.
+  * Provide your integration account name in the text box, which is *myintegrationaccount* in this example.
   * Select your integration account.
 
     ![Select integration account](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
