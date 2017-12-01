@@ -215,11 +215,11 @@ If set, waagent will execute CustomData after provisioning.
 Type: Boolean
 Default: n
 
-This option allow reset password of sys user, Default is disabled
+This option allows the password for the sys user to be reset; default is disabled.
 
 **Provisioning.PasswordCryptId**  
-Type:String  
-Default:6
+Type: String  
+Default: 6
 
 Algorithm used by crypt when generating password hash.  
  1 - MD5  
@@ -228,8 +228,8 @@ Algorithm used by crypt when generating password hash.
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-Type:String  
-Default:10
+Type: String  
+Default: 10
 
 Length of random salt used when generating password hash.
 
@@ -303,7 +303,7 @@ If set, the agent will use this proxy server to access the internet.
 Type: Boolean
 Default: y
 
-Enable or disable goal state processing auto-update, default is enabled.
+Enable or disable auto-update for goal state processing; default is enabled.
 
 
 
