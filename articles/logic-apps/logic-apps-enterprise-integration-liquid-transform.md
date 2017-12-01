@@ -24,7 +24,7 @@ Logic Apps support basic JSON transformations through native Data Operation acti
 This document covers Liquid action, which uses liquid maps or templates to support more complex JSON transformations, such as iteration, control flow, variables etc. To use liquid action in your logic app, you need to define JSON to JSON mapping through a liquid map, and store it in the Integration Account. 
 
 
-### Prerequisites
+## Prerequisites
 Here are the prerequisites to use the liquid action:
 
 * An Azure subscription. If you don't have a subscription, you can 
@@ -36,7 +36,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 * Basic [Integration Account](logic-apps-enterprise-integration-create-integration-account.md).
 
 
-### Upload liquid template or map to integration account
+## Upload liquid template or map to integration account
 
 * Use following steps to select your integration account
   * Choose **All services**.
@@ -79,7 +79,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
     > If you are using any [filters](https://shopify.github.io/liquid/basics/introduction/#filters) in liquid template, they must start with an upper case. 
 
 
-### Use Liquid action for JSON to JSON transformation
+## Use Liquid action for JSON to JSON transformation
 
 * [Create a logic app](logic-apps-create-a-logic-app.md).
 
