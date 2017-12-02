@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/29/2017
+ms.date: 12/02/2017
 ms.author: nisoneji
 
 ---   
@@ -22,6 +22,7 @@ The generated Microsoft Excel report contains the following sheets:
 
 ## On-premises summary
 The On-premises summary worksheet provides an overview of the profiled Hyper-V environment
+![On-premises summary](media/site-recovery-hyper-v-deployment-planner-analyze-report/on-premises-summary-h2a.png)
 
 **Start Date** and **End Date**: The start and end dates of the profiling data considered for report generation. By default, the start date is the date when profiling starts, and the end date is the date when profiling stops. This can be the ‘StartDate’ and ‘EndDate’ values if the report is generated with these parameters.
 
@@ -44,7 +45,10 @@ The On-premises summary worksheet provides an overview of the profiled Hyper-V e
 ## Recommendations  
 The recommendations sheet of the Hyper-V to Azure report has the following details as per the selected desired RPO:
 
+![Recommendations](media/site-recovery-hyper-v-deployment-planner-analyze-report/Recommendations-h2a.png)
 ### Profile data
+![Profile data](media/site-recovery-hyper-v-deployment-planner-analyze-report/profile-data-h2a.png)
+
 **Profiled data period**: The period during which the profiling was run. By default, the tool includes all profiled data in the calculation. If you have used StartDate and EndDate option in report generation, it generates the report for the specific period. 
 
 **Number of Hyper-V servers profiled**: The number of Hyper-V servers whose VMs’ report is generated. Click on the number to view the name of the Hyper-V servers. It opens the On-premises Storage Requirement sheet where all the servers are listed along with their storage requirement.    
@@ -52,6 +56,7 @@ The recommendations sheet of the Hyper-V to Azure report has the following detai
 **Desired RPO**: The recovery point objective for your deployment. By default, the required network bandwidth is calculated for RPO values of 15, 30, and 60 minutes. Based on the selection, the affected values are updated on the sheet. If you have used the DesiredRPOinMin parameter while generating the report, that value is shown in the Desired RPO result.
 
 ### Profiling overview
+![Profiling overview](media/site-recovery-hyper-v-deployment-planner-analyze-report/profiling-overview-h2a.png)
 **Total Profiled Virtual Machines**: The total number of VMs whose profiled data is available. If the VMListFile has names of any VMs, which were not profiled, those VMs are not considered in the report generation and are excluded from the total profiled VMs count.
 
 **Compatible Virtual Machines**: The number of VMs that can be protected to Azure by using Azure Site Recovery. It is the total number of compatible VMs for which the required network bandwidth, number of storage accounts, number of Azure cores are calculated. The details of every compatible VM are available in the "Compatible VMs" section.
@@ -61,6 +66,7 @@ The recommendations sheet of the Hyper-V to Azure report has the following detai
 **Desired RPO**: Your desired recovery point objective, in minutes. The report is generated for three RPO values: 15 (default), 30, and 60 minutes. The bandwidth recommendation in the report is changed based on your selection in the Desired RPO drop-down list given at the top right of the sheet. If you have generated the report by using the -DesiredRPO parameter with a custom value, this custom value shows as the default in the Desired RPO drop-down list.
 
 ### Required network bandwidth (Mbps)
+![Required network bandwidth](media/site-recovery-hyper-v-deployment-planner-analyze-report/required-network-bandwidth-h2a.png)
 **To meet RPO 100 percent of the time**: The recommended bandwidth in Mbps to be allocated to meet your desired RPO 100 percent of the time. This amount of bandwidth must be dedicated for steady-state delta replication of all your compatible VMs to avoid any RPO violations.
 
 **To meet RPO 90 percent of the time**: Because of broadband pricing or for any other reason, if you cannot set the bandwidth needed to meet your desired RPO 100 percent of the time, you can choose to go with a lower bandwidth setting that can meet your desired RPO 90 percent of the time. To understand the implications of setting this lower bandwidth, the report provides a what-if analysis on the number and duration of RPO violations to expect.
@@ -72,22 +78,31 @@ For all enterprise Azure Site Recovery deployments, we recommend that you use [E
 ### Required storage accounts
 The following chart shows the total number of storage accounts (standard and premium) that are required to protect all the compatible VMs. To learn which storage account to use for each VM, see the "VM-storage placement" section.
 
+![Required storage accounts](media/site-recovery-hyper-v-deployment-planner-analyze-report/required-storage-accounts-h2a.png)
+
 ### Required number of Azure cores
+![Required number of Azure cores](media/site-recovery-hyper-v-deployment-planner-analyze-report/required-number-of-azure-cores-h2a.png)
 This result is the total number of cores to be set up before failover or test failover of all the compatible VMs. If too few cores are available in the subscription, Azure Site Recovery fails to create VMs at the time of test failover or failover.
 
 ### Additional on-premises storage requirement
+
 The total free storage required on Hyper-V servers for successful initial replication and delta replication to ensure that the VM replication will not cause any undesirable downtime for your production applications. Detail of each volume requirement is available in [on-premises storage requirement](#on-premises-storage-requirement). 
 
 To understand why free space is required for the replication, refer to [On-premises storage requirement](#why-do-i-need-free-space-on-the-hyper-v-server-for-the-replication) section.
+
+![on-prem storage requirement and copy frequency](media/site-recovery-hyper-v-deployment-planner-analyze-report/on-premises-storage-and-copy-frequency-h2a.png)
 
 ### Maximum copy frequency
 The recommended maximum copy frequency must be set for the replication to achieve the desired RPO. Default is 5 minutes. You can set 30 seconds copy frequency to achieve better RPO.
 
 ### What-if analysis
+![What-if-analysis](media/site-recovery-hyper-v-deployment-planner-analyze-report/what-if-analysis-h2a.png)
 This analysis outlines how many violations could occur during the profiling period when you set a lower bandwidth for the desired RPO to be met only 90%of the time. One or more RPO violations can occur on any given day. The graph shows the peak RPO of the day. Based on this analysis, you can decide if the number of RPO violations across all days and peak RPO hit per day is acceptable with the specified lower bandwidth. If it is acceptable, you can allocate the lower bandwidth for replication, else allocate higher bandwidth as suggested to meet the desired RPO 100 percent of the time. 
 
 ### Recommendation for successful initial replication
 In this section, we recommend the number of batches in which the VMs to be protected and the minimum bandwidth required to complete initial replication (IR) successfully. 
+
+![IR batching](media/site-recovery-hyper-v-deployment-planner-analyze-report/ir-batching-h2a.png)
 
 The VM must be protected in the given batch order. Each batch has specific list of VMs. Batch 1 VMs must be protected before Batch 2. Batch 2 VMs must be protected before Batch 3 VMs and so on. Once initial replication of the Batch 1 VMs is completed, you can enable replication for Batch 2 VMs. Similarly, once initial replication of VMs of Batch 2 is completed, you can enable replication for Batch 3 VMs and so on. If the batch order is not followed, sufficient bandwidth for initial replication may not be available for the VMs, which are protected later. Result is, either VMs will never be able to complete initial replication, or few protected VMs may go into resync mode. IR batching for the selected RPO sheet has the detailed information about which VMs should be included in each batch.
 
@@ -98,7 +113,7 @@ The completion time of the initial replication is based on the VM disk size, use
 
 ### Cost estimation
 The graph shows the summary view of the estimated total disaster recovery (DR) cost to Azure of your chosen target region and the currency that you have specified for report generation.
-
+![Cost estimation summary](media/site-recovery-hyper-v-deployment-planner-analyze-report/cost-estimation-summary-h2a.png)
 The summary helps you to understand the cost that you need to pay for storage, compute, network, and license when you protect all your compatible VMs to Azure using Azure Site Recovery. The cost is calculated on for compatible VMs and not on all the profiled VMs.  
  
 You can view the cost either monthly or yearly. Learn more about [supported target regions](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) and [supported currencies](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).
@@ -119,6 +134,8 @@ You can view detailed cost analysis per VM in the [Cost Estimation](site-recover
 
 ## VM-Storage placement recommendation 
 
+![VM-Storage placement](media/site-recovery-hyper-v-deployment-planner-analyze-report/vm-storage-placement-h2a.png)
+
 **Disk Storage Type**: Either a standard or premium storage account, which is used to replicate all the corresponding VMs mentioned in the **VMs to Place** column.
 
 **Suggested Prefix**: The suggested three-character prefix that can be used for naming the storage account. You can use your own prefix, but the tool's suggestion follows the [partition naming convention for storage accounts](https://aka.ms/storage-performance-checklist).
@@ -135,6 +152,8 @@ You can view detailed cost analysis per VM in the [Cost Estimation](site-recover
 
 ## Compatible VMs
 The Microsoft Excel report generated by Azure Site Recovery deployment planner provides all compatible VMs details in "Compatible VMs" sheet.
+
+![Compatible VMs](media/site-recovery-hyper-v-deployment-planner-analyze-report/compatible-vms-h2a.png)
 
 **VM Name**: The VM name that's used in the VMListFile when a report is generated. This column also lists the disks (VHDs) that are attached to the VMs. The names include the Hyper-V host names where the VMs were placed when the tool discovered them during the profiling period.
 
@@ -174,6 +193,8 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 ## Incompatible VMs
 The Microsoft Excel report generated by Azure Site Recovery deployment planner provides all incompatible VMs details in "Incompatible VMs" sheet.
+
+![Incompatible VMs](media/site-recovery-hyper-v-deployment-planner-analyze-report/incompatible-vms-h2a.png)
 
 **VM Name**: The VM name that's used in the VMListFile when a report is generated. This column also lists the disks (VHDs) that are attached to the VMs. The names include the Hyper-V host names where the VMs were placed when the tool discovered them during the profiling period.
 
@@ -243,6 +264,8 @@ The worksheet provides the total free storage space requirement for each volume 
 
 Azure Site Recovery deployment planner identifies the optimal storage space requirement based on the VHDs size and the network bandwidth used for replication.
 
+![on-premises storage requirement](media/site-recovery-hyper-v-deployment-planner-analyze-report/on-premises-storage-requirement-h2a.png)
+
 ### Why do I need free space on the Hyper-V server for the replication?
 * When you enable replication of a VM, Azure Site Recovery takes a snapshot of each VHD of the VM for initial replication (IR). While initial replication is going on, new changes are written to the disks by the application. Azure Site Recovery tracks these delta changes in the log files, which require additional storage space.  Till initial replication gets completed, the log files are stored locally. If sufficient space is not available for the log files and snapshot (AVHDX), replication will go into resynchronization mode and replication will never get completed. In the worst case, you need 100% additional free space of the VHD size for initial replication.
 * Once initial replication is over, delta replication starts. Azure Site Recovery tracks these delta changes in the log files, which are stored on the volume where the VHDs of the VM reside. These logs files get replicated to Azure at a configured copy frequency. Based on the available network bandwidth, the log files take some time to get replicated to Azure. If sufficient free space is not available to store the log files, replication will be paused, and the replication status of the VM will go into resynchronization required.
@@ -267,6 +290,9 @@ If all the VMs are protected at the same time, the free storage requirement woul
 This worksheet provides the detail view of each batch for initial replication (IR). For each RPO, a separate IR batching sheet is created. 
 
 Once you have followed the on-premises storage requirement recommendation for each volume, the main information that you need to replicate is the list of VMs that can be protected in parallel. These VMs are group together in a batch. There can be multiple batches. You must protect the VMs in the given batch order. First protect Batch 1 VMs and once initial replication is completed, protect Batch 2 VMs, and so on. You can get the list of batches and corresponding VMs from this sheet. 
+
+![IR baching details1](media/site-recovery-hyper-v-deployment-planner-analyze-report/ir-batching-for-rpo-h2a.png)
+![IR baching details2](media/site-recovery-hyper-v-deployment-planner-analyze-report/ir-batching-for-rpo2-h2a.png)
 
 ### Each batch provides the following information 
 **Hyper-V host**: The Hyper-V host of the VM to be protected.

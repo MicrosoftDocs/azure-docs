@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/26/2017
+ms.date: 12/02/2017
 ms.author: nisoneji
 
 ---
@@ -21,7 +21,6 @@ ms.author: nisoneji
 This article is the Azure Site Recovery Deployment Planner user guide for Hyper-V-to-Azure production deployments.
 
 ## Overview
-
 Before you begin protecting any Hyper-V virtual machines (VMs) using Site Recovery, allocate sufficient bandwidth based on your daily data-change rate to meet your desired Recovery Point Objective (RPO), and allocate sufficient free storage space on each volume of Hyper-V storage on-premises.
 
 You also need to create the right type and number of target Azure storage accounts. You create either standard or premium storage accounts, factoring in growth on your source production servers because of increased usage over time. You choose the storage type per VM, based on workload characteristics, for example, read/write I/O operations per second (IOPS), or data churn, and Azure Site Recovery limits. 

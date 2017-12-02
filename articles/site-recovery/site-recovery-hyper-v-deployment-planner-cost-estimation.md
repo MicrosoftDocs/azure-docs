@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/27/2017
+ms.date: 12/02/2017
 ms.author: nisoneji
 
 ---
