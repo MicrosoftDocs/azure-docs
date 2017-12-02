@@ -192,7 +192,6 @@ There are some behavior differences that users coming from Azure Table storage w
 * Query results returned by the Table API are not sorted in partition key/row key order as they are in Azure Table storage.
 * Row keys can only be up to 255 bytes
 * Batches can only contain up to 2 MBs
-* CreateIfNotExists calls are throttled by a management throttle that is fixed and separate from other table operations that are covered by RUs. This means that those making large numbers of CreateIfNotExists get throttled and won't be able to do anything about it because the limit is not coming from their RUs.
 * CORS is not currently supported
 * Table names in Azure Table storage are not case-sensitive, but they are in Azure Cosmos DB Table API
 * Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full 1 Meg of a table entity to store binary data because the encoding increases the data's size.
@@ -507,7 +506,7 @@ Use [Diagnostic logs](logging.md).
 ### Which client SDKs can work with Apache Cassandra API of Azure Cosmos DB?
 In private preview Apache Cassandra SDK's client drivers which use CQLv3 were used for client programs. If you have other drivers that you use or if you are facing issues, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com). 
 
-### Is composite primary key supported?
+### Is composite partition key supported?
 Yes, you can use regular syntax to create composite partition key. 
 
 ### Can I use sstable loader for data loading?

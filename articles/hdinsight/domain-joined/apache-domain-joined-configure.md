@@ -18,7 +18,7 @@ ms.date: 11/02/2016
 ms.author: saurinsh
 
 ---
-# Configure Domain-joined HDInsight clusters (Preview)
+# Configure Domain-joined HDInsight clusters
 
 Learn how to set up an Azure HDInsight cluster with Azure Active Directory (Azure AD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) to take advantage of strong authentication and rich role-based access control (RBAC) policies.  Domain-joined HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md).
 
