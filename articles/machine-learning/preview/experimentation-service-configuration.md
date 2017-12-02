@@ -206,7 +206,7 @@ $ az ml experiment submit -c remotevm myscript.py
 The Docker construction process for remote VMs is exactly the same as the process for local Docker runs so you should expect a similar execution experience.
 
 >[!TIP]
->If you prefer to avoid the latency introduced by building the Docker image for your first run, you can use the following command to prepare the compute target before executing your script. az ml experiment prepares -c <remotedocker>
+>If you prefer to avoid the latency introduced by building the Docker image for your first run, you can use the following command to prepare the compute target before executing your script. az ml experiment prepare -c remotedocker
 
 
 _**Overview of remote vm execution for a Python script:**_
