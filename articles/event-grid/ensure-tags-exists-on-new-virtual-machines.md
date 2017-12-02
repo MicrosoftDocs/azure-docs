@@ -94,11 +94,11 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 3. Configure the subscription with the following information:
 
     *	Enter *AzureAutomation* for the name. 
-    *	Under **Topic Type**, choose **Azure Subscriptions**.
+    *	In **Topic Type**, choose **Azure Subscriptions**.
     *	Clear the **Subscribe to all event types** check box.
-    *	Under **Event Types**, choose **Resource Write Success**.
-    *	Under **Full Endpoint URL**, enter the webhook URL for the Watch-VMWrite runbook.
-    *	Under **Prefix Filter**, enter the subscription and resource group you want to look for the new VMs created. It should look like /subscriptions/124aa551-849d-46e4-a6dc-0bc4895422aB/resourcegroups/ContosoResourceGroup/providers/Microsoft.Compute/virtualMachines
+    *	In **Event Types**, choose **Resource Write Success**.
+    *	In **Full Endpoint URL**, enter the webhook URL for the Watch-VMWrite runbook.
+    *   In **Prefix Filter**, enter the subscription and resource group you want to look for the new VMs created. It should look like /subscriptions/124aa551-849d-46e4-a6dc-0bc4895422aB/resourcegroups/ContosoResourceGroup/providers/Microsoft.Compute/virtualMachines
 
     ![Event Grid list](media/ensure-tags-exists-on-new-virtual-machines/configure-event-grid-subscription.png)
 
