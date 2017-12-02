@@ -61,7 +61,7 @@ kubectl get apiservice
 Here is a quick demo of this process:
 ![Installing Service Catalog](media/container-service-connect-azure/osbademo-0.gif)
 
-# Installing Open Service Broker for Azure
+## Installing Open Service Broker for Azure
 
 Next step is to install [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure), which includes the catalog for the Azure-managed services. At the time of this writing, available Azure services are:
 
@@ -169,7 +169,7 @@ kubectl get clusterserviceplans -o=custom-columns=NAME:.metadata.name,EXTERNAL \
 Here is a quick demo of this process:
 ![Installing Open Service Broker for Azure](media/container-service-connect-azure/osbademo-1.gif)
 
-# Installing WordPress from Helm chart using Azure Database for MySQL
+## Installing WordPress from Helm chart using Azure Database for MySQL
 
 This command uses Helm to install an updated Helm chart of WordPress that provisions an external Azure Database for MySQL instance in order to have WordPress use it. This process can take a few minutes.
 
@@ -199,6 +199,6 @@ Here is a quick demo of this process:
 
 If you are interested in more charts to deploy using Open Service Broker for Azure, check out [Azure/helm-charts](https://github.com/Azure/helm-charts) repository.
 
-# Summary
+## Summary
 
 This guide showed how to install Service Catalog to an Azure Container Service (AKS) cluster, how to deploy Open Service Broker for Azure and deploy an application, such as WordPress, that is using Azure-managed services, in this case Azure Database for MySQL.
