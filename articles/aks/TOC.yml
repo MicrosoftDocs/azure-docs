@@ -29,8 +29,8 @@
     href: tutorial-kubernetes-upgrade-cluster.md
 - name: How-to guides
   items:
-  - name: Connect to Azure services
-    href: connect-azure.md
+  - name: Integrate with Azure services
+    href: integrate-azure.md
   - name: Scale an AKS cluster
     href: scale-cluster.md
   - name: Upgrade an AKS cluster

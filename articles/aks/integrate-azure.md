@@ -20,21 +20,20 @@ ms.author: seozerca
 ms.custom: mvc
 
 ---
-# Connect your app with Azure managed services using Open Service Broker for Azure
+# Integrate with Azure-managed services using Open Service Broker for Azure
 
 ## Introduction
 
-[Open Service Broker API](https://www.openservicebrokerapi.org) allows developers to utilize cloud managed services in cloud native platforms such as Pivotal Cloud Foundry, Kubernetes and Red Hat OpenShift. In this guide, we will focus on deploying Kubernetes Service Catalog, Open Service Broker for Azure (OSBA) and applications that use Azure managed sservices using Kubernetes.
+[Open Service Broker API](https://www.openservicebrokerapi.org) allows developers to utilize cloud-managed services in cloud native platforms such as Pivotal Cloud Foundry, Kubernetes, and Red Hat OpenShift. This guide focuses on deploying Kubernetes Service Catalog, Open Service Broker for Azure (OSBA) and applications that use Azure-managed services using Kubernetes.
 
-## Creating a cluster
+## Creating an Azure Container Service (AKS) cluster
 
-Let's get started by deploying an AKS cluster. You can follow the [Create an AKS cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) quickstart.
+Let's get started by deploying an Azure Container Service (AKS) cluster. You can follow the [Create an AKS cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) quickstart guide.
 
 ## Installing Service Catalog
 
-Next step is to install service catalog using Helm chart. Please refer to [Install Helm CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli) for Helm installation.
-
-Let's make sure we have the latest version of Helm components installed in our cluster with:
+Next step is to install service catalog using Helm chart. Refer to [Install Helm CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli) for Helm installation.
+Download and install Helm CLI 2.7.2+ in your local environment, and upgrade your Tiller (Helm server) installation with:
 
 ```azurecli-interactive
 helm init --upgrade
@@ -64,7 +63,7 @@ Here is a quick demo of this process:
 
 # Installing Open Service Broker for Azure
 
-Next part is to install [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure) which includes the catalog for the Azure managed services. At the time of writing this, these are the available Azure services:
+Next step is to install [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure), which includes the catalog for the Azure-managed services. At the time of this writing, available Azure services are:
 
 *   Azure Database for PostgreSQL
 *   Azure Redis Cache
@@ -82,16 +81,61 @@ Let's start by adding Open Service Broker for Azure Helm repository:
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Setting environment variables for our Azure subscription:
+Create a [Service Principal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-service-principal) using:
 
 ```azurecli-interactive
-AZURE_SUBSCRIPTION_ID=[your Azure subscription ID]
-AZURE_TENANT_ID=[your Azure tenant ID]
-AZURE_CLIENT_ID=[your Azure client ID]
-AZURE_CLIENT_SECRET=[your Azure client secret]
+az ad sp create-for-rbac --skip-assignment
 ```
 
-Installing Open Service Broker for Azure:
+Output looks something like the example below, `appId`, `password` and `tenant` values are used in the next step.
+
+```
+{
+  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
+  "displayName": "azure-cli-2017-10-15-02-20-15",
+  "name": "http://azure-cli-2017-10-15-02-20-15",
+  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
+  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
+}
+```
+
+Setting up environment variables with the preceding values:
+
+```azurecli-interactive
+AZURE_CLIENT_ID=[your Azure appId from above]
+AZURE_CLIENT_SECRET=[your Azure password from above]
+AZURE_TENANT_ID=[your Azure tenant from above]
+```
+
+and get subscription using
+```azurecli-interactive
+az account show
+```
+
+Output looks something like the example below, `id` value is used for subscription ID.
+
+```
+{
+  "environmentName": "AzureCloud",
+  "id": "33ee811e-12bf-4g5c-9c62-a2f28c5f7724",
+  "isDefault": true,
+  "name": "Azure Subscription,
+  "state": "Enabled",
+  "tenantId": "72f988bf-0000-0000-0000-2d7cd011db47",
+  "user": {
+    "name": "user@example.com",
+    "type": "user"
+  }
+}
+```
+
+Setting up environment variable with the preceding value:
+
+```azurecli-interactive
+AZURE_SUBSCRIPTION_ID=[your Azure subscription Id from above]
+```
+
+Installing Open Service Broker for Azure using Helm chart:
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \
@@ -127,6 +171,8 @@ Here is a quick demo of this process:
 
 # Installing WordPress from Helm chart using Azure Database for MySQL
 
+This command uses Helm to install an updated Helm chart of WordPress that provisions an external Azure Database for MySQL instance in order to have WordPress use it. This process can take a few minutes.
+
 ```azurecli-interactive
 helm install azure/wordpress --name wordpress --namespace wordpress
 ```
@@ -134,14 +180,16 @@ helm install azure/wordpress --name wordpress --namespace wordpress
 Here is a quick demo of this process:
 ![Installing WordPress](media/container-service-connect-azure/osbademo-2.gif)
 
-To verify the installation has provisioned the right resources for us:
+In order to verify the installation has provisioned the right resources:
 
 Show installed service instance and bindings:
+
 ```azurecli-interactive
 kubectl get serviceinstance -n wordpress -o yaml
 kubectl get servicebinding -n wordpress -o yaml
 
 Show installed secrets:
+
 ```azurecli-interactive
 kubectl get secrets -n wordpress -o yaml
 ```
@@ -153,4 +201,4 @@ If you are interested in more charts to deploy using Open Service Broker for Azu
 
 # Summary
 
-In this guide, we showed how to install Service Catalog to our Kubernetes cluster and how to deploy Open Service Broker for Azure and deploy an application, such as WordPress, that is using Azure managed services, in this case Azure Database for MySQL.
+This guide showed how to install Service Catalog to an Azure Container Service (AKS) cluster, how to deploy Open Service Broker for Azure and deploy an application, such as WordPress, that is using Azure-managed services, in this case Azure Database for MySQL.
