@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/2/2017
+ms.date: 12/02/2017
 ms.author: nisoneji
 
 ---
@@ -156,6 +156,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -User | (Optional) User name to connect to the Hyper-V host or Hyper-V cluster. User needs to have administrative access.<br>User and password are used to fetch the latest configuration information of the VMs like number of disks, number of cores, number of NICs, etc. to use in the report. If not provided, configuration information collected during profiling is used.|
 |-Password|(Optional) The password to connect to Hyper-V host. If not specified now, you will be prompted for it later during the execution of the command.|
 | -DesiredRPO | (Optional) The desired recovery point objective, in minutes. The default is 15 minutes.|
+| -Bandwidth | (Optional) Bandwidth in Mbps. The parameter to use to calculate the RPO that can be achieved for the specified bandwidth. |
 | -StartDate | (Optional) The start date and time in MM-DD-YYYY:HH:MM (24-hour format). *StartDate* must be specified along with *EndDate*. When StartDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -EndDate | (Optional) The end date and time in MM-DD-YYYY:HH:MM (24-hour format). *EndDate* must be specified along with *StartDate*. When EndDate is specified, the report is generated for the profiled data that's collected between StartDate and EndDate. |
 | -GrowthFactor | (Optional) The growth factor, expressed as a percentage. The default is 30 percent. |
@@ -237,6 +238,9 @@ The generated Microsoft Excel report contains the following information:
 * [On-premises Storage Requirement](site-recovery-hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
 * [IR Batching ](site-recovery-hyper-v-deployment-planner-analyze-report.md#intial-replication-batching)
 * [Cost Estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md)
+
+![Deployment planner report](media/site-recovery-hyper-v-deployment-planner-run/deployment-planner-report-h2a.png)
+
 
 ## Get throughput
 To estimate the throughput that Azure Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server that the tool is running on. Ideally, this server is the Hyper-V server whose VMs are to be protected. 

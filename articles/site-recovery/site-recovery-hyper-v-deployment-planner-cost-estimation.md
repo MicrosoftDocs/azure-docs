@@ -134,9 +134,48 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## Supported currencies
 The Azure Site Recovery Deployment Planner can generate the cost report with any of the following currencies.
 
-|Currency|Name|
-|---|---|
-|USD| US Dollar ($)|
+|Currency|Name||Currency|Name||Currency|Name|
+|---|---|---|---|---|---|---|---|
+|ARS|Argentine Peso ($)||AUD|Australian Dollar ($)||BRL|Brazilian Real (R$)|
+|CAD|Canadian Dollar ($)||CHF|Swiss Franc. (chf)||DKK|Danish Krone (kr)|
+|EUR|Euro (€)||GBP|British Pound (£)||HKD|Hong Kong Dollar (HK$)|
+|IDR|Indonesia rupiah (Rp)||INR|Indian Rupee (₹)||JPY|Japanese Yen (¥)|
+|KRW|Korean Won (₩)||MXN|Mexican Peso (MX$)||MYR|Malaysian Ringgit (RM$)|
+|NOK|Norwegian Krone (kr)||NZD|New Zealand Dollar ($)||RUB|Russian Ruble (руб)|
+|SAR|Saudi Riyal (SR)||SEK|Swedish Krona (kr)||TWD|Taiwanese Dollar (NT$)|
+|TRY|Turkish Lira (TL)||USD| US Dollar ($)||ZAR|South African Rand (R)|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+|USD| US Dollar ($)||
 |INR|	Indian Rupee (₹)|
 |DKK|	Danish Krone (kr)|
 |CAD|	Canadian Dollar ($)|

@@ -57,6 +57,7 @@ The recommendations sheet of the Hyper-V to Azure report has the following detai
 
 ### Profiling overview
 ![Profiling overview](media/site-recovery-hyper-v-deployment-planner-analyze-report/profiling-overview-h2a.png)
+
 **Total Profiled Virtual Machines**: The total number of VMs whose profiled data is available. If the VMListFile has names of any VMs, which were not profiled, those VMs are not considered in the report generation and are excluded from the total profiled VMs count.
 
 **Compatible Virtual Machines**: The number of VMs that can be protected to Azure by using Azure Site Recovery. It is the total number of compatible VMs for which the required network bandwidth, number of storage accounts, number of Azure cores are calculated. The details of every compatible VM are available in the "Compatible VMs" section.
@@ -67,6 +68,7 @@ The recommendations sheet of the Hyper-V to Azure report has the following detai
 
 ### Required network bandwidth (Mbps)
 ![Required network bandwidth](media/site-recovery-hyper-v-deployment-planner-analyze-report/required-network-bandwidth-h2a.png)
+
 **To meet RPO 100 percent of the time**: The recommended bandwidth in Mbps to be allocated to meet your desired RPO 100 percent of the time. This amount of bandwidth must be dedicated for steady-state delta replication of all your compatible VMs to avoid any RPO violations.
 
 **To meet RPO 90 percent of the time**: Because of broadband pricing or for any other reason, if you cannot set the bandwidth needed to meet your desired RPO 100 percent of the time, you can choose to go with a lower bandwidth setting that can meet your desired RPO 90 percent of the time. To understand the implications of setting this lower bandwidth, the report provides a what-if analysis on the number and duration of RPO violations to expect.
@@ -81,8 +83,9 @@ The following chart shows the total number of storage accounts (standard and pre
 ![Required storage accounts](media/site-recovery-hyper-v-deployment-planner-analyze-report/required-storage-accounts-h2a.png)
 
 ### Required number of Azure cores
-![Required number of Azure cores](media/site-recovery-hyper-v-deployment-planner-analyze-report/required-number-of-azure-cores-h2a.png)
 This result is the total number of cores to be set up before failover or test failover of all the compatible VMs. If too few cores are available in the subscription, Azure Site Recovery fails to create VMs at the time of test failover or failover.
+![Required number of Azure cores](media/site-recovery-hyper-v-deployment-planner-analyze-report/required-number-of-azure-cores-h2a.png)
+
 
 ### Additional on-premises storage requirement
 
@@ -132,9 +135,14 @@ The total disaster recovery (DR) cost is categories based on two different state
 It shows the total storage cost that will be incurred for premium and standard storage for replication and DR drill.
 You can view detailed cost analysis per VM in the [Cost Estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md) sheet.
 
+### Growth factor and percentile values used
+This section at the bottom of the sheet shows the percentile value used for all the performance counters of the profiled VMs (default is 95th percentile), and the growth factor (default is 30 percent) that's used in all the calculations.
+
+![Growth factor and percentile values used](media/site-recovery-hyper-v-deployment-planner-run/growth-factor-max-percentile-value.png)
 
 ## Recommendations with available bandwidth as input
 ![Profiling overview with bandwidth input](media/site-recovery-hyper-v-deployment-planner-analyze-report/profiling-overview-bandwidth-input-h2a.png)
+
 You might have a situation where you know that you cannot set a bandwidth of more than x Mbps for Azure Site Recovery replication. The tool allows you to input available bandwidth (using the -Bandwidth parameter during report generation) and get the achievable RPO in minutes. With this achievable RPO value, you can decide whether you need to provision additional bandwidth or you are OK with having a disaster recovery solution with this RPO.
 
 ![Achievable RPO](media/site-recovery-hyper-v-deployment-planner-analyze-report/achivable-rpo-h2a.PNG)
