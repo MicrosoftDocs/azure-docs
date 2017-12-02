@@ -341,5 +341,8 @@ Each batch table provides a summary of network utilization of the batch.
 
 **Estimated Initial Replication time for Batch (HH:MM)**: The estimated initial replication time in Hours:Minutes.
 
+## Cost estimation
+Learn more about [cost estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md). 
+
 ## Next steps
 Learn more about [cost estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md).

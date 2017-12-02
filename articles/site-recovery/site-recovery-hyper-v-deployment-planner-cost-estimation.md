@@ -18,8 +18,30 @@ ms.author: nisoneji
 
 ---
 # Cost estimation report of Azure Site Recovery deployment planner  
-The Cost estimation sheet has the detailed cost analysis per VM for disaster recovery (DR) to Azure.
 
+The deployment planner report provides the cost estimation summary in [Recommendations](site-recovery-hyper-v-deployment-planner-analyze-report.md#recommendations) sheets and detailed cost analysis in Cost Estimation sheet. It has the detailed cost analysis per VM. 
+
+### Cost estimation summary 
+The graph shows the summary view of the estimated total disaster recovery (DR) cost to Azure of your chosen target region and the currency that you have specified for report generation.
+![Cost estimation summary](media/site-recovery-hyper-v-deployment-planner-analyze-report/cost-estimation-summary-h2a.png)
+The summary helps you to understand the cost that you need to pay for storage, compute, network, and license when you protect all your compatible VMs to Azure using Azure Site Recovery. The cost is calculated on for compatible VMs and not on all the profiled VMs.  
+ 
+You can view the cost either monthly or yearly. Learn more about [supported target regions](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) and [supported currencies](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).
+
+**Cost by components**
+The total DR cost is divided into four components: Compute, Storage, Network, and Azure Site Recovery license cost. The cost is calculated based on the consumption that will be incurred during replication and at DR drill time for compute, storage (premium and standard), ExpressRoute/VPN that is configured between the on-premises site and Azure, and Azure Site Recovery license.
+
+**Cost by states**
+The total disaster recovery (DR) cost is categories based on two different states - Replication and DR drill. 
+
+**Replication cost**:  The cost that will be incurred during replication. It covers the cost of storage, network, and Azure Site Recovery license. 
+
+**DR-Drill cost**: The cost that will be incurred during test failovers. Azure Site Recovery spins up VMs during test failover. The DR drill cost covers the running VMs’ compute and storage cost. 
+
+**Azure storage cost per Month/Year**
+It shows the total storage cost that will be incurred for premium and standard storage for replication and DR drill.
+
+## Detailed cost analysis
 Azure prices for compute, storage, network, etc. varies across Azure regions. You can generate a cost estimation report with the latest Azure prices based on your subscription, the offer that is associated with your subscription and for the specified target Azure region in the specified currency. By default, the tool uses West US 2 Azure region and US dollar (USD) currency. If you have used any other region and currency, the next time when you generate a report without subscription ID, offer ID, target region, and currency, it will use prices of the last used target region and last used currency for cost estimation.
 This section shows the subscription ID and offer ID that you have used for report generation.  If not used, it is blank.
 
@@ -27,7 +49,7 @@ In the whole report, the cells marked in gray are read only. Cells in white can 
 
 ![Cost estimation details1](media/site-recovery-hyper-v-deployment-planner-cost-estimation/cost-estimation1-h2a.png)
 
-## Overall DR cost by components
+### Overall DR cost by components
 The first section shows the overall DR cost by components and DR cost by states. 
 
 **Compute**: Cost of IaaS VMs that run on Azure for DR needs. It includes VMs that are created by Azure Site Recovery during DR-drills (test failovers) and VMs running on Azure like SQL Server with Always On Availability Groups and domain controllers / Domain Name Servers.
@@ -37,7 +59,7 @@ Network: ExpressRoute and Site to Site VPN cost for DR needs.
 
 **ASR license**: Azure Site Recovery license cost for all compatible VMs. If you have manually entered a VM in the detailed cost analysis table, Azure Site Recovery license cost is also included for that VM.
 
-## Overall DR cost by states
+### Overall DR cost by states
 The total DR cost is categorized based on two different states - replication and DR-Drill.
 
 **Replication cost**: The cost incurs at the time of replication. It covers the cost of storage, network, and Azure Site Recovery license. 
@@ -68,13 +90,12 @@ If you are an Azure partner or a customer and are entitled to any discount on ov
 This table shows the number of Windows and non-Windows VMs and DR drill compute cost for them.
 
 ### Settings 
-
 **Using managed disk**: It specifies whether managed disk is being used  at the time of DR drills. The default is yes. If you have set -UseManagedDisks to No, it uses the unmanaged disk price for cost calculation.
 
 **Currency**: The currency in which the report is generated. 
 Cost duration:  You can view all costs either for the month or for the whole year. 
 
-## Detailed cost analysis
+## Detailed cost analysis table
 ![Detailed cost analysis](media/site-recovery-hyper-v-deployment-planner-cost-estimation/detailed-cost-analysis-h2a.png)
 The table lists the cost breakup for each compatible VM. 
 You can also use this table to get estimated Azure DR cost of non-profiled VMs by manually adding VMs. It is useful in cases where you need to estimate Azure costs for a new disaster recovery deployment without detailed profiling being done.
@@ -144,61 +165,6 @@ The Azure Site Recovery Deployment Planner can generate the cost report with any
 |NOK|Norwegian Krone (kr)||NZD|New Zealand Dollar ($)||RUB|Russian Ruble (руб)|
 |SAR|Saudi Riyal (SR)||SEK|Swedish Krona (kr)||TWD|Taiwanese Dollar (NT$)|
 |TRY|Turkish Lira (TL)||USD| US Dollar ($)||ZAR|South African Rand (R)|
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-|USD| US Dollar ($)||
-|INR|	Indian Rupee (₹)|
-|DKK|	Danish Krone (kr)|
-|CAD|	Canadian Dollar ($)|
-|JPY|	Japanese Yen (¥)|
-|KRW|	Korean Won (₩)|
-|NZD|	New Zealand Dollar ($)|
-|NOK|	Norwegian Krone (kr)|
-|RUB|	Russian Ruble (руб)|
-|SAR|	Saudi Riyal (SR)|
-|ZAR|	South African Rand (R)|
-|SEK|	Swedish Krona (kr)|
-|TRY|	Turkish Lira (TL)|
-|GBP|	British Pound (£)|
-|MXN|	Mexican Peso (MX$)|
-|MYR|	Malaysian Ringgit (RM$)|
-|HKD|	Hong Kong Dollar (HK$)|
-|BRL|	Brazilian Real (R$)|
-|TWD|	Taiwanese Dollar (NT$)|
-|EUR|	Euro (€)|
-|CHF|	Swiss Franc. (chf)|
-|ARS|	Argentine Peso ($)|
-|AUD|	Australian Dollar ($)|
-|IDR|	Indonesia rupiah (Rp)|
 
 ## Next steps
 Learn more about protecting [Hyper-V VMs to Azure using Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-hyper-v-to-azure).
