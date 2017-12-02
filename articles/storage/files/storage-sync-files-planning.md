@@ -45,6 +45,9 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 ### Server Endpoint
 A Server Endpoint represents a specific location on a Registered Server, such as a folder on a server volume or the root of the volume. Multiple Server Endpoints can exist on the same volume if their namespaces do not overlap (for example, F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each Server Endpoint. If you add a server location that has an existing set of files as a Server Endpoint to a Sync Group, those files are merged with any other files that are already on other endpoints in the Sync Group.
 
+> [!Note]  
+> A server endpoint can be located on the Windows system volume, 
+
 ### Cloud Endpoint
 A Cloud Endpoint is an Azure file share that is part of a Sync Group. The entire Azure file share syncs, and an Azure file share can be a member of only one Cloud Endpoint. Therefore, an Azure file share can be a member of only one Sync Group. If you add an Azure file share that has an existing set of files as a Cloud Endpoint to a Sync Group, the existing files are merged with any other files that are already on other endpoints in the Sync Group.
 
@@ -53,6 +56,8 @@ A Cloud Endpoint is an Azure file share that is part of a Sync Group. The entire
 
 ### Cloud tiering 
 Cloud tiering is an optional feature of Azure File Sync in which infrequently used or accessed files can be tiered to Azure Files. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer, or reparse point. The reparse point represents a URL to the file in Azure Files. A tiered file has the "offline" attribute set in NTFS so third-party applications can identify tiered files. When a user opens a tiered file, Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know that the file is not stored locally on the system. This functionality is also known as Hierarchical Storage Management (HSM).
+
+Cloud tiering is not supported for server endpoints on the Windows system volumes.
 
 ## Azure File Sync interoperability 
 This section covers Azure File Sync interoperability with Windows Server features and roles and third-party solutions.
@@ -96,21 +101,22 @@ Windows Server Failover Clustering is supported by Azure File Sync for the "File
 For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume. Currently, we do not support interoperability between Azure File Sync with cloud tiering enabled and Data Deduplication.
 
 ### Distributed File System (DFS)
-Azure File Sync supports DFS technologies with the Azure File Sync agent 1.2 or later [(October 2017 Update Rollup)](https://support.microsoft.com/uz-latn-uz/help/4042192/update-rollup-for-azure-file-sync-agent-preview-october-2017).
+Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R) starting with the [Azure File Sync agent 1.2](https://support.microsoft.com/help/4042192/update-rollup-for-azure-file-sync-agent-preview-october-2017).
 
-**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the Server Endpoints and the Cloud Endpoint.  
+**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the Server Endpoints and the Cloud Endpoint. For more information, see [DFS Namespaces overview](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**DFS Replication (DFS-R)**: In most cases, you can replace the DFS-R with Azure File Sync to replicate data across branch servers. However, it is also possible to preserve your existing DFS-R deployment while still centralizing file services in the cloud and taking advantage of Azure File Sync features, such as cloud integrated backup and fast disaster recovery. Use cases for having Azure File Sync with DFS-R topology include when on premises servers are unable to connect to the cloud, or when branch servers consolidate data into the hub server, which can be connected to the Azure cloud for backups.  
+**DFS Replication (DFS-R)**: Since DFS-R and Azure File Sync are both replication solutions, in most cases, we recommend replacing DFS-R with Azure File Sync. There are however several scenarios where you would want to use DFS-R and Azure File Sync together:
 
-You can configure Azure File Sync on DFS-R members. For interoperability between Azure File Sync and DFS-R -
-- Azure File Sync cloud tiering must be disabled on volumes with DFS-R replicated folders.
-- Server Endpoints should not be configured on DFS-R read-only replication folders.
+- You are migrating from a DFS-R deployment to an Azure File Sync deployment.
+- Not every on-premises server which needs a copy of your file data can be connected directly to the internet.
+- Branch servers consolidate data into a single hub server, for which you would like to use Azure File Sync.
 
-To migrate DFS-R to Azure File Sync service, you can follow these steps -
-- Install and configure Azure File Sync on the DFS-R server. Make sure cloud tiering is disabled for the Server Endpoint/s. Let data sync to the Cloud Endpoint.
-- Install Azure File Sync agent on each of the DFS-R servers, disable DFS-R, create Server Endpoint on DFS-R servers to continue syncing files through Azure File Sync, instead of DFS-R.
-- Once you test your deployment, you can retire DFS-R.
-- After the DFS-R is retired, you can enable cloud tiering on the Azure File Sync servers.
+There are two caveats to deploying Azure File Sync and DFS-R together:
+
+1. Azure File Sync cloud tiering must be disabled on volumes with DFS-R replicated folders.
+2. Server Endpoints should not be configured on DFS-R read-only replication folders.
+
+For more information, see [DFS Replication overview](https://technet.microsoft.com/library/jj127250).
 
 ### Antivirus solutions
 Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. Because tiered files have the "offline" attribute set, we recommend consulting with your software vendor to learn how to configure their solution to skip reading offline files. 
