@@ -45,7 +45,7 @@ To get started, choose a SQL Server virtual machine image with your required ver
 > [!TIP]
 > To understand the VM and SQL pricing for these images, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-### Pay as you go
+### <a id="payasyougo"></a> Pay as you go
 The following table provides a matrix of pay-as-you-go SQL Server images.
 
 | Version | Operating System | Edition |
