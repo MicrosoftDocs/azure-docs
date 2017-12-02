@@ -8750,6 +8750,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/msi-how-to-get-access-token-using-msi.md",
+            "redirect_url": "msi-how-to-use-vm-msi-token",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/virtual-machines/virtual-machines-error-messages.md",
             "redirect_url": "/azure/virtual-machines/windows/error-messages",
             "redirect_document_id": false
