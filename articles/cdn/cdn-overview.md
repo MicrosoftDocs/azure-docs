@@ -67,8 +67,8 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | [DDOS protection](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | __Analytics and Reporting__ |
 | [Azure diagnostic logs](cdn-azure-diagnostic-logs.md) | **&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Core reports from Verizon](cdn-advanced-http-reports.md) | |**&#x2713;** |**&#x2713;** |
-| [Custom reports from Verizon](cdn-advanced-http-reports.md) | |**&#x2713;** |**&#x2713;** |
+| [Core reports from Verizon](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
+| [Custom reports from Verizon](cdn-verizon-custom-reports.md) | |**&#x2713;** |**&#x2713;** |
 | [Advanced HTTP reports](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [Real-time stats](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Edge node performance](cdn-edge-performance.md) | | |**&#x2713;** |
