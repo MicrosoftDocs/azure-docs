@@ -14,9 +14,9 @@ ms.author: cahann
 
 # Manage utterances
 
-Utterances are representative phrases of user queries or commands. Utterances need to be added to an intent to teach LUIS the intent of the utterances.
+Utterances are representative phrases of user queries or commands. [Utterances](luis-concept-utterance.md) need to be added to an [intent](luis-concept-intent.md) to teach LUIS the intent of the utterances.
 
-You can create entities and label utterances on the intent page after an utterance is added. If you would rather create entities first, see [Add entities]().
+You can create entities and label utterances on the intent page after an utterance is added. If you would rather create entities first, see [Add entities](Add-entities.md).
 
 In the following example, use the "BookFlight" intent in the TravelAgent app. 
 
@@ -126,4 +126,4 @@ To cancel the search and restore your full list of utterances, delete the search
 
 ## Next steps
 
-After labeling utterances in your intents, now your next task is to create a composite entity. For instructions, see [Add entities](Add-entities.md).
+After labeling utterances in your intents, now your next task is to create a [composite entity](Add-entities.md).
