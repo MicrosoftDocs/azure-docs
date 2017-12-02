@@ -23,53 +23,76 @@ The Azure Container Agents plugin for Jenkins enables you to quickly and easily 
 
 You learn how to:
 > [!div class="checklist"]
-> * Create an Azure resource group for your Jenkins resources
-> * Install the Azure Container Agents plugin for Jenkins
 > * 
-> * Configure the Azure Container Agents plugin
-> * Create the Spring PetClinic Application job in Jenkins
-> * Build the Spring PetClinic Application job in Jenkins
 
 ## Prerequisites
 
-- **Azure subscription** - You need an Azure subscription to complete this tutorial. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- **Sign into Azure** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin, and sign into your account.  
 
 - **Azure CLI 2.0 or Azure Cloud Shell** - Install one of the following command-line/shell/terminal experiences:
 
     - [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) - Allows you to run Azure commands from a command or terminal window.
     - [Azure Cloud Shell](/azure/cloud-shell/quickstart.md) - Browser-based shell experience. Cloud Shell enables access to a browser-based command-line experience built with Azure management tasks in mind.
 
-- **Jenkins Master** - Jenkins supports the *master/slave* pattern where the workload of building projects is delegated to one or more *slave* nodes. The master/slave pattern allows a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. If you don't currently have a Jenkins Master, start with the [solution template](install-jenkins-solution-template.md), which includes the Java Development Kit (JDK) version 8 and other required Jenkins plugins.
+## 1. Create a Jenkins Master
 
-## 1. Update Jenkins DNS
+Jenkins supports the *master/slave* pattern where the workload of building projects is delegated to one or more *slave* nodes. The master/slave pattern allows a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. 
+
+If you don't currently have a Jenkins Master, start with the [solution template](install-jenkins-solution-template.md), which includes the Java Development Kit (JDK) version 8 and other required Jenkins plugins for this tutorial.
+
+## 2. Update Jenkins DNS
 
 1. Open the Jenkins dashboard.
 
 1. Select **Manage Jenkins**.
 
-    ![Manage Jenkins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
+    ![Manage Jenkins options in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
 
 1. Select **Configure System**.
 
-    ![Manage Jenkins plugins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
+    ![Manage Jenkins plugins option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
 
 1. Under **Jenkins Location**, enter the URL of your Jenkins Master.
 
-## 2. Update Jenkins to allow Java Network Launch Protocol (JNLP)
+## 3. Update Jenkins to allow Java Network Launch Protocol (JNLP)
 
 The slave, or agent, connects with the Jenkins Master via the Java Network Launch Protocol (JNLP), JNLP need to be allowed. 
 
 1. Open the Jenkins dashboard. 
 
+1. Select **Manage Jenkins**.
+
+    ![Manage Jenkins options in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
+
 1. Select **Configure Global Security**.
 
- -> TCP port for JNLP agents, select Fixed and specify a port, for example, 12345. 
-Jenkins JNLP
+    ![Configure global security in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-global-security.png)
 
-Make sure you add a corresponding inbound security rule for the Jenkins master. In Azure, you add the rule in the Network Security Group for the Jenkins master: 
-JNLP port
+1. Under **Agents**, select **Fixed**, and enter a port. 
 
-## 3. Create and add an Azure service principal to the Jenkins credentials
+    ![Update Jenkins global security settings to allow JNLP](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-set-jnlp.png)
+
+1. Select **Save**.
+
+1. Using either Azure CLI 2.0 or Cloud Shell, enter the following command to create an inbound rule for your Jenkins network security group:
+
+    ```cli```
+    az network nsg rule create  \
+    --resource-group RG-NSG \
+    --nsg-name NSG-FrontEnd  \
+    --name allow-https \
+    --description "Allow access to port 443 for HTTPS" \
+    --access Allow \
+    --protocol Tcp  \
+    --direction Inbound \
+    --priority 102 \
+    --source-address-prefix "*"  \
+    --source-port-range "*"  \
+    --destination-address-prefix "*" \
+    --destination-port-range "443"
+    ```
+
+## 4. Create and add an Azure service principal to the Jenkins credentials
 
 You need an Azure service principal to deploy to Azure. 
 
@@ -77,19 +100,19 @@ You need an Azure service principal to deploy to Azure.
 
 1. Select **Credentials**.
 
-    ![Manage credentials option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials.png)
+    ![Manage credentials option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials.png)
 
 1. Under **Credentials**, select **System**.
 
-    ![Manage system credentials option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-system.png)
+    ![Manage system credentials option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-system.png)
 
 1. Select **Global credentials (unrestricted)**.
 
-    ![Manage global system credentials option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-global.png)
+    ![Manage global system credentials option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-credentials-global.png)
 
 1. Select **Adding some credentials**.
 
-    ![Add credentials on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-adding-credentials.png)
+    ![Add credentials in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-adding-credentials.png)
 
 1. In the **Kind** dropdown list, select **Microsoft Azure Service Principal** to cause the page to display fields specific to adding a service principal. Then, supply the requested values as follows:
 
@@ -102,21 +125,23 @@ You need an Azure service principal to deploy to Azure.
     - **ID** - Enter `myTestSp`. This value is used again later in this tutorial.
     - **Description** - (Optional) Enter a description value for this principal.
 
-    ![Specify new service principal properties on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-principal-properties.png)
+    ![Specify new service principal properties in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-principal-properties.png)
 
 1. Once you have entered the information defining the principal, you can optionally select **Verify Service Principal** to ensure that everything is working correctly. If your service principal is correctly defined, you see a message stating, "Successfully verified the Microsoft Azure Service Principal." below the **Description** field.
 
 1. When you are finished, select **OK** to add the principal to Jenkins. The Jenkins dashboard displays the newly added principal on the **Global Credentials** page.
 
-## 4. Create an Azure resource group for your Jenkins resources
+## 5. Create an Azure resource group for your Jenkins resources
 
 Azure Container Instances must be placed in an Azure resource group. An Azure resource group is a container that holds related resources for an Azure solution.
 
-Using either CLI 2.0 or Cloud Shell, enter the following command to create a resource group called `myJenkinsAgentRG` in eastus:
+Using either Azure CLI 2.0 or Cloud Shell, enter the following command to create a resource group called `myJenkinsAgentRG` in eastus:
 
 ```shell```
 az group create --name myJenkinsAgentRG --location eastus
 ```
+
+The output of the `az group create` command is similar to the following:
 
 ```shell```
 tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
@@ -132,25 +157,25 @@ tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
 }
 ```
 
-## 5. Install the Azure Container Agents plugin for Jenkins
+## 6. Install the Azure Container Agents plugin for Jenkins
 
 1. Open and log in to the Jenkins dashboard.
 
 1. Select **Manage Jenkins**.
 
-    ![Manage Jenkins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
+    ![Manage Jenkins options in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
 
 1. Select **Manage Plugins**.
 
-    ![Manage Jenkins plugins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-plugins.png)
+    ![Manage Jenkins plugins option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-plugins.png)
 
 1. Select **Available**.
 
-    ![View available Jenkins plugins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-view-available-plugins.png)
+    ![View available Jenkins plugins option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-view-available-plugins.png)
 
 1. Enter `Azure Container Agents` into the **Filter** text box. (The list filters as you enter the text.)
 
-    ![Filter the available Jenkins plugins on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-filter-available-plugins.png)
+    ![Filter the available Jenkins plugins in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-filter-available-plugins.png)
 
 1. Select the checkbox next to the **Azure Container Agents** plugin, and one of the install options. For purposes of this demo, I've selected the **Install without restart** option.
 
@@ -162,17 +187,17 @@ tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
 
     To return the main page of the Jenkins dashboard, select **Go back to the top page**.
 
-## 6. Configure the Azure Container Agents plugin
+## 7. Configure the Azure Container Agents plugin
 
 1. Open and log in to the Jenkins dashboard.
 
 1. Select **Manage Jenkins**.
 
-    ![Manage Jenkins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
+    ![Manage Jenkins options in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
 
 1. Select **Configure System**.
 
-    ![Manage Jenkins plugins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
+    ![Manage Jenkins plugins option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
 
 1. Locate the **Cloud** section at the bottom of the page, and from the **Add a new cloud** dropdown list, select **Azure Container Instance**.
 
@@ -204,7 +229,7 @@ tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
 
 1. Select **Save**.
 
-## 7. Create the Spring PetClinic Application job in Jenkins
+## 8. Create the Spring PetClinic Application job in Jenkins
 
 The following steps guide you through creating a Jenkins job - as a freestyle project - to build the Spring PetClinic Application.
 
@@ -240,6 +265,8 @@ The following steps guide you through creating a Jenkins job - as a freestyle pr
 
 1. Select **Save** to save the new project definition.
 
-## 8. Build the Spring PetClinic Application job in Jenkins
+## 9. Build the Spring PetClinic Application job in Jenkins
+
+## 10. Clean up Azure resources
 
 ## Next steps
