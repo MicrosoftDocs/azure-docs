@@ -38,7 +38,7 @@
 #### [Deploy resources](resource-group-template-deploy-portal.md)
 #### [Export template](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [Deploy to multiple subscriptions and resource groups](resource-manager-cross-resource-group-deployment.md)
+### [Multiple resource groups or subscriptions](resource-manager-cross-resource-group-deployment.md)
 ### [Continuous integration with Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Pass secure values during deployment](resource-manager-keyvault-parameter.md)
 
