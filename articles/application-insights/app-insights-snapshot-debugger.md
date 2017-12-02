@@ -33,7 +33,7 @@ The following environments are supported:
 * On-premise virtual or physical machines running Windows Server 2012 R2 or later.
 
 > [!NOTE]
-> We do not recommend running Snapshot Collector in client applications (e.g. UWP, Windows Forms, or WPF).
+> Client applications (for example, WPF, Windows Forms or UWP) are not supported.
 
 ### Configure snapshot collection for ASP.NET applications
 
