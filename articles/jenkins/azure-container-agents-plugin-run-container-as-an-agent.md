@@ -23,8 +23,9 @@ The Azure Container Agents plugin for Jenkins enables you to quickly and easily 
 
 You learn how to:
 > [!div class="checklist"]
+> * Create an Azure resource group for your Jenkins resources
 > * Install the Azure Container Agents plugin for Jenkins
-> * Create Azure resource group
+> * 
 > * Configure the Azure Container Agents plugin
 > * Create the Spring PetClinic Application job in Jenkins
 > * Build the Spring PetClinic Application job in Jenkins
@@ -40,13 +41,39 @@ You learn how to:
 
 - **Jenkins Master** - Jenkins supports the *master/slave* pattern where the workload of building projects is delegated to one or more *slave* nodes. The master/slave pattern allows a single Jenkins installation to host a large number of projects or to provide different environments needed for builds or tests. If you don't currently have a Jenkins Master, start with the [solution template](install-jenkins-solution-template.md), which includes the Java Development Kit (JDK) version 8 and other required Jenkins plugins.
 
-## Create and add an Azure service principal to the Jenkins credentials
+## 1. Update Jenkins DNS
+
+1. Open the Jenkins dashboard.
+
+1. Select **Manage Jenkins**.
+
+    ![Manage Jenkins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
+
+1. Select **Configure System**.
+
+    ![Manage Jenkins plugins option on the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
+
+1. Under **Jenkins Location**, enter the URL of your Jenkins Master.
+
+## 2. Update Jenkins to allow Java Network Launch Protocol (JNLP)
+
+The slave, or agent, connects with the Jenkins Master via the Java Network Launch Protocol (JNLP), JNLP need to be allowed. 
+
+1. Open the Jenkins dashboard. 
+
+1. Select **Configure Global Security**.
+
+ -> TCP port for JNLP agents, select Fixed and specify a port, for example, 12345. 
+Jenkins JNLP
+
+Make sure you add a corresponding inbound security rule for the Jenkins master. In Azure, you add the rule in the Network Security Group for the Jenkins master: 
+JNLP port
+
+## 3. Create and add an Azure service principal to the Jenkins credentials
 
 You need an Azure service principal to deploy to Azure. 
 
 1. [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). While creating the principal, Make note of the values for the subscription ID, tenant, appId, and password.
-
-1. Open the Jenkins dashboard.
 
 1. Select **Credentials**.
 
@@ -81,7 +108,31 @@ You need an Azure service principal to deploy to Azure.
 
 1. When you are finished, select **OK** to add the principal to Jenkins. The Jenkins dashboard displays the newly added principal on the **Global Credentials** page.
 
-## Install the Azure Container Agents plugin for Jenkins
+## 4. Create an Azure resource group for your Jenkins resources
+
+Azure Container Instances must be placed in an Azure resource group. An Azure resource group is a container that holds related resources for an Azure solution.
+
+Using either CLI 2.0 or Cloud Shell, enter the following command to create a resource group called `myJenkinsAgentRG` in eastus:
+
+```shell```
+az group create --name myJenkinsAgentRG --location eastus
+```
+
+```shell```
+tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
+{
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myJenkinsAgentRG",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "myJenkinsAgentRG",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
+
+## 5. Install the Azure Container Agents plugin for Jenkins
 
 1. Open and log in to the Jenkins dashboard.
 
@@ -111,31 +162,7 @@ You need an Azure service principal to deploy to Azure.
 
     To return the main page of the Jenkins dashboard, select **Go back to the top page**.
 
-## Create Azure resource group
-
-Azure Container Instances must be placed in an Azure resource group. An Azure resource group is a container that holds related resources for an Azure solution.
-
-Using either CLI 2.0 or Cloud Shell, enter the following command to create a resource group called myJenkinsAgentRG in eastus:
-
-```shell```
-az group create --name myJenkinsAgentRG --location eastus
-```
-
-```shell```
-tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
-{
-  "id": "/subscriptions/<subscriptionId>/resourceGroups/myJenkinsAgentRG",
-  "location": "eastus",
-  "managedBy": null,
-  "name": "myJenkinsAgentRG",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
-```
-
-## Configure the Azure Container Agents plugin
+## 6. Configure the Azure Container Agents plugin
 
 1. Open and log in to the Jenkins dashboard.
 
@@ -177,7 +204,7 @@ tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
 
 1. Select **Save**.
 
-## Create the Spring PetClinic Application job in Jenkins
+## 7. Create the Spring PetClinic Application job in Jenkins
 
 The following steps guide you through creating a Jenkins job - as a freestyle project - to build the Spring PetClinic Application.
 
@@ -213,6 +240,6 @@ The following steps guide you through creating a Jenkins job - as a freestyle pr
 
 1. Select **Save** to save the new project definition.
 
-## Build the Spring PetClinic Application job in Jenkins
+## 8. Build the Spring PetClinic Application job in Jenkins
 
 ## Next steps
