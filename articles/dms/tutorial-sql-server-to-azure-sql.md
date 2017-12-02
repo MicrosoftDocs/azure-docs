@@ -1,6 +1,6 @@
 ---
-title: Use Azure Database Migration Service to migrate migrate SQL Server to Azure SQL Database | Microsoft Docs
-description: Learn to migrate from on premises SQL Server to Azure SQL using Azure Database Migration Service.
+title: Use the Azure Database Migration Service to migrate SQL Server to Azure SQL Database | Microsoft Docs
+description: Learn to migrate from SQL Server on-premises to Azure SQL by using Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/17/2017
 ---
 
 # Migrate SQL Server to Azure SQL Database
@@ -21,28 +21,29 @@ In this tutorial, you learn how to:
 > * Assess your on-premises database by using the Data Migration Assistant.
 > * Migrate the sample schema by using the Data Migration Assistant.
 > * Create an instance of the Azure Database Migration Service.
-> * Create an Azure Database Migration Service migration project.
+> * Create a migration project by using the Azure Database Migration Service.
 > * Run the migration.
 > * Monitor the migration.
 
 ## Prerequisites
-To complete this tutorial, you need:
+To complete this tutorial, you need to:
 
-- [SQL Server 2016 or above](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition)
-- TCP/IP protocol is disabled by default with SQL Server Express installation. Enable it by following the [instructions in this article](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- To configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- An Azure SQL Database instance. You can create an Azure SQL Database instance by following the detail in the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
-- [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
-- The Azure Database Migration Service requires a VNET created by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- The credentials used to connect to source SQL Server instance must have [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permissions.
-- The credentials used to connect to target Azure SQL DB instance must have CONTROL DATABASE permission on the target Azure SQL DB databases.
-- Your Windows firewall must be opened to allow the Azure Database Migration Service to access the source SQL Server.
+- Download and instanll [SQL Server 2016 or above](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition).
+- Enable the TCP/IP protocol, which is disabled by default during SQL Server Express installation, by following the instructions in the article [Enable or Disable a Server Network Protocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+- Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+- Create an instance of Azure SQL Database instance, which you do by following the detail in the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+- Download and install the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
+- Create a VNET for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Ensure that the credentials used to connect to source SQL Server instance have [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permissions.
+- Ensure that the credentials used to connect to target Azure SQL Database instance have CONTROL DATABASE permission on the target Azure SQL databases.
+- Open your Windows firewall to allow the Azure Database Migration Service to access the source SQL Server.
 
 ## Assess your on-premises database
-Before you can migrate data from an on-premises SQL Server instance to Azure SQL Database, you need to assess the SQL Server database for any blocking issues that might prevent migration. After you download and install Data Migration Assistant v3.3, use the steps described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) to complete the on-premises database assessment. A summary of the required steps follows:
+Before you can migrate data from an on-premises SQL Server instance to Azure SQL Database, you need to assess the SQL Server database for any blocking issues that might prevent migration. In the Data Migration Assistant v3.3 or later, follow the steps described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) to complete the on-premises database assessment. A summary of the required steps follows:
 1.	In the Data Migration Assistant, select the New (+) icon, and then select the **Assessment**  project type.
 2.	Specify a project name, in the **Source server type** text box, select **SQL Server**, and then in the **Target server type** text box, select **Azure SQL Database**.
 3.	Select **Create** to create the project.
+
     When you are assessing the source SQL Server database migrating to Azure SQL Database, you can choose one or both of the following assessment report types:
     - Check database compatibility
     - Check feature parity
@@ -50,7 +51,7 @@ Before you can migrate data from an on-premises SQL Server instance to Azure SQL
     Both report types are selected by default.
 4.	In the Data Migration Assistant, on the **Options** screen, select **Next**.
 5.  On the **Select sources** screen, in the **Connect to a server** dialog box, provide the connection details to your SQL Server, and then select **Connect**.
-6.	Select **AdventureWorks2012**, select **Add**, and then select **Start Assessment**.
+6.	In the **Add sources** dialog box, select **AdventureWorks2012**, select **Add**, and then select **Start Assessment**.
 
     When the assessment is complete, the results display as shown in the following graphic:
 
@@ -59,20 +60,19 @@ Before you can migrate data from an on-premises SQL Server instance to Azure SQL
     For Azure SQL Database, the assessments identify migration blocking issues and feature parity issues.
 
 7.	Review the assessment results for migration blocking issues and feature parity issues by selecting the specific options.
-    - The SQL Server feature parity category provides a comprehensive set of recommendations, alternative approaches available in Azure, and mitigating steps to help you plan the effort into your migration projects.
-    - The Compatibility issues category provides partially or unsupported features that reflect compatibility issues that might block migrating on-premises SQL Server database(s) to Azure SQL Database(s). Recommendations are also provided to help you address those issues.
+    - The **SQL Server feature parity** category provides a comprehensive set of recommendations, alternative approaches available in Azure, and mitigating steps to help you plan the effort into your migration projects.
+    - The **Compatibility issues** category identifies partially supported or unsupported features that reflect compatibility issues that might block migrating on-premises SQL Server database(s) to Azure SQL Database. Recommendations are also provided to help you address those issues.
 
 
 ## Migrate the sample schema
-After you are comfortable with the assessment and satisfied that the selected database is a good candidate for migration to Azure SQL Database, use Data Migration Assistant to migrate the schema to Azure SQL Database.
+After you are comfortable with the assessment and satisfied that the selected database is a good candidate for migration to Azure SQL Database, use the Data Migration Assistant to migrate the schema to Azure SQL Database.
 
 > [!NOTE]
-> Before you create a migration project in Data Migration Assistant, be sure that you have already provisioned an Azure SQL database as mentioned in the pre-requisites. For purposes of this tutorial, the name of the Azure SQL Database is assumed to be **AdventureWorks2012**, but you can name it differently if you wish.
+> Before you create a migration project in Data Migration Assistant, be sure that you have already provisioned an Azure SQL database as mentioned in the prerequisites. For purposes of this tutorial, the name of the Azure SQL Database is assumed to be **AdventureWorksAzure**, but you can name it differently if you wish.
 
 To migrate the **AdventureWorks2012** schema to Azure SQL Database, perform the following steps:
 
-1.	Launch the Data Migration Assistant.
-2.	Select the New (+) icon, and then under **Project type**, select **Migration**.
+1.	In the Data Migration Assistant, select the New (+) icon, and then under **Project type**, select **Migration**.
 3.	Specify a project name, in the **Source server type** text box, select **SQL Server**, and then in the **Target server type** text box, select **Azure SQL Database**.
 4.	Under **Migration Scope**, select **Schema only**.
 
@@ -84,7 +84,7 @@ To migrate the **AdventureWorks2012** schema to Azure SQL Database, perform the 
 6.	In the Data Migration Assistant, specify the source connection details for your SQL Server, select **Connect**, and then select the **AdventureWorks2012** database.
 
     ![Data Migration Assistant Source Connection Details](media\tutorial-sql-server-to-azure-sql\dma-source-connect.png)
-7.	Select **Next**, under **Connect to target server**, specify the target connection details for the Azure SQL database, select **Connect**, and then select the **AdventureWorks2012** database you had pre-provisioned in Azure SQL database.
+7.	Select **Next**, under **Connect to target server**, specify the target connection details for the Azure SQL database, select **Connect**, and then select the **AdventureWorksAzure** database you had pre-provisioned in Azure SQL database.
 
     ![Data Migration Assistant Target Connection Details](media\tutorial-sql-server-to-azure-sql\dma-target-connect.png)
 8.	Select **Next** to advance to the **Select objects** screen, on which you can specify the schema objects in the **AdventureWorks2012** database that need to be deployed to Azure SQL Database.
@@ -99,8 +99,21 @@ To migrate the **AdventureWorks2012** schema to Azure SQL Database, perform the 
 
     ![Deploy Schema](media\tutorial-sql-server-to-azure-sql\dma-schema-deploy.png)
 
+## Register the Microsoft.DataMigration resource provider
+1. Log in to the Azure portal, select **All services**, and then select **Subscriptions**.
+ 
+   ![Show portal subscriptions](media\tutorial-sql-server-to-azure-sql\portal-select-subscription.png)
+       
+2. Select the subscription in which you want to create the instance of the Azure Database Migration Service, and then select **Resource providers**.
+ 
+    ![Show resource providers](media\tutorial-sql-server-to-azure-sql\portal-select-resource-provider.png)    
+3.  Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
+ 
+    ![Register resource provider](media\tutorial-sql-server-to-azure-sql\portal-register-resource-provider.png)    
+
+
 ## Create an instance
-1.	Log in to the Azure portal, select **+ Create a resource**, search for Azure Database Migration Service, and then select **Azure Database Migration Service** from the drop-down list.
+1.	In the Azure portal, select **+ Create a resource**, search for Azure Database Migration Service, and then select **Azure Database Migration Service** from the drop-down list.
 
     ![Azure Marketplace](media\tutorial-sql-server-to-azure-sql\portal-marketplace.png)
 2.  On the **Azure Database Migration Service (preview)** screen, select **Create**.
@@ -109,7 +122,7 @@ To migrate the **AdventureWorks2012** schema to Azure SQL Database, perform the 
   
 3.	On the **Database Migration Service** screen, specify a name for the service, the subscription, a virtual network, and the pricing tier.
 
-    For more information on costs and pricing tiers, see the pricing page.
+    For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
 
      ![Configure Azure Database Migration Service instance settings](media\tutorial-sql-server-to-azure-sql\dms-settings.png)
 

@@ -303,7 +303,7 @@ given task.
 
 -   **Service principal objects**: In addition to providing access to user principals and groups, you can grant the same access to a service principal.
 
-	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory supplication and service principal](../../resource-group-create-service-principal-portal.md).
+	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory application and service principal](../../resource-group-create-service-principal-portal.md).
 
 #### Tags
 
