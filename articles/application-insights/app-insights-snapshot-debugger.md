@@ -25,6 +25,16 @@ Snapshot collection is available for:
 * .NET Framework and ASP.NET applications running .NET Framework 4.5 or later.
 * .NET Core 2.0 and ASP.NET Core 2.0 applications running on Windows.
 
+The following environments are supported:
+* Azure App Service
+* Azure Cloud Service
+* Azure Service Fabric services running on Windows Server 2012 R2 or later.
+* Azure Virtual Machines running Windows Server 2012 R2 or later.
+* On-premise virtual or physical machines running Windows Server 2012 R2 or later.
+
+> [!NOTE]
+> We do not recommend running Snapshot Collector in client applications (e.g. UWP, Windows Forms, or WPF applications)
+
 ### Configure snapshot collection for ASP.NET applications
 
 1. [Enable Application Insights in your web app](app-insights-asp-net.md), if you haven't done it yet.
