@@ -52,7 +52,7 @@ Follow the same directions as for starting with the sample, but do the following
    
 ## Visual Studio Code
 
-Visual Studio Code provides local development experience covering all major platforms - Windows, Mac and Linux.  Your functions can be run locally and can also be published to Azure. You can start with an empty project or with a set of sample functions.
+Visual Studio Code provides a local development experience covering all major platforms - Windows, macOS, and Linux.  Your functions can be run locally and can also be published to Azure. You can start with an empty project or with a set of sample functions.
 
 ### Prerequisites
 
@@ -61,53 +61,53 @@ Visual Studio Code provides local development experience covering all major plat
 * Follow the instructions under "Install the Azure Functions Core Tools" at [Code and test Azure Functions locally](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
 
 >[!IMPORTANT]
-> If you already have the Azure Functions Cross Platform Tools, please be sure to update them to the latest available version.
+> If you already have the Azure Functions Cross Platform Tools, update them to the latest available version.
 
-* On Windows install [Azure Storage Emulator](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) and for Mac create storage account on Azure 
+*  Install and run [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/storage-use-emulator) version 5.2 or later. Alternatively, you can update the *local.appsettings.json* file with real Azure Storage connection. 
 
 
 ### Start with sample functions
 
-1. Clone the [Durable Functions repository](https://github.com/Azure/azure-functions-durable-extension.git)
-2. Navigate on your machine to the [samples folder](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx) 
-3. Install Azure Durable Extension by running in command prompt / terminal the following command :
+1. Clone the [Durable Functions repository](https://github.com/Azure/azure-functions-durable-extension.git).
+2. Navigate on your machine to the [C# script samples folder](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx). 
+3. Install Azure Durable Extension by running the following in a command prompt / terminal window:
 
-```javascript
-func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.0.0-beta
+```bash
+   func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
 ```
-4. Run Azure Storage Emulator on Windows and on Mac update the *local.appsettings.json* file with real Azure Storage connection string
-3. Open the project in Visual Studio Code 
-5. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure
+4. Run Azure Storage Emulator or update the *local.appsettings.json* file with real Azure Storage connection string.
+3. Open the project in Visual Studio Code. 
+5. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
 6. Start the project by running in command prompt / terminal the following command:
-```javascript
+```bash
    func host start
 ```
 
 ### Start with an empty project
  
-1. In Command Prompt/Terminal navigate to folder that will host your function app
-2. Install Azure Durable Extension by running in command prompt / terminal the following command :
+1. In command prompt/terminal navigate to the folder that will host your function app.
+2. Install the Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
-```javascript
+```bash
    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.0.0-beta
 ```
-3. Run Azure Storage Emulator on Windows and on Mac update the *local.appsettings.json* file with real Azure Storage connection string
+3. Run Azure Storage Emulator on Windows and on macOS update the *local.appsettings.json* file with real Azure Storage connection string.
 4. Create a Function App project by running the following command:
 
-```javascript
+```bash
    func init
 ```
 5. Next, create new Function by running the following command and follow the wizard steps:
 
-```javascript
+```bash
    func new
 ```
 >[!IMPORTANT]
-> Currently Durable Function template is not available but you can start with one of the supported options and then modify the code. Please use for reference the samples we have for [Orchestration Client](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/HttpStart), [Orchestration Trigger](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence) and [Activity Trigger](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence)
+> Currently the Durable Function template is not available but you can start with one of the supported options and then modify the code. Use for reference the samples for [Orchestration Client](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/HttpStart), [Orchestration Trigger](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence), and [Activity Trigger](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence).
 
-6. Open the project folder in Visual Studio Code and continue for modify the template code 
+6. Open the project folder in Visual Studio Code and continue by modifying the template code. 
 7. Start the project by running in command prompt / terminal the following command:
-```javascript
+```bash
    func host start
 ```
 
@@ -119,31 +119,31 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 
 1. Create a new function app at [functions.azure.com](https://functions.azure.com/signin).
 
-2. Configure the function app to [use the 2.0 runtime version](functions-versions.md) in Function app Settings.
+2. Configure the function app to [use the 2.0 runtime version](functions-versions.md).
 
-3. Create a new function by selecting **"create your own custom function"** 
+3. Create a new function by selecting **"create your own custom function."**.
 
-4. Change the **Language** to **C#**, **Scenario** to **Durable Functions** and select the **Durable Functions Http Starter - C#** template
+4. Change the **Language** to **C#**, **Scenario** to **Durable Functions** and select the **Durable Functions Http Starter - C#** template.
 
-5. Under **Extensions not installed**, click **Install** to download the extension from NuGet.org 
+5. Under **Extensions not installed**, click **Install** to download the extension from NuGet.org. 
 
-6. After the installation is complete, please proceed with the creation of an orchestration client function – **“HttpStart”** that is created by selecting **Durable Functions Http Starter - C#** template
+6. After the installation is complete, please proceed with the creation of an orchestration client function – **“HttpStart”** that is created by selecting **Durable Functions Http Starter - C#** template.
 
-7. Now, let’s create an orchestration function **“HelloSequence”** from **Durable Functions Orchestrator - C#** template
+7. Now, let’s create an orchestration function **“HelloSequence”** from **Durable Functions Orchestrator - C#** template.
 
-8. And the last function will be called **“Hello”** from **Durable Functions Activity - C#** template
+8. And the last function will be called **“Hello”** from **Durable Functions Activity - C#** template.
 
-9. Now let’s go to **"HttpStart"** function and copy its URL
+9. Now let’s go to **"HttpStart"** function and copy its URL.
 
 10. Let’s use Postman or cURL to call the durable function. Before testing, please replace in the URL **{functionName}** with the orchestrator function name - **HelloSequence**.  No data is required, just use POST verb. 
 
-```javascript
+```bash
    curl -X POST https://{your function app name}.azurewebsites.net/api/orchestrators/HelloSequence
 ```
 
-11. Then, let’s call the **“statusQueryGetUri”** endpoint and we will see the current status of the the Durable Function
+11. Then, let’s call the **“statusQueryGetUri”** endpoint and we will see the current status of the Durable Function
 
-```javascript
+```json
     {
         "runtimeStatus": "Running",
         "input": null,
@@ -155,7 +155,7 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 
 12. Continue calling the **“statusQueryGetUri”** endpoint until the status changes to **"Completed"** 
 
-```javascript
+```json
    {
         "runtimeStatus": "Completed",
         "input": null,

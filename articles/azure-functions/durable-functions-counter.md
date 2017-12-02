@@ -47,21 +47,25 @@ This article walks through the **E3_Counter** function in the sample app.
 
 The following sections explain the code that is used for Visual Studio Code and Azure Portal development.
 
-## function.json file
+### C# Script
+
+The function.json file:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
 
-## run.csx file
+The run.csx file:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
 
-## Visual Studio Code Sample
+### Precompiled C# 
 
 The following sections explain the code that is used for Visual Studio development.
 
 Here is the code that implements the orchestrator function:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+
+### Explanation of the code
 
 This orchestrator function essentially does the following:
 
