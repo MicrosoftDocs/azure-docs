@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/01/2017
 ms.author: curtand                   
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
@@ -22,17 +22,17 @@ ms.custom: it-pro
 
 # Configure expiration for Office 365 groups (preview)
 
-You can now manage the lifecycle of Office 365 groups by setting expiration features for them.  You can set expiration for only Office 365 groups in Azure Active Directory (Azure AD). Once you set a group to expire:
+You can now manage the lifecycle of Office 365 groups by setting expiration features for them. You can set expiration for only Office 365 groups in Azure Active Directory (Azure AD). Once you set a group to expire:
 -	Owners of the group are notified to renew the group as the expiration nears
 -	Any group that is not renewed is deleted
 -	Any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator
 
 > [!NOTE]
-> Setting expiration for Office 365 groups requires that an Azure AD Premium license is assigned to
->  - The administrator who configures the expiration settings for the tenant
->  - All members of the groups selected for this setting
+> Setting expiration for Office 365 groups requires an Azure AD Premium license or an Azure AD Basic EDU license for all members of the groups to which expiration settings are applied.
 > 
-> For Azure AD Basic EDU licensed customers: the first time you configure this policy, use the Azure Active Directory PowerShell cmdlets. After that, you can update the expiration settings using either PowerShell or the Azure AD portal, with an account that's a global administrator in your Azure AD tenant.
+> For Azure AD Basic EDU licensed customers: to configure this policy for the first time, use the Azure Active Directory PowerShell cmdlets. After that, you can update the expiration settings using either PowerShell or the Azure AD portal, with an account that's a User Account Administrator or Global Administrator in your Azure AD tenant.
+
+For information on how to download and install the Azure AD PowerShell cmdlets, see [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 ## Set group expiration
 
@@ -51,7 +51,6 @@ You can now manage the lifecycle of Office 365 groups by setting expiration feat
   * Select which Office 365 groups expire. You can enable expiration for **All** Office 365 groups, you can select from among the Office 365 groups, or you select **None** to disable expiration for all groups.
   * Save your settings when you're done by selecting **Save**.
 
-For instructions on how to download and install the Microsoft PowerShell module to configure expiration for Office 365 groups via PowerShell, see [Azure Active Directory V2 PowerShell Module - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 Email notifications such as this one are sent to the Office 365 group owners 30 days, 15 days, and 1 day prior to expiration of the group.
 
