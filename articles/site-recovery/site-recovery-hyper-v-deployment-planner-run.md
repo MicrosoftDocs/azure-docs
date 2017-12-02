@@ -236,7 +236,7 @@ The generated Microsoft Excel report contains the following information:
 * [Compatible VMs](site-recovery-hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [Incompatible VMs](site-recovery-hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [On-premises Storage Requirement](site-recovery-hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
-* [IR Batching ](site-recovery-hyper-v-deployment-planner-analyze-report.md#intial-replication-batching)
+* [IR Batching](site-recovery-hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
 * [Cost Estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md)
 
 ![Deployment planner report](media/site-recovery-hyper-v-deployment-planner-run/deployment-planner-report-h2a.png)
