@@ -85,7 +85,7 @@ Visual Studio Code provides a local development experience covering all major pl
 
 ### Start with an empty project
  
-1. In command prompt/terminal navigate to the folder that will host your function app.
+1. In command prompt / terminal navigate to the folder that will host your function app.
 2. Install the Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
 ```bash
