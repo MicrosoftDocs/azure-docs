@@ -70,7 +70,7 @@ Visual Studio Code provides a local development experience covering all major pl
 
 1. Clone the [Durable Functions repository](https://github.com/Azure/azure-functions-durable-extension.git).
 2. Navigate on your machine to the [C# script samples folder](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx). 
-3. Install Azure Durable Extension by running the following in a command prompt / terminal window:
+3. Install Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
 ```bash
    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
@@ -89,7 +89,7 @@ Visual Studio Code provides a local development experience covering all major pl
 2. Install the Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
 ```bash
-   func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.0.0-beta
+   func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
 ```
 3. Run Azure Storage Emulator on Windows and on macOS update the *local.appsettings.json* file with real Azure Storage connection string.
 4. Create a Function App project by running the following command:
@@ -97,7 +97,7 @@ Visual Studio Code provides a local development experience covering all major pl
 ```bash
    func init
 ```
-5. Next, create new Function by running the following command and follow the wizard steps:
+5. Next, create a new function by running the following command and follow the wizard steps:
 
 ```bash
    func new
@@ -127,21 +127,21 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 
 5. Under **Extensions not installed**, click **Install** to download the extension from NuGet.org. 
 
-6. After the installation is complete, please proceed with the creation of an orchestration client function – **“HttpStart”** that is created by selecting **Durable Functions Http Starter - C#** template.
+6. After the installation is complete, proceed with the creation of an orchestration client function – **“HttpStart”** that is created by selecting **Durable Functions Http Starter - C#** template.
 
-7. Now, let’s create an orchestration function **“HelloSequence”** from **Durable Functions Orchestrator - C#** template.
+7. Now, create an orchestration function **“HelloSequence”** from **Durable Functions Orchestrator - C#** template.
 
 8. And the last function will be called **“Hello”** from **Durable Functions Activity - C#** template.
 
-9. Now let’s go to **"HttpStart"** function and copy its URL.
+9. Go to **"HttpStart"** function and copy its URL.
 
-10. Let’s use Postman or cURL to call the durable function. Before testing, please replace in the URL **{functionName}** with the orchestrator function name - **HelloSequence**.  No data is required, just use POST verb. 
+10. Use Postman or cURL to call the durable function. Before testing, replace in the URL **{functionName}** with the orchestrator function name - **HelloSequence**.  No data is required, just use POST verb. 
 
 ```bash
    curl -X POST https://{your function app name}.azurewebsites.net/api/orchestrators/HelloSequence
 ```
 
-11. Then, let’s call the **“statusQueryGetUri”** endpoint and we will see the current status of the Durable Function
+11. Then, call the **“statusQueryGetUri”** endpoint and we will see the current status of the Durable Function
 
 ```json
     {
