@@ -13,7 +13,7 @@ ms.author: cahann
 ---
 
 # Manage intents 
-Add intents to your LUIS app to help your client app understand user requests and respond to them. 
+Add [intents](luis-concept-intent.md) to your LUIS app to help your client app understand user requests and respond to them. 
 
 You add and manage your intents from the **Intents** page, available from **Intents** in LUIS's left panel. 
 
@@ -54,4 +54,4 @@ On the intent details page of the newly added intent "Bookflight", you add utter
 
 ## Next steps
 
-After adding intents to your app, your next task is to start adding example utterances for the intents you've added. For instructions, see [Add example utterances](Add-example-utterances.md).
+After adding intents to your app, your next task is to start adding [example utterances](Add-example-utterances.md) for the intents you've added. 
