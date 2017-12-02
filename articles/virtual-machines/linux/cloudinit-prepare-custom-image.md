@@ -95,8 +95,8 @@ To save space and remove the swap file you can run the following command:
 rm /mnt/resource/swapfile
 ```
 ## Extra step for cloud-init prepared image
-[!NOTE]
-If your image was previously a **cloud-init** prepared and configured image, you need to do the following steps.
+> [!NOTE]
+> If your image was previously a **cloud-init** prepared and configured image, you need to do the following steps.
 
 The following three commands are only used if the VM you are customizing to be a new specialized source image was previously provisioned by cloud-init.  You do NOT need to run these if your image was configured using the Azure Linux Agent.
 
