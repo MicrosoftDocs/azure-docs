@@ -8,7 +8,7 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/13/2017
 ms.author: v-geberr
 ---
 
@@ -62,7 +62,7 @@ The steps in this tutorial are summarized here. More details will be given in th
 The [Bot Framework Emulator][Github-BotFramework-Emulator-Download] is available on GitHub. Download and install the correct version for your operating system. Note where the application is on your computer so you can start it in a later step.
 
 ## Clone or download the LUIS-Samples repository
- [LUIS-Samples][Github-LUIS-Samples] is a GitHub repository with more samples beyond just the LUIS bot. The subfolder you need for this tutorial is [./CSharp/Intelligence-LUIS][Github-LUIS-Samples-cs-hotel-bot].
+ [LUIS-Samples][Github-LUIS-Samples] is a GitHub repository with more samples beyond just the LUIS bot. The subfolder you need for this tutorial is [./bot-integration-samples/hotel-finder/csharp/][Github-LUIS-Samples-cs-hotel-bot].
 
 Clone or download the repository to your computer. You edit and run the CSharp/Intelligence-LUIS sample found in this repository.
 
@@ -72,8 +72,10 @@ Create a [luis.ai][LUIS-website] account and log in.
 In order to get a new LUIS application set up for the bot, you need to import the **LuisBot.json** file found at ./BotBuilder-Samples/CSharp/Intelligence-LUIS folder. The file contains the application definition for the LUIS app the sample bot uses.
 
 1. On the **My Apps** page  of the [LUIS web page][LUIS-website], click **Import new app**.
-2. In the **Import new app** dialog box, click **Choose file** and upload the LuisBot.json file. Name your application "Hotel Finder", and Click **Done**. <!--    ![A new app form](./Images/NewApp-Form.JPG) -->It may take a few minutes for LUIS to extract the intents and entities from the JSON file. When the import is complete, LUIS opens the Dashboard page of the Hotel Finder app<!-- which looks like the following screen-->. 
-3. Once the app is imported, you need to change the [Assigned endpoint key][AssignedEndpointDoc] on the Publish App page to your Azure LUIS subscription. Then publish the app. Copy your endpoint URL which contains your LUIS app ID and your LUIS subscription ID.
+2. In the **Import new app** dialog box, click **Choose file** and upload the LuisBot.json file. Name your application "Hotel Finder", and Click **Done**. <!--    ![A new app form](./Images/NewApp-Form.JPG) -->It may take a few minutes for LUIS to extract the intents and entities from the JSON file. When the import is complete, LUIS opens the **Intents** page of the Hotel Finder app<!-- which looks like the following screen-->. 
+3. Click the **Train** button to train the app. 
+4. Once the app is trained, <!-- you need to change the [Assigned endpoint key][AssignedEndpointDoc]-->click **PUBLISH** tab to open the **Publish app** page. Then click the **Publish to production slot** button to publish the app. 
+5. Copy your the endpoint URL shown in the table entry for the key named `Starter_Key`. This URL contains your LUIS app ID and your LUIS subscription ID.
 
 The URL looks something like the following URL: 
 
@@ -82,7 +84,7 @@ The URL looks something like the following URL:
 https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/a0be191c-ebe0-4153-a4c3-d880b9c5d753?subscription-key=a237d6bc86cd4562bf67b09dff44d2e6&timezoneOffset=0&verbose=true&q=
 ```
 
-The number after the /apps/ is your app ID. The number in the query string for subscription-key is your subscription ID. Using the above example, the app ID is: 
+The number after `/apps/` in the URL is your app ID. The number in the query string for subscription-key is your subscription ID. Using the above example, the app ID is: 
 
 ```
 a0be191c-ebe0-4153-a4c3-d880b9c5d753
