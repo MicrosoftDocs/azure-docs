@@ -92,7 +92,7 @@ In the next two sections we show how to complete configuration of remote docker 
 
  To set up a remote Docker container, run in CLI
 
-    az ml computetarget attach --name dsvm --address <IP address> --username <username> --password <password> --type remotedocker
+    az ml computetarget attach remotedocker --name dsvm --address <IP address> --username <username> --password <password> 
 
 with IP address, user name and password in DSVM. IP address of DSVM can be found in Overview section of your DSVM page in Azure portal:
 
@@ -102,7 +102,7 @@ with IP address, user name and password in DSVM. IP address of DSVM can be found
 
 To set up Spark environment, run in CLI
 
-    az ml computetarget attach --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> --type cluster
+    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 with the name of the cluster, cluster's SSH user name and password. The default value of SSH user name is `sshuser`, unless you changed it during provisioning of the cluster. The name of the cluster can be found in Properties section of your cluster page in Azure portal:
 
