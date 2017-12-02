@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
 ---
 
@@ -89,7 +89,7 @@ Future versions of Windows Server will be added as they are released. Earlier ve
 | Alternate Data Streams (ADS) | Preserved, but not synced | |
 
 > [!Note]  
-> Only NTFS volumes are supported.
+> Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
 
 ### Failover Clustering
 Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. Failover Clustering is not supported on "Scale-Out File Server for application data" (SOFS) or on Clustered Shared Volumes (CSVs).
