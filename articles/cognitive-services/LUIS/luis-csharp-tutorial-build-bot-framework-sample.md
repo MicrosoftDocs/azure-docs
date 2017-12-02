@@ -46,10 +46,10 @@ The tutorial assumes you have the following before you begin the next steps:
 The steps in this tutorial are summarized here. More details will be given in the following sections for these steps. 
 
 * Download and install the [Bot Framework emulator][Github-BotFramework-Emulator-Download].
-* Download the [BotBuilder-Samples][Github-BotBuilder-Samples] repository. This has the LUIS app definition file as well as the LUIS sample bot.
+* Download the [LUIS-Samples][Github-LUIS-Samples] repository. This has the LUIS app definition file as well as the LUIS sample bot.
 * In [luis.ai][LUIS-website], create and publish a LUIS app from a file provided in BotBuilder-Samples. Publishing the app gives you the app's LUIS endpoint. This will be the URL that the bot calls. 
-* In Visual Studio, edit the BotBuilder-Samples LUIS bot's RootLuisDialog.cs for the LUIS endpoint.
-* In Visual Studio, start the BotBuilder-Samples LUIS bot. Note the port, such as 3979
+* In Visual Studio, edit the bot's RootLuisDialog.cs for the LUIS endpoint.
+* In Visual Studio, start the bot. Note the port, such as 3979
 * Start the Bot Framework Emulator. Enter the URL for the bot, such as http://localhost:3979/api/messages.
 * Ask the bot: "Search hotels in Seattle"
 * View the bot's response
@@ -64,12 +64,12 @@ The [Bot Framework Emulator][Github-BotFramework-Emulator-Download] is available
 ## Clone or download the LUIS-Samples repository
  [LUIS-Samples][Github-LUIS-Samples] is a GitHub repository with more samples beyond just the LUIS bot. The subfolder you need for this tutorial is [./bot-integration-samples/hotel-finder/csharp/][Github-LUIS-Samples-cs-hotel-bot].
 
-Clone or download the repository to your computer. You edit and run the CSharp/Intelligence-LUIS sample found in this repository.
+Clone or download the repository to your computer. You edit and run the bot-integration-samples/hotel-finder/csharp sample found in this repository.
 
 ## Create a new LUIS Application from the application definition file
 Create a [luis.ai][LUIS-website] account and log in.
 
-In order to get a new LUIS application set up for the bot, you need to import the **LuisBot.json** file found at ./BotBuilder-Samples/CSharp/Intelligence-LUIS folder. The file contains the application definition for the LUIS app the sample bot uses.
+In order to get a new LUIS application set up for the bot, you need to import the **LuisBot.json** file found in the ./LUIS-Samples/bot-integration-samples/hotel-finder/csharp folder. The file contains the application definition for the LUIS app the sample bot uses.
 
 1. On the **My Apps** page  of the [LUIS web page][LUIS-website], click **Import new app**.
 2. In the **Import new app** dialog box, click **Choose file** and upload the LuisBot.json file. Name your application "Hotel Finder", and Click **Done**. <!--    ![A new app form](./Images/NewApp-Form.JPG) -->It may take a few minutes for LUIS to extract the intents and entities from the JSON file. When the import is complete, LUIS opens the **Intents** page of the Hotel Finder app<!-- which looks like the following screen-->. 
