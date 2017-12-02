@@ -21,15 +21,14 @@ ms.author: nisoneji
 
 ## Modes of running deployment planner
 You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following four modes: 
-1.	[Get VM list](site-recovery-hyper-v-deployment-planner-getvmlist.md).
-2.	[Profiling](site-recovery-hyper-v-deployment-planner-profiling.md)
-3.	[Report generation](site-recovery-hyper-v-deployment-planner-generate-report.md)
-4.	[Get throughput](site-recovery-hyper-v-deployment-planner-get-throughput.md)
+1.	[Get VM list](#get-vm-list-for-profiling-hyper-v-vms)
+2.	[Profiling](#profile-hyper-v-vms)
+3.	[Report generation](#generate-report)
+4.	[Get throughput](#get-throughput)
 
 First, run the tool to get the list of VMs from a single or multiple Hyper-V hosts.  Then run the tool in profiling mode to gather VM data churn and IOPS. Next, run the tool to generate the report to find the network bandwidth and storage requirements.
 
 ## Get VM list for profiling Hyper-V VMs
-
 First, you need a list of the VMs to be profiled. Use GetVMList mode of the deployment planner tool to generate the list of VMs present on multiple Hyper-V hosts in a single command. Once you generate the complete list, you can remove VMs that you don’t want to profile from the output file. Then use the output file for all other operations - profiling, report generation and get throughput.
 
 You can generate the VM list pointing the tool to a Hyper-V cluster or a standalone Hyper-V host or a combination of all.
@@ -51,7 +50,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 ### How does GetVMList discovery work?
 **Hyper-V cluster**: When Hyper-V cluster name is given in the servers list file, the tool finds all the Hyper-V nodes of the cluster and gets the VMs present on each of the Hyper-V hosts.
 
-**Hyper-V host**: When Hyper-V host name is given, the tool first checks if it belongs to a cluster. If yes, it fetches all the Hyper-V nodes name. It then gets the VMs from each Hyper-V host. 
+**Hyper-V host**: When Hyper-V host name is given, the tool first checks if it belongs to a cluster. If yes, it fetches nodes belonging to the cluster. It then gets the VMs from each Hyper-V host. 
 
 You can also choose to list in a file the friendly names or IP addresses of the VMs that you want to profile manually.
 
@@ -68,15 +67,14 @@ ASRDeploymentPlanner.exe -Operation GetVMList -Directory "E:\Hyper-V_ProfiledDat
 ```
 
 ## Profile Hyper-V VMs
-
 In profiling mode, the deployment planner tool connects to each of the Hyper-V hosts to collect performance data about the VMs. 
 
 * Profiling does not affect the performance of the production VMs because no direct connection is made to them. All performance data is collected from the Hyper-V host.
 * The tool queries the Hyper-V host once every 15 seconds to ensure profiling accuracy and stores the average of every minute’s performance counter data.
+* The tool seamlessly handles VM migration from one node to another node in the cluster and storage migration within a host.
 
 ### Get VM list to profile
-
-Refer to [GetVMList](site-recovery-hyper-v-deployment-planner-getvmlist.md) operation to create a list of VMs to profile
+Refer to [GetVMList](#get-vm-list-for-profiling-hyper-v-vms) operation to create a list of VMs to profile
 
 After you have the list of VMs to be profiled, you can run the tool in profiling mode. 
 
@@ -92,7 +90,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -VMListFile | The file with the list of VMs to be profiled. The file path can be absolute or relative. For Hyper-V, this file is the output file of the GetVMList operation. If you are preparing manually, the file should contain one server name or IP address followed by VM name separated by a \ per line. VM name specified in the file should be the same as the VM name on the Hyper-V host.<ul>Example: File "VMList.txt" contains the following VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-NoOfMinutesToProfile|The number of minutes for which profiling is to be run. Minimum is 30 minutes.|
 |-NoOfHoursToProfile|The number of hours for which profiling is to be run.|
-|-NoOfDaysToProfile |The number of days for which profiling is to be run. It is recommended to run profiling for at least 15 to 31 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation.|
+|-NoOfDaysToProfile |The number of days for which profiling is to be run. It is recommended to run profiling for more than 7 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation.|
 |-Virtualization|Specify the virtualization type (VMware or Hyper-V).|
 |-Directory|(Optional) The universal naming convention (UNC) or local directory path to store profiling data generated during profiling. If not given, the directory named 'ProfiledData' under the current path will be used as the default directory.|
 |-Password|(Optional) The password to connect to Hyper-V host. If not specified now, you will be prompted for it later during the execution of the command.|
@@ -100,7 +98,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-StorageAccountKey|(Optional) The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <Storage account name> > Settings > Access Keys > Key1 (or primary access key for classic storage account).|
 |-Environment|(Optional) This is your target Azure Storage account environment. This can be one of three values - AzureCloud,AzureUSGovernment, AzureChinaCloud. Default is AzureCloud. Use the parameter when your target Azure region is either Azure US Government or Azure China clouds.|
 
-We recommend that you profile your VMs for at least 15 to 31 days. During the profiling period, ASRDeploymentPlanner.exe keeps running. The tool takes profiling time input in days. For a quick test of the tool or for proof of concept you can profile for few hours or minutes. The minimum allowed profiling time is 30 minutes. 
+We recommend that you profile your VMs for more than 7 days. If churn pattern varies in a month, we recommend to profile during the week when you see the maximum churn. The best way is to profile for 31 days to get better recommendation. During the profiling period, ASRDeploymentPlanner.exe keeps running. The tool takes profiling time input in days. For a quick test of the tool or for proof of concept you can profile for few hours or minutes. The minimum allowed profiling time is 30 minutes. 
 
 During profiling, you can optionally pass a storage-account name and key to find the throughput that Azure Site Recovery can achieve at the time of replication from the Hyper-V server to Azure. If the storage account name and key are not passed during profiling, the tool does not calculate achievable throughput.
 
@@ -114,7 +112,6 @@ VM configurations are captured once at the beginning of the profiling operation 
 The profiling command generates several files in the profiling directory. Do not delete any of the files, because doing so affects report generation.
 
 ### Examples
-
 #### Example 1: Profile VMs for 30 days, and find the throughput from on-premises to Azure
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile 30 -User Contoso\HyperVUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
@@ -142,7 +139,6 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Dire
 * Azure Site Recovery does not support VMs that have iSCSI and pass-through disks. However, the tool cannot detect, and profile iSCSI and pass-through disks attached to VMs.
 
 ## Generate report
-
 The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output, which summarizes all the deployment recommendations. The report is named DeploymentPlannerReport_<unique numeric identifier>.xlsm and placed in the specified directory.
 After profiling is complete, you can run the tool in report-generation mode. 
 
@@ -170,7 +166,6 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |-Currency|(Optional) The currency in which cost is shown in the generated report. Default is US Dollar ($) or the last used currency.<br>Refer to https://aka.ms/asr-dp-supported-currencies for the list of supported currencies.|
 
 ### Examples
-
 #### Example 1: Generate a report with default values when the profiled data is on the local drive
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”
@@ -234,18 +229,16 @@ We strongly recommend that you plan for growth during deployment planning and wh
 
 The generated Microsoft Excel report contains the following information:
 
-* [On-premises Summary](site-recovery-hyper-v-deployment-planner-on-premises-summary.md)
-* [Recommendations](site-recovery-hyper-v-deployment-planner-recommendations.md)
-* [VM<->Storage Placement](site-recovery-hyper-v-deployment-planner-vm-storage-placement.md)
-* [Compatible VMs](site-recovery-hyper-v-deployment-planner-compatible-vms.md)
-* [Incompatible VMs](site-recovery-hyper-v-deployment-planner-incompatible-vms.md)
-* [On-premises Storage Requirement](site-recovery-hyper-v-deployment-planner-on-premises-storage-requirement.md)
-* [IR Batching ](site-recovery-hyper-v-deployment-planner-ir-batchting.md)
+* [On-premises Summary](site-recovery-hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
+* [Recommendations](site-recovery-hyper-v-deployment-planner-analyze-report.md#recommendations)
+* [VM<->Storage Placement](site-recovery-hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)]
+* [Compatible VMs](site-recovery-hyper-v-deployment-planner-analyze-report.md#compatible-vms)
+* [Incompatible VMs](site-recovery-hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
+* [On-premises Storage Requirement](site-recovery-hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
+* [IR Batching ](site-recovery-hyper-v-deployment-planner-analyze-report.md#intial-replication-batching)
 * [Cost Estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md)
 
-
- ## Get throughput
-
+## Get throughput
 To estimate the throughput that Azure Site Recovery can achieve from on-premises to Azure during replication, run the tool in GetThroughput mode. The tool calculates the throughput from the server that the tool is running on. Ideally, this server is the Hyper-V server whose VMs are to be protected. 
 
 ### Command-line parameters 

@@ -18,8 +18,9 @@ ms.author: nisoneji
 
 ---   
 # Analyze the Azure Site Recovery deployment planner report
+The generated Microsoft Excel report contains the following sheets:
 
- ## On-premises summary report
+## On-premises summary
 The On-premises summary worksheet provides an overview of the profiled Hyper-V environment
 
 **Start Date** and **End Date**: The start and end dates of the profiling data considered for report generation. By default, the start date is the date when profiling starts, and the end date is the date when profiling stops. This can be the ‘StartDate’ and ‘EndDate’ values if the report is generated with these parameters.
@@ -40,18 +41,18 @@ The On-premises summary worksheet provides an overview of the profiled Hyper-V e
 
 **Observed typical data churn per day (GB)**: The average data churn observed across all profiling days.
 
-## Recommendations with desired RPO as input 
-The recommendations sheet of the Hyper-V to Azure report has the following details.
+## Recommendations  
+The recommendations sheet of the Hyper-V to Azure report has the following details as per the selected desired RPO:
 
 ### Profile data
-**Profiled data period:** The period during which the profiling was run. By default, the tool includes all profiled data in the calculation, unless it generates the report for a specific period by using StartDate and EndDate options during report generation.
+**Profiled data period**: The period during which the profiling was run. By default, the tool includes all profiled data in the calculation. If you have used StartDate and EndDate option in report generation, it generates the report for the specific period. 
 
-**Number of Hyper-V servers profiled**: The number of Hyper-V server whose VMs’ report is generated. Click on the number to view the name of the Hyper-V servers. It opens the On-premises Storage Requirement sheet where all the servers name along with storage requirement are listed.    
+**Number of Hyper-V servers profiled**: The number of Hyper-V servers whose VMs’ report is generated. Click on the number to view the name of the Hyper-V servers. It opens the On-premises Storage Requirement sheet where all the servers are listed along with their storage requirement.    
 
 **Desired RPO**: The recovery point objective for your deployment. By default, the required network bandwidth is calculated for RPO values of 15, 30, and 60 minutes. Based on the selection, the affected values are updated on the sheet. If you have used the DesiredRPOinMin parameter while generating the report, that value is shown in the Desired RPO result.
 
 ### Profiling overview
-**Total Profiled Virtual Machines**: The total number of VMs whose profiled data is available. If the VMListFile has names of any VMs which were not profiled, those VMs are not considered in the report generation and are excluded from the total profiled VMs count.
+**Total Profiled Virtual Machines**: The total number of VMs whose profiled data is available. If the VMListFile has names of any VMs, which were not profiled, those VMs are not considered in the report generation and are excluded from the total profiled VMs count.
 
 **Compatible Virtual Machines**: The number of VMs that can be protected to Azure by using Azure Site Recovery. It is the total number of compatible VMs for which the required network bandwidth, number of storage accounts, number of Azure cores are calculated. The details of every compatible VM are available in the "Compatible VMs" section.
 
@@ -75,7 +76,7 @@ The following chart shows the total number of storage accounts (standard and pre
 This result is the total number of cores to be set up before failover or test failover of all the compatible VMs. If too few cores are available in the subscription, Azure Site Recovery fails to create VMs at the time of test failover or failover.
 
 ### Additional on-premises storage requirement
-The total free storage required on Hyper-V servers for successful initial replication and delta replication to ensure that the VM replication will not cause any undesirable downtime for your production applications. Detail of each volume requirement is available in [on-premises storage requirement](./site-recovery-hyper-v-deployment-planner-analyze-report.md#on-premises storage-requirement). 
+The total free storage required on Hyper-V servers for successful initial replication and delta replication to ensure that the VM replication will not cause any undesirable downtime for your production applications. Detail of each volume requirement is available in [on-premises storage requirement](#on-premises-storage-requirement). 
 
 To understand why free space is required for the replication, refer to [On-premises storage requirement](#why-do-i-need-free-space-on-the-hyper-v-server-for-the-replication) section.
 
@@ -88,7 +89,7 @@ This analysis outlines how many violations could occur during the profiling peri
 ### Recommendation for successful initial replication
 In this section, we recommend the number of batches in which the VMs to be protected and the minimum bandwidth required to complete initial replication (IR) successfully. 
 
-The batch must be protected in the given order. Each batch has specific list of VMs. Batch 1 VMs must be protected before Batch 2. Batch 2 VMs must be protected before Batch 3 VMs and so on. Once initial replication of the Batch 1 VMs is completed, you can enable replication for Batch 2 VMs. Similarly, once initial replication of VMs of Batch 2 is completed, you can enable replication for Batch 3 VMs and so on. If the batch order is not followed, sufficient bandwidth for initial replication may not be available for the VMs, which are protected later. Result is, either VMs will never be able to complete initial replication, or few protected VMs may go into resync mode. IR batching for the selected RPO sheet has the detailed information about which VMs should be included in each batch.
+The VM must be protected in the given batch order. Each batch has specific list of VMs. Batch 1 VMs must be protected before Batch 2. Batch 2 VMs must be protected before Batch 3 VMs and so on. Once initial replication of the Batch 1 VMs is completed, you can enable replication for Batch 2 VMs. Similarly, once initial replication of VMs of Batch 2 is completed, you can enable replication for Batch 3 VMs and so on. If the batch order is not followed, sufficient bandwidth for initial replication may not be available for the VMs, which are protected later. Result is, either VMs will never be able to complete initial replication, or few protected VMs may go into resync mode. IR batching for the selected RPO sheet has the detailed information about which VMs should be included in each batch.
 
 The graph here shows the bandwidth distribution for initial replication and delta replication across batches in the given batch order. When you protect VMs of the first batch, full bandwidth is available for initial replication. Once initial replication is over for the first batch, part of bandwidth will be required for delta replication. The remaining bandwidth will be available for initial replication of VMs of the second batch. The Batch 2 bar shows the required delta replication bandwidth for Batch 1 VMs and the bandwidth available for initial replication for Batch 2 VMs. Similarly, Batch 3 bar shows the bandwidth required for delta replication for previous batches (Batch 1 and Batch 2 VMs) and the bandwidth available for initial replication for Batch 3 and so on.  Once initial replication of all the batches is over, the last bar shows the bandwidth required for delta replication for all the protected VMs. 
 
@@ -132,7 +133,7 @@ You can view detailed cost analysis per VM in the [Cost Estimation](site-recover
 
 **Virtual Machines to Place**: A list of all the VMs that should be placed on the given storage account for optimal performance and use.
 
-## Compatible VMs details of the Hyper-V to Azure report
+## Compatible VMs
 The Microsoft Excel report generated by Azure Site Recovery deployment planner provides all compatible VMs details in "Compatible VMs" sheet.
 
 **VM Name**: The VM name that's used in the VMListFile when a report is generated. This column also lists the disks (VHDs) that are attached to the VMs. The names include the Hyper-V host names where the VMs were placed when the tool discovered them during the profiling period.
@@ -171,7 +172,7 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 **Boot Type**: Boot type of the VM. It can be either BIOS or EFI.
 
-## Incompatible VMs details for the Hyper-V to Azure report
+## Incompatible VMs
 The Microsoft Excel report generated by Azure Site Recovery deployment planner provides all incompatible VMs details in "Incompatible VMs" sheet.
 
 **VM Name**: The VM name that's used in the VMListFile when a report is generated. This column also lists the disks (VHDs) that are attached to the VMs. The names include the Hyper-V host names where the VMs were placed when the tool discovered them during the profiling period.
@@ -190,60 +191,9 @@ The Microsoft Excel report generated by Azure Site Recovery deployment planner p
 
 * VM with Virtual Fiber Channel is not supported. Azure Site Recovery does not support  VMs with Virtual Fiber Channel.
 
-* Hyper-V cluster does not contain replication broker. Azure Site Recovery does not support a VM of Hyper-V cluster if the Hyper-V replica broker is not configured on each cluster node.
+* Hyper-V cluster does not contain replication broker. Azure Site Recovery does not support a VM in a Hyper-V cluster if the Hyper-V replica broker is not configured for the cluster.
 
-* VM is not highly available. Azure Site Recovery does not support a VMs of Hyper-V cluster node whose VHDs are stored on the local disk instead of on the cluster disk. 
-
-* Total VM size (replication + TFO) exceeds the supported premium storage-account size limit (35 TB). This incompatibility usually occurs when a single disk in the VM has a performance characteristic that exceeds the maximum supported Azure or Azure Site Recovery limits for standard storage. Such an instance pushes the VM into the premium storage zone. However, the maximum supported size of a premium storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, if unmanaged disk is configured for test failover, it runs in the same storage account, where replication is progressing. In this instance, additional same amount of storage space is required as that of replication. It ensures replication to progress and test failover to succeed in parallel. When managed disk is configured for test failover, no additional space needs to be accounted for the test failover VM.
-
-* Source IOPS exceeds supported storage IOPS limit of 7500 per disk.
-
-* Source IOPS exceeds supported storage IOPS limit of 80,000 per VM.
-
-* Average data churn exceeds supported Azure Site Recovery data churn limit of 10 MBps for average I/O size for the disk.
-
-* Average effective write IOPS exceeds the supported Azure Site Recovery IOPS limit of 840 for disk.
-
-* Calculated snapshot storage exceeds the supported snapshot storage limit of 10 TB.
-
-**Peak R/W IOPS (with Growth Factor)**: The peak workload IOPS on the disk (default is 95th percentile), including the future growth factor (default is 30%). Note that the total read/write IOPS of the VM is not always the sum of the VM’s individual disks’ read/write IOPS, because the peak read/write IOPS of the VM is the peak of the sum of its individual disks' read/write IOPS during every minute of the profiling period.
-
-**Peak Data Churn in MBps (with Growth Factor)**: The peak churn rate on the disk (default is 95th percentile) including the future growth factor (default is 30%). Note that the total data churn of the VM is not always the sum of the VM’s individual disks’ data churn, because the peak data churn of the VM is the peak of the sum of its individual disks' churn during every minute of the profiling period.
-
-**Number of Disks**: The total number of VMDKs on the VM.
-
-**Disk size (GB)**: The total setup size of all disks of the VM. The tool also shows the disk size for the individual disks in the VM.
-
-**Cores**: The number of CPU cores on the VM.
-
-**Memory (MB)**: The amount of RAM on the VM.
-
-**NICs**: The number of NICs on the VM.
-
-**Boot Type**: Boot type of the VM. It can be either BIOS or EFI.
-
-## Incompatible VMs details for the Hyper-V to Azure report
-The Microsoft Excel report generated by Azure Site Recovery deployment planner provides all incompatible VMs details in "Incompatible VMs" sheet.
-
-**VM Name**: The VM name that's used in the VMListFile when a report is generated. This column also lists the disks (VHDs) that are attached to the VMs. The names include the Hyper-V host names where the VMs were placed when the tool discovered them during the profiling period.
-
-**VM Compatibility**: Indicates why the given VM is incompatible for use with Azure Site Recovery. The reasons are described for each incompatible disk of the VM and, based on published [storage limits](https://aka.ms/azure-storage-scalbility-performance), can be any of the following:
-
-* Disk size is > 4095 GB. Azure Storage currently does not support data disk sizes greater than 4095 GB.
-
-* OS disk is > 2047 GB for Generation 1 (BIOS boot type) VM.  Azure Site Recovery does not support OS disk size greater than 2047 GB for generation 1 VMs.
-
-* OS disk is > 300 GB for Generation 2 (EFI boot type) VM. Azure Site Recovery does not support OS disk size greater than 300 GB for generation 2 VMs.
-
-* VM name contains any of the following characters “” [] ` are not supported.  The tool cannot get profiled data of VMs, which have any of these characters in their names. 
-
-* VHD is shared by two or more VMs. Azure does not support  VMs with shared VHD.
-
-* VM with Virtual Fiber Channel is not supported. Azure Site Recovery does not support  VMs with Virtual Fiber Channel.
-
-* Hyper-V cluster does not contain replication broker. Azure Site Recovery does not support a VM of Hyper-V cluster if the Hyper-V replica broker is not configured on each cluster node.
-
-* VM is not highly available. Azure Site Recovery does not support a VMs of Hyper-V cluster node whose VHDs are stored on the local disk instead of on the cluster disk. 
+* VM is not highly available. Azure Site Recovery does not support a VM of Hyper-V cluster node whose VHDs are stored on the local disk instead of on the cluster disk. 
 
 * Total VM size (replication + TFO) exceeds the supported premium storage-account size limit (35 TB). This incompatibility usually occurs when a single disk in the VM has a performance characteristic that exceeds the maximum supported Azure or Azure Site Recovery limits for standard storage. Such an instance pushes the VM into the premium storage zone. However, the maximum supported size of a premium storage account is 35 TB, and a single protected VM cannot be protected across multiple storage accounts. Also note that when a test failover is executed on a protected VM, if unmanaged disk is configured for test failover, it runs in the same storage account, where replication is progressing. In this instance, additional same amount of storage space is required as that of replication. It ensures replication to progress and test failover to succeed in parallel. When managed disk is configured for test failover, no additional space needs to be accounted for the test failover VM.
 
@@ -261,7 +211,7 @@ The Microsoft Excel report generated by Azure Site Recovery deployment planner p
 
 **Peak Data Churn in MBps (with Growth Factor)**: The peak churn rate on the disk (default is 95th percentile) including the future growth factor (default is 30%). Note that the total data churn of the VM is not always the sum of the VM’s individual disks’ data churn, because the peak data churn of the VM is the peak of the sum of its individual disks' churn during every minute of the profiling period.
 
-**Number of Disks**: The total number of VMDKs on the VM.
+**Number of Disks**: The total number of VHDs on the VM.
 
 **Disk size (GB)**: The total setup size of all disks of the VM. The tool also shows the disk size for the individual disks in the VM.
 
@@ -282,8 +232,8 @@ Standard storage | 8 KB	| 2 MBps | 168 GB per disk
 Premium P10 or P15 disk | 8 KB	| 2 MBps | 168 GB per disk
 Premium P10 or P15 disk | 16 KB | 4 MBps |	336 GB per disk
 Premium P10 or P15 disk | 32 KB or greater | 8 MBps | 672 GB per disk
-Premium P20 or P30 disk | 8 KB	| 5 MBps | 421 GB per disk
-Premium P20 or P30 disk | 16 KB or greater |10 MBps | 842 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MBps | 421 GB per disk
+Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MBps | 842 GB per disk
 
 These limits are average numbers assuming a 30 percent I/O overlap. Azure Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior. The preceding numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
 
@@ -294,8 +244,8 @@ The worksheet provides the total free storage space requirement for each volume 
 Azure Site Recovery deployment planner identifies the optimal storage space requirement based on the VHDs size and the network bandwidth used for replication.
 
 ### Why do I need free space on the Hyper-V server for the replication?
-* When you enable replication of a VM, Azure Site Recovery takes a snapshot of each VHD of the VM for initial replication (IR). While initial replication is going on, new changes are written to the disks by the application. Azure Site Recovery tracks these delta changes in the log files which require additional storage space.  Till initial replication gets completed, the log files are stored locally. If sufficient space is not available for the log files and snapshot (AVHDX), replication will go into resynchronization mode and replication will never get completed. In the worst case, you need 100% additional free space of the VHD size for initial replication.
-* Once initial replication is over, delta replication starts. Azure Site Recovery tracks these delta changes in the log files which are stored on the volume where the VHDs of the VM reside. These logs files get replicated to Azure at a configured copy frequency. Based on the available network bandwidth, the log files take some time to get replicated to Azure. If sufficient free space is not available to store the log files, replication will be paused, and the replication status of the VM will go into resynchronization required.
+* When you enable replication of a VM, Azure Site Recovery takes a snapshot of each VHD of the VM for initial replication (IR). While initial replication is going on, new changes are written to the disks by the application. Azure Site Recovery tracks these delta changes in the log files, which require additional storage space.  Till initial replication gets completed, the log files are stored locally. If sufficient space is not available for the log files and snapshot (AVHDX), replication will go into resynchronization mode and replication will never get completed. In the worst case, you need 100% additional free space of the VHD size for initial replication.
+* Once initial replication is over, delta replication starts. Azure Site Recovery tracks these delta changes in the log files, which are stored on the volume where the VHDs of the VM reside. These logs files get replicated to Azure at a configured copy frequency. Based on the available network bandwidth, the log files take some time to get replicated to Azure. If sufficient free space is not available to store the log files, replication will be paused, and the replication status of the VM will go into resynchronization required.
 * If network bandwidth is not enough to push the logs files into Azure, then logs files get piled up on the volume. In a worst-case scenario, when log files size increased to 50% of the VHD size, the replication of the VM will go into resynchronization required. In the worst case, you need 50% additional free space of the VHD size for delta replication.
 
 **Hyper-V host**: The list of profiled Hyper-V servers. If a server is part of a Hyper-V cluster, all the cluster nodes are grouped together.
@@ -327,7 +277,7 @@ Virtual machine: The VM to be protected.
 **Volume (VHD path)**:  The volume name where the VM’s VHDs reside. 
 Free space available on the volume (GB):  The free disk space available on the volume for the VM. While calculating available free space on the volumes, it considers the disk space used for delta replication by the VMs of the previous batches whose VHDs are on the same volume.  
 
-For example, VM1, VM2 and VM3 reside on a volume say E:\VHDpath. Before replication, free space on the volume is 500 GB. VM1 is part Batch 1, VM2 is part of Batch 2, and VM3 is part of Batch3.  For VM1, the free space available is 500 GB. For VM2, the free space available would be 500 – disk space required for delta replication for VM1.  Say VM1 requires 300 GB space for delta replication then free space available for VM2 would be 500 GB – 300 GB = 200 GB.  Similarly, VM2 requires 300 GB for delta replication then the free space available for VM3 would be 200 GB - 300 GB = -100 GB
+For example, VM1, VM2 and VM3 reside on a volume say E:\VHDpath. Before replication, free space on the volume is 500 GB. VM1 is part Batch 1, VM2 is part of Batch 2, and VM3 is part of Batch3.  For VM1, the free space available is 500 GB. For VM2, the free space available would be 500 – disk space required for delta replication for VM1.  Say VM1 requires 300 GB space for delta replication, the free space available for VM2 would be 500 GB – 300 GB = 200 GB.  Similarly, VM2 requires 300 GB for delta replication. The free space available for VM3 would be 200 GB - 300 GB = -100 GB.
 
 **Storage required on the volume for initial replication (GB)**: The free storage space required on the volume for the VM for initial replication.
 
