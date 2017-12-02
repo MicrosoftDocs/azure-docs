@@ -141,7 +141,7 @@ Using either Azure CLI 2.0 or Cloud Shell, enter the following command to create
 az group create --name myJenkinsAgentRG --location eastus
 ```
 
-The output of the `az group create` command is similar to the following:
+When finished, the `az group create` command displays results similar to the following example:
 
 ```shell```
 tom@Azure:~$ az group create --name myJenkinsAgentRG --location eastus
