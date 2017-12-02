@@ -56,7 +56,7 @@ namespace AddUtterances {
 
 Add the LUIS IDs and strings.
 
-   [!code-csharp[Add the LUIS IDs and strings](~/samples-luis/documentation-samples/authoring-api-samples/csharp/add-utterances.cs?range=12-31 "Add the LUIS IDs and strings")]
+   [!code-csharp[Add the LUIS IDs and strings](~/samples-luis/documentation-samples/authoring-api-samples/csharp/add-utterances.cs?range=12-31&dedent=8 "Add the LUIS IDs and strings")]
 
 Add the JsonPrettyPrint method.
 
