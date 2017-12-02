@@ -17,20 +17,20 @@ articles/sql-database/sql-database-connect-query.md
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
 
-2. In the left banner, select **Browse**. The **Browse** blade is displayed.
+2. In the list on the left, select **Browse**. 
 
-3. Scroll and select **SQL servers**. The **SQL servers** blade is displayed.
+3. Scroll and select **SQL servers**. 
    
     ![Find your Azure SQL Database server in the portal][b21-FindServerInPortal]
-4. For convenience, select the **Minimize** button on the **Browse** blade.
+4. For convenience, minimize the **Browse** blade.
 
 5. In the filter text box, start typing the name of your server. Your row is displayed.
 
 6. Select the row for your server. A blade for your server is displayed.
 
-7. On your server blade, select **Settings**. The **Settings** blade is displayed.
+7. On your server blade, select **Settings**. 
 
-8. Select **Firewall**. The **Firewall Settings** blade is displayed.
+8. Select **Firewall**. 
    
     ![Select Settings > Firewall][b31-SettingsFirewallNavig]
 9. Select **Add Client IP**. Type a name for your new rule in the first text box.

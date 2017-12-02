@@ -127,6 +127,7 @@ When you build the [connection string](http://msdn.microsoft.com/library/System.
 * **Connection Timeout**:&nbsp;&nbsp;Default is 15 seconds. Range is 0 through 2147483647.
 
 Specifically, your chosen values should make the following equality true:
+
 Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
 For example, if the count equals 3 and the interval equals 10 seconds, a timeout of only 29 seconds doesn't give the system enough time for its third and final retry to connect: 29 < 3 * 10.
