@@ -25,6 +25,8 @@ This section shows the subscription ID and offer ID that you have used for repor
 
 In the whole report, the cells marked in gray are read only. Cells in white can be modified per your requirements.
 
+![Cost estimation details1](media/site-recovery-hyper-v-deployment-planner-cost-estimation/cost-estimation1-h2a.png)
+
 ## Overall DR cost by components
 The first section shows the overall DR cost by components and DR cost by states. 
 
@@ -73,6 +75,7 @@ This table shows the number of Windows and non-Windows VMs and DR drill compute 
 Cost duration:  You can view all costs either for the month or for the whole year. 
 
 ## Detailed cost analysis
+![Detailed cost analysis](media/site-recovery-hyper-v-deployment-planner-cost-estimation/detailed-cost-analysis-h2a.png)
 The table lists the cost breakup for each compatible VM. 
 You can also use this table to get estimated Azure DR cost of non-profiled VMs by manually adding VMs. It is useful in cases where you need to estimate Azure costs for a new disaster recovery deployment without detailed profiling being done.
 To manually add VMs: 

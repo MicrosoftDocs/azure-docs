@@ -132,6 +132,13 @@ The total disaster recovery (DR) cost is categories based on two different state
 It shows the total storage cost that will be incurred for premium and standard storage for replication and DR drill.
 You can view detailed cost analysis per VM in the [Cost Estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md) sheet.
 
+
+## Recommendations with available bandwidth as input
+![Profiling overview with bandwidth input](media/site-recovery-hyper-v-deployment-planner-analyze-report/profiling-overview-bandwidth-input-h2a.png)
+You might have a situation where you know that you cannot set a bandwidth of more than x Mbps for Azure Site Recovery replication. The tool allows you to input available bandwidth (using the -Bandwidth parameter during report generation) and get the achievable RPO in minutes. With this achievable RPO value, you can decide whether you need to provision additional bandwidth or you are OK with having a disaster recovery solution with this RPO.
+
+![Achievable RPO](media/site-recovery-hyper-v-deployment-planner-analyze-report/achivable-rpo-h2a.PNG)
+
 ## VM-Storage placement recommendation 
 
 ![VM-Storage placement](media/site-recovery-hyper-v-deployment-planner-analyze-report/vm-storage-placement-h2a.png)
