@@ -159,7 +159,7 @@ The following procedures will guide you on how to import a dataset file, run a b
 
 3. In **Dataset name**, type a name for your dataset file. An example of the JSON in the batch file follows:
 
-```JSON
+    ```JSON
 [
     {
         "text": "go to paris",
@@ -205,7 +205,7 @@ The following procedures will guide you on how to import a dataset file, run a b
         ]
     }
 ]
-```
+    ```
 
 4. Click **Done**. The dataset file will be added.
 
