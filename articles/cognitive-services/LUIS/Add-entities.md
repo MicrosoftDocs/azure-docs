@@ -95,7 +95,7 @@ A list entity is an entity that is defined by a list of all its values.
 
     ![List entity details page](./media/add-entities/menu-list-dialog-after.png)
 
-5. On the "Menu" list entity page, type a new value to represent Airline menu items. For example, EqyptAir with exact matches of "Hindu", "Hot Diabetic". After typing each matching text, press Enter.
+5. On the "Menu" list entity page, type a new value to represent Airline menu items. For example, EgyptAir with exact matches of "Hindu", "Hot Diabetic". After typing each matching text, press Enter.
 
 ![Add list entity values](./media/add-entities/menu-list-eqyptair-synonyms.png)
  
