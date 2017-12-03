@@ -91,7 +91,7 @@ As referred to in figure 2.
 **Platform-provided replication** - Some services such as Geo-Redundant Storage provide automatic replication to the paired region.
 
 ![Recovery](./media/best-practices-availability-paired-regions/7Orange.png)
-**Region recovery order** – In the event of a broad outage, recovery of one region is prioritized out of every pair. Applications that are deployed across paired regions are guaranteed to have one of the regions recovered with priority. If an application is deployed across regions that are not paired, recovery may be delayed – in the worst case the chosen regions may be the last two to be recovered.
+**Region recovery order** – In the event of a broad outage, recovery of one region is prioritized out of every pair. Applications that are deployed across paired regions are guaranteed to have one of the regions recovered with priority. If an application is deployed across regions that are not paired, recovery might be delayed – in the worst case the chosen regions may be the last two to be recovered.
 
 ![Updates](./media/best-practices-availability-paired-regions/8Orange.png)
 **Sequential updates** – Planned Azure system updates are rolled out to paired regions sequentially (not at the same time) to minimize downtime, the effect of bugs, and logical failures in the rare event of a bad update.
