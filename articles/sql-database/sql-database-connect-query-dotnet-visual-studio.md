@@ -10,12 +10,13 @@ editor: ''
 ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: drivers
+ms.workload: "Active"
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/05/2017
 ms.author: carlrab
+ms.custom: devcenter
 
 ---
 # Use .NET (C#) with Visual Studio to connect and query an Azure SQL database

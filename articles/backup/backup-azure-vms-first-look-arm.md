@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2017
+ms.date: 09/04/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
 
@@ -33,7 +33,7 @@ This tutorial takes you through the steps for creating a recovery services vault
 * Standard storage VMs
 * Premium storage VMs
 * VMs running on Managed Disks
-* VMs encrypted using Azure Disk Encryption, with BEK and KEK
+* VMs encrypted using Azure Disk Encryption
 * Application consistent backup of Windows VMs using VSS and Linux VMs using custom pre-snapshot and post-snapshot scripts
 
 For more information on protecting Premium storage VMs, see the article, [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). For more information on support for managed disk VMs, see [Back up and restore VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). For more information on pre and post-script framework for Linux VM backup see [Application consistent Linux VM backup using pre-script and post-script] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).

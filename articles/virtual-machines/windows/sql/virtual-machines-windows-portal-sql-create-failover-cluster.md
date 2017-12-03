@@ -15,7 +15,7 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 09/26/2017
 ms.author: mikeray
 
 ---
@@ -160,7 +160,7 @@ With these prerequisites in place, you can proceed with building your failover c
    | SQL Server | 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened.
    | Health probe | 59999 | Any open TCP port. In a later step, configure the load balancer [health probe](#probe) and the cluster to use this port.  
 
-1. Add storage to the virtual machine. For detailed information, see [add storage](../../../storage/common/storage-premium-storage.md).
+1. Add storage to the virtual machine. For detailed information, see [add storage](../premium-storage.md).
 
    Both virtual machines need at least two data disks.
 
@@ -423,19 +423,37 @@ To create the load balancer:
 
 Set the cluster probe port parameter in PowerShell.
 
-To set the cluster probe port parameter, update variables in the following script from your environment.
+To set the cluster probe port parameter, update variables in the following script with values from your environment. Remove the angle brackets `<>` from the script. 
 
-  ```PowerShell
-   $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
-   $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
-   $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <59999>
+   ```PowerShell
+   $ClusterNetworkName = "<Cluster Network Name>"
+   $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+   $ILBIP = "<n.n.n.n>" 
+   [int]$ProbePort = <nnnnn>
 
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
+In the preceding script, set the values for your environment. The following list describes the values:
+
+   - `<Cluster Network Name>`: Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click on the network and click **Properties**. The correct value is under **Name** on the **General** tab. 
+
+   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right click the IP address resource, and click **Properties**. The correct value is under **Name** on the **General** tab. 
+
+   - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI IP Address Resource Name>`.  
+
+   - `<nnnnn>`: Is the probe port you configured in the load balancer health probe. Any unused TCP port is valid. 
+
+>[!IMPORTANT]
+>The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
+
+After you set the cluster probe you can see all of the cluster parameters in PowerShell. Run the following script:
+
+   ```PowerShell
+   Get-ClusterResource $IPResourceName | Get-ClusterParameter 
+  ```
 
 ## Step 7: Test FCI failover
 

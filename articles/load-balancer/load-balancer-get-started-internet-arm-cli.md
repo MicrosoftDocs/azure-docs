@@ -3,7 +3,7 @@ title: Create an Internet-facing load balancer - Azure CLI | Microsoft Docs
 description: Learn how to create an Internet facing load balancer in Resource Manager using the Azure CLI
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ---
 # Creating an internet load balancer using the Azure CLI
@@ -24,6 +24,9 @@ ms.author: kumud
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -81,7 +84,7 @@ For more information see [Azure Resource Manager support for Load Balancer](load
     ```
 
    > [!IMPORTANT]
-   > The load balancer will use the domain label of the public IP as its FQDN. This a change from classic deployment, which uses the cloud service as the load balancer Fully Qualified Domain Name (FQDN).
+   > The load balancer uses the domain label of the public IP as its FQDN. This a change from classic deployment, which uses the cloud service as the load balancer Fully Qualified Domain Name (FQDN).
    > In this example, the FQDN is *loadbalancernrp.eastus.cloudapp.azure.com*.
 
 ## Create a load balancer

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 10/19/2017
 ms.author: billmath
 ---
 
@@ -22,12 +22,15 @@ This article helps you find troubleshooting information about common issues rega
 
 ## Known issues
 
+- In a few cases, enabling Seamless SSO can take up to 30 minutes.
+- Edge browser support is not available.
+- Launching Office clients, especially in shared computer scenarios, cause extra sign-in prompts for users. Users will have to frequently enter their usernames, but not passwords.
+- If Seamless SSO succeeds, the user is not given the opportunity to choose "Keep me signed in". Due to this behavior SharePoint and OneDrive mapping scenarios don't work.
+- Seamless SSO doesn't work in private browsing mode on Firefox.
+- Seamless SSO doesn't work in Internet Explorer when Enhanced Protection mode is turned on.
+- Seamless SSO doesn't work on mobile browsers on iOS and Android.
 - If you are synchronizing 30 or more AD forests, you can't enable Seamless SSO using Azure AD Connect. As a workaround, you can [manually enable](#manual-reset-of-azure-ad-seamless-sso) the feature on your tenant.
 - Adding Azure AD service URLs (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) to the "Trusted sites" zone instead of the "Local intranet" zone **blocks users from signing in**.
-- Seamless SSO doesn't work in private browsing mode on Firefox and Edge. And also on Internet Explorer when Enhanced Protection mode is turned on.
-
->[!IMPORTANT]
->We recently rolled back support for Edge to investigate customer-reported issues.
 
 ## Check status of the feature
 
@@ -35,9 +38,9 @@ Ensure that the Seamless SSO feature is still **Enabled** on your tenant. You ca
 
 ![Azure Active Directory admin center - Azure AD Connect blade](./media/active-directory-aadconnect-sso/sso10.png)
 
-## Sign-in failure reasons on the Azure Active Directory admin center
+## Sign-in failure reasons on the Azure Active Directory admin center (needs Premium license)
 
-A good place to start troubleshooting user sign-in issues with Seamless SSO is to look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
+If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../active-directory-reporting-activity-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
 
 ![Azure Active Directory admin center - Sign-ins report](./media/active-directory-aadconnect-sso/sso9.png)
 

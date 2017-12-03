@@ -382,7 +382,7 @@ This topic provides a reference for the following API Management policies. For i
     <!-- if there are multiple possible issuers, then add additional issuer elements -->  
   </issuers>  
   <required-claims>  
-    <claim name="name of the claim as it appears in the token" match="all|any">  
+    <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
       <value>claim value as it is expected to appear in the token</value>  
       <!-- if there is more than one allowed values, then add additional value elements -->  
     </claim>  
@@ -512,6 +512,7 @@ This topic provides a reference for the following API Management policies. For i
 |require-expiration-time|Boolean. Specifies whether an expiration claim is required in the token.|No|true|
 |require-scheme|The name of the token scheme, e.g. "Bearer". When this attribute is set, the policy will ensure that specified scheme is present in the Authorization header value.|No|N/A|
 |require-signed-tokens|Boolean. Specifies whether a token is required to be signed.|No|true|  
+|separator|String. Specifies a separator (e.g. ",") to be used for extracting a set of values from a multi-valued claim.|No|N/A| 
 |url|Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`.|Yes|N/A|  
   
 ### Usage  

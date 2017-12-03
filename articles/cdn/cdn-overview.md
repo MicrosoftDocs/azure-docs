@@ -18,18 +18,18 @@ ms.author: v-semcev
 
 ---
 # Overview of the Azure Content Delivery Network (CDN)
+The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. 
+
 > [!NOTE]
-> This document describes what the Azure Content Delivery Network (CDN) is, how it works, and the features of each Azure CDN product.  If you want to skip this information and go straight to a tutorial on how to create a CDN endpoint, see [Using Azure CDN](cdn-create-new-endpoint.md).  If you want to see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
+> This article describes the Azure CDN, how it works, and the features of each Azure CDN product. To skip this information and view a tutorial about how to create a CDN endpoint, see [Getting started with Azure CDN](cdn-create-new-endpoint.md). To see a list of current CDN node locations, see [Azure CDN POP Locations](cdn-pop-locations.md).
 > 
-> 
 
-The Azure Content Delivery Network (CDN) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users.  The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. 
+The benefits of using a CDN to cache web site assets include:
 
-The benefits of using the CDN to cache web site assets include:
+* Better performance and user experience for end users, especially when using applications in which multiple round-trips are required to load content.
+* Large scaling to better handle instantaneous high loads, such as the start of a product launch event.
+* Distribution of user requests and serving of content directly from edge servers so that less traffic is sent to the origin.
 
-* Better performance and user experience for end users, especially when using applications where multiple round-trips are required to load content.
-* Large scaling to better handle instantaneous high load, like at the start of a product launch event.
-* By distributing user requests and serving content from edge servers, less traffic is sent to the origin.
 
 ## How it works
 ![CDN Overview](./media/cdn-overview/cdn-overview.png)
@@ -71,7 +71,7 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 | [Real-time stats](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Real-time alerts](cdn-real-time-alerts.md) | | |**&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Ease of Use__ |
-| Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md), and [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md), and [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), or [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | |**&#x2713;** |
 | Cache/header settings (using [rules engine](cdn-rules-engine.md)) | | |**&#x2713;** |
@@ -87,13 +87,13 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 > 
 
 ## Next steps
-To get started with CDN, see [Using Azure CDN](cdn-create-new-endpoint.md).
+To get started with CDN, see [Getting started with Azure CDN](cdn-create-new-endpoint.md).
 
 If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 
-To see the CDN in action, check out the [video of our Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+To see the CDN in action, check out the [video of the Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
 Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
 
-For pricing information, see [CDN Pricing](https://azure.microsoft.com/pricing/details/cdn/).
+For pricing information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 

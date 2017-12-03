@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 09/27/2017
 ms.author: seguler
 
 ---
@@ -46,45 +46,30 @@ This document demonstrates how to create a .NET Core console application that th
 ## Setup  
 
 1. Visit the [.NET Core Installation Guide](https://www.microsoft.com/net/core) to install .NET Core. When selecting your environment, choose the command-line option. 
-2. From the command line, create a directory for your project. Navigate into this directory, then type `dotnet new` to create a C# console project.
-3. Open this directory in Visual Studio Code. This step can be quickly done via the command line by typing `code .`.  
+2. From the command line, create a directory for your project. Navigate into this directory, then type `dotnet new console -o <sample-project-name>` to create a C# console project.
+3. Open this directory in Visual Studio Code. This step can be quickly done via the command line by typing `code .` in Windows.  
 4. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the Visual Studio Code Marketplace. Restart Visual Studio Code. 
 5. At this point, you should see two prompts. One is for adding "required assets to build and debug." Click "yes." Another prompt is for restoring unresolved dependencies. Click "restore."
-6. Your application should now contain a `launch.json` file under the `.vscode` directory. In this file, change the `externalConsole` value to `true`.
+6. Modify `launch.json` under `.vscode` to use external terminal as a console. This setting should read as ` "console": "externalTerminal"`
 7. Visual Studio Code allows you to debug .NET Core applications. Hit `F5` to run your application and verify that your setup is working. You should see "Hello World!" printed to the console. 
 
 ## Add Data Movement Library to your project
 
-1. Add the latest version of the Data Movement Library to the `dependencies` section of your `project.json` file. At the time of writing, this version would be `"Microsoft.Azure.Storage.DataMovement": "0.5.0"` 
-2. Add `"portable-net45+win8"` to the `imports` section. 
-3. A prompt should display to restore your project. Click the "restore" button. You can also restore your project from the command line by typing the command `dotnet restore` in the root of your project directory.
+1. Add the latest version of the Data Movement Library to the `dependencies` section of your `<project-name>.csproj` file. At the time of writing, this version would be `"Microsoft.Azure.Storage.DataMovement": "0.6.2"` 
+2. A prompt should display to restore your project. Click the "restore" button. You can also restore your project from the command line by typing the command `dotnet restore` in the root of your project directory.
 
-Modify `project.json`:
+Modify `<project-name>.csproj`:
 
-    {
-      "version": "1.0.0-*",
-      "buildOptions": {
-        "debugType": "portable",
-        "emitEntryPoint": true
-      },
-      "dependencies": {
-        "Microsoft.Azure.Storage.DataMovement": "0.5.0"
-      },
-      "frameworks": {
-        "netcoreapp1.1": {
-          "dependencies": {
-            "Microsoft.NETCore.App": {
-              "type": "platform",
-              "version": "1.1.0"
-            }
-          },
-          "imports": [
-            "dnxcore50",
-            "portable-net45+win8"
-          ]
-        }
-      }
-    }
+    <Project Sdk="Microsoft.NET.Sdk">
+
+		<PropertyGroup>
+			<OutputType>Exe</OutputType>
+			<TargetFramework>netcoreapp2.0</TargetFramework>
+		</PropertyGroup>
+		<ItemGroup>
+			<PackageReference Include="Microsoft.Azure.Storage.DataMovement" Version="0.6.2" />
+			</ItemGroup>
+		</Project>
 
 ## Set up the skeleton of your application
 The first thing we do is set up the "skeleton" code of our application. This code prompts us for a Storage account name and account key and uses those credentials to create a `CloudStorageAccount` object. This object is used to interact with our Storage account in all transfer scenarios. The code also prompts us to choose the type of transfer operation we would like to execute. 
@@ -94,6 +79,7 @@ Modify `Program.cs`:
 ```csharp
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Diagnostics;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;

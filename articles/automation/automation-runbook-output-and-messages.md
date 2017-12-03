@@ -3,7 +3,7 @@ title: Runbook Output and Messages in Azure Automation | Microsoft Docs
 description: Desribes how to create and retrieve output and error messages from runbooks in Azure Automation.
 services: automation
 documentationcenter: ''
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 
@@ -179,11 +179,16 @@ The following example starts a sample runbook and then waits for it to complete.
        $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
        –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
        $status = $job.Status
-       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
+       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
     }
 
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+    
+    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+    
 
 ### Graphical Authoring
 For graphical runbooks, extra logging is available in the form of activity-level tracing.  There are two levels of tracing: Basic and Detailed.  In Basic tracing, you can see the start and end time of each activity in the runbook plus information related to any activity retries, such as number of attempts and start time of the activity.  In Detailed tracing, you get Basic tracing plus input and output data for each activity.  Note that currently the trace records are written using the verbose stream, so you must enable Verbose logging when you enable tracing.  For graphical runbooks with tracing enabled there is no need to log progress records, because the Basic tracing serves the same purpose and is more informative.

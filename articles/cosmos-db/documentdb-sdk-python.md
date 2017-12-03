@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -48,6 +48,14 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="2.3.0"/>2.3.0
+* This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
+
+### <a name="2.2.1"/>2.2.1
+* Bug fix for aggregate dictionary.
+* Bug fix for trimming slashes in the resource link.
+* Added tests for Unicode encoding.
+
 ### <a name="2.2.0"/>2.2.0
 * Added support for a new consistency level called ConsistentPrefix.
 
@@ -123,6 +131,8 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |November 10, 2017 |--- |
+| [2.2.1](#2.2.1) |Sep 29, 2017 |--- |
 | [2.2.0](#2.2.0) |May 10, 2017 |--- |
 | [2.1.0](#2.1.0) |May 01, 2017 |--- |
 | [2.0.1](#2.0.1) |October 30, 2016 |--- |

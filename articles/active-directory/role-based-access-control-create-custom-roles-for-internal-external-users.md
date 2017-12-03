@@ -30,6 +30,7 @@ Using RBAC in the Azure environment requires:
 * Have the Owner role of the Azure subscription
 * Have access to the [Azure portal](https://portal.azure.com)
 * Make sure to have the following Resource Providers registered for the user subscription: **Microsoft.Authorization**. For more information on how to register the resource providers, see [Resource Manager providers, regions, API versions and schemas](/azure-resource-manager/resource-manager-supported-services.md).
+<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
 
 > [!NOTE]
 > Office 365 subscriptions or Azure Active Directory licenses (for example: Access to Azure Active Directory) provisioned from the O365 portal don't quality for using RBAC.
@@ -74,6 +75,7 @@ After selecting the subscription, the admin user must click **Access Control (IA
 ![add new user in access control IAM feature in Azure portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
 The next step is to select the role to be assigned and the user whom the RBAC role will be assigned to. In the **Role** dropdown menu the admin user sees only the built-in RBAC roles which are available in Azure. For more detailed explanations of each role and their assignable scopes, see [Built-in roles for Azure Role-Based Access Control](/active-directory/role-based-access-built-in-roles.md).
+<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
 
 The admin user then needs to add the email address of the external user. The expected behavior is for the external user to not show up in the existing tenant. After the external user has been invited, he will be visible under **Subscriptions > Access Control (IAM)** with all the current users which are currently assigned an RBAC role at the Subscription scope.
 
@@ -120,6 +122,7 @@ In the **Users** view in both portals the external users can be recognized by:
 * The different sourcing point in the classic portal
 
 However, granting **Owner** or **Contributor** access to an external user at the **Subscription** scope, does not allow the access to the admin user's directory, unless the **Global Admin** allows it. In the user proprieties,  the **User Type** which has two common parameters, **Member** and **Guest** can be identified. A member is a user which is registered in the directory while a guest is a user invited to the directory from an external source. For more information, see [How do Azure Active Directory admins add B2B collaboration users](/active-directory/active-directory-b2b-admin-add-users).
+<!---Loc Comment: Link [How do Azure Active Directory admins add B2B collaboration users] is broken with an error message "404 - Content Not Found--->
 
 > [!NOTE]
 > Make sure that after entering the credentials in the portal, the external user selects the correct directory to sign-in to. The same user can have access to multiple directories and can select either one of  them by clicking the username in the top right-hand side in the Azure portal and then choose the appropriate directory from the dropdown list.

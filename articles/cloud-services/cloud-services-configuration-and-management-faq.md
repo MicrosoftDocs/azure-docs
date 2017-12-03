@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 11/09/2017
 ms.author: genli
 
 ---
@@ -131,3 +131,90 @@ See the following guidance document:
 >[Obtaining a certificate for use with Windows Azure Web Sites (WAWS)](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
 
 Please note that a CSR is just a text file. It does NOT have to be created from the machine where the certificate will ultimately be used. Although this document is written for an App Service, the CSR creation is generic and applies also for Cloud Services.
+
+## How can I add an Antimalware extension for my Cloud Services in an automated way?
+
+You can enable Antimalware extension using PowerShell script in the Startup Task. Follow the steps in these articles to implement it: 
+ 
+- [Create a PowerShell startup task](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+
+For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
+
+## How to enable Server Name Indication (SNI) for Cloud Services?
+
+You can enable SNI in Cloud Services by using one of the following methods:
+
+### Method 1: Use PowerShell
+
+The SNI binding can be configured using the PowerShell cmdlet **New-WebBinding** in a startup task for a cloud service role instance as below:
+    
+    New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags 
+    
+As described [here](https://technet.microsoft.com/library/ee790567.aspx), the $sslFlags could be one of the values as the following:
+
+|Value|Meaning|
+------|------
+|0|No SNI|
+|1|SNI Enabled |
+|2 |Non SNI binding which uses Central Certificate Store|
+|3|SNI binding which uses Central Certificate store |
+ 
+### Method 2: Use code
+
+The SNI binding could also be configured via code in the role startup as described on this [blog post](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
+
+    
+    //<code snip> 
+                    var serverManager = new ServerManager(); 
+                    var site = serverManager.Sites[0]; 
+                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
+                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    serverManager.CommitChanges(); 
+    //</code snip> 
+    
+Using any of the approaches above, the respective certificates (*.pfx) for the specific hostnames have to be first installed on the role instances using a startup task or via code in order for the SNI binding to be effective.
+
+## How can I add tags to my Azure Cloud Service? 
+
+Cloud Service is a Classic resource. Only resources created through Azure Resource Manager support tags. You cannot apply tags to Classic resources such as Cloud Service. 
+
+## What are the upcoming Cloud Service capabilities in the Azure Portal which can help manage and monitor applications?
+
+* Ability to generate a new certificate for Remote Desktop Protocol (RDP) is coming soon. Alternatively, you can run this script:
+
+```powershell
+$cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My" -KeyLength 20 48 -KeySpec "KeyExchange"
+$password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
+```
+* Ability to choose blob or local for your csdef and cscfg upload location is coming soon. Using [New-AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0), you can set each location value.
+* Ability to monitor metrics at the instance level. Additional monitoring capabilities are available in [How to Monitor Cloud Services](cloud-services-how-to-monitor.md).
+
+
+## How to enable HTTP/2 on Cloud Services VM?
+
+Windows 10 and Windows Server 2016 come with support for HTTP/2 on both client and server side. If your client (browser) is connecting to the IIS server over TLS that negotiates HTTP/2 via TLS extensions, then you do not need to make any change on the server-side. This is because, over TLS, the h2-14 header specifying use of HTTP/2 is sent by default. If on the other hand your client is sending an Upgrade header to upgrade to HTTP/2, then you need to make the change below on the server side to ensure that the Upgrade works and you end up with an HTTP/2 connection. 
+
+1. Run regedit.exe.
+2. Browse to registry key: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
+3. Create a new DWORD value named **DuoEnabled**.
+4. Set its value to 1.
+5. Restart your server.
+6. Go to your **Default Web Site** and under **Bindings**, create a new TLS binding with the self-signed certificate just created. 
+
+For more information, see:
+
+- [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2)
+- [Video: HTTP/2 in Windows 10: Browser, Apps and Web Server](https://channel9.msdn.com/Events/Build/2015/3-88)
+         
+
+Note that the above steps could be automated via a startup task so that whenever a new PaaS instance gets created, it can do the changes above in the system registry. For more information, see [How to configure and run startup tasks for a cloud service](cloud-services-startup-tasks.md).
+
+ 
+Once this has been done, you can verify whether the HTTP/2 has been enabled or not by using one of the following methods:
+
+- Enable Protocol version in IIS logs and look into the IIS logs. It will show HTTP/2 in the logs. 
+- Enable F12 Developer Tool in Internet Explorer/Edge and switch to the Network tab to verify the protocol. 
+
+For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
