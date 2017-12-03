@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/03/2017
 ms.author: raynew
 ---
 
@@ -36,6 +36,7 @@ Figure 1 – Azure regional pair diagram
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
 | India |Central India |South India |
+| India |West India (1) |South India |
 | Japan |Japan East |Japan West |
 | Korea |Korea Central |Korea South |
 | North America |North Central US |South Central US |
@@ -44,9 +45,9 @@ Figure 1 – Azure regional pair diagram
 | North America |West US 2 |West Central US |
 | Europe |North Europe |West Europe |
 | Japan |Japan East |Japan West |
-| Brazil |Brazil South (1) |South Central US |
-| US Government |US Gov Iowa (2) |US Gov Virginia |
-| US Government |US Gov Virginia (3) |US Gov Texas |
+| Brazil |Brazil South (2) |South Central US |
+| US Government |US Gov Iowa (3) |US Gov Virginia |
+| US Government |US Gov Virginia (4) |US Gov Texas |
 | US Government |US Gov Arizona |US Gov Texas |
 | US Department of Defense |US DoD East |US DoD Central |
 | UK |UK West |UK South |
@@ -54,11 +55,10 @@ Figure 1 – Azure regional pair diagram
 
 Table 1 - Mapping of Azure regional pairs
 
-> (1) Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US, but South Central US’s secondary region is not Brazil South.
->
-> (2) US Gov Iowa's secondary region is US Gov Virginia, but US Gov Virginia's secondary region is not US Gov Iowa.
-> 
-> (3) US Gov Virginia's secondary region is US Gov Texas, but US Gov Texas' secondary region is not US Gov Virginia.
+> (1) West India is different because it is paired with another region in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
+> (2) Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US, but South Central US’s secondary region is not Brazil South.
+> (3) US Gov Iowa's secondary region is US Gov Virginia, but US Gov Virginia's secondary region is not US Gov Iowa.
+> (4) US Gov Virginia's secondary region is US Gov Texas, but US Gov Texas' secondary region is not US Gov Virginia.
 
 
 We recommend that you replicate workloads across regional pairs to benefit from Azure’s isolation and availability policies. For example, planned Azure system updates are deployed sequentially (not at the same time) across paired regions. That means that even in the rare event of a faulty update, both regions will not be affected simultaneously. Furthermore, in the unlikely event of a broad outage, recovery of at least one region out of every pair is prioritized.
