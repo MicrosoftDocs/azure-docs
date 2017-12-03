@@ -8,11 +8,11 @@
   href: ./interactive-query/apache-interactive-query-get-started.md
 - name: Kafka
   href: ./kafka/apache-kafka-introduction.md
-- name: Enterprise Security
-  href: ./domain-joined/apache-domain-joined-introduction.md
 - name: R Server
   href: ./r-server/r-server-overview.md
 - name: Spark
   href: ./spark/apache-spark-overview.md
 - name: Storm
   href: ./storm/apache-storm-overview.md
+- name: Enterprise Readiness
+  href: ./domain-joined/apache-domain-joined-introduction.md

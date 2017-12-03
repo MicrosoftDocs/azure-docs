@@ -1,16 +1,11 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Enterprise Security on HDInsight
+- name: Enterprise Security
   items:
   - name: Overview
     href: apache-domain-joined-introduction.md
-  - name: Plan Domain-joined HDInsight
+  - name: Plan for Enterprise Security
     href: apache-domain-joined-architecture.md
-  - name: Component versioning
-    href: ../hdinsight-component-versioning.md
-    maintainContext: true
-- name: Get started
-  items:
   - name: Configure Domain-joined HDInsight
     href: apache-domain-joined-configure.md
   - name: Configure Domain-joined HDInsight using Azure AD DS
@@ -20,10 +15,39 @@
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
-- name: How to
-  items:
-  - name: Manage clusters
+  - name: Manage domain-joined clusters
     href: apache-domain-joined-manage.md
+- name: Securing data
+  href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+  maintainContext: true
+- name: Network access
+  items:
+  - name: HDInsight in Azure VNET
+    href: ../hdinsight-extend-hadoop-virtual-network.md
+    maintainContext: true
+  - name: Connect HDInsight with on-prem network
+    href: ../connect-on-premises-network.md
+    maintainContext: true
+  - name: Create HBase cluster in Azure VNET
+    href: ../hbase/apache-hbase-provision-vnet.md
+    maintainContext: true
+  - name: HBase cluster replication in Azure VNET
+    href: ../hbase/apache-hbase-replication.md
+    maintainContext: true
+- name: Monitoring using OMS
+  items:
+  - name: Use Azure Log Analytics
+    href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+    maintainContext: true
+  - name: Cluster-specific dashboards
+    href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+    maintainContext: true
+  - name: Use queries with Log Analytics
+    href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+    maintainContext: true
+  - name: Monitor cluster performance
+    href: ../hdinsight-key-scenarios-to-monitor.md
+    maintainContext: true 
 - name: Reference
   items:
   - name: Code samples
