@@ -21,20 +21,20 @@ ms.author: mihauss
 
 ## Overview
 
-Azure Storage offers three storage tiers for Blob object storage so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and stored for at least 30 days. The Azure **archive storage tier** (preview) is optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements (on the order of hours). The archive storage tier is only available at the blob level and not at the storage account level. Data in the cool storage tier can tolerate slightly lower availability, but still requires high durability and similar time-to-access and throughput characteristics as hot data. For cool data, a slightly lower availability SLA and higher access costs compared to hot data are acceptable trade-offs for much lower storage costs. Archive storage is offline and offers the lowest storage costs but also the highest access costs.
+Azure Storage offers three storage tiers for Blob object storage so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and stored for at least 30 days. The Azure **archive storage tier** (preview) is optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements (on the order of hours). The archive storage tier is only available at the blob level and not at the storage account level. Data in the cool storage tier can tolerate slightly lower availability, but still requires high durability and similar time-to-access and throughput characteristics as hot data. For cool data, a slightly lower availability SLA and higher access costs compared to hot data are acceptable trade-offs for lower storage costs. Archive storage is offline and offers the lowest storage costs but also the highest access costs.
 
 Today, data stored in the cloud is growing at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency-of-access and planned retention period to optimize costs. Data stored in the cloud can be different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored.
 
-Each of these data access scenarios benefits from a differentiated tier of storage that is optimized for a particular access pattern. With hot, cool, and archive storage tiers, Azure Blob storage  addresses this need for differentiated storage tiers with separate pricing models.
+Each of these data access scenarios benefits from a different storage tier that is optimized for a particular access pattern. With hot, cool, and archive storage tiers, Azure Blob storage addresses this need for differentiated storage tiers with separate pricing models.
 
 ## Blob storage accounts
 
-**Blob storage accounts** are specialized storage accounts for storing your unstructured data as blobs (objects) in Azure Storage. With Blob storage accounts, you can now choose between hot and cool storage tiers at account level, or hot, cool, and archive tiers at the blob level, based on access patterns. Store your rarely accessed cold data at the lowest storage cost, less frequently accessed cool data at a lower storage cost than hot, and store more frequently accessed hot data at the lowest access cost. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today, including 100 percent API consistency for block blobs and append blobs.
+**Blob storage accounts** are specialized storage accounts for storing your unstructured data as blobs (objects) in Azure Storage. With Blob storage accounts, you can now choose between hot and cool storage tiers at account level, or hot, cool, and archive tiers at the blob level based on access patterns. Store rarely, infrequently, and frequently accessed data in the hot, cool, and archive storage tiers respectively to optimize costs. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today, including 100 percent API consistency for block blobs and append blobs.
 
 > [!NOTE]
 > Blob storage accounts support only block and append blobs, and not page blobs.
 
-Blob storage accounts expose the **Access Tier** attribute, which allows you to specify the storage tier as **Hot** or **Cool** depending on the data stored in the account. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time. The **Archive tier** (preview) can only be applied at the blob level.
+Blob storage accounts expose the **Access Tier** attribute at the account level, which specify the default storage account tier as **Hot** or **Cool**. The default storage account tier is applied to any blob that does not have an explicit tier set at the blob level. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time. The **archive tier** (preview) can only be applied at the blob level.
 
 > [!NOTE]
 > Changing the storage tier may result in additional charges. See the [Pricing and billing](#pricing-and-billing) section for more details.
@@ -48,7 +48,7 @@ Hot storage has higher storage costs than cool and archive storage, but the lowe
 
 ### Cool access tier
 
-Cool storage tier has lower storage costs and higher access costs compared to hot storage. It is also intended for data that won't change tiers or be deleted for at least 30 days. Example usage scenarios for the cool storage tier include:
+Cool storage tier has lower storage costs and higher access costs compared to hot storage. This tier is intended for data that will remain in the cool tier for at least 30 days. Example usage scenarios for the cool storage tier include:
 
 * Short-term backup and disaster recovery datasets.
 * Older media content not viewed frequently anymore but is expected to be available immediately when accessed.
@@ -56,9 +56,9 @@ Cool storage tier has lower storage costs and higher access costs compared to ho
 
 ### Archive access tier (preview)
 
-Archive storage has the lowest storage cost and higher data retrieval costs compared to hot and cool storage. It is also intended for data that can tolerate several hours of retrieval latency and won't change tiers or be deleted for at least 180 days.
+Archive storage has the lowest storage cost and higher data retrieval costs compared to hot and cool storage. This tier is intended for data that can tolerate several hours of retrieval latency and will remain in the archive tier for at least 180 days.
 
-While a blob is in archive storage, it offline and cannot be read (except the metadata which is online and available), copied, overwritten, or modified. Nor can you take snapshots of a blob in archive storage. However, you may use existing operations to delete, list, get blob properties/metadata, or change the tier of your blob.
+While a blob is in archive storage, it is offline and cannot be read (except the metadata, which is online and available), copied, overwritten, or modified. Nor can you take snapshots of a blob in archive storage. However, you may use existing operations to delete, list, get blob properties/metadata, or change the tier of your blob.
 
 #### Blob rehydration
 To read data in archive storage, you must first change the tier of the blob to hot or cool. This process is known as rehydration and can take up to 15 hours to complete for blobs less than 50 GB. Additional time required for larger blobs varies with the blob throughput limit.
@@ -77,7 +77,7 @@ See [About Azure storage accounts](../common/storage-create-storage-account.md?t
 
 For applications requiring only block or append blob storage, we recommend using Blob storage accounts, to take advantage of the differentiated pricing model of tiered storage. However, we understand this might not be possible under certain circumstances where using general-purpose storage accounts would be the way to go, such as:
 
-* You need to use tables, queues, or files, and want your blobs stored in the same storage account. Note that there is no technical advantage to storing these in the same account other than having the same shared keys.
+* You need to use tables, queues, or files, and want your blobs stored in the same storage account. There is no technical advantage to storing these in the same account other than having the same shared keys.
 
 * You still need to use the Classic deployment model. Blob storage accounts are only available via the Azure Resource Manager deployment model.
 
@@ -91,20 +91,16 @@ For applications requiring only block or append blob storage, we recommend using
 
 ## Blob-level tiering feature (preview)
 
-Blob-level tiering allows you to change the tier of your data at the object level using a single operation called [Set Blob Tier](/rest/api/storageservices/set-blob-tier). You can easily change the access tier of a blob among the hot, cool, or archive tiers as usage patterns change, without having to move data between accounts. All tier changes happen immediately except when a blob is rehydrating from archive. The time of the last blob tier change is exposed via the **Access Tier Change Time** attribute in the blob properties. If a blob is in the archive tier, it my not be overwritten, and therefore, uploading the same blob is not allowed in this scenario. You may overwrite a blob in hot and cool, and in this case, the new blob will inherit the tier of the old blob that was overwritten.
+Blob-level tiering allows you to change the tier of your data at the object level using a single operation called [Set Blob Tier](/rest/api/storageservices/set-blob-tier). You can easily change the access tier of a blob among the hot, cool, or archive tiers as usage patterns change, without having to move data between accounts. All tier changes happen immediately except when a blob is rehydrating from archive. The time of the last blob tier change is exposed via the **Access Tier Change Time** attribute in the blob properties. If a blob is in the archive tier, it may not be overwritten, and therefore, uploading the same blob is not allowed in this scenario. You may overwrite a blob in hot and cool, and in this case, the new blob inherits the tier of the old blob that was overwritten.
 
-Blobs in all three storage tiers can co-exist within the same account. Any blob that does not have an explicitly assigned tier infers the tier from the account access tier setting. If the access tier is inferred from the account, you will see the **Access Tier Inferred** attribute set to “true”, and the blob **Access Tier** attribute will match the account tier. In the Azure portal, the access tier inferred property is displayed next to the blob access tier (e.g. Hot (inferred) or Cool (inferred)).
+Blobs in all three storage tiers can co-exist within the same account. Any blob that does not have an explicitly assigned tier infers the tier from the account access tier setting. If the access tier is inferred from the account, you see the **Access Tier Inferred** attribute set to “true”, and the blob **Access Tier** attribute matches the account tier. In the Azure portal, the access tier inferred property is displayed with the blob access tier (for example, Hot (inferred) or Cool (inferred)).
 
 > [!NOTE]
 > Archive storage and blob-level tiering only support block blobs. You also cannot change the tier of a block blob that has snapshots.
 
 ### Blob-level tiering billing
 
-When a blob is moved to a cooler tier (Hot->Cool, Hot->Archive, or Cool->Archive), the operation is billed as a write into the destination tier, and the write operation (per 10,000) and data write (per GB) charges of the destination tier will apply. If a blob is moved to a warmer tier (Archive -> Cool, Archive -> Hot, or Cool->Hot), the operation is billed as a read from the source tier, and the read operation (per 10,000) and data retrieval (per GB) charges of the source tier will apply. Early deletion charges for any blob moved out of the Cool or Archive tier may apply as well.
-
-### Cool and archive early deletion
-
-In addition to the per GB, per month charge, any blob that is moved to Archive is subject to an Archive early deletion period of 180 days, and any blob that is moved to Cool (General Purpose v2 accounts only) is subject to Cool early deletion period of 30 days. This charge is prorated. For example, if a blob is moved to Archive and then deleted or moved to the Hot tier after 45 days, you will be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in Archive.
+When a blob is moved to a cooler tier (Hot->Cool, Hot->Archive, or Cool->Archive), the operation is billed as a write into the destination tier, and the write operation (per 10,000) and data write (per GB) charges of the destination tier apply. If a blob is moved to a warmer tier (Archive -> Cool, Archive -> Hot, or Cool->Hot), the operation is billed as a read from the source tier, and the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply.
 
 To use these features in preview, follow the instructions in the [Azure Archive and Blob-Level Tiering blog announcement](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering).
 
@@ -139,31 +135,31 @@ The following table shows a comparison of the hot and cool storage tiers. The ar
 
 
 ## Pricing and billing
-Blob storage accounts use a pricing model for blob storage based on the storage tier. When using a Blob storage account, the following billing considerations apply:
+Blob storage accounts use a pricing model for blob storage based on the tier of each blob. When using a Blob storage account, the following billing considerations apply:
 
 * **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the storage tier. The per-gigabyte cost decreases as the tier gets cooler.
 
 * **Data access costs**: Data access charges increase as the tier gets cooler. For data in the cool and archive storage tier, you are charged a per-gigabyte data access charge for reads.
 
-* **Transaction costs**: There is a per-transaction charge for all tiers that increaes as the tier gets cooler.
+* **Transaction costs**: There is a per-transaction charge for all tiers that increases as the tier gets cooler.
 
 * **Geo-Replication data transfer costs**: This only applies to accounts with geo-replication configured, including GRS and RA-GRS. Geo-replication data transfer incurs a per-gigabyte charge.
 
 * **Outbound data transfer costs**: Outbound data transfers (data that is transferred out of an Azure region) incur billing for bandwidth usage on a per-gigabyte basis, consistent with general-purpose storage accounts.
 
-* **Changing the storage tier**: Changing the account storage tier from cool to hot incurs a charge equal to reading all the data existing in the storage account. On the other hand, changing the account storage tier from hot to cool incurs a charge equal to writign all the data into the cool tier.
+* **Changing the storage tier**: Changing the account storage tier from cool to hot incurs a charge equal to reading all the data existing in the storage account. However, changing the account storage tier from hot to cool incurs a charge equal to writing all the data into the cool tier.
 
 > [!NOTE]
 > For more details on the pricing model for Blob storage accounts, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page. For more details on the outbound data transfer charges, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
 
-## Quickstart
+## Quick start
 
-In this section we demonstrate the following scenarios using the Azure portal:
+In this section, the following scenarios are demonstrated using the Azure portal:
 
 * How to create a Blob storage account.
 * How to manage a Blob storage account.
 
-You can not set the access tier to archive in the following examples because this setting applies to the whole storage account. Archive can only be set on a specific blob.
+You cannot set the access tier to archive in the following examples because this setting applies to the whole storage account. Archive can only be set on a specific blob.
 
 ### Create a Blob storage account using the Azure portal
 
@@ -183,11 +179,11 @@ You can not set the access tier to archive in the following examples because thi
 
     This is where you select the type of storage account. Tiered storage is not available in general-purpose storage; it is only available in the Blob storage type account.     
 
-    Note that when you select this, the performance tier is set to Standard. Tiered storage is not available with the Premium performance tier.
+    When you select this, the performance tier is set to Standard. Tiered storage is not available with the Premium performance tier.
 
 6. Select the replication option for the storage account: **LRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**.
 
-    LRS = locally redundant storage; GRS = geo-redundant storage (2 regions); RA-GRS is read-access geo-redundant storage (2 regions with read access to the second).
+    LRS = locally redundant storage; GRS = geo-redundant storage (two regions); RA-GRS is read-access geo-redundant storage (2 regions with read access to the second).
 
     For more details on Azure Storage replication options, check out [Azure Storage replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -209,7 +205,17 @@ You can not set the access tier to archive in the following examples because thi
 
 3. In the Settings blade, click **Configuration** to view and/or change the account configuration.
 
-4. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**..
+4. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**.
+
+5. Click Save at the top of the blade.
+
+### Change the storage tier of a blob using the Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. To navigate to your blob in your storage account, select All Resources, select your storage account, select your container, and then select your blob.
+
+3. In the Blob properties blade, click the **Access Tier** dropdown menu to select the **Hot**, **Cool**, or **Archive** storage tier.
 
 5. Click Save at the top of the blade.
 
@@ -235,7 +241,7 @@ In order to estimate the cost of storing and accessing data stored in a Blob sto
 
 ## Monitoring existing storage accounts
 
-To monitor your existing storage accounts and gather this data, you can make use of Azure Storage Analytics which performs logging and provides metrics data for a storage account. Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the Blob storage service for both general-purpose storage accounts as well as Blob storage accounts. This data is stored in well-known tables in the same storage account.
+To monitor your existing storage accounts and gather this data, you can make use of Azure Storage Analytics, which performs logging and provides metrics data for a storage account. Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the Blob storage service for both general-purpose storage accounts as well as Blob storage accounts. This data is stored in well-known tables in the same storage account.
 
 For more details, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
@@ -243,16 +249,16 @@ For more details, see [About Storage Analytics Metrics](https://msdn.microsoft.c
 > Blob storage accounts expose the table service endpoint only for storing and accessing the metrics data for that account.
 
 To monitor the storage consumption for the Blob storage service, you need to enable the capacity metrics.
-With this enabled, capacity data is recorded daily for a storage account's Blob service, and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
+With this enabled, capacity data is recorded daily for a storage account's Blob service and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
 
 To monitor the data access pattern for the Blob storage service, you need to enable the hourly transaction metrics at an API level. With this enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint when using RA-GRS storage accounts.
 
 > [!NOTE]
 > In case you have a general-purpose storage account in which you have stored page blobs and virtual machine disks alongside block and append blob data, this estimation process is not applicable. This is because you have no way of distinguishing capacity and transaction metrics based on the type of blob for only block and append blobs, which can be migrated to a Blob storage account.
 
-To get a good approximation of your data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage, and extrapolate. One option is to retain the metrics data for 7 days and collect the data every week, for analysis at the end of the month. Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30-day period.
+To get a good approximation of your data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage and extrapolate. One option is to retain the metrics data for seven days and collect the data every week, for analysis at the end of the month. Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30-day period.
 
-For details on enabling, collecting and viewing metrics data, see [Enabling Azure Storage metrics and viewing metrics data](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+For details on enabling, collecting, and viewing metrics data, see [Enabling Azure Storage metrics and viewing metrics data](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Storing, accessing, and downloading analytics data is also charged just like regular user data.
@@ -318,7 +324,7 @@ You can create a custom application to migrate your data into a Blob storage acc
 For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md).
 
 > [!NOTE]
-> Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is absolutely critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content can not be retrieved again. For more details regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is absolutely critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content cannot be retrieved again. For more details regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## FAQ
 
@@ -328,7 +334,7 @@ For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-t
 
 2. **Why and when should I start using Blob storage accounts?**
 
-    Blob storage accounts are specialized for storing blobs and allow us to introduce new blob-centric features. Going forward, Blob storage accounts are the recommended way for storing blobs, as future capabilities such as hierarchical storage and tiering will be introduced based on this account type. However, it is up to you when you would like to migrate based on your business requirements.
+    Blob storage accounts are specialized for storing blobs and introduce new blob-centric features. Going forward, Blob storage accounts are the recommended way for storing blobs, as future capabilities such as hierarchical storage and tiering will be introduced based on this account type. However, it is up to you when you would like to migrate based on your business requirements.
 
 3. **Can I convert my existing storage account to a Blob storage account?**
 
@@ -336,15 +342,15 @@ For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-t
 
 4. **Can I store objects in both storage tiers in the same account?**
 
-    Yes. The *'Access Tier'* attribute set at an account level is the default tier that applies to all objects in that account without an explicit set tier. However, the blob-level tiering (preview) feature will allow you to set the access tier on at the object level regardless of what the access tier setting on the account is. Blobs in any of the three storage tiers (hot, cool, or archive) may exist within the same account.
+    Yes. The *'Access Tier'* attribute set at an account level is the default tier that applies to all objects in that account without an explicit set tier. However, blob-level tiering (preview) allows you to set the access tier on at the object level regardless of what the access tier setting on the account is. Blobs in any of the three storage tiers (hot, cool, or archive) may exist within the same account.
 
 5. **Can I change the storage tier of my Blob storage account?**
 
-    Yes. You can change the storage tier by setting the *'Access Tier'* attribute on the storage account. Changing the storage tier applies to all objects stored in the account. Changing the storage tier from hot to cool incurs both write operations (per 10,000) and data write (per GB) charges (Blob storage accounts only), while changing from cool to hot incurs both a read operations (per 10,000) and data retrieval (per GB) cost for reading all the data in the account.
+    Yes, you can change the storage tier by setting the *'Access Tier'* attribute on the storage account. Changing the storage tier applies to all objects stored in the account that do not have an explicit tier set. Changing the storage tier from hot to cool incurs both write operations (per 10,000) and data write (per GB) charges (Blob storage accounts only), while changing from cool to hot incurs both read operations (per 10,000) and data retrieval (per GB) charges for reading all the data in the account.
 
 6. **How frequently can I change the storage tier of my Blob storage account?**
 
-    While we do not enforce a limitation on how frequently the storage tier can be changed, be aware that changing the storage tier from cool to hot can incur significant charges. We do not recommend changing the storage tier frequently.
+    While we do not enforce a limitation on how frequently the storage tier can be changed, be aware that changing the storage tier from cool to hot can incur significant charges. Changing the storage tier frequently is not recommended.
 
 7. **Do the blobs in the cool storage tier behave differently than the ones in the hot storage tier?**
 
@@ -360,9 +366,9 @@ For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-t
 
     Blob storage accounts are 100% API consistent with general-purpose storage accounts for block and append blobs. As long as your application is using block blobs or append blobs, and you are using the 2014-02-14 version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) or greater your application should work. If you are using an older version of the protocol, then you must update your application to use the new version so as to work seamlessly with both types of storage accounts. In general, we always recommend using the latest version regardless of which storage account type you use.
 
-10. **Is there be a change in user experience?**
+10. **Is there a change in user experience?**
 
-    Blob storage accounts are very similar to a general-purpose storage accounts for storing block and append blobs, and support all the key features of Azure Storage, including high durability and availability, scalability, performance, and security. Other than the features and restrictions specific to Blob storage accounts and its storage tiers that have been called out above, everything else remains the same.
+    Blob storage accounts are very similar to general-purpose storage accounts for storing block and append blobs, and support all the key features of Azure Storage, including high durability and availability, scalability, performance, and security. Other than the features and restrictions specific to Blob storage accounts and its storage tiers that have been called out above, everything else remains the same.
 
 ## Next steps
 
