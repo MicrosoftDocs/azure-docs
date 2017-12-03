@@ -6,7 +6,9 @@
 ## [Create .NET application](service-fabric-quickstart-dotnet.md)
 ## [Deploy a Linux container application](service-fabric-quickstart-containers-linux.md)
 ## [Deploy a Windows container application](service-fabric-quickstart-containers.md)
-## [Deploy a Java application](service-fabric-quickstart-java.md)
+## Java Quickstarts
+### [Deploy a Spring Boot application](service-fabric-quickstart-java-spring-boot.md)
+### [Deploy a Reliable Services application](service-fabric-quickstart-java-reliable-services.md)
 
 # Tutorials
 ## Deploy a .NET app
@@ -29,7 +31,9 @@
 #### [1a- Create a Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- Create a Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Scale the cluster](service-fabric-tutorial-scale-cluster.md)
-### [3- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [3- Upgrade the cluster runtime](service-fabric-tutorial-upgrade-cluster.md)
+### [4- Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # Samples
@@ -185,19 +189,10 @@
 #### [Container networking modes](service-fabric-networking-modes.md)
 
 ### Build a Reliable Services service
-#### [Overview](service-fabric-reliable-services-introduction.md)
-#### Concepts
-##### [Reliable Services lifecycle - C#](service-fabric-reliable-services-lifecycle.md)
-##### [Reliable Services lifecycle - Java](service-fabric-reliable-services-lifecycle-java.md)
-
 #### Reliable Collections
-##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
-##### [Reliable Collection guidelines & recommendations](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
-##### [Transactions and locks](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 ##### [Reliable Concurrent Queue](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Reliable Collection serialization](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Reliable State Manager and Reliable Collection internals](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Get started
 ##### [C# on Windows](service-fabric-reliable-services-quick-start.md)

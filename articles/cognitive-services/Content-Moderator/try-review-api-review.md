@@ -1,6 +1,6 @@
 ---
-title: Try Review operations in Azure Content Moderator | Microsoft Docs
-description: Try Review API's Review operations
+title: Content moderation with human reviews in Azure Content Moderator | Microsoft Docs
+description: Create human reviews from the API console
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,7 +12,7 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Review operations
+# Content moderation reviews from the API console
 
 Use the Review API's [Review operations](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) to create image or text reviews within the review tool for human moderation. You would use this operation based on your post-moderation business logic after you have scanned your content using any of the Content Moderator image or text APIs or other Cognitive Services. Once your human moderators have reviewed the auto-assigned tags and prediction data and submitted their final decision, the Review API submits all information to your API endpoint.
 

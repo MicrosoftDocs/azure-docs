@@ -27,7 +27,7 @@ We recommend that you run this script before you open a Support ticket with Micr
 
 PerfInsights can collect and analyze several kinds of information that are grouped into unique scenarios.
 
-### Collect disk configuration 
+### Collect basic Configuration 
 
 This scenario collects the disk configuration and other important information, including the following items:
 
@@ -55,7 +55,7 @@ This is a passive collection of information that shouldn't affect the system.
 >[!Note]
 >This scenario is automatically included in each of the following scenarios.
 
-### Benchmark/Storage Performance Test
+### Benchmarking
 
 This scenario runs the [diskspd](https://github.com/Microsoft/diskspd) benchmark test (IOPS and MBPS) for all drives that are attached to the VM. 
 
@@ -64,11 +64,11 @@ This scenario runs the [diskspd](https://github.com/Microsoft/diskspd) benchmark
 > increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.
 >
 
-### General VM Slow analysis 
+### Slow VM analysis 
 
 This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace by using the counters that are specified in the Generalcounters.txt file. If the VM is identified as a server that is running SQL Server, it runs a performance counter trace by using the counters that are found in the Sqlcounters.txt file. It also includes Performance Diagnostics data.
 
-### VM Slow analysis and benchmark
+### Slow VM analysis and benchmarking
 
 This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace that is followed by a [diskspd](https://github.com/Microsoft/diskspd) benchmark test. 
 
@@ -99,9 +99,9 @@ This scenario runs a special performance counter capture together with a network
 |              | Avg. Write Queue Length       |
 |              | Avg. Data Queue Length        |
 
-### Custom configuration 
+### Custom slow VM analysis 
 
-When you run a custom configuration, you are running all traces (performance diagnostics, performance counter, xperf, network, storport) in parallel, depending how many different traces are selected. After tracing is completed, the tool runs the diskspd benchmark, if it is selected. 
+When you run a custom slow VM analysis, you are running all traces (performance counter, xperf, network, storport) in parallel, depending how many different traces are selected. After tracing is completed, the tool runs the diskspd benchmark, if it is selected. 
 
 > [!Note]
 > This scenario can affect the system and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
@@ -114,7 +114,7 @@ Information about Windows VM, disks or storage pools configuration, performance 
 
 |Data collected                              |  |  | Performance Scenarios |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Collect disk Configuration | Benchmark/Storage Performance test | General VM Slow analysis | VM Slow analysis and benchmark | Azure Files analysis | Custom configuration |
+|                              | Collect basic Configuration | Benchmarking | Slow VM analysis | Slow VM analysis and benchmarking | Azure Files analysis | Custom slow VM analysis |
 | Information from Event logs      | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | System information               | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | Volume Map                       | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
@@ -128,7 +128,7 @@ Information about Windows VM, disks or storage pools configuration, performance 
 | Network configuration            | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | Firewall configuration           | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | SQL Server configuration         | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Performance Diagnostics Traces * |                            |                                    | Yes                      |                                |                      | Yes                  |
+| Performance Diagnostics Traces * | Yes                        | Yes                                | Yes                      |                                | Yes                  | Yes                  |
 | Performance counter Trace **     |                            |                                    |                          |                                |                      | Yes                  |
 | SMB counter Trace **             |                            |                                    |                          |                                | Yes                  |                      |
 | SQL Server counter Trace **      |                            |                                    |                          |                                |                      | Yes                  |
@@ -181,9 +181,9 @@ Diskspd IO workload tests [OS Disk (write) and pool drives (read/write)]
 
 **Possible issues when you run the script on production VMs:**
 
-1.  The script might adversely affect the performance of the VM when it is used together with the "Benchmark" or "Custom" scenario that is configured by using XPerf or DiskSpd. Be careful when you run the script in a production environment.
+1.  When using any Benchmarking scenarios or "Custom slow VM analysis" scenario that is configured to use XPerf or DiskSpd, the script might adversely affect the performance of the VM. It is not recommended to run these scenarios in a production environment without the supervision of a CSS engineer.
 
-2.  When you use the script together with the "Benchmark" or "Custom" scenario that is configured by using DiskSpd, make sure that no other background activity interferes with the I/O workload on the tested disks.
+2.  When using any Benchmarking scenarios or "Custom slow VM analysis" scenario that is configured to use DiskSpd, make sure that no other background activity interferes with the I/O workload on the tested disks.
 
 3.  By default, the script uses the temporary storage drive to collect data. If tracing stays enabled for a longer time, the amount of data that is collected might be relevant. This can reduce the availability of space on the temporary disk, therefore affecting any application that relies on this drive.
 
@@ -237,7 +237,7 @@ To run the PerfInsights script, follow these steps:
 
 8.  You can also run PerfInsights without UI.
 
-    The following command runs the "General VM Slow analysis" troubleshooting scenario without a UI prompt or capture data for 30 seconds. It prompts you to consent to the same disclaimer and EULA that  are mentioned in step 4.
+    The following command runs the "Slow VM analysis" troubleshooting scenario without a UI prompt or capture data for 30 seconds. It prompts you to consent to the same disclaimer and EULA that are mentioned in step 4.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
@@ -266,14 +266,14 @@ If you continue to experience script failure even after several attempts, we rec
 
 After the failure occurs, copy the full output of the PowerShell console, and send it to the Microsoft Support agent who is assisting you to help troubleshoot the problem.
 
-### How do I run the script in custom configuration mode?
+### How do I run the script in Custom slow VM analysis mode?
 
-By selecting the **Custom** configuration, you can enable several traces
+By selecting the **Custom slow VM analysis**, you can enable several traces
 in parallel (use Shift to multi-select):
 
 ![select scenarios](media/how-to-use-perfInsights/select-scenario.png)
 
-When you select the Performance Diagnostics, Performance Counter Trace, XPerf Trace, Network Trace, or Storport Trace scenarios, follow the instructions in the dialog boxes, and try to reproduce the slow performance issue after you start the traces.
+When you select the Performance Counter Trace, XPerf Trace, Network Trace, or Storport Trace scenarios, follow the instructions in the dialog boxes, and try to reproduce the slow performance issue after you start the traces.
 
 The following dialog box lets you start a trace:
 
@@ -293,20 +293,21 @@ Within the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip file,** that is generated
 Select the **Findings** tab.
 
 ![find tab](media/how-to-use-perfInsights/findingtab.png)
+![findings](media/how-to-use-perfInsights/findings.PNG)
 
 **Notes**
 
--   Messages in red are known configuration issues that may cause performance issues.
+-   Findings categorized as critical are known issues that may cause performance issues.
 
--   Messages in yellow are warnings that represent non-optimal configurations that do not necessarily cause performance issues.
+-   Findings categorized as important represent non-optimal configurations that do not necessarily cause performance issues.
 
--   Messages in blue are informative statements only.
+-   Findings categorized as informational are informative statements only.
 
-Review the HTTP links for all error messages in red to get more detailed information about the findings and how they can affect the performance or best practices for performance-optimized configurations.
+Please review the recommendations and links for all critical and important findings to get more detailed information about the findings and how they can affect the performance or best practices for performance-optimized configurations.
 
-### Disk Configuration Tab
+### Storage tab
 
-The **Overview** section displays different views of the storage configuration, including information from Diskpart and Storage Spaces
+The **Findings** section displays various findings and recommendations related to storage.
 
 The **DiskMap** and **VolumeMap** sections describe on a dual perspective how logical volumes and physical disks are related to each other.
 
@@ -318,21 +319,24 @@ In the Volume perspective (*VolumeMap*), the tables show all the physical disks 
 
 ![volume tab](media/how-to-use-perfInsights/volumetab.png)
 
-### SQL Server tab
+### SQL tab
 
-If the target VM hosts any SQL Server instances, you see an additional tab in the report that is named **SQL Server**:
+If the target VM hosts any SQL Server instances, you see an additional tab in the report that is named **SQL**:
 
 ![sql tab](media/how-to-use-perfInsights/sqltab.png)
 
-This section contains an "Overview" and additional sub tabs for each of the SQL Server instances hosted on the VM.
+This section contains an "Findings" tab and additional sub tabs for each of the SQL Server instances hosted on the VM.
 
-The "Overview" section contains a helpful table that summarizes all the physical disks (system and data disks) that are running and that contain a mixture of data files and transaction log files.
+The "Findings" tab contains a list of all the SQL related performance issues found along with the recommendations.
 
 In the following example, *PhysicalDrive0* (running the C drive) is displayed because both the *modeldev* and *modellog* files are located on the C drive, and they are of different types (such as Data File and Transaction Log, respectively):
 
 ![loginfo](media/how-to-use-perfInsights/loginfo.png)
 
 The SQL Server instance-specific tabs contain a general section that displays basic information about the selected instance and additional sections for advanced information, including Settings, Configurations, and User Options.
+
+### Diagnostic tab
+Diagnostic tab contains information about top CPU, Disk and memory consumers on the box for the duration of PerfInsights run. You can also find other useful information such as critical patches that the system might be missing, Task list and important System events. 
 
 ## References to the external tools used
 
