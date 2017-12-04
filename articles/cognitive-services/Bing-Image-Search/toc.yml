@@ -4,6 +4,8 @@
   items:
     - name: About Bing Image Search API
       href: overview.md
+    - name: Image Search endpoint      
+      href: image-search-endpoint.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
 - name: Quickstarts

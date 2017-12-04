@@ -127,6 +127,8 @@
         href: app-service-mobile-how-to-configure-twitter-authentication.md
     - name: Use Managed Service Identity
       href: app-service-managed-service-identity.md
+    - name: Use SSL cert in application code
+      href: app-service-web-ssl-cert-load.md
     - name: Configure TLS mutual authentication
       href: app-service-web-configure-tls-mutual-auth.md
   - name: Scale app

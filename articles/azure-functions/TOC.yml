@@ -63,7 +63,7 @@
     href: functions-cli-samples.md
 - name: Concepts
   items:
-  - name: Hosting plans comparison
+  - name: Scale and hosting
     href: functions-scale.md
   - name: Triggers and bindings
     href: functions-triggers-bindings.md

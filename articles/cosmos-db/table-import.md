@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: mimig
 
 ---
@@ -30,11 +30,11 @@ This tutorial covers the following tasks:
 
 ## Data Migration tool
 
-The command-line Azure Cosmos DB Data Migration tool (dt.exe) can be used to import your existing Azure Table storage data to a Table API GA account, or migrate data from a Table API (preview) account into a Table API GA account. Other sources are not currently supported.
+The command-line Azure Cosmos DB Data Migration tool (dt.exe) can be used to import your existing Azure Table storage data to a Table API GA account, or migrate data from a Table API (preview) account into a Table API GA account. Other sources are not currently supported. The UI based Data Migration tool (dtui.exe) is not currently supported for Table API accounts. 
 
 To perform a migration of table data, complete the following tasks:
 
-1. Download the migration tool from the [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) or from [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
+1. Download the migration tool from [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
 2. Run `dt.exe` using the command-line arguments for your scenario.
 
 dt.exe takes a command in the following format:
