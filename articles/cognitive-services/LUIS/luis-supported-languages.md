@@ -27,7 +27,7 @@ LUIS understands utterances in the following languages:
 | ------- |------|  :------: | ------- |
 | American English |`en-US` | ✔  ||
 | Canadian French |`fr-CA` |   -   ||
-| French (France) |`fr-FR` | ✔ | Support for the **datetimeV2** prebuilt entity is expected in late November 2017.|
+| French (France) |`fr-FR` | ✔ | |
 | Italian |`it-IT` | ✔ ||
 | Dutch |`nl-NL` |  -   ||
 | German |`de-DE` | ✔ | Support for the **datetimeV2** prebuilt entity is expected in late December 2017.|
