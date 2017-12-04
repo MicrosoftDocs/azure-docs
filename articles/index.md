@@ -1039,6 +1039,12 @@ featureFlags:
                                                 <p>Logic Apps</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/azure-location-based-services/">
+                                                <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                <p>Azure Location Based Services</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -2980,6 +2986,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Logic Apps</h3>
                                                     <p>Automate the access and use of data across clouds without writing code</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-location-based-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-lbs-icon.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Location Based Services</h3>
+                                                    <p>Maps, Directions, Search and other robust geospatial services</p>
                                                 </div>
                                             </div>
                                         </div>
