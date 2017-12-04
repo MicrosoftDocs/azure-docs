@@ -92,7 +92,7 @@ The city "Paris" can be either a ToLocation or a FromLocation when booking a pla
 
     The text "Paris" is now labeled as a top-level hierarchical entity. 
 
-2. Once the hierarchical entity is created, click "Paris" and change the entity from "Location" to "LocationTo" entity.
+2. Once the hierarchical entity is created, click "Paris" and change the entity from "Location" to "ToLocation" entity.
 
     ![Create Hierarchical Entity Labeling](./media/add-example-utterances/label-tolocation.png)
 
