@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
@@ -88,20 +88,13 @@ For CSPs:
 
 To add additional CSP accounts to an entity, select **MSP Access** instead of **Enterprise** when you create the new entity. If your account is registered as an Enterprise Agreement and you want to add CSP credentials, Cloudyn support personnel might need to modify your account settings. If you're a paid Azure subscriber, you can create a new support request in the Azure portal. Select **Help + support**, and then select **New support request**.
 
-## How do I change the currency symbol used in Cloudyn?
+## Currency symbols in Cloudyn reports
 
-When all Azure accounts in a single entity use the same currency, the currency that you use is automatically detected. However, the currency symbol is erroneously shown as **$** for any of the following currencies:
+You might have multiple Azure accounts using different currencies. However, cost reports in Cloudyn do not show more than one currency type per report.
 
-- GBP = United Kingdom pound sterling
-- EUR = European euro
-- INR = Indian rupee
-- NOK = Norwegian krone
+If you have multiple subscriptions using different currencies, a parent entity and its child entity currencies are displayed with the **$** symbol. Our suggested best practice is avoid using different currencies in the same entity hierarchy. In other words, all your subscriptions organized in an entity structure should use the same currency.
 
-Although the currency symbol might show **$** for US dollars, the cost values are shown in your correct currency. For example, if all your accounts use euros in the same entity, the _values_ shown in Cloudyn are euros, even though the **$** symbol appears erroneously.
-
-If you're an Azure Enterprise Agreement customer, Cloudyn support personnel can change your currency symbol shown in cost reports from $. You can create a new support request in the Azure portal. Select **Help + support**, and then select **New support request**.
-
-If you're a CSP customer, you can't change your currency symbol. Cloudyn only supports rate cards that use US dollars. Cloudyn is exploring the option to support rate cards in different currencies.
+Cloudyn automatically detects your Enterprise Agreement subscription currency and presents it properly in reports.  However, Cloudyn only displays the **$** symbol for CSP and web-direct Azure accounts.
 
 ## What are Cloudyn data refresh timelines?
 
