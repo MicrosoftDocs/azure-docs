@@ -1,7 +1,7 @@
 ---
 title: Decide on a pricing model for your Office Store submission
-description: Determine your pricing model during your design and development process; the one you choose influences the features and behavior you include. 
-ms.date: 11/27/2017 
+description: Determine your pricing model during your design and development process; the one you choose influences the features and behavior you include.
+ms.date: 12/04-2017
 ---
 
 # Decide on a pricing model for your Office Store submission

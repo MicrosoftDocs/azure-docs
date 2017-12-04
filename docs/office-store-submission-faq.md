@@ -1,7 +1,7 @@
 ---
 title: Office Store submission FAQ
 description: Answers to the most common questions about submitting an add-in to the Office Store.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 # Office Store submission FAQ

@@ -1,7 +1,7 @@
 ---
 title: Optimize the Office Store placement and ranking of your Office Add-in
 description: Apply best practices for add-in development and create an effective Office Store listing.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 # Optimize the Office Store placement and ranking of your Office Add-in

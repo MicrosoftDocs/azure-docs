@@ -1,7 +1,7 @@
 ---
 title: License your Office and SharePoint Add-ins
 description: Design your add-in user experience with licensing in mind, add license checks to your code, and use license query and validation flows.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 # License your Office and SharePoint Add-ins

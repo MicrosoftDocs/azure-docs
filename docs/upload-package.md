@@ -1,7 +1,7 @@
 ---
 title: Upload your package to the Office Store
 description: Upload the manifest for your Office Add-in, SharePoint Add-in, or Microsoft Teams app, or upload your Office 365 web app or Power BI custom visual.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 # Upload your package to the Office Store

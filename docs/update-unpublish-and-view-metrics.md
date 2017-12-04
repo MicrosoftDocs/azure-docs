@@ -1,7 +1,7 @@
 ---
 title: Update, unpublish, and view metrics in the Seller Dashboard
 description: Update, unpublish, or delete your solution from the Seller Dashboard, or use metrics to evaluate your solution's performance.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 # Update, unpublish, and view metrics in the Seller Dashboard

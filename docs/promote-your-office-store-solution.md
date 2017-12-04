@@ -1,7 +1,7 @@
 ---
 title: Promote your Office Store solution
 description: Use the Office Store badges to promote your solution and drive traffic from your site to the Store.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 # Promote your Office Store solution

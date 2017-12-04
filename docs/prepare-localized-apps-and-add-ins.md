@@ -1,7 +1,7 @@
 ---
 title: Prepare localized apps and add-ins
 description: Obtain localized metadata and create descriptions for each language beyond the primary language.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 # Prepare localized apps and add-ins

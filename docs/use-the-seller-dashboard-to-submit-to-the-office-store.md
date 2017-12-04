@@ -1,7 +1,7 @@
 ---
 title: Use the Seller Dashboard to submit your solution to the Office Store
 description: For your Office Add-in, Office 365 web app, or Power BI custom visual to appear in the Office Store, you need to submit it to the Seller Dashboard for approval.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 # Use the Seller Dashboard to submit your solution to the Office Store

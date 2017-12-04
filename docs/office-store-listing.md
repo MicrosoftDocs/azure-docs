@@ -1,7 +1,7 @@
 ---
 title: Create your Office Store listing
 description: Communicate to customers what your solution does and how it provides value to them by including its name, description, screenshots, and regional availability.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 # Create your Office Store listing

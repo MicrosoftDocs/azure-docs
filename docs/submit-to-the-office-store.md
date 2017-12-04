@@ -1,7 +1,7 @@
 ---
 title: Submit your solutions to the Office Store
 description: Upload Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps to the Office Store.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 

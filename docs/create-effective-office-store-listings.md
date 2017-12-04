@@ -1,7 +1,7 @@
 ---
 title: Create effective Office Store listings
 description: Make sure that the information you submit, including your title, description, logos, and screenshots, clearly communicates the benefits and functionality that your solution provides.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 # Create effective Office Store listings

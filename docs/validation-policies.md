@@ -1,7 +1,7 @@
 ---
 title: Validation policies for apps and add-ins submitted to the Office Store (version 2.2)
 description: Criteria that are used to validate Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals for listing in the Office Store.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 # Validation policies for apps and add-ins submitted to the Office Store (version 2.2)

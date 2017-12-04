@@ -1,7 +1,7 @@
 ---
 title: Add lead management details for your Office Add-ins in the Seller Dashboard
 description: Use leads to get information about users who acquire your add-in, and follow up with customers directly to ensure they have a successful experience with your solution.
-ms.date: 11/27/2017 
+ms.date: 12/04-2017
 ---
 
 # Add lead management details for your Office Add-ins in the Seller Dashboard
