@@ -114,7 +114,7 @@ The **AssignableScopes** property of the custom role also controls who can view,
 
 ## See also
 * [Role Based Access Control](role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
-* For a list of available operations, see [Azure Resource Manager Resource Provider operations](role-based-access-control-resource-provider-operations).
+* For a list of available operations, see [Azure Resource Manager Resource Provider operations](role-based-access-control-resource-provider-operations.md).
 * Learn how to manage access with:
   * [PowerShell](role-based-access-control-manage-access-powershell.md)
   * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
