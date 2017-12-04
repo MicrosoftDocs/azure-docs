@@ -29,7 +29,7 @@ This article describes the improvements and fixes in this update package, known 
 
 ## Build reference
 
-The Azure Stack 1711 update build number is **20171122.1**.
+The Azure Stack 1711 update build number is **171201.3**.
 
 ## Before you begin
 
@@ -83,7 +83,7 @@ This section contains known issues that you may encounter during the 1711 update
 
 ### Known issues (post-installation)
 
-This section contains post-installation known issues with build **20171122.1**.
+This section contains post-installation known issues with build **20171201.3**.
 
 #### Portal
 

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
-ms.custom:
+ms.custom: mvc
 ---
 
 # Deploy web app from Azure Container Registry
