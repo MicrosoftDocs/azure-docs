@@ -85,27 +85,22 @@ Now let's switch to working with code. Let's clone a Graph API app from GitHub, 
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `connect.py` file in the C:\git-samples\azure-cosmos-db-graph-python-getting-started\src\GetStarted folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `connect.py` file in the C:\git-samples\azure-cosmos-db-graph-python-getting-started\ folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
 
-* TODO - replace with Python samples. The Gremlin `Client` is initialized from the configuration in `src/remote.yaml`.
+* The Gremlin `client` is initialized in line 104 in `connect.py`:
 
-    ```java
-    cluster = Cluster.build(new File("src/remote.yaml")).create();
+    ```python
     ...
-    client = cluster.connect();
+    client = client.Client('wss://<YOUR_ENDPOINT>:443/','g', 
+        username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
+        password="<YOUR_PASSWORD>")
+    ...
     ```
 
-* A series of Gremlin steps are executed using the `client.submit` method.
+* A series of Gremlin steps are declared at the beginning of the `connect.py` file. They are then executed using the `client.submitAsync()` method:
 
-    ```java
-    ResultSet results = client.submit(gremlin);
-
-    CompletableFuture<List<Result>> completableFutureResults = results.all();
-    List<Result> resultList = completableFutureResults.get();
-
-    for (Result result : resultList) {
-        System.out.println(result.toString());
-    }
+    ```python
+    client.submitAsync(_gremlin_cleanup_graph)
     ```
 
 ## Update your connection information
