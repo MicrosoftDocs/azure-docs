@@ -50,7 +50,7 @@ The available roles are:
 
 Service principals enable headless connectivity to a registry in both push and pull scenarios like the following:
 
-  * *Reader*: Container deployments from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [BatchTest](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
+  * *Reader*: Container deployments from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
 
   * *Contributor*: Continuous integration and deployment solutions like Visual Studio Team Services (VSTS) or Jenkins that build container images and push them to a registry.
 
