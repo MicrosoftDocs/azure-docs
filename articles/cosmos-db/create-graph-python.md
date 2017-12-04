@@ -28,12 +28,10 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
-Access to the Azure Cosmos DB Cassandra API preview program. If you haven't applied for access yet, [sign up now](cassandra-introduction.md#sign-up-now).
-
 In addition:
 * [Python](https://www.python.org/downloads/) version v2.7.14
 * [Git](http://git-scm.com/)
-* [Python Driver for Apache Cassandra](https://github.com/datastax/python-driver)
+* [Python Driver for Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
 
 ## Create a database account
 
@@ -87,7 +85,7 @@ Now let's switch to working with code. Let's clone a Graph API app from GitHub, 
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `TODO.java` file in the C:\git-samples\azure-cosmos-db-graph-python-getting-started\src\GetStarted folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `connect.py` file in the C:\git-samples\azure-cosmos-db-graph-python-getting-started\src\GetStarted folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
 
 * TODO - replace with Python samples. The Gremlin `Client` is initialized from the configuration in `src/remote.yaml`.
 
@@ -119,27 +117,45 @@ Now go back to the Azure portal to get your connection information and copy it i
     Copy the first portion of the URI value.
 
     ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-python/keys.png)
-2. Open the src/remote.yaml file and paste the value over `$name$` in `hosts: [$name$.graphs.azure.com]`.
 
-    Line 1 of remote.yaml should now look similar to 
+2. Open the connect.py file and in line 104 paste the URI value over `<YOUR_ENDPOINT>` in here:
 
-    `hosts: [test-graph.graphs.azure.com]`
+    ```python
+    client = client.Client('wss://<YOUR_ENDPOINT>:443/','g', 
+        username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
+        password="<YOUR_PASSWORD>")
+    ```
 
-3. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `$masterKey$` in `password: $masterKey$`.
+    The URI portion of the client object should now look similar to this:
 
-    Line 4 of remote.yaml should now look similar to 
+    ```python
+    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+        username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
+        password="<YOUR_PASSWORD>")
+    ```
 
-    `password: 2Ggkr662ifxz2Mg==`
+3. Change the second parameter of the `client` object to replace the `<YOUR_DATABASE>` and `<YOUR_COLLECTION_OR_GRAPH>` strings. If you used the suggested values, the parameter should look like this:
 
-4. Change line 3 of remote.yaml from
+    `username="/dbs/sample-database/colls/sample-graph"`
 
-    `username: /dbs/$database$/colls/$collection$`
+    The entire `client` object should now look like this:
 
-    to 
+    ```python
+    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+        username="/dbs/sample-database/colls/sample-graph", 
+        password="<YOUR_PASSWORD>")
+    ```
 
-    `username: /dbs/sample-database/colls/sample-graph`
+4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `<YOUR_PASSWORD>` in the `password=<YOUR_PASSWORD>` parameter.
 
-5. Save the remote.yaml file.
+    The entire `client` object definition should now look like this:
+    ```python
+    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+        username="/dbs/sample-database/colls/sample-graph", 
+        password="asdb13Fadsf14FASc22Ggkr662ifxz2Mg==")
+    ```
+
+5. Save the `connect.py` file.
 
 ## Run the console app
 
@@ -149,23 +165,23 @@ Now go back to the Azure portal to get your connection information and copy it i
     cd "C:\git-samples\azure-cosmos-db-graph-python-getting-started"
     ```
 
-2. In the git terminal window, use the following command to install the required Java packages.
+2. In the git terminal window, use the following command to install the required Python packages.
 
    ```
-   mvn package
+   pip install -r requirements.txt
    ```
 
 3. In the git terminal window, use the following command to start the Java application.
     
     ```
-    mvn exec:java -D exec.mainClass=GetStarted.Program
+    python connect.py
     ```
 
-    The terminal window displays the vertices being added to the graph. 
+    The terminal window displays the vertices and edges being added to the graph. 
     
     If you experience timeout errors, check that you updated the connection information correctly in [Update your connection information](#update-your-connection-information), and also try running the last command again. 
     
-    Once the program stops, press Enter, then switch back to the Azure portal in your internet browser. 
+    Once the program stops, press Enter, then switch back to the Azure portal in your internet browser.
 
 <a id="add-sample-data"></a>
 ## Review and add sample data
