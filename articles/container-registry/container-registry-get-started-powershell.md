@@ -9,11 +9,12 @@ editor: tysonn
 
 ms.service: container-registry
 ms.devlang: na
-ms.topic: article
+ms.topic: quicksart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Create an Azure Container Registry using PowerShell
