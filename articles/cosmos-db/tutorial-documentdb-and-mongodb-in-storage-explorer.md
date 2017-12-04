@@ -15,7 +15,7 @@ ms.custom: Azure Cosmos DB active
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jiaj-Li 
 
