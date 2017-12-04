@@ -29,7 +29,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 In addition:
-* [Python](https://www.python.org/downloads/) version v2.7.14 or newer.
+* [Python](https://www.python.org/downloads/) version v3.5 or newer.
 * [pip package manager](https://pip.pypa.io/en/stable/installing/)
 * [Git](http://git-scm.com/)
 * [Python Driver for Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
