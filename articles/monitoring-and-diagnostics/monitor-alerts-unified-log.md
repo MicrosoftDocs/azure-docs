@@ -1,5 +1,5 @@
 ---
-title: Log Analytics based alerts in Azure Monitor for Azure services - Alerts (Preview) | Microsoft Docs
+title: Log alerts in Azure Monitor for Azure services - Alerts (Preview) | Microsoft Docs
 description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the conditions you specify are met for Azure Alerts (Preview).
 author: msvijayn
 manager: kmadnani1
@@ -17,79 +17,79 @@ ms.date: 11/28/2017
 ms.author: vinagara
 
 ---
-# Log Analytics based alerts in Azure Monitor for Azure services - Alerts (Preview)
-> [!div class="op_single_selector"]
-> * [Portal](insights-alerts-unified.md)
->
+# Log alerts in Azure Monitor for Azure services - Alerts (Preview)
+This article provides details of how alert rules in Analytics queries work in Azure Alerts (Preview) and describes the differences between different types of log alert rules.
+Currently Azure Alerts (Preview), only supports log alerts based on queries from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)
 
-## Overview
-This article shows you how to set up Azure Log Search alerts for Log Analytics, using the new Alerts (Preview) interface inside Azure portal. 
-**Log search results** - An alert can trigger on *result* returned by supported Azure analytics platforms, like Azure Log Analytics, for a scheduled custom query. 
+> [!WARNING]
+> Azure Alerts (Preview) - Log Alerts, currently doesn't support cross-workspace or cross-app queries. 
 
-An alert can on triggering push information or notification using [Action Groups](monitoring-action-groups). While Action Groups support many means of communicating an alert, a few are mentioned below:
+## Log Alert rules
 
-* send email notifications to the service administrator and co-administrators
-* send email to additional emails that you specify.
-* call a webhook and push JSON to Azure or external applications
-* notify on mobile using SMS and/or Azure Mobile App. Learn more about the [Azure Mobile App](https://aka.ms/azureapp).
-* Create incidents or tickets in popular IT Service Management tool using ITSM Connector. Learn more about [IT Service Management Connector](https://aka.ms/ITSMC).
+Alerts are created by Azure Alerts (Preview) automatically run log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions to proactively notify you of the alert or invoke another process like running runbooks, using [Action Groups](monitoring-action-groups.md).  Different types of alert rules use different logic to perform this analysis.
 
-> [!NOTE]
-> While Azure Alerts (Preview) offers a new and enhanced experience for creating alerts in Azure. The older and existing [OMS Alerts](../log-analytics/log-analytics-alerts.md) will remain usable
->
+Alert Rules are defined by the following details:
 
-## Create an alert rule using Log Analytics query with the Azure portal
-1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts (Preview)**.  
-    ![Monitoring](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
+- **Log Query**.  The query that runs every time the alert rule fires.  The records returned by this query are used to determine whether an alert is created.
+- **Time window**.  Specifies the time range for the query.  The query returns only records that were created within this range of the current time.  Time window can be any value between 5 minutes and 1440 minutes or 24 hours. For example, If the time window is set to 60 minutes, and the query is run at 1:15 PM, only records created between 12:15 PM and 1:15 PM is returned.
+- **Frequency**.  Specifies how often the query should be run. Can be any value between 5 minutes and 24 hours. Should be equal to or less than the time window.  If the value is greater than the time window, then you risk records being missed.<br>For example, consider a time window of 30 minutes and a frequency of 60 minutes.  If the query is run at 1:00, it returns records between 12:30 and 1:00 PM.  The next time the query would run is 2:00 when it would return records between 1:30 and 2:00.  Any records created between 1:00 and 1:30 would never be evaluated.
+- **Threshold**.  The results of the log search are evaluated to determine whether an alert should be created.  The threshold is different for the different types of alert rules.
 
-2. Select the **Add Alert Rule** button to create a new alert in Azure.
-    ![Add Alert](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+Each alert rule in Log Analytics is one of two types.  Each of these types is described in detail in the sections that follow.
 
-3. Create the rule  by first clicking **Select Resource** link. Filter appropriately by choosing needed **Subscription**, **Resource Type** and finally selecting required **Resource**.
-    ![Create rule](./media/monitor-alerts-unified/AlertsPreviewAddLog.png)
+- **[Number of results](#number-of-results-alert-rules)**. Single alert created when the number records returned by the log search exceed a specified number.
+- **[Metric measurement](#metric-measurement-alert-rules)**.  Alert created for each object in the results of the log search with values that exceed specified threshold.
 
-> [!IMPORTANT]
-> For creating Log Analytics based Alerts (Preview), ensure the *resource type* chosen is **Log Analytics**. And then requisite workspace is selected from the *resource* dropdown
+The differences between alert rule types are as follows.
 
-4. Once **resource** is selected, click **Add criteria** button and select from the signal list **Custom log search** option.
-   ![Configure signal logic](./media/monitor-alerts-unified/AlertsPreviewCriteriaLog.png)
+- **Number of results** alert rule always creates a single alert while **Metric measurement** alert rule creates an alert for each object that exceeds the threshold.
+- **Number of results** alert rules create an alert when the threshold is exceeded a single time. **Metric measurement** alert rules can create an alert when the threshold is exceeded a certain number of times over a particular time interval.
 
-5.  Once selected, query for alerting can be stated in **Search Query** field; if the query syntax is incorrect the field displays error in RED. If the query syntax is correct - For reference historic data of the stated query is shown as a graph with option to tweak the time window from last six hours to last week. 
-   ![Configure alert rule](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+1. ## Number of results alert rules
+**Number of results** alert rules create a single alert when the number of records returned by the search query exceed the specified threshold.
 
-> [!NOTE]
-> Historical data can only be shown if the query results in data, which have time details. If your query results in summarized data or specific tabular values - you can toggle to view as table instead
+**Threshold**: The threshold for a **Number of results** alert rule is greater than or less than a particular value.  If the number of records returned by the log search match this criteria, then an alert is created.
 
-5. With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. Finally specify in the logic, for what time Alerts should look for the specified condition by choosing from the **Period** option along with how often Alert should run by selecting **Frequency**
+### Scenarios
 
-> [!TIP]
-> Currently in Alerts (Preview) - log search alerts can be generated only on *Number of Records*; where Alerts will automatically summarize your query results for count and trigger alerts based Threshold value/condition specified
+#### Events
+This type of alert rule is ideal for working with events such as Windows event logs, Syslog, and Custom logs.  You may want to create an alert when a particular error event gets created, or when multiple error events are created within a particular time window.
 
-6. As the second step, define a name for your alert in the **Alert rule name** field along with a **Description** detailing specifics for the alert and **Severity** value from the options provided. These details are reused in all alert emails, notifications, or push done by Azure Monitor. Additionally, user can choose to immediately activate the alert rule on creation by appropriately toggling **Enable rule upon creation** option.
+To alert on a single event, set the number of results to greater than 0 and both the frequency and time window to five minutes.  That runs the query every five minutes and check for the occurrence of a single event that was created since the last time the query was run.  A longer frequency may delay the time between the event being collected and the alert being created.
 
-7. As the third and final step, specify if any **Action Group** needs to be triggered for the alert rule when alert condition is met. You can choose any existing Action Group with alert or create a new Action Group. According to selected Action Group, when alert is trigger Azure will: send email(s), send SMS(s), call Webhook(s), push to your ITSM tool, etc. Learn more about [Action Groups](monitoring-action-groups.md).
+Some applications may log an occasional error that shouldn't necessarily raise an alert.  For example, the application may retry the process that created the error event and then succeed the next time.  In this case, you may not want to create the alert unless multiple events are created within a particular time window.  
 
+In some cases, you may want to create an alert in the absence of an event.  For example, a process may log regular events to indicate that it's working properly.  If it doesn't log one of these events within a particular time window, then an alert should be created.  In this case, you would set the threshold to **less than 1**.
 
-7. If all fields are valid and with green tick the **create alert rule** button can be clicked and Alert is created in Azure Monitor - Alerts (Preview). All Alerts can be viewed from the Alerts (Preview) Dashboard.
-   ![Rule Creation](./media/monitor-alerts-unified/AlertsPreviewCreateLog.png)
+2. ## Metric measurement alert rules
 
-> [!NOTE]
-> Alerts (Preview) currently doesn't support [querying across workspaces](https://azure.microsoft.com/en-us/blog/query-across-resources/). For more details and workaround, view [Alerts Known Issues](monitor-alerts-known-issues.md) page
+**Metric measurement** alert rules create an alert for each object in a query with a value that exceeds a specified threshold.  They have the following distinct differences from **Number of results** alert rules.
 
-Within a few minutes, the alert is active and triggers as previously described.
+**Aggregate function**: Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** returns the number of records in the query, **avg(CounterValue)** returns the average of the CounterValue field over the interval.
 
-## Managing your log search alerts in Alerts (Preview)
-1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts (Preview)**.  
-2. Select the **Manage rules** button on the top bar, to navigate to the rule management section - where all  alert rules created are listed; including alerts that have been disabled.
-3. To find for specific alert rules, one can either use the drop-down filters on top, which allow to shortlist alert rules for specific *Subscription, Resource Groups and/or Resource*. Ensure Resource Group is set to *log Analytics* for log search alerts. Alternatively on using the search pane above the alert rule list marked *Filter alerts*, one can provide keyword, which is matched against *Alert Name, Condition and Target Resource*; to show only matching rules. 
-   ![Alert Management](./media/monitor-alerts-unified/AlertsPreviewManage.png)
-4. To view or modify specific Alert rule, click on its name that would be shown as a clickable link.
-5. Alert defined is shown - in the three stage structure of: 1) Alert Condition 2) Alert Detail 3) Action Group. **Target Criteria** can be clicked to modify the alert logic or a new criteria can be added after using the bin icon to delete the earlier logic. Similarly, in Alert details section - **Description** and **Severity** can be modified. And the Action Group can be changed or a new one can be crafted to linking to the alert using the **New action group** button
-   ![Modify Alert Rule](./media/monitor-alerts-unified/AlertsPreviewEditLog.png)
-6. Using the top panel, changes to the alert can be reflective including: *Save* to commit any changes done to alert, *Discard* to go back without committing any changes made to alert, *Disable* to deactivate the alert and prevent it from running without deletion and finally,  *Delete* to permanently remove the entire alert rule from Azure.
+**Group Field**: A record with an aggregated value is created for each instance of this field, and an alert can be generated for each.  For example, if you wanted to generate an alert for each computer, you would use **by Computer**   
+
+**Interval**:  Defines the time interval over which the data is aggregated.  For example, if you specified **five minutes**, a record would be created for each instance of the group field aggregated at 5-minute intervals over the time window specified for the alert.
+
+**Threshold**: The threshold for Metric measurement alert rules is defined by an aggregate value and a number of breaches.  If any data point in the log search exceeds this value, it's considered a breach.  If the number of breaches in for any object in the results exceeds the specified value, then an alert is created for that object.
+
+#### Example
+Consider a scenario where you wanted an alert if any computer exceeded processor utilization of 90% three times over 30 minutes.  You would create an alert rule with the following details:  
+
+**Query:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5 m), Computer<br>
+**Time window:** 30 minutes<br>
+**Alert frequency:** five minutes<br>
+**Aggregate value:** Great than 90<br>
+**Trigger alert based on:** Total breaches Greater than 5<br>
+
+The query would create an average value for each computer at 5-minute intervals.  This query would be run every 5 minutes for data collected over the previous 30 minutes.  Sample data is shown below for three computers.
+
+![Sample query results](../log-analytics/media/log-analytics-alerts/metrics-measurement-sample-graph.png)
+
+In this example, separate alerts would be created for srv02 and srv03 since they breached the 90% threshold 3 times over the time window.  If the **Trigger alert based on:** were changed to **Consecutive** then an alert would be created only for srv03 since it breached the threshold for three consecutive samples.
+
 
 ## Next steps
 * [Get an overview of Azure Alerts (Preview)](monitoring-overview-unified.md) including the types of information you can collect and monitor.
-* Learn about [Metric Alerts for Log Analytics in Azure Alerts (preview)](monitor-alerts-unified-metric.md)
+* Learn about [Using Azure Alerts (preview)](monitor-alerts-unified-usage.md)
 * Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md).    
-* Learn more about [configuring webhooks in alerts](insights-webhooks-alerts.md).
