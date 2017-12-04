@@ -11,7 +11,7 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/30/2017
 ---
 # Azure Time Series Insights explorer
 This article explores the various features and options available within the Time Series Insights explorer web app. 

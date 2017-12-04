@@ -8,12 +8,12 @@ author: kgremban
 manager: timlt
 
 ms.author: v-jamebr
-ms.date: 11/30/2017
-ms.topic: article
+ms.date: 11/15/2017
+ms.topic: tutorial
 ms.service: iot-edge
 
 # Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
+ms.custom: mvc
 # ms.devlang:devlang-from-white-list
 # ms.suite: 
 # ms.tgt_pltfrm:
