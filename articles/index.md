@@ -1040,7 +1040,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/azure-location-based-services/">
+                                            <a href="">
                                                 <img src="media/index/azure-lbs-icon.svg" alt="" />
                                                 <p>Azure Location Based Services</p>
                                             </a>
@@ -2993,7 +2993,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-location-based-services/">
+                                <a href="">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
