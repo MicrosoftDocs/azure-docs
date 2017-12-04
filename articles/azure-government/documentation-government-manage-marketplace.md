@@ -29,8 +29,7 @@ The Azure Government Marketplace differs from the Azure Marketplace in the follo
 > For information on making your images available in Azure Government, see the [partner onboarding guidelines](documentation-government-manage-marketplace-partners.md).
 
 > [!NOTE]
-> Red Hat Enterprise Linux is available in Azure Government with Azure Marketplace billing.  This is a special case
-> exception to the above statement about license options in Azure Government.
+> Red Hat Enterprise Linux is available in Azure Government with Azure Marketplace billing. This is a special case exception to the above statement about license options in Azure Government.
 > 
 
 ## Enable the Azure Government Marketplace
