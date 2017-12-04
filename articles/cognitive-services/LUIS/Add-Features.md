@@ -30,7 +30,7 @@ You can add features to your LUIS app to improve its accuracy. Features help LUI
 
     ![Add phrase list Cities](./media/luis-add-features/add-phrase-list-cities.png)
 
-4. If your app culture is English, LUIS can propose some related values to add to your phrase list. Click **Recommend** to get a group of proposed values that are semantically related to the added value(s). You can click any of the proposed values, or click **Add All** to add them all.
+4. LUIS can propose related values to add to your phrase list. Click **Recommend** to get a group of proposed values that are semantically related to the added value(s). You can click any of the proposed values, or click **Add All** to add them all.
 
     ![Phrase List Proposed Values](./media/luis-add-features/related-values.png)
 
