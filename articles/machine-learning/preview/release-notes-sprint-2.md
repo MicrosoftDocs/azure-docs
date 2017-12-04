@@ -18,13 +18,13 @@ ms.date: 12/04/2017
 
 >Here is how you can [find the version number](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide).
 
-Welcome to the third update of Azure Machine Learning Workbench. We continue to make improvements in the workbench app, the Command-line Interface (CLI), and the back-end services. Thank you very much for sending the smiles and frowns. Many of the following updates are made as direct results of your feedback. Please keep them coming!
+Welcome to the third update of Azure Machine Learning Workbench. This update includes improvements in the workbench app, the Command-line Interface (CLI), and the back-end services. Thank you very much for sending the smiles and frowns. Many of the following updates are made as direct results of your feedback. 
 
 ## Notable New Features
-- [Support for SQL Server and Azrue SQL DB as a data source](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Support for SQL Server and Azure SQL DB as a data source](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
 - [Deep Learning on Spark with GPU support using MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - [All AML containers are compatible with Azure IoT Edge devices when deployed (no extra steps required)](http://aka.ms/aml-iot-edge-blog)
-- Registered model list and detail views available Azure Portal
+- Registered model list and detail views available Azure portal
 - Accessing compute targets using SSH key-based authentication in addition to username/password-based access. 
 - New Pattern Frequency Inspector in the data prep experience. 
 
@@ -46,13 +46,13 @@ Following is a list of detailed updates in each component area of Azure Machine 
 - Loading the list of workspaces and projects that the user has access to is significantly faster now
 
 ### Data preparation 
-- A Pattern Frequency Inspector to view the string patterns in a column. You can also filter your data using these patterns. This will show you a view similar to the Value Counts inspector. The difference is that Pattern Frequency shows the counts of the unique patterns of the data, rather than the counts of unique data. You can also filter in or out all rows that fit a certain pattern.
+- A Pattern Frequency Inspector to view the string patterns in a column. You can also filter your data using these patterns. This shows you a view similar to the Value Counts inspector. The difference is that Pattern Frequency shows the counts of the unique patterns of the data, rather than the counts of unique data. You can also filter in or out all rows that fit a certain pattern.
 
 ![Image of pattern frequency inspector on Product Number](media/release-notes-sprint-2/pattern-inspector-product-number.png)
 
 - Performance improvements while recommending edge cases to review in the 'derive column by example' transformation
 
-- [Support for SQL Server and Azrue SQL DB as a data source](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Support for SQL Server and Azure SQL DB as a data source](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
 
 ![Image of creating a new SQL server data source](media/release-notes-sprint-2/sql-server-data-source.png)
 
