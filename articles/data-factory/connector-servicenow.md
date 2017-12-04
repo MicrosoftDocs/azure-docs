@@ -45,12 +45,12 @@ The following properties are supported for ServiceNow linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **ServiceNow** | Yes |
-| endpoint | The endpoint of the ServiceNow server. (i.e. http://ServiceNowData.com)  | Yes |
+| endpoint | The endpoint of the ServiceNow server. (that is, http://ServiceNowData.com)  | Yes |
 | authenticationType | The authentication type to use. <br/>Allowed values are: **Basic**, **OAuth2** | Yes |
 | username | The user name used to connect to the ServiceNow server for Basic and OAuth2 authentication.  | No |
-| password | The password corresponding to the user name for Basic and OAuth2 authentication. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
-| clientId | The client id for OAuth2 authentication.  | No |
-| clientSecret | The client secret for OAuth2 authentication. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password corresponding to the user name for Basic and OAuth2 authentication. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| clientId | The client ID for OAuth2 authentication.  | No |
+| clientSecret | The client secret for OAuth2 authentication. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |

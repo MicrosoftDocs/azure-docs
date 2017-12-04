@@ -24,7 +24,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> This connector is currently in Beta. You can try it out and give us feedback. Do not use it in production environments.
+> This connector is currently in Beta. You can try it out and provide feedback. Do not use it in production environments.
 
 ## Supported capabilities
 
@@ -45,11 +45,11 @@ The following properties are supported for Xero linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Xero** | Yes |
-| host | The endpoint of the Xero server. (i.e. api.xero.com)  | Yes |
-| consumerKey | The consumer key associated with the Xero application. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
-| privateKey | The private key from the .pem file that was generated for your Xero private application. You must include all the text from the .pem file, including the Unix line endings(\n). You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| host | The endpoint of the Xero server. (that is, api.xero.com)  | Yes |
+| consumerKey | The consumer key associated with the Xero application. You can choose to mark this field as a SecureString to store it securely in Data Factory, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| privateKey | The private key from the .pem file that was generated for your Xero private application. Include all the text from the .pem file, including the Unix line endings(\n). You can choose to mark this field as a SecureString to store it securely in Data Factory, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
-| useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
+| useHostVerification | Specifies whether the host name is required in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |
 
 **Example:**
@@ -141,4 +141,4 @@ To copy data from Xero, set the source type in the copy activity to **XeroSource
 ```
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of supported data stores by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -45,12 +45,12 @@ The following properties are supported for Amazon Marketplace Web Service linked
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AmazonMWS** | Yes |
-| endpoint | The endpoint of the Amazon MWS server, (i.e. mws.amazonservices.com)  | Yes |
-| marketplaceID | The Amazon Marketplace ID you want to retrieve data from. To retrive data from multiple Marketplace IDs, seperate them with a comma (,). (i.e. A2EUQ1WTGCTBG2)  | Yes |
+| endpoint | The endpoint of the Amazon MWS server, (that is, mws.amazonservices.com)  | Yes |
+| marketplaceID | The Amazon Marketplace ID you want to retrieve data from. To retrieve data from multiple Marketplace IDs, separate them with a comma (`,`). (that is, A2EUQ1WTGCTBG2)  | Yes |
 | sellerID | The Amazon seller ID.  | Yes |
-| mwsAuthToken | The Amazon MWS authentication token. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
-| accessKeyId | The access key id used to access data.  | Yes |
-| secretKey | The secret key used to access data. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| mwsAuthToken | The Amazon MWS authentication token. You can choose to mark this field as a SecureString to store it securely by the Data Factory service, or store password in Azure Key Vault and let the copy acitivity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| accessKeyId | The access key ID used to access data.  | Yes |
+| secretKey | The secret key used to access data. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy acitivity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |

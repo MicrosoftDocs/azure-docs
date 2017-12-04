@@ -48,7 +48,7 @@ The following properties are supported for SAP Cloud for Customer linked service
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink |
 
 >[!IMPORTANT]
->To copy data into SAP Cloud for Customer, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with a location near your SAP Cloud for Customer, and associate in the linked service as the following example.
+>To copy data into SAP Cloud for Customer, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with a location near your SAP Cloud for Customer, and associate in the linked service as the following example:
 
 **Example:**
 

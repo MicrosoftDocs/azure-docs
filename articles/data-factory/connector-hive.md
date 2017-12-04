@@ -51,7 +51,7 @@ The following properties are supported for Hive linked service:
 | zooKeeperNameSpace | The namespace on ZooKeeper under which Hive Server 2 nodes are added.  | No |
 | useNativeQuery | Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.  | No |
 | username | The user name that you use to access Hive Server.  | No |
-| password | The password corresponding to the user name that you provided in the Username field You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password corresponding to the user name that you provided in the Username field You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | httpPath | The partial URL corresponding to the Hive server.  | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using SSL. The default value is false.  | No |
 | trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.  | No |

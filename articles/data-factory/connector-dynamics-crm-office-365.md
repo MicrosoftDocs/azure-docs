@@ -43,7 +43,7 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Marketing
 
 > [!NOTE]
-> To use Dynamics connector, store your password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy. See how to configure in [linked service properties](#linked-service-properties) section.
+> To use Dynamics connector, store your password in Azure Key Vault and let the copy acitivty pull from there when performing data copy. See how to configure in [linked service properties](#linked-service-properties) section.
 
 ## Getting started
 
@@ -319,7 +319,7 @@ To copy data to Dynamics, set the sink type in the copy activity to **DynamicsSi
 
 When copying data from Dynamics, the following mappings are used from Dynamics data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-Configure the corresponding ADF data type in dataset structure based on your source Dynamics data type using below mapping table:
+Configure the corresponding Data Factory data type in dataset structure based on your source Dynamics data type using below mapping table:
 
 | Dynamics data type | Data factory interim data type | Supported as source | Supported as sink |
 |:--- |:--- |:--- |:--- |

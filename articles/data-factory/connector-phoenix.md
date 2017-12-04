@@ -42,12 +42,12 @@ The following properties are supported for Phoenix linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Phoenix** | Yes |
-| host | The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)  | Yes |
+| host | The IP address or host name of the Phoenix server. (that is, 192.168.222.160)  | Yes |
 | port | The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.  | No |
-| httpPath | The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.  | No |
+| httpPath | The partial URL corresponding to the Phoenix server. (that is, /gateway/sandbox/phoenix/version). The default value is `hbasephoenix` if using WindowsAzureHDInsightService.  | No |
 | authenticationType | The authentication mechanism used to connect to the Phoenix server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | username | The user name used to connect to the Phoenix server.  | No |
-| password | The password corresponding to the user name. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password corresponding to the user name. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using SSL. The default value is false.  | No |
 | trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.  | No |
