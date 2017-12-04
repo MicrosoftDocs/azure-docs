@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
-ms.custom:
+ms.custom: mvc
 ---
 
 # Prepare a geo-replicated Azure container registry

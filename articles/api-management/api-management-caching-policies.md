@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
 ---
 # API Management caching policies
@@ -24,15 +24,12 @@ This topic provides a reference for the following API Management policies. For i
 -   Response caching policies  
   
     -   [Get from cache](api-management-caching-policies.md#GetFromCache) - Perform cache look up and return a valid cached responses when available.  
-  
     -   [Store to cache](api-management-caching-policies.md#StoreToCache) - Caches responses according to the specified cache control configuration.  
   
 -   Value caching policies  
-  
-    -   [Get value from cache](#GetFromCacheByKey) - Retrieve a cached item by key.  
-  
-    -   [Store value in cache](#StoreToCacheByKey) - Store an item in the cache by key.  
-  
+
+    -   [Get value from cache](#GetFromCacheByKey) - Retrieve a cached item by key. 
+    -   [Store value in cache](#StoreToCacheByKey) - Store an item in the cache by key. 
     -   [Remove value from cache](#RemoveCacheByKey) - Remove an item in the cache by key.  
   
 ##  <a name="GetFromCache"></a> Get from cache  
@@ -122,7 +119,6 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
-  
 -   **Policy scopes:** API, operation, product  
   
 ##  <a name="StoreToCache"></a> Store to cache  
@@ -194,8 +190,7 @@ This topic provides a reference for the following API Management policies. For i
 ### Usage  
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **Policy sections:** outbound  
-  
+-   **Policy sections:** outbound    
 -   **Policy scopes:** API, operation, product  
   
 ##  <a name="GetFromCacheByKey"></a> Get value from cache  
@@ -240,7 +235,6 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound, outbound, backend, on-error  
-  
 -   **Policy scopes:** global, API, operation, product  
   
 ##  <a name="StoreToCacheByKey"></a> Store value in cache  
@@ -283,11 +277,10 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound, outbound, backend, on-error  
-  
 -   **Policy scopes:** global, API, operation, product  
   
 ###  <a name="RemoveCacheByKey"></a> Remove value from cache  
- The             `cache-remove-value` deletes a cached item identified by its key. The key can have an arbitrary string value and is typically provided using a policy expression.  
+The             `cache-remove-value` deletes a cached item identified by its key. The key can have an arbitrary string value and is typically provided using a policy expression.  
   
 #### Policy statement  
   
@@ -321,9 +314,13 @@ This topic provides a reference for the following API Management policies. For i
  This policy can be used in the following policy                    [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and                   [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
 -   **Policy sections:** inbound, outbound, backend, on-error  
-  
 -   **Policy scopes:** global, API, operation, product  
-  
 
 ## Next steps
-For more information working with policies, see [Policies in API Management](api-management-howto-policies.md).  
+
+For more information working with policies, see:
+
++ [Policies in API Management](api-management-howto-policies.md)
++ [Transform APIs](transform-api.md)
++ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy samples](policy-samples.md)	
