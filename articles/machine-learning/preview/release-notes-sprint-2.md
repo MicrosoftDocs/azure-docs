@@ -21,7 +21,7 @@ ms.date: 12/04/2017
 Welcome to the third update of Azure Machine Learning Workbench. We continue to make improvements in the workbench app, the Command-line Interface (CLI), and the back-end services. Thank you very much for sending the smiles and frowns. Many of the following updates are made as direct results of your feedback. Please keep them coming!
 
 ## Notable New Features
-- [Support for SQL Server as a data source](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Support for SQL Server and Azrue SQL DB as a data source](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
 - [Deep Learning on Spark with GPU support using MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
 - [All AML containers are compatible with Azure IoT Edge devices when deployed (no extra steps required)](http://aka.ms/aml-iot-edge-blog)
 - Registered model list and detail views available Azure Portal
@@ -52,7 +52,7 @@ Following is a list of detailed updates in each component area of Azure Machine 
 
 - Performance improvements while recommending edge cases to review in the 'derive column by example' transformation
 
-- [Support for SQL Server as a data source](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
+- [Support for SQL Server and Azrue SQL DB as a data source](https://docs.microsoft.com/en-us/azure/machine-learning/preview/data-prep-appendix2-supported-data-sources#types) 
 
 ![Image of creating a new SQL server data source](media/release-notes-sprint-2/sql-server-data-source.png)
 
@@ -100,7 +100,7 @@ For more information on creating compute targets, see [Configuring Azure Machine
 
 ### MMLSpark
 - Deep Learning on Spark with [GPU support](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- Support for [Resource Manager templates](https://mmlspark.azureedge.net/buildartifacts/0.10/deploy-main-template.json) for easy resource deployment
+- Support for Resource Manager templates for easy resource deployment
 - Support for the SparklyR ecosystem
 - [AZTK integration](https://github.com/Azure/aztk/wiki/Spark-on-Azure-for-Python-Users#optional-set-up-mmlspark)
 
