@@ -34,7 +34,7 @@ The **Azure Media Services .NET SDK** library enables you to program against Med
 This section shows you how to create a project in Visual Studio and set it up for Media Services development.  In this case, the project is a C# Windows console application, but the same setup steps shown here apply to other types of projects you can create for Media Services applications (for example, a Windows Forms application or an ASP.NET Web application).
 
 This section shows how to use **NuGet** to add Media Services .NET SDK extensions and other dependent libraries.
-
+<br
 Alternatively, you can get the latest Media Services .NET SDK bits from GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) or [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), build the solution, and add the references to the client project. All the necessary dependencies get downloaded and extracted automatically.
 
 1. Create a new C# Console Application in Visual Studio. Enter the **Name**, **Location**, and **Solution name**, and then click OK.
@@ -64,7 +64,7 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
 	If you are using [user authentication](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) your config file will probably have values for your Azure AD tenant domain and the AMS REST API endpoint.
 	
 	>[!Important]
-	>Most code samples in the Azure Media Services documentation set, use a user (interactive) type of authentication to connect to the AMS API. This authentication method will work well for management or monitoring native apps: mobile apps, Windows apps, and Console applications. This authentication method is not suitable for server, web services, APIs type of applications.  For more information, see [Access the AMS API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
+	>Most code samples in the Azure Media Services documentation set, use a user (interactive) type of authentication to connect to the AMS API. This authentication method will work well for management or monitoring native apps: mobile apps, Windows apps, and Console applications.<br/> This authentication method is not suitable for server, web services, APIs type of applications.  For more information, see [Access the AMS API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md).
 
         <configuration>
         ...
