@@ -80,26 +80,29 @@ Now let's switch to working with code. Let's clone a Graph API app from GitHub, 
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `TODO` file in the C:\git-samples\azure-cosmos-db-graph-php-getting-started\src\GetStarted folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `connect.php` file in the C:\git-samples\azure-cosmos-db-graph-php-getting-started\ folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-information). 
 
-* TODO - replace with PHP samples. The Gremlin `Client` is initialized from the configuration in `src/remote.yaml`.
+* The Gremlin `connection` is initialized in the beginning of the `connect.php` file using the `$db` object.
 
-    ```java
-    cluster = Cluster.build(new File("src/remote.yaml")).create();
-    ...
-    client = cluster.connect();
+    ```php
+    $db = new Connection([
+        'host' => 'your_server_address',
+        'username' => '/dbs/<db>/colls/<coll>',
+        'password' => 'your_primary_key'
+        ,'port' => '443'
+
+        // Required parameter
+        ,'ssl' => TRUE
+    ]);
     ```
 
-* A series of Gremlin steps are executed using the `client.submit` method.
+* A series of Gremlin steps are executed using the `$db->send($query);` method.
 
-    ```java
-    ResultSet results = client.submit(gremlin);
-
-    CompletableFuture<List<Result>> completableFutureResults = results.all();
-    List<Result> resultList = completableFutureResults.get();
-
-    for (Result result : resultList) {
-        System.out.println(result.toString());
+    ```php
+    $query = "g.V().drop()";
+    ...
+    $result = $db->send($query);
+    $errors = array_filter($result);
     }
     ```
 
@@ -112,27 +115,57 @@ Now go back to the Azure portal to get your connection information and copy it i
     Copy the first portion of the URI value.
 
     ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-php/keys.png)
-2. Open the src/remote.yaml file and paste the value over `$name$` in `hosts: [$name$.graphs.azure.com]`.
+2. Open the `connect.php` file and in line 8 paste the URI value over `your_server_address`.
 
-    Line 1 of remote.yaml should now look similar to 
+    The connection object initialization should now look similar to this:
 
-    `hosts: [test-graph.graphs.azure.com]`
+    ```php
+    $db = new Connection([
+        'host' => 'test.graphs.azure.com',
+        'username' => '/dbs/<db>/colls/<coll>',
+        'password' => 'your_primary_key'
+        ,'port' => '443'
 
-3. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `$masterKey$` in `password: $masterKey$`.
+        // Required parameter
+        ,'ssl' => TRUE
+    ]);
+    ```
 
-    Line 4 of remote.yaml should now look similar to 
+3. Change `username` parameter in the Connection object with your database and graph name. If you used the recommended values of `sample-database` and `sample-graph`, it should look like this:
 
-    `password: 2Ggkr662ifxz2Mg==`
+    `'username' => '/dbs/sample-database/colls/sample-graph'`
 
-4. Change line 3 of remote.yaml from
+    This is how the entire Connection object should look like at this moment:
 
-    `username: /dbs/$database$/colls/$collection$`
+    ```php
+    $db = new Connection([
+        'host' => 'test.graphs.azure.com',
+        'username' => '/dbs/sample-database/colls/sample-graph',
+        'password' => 'your_primary_key',
+        'port' => '443'
 
-    to 
+        // Required parameter
+        ,'ssl' => TRUE
+    ]);
+    ```
 
-    `username: /dbs/sample-database/colls/sample-graph`
+4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `your_primary_key` in the password parameter.
 
-5. Save the remote.yaml file.
+    The Connection object initialization should now look like this:
+
+    ```php
+    $db = new Connection([
+        'host' => 'test.graphs.azure.com',
+        'username' => '/dbs/sample-database/colls/sample-graph',
+        'password' => '2Ggkr662ifxz2Mg==',
+        'port' => '443'
+
+        // Required parameter
+        ,'ssl' => TRUE
+    ]);
+    ```
+
+5. Save the `connect.php` file.
 
 ## Run the console app
 
@@ -142,16 +175,16 @@ Now go back to the Azure portal to get your connection information and copy it i
     cd "C:\git-samples\azure-cosmos-db-graph-php-getting-started"
     ```
 
-2. In the git terminal window, use the following command to install the required Java packages.
+2. In the git terminal window, use the following command to install the required PHP dependencies.
 
    ```
-   mvn package
+   composer install
    ```
 
-3. In the git terminal window, use the following command to start the Java application.
+3. In the git terminal window, use the following command to start the PHP application.
     
     ```
-    mvn exec:java -D exec.mainClass=GetStarted.Program
+    php connect.php
     ```
 
     The terminal window displays the vertices being added to the graph. 
