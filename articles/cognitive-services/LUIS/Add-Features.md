@@ -60,6 +60,9 @@ Click the three dots (...) button at the end of the row, and select **Deactivate
 
  ![Deactivate list added](./media/luis-add-features/deactivate-phrase-list.png)
 
+## Pattern feature
+**The is a deprecated feature**. New patterns cannot be added to LUIS but any existing pattern features will be supported until May 2018. 
+
 ## Next steps
 
 After adding, editing, deleting, or deactivating a phrase list, [train and test the app](Train-Test.md) again to see if performance improves.
