@@ -46,7 +46,7 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 A Server Endpoint represents a specific location on a Registered Server, such as a folder on a server volume or the root of the volume. Multiple Server Endpoints can exist on the same volume if their namespaces do not overlap (for example, F:\sync1 and F:\sync2). You can configure cloud tiering policies individually for each Server Endpoint. If you add a server location that has an existing set of files as a Server Endpoint to a Sync Group, those files are merged with any other files that are already on other endpoints in the Sync Group.
 
 > [!Note]  
-> A server endpoint can be located on the Windows system volume, 
+> A server endpoint may be located on the Windows system volume. Cloud tiering is not supported on the system volume.
 
 ### Cloud Endpoint
 A Cloud Endpoint is an Azure file share that is part of a Sync Group. The entire Azure file share syncs, and an Azure file share can be a member of only one Cloud Endpoint. Therefore, an Azure file share can be a member of only one Sync Group. If you add an Azure file share that has an existing set of files as a Cloud Endpoint to a Sync Group, the existing files are merged with any other files that are already on other endpoints in the Sync Group.
