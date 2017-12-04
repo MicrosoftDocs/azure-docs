@@ -21,7 +21,7 @@ ms.author: rafats
 
 # Unique keys in Azure Cosmos DB
 
-Unique keys provide developers with the ability to add a layer of data integrity to their database. By creating a unique key policy when a container is created, you ensure the uniqueness of one or more values per [partition](partition-data.md). Once a container has been created with a unique key policy, it prevents the creation of any new or updated items with values that duplicate values specified by the unique key constraint.   
+Unique keys provide developers with the ability to add a layer of data integrity to their database. By creating a unique key policy when a container is created, you ensure the uniqueness of one or more values per [partition key](partition-data.md). Once a container has been created with a unique key policy, it prevents the creation of any new or updated items with values that duplicate values specified by the unique key constraint.   
 
 > [!NOTE]
 > Unique keys are supported by the latest versions of the [.NET](documentdb-sdk-dotnet.md) and [.NET Core](documentdb-sdk-dotnet-core.md) DocumentDB (SQL) SDKs, and the [MongoDB API](mongodb-feature-support.md#unique-indexes). The Table API and Graph API do not support unique keys at this time. 
