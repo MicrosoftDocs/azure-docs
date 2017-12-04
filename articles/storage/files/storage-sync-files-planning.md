@@ -57,7 +57,8 @@ A cloud endpoint is an Azure file share that is part of a sync group. The entire
 ### Cloud tiering 
 Cloud tiering is an optional feature of Azure File Sync in which infrequently used or accessed files can be tiered to Azure Files. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer, or reparse point. The reparse point represents a URL to the file in Azure Files. A tiered file has the "offline" attribute set in NTFS so third-party applications can identify tiered files. When a user opens a tiered file, Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know that the file is not stored locally on the system. This functionality is also known as Hierarchical Storage Management (HSM).
 
-Cloud tiering is not supported for server endpoints on the Windows system volumes.
+> [!Important]  
+> Cloud tiering is not supported for server endpoints on the Windows system volumes.
 
 ## Azure File Sync interoperability 
 This section covers Azure File Sync interoperability with Windows Server features and roles and third-party solutions.
