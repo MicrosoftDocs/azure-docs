@@ -114,6 +114,25 @@ The following example shows how to obtain a certificate from Azure Key Vault. It
 2. Update the access policies of an Azure Key Vault instance and allow the API Management instance to obtain secrets from it.
 3. Update the API Management instance by setting a custom domain name through a certificate from the Key Vault instance.
 
+### Prerequisites
+To execute the below arm template we need the following 
+1. Key Vault containing the pfx certificate in the same subscription and same resourcegroup as the Api Management service. This is requirement of arm template. 
+2. The Content type of the secret should be *application/x-pkcs12*. You can use the following script to upload the certificate
+
+```powershell
+$pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
+$pwd = "PFX_CERTIFICATE_PASSWORD" # Change this password 
+$flag = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable 
+$collection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection 
+$collection.Import($pfxFilePath, $pwd, $flag) 
+$pkcs12ContentType = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12 
+$clearBytes = $collection.Export($pkcs12ContentType) 
+$fileContentEncoded = [System.Convert]::ToBase64String($clearBytes) 
+$secret = ConvertTo-SecureString -String $fileContentEncoded -AsPlainText –Force 
+$secretContentType = 'application/x-pkcs12' 
+Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -SecretValue $Secret -ContentType $secretContentType
+```
+
 > [!Important]
 > If the object version of the certificate is not provided, API Management will automatically obtain the newer version of the certificate after it is uploaded to Key Vault. 
 
