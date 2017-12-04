@@ -24,7 +24,7 @@ This article discusses the various Site Recovery operations that can be performe
 
 **Support VMware vCenter and VMware vSphere ESX Host** | **Details** |
 |--- | --- |
-|**On-premises VMware servers** | One or more VMware vSphere servers, running 6.0, 5.5 with latest updates. Servers should be located in the same network as the configuration server (or separate process server).<br/><br/> We recommend a vCenter server to manage hosts, running 6.0 or 5.5 with the latest updates. Only features that are available in 5.5 are supported when you deploy version 6.0.|
+|**On-premises VMware servers** | One or more VMware vSphere servers, running 6.5,6.0, 5.5 with latest updates. Servers should be located in the same network as the configuration server (or separate process server).<br/><br/> We recommend a vCenter server to manage hosts, running 6.5,6.0 or 5.5 with the latest updates. Only features that are available in 5.5 are supported when you deploy version 6.0.|
 
 ## Prepare an account for automatic discovery
 Site Recovery needs access to VMware for the process server to automatically discover virtual machines, and for failover and failback of virtual machines.
