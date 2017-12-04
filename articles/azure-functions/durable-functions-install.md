@@ -72,44 +72,44 @@ Visual Studio Code provides a local development experience covering all major pl
 2. Navigate on your machine to the [C# script samples folder](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx). 
 3. Install Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
-```bash
-   func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
-```
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    ```
 4. Run Azure Storage Emulator or update the *local.appsettings.json* file with real Azure Storage connection string.
 3. Open the project in Visual Studio Code. 
 5. For instructions on how to run the sample, start with [Function chaining - Hello sequence sample](durable-functions-sequence.md). The sample can be run locally or published to Azure.
 6. Start the project by running in command prompt / terminal the following command:
-```bash
-   func host start
-```
+    ```bash
+    func host start
+    ```
 
 ### Start with an empty project
  
 1. In command prompt / terminal navigate to the folder that will host your function app.
 2. Install the Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
-```bash
-   func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
-```
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    ```
 3. Run Azure Storage Emulator on Windows and on macOS update the *local.appsettings.json* file with real Azure Storage connection string.
 4. Create a Function App project by running the following command:
 
-```bash
-   func init
-```
+    ```bash
+    func init
+    ```
 5. Next, create a new function by running the following command and follow the wizard steps:
 
-```bash
-   func new
-```
->[!IMPORTANT]
-> Currently the Durable Function template is not available but you can start with one of the supported options and then modify the code. Use for reference the samples for [Orchestration Client](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/HttpStart), [Orchestration Trigger](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence), and [Activity Trigger](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence).
+    ```bash
+    func new
+    ```
+    >[!IMPORTANT]
+    > Currently the Durable Function template is not available but you can start with one of the supported options and then modify the code. Use for reference the samples for [Orchestration Client](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/HttpStart), [Orchestration Trigger](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence), and [Activity Trigger](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence).
 
 6. Open the project folder in Visual Studio Code and continue by modifying the template code. 
 7. Start the project by running in command prompt / terminal the following command:
-```bash
-   func host start
-```
+    ```bash
+    func host start
+    ```
 
 ## Azure portal
 
