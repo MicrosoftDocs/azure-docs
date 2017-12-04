@@ -39,6 +39,10 @@ The OMS Agent extension can be run against these Linux distributions.
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 and 12 |
 
+### Azure Security Center
+
+Azure Security Center automatically provisions the OMS agent and connects it with the default log analytics workspace of the Azure subscription. If you are using Azure Securty Center, do not run through the steps in this document. Dooing so will overwrite the configured workspace and break the connection with Azure Security Center.
+
 ### Internet connectivity
 
 The OMS Agent extension for Linux requires that the target virtual machine is connected to the internet. 
