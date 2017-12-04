@@ -1,5 +1,5 @@
 ---
-title: 'Incrementally copy data using Azure Data Factory | Microsoft Docs'
+title: 'Incrementally copy a table using Azure Data Factory | Microsoft Docs'
 description: 'In this tutorial, you create an Azure Data Factory pipeline that copies data incrementally from an Azure SQL Database to an Azure Blob Storage.'
 services: data-factory
 documentationcenter: ''
@@ -16,17 +16,12 @@ ms.date: 10/06/2017
 ms.author: shlo
 ---
 # Incrementally load data from Azure SQL Database to Azure Blob Storage
+In this tutorial, you create an Azure data factory with a pipeline that loads delta data from a table in an Azure SQL database to an Azure blob storage. 
 
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### This tutorial
 
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-During the data integration journey, one of the widely used scenarios is to incrementally load data periodically to refresh updated analysis result after initial data loads and analysis. In this tutorial, you focus on loading only new or updated records from the data sources into data sinks. It runs more efficiently when compared to full loads, particularly for large data sets.    
-
-You can use Data Factory to create high-watermark solutions to achieve incremental data loading by using Lookup, Copy, and Stored Procedure activities in a pipeline.  
 
 You perform the following steps in this tutorial:
 
@@ -42,7 +37,7 @@ You perform the following steps in this tutorial:
 ## Overview
 The high-level solution diagram is: 
 
-![Incrementally load data](media\tutorial-Incrementally-load-data-from-azure-sql-to-blob\incrementally-load.png)
+![Incrementally load data](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
 
 Here are the important steps in creating this solution: 
 
@@ -67,7 +62,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### Create a data source table in your Azure SQL database
-1. Open **SQL Server Management Studio**, in **Server Explorer**, right-click the database and choose the **New Query**.
+1. Open **SQL Server Management Studio**. In **Server Explorer**, right-click the database, and choose the **New Query**.
 2. Run the following SQL command against your Azure SQL database to create a table named `data_source_table` as data source store.  
     
     ```sql
@@ -227,7 +222,7 @@ You create linked services in a data factory to link your data stores and comput
     ```
 
 ### Create Azure SQL Database linked service.
-1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADF** folder with the following content: (Create the folder ADF if it does not already exist.). Replace **&lt;server&gt; and &lt;user id&gt;, and &lt;password&gt;** name of your Azure SQL server, user ID, and password before saving the file. 
+1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADF** folder with the following content: (Create the folder ADF if it does not already exist.). Replace **&lt;server&gt;, &lt;database&gt;, &lt;user id&gt;, and &lt;password&gt;** with the name of your Azure SQL server, database, user ID, and password before saving the file. 
 
     ```json
     {
@@ -236,15 +231,15 @@ You create linked services in a data factory to link your data stores and comput
     		"type": "AzureSqlDatabase",
     		"typeProperties": {
     			"connectionString": {
-    				"value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
+    				"value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
     				"type": "SecureString"
     			}
     		}
     	}
     }
     ```
-2. In **Azure PowerShell**, switch to the **ADF** folder.
-3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureSQLDatabaseLinkedService**. 
+1. In **Azure PowerShell**, switch to the **ADF** folder.
+2. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureSQLDatabaseLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -283,7 +278,7 @@ In this step, you create datasets to represent source and sink data.
     }
    
     ```
-    In this tutorial, we use the table name: **data_source_table**. Replace it if you are using a table with a different name. 
+    In this tutorial, you use the table name: **data_source_table**. Replace it if you are using a table with a different name. 
 2.  Run the Set-AzureRmDataFactoryV2Dataset cmdlet to create the dataset: SourceDataset
     
     ```powershell
@@ -382,7 +377,7 @@ In this step, you create a dataset for storing a high watermark value.
 In this tutorial, you create a pipeline with two lookup activities, one copy activities and one stored procedure activity chained in one pipeline. 
 
 
-1. Create a JSON file: IncrementalCopyPipeline.json in same folder with the following content. 
+1. Create a JSON file: IncrementalCopyPipeline.json in same folder with the following content: 
 
     ```json
     {
@@ -517,7 +512,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	```powershell
 	$RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
 	``` 
-2. Check the status of pipeline by running the Get-AzureRmDataFactoryV2ActivityRun cmdlet until you see all the activities running successfully. Replace place-holders with your own appropriate time for parameter RunStartedAfter and RunStartedBefore.  In this tutorial, we use -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
+2. Check the status of pipeline by running the Get-AzureRmDataFactoryV2ActivityRun cmdlet until you see all the activities running successfully. Replace place-holders with your own appropriate time for parameter RunStartedAfter and RunStartedBefore.  In this tutorial, you use -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
 	```powershell
 	Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -619,7 +614,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
 	```	
 
-	The updated data in the Azure SQL database is as following:
+	The updated data in the Azure SQL database is:
 
     ```
 	PersonID | Name | LastModifytime
@@ -637,7 +632,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	```powershell
 	$RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
 	```
-3. Check the status of pipeline by running **Get-AzureRmDataFactoryV2ActivityRun** cmdlet until you see all the activities running successfully. Replace place-holders with your own appropriate time for parameter RunStartedAfter and RunStartedBefore.  In this tutorial, we use -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
+3. Check the status of pipeline by running **Get-AzureRmDataFactoryV2ActivityRun** cmdlet until you see all the activities running successfully. Replace place-holders with your own appropriate time for parameter RunStartedAfter and RunStartedBefore.  In this tutorial, you use -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
 	```powershell
 	Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -703,7 +698,7 @@ In this tutorial, you create a pipeline with two lookup activities, one copy act
 	Error             : {errorCode, message, failureType, target}
 
 	```
-4.  In the Azure blob storage, you should see another file has been created in Azure blob storage. In this tutorial, the new file name is `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Open that file, you see 2 rows records in it:
+4.  In the Azure blob storage, you should see another file has been created in Azure blob storage. In this tutorial, the new file name is `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Open that file, you see two rows records in it:
 5.  Check the latest value from `watermarktable`, you see the watermark value has been updated again
 
 	```sql
