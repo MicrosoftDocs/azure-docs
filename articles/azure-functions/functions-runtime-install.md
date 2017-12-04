@@ -22,7 +22,7 @@ ms.author: anwestg
 If you would like to install the Azure Functions Runtime preview 2, follow these steps:
 
 1. Ensure your machine passes the minimum requirements.
-1. Download the [Azure Functions Runtime Preview Installer](https://aka.ms/azafr).
+1. Download the [Azure Functions Runtime Preview Installer](https://aka.ms/azafrv2).
 1. Uninstall the Azure Functions Runtime preview 1.
 1. Install the Azure Functions Runtime preview 2.
 1. Complete the configuration of the Azure Functions Runtime preview 2.
