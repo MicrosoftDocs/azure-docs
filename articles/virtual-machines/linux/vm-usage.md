@@ -115,19 +115,19 @@ VMs acquire costs for the VM itself, any premium software running on the VM, the
 ### How can I tell if a VM is using Azure Hybrid Benefit in the Usage CSV?
 If you deploy using the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/), you are charged the Non-Windows VM rate since you are bringing your own license to the cloud. In your bill, you can distinguish which Resource Manager VMs are running with AHUB because they have either “Windows\_Server BYOL” or “Windows\_Client BYOL” in the ImageType column.
 ### How are Basic vs. Standard VM Types differentiated in the Usage CSV?
-Both Basic and Standard A-Series VMs are offered. If you deploy a Basic VM, in the Meter Sub Category, it has the string “Basic.” If you deploy a Standard A-Series VM, then the VM size appears as “A1 VM” since Standard is the default. To learn more about the differences between Basic and Standard, please see the [Pricing Page](https://azure.microsoft.com/pricing/details/virtual-machines/).
+Both Basic and Standard A-Series VMs are offered. If you deploy a Basic VM, in the Meter Sub Category, it has the string “Basic.” If you deploy a Standard A-Series VM, then the VM size appears as “A1 VM” since Standard is the default. To learn more about the differences between Basic and Standard, see the [Pricing Page](https://azure.microsoft.com/pricing/details/virtual-machines/).
 ### What are ExtraSmall, Small, Medium, Large, and ExtraLarge sizes?
 ExtraSmall - ExtraLarge are the legacy names for Standard\_A0 – Standard\_A4. In classic VM usage records, you might see this convention used if you have deployed these sizes.
 ### What is the difference between Meter Region and Resource Location?
 The Meter Region is associated with the meter. For some Azure services who use one price for all regions, the Meter Region field could be blank. However, since VMs have dedicated prices per region for Virtual Machines, this field is populated. Similarly, the Resource Location for Virtual Machines is the location where the VM is deployed. The Azure region in both fields are the same, although they might have a different string convention for the region name.
 ### Why is the ImageType value blank in the Additional Info field?
-The ImageType field is only populated for a subset of [images](## Image Types). If you did not deploy one of the images above, the ImageType is blank.
+The ImageType field is only populated for a subset of images. If you did not deploy one of the images above, the ImageType is blank.
 ### Why is the VMName blank in the Additional Info?
 The VMName is only populated in the Additional Info field for VMs in a scale set. The InstanceID field contains the VM name for non-scale set VMs.
 ### What does ComputeHR mean in the UsageType field in the Additional Info?
 ComputeHR stands for Compute Hour which represents the usage event for the underlying infrasturcture cost. If the UsageType is ComputeHR\_SW, the usage event represents the premium software charge for the VM.
 ### How do I know if I am charged for premium software?
-When exploring which VM Image best fits your needs, be sure to check out the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). The image will have the software plan rate. If you see “Free” for the rate, there is no additional cost for the software. 
+When exploring which VM Image best fits your needs, be sure to check out the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). The image has the software plan rate. If you see “Free” for the rate, there is no additional cost for the software. 
 ### What is the difference between Microsoft.ClassicCompute and Microsoft.Compute in the Consumed service?
 Microsoft.ClassicCompute represents classic resources deployed via the Azure Service Manager. If you deploy via the Resource Manager, then Microsoft.Compute is populated in the consumed service. Learn more about the [Azure Deployment models](/azure-resource-manager/resource-manager-deployment-model.md).
 ### Why is the InstanceID field blank for my Virtual Machine usage?
