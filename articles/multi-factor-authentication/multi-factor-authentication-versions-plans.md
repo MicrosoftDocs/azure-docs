@@ -52,7 +52,7 @@ The following table provides a list of the features that are available in the va
 | SMS as a second factor |● |● |● |
 | App passwords for clients that don't support MFA |● |● |● |
 | Admin control over verification methods |● |● |● |
-| Protect non-admin accounts with MFA | | |● |
+| Protect non-admin accounts with MFA |● (Only for Office 365 applications) | |● |
 | PIN mode | | |● |
 | Fraud alert | | |● |
 | MFA Reports | | |● |
@@ -61,7 +61,7 @@ The following table provides a list of the features that are available in the va
 | Custom caller ID for phone calls | | |● |
 | Trusted IPs | | |● |
 | Remember MFA for trusted devices |● |● |● |
-| MFA SDK | | |● (Requires Multi-Factor Auth provider and full Azure subscription) |
+| MFA SDK | | |● (Deprecated) | 
 | MFA for on-premises applications | | |● |
 
 ## How to get Azure Multi-Factor Authentication

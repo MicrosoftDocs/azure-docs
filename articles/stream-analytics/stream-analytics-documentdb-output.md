@@ -4,7 +4,7 @@ description: Learn how Stream Analytics can target Azure Cosmos DB for JSON outp
 keywords: JSON output
 documentationcenter: ''
 services: stream-analytics,documentdb
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
+ms.author: jeanb
 
 ---
 # Target Azure Cosmos DB for JSON output from Stream Analytics
@@ -23,7 +23,9 @@ Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/servic
 
 For those who are unfamiliar with Cosmos DB, take a look at [Azure Cosmos DB’s learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to get started. 
 
-Note: Mongo DB API based Cosmos DB collections is currently not supported. 
+> [!Note]
+> At this time, Azure Stream Analytics only supports connection to CosmosDB using **DocumentDB (SQL) API**.
+> Other Azure Cosmos DB APIs are not yet supported. If you point Azure Stream Analytics to the Azure Cosmos DB accounts created with other APIs, the data might not be properly stored. 
 
 ## Basics of Cosmos DB as an output target
 The Azure Cosmos DB output in Stream Analytics enables writing your stream processing results as JSON output into your Cosmos DB collection(s). Stream Analytics does not create collections in your database, instead requiring you to create them upfront. This is so that the billing costs of Cosmos DB collections are transparent to you, and so that you can tune the performance, consistency and capacity of your collections directly using the [Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx). We recommend using one Cosmos DB Database per streaming job to logically separate your collections for a streaming job.
@@ -64,5 +66,5 @@ Partitioned Collection | Multiple “Single Partition” collections
 * **Collection Name Pattern** – The collection name or their pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. Following are sample valid inputs:  
   1\) MyCollection – One collection named “MyCollection” must exist.  
   2\) MyCollection{partition} – Such collections must exist– "MyCollection0”, “MyCollection1”, “MyCollection2” and so on.  
-* **Partition Key** – Optional. This is only needed if you are using a {parition} token in your collection name pattern. The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used e.g. PartitionId.  
+* **Partition Key** – Optional. This is only needed if you are using a {partition} token in your collection name pattern. The name of the field in output events used to specify the key for partitioning output across collections. For single collection output, any arbitrary output column can be used e.g. PartitionId.  
 * **Document ID** – Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  

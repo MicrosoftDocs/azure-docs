@@ -4,7 +4,7 @@ description: Use the capabilities of Cortana Intelligence to gain real-time and 
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: aaeb29a5-4a13-4eab-bbf1-885690d86c56
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 11/15/2017
 ms.author: bradsev
 
 ---

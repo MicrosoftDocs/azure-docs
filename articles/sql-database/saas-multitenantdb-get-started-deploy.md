@@ -31,7 +31,7 @@ The deployment section that follows provides the **Deploy to Azure** button. Whe
 
 The application is deployed with data for three sample tenants. The tenants are stored together in one multi-tenant database.
 
-Anyone can download the C# and PowerShell source code for Wingtip Tickets from [our Github repository][link-github-wingtip-multitenantdb-55g].
+Anyone can download the C# and PowerShell source code for Wingtip Tickets from [our GitHub repository][link-github-wingtip-multitenantdb-55g].
 
 #### Learn in this tutorial
 
@@ -89,7 +89,7 @@ While the application is deploying, download the application source code and man
 > [!IMPORTANT]
 > Executable contents (scripts, dlls) may be blocked by Windows when zip files are downloaded from an external source and extracted. When extracting the scripts from a zip file, use the following steps to unblock the .zip file before extracting. By unblocking the .zip file you ensure the scripts are allowed to run.
 
-1. Browse to [the WingtipTicketsSaaS-MultiTenantDb github repo](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
+1. Browse to [the WingtipTicketsSaaS-MultiTenantDb GitHub repo](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Click **Clone or download**.
 3. Click **Download ZIP** and save the file.
 4. Right-click the **WingtipTicketsSaaS-MultiTenantDb-master.zip** file and select **Properties**.
