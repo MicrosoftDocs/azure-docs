@@ -13,7 +13,7 @@ ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: glenga
 ms.custom: mvc
