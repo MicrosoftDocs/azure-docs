@@ -19,9 +19,9 @@ ms.author: joflore
 
 ---
 # Install a new Active Directory forest on an Azure virtual network
-This topic shows how to create a new Windows Server Active Directory environment on an Azure virtual network on a virtual machine (VM) on an [Azure virtual network](../virtual-network/virtual-networks-overview.md). In this case, the Azure virtual network is not connected to an on-premises network.
+This article shows how to create a new Windows Server Active Directory environment on a virtual machine (VM) on an [Azure virtual network](../virtual-network/virtual-networks-overview.md). In this case, the Azure virtual network is not connected to an on-premises network.
 
-You might also be interested in these related topics:
+You might also be interested in these related articles:
 
 * For a video that shows these steps, see [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * You can optionally [configure a site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) and then either install a new forest or extend an on-premises forest to an Azure virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in an Azure Virtual Network](active-directory-install-replica-active-directory-domain-controller.md).
