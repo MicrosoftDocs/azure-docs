@@ -27,7 +27,7 @@ You can use Azure Media Clipper in the portal to create clips from assets in you
 
 On the **Subclip** tab, you're able to begin composing clips. In the portal, the Clipper loads single-bitrate MP4s, multi-bitrate MP4s, and live archives that are published with a valid streaming locator. Unpublished assets are not loaded.
 
-The Clipper is currently released in public preview. To access the Clipper in the Azure portal, navigate to [this public preview link](https://portal.azure.com/?feature.subclipper=true) in Azure portal to reach the tool.
+The Clipper is currently in public preview. To access the Clipper in the Azure portal, go to this [public preview page](https://portal.azure.com/?feature.subclipper=true).
 
 The following image illustrates the Clipper landing page in your media services account:
 ![Azure Media Clipper in Azure portal](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-portal.png)
@@ -43,7 +43,10 @@ To navigate with frame-accuracy/GOP-accuracy, use the frame-forward/GOP-forward 
 To create a dynamic manifest filter, navigate to the **Assets** tab and select the desired asset. Select the **Subclip** button for the top menu. Select dynamic manifest filter as the clipping mode from the advanced settings menu. You can then follow the same process to produce a rendered clip to create the filter. Filters can only be produced from a single asset.
 
 The following image illustrates the Clipper in dynamic manifest filter mode in the Azure portal:
-![Azure Media Clipper in dynamic filter mode in Azure portal](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
+![Azure Media Clipper in dynamic manifest filter mode in Azure portal](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
 
 ## Submitting clipping jobs
 When you are finished composing the clip, select the submit job button for initiate the corresponding clipping job or dynamic manifest call.
+
+## Next steps
+To get started using Azure Media Clipper, read the [getting started](media-services-azure-media-clipper-getting-started.md) article for details on how to deploy the widget.

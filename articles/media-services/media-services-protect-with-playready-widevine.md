@@ -576,7 +576,7 @@ Make sure to update variables to point to folders where your input files are loc
 	}
 
 
-## Next step
+## Next steps
 Review Media Services learning paths.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -1,5 +1,5 @@
 ---
-title: Protect HLS content with offline Apple FairPlay | Microsoft Docs 
+title: Protect HLS content with offline Apple FairPlay - Azure | Microsoft Docs 
 description: This topic gives an overview and shows how to use Azure Media Services to dynamically encrypt your HTTP Live Streaming (HLS) content with Apple FairPlay in offline mode.
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10
@@ -18,16 +18,15 @@ ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
 
 ---
-# Introduction
-Microsoft Azure Media Services provides a set of well-designed [content protection services](https://azure.microsoft.com/en-us/services/media-services/content-protection/), covering
-1. Microsoft PlayReady
-2. Google Widevine
-3. Apple FairPlay
-4. AES-128 encryption
+# Offline FairPlay Streaming
+Microsoft Azure Media Services provides a set of well-designed [content protection services](https://azure.microsoft.com/services/media-services/content-protection/), covering:
+- Microsoft PlayReady
+- Google Widevine
+- Apple FairPlay
+- AES-128 encryption
 
 DRM/AES encryption of content is performed dynamically upon request for various streaming protocols. DRM license/AES decryption key delivery services are also provided by Azure Media Services.
 
-# Offline FairPlay Streaming
 Besides protecting content for online streaming over various streaming protocols, offline mode for protected content is also an often-requested feature. Offline mode support is needed for the following scenarios:
 1. Playback when Internet connection is not available such as during travel;
 2. Some content providers may disallow DRM license delivery beyond a country's border. If a user wants to watch content while traveling abroad, offline download is needed.
@@ -38,14 +37,14 @@ This article covers FairPlay Streaming (FPS) offline mode support targeting devi
 ## Preliminary Steps
 Before implementing offline DRM for FairPlay on an iOS 10+ device, you should first:
 1. Become familiar with online content protection for FairPlay. This is covered in detail in the following articles/samples:
-- [Apple FairPlay Streaming for Azure Media Services generally available](https://azure.microsoft.com/en-us/blog/apple-FairPlay-streaming-for-azure-media-services-generally-available/)
-- [Protect your HLS content with Apple FairPlay or Microsoft PlayReady](https://docs.microsoft.com/en-us/azure/media-services/media-services-protect-hls-with-FairPlay)
-- [A sample for online FPS streaming](https://azure.microsoft.com/en-us/resources/samples/media-services-dotnet-dynamic-encryption-with-FairPlay/)
+- [Apple FairPlay Streaming for Azure Media Services generally available](https://azure.microsoft.com/blog/apple-FairPlay-streaming-for-azure-media-services-generally-available/)
+- [Protect your HLS content with Apple FairPlay or Microsoft PlayReady](https://docs.microsoft.com/azure/media-services/media-services-protect-hls-with-FairPlay)
+- [A sample for online FPS streaming](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-FairPlay/)
 2. Obtain the FPS SDK from Apple Developer Network. FPS SDK contains two components:
 - FPS Server SDK, which contains KSM (Key Security Module), client samples, a specification, and a set of test vectors;
 - FPS Deployment Pack, which contains the D Function, specification along with instructions about how to generate the FPS Certificate, customer-specific private key, and Application Secret key (ASK). Apple issues FPS Deployment Pack only to licensed content providers.
 
-# Configuration in Azure Media Services
+## Configuration in Azure Media Services
 For FPS offline mode configuration via [Azure Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices), you need to use Azure Media Services .NET SDK v. 4.0.0.4 or later, which provided the necessary API to configure FPS offline mode.
 As indicated in the assumptions above, we assume you have the working code for configuring online mode FPS content protection. Once you have the code for configuring online mode content protection for FPS, you only need the following two changes.
 
@@ -75,7 +74,7 @@ if (objDRMSettings.EnableOfflineMode)
     }
 ```
 
-# Code Change in Asset Delivery Policy Configuration
+## Code Change in Asset Delivery Policy Configuration
 The second change is to add the third key into the dictionary Dictionary<AssetDeliveryPolicyConfigurationKey, string>.
 The third AssetDeliveryPolicyConfigurationKey needs to be added is as below: 
 ```csharp
@@ -171,7 +170,7 @@ In HLSCatalog\Shared\Resources\Streams.plist, add your test video URL and, for c
 
 For the test video URL, FairPlay license acquisition URL and application certificate URL, you can use your own, if you have them set up, or you can continue to the next section which contains test samples.
 
-# Integrated Test
+## Integrated Test
 Three test samples have been set up in Azure Media Services that cover the following three scenarios:
 1.	FPS protected, with video, audio and alternate audio track;
 2.	FPS protected, with video, audio but no alternate audio track;
@@ -179,28 +178,26 @@ Three test samples have been set up in Azure Media Services that cover the follo
 These samples can be found at this [demo site](http://aka.ms/poc#22), with the corresponding application certificate  hosted in an Azure web app.
 We have noticed that, with either v3 or v4 sample of FPS Server SDK, if a master playlist contains alternate audio, during offline mode, it plays audio only. Therefore we need to strip alternate audio. In other words, among the three sample above, (2) and (3) work in both online and offline mode. But (1) will play audio only during offline mode while online streaming works fine.
 
-# FAQ
+## FAQ
 Some frequently asked questions for troubleshooting:
-1. **Why does only audio play but no video during offline mode?** This behavior seems to be by design of the sample app. When alternate audio track is present (which is the case for HLS), during offline mode, both iOS 10 and iOS 11 will default to alternate audio track. To compensate this behavior for FPS offline mode, we need to remove alternate audio track from the stream. To do this on Azure Media Services side, we can simply add the dynamic manifest filter “audio-only=false.” In other words, an HLS URL would ends with .ism/manifest(format=m3u8-aapl,audio-only=false). 
-2. **Why does it still play audio only without video during offline mode after I added audio-only=false?** Depending on CDN cache key design, the content may be cached. You need to purge the cache.
-3. **Is FPS offline mode also supported on iOS 11 in addition to iOS 10?** Yes, FPS offline mode is supported for both iOS 10 and iOS 11.
-4. **Why can’t I find the document Offline Playback with FairPlay Streaming and HTTP Live Streaming in FPS Server SDK?** Since FPS Server SDK v 4, this document has been merged into FairPlay Streaming Programming Guide document.
-5. **What does the last parameter stand for in the following API for FPS offline mode?**
+- **Why does only audio play but no video during offline mode?** This behavior seems to be by design of the sample app. When alternate audio track is present (which is the case for HLS), during offline mode, both iOS 10 and iOS 11 will default to alternate audio track. To compensate this behavior for FPS offline mode, we need to remove alternate audio track from the stream. To do this on Azure Media Services side, we can simply add the dynamic manifest filter “audio-only=false.” In other words, an HLS URL would ends with .ism/manifest(format=m3u8-aapl,audio-only=false). 
+- **Why does it still play audio only without video during offline mode after I added audio-only=false?** Depending on CDN cache key design, the content may be cached. You need to purge the cache.
+- **Is FPS offline mode also supported on iOS 11 in addition to iOS 10?** Yes, FPS offline mode is supported for both iOS 10 and iOS 11.
+- **Why can’t I find the document Offline Playback with FairPlay Streaming and HTTP Live Streaming in FPS Server SDK?** Since FPS Server SDK v 4, this document has been merged into FairPlay Streaming Programming Guide document.
+- **What does the last parameter stand for in the following API for FPS offline mode?**
 ```csharp
 Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
-                    objX509Certificate2,
-                    pfxPassword,
-                    pfxPasswordId,
-                    askId,
-                    iv, 
-                    RentalAndLeaseKeyType.PersistentUnlimited,
-                    0x9999);
+    objX509Certificate2,
+    pfxPassword,
+    pfxPasswordId,
+    askId,
+    iv, 
+    RentalAndLeaseKeyType.PersistentUnlimited,
+    0x9999);
 ```
 
 The documentation for this API can be found [here](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). The parameter represents the duration of offline rental with hour as the unit.
-6. **What is the downloaded/offline file structure on iOS devices?** The downloaded file structure on an iOS device looks like below (screenshot). 
-- _keys folder stores downloaded FPS licenses, one store file for each license service host;
-- .movpkg folder stores audio and video content. The first folder with name ending with a dash followed by a numeric contains video content. The numeric value is the “PeakBandwidth” of the video renditions. The second folder with name ending with a dash followed by 0 contains audio content. The third folder named “Data” contains the master playlist of the FPS content. Boot.xml provides a complete description of.movpkg folder content (see below for a sample boot.xml file).
+- **What is the downloaded/offline file structure on iOS devices?** The downloaded file structure on an iOS device looks like below (screenshot). `_keys` folder stores downloaded FPS licenses, one store file for each license service host. `.movpkg` folder stores audio and video content. The first folder with name ending with a dash followed by a numeric contains video content. The numeric value is the "PeakBandwidth" of the video renditions. The second folder with name ending with a dash followed by 0 contains audio content. The third folder named "Data" contains the master playlist of the FPS content. Boot.xml provides a complete description of `.movpkg` folder content (see below for a sample boot.xml file).
 
 ![Offline FairPlay iOS Sample App File Structure](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)
 

@@ -25,6 +25,11 @@ ms.service: media-services
 # Submit clipping jobs from Azure Media Clipper
 Azure Media Clipper requires a **submitSubclipCallback** method to be implemented for handling clipping job submission. This function is for implementing an HTTP POST of the Clipper output to a web service. This web service is where you can submit the encoding job. The output of the Clipper is either a Media Encoder Standard encoding preset for rendered jobs or the REST API payload for dynamic manifest filter calls. This pass-through model is necessary because media services account credentials are not secure in the client's browser.
 
+The following sequence diagram illustrates the workflow between the browser client, your web service, and Azure Media Services:
+![Azure Media Clipper Sequence Diagram](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
+
+In the preceding diagram, the four entities are: the end user's browser, your web service, the CDN endpoint hosting the Clipper resources, and Azure Media Services. When the end user navigates to your web page, the page gets the Clipper JavaScript and CSS resources from the hosting CDN endpoint. The end user configures the clipping job or dynamic manifest filter creation call from their browser. When the end user submits the job or filter creation call, the browser puts the job payload to a web service that you must deploy. This web service ultimately submits the clipping job or filter creation call to Azure Media Services using your media services account credentials.
+
 The following code sample illustrates a sample **submitSubclipCallback** method. In this method, you implement the HTTP POST of the Media Encoder Standard encoding preset. If the POST was successful (**result**), the **Promise** is resolved, otherwise, it is rejected with error details.
 
 ```javascript

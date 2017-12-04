@@ -39,7 +39,7 @@ If you plan to have multiple content keys or want to specify a **Key/License Del
 * When your AMS account is created a **default** streaming endpoint is added  to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, your streaming endpoint has to be in the **Running** state. 
 * Your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files. For more information, see [Encode an asset](media-services-encode-asset.md).
 * The Key Delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes.  If you create a ContentKeyAuthorizationPolicy and specify to use a “Token” restriction, then test it, and then update the policy to “Open” restriction, it will take roughly 15 minutes before the policy switches to the “Open” version of the policy.
-* AMS streaming endpoint sets the value of the CORS 'Access-Control-Allow-Origin' header in preflight response as the wildcard '*'. This works well with most players including our Azure Media Player, Roku and JW, and others. However, some players that leverage dashjs do not work since, with credentials mode set to “include”, XMLHttpRequest in their dashjs does not allow wildcard “*” as the value of “'Access-Control-Allow-Origin”. As a workaround to this limitation in dashjs, if you are hosting your client from a single domain, Azure Media Services can specify that domain in the preflight response header. You can reach out by opening a support ticket through Azure portal.
+* AMS streaming endpoint sets the value of the CORS 'Access-Control-Allow-Origin' header in preflight response as the wildcard '\*'. This works well with most players including our Azure Media Player, Roku and JW, and others. However, some players that leverage dashjs do not work since, with credentials mode set to “include”, XMLHttpRequest in their dashjs does not allow wildcard “\*” as the value of “'Access-Control-Allow-Origin”. As a workaround to this limitation in dashjs, if you are hosting your client from a single domain, Azure Media Services can specify that domain in the preflight response header. You can reach out by opening a support ticket through Azure portal.
 
 ## How to: configure the key authorization policy
 To configure the key authorization policy, select the **CONTENT PROTECTION** page.
@@ -58,7 +58,7 @@ The **token** restricted policy must be accompanied by a token issued by a **Sec
 
 Media Services does not provide **Secure Token Services**. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service will return the encryption key to the client if the token is valid and the claims in the token match those configured for the content key. For more information, see [Use Azure ACS to issue tokens](http://mingfeiy.com/acs-with-key-services).
 
-When configuring the **TOKEN** restricted policy, you must set values for **verification key**, **issuer, and **audience**. The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
+When configuring the **token** restricted policy, you must specify the primary **verification key**, **issuer** and **audience** parameters. The primary **verification key** contains the key that the token was signed with, **issuer** is the secure token service that issues the token. The **audience** (sometimes called **scope**) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
 ### PlayReady
 When protecting your content with **PlayReady**, one of the things you need to specify in your authorization policy is an XML string that defines the PlayReady license template. By default, the following policy is set:
@@ -77,7 +77,7 @@ When protecting your content with **PlayReady**, one of the things you need to s
 
 You can click the **import policy xml** button and provide a different XML that conforms to the  XML Schema defined [here](media-services-playready-license-template-overview.md).
 
-## Next step
+## Next steps
 Review Media Services learning paths.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

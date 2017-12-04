@@ -337,8 +337,8 @@ Currently, you have the following two options to solve the problem.
     The following considerations apply:
   
   * You must have the ownership of the custom domain name.
-  * The ownership of the domain name must be validated by Azure Media Services. To validate the domain, create a CName that maps <MediaServicesAccountId>.<parent domain> to verify DNS.<mediaservices-dns-zone>. 
-  * You must create another CName  that maps the custom host name (for example,  sports.contoso.com) to your Media Services StreamingEndpont’s host name (for example,  amstest.streaming.mediaservices.windows.net).
+  * The ownership of the domain name must be validated by Azure Media Services. To validate the domain, create a CName that maps <MediaServicesAccountId> <parent domain> to verify DNS.<mediaservices-dns-zone>. 
+  * You must create another CName that maps the custom host name (eg: sports.contoso.com) to your Media Services StreamingEndpont’s host name (eg: amstest.streaming.mediaservices.windows.net).
 
     For more information, see the **CustomHostNames** property in the [StreamingEndpoint] article.
 
@@ -495,12 +495,12 @@ Fixes for issues found in the November 2012 SDK:
 * IAssetFile.ContentFileSize: This value is now properly set after an upload by IAssetFile.Upload( filepath).
 * IAssetFile.ContentFileSize: This property can now be set when creating an asset file. It was previously read-only.
 * IAssetFile.Upload( filepath): Fixed an issue where this synchronous upload method was throwing the following error when uploading multiple files to the asset. The error was "Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature."
-* IAssetFile.UploadAsync: Fixed an issue were no more than five files could be uploaded simultaneously.
+* IAssetFile.UploadAsync: Fixed an issue where no more than five files could be uploaded simultaneously.
 * IAssetFile.UploadProgressChanged: This event is now provided by the SDK.
 * IAssetFile.DownloadAsync( string, BlobTransferClient, ILocator, CancellationToken): This method overload is now provided.
 * IAssetFile.DownloadAsync: Fixed an issue were no more than five files could be downloaded simultaneously.
 * IAssetFile.Delete(): Fixed an issue where calling delete may throw an exception if no file was uploaded for the IAssetFile.
-* Jobs: Fixed an issue were chaining an "MP4 to Smooth Streams task" with a "PlayReady Protection Task" using a job template would not create any tasks at all.
+* Jobs: Fixed an issue where chaining an "MP4 to Smooth Streams task" with a "PlayReady Protection Task" using a job template would not create any tasks at all.
 * EncryptionUtils.GetCertificateFromStore(): This method no longer throws a null reference exception due to a failure finding the certificate based on certificate configuration issues.
 
 ## <a id="november_changes_12"></a>November 2012 Release

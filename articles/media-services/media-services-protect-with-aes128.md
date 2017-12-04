@@ -100,7 +100,7 @@ Configure the delivery policy for your asset. Some things that the asset deliver
 * The asset delivery protocol (for example, MPEG DASH, HLS, Smooth Streaming or all).
 * The type of dynamic encryption (for example, AES envelope) or no dynamic encryption. 
 
-For detailed information, see [Configure asset delivery policy.
+For detailed information, see [Configure asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
 
 ## <a id="create_locator"></a>Create an OnDemand streaming locator in order to get a streaming URL
 You need to provide your user with the streaming URL for Smooth, DASH, or HLS.

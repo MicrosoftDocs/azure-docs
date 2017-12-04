@@ -17,7 +17,7 @@ ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
 
 ---
-# Dynamic encryption: configure content key authorization policy
+# Dynamic encryption: Configure content key authorization policy
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## Overview
@@ -45,7 +45,7 @@ For more information, see the following articles:
 * The Key Delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes.  If you create a ContentKeyAuthorizationPolicy and specify to use a “Token” restriction, then test it, and then update the policy to “Open” restriction, it will take roughly 15 minutes before the policy switches to the “Open” version of the policy.
 * If you add or update your asset’s delivery policy, you must delete an existing locator (if any) and create a new locator.
 * Currently, you cannot encrypt progressive downloads.
-* AMS streaming endpoint sets the value of the CORS 'Access-Control-Allow-Origin' header in preflight response as the wildcard '*'. This works well with most players including our Azure Media Player, Roku and JW, and others. However, some players that leverage dashjs do not work since, with credentials mode set to “include”, XMLHttpRequest in their dashjs does not allow wildcard “*” as the value of “'Access-Control-Allow-Origin”. As a workaround to this limitation in dashjs, if you are hosting your client from a single domain, Azure Media Services can specify that domain in the preflight response header. You can reach out by opening a support ticket through Azure portal.
+* AMS streaming endpoint sets the value of the CORS 'Access-Control-Allow-Origin' header in preflight response as the wildcard '\*'. This works well with most players including our Azure Media Player, Roku and JW, and others. However, some players that leverage dashjs do not work since, with credentials mode set to “include”, XMLHttpRequest in their dashjs does not allow wildcard “\*” as the value of “'Access-Control-Allow-Origin”. As a workaround to this limitation in dashjs, if you are hosting your client from a single domain, Azure Media Services can specify that domain in the preflight response header. You can reach out by opening a support ticket through Azure portal.
 
 ## AES-128 Dynamic Encryption
 ### Open Restriction
@@ -95,7 +95,7 @@ This section describes how to create a content key authorization policy and asso
 
 To configure the token restriction option, you need to use an XML to describe the token’s authorization requirements. The token restriction configuration XML must conform to the following XML schema:
 
-#### <a id="schema"></a>Token restriction schema
+#### Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -143,7 +143,7 @@ To configure the token restriction option, you need to use an XML to describe th
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-When configuring the **token** restricted policy, you must specify the primary** verification key**, **issuer** and **audience** parameters. The **primary verification key **contains the key that the token was signed with, **issuer** is the secure token service that issues the token. The **audience** (sometimes called **scope**) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template. 
+When configuring the **token** restricted policy, you must specify the primary **verification key**, **issuer** and **audience** parameters. The primary **verification key** contains the key that the token was signed with, **issuer** is the secure token service that issues the token. The **audience** (sometimes called **scope**) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
 When using **Media Services SDK for .NET**, you can use the **TokenRestrictionTemplate** class to generate the restriction token.
 The following example creates an authorization policy with a token restriction. In this example, the client would have to present a token that contains: signing key (VerificationKey), a token issuer, and required claims.
@@ -202,7 +202,7 @@ The following example creates an authorization policy with a token restriction. 
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
 
-#### <a id="test"></a>Test token
+#### Test token
 To get a test token based on the token restriction that was used for the key authorization policy, do the following.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -415,6 +415,6 @@ To get a test token based on the token restriction that was used for the key aut
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Next step
-Now that you have configured content key's authorization policy, go to the [How to configure asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md) article.
+## Next steps
+Now that you have configured content key's authorization policy, go to [How to configure asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
 
