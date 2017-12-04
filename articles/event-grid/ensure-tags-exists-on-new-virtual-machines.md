@@ -69,7 +69,7 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 ## Create a webhook for the runbook
 1. Open the Watch-VMWrite runbook.
 
-2. Select **Webhooks**, and select the **Add Webhook** button
+2. Select **Webhooks**, and select the **Add Webhook** button.
 
     ![Create webhook](media/ensure-tags-exists-on-new-virtual-machines/add-webhook.png)
 
