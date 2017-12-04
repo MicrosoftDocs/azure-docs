@@ -74,11 +74,10 @@ int productId = 4321;
 // Looks up the key in the shard map and opens a connection to the shard
 try (Connection conn = shardMap.openConnectionForKey(customerId, Configuration.getCredentialsConnectionString())) {
     // Create a simple command that will insert or update the customer information
-    PreparedStatement ps = conn.prepareStatement("INSERT INTO dbo.Orders (CustomerId, OrderDate, ProductId) VALUES (?, ?, ?)");
+    PreparedStatement ps = conn.prepareStatement("UPDATE Sales.Customer SET PersonID = ? WHERE CustomerID = ?");
 
-    ps.setInt(1, customerId);
-    ps.setDate(2, Date.valueOf(LocalDate.now()));
-    ps.setInt(3, productId);
+    ps.setInt(1, productId);
+    ps.setInt(2, customerId);
     ps.executeUpdate();
 } catch (SQLException e) {
     e.printStackTrace();
