@@ -139,7 +139,7 @@ If you are interactive testing on both trained and published models together, an
  >- To review the result of a previous utterance, just click it in the test panel and its result displayed on the right. 
  >- To clear all the entered test utterances and their results from the test console, click **Start over** on the top left corner of the test panel. 
 
-<!--
+
 ## Batch Testing
 Batch testing enables you to run a comprehensive test on your current trained model to measure its performance in language understanding. In batch testing, you submit a large number of test utterances collectively in a batch file, known as a *dataset*. The dataset file should be written in JSON format and contains a maximum of 1000 utterances. All you need to do is to import this file to your app and run it to perform the test. Your LUIS app will return the result, enabling you to access detailed analysis of all utterances included in the batch.
 
@@ -149,27 +149,75 @@ The following procedures will guide you on how to import a dataset file, run a b
 
 ### Import a dataset file
 
-1. On the **Test App** page, click **Batch Testing**, and then click **Import dataset**. The **Import dataset** dialog box appears.
+1. Click **Test** in the top bar, click **Batch Testing Panel**.
 
-    ![Import Dataset File](./Images/BatchTest-importset.JPG)
+    ![Batch Testing Link](./media/luis-how-to-train-test/batch-testing-link.png)
 
-2. In **Dataset name**, type a name for your dataset file (For example "DataSet1").
+2. Click **Import dataset**. The **Import dataset** dialog box appears. Click **Choose File** and locate the JSON file containing the utterances to test.
 
-3. To learn more about the supported syntax for dataset files to be imported, click **learn about the supported dataset syntax link**. The **Import dataset** dialog box will be expanded displaying the allowed syntax. To collapse the dialog and hide syntax, just click the link again.
+    ![Import Dataset File](./media/luis-how-to-train-test/batchtest-importset.png)
 
-    ![Dataset Allowed Syntax](./Images/BatchTest-datasetSyntx.JPG)
+3. In **Dataset name**, type a name for your dataset file. An example of the JSON in the batch file follows:
 
-4. Click **Choose File** to choose the dataset file you want to import, and then click **Save**. The dataset file will be added.
+    ```JSON
+[
+    {
+        "text": "go to paris",
+        "intent": "BookFlight",
+        "entities": [
+            {
+                "entityName": "location",
+                "startPos": 6,
+                "endPos": 10
+            }
+        ]
+    },
+    {
+        "text": "drive me home",
+        "intent": "None",
+        "entities": []
+    },
+    {
+        "text": "book me a flight to paris",
+        "intent": "BookFlight",
+        "entities": [
+            {
+                "entity": "Location::ToLocation",
+                "startPos": 20,
+                "endPos": 24
+            }
+        ]
+    },
+    {
+        "text": "book a flight from seattle to hong kong",
+        "intent": "BookFlight",
+        "entities": [
+            {
+                "entity": "Location::FromLocation",
+                "startPos": 19,
+                "endPos": 25
+            },
+            {
+                "entity": "Location::ToLocation",
+                "startPos": 30,
+                "endPos": 38
+            }
+        ]
+    }
+]
+    ```
 
-    ![List of datasets](./Images/BatchTest-datasetList.JPG)
+4. Click **Done**. The dataset file will be added.
 
-5. To rename, delete or download the imported dataset, you can use these buttons respectively: **Rename Dataset** ![Rename Dataset button](./Images/Rename-Intent-btn.JPG), **Delete Dataset** ![Delete Dataset button](./Images/trashbin-button.JPG) and **Download Dataset JSON** ![Download Dataset button](./Images/BatchTest-downloadDataset.JPG).
+5. To export, rename, delete or download the imported dataset, you can use the three dots (...) at the end of the data set row. 
+
+    ![Dataset Actions](./media/luis-how-to-train-test/batch-testing-options.png)
 
 ### Run a batch test on your trained app
 
 - Click **Test** next to the dataset you've just imported. Soon, the test result of the dataset will be displayed.
 
-    ![Batch Test Result](./Images/BatchTest-result.JPG)
+    ![Batch Test Result](./media/luis-how-to-train-test/run-test.png)
 
     In the above screenshot:
  
@@ -180,16 +228,16 @@ The following procedures will guide you on how to import a dataset file, run a b
 
 ### Access test result details in a visualized view
  
-1. Click the **See results** link that appears as a result of running the test (see the above screenshot). A scatter graph (confusion matrix) is displayed, where the data points represent the utterances in the dataset. Green points indicate correct prediction and red ones indicate incorrect prediction. 
+1. Click the **See results** link that appears as a result of running the test. A scatter graph known as a error matrix is displayed. The data points represent the utterances in the dataset. Green points indicate correct prediction and red ones indicate incorrect prediction. 
 
-    ![Visualized Batch Test Result](./Images/BatchTest-resultgraph.JPG) 
+    ![Visualized Batch Test Result](./media/luis-how-to-train-test/graph1.png) 
 
     >[!NOTE]
-    >The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities which were predicted correctly in all dataset utterances, and a red one for those with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances. For example, in the above screenshot, the entity "Location (4/9)" has 4 correct predictions out of 9, so it has 5 errors.
+    >The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities which were predicted correctly in all dataset utterances, and a red one for those with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances. 
   
-2. To filter the view by a specific intent/entity, click on your target intent/entity in the filtering panel. The data points and their distribution will be updated according to your selection. For example, the following screenshot displays results for the "GetWeather" intent.
+2. To filter the view by a specific intent/entity, click on your target intent/entity in the filtering panel. The data points and their distribution will be updated according to your selection. 
  
-    ![Visualized Batch Test Result](./Images/BatchTest-resultgraph2.JPG) 
+    ![Visualized Batch Test Result](./media/luis-how-to-train-test/filter-by-entity.png) 
 
     >[!NOTE]
     >Hovering over a data point shows the certainty score of its prediction.
@@ -203,14 +251,10 @@ The following procedures will guide you on how to import a dataset file, run a b
 
     This means that data points on the **False Positive** & **False Negative** sections indicate errors, which should be investigated. On the other hand, if all data points are on the **True Positive** and **True Negative** sections, then your application's performance is perfect on this dataset.
  
-3. Click a data point to retrieve its corresponding utterance in the utterances table at the bottom of the page. To display all utterances in a section, click the section title (e.g. True Positive, False Negative, ..etc.) 
-
-    For example, the following screenshot shows the results for the "None" intent when one of its data points is clicked, so the utterance "weather forecast for tomorrow" is displayed. This utterance falls under the **True Negative** section as your app correctly predicted that the "None" intent is not present in this utterance. 
-
-    ![Visualized Batch Test Result](./Images/BatchTest-resultgraph3.JPG) 
+3. Click a data point to retrieve its corresponding utterance in the utterances table at the bottom of the page. To display all utterances in a section, click the section title.
   
-Thus, a batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. This helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
--->
+A batch test helps you view the performance of each intent and entity in your current trained model on a specific set of utterances. This helps you take appropriate actions, when required, to improve performance, such as adding more example utterances to an intent if your app frequently fails to identify it.
+
 ## Next steps
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's performance by labeling more utterances or adding features. 
