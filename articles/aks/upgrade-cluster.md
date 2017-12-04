@@ -12,7 +12,7 @@ keywords: Kubernetes, Docker, Containers, Microservices, Azure
 ms.assetid:
 ms.service: container-service
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
