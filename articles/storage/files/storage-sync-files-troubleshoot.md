@@ -132,7 +132,7 @@ If individual files fail to sync:
 ## Cloud tiering 
 There are two paths for failures in cloud tiering:
 
-- Files can fail to tier, which means that Azure File Sync unsuccessfully attempts to tier a cloud to Azure Files.
+- Files can fail to tier, which means that Azure File Sync unsuccessfully attempts to tier a file to Azure Files.
 - Files can fail to recall, which means that the Azure File Sync file system filter (StorageSync.sys) fails to download data when a user attemptes to access a file which has been tiered.
 
 There are two main classes of issues that can happen via either failure path:
