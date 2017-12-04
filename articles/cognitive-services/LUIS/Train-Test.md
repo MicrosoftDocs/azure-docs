@@ -64,7 +64,7 @@ The **Test** slide-out page displays a single test section by default. The secon
 
 * The **test panel** allows you to type the test utterance in the text box and press Enter to submit it to your LUIS app and view LUIS model results. 
 
-* The **inspection panel** allows you to inspect LUIS results, change the top scoring intent, and compare to the published model. The top identified entity are is also shown.
+* The **inspection panel** allows you to inspect LUIS results, change the top scoring intent, and compare to the published model. The top identified entity is also shown.
 
 >[!NOTE]
 >You can compare the trained but not yet published model against the published model. Be aware any testing against the published model will be deducted from your Azure subscription quota balance. 
