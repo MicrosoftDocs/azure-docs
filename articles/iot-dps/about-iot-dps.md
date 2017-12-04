@@ -1,11 +1,11 @@
 ---
-title: Overview of Azure IoT Hub Device Provisioning Service (preview) | Microsoft Docs
+title: Overview of Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: Describes device provisioning in Azure with the Device Provisioning Service and IoT Hub
 services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-dps
 
@@ -45,7 +45,7 @@ All the scenarios listed in the previous section can be done using the provision
 8. The device gets the desired state from its device twin in IoT hub.
 
 ## Provisioning process
-There are two distinct steps in the deployment process of a device in which the Device Provisioning Service takes a part which can be done independently:
+There are two distinct steps in the deployment process of a device in which the Device Provisioning Service takes a part that can be done independently:
 
 * The **manufacturing step** in which the device is created and prepared at the factory, and
 * The **cloud setup step** in which the Device Provisioning Service is configured for automated provisioning.
@@ -57,7 +57,7 @@ This step is all about what happens on the manufacturing line. The roles involve
 
 The Device Provisioning Service does not introduce a new step in the manufacturing process; rather, it ties into the existing step that installs the initial software and (ideally) the HSM on the device. Instead of creating a device ID in this step, the device is simply programmed with the provisioning service information so it calls the provisioning service to get its connection info/IoT solution assignment when it is switched on.
 
-Also in this step, the manufacturer supplies the device deployer/operator with identifying key information. This could be as simple as confirming that all devices have an X.509 certificate generated from a root CA provided by the device deployer/operator, to extracting the public portion of a TPM endorsement key from each TPM device. These services are offered by many silicon manufacturers today.
+Also in this step, the manufacturer supplies the device deployer/operator with identifying key information. This could be as simple as confirming that all devices have an X.509 certificate generated from a signing certificate provided by the device deployer/operator, to extracting the public portion of a TPM endorsement key from each TPM device. These services are offered by many silicon manufacturers today.
 
 ### Cloud setup step
 This step is about configuring the cloud for proper automatic provisioning. Generally there are two types of users involved in the cloud setup step: someone who knows how devices need to be initially set up (a device operator), and someone else who knows how devices are to be split among the IoT hubs (a solution operator).
@@ -82,19 +82,29 @@ The Device Provisioning Service has many features which make it ideal for provis
 * **Multiple allocation policies** to control how the Device Provisioning Service assigns devices to IoT hubs in support of your scenarios.
 * **Monitoring and diagnostics logs** to make sure everything is working properly.
 * **Multi-hub support** which allows the Device Provisioning Service to assign devices to more than one IoT hub. The Device Provisioning Service can talk to hubs across multiple Azure subscriptions.
+* **Cross-region support** which allows the Device Provisioning Service to assign devices to IoT hubs in other regions.
 
 You can learn more about the concepts and features involved in device provisioning in [device concepts](concepts-device.md), [service concepts](concepts-service.md), and [security concepts](concepts-security.md).
 
 ## Cross-platform support
-The Device Provisioning Service, like all Azure IoT services, works cross-platform with a variety of operating systems. The public preview supports a limited set of languages/protocols supported, though many more will be available when the Device Provisioning Service is generally available. For the public preview, the Device Provisioning Service only supports HTTPS connections for both device and service operations. The device SDK is in C, and the service SDK is in C#.
+The Device Provisioning Service, like all Azure IoT services, works cross-platform with a variety of operating systems. Azure offers open source SDKs in a variety of [languages](https://github.com/Azure/azure-iot-sdks) to facilitate connecting devices and managing the service. The Device Provisioning Service supports the following protocols for connecting devices:
+
+* HTTPS
+* AMQP
+* AMQP over websockets
+* MQTT
+* MQTT over websockets
+
+The Device Provisioning Service only supports HTTPS connections for service operations.
 
 ## Regions
-The Device Provisioning Service is available in East US, West Europe, and Southeast Asia for the public preview. We maintain an updated list of existing and newly announced regions for all services.
+The Device Provisioning Service is available in many regions. We maintain an updated list of existing and newly announced regions for all services at [Azure Regions](https://azure.microsoft.com/regions/). You can see where the Device Provisioning Service is available on the [Azure Status](https://azure.microsoft.com/status/) page.
 
-* [Azure Regions](https://azure.microsoft.com/regions/)
+> [!NOTE]
+> The Device Provisioning Service is global and not bound to a location. However, you must specify a region in which the metadata associated with your Device Provisioning Service profile will reside.
 
 ## Availability
-We maintain best-effort availability of the service during the public preview. There is no Service Level Agreement during public preview. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
+We maintain a 99.9% Service Level Agreement for the Device Provisioning Service, and you can [read the SLA](https://azure.microsoft.com/en-us/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
 ## Quotas
 Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
