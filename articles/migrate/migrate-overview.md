@@ -30,15 +30,17 @@ The Azure Migrate service assesses on-premises workloads for migration to Azure.
 Azure Migrate helps you to:
 
 - **Assess Azure readiness**: Assess whether your on-premises machines are suitable for running in Azure. 
-- **Get size recommendations**: Recommended sizing for Azure VMs after migration, based on the performance history of on-premises VMs. 
-- **Estimate monthly costs**: Estimated costs for running on-premises machines in Azure.
-- **Migrate with high confidence**: As you group on-premises machines for assessment, you can increase assessment confidence by visualizing dependencies. You can accurately view dependencies for a specific machine, or for all machines in a group.
+- **Get size recommendations**: Get size recommendations for Azure VMs based on the performance history of on-premises VMs. 
+- **Estimate monthly costs**: Get estimated costs for running on-premises machines in Azure.  
+- **Migrate with high confidence**: Visualize dependencies of on-premises machines to create groups of machines that you will assess and migrate together. You can accurately view dependencies for a specific machine, or for all machines in a group.
 
 ## Current limitations
 
 - Currently, you can assess on-premises VMware virtual machines (VMs) for migration to Azure VMs.
+
 > [!NOTE]
 > Support for Hyper-V is in the roadmap and will be enabled in few months. In the interim, we recommend you to use Azure Site Recovery Deployment Planner to plan migration of Hyper-V workloads. 
+
 - You can assess up to 1000 VMs in a single assessment, and up to 1500 machines in a single Azure Migrate project. If you need to assess more, you can increase the number of projects or assessments. [Learn more](how-to-scale-assessment.md).
 - VM you want to assess must be managed by a vCenter Server, version 5.5, 6.0, or 6.5.
 - You can only create an Azure Migrate project in the West Central US region. However, this does not impact your ability to plan your migration for a different target Azure location. The location of the migration project is used only to store the metadata discovered from the on-premises environment.
@@ -52,11 +54,11 @@ Azure Migrate is available at no additional charge. However, during public previ
 
 ## What's in an assessment?
 
-Azure Migrate assessments are based on the settings summarized in the table.
+An assessment helps you identify the Azure suitability of on-premises VMs, get right-sizing recommendations and cost estimates for running the VMs in Azure. Assessments are based on the properties summarized in the table below. You can modify these properties in the Azure Migrate portal. 
 
-**Setting** | **Details**
+**Property** | **Details**
 --- | ---
-**Target location** | The Azure location to which you want to migrate. By default, this is the location in which you create the Azure Migrate project. You can modify this setting.   
+**Target location** | The Azure location to which you want to migrate. By default, the target location is set to West US 2. 
 **Storage redundancy** | The type of storage that the Azure VMs will use after migration. LRS is the default.
 **Pricing plans** | The assessment considers whether you're enrolled in software assurance, and can use the [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). It also considers Azure offers that should be applied, and allows you to specify subscription-specific discounts (%), that you get on top of the offer. 
 **Pricing tier** | You can specify the [pricing tier (basic/standard)](../virtual-machines/windows/sizes-general.md) of Azure VMs. This helps you to migrate to a suitable Azure VM family, based on whether you're in a production environment. By default the [standard](../virtual-machines/windows/sizes-general.md) tier is used.
@@ -67,12 +69,12 @@ Azure Migrate assessments are based on the settings summarized in the table.
 ## How does Azure Migrate work?
 
 1.	You create an Azure Migrate project.
-2.	Azure Migrate uses an on-premises VM called the collector appliance, to discover information about your on-premises machines. To create the appliance, you download the setup file in Open Virtualization Appliance (.ova) format, and import it as a VM on your on-premises vCenter server.
-3.	You connect to the VM using read-only credentials for the vCenter server, and run the collector.
+2.	Azure Migrate uses an on-premises VM called the collector appliance, to discover information about your on-premises machines. To create the appliance, you download a setup file in Open Virtualization Appliance (.ova) format, and import it as a VM on your on-premises vCenter Server.
+3.	You connect to the VM using console connection in vCenter Server, specify a new password for the VM while connecting and then run the collector application in the VM to initiate discovery.
 4.	The collector collects VM metadata using VMware PowerCLI cmdlets. Discovery is agentless, and doesn't install anything on VMware hosts or VMs. The collected metadata includes VM information (cores, memory, disks, disk sizes, and network adapters). It also collects performance data for VMs, including CPU and memory usage, disk IOPS, disk throughput (MBps), and network output (MBps).
 5.	The metadata is pushed to the Azure Migrate project. You can view it in the Azure portal.
-6.	For the purposes of assessment, you gather VMs into groups. For example, you might group VMs that run the same app. You can group VMs using tagging in vCenter, or in the vCenter portal. Use visualization to verify dependencies for a specific machine, or for all machines in a group.
-7.	You create an assessment for a group.
+6.	For the purposes of assessment, you gather the discovered VMs into groups. For example, you might group VMs that run the same application. You can group VMs in the Azure Migrate portal, or use tagging in vCenter Server. Additionally, you can use dependency visualization to view dependencies of a specific machine, or for all machines in a group and refine the group.
+7.	Once your group is formed, you create an assessment for the group. 
 8.	After the assessment finishes, you can view it in the portal, or download it in Excel format.
 
 
@@ -86,8 +88,8 @@ The table summarizes the ports needed for Azure Migrate communications.
 |Component          |To communicate with     |Port required  |Reason   |
 |-------------------|------------------------|---------------|---------|
 |Collector          |Azure Migrate service   |TCP 443        |The collector connects to the service over SSL port 443|
-|Collector          |vCenter Server          |Default 9443   | By default the collector connects to the vCenter server on port 9443. If the servers listens on a different port, it should be configured as an outgoing port on the collector VM. |
-|On-premises VM     | OMS Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |The MMA agent uses TCP 443 to connect to Log Analytics. You only need this port if you're using the dependency visualization feature, and are installing the MMA agent. |
+|Collector          |vCenter Server          |Default 9443   | By default the collector connects to the vCenter server on port 9443. If the server listens on a different port, it should be configured as an outgoing port on the collector VM. |
+|On-premises VM     | Operations Management Suite (OMS) Workspace          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |The MMA agent uses TCP 443 to connect to Log Analytics. You only need this port if you're using the dependency visualization feature, and are installing the Microsoft Monitoring Agent (MMA). |
 
 
   

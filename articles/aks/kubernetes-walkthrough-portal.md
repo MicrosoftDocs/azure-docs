@@ -9,6 +9,7 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: nepeters
+ms.custom: mvc
 ---
 
 # Deploy an Azure Container Service (AKS) cluster

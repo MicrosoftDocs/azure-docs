@@ -55,9 +55,10 @@ The following instructions guide you through the process of setting up execution
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Follow the [Install and create Quickstart](quickstart-installation.md) to install the Azure Machine Learning Workbench and create Experimentation and Model Management Accounts.
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK and Azure CLI 2.0
-    - Install the Batch AI SDK and Azure CLI 2.0 by following the instructions in the [Recipes Prerequisites section](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - As of this writing, the Azure Machine Learning Workbench uses a separate fork of the Azure CLI 2.0. For clarity, we refer to the Workbench's version of the CLI as "a CLI launched from Azure Machine Learning Workbench" and the general-release version (which includes Batch AI) as "Azure CLI 2.0."
-    - Create an Azure Active Directory application and service principal by following [these instructions](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Record the client ID, secret, and tenant ID.
+    - Install and set up the Batch AI SDK and Azure CLI 2.0 by following all instructions in the [Batch AI Recipes README](https://github.com/Azure/BatchAI/tree/master/recipes).
+        - Please note that this process requires several setup steps. Ensure that you have followed all directions in the "Prerequisites", "Run Recipes Using Python Jupyter notebook", and "Run Recipes Using Azure CLI 2.0" sections. You may be asked to follow instructions on linked web pages, e.g. for [Azure CLI 2.0](https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md).
+        - Record the client ID, secret, and tenant ID of the Azure Active Directory application you are directed to create. You will use those credentials later in this tutorial.
+        - As of this writing, Azure Machine Learning Workbench and Azure Batch AI use separate forks of the Azure CLI 2.0. For clarity, we refer to the Workbench's version of the CLI as "a CLI launched from Azure Machine Learning Workbench" and the general-release version (which includes Batch AI) as "Azure CLI 2.0."
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), a free utility for coordinating file transfer between Azure storage accounts
     - Ensure that the folder containing the AzCopy executable is on your system's PATH environment variable. (Instructions on modifying environment variables are available [here](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - An SSH client; we recommend [PuTTY](http://www.putty.org/).
@@ -211,7 +212,7 @@ Your Batch AI cluster accesses your training data on a Network File Server. Data
 1. Issue the following command to create a Network File Server:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Check the provisioning status of your Network File Server using the following command:
