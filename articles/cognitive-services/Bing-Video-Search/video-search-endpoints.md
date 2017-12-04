@@ -20,13 +20,13 @@ To get video results using the Bing API, send a `GET` request to one of the foll
 Endpoint 1 `GET`:  
 https://api.cognitive.microsoft.com/bing/v7.0/videos/search
 
-Returns images that are relevant to the users search query defined by `?q=""`.
+Returns videos that are relevant to the users search query defined by `?q=""`.
 
 Endpoint 2 `GET`:
  
 https://api.cognitive.microsoft.com/bing/v7.0/videos/details
 
-Returns insights about an video, such as related videos. Include the `modules` parameter, which is a comma-delimited list of insights to request.
+Returns insights about a video, such as related videos. Include the `modules` parameter, which is a comma-delimited list of insights to request.
 
 
 Endpoint 3 `GET`:
@@ -43,4 +43,4 @@ The response to a videos search request includes results as JSON objects. For ex
 The **Bing** APIs support search actions that return results according to their type. All search endpoints return results as JSON response objects.  All endpoints support queries that return a specific language and/or location by longitude, latitude, and search radius.
 
 For complete information about the parameters supported by each endpoint, see the reference pages for each type.
-For examples of basic requests using the Web search API, see [Video Search Quick-starts](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-video-search).
+For examples of basic requests using the Video search API, see [Video Search Quick-starts](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-video-search).
