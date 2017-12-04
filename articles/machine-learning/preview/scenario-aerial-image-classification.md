@@ -55,9 +55,9 @@ The following instructions guide you through the process of setting up execution
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Follow the [Install and create Quickstart](quickstart-installation.md) to install the Azure Machine Learning Workbench and create Experimentation and Model Management Accounts.
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK and Azure CLI 2.0
-    - Install the Batch AI SDK and Azure CLI 2.0 by following the instructions in the [Recipes Prerequisites section](https://github.com/Azure/BatchAI/tree/master/recipes).
+    - Install and set up the Batch AI SDK and Azure CLI 2.0 by following all instructions in the [Batch AI Recipes README](https://github.com/Azure/BatchAI/tree/master/recipes).
+        - Please note that this process requires several setup steps. Ensure that you have followed all directions in the "Prerequisites", "Run Recipes Using Python Jupyter notebook", and "Run Recipes Using Azure CLI 2.0" sections. https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md
         - As of this writing, the Azure Machine Learning Workbench uses a separate fork of the Azure CLI 2.0. For clarity, we refer to the Workbench's version of the CLI as "a CLI launched from Azure Machine Learning Workbench" and the general-release version (which includes Batch AI) as "Azure CLI 2.0."
-    - Create an Azure Active Directory application and service principal by following [these instructions](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Record the client ID, secret, and tenant ID.
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), a free utility for coordinating file transfer between Azure storage accounts
     - Ensure that the folder containing the AzCopy executable is on your system's PATH environment variable. (Instructions on modifying environment variables are available [here](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - An SSH client; we recommend [PuTTY](http://www.putty.org/).
