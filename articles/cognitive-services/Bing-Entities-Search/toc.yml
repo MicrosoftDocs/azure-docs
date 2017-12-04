@@ -6,10 +6,19 @@
     - name: Use and display requirements
       href: use-display-requirements.md
 - name: Quickstarts
-  expanded: true
   items:
-  - name: Get started
-    href: quick-start.md
+  - name: C#
+    href: quickstarts/csharp.md
+  - name: Java
+    href: quickstarts/java.md
+  - name: Node
+    href: quickstarts/nodejs.md
+  - name: Python
+    href: quickstarts/python.md
+  - name: PHP
+    href: quickstarts/php.md
+  - name: Ruby
+    href: quickstarts/ruby.md
 - name: How to
   items:
   - name: Resize and crop thumbnails
