@@ -28,6 +28,10 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
+In addition:
+* [PHP](http://php.net/)
+* [Composer](https://getcomposer.org/download/)
+
 ## Create a database account
 
 Before you can create a graph database, you need to create a Gremlin (Graph) database account with Azure Cosmos DB.
@@ -86,7 +90,7 @@ This step is optional. If you're interested in learning how the database resourc
 
     ```php
     $db = new Connection([
-        'host' => 'your_server_address',
+        'host' => '<your_server_address>.graphs.azure.com',
         'username' => '/dbs/<db>/colls/<coll>',
         'password' => 'your_primary_key'
         ,'port' => '443'
@@ -121,7 +125,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     ```php
     $db = new Connection([
-        'host' => 'test.graphs.azure.com',
+        'host' => 'testgraphacct.graphs.azure.com',
         'username' => '/dbs/<db>/colls/<coll>',
         'password' => 'your_primary_key'
         ,'port' => '443'
@@ -139,7 +143,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     ```php
     $db = new Connection([
-        'host' => 'test.graphs.azure.com',
+        'host' => 'testgraphacct.graphs.azure.com',
         'username' => '/dbs/sample-database/colls/sample-graph',
         'password' => 'your_primary_key',
         'port' => '443'
@@ -155,7 +159,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     ```php
     $db = new Connection([
-        'host' => 'test.graphs.azure.com',
+        'host' => 'testgraphacct.graphs.azure.com',
         'username' => '/dbs/sample-database/colls/sample-graph',
         'password' => '2Ggkr662ifxz2Mg==',
         'port' => '443'
