@@ -50,7 +50,7 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
     ![Publish runbook from UI](media/ensure-tags-exists-on-new-virtual-machines/publish-runbook.png)
 
 ## Create an optional Microsoft Teams webhook
-1. In Microsoft Teams, choose **More Options** next to the channel name, and then choose **Connectors**.
+1. In Microsoft Teams, select **More Options** next to the channel name, and then select **Connectors**.
 
     ![Microsoft Teams connections](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
 
@@ -58,7 +58,7 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 
     ![Microsoft Teams webhook connection](media/ensure-tags-exists-on-new-virtual-machines/select-teams-webhook.png)
 
-3. Enter *AzureAutomationIntegration* for the name, and select **Create**.
+3. Enter **AzureAutomationIntegration** for the name, and select **Create**.
 
     ![Microsoft Teams webhook](media/ensure-tags-exists-on-new-virtual-machines/configure-teams-webhook.png)
 
@@ -73,11 +73,11 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 
     ![Create webhook](media/ensure-tags-exists-on-new-virtual-machines/add-webhook.png)
 
-3. Enter *WatchVMEventGrid* for the name. Copy the URL to the clipboard, and save it.
+3. Enter **WatchVMEventGrid** for the name. Copy the URL to the clipboard, and save it.
 
     ![Configure webhook name](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-name.png)
 
-4. Select **Parameters and run settings**, and enter the Microsoft Teams webhook URL. Leave the **WEBHOOKDATA** blank.
+4. Select **Parameters and run settings**, and enter the Microsoft Teams webhook URL. Leave **WEBHOOKDATA** blank.
 
     ![Configure webhook parameters](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
@@ -93,12 +93,12 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 
 3. Configure the subscription with the following information:
 
-    *	Enter *AzureAutomation* for the name. 
-    *	In **Topic Type**, choose **Azure Subscriptions**.
+    *	Enter **AzureAutomation** for the name. 
+    *	In **Topic Type**, select **Azure Subscriptions**.
     *	Clear the **Subscribe to all event types** check box.
-    *	In **Event Types**, choose **Resource Write Success**.
+    *	In **Event Types**, select **Resource Write Success**.
     *	In **Full Endpoint URL**, enter the webhook URL for the Watch-VMWrite runbook.
-    *   In **Prefix Filter**, enter the subscription and resource group you want to look for the new VMs created. It should look like /subscriptions/124aa551-849d-46e4-a6dc-0bc4895422aB/resourcegroups/ContosoResourceGroup/providers/Microsoft.Compute/virtualMachines
+    *   In **Prefix Filter**, enter the subscription and resource group where you want to look for the new VMs created. It should look like /subscriptions/124aa551-849d-46e4-a6dc-0bc4895422aB/resourcegroups/ContosoResourceGroup/providers/Microsoft.Compute/virtualMachines
 
     ![Event Grid list](media/ensure-tags-exists-on-new-virtual-machines/configure-event-grid-subscription.png)
 
