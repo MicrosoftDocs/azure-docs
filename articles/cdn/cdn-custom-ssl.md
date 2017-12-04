@@ -1,5 +1,5 @@
 ---
-title: "Enable or disable HTTPS on an Azure Content Delivery Network custom domain | Microsoft Docs"
+title: "Configure HTTPS on an Azure Content Delivery Network custom domain | Microsoft Docs"
 description: Learn how to enable or disable HTTPS on your Azure CDN endpoint with a custom domain.
 services: cdn
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.date: 11/07/2017
 ms.author: casoper
 
 ---
-# Enable or disable HTTPS on an Azure Content Delivery Network custom domain
+# Configure HTTPS on an Azure Content Delivery Network custom domain
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-HTTPS support for Microsoft Azure Content Delivery Network (CDN) custom domains enables you to deliver secure content via SSL by using your own domain name to improve the security of data while in transit. The end-to-end workflow to enable HTTPS for your custom domain is simplified via one-click enablement, complete certificate management, and all with no additional cost.
+Microsoft supports the HTTPS protocol for custom domains on Azure Content Delivery Network (CDN). With HTTPS custom domain support, you can deliver secure content via SSL by using your own domain name to improve the security of data while in transit. The workflow to enable HTTPS for your custom domain is simplified via one-click enablement and complete certificate management, all with no additional cost.
 
-It's critical to ensure the privacy and data integrity of all of your web applications sensitive data while in transit. Using the HTTPS protocol ensures that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication, and protects your web applications from attacks. Azure CDN supports HTTPS on a CDN endpoint by default. For example, if you create a CDN endpoint from Azure CDN (such as `https://contoso.azureedge.net`), HTTPS is automatically enabled. In addition, with custom domain HTTPS support, you can enable secure delivery for a custom domain (for example, `https://www.contoso.com`) as well. 
+It's critical to ensure the privacy and data integrity of your web application's sensitive data while it is in transit. By using the HTTPS protocol, you ensure that your sensitive data is encrypted when it is sent across the internet. It provides trust, authentication, and protects your web applications from attacks. By default, Azure CDN supports HTTPS on a CDN endpoint. For example, if you create a CDN endpoint from Azure CDN (such as `https://contoso.azureedge.net`), HTTPS is automatically enabled. In addition, with custom domain HTTPS support, you can also enable secure delivery for a custom domain (for example, `https://www.contoso.com`). 
 
 Some of the key attributes of the HTTPS feature are:
 
@@ -38,7 +38,7 @@ Some of the key attributes of the HTTPS feature are:
 
 ## Enabling HTTPS
 
-To enable HTTPS, follow these steps:
+To enable HTTPS on a custom domain, follow these steps:
 
 ### Step 1: Enable the feature 
 
@@ -63,7 +63,7 @@ To enable HTTPS, follow these steps:
 After you enable HTTPS on your custom domain, the DigiCert certificate authority (CA) validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. 
 
 >[!NOTE]
->If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. A CAA record allows domain owners to specify with their DNS providers which CAs are authorized to issue certificates for their domain. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain.
+>If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. A CAA record allows domain owners to specify with their DNS providers which CAs are authorized to issue certificates for their domain. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
 
 ![WHOIS record](./media/cdn-custom-ssl/whois-record.png)
 
@@ -79,7 +79,7 @@ You should receive an email in a few minutes, similar to the following example, 
     
 ![Domain validation email](./media/cdn-custom-ssl/domain-validation-email.png)
 
-When you click on the approval link, you will be directed to the following online approval form: 
+When you click on the approval link, you are directed to the following online approval form: 
 	
 ![Domain validation form](./media/cdn-custom-ssl/domain-validation-form.png)
 
@@ -125,7 +125,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## Disabling HTTPS
 
-After you have enabled HTTPS, you can later disable it. To disable HTTPS, follow these steps:
+After you have enabled HTTPS on a custom domain, you can later disable it. To disable HTTPS, follow these steps:
 
 ### Step 1: Disable the feature 
 

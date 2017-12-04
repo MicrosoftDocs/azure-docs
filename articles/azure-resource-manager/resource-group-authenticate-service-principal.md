@@ -53,7 +53,8 @@ To create a service principal with the Contributor role for your subscription, u
 
 ```powershell
 Login-AzureRmAccount
-$sp = New-AzureRmADServicePrincipal -DisplayName exampleapp -Password "{provide-password}"
+$password = convertto-securestring {provide-password} -asplaintext -force
+$sp = New-AzureRmADServicePrincipal -DisplayName exampleapp -Password $password
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```

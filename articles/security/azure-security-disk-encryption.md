@@ -146,6 +146,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 | Ubuntu | 14.04.5-DAILY-LTS | OS and Data disk |
 | Ubuntu | 12.10 | Data disk |
 | Ubuntu | 12.04 | Data disk |
+| RHEL | 7.4 | OS and Data disk |
 | RHEL | 7.3 | OS and Data disk |
 | RHEL | LVM 7.3 | OS and Data disk |
 | RHEL | 7.2 | OS and Data disk |

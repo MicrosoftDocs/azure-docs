@@ -1,6 +1,6 @@
 ---
-title: Try the Text API in Azure Content Moderator | Microsoft Docs
-description: Try Text API from the online console
+title: Test drive the Text API in Azure Content Moderator | Microsoft Docs
+description: Use text moderation from the online console
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,7 +12,7 @@ ms.date: 08/05/2017
 ms.author: sajagtap
 ---
 
-# Text Moderation API
+# Text moderation from the online console
 
 Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) to scan-your text content. The operation scans your content for profanity, comparing it against custom and/or shared blacklists.
 

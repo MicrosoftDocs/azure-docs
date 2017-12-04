@@ -54,7 +54,7 @@ No, you can host your application anywhere (in the cloud or on-premises). All it
 Before opening 'Azure AD B2C' in the left side menu of the Azure portal, you must switch into the directory you want to manage.  Switch directories by clicking your identity in the upper right of the Azure portal, then choose a directory in the drop down that appears.  For a step-by-step with images, see [Navigate to Azure AD B2C settings](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
-You can use the [company branding feature](../active-directory/active-directory-add-company-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
+You can use the [company branding feature](../active-directory/customize-branding.md) to customize the content of verification emails. Specifically, these two elements of the email can be customized:
 
 * **Banner Logo**: Shown at the bottom-right.
 * **Background color**: Shown at the top.
@@ -72,13 +72,13 @@ The email signature contains the B2C tenant's name that you provided when you fi
 Currently there is no way to change the "From:" field on the email. Vote on [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) you are interested in customizing the body of the verification email.
 
 ### How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
-You can use the Azure AD Graph API to write your migration tool. See the [Graph API sample](active-directory-b2c-devquickstarts-graph-dotnet.md) for details.
+You can use the Azure AD Graph API to write your migration tool. See the [User migration guide](active-directory-b2c-user-migration.md) for details.
 
 ### What password policy is used for local accounts in Azure AD B2C?
 The Azure AD B2C password policy for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset policies uses the "strong" password strength and doesn't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details.
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
-No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) for user migration.
+No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) for user migration.  See the [User migration guide](active-directory-b2c-user-migration.md) for details.
 
 ### Can my app open up Azure AD B2C pages within an iFrame?
 No, for security reasons, Azure AD B2C pages cannot be opened within an iFrame.  Our service communicates with the browser to prohibit iFrames.  The security community in general and the OAUTH2 specification, recommend against using iFrames for identity experiences due to the risk of click-jacking.
@@ -95,9 +95,9 @@ Read this article about [external identities](../active-directory/active-directo
 ### What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
 No, Azure AD B2C does not support the same set of reports as Azure AD Premium. However there are many commonalities:
 
-* The sign-in reports provide a record of each sign-in with reduced details.
-* Audit reports are available in the Azure portal, under Azure Active Directory> ACTIVITY-Audit logs>Choose B2C and apply filters as desired. Both admin activity as well as application activity are covered. 
-* A usage report, covering number of users, number of logins, and volume of MFA is available at [Usage Reporting API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
+* **Sign-in reports** are only available in the Azure portal (Azure Active Directory > Activity > Sign-ins) and are not available via the Graph API. They provide a record of each sign-in with reduced details.
+* **Audit reports** are only available in the Azure portal (Azure Active Directory > Activity > Audit logs) and are not available via the Graph API. They include both admin activity as well as application activity. 
+* **Usage reports** are only available via the [Usage Reporting API](active-directory-b2c-reference-usage-reporting-api.md) and are not available via the Azure portal. They include number of users, number of logins, and volume of MFA. 
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
 Yes!  Read about [language customization](active-directory-b2c-reference-language-customization.md), which is in public preview.  We provide translations for 36 languages, and you can override any string to suit your needs.

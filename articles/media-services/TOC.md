@@ -105,8 +105,9 @@
 #### [Static packaging and encryption](media-services-static-packaging.md)
 
 ## [Stream live](media-services-manage-channels-overview.md)
-### [on-premises encoders](media-services-live-streaming-with-onprem-encoders.md)
-#### [Portal](media-services-portal-live-passthrough-get-started.md)
+### [On-premises encoders](media-services-live-streaming-with-onprem-encoders.md)
+#### [Recommended on-premises encoders](media-services-recommended-encoders.md)
+#### [Azure portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
 #### [Azure portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -118,6 +119,13 @@
 #### [Wirecast encoder](media-services-configure-wirecast-live-encoder.md)
 ### [Handle long-running operations](media-services-dotnet-long-operations.md)
 ### [Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
+
+## [Clip content](media-services-azure-media-clipper-overview.md)
+### [Get started with Azure Media Clipper](media-services-azure-media-clipper-getting-started.md)
+### [Load assets into Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+### [Configure custom keyboard shortcuts](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Submit clipping jobs](media-services-azure-media-clipper-submit-job.md)
+### [Azure portal](media-services-azure-media-clipper-portal.md)
 
 ## [Protect](media-services-content-protection-overview.md)
 ### [Configure content protection in Azure portal](media-services-portal-protect-content.md)
@@ -219,8 +227,8 @@
 ## [REST](/rest/api/media/mediaservice)  
 
 # Resources
-## [Azure Media Services Community](media-services-community.md)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [Azure Media Services community](media-services-community.md)
+## [Azure roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [Release notes](media-services-release-notes.md)
