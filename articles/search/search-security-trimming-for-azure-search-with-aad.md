@@ -48,7 +48,7 @@ This step integrates your application with AAD for the purpose of accepting sign
    + **Group.ReadWrite.All**
    + **User.ReadWrite.All**
 
-Microsoft Graph provides an API that allows programmatic access to AAD through a REST API. The code sample for this walkthrough uses the permissions to calls the Microsoft Graph API for creating groups, users, and associations. The APIs are also used to cache group identifiers for faster filtering.
+Microsoft Graph provides an API that allows programmatic access to AAD through a REST API. The code sample for this walkthrough uses the permissions to call the Microsoft Graph API for creating groups, users, and associations. The APIs are also used to cache group identifiers for faster filtering.
 
 ## Create users and groups
 
