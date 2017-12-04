@@ -149,7 +149,7 @@ On the **Entities** list page, select the entity in the list. This action takes 
     >* Deleting a hierarchical entity deletes all its children entities.
     >* Deleting a composite entity deletes only the composite and breaks the composite relationship, but doesn't delete the entities forming it.
 
-## Search entities
+## Search utterances
 Type the search text in the search box at the top right corner of the utterances list and press Enter. The utterances list is updated to display only the utterances including your search text. For example, in the following screenshot, only the utterances that contain the search word "adult" are displayed.  
 
 ![Labeled Utterances for an entity](./media/add-entities/entity-search-utterance.png)
