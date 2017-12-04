@@ -1,6 +1,6 @@
 ---
-title: Verifying Credentials in Azure Content Moderator | Microsoft Docs
-description: Verifying Content Moderator credentials for use with APIs.
+title: Verify credentials in Azure Content Moderator | Microsoft Docs
+description: Verifyg Content Moderator credentials to use with APIs.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -12,26 +12,30 @@ ms.date: 06/25/2017
 ms.author: sajagtap
 ---
 
-# Verifying Credentials #
+# Verify API credentials
 
-## From the Azure portal ##
+You can verify credentials that you use with Azure Content Moderator APIs in two locations:
+- In the Azure portal.
+- In the Content Moderator Review tool.
 
-If you are accessing the API from the Microsoft Azure portal, click on the desired account in the Dashboard. Click Keys under Resource Management. Click the icon to the right of the key to copy it to the clipboard.
+## In the Azure portal
 
-![Content Moderation Credentials in Azure](images/credentials-1-azure.png)
+If you are accessing the APIs from the Azure portal, on the Dashboard, select the account. Under **Resource Management**, select **Keys**. To copy the key, select the icon to the right of the key.
 
-## From the Review Tool ##
+![Content Moderator credentials in Azure](images/credentials-1-azure.png)
 
-From the Review Tool Dashboard, click on Credentials from the Settings tab.
+## In the Review tool
 
-![Content Moderator credentials in the review tool](images/credentials3.PNG)
+On the Review tool Dashboard, on the **Settings** tab, select **Credentials**.
 
-## Connector Keys ##
+![Content Moderator credentials in the Review tool - Select Credentials](images/credentials3.PNG)
 
-While building workflows in the Review Tool, you will likely need a key for a connector. From the Dashboard, click Connectors from the Settings tab, then click the Edit symbol next to the connector for which you want credentials.
+## Connector keys
 
-![Content Moderation Credentials in the review tool](images/credentials-3-connectors.png)
+When you build workflows in the Review tool, you likely will need a key for a connector. On the Dashboard, on the **Settings** tab, select **Connectors**. Select the **Edit** symbol next to the connector for which you want credentials.
 
-## Next steps ##
+![Content Moderator credentials in the Review tool - Select the Edit icon](images/credentials-3-connectors.png)
+
+## Next steps
 
 To learn how to use API credentials to define custom workflows, see the [workflows](workflows.md) article.
