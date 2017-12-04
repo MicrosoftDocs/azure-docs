@@ -92,7 +92,7 @@ To add additional CSP accounts to an entity, select **MSP Access** instead of **
 
 You might have multiple Azure accounts using different currencies. However, cost reports in Cloudyn do not show more than one currency type per report.
 
-If you have multiple subscriptions using different currencies, a parent entity and its child entity currencies are displayed with the **$** symbol. Our suggested best practice is avoid using different currencies in the same entity hierarchy. In other words, all your subscriptions organized in an entity structure should use the same currency.
+If you have multiple subscriptions using different currencies, a parent entity and its child entity currencies are displayed with the **$** symbol. Our suggested best practice is to avoid using different currencies in the same entity hierarchy. In other words, all your subscriptions organized in an entity structure should use the same currency.
 
 Cloudyn automatically detects your Enterprise Agreement subscription currency and presents it properly in reports.  However, Cloudyn only displays the **$** symbol for CSP and web-direct Azure accounts.
 
