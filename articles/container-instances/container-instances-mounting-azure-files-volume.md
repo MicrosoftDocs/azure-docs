@@ -2,20 +2,12 @@
 title: Mount an Azure Files volume in Azure Container Instances
 description: Learn how to mount an Azure Files volume to persist state with Azure Container Instances
 services: container-instances
-documentationcenter: ''
 author: seanmck
 manager: timlt
-editor: ''
-tags:
-keywords:
 
-ms.assetid:
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/17/2017
+ms.date: 12/05/2017
 ms.author: seanmck
 ms.custom: mvc
 ---
@@ -57,7 +49,7 @@ STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GR
 echo $STORAGE_ACCOUNT
 ```
 
-The share name is already known (it is *acishare* in the script above), so all that remains is the storage account key, which can be found using the following command:
+The share name is already known (defined as *acishare* in the script above), so all that remains is the storage account key, which can be found using the following command:
 
 ```azurecli-interactive
 STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
@@ -93,4 +85,4 @@ You can use the [Azure portal](https://portal.azure.com) or a tool like the [Mic
 
 ## Next steps
 
-Learn about the [relationship between Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md)
+Learn about the relationship between [Azure Container Instances and container orchestrators](container-instances-orchestrator-relationship.md).
