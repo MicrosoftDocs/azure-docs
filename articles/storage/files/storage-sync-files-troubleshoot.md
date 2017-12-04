@@ -135,13 +135,13 @@ There are two paths for failures in cloud tiering:
 - Files can fail to tier, which means that Azure File Sync unsuccessfully attempts to tier a file to Azure Files.
 - Files can fail to recall, which means that the Azure File Sync file system filter (StorageSync.sys) fails to download data when a user attemptes to access a file which has been tiered.
 
-There are two main classes of issues that can happen via either failure path:
+There are two main classes of failures that can happen via either failure path:
 
-- Cloud storage issues
+- Cloud storage failures
     - *Transient storage service availability issues*. See [Service Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/) for more information.
     - *Inaccessible Azure file share*. The main way this is issue is caused is by deleting the Azure file share when it is is still a cloud endpoint in a sync group.
     - *Inaccessible storage account*. The main way this issue is caused is by deleting the storage account while it still has an Azure file share that are still a cloud endpoint in a sync group. 
-- Server issues 
+- Server failures 
     - *Azure File Sync file system filter (StorageSync.sys) is not loaded*. In order to respond to tiering/recall requests, the Azure File Sync file system filter must be loaded. The filter not being loaded can happen for several reasons, but the most common is that an administrator unloaded it manually. The Azure File Sync file system filter must be loaded at all times for Azure File Sync to properly function.
     - *Missing, corrupt, or otherwise broken reparse point*. A reparse point is a special data structure on a file that consists of a reparse tag, which identifies to the operating system that Azure File Sync owns the file and that the associated Azure File Sync file system filter (StorageSync.sys) may need to do some action on IO to the file, and reparse data, which indicates to the file system filter the URI of the file on the associated cloud endpoint (the Azure file share). The most common way a reparse point could become corrupted is if an administrator attempts to modify either the tag or its data. 
     - *Network connectivity issues*. In order to tier or recall a file, the server must have internet connectivity.
