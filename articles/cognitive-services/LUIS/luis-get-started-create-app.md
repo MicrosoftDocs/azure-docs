@@ -14,7 +14,7 @@ ms.author: v-demak
 
 # Create your first LUIS app
 
-This article shows you how to create a LUIS app that uses the `Home.Automation` prebuilt domain. The prebuilt domain provides intents and entities for a home automation system for turning lights and appliances on and off. When you're finished, you'll have a LUIS endpoint running in the cloud.
+This article shows you how to create a LUIS app that uses the `HomeAutomation` prebuilt domain. The prebuilt domain provides intents and entities for a home automation system for turning lights and appliances on and off. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
 ## Prerequisites
 > [!div class="checklist"]
