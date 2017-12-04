@@ -33,7 +33,7 @@ You perform the following steps in this tutorial:
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Overview
-In a data integration solution, incrementally loading data after initial data loads is a widely used scenario. In some cases, the changed data within a period in your source data store can be easily to sliced up (for example, LastModifyTime, CreationTime). In some cases, there is no explicit way to identify the delta data from last time you processed the data. The Change Tracking technology supported by data stores such as Azure SQL Database and SQL Server can be used to identify the delta data.  This tutorial describes how to use Azure Data Factory version 2 to work with SQL Change Tracking technology to incrementally load delta data from Azure SQL Database into Azure Blob Storage.  For more concrete information about SQL Change Tracking technology, please refer to [Change tracking in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
+In a data integration solution, incrementally loading data after initial data loads is a widely used scenario. In some cases, the changed data within a period in your source data store can be easily to sliced up (for example, LastModifyTime, CreationTime). In some cases, there is no explicit way to identify the delta data from last time you processed the data. The Change Tracking technology supported by data stores such as Azure SQL Database and SQL Server can be used to identify the delta data.  This tutorial describes how to use Azure Data Factory version 2 to work with SQL Change Tracking technology to incrementally load delta data from Azure SQL Database into Azure Blob Storage.  For more concrete information about SQL Change Tracking technology, see [Change tracking in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
 
 ## End-to-end workflow
 Here are the typical end-to-end workflow steps to incrementally load data using the SQL Change Tracking technology.
@@ -56,7 +56,7 @@ In this tutorial, you use Data Factory version 2 to implement the solution.
 1. **Initial load:** you create a pipeline with a copy activity that copies the entire data from the source data store (Azure SQL Database) to the destination data store (Azure Blob Storage.
 
     ![Full loading of data](media/tutorial-incremental-copy-using-change-tracking-feature-powershell/full-load-flow-diagram.png)
-1.  **Incremental load:**: you create a pipeline with the following activities, and run it periodically. 
+1.  **Incremental load:** you create a pipeline with the following activities, and run it periodically. 
     a. Create **two lookup activities** to get the old and new SYS_CHANGE_VERSION from Azure SQL Database and pass it to copy activity.
     b. Create **one copy activity** to copy the inserted/updated/deleted data between the two SYS_CHANGE_VERSION values from Azure SQL Database to Azure Blob Storage.
     c. Create **one stored procedure activity** to update the value of SYS_CHANGE_VERSION for the next pipeline run.
@@ -99,7 +99,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
     > [!NOTE]
     > - Replace &lt;your database name&gt; with the name of your Azure SQL database that has the data_source_table. 
-    > - The changed data is kept for two days in the current example. If you load the changed data every three days or more, some changed data gets lost.  You need to either change the value of CHANGE_RETENTION to a bigger number. Alternatively, ensure that your period to load the changed data is within two days. For more information, see [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
+    > - The changed data is kept for two days in the current example. If you load the changed data for every three days or more, some changed data is not included.  You need to either change the value of CHANGE_RETENTION to a bigger number. Alternatively, ensure that your period to load the changed data is within two days. For more information, see [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
  
     ```sql
     ALTER DATABASE <your database name>
