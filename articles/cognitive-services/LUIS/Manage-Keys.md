@@ -17,7 +17,7 @@ A key is your passport to the server that allows you to create and publish your 
 
 ## Programmatic key
 
-A starter key, also known as a programmatic key, is created automatically for a LUIS account and it is free. This key gives you 1000 endpoint hits per month so you can start using your LUIS app now. This programmatic key also gives you free, unlimited access for authoring and editing your application using the [LUIS Authoring APIs](https://aka.ms/luis-authoring-api) or the [LUIS authoring website](https://www.luis.ai/). 
+A starter key, also known as a programmatic key, is created automatically for a LUIS account and it is free. This key gives you 10,000 endpoint hits per month so you can start using your LUIS app now. This programmatic key also gives you free, unlimited access for authoring and editing your application using the [LUIS Authoring APIs](https://aka.ms/luis-authoring-api) or the [LUIS authoring website](https://www.luis.ai/). 
 
 A starter or programmatic key is created for each user account. You have one programmatic key across all your LUIS apps.
 
@@ -25,12 +25,12 @@ To find the Programmatic Key, log in to [https://www.luis.ai](https://www.luis.a
 
 ## Endpoint Key
 
- When you need more than 1000 hits per month, create an Azure LUIS key from the [Microsoft Azure portal](https://portal.azure.com). It is essential for publishing your app and accessing your HTTP endpoint. This key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
+ When you need more than 10,000 endpoint hits per month, create an Azure LUIS key from the [Microsoft Azure portal](https://portal.azure.com). It is essential for publishing your app and accessing your HTTP endpoint. This key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
 An endpoint key is directly tied to an Azure LUIS subscription key. The endpoint key can be used for all your LUIS apps or for specific LUIS apps. When you publish each LUIS app, you set the endpoint key. Part of this process is choosing the Azure LUIS subscription.  
  
 ### To create and use an endpoint key:
-On the **Publish app** page, there is already a key in the **Resources and Keys** table. This is the programmatic key. 
+On the **Publish app** page, there is already a key in the **Resources and Keys** table. This is the programmatic (starter) key. 
 
 1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating a subscription key using Azure](AzureIbizaSubscription.md).
  
