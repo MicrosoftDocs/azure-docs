@@ -166,7 +166,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ```
 
 ### Use Windows Server storage QoS 
-When Azure File Sync is hosted in a virtual machine running on a Windows Server virtualization host, you can use Storage Qos (storage quality of service) to regulate storage IO consumption. The Storage QoS policy can be set either as a maximum (or limit, like how StorageSyncNetwork limit is enforced above) or as a minimum (or reservation). Setting a minimum instead of a maximum allows Azure File Sync to burst to use available storage bandwidth if other workloads are not using it. For more information, see [Storage Quality of Service](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
+When Azure File Sync is hosted in a virtual machine running on a Windows Server virtualization host, you can use Storage QoS (storage quality of service) to regulate storage IO consumption. The Storage QoS policy can be set either as a maximum (or limit, like how StorageSyncNetwork limit is enforced above) or as a minimum (or reservation). Setting a minimum instead of a maximum allows Azure File Sync to burst to use available storage bandwidth if other workloads are not using it. For more information, see [Storage Quality of Service](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
 ## See also
 - [Planning for an Azure File Sync (preview) deployment](storage-sync-files-planning.md)
