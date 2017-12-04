@@ -60,8 +60,8 @@ Visual Studio Code provides a local development experience covering all major pl
 
 * Follow the instructions under "Install the Azure Functions Core Tools" at [Code and test Azure Functions locally](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
 
->[!IMPORTANT]
-> If you already have the Azure Functions Cross Platform Tools, update them to the latest available version.
+    >[!IMPORTANT]
+    > If you already have the Azure Functions Cross Platform Tools, update them to the latest available version.
 
 *  Install and run [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/storage-use-emulator) version 5.2 or later. Alternatively, you can update the *local.appsettings.json* file with real Azure Storage connection. 
 
@@ -91,12 +91,12 @@ Visual Studio Code provides a local development experience covering all major pl
     ```bash
     func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
     ```
-3. Run Azure Storage Emulator on Windows and on macOS update the *local.appsettings.json* file with real Azure Storage connection string.
-4. Create a Function App project by running the following command:
+3. Create a Function App project by running the following command:
 
     ```bash
     func init
-    ```
+    ``` 
+4. Run Azure Storage Emulator or update the *local.appsettings.json* file with real Azure Storage connection string.
 5. Next, create a new function by running the following command and follow the wizard steps:
 
     ```bash
@@ -141,7 +141,7 @@ If you prefer, you can use the Azure portal for Durable Functions development.
    curl -X POST https://{your function app name}.azurewebsites.net/api/orchestrators/HelloSequence
 ```
 
-11. Then, call the **“statusQueryGetUri”** endpoint and we will see the current status of the Durable Function
+11. Then, call the **“statusQueryGetUri”** endpoint and you see the current status of the Durable Function
 
 ```json
     {
@@ -169,7 +169,7 @@ If you prefer, you can use the Azure portal for Durable Functions development.
     }
 ```
 
-Congratulations! Your first Azure Durable Functions is up and running in Azure Portal!
+Congratulations! Your first durable function is up and running in Azure Portal!
 
 ## Next steps
 
