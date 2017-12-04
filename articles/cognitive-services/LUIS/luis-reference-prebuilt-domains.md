@@ -230,7 +230,7 @@ The HomeAutomation domain provides intents and entities related to controlling s
 | Room | The location or room the device is in.|living room<br/>bedroom<br/>kitchen|
 
 ## MovieTickets 
-The Movie Tickets domain provides intents and entities related to booking tickets to movies at a movie theater.
+The MovieTickets domain provides intents and entities related to booking tickets to movies at a movie theater.
 
 ### Examples
 ```
@@ -263,8 +263,27 @@ play Beethoven
 Increase track volume
 Skip to the next song
 ```
-<!--11Intents
-2Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| DecreaseVolume | Decrease the device volume.|decrease track volume<br/>volume down|
+| IncreaseVolume | Increase the device volume.|increase track volume<br/>volume up|
+| Mute |Mute the playing music.|Mute song<br/>Put the track on mute<br/>Mute music |
+| Pause | Pause the playing music.|Pause<br/>Pause music<br/>Pause track|
+| PlayMusic | Play music on a device.|play Kevin Durant<br/>play Paradise by Coldplay<br/>play Hello by Adele|
+| Repeat |Repeat the playing music.|Repeat song<br/>Play the track gain<br/>Repeat music|
+| Resume | Resume the playing music.|Resume song<br/>Start music again<br/>Unpause|
+| SkipBack | Skip backwards a track.|Skip to the next song<br/>Play the next song|
+| SkipForward |Skip forward a track.|Play the previous song<br/>Go back to the previous track |
+| Stop | Stop an action relating to music playback. |Stop playing this album.|
+| Unmute | Unmute a music playback device.| Unmute.|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| ArtistName | The actor, director, producer, writer, musician or artist associated with media to play on a device.|Elvis Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
+| Genre | The genre of the music being requested.|Country music<br/>Broadway classics<br/>Play my classical music from the Baroque period|
 
 ## Note 
 The Note domain provides intents and entities related to creating, editing, and finding notes.
@@ -310,6 +329,27 @@ Can you make the screen brighter?
 ```
 <!--27Intents
 6Entities -->
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| AreYouListening | Ask if the device is listening.|is this on?<br/>are you listening?|
+|CloseApplication|Close the device application.|close video player|
+|FileBug|File a bug on the device.|file a bug please<br/>Can you file a bug for me ?<br/>Let me report this bug|
+|GoBack|Ask to go back one step or return to the previous step.|Go back please<br/>Go to previous screen<br/>Go back stop listening|
+|Help| Request help.|Help please<br/>Hello<br/>What can you do?<br/>I need help| 
+|LocateDevice|Locate the device.|Can you locate my phone<br/>Find tom's iphone<br/>Find my phone|
+|LogIn|Log in to a service using the device.|Login please<br/>Facebook log in<br/>Log into LinkedIn|
+|LogOut|Log out of a service using the device.|Log off my phone<br/>Log on to twitter<br/>Log out|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| AppName | Name of an application on the device.|SoundCloud<br/>YouTube|
+| BrightnessLevel | Set the brightness level on the device.|One hundred percent<br/>Fifty<br/>40%|
+| ContactName | The name of a contact on the device.|Paul<br/>Marlen Max|
+| DeviceType | The type of device. |Phone<br/>Kindle<br/>Laptop|
+| MediaType | The media type handled by the device.|Music<br/>Movie<br/>TV shows|
+| SettingType | A type of setting or settings panel that the user wants to edit.|WiFi<br/>Wireless Network<br/>Color Scheme<br/>Notification [Center]|
 
 ## Places  
 The Places domain provides intents for handling queries related to places like businesses, institution, restaurants, public spaces and addresses.
@@ -322,6 +362,27 @@ At what time does Safeway close?
 ```
 <!--30Intents
 20Entities -->
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| AddFavoritePlace | Add a location to the the user's favorites list.|Save this location to my favorites<br/>Add this address to my favorites|
+|CheckAccident|Ask whether there is an accident on a specified road.|Is there an accident on 880?<br/>Show me accident information|
+|CheckAreaTraffic|Check the traffic for a general area or highway, not on a specified route.|Traffic in Seattle<br/>What's the traffic like in Seattle?|
+|CheckIntoPlace|Check in to a place using social media.|Check me in on Foursquare<br/>Check in here|
+|CheckRouteTraffic| Check the traffic of a specific route specified by the user.|How is the traffic to Mashiko?<br/>Show me the traffice to Kirkland<br/>How is the traffic to Seattle?| 
+|Confirm|Confirm an action relating to a place.|Confirm my restaurant reservation.|
+|Exit|Action to exit a task relating to a place.|Quit please<br/>Quit giving me directions|
+|FindPlace|Search for a place (business, institution, restaurant, public space, address).|Where's the nearest library?<br/>Find me a good Italian restaurant in Mountain View|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| AbsoluteLocation | The location or address of a place.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| Amenities | The objective characteristics/benefits of a place.|kids eat free<br/>waterfront<br/>free parking|
+| Atmosphere | The atmosphere of a place.|kid-friendly<br/>casual restaurant<br/>sporty|
+| Cuisine | The cuisine of a place. |Mediterranean<br/>Italian<br/>Indian|
+| DestinationAddress| A destination location or address.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| DestinationPlaceName| The name of a destination that is a business, restaurant, public attraction, or institution.|central park<br/>safeway<br/>walmart|
 
 ## Reminder 
 The reminder domain provides intents and entities for creating, editing, and finding reminders.
@@ -347,7 +408,7 @@ Can you check if I have a reminder about Christine's birthday?
 | Text | The text description of a reminder.|pick up dry cleaning<br/>dropping my car off at the service center|
 
 ## RestaurantReservation 
-The Reservation domain provides intents and entities related to managing restaurant reservations.
+The RestaurantReservation domain provides intents and entities related to managing restaurant reservations.
 
 ### Examples
 ```
@@ -355,8 +416,24 @@ Reserve at Zucca for two for tonight
 Book a table at BJ's for tomorrow
 Table for 3 in Palo Alto at 7
 ```
-<!--1Intents
-9Entities -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Reserve | Request a reservation for a restaurant. |Reserve at Zucca for two for tonight<br/>Book a table for tomorrow<br/>Table for 3 in Palo Alto at 7|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Address| An event location or address for a reservation.|Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| Amenities | An attribute describing the amenities of a place.|ocean view<br/>non smoking|
+| AppName | The name of an application for making reservations.|OpenTable<br/>Yelp<br/>TripAdvisor|
+| Atmosphere | A description of the atmosphere of a restaurant or other place.|romantic<br/>casual<br/>good for groups|
+| Cuisine | A type of food, cuisine or cuisine nationality. |Chinese<br/>Italian<br/>Mexican|
+| MealType | A meal type associated with a reservation.|breakfast<br/>dinner<br/>lunch<br/>supper|
+| PlaceName | The name of a local business, restaurant, public attraction, or institution.|IHOP<br/>Cheesecake Factory<br/>Louvre|
+| PlaceType | The type of a local business, restaurant, public attraction, or institution.|restaurant<br/>opera<br/>cinema|
+| Rating | The rating of a place or restaurant.|5 stars<br/>3 stars<br/>4 stars|
 
 ## Taxi 
  
@@ -368,8 +445,25 @@ Get me a cab at 3 pm
 How much longer do I have to wait for my taxi?
 Cancel my Uber
 ```
-<!--3Intents
-8Entitiess -->
+
+### Intents
+| Intent name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Book | Call a taxi. |Get me a cab<br/>Find a taxi<br/>Book me an uber x|
+| Cancel | Cancel an action relating to booking a taxi.|Cancel my taxi<br/>Cancel my Uber|
+| Track | Track a taxi route.|How much longer do I have to wait for my taxi?<br/>Where is my Uber?|
+
+### Entities
+| Entity name | Description | Examples |
+| ---------------- |-----------------------|----|
+| Address| The address associated with booking a taxi. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| DestinationAddress| A destination location or address. |Palo Alto<br/>300 112th Ave SE<br/>Seattle|
+| DestinationPlaceName | The name of a destination that is a local business, restaurant, public attraction, or institution. |Central Park<br/>Safeway<br/>Walmart|
+| DestinationPlaceType | The type of a destination that is a local business, restaurant, public attraction, or institution. |Restaurant<br/>Opera<br/>Cinema|
+| PlaceName | Name of local business, restaurant, public attraction, or institution. |Central Park<br/>Safeway<br/>Walmart|
+| PlaceType| The type of place in a request to book a taxi.|Restaurant<br/>Opera<br/>Cinema|
+| TransportationCompany | The name of a transport provider.|Amtrak<br/>Acela<br/>Greyhound|
+| TransportationType | The transportation type.|Bus<br/>Train<br/>Driving|
 
 ## Translate 
 The Translate domain provides intents and entities related to translating text to a target language.
