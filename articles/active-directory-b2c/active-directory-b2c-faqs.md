@@ -72,13 +72,13 @@ The email signature contains the B2C tenant's name that you provided when you fi
 Currently there is no way to change the "From:" field on the email. Vote on [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) you are interested in customizing the body of the verification email.
 
 ### How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
-You can use the Azure AD Graph API to write your migration tool. See the [Graph API sample](active-directory-b2c-devquickstarts-graph-dotnet.md) for details.
+You can use the Azure AD Graph API to write your migration tool. See the [User migration guide](active-directory-b2c-user-migration.md) for details.
 
 ### What password policy is used for local accounts in Azure AD B2C?
 The Azure AD B2C password policy for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset policies uses the "strong" password strength and doesn't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details.
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
-No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) for user migration.
+No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) for user migration.  See the [User migration guide](active-directory-b2c-user-migration.md) for details.
 
 ### Can my app open up Azure AD B2C pages within an iFrame?
 No, for security reasons, Azure AD B2C pages cannot be opened within an iFrame.  Our service communicates with the browser to prohibit iFrames.  The security community in general and the OAUTH2 specification, recommend against using iFrames for identity experiences due to the risk of click-jacking.

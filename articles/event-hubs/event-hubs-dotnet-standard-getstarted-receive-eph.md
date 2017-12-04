@@ -1,5 +1,5 @@
 ---
-title: Receive events from Azure Event Hubs using .NET Standard | Microsoft Docs
+title: Receive events from Azure Event Hubs using .NET Standard library | Microsoft Docs
 description: Get started receiving messages with the EventProcessorHost in .NET Standard
 services: event-hubs
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/27/2017
+ms.date: 11/28/2017
 ms.author: sethm
 
 ---
@@ -23,7 +23,7 @@ ms.author: sethm
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-This tutorial shows how to write a .NET Core console application that receives messages from an event hub by using **EventProcessorHost**. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) solution as-is, replacing the strings with your event hub and storage account values. Or you can follow the steps in this tutorial to create your own.
+This tutorial shows how to write a .NET Core console application that receives messages from an event hub by using the **Event Processor Host** library. You can run the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) solution as-is, replacing the strings with your event hub and storage account values. Or you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
@@ -45,10 +45,10 @@ Start Visual Studio. From the **File** menu, click **New**, and then click **Pro
 
 ## Add the Event Hubs NuGet package
 
-Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) and [`Microsoft.Azure.EventHubs.Processor`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET Standard library NuGet packages to your project by following these steps: 
+Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) and [**Microsoft.Azure.EventHubs.Processor**](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET Standard library NuGet packages to your project by following these steps: 
 
 1. Right-click the newly created project and select **Manage NuGet Packages**.
-2. Click the **Browse** tab, then search for "Microsoft.Azure.EventHubs" and select the **Microsoft.Azure.EventHubs** package. Click **Install** to complete the installation, then close this dialog box.
+2. Click the **Browse** tab, search for **Microsoft.Azure.EventHubs**, and then select the **Microsoft.Azure.EventHubs** package. Click **Install** to complete the installation, then close this dialog box.
 3. Repeat steps 1 and 2, and install the **Microsoft.Azure.EventHubs.Processor** package.
 
 ## Implement the IEventProcessor interface
