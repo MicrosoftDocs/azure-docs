@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/01/2017
+ms.date: 12/04/2017
 ms.author: tarcher
 ms.custom: jenkins
 ---
@@ -55,6 +55,8 @@ If you don't currently have a Jenkins Master, start with the [solution template]
     ![Manage Jenkins plugins option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
 
 1. Under **Jenkins Location**, enter the URL of your Jenkins Master.
+
+1. Select **Save**.
 
 ## 3. Update Jenkins to allow Java Network Launch Protocol (JNLP)
 
