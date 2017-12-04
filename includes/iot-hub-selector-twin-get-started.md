@@ -3,6 +3,7 @@
 > * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
 Device twins are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that connects to it.
 
