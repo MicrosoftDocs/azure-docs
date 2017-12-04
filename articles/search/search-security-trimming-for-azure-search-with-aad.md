@@ -27,7 +27,7 @@ This article covers the following tasks:
 
 ## Prerequisites
 
-Your index in Azure Search must have a [security field](search-security-trimming-with-azure-search.md) to store the list of group identities having read access to the document. This use case assumes a one-to-one correspondence between a securable item (such as an individual's college application) and a security field specifying who has access to that item (admissions personnel).
+Your index in Azure Search must have a [security field](search-security-trimming-for-azure-search.md) to store the list of group identities having read access to the document. This use case assumes a one-to-one correspondence between a securable item (such as an individual's college application) and a security field specifying who has access to that item (admissions personnel).
 
 You must have AAD administrator permissions, required in this walkthrough for creating users, groups, and associations in AAD.
 
