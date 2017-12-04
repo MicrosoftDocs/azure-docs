@@ -96,13 +96,13 @@ Windows Server Failover Clustering is supported by Azure File Sync for the "File
 For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume. Currently, we do not support interoperability between Azure File Sync with cloud tiering enabled and Data Deduplication.
 
 ### Distributed File System (DFS)
-Azure File Sync supports DFS technologies with the [Azure File Sync agent 1.2 October or a later Update)](https://support.microsoft.com/uz-latn-uz/help/4042192/update-rollup-for-azure-file-sync-agent-preview-october-2017).
+Azure File Sync supports DFS technologies starting with the [Azure File Sync agent 1.2)](https://go.microsoft.com/fwlink/?linkid=864522).
 
 **DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the Server Endpoints and the Cloud Endpoint. For more information, see [DFS Namespaces overview](https://docs.microsoft.com/en-us/windows-server/storage/dfs-namespaces/dfs-overview).
  
 **DFS Replication (DFS-R)**: Since DFS-R and Azure File Sync are both replication solutions, in most cases, we recommend replacing DFS-R with Azure File Sync. There are however several scenarios where you would want to use DFS-R and Azure File Sync together:
 
-- You are migrating from a DFS-R deployment to an Azure File Sync deployment. Formore information, see DFS-R Migration Guidance.
+- You are migrating from a DFS-R deployment to an Azure File Sync deployment. Formore information, see [DFS-R migration guidance](storage-sync-files-deployment-guide.md).
 - Not every on-premises server which needs a copy of your file data can be connected directly to the internet.
 - Branch servers consolidate data into a single hub server, for which you would like to use Azure File Sync for cloud backups.
 
