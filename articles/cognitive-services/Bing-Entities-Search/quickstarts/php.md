@@ -204,7 +204,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search tutorial](../tutorial-bing-entities-search-csharp.md)
+> [Bing Entity Search tutorial](../tutorial-bing-entities-search-single-page-app.md)
 
 ## See also 
 
