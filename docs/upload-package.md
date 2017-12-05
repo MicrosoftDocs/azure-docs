@@ -15,7 +15,7 @@ Select the tile under **App package**, and upload the manifest file for your add
 When you upload your manifest file, you might get one of the following messages:
 
 - **Manifest errors**. If your manifest contains errors, the Seller Dashboard reports those errors and you have to resolve them before you can submit your add-in.
-- **Applications and platforms supported**. Office add-ins, platforms, and operating systems are specified in the **Requirements** element in your manifest. For more information, see [Office Add-in host and platform availability](https://dev.office.com/add-in-availability).
+- **Applications and platforms supported**. Office add-ins, platforms, and operating systems are specified in the **Requirements** element in your manifest. For more information, see [Office Add-in host and platform availability](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-in-availability).
 
 ## Upload your SharePoint Add-in manifest
 

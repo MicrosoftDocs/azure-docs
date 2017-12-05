@@ -39,7 +39,7 @@ After you submit your app or add-in:
 2. The Validation team reviews your submission. This can take 3-5 working days, depending on the volume of submissions in the queue.
 
    > [!NOTE]
-   > The Validation team tests Office Add-ins on all the platforms that the add-in is required to support. For details about supported platforms, see the [Office Add-ins host and platform availability page](https://dev.office.com/add-in-availability).
+   > The Validation team tests Office Add-ins on all the platforms that the add-in is required to support. For details about supported platforms, see the [Office Add-ins host and platform availability page](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-in-availability).
 
    For a seamless validation experience, provide detailed test notes with your submission, including:
 
