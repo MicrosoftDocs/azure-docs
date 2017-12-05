@@ -27,10 +27,10 @@ Client libraries are necessary for client applications and tools to connect to A
 
 |Download  |Version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    14.0.801.241     |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    14.0.801.241     |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.117      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.801.241     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    14.0.1000.397      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    14.0.1000.397      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.218      |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.1000.397      |
 
 ## Understanding client libraries
 
@@ -77,7 +77,7 @@ Client libraries for client connections are different from data providers requir
 ### AMO
 
 1. Go to `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\v4.0_14.0.0.0__89845dcd8080cc91`.
-2. Right-click **Microsoft.AnalysisServices.AdomdClient** > **Properties** > **Details**.  
+2. Right-click **Microsoft.AnalysisServices** > **Properties** > **Details**.  
 
 ### ADOMD
 
