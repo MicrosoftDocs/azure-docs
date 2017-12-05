@@ -30,7 +30,7 @@ You can build Azure Service Fabric applications to run on Linux clusters by usin
 ## Prerequisites
 Azure Service Fabric doesn't run natively on Mac OS X. To run a local Service Fabric cluster, a pre-configured Docker container image is provided. Before you get started, you need:
 
-* At least 4-GB RAM.
+* At least 4 GB of RAM.
 * The latest version of [Docker](https://www.docker.com/).
 * Access to the Service Fabric [onebox Docker container image](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/).
 
@@ -62,7 +62,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >
     >The location of the daemon.json file can vary from machine to machine. For example, ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
-    >The recommended approach is to directly modify the daemon configuration settings in Docker. Select the **Docker icon**, then select **Preferences** > **Daemon** > **Advanced**.
+    >The recommended approach is to directly modify the daemon configuration settings in Docker. Select the **Docker icon**, and then select **Preferences** > **Daemon** > **Advanced**.
     >
 
 3. Start a Service Fabric onebox container instance and use the image that you pulled down in the first step:
@@ -133,7 +133,7 @@ Service Fabric provides scaffolding tools that help you to create a Service Fabr
 
 After you create and build your Service Fabric application, you can deploy your application by using the [Service Fabric CLI](service-fabric-cli.md#cli-mac):
 
-1. Connect to the Service Fabric cluster that is running inside of the container instance on your Mac:
+1. Connect to the Service Fabric cluster that is running inside the container instance on your Mac:
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
@@ -173,13 +173,13 @@ The attributes are defined as follows:
 
 ## Next steps
 <!-- Links -->
-* [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md).
-* [Create and deploy your first Service Fabric Java application on Linux using Service Fabric plug-in for Eclipse](service-fabric-get-started-eclipse.md).
-* [Create a Service Fabric cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md).
-* [Create a Service Fabric cluster by using the Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
-* [Understand the Service Fabric application model](service-fabric-application-model.md).
-* [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md).
-* [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md).
+* [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
+* [Create and deploy your first Service Fabric Java application on Linux using Service Fabric plug-in for Eclipse](service-fabric-get-started-eclipse.md)
+* [Create a Service Fabric cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md)
+* [Create a Service Fabric cluster by using the Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+* [Understand the Service Fabric application model](service-fabric-application-model.md)
+* [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md)
+* [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
