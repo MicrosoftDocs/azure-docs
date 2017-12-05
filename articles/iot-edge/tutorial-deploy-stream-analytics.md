@@ -54,7 +54,7 @@ An Azure Storage account is required to provide an endpoint to be used as an out
 
 1. In the Azure portal, go to **Create a resource**, enter **Storage account** in the search box, and then select **Storage account - blob, file, table, queue**.
 
-2. In the **Create storage account** pane, enter a name for your storage account, select the same location where your IoT Hub is stored, and then select **Create**. Note the name for later use.
+2. In the **Create storage account** pane, enter a name for your storage account, select the same location where your IoT hub is stored, and then select **Create**. Note the name for later use.
 
     ![Create a storage account][1]
 
