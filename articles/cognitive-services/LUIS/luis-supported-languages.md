@@ -40,11 +40,11 @@ LUIS understands utterances in the following languages:
 
 Support for prebuilt entities varies. See [Prebuilt entities in LUIS](Pre-builtEntities.md) for details. 
 
-## *Prebuilt entity datetimeV2
+### *Prebuilt entity datetimeV2
 *German, `de-DE`, support is expected in late December 2017.
 *Portuguese, `pt-BR`, support is expected in late December 2017.
 
-## **Chinese support notes
+### **Chinese support notes
 
  - In the `zh-cn` culture, LUIS expects the simplified Chinese character set instead of the traditional character set.
  - The names of intents, entities, features, and regular expressions may be in Chinese or Roman characters.
