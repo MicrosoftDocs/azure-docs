@@ -16,7 +16,7 @@ ms.service: iot-edge
 
 IoT devices can produce large quantities of data. To reduce the amount of uploaded data or to eliminate the round-trip latency of an actionable insight, the data must sometimes be analyzed or processed before it reaches the cloud.
 
-IoT Edge takes advantage of pre-built Azure service IoT Edge modules for quick deployment. [Azure Stream Analytics][azure-stream] is one such module. You can create an Azure Stream Analytics job from its portal and then go to the IoT Hub portal to deploy it as an IoT Edge module. 
+Azure IoT Edge takes advantage of pre-built Azure service IoT Edge modules for quick deployment. [Azure Stream Analytics][azure-stream] is one such module. You can create an Azure Stream Analytics job from its portal and then go to the Azure IoT Hub portal to deploy it as an IoT Edge module. 
 
 Azure Stream Analytics provides a richly structured query syntax for data analysis both in the cloud and on IoT Edge devices. For more information about Azure Stream Analytics on IoT Edge, see [Azure Stream Analytics documentation](../stream-analytics/stream-analytics-edge.md).
 
@@ -29,7 +29,7 @@ The tutorial presents two modules:
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure Stream Analytics job to process data on the Edge.
+> * Create an Azure Stream Analytics job to process data on the edge.
 > * Connect the new Azure Stream Analytics job with other IoT Edge modules.
 > * Deploy the Azure Stream Analytics job to an IoT Edge device.
 
