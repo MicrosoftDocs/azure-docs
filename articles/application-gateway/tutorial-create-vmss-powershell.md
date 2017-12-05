@@ -20,9 +20,9 @@ You can use Azure PowerShell to create an [application gateway](application-gate
 In this article, you learn how to
 
 > [!div class="checklist"]
-> * Create a virtual machine scale set
+> * Set up the network
 > * Create an application gateway
-> * Add servers to the default backend pool
+> * Create a virtual machine scale set with the default backend pool
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -62,6 +62,91 @@ $pip = New-AzureRmPublicIpAddress `
   -AllocationMethod Dynamic
 ```
 
+## Create an application gateway
+
+### Create the IP configurations
+
+Use [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) to create the configuration that associates the subnet that you previously created with the application gateway. Use [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) to create the configuration that assigns the public IP address that you also previously created to the application gateway.
+
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$subnet=$vnet.Subnets[0]
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+```
+
+### Create the frontend port
+
+Use [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) to assign port 80 to be used to access the application gateway.
+
+```azurepowershell-interactive
+$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 80
+```
+
+### Create the default backend pool
+
+Use [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) to create the backend address pool for the application gateway. Configure the settings for the backend address pools using [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+
+```azurepowershell-interactive
+$defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool 
+$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+  -Name myPoolSettings `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Enabled `
+  -RequestTimeout 120
+```
+
+### Create the default listener and rule
+
+Listeners are required to enable the application gateway to route traffic appropriately to the backend address pools. In this example, you create a basic listener that listens for traffic at the root URL. Create a listener using [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Use [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) to create a basic rule named *rule1*.
+
+```azurepowershell-interactive
+$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name mydefaultListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport
+$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name rule1 `
+  -RuleType Basic `
+  -HttpListener $defaultlistener `
+  -BackendAddressPool $defaultPool `
+  -BackendHttpSettings $poolSettings
+```
+
+### Create the application gateway
+
+You can use [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) to specify parameters for the application gateway, and then use [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) to create it.
+
+```azurepowershell-interactive
+$sku = New-AzureRmApplicationGatewaySku `
+  -Name Standard_Medium `
+  -Tier Standard `
+  -Capacity 2
+$appgw = New-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -BackendAddressPools $defaultPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $defaultlistener `
+  -RequestRoutingRules $frontendRule `
+  -Sku $sku
+```
+
 ## Create a virtual machine scale set
 
 In this example, you create a virtual machine scale set to provide servers for the backend pool in the application gateway. You can use [New-AzureRmVmssIpConfig](/powershell/module/azurerm.compute/new-azurermvmssipconfig) and [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) to configure the scale set to use the *myBackendSubnet* subnet and to specify that the scale set should contain two virtual machine instances. 
@@ -69,9 +154,19 @@ In this example, you create a virtual machine scale set to provide servers for t
 You use [Set-AzureRmVmssStorageProfile](/powershell/module/azurerm.compute/set-azurermvmssstorageprofile) and [Set-AzureRmVmssOsProfile](/powershell/module/azurerm.compute/set-azurermvmssosprofile) to specify and configure the operating system on the virtual machines. To configure the network interface for the virtual machines, you can use [Add-AzureRmVmssNetworkInterfaceConfiguration](/powershell/module/azurerm.compute/add-azurermvmssnetworkinterfaceconfiguration). And finally, you can use [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss) to create the scale set.
 
 ```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myVNet
+$appgw = Get-AzureRmApplicationGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Name myAppGateway
+$backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+  -Name appGatewayBackendPool `
+  -ApplicationGateway $appgw
 $ipConfig = New-AzureRmVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[0].Id
+  -SubnetId $vnet.Subnets[1].Id `
+  -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 $vmssConfig = New-AzureRmVmssConfig `
   -Location eastus `
   -SkuCapacity 2 `
@@ -102,7 +197,6 @@ New-AzureRmVmss `
 ```azurepowershell-interactive
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
 Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
@@ -110,123 +204,29 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
   -Type "CustomScriptExtension" `
   -TypeHandlerVersion 1.8 `
   -Setting $publicSettings
-
 Update-AzureRmVmss `
   -ResourceGroupName myResourceGroupAG `
   -Name myvmss `
   -VirtualMachineScaleSet $vmss
 ```
 
-## Create an application gateway
-
-### Create the IP configurations
-
-Use [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) to create the configuration that associates the subnet that you previously created with the application gateway. Use [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) to create the configuration that assigns the public IP address that you also previously created to the application gateway.
-
-```azurepowershell-interactive
-$subnet=$vnet.Subnets[1]
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
-  -Name myAGIPConfig `
-  -Subnet $subnet
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
-  -Name myAGFrontendIPConfig `
-  -PublicIPAddress $pip
-```
-
-### Create the frontend port
-
-Use [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) to assign port 80 to be used to access the application gateway.
-
-```azurepowershell-interactive
-$frontendport = New-AzureRmApplicationGatewayFrontendPort `
-  -Name myFrontendPort `
-  -Port 80
-```
-
-### Create the default backend pool
-
-1. Use [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) to get the private IP address of each virtual machine in the scale set. After running the command, record the private IP addresses for each virtual machine.
-
-    ```azurepowershell-interactive
-    Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroupAG -VirtualMachineScaleSetName myvmss | ForEach-Object {$_.ipConfigurations[0].PrivateIPAddress}
-    ```
-
-2. Use [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) to create the backend address pool for the application gateway. Configure the settings for the backend address pools using [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings). Change the server IP addresses to the two that you previously recorded.
-
-    ```azurepowershell-interactive
-    $defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
-      -Name appGatewayBackendPool `
-      -BackendIPAddresses 10.0.0.4, 10.0.0.5
-    $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
-      -Name myPoolSettings `
-      -Port 80 `
-      -Protocol Http `
-      -CookieBasedAffinity Enabled `
-      -RequestTimeout 120
-    ```
-
-### Create the default listener and rule
-
-Listeners are required to enable the application gateway to route traffic appropriately to the backend address pools. In this example, you create a basic listener that listens for traffic at the root URL.
-
-Create a listener using [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Use [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) to create a basic rule named *rule1*.
-
-```azurepowershell-interactive
-$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
-  -Name mydefaultListener `
-  -Protocol Http `
-  -FrontendIPConfiguration $fipconfig `
-  -FrontendPort $frontendport
-$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
-  -Name rule1 `
-  -RuleType Basic `
-  -HttpListener $defaultlistener `
-  -BackendAddressPool $defaultPool `
-  -BackendHttpSettings $poolSettings
-```
-
-### Create the application gateway
-
-Now that you created the necessary supporting resources, use [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) to specify parameters for the application gateway, and then use [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) to create it.
-
-```azurepowershell-interactive
-$sku = New-AzureRmApplicationGatewaySku `
-  -Name Standard_Medium `
-  -Tier Standard `
-  -Capacity 2
-$appgw = New-AzureRmApplicationGateway `
-  -Name myAppGateway `
-  -ResourceGroupName myResourceGroupAG `
-  -Location eastus `
-  -BackendAddressPools $defaultPool `
-  -BackendHttpSettingsCollection $poolSettings `
-  -FrontendIpConfigurations $fipconfig `
-  -GatewayIpConfigurations $gipconfig `
-  -FrontendPorts $frontendport `
-  -HttpListeners $defaultlistener `
-  -RequestRoutingRules $frontendRule `
-  -Sku $sku
-```
-
 ## Test the application gateway
 
-1. Use [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) to get the public IP address of the application gateway.
+You can use [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) to get the public IP address of the application gateway. Copy the public IP address, and then paste it into the address bar of your browser.
 
-    ```azurepowershell-interactive
-    Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
-    ```
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
+```
 
-2. Copy the public IP address, and then paste it into the address bar of your browser.
-
-    ![Test base URL in application gateway](./media/tutorial-create-vmss-powershell/tutorial-iistest.png)
+![Test base URL in application gateway](./media/tutorial-create-vmss-powershell/tutorial-iistest.png)
 
 ## Next steps
 
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a virtual machine scale set
+> * Set up the network
 > * Create an application gateway
-> * Add servers to the default backend pool
+> * Create a virtual machine scale set with the default backend pool
 
 
