@@ -88,33 +88,49 @@ After you sign in, you are prompted for the following information:
 
 After you have selected the appropriate information, select **Register** to complete the server registration. As part of the registration process, you are prompted for an additional sign-in.
 
-## Create a Sync Group
-A Sync Group defines the sync topology for a set of files. Endpoints within a Sync Group are kept in sync with each other. A Sync Group must contain at least one Cloud Endpoint, which represents an Azure file share, and one Server Endpoint, which represents a path on Windows Server. To create a Sync Group, in the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, and then select **+ Sync group**:
+## Create a sync group
+A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share, and one server endpoint, which represents a path on Windows Server. To create a sync group, in the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, and then select **+ Sync group**:
 
-![Create a new Sync Group in the Azure portal](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
+![Create a new sync group in the Azure portal](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
-In the pane that opens, enter the following information to create a Sync Group with a Cloud Endpoint:
+In the pane that opens, enter the following information to create a sync group with a cloud endpoint:
 
-- **Sync Group Name**: The name of the Sync Group to be created. This name must be unique within the Storage Sync Service, but can be any name that is logical for you.
+- **Sync group name**: The name of the sync group to be created. This name must be unique within the Storage Sync Service, but can be any name that is logical for you.
 - **Subscription**: The subscription where you deployed the Storage Sync Service in [Deploy the Storage Sync Service](#deploy-the-storage-sync-service).
 - **Storage account**: If you select **Select storage account**, another pane appears in which you can select the storage account that has the Azure file share that you want to sync with.
-- **Azure File share**: The name of the Azure file share with which you want to sync.
+- **Azure File Share**: The name of the Azure file share with which you want to sync.
 
-To add a Server Endpoint, go to the newly created Sync Group and then select **Add server endpoint**.
+To add a server endpoint, go to the newly created sync group and then select **Add server endpoint**.
 
-![Add a new Server Endpoint in the Sync Group pane](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
+![Add a new server endpoint in the sync group pane](media/storage-sync-files-deployment-guide/create-sync-group-2.png)
 
-In the **Add server endpoint** pane, enter the following information to create a Server Endpoint:
+In the **Add server endpoint** pane, enter the following information to create a server endpoint:
 
-- **Registered Server**: The name of the server or cluster where you want to create the Server Endpoint.
-- **Path**: The Windows Server path to be synced as part of the Sync Group.
+- **Registered server**: The name of the server or cluster where you want to create the server endpoint.
+- **Path**: The Windows Server path to be synced as part of the sync group.
 - **Cloud Tiering**: A switch to enable or disable cloud tiering. With cloud tiering, infrequently used or accessed files can be tiered to Azure Files.
-- **Volume Free Space**: The amount of free space to reserve on the volume on which the Server Endpoint is located. For example, if volume free space is set to 50% on a volume that has a single Server Endpoint, roughly half the amount of data is tiered to Azure Files. Regardless of whether cloud tiering is enabled, your Azure file share always has a complete copy of the data in the Sync Group.
+- **Volume Free Space**: The amount of free space to reserve on the volume on which the server endpoint is located. For example, if volume free space is set to 50% on a volume that has a single server endpoint, roughly half the amount of data is tiered to Azure Files. Regardless of whether cloud tiering is enabled, your Azure file share always has a complete copy of the data in the sync group.
 
-To add the Server Endpoint, select **Create**. Your files are now kept in sync across your Azure file share and Windows Server. 
+To add the server endpoint, select **Create**. Your files are now kept in sync across your Azure file share and Windows Server. 
 
 > [!Important]  
-> You can make changes to any Cloud Endpoint or Server Endpoint in the Sync Group and have your files synced to the other endpoints in the Sync Group. If you make a change to the Cloud Endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a Cloud Endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](storage-files-faq.md#afs-change-detection).
+> You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](storage-files-faq.md#afs-change-detection).
+
+## Migrate a DFS Replication (DFS-R) deployment to Azure File Sync
+To migrate a DFS-R deployment to Azure File Sync:
+
+1. Create a sync group to represent the DFS-R topology you are replacing.
+2. Start on the server that has the full set of data in your DFS-R topology to migrate. Install Azure File Sync on that server.
+3. Register that server and create a server endpoint for the first server to be migrated. Do not enable cloud tiering.
+4. Let all of the data sync to your Azure file share (cloud endpoint).
+5. Install and register the Azure File Sync agent on each of the remaining DFS-R servers.
+6. Disable DFS-R. 
+7. Create a server endpoint on each of the DFS-R servers. Do not enable cloud tiering.
+8. Ensure sync completes and test your topology as desired.
+9. Retire DFS-R.
+10. Cloud tiering may now be enabled on any server endpoint as desired.
+
+For more information, see [Azure File Sync interop with Distributed File System (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
 ## Next steps
 - [Add or remove an Azure File Sync Server Endpoint](storage-sync-files-server-endpoint.md)
