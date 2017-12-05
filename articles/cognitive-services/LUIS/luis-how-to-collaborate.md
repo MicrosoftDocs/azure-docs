@@ -24,3 +24,6 @@ To allow collaborators to edit your LUIS app, on the **Settings** page of your L
 
 > [!NOTE]
 > Collaborators cannot add other collaborators.
+
+### Transfer of ownership
+While LUIS doesn't currently support transfer of ownership, you can export your app, and another LUIS user can import the app. There may be minor differences in LUIS scores between the two applications. 
