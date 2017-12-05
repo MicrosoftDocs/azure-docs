@@ -74,7 +74,7 @@ All parent runbooks include the *WhatIf* parameter. When set to **True**, *WhatI
 |Bootstrap_Main | none | Used one time to set up bootstrap configurations such as webhookURI, which are typically not accessible from Azure Resource Manager. This runbook is removed automatically upon successful deployment.|  
 |ScheduledStartStop_Child | VMName <br> Action: Stop or Start <br> ResourceGroupName | Called from parent runbook only. Executes stop or start for the scheduled stop.|  
 |ScheduledStartStop_Parent | Action: Stop or Start <br> WhatIf: True or False | This affects all VMs in the subscription. Edit the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** to only execute on these target resource groups. You can also exclude specific VMs by updating the **External_ExcludeVMNames** variable. *WhatIf* behaves the same as in other runbooks.|  
-|SequencedStartStop_Parent | Action: Stop or Start <br> WhatIf: True or False | Create tags named **SequenceStart** and **SequenceStop** on each VM for which you want to sequence start\stop activity. The value of the tag should be a positive integer (1, 2, 3) that corresponds to the order in which you want to start or stop. *WhatIf* behaves the same as in other runbooks. <br> **Note**: VMs must be within resource groups defined as External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables. They must have the appropriate tags for actions to take effect.|
+|SequencedStartStop_Parent | Action: Stop or Start <br> WhatIf: True or False | Create tags named **SequenceStart** and **SequenceStop** on each VM for which you want to sequence start\stop activity. The value of the tag should be a positive integer (1,2,3) that corresponds to the order in which you want to start or stop. *WhatIf* behaves the same as in other runbooks. <br> **Note**: VMs must be within resource groups defined as External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables. They must have the appropriate tags for actions to take effect.|
 
 ### Variables
 
@@ -185,56 +185,56 @@ You control which VMs are in scope by configuring the following variables: **Ext
 >[!NOTE]
 > The value for **Target ResourceGroup Names** is stored as the value for both **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames**. For further granularity, you can modify each of these variables to target different resource groups.  For start action, use **External_Start_ResourceGroupNames**, and for stop action, use **External_Stop_ResourceGroupNames**. VMs are automatically added to the start and stop schedules.
 
-To test and validate your configuration, manually start the **ScheduledStartStop_Parent** runbook and set the ACTION parameter to **start** or **stop** and the WHATIF parameter to **true**.<br><br> ![Configure parameters for runbook](media/automation-solution-vm-management/solution-startrunbook-parameters-01.png)
+To test and validate your configuration, manually start the **ScheduledStartStop_Parent** runbook and set the ACTION parameter to **start** or **stop** and the WHATIF parameter to **True**.<br><br> ![Configure parameters for runbook](media/automation-solution-vm-management/solution-startrunbook-parameters-01.png)
 
 
- This allows you to preview the scheduled action and make any necessary changes before implementing against production VMs.  You can manually execute the runbook with the parameter set to **false**, or you can let the Automation schedule **Schedule-StartVM** and **Schedule-StopVM** run automatically following your prescribed schedule.
+ This allows you to preview the scheduled action and make any necessary changes before implementing against production VMs.  You can manually execute the runbook with the parameter set to **False**, or you can let the Automation schedule **Schedule-StartVM** and **Schedule-StopVM** run automatically following your prescribed schedule.
 
 ### Scenario 2: Sequence the stop/start VMs across a subscription using tags
-In an environment that includes two or more components on multiple VMs supporting a distributed workload, supporting the sequence of which components are started/stopped in order is important.  You can accomplish this by performing the following steps.
+In an environment that includes two or more components on multiple VMs supporting a distributed workload, supporting the sequence in which components are started and stopped in order is important.  You can accomplish this by performing the following steps:
 
-1. Adding a **SequenceStart** and **SequenceStop** tag with a positive integer value to VMs across your subscription that are targeted in **External_Start_ResourceGroupNames** and **External_Stop*ResourceGroupNames** variables.  The start and stop actions will be performed in ascending order.  To learn how to tag a VM, see [Tag a Windows Virtual Machine in Azure](../virtual-machines/windows/tag.md) and [Tag a Linux Virtual Machine in Azure](../virtual-machines/linux/tag.md)
-2. Modify the schedules **Sequenced-StartVM** and **Sequenced-StopVM** to the date and time to meet your requirements and enable the schedule.  
+1. Add a **SequenceStart** and a **SequenceStop** tag with a positive integer value to VMs that are targeted in **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** variables.  The start and stop actions are performed in ascending order.  To learn how to tag a VM, see [Tag a Windows Virtual Machine in Azure](../virtual-machines/windows/tag.md) and [Tag a Linux Virtual Machine in Azure](../virtual-machines/linux/tag.md).
+2. Modify the schedules **Sequenced-StartVM** and **Sequenced-StopVM** to the date and time that meets your requirements and enable the schedule.  
 
-To test and validate your configuration, manually start the **SequencedStartStop_Parent** runbook and set the *ACTION* parameter to **start** or **stop** and the *WhatIf* parameter to **True**.<br><br> ![Configure parameters for runbook](media/automation-solution-vm-management/solution-startrunbook-parameters-01.png)<br> This allows you to preview the action that would take place and make any changes as necessary before implementing against production VMs.  Once you are comfortable, you can manually execute the runbook with the parameter set to **false** or let the Automation schedule **Sequenced-StartVM** and **Sequenced-StopVM** run automatically following your prescribed schedule.  
+To test and validate your configuration, manually start the **SequencedStartStop_Parent** runbook. Set the ACTION parameter to **start** or **stop** and the WHATIF parameter to **True**.<br><br> ![Configure parameters for runbook](media/automation-solution-vm-management/solution-startrunbook-parameters-01.png)<br> This allows you to preview the action and make any necessary changes before implementing against production VMs.  When ready, manually execute the runbook with the parameter set to **False**, or let the Automation schedule **Sequenced-StartVM** and **Sequenced-StopVM** run automatically following your prescribed schedule.  
 
-### Scenario 3: Auto stop/start VMs across a subscription based on CPU utilization
-To help manage cost of running VMs in your subscription, this solution can help by evaluating Azure VMs that aren't used during non-peak periods, such as after hours, and automatically shut them down if processor utilization is less than x%.  
+### Scenario 3: Automate stop/start VMs across a subscription based on CPU utilization
+This solution can help manage the cost of running virtual machines in your subscription by evaluating Azure VMs that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than x%.  
 
-By default, the solution is pre-configured to evaluate the Percentage CPU metric and if average utilization is 5% or less.  This is controlled by the following variables and can be modified if their default values do not meet your requirements:
+By default, the solution is pre-configured to evaluate the percentage CPU metric to see if average utilization is 5 percent or less.  This is controlled by the following variables and can be modified if the default values do not meet your requirements:
 
 * External_AutoStop_MetricName
 * External_AutoStop_Threshold
 * External_AutoStop_TimeAggregationOperator
 * External_AutoStop_TimeWindow
 
-You can only enable either targeting the action against a subscription and resource group, or specific list of VMs, but not both.  
+You can enable either targeting the action against a subscription and resource group, or targeting a specific list of VMs, but not both.  
 
 #### Target the stop action against a subscription and resource group
 
 1. Configure the **External_Stop_ResourceGroupNames** and **External_ExcludeVMNames** variables to specify the target VMs.  
 2. Enable and update the **Schedule_AutoStop_CreateAlert_Parent** schedule.
-3. Run the **AutoStop_CreateAlert_Parent** runbook with the *ACTION* parameter set to **start** and the *WhatIf* parameter set to **True** to preview your changes.
+3. Run the **AutoStop_CreateAlert_Parent** runbook with the ACTION parameter set to **start** and the WHATIF parameter set to **True** to preview your changes.
 
 #### Target stop action by VM list
 
-1. Run the **AutoStop_CreateAlert_Parent** runbook with the *ACTION* parameter set to **start**, add a comma separated list of VMs in the *VMList* parameter, and the *WhatIf* parameter set to **True** to preview your changes.  
-2. Configure the **External_ExcludeVMNames** parameter with a comma separated list of VMs (VM1,VM2,VM3).
-3. This scenario does not honor the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupnames** varabies.  For this scenario, you will need to create you own Automation schedule. For details, see [scheduling a runbook in Azure Automation](../automation/automation-schedules.md).
+1. Run the **AutoStop_CreateAlert_Parent** runbook with the ACTION parameter set to **start**, add a comma-separated list of VMs in the *VMList* parameter, and then set the WHATIF parameter to **True**. Preview your changes.  
+2. Configure the **External_ExcludeVMNames** parameter with a comma-separated list of VMs (VM1,VM2,VM3).
+3. This scenario does not honor the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupnames** variables.  For this scenario, you need to create your own Automation schedule. For details, see [Scheduling a runbook in Azure Automation](../automation/automation-schedules.md).
 
-Now that you have a schedule for stopping VMs based on CPU utilization, you need to enable one of the below schedules to start them.
+Now that you have a schedule for stopping VMs based on CPU utilization, you need to enable one of the following schedules to start them.
 
-* Target start action by Subscription and Resource Group.  See the steps in [Scenario #1](#scenario-1:-daily-stop/start-vms-across-a-subscription-or-target-resource-groups) for testing and enabling **Scheduled-StartVM** schedule.
-* Target start action by Subscription, Resource Group, and Tag.  See the steps in [Scenario #2](#scenario-2:-sequence-the-stop/start-vms-across-a-subscription-using-tags) for testing and enabling "Sequenced-StartVM" schedule.
+* Target start action by subscription and resource group.  See the steps in [Scenario 1](#scenario-1:-daily-stop/start-vms-across-a-subscription-or-target-resource-groups) for testing and enabling **Scheduled-StartVM** schedules.
+* Target start action by subscription, resource group, and tag.  See the steps in [Scenario 2](#scenario-2:-sequence-the-stop/start-vms-across-a-subscription-using-tags) for testing and enabling **Sequenced-StartVM** schedules.
 
 
-### Configuring e-mail notifications
+### Configuring email notifications
 
-To configure email notifications after the solution is deployed, you can modify the following three variables:
+To configure email notifications after the solution is deployed, modify the following three variables:
 
-* External_EmailFromAddress - specify the sender email address
-* External_EmailToAddress - a comma separated list of email addresses (user@hotmail.com, user@outlook.com) to receive notification emails
-* External_IsSendEmail - If set to **Yes**, you will receive emails and to disable email notifications, set value to **No**.   
+* External_EmailFromAddress: Specify the sender's email address.
+* External_EmailToAddress: Specify a comma-separated list of email addresses (user@hotmail.com, user@outlook.com) to receive notification emails.
+* External_IsSendEmail: Set to **Yes** to receive emails. To disable email notifications, set value to **No**.   
 
 
 ### Modifying the startup and shutdown schedules
@@ -243,7 +243,7 @@ Managing the startup and shutdown schedules in this solution follows the same st
 
 ## Log Analytics records
 
-Automation creates two types of records in the OMS repository.
+Automation creates two types of records in the OMS repository: job logs and job streams.
 
 ### Job logs
 
@@ -261,7 +261,7 @@ ResourceType | Specifies the resource type in Azure.  For Automation, the value 
 resultType | The status of the runbook job.  Possible values are:<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Succeeded|
 resultDescription | Describes the runbook job result state.  Possible values are:<br>- Job is started<br>- Job Failed<br>- Job Completed|
 RunbookName | Specifies the name of the runbook.|
-SourceSystem | Specifies the source system for the data submitted.  For Automation, the value will be :OpsManager|
+SourceSystem | Specifies the source system for the data submitted.  For Automation, the value is OpsManager|
 StreamType | Specifies the type of event. Possible values are:<br>- Verbose<br>- Output<br>- Error<br>- Warning|
 SubscriptionId | Specifies the subscription ID of the job.
 Time | Date and time when the runbook job executed.|
@@ -279,14 +279,14 @@ ResourceGroup | Specifies the resource group  name of the runbook job.|
 resourceId | Specifies the resource Id in Azure.  For Automation, the value is the Automation account associated with the runbook.|
 ResourceProvider | Specifies the Azure service that supplies the resources you can deploy and manage.  For Automation, the value is Azure Automation.|
 ResourceType | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
-resultType | The result of the runbook job at the time the event was generated.  Possible values are:<br>- InProgress|
+resultType | The result of the runbook job at the time the event was generated. A possible value is:<br>- InProgress|
 resultDescription | Includes the output stream from the runbook.|
 RunbookName | The name of the runbook.|
-SourceSystem | Specifies the source system for the data submitted.  For Automation, the value will be OpsManager|
+SourceSystem | Specifies the source system for the data submitted.  For Automation, the value is OpsManager.|
 StreamType | The type of job stream. Possible values are:<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose|
 Time | Date and time when the runbook job executed.|
 
-When you perform any log search that returns records of category of **JobLogs** or **JobStreams**, you can select the **JobLogs** or **JobStreams** view which displays a set of tiles summarizing the updates returned by the search.
+When you perform any log search that returns category records of **JobLogs** or **JobStreams**, you can select the **JobLogs** or **JobStreams** view, which displays a set of tiles summarizing the updates returned by the search.
 
 ## Sample log searches
 
@@ -299,22 +299,26 @@ Find jobs for runbook SequencedStartStop_Parent that have completed successfully
 
 ## Removing the solution
 
-If you decide you no longer need to use the solution any further, you can delete it from the Automation account.  Deleting the solution will only remove the runbooks, it will not delete the schedules or variables that were created when the solution was added.  Those assets you will need to delete manually if you are not using them with other runbooks.  
+If you decide you no longer need to use the solution, you can delete it from the Automation account.  Deleting the solution only removes the runbooks. It does not delete the schedules or variables that were created when the solution was added.  Those assets you need to delete manually if you are not using them with other runbooks.  
 
 To delete the solution, perform the following steps:
 
 1.  From your Automation account, select **Workspace** from the left pane.  
-2.  On the **Solutions** page, select the solution **Start-Stop-VM[Workspace]**.  On the **VMManagementSolution[Workspace]** page, from the menu click **Delete**.<br><br> ![Delete VM Mgmt Solution](media/automation-solution-vm-management/vm-management-solution-delete.png)
-3.  In the **Delete Solution** window, confirm you want to delete the solution.
-4.  While the information is verified and the solution is deleted, you can track its progress under **Notifications** from the menu.  You will be returned to the **Solutions** page after the process to remove solution starts.  
+2.  On the **Solutions** page, select the solution **Start-Stop-VM[Workspace]**.  On the **VMManagementSolution[Workspace]** page, from the menu, select **Delete**.<br><br> ![Delete VM Mgmt Solution](media/automation-solution-vm-management/vm-management-solution-delete.png)
+3.  In the **Delete Solution** window, confirm that  you want to delete the solution.
+4.  While the information is verified and the solution is deleted, you can track its progress under **Notifications** from the menu.  You are returned to the **Solutions** page after the process to remove the solution starts.  
 
-The Automation account and Log Analytics workspace are not deleted as part of this process.  If you do not want to retain the Log Analytics workspace, you will need to manually delete it.  This can be accomplished also from the Azure portal.   From the home-screen in the Azure portal, select **Log Analytics** and then on the **Log Analytics** blade, select the workspace and click **Delete** from the menu on the workspace settings blade.  
+The Automation account and Log Analytics workspace are not deleted as part of this process.  If you do not want to retain the Log Analytics workspace, you need to manually delete it.  This can be accomplished from the Azure portal:
+
+1.    From the  Azure portal home screen, select **Log Analytics**.
+2. On the **Log Analytics** blade, select the workspace.
+3. Select **Delete** from the menu on the workspace settings pane.  
       
 ## Next steps
 
 - To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
-- To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
-- To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
+- To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md).
+- To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md).
 
 
 
