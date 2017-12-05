@@ -105,7 +105,7 @@ For more information on creating compute targets, see [Configuring Azure Machine
 - [AZTK integration](https://github.com/Azure/aztk/wiki/Spark-on-Azure-for-Python-Users#optional-set-up-mmlspark)
 
 ### Sample projects
-- Iris and SparkMML samples updated with the new Azure ML SDK version
+- [Iris](https://github.com/Azure/MachineLearningSamples-Iris) and [MMLSpark](https://github.com/Azure/mmlspark) samples updated with the new Azure ML SDK version
 
 ## BREAKING CHANGES
 - Promoted the `--type` switch in `az ml computetarget attach` to a sub-command. 
