@@ -51,11 +51,6 @@ For information on how to download and install the Azure AD PowerShell cmdlets, 
   * Select which Office 365 groups expire. You can enable expiration for **All** Office 365 groups, you can select from among the Office 365 groups, or you select **None** to disable expiration for all groups.
   * Save your settings when you're done by selecting **Save**.
 
-<<<<<<< HEAD
-For instructions on how to download and install the Microsoft PowerShell module to configure expiration for Office 365 groups via PowerShell, see [Azure Active Directory PowerShell Module - Public Preview Release version 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
-=======
->>>>>>> 8ef4253336e5167f7a19312b3ed79b4ad6e826ef
-
 Email notifications such as this one are sent to the Office 365 group owners 30 days, 15 days, and 1 day prior to expiration of the group.
 
 ![Expiration email notification](./media/active-directory-groups-lifecycle-azure-portal/expiration-notification.png)
