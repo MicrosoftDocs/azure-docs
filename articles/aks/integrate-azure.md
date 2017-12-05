@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure services | Microsoft Docs
-description: Connect to Azure services
+title: Integrate with Azure services | Microsoft Docs
+description: Integrate with Azure services
 services: container-service
 documentationcenter: ''
 author: sozercan
@@ -30,6 +30,15 @@ ms.custom: mvc
 
 Let's get started by deploying an Azure Container Service (AKS) cluster. You can follow the [Create an AKS cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) quickstart guide.
 
+## Prerequisites
+* An Azure subscription
+
+* Azure CLI 2.0: You can [install it locally](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or use it in the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+
+* Helm CLI 2.7+: You can [install it locally](https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli) or use it in the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+
+* Permissions to create a service principal with the Contributor role on your Azure subscription
+
 ## Installing Service Catalog
 
 Next step is to install service catalog using Helm chart. Refer to [Install Helm CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli) for Helm installation.
@@ -49,7 +58,7 @@ Installing service catalog from Helm chart:
 
 ```azurecli-interactive
 helm install svc-cat/catalog \
-    --name catalog --namespace catalog
+    --name catalog --namespace catalog --set rbacEnable=false
 ```
 
 After, you install the Helm chart, you should see service catalog in:
@@ -154,15 +163,13 @@ kubectl get clusterservicebroker -o yaml
 
 Show installed service classes:
 ```azurecli-interactive
-kubectl get clusterserviceclasses -o=custom-columns=NAME:.metadata.name,EXTERNAL \
-    NAME:.spec.externalName
+kubectl get clusterserviceclasses -o=custom-columns=NAME:.metadata.name,EXTERNALNAME:.spec.externalName
 ```
 
 Show installed service plans:
 ```azurecli-interactive
-kubectl get clusterserviceplans -o=custom-columns=NAME:.metadata.name,EXTERNAL \
-    NAME:.spec.externalName,SERVICE \
-    CLASS:.spec.clusterServiceClassRef.name \
+kubectl get clusterserviceplans \
+    -o=custom-columns=NAME:.metadata.name,EXTERNALNAME:.spec.externalName,SERVICECLASS:.spec.clusterServiceClassRef.name \
     --sort-by=.spec.clusterServiceClassRef.name
 ```
 
@@ -187,6 +194,7 @@ Show installed service instance and bindings:
 ```azurecli-interactive
 kubectl get serviceinstance -n wordpress -o yaml
 kubectl get servicebinding -n wordpress -o yaml
+```
 
 Show installed secrets:
 
