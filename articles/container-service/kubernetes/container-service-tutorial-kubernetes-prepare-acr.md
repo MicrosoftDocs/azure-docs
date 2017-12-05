@@ -1,20 +1,12 @@
 ---
-title: Azure Container Service tutorial - Prepare ACR | Microsoft Docs
+title: Azure Container Service tutorial - Prepare ACR
 description: Azure Container Service tutorial - Prepare ACR
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
