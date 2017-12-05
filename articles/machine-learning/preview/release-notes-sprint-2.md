@@ -69,10 +69,11 @@ Following is a list of detailed updates in each component area of Azure Machine 
 ### Job execution
 You can now create and access a remotedocker or cluster type compute target using SSH key-based authentication following these steps:
 - Attach a compute target using the following command in CLI
-```
-az ml computetarget attach remotedocker -a <fqdn or IP address> -n <name for your compute target> -u <username to be used to access the compute target> –k
-```
-[!NOTE] -k option in the command specifies to generate and use SSH-key.
+
+    ```azure-cli
+    $ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+    ```
+[!NOTE] -k (or --use-azureml-ssh-key) option in the command specifies to generate and use SSH-key.
 
 - Azure ML Workbench will generate a public key and output that in your console. Log into the compute target using the same username and append ~/.ssh/authorized_keys file with this public key.
 
@@ -105,11 +106,10 @@ For more information on creating compute targets, see [Configuring Azure Machine
 - [AZTK integration](https://github.com/Azure/aztk/wiki/Spark-on-Azure-for-Python-Users#optional-set-up-mmlspark)
 
 ### Sample projects
-- Iris and SparkMML samples updated with the new Azure ML SDK version
+- [Iris](https://github.com/Azure/MachineLearningSamples-Iris) and [MMLSpark](https://github.com/Azure/mmlspark) samples updated with the new Azure ML SDK version
 
 ## BREAKING CHANGES
 - Promoted the `--type` switch in `az ml computetarget attach` to a sub-command. 
 
-- `az ml computetarget attach --type remotedocker` is now `az ml computetarget attach remotedocker`
-
-- `az ml computetarget attach --type cluster` is now `az ml computetarget attach cluster`
+    - `az ml computetarget attach --type remotedocker` is now `az ml computetarget attach remotedocker`
+    - `az ml computetarget attach --type cluster` is now `az ml computetarget attach cluster`
