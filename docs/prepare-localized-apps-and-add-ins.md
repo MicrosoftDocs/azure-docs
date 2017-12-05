@@ -9,7 +9,7 @@ ms.date: 12/04-2017
 To offer your Office Add-in, SharePoint Add-in, or Office 365 app in languages beyond the primary language, you need localized metadata for each additional language. The best customer experience is with apps or add-ins that have web services and functionality that support these additional languages. You also need to create descriptions in each language. For a list of the languages that the Seller Dashboard currently accepts, see Table 2 later in this article.
 
 > [!NOTE]
-> For information about localizing add-ins, see [Localization for Office Add-ins](https://dev.office.com/docs/add-ins/develop/localization) and [Localize SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/localize-sharepoint-add-ins). 
+> For information about localizing add-ins, see [Localization for Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/localization) and [Localize SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/localize-sharepoint-add-ins). 
 
 To distribute your app or add-in in additional languages, you can edit the details in the Seller Dashboard. After you add other languages, you need to submit it for approval again. 
 
@@ -110,7 +110,7 @@ The following table lists the submission languages that the Office Store is avai
 |Ukranian|uk-ua|Ukraine|
 |Vietnamese|vi-vn|Vietnam|
 
-## Additional resources
+## See also
 <a name="bk_addresources"> </a>
 
 - [Validation policies for apps and add-ins submitted to the Office Store](validation-policies.md) 

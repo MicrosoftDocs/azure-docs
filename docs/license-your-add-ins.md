@@ -111,7 +111,7 @@ Figure 2 shows the add-in license query and validation process for SharePoint Ad
 5. The verification service returns whether the license token is valid, and if it is, also returns the license properties.
 6. The add-in can then take action, based on the validity of the license and its properties.
 
-## Additional resources
+## See also
 
 - [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
 - [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)

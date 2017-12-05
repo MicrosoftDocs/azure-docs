@@ -200,7 +200,7 @@ If you're creating ad-supported apps or add-ins, apply the following guidelines:
 - Do not include ads with inappropriate content. Ads are subject to the same policies that the content in apps and add-ins is. 
 - Use a standard size and location for ads.
 
-## Additional resources
+## See also
 <a name="bk_addresources"> </a>
 
 - [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)

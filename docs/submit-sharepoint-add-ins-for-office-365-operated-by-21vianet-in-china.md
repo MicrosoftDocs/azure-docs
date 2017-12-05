@@ -29,7 +29,7 @@ If you only wish to distribute your add-in to Chinese users of Office 365 operat
 
 Similarly, if you do not wish to distribute to China, you only need to submit one add-in listing and use the global (non-China) client ID.
  
-## Additional resources
+## See also
 
 - [Use the Seller Dashboard to submit your solution to the Office Store](use-the-seller-dashboard-to-submit-to-the-office-store.md)
 - [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)

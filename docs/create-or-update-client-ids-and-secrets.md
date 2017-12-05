@@ -201,7 +201,7 @@ You might want to delete a client ID in certain situations, for example:
     > Customers using your add-in will experience downtime during the update to your code and the Seller Dashboard approval process.
 
 <a name="bk_addresources"> </a>
-## Additional resources
+## See also
 
 - [Upload your package to the Office Store](upload-package.md)
 - [Create your Office Store listing](office-store-listing.md)

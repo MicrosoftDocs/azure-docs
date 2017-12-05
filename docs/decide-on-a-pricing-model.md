@@ -66,7 +66,7 @@ Azure also enables you to scale your app or add-in to match demand and reduce co
 For more information, see [Hosting add-ins on Microsoft Azure](https://azure.microsoft.com/en-us/services/app-service/) or sign up for a [free Azure trial](https://azure.microsoft.com/en-us/free/).
  
 
-## Additional resources
+## See also
 
 - [Upload your package to the Office Store](upload-package.md)
 - [Create your Office Store listing](office-store-listing.md)

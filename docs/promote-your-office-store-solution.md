@@ -80,11 +80,11 @@ if (Office.context.document.settings) {
 
 The value that is sent to the document is the value of the  _mktcmpid_ parameter.
 
-## Additional resources
+## See also
 <a name="bk_addresources"> </a>
 
 - [Submit your solutions to the Office Store](submit-to-the-office-store.md)
-- [Office Add-ins](https://dev.office.com/docs/add-ins/overview/office-add-ins)  
+- [Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-ins)  
 - [SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
     
  

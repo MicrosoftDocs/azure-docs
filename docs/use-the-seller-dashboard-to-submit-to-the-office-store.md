@@ -101,7 +101,7 @@ After your account in the Seller Dashboard is approved, you can submit your solu
     > [!NOTE]
     > After you submit a solution for approval, you cannot make changes to it during the approval process. When the approval process is complete, you receive an email message indicating that your app was approved or that you need to make changes before it can be approved. 
 
-## Additional resources
+## See also
 <a name="bk_addresources"> </a>
 
 - [Upload your package to the Office Store](upload-package.md)

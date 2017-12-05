@@ -173,7 +173,7 @@ Apply the following best practices when you create and enforce add-in licenses a
 </table>
 
 
-## Additional resources
+## See also
 <a name="bk_resources"> </a>
 
 - [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)

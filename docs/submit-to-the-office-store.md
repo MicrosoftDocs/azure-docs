@@ -79,9 +79,9 @@ If you have questions about policies or requirements in your report, you can eng
 - [Promote your Office Store solution](promote-your-office-store-solution.md)
 - [Seller Dashboard accessibility features](seller-dashboard-accessibility-features.md)
 
-## Additional resources
+## See also
 
-- [Office Add-ins](https://dev.office.com/docs/add-ins/overview/office-add-ins)  
+- [Office Add-ins](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-ins)  
 - [SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
 
 

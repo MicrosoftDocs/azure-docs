@@ -69,7 +69,7 @@ When you upload your manifest file, you might get the following message:
 
 For more details about Microsoft Teams app packages, see [Create the package for your Microsoft Teams app](https://docs.microsoft.com/en-us/microsoftteams/platform/publishing/apps-package). For a step-by-step guide that describes how to submit a Microsoft Teams app, see [Use the Seller Dashboard to submit your Microsoft Teams app](https://docs.microsoft.com/en-us/microsoftteams/platform/publishing/office-store-guidance).
 
-## Additional resources
+## See also
 
 - [Create your Office Store listing](office-store-listing.md)
 - [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)

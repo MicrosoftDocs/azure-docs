@@ -151,7 +151,7 @@ If you get an error message, make sure that your details are correct or try agai
 
 Make sure that any correspondence you send to customers includes an option to unsubscribe from future communications. 
 
-## Additional resources
+## See also
 
 - [Upload your package to the Office Store](upload-package.md)
 - [Create your Office Store listing](office-store-listing.md)

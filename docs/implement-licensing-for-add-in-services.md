@@ -11,7 +11,7 @@ If you're building an Office Add-in that is backed by a subscription service, yo
 
 ## Step 1: Use a single manifest for all customers
 
-To make distributing and maintaining your add-in easy, we recommend that you submit a single add-in to the Office Store. That way, as you add new features, such as [add-in commands](https://dev.office.com/docs/add-ins/design/add-in-commands) or single sign-on, those features are made available to all customers; you don't need to worry about supporting different add-ins for different customers, and you don't need to contact each customer’s administrator when you change the manifest.
+To make distributing and maintaining your add-in easy, we recommend that you submit a single add-in to the Office Store. That way, as you add new features, such as [add-in commands](https://docs.microsoft.com/en-us/office/dev/add-ins/design/add-in-commands) or single sign-on, those features are made available to all customers; you don't need to worry about supporting different add-ins for different customers, and you don't need to contact each customer’s administrator when you change the manifest.
 
 > [!NOTE]
 > Because some customization scenarios are not yet supported, you might have to provide a customer a custom manifest; for example, if you want to use a different icon on the ribbon or a different group name for add-in commands.  
@@ -92,7 +92,7 @@ Also, when you use single sign-on, users are signed in to the add-in automatical
 
 Your add-in must next identify information about the user.
 
-For users who sign in with a work or school account, you can add support for Oauth to your add-in. For details, see [Authorize external services in your Office Add-in](https://dev.office.com/docs/add-ins/develop/auth-external-add-ins). This allows you to use Microsoft Graph to get the following information about the user:
+For users who sign in with a work or school account, you can add support for Oauth to your add-in. For details, see [Authorize external services in your Office Add-in](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/auth-external-add-ins). This allows you to use Microsoft Graph to get the following information about the user:
 
 - Their organizational tenant ID, via the [Get organization](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/organization_get) method.  
 - The list of roles that are assigned to the user, via the [getMemberObjects](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_getmemberobjects) action. 
@@ -140,7 +140,7 @@ When a customer makes a purchase, update your licensing database with the record
 
 After a customer makes a purchase, you need to deploy the add-in to the customer’s environment. The customer’s tenant administrator or a reseller can deploy the add-in, or you can deploy it yourself.
 
-A tenant administrator can deploy the add-in via [centralized deployment](https://dev.office.com/docs/add-ins/publish/centralized-deployment). If your add-in is published in the Office Store, the admin can select it from the **Add an Office Add-in** link on the Office 365 admin center page. If your add-in has a custom manifest, the adminstrator will need to upload the manifest from their computer or a URL.
+A tenant administrator can deploy the add-in via [centralized deployment](https://docs.microsoft.com/en-us/office/dev/add-ins/publish/centralized-deployment). If your add-in is published in the Office Store, the admin can select it from the **Add an Office Add-in** link on the Office 365 admin center page. If your add-in has a custom manifest, the adminstrator will need to upload the manifest from their computer or a URL.
 
 <!-- In our other content, we don't say that the admin has to create a group to assign the add-in. They can assign the add-in to groups or individuals. I suggest we leave this part out as it isn't consistent with our other content, or we update the centralized deployment topics to clarify that the add-ins have to be assigned to a group. 
 
@@ -151,7 +151,7 @@ At this point, everyone in the organization belonging to that group will see it 
 As group membership grows (or as users from the organization install the add-in from the Store), your licensing service will work as designed.-->
 
 
-## Additional resources
+## See also
 
 - [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
 - [Add license checks to Office and SharePoint Add-ins](add-license-checks-to-office-and-sharepoint-add-ins.md)

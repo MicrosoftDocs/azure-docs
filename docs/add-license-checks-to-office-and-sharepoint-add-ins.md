@@ -30,7 +30,7 @@ For Outlook add-ins:
     <br/>
     
     > [!NOTE]
-    > If your add-in uses [getUserIdentityTokenAsync](http://dev.office.com/reference/add-ins/outlook/Office.context.mailbox), adding to the [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation) element in the manifest changes the URL in the token because the token generation is based on what is in the manifest. When you test the license token, you have to modify the validation call on your service so that the validation accepts the modified URL. For example, if you use the [managed API token validation](https://dev.office.com/docs/add-ins/outlook/use-the-token-validation-library) library, you need to change the _hostUri_ parameter to match the modified [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation). Remember to change the Exchange identity token validation callback after you test the license check.
+    > If your add-in uses [getUserIdentityTokenAsync](http://dev.office.com/reference/add-ins/outlook/Office.context.mailbox), adding to the [SourceLocation](http://dev.office.com/reference/add-ins/manifest/sourcelocation) element in the manifest changes the URL in the token because the token generation is based on what is in the manifest. When you test the license token, you have to modify the validation call on your service so that the validation accepts the modified URL. For example, if you use the [managed API token validation](https://docs.microsoft.com/en-us/outlook/add-ins/validate-an-identity-token) library, you need to change the _hostUri_ parameter to match the modified [SourceLocation](https://dev.office.com/reference/add-ins/manifest/sourcelocation). Remember to change the Exchange identity token validation callback after you test the license check.
 
 <a name="bk_implement"> </a>
 ## Implement license checks in the Office Add-in code
@@ -510,7 +510,7 @@ private void VerifyLicenseToken(string rawLicenseToken)
 
 ```
 
-## Additional resources
+## See also
 
 - [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)
 - [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md)

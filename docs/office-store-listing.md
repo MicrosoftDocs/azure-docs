@@ -52,7 +52,7 @@ On the **Block access** page, if you don't want your app or add-in to be listed 
 > To submit a SharePoint Add-in that uses OAuth and that you want to distribute to China, you must block access for all countries except China.
 
 
-## Additional resources
+## See also
 
 - [Upload your package to the Office Store](upload-package.md)
 - [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)

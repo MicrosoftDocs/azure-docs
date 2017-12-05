@@ -221,7 +221,7 @@ The following example shows the add-in license for a user who is signed in with 
 </r>
 ```
 
-## Additional resources
+## See also
 <a name="SP15applicenseschema_addlresources"> </a>
 
 - [How licenses work for Office and SharePoint Add-ins](how-licenses-work.md)

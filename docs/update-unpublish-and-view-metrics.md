@@ -115,7 +115,7 @@ For SharePoint Add-ins installed on SharePoint 2013, the metrics page also shows
     > [!IMPORTANT]
     > This report displays only the total transaction revenue. It does not take into account taxes withheld, bank charges, currency conversion charges, or the share of the revenue from your add-in that is paid to Microsoft.
 
-## Additional resources
+## See also
 
 - [Submit your solutions to the Office Store](submit-to-the-office-store.md)
 

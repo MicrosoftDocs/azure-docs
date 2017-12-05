@@ -100,7 +100,7 @@ If you use Internet Explorer, you can use the following keyboard shortcuts in th
     > [!NOTE]
     > If you change the font of the Help topics in the Help window, the change also affects the font style when you view a webpage in Internet Explorer.
 
-## Additional resources
+## See also
 <a name="bk_addresources"> </a>
 
 - [Disability Answer Desk](https://support.microsoft.com/en-us/accessibility/disability-answer-desk)
