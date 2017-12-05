@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: quicksart
-ms.date: 10/16/2017
+ms.date: 12/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
 ---
@@ -16,7 +16,7 @@ ms.custom: H1Hack27Feb2017, mvc
 
 Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI.
 
-This quickstart requires that you are running the Azure CLI version 2.0.20 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+This quickstart requires that you are running the Azure CLI version 2.0.21 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), or [Linux](https://docs.docker.com/engine/installation/#supported-platforms) system.
 
@@ -41,7 +41,7 @@ Create an ACR instance using the [az acr create](/cli/azure/acr#create) command.
 The name of the registry **must be unique**. In the following example *myContainerRegistry007* is used. Update this to a unique value.
 
 ```azurecli
-az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
+az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
 ```
 
 When the registry is created, the output is similar to the following:
@@ -68,39 +68,39 @@ When the registry is created, the output is similar to the following:
 }
 ```
 
-Throughout the rest of this quickstart, we use `<acrname>` as a placeholder for the container registry name.
+Throughout the rest of this quickstart, we use `<acrName>` as a placeholder for the container registry name.
 
 ## Log in to ACR
 
 Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [az acr login](/cli/azure/acr#login) command.
 
 ```azurecli
-az acr login --name <acrname>
+az acr login --name <acrName>
 ```
 
-The command returns a 'Login Succeeded' message once completed.
+The command returns a `Login Succeeded` message once completed.
 
 ## Push image to ACR
 
-To push an image to an Azure Container registry, you must first have an image. If needed, run the following command to pull a pre-created image from Docker Hub.
+To push an image to an Azure Container registry, you must first have an image. If you don't yet have any local container images, run the following command to pull an existing image from Docker Hub.
 
 ```bash
 docker pull microsoft/aci-helloworld
 ```
 
-The image needs to be tagged with the ACR login server name. Run the following command to return the login server name of the ACR instance.
+Before you can push an image to your registry, you must tag it with the fully qualified name of your ACR login server. Run the following command to obtain the full login server name of the ACR instance.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *<acrLoginServer>* with the login server name of your ACR instance.
+Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace `<acrLoginServer>` with the login server name of your ACR instance.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the ACR instance. Replace *<acrLoginServer>* with the login server name of your ACR instance.
+Finally, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the ACR instance. Replace `<acrLoginServer>` with the login server name of your ACR instance.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -111,7 +111,7 @@ docker push <acrLoginServer>/aci-helloworld:v1
 The following example lists the repositories in a registry:
 
 ```azurecli
-az acr repository list -n <acrname> -o table
+az acr repository list --name <acrName> --output table
 ```
 
 Output:
@@ -125,7 +125,7 @@ aci-helloworld
 The following example lists the tags on the **aci-helloworld** repository.
 
 ```azurecli
-az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
+az acr repository show-tags --name <acrName> --repository aci-helloworld --output
 ```
 
 Output:
