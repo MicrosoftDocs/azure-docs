@@ -15,7 +15,7 @@ ms.author: cahann
 # Application Dashboard
 The app dashboard is a visualized reporting tool, which enables you to monitor your app at a single glance. The **Dashboard** displays when you open an app by clicking the application name on **My Apps** page then select **Dashboard** from top panel. 
 
-The **Dashboard** page gives you an overview of the LUIS app. The dashboard summarizes the current model state as well as endpoint usage over time. The following image shows the **Dashboard** page.
+The **Dashboard** page gives you an overview of the LUIS app. The dashboard summarizes the current model state as well as endpoint usage over time. <!--The following image shows the **Dashboard** page.-->
 
 <!-- TBD: Get a working screen shot
 ![The Dashboard](./media/luis-app-dashboard/dashboard.png)
@@ -31,7 +31,7 @@ The dashboard displays the application's training and publishing status, includi
 ![Dashboard - App Status](./media/luis-app-dashboard/app-state.png)
 
 ## Model data statistics
-The dashboard displays the total numbers of intents, entities & labeled utterances existing in the app. 
+The dashboard displays the total numbers of intents, entities and labeled utterances existing in the app. 
 
 ![App Data Statistics](./media/luis-app-dashboard/app-model-count.png)
 
@@ -39,6 +39,9 @@ The dashboard displays the total numbers of intents, entities & labeled utteranc
 The dashboard displays the total endpoint hits received to the app and enables you to display hits within a period that you specify.
 <!-- TBD: this image is old but I don't have a new one based on usage -->
 ![Endpoint Hits](./media/luis-app-dashboard/dashboard-endpointhits.png)
+
+> [!NOTE] 
+> The most current endpoint hit count will be in the Azure portal on the LUIS service overview. 
  
 ### Total endpoint hits
 The total number of endpoint hits received to your app since app creation up to the current date.
