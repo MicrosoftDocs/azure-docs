@@ -37,24 +37,22 @@ You perform the following steps in this tutorial:
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Overview
-Here is the high-level solution diagram of the solution: 
-
-![Incrementally load data](media\tutorial-incremental-copy-multiple-tables-powershell\high-level-solution-diagram.png)
-
 Here are the important steps in creating this solution: 
 
 1. **Select the watermark column**.
 	Select one column for each table in the source data store, which can be used to identify the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
 2. **Prepare a data store to store the watermark value**.   
 	In this tutorial, you store the watermark value in an Azure SQL database.
-3. **Create a pipeline with the following workflow:** 
+3. **Create a pipeline with the following activities:** 
 	
-	The pipeline in this solution has the following activities:
-  
 	1. Create a **ForEach** activity that iterates through a list of source table names that is passed as a parameter to the pipeline. For each source table, it invokes the following activities to perform delta loading for that table. 
     2. Create two **lookup** activities. Use the first lookup activity to retrieve the last watermark value. Use the second lookup activity to retrieve the new watermark value. These watermark values are passed to the copy activity. 
 	3. Create a **copy activity** that copies rows from the source data store with the value of watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to a blob storage as a new file. 
 	4. Create a **stored procedure activity** that updates the watermark value for the pipeline running next time. 
+
+        Here is the high-level solution diagram of the solution: 
+
+        ![Incrementally load data](media\tutorial-incremental-copy-multiple-tables-powershell\high-level-solution-diagram.png)
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -62,7 +60,6 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Prerequisites
 * **SQL Server**. You use an on-premises SQL Server database as the **source** data store in this tutorial. 
 * **Azure SQL Database**. You use an Azure SQL database as the **sink** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one. 
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### Create source tables in your SQL Server database
 
@@ -101,9 +98,10 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ('project3','3/4/2017 5:16:00 AM');
     
     ```
+
 ### Create destination tables in your Azure SQL  database
 1. Launch **SQL Server Management Studio**, and connect to your Azure SQL server. 
-2. In **Server Explorer**, right-click the database and choose the **New Query**.
+2. In **Server Explorer**, right-click the **database** and choose the **New Query**.
 3. Run the following SQL command against your Azure SQL database to create tables named `customer_table` and `project_table`.  
     
     ```sql
@@ -233,7 +231,7 @@ END
 3. Define a variable for the data factory name. 
 
     > [!IMPORTANT]
-    >  Update the data factory name to be globally unique. For example, ADFTutorialFactorySP1127. 
+    >  Update the data factory name to be globally unique. For example, ADFIncMultiCopyTutorialFactorySP1127. 
 
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
