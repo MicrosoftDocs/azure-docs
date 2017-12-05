@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: juliako
+ms.date: 12/05/2017
+ms.author: juliako;anilmur
 
 ---
 
