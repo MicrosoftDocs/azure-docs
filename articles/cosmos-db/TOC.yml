@@ -43,6 +43,10 @@
       href: create-graph-java.md
     - name: Node.js
       href: create-graph-nodejs.md
+    - name: Python
+      href: create-graph-python.md
+    - name: PHP
+      href: create-graph-php.md
   - name: Table
     items:
     - name: .NET
