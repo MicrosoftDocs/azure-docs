@@ -34,7 +34,7 @@ This section describes how to create the Azure Resource Manager template that yo
 
 1. Follow the steps at [Use a resource manager template](devtest-lab-use-resource-manager-template.md) to create a resource manager template in your subscription.
 1. Save the template as a file on your computer. Name the file **CreateVMTemplate.json**.
-1. Edit the **CreateVMTemplate.json** file as described in [this blog post](www.visualstudiogeeks.com/blog/DevOps/Configure-winrm-with-ARM-template-in-AzureDevTestLab-VM-deployment-using-PowerShell-artifact) to configure it for Windows Remote Management (WinRM).
+1. Edit the **CreateVMTemplate.json** file as described in [this blog post](http://visualstudiogeeks.com/blog/DevOps/Configure-winrm-with-ARM-template-in-AzureDevTestLab-VM-deployment-using-PowerShell-artifact) to configure it for Windows Remote Management (WinRM).
 
    WinRM access is required to use deploy tasks such as **Azure File Copy** and **PowerShell on Target Machines**.
 
@@ -147,7 +147,10 @@ Perform these steps to create the release definition.
    - **Lab VM ID**: If you changed the default name of the environment variable that was automatically populated with the ID of the lab VM by an earlier task, edit it here. The default is *$(labVMId)*.
 1. Enter a name for the release definition and save it.
 1. Create a new release, select the latest build, and deploy it to the single environment in the definition.
-1. At each stage, refresh the view of your DevTest Labs instance in the Azure portal to see the VM and image being created, and the VM being deleted again. You can now use the custom image to create VMs when required.
+
+At each stage, refresh the view of your DevTest Labs instance in the Azure portal to see the VM and image being created, and the VM being deleted again.
+
+You can now use the custom image to create VMs when required.
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
