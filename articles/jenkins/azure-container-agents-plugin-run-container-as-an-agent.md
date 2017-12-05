@@ -31,7 +31,7 @@ You learn how to:
 
 - **Sign into Azure** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin, and sign into your account.  
 
-- **Azure CLI 2.0 or Azure Cloud Shell** - Install one of the following command-line/shell/terminal experiences:
+- **Azure CLI 2.0 or Azure Cloud Shell** - Install one of the following products into which you'll enter commands:
 
     - [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest) - Allows you to run Azure commands from a command or terminal window.
     - [Azure Cloud Shell](/azure/cloud-shell/quickstart.md) - Browser-based shell experience. Cloud Shell enables access to a browser-based command-line experience built with Azure management tasks in mind.

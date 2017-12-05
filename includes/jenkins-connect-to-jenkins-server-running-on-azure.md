@@ -4,7 +4,7 @@
 
 1. Open a bash or terminal window, with access to SSH.
 
-1. Enter the following `ssh` command. Replace the **&lt;username>** and **&lt;domain>** placeholders with the values specified when creating the Jenkins virtual machine. 
+1. Enter the following `ssh` command, replacing the **&lt;username>** and **&lt;domain>** placeholders with the values specified when creating the Jenkins virtual machine:
 
     ```bash
     ssh -L 127.0.0.1:8080:localhost:8080 <username>@<domain>.eastus.cloudapp.azure.com
