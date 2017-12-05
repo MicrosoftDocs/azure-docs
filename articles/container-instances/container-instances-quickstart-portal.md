@@ -2,19 +2,11 @@
 title: Quickstart - Create your first Azure Container Instances container with the Azure portal
 description: Deploy and get started with Azure Container Instances
 services: container-instances
-documentationcenter: ''
 author: mmacy
 manager: timlt
-editor: ''
-tags:
-keywords: ''
 
-ms.assetid:
 ms.service: container-instances
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/25/2017
 ms.author: marsma
 ms.custom: mvc
