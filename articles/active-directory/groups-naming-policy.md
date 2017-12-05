@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 12/05/2017
 ms.author: curtand                   
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
@@ -147,7 +147,7 @@ Microsoft Teams | Microsoft Teams shows the group naming policy enforced name wh
 SharePoint  |  SharePoint shows the naming policy enforced name when the user types a site name or group email address. When an user enters a custom blocked word, an error message is shown, along with the blocked word so that the user can remove it.
 Microsoft Stream | Microsoft Stream shows the the naming policy enforced name when the user types a group name or group email alias. When an user enters a custom blocked word, an error message is shown with the blocked word so the user can remove it.
 Outlook iOS and Android App | Groups created in Outlook apps are compliant with naming policy. Outlook mobile app doesn't yet show the preview of the naming policy and doesn't return the custom blocked word errors, when the user enters the group name. However, naming policy is automatically applied on clicking create/edit and users see error messages if there are custom blocked words in the group name or alias.
-Groups mobile app | Groups created in Groups mobile app are compliant with naming policy. Groups mobile app does not show the preview of the naming policy and does not return the custom blocked word errors, when the user enters the group name. But the naming policy will be automatically applied on clicking create/edit and users will be presented with appropriate errors if there are custom blocked words in the group name or alias.
+Groups mobile app | Groups created in Groups mobile app are compliant with naming policy. Groups mobile app does not show the preview of the naming policy and does not return the custom blocked word errors, when the user enters the group name. But the naming policy is automatically applied on clicking create/edit and users is presented with appropriate errors if there are custom blocked words in the group name or alias.
 Planner | Planner is compliant with naming policy. Planner shows the naming policy preview when entering the Plan name. When a user enters a custom blocked word, an error message is shown when creating the plan.
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement is compliant with naming policy. Dynamics 365 shows the naming policy enforced name when the user types a group name or group email alias. When the user enters a custom blocked word, an error message is shown with the blocked word so the user can remove it.
 School Data Sync (SDS) | Groups created through SDS comply with naming policy, but the naming policy isn't applied automatically. SDS administrators have to append the prefixes and suffixes to class names for which groups need to be created and then uploaded to SDS. Group create or edit would fail otherwise.
