@@ -20,7 +20,7 @@ To get Entity results using the Bing API, send a `GET` request to the following 
 Endpoint `GET`:  
 https://api.cognitive.microsoft.com/bing/v7.0/entities
 
-Returns enitties that are relevant to the users search query defined by `?q=""`.
+Returns entities that are relevant to the users search query defined by `?q=""`.
 
 
 For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Entity Search API v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-entities-api-v7-reference) reference.
