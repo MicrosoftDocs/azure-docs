@@ -80,7 +80,7 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>APIs</h3>
-                        <p><a href="/azure/cognitive-services/face/apireference">API Reference</a></p>
+                        <p><a href="/azure/cognitive-services/Face/APIReference">API Reference</a></p>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@ ms.author: carolz
                         <h3>SDKs</h3>
                         <p><a href="https://github.com/Microsoft/Cognitive-Face-Android">Android</a></p>
                         <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>
-                        <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">Python</a></p>
+                        <p><a href="https://github.com/Microsoft/Cognitive-Face-Python">Python</a></p>
                         <p><a href="https://github.com/Microsoft/Cognitive-Face-Windows">Windows</a></p>
                     </div>
                 </div>
