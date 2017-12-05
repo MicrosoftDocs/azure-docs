@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2017
+ms.date: 12/04/2017
 ms.author: cherylmc
 
 ---
@@ -85,9 +85,6 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 Unlike S2S connections, P2S connections do not require an on-premises public-facing IP address or a VPN device. P2S connections can be used with S2S connections through the same VPN gateway, as long as all the configuration requirements for both connections are compatible. For more information about Point-to-Site connections, see [About Point-to-Site VPN](point-to-site-about.md).
 
->[!NOTE]
->P2S RADIUS authentication and IKEv2 are both currently in Preview.
->
 
 ![Azure VPN Gateway Point-to-Site connection example](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 

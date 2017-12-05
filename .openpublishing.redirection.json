@@ -8750,6 +8750,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/msi-how-to-get-access-token-using-msi.md",
+            "redirect_url": "msi-how-to-use-vm-msi-token",
+            "redirect_document_id": false
+        },        
+        {
             "source_path": "articles/virtual-machines/virtual-machines-error-messages.md",
             "redirect_url": "/azure/virtual-machines/windows/error-messages",
             "redirect_document_id": false
@@ -15435,9 +15440,39 @@
              "redirect_document_id": false
         },
         {
-             "source_path": "articles/container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md",
-             "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-app-on-kubernetes",
+             "source_path": "articles/api-management/api-management-get-started.md",
+             "redirect_url": "/azure/api-management/import-and-publish",
              "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-howto-import-api.md",
+             "redirect_url": "/azure/api-management/import-and-publish",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-howto-product-with-rules.md",
+             "redirect_url": "/azure/api-management/transform-api",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-howto-create-apis.md",
+             "redirect_url": "/azure/api-management/import-and-publish",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-product.md",
+             "redirect_url": "/azure/api-management/api-management-howto-add-products",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-howto-add-operations.md",
+             "redirect_url": "/azure/api-management/mock-api-responses",
+             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md",
+            "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-app-on-kubernetes",
+            "redirect_document_id": false
         },
         {
              "source_path": "articles/container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md",
@@ -15467,6 +15502,11 @@
         {
              "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-provision.md",
              "redirect_url": "/azure/sql-data-warehouse/create-data-warehouse-portal",
+             "redirect_document_id": false
+        },
+        {
+             "source_path": "articles/api-management/api-management-policy-reference.md",
+             "redirect_url": "/azure/api-management/api-management-policies",
              "redirect_document_id": false
         }
     ]
