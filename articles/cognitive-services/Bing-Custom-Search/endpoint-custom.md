@@ -13,7 +13,7 @@ ms.author: v-gedod
 
 # Custom Search endpoint
 
-The **Autosuggest API**  includes one endpoint, which returns results from the Web based on a [user-defined set](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page) of sources. 
+The **Custom Search API**  includes one endpoint, which returns results from the Web based on a [user-defined set](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page) of sources. 
 
 ##Endpoint
 To get results using the Bing Custom Search API, send a `GET` request to the following endpoint. Use the headers and URL parameters to define further specifications.
@@ -33,4 +33,4 @@ The response to a videos search request includes results as JSON objects.
 The **Bing** APIs support search actions that return results according to their type. All search endpoints return results as JSON response objects.  All endpoints support queries that return a specific language and/or location by longitude, latitude, and search radius.
 
 For complete information about the parameters supported by each endpoint, see the reference pages for each type.
-For examples of basic requests using the Custom Search API, see [Autosuggest Quick-starts](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/).
+For examples of basic requests using the Custom Search API, see [Custom Search Quick-starts](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/)
