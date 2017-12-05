@@ -145,9 +145,9 @@
         href: site-recovery-hyper-v-deployment-planner.md
       - name: Run the deployment planner 
         href: site-recovery-hyper-v-deployment-planner-run.md
-      - name: Analyzing the generated report
+      - name: Analyze the generated report
         href: site-recovery-hyper-v-deployment-planner-analyze-report.md
-      - name: Cost Estimation for Disaster Recovery 
+      - name: Analyze the disaster recovery cost estimation report 
         href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
     - name: Performance scale tests for Hyper-V replication between on-premises sites
       href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md

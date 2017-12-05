@@ -45,7 +45,8 @@ The On-premises summary worksheet provides an overview of the profiled Hyper-V e
 ## Recommendations  
 The recommendations sheet of the Hyper-V to Azure report has the following details as per the selected desired RPO:
 
-![Recommendations](media/site-recovery-hyper-v-deployment-planner-analyze-report/Recommendations-h2a.png)
+![Recommendations for Hyper-V to Azure report](media/site-recovery-hyper-v-deployment-planner-analyze-report/Recommendations-h2a.png)
+
 ### Profile data
 ![Profile data](media/site-recovery-hyper-v-deployment-planner-analyze-report/profile-data-h2a.png)
 

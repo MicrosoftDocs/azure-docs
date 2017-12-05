@@ -94,6 +94,7 @@ The tool has three main phases for Hyper-V: get VM list, profiling, and report g
             set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
 
 2.	Each Hyper-V Host that needs to be profiled should have:
+
     a. The VM on which the tool is going to be run in its TrustedHosts list. Run the following command from an elevated PowerShell on the Hyper-V host.
 
             set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
@@ -115,7 +116,7 @@ The folder contains multiple files and subfolders. The executable file is ASRDep
 
 Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Planner_v2.0.zip
 
-E:\ASR Deployment Planner_v2.0\ ASR Deployment Planner_v2.0\ ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
 
 ### Updating to the latest version of deployment planner
 If you have previous version of the deployment planner, do either of the following:
