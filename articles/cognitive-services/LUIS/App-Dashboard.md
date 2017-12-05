@@ -40,7 +40,8 @@ The dashboard displays the total endpoint hits received to the app and enables y
 <!-- TBD: this image is old but I don't have a new one based on usage -->
 ![Endpoint Hits](./media/luis-app-dashboard/dashboard-endpointhits.png)
 
-> [!NOTE] The most current endpoint hit count will be in the Azure portal on the LUIS service overview. 
+> [!NOTE] 
+> The most current endpoint hit count will be in the Azure portal on the LUIS service overview. 
  
 ### Total endpoint hits
 The total number of endpoint hits received to your app since app creation up to the current date.
