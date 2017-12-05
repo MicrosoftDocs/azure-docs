@@ -3013,10 +3013,10 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-                             <li>
-                        <a href="#integration">Enterprise Integration</a>
-                        <ul id="integration" class="cardsA">
                             <li>
+                               <a href="#integration">Enterprise Integration</a>
+                               <ul id="integration" class="cardsA">
+                               <li>
                                 <a href="/azure/logic-apps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
