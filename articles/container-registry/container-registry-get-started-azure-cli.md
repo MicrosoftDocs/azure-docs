@@ -34,7 +34,7 @@ az group create --name myResourceGroup --location eastus
 
 In this quickstart, we create a *Basic* registry. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Container registry SKUs][container-registry-skus].
 
-[!INCLUDE [container-registry-sku-matrix][container-registry-sku-matrix]]
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 Create an ACR instance using the [az acr create][az-acr-create] command.
 
@@ -166,5 +166,4 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI. 
 [az-group-delete]: /cli/azure/group#delete
 [azure-cli]: /cli/azure/install-azure-cli
 [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
-[container-registry-sku-matrix]: ../../includes/container-registry-sku-matrix.md
 [container-registry-skus]: container-registry-skus.md
