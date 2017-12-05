@@ -15,7 +15,7 @@ ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: jingwang
 ---
-# Incrementally load data from SQL Server to Azure SQL Database
+# Incrementally load data from multiple tables in SQL Server to Azure SQL Database
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in on-premises SQL server to an Azure SQL database.    
 
 You perform the following steps in this tutorial:
@@ -262,7 +262,7 @@ Note the following points:
 
 
 ## Create linked services
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and Azure SQL database. 
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and Azure SQL database. 
 
 ### Create SQL Server linked service.
 In this step, you link your on-premises SQL Server to the data factory.
@@ -376,7 +376,7 @@ In this step, you create datasets to represent data source, data destination. an
 
 ### Create a source dataset
 
-1. Create a JSON file named SourceDataset.json in the same folder with the following content: 
+1. Create a JSON file named **SourceDataset.json** in the same folder with the following content: 
 
     ```json
     {
@@ -414,7 +414,7 @@ In this step, you create datasets to represent data source, data destination. an
 
 ### Create a sink dataset
 
-1. Create a JSON file named SinkDataset.json in the same folder with the following content: 
+1. Create a JSON file named **SinkDataset.json** in the same folder with the following content: 
 
     ```json
     {
@@ -857,7 +857,6 @@ You performed the following steps in this tutorial:
 Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
 
 > [!div class="nextstepaction"]
->[Transform data using Spark cluster in cloud](tutorial-transform-data-spark-powershell.md)
-
+>[Incrementally load data from Azure SQL Database to Azure Blob Storage using Change Tracking technology](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 

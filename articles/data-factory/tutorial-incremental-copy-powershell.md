@@ -723,10 +723,10 @@ You performed the following steps in this tutorial:
 > * Run the pipeline.
 > * Monitor the pipeline run. 
 
-Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
+In this tutorial, the pipeline copied data from a **single table** in an Azure SQL database to an Azure blob storage. Advance to the following tutorial to learn about copying data from **multiple tables** in an on-premises SQL Server database to an Azure SQL datbase. 
 
 > [!div class="nextstepaction"]
->[Transform data using Spark cluster in cloud](tutorial-transform-data-spark-powershell.md)
+>[Incrementally load data from multiple tables in SQL Server to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 
 
