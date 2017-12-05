@@ -61,7 +61,7 @@ Click the three dots (...) button at the end of the row, and select **Deactivate
  ![Deactivate list added](./media/luis-add-features/deactivate-phrase-list.png)
 
 ## Pattern feature
-**The is a deprecated feature**. New patterns cannot be added to LUIS but any existing pattern features will be supported until May 2018. 
+**This is a deprecated feature**. New patterns cannot be added to LUIS but any existing pattern features will be supported until May 2018. 
 
 ## Next steps
 
