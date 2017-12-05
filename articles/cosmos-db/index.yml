@@ -63,7 +63,7 @@ sections:
           - href: /azure/cosmos-db/create-graph-java
           - href: /azure/cosmos-db/create-graph-dotnet
           - href: /azure/cosmos-db/create-graph-nodejs
-          - href: /azure/cosmos-db/create-graph-python
+          - href: 
           - href: /azure/cosmos-db/create-graph-gremlin-console
       - title: Table API
         values:
