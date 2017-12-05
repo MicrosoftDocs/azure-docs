@@ -22,7 +22,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 | [D1-D14](../articles/virtual-machines/windows/sizes-general.md) |160 | 1:1 |
 | [D1_v2-D15_v2](../articles/virtual-machines/windows/sizes-general.md) |210 - 250* | 1:1 |
 | [DS1-DS14](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160 | 1:1 |
-| [DS1_v2-DS15_v2](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |210-250* | 2:1 |
+| [DS1_v2-DS15_v2](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |210-250* | 1:1 |
 | [D_v3](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |160-190* ** | 2:1 |
 | [Ds_v3](../articles/virtual-machines/virtual-machines-windows-sizes-general.md) |160-190* ** | 2:1 |
 | [E_v3](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |160-190* ** | 2:1 |
