@@ -13,16 +13,12 @@ ms.author: v-geberr
 ---
 
 # Add utterances to a LUIS app using Ruby 
-
-This quickstart shows you how to programmatically add utterances to your Language Understanding (LUIS) app and train LUIS. 
-
-Using the command line is a quick way to enter many utterances and train LUIS. You can also automate this task into a larger pipeline.
-
-Refer to the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
+Programmatically add utterances to your Language Understanding (LUIS) app and train it using the command line. For more information, 
+refer to the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
 
 ## Prerequisites
 
-* Latest [**Ruby**](http://rubyinstaller.org/). 
+* [Ruby](http://rubyinstaller.org/) 
 * Your LUIS **programmatic key**. You can find this key under Account Settings in [https://www.luis.ai](https://www.luis.ai).
 * Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard. The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.rb`. The code in this article does not create the intents and entities. It only adds the utterances for existing intents and entities. 
 * The **version ID** within the application that receives the utterances. The default ID is "0.1"
