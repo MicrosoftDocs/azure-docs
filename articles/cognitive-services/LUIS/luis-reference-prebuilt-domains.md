@@ -19,27 +19,27 @@ LUIS offers 20 prebuilt domains.
 
 | Prebuilt domain | Description | Supported Languages |
 | ---------------- |-----------------------|:------:|
-| Calendar | The Calendar domain provides intent and entities for adding, deleting, or editing an appointment, checking participants availability, and finding information about a calendar event.| en-US |
+| Calendar | The Calendar domain provides intent and entities for adding, deleting, or editing an appointment, checking participants availability, and finding information about a calendar event.| en-US, zh-CN |
 | Camera | The Camera domain provides intents and entities for taking pictures, recording videos, and broadcasting video to an application.| en-US |
-| Communication | Sending messages and making phone calls.| en-US |
+| Communication | Sending messages and making phone calls.| en-US, zh-CN |
 | Entertainment  | Handling queries related to music, movies, and TV.| en-US |
 | Events | Booking tickets for concerts, festivals, sports games and comedy shows.| en-US |
 | Fitness | Handling requests related to tracking fitness activities.| en-US |
 | Gaming | Handling requests related to a game party in a multiplayer game.| en-US |
-| HomeAutomation | Controlling smart home devices like lights and appliances.| en-US |
+| HomeAutomation | Controlling smart home devices like lights and appliances.| en-US, zh-CN |
 | MovieTickets | Booking tickets to movies at a movie theater.| en-US |
-| Music | Playing music on a music player.| en-US |
-| Note | The Note domain provides intents and entities related to creating, editing, and finding notes.| en-US |
-| OnDevice | The OnDevice domain provides intents and entities related to controlling the device.| en-US |
-| Places  | Handling queries related to places like businesses, institutions, restaurants, public spaces, and addresses.| en-US |
-| Reminder | Handling requests related to creating, editing, and finding reminders.| en-US |
-| RestaurantReservation | Handling requests to manage restaurant reservations.| en-US |
-| Taxi | Handling bookings for a taxi.| en-US |
-| Translate | Translating text to a target language.| en-US |
+| Music | Playing music on a music player.| en-US, zh-CN |
+| Note | The Note domain provides intents and entities related to creating, editing, and finding notes.| en-US, zh-CN |
+| OnDevice | The OnDevice domain provides intents and entities related to controlling the device.| en-US, zh-CN |
+| Places  | Handling queries related to places like businesses, institutions, restaurants, public spaces, and addresses.| en-US, zh-CN |
+| Reminder | Handling requests related to creating, editing, and finding reminders.| en-US, zh-CN |
+| RestaurantReservation | Handling requests to manage restaurant reservations.| en-US, zh-CN |
+| Taxi | Handling bookings for a taxi.| en-US, zh-CN |
+| Translate | Translating text to a target language.| en-US, zh-CN |
 | TV | Controlling TVs.| en-US |
 | Utilities  | Handling requests that are common in many domains, like "help", "repeat", "start over."| en-US |
-| Weather | Getting weather reports and forecasts.| en-US |
-| Web | Navigating to a website.| en-US |
+| Weather | Getting weather reports and forecasts.| en-US, zh-CN |
+| Web | Navigating to a website.| en-US, zh-CN |
 
 For more detail on each domain, see the sections that follow.
 
