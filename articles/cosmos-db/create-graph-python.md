@@ -25,7 +25,7 @@ This quickstart shows how to use Python and the Azure Cosmos DB [Graph API](grap
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.  
 
 > [!NOTE]
-> This quickstart requires a graph database account created after 11/27/2017. Existing accounts will support Python once they’re migrated to general availability.
+> This quickstart requires a graph database account created after November 27th, 2017. Existing accounts will support Python once they’re migrated to general availability.
 
 ## Prerequisites
 
@@ -124,7 +124,7 @@ Now go back to the Azure portal to get your connection information and copy it i
         password="<YOUR_PASSWORD>")
     ```
 
-    The URI portion of the client object should now look similar to this:
+    The URI portion of the client object should now look similar to this code:
 
     ```python
     client = client.Client('wss://test.graphs.azure.com:443/','g', 
@@ -132,11 +132,11 @@ Now go back to the Azure portal to get your connection information and copy it i
         password="<YOUR_PASSWORD>")
     ```
 
-3. Change the second parameter of the `client` object to replace the `<YOUR_DATABASE>` and `<YOUR_COLLECTION_OR_GRAPH>` strings. If you used the suggested values, the parameter should look like this:
+3. Change the second parameter of the `client` object to replace the `<YOUR_DATABASE>` and `<YOUR_COLLECTION_OR_GRAPH>` strings. If you used the suggested values, the parameter should look like this code:
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
-    The entire `client` object should now look like this:
+    The entire `client` object should now look like this code:
 
     ```python
     client = client.Client('wss://test.graphs.azure.com:443/','g', 
@@ -146,7 +146,7 @@ Now go back to the Azure portal to get your connection information and copy it i
 
 4. In the Azure portal, use the copy button to copy the PRIMARY KEY and paste it over `<YOUR_PASSWORD>` in the `password=<YOUR_PASSWORD>` parameter.
 
-    The entire `client` object definition should now look like this:
+    The entire `client` object definition should now look like this code:
     ```python
     client = client.Client('wss://test.graphs.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
@@ -209,7 +209,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
     tech | java | 
 
     > [!NOTE]
-    > In this quickstart we create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
+    > In this quickstart create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
 
 6. Click **OK**. You may need to expand your screen to see **OK** on the bottom of the screen.
 
@@ -243,7 +243,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
    ![Two vertices connected in Data Explorer](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
 
-   That completes the resource creation part of this tutorial.You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
+   That completes the resource creation part of this tutorial. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
 
 ## Review SLAs in the Azure portal
 
