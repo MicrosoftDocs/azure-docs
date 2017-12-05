@@ -61,7 +61,7 @@ To set up a Machine Learning project, you have two options:
 - Associate an existing Machine Learning project with a Team Services Git repo
 
 ### Create a Machine Learning project that has a remote Git repo
-Open Machine Learning Workbench and create a new project. In the **Git repo** box, enter the Team Services Git repo URL from Step 2. It usually looks like this: https://\<Team Services account name\>.visualstudio.com/_git/\<project name\>`
+Open Machine Learning Workbench and create a new project. In the **Git repo** box, enter the Team Services Git repo URL from Step 2. It usually looks like this: https://\<Team Services account name\>.visualstudio.com/_git/\<project name\>
 
 ![Create a Machine Learning project that has a Git repo](media/using-git-ml-project/create_project_with_git_rep.png)
 
@@ -145,7 +145,7 @@ Now, you can safely restore the project to an earlier snapshot by completing Ste
 ## Authentication
 If you rely only on the run history functions in Machine Learning to take project snapshots and restore them, you don't need to worry about Git repo authentication. Authentication is handled by the Machine Learning Experimentation service layer.
 
-However, if you use your own Git tools to manage version control, you need to handle authentication against the remote Git repo in Team Services. In Machine Learning, the remote Git repo is added to the local repo as a Git remote by using HTTPS protocol. This means that when you issue Git commands (such as push or pull) to the remote, you need to provide your user name and password, or a personal access token. To create a personal access token in a Team Services Git repo, follow the instructions in [Use a personal access token to authenticate](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate).
+However, if you use your own Git tools to manage version control, you need to handle authentication against the remote Git repo in Team Services. In Machine Learning, the remote Git repo is added to the local repo as a Git remote by using the HTTPS protocol. This means that when you issue Git commands (such as push or pull) to the remote, you need to provide your user name and password, or a personal access token. To create a personal access token in a Team Services Git repo, follow the instructions in [Use a personal access token to authenticate](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate).
 
 ## Next steps
 - Learn how to [use the Team Data Science Process to organize your project structure](how-to-use-tdsp-in-azure-ml.md).
