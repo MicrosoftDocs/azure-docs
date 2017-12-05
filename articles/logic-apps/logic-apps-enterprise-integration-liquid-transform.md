@@ -36,8 +36,9 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 ## Create and add Liquid template or map to integration account
 
-1. Create the sample Liquid tempalte for this example. The .liquid file defines how to transform JSON input as described here:
+1. Create the sample Liquid template for this example. The .liquid file defines how to transform JSON input as described here:
 
+   ```
    {%- assign deviceList = content.devices | Split: ', ' -%}
     {
         "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
