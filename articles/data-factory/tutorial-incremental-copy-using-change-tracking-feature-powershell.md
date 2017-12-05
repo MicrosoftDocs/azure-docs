@@ -663,6 +663,7 @@ You performed the following steps in this tutorial:
 > [!div class="checklist"]
 > * Prepare the source data store
 > * Create a data factory.
+
 > * Create linked services. 
 > * Create source, sink, change tracking datasets.
 > * Create, run, and monitor the full copy pipeline
