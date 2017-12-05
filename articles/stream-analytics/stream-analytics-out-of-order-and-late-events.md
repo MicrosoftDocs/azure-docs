@@ -35,18 +35,18 @@ Azure Stream Analytics produces output in the time-stamp order and provides sett
 
 An Azure Stream Analytics job combines events from multiple timelines in cases like the following:
 
-* Producing output from multiple partitions. Queries that don't have an explicit **Partition by PartitionId** must combine events from all the partitions.
+* Producing output from multiple partitions. Queries that don't have an explicit **Partition by PartitionId** clause must combine events from all the partitions.
 * Union of two or more different input sources.
 * Joining input sources.
 
-In scenarios where multiple timelines are combined, Azure Stream Analytics produces output for time stamp *t1* only after all the sources that are combined are at least at time *t1*. For example, if the query reads from an *Event Hub* partition that has two partitions and one of the partition *P1* has events until time *t1* and other partition *P2* has events until time *t1 + x*, output is produced until time *t1*. But if there was an explicit **Partition by PartitionId** clause, both the partitions progress independently.
+In scenarios where multiple timelines are combined, Azure Stream Analytics produces output for time stamp *t1* only after all the sources that are combined are at least at time *t1*. For example, assume that the query reads from an event hub partition that has two partitions. One of the partitions, *P1*, has events until time *t1*. The other partition, *P2*, has events until time *t1 + x*. Output is then produced until time *t1*. But if there's an explicit **Partition by PartitionId** clause, both the partitions progress independently.
 
-The setting for late arrival tolerance is used to deal with absence of data in some partitions.
+The setting for late arrival tolerance is used to deal with the absence of data in some partitions.
 
 ## Configuring late arrival tolerance and out-of-order tolerance
 Input streams that are not in order are either:
-* Sorted (and therefore delayed).
-* Adjusted by the system, according to the user-specified policy.
+* Sorted (and therefore delayed)
+* Adjusted by the system, according to the user-specified policy
 
 Stream Analytics tolerates late and out-of-order events when you're processing by application time. The following settings are available in the **Event ordering** option in the Azure portal: 
 
@@ -74,10 +74,10 @@ When Stream Analytics reorders events that are received within the out-of-order 
 * Out-of-order tolerance = 3 minutes<br/>
 * Processing by application time<br/>
 * Events:
-   1. **Application Time** = 00:00:00, **Arrival Time** = 00:10:01, **System.Timestamp** = 00:00:01, adjusted because (**Arrival Time - Application Time**) is more than late arrival tolerance.
+   1. **Application Time** = 00:00:00, **Arrival Time** = 00:10:01, **System.Timestamp** = 00:00:01, adjusted because (**Arrival Time - Application Time**) is more than the late arrival tolerance.
    2. **Application Time** = 00:00:01, **Arrival Time** = 00:10:01, **System.Timestamp** = 00:00:01, not adjusted because application time is within the late arrival window.
    3. **Application Time** = 00:10:00, **Arrival Time** = 00:10:02, **System.Timestamp** = 00:10:00, not adjusted because application time is within the late arrival window.
-   4. **Application Time** = 00:09:00, **Arrival Time** = 00:10:03, **System.Timestamp** = 00:09:00, accepted with original time stamp as application time is within the out-of-order tolerance.
+   4. **Application Time** = 00:09:00, **Arrival Time** = 00:10:03, **System.Timestamp** = 00:09:00, accepted with the original time stamp because application time is within the out-of-order tolerance.
    5. **Application Time** = 00:06:00, **Arrival Time** = 00:10:04, **System.Timestamp** = 00:07:00, adjusted because application time is older than the out-of-order tolerance.
 
 ## Practical considerations
@@ -89,7 +89,7 @@ Reasons for out-of-order events within a stream include:
 
 Reasons for late arrival include:
 * Senders batching and sending the events for an interval later, after the interval.
-* Latency between sending the event by sender and receiving the event at input source.
+* Latency between sending the event by sender and receiving the event at the input source.
 
 When you're configuring late arrival tolerance and out-of-order tolerance for a specific job, consider correctness, latency requirements, and the preceding factors.
 
