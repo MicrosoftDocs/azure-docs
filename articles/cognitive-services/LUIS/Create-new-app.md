@@ -1,6 +1,6 @@
 ---
 title: Create a new app with LUIS | Microsoft Docs
-description: Create and manage your applications on the Language Understanding Intelligent Services (LUIS) webpage. 
+description: Create and manage your applications on the Language Understanding (LUIS) webpage. 
 services: cognitive-services
 author: cahann
 manager: hsalama
@@ -12,26 +12,35 @@ ms.date: 03/01/2017
 ms.author: cahann
 ---
 
-# Create a New App
-You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My Apps** on the top navigation bar of LUIS web page. 
-This article shows you how to create a LUIS app and use it as an example application to work on throughout the LUIS help topics.
+# Create an app
+The app is the container for your LUIS model. The app contains [versions](luis-how-to-manage-versions.md) of your model as well as any [collaborators](luis-how-to-collaborate.md) for the app. When you create the app, you select the culture. The culture cannot be changed. The default version of a new app is "0.1." 
 
-**To create a new app:**
+You can create a new app in two different ways. The first method to [create the app](#create-new-app) is to start with an empty app and create intents, utterances, and entities. The second method is to [import a LUIS app](#import-new-app) from a JSON file that contains intents, utterances, and entities. 
 
-1. On **My Apps** page, click **New App**.
+You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My apps** on the top navigation bar of [LUIS.ai](https://www.luis.ai) web page. 
+
+![List of apps](./media/luis-create-new-app/apps-list.png)
+
+## Create new app
+
+1. On **My Apps** page, click **Create new app**.
 2. In the dialog box, name your application "TravelAgent".
 
-    ![A new app form](./Images/NewApp-Form.JPG)
-3. Choose your application culture (for TravelAgent app, we’ll choose English), and then click **Create**. 
+    ![Create new app dialog](./media/luis-create-new-app/create-app.png)
+
+3. Choose your application culture (for TravelAgent app, we’ll choose English), and then click **Done**. 
 
     >[!NOTE]
     >The culture cannot be changed once the application is created. 
 
-LUIS creates the TravelAgent app and opens its main page which looks like the following screen. Use the navigation links in the left panel to move through your app pages to define data and work on your app. 
+## Import new app
+You can set the name (50 char max), version (10 char max), and description of an app in the JSON file. Examples of application JSON files are available at [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
 
-![TravelAgent app created and Opened](./Images/AppCreated_Opened.JPG)
+1. On **My Apps** page, click **Import new app**.
+2. In the **Import new app** dialog, select the JSON file defining the LUIS app.
 
+    ![Import a new app dialog](./media/luis-create-new-app/import-app.png)
 
 ## Next steps
 
-Your first task in the app is to add intents. For more info on how to add intents, see [Add intents](Add-intents.md).
+Your first task in the app is to [add intents](Add-intents.md).

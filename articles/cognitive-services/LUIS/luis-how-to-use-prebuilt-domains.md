@@ -2,31 +2,33 @@
 title: Use prebuilt domains in LUIS apps in Azure | Microsoft Docs
 description: Learn how to use prebuilt domains in Language Understanding Intelligent Service (LUIS) applications.
 services: cognitive-services
-author: cahann
+author: DeniseMak
 manager: hsalama
 
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 03/01/2017
-ms.author: cahann
+ms.date: 12/13/2017
+ms.author: v-demak
 ---
 
 # Use prebuilt domains in LUIS apps  
 
-LUIS provides *prebuilt domains*, which are prebuilt sets of [intents](Add-intents.md) and [entities](luis-concept-entity-types.md) that work together for domains or common categories of apps. 
-The prebuilt domains have been pre-trained and are ready for use. The intents and entities in a prebuilt domain are fully customizable once you've added them to your app - you can train them with utterances from your system so they work for your users.  You can use an entire prebuilt domain as a starting point for customization, or just borrow a few intents or entities from a domain for your application. 
+Language Understanding (LUIS) provides *prebuilt domains*, which are prebuilt sets of [intents](Add-intents.md) and [entities](luis-concept-entity-types.md) that work together for domains or common categories of client applications. 
+The prebuilt domains have been pre-trained and are ready for you to add to your LUIS app. The intents and entities in a prebuilt domain are fully customizable once you've added them to your app - you can train them with utterances from your system so they work for your users.  You can use an entire prebuilt domain as a starting point for customization, or just borrow a few intents or entities from a prebuilt domain. 
 
-Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click on the tile for a domain to add it to your app, or click on "learn more" in its tile to learn about its intents and entities.
+Browse the **Prebuilt domains** tab to see other prebuilt domains you can use in your app. Click on the tile for a domain to add it to your app, or click on **Learn more** in its tile to learn about its intents and entities.
 
 > [!TIP]
 > You can find a full listing of the prebuilt domains in the [Prebuilt domains reference](./luis-reference-prebuilt-domains.md).
 
 ![Add prebuilt domain](./media/luis-how-to-prebuilt-domain-entities/add-prebuilt-domain.png)
 
-Within a domain, look for individual intents and entities that you want to use.
 
-![Add prebuilt entity](./media/luis-how-to-prebuilt-domain-entities/select-prebuilt-domain-entities.png)
+## Add a prebuilt domain
+In the **Prebuilt domains** tab, find the RestaurantReservation domain and click **Add domain**. Once the prebuilt domain has been added to your LUIS app, open **Intents** and click on the RestaurantReservation.Reserve intent. You can see that many example utterances have already been provided and labeled with entities.
+
+![RestaurantReservation.Reserve intent](./media/luis-how-to-prebuilt-domain-entities/prebuilt-domain-restaurant-reservation.png)
 
 
 ## Designing LUIS apps from prebuilt domains
@@ -46,31 +48,14 @@ You might find that a prebuilt domain contains an intent that is similar to an i
 > Check out the Utilities domain for prebuilt intents that you can customize for use in any domain. 
 > For example, you can add `Utilities.Repeat` to your app and train it recognize whatever actions user might want to repeat in your application.
 
-## List of prebuilt domains
-LUIS offers 20 prebuilt domains. 
 
-| Prebuilt domain | Description |
-| ---------------- |-----------------------|
-| Calendar | The Calendar domain provides intent and entities for adding, deleting, or editing an appointment, checking participants availability, and finding information about a calendar event.|
-| Camera | The Camera domain provides intents and entities for taking pictures, recording videos, and broadcasting video to an application.|
-| Communication | Sending messages and making phone calls.|
-| Entertainment  | Handling queries related to music, movies, and TV.|
-| Events | Booking tickets for concerts, festivals, sports games and comedy shows.|
-| Fitness | Handling requests related to tracking fitness activities.|
-| Gaming | Handling requests related to a game party in a multiplayer game.|
-| HomeAutomation | Controlling smart home devices like lights and appliances.|
-| MovieTickets | Booking tickets to movies at a movie theater.|
-| Music | Playing music on a music player.|
-| Note | The Note domain provides intents and entities related to creating, editing, and finding notes.|
-| OnDevice | The OnDevice domain provides intents and entities related to controlling the device.|
-| Places  | Handling queries related to places like businesses, institutions, restaurants, public spaces, and addresses.|
-| Reminder | Handling requests related to creating, editing, and finding reminders.|
-| RestaurantReservation | Handling requests to manage restaurant reservations.|
-| Taxi | Handling bookings for a taxi.|
-| Translate | Translating text to a target language.|
-| TV | Controlling TVs.|
-| Utilities  | Handling requests that are common in many domains, like "help", "repeat", "start over."|
-| Weather | Getting weather reports and forecasts.|
-| Web | Navigating to a website.|
+## Next step
 
+Customize a prebuilt domain by adding more example utterances to it.
 
+> [!div class="nextstepaction"]
+> [Add example utterances](./Add-example-utterances.md)
+
+## Additional resources
+
+See the [Prebuilt domains reference](./luis-reference-prebuilt-domains.md) for more detail on the prebuilt domains.

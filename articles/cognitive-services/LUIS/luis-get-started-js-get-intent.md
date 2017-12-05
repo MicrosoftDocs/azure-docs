@@ -1,5 +1,5 @@
 ---
-title: Call a Language Understanding Intelligent Services (LUIS) app using Node.js | Microsoft Docs 
+title: Call a Language Understanding (LUIS) app using Node.js | Microsoft Docs 
 description: Learn to call a LUIS app using Node.js. 
 services: cognitive-services
 author: DeniseMak
@@ -8,13 +8,13 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 12/13/2017
 ms.author: v-demak
 ---
 
 # Call a LUIS app using JavaScript
 
-This quickstart shows you how to call your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use JavaScript code to pass utterances to a LUIS endpoint and get results.
+This quickstart shows you how to call your Language Understanding (LUIS) app in just a few minutes. When you're finished, you'll be able to use JavaScript code to pass utterances to a LUIS endpoint and get results.
 
 ## Before you begin
 You need a Cognitive Services API key to make calls to the sample LUIS app we use in this walkthrough. 
@@ -50,5 +50,5 @@ You can use JavaScript to access the same results you saw in the browser window 
 ![Popup that says TurnOn](./media/luis-get-started-node-get-intent/popup-turn-on.png)
 
 ## Next steps
-
-* See the [LUIS Endpoint API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) to learn more about the parameters for calling your LUIS endpoint.
+> [!div class="nextstepaction"]
+> [LUIS Endpoint API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)

@@ -8,25 +8,25 @@ manager: hsalama
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/30/2017
 ms.author: v-demak
 ---
-# Language Understanding Intelligent Services FAQ
+# Language Understanding FAQ
 
-This article contains answers to frequently asked questions about Language Understanding Intelligent Services (LUIS).
+This article contains answers to frequently asked questions about Language Understanding (LUIS).
 
 ## How do I interpret LUIS scores? 
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
 
 ## What is the maximum number of intents and entities that a LUIS app can support?
-A LUIS app can support up to 80 intents.
+A LUIS app can support up to 500 intents.
 
 Limits on entities depend on the entity type, as shown in the following table:
 | Type          | Limit | 
 | ------------- | ----- |
 | [Prebuilt entities](./Pre-builtEntities.md)   | No limit. | 
 | [List entities](./luis-concept-entity-types.md)     | 50 list entities. Each list can contain up to 20,000 items. | 
-| [Simple, hierarchical, and composite entities](./luis-concept-entity-types.md) | You can define up to 30 of these types of entities. A hierarchical entity can consist of up to 10 child entities. A composite entity can consist of up to 20 child entities. |
+| [Simple, hierarchical, and composite entities](./luis-concept-entity-types.md) | You can define up to 100 of these types of entities. A hierarchical entity can consist of up to 10 child entities. A composite entity can consist of up to 20 child entities. |
 
 ## I want to build a LUIS app with more than the maximum number of intents. What should I do?
 
@@ -58,8 +58,8 @@ If you've considered hierarchical, composite, and list entities and still need m
 ## What are the limits on the number and size of phrase lists?
 The maximum length of a [phrase list](./luis-concept-feature.md) is 5,000 items. You can use a maximum of 10 phrase lists per LUIS app.
 
-## What is the limit on the length of an utterance?
-The maximum length of an utterance is 500 characters.
+## What are the limits on example utterances?
+The maximum length of an utterance is 500 characters. You can have a maximum of 10,000 example utterances in your LUIS app.
 
 ## What is the best way to start building my app in LUIS?
 

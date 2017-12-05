@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Language Understanding Intelligent Service (LUIS) Documentation
+title: Language Understanding (LUIS) Documentation
 metadata:
   document_id: 
-  title: Language Understanding Intelligent Service (LUIS) - Tutorials, Quickstarts, API Reference
-  description: Learn how to use Language Understand Intelligent Service API to allow your application to understand what a person wants in their own words. 
+  title: Language Understanding (LUIS) - Tutorials, Quickstarts, API Reference
+  description: Learn how to use Language Understanding service to allow your application to understand what a person wants in their own words. 
   author: Kaiqb
   manager: carolz
   ms.service: cognitive-services
@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/10/2017
   ms.author: kamrani
 abstract:
-  description: Language Understanding Intelligent Service (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.
+  description: Language Understanding service (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -56,13 +56,13 @@ sections:
       - title: Authoring API
         values:
         - href:
-        - href: 
-        - href:
+        - href: luis-quickstart-cs-add-utterance
+        - href: luis-quickstart-java-add-utterance
         - href: 
         - href: luis-quickstart-node-add-utterance
         - href: luis-quickstart-python-add-utterance
-        - href:
-        - href: 
+        - href: luis-quickstart-php-add-utterance
+        - href: luis-quickstart-ruby-add-utterance
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

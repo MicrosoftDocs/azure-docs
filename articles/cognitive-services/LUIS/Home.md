@@ -1,6 +1,6 @@
 ---
-title: Learn about Language Understanding Intelligent Service (LUIS) in Azure | Microsoft Docs 
-description: Learn how to use Language Understanding Intelligent Service (LUIS) to bring the power of machine learning to your applications.
+title: About Language Understanding (LUIS) in Azure | Microsoft Docs 
+description: Learn how to use Language Understanding (LUIS) to bring the power of machine learning to your applications.
 services: cognitive-services
 author: cahann
 manager: hsalama
@@ -12,9 +12,9 @@ ms.date: 03/01/2017
 ms.author: cahann
 ---
 
-# Learn about Language Understanding Intelligent Service (LUIS)
+# About Language Understanding (LUIS)
 
-Language Understanding Intelligent Service (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it. A client application that converses with the user can pass user input to a LUIS app and receive relevant, detailed information back.
+Language Understanding (LUIS) allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it. A client application that converses with the user can pass user input to a LUIS app and receive relevant, detailed information back.
 
 Several Microsoft technologies work with LUIS:
 
@@ -29,7 +29,7 @@ A model starts with a list of general user intentions such as "Book Flight" or "
 
 [Pre-built domain models][pre-built-domains] include all these pieces for you and are a great way to start using LUIS quickly.
 
-After the model is designed, trained, and published, it is ready to receive and process utterances. The LUIS app receives the utterance as an HTTP request and responds with extracted user intentions. Your client application sends the utterance and receives LUIS's evaluation as a JSON object. Your app can then take appropriate action.
+After the model is designed, trained, and published, it is ready to receive and process utterances. The LUIS app receives the utterance as an HTTP request and responds with extracted user intentions. Your client application sends the utterance and receives LUIS's evaluation as a JSON object. Your client app can then take appropriate action.
 
 ![LUIS recognizes user intent](./media/luis-overview/luis-overview-process.png)
 
@@ -47,7 +47,7 @@ After the model is designed, trained, and published, it is ready to receive and 
 
 ## Accessing LUIS
 
-LUIS has two ways to build a model: the [Authoring APIs][authoring-apis] and the [LUIS.ai][luis.ai] web app. Both methods give you and your collaborators control of your LUIS model definition. You can use either [LUIS.ai][luis.ai] or the Authoring APIs or a combination of both to build your model. This includes management of: models, versions, collaborators, external APIs, testing, and training. 
+LUIS has two ways to build a model: the [Authoring APIs][authoring-apis] and the [LUIS.ai][luis.ai] web app. Both methods give you and your collaborators control of your LUIS model definition. You can use either [LUIS.ai][luis.ai] or the Authoring APIs or a combination of both to build your model. This management includes models, versions, collaborators, external APIs, testing, and training. 
 
 Once your model is built and published, you pass the utterance to LUIS and receive the JSON object results with the [Endpoint APIs][endpoint-apis].
 
@@ -56,7 +56,7 @@ Once your model is built and published, you pass the utterance to LUIS and recei
 > * The Endpoint APIs use the LUIS subscription key found in the [Azure portal][azure-portal].
 
 ## Author your LUIS model 
-Begin your LUIS model with the intents your app will resolve. Intents are just names such as "BookFlight" or "OrderPizza." 
+Begin your LUIS model with the intents your client app can resolve. Intents are just names such as "BookFlight" or "OrderPizza." 
 
 After an intent is identified, you need [sample utterances][add-example-utterances] that you want LUIS to map to your intent such as "Buy a ticket to Seattle tomorrow." Then, [label][label-suggested-utterances] the parts of the utterance that are relevant to your app domain as entities and set a type such as date or location.
 
@@ -67,21 +67,19 @@ For example, a "BookFlight" intent could trigger an API call to an external serv
 ### Identify Entities  
 [Entity][luis-concept-entity-types] identification determines how successfully the end user gets the correct answer. LUIS provides several ways to identify and categorize entities.
 
-* **Prebuilt Entities** LUIS has many prebuilt domain models which include intents, utterances, and [prebuilt entities][pre-built-entities]. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
+* **Prebuilt Entities** LUIS has many prebuilt domain models including intents, utterances, and [prebuilt entities][pre-built-entities]. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
 
 * **Custom Entities** LUIS gives you several ways to identify your own custom [entities][entity-concept] including simple entities, composite entities, list entities, and hierarchical entities.
 
-* **Regular Expressions and Phrase Features** LUIS provides [features](luis-concept-feature.md) such as regular expression patterns and phrase lists, which also help identify entities. 
+* **Phrases** LUIS provides [phrase lists](luis-concept-feature.md), which also help identify entities. 
 
-## Improve performance using active learning
-Once your application is [published][publish-app] and real user utterances are entered, LUIS uses [active learning][label-suggested-utterances] to improve identification. In the active learning process, LUIS identifies the utterances that it is relatively unsure of. You can label them according to intent and entities, retrain, and republish.
+## Improve performance
+Once your application is [published][publish-app] and real user utterances are entered, LUIS uses [active learning][label-suggested-utterances] to improve identification. In the active learning process, LUIS provides real utterances that it is relatively unsure of for you to review. You can label them according to intent and entities, retrain, and republish.
 
 This iterative process has tremendous advantages. LUIS knows what it is unsure of, and your help leads to the maximum improvement in system performance. LUIS learns quicker, and takes the minimum amount of your time and effort. LUIS is an active machine learning at its best. 
 
 ## Next steps
 Create a [new LUIS app](LUIS-get-started-create-app.md).
-
-Watch this short [video tutorial][intro-video] on these steps.
 
 <!-- Reference-style links -->
 [create-app]:luis-get-started-create-app.md
@@ -94,7 +92,7 @@ Watch this short [video tutorial][intro-video] on these steps.
 [pre-built-domains]: luis-how-to-use-prebuilt-domains.md
 [label-suggested-utterances]: label-suggested-utterances.md
 [intro-video]:https://aka.ms/LUIS-Intro-Video
-[bot-framework]:https://docs.microsoft.com/en-us/bot-framework/
+[bot-framework]:https://docs.microsoft.com/bot-framework/
 [speech]:../Speech/index.md
 [flow]:https://docs.microsoft.com/connectors/luis/
 [entity-concept]:luis-concept-entity-types.md
