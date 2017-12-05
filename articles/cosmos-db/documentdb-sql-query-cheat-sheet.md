@@ -21,6 +21,8 @@ ms.author: mimig
 # Azure Cosmos DB: DocumentDB API SQL query cheat sheet PDF
 The **Azure Cosmos DB: DocumentDB API SQL Query Cheat Sheet** helps you quickly write queries for DocumentDB API data by displaying common database queries, keywords, built-in functions, and operators in an easy to print PDF reference sheet. 
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Cosmos DB supports relational, hierarchical,  and spatial querying of JSON documents using [SQL](documentdb-sql-query.md) without specifying a schema or secondary indexes. In addition to the standard ANSI-SQL keywords and operators, Cosmos DB supports JavaScript user defined functions (UDFs), JavaScript operators, and a multitude of built-in functions.
 
 ## Download the Cosmos DB SQL query cheat sheet PDF

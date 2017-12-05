@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB .NET SDK & Resources | Microsoft Docs
-description: Learn all about the .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
+title: 'Azure Cosmos DB: SQL .NET API, SDK & resources | Microsoft Docs'
+description: Learn all about the SQL .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -18,7 +18,7 @@ ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
 ---
-# Azure Cosmos DB .NET SDK: Download and release notes
+# Azure Cosmos DB .NET SDK for SQL API: Download and release notes
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -31,6 +31,8 @@ ms.custom: H1Hack27Feb2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -83,7 +85,7 @@ ms.custom: H1Hack27Feb2017
 *	Added support for specifying custom JsonSerializerSettings while instantiating [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="1.14.1"/>1.14.1
-*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running Azure Cosmos DB DocumentDB API queries.
+*	Fixed an issue that affected x64 machines that don’t support SSE4 instruction and throw an SEHException when running Azure Cosmos DB SQL queries.
 
 ### <a name="1.14.0"/>1.14.0
 *	Added support for a new consistency level called ConsistentPrefix.

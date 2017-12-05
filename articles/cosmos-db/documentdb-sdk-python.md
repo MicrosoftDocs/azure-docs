@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB Python API, SDK & Resources | Microsoft Docs
-description: Learn all about the Python API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Python SDK.
+title: 'Azure Cosmos DB: SQL Python API, SDK & resources | Microsoft Docs'
+description: Learn all about the SQL Python API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Python SDK.
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -18,7 +18,7 @@ ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
 ---
-# Azure Cosmos DB Python SDK: Release notes and resources
+# Azure Cosmos DB Python SDK for SQL API: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -31,6 +31,8 @@ ms.custom: H1Hack27Feb2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -123,7 +125,7 @@ New features and functionality and optimizations are only added to the current S
 Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 > [!WARNING]
-> All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** will be retired on **February 29, 2016**. 
+> All versions of the Azure SQL SDK for Python prior to version **1.0.0** were retired on **February 29, 2016**. 
 > 
 > 
 

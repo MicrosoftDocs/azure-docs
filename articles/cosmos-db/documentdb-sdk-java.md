@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: DocumentDB Java API, SDK & Resources | Microsoft Docs'
-description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB DocumentDB Java SDK.
+title: 'Azure Cosmos DB: SQL Java API, SDK & resources | Microsoft Docs'
+description: Learn all about the SQL Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Java SDK.
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -18,7 +18,7 @@ ms.author: khdang
 ms.custom: H1Hack27Feb2017
 
 ---
-# Azure Cosmos DB: DocumentDB Java SDK release notes and resources
+# Azure Cosmos DB Java SDK for SQL API: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET Change Feed](documentdb-sdk-dotnet-changefeed.md)
@@ -31,6 +31,8 @@ ms.custom: H1Hack27Feb2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -170,7 +172,7 @@ New features and functionality and optimizations are only added to the current S
 Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 > [!WARNING]
-> All versions of the DocumentDB SDK for Java prior to version **1.0.0** will be retired on **February 29, 2016**.
+> All versions of the SQL SDK for Java prior to version **1.0.0** were retired on **February 29, 2016**.
 > 
 > 
 

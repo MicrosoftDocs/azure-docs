@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Develop with the DocumentDB API in .NET | Microsoft Docs'
-description: Learn how to develop with Azure Cosmos DB's DocumentDB API using .NET
+title: 'Azure Cosmos DB: Develop with the SQL API in .NET | Microsoft Docs'
+description: Learn how to develop with Azure Cosmos DB's SQL API using .NET
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -19,13 +19,15 @@ ms.author: mimig
 ms.custom: mvc
 ---
 
-# Azure CosmosDB: Develop with the DocumentDB API in .NET
+# Azure CosmosDB: Develop with the SQL API in .NET
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal, and then create a document database and collection with a [partition key](documentdb-partition-data.md#partition-keys) using the [DocumentDB .NET API](documentdb-introduction.md). By defining a partition key when you create a collection, your application is prepared to scale effortlessly as your data grows. 
+This tutorial demonstrates how to create an Azure Cosmos DB account using the Azure portal, and then create a document database and collection with a [partition key](documentdb-partition-data.md#partition-keys) using the [SQL .NET API](documentdb-introduction.md). By defining a partition key when you create a collection, your application is prepared to scale effortlessly as your data grows. 
 
-This tutorial covers the following tasks by using the [DocumentDB .NET API](documentdb-sdk-dotnet.md):
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+This tutorial covers the following tasks by using the [SQL .NET API](documentdb-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * Create an Azure Cosmos DB account
@@ -76,7 +78,7 @@ Let's start by creating an Azure Cosmos DB account in the Azure portal.
     If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
 
 ## <a id="Connect"></a>Add references to your project
-The remaining steps in this tutorial provide the DocumentDB API code snippets required to create and update Azure Cosmos DB resources in your project.
+The remaining steps in this tutorial provide the SQL API code snippets required to create and update Azure Cosmos DB resources in your project.
 
 First, add these references to your application.
 <!---These aren't added by default when you install the pkg?--->
@@ -116,7 +118,7 @@ DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
 ## <a id="create-database"></a>Create a database
 
-Next, create an Azure Cosmos DB [database](documentdb-resources.md#databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method or [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) method of the **DocumentClient** class from the [DocumentDB .NET SDK](documentdb-sdk-dotnet.md). A database is the logical container of JSON document storage partitioned across collections.
+Next, create an Azure Cosmos DB [database](documentdb-resources.md#databases) by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method or [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) method of the **DocumentClient** class from the [SQL .NET SDK](documentdb-sdk-dotnet.md). A database is the logical container of JSON document storage partitioned across collections.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -256,7 +258,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## Parallel query execution
-The Azure Cosmos DB DocumentDB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
+The Azure Cosmos DB SQL SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
 
 ```csharp
 // Cross-partition Order By queries
@@ -272,7 +274,7 @@ You can manage parallel query execution by tuning the following parameters:
 * By setting `MaxDegreeOfParallelism`, you can control the degree of parallelism i.e., the maximum number of simultaneous network connections to the collection's partitions. If you set this to -1, the degree of parallelism is managed by the SDK. If the `MaxDegreeOfParallelism` is not specified or set to 0, which is the default value, there will be a single network connection to the collection's partitions.
 * By setting `MaxBufferedItemCount`, you can trade off query latency and client-side memory utilization. If you omit this parameter or set this to -1, the number of items buffered during parallel query execution is managed by the SDK.
 
-Given the same state of the collection, a parallel query will return results in the same order as in serial execution. When performing a cross-partition query that includes sorting (ORDER BY and/or TOP), the DocumentDB SDK issues the query in parallel across partitions and merges partially sorted results in the client side to produce globally ordered results.
+Given the same state of the collection, a parallel query will return results in the same order as in serial execution. When performing a cross-partition query that includes sorting (ORDER BY and/or TOP), the SQL SDK issues the query in parallel across partitions and merges partially sorted results in the client side to produce globally ordered results.
 
 ## Execute stored procedures
 Lastly, you can execute atomic transactions against documents with the same device ID, e.g. if you're maintaining aggregates or the latest state of a device in a single document by adding the following code to your project.

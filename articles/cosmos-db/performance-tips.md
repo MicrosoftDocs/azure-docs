@@ -21,6 +21,8 @@ ms.author: mimig
 # Performance tips for Azure Cosmos DB
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Cosmos DB. Scaling up and down is as easy as making a single API call or [SDK method call](set-throughput.md#set-throughput-sdk). However, because Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance.
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 So if you're asking "How can I improve my database performance?" consider the following options:
 
 ## Networking

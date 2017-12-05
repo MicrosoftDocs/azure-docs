@@ -24,6 +24,8 @@ ms.custom: H1Hack27Feb2017
 > The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new DocumentDB API accounts.
 >
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 This article provides an overview of S1, S2, and S3 performance levels, and discusses how the collections that use these performance levels will be migrated to single partition collections late in 2017. After reading this article, you'll be able to answer the following questions:
 
 - [Why are the S1, S2, and S3 performance levels being retired?](#why-retired)

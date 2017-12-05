@@ -31,6 +31,8 @@ ms.author: arramac
 
 Welcome to the NoSQL tutorial for the DocumentDB API for Azure Cosmos DB Java SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 We cover:
 
 * Creating and connecting to an Azure Cosmos DB account

@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB global distribution tutorial for DocumentDB API | Microsoft Docs
-description: Learn how to setup Azure Cosmos DB global distribution using the DocumentDB API.
+title: Azure Cosmos DB global distribution tutorial for the SQL API | Microsoft Docs
+description: Learn how to setup Azure Cosmos DB global distribution using the SQL API.
 services: cosmos-db
 keywords: global distribution, documentdb
 documentationcenter: ''
@@ -18,25 +18,27 @@ ms.date: 05/10/2017
 ms.author: mimig
 
 ---
-# How to setup Azure Cosmos DB global distribution using the DocumentDB API
+# How to setup Azure Cosmos DB global distribution using the SQL API
 
-In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the DocumentDB API.
+In this article, we show how to use the Azure portal to setup Azure Cosmos DB global distribution and then connect using the SQL API.
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 This article covers the following tasks: 
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the [DocumentDB APIs](documentdb-introduction.md)
+> * Configure global distribution using the [SQL APIs](documentdb-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## Connecting to a preferred region using the DocumentDB API
+## Connecting to a preferred region using the SQL API
 
-In order to take advantage of [global distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the DocumentDB SDK to perform write and read operations.
+In order to take advantage of [global distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SQL SDK to perform write and read operations.
 
-This preference list is specified when initializing a connection using the DocumentDB SDKs. The SDKs accept an optional parameter "PreferredLocations" that is an ordered list of Azure regions.
+This preference list is specified when initializing a connection using the SQL SDKs. The SDKs accept an optional parameter "PreferredLocations" that is an ordered list of Azure regions.
 
 The SDK will automatically send all writes to the current write region.
 
@@ -165,7 +167,7 @@ In this tutorial, you've done the following:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the DocumentDB APIs
+> * Configure global distribution using the SQL APIs
 
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 

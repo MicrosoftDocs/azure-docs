@@ -30,6 +30,8 @@ ms.custom: H1Hack27Feb2017
 
 This tutorial shows you how to use Azure Cosmos DB to store and access data from a Python Flask web application hosted on Azure App Service. This tutorial presumes that you have some prior experience using Python and Azure websites.
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 This database tutorial covers:
 
 1. Creating and provisioning an Azure Cosmos DB account.

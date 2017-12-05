@@ -31,6 +31,8 @@ ms.author: aasthan
 
 Welcome to the C++ tutorial for the Azure Cosmos DB DocumentDB API endorsed SDK for C++! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources, including a C++ database.
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 We'll cover:
 
 * Creating and connecting to an Azure Cosmos DB account

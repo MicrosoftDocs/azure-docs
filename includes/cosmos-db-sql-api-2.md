@@ -1,1 +1,0 @@
-The DocumentDB API is now known as the SQL API. The Azure portal and other assets are being updated to standardize on the SQL API name. The change reflects the multimodel capabilities of Azure Cosmos DB, as opposed to the single document model previously available through Azure DocumentDB. 

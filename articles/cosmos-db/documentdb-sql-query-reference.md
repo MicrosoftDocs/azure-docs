@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB DocumentDB API: SQL syntax | Microsoft Docs"
-description: Reference documentation for the Azure Cosmos DB DocumentDB API SQL query language.
+title: "Azure Cosmos DB: SQL syntax query reference | Microsoft Docs"
+description: Reference documentation for the Azure Cosmos DB SQL query language.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -18,11 +18,13 @@ ms.author: mimig
 
 ---
 
-# Azure Cosmos DB DocumentDB API: SQL syntax reference
+# Azure Cosmos DB SQL syntax reference
 
-The Azure Cosmos DB DocumentDB API supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This topic provides reference documentation for the DocumentDB API SQL query language.
+Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This topic provides reference documentation for the SQL query language, which is compatible with SQL API accounts.
 
-For a walkthrough of the DocumentDB API SQL query language, see [SQL queries for Azure Cosmos DB DocumentDB API](documentdb-sql-query.md).  
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+For a walkthrough of the SQL query language, see [SQL queries for Azure Cosmos DB](documentdb-sql-query.md).  
   
 We also invite you to visit the [Query Playground](http://www.documentdb.com/sql/demo) where you can try Azure Cosmos DB and run SQL queries against our dataset.  
   
@@ -661,7 +663,7 @@ ORDER BY <sort_specification>
   
      **Syntax conventions**  
   
-     The following table describes the conventions used to describe syntax in the DocumentDB API Query Language reference.  
+     The following table describes the conventions used to describe syntax in the following SQL reference.  
   
     |**Convention**|**Used for**|  
     |-|-|    

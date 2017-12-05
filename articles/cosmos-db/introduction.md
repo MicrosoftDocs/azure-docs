@@ -22,6 +22,8 @@ ms.custom: mvc
 
 Azure Cosmos DB is Microsoft's globally distributed, multi-model database. With the click of a button, Azure Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure's geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive [service level agreements](https://aka.ms/acdbsla) (SLAs), something no other database service can offer. You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 ![Azure Cosmos DB is Microsoft's globally distributed database service with elastic scale-out, guaranteed low latency, five consistency models, and comprehensive guaranteed SLAs](./media/introduction/azure-cosmos-db.png)
 
 > [!div class="nextstepaction"]
@@ -37,7 +39,7 @@ As a globally distributed database service, Azure Cosmos DB provides the followi
 * **Multiple data models and popular APIs for accessing and querying data**
     * The atom-record-sequence (ARS) based data model that Azure Cosmos DB is built on natively supports multiple data models, including but not limited to document, graph, key-value, table, and columnar data models.
     * APIs for the following data models are supported with SDKs available in multiple languages:
-        * [DocumentDB API](documentdb-introduction.md): A schema-less JSON database engine with SQL querying capabilities.
+        * [SQL API](documentdb-introduction.md): A schema-less JSON database engine with SQL querying capabilities.
         * [MongoDB API](mongodb-introduction.md): A MongoDB database service built on top of Cosmos DB. Compatible with existing MongoDB libraries, drivers, tools and applications.
         * [Table API](table-introduction.md): A key-value database service built to provide premium capabilities for Azure Table storage applications.
         * [Graph (Gremlin) API](graph-introduction.md): A graph database service built following the [Apache TinkerPop specification](http://tinkerpop.apache.org/).
@@ -92,7 +94,7 @@ Any [web, mobile, gaming, and IoT applications](use-cases.md) that need to handl
 ## Next steps
 Get started with Azure Cosmos DB with one of our quickstarts:
 
-* [Get started with Azure Cosmos DB's DocumentDB API](create-documentdb-dotnet.md)
+* [Get started with Azure Cosmos DB's SQL API](create-documentdb-dotnet.md)
 * [Get started with Azure Cosmos DB's MongoDB API](create-mongodb-nodejs.md)
 * [Get started with Azure Cosmos DB's Graph API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB's Table API](create-table-dotnet.md)

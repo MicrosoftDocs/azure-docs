@@ -26,6 +26,8 @@ Azure Cosmos DB provides a [SQL API for querying data](documentdb-sql-query.md),
 * Tips and best practices for query performance
 * Examples of how to utilize SQL execution statistics to debug query performance
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 ## About SQL query execution
 
 In Azure Cosmos DB, you store data in containers, which can grow to any [storage size or request throughput](partition-data.md). Azure Cosmos DB seamlessly scales data across physical partitions under the covers to handle data growth or increase in provisioned throughput. You can issue SQL queries to any container using the REST API or one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md).

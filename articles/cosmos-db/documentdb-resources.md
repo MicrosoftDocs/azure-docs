@@ -22,6 +22,8 @@ ms.custom: H1Hack27Feb2017
 # Azure Cosmos DB hierarchical resource model and core concepts
 The database entities that Azure Cosmos DB manages are referred to as **resources**. Each resource is uniquely identified by a logical URI. You can interact with the resources using standard HTTP verbs, request/response headers and status codes. 
 
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 By reading this article, you'll be able to answer the following questions:
 
 * What is Azure Cosmos DB's resource model?
@@ -34,7 +36,7 @@ By reading this article, you'll be able to answer the following questions:
 As the following diagram illustrates, the Azure Cosmos DB hierarchical **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources will be referred to as a **feed** in this article. 
 
 > [!NOTE]
-> Azure Cosmos DB offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the [DocumentDB .NET client API](documentdb-sdk-dotnet.md).
+> Azure Cosmos DB offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the [SQL .NET client API](documentdb-sdk-dotnet.md).
 > 
 > 
 
@@ -52,7 +54,7 @@ To start working with resources, you must [create a database account](create-doc
 | Collection |A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](performance-levels.md) is determined by the performance level associated with the collection. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput. |
 | Stored Procedure |Application logic written in JavaScript which is registered with a collection and transactionally executed within the database engine. |
 | Trigger |Application logic written in JavaScript executed before or after either an insert, replace or delete operation. |
-| UDF |Application logic written in JavaScript. UDFs enable you to model a custom query operator and thereby extend the core DocumentDB API query language. |
+| UDF |Application logic written in JavaScript. UDFs enable you to model a custom query operator and thereby extend the core SQL API query language. |
 | Document |User defined (arbitrary) JSON content. By default, no schema needs to be defined nor do secondary indices need to be provided for all the documents added to a collection. |
 | Attachment |An attachment is a special document containing references and associated metadata for external blob/media. The developer can choose to have the blob managed by Cosmos DB or store it with an external blob service provider such as OneDrive, Dropbox, etc. |
 
@@ -189,7 +191,7 @@ The indexing policy of each collection allows you to make performance and storag
 The indexing policy can be changed by executing a PUT on the collection. This can be achieved either through the [client SDK](documentdb-sdk-dotnet.md), the [Azure Portal](https://portal.azure.com) or the [REST APIs](/rest/api/documentdb/).
 
 ### Querying a collection
-The documents within a collection can have arbitrary schemas and you can query documents within a collection without providing any schema or secondary indices upfront. You can query the collection using the [Azure Cosmos DB DocumentDB API: SQL syntax reference](https://msdn.microsoft.com/library/azure/dn782250.aspx), which provides rich hierarchical, relational, and spatial operators and extensibility via JavaScript-based UDFs. JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes. This is exploited both by DocumentDB API’s automatic indexing techniques as well as DocumentDB API's SQL dialect. The DocumetDB API query language consists of three main aspects:   
+The documents within a collection can have arbitrary schemas and you can query documents within a collection without providing any schema or secondary indices upfront. You can query the collection using the [Azure Cosmos DB SQL syntax reference](https://msdn.microsoft.com/library/azure/dn782250.aspx), which provides rich hierarchical, relational, and spatial operators and extensibility via JavaScript-based UDFs. JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes. This is exploited both by SQL API’s automatic indexing techniques as well as Azure Cosmos DB's SQL dialect. The SQL query language consists of three main aspects:   
 
 1. A small set of query operations that map naturally to the tree structure including hierarchical queries and projections. 
 2. A subset of relational operations including composition, filter, projections, aggregates and self joins. 
@@ -198,7 +200,7 @@ The documents within a collection can have arbitrary schemas and you can query d
 The Azure Cosmos DB query model attempts to strike a balance between functionality, efficiency and simplicity. The Azure Cosmos DB database engine natively compiles and executes the SQL query statements. You can query a collection using the [REST APIs](/rest/api/documentdb/) or any of the [client SDKs](documentdb-sdk-dotnet.md). The .NET SDK comes with a LINQ provider.
 
 > [!TIP]
-> You can try out the DocumentDB API and run SQL queries against our dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
+> You can try out the SQL API and run SQL queries against our dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 > 
 > 
 
@@ -270,7 +272,7 @@ Notice that because the database natively understands JSON and JavaScript, there
 
 Stored procedures and triggers interact with a collection and the documents in a collection through a well-defined object model, which exposes the current collection context.  
 
-Collections in the DocumentDB API can be created, deleted, read or enumerated easily using either the [REST APIs](/rest/api/documentdb/) or any of the [client SDKs](documentdb-sdk-dotnet.md). The DocumentDB API always provides strong consistency for reading or querying the metadata of a collection. Deleting a collection automatically ensures that you cannot access any of the documents, attachments, stored procedures, triggers, and UDFs contained within it.   
+Collections in the SQL API can be created, deleted, read or enumerated easily using either the [REST APIs](/rest/api/documentdb/) or any of the [client SDKs](documentdb-sdk-dotnet.md). The SQL API always provides strong consistency for reading or querying the metadata of a collection. Deleting a collection automatically ensures that you cannot access any of the documents, attachments, stored procedures, triggers, and UDFs contained within it.   
 
 ## Stored procedures, triggers and User Defined Functions (UDF)
 As described in the previous section, you can write application logic to run directly within a transaction inside of the database engine. The application logic can be written entirely in JavaScript and can be modeled as a stored procedure, trigger or a UDF. The JavaScript code within a stored procedure or a trigger can insert, replace, delete, read or query documents within a collection. On the other hand, the JavaScript within a UDF cannot insert, replace, or delete documents. UDFs enumerate the documents of a query's result set and produce another result set. For multi-tenancy, Azure Cosmos DB enforces a strict reservation based resource governance. Each stored procedure, trigger or a UDF gets a fixed quantum of operating system resources to do its work. Furthermore, stored procedures, triggers or UDFs cannot link against external JavaScript libraries and are blacklisted if they exceed the resource budgets allocated to them. You can register, unregister stored procedures, triggers or UDFs with a collection by using the REST APIs.  Upon registration a stored procedure, trigger, or a UDF is pre-compiled and stored as byte code which gets executed later. The following section illustrate how you can use the Azure Cosmos DB JavaScript SDK to register, execute, and unregister a stored procedure, trigger, and a UDF. The JavaScript SDK is a simple wrapper over the [REST APIs](/rest/api/documentdb/). 
@@ -381,7 +383,7 @@ Registration of a UDF is done by creating a new UDF resource on a collection via
         });
 
 ### Executing a UDF as part of the query
-A UDF can be specified as part of the SQL query and is used as a way to extend the core [SQL query language for the DocumentDB API](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+A UDF can be specified as part of the SQL query and is used as a way to extend the core [SQL query language](documentdb-sql-query-reference.md).
 
     var filterQuery = "SELECT udf.mathSqrt(r.Age) AS sqrtAge FROM root r WHERE r.FirstName='John'";
     client.queryDocuments(collection._self, filterQuery).toArrayAsync();
