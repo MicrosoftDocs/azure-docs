@@ -14,7 +14,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 12/04/2017
 ms.author: gwallace
 ---
 
@@ -86,7 +86,7 @@ Azure Storage Explorer provides the capability to take and manage [snapshots](st
 
 ## Manage access policies
 
-Storage Explorer provides the ability to manage access policies for containers within its user interface. Right-click any container and select **Manage Access Policies...**.
+Storage Explorer provides the ability to manage access policies for containers within its user interface. There are two types of secure access policies (SAS), service level and account level. Account level SAS targets the storage account and can apply to multiple services and resources. Service level SAS are defined on a resource under a particular service. To generate a service level SAS, right-click any container and select **Manage Access Policies...**. To generate an account level SAS, right-click on the storage account.
 
 Select **Add** to add a new access policy and define the permissions for the policy. When complete select **Save** to save the access policy. This policy is now available for use when configuring a Shared Access Signature.
 
