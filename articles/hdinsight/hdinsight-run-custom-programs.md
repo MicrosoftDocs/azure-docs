@@ -1,6 +1,6 @@
 ---
-title: Run custom programs - Azure HDInsight | Microsoft Docs
-description: How to run custom map/reduce programs in HDInsight.
+title: Run custom map/reduce programs - Azure HDInsight | Microsoft Docs
+description: When and how to run custom map/reduce programs in HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: ashishthaps
@@ -18,7 +18,7 @@ ms.date: 12/04/2017
 ms.author: ashishth
 
 ---
-# Run custom programs
+# Run custom map/reduce programs
 
 Hadoop-based big data systems such as HDInsight enable data processing using a wide range of tools and technologies. The following table describes the main advantages and considerations for each one.
 
