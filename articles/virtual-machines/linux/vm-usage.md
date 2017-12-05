@@ -113,7 +113,7 @@ The region name populated in the Resource Location field in the usage details va
 ### What resources are charged when deploying a VM?    
 VMs acquire costs for the VM itself, any premium software running on the VM, the storage account\managed disk associated with the VM, and the networking bandwidth transfers from the VM.
 ### How can I tell if a VM is using Azure Hybrid Benefit in the Usage CSV?
-If you deploy using the [Azure Hybrid Benefit](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/), you are charged the Non-Windows VM rate since you are bringing your own license to the cloud. In your bill, you can distinguish which Resource Manager VMs are running Azure Hybrid Benefit because they have either “Windows\_Server BYOL” or “Windows\_Client BYOL” in the ImageType column.
+If you deploy using the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), you are charged the Non-Windows VM rate since you are bringing your own license to the cloud. In your bill, you can distinguish which Resource Manager VMs are running Azure Hybrid Benefit because they have either “Windows\_Server BYOL” or “Windows\_Client BYOL” in the ImageType column.
 ### How are Basic vs. Standard VM Types differentiated in the Usage CSV?
 Both Basic and Standard A-Series VMs are offered. If you deploy a Basic VM, in the Meter Sub Category, it has the string “Basic.” If you deploy a Standard A-Series VM, then the VM size appears as “A1 VM” since Standard is the default. To learn more about the differences between Basic and Standard, see the [Pricing Page](https://azure.microsoft.com/pricing/details/virtual-machines/).
 ### What are ExtraSmall, Small, Medium, Large, and ExtraLarge sizes?
