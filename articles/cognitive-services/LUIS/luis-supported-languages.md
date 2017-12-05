@@ -23,24 +23,28 @@ If you need a multi-language LUIS client application such as a chat bot, you hav
 LUIS understands utterances in the following languages:
 
 
-| Language |Locale  |  Prebuilt entity support | Notes |
+| Language |Locale  |  Prebuilt entity | Phrase suggestions |
 | ------- |------|  :------: | ------- |
-| American English |`en-US` | ✔  ||
-| Canadian French |`fr-CA` |   -   ||
-| French (France) |`fr-FR` | ✔ | |
-| Italian |`it-IT` | ✔ ||
-| Dutch |`nl-NL` |  -   ||
-| German |`de-DE` | ✔ | Support for the **datetimeV2** prebuilt entity is expected in late December 2017.|
-| Spanish (Spain) |`es-ES` | ✔ ||
-| Spanish (Mexico)|`es-MX` |  -   ||
-| Portuguese (Brazil) |`pt-BR` | ✔ | Support for the **datetimeV2** prebuilt entity is expected in late December 2017.|
-| Japanese |`ja-JP` | ✔ ||
-| Korean |`ko-KR` |   -   ||
-| Chinese |`zh-CN` | ✔ | See [Chinese notes](#chinese-support-notes)|
+| American English |`en-US` | ✔  |✔|
+| Canadian French |`fr-CA` |   -   |-|
+| French (France) |`fr-FR` | ✔ |✔ |
+| Italian |`it-IT` | ✔ |✔|
+| Dutch |`nl-NL` |  -   |-|
+| *[German](#prebuilt-entity-support-for-datetimev2) |`de-DE` | ✔ |✔ |
+| Spanish (Spain) |`es-ES` | ✔ |✔|
+| Spanish (Mexico)|`es-MX` |  -   |✔|
+| *[Portuguese](#prebuilt-entity-support-for-datetimev2) (Brazil) |`pt-BR` | ✔ |✔ |
+| Japanese |`ja-JP` | ✔ |✔|
+| Korean |`ko-KR` |   -   |-|
+| **[Chinese notes](#chinese-support-notes) |`zh-CN` | ✔ |✔|
 
 Support for prebuilt entities varies. See [Prebuilt entities in LUIS](Pre-builtEntities.md) for details. 
 
-## Chinese support notes
+## *Prebuilt entity datetimeV2
+*German, `de-DE`, support is expected in late December 2017.
+*Portuguese, `pt-BR`, support is expected in late December 2017.
+
+## **Chinese support notes
 
  - In the `zh-cn` culture, LUIS expects the simplified Chinese character set instead of the traditional character set.
  - The names of intents, entities, features, and regular expressions may be in Chinese or Roman characters.
