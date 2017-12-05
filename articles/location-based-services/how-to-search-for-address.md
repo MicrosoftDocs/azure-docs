@@ -58,12 +58,11 @@ Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce 
     
     The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries for which your application needs coverage, as the default behavior is to search the entire world, potentially returning unnecessary results.
 
-5. Add the following value to the query string and click **Send**:
-    ```
-        ,countrySet=US
-    ```
-    >[!NOTE] 
-    >Ensure that you comma-separate the additional URI parameters in the query string.
+5. Add the following Key / Value pair to the **Params** section and click **Send**:
+
+    | Key | Value |
+    |------------------|-------------------------|
+    | countrySet | US |
     
     The results are now bounded by the country code and the query returns pizza restaurants in the United States.
     
@@ -112,10 +111,11 @@ You can pass a complete or partial street address to the Search Address API and 
         400 Broad, Seattle
     ```
 
-5. Add the following value to the query string and click **Send**:
-    ```
-        ,typeahead
-    ```
+5. Add the following Key / Value pair to the **Params** section and click **Send**:
+
+    | Key | Value |
+    |-----|------------|
+    | typeahead | true |
 
     The **typeahead** flag tells the Address Search API to treat the query as a partial input and return an array of predictive values.
 
@@ -146,37 +146,43 @@ You can pass a complete or partial street address to the Search Address API and 
     
     The response includes the POI entry for Safeco Field with a poi category of "stadium". 
     
-4. Add the following value to the query string and click **Send**:
-    ```
-        ,number
-    ```
+4. Add the following Key / Value pair to the **Params** section and click **Send**:
+
+    | Key | Value |
+    |-----|------------|
+    | number | true |
+
     If the [number](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
     
-5. Add the following value to the query string and click **Send**:
-    ```
-        ,spatialKeys
-    ```
+5. Add the following Key / Value pair to the **Params** section and click **Send**:
+
+    | Key | Value |
+    |-----|------------|
+    | spatialKeys | true |
 
     When the [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response contains proprietary geo-spatial key information for a specified location.
 
-6. Add the following value to the query string and click **Send**:
-    ```
-        ,returnSpeedLimit
-    ```
+6. Add the following Key / Value pair to the **Params** section and click **Send**:
+
+    | Key | Value |
+    |-----|------------|
+    | returnSpeedLimit | true |
     
     When the [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response return of the posted speed limit.
 
-7. Add the following value to the query string and click **Send**:
-    ```
-        ,returnRoadUse
-    ```
+7. Add the following Key / Value pair to the **Params** section and click **Send**:
+
+    | Key | Value |
+    |-----|------------|
+    | returnRoadUse | true |
 
     When the [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response returns the road use array for reversegeocodes at street level.
 
-8. Add the following value to the query string and click **Send**:
-    ```
-        ,roadUse
-    ```
+8. Add the following Key / Value pair to the **Params** section and click **Send**:
+
+    | Key | Value |
+    |-----|------------|
+    | roadUse | true |
 
     You can restrict the reverse geocode query to a specific type of road use using the [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter.
     
