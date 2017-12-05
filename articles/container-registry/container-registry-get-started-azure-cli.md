@@ -125,7 +125,7 @@ aci-helloworld
 The following example lists the tags on the **aci-helloworld** repository.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository aci-helloworld --output
+az acr repository show-tags --name <acrName> --repository aci-helloworld --output table
 ```
 
 Output:
