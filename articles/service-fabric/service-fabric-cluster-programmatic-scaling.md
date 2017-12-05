@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2017
+ms.date: 10/17/2017
 ms.author: mikerou
 
 ---
@@ -27,7 +27,7 @@ In many scenarios, scaling manually or via auto-scale rules are good solutions. 
 
 - Manually scaling requires you to log in and explicitly request scaling operations. If scaling operations are required frequently or at unpredictable times, this approach may not be a good solution.
 - When auto-scale rules remove an instance from a virtual machine scale set, they do not automatically remove knowledge of that node from the associated Service Fabric cluster unless the node type has a durability level of Silver or Gold. Because auto-scale rules work at the scale set level (rather than at the Service Fabric level), auto-scale rules can remove Service Fabric nodes without shutting them down gracefully. This rude node removal will leave 'ghost' Service Fabric node state behind after scale-in operations. An individual (or a service) would need to periodically clean up removed node state in the Service Fabric cluster.
-  - Note that a node type with a durability level of Gold or Silver will automatically clean up removed nodes.  
+  - A node type with a durability level of Gold or Silver automatically cleans up removed nodes, so no additional clean-up is needed.
 - Although there are [many metrics](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) supported by auto-scale rules, it is still a limited set. If your scenario calls for scaling based on some metric not covered in that set, then auto-scale rules may not be a good option.
 
 Based on these limitations, you may wish to implement more customized automatic scaling models. 
@@ -44,7 +44,7 @@ To interact with the Service Fabric cluster itself, use [System.Fabric.FabricCli
 Of course, the scaling code doesn't need to run as a service in the cluster to be scaled. Both `IAzure` and `FabricClient` can connect to their associated Azure resources remotely, so the scaling service could easily be a console application or Windows service running from outside the Service Fabric application. 
 
 ## Credential management
-One challenge of writing a service to handle scaling is that the service must be able to access virtual machine scale set resources without an interactive login. Accessing the Service Fabric cluster is easy if the scaling service is modifying its own Service Fabric application, but credentials are needed to access the scale set. To log in, you can use a [service principal](https://github.com/Azure/azure-sdk-for-net/blob/Fluent/AUTH.md#creating-a-service-principal-in-azure) created with the [Azure CLI 2.0](https://github.com/azure/azure-cli).
+One challenge of writing a service to handle scaling is that the service must be able to access virtual machine scale set resources without an interactive login. Accessing the Service Fabric cluster is easy if the scaling service is modifying its own Service Fabric application, but credentials are needed to access the scale set. To log in, you can use a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) created with the [Azure CLI 2.0](https://github.com/azure/azure-cli).
 
 A service principal can be created with the following steps:
 
@@ -83,7 +83,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Alternatively, virtual machine scale set size can also be managed with PowerShell cmdlets. [`Get-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmss) can retrieve the virtual machine scale set object. The current capacity will be stored in the `.sku.capacity` property. After changing the capacity to the desired value, the virtual machine scale set in Azure can be updated with the [`Update-AzureRmVmss`](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/update-azurermvmss) command.
+Alternatively, virtual machine scale set size can also be managed with PowerShell cmdlets. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) can retrieve the virtual machine scale set object. The current capacity is available through the `.sku.capacity` property. After changing the capacity to the desired value, the virtual machine scale set in Azure can be updated with the [`Update-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) command.
 
 As when adding a node manually, adding a scale set instance should be all that's needed to start a new Service Fabric node since the scale set template includes extensions to automatically join new instances to the Service Fabric cluster. 
 
@@ -103,7 +103,7 @@ using (var client = new FabricClient())
 	    .FirstOrDefault();
 ```
 
-Be aware that *seed* nodes don't seem to always follow the convention that greater instance IDs are removed first.
+Seed nodes are different and don't necessarily follow the convention that greater instance IDs are removed first.
 
 Once the node to be removed is found, it can be deactivated and removed using the same `FabricClient` instance and the `IAzure` instance from earlier.
 

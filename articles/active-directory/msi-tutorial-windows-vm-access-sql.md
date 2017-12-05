@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 11/20/2017
 ms.author: skwan
 ---
 
@@ -28,8 +28,11 @@ This tutorial shows you how to use a Managed Service Identity (MSI) for a Window
 > * Grant your VM access to an Azure SQL server
 > * Get an access token using the VM identity and use it to query an Azure SQL server
 
+## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## Sign in to Azure
 
@@ -131,7 +134,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### Enable Azure AD authentication for the SQL server
 
-Now that you have created the group and added the VM MSI to the membership, you can [configure Azure AD authentication for the SQL server](/azure/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) using the following steps:
+Now that you have created the group and added the VM MSI to the membership, you can [configure Azure AD authentication for the SQL server](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) using the following steps:
 
 1.	In the Azure portal, select **SQL servers** from the left-hand navigation.
 2.	Click the SQL server to be enabled for Azure AD authentication.

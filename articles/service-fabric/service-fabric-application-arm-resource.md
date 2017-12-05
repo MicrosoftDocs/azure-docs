@@ -94,7 +94,7 @@ The following snippet shows the different kinds of resources that can be managed
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package zip file"
+          "description": "The URL to the application package sfpkg file"
         }
       },
       "applicationName": {
@@ -139,10 +139,35 @@ The following snippet shows the different kinds of resources that can be managed
     "resources": [
       {
         "apiVersion": "2017-07-01-preview",
+        "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
+        "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
+        "location": "[variables('clusterLocation')]",
+        "dependsOn": [],
+        "properties": {
+          "provisioningState": "Default"
+        }
+      },
+      {
+        "apiVersion": "2017-07-01-preview",
+        "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
+        "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
+        "location": "[variables('clusterLocation')]",
+        "dependsOn": [
+          "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'))]"
+        ],
+        "properties": {
+          "provisioningState": "Default",
+          "appPackageUrl": "[parameters('appPackageUrl')]"
+        }
+      },
+      {
+        "apiVersion": "2017-07-01-preview",
         "type": "Microsoft.ServiceFabric/clusters/applications",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
         "location": "[variables('clusterLocation')]",
-        "dependsOn": [],
+        "dependsOn": [
+          "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'), '/versions/', parameters('applicationTypeVersion'))]"
+        ],
         "properties": {
           "provisioningState": "Default",
           "typeName": "[parameters('applicationTypeName')]",
@@ -212,7 +237,7 @@ The following snippet shows the different kinds of resources that can be managed
             "partitionScheme": "UniformInt64Range",
             "count": "5",
             "lowKey": "1",
-            "highKey": "26"
+            "highKey": "5"
           },
           "hasPersistedState": "true",
           "correlationScheme": [],

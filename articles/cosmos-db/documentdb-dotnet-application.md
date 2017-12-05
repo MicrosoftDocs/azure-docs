@@ -16,6 +16,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
+ms.custom: devcenter
 
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: Durable Functions Overview - Azure
+title: Durable Functions Overview - Azure (preview)
 description: Introduction to the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: azfuncdf
 ---
 
-# Durable Functions overview (Azure Functions)
+# Durable Functions overview (preview)
 
 *Durable Functions* is an extension of [Azure Functions](functions-overview.md) and [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
@@ -27,7 +27,7 @@ The extension lets you define stateful workflows in a new type of function calle
 * They automatically checkpoint their progress whenever the function awaits. Local state is never lost if the process recycles or the VM reboots.
 
 > [!NOTE]
-> Durable Functions is an advanced extension for Azure Functions and is not appropriate for all applications. The rest of this article assumes that you have a strong familiarity with [Azure Functions](functions-overview.md) concepts and the challenges involved in serverless application development.
+> Durable Functions is in preview and is an advanced extension for Azure Functions that is not appropriate for all applications. The rest of this article assumes that you have a strong familiarity with [Azure Functions](functions-overview.md) concepts and the challenges involved in serverless application development.
 
 The primary use case for Durable Functions is simplifying complex, stateful coordination problems in serverless applications. The following sections describe some typical application patterns that can benefit from Durable Functions.
 

@@ -2,22 +2,14 @@
 title: Quickstart - Create a private Docker registry in Azure with the Azure portal
 description: Quickly learn to create a private Docker container registry with the Azure portal.
 services: container-registry
-documentationcenter: ''
 author: mmacy
 manager: timlt
-editor: tysonn
-tags: ''
-keywords: ''
 
-ms.assetid: 53a3b3cb-ab4b-4560-bc00-366e2759f1a1
 ms.service: container-registry
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/16/2017
+ms.date: 10/31/2017
 ms.author: marsma
-ms.custom:
+ms.custom: mvc
 ---
 
 # Create a container registry using the Azure portal
@@ -62,11 +54,11 @@ You use these values in the following steps while working with your registry wit
 
 Before pushing and pulling container images, you must log in to the ACR instance. To do so, use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command. Replace the *username*, *password*, and *login server* values with those you noted in the previous step.
 
-```
+```bash
 docker login --username <username> --password <password> <login server>
 ```
 
-The command returns 'Login Succeeded' once completed.
+The command returns `Login Succeeded` once completed. You might also see a security warning recommending the use of the `--password-stdin` parameter. While its use is outside the scope of this article, we recommend following this best practice. See the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference for more information.
 
 ## Push image to ACR
 

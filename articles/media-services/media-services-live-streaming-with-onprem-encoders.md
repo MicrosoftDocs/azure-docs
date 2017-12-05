@@ -21,7 +21,7 @@ ms.author: cenkd;juliako
 ## Overview
 In Azure Media Services, a *channel* represents a pipeline for processing live-streaming content. A channel receives live input streams in one of two ways:
 
-* An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the channel that is not enabled to perform live encoding with Media Services. The ingested streams pass through channels without any further processing. This method is called *pass-through*. You can use the following live encoders that have multi-bitrate Smooth Streaming as output: Media Excel, Ateme, Imagine Communications, Envivio, Cisco, and Elemental. The following live encoders have RTMP as output: Adobe Flash Media Live Encoder, Telestream Wirecast, Haivision, Teradek, and TriCaster. A live encoder can also send a single-bitrate stream to a channel that is not enabled for live encoding, but we don't recommend that. Media Services delivers the stream to customers who request it.
+* An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the channel that is not enabled to perform live encoding with Media Services. The ingested streams pass through channels without any further processing. This method is called *pass-through*. A live encoder can also send a single-bitrate stream to a channel that is not enabled for live encoding, but we don't recommend that. Media Services delivers the stream to customers who request it.
 
   > [!NOTE]
   > Using a pass-through method is the most economical way to do live streaming.
@@ -31,13 +31,13 @@ In Azure Media Services, a *channel* represents a pipeline for processing live-s
 
 Starting with the Media Services 2.10 release, when you create a channel, you can specify how you want your channel to receive the input stream. You can also specify whether you want the channel to perform live encoding of your stream. You have two options:
 
-* **Pass Through**: Specify this value if you plan to use an on-premises live encoder that will have a multi-bitrate stream (a pass-through stream) as output. In this case, the incoming stream passes through to the output without any encoding. This is the behavior of a channel before the 2.10 release. This topic gives details about working with channels of this type.
-* **Live Encoding**: Choose this value if you plan to use Media Services to encode your single-bitrate live stream to a multi-bitrate stream. Be aware that leaving a live encoding channel in a **Running** state will incur billing charges. We recommend that you immediately stop your running channels after your live-streaming event is complete to avoid extra hourly charges. Media Services delivers the stream to customers who request it.
+* **Pass Through**: Specify this value if you plan to use an on-premises live encoder that has a multi-bitrate stream (a pass-through stream) as output. In this case, the incoming stream passes through to the output without any encoding. This is the behavior of a channel before the 2.10 release. This article gives details about working with channels of this type.
+* **Live Encoding**: Choose this value if you plan to use Media Services to encode your single-bitrate live stream to a multi-bitrate stream. Leaving a live encoding channel in a **Running** state incurs billing charges. We recommend that you immediately stop your running channels after your live-streaming event is complete to avoid extra hourly charges. Media Services delivers the stream to customers who request it.
 
 > [!NOTE]
-> This topic discusses attributes of channels that are not enabled to perform live encoding. For information about working with channels that are enabled to perform live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
+> This article discusses attributes of channels that are not enabled to perform live encoding. For information about working with channels that are enabled to perform live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
 >
->
+>For information about recommended on-prem encoders, see [Recommended on-prem encoders](media-services-recommended-encoders.md).
 
 The following diagram represents a live-streaming workflow that uses an on-premises live encoder to have multi-bitrate RTMP or fragmented MP4 (Smooth Streaming) streams as output.
 
@@ -91,7 +91,7 @@ Use the secondary URL if you want to improve the durability and fault tolerance 
 
 - Multiple encoders, with each encoder pushing to a dedicated point:
 
-    This scenario provides both encoder and ingest redundancy. In this scenario, encoder1 pushes to the primary URL, and encoder2 pushes to the secondary URL. When an encoder fails, the other encoder can keep sending data. Data redundancy can be maintained because Media Services does not disconnect primary and secondary URLs at the same time. This scenario assumes that encoders are time synced and provide exactly the same data.  
+    This scenario provides both encoder and ingests redundancy. In this scenario, encoder1 pushes to the primary URL, and encoder2 pushes to the secondary URL. When an encoder fails, the other encoder can keep sending data. Data redundancy can be maintained because Media Services does not disconnect primary and secondary URLs at the same time. This scenario assumes that encoders are time synced and provide exactly the same data.  
 
 - Multiple encoders double-pushing to both primary and secondary URLs:
 
@@ -121,7 +121,7 @@ You can change the fragments-per-segment ratio by configuring the channel’s ou
 
 You can also change the keyframe interval value by setting the KeyFrameInterval property on ChanneInput. If you explicitly set KeyFrameInterval, the HLS segment packaging ratio FragmentsPerSegment is calculated via the rules described previously.  
 
-If you explicitly set both KeyFrameInterval and FragmentsPerSegment, Media Services will use the values that you set.
+If you explicitly set both KeyFrameInterval and FragmentsPerSegment, Media Services uses the values that you set.
 
 #### Allowed IP addresses
 You can define the IP addresses that are allowed to publish video to this channel. An allowed IP address can be specified as one of the following:
@@ -130,7 +130,7 @@ You can define the IP addresses that are allowed to publish video to this channe
 * An IP range that uses an IP address and a CIDR subnet mask (for example, 10.0.0.1/22)
 * An IP range that uses an IP address and a dotted decimal subnet mask (for example, 10.0.0.1(255.255.252.0))
 
-If no IP addresses are specified and there's no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
+If no IP addresses are specified and there's no rule definition, then no IP address is allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
 
 ### Channel preview
 #### Preview URLs
@@ -141,7 +141,7 @@ You can get the preview URL when you create the channel. For you to get the URL,
 Currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](http://smf.cloudapp.net/healthmonitor) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
 
 #### Allowed IP addresses
-You can define the IP addresses that are allowed to connect to the preview endpoint. If no IP addresses are specified, any IP address will be allowed. An allowed IP address can be specified as one of the following:
+You can define the IP addresses that are allowed to connect to the preview endpoint. If no IP addresses are specified, any IP address is allowed. An allowed IP address can be specified as one of the following:
 
 * A single IP address (for example, 10.0.0.1)
 * An IP range that uses an IP address and a CIDR subnet mask (for example, 10.0.0.1/22)
@@ -151,13 +151,13 @@ You can define the IP addresses that are allowed to connect to the preview endpo
 For information about channel output, see the [Keyframe interval](#keyframe_interval) section.
 
 ### Channel-managed programs
-A channel is associated with programs that you can use to control the publishing and storage of segments in a live stream. Channels manage programs. The channel and program relationship is very similar to traditional media, where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
+A channel is associated with programs that you can use to control the publishing and storage of segments in a live stream. Channels manage programs. The channel and program relationship is similar to traditional media, where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
 
-You can specify the number of hours you want to retain the recorded content for the program by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
+You can specify the number of hours you want to retain the recorded content for the program by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum number of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
 
 Each program is associated with an asset that stores the streamed content. An asset is mapped to a block blob container in the Azure storage account, and the files in the asset are stored as blobs in that container. To publish the program so your customers can view the stream, you must create an OnDemand locator for the associated asset. You can use this locator to build a streaming URL that you can provide to your clients.
 
-A channel supports up to three concurrently running programs, so you can create multiple archives of the same incoming stream. You can publish and archive different parts of an event as needed. For example, imagine that your business requirement is to archive 6 hours of a program, but to broadcast only the last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event, but the program is not published. The other program is set to archive for 10 minutes, and this program is published.
+A channel supports up to three concurrently running programs, so you can create multiple archives of the same incoming stream. You can publish and archive different parts of an event as needed. For example, imagine that your business requirement is to archive 6 hours of a program, but to broadcast only the last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive six hours of the event, but the program is not published. The other program is set to archive for 10 minutes, and this program is published.
 
 You should not reuse existing programs for new events. Instead, create a new program for each event. Start the program when you're ready to start streaming and archiving. Stop the program whenever you want to stop streaming and archiving the event.
 
@@ -207,8 +207,8 @@ Here are other considerations related to working with channels and related compo
 
 * Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program.
 * A channel can be stopped only when it's in the **Running** state and all programs on the channel have been stopped.
-* By default, you can add only 5 channels to your Media Services account. For more information, see [Quotas and limitations](media-services-quotas-and-limitations.md).
-* You are billed only when your channel is in the **Running** state. For more information, refer to the [Channel states and billing](media-services-live-streaming-with-onprem-encoders.md#states) section.
+* By default, you can add only five channels to your Media Services account. For more information, see [Quotas and limitations](media-services-quotas-and-limitations.md).
+* You are billed only when your channel is in the **Running** state. For more information, see the [Channel states and billing](media-services-live-streaming-with-onprem-encoders.md#states) section.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -217,7 +217,9 @@ Here are other considerations related to working with channels and related compo
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## Related topics
-[Azure Media Services fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
+[Recommended on-prem encoders](media-services-recommended-encoders.md)
+
+[Azure Media Services fragmented MP4 lives ingest specification](media-services-fmp4-live-ingest-overview.md)
 
 [Azure Media Services overview and common scenarios](media-services-overview.md)
 

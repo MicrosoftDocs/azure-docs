@@ -1,26 +1,20 @@
 ---
-title: Azure Container Service tutorial - Deploy Application | Microsoft Docs
+title: Azure Container Service tutorial - Deploy Application
 description: Azure Container Service tutorial - Deploy Application
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Run applications in Kubernetes
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 

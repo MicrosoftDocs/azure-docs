@@ -2,7 +2,7 @@
 title: Collect data from on-premises Linux computers with Azure Log Analytics | Microsoft Docs
 description: Learn how to deploy the Log Analytics agent for Linux and enable collection of data from that OS with Log Analytics.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
 editor: ''
@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/13/2017
+ms.topic: quickstart
+ms.date: 11/28/2017
 ms.author: magoedte
-
+ms.custom: mvc
 ---
 
 # Collect data from Linux computers hosted in your environment
 [Azure Log Analytics](log-analytics-overview.md) can collect data directly from your physical or virtual Linux computers and other resources in your environment into a single repository for detailed analysis and correlation.  This quickstart shows you how to configure and collect data from your Linux computer with a few easy steps.  For Azure Linux VMs, see the following topic [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md).  
- 
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Log in to Azure portal
@@ -51,6 +51,9 @@ Before installing the OMS agent for Linux, you need the workspace ID and key for
 
 ## Install the agent for Linux
 The following steps configure setup of the agent for Log Analytics in Azure and Azure Government cloud.  
+
+>[!NOTE]
+>The OMS agent for Linux cannot be configured to report to more than one Log Analytics workspace.  
 
 1. To configure the Linux computer to connect to Log Analytics, run the following command providing the workspace ID and primary key copied earlier.  This command downloads the agent, validates its checksum, and installs it. 
     
