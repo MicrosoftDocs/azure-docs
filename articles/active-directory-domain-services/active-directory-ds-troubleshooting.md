@@ -35,7 +35,7 @@ Pick the troubleshooting steps that correspond to the error message you encounte
 | *The IP address range for the virtual network %VIRTUAL_NETWORK% in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.* | [Address is in a public IP range](active-directory-ds-troubleshooting.md#address-is-in-a-public-ip-range) |
 | *We have identified that the subnet of the virtual network in this domain may not have sufficient IP addresses. Azure AD Domain Services needs at-least two available IP addresses within the subnet it is enabled in. We recommend having at-least 3-5 spare IP addresses within the subnet. This may have occurred if other virtual machines are deployed within the subnet, thus exhausting the number of available IP addresses or if there is a restriction on the number of available IP addresses in the subnet.* | [Insufficient amount of IP addresses available](active-directory-ds-troubleshooting.md#insufficient-amount-of-ip-addresses-available) |
 | *error* | [Missing tenant](active-directory-ds-troubleshooting.md#missing-tenant) |
-| *error* | [Network Error]((active-directory-ds-troubleshooting.md#network-error) |
+| *Azure AD Domain Services cannot reach the network or does not have outbound internet access. This is usually caused by an incorrect NSG configuration.* | [Network Error](active-directory-ds-troubleshooting.md#network-error) |
 
 ### Domain Name conflict
 **Error message:**
@@ -206,17 +206,11 @@ To restore your service, follow these steps:
 ### Network Error
 **Error message:**
 
-*error message here*
+*Azure AD Domain Services cannot reach the network or does not have outbound internet access. This is usually caused by an incorrect NSG configuration.*
 
 **Remediation:**
 
-To restore your service, follow these steps:
-
-1. Navigate to the Azure portal (https://portal.azure.com/)
-2. C
-3. S
-4. C
-
+To restore your service, use the
 
 ## Users are unable to sign in to the Azure AD Domain Services managed domain
 If one or more users in your Azure AD tenant are unable to sign in to the newly created managed domain, perform the following troubleshooting steps:
