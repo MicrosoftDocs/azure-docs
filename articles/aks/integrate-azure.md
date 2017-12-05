@@ -1,6 +1,6 @@
 ---
-title: Integrate with Azure services | Microsoft Docs
-description: Integrate with Azure services
+title: Integrate with Azure-managed services using Open Service Broker for Azure (OSBA) | Microsoft Docs
+description: Integrate with Azure-managed services using Open Service Broker for Azure (OSBA)
 services: container-service
 documentationcenter: ''
 author: sozercan
@@ -20,15 +20,9 @@ ms.author: seozerca
 ms.custom: mvc
 
 ---
-# Integrate with Azure-managed services using Open Service Broker for Azure
+# Integrate with Azure-managed services using Open Service Broker for Azure (OSBA)
 
-## Introduction
-
-[Open Service Broker API](https://www.openservicebrokerapi.org) allows developers to utilize cloud-managed services in cloud native platforms such as Pivotal Cloud Foundry, Kubernetes, and Red Hat OpenShift. This guide focuses on deploying Kubernetes Service Catalog, Open Service Broker for Azure (OSBA) and applications that use Azure-managed services using Kubernetes.
-
-## Creating an Azure Container Service (AKS) cluster
-
-Let's get started by deploying an Azure Container Service (AKS) cluster. You can follow the [Create an AKS cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) quickstart guide.
+Together with the [Kubernetes Service Catalog](https://github.com/kubernetes-incubator/service-catalog), Open Service Broker for Azure (OSBA) allows developers to utilize Azure-managed services in Kubernetes. This guide focuses on deploying Kubernetes Service Catalog, Open Service Broker for Azure (OSBA), and applications that use Azure-managed services using Kubernetes.
 
 ## Prerequisites
 * An Azure subscription
@@ -38,6 +32,10 @@ Let's get started by deploying an Azure Container Service (AKS) cluster. You can
 * Helm CLI 2.7+: You can [install it locally](https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli) or use it in the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
 
 * Permissions to create a service principal with the Contributor role on your Azure subscription
+
+* Creating an Azure Container Service (AKS) cluster
+
+Let's get started by deploying an Azure Container Service (AKS) cluster. You can follow the [Create an AKS cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) quickstart guide.
 
 ## Installing Service Catalog
 
@@ -69,17 +67,7 @@ kubectl get apiservice
 
 ## Installing Open Service Broker for Azure
 
-Next step is to install [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure), which includes the catalog for the Azure-managed services. At the time of this writing, available Azure services are:
-
-*   Azure Database for PostgreSQL
-*   Azure Redis Cache
-*   Azure Database for MySQL
-*   Azure Event Hubs
-*   Azure Service Bus
-*   Azure Cosmos DB
-*   Azure Container Instances
-*   Azure Key Vault
-*   Azure SQL Database
+Next step is to install [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure), which includes the catalog for the Azure-managed services. Examples for available Azure services are Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database, and others. 
 
 Let's start by adding Open Service Broker for Azure Helm repository:
 
