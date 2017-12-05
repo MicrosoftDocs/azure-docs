@@ -42,7 +42,13 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
 
 [!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
-## 2. Update Jenkins DNS
+## 2. Connect to the Jenkins server running on Azure
+
+Once you've installed Jenkins on Azure, you need to connect to Jenkins. The following steps walk you through setting up an SSH connection to the Jenkins VM running on Azure. 
+
+[!INCLUDE [jenkins-connect-to-jenkins-server-running-on-azure](../../includes/jenkins-connect-to-jenkins-server-running-on-azure.md)]
+
+## 3. Update Jenkins DNS
 
 1. Open the Jenkins dashboard.
 
