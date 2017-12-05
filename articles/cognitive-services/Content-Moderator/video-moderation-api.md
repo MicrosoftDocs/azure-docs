@@ -116,11 +116,11 @@ After getting access to the Content Moderator media processor, use the following
             IJob job = _context.Jobs.Create(String.Format("Content Moderator {0}",
                 Path.GetFileName(inputFilePath) + "_" + Guid.NewGuid()));
 
-            ITask contentModeratorTask = job.Tasks.AddNew("Adult classifier task",
+            ITask contentModeratorTask = job.Tasks.AddNew("Adult and racy classifier task",
                 mp, configuration,
                 TaskOptions.None);
             contentModeratorTask.InputAssets.Add(asset);
-            contentModeratorTask.OutputAssets.AddNew("Adult classifier output",
+            contentModeratorTask.OutputAssets.AddNew("Adult and racy classifier output",
             AssetCreationOptions.None);
 
             job.Submit();
