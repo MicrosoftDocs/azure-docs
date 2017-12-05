@@ -67,7 +67,7 @@ See the [Policy reference](api-management-policy-reference.md) for a full list o
 
 ## Policy samples
 
-See [Policy samples](policy-samples.md) for code examples.
+See [Policy samples](policy-samples.md) for more code examples.
 
 ## Examples
 
