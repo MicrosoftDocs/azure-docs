@@ -6,14 +6,14 @@ metadata:
   title: Azure Cosmos DB Documentation - Tutorials, API Reference
   description: Learn how to use Azure Cosmos DB to build globally distributed multi-model databases. Tutorials show you how to build and query document, key/value, and graph databases.
   services: cosmos-db
-  author: czeumault
-  manager: carolz
+  author: mimig
+  manager: jhubbard
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/29/2017
-  ms.author: carolz
+  ms.date: 12/05/2017
+  ms.author: mimig
 abstract:
   description: Azure Cosmos DB is a globally distributed, multi-model database service. Use these quickstarts, tutorials, and samples to develop document, key-value, wide-column, and graph databases by using popular APIs and programming models. Then learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage, while benefitting from comprehensive SLAs. 
   aside:
@@ -56,7 +56,7 @@ sections:
           - href: /azure/cosmos-db/create-mongodb-java
           - href: /azure/cosmos-db/create-mongodb-dotnet
           - href: /azure/cosmos-db/create-mongodb-nodejs
-          - href: 
+          - href: /azure/cosmos-db/create-mongodb-flask
           - href: 
       - title: Graph API
         values:
