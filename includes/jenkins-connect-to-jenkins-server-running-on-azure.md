@@ -1,35 +1,37 @@
-1. In your browser, navigate to your Jenkins VM. The URL of the Jenkins VM will be the value you entered for the **Domain name label** when creating the Jenkins VM. Since the Jenkins dashboard is inaccessible through unsecured HTTP, a message displays indicating that you need to use SSH to first tunnel into the VM.
+1. In your browser, navigate to your Jenkins virtual machine. Since the Jenkins dashboard is inaccessible through unsecured HTTP, a message displays indicating that you need to use SSH to tunnel into the virtual machine.
 
+    ![Jenkins provides information explaining how to use SSH to connect to the Jenkins virtual machine.](./media/jenkins-install-from-azure-marketplace-image/jenkins-ssh-instructions.png)
 
+1. Open a bash or terminal window, with access to SSH.
 
+1. Enter the following `ssh` command. Replace the **&lt;username>** and **&lt;domain>** placeholders with the values specified when creating the Jenkins virtual machine. 
 
+    ```bash
+    ssh -L 127.0.0.1:8080:localhost:8080 <username>@<domain>.eastus.cloudapp.azure.com
+    ```
 
+1. Follow the `ssh` prompts to log into the Jenkins virtual machine.
 
+1. Enter the following command to retrieve the initial password for unlocking Jenkins.
 
-1. Navigate to your virtual machine (for example, http://jenkins2517454.eastus.cloudapp.azure.com/) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
+    ```bash
+    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+    ```
 
-![Unlock jenkins](./media/jenkins-install-from-azure-marketplace-image/jenkins-ssh-instructions.png)
+1. Copy to the clipboard the password that is displayed in the bash or terminal window.
 
-Set up the tunnel using the `ssh` command on the page from the command line, replacing `username` with the name of the virtual machine admin user chosen earlier when setting up the virtual machine from the solution template.
+1. In your browser, navigate to `http://localhost:8080`.
 
-```bash
-ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
-```
+1. Paste the password retrieved earlier into the **Administrative password** field, and select **Continue**.
 
-After you have started the tunnel, navigate to http://localhost:8080/ on your local machine. 
+    ![Jenkins stores an initial password that you must use to unlock the Jenkins virtual machine the first time you connect to it.](./media/jenkins-install-from-azure-marketplace-image/jenkins-unlock.png)
 
-Get the initial password by running the following command in the command line while connected through SSH to the Jenkins VM.
+1. Select **Install suggested plugins**.
 
-```bash
-`sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
-```
+    ![Jenkins allows you to easily install a collection of suggested plugins upon initial entry](./media/jenkins-install-from-azure-marketplace-image/jenkins-customize.png)
 
-Unlock the Jenkins dashboard for the first time using this initial password.
+1. On the **Create First Admin User** page, create the administrative user and password for the Jenkins dashboard, and select **Save and finish**.
 
-![Unlock jenkins](./media/jenkins-install-from-azure-marketplace-image/jenkins-unlock.png)
+1. On the **Jenkins is ready!** page, select **Start using Jenkins**.
 
-Select **Install suggested plugins** on the next page and then create a Jenkins admin user used to access the Jenkins dashboard.
-
-![Jenkins is ready!](./media/jenkins-install-from-azure-marketplace-image/jenkins-welcome.png)
-
-The Jenkins server is now ready to build code.
+    ![Once Jenkins is installed and configured for access, you can start using it to create and build jobs.](./media/jenkins-install-from-azure-marketplace-image/jenkins-ready.png)
