@@ -40,8 +40,8 @@
       href: tutorial-incremental-copy-powershell.md
     - name: 5.2 - Copy from multiple tables 
       href: tutorial-incremental-copy-multiple-tables-powershell.md
-    - name: 5.3 - Copy using the change tracking feature 
-      href: tutorial-incremental-copy-using-change-tracking-feature-powershell.md
+    - name: 5.3 - Use change tracking feature 
+      href: tutorial-incremental-copy-change-tracking-feature-powershell.md
   - name: 6 - Transform data in cloud
     href: tutorial-transform-data-spark-powershell.md
   - name: 7 - Transform data in virtual network

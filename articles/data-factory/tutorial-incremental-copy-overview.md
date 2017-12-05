@@ -1,6 +1,6 @@
 ---
 title: 'Incrementally copy data using Azure Data Factory | Microsoft Docs'
-description: 'These tutorials show you how to incrementally copy data from a source data store to a destination datastore. The first one copis data from one table. '
+description: 'These tutorials show you how to incrementally copy data from a source data store to a destination datastore. The first one copies data from one table. '
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: shlo
 ---
 # Incrementally load data from a source data store to a destination data store
@@ -38,6 +38,11 @@ The workflow for this approach is depicted in the following diagram:
 ![Workflow for using Change Tracking](media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png)
 
 For step-by-step instructions, see the following tutorial: <br/>
-[Incrementally copy data from Azure SQL Database to Azure Blob Storage using Change Tracking technology](tutorial-incremental-copy-using-change-tracking-feature-powershell.md)
+[Incrementally copy data from Azure SQL Database to Azure Blob Storage using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 
+## Next steps
+Advance to the following tutorial: 
+
+> [!div class="nextstepaction"]
+>[Incrementally copy data form one table in Azure SQL Database to Azure Blob Storage](tutorial-incremental-copy-powershell.md)

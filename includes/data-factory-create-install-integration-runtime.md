@@ -104,6 +104,8 @@ In this section, you create a self-hosted integration runtime, and associate it 
     - Select the **authentication** mode. 
     - Enter **user** name. 
     - Enter **password** for the user name.
-    - Click **Test** to confirm that integration runtime can connect to the SQL Server. You see a green check mark if the connection is successful. Otherwise, you see an error message associated with the failure. Fix any issues and ensure that the integration runtime can connect to your SQL Server.
-    - Note down these values (authentication type, server, database, user, password). You use them later in this tutorial. 
+    - Click **Test** to confirm that integration runtime can connect to the SQL Server. You see a green check mark if the connection is successful. Otherwise, you see an error message associated with the failure. Fix any issues and ensure that the integration runtime can connect to your SQL Server.    
+
+    > [!NOTE]
+    > Note down these values (authentication type, server, database, user, password). You use them later in this tutorial. 
     
