@@ -988,7 +988,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/iot-edge/">
                                                 <img src="media/index/IOT_edge_50.svg" alt="" />
-                                                <p>Azure IoT Edge</p>
+                                                <p>IoT Edge</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2832,7 +2832,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT Edge</h3>
+                                                    <h3>IoT Edge</h3>
                                                     <p>Extend cloud intelligence to edge devices</p>
                                                 </div>
                                             </div>
