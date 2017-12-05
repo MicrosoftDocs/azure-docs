@@ -135,7 +135,16 @@
     - name: Capacity planning for VMware replication to Azure
       href: site-recovery-plan-capacity-vmware.md
     - name: Deployment Planner tool for VMware replication to Azure
-      href: site-recovery-deployment-planner.md
+      href: 
+      items:
+      - name: Overview and prerequisites 
+        href: site-recovery-deployment-planner.md
+      - name: Run the deployment planner 
+        href: site-recovery-vmware-deployment-planner-run.md
+      - name: Analyze the generated report
+        href: site-recovery-vmware-deployment-planner-analyze-report.md
+      - name: Analyze the disaster recovery cost estimation report 
+        href: site-recovery-vmware-deployment-planner-cost-estimation.md
     - name: Scale out process servers for VMware replication
       href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
     - name: Deployment planning and tool for Hyper-V replication to Azure
