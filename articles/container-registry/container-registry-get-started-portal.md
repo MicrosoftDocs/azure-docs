@@ -126,12 +126,12 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI. 
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
 
 <!-- LINKS - external -->
-[docker-mac]: https://docs.docker.com/docker-for-mac/
-[docker-windows]: https://docs.docker.com/docker-for-windows/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
-[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
 [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
