@@ -2852,7 +2852,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Location Based Services</h3>
-                                                    <p>Maps, Directions, Search and other robust geospatial services</p>
+                                                    <p>Maps, directions, search, and other robust geospatial services</p>
                                                 </div>
                                             </div>
                                         </div>
