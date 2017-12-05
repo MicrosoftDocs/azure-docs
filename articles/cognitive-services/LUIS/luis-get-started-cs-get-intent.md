@@ -14,11 +14,9 @@ ms.author: v-demak
 
 # Call a LUIS app using C#
 
-This quickstart shows you how to call your Language Understanding (LUIS) app in just a few minutes. When you're finished, you'll be able to use C# code to pass utterances to a LUIS endpoint and get results.
+In this article, you'll pass utterances to a LUIS endpoint and get results.
 
 ## Before you begin
-You need a Cognitive Services API key to make calls to the sample LUIS app we use in this walkthrough. 
-To get an API key follow these steps: 
   1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
   2. Log in to the Azure portal at https://portal.azure.com. 
   3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
