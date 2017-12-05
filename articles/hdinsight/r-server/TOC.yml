@@ -11,6 +11,9 @@
   items:
   - name: Start with R Server
     href: r-server-get-started.md
+  - name: Install HDInsight apps
+    href: ../hdinsight-apps-install-applications.md
+    maintainContext: true
   - name: Cluster capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
@@ -81,9 +84,6 @@
       maintainContext: true
     - name: Build HDInsight applications
       items:
-      - name: Install HDInsight apps
-        href: ../hdinsight-apps-install-applications.md
-        maintainContext: true
       - name: Install custom apps
         href: ../hdinsight-apps-install-custom-applications.md
         maintainContext: true

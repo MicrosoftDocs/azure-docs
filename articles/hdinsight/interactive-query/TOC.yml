@@ -9,6 +9,9 @@
   items:
   - name: Start with Interactive Query
     href: ./apache-interactive-query-get-started.md
+  - name: Install HDInsight apps
+    href: ../hdinsight-apps-install-applications.md
+    maintainContext: true
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
@@ -135,9 +138,6 @@
       maintainContext: true
     - name: Build HDInsight applications
       items:
-      - name: Install HDInsight apps
-        href: ../hdinsight-apps-install-applications.md
-        maintainContext: true
       - name: Install custom apps
         href: ../hdinsight-apps-install-custom-applications.md
         maintainContext: true
