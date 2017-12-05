@@ -72,6 +72,7 @@ To log into your local installation of the CLI, run the login command:
 az login
 ```
 
+---
 
 ## Create a resource group
 
@@ -110,7 +111,7 @@ az account list-locations \
     --out table
 ```
 
-
+---
 
 # Create a general-purpose storage account
 
@@ -156,7 +157,7 @@ ps
 # [Azure CLI](#tab/azure-cli)
 cli
 
-
+---
 
 Any objects contained in a given storage account are billed together as a group. By default, the data in your account is available only to you, the account owner.
 
