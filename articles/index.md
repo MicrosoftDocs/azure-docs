@@ -992,7 +992,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
                                                 <img src="media/index/azure-lbs-icon.svg" alt="" />
                                                 <p>Azure Location Based Services</p>
                                             </a>
@@ -2841,7 +2841,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
