@@ -18,10 +18,10 @@
     - **User** - Enter the user name to use when signing into the VM on which Jenkins is running.
     - **Authentication type** - Select **Password**.
     - **Password** - Enter the password to use when signing into the VM on which Jenkins is running.
-    - **Confirm password** - Re-enter the password to use when signing into the VM on which Jenkins is running.
+    - **Confirm password** - Reenter the password to use when signing into the VM on which Jenkins is running.
     - **Jenkins release type** - Select **LTS**.
     - **Subscription** - Select the Azure subscription into which you want to install Jenkins.
-    - **Resource group** - Select **Create new**, and enter a name for the resource group that server as a logical containers for the collection of resources that make up your Jenkins installation.
+    - **Resource group** - Select **Create new**, and enter a name for the resource group that server as a logical container for the collection of resources that make up your Jenkins installation.
     - **Location** - Select **East US**.
 
     ![Enter authentication and resource group information for Jenkins in the Basic tab](./media/jenkins-install-from-azure-marketplace-image/jenkins-azure-settings-basic.png)
@@ -32,8 +32,8 @@
 
     - **Size** - Select the appropriate sizing option for your Jenkins VM.
     - **VM disk type** - Specify either HDD (hard-disk drive) or SSD (solid-state drive) to indicate which storage disk type is allowed for the Jenkins VM.
-    - **Public IP address** - The IP address name defaults to the Jenkins name you specified in the previous page with a suffix of "IP". You can select the option to change that default.
-    - **Domain name label** - Specify the value that will be the fully qualified URL to the Jenkins VM.
+    - **Public IP address** - The IP address name defaults to the Jenkins name you specified in the previous page with a suffix of -IP. You can select the option to change that default.
+    - **Domain name label** - Specify the value for the fully qualified URL to the Jenkins VM.
 
     ![Enter VM settings for Jenkins in the Settings tab](./media/jenkins-install-from-azure-marketplace-image/jenkins-azure-settings-settings.png)
 
