@@ -34,7 +34,7 @@ Enter values for **Registry name** and **Resource group**. The registry name mus
 
 In this quickstart, we create a *Basic* registry. Azure Container Registry is available in several different SKUs, described briefly in the following table. For extended details on each, see [Container registry SKUs][container-registry-skus].
 
-[!INCLUDE [container-registry-sku-matrix][container-registry-sku-matrix]]
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 When the **Deployment succeeded** message appears, select the container registry in the portal, then select **Access keys**.
 
@@ -135,5 +135,4 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI. 
 
 <!-- LINKS - internal -->
 [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
-[container-registry-sku-matrix]: ../../includes/container-registry-sku-matrix.md
 [container-registry-skus]: container-registry-skus.md
