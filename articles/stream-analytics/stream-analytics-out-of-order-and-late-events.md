@@ -20,7 +20,7 @@ ms.author: jeanb
 ---
 # Azure Stream Analytics event order considerations
 
-## Understand arrival time and application time
+## Arrival time and application time
 
 In a temporal data stream of events, each event is assigned a time stamp. Azure Stream Analytics assigns a time stamp to each event by using either arrival time or application time. The **System.Timestamp** column has the time stamp assigned to the event. 
 
@@ -31,7 +31,7 @@ Application time is assigned when the event is generated and it is part of the p
 You can access arrival time by using the **EventEnqueuedTime** property for event hub input and using the **BlobProperties.LastModified** property for blob input. Azure Stream Analytics produces output in the time stamp order and provides settings to deal with out-of-order data.
 
 
-## Azure Stream Analytics handling of multiple streams
+## Handling of multiple streams
 
 An Azure Stream Analytics job combines events from multiple timelines in cases like the following:
 
@@ -61,7 +61,7 @@ Stream Analytics tolerates late and out-of-order events when you're processing b
 
 The late arrival window is the maximum delay between event generation and receiving of the event at the input source. Adjustment based on late arrival tolerance is done first, and out-of-order tolerance is done next. The **System.Timestamp** column will have the final time stamp assigned to the event.
 
-## Out-of-order tolerance
+### Out-of-order tolerance
 * Events that arrive out of order but within the set out-of-order tolerance window are reordered by time stamp. 
 * Events that arrive later than tolerance are either adjusted or dropped:
     * **Adjusted**: Adjusted to appear to have arrived at the latest acceptable time. 
@@ -89,22 +89,22 @@ Reasons for out-of-order events within a stream include:
 * Variable latency between the sender and the input event source.
 
 Reasons for late arrival include:
-* Senders batch and send the events for an interval later, after the interval.
+* Senders batching and sending the events for an interval later, after the interval.
 * Latency between sending the event by sender and receiving the event at input source.
 
 When you're configuring late arrival tolerance and out-of-order tolerance for a specific job, consider correctness, latency requirements, and the preceding factors.
 
-Following are few examples.
+Following are a few examples.
 
 ### Example 1 
-The query has a **Partition by PartitionId** clause and within a single partition, events are sent using synchronous send methods. Synchronous send methods block until the events are sent.
+The query has a **Partition by PartitionId** clause. Within a single partition, events are sent via synchronous send methods. Synchronous send methods block until the events are sent.
 
-In this case, out of order is zero because events are sent in order with explicit confirmation before sending next event. Late arrival is maximum delay between generating the event and sending the event + maximum latency between sender and input source
+In this case, out of order is zero because events are sent in order with explicit confirmation before the next event is sent. Late arrival is the maximum delay between generating the event and sending the event, plus the maximum latency between the sender and the input source.
 
 ### Example 2
-The query has a **Partition by PartitionId** clause and within a single partition, events are sent using asynchronous send method. Asynchronous send methods can initiate multiple sends at the same time, which can cause out-of-order events.
+The query has a **Partition by PartitionId** clause. Within a single partition, events are sent via asynchronous send methods. Asynchronous send methods can initiate multiple sends at the same time, which can cause out-of-order events.
 
-In this case, both out of order and late arrival are at least maximum delay between generating the event and sending the event + maximum latency between sender and input source.
+In this case, both out of order and late arrival are at least the maximum delay between generating the event and sending the event, plus the maximum latency between the sender and the input source.
 
 ### Example 3
 The query does not have a **Partition by PartitionId**, and there are at least two partitions.
@@ -112,7 +112,7 @@ The query does not have a **Partition by PartitionId**, and there are at least t
 Configuration is the same as example 2. However, absence of data in one of the partitions can delay the output by an additional late arrival tolerance window.
 
 ## Summary
-* Late arrival tolerance and out-of-order window should be configured based on correctness, latency requirements and should also consider how the events are sent.
+* Configure late arrival tolerance and the out-of-order window based on correctness and latency requirements. Also consider how the events are sent.
 * We recommend that out-of-order tolerance is smaller than late arrival tolerance.
 * When you're combining multiple timelines, lack of data in one of the sources or partitions can delay the output by an additional late arrival tolerance window.
 
