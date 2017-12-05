@@ -73,7 +73,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
 
@@ -134,7 +134,7 @@ This article contains the release notes for Azure Storage Explorer 0.9.2 (Previe
 * Although Azure Stack doesn't currently support Files Shares, a File Shares node still appears under an attached Azure Stack storage account.
 * The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * For users on Ubuntu 14.04, you will need to ensure GCC is up to date - this can be done by running the following commands, and then restarting your machine:
 
