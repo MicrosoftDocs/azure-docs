@@ -57,6 +57,12 @@
     href: /rest/api/containerregistry
   - name: PowerShell
     href: /powershell/module/azurerm.containerregistry
+  - name: .NET
+    href: /dotnet/api/overview/azure/containerregistry
+  - name: Python
+    href: /python/api/overview/azure/container-registry
+  - name: Node.js
+    href: /javascript/api/overview/azure/container-registry
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerregistry/registries
   - name: Webhook schema
