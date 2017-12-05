@@ -1,24 +1,14 @@
 ---
-title: Scale an Azure Container Service (AKS) cluster | Microsoft Docs
+title: Scale an Azure Container Service (AKS) cluster
 description: Scale an Azure Container Service (AKS) cluster.
 services: container-service
-documentationcenter: ''
 author: gabrtv
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: Kubernetes, Docker, Containers, Microservices, Azure
 
-ms.assetid:
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-
 ---
 
 # Scale an Azure Container Service (AKS) cluster
