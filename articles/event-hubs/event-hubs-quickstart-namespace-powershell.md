@@ -115,7 +115,7 @@ First, download the [SampleSender](https://github.com/Azure/azure-event-hubs/tre
 
 4. Replace the following variable values:
 	1. `EventHubConnectionString`: Replace with the connection string you obtained when you created the namespace.
-	2. `EhEntityPath`: The name of the event hub you created within that namespace.
+	2. `EventHubName`: The name of the event hub you created within that namespace.
 	3. `StorageContainerName`: The name of a storage container. Give it a unique name, and the container is created for you when you run the app.
 	4. `StorageAccountName`: The name of the storage account you created.
 	5. `StorageAccountKey`: The storage account key you obtained from the Azure portal.
