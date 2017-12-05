@@ -37,10 +37,10 @@ The Content Moderator's video capability is available as a private preview **med
 ## Get Azure Active Directory credentials
 
    1. Read the [Azure Media Services portal article](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-get-started-with-aad) to learn how to use the Azure portal to get your Azure AD authentication credentials.
-   1. Read the [Azure Media Services .NET article](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-get-started-with-aad) to learn how to use your Azure AD credentials with the .NET SDK in preparation for the code sample below.
+   1. Read the [Azure Media Services .NET article](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-get-started-with-aad) to learn how to use your Azure Active Directory credentials with the .NET SDK.
 
    > [!NOTE]
-   > The sample code in this quick start uses the **service principal authentication** method. Please refer to the section in the articles that describes this method of authentication.
+   > The sample code in this quick start uses the **service principal authentication** method described in both the articles.
 
 
 ## Scan your videos for possible adult and racy content
