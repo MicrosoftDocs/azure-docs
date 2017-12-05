@@ -37,11 +37,12 @@ You can either publish your app directly to the **Production Slot**, or you can 
 4. If you want to enable Bing Spell Check, click the **Enable Bing Spell Checker** check box. 
 
     >[!NOTE]
-    >For a limited time, the option to enable Bing Spell Check is included with your LUIS subscription. However, you need to add `spellCheck=true` to the URL when you call the LUIS app endpoint to turn on spell checking. Checking the **Enable Bing Spell Checker** check box appends `spellCheck=true` to the URL that displays in the **Publish app** page when publish is complete. 
+    >* You need to add `spellCheck=true` to the URL when you call the LUIS app endpoint to turn on spell checking. Checking the **Enable Bing Spell Checker** check box appends `spellCheck=true` to the URL that displays in the **Publish app** page when publish is complete. 
+    >* You need to have a [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/) Azure account in order to use this feature.  
 
     ![Bing Spell Checker](./media/luis-how-to-publish-app/luis-enable-bing-spell-checker.png)
 
-5. If you want the JSON response of your published app to include all intents defined in your app and their prediction scores, click **Include all predicted scores** checkbox to append a `verbose=true` parameter to the end-point URL. Otherwise, it includes only the top scoring intent.
+5. If you want the JSON response of your published app to include all intents defined in your app and their prediction scores, click **Include all predicted intent scores** checkbox to append a `verbose=true` parameter to the end-point URL. Otherwise, it includes only the top scoring intent.
 
     ![Verbose Mode](./media/luis-how-to-publish-app/luis-verbose.png)
 
@@ -52,7 +53,7 @@ You can either publish your app directly to the **Production Slot**, or you can 
 
     ![Endpoint URL displayed in Publish page](./media/luis-how-to-publish-app/luis-publish-url.png)
 
-The endpoint URL corresponds to the Azure region associated with the endpoint key. To see endpoints and keys associated with other regions, use the radio buttons to switch regions. Each row in the **Resources and Keys** table lists Azure resource associated with your account and the endpoint keys associated with that resource.
+The endpoint URL corresponds to the Azure region associated with the endpoint key. To see endpoints and keys associated with other regions, use the radio buttons to switch regions. Each row in the **Resources and Keys** table lists Azure resources associated with your account and the endpoint keys associated with that resource.
 
 
 ## Test your published endpoint in a browser
