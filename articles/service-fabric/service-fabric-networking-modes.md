@@ -19,14 +19,14 @@ ms.author: subramar
 ---
 # Service Fabric container networking modes
 
-Azure Service Fabric cluster for container services uses **nat** networking mode by default. When more than one container service is listening on the same port and nat mode is being used, deployment errors can occur. To support multiple container services listening on the same port, Service Fabric offers **Open** networking mode (versions 5.7 and later). In Open mode, each container service has an internal, dynamically assigned IP address that supports multiple services listening on the same port.  
+An Azure Service Fabric cluster for container services uses **nat** networking mode by default. When more than one container service is listening on the same port and nat mode is being used, deployment errors can occur. To support multiple container services listening on the same port, Service Fabric offers **Open** networking mode (versions 5.7 and later). In Open mode, each container service has an internal, dynamically assigned IP address that supports multiple services listening on the same port.  
 
-If you have one container service with a static endpoint in your service manifest, you can create and delete new services using Open mode without deployment errors. The same docker-compose.yml file can also be used with static port mappings to create multiple services.
+If you have one container service with a static endpoint in your service manifest, you can create and delete new services by using Open mode without deployment errors. The same docker-compose.yml file can also be used with static port mappings to create multiple services.
 
-When a container service restarts or moves to another node in the cluster, the IP address changes. For this reason, using the dynamically assigned IP address to discover container services is not recommended. Only the Service Fabric Naming Service or the DNS Service should be used for service discovery. 
+When a container service restarts or moves to another node in the cluster, the IP address changes. For this reason, we don't recommend using the dynamically assigned IP address to discover container services. Only the Service Fabric Naming Service or the DNS Service should be used for service discovery. 
 
 >[!WARNING]
->Azure allows a total of 4,096 IPs per virtual network. The sum of the number of nodes and the number of container service instances (that are using Open mode) can't exceed 4,096 IPs within a virtual network. For high-density scenarios, nat networking mode is recommended.
+>Azure allows a total of 4,096 IPs per virtual network. The sum of the number of nodes and the number of container service instances (that are using Open mode) can't exceed 4,096 IPs within a virtual network. For high-density scenarios, we recommend nat networking mode.
 >
 
 ## Set up Open networking mode
@@ -219,7 +219,7 @@ When a container service restarts or moves to another node in the cluster, the I
     >
 
 ## Next steps
-* [Understand the Service Fabric application model](service-fabric-application-model.md).
-* [Learn more about the Service Fabric service manifest resources](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources).
-* [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-get-started-containers.md).
-* [Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md).
+* [Understand the Service Fabric application model](service-fabric-application-model.md)
+* [Learn more about the Service Fabric service manifest resources](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-get-started-containers.md)
+* [Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)
