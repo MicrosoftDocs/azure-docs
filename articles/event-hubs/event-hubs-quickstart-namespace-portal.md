@@ -138,11 +138,11 @@ First, download the [SampleSender](https://github.com/Azure/azure-event-hubs/tre
 3. In Solution Explorer, double-click Program.cs to open the file in the Visual Studio editor.
 
 4. Replace the following variable values:
-	1. `EventHubConnectionString`: replace with the connection string you obtained when you created the namespace.
-	2. `EhEntityPath`: the name of the event hub you created within that namespace.
-	3. `StorageContainerName`: the name of a storage container. Give it a name, and the container will be created for you when you run the app.
-	4. `StorageAccountName`: the name of the storage account you created.
-	5. `StorageAccountKey`: the storage account key you obtained from the Azure portal.
+	1. `EventHubConnectionString`: Replace with the connection string you obtained when you created the namespace.
+	2. `EhEntityPath`: The name of the event hub you created within that namespace.
+	3. `StorageContainerName`: The name of a storage container. Give it a unique name, and the container is created for you when you run the app.
+	4. `StorageAccountName`: The name of the storage account you created.
+	5. `StorageAccountKey`: The storage account key you obtained from the Azure portal.
 
 5. From the **Build** menu, click **Build Solution** to ensure there are no errors.
 

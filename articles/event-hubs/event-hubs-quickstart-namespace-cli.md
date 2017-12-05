@@ -62,7 +62,7 @@ To obtain the connection string, which contains the credentials you need to conn
 
 2. Click **Shared access policies**, and then click **RootManageSharedAccessKey**.
     
-3. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string in a temporary location, such as Notepad, to use later.
+3. Click the **Copy** button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string in a temporary location, such as Notepad, to use later.
  
 ## Create an event hub
 
@@ -113,11 +113,11 @@ First, download the [SampleSender](https://github.com/Azure/azure-event-hubs/tre
 3. In Solution Explorer, double-click Program.cs to open the file in the Visual Studio editor.
 
 4. Replace the following variable values:
-	1. `EventHubConnectionString`: replace with the connection string you obtained when you created the namespace.
-	2. `EhEntityPath`: the name of the event hub you created within that namespace.
-	3. `StorageContainerName`: the name of a storage container. Give it a name, and the container will be created for you when you run the app.
-	4. `StorageAccountName`: the name of the storage account you created.
-	5. `StorageAccountKey`: the storage account key you obtained from the Azure portal.
+	1. `EventHubConnectionString`: Replace with the connection string you obtained when you created the namespace.
+	2. `EhEntityPath`: The name of the event hub you created within that namespace.
+	3. `StorageContainerName`: The name of a storage container. Give it a unique name, and the container is created for you when you run the app.
+	4. `StorageAccountName`: The name of the storage account you created.
+	5. `StorageAccountKey`: The storage account key you obtained from the Azure portal.
 
 5. From the **Build** menu, click **Build Solution** to ensure there are no errors.
 
@@ -141,7 +141,7 @@ az group delete --name eventhubsResourceGroup
 
 ## Next steps
 
-In this article, you’ve created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn how to send and receive events, continue with the following articles.
+In this article, you created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn more, continue with the following articles.
 
 * [Send events to your event hub](event-hubs-dotnet-standard-getstarted-send.md)
 * [Receive events from your event hub](event-hubs-dotnet-standard-getstarted-receive-eph.md)
