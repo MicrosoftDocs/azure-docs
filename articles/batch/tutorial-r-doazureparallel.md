@@ -221,8 +221,8 @@ Estimated runtime for 10 million outcomes locally, using a linear approximation:
 Now run the code using `doAzureParallel` to compare how long it takes to run 10,000,000 simulations in Azure. To parallelize the simulation with Batch, run 100 iterations of 100,000 simulations:
 
 ```R
+# Optimize runtime. Chunking allows running multiple iterations on a single R instance.
 opt <- list(chunkSize = 13) 
-# Optimize runtime. Chunking allows running multiple iterations on a single R instance. 
 start_p <- Sys.time()  
 closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar% { 
   replicate(100000, getClosingPrice()) 

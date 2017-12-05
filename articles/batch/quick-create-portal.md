@@ -52,6 +52,7 @@ View and manage Batch account settings and properties by using the left menu. Fo
 
   ![View account keys][account_keys]
 
+To see the linked storage account name and keys, click **Storage**.
 
 ## Create a Batch pool
 
