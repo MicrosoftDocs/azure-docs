@@ -36,7 +36,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 ## Create and add Liquid template or map to integration account
 
-1. Create the sample Liquid template for this example. The .liquid file defines how to transform JSON input as described here:
+1. Create the sample Liquid template for this example. The liquid template defines how to transform JSON input as described here:
 
    ```
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -72,7 +72,7 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 
 6. Choose **Add** and provide these details for your map:
   * **Name**: The name for your map, which is "JsontoJsonTemplate" in this example.
-  * **Map type**: The type for your map.For JSON to JSON transformation, you must select **liquid**.
+  * **Map type**: The type for your map. For JSON to JSON transformation, you must select **liquid**.
   * **Map**: An existing Liquid template or map file to use for transformation, which is "SimpleJsonToJsonTemplate.liquid" in this example. You can use the file picker to find this file.
 
     ![Add liquid template](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
