@@ -28,7 +28,7 @@ This article teaches best practices to autoscale in Azure. Azure Monitor autosca
 * An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale-out or scale-in. You can view a list of metrics that autoscale can scale by at [Azure Monitor autoscaling common metrics](insights-autoscale-common-metrics.md).
 * All thresholds are calculated at an instance level. For example, "scale out by 1 instance when average CPU > 80% when instance count is 2", means scale-out when the average CPU across all instances is greater than 80%.
 * All autoscale failures are logged to the Activity Log. You can then configure an [activity log alert](./monitoring-activity-log-alerts.md) so that you can be notified via email, SMS, webhook, etc. whenever there is an autoscale failure.
-* Similarly all successful scale actions are posted to the Activity Log. You can then configure an activity log alert so that you can be notified via email, SMS, webhooks, etc. whenever there is a successful autoscale action.
+* Similarly, all successful scale actions are posted to the Activity Log. You can then configure an activity log alert so that you can be notified via email, SMS, webhooks, etc. whenever there is a successful autoscale action. You can also configure email or webhook notifications to get notified for successful scale actions via the notifications tab on the autoscale setting.
 
 ## Autoscale best practices
 Use the following best practices as you use autoscale.
