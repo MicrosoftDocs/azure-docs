@@ -119,7 +119,8 @@ A [TypeScript](https://www.typescriptlang.org/) definition file for the Clipper 
 ## Azure Media Clipper API
 This section documents the API surface provided by the Clipper.
 
-- `load(assets)`: loads a list of assets into the assets pane (should not be used together with `assetsPanelLoaderCallback`). See this [article](media-services-azure-media-clipper-load-assets.md) for details on how to load assets into the Clipper.
+- `ready(handler)`: offers a way to run JavaScript as soon as the Clipper is fully loaded and ready to be used.
+- `load(assets)`: loads a list of assets into the widget timeline (should not be used together with assetsPanelLoaderCallback). See this [article](media-services-azure-media-clipper-load-assets.md) for details on how to load assets into the Clipper.
 - `setLogLevel(level)`: sets the logging level to be displayed in the browser’s console. Possible values are: `info`, `warn`, `error`.
 - `setHeight(height)`: sets the total height of the widget in pixels (minimum height is 600 px without assets pane, and 850 px with the assets pane).
 - `version`: gets the widget version.
