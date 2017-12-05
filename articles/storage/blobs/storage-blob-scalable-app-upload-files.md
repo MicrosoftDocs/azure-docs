@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
 ---
@@ -95,31 +95,37 @@ private static async Task UploadFilesAsync()
         int max_outstanding = 100;
         int completed_count = 0;
 
-        // Create a new instance of the semaphore class to define the number of threads to use in the application.
-        Semaphore sem = new Semaphore(max_outstanding, max_outstanding);
+        // Define the BlobRequestionOptions on the upload.
+        // This includes defining an exponential retry policy to ensure that failed connections are retried with a backoff policy. As multiple large files are being uploaded
+        // large block sizes this can cause an issue if an exponential retry policy is not defined.  Additionally parallel operations are enabled with a thread count of 8
+        // This could be should be multiple of the number of cores that the machine has. Lastly MD5 hash validation is disabled for this example, this improves the upload speed.
+        BlobRequestOptions options = new BlobRequestOptions
+        {
+            ParallelOperationThreadCount = 8,
+            DisableContentMD5Validation = true,
+            StoreBlobContentMD5 = false
+        };
+        // Create a new instance of the SemaphoreSlim class to define the number of threads to use in the application.
+        SemaphoreSlim sem = new SemaphoreSlim(max_outstanding, max_outstanding);
 
         List<Task> tasks = new List<Task>();
         Console.WriteLine("Found {0} file(s)", Directory.GetFiles(uploadPath).Count());
 
         // Iterate through the files
-        foreach (string fileName in Directory.GetFiles(uploadPath))
+        foreach (string path in Directory.GetFiles(uploadPath))
         {
             // Create random file names and set the block size that is used for the upload.
             var container = containers[count % 5];
-            Random r = new Random((int)DateTime.Now.Ticks);
-            string s = (r.Next() % 10000).ToString("X5");
-            Console.WriteLine("Uploading {0} as {1} to container {2}.", fileName, s, container.Name);
-            CloudBlockBlob blockBlob = container.GetBlockBlobReference(s);
+            string fileName = Path.GetFileName(path);
+            Console.WriteLine("Uploading {0} to container {1}.", path, container.Name);
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(fileName);
 
             // Set block size to 100MB.
             blockBlob.StreamWriteSizeInBytes = 100 * 1024 * 1024;
-            sem.WaitOne();
+            await sem.WaitAsync();
 
-            // Create tasks for each file that is uploaded. This is added to a collection that executes them all asyncronously.  Defined the BlobRequestionOptions on the upload.
-            // This includes defining an exponential retry policy to ensure that failed connections are retried with a backoff policy. As multiple large files are being uploaded
-            // large block sizes this can cause an issue if an exponential retry policy is not defined.  Additionally parallel operations are enabled with a thread count of 8
-            // This could be should be multiple of the number of cores that the machine has. Lastly MD5 hash validation is disabled for this example, this improves the upload speed.
-            tasks.Add(blockBlob.UploadFromFileAsync(fileName, null, new BlobRequestOptions() { ParallelOperationThreadCount = 8, DisableContentMD5Validation = true, StoreBlobContentMD5 = false }, null).ContinueWith((t) =>
+            // Create tasks for each file that is uploaded. This is added to a collection that executes them all asyncronously.  
+            tasks.Add(blockBlob.UploadFromFileAsync(path, null, options, null).ContinueWith((t) =>
             {
                 sem.Release();
                 Interlocked.Increment(ref completed_count);
@@ -127,7 +133,7 @@ private static async Task UploadFilesAsync()
             count++;
         }
 
-        // Creates an asynchonous task that completes when all the uploads complete.
+        // Creates an asynchronous task that completes when all the uploads complete.
         await Task.WhenAll(tasks);
 
         time.Stop();
@@ -138,7 +144,7 @@ private static async Task UploadFilesAsync()
     }
     catch (DirectoryNotFoundException ex)
     {
-        Console.WriteLine("Error parsing files in the directory: {0}",ex.Message);
+        Console.WriteLine("Error parsing files in the directory: {0}", ex.Message);
     }
     catch (Exception ex)
     {
@@ -150,18 +156,18 @@ private static async Task UploadFilesAsync()
 The following example is a truncated application output running on a Windows system.
 
 ```
-Created container https://mystorageaccount.blob.core.windows.net/jjahy
-Created container https://mystorageaccount.blob.core.windows.net/aboan
-Created container https://mystorageaccount.blob.core.windows.net/scdpz
-Created container https://mystorageaccount.blob.core.windows.net/abbim
-Created container https://mystorageaccount.blob.core.windows.net/vefmk
+Created container https://mystorageaccount.blob.core.windows.net/9efa7ecb-2b24-49ff-8e5b-1d25e5481076
+Created container https://mystorageaccount.blob.core.windows.net/bbe5f0c8-be9e-4fc3-bcbd-2092433dbf6b
+Created container https://mystorageaccount.blob.core.windows.net/9ac2f71c-6b44-40e7-b7be-8519d3ba4e8f
+Created container https://mystorageaccount.blob.core.windows.net/47646f1a-c498-40cd-9dae-840f46072180
+Created container https://mystorageaccount.blob.core.windows.net/38b2cdab-45fa-4cf9-94e7-d533837365aa
 Iterating in directiory: D:\git\storage-dotnet-perf-scale-app\upload
 Found 50 file(s)
-Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\1d596d16-f6de-4c4c-8058-50ebd8141e4d.txt as 0187A to container jjahy.
-Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\242ff392-78be-41fb-b9d4-aee8152a6279.txt as 00E13 to container aboan.
-Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\38d4d7e2-acb4-4efc-ba39-f9611d0d55ef.txt as 02121 to container scdpz.
-Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\45930d63-b0d0-425f-a766-cda27ff00d32.txt as 00589 to container abbim.
-Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\5129b385-5781-43be-8bac-e2fbb7d2bd82.txt as 01922 to container vefmk.
+Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\1d596d16-f6de-4c4c-8058-50ebd8141e4d.txt to container 9efa7ecb-2b24-49ff-8e5b-1d25e5481076.
+Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\242ff392-78be-41fb-b9d4-aee8152a6279.txt to container bbe5f0c8-be9e-4fc3-bcbd-2092433dbf6b.
+Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\38d4d7e2-acb4-4efc-ba39-f9611d0d55ef.txt to container 9ac2f71c-6b44-40e7-b7be-8519d3ba4e8f.
+Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\45930d63-b0d0-425f-a766-cda27ff00d32.txt to container 47646f1a-c498-40cd-9dae-840f46072180.
+Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\5129b385-5781-43be-8bac-e2fbb7d2bd82.txt to container 38b2cdab-45fa-4cf9-94e7-d533837365aa.
 ...
 Upload has been completed in 142.0429536 seconds. Press any key to continue
 ```

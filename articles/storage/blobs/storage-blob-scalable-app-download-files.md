@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
 ---
@@ -52,37 +52,31 @@ public static void Main(string[] args)
     // This is in addition to parallelism with the storage client library that is defined in the functions below.
     ThreadPool.SetMinThreads(100, 4);
     ServicePointManager.DefaultConnectionLimit = 100; // (Or More)
+
+    bool exception = false;
     try
     {
         // Call the UploadFilesAsync function.
-        UploadFilesAsync().Wait();
+        // UploadFilesAsync().GetAwaiter().GetResult();
 
         // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
         // initially to support the tutorial at https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scaleable-app-download-files.
-        // DownloadFilesAsync().Wait();
+        DownloadFilesAsync().GetAwaiter().GetResult();
     }
-    catch (AggregateException ae)
+    catch (Exception ex)
     {
-        ae.Handle((x) =>
-        {
-            if (x is ArgumentNullException) // This we know how to handle.
-            {
-                Console.WriteLine("A connection string has not been defined in the system environment variables. Add a environment variable name 'storageconnectionstring' with the actual storage connection string as a value.");
-            }
-            else
-            {
-                Console.WriteLine(x.Message);
-            }
-
-            return true;
-        });
+        Console.WriteLine(ex.Message);
+        exception = true;
     }
     finally
     {
         // The following function will delete the container and all files contained in them.  This is commented out initialy
         // As the tutorial at https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scaleable-app-download-files has you upload only for one tutorial and download for the other. 
-        // DeleteExistingContainersAsync().Wait();
-        Console.WriteLine("Application complete. Press any key to exit");
+        if (!exception)
+        {
+            DeleteExistingContainersAsync().GetAwaiter().GetResult();
+        }
+        Console.WriteLine("Press any key to exit the application");
         Console.ReadKey();
     }
 }
@@ -119,6 +113,13 @@ private static async Task DownloadFilesAsync()
 {
     CloudBlobClient blobClient = GetCloudBlobClient();
 
+    // Define the BlobRequestionOptions on the download, including disabling MD5 hash validation for this example, this improves the download speed.
+    BlobRequestOptions options = new BlobRequestOptions
+    {
+        DisableContentMD5Validation = true,
+        StoreBlobContentMD5 = false
+    };
+
     // Retrieve the list of containers in the storage account.  Create a directory and configure variables for use later.
     BlobContinuationToken continuationToken = null;
     List<CloudBlobContainer> containers = new List<CloudBlobContainer>();
@@ -134,42 +135,53 @@ private static async Task DownloadFilesAsync()
     BlobResultSegment resultSegment = null;
     Stopwatch time = Stopwatch.StartNew();
 
-    // download the blobs
+    // Download the blobs
     try
     {
         List<Task> tasks = new List<Task>();
+        int max_outstanding = 100;
+        int completed_count = 0;
 
-            // Iterate throung the containers
-            foreach (CloudBlobContainer container in containers)
+        // Create a new instance of the SemaphoreSlim class to define the number of threads to use in the application.
+        SemaphoreSlim sem = new SemaphoreSlim(max_outstanding, max_outstanding);
+
+        // Iterate through the containers
+        foreach (CloudBlobContainer container in containers)
+        {
+            do
             {
-                do
+                // Return the blobs from the container lazily 10 at a time.
+                resultSegment = await container.ListBlobsSegmentedAsync(null, true, BlobListingDetails.All, 10, continuationToken, null, null);
+                continuationToken = resultSegment.ContinuationToken;
                 {
-                    // Return the blobs from the container lazily 10 at a time.
-                    resultSegment = await container.ListBlobsSegmentedAsync(null, true, BlobListingDetails.All, 10, continuationToken, null, null);
-                    continuationToken = resultSegment.ContinuationToken;
+                    foreach (var blobItem in resultSegment.Results)
                     {
-                        foreach (var blobItem in resultSegment.Results)
-                        {
 
-                            if (((CloudBlob)blobItem).Properties.BlobType == BlobType.BlockBlob)
+                        if (((CloudBlob)blobItem).Properties.BlobType == BlobType.BlockBlob)
+                        {
+                            // Get the blob and add a task to download the blob asynchronously from the storage account.
+                            CloudBlockBlob blockBlob = container.GetBlockBlobReference(((CloudBlockBlob)blobItem).Name);
+                            Console.WriteLine("Downloading {0} from container {1}", blockBlob.Name, container.Name);
+                            await sem.WaitAsync();
+                            tasks.Add(blockBlob.DownloadToFileAsync(directory.FullName + "\\" + blockBlob.Name, FileMode.Create, null, options, null).ContinueWith((t) =>
                             {
-                                // Get the blob and add a task to download the blob asynchronously from the storage account.
-                                CloudBlockBlob blockBlob = container.GetBlockBlobReference(((CloudBlockBlob)blobItem).Name);
-                                Console.WriteLine("Downloading {0} from container {1}", blockBlob.Name, container.Name);
-                                tasks.Add(blockBlob.DownloadToFileAsync(directory.FullName + "\\" + blockBlob.Name, FileMode.Create, null, new BlobRequestOptions() { DisableContentMD5Validation = true, StoreBlobContentMD5 = false }, null));
-                            }
+                                sem.Release();
+                                Interlocked.Increment(ref completed_count);
+                            }));
+
                         }
                     }
                 }
-                while (continuationToken != null);
             }
+            while (continuationToken != null);
+        }
 
-            // Creates an asynchonous task that completes when all the downloads complete.
-            await Task.WhenAll(tasks);
+        // Creates an asynchronous task that completes when all the downloads complete.
+        await Task.WhenAll(tasks);
     }
     catch (Exception e)
     {
-        Console.WriteLine("\nThe transfer is canceled: {0}", e.Message);
+        Console.WriteLine("\nError encountered during transfer: {0}", e.Message);
     }
 
     time.Stop();
