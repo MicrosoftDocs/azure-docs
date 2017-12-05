@@ -108,16 +108,16 @@ Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication
  
 **DFS Replication (DFS-R)**: Since DFS-R and Azure File Sync are both replication solutions, in most cases, we recommend replacing DFS-R with Azure File Sync. There are however several scenarios where you would want to use DFS-R and Azure File Sync together:
 
-- You are migrating from a DFS-R deployment to an Azure File Sync deployment.
+- You are migrating from a DFS-R deployment to an Azure File Sync deployment. For more information, see [Migrate a DFS Replication (DFS-R) deployment to Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r).
 - Not every on-premises server which needs a copy of your file data can be connected directly to the internet.
-- Branch servers consolidate data into a single hub server, for which you would like to use Azure File Sync.
+- Branch servers consolidate data onto a single hub server, for which you would like to use Azure File Sync.
 
-There are two caveats to deploying Azure File Sync and DFS-R together:
+For Azure File Sync and DFS-R to work side-by-side:
 
 1. Azure File Sync cloud tiering must be disabled on volumes with DFS-R replicated folders.
 2. Server endpoints should not be configured on DFS-R read-only replication folders.
 
-For more information, see [Migrate a DFS Replication (DFS-R) deployment to Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r) and [DFS Replication overview](https://technet.microsoft.com/library/jj127250).
+For more information, see [DFS Replication overview](https://technet.microsoft.com/library/jj127250).
 
 ### Antivirus solutions
 Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. Because tiered files have the "offline" attribute set, we recommend consulting with your software vendor to learn how to configure their solution to skip reading offline files. 
