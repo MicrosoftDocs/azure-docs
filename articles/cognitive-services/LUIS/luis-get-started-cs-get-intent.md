@@ -14,7 +14,7 @@ ms.author: v-demak
 
 # Call a LUIS app using C#
 
-In this article, you'll pass utterances to a LUIS endpoint and get results.
+Pass utterances to a LUIS endpoint and get intent and entities back.
 
 ## Before you begin
   1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
