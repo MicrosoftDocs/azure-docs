@@ -35,7 +35,7 @@ Pick the troubleshooting steps that correspond to the error message you encounte
 | *The IP address range for the virtual network %VIRTUAL_NETWORK% in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.* | [Address is in a public IP range](active-directory-ds-troubleshooting.md#address-is-in-a-public-ip-range) |
 | *We have identified that the subnet of the virtual network in this domain may not have sufficient IP addresses. Azure AD Domain Services needs at-least two available IP addresses within the subnet it is enabled in. We recommend having at-least 3-5 spare IP addresses within the subnet. This may have occurred if other virtual machines are deployed within the subnet, thus exhausting the number of available IP addresses or if there is a restriction on the number of available IP addresses in the subnet.* | [Insufficient amount of IP addresses available](active-directory-ds-troubleshooting.md#insufficient-amount-of-ip-addresses-available) |
 | *error* | [Missing tenant](active-directory-ds-troubleshooting.md#missing-tenant) |
-| *Azure AD Domain Services cannot reach the network or does not have outbound internet access. This is usually caused by an incorrect NSG configuration.* | [Network Error](active-directory-ds-troubleshooting.md#network-error) |
+| *Azure AD Domain Services cannot reach the network or does not have outbound internet access. This error is usually caused by an incorrect NSG configuration.* | [Network Error](active-directory-ds-troubleshooting.md#network-error) |
 
 ### Domain Name conflict
 **Error message:**
@@ -158,7 +158,7 @@ Before you begin, read the **private IP v4 address space** section in [this arti
   1. Navigate to the Azure portal (https://portal.azure.com/)
   2. Select **Azure AD Domain Services** from the left-hand navigation.
   3. Find your domain in the table and open the context menu by clicking the "..." button on the far right of the row.
-  4. Select **Delete** and follow the remaining steps to delete your domain.
+  4. Select **Delete** and follow the remaining steps.
 2. Follow [the Getting Started Using Azure AD Domain Services guide](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
 3. To domain-join your virtual machines to your new domain, follow [this guide](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 
@@ -170,14 +170,14 @@ Before you begin, read the **private IP v4 address space** section in [this arti
 **Remediation:**
 
 > [!NOTE]
-> To address this issue, you must delete your existing managed domain and re-create it in a subnet with a sufficient number of IP addresses. This is a disruptive process.
+> To address this issue, you must delete your existing managed domain and re-create it in a subnet with a sufficient number of IP addresses. This process is disruptive.
 
 
 1. Delete your managed domain from your tenant.
   1. Navigate to the Azure portal (https://portal.azure.com/)
   2. Select **Azure AD Domain Services** from the left-hand navigation.
   3. Find your domain in the table and open the context menu by clicking the "..." button on the far right of the row.
-  4. Select **Delete** and follow the remaining steps to delete your domain.
+  4. Select **Delete** and follow the remaining steps.
 2. Fix the IP address range for the subnet
   1. Navigate to the Azure portal (https://portal.azure.com/)
   2. Select **Virtual Networks** from the left-hand navigation.
@@ -206,7 +206,7 @@ To restore your service, follow these steps:
 ### Network Error
 **Error message:**
 
-*Azure AD Domain Services cannot reach the network or does not have outbound internet access. This is usually caused by an incorrect NSG configuration.*
+*Azure AD Domain Services cannot reach the network or does not have outbound internet access. This error is usually caused by an incorrect NSG configuration.*
 
 **Remediation:**
 

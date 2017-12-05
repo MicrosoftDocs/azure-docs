@@ -64,7 +64,7 @@ When secure LDAP is enabled, we recommend creating additional rules to allow inb
 ### Sample NSG
 The following table depicts a sample NSG that would keep your managed domain secure while allowing Microsoft to monitor, manage, and update information.
 
-**sample nsg pic here**
+![sample NSG](.\media\active-directory-domain-services-admin-guide\secure-ldap-sample-nsg.png)
 
 ## Contact Us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
