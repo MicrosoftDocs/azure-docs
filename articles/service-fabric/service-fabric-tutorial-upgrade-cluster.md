@@ -20,18 +20,25 @@ ms.author: adegeo
 
 # Upgrade the runtime of a Service Fabric cluster
 
-This tutorial is part four of a series, and shows you how to upgrade the Service Fabric runtime on an Azure Service Fabric cluster. This tutorial part is written for Service Fabric clusters running on Azure and does not apply to self-hosted Service Fabric clusters.
+This tutorial is part three of a series, and shows you how to upgrade the Service Fabric runtime on an Azure Service Fabric cluster. This tutorial part is written for Service Fabric clusters running on Azure and does not apply to standalone Service Fabric clusters.
 
 > [!WARNING]
 > This part of the tutorial requires PowerShell. Support for upgrading the cluster runtime is not yet supported by the Azure CLI tools. Alternatively, a cluster can be upgraded in the portal. For more information, see [Upgrade an Azure Service Fabric cluster](service-fabric-cluster-upgrade.md).
 
-If you are your cluster is already running the latest Service Fabric runtime, you do not need to do this step. However, this article can be used to install any specific supported runtime on an Azure Service Fabric cluster.
+If your cluster is already running the latest Service Fabric runtime, you do not need to do this step. However, this article can be used to install any supported runtime on an Azure Service Fabric cluster.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Read the cluster version
 > * Set the cluster version
+
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure using a template
+> * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
+> * Upgrade the runtime of a cluster
+> * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## Prerequisites
 Before you begin this tutorial:
@@ -52,21 +59,14 @@ Set-AzureRmContext -SubscriptionId <guid>
 
 ## Get the runtime version
 
-After you have connected to Azure, selected the subscription with the Service Fabric cluster, you can get the runtime version of the cluster.
+After you have connected to Azure, selected the subscription containing the Service Fabric cluster, you can get the runtime version of the cluster.
 
 ```powershell
-Get-AzureRmServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster | Select-Object ClusterCodeVersion
+Get-AzureRmServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
+    | Select-Object ClusterCodeVersion
 ```
 
-Or just get a list of all clusters in your subscription with the following.
-
-```powershell
-Get-AzureRmServiceFabricCluster | Select-Object Name, ClusterCodeVer
-sion
-```
-
-
-You can easily view the Service Fabric runtime version after you have connected to the cluster.
+Or, just get a list of all clusters in your subscription with the following:
 
 ```powershell
 Get-AzureRmServiceFabricCluster | Select-Object Name, ClusterCodeVersion
@@ -76,7 +76,7 @@ Note the **ClusterCodeVersion** value. This value will be used in the next secti
 
 ## Upgrade the runtime
 
-Use the *(ClusterCodeVersion)* value from the previous section with the `Get-ServiceFabricRuntimeUpgradeVersion` cmdlet to discover what versions are available to upgrade to. This cmdlet can only be run from a computer connected to the internet. For example, if you wanted to see what versions `5.7.198.9494` could upgrade to, use the following command:
+Use the value of **ClusterCodeVersion** from the previous section with the `Get-ServiceFabricRuntimeUpgradeVersion` cmdlet to discover what versions are available to upgrade to. This cmdlet can only be run from a computer connected to the internet. For example, if you wanted to see what runtime versions you could upgrade to from version `5.7.198.9494`, use the following command:
 
 ```powershell
 Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
@@ -85,7 +85,10 @@ Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
 With a list of versions, you can tell the Azure Service Fabric cluster to upgrade to a newer runtime. For example, if version `6.0.219.9494` is available to upgrade to, use the following command to upgrade your cluster.
 
 ```powershell
-Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster -UpgradeMode Manual -Version "6.0.219.9494"
+Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
+                                    -Name aztestcluster `
+                                    -UpgradeMode Manual `
+                                    -Version "6.0.219.9494"
 ```
 
 > [!IMPORTANT]
@@ -100,10 +103,10 @@ $endpoint = "<mycluster>.southcentralus.cloudapp.azure.com:19000"
 $thumbprint = "63EB5BA4BC2A3BADC42CA6F93D6F45E5AD98A1E4"
 
 Connect-ServiceFabricCluster -ConnectionEndpoint $endpoint `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint $thumbprint `
-          -FindType FindByThumbprint -FindValue $thumbprint `
-          -StoreLocation CurrentUser -StoreName My
+                             -KeepAliveIntervalInSec 10 `
+                             -X509Credential -ServerCertThumbprint $thumbprint `
+                             -FindType FindByThumbprint -FindValue $thumbprint `
+                             -StoreLocation CurrentUser -StoreName My
 ```
 
 ```azurecli
@@ -192,3 +195,7 @@ In this tutorial, you learned how to:
 > * Get the version of the cluster runtime
 > * Upgrade the cluster runtime
 > * Monitor the upgrade
+
+Next, advance to the following tutorial to learn how to deploy API Management with a Service Fabric cluster.
+> [!div class="nextstepaction"]
+> [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)

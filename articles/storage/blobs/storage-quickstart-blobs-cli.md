@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
-ms.author: marsma
+ms.author: tamram
 ---
 
 # Transfer objects to/from Azure Blob storage using the Azure CLI

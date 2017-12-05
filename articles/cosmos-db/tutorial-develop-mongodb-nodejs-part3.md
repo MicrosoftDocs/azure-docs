@@ -12,9 +12,10 @@ ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: mimig
+ms.custom: mvc
 
 ---
 # Create a MongoDB app with Angular and Azure Cosmos DB - Part 3: Build the UI with Angular

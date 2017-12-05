@@ -31,6 +31,8 @@
       href: create-mongodb-java.md
     - name: Golang
       href: create-mongodb-golang.md
+    - name: Python
+      href: create-mongodb-flask.md
   - name: Graph
     items:
     - name: .NET
@@ -41,6 +43,8 @@
       href: create-graph-java.md
     - name: Node.js
       href: create-graph-nodejs.md
+    - name: PHP
+      href: create-graph-php.md
   - name: Table
     items:
     - name: .NET
