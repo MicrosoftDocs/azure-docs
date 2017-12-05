@@ -92,7 +92,7 @@ Next, we walk through the sample code so that you can understand how it works.
 
 ### Get references to the storage objects
 
-The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other -- each is used by the next one in the list.
+The first thing to do is create the references to the objects used to access and manage Blob storage. These objects build on each other, each is used by the next one in the list.
 
 * Create an instance of the [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet) object pointing to the storage account.
 
