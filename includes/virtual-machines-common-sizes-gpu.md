@@ -31,12 +31,12 @@ NCv2 instance are the next generation of the NC-series machines, powered by [NVI
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
-| Standard_NC6_v2 |6 |112 | 336 | 1 | ? |
-| Standard_NC12_v2 |12 |224 | 672 | 2 | ? |
-| Standard_NC24_v2 |24 |448 | 1344 | 4 | ? |
-| Standard_NC24r_v2* |24 |1448 | 1344 | 4 | ? |
+| Standard_NC6_v2 |6 |112 | 336 | 1 | 12 |
+| Standard_NC12_v2 |12 |224 | 672 | 2 | 24 |
+| Standard_NC24_v2 |24 |448 | 1344 | 4 | 32 |
+| Standard_NC24r_v2* |24 |1448 | 1344 | 4 | 32 |
 
-1 GPU = one-half P100 card.
+1 GPU = one P100 card.
 
 *RDMA capable
 
@@ -50,12 +50,12 @@ The ND-series virtual machines are a new addition to the GPU family specifically
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | Maximum data disks |
 | --- | --- | --- | --- | --- | --- |
-| Standard_ND6 |6 |112 | 336 | 1 | ? |
-| Standard_ND12 |12 |224 | 672 | 2 | ? |
-| Standard_ND24 |24 |448 | 1344 | 4 | ? |
-| Standard_ND24r* |24 |1448 | 1344 | 4 | ? |
+| Standard_ND6 |6 |112 | 336 | 1 | 12 |
+| Standard_ND12 |12 |224 | 672 | 2 | 24 |
+| Standard_ND24 |24 |448 | 1344 | 4 | 32 |
+| Standard_ND24r* |24 |1448 | 1344 | 4 | 32 |
 
-1 GPU = one-half P40 card.
+1 GPU = one P40 card.
 
 *RDMA capable
 
