@@ -108,5 +108,5 @@ OUTPUT @a
 ## Next steps
 
 * [Run U-SQL scripts on your own workstation for testing and debugging](data-lake-analytics-data-lake-tools-local-run.md)
-* [Debug C# code in U-SQL jobs](data-lake-analytics-debug-u-sql-jobs.md)
+* [Debug C# code in U-SQL jobs using Azure Data Lake Tools for Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
 * [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -49,7 +49,7 @@ This topic gives you an overview of the sign-in activities.
 With the information provided by the user sign-in report, you find answers to questions such as:
 
 * What is the sign-in pattern of a user?
-* How many users have users signed in over a week?
+* How many users have signed in over a week?
 * What’s the status of these sign-ins?
 
 Your first entry point to all sign-in activities data is **Sign-ins** in the Activity section of **Azure Active**.

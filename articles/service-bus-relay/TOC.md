@@ -9,15 +9,20 @@
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)
 ## [WCF Relay](relay-wcf-dotnet-get-started.md)
+## [WCF Relay tutorial](service-bus-relay-tutorial.md)
+## [WCF Relay REST tutorial](service-bus-relay-rest-tutorial.md)
 
 # How To
 ## Plan and design
 ### [Authentication and security](relay-authentication-and-authorization.md)
+#### [Migrate from ACS to SAS](relay-migrate-acs-sas.md)
 ### [Hybrid Connections protocol](relay-hybrid-connections-protocol.md)
 ## Develop
 ### [Available APIs](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## Manage
+### [Monitor Azure Relay with Azure Monitoring](relay-metrics-azure-monitor.md)
 
 # Reference
 ## .NET

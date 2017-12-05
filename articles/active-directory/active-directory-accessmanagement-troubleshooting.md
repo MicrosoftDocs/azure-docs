@@ -20,7 +20,7 @@ ms.custom: it-pro
 
 ---
 # Troubleshooting dynamic memberships for groups
-**I configured a rule on a group but no memberships get updated in the group**<br/>Verify that the **Enable delegated group management** setting is set to **Yes** in the **Configure** tab. You will see this setting only if you are signed in as a user to whom an Azure Active Directory Premium license is assigned. Verify the values for user attributes on the rule: are there users that satisfy the rule?
+**I configured a rule on a group but no memberships get updated in the group**<br/>Verify the values for user attributes on the rule: are there users that satisfy the rule? If everything looks good, please allow some time for the group to populate. Depending on the size of your tenant, the group may take up to 24 hours for populating for the first time or after a rule change.
 
 **I configured a rule, but now the existing members of the rule are removed**<br/>This is expected behavior. Existing members of the group are removed when a rule is enabled or changed. The users returned from evaluation of the rule are added as members to the group.     
 

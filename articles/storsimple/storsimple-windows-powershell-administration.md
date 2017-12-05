@@ -13,11 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli@microsoft.com
 
 ---
 # Use Windows PowerShell for StorSimple to administer your device
+> [!NOTE]
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. To view the version of this article for the new Azure portal, go to [Use Windows PowerShell for StorSimple to administer your device](storsimple-8000-windows-powershell-administration.md). For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## Overview
 Windows PowerShell for StorSimple provides a command-line interface that you can use to manage your Microsoft Azure StorSimple device. As the name suggests, it is a Windows PowerShell-based, command-line interface that is built in a constrained runspace. From the perspective of the user at the command line, a constrained runspace appears as a restricted version of Windows PowerShell. While maintaining some of the basic capabilities of Windows PowerShell, this interface has additional dedicated cmdlets that are geared towards managing your Microsoft Azure StorSimple device. 
 

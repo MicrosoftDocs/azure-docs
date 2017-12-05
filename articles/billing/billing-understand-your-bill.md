@@ -78,7 +78,7 @@ To learn about each of the columns in the CSV, see [Understand your Azure detail
 
 ### Option 2: Review your invoice and compare with the usage and costs in the Azure portal
 
-The Azure portal can also help you verify your charges. The Azure
+The Azure portal can also help you verify your charges.The Azure
 portal provides cost management charts for a quick overview of your
 usage and the charges on your invoice.
 

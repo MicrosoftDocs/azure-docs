@@ -1,6 +1,6 @@
 ---
 title: Connection libraries for SQL Database | Microsoft Docs
-description: Provides links for downloads of modules which enable connection to SQL Server and SQL Database from a broad variety of client programming languages. The modules are released by the community or by Microsoft.
+description: Provides links for downloads of modules which enable connection to SQL Server and SQL Database from a broad variety of client programming languages. 
 services: sql-database
 documentationcenter: ''
 author: MightyPen
@@ -10,13 +10,12 @@ editor: genemi
 ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 11/29/2017
 ms.author: genemi
-
 ---
 # Connectivity libraries and frameworks for Microsoft SQL Server
 
@@ -44,12 +43,25 @@ The table below lists a few examples of Object Relational Mapping (ORM) framewor
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
 | Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows, Linux, macOS | [Ruby on Rails](http://rubyonrails.org/) |
+||||
 
 ## Related links
 - [SQL Server Drivers](http://msdn.microsoft.com/library/mt654049.aspx) for connecting from client applications
-- [Connect to SQL Database by using .NET (C#)](sql-database-connect-query-dotnet.md)
-- [Connect to SQL Database by using PHP](sql-database-connect-query-php.md)
-- [Connect to SQL Database by using Node.js](sql-database-connect-query-nodejs.md)
-- [Connect to SQL Database by using Java](sql-database-connect-query-java.md)
-- [Connect to SQL Database by using Python](sql-database-connect-query-python.md)
-- [Connect to SQL Database by using Ruby](sql-database-connect-query-ruby.md)
+- Connect to SQL Database:
+    - [Connect to SQL Database by using .NET (C#)](sql-database-connect-query-dotnet.md)
+    - [Connect to SQL Database by using PHP](sql-database-connect-query-php.md)
+    - [Connect to SQL Database by using Node.js](sql-database-connect-query-nodejs.md)
+    - [Connect to SQL Database by using Java](sql-database-connect-query-java.md)
+    - [Connect to SQL Database by using Python](sql-database-connect-query-python.md)
+    - [Connect to SQL Database by using Ruby](sql-database-connect-query-ruby.md)
+- Retry logic code examples:
+    - [Connect resiliently to SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+    - [Connect resiliently to SQL with PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

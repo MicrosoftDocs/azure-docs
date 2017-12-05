@@ -93,7 +93,7 @@ Resources such as database accounts, databases, collections, users, permissions,
         </tr>
         <tr>
             <td valign="top"><p>id</p></td>
-            <td valign="top"><p>System generated</p></td>
+            <td valign="top"><p>Either</p></td>
             <td valign="top"><p>User defined unique name of the resource (with the same partition key value). If the user does not specify an id, an id will be system generated</p></td>
         </tr>
     </tbody>
@@ -213,7 +213,7 @@ By virtue of its deep commitment to JavaScript and JSON directly within the data
 * Efficient implementation of concurrency control, recovery, automatic indexing of the JSON object graphs directly in the database engine
 * Naturally expressing control flow, variable scoping, assignment and integration of exception handling primitives with database transactions directly in terms of the JavaScript programming language
 
-The JavaScript logic registered at a collection level can then issue database operations on the documents of the given collection. Azure Cosmos DB implicitly wraps the JavaScript based stored procedures and triggers within an ambient ACID transactions with snapshot isolation across documents within a collection. During the course of its execution, if the JavaScript throws an exception, then the entire transaction is aborted. The resulting programming model is a very simple yet powerful. JavaScript developers get a “durable” programming model while still using their familiar language constructs and library primitives.   
+The JavaScript logic registered at a collection level can then issue database operations on the documents of the given collection. Azure Cosmos DB implicitly wraps the JavaScript based stored procedures and triggers within an ambient ACID transactions with snapshot isolation across documents within a collection. During the course of its execution, if the JavaScript throws an exception, then the entire transaction is aborted. The resulting programming model is very simple yet powerful. JavaScript developers get a “durable” programming model while still using their familiar language constructs and library primitives.   
 
 The ability to execute JavaScript directly within the database engine in the same address space as the buffer pool enables performant and transactional execution of database operations against the documents of a collection. Furthermore, Cosmos DB database engine makes a deep commitment to the JSON and JavaScript eliminates any impedance mismatch between the type systems of application and the database.   
 

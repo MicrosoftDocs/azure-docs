@@ -3,7 +3,7 @@ title: Azure Virtual Machine Agent Overview | Microsoft Docs
 description: Azure Virtual Machine Agent Overview
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: nepeters
+ms.author: danis
 
 ---
 # Azure Virtual Machine Agent overview

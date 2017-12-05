@@ -24,7 +24,7 @@ ms.author: jgao
 
 Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Store. Azure Storage and Data lake Store are designed as an HDFS extension to provide a seamless experience to customers. They enable the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage and Data Lake Store are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage] and [Use Data Lake Store with HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-##Prerequisites
+## Prerequisites
 
 Note the following requirements before you begin:
 
@@ -155,7 +155,7 @@ The Hadoop command line is only useful for storing data into Azure storage blob 
 In order to use the Hadoop command, you must first connect to the headnode using one of the following methods:
 
 * **Windows-based HDInsight**: [Connect using Remote Desktop](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **Linux-based HDInsight**: Connect using SSH ([the SSH command](hdinsight-hadoop-linux-use-ssh-unix.md) or [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
+* **Linux-based HDInsight**: Connect using [SSH or PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Once connected, you can use the following syntax to upload a file to storage.
 
@@ -185,7 +185,7 @@ There are also several applications that provide a graphical interface for worki
 
 | Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Microsoft Visual Studio Tools for HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Microsoft Visual Studio Tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
@@ -193,7 +193,7 @@ There are also several applications that provide a graphical interface for worki
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### Visual Studio Tools for HDInsight
-For more information, see [Navigate the linked resources](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+For more information, see [Navigate the linked resources](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
 
 #### <a id="storageexplorer"></a>Azure Storage Explorer
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in blobs. It is a free, open source tool that can be downloaded from [http://storageexplorer.com/](http://storageexplorer.com/). The source code is available from this link as well.
@@ -304,14 +304,14 @@ Now that you understand how to get data into HDInsight, read the following artic
 [azure-azcopy-download]:../storage/common/storage-use-azcopy.md
 [azure-azcopy]:../storage/common/storage-use-azcopy.md
 
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 

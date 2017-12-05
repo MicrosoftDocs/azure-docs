@@ -23,6 +23,8 @@ ms.custom: mvc
 
 # Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
 
@@ -35,7 +37,7 @@ $ az --version
 ```
 
 If you don't have the `az` tool installed, there are instructions [here](https://github.com/azure/azure-cli#installation).  
-Alternatively, you can use [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), which has the `az` Azure cli and `kubectl` tools already installed for you.  
+Alternatively, you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which has the `az` Azure cli and `kubectl` tools already installed for you.  
 
 You can test if you have the `kubectl` tool installed by running:
 
