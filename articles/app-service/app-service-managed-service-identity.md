@@ -46,11 +46,13 @@ To set up a managed service identity in the portal, you will first create an app
 
 ### Using the Azure CLI
 
-To set up a managed service identity using the Azure CLI, you will need to use the `az webapp assign-identity` command agaisnt an existing application. This section walks through creating a web app and assigning it an identity using the CLI. You have three options for running the examples in this section:
+To set up a managed service identity using the Azure CLI, you will need to use the `az webapp assign-identity` command against an existing application. You have three options for running the examples in this section:
 
 - Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block below.
 - [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 or later) if you prefer to use a local CLI console. 
+
+The following steps will walk you through creating a web app and assigning it an identity using the CLI:
 
 1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the application:
 
