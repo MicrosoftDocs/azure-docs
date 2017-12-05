@@ -89,22 +89,22 @@ Selected administrators can be exempted from these policies, across all group wo
 - User account administrator
 - Directory writers
 
-## install the PowerShell cmdlets for naming policy
+## Install PowerShell cmdlets for naming policy
 
 Uninstall any older module version the Graph version of the Azure Active Directory Module for Windows PowerShell and [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) before you run the PowerShell commands. 
 
-1. Open the Windows PowerShell app as an administrator:
-2. To uninstall a previous version of AzureADPreview, run this command:
+1. Open the Windows PowerShell app as an administrator.
+2. Uninstall any previous version of AzureADPreview.
   
   ````
   Uninstall-Module AzureADPreview
   ````
-3. To install the latest version of AzureADPreview, run this command:
+3. Install the latest version of AzureADPreview.
   
   ````
   Install-Module AzureADPreview
   ````
-When prompted about accessing an untrusted repository, type **Y**. It will take a minute or so for the new module to install.
+If you are prompted about accessing an untrusted repository, type **Y**. It will take a minute or so for the new module to install.
 
 ## How to set up the Naming Policy in Azure AD PowerShell
 
@@ -120,13 +120,13 @@ In the **Sign in to your Account** screen that opens, enter your Office 365 admi
 
 ### View the current settings
 
-1. Fetch the current naming policy to view the current settings. Enter the following command in Azure AD PowerShell window:
+1. Fetch the current naming policy to view the current settings.
   
   ````
   \$Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
   ````
   
-2. To display the current group settings, enter the following command:
+2. Display the current group settings.
   
   ````
   \$Setting.Values
@@ -134,19 +134,19 @@ In the **Sign in to your Account** screen that opens, enter your Office 365 admi
   
 ### Set the naming policy and custom blocked words
 
-1. Set the group name prefixes and suffixes in Azure AD PowerShell:
+1. Set the group name prefixes and suffixes in Azure AD PowerShell.
   
   ````
   \$Setting\["PrefixSuffixNamingRequirement"\] =“Grp\_\[Department\]\_\[GroupName\]\_\[CountryCode\]"
   ````
   
-2. Now set the custom blocked words that you want to restrict. The following example illustrates how you can add your own custom words.
+2. Set the custom blocked words that you want to restrict. The following example illustrates how you can add your own custom words.
   
   ````
   \$Setting\["CustomBlockedWordsList"\]=“Payroll,CEO,HR"
   ````
   
-3. Save the settings for the new policy to be effective, as follows:
+3. Save the settings for the new policy to be effective, such as in the following example.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting \$Setting
@@ -218,3 +218,26 @@ prefixes and suffixes and for custom blocked words if they don't follow the nami
 
 ### Office 365 admin center
 Office 365 Admin center is compliant with naming policy. When adding or changing group names, naming policy is automatically applied, and users receive appropriate errors when they enter custom blocked words. Office 365 Admin center doesn't yet show the preview of the naming policy and doesn't return custom blocked word errors when the user enters the group name.
+
+
+Workload | Compliance
+----------- | -------------------------------
+Outlook Web (OWA) | Outlook web shows the naming policy decorated name when the user types a group name or group alias. When an user enters a custom blocked word, an error message is shown in the UI along with the blocked word so that the user can remove it.
+Outlook Desktop | Groups created in Outlook desktop are compliant with naming policy. Outlook desktop app doesn't yet show the preview of the naming policy and doesn't return the custom blocked word errors when the user enters the group name. However, naming policy is automatically applied on clicking create/edit and users see error messages if there are custom blocked words in the group name or alias.
+Microsoft Teams | Microsoft Teams shows the group naming policy enforced name when the user types a team name. When a user enters a custom blocked word, an error message is shown along with the blocked word so that the user can remove it.
+SharePoint  |  SharePoint shows the naming policy enforced name when the user types a site name or group email address. When an user enters a custom blocked word, an error message is shown, along with the blocked word so that the user can remove it.
+Microsoft Stream | Microsoft Stream shows the the naming policy enforced name when the user types a group name or group email alias. When an user enters a custom blocked word, an error message is shown with the blocked word so the user can remove it.
+Outlook iOS and Android App | Groups created in Outlook apps are compliant with naming policy. Outlook mobile app doesn't yet show the preview of the naming policy and doesn't return the custom blocked word errors, when the user enters the group name. However, naming policy is automatically applied on clicking create/edit and users see error messages if there are custom blocked words in the group name or alias.
+Groups mobile app | Groups created in Groups mobile app are compliant with naming policy. Groups mobile app does not show the preview of the naming policy and does not return the custom blocked word errors, when the user enters the group name. But the naming policy will be automatically applied on clicking create/edit and users will be presented with appropriate errors if there are custom blocked words in the group name or alias.
+Planner | Planner is compliant with naming policy. Planner shows the naming policy preview when entering the Plan name. When a user enters a custom blocked word, an error message is shown when creating the plan.
+Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement is compliant with naming policy. Dynamics 365 shows the naming policy decorated name when the user types a group name or group email alias. When the user enters a custom blocked word, an error message is shown with the blocked word so the user can remove it.
+School Data Sync (SDS) | Groups created through SDS comply with naming policy, but the naming policy isn't applied automatically. SDS administrators have to append the prefixes and suffixes to class names for which groups need to be created and then uploaded to SDS. Group create or edit would fail otherwise.
+Outlook Customer Manager (OCM) | Outlook Customer Manager is compliant with naming policy. The naming policy gets automatically applied to the group created in Outlook Customer Manager. If any of the words is defined as a custom blocked word, group creation in OCM is blocked, and the user is blocked from using the OCM app.
+Classroom app | Groups created in classroom app comply with naming policy, but the naming policy isn't applied automatically, and the naming policy preview isn't shown to the users while entering a classroom group name. Users must enter the enforced classroom group name with prefixes and suffixes. If not, the classroom group create or edit operation fails with errors.
+Power BI | Power BI workspaces aren't compliant with naming policy yet. Power BI workspaces created in your organization with naming policies won't work.
+Yammer | Yammer connected groups don't enforce naming policy. For organizations with naming policy enabled, Yammer creates legacy Yammer groups that aren't connected to O365 for groups that don't conform to naming policy.
+StaffHub  | StaffHub teams do not follow the naming policy, but the underlying Office 365 group does. StaffHub team name does not apply the prefixes and suffixes and does not check for custom blocked words. But StaffHub does apply the prefixes and suffixes and removes blocked words from the underlying Office 365 group.
+Exchange PowerShell | Exchange PowerShell cmdlets are compliant with naming policy. Users receive appropriate error messages with suggested prefixes and suffixes and for custom blocked words if they don't follow the naming convention in group names and group alias.
+Azure Active Directory PowerShell cmdlets | Azure Active Directory PowerShell cmdlets are compliant with naming policy. Users receive appropriate error messages with suggested prefixes and suffixes and for custom blocked words if they don't follow the naming convention in group names and group alias.
+Exchange admin center | Exchange admin center is compliant with naming policy. Users receive appropriate error messages with suggested prefixes and suffixes and for custom blocked words if they don't follow the naming convention in group names and group alias.
+Office 365 admin center | Office 365 Admin center is compliant with naming policy. When adding or changing group names, naming policy is automatically applied, and users receive appropriate errors when they enter custom blocked words. Office 365 Admin center doesn't yet show the preview of the naming policy and doesn't return custom blocked word errors when the user enters the group name.
