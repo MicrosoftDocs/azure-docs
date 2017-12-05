@@ -1,5 +1,5 @@
 ---
-title: Image search endpoint | Microsoft Docs
+title: Image search endpoints | Microsoft Docs
 description: Summary of the Image search API endpoint.
 services: cognitive-services
 author: mikedodaro
@@ -11,7 +11,7 @@ ms.date: 11/30/2017
 ms.author: v-gedod
 ---
 
-# Image Search endpoint
+# Image Search endpoints
 The **Image Search API**  includes three endpoints.  Endpoint 1 returns images from the Web based on a query. Endpoint 2 returns [ImageInsights](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Endpoint 3 returns trending images.
 ##Endpoints
 To get image results using the Bing API, send a request to one of the following endpoints. Use the headers and URL parameters to define further specifications.
