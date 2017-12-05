@@ -59,18 +59,22 @@ Copy and paste the following JSON snippet into the `mydsvm.json` file, and fill 
 
 For the _vmSize_ field, you can use any suppported VM size listed in the [Ubuntu DSVM Azure resource management template](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). We recommend you use one of the below sizes as compute targets for Azure ML. 
 
-- Standard_DS2_v2 
-- Standard_DS3_v2 
-- Standard_DS4_v2 
-- Standard_DS12_v2 
-- Standard_DS13_v2 
-- Standard_DS14_v2 
-- Standard_NC6 
-- Standard_NC12 
-- Standard_NC24 
- 
+
 >[!TIP]
-> The VM sizes started with "NC" are the ones equipped with GPU.
+> For [deep learning workloads](how-to-use-gpu.md) you can deploy to GPU powered VMs.
+
+- [General Purpose VMs](/virtual-machines/linux/sizes-general.md)
+  - Standard_DS2_v2 
+  - Standard_DS3_v2 
+  - Standard_DS4_v2 
+  - Standard_DS12_v2 
+  - Standard_DS13_v2 
+  - Standard_DS14_v2 
+- [GPU powered VMs](/virtual-machines/linux/sizes-gpu.md)
+  - Standard_NC6 
+  - Standard_NC12 
+  - Standard_NC24 
+ 
 
 Read more about these [sizes for Linux virtual machines in Azure](../../virtual-machines/linux/sizes.md) and their [pricing information](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
