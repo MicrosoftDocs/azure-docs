@@ -6,6 +6,7 @@ author: gabrtv
 manager: timlt
 
 ms.service: container-service
+ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
