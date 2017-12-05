@@ -141,7 +141,7 @@ After you set a group naming policy in Azure AD, Office 365 apps then show a pre
 
 Workload | Compliance
 ----------- | -------------------------------
-Outlook Web (OWA) | Outlook web shows the naming policy enforced name when the user types a group name or group alias. When an user enters a custom blocked word, an error message is shown in the UI along with the blocked word so that the user can remove it.
+Outlook Web Access (OWA) | Outlook Web Access shows the naming policy enforced name when the user types a group name or group alias. When an user enters a custom blocked word, an error message is shown in the UI along with the blocked word so that the user can remove it.
 Outlook Desktop | Groups created in Outlook desktop are compliant with naming policy. Outlook desktop app doesn't yet show the preview of the naming policy and doesn't return the custom blocked word errors when the user enters the group name. However, naming policy is automatically applied on clicking create/edit and users see error messages if there are custom blocked words in the group name or alias.
 Microsoft Teams | Microsoft Teams shows the group naming policy enforced name when the user types a team name. When a user enters a custom blocked word, an error message is shown along with the blocked word so that the user can remove it.
 SharePoint  |  SharePoint shows the naming policy enforced name when the user types a site name or group email address. When an user enters a custom blocked word, an error message is shown, along with the blocked word so that the user can remove it.
