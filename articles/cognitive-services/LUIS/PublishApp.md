@@ -37,7 +37,8 @@ You can either publish your app directly to the **Production Slot**, or you can 
 4. If you want to enable Bing Spell Check, click the **Enable Bing Spell Checker** check box. 
 
     >[!NOTE]
-    >For a limited time, the option to enable Bing Spell Check is included with your LUIS subscription. However, you need to add `spellCheck=true` to the URL when you call the LUIS app endpoint to turn on spell checking. Checking the **Enable Bing Spell Checker** check box appends `spellCheck=true` to the URL that displays in the **Publish app** page when publish is complete. 
+    >* You need to add `spellCheck=true` to the URL when you call the LUIS app endpoint to turn on spell checking. Checking the **Enable Bing Spell Checker** check box appends `spellCheck=true` to the URL that displays in the **Publish app** page when publish is complete. 
+    >* You need to have a [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/) Azure account in order to use this feature.  
 
     ![Bing Spell Checker](./media/luis-how-to-publish-app/luis-enable-bing-spell-checker.png)
 
