@@ -24,12 +24,15 @@ This quickstart shows how to use Python and the Azure Cosmos DB [Graph API](grap
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.  
 
+> [!NOTE]
+> This quickstart requires a graph database account created after 11/27/2017. Existing accounts will support Python once they’re migrated to general availability.
+
 ## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 In addition:
-* [Python](https://www.python.org/downloads/) version v3.5 or newer.
+* [Python](https://www.python.org/downloads/) version v3.5 or newer
 * [pip package manager](https://pip.pypa.io/en/stable/installing/)
 * [Git](http://git-scm.com/)
 * [Python Driver for Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
