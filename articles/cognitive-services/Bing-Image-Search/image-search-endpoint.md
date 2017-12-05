@@ -20,7 +20,7 @@ Endpoint 1 `GET`:
 ``` 
 https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
-Returns images that are relevant to the users search query defined by `?q=""`.
+Returns images that are relevant to the user's search query defined by `?q=""`.
 
 Endpoint 2 `GET` or `POST`:
 ``` 

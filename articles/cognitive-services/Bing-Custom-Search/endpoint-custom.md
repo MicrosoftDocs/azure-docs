@@ -22,7 +22,7 @@ Endpoint `GET`:
 ```  
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
-Returns search suggestions as JSON results that are relevant to the users input defined by `?q=""`.
+Returns search suggestions as JSON results that are relevant to the user's input defined by `?q=""`.
 
 
 For examples that describe how to set up Custom Search sources, see the [tutorial](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Custom Search API v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) reference.
