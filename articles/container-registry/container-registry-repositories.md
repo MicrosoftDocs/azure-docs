@@ -1,22 +1,16 @@
 ---
-title: Azure container registry repositories | Microsoft Docs
+title: Azure container registry repositories
 description: How to use Azure Container Registry repositories for Docker images
 services: container-registry
-documentationcenter: ''
 author: cristy
-manager: balans
-editor: dlepow
-
+manager: timlt
 
 ms.service: container-registry
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/24/2017
 ms.author: cristyg
-
 ---
+
 # Azure container registry repositories
 
 Azure container registry allows you to store container images in repositories. By storing images in repositories, you can have groups of images (or version of images) in isolated environments. You can specify these repositories when you push images to your registry.
