@@ -67,7 +67,7 @@ kubectl get apiservice
 
 ## Installing Open Service Broker for Azure
 
-Next step is to install [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure), which includes the catalog for the Azure-managed services. Examples for available Azure services are Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database, and others. 
+Next step is to install [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure), which includes the catalog for the Azure-managed services. Examples for available Azure services are Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database, and others.
 
 Let's start by adding Open Service Broker for Azure Helm repository:
 
@@ -101,32 +101,15 @@ AZURE_CLIENT_SECRET=[your Azure password from above]
 AZURE_TENANT_ID=[your Azure tenant from above]
 ```
 
-and get subscription using
+and get subscription ID using:
 ```azurecli-interactive
-az account show
-```
-
-Output looks something like the example below, `id` value is used for subscription ID.
-
-```
-{
-  "environmentName": "AzureCloud",
-  "id": "33ee811e-12bf-4g5c-9c62-a2f28c5f7724",
-  "isDefault": true,
-  "name": "Azure Subscription,
-  "state": "Enabled",
-  "tenantId": "72f988bf-0000-0000-0000-2d7cd011db47",
-  "user": {
-    "name": "user@example.com",
-    "type": "user"
-  }
-}
+az account show --query id -o tsv
 ```
 
 Setting up environment variable with the preceding value:
 
 ```azurecli-interactive
-AZURE_SUBSCRIPTION_ID=[your Azure subscription Id from above]
+AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
 ```
 
 Installing Open Service Broker for Azure using Helm chart:
@@ -139,23 +122,32 @@ helm install azure/open-service-broker-azure --name osba --namespace osba \
     --set azure.clientSecret=$AZURE_CLIENT_SECRET
 ```
 
-Here are a few commands to verify Open Service Broker for Azure and installed services with plans:
+Let's install the [Service Catalog CLI](https://github.com/Azure/service-catalog-cli) for easy-to-use command line interface for querying service brokers, service classes, service plans and more.
 
-Show installed broker:
+Installing Service Catalog CLI binary:
+
 ```azurecli-interactive
-kubectl get clusterservicebroker -o yaml
+curl -sLO https://servicecatalogcli.blob.core.windows.net/cli/latest/$(uname -s)/$(uname -m)/svcat
+chmod +x ./svcat
+mv ./svcat /usr/local/bin/
 ```
 
-Show installed service classes:
+Listing installed service brokers:
+
 ```azurecli-interactive
-kubectl get clusterserviceclasses -o=custom-columns=NAME:.metadata.name,EXTERNALNAME:.spec.externalName
+svcat get brokers
 ```
 
-Show installed service plans:
+Listing service classes. These are the available Azure-managed services that can be provisioned through Open Service Broker for Azure.
+
 ```azurecli-interactive
-kubectl get clusterserviceplans \
-    -o=custom-columns=NAME:.metadata.name,EXTERNALNAME:.spec.externalName,SERVICECLASS:.spec.clusterServiceClassRef.name \
-    --sort-by=.spec.clusterServiceClassRef.name
+svcat get classes
+```
+
+Finally, listing all available service plans. These are the service tiers for the Azure-managed services. For example, for Azure Database for MySQL, this ranges from `basic50` for Basic Tier with 50 Database Transaction Units (DTUs) to `standard800` for Standard Tier with 800 DTUs.
+
+```azurecli-interactive
+svcat get plans
 ```
 
 ## Installing WordPress from Helm chart using Azure Database for MySQL
@@ -168,14 +160,14 @@ helm install azure/wordpress --name wordpress --namespace wordpress
 
 In order to verify the installation has provisioned the right resources:
 
-Show installed service instance and bindings:
+List installed service instances and bindings:
 
 ```azurecli-interactive
-kubectl get serviceinstance -n wordpress -o yaml
-kubectl get servicebinding -n wordpress -o yaml
+svcat get instances -n wordpress
+svcat get bindings -n wordpress
 ```
 
-Show installed secrets:
+List installed secrets:
 
 ```azurecli-interactive
 kubectl get secrets -n wordpress -o yaml
