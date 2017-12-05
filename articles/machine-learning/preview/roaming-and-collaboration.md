@@ -192,7 +192,7 @@ To illustrate the collaboration workflow, let's walk through an example. Contoso
     $ git push origin bob
     ```
 
-12. To tell Alice about the cool new trick in his code, Bob creates a pull request on the remote Git repo from the bob branch to the master branch. Alice can then merge the pull request into master branch.
+12. To tell Alice about the cool new trick in his code, Bob creates a pull request on the remote Git repo from the bob branch to the master branch. Alice can then merge the pull request into the master branch.
 
 ## Next steps
 - Learn more about [using a Git repo with a Machine Learning Workbench project](using-git-ml-project.md).
