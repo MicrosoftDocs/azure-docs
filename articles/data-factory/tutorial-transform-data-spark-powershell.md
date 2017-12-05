@@ -16,14 +16,6 @@ ms.date: 10/06/2017
 ms.author: shengc
 ---
 # Transform data in the cloud by using Spark activity in Azure Data Factory
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### This tutorial
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that transforms data using Spark Activity and an on-demand HDInsight linked service. You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
@@ -32,6 +24,9 @@ In this tutorial, you use Azure PowerShell to create a Data Factory pipeline tha
 > * Author and deploy a pipeline. 
 > * Start a pipeline run.
 > * Monitor the pipeline run.
+
+> [!NOTE]
+> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
