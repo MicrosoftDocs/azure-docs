@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
 ---
 
@@ -123,7 +123,7 @@ By default, the browser automatically calculates the correct zone, either Intern
 
 ### Browser considerations
 
-#### Mozilla Firefox
+#### Mozilla Firefox (all platforms)
 
 Mozilla Firefox doesn't automatically use Kerberos authentication. Each user must manually add the Azure AD URLs to their Firefox settings by using the following steps:
 1. Run Firefox and enter `about:config` in the address bar. Dismiss any notifications that you see.
@@ -132,11 +132,15 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 4. Enter https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net in the field.
 5. Select **OK** and then reopen the browser.
 
-#### Safari on Mac OS
+#### Safari (Mac OS)
 
 Ensure that the machine running the Mac OS is joined to Azure AD. For instructions on joining Azure AD, see [Best Practices for Integrating OS X with Active Directory](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
 
-#### Google Chrome on Mac OS
+#### Google Chrome (all platforms)
+
+If you have overriden the [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) or the [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) policy settings in your environment, ensure that you add Azure AD's URLs (https://autologon.microsoftazuread-sso.com and https://aadg.windows.net.nsatc.net) to them as well.
+
+#### Google Chrome (Mac OS only)
 
 For Google Chrome on Mac OS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) for information on how to whitelist the Azure AD URLs for integrated authentication.
 
