@@ -18,9 +18,10 @@ The **Custom Search API**  includes one endpoint, which returns results from the
 ##Endpoint
 To get results using the Bing Custom Search API, send a `GET` request to the following endpoint. Use the headers and URL parameters to define further specifications.
 
-Endpoint `GET`:  
+Endpoint `GET`:
+```  
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
-
+```
 Returns search suggestions as JSON results that are relevant to the users input defined by `?q=""`.
 
 

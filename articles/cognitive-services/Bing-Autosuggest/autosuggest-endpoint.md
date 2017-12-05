@@ -18,9 +18,10 @@ The **Autosuggest API**  includes one endpoint, which returns a list of suggeste
 ##Endpoint
 To get suggested queries using the Bing API, send a `GET` request to the following endpoint. Use the headers and URL parameters to define further specifications.
 
-Endpoint `GET`:  
+Endpoint `GET`:
+```  
 https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
-
+```
 Returns search suggestions as JSON results that are relevant to the users input defined by `?q=""`.
 
 
