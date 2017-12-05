@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/2/2017
+ms.date: 11/29/2017
 ---
 
 # Classify Iris part 3: Deploy a model
@@ -115,8 +115,7 @@ To deploy the web service along with the model file, you also need a scoring scr
 
 Now you're ready to prepare your environment to operationalize the model.
 
->[!NOTE]
->Deploying models requires you to have owner access to an Azure subscription.
+
 
 ## Prepare to operationalize locally
 Use _local mode_ deployment to run in Docker containers on your local computer.
@@ -158,7 +157,9 @@ You can use _local mode_ for development and testing. The Docker engine must be 
 
    The third line of the output displays **"registrationState": "Registering"**. Wait a few moments and repeat the **show** command until the output displays **"registrationState": "Registered"**.
 
-3. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later:
+3. Create the environment. You must run this step once per environment. For example, run it once for development environment, and once for production. Use _local mode_ for this first environment. You can try the `-c` or `--cluster` switch in the following command to set up an environment in _cluster mode_ later.
+
+   Note that the following setup command requires you to have Contributor access to the subscription. If you don't have that, you at least need Contributor access to the resource group that you are deploying into. To do the latter, you need to specify the resource group name as part of the setup command using `-g` the flag. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -271,10 +272,10 @@ You are now ready to run the web service.
 
 To test the **irisapp** web service that's running, use a JSON-encoded record containing an array of four random numbers:
 
-1. The web service includes sample data. When running in local mode, you can call the **az ml service show realtime** command. That call retrieves a sample run command that's useful for you to use to test the service. The call also retrieves the scoring URL that you can use to incorporate the service into your own custom app:
+1. The web service includes sample data. When running in local mode, you can call the **az ml service usage realtime** command. That call retrieves a sample run command that's useful for you to use to test the service. The call also retrieves the scoring URL that you can use to incorporate the service into your own custom app:
 
    ```azurecli
-   az ml service show realtime -i <web service ID>
+   az ml service usage realtime -i <web service ID>
    ```
 
 2. To test the service, execute the returned service run command:

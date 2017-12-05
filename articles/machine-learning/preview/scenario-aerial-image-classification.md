@@ -55,9 +55,14 @@ The following instructions guide you through the process of setting up execution
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Follow the [Install and create Quickstart](quickstart-installation.md) to install the Azure Machine Learning Workbench and create Experimentation and Model Management Accounts.
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK and Azure CLI 2.0
-    - Install the Batch AI SDK and Azure CLI 2.0 by following the instructions in the [Recipes Prerequisites section](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - As of this writing, the Azure Machine Learning Workbench uses a separate fork of the Azure CLI 2.0. For clarity, we refer to the Workbench's version of the CLI as "a CLI launched from Azure Machine Learning Workbench" and the general-release version (which includes Batch AI) as "Azure CLI 2.0."
-    - Create an Azure Active Directory application and service principal by following [these instructions](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Record the client ID, secret, and tenant ID.
+    - Complete the following sections in the [Batch AI Recipes README](https://github.com/Azure/BatchAI/tree/master/recipes):
+        - "Prerequisites"
+        - "Create and get your Azure Active Directory (AAD) application"
+        - "Register BatchAI Resource Providers" (under "Run Recipes Using Azure CLI 2.0")
+        - "Install Azure Batch AI Management Client"
+        - "Install Azure Python SDK"
+    - Record the client ID, secret, and tenant ID of the Azure Active Directory application you are directed to create. You will use those credentials later in this tutorial.
+    - As of this writing, Azure Machine Learning Workbench and Azure Batch AI use separate forks of the Azure CLI 2.0. For clarity, we refer to the Workbench's version of the CLI as "a CLI launched from Azure Machine Learning Workbench" and the general-release version (which includes Batch AI) as "Azure CLI 2.0."
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), a free utility for coordinating file transfer between Azure storage accounts
     - Ensure that the folder containing the AzCopy executable is on your system's PATH environment variable. (Instructions on modifying environment variables are available [here](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - An SSH client; we recommend [PuTTY](http://www.putty.org/).
@@ -129,6 +134,11 @@ We now create the storage account that hosts project files that must be accessed
     Record the value of `key1` as the storage key in the following command, then run the command to store the value.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
+    ```
+1. Create a file share named `baitshare` in your storage account with the following command:
+
+    ```
+    az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. In your favorite text editor, load the `settings.cfg` file from the Azure Machine Learning Workbench project's "Code" subdirectory, and insert the storage account name and key as indicated. Save and close the `settings.cfg` file.
 1. If you have not already done so, download and install the [AzCopy](http://aka.ms/downloadazcopy) utility. Ensure that the AzCopy executable is on your system path by typing "AzCopy" and pressing Enter to show its documentation.
@@ -206,7 +216,7 @@ Your Batch AI cluster accesses your training data on a Network File Server. Data
 1. Issue the following command to create a Network File Server:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Check the provisioning status of your Network File Server using the following command:

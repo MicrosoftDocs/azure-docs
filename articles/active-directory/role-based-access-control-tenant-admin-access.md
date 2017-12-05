@@ -41,6 +41,30 @@ This feature is important because it allows the tenant admin to see all the subs
 
 ![Azure AD Admin Center - Properties - Globaladmin can manage Azure Subscription - screenshot](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
 
+## View role assignments at the "/" scope using PowerShell
+To view the **User Access Administrator** assignment at the **/** scope, use the `Get-AzureRmRoleAssignment` PowerShell cmdlet.
+    
+```
+Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
+```
+
+**Example output**:
+
+RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
+Scope              : /    
+DisplayName        : username    
+SignInName         : username@somedomain.com    
+RoleDefinitionName : User Access Administrator    
+RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
+ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
+ObjectType         : User    
+
+## Delete the role assignment at "/" scope using Powershell:
+You can delete the assignment using following PowerShell cmdlet:
+```
+Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
+```
+
 ## Use elevateAccess to give tenant access with the REST API
 
 The basic process works with the following steps:

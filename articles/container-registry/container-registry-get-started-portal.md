@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2017
 ms.author: marsma
-ms.custom:
+ms.custom: mvc
 ---
 
 # Create a container registry using the Azure portal
