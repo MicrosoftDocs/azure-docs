@@ -153,10 +153,8 @@ To illustrate the collaboration workflow, let's walk through an example. Contoso
 6. Bob signs in to Machine Learning Workbench on his computer. He can see the workspace that Alice shared with him. He can see the iris project listed under that workspace. 
 
 7. Bob selects the project name. The project is downloaded to his computer.
-    
-    a. The downloaded project files are clones of the snapshot of the latest run that's recorded in the run history. They are not the last commit on the master branch.
-    
-    b. The local project folder is set to the master branch, with unstaged changes.
+    * The downloaded project files are a copy of the snapshot of the latest run that's recorded in the run history. They are not the last commit on the master branch.
+    * The local project folder is set to the master branch, with the unstaged changes.
 
 8. Bob can browse runs that were executed by Alice. He can restore snapshots of any earlier runs.
 

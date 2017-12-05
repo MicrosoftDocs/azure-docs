@@ -46,6 +46,10 @@
     href: storage-unstructured-search.md
 - name: Samples
   items:
+  - name: .NET
+    href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Java
+    href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Azure PowerShell
     href: storage-samples-blobs-powershell.md 
   - name: Azure CLI 
@@ -146,12 +150,8 @@
       href: storage-how-to-use-blobs-powershell.md 
     - name: Azure CLI 2.0
       href: storage-how-to-use-blobs-cli.md      
-    - name: GitHub Code Samples
-      items:
-      - name: .NET
-        href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Java
-        href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: REST
+      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Manage
     items:
     - name: PowerShell for Azure Blobs

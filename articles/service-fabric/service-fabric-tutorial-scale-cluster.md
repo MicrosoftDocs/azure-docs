@@ -29,6 +29,13 @@ In this tutorial, you learn how to:
 > * Add cluster nodes (scale out)
 > * Remove cluster nodes (scale in)
 
+In this tutorial series you learn how to:
+> [!div class="checklist"]
+> * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure using a template
+> * Scale a cluster in or out
+> * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 ## Prerequisites
 Before you begin this tutorial:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -248,8 +255,8 @@ In this tutorial, you learned how to:
 > * Remove cluster nodes (scale in)
 
 
-Next, advance to the following tutorial to learn how to deploy an application and use API management.
+Next, advance to the following tutorial to learn how to upgrade the runtime of a cluster.
 > [!div class="nextstepaction"]
-> [Deploy API Management](service-fabric-tutorial-deploy-api-management.md)
+> [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
