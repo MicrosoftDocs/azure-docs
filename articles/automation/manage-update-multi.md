@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
+ms.date: 11/30/2017
 ms.author: magoedte;eslesar
 ---
 # Manage updates for multiple machines
@@ -40,7 +40,7 @@ Update management is supported on the following operating systems.
 
 ### Windows
 
-* Windows Server 2008 and later, and update deployments against Windows Server 2008 R2 SP1 and later. Server Core and Nano Server installation options are not supported.
+* Windows Server 2008 and later, and update deployments against Windows Server 2008 R2 SP1 and later. Nano Server is not supported.
 
   Support for deploying updates to Windows Server 2008 R2 SP1 requires .NET Framework 4.5 and Windows Management Framework 5.0 or later.
 
@@ -84,6 +84,16 @@ Update management is enabled for your virtual machine.
 For instructions on how to enable update management for non-Azure Windows virtual machines and computers, see [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agents.md).
 
 For instructions on how to enable update management for non-Azure Linux virtual machines and computers, see [Connect your Linux computers to Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+
+## View computers attached to your automation account
+After enabling update management for your machines, you can view their information by clicking **Computers**. Computer information such as *Name*, *Compliance*, *Environment*, *OS Type*, *Critical and Security Updates*, and *Other Updates* are available. 
+
+  ![View computers tab](./media/manage-update-multi/update-computers-tab.png)
+
+For computers that have recently been enabled for update management, they may not have been assessed yet. The compliance state for those computers would have a status of  *Not assessed*.  Here is a list of values for compliance state:
+* Compliant – Computers that are not missing critical or security updates.
+* Non-compliant – Computers that are missing at least one critical or security update.
+* Not assessed – The update assessment data has not been received from the computer within the expected timeframe.  For Linux computers, in the last three hours and for Windows computers, in the last 12 hours.  
 
 ## View an update assessment
 

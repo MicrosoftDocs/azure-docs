@@ -2,19 +2,11 @@
 title: Azure Container Instances tutorial - Deploy app
 description: Azure Container Instances tutorial - Deploy app
 services: container-instances
-documentationcenter: ''
 author: seanmck
 manager: timlt
-editor: mmacy
-tags:
-keywords:
 
-ms.assetid:
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/20/2017
 ms.author: seanmck
 ms.custom: mvc

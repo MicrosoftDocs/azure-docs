@@ -8,7 +8,7 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
 - The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines. For information about VM sizes that are more appropriate for production applications, see (Sizes for virtual machines)[virtual-machines-size-specs.md] and for VM pricing information, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## B-series (Preview)
+## B-series
 
 > [!NOTE] 
 > Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -31,7 +31,7 @@ The B-series burstable VMs are ideal for workloads that do not need the full per
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## Dsv3-series
+## Dsv3-series*
 
 ACU: 160-190
 
@@ -46,9 +46,9 @@ Dsv3-series sizes are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / high                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / Extremely high                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8 / Extremely high                                       |
+*Dsv3-series VM’s feature Intel® Hyper-Threading Technology
 
-
-## Dv3-series
+## Dv3-series* 
 
 ACU: 160-190
 
@@ -65,7 +65,7 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / high                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / Extremely high                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / Extremely high                     |
-
+*Dv3-series VM’s feature Intel® Hyper-Threading Technology
 
 ## DSv2-series
 

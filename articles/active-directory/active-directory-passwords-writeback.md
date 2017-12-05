@@ -6,7 +6,7 @@ keywords: Active directory password management, password management, Azure AD se
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -105,8 +105,8 @@ If you're not sure what account the described account refers to, open the Azure 
 
 If you set these permissions, the MA service account for each forest can manage passwords on behalf of the user accounts within that forest. 
 
->[!IMPORTANT]
->If you neglect to assign these permissions, then, even though writeback appears to be configured correctly, users will encounter errors when they attempt to manage their on-premises passwords from the cloud.
+> [!IMPORTANT]
+> If you neglect to assign these permissions, then, even though writeback appears to be configured correctly, users will encounter errors when they attempt to manage their on-premises passwords from the cloud.
 >
 
 > [!NOTE]
@@ -122,7 +122,6 @@ To set up the appropriate permissions for password writeback to occur, complete 
 5. Pick the account that permissions are being applied to (from the Azure AD Connect setup).
 6. In the **Applies to** drop-down list, select **Descendent user** objects.
 7. Under **Permissions**, select the boxes for the following:
-    * **Unexpire-password**
     * **Reset password**
     * **Change password**
     * **Write lockoutTime**
