@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
@@ -13,7 +13,6 @@ ms.custom:
 ---
 
 # Frequently asked questions for Azure Cost Management
-
 
 This article addresses some common questions about Azure Cost Management (also known as Cloudyn). If you have questions about Cost Management, you can ask them at [FAQs for Azure Cost Management by Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
@@ -89,20 +88,13 @@ For CSPs:
 
 To add additional CSP accounts to an entity, select **MSP Access** instead of **Enterprise** when you create the new entity. If your account is registered as an Enterprise Agreement and you want to add CSP credentials, Cloudyn support personnel might need to modify your account settings. If you're a paid Azure subscriber, you can create a new support request in the Azure portal. Select **Help + support**, and then select **New support request**.
 
-## How do I change the currency symbol used in Cloudyn?
+## Currency symbols in Cloudyn reports
 
-When all Azure accounts in a single entity use the same currency, the currency that you use is automatically detected. However, the currency symbol is erroneously shown as **$** for any of the following currencies:
+You might have multiple Azure accounts using different currencies. However, cost reports in Cloudyn do not show more than one currency type per report.
 
-- GBP = United Kingdom pound sterling
-- EUR = European euro
-- INR = Indian rupee
-- NOK = Norwegian krone
+If you have multiple subscriptions using different currencies, a parent entity and its child entity currencies are displayed with the **$** symbol. Our suggested best practice is to avoid using different currencies in the same entity hierarchy. In other words, all your subscriptions organized in an entity structure should use the same currency.
 
-Although the currency symbol might show **$** for US dollars, the cost values are shown in your correct currency. For example, if all your accounts use euros in the same entity, the _values_ shown in Cloudyn are euros, even though the **$** symbol appears erroneously.
-
-If you're an Azure Enterprise Agreement customer, Cloudyn support personnel can change your currency symbol shown in cost reports from $. You can create a new support request in the Azure portal. Select **Help + support**, and then select **New support request**.
-
-If you're a CSP customer, you can't change your currency symbol. Cloudyn only supports rate cards that use US dollars. Cloudyn is exploring the option to support rate cards in different currencies.
+Cloudyn automatically detects your Enterprise Agreement subscription currency and presents it properly in reports.  However, Cloudyn only displays the **$** symbol for CSP and web-direct Azure accounts.
 
 ## What are Cloudyn data refresh timelines?
 
@@ -121,3 +113,15 @@ If there is a delay sending data from Azure to Cloudyn, data is still recorded i
 ## How can a direct CSP configure Cloudyn access for indirect CSP customers or partners?
 
 For instructions, see [Configure indirect CSP access in Cloudyn](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn).
+
+## What causes the Optimizer menu item to appear?
+
+After you add Azure Resource Manager access and data is collected, you should see the **Optimizer** option. To activate Azure Resource Manager access, see [How do I activate unactivated accounts with Azure credentials?](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
+
+## Is Cost Management/Cloudyn agent based?
+
+No. Agents are not used. Azure virtual machine metric data for VMs is gathered from the Microsoft Insights API. If you want to gather metric data from Azure VMs, they need to have diagnostics settings enabled.
+
+## Do Cloudyn reports show more than one AD tenant per report?
+
+Yes. You can [create a corresponding cloud account entity](tutorial-user-access.md#create-entities) for each AD tenant that you have. Then you can view all of your Azure AD tenant data and other cloud platform providers including Amazon Web Services and Google Cloud Platform.

@@ -13,20 +13,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 11/22/2017
 ms.author: renash
 ---
 
-# Develop for Azure Files with .NET 
-> [!NOTE]
-> This article shows how to manage Azure Files with .NET code. To learn more about Azure Files, please see the [Introduction to Azure Files](storage-files-introduction.md).
->
+# Develop for Azure Files with .NET
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
-
-This tutorial will demonstrate the basics of using .NET to develop applications or services that use Azure Files to store file data. In this tutorial, we create a simple console application and show how to perform basic actions with .NET and Azure Files:
+This tutorial demonstrates the basics of using .NET to develop applications that use [Azure Files](storage-files-introduction.md) to store file data. This tutorial creates a simple console application to perform basic actions with .NET and Azure Files:
 
 * Get the contents of a file
 * Set the quota (maximum size) for the file share.
@@ -35,9 +30,18 @@ This tutorial will demonstrate the basics of using .NET to develop applications 
 * Copy a file to a blob in the same storage account.
 * Use Azure Storage Metrics for troubleshooting
 
-> [!Note]  
-> Because Azure Files may be accessed over SMB, it is possible to write simple applications that access the Azure File share using the standard System.IO classes for File I/O. This article will describe how to write applications that use the Azure Storage .NET SDK, which uses the [File REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) to talk to Azure Files. 
+To learn more about Azure Files, see [Introduction to Azure Files](storage-files-introduction.md).
 
+[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
+
+## Understanding the .NET APIs
+
+Azure Files provides two broad approaches to client applications: Server Message Block (SMB) and REST. Within .NET, these approaches are abstracted by the `System.IO` and `WindowsAzure.Storage` APIs.
+
+API | When to use | Notes
+----|-------------|------
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Your application: <ul><li>Needs to read/write files via SMB</li><li>Is running on a device that has access over port 445 to your Azure Files account</li><li>Doesn't need to manage any of the administrative settings of the file share</li></ul> | Coding file I/O with Azure Files over SMB is generally the same as coding I/O with any network file share or local storage device. See [this tutorial](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) for an introduction to a number of features in .NET, including file I/O.
+[WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | Your application: <ul><li>Can't access Azure Files via SMB on port 445 due to firewall or ISP constraints</li><li>Requires administrative functionality, such as the ability to set a file share's quota or create a shared access signature</li></ul> | This article demonstrates the usage of `WindowsAzure.Storage` for file I/O using REST (instead of SMB) and management of the file share.
 
 ## Create the console application and obtain the assembly
 In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2017, however, the steps are similar in other versions of Visual Studio.

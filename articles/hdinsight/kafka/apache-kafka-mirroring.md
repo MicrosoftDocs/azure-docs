@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2017
+ms.date: 11/07/2017
 ms.author: larryfr
 ---
-# Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight (preview)
+# Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight
 
 Learn how to use Apache Kafka's mirroring feature to replicate topics to a secondary cluster. Mirroring can be ran as a continuous process, or used intermittently as a method of migrating data from one cluster to another.
 

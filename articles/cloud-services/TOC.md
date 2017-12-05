@@ -34,32 +34,21 @@
 #### [Use a task to Install .NET on a Cloud Service role](cloud-services-dotnet-install-dotnet.md)
 
 ### Configure Remote Desktop
-#### [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [Classic portal](cloud-services-role-enable-remote-desktop.md)
-#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Deploy
-### Create and deploy a cloud service in portal
-#### [Azure portal](cloud-services-how-to-create-deploy-portal.md)
-#### [Classic portal](cloud-services-how-to-create-deploy.md)
+### [Create and deploy a cloud service in portal](cloud-services-how-to-create-deploy-portal.md)
 ### [Create an empty cloud service container in PowerShell](cloud-services-powershell-create-cloud-container.md)
-### Configure a custom domain name
-#### [Portal](cloud-services-custom-domain-name-portal.md)
-#### [Classic portal](cloud-services-custom-domain-name.md)
+### [Configure a custom domain name](cloud-services-custom-domain-name-portal.md)
 ### [Stage a cloud service deployment (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Connect to a custom Domain Controller](cloud-services-connect-to-custom-domain.md)
 
 ## Manage service
-### Common management tasks
-#### [Azure portal](cloud-services-how-to-manage-portal.md)
-#### [Classic portal](cloud-services-how-to-manage.md)
-### Configure Cloud Service
-#### [Azure portal](cloud-services-how-to-configure-portal.md)
-#### [Classic portal](cloud-services-how-to-configure.md)
+### [Common management tasks](cloud-services-how-to-manage-portal.md)
+### [Configure Cloud Service](cloud-services-how-to-configure-portal.md)
 ### [Manage a Cloud Service using Azure Automation](automation-manage-cloud-services.md)
-### Configure automatic scaling
-#### [Azure portal](cloud-services-how-to-scale-portal.md)
-#### [Classic portal](cloud-services-how-to-scale.md)
+### [Configure automatic scaling](cloud-services-how-to-scale-portal.md)
 ### [Use Python to manage Azure Resources](cloud-services-python-how-to-use-service-management.md)
 
 ### [Guest OS patches](cloud-services-guestos-msrc-releases.md)
@@ -71,9 +60,7 @@
 
 ## Manage certificates
 ### [Cloud Services and management certificates](cloud-services-certs-create.md)
-### Configure SSL 
-#### [Portal](cloud-services-configure-ssl-certificate-portal.md)
-#### [Classic portal](cloud-services-configure-ssl-certificate.md)
+### [Configure SSL](cloud-services-configure-ssl-certificate-portal.md)
 
 ## Monitor
 ### [Monitor cloud service](cloud-services-how-to-monitor.md)

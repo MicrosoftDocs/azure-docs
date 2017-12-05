@@ -23,7 +23,7 @@ ms.author: TomSh
 
 We know that security is job one in the cloud and how important it is that you find accurate and timely information about Azure security. One of the best reasons to use Azure for your applications and services is to take advantage of its wide array of security tools and capabilities. These tools and capabilities help make it possible to create secure solutions on the secure Azure platform.
 
-To help you better understand the array of Governance controls implemented within Microsoft Azure from both the customer's and Microsoft operations' perspectives, this article, "Governance in Azure", is written that provides a comprehensive look at the Governance features available with Microsoft Azure.
+To help you better understand the array of Governance controls implemented within Microsoft Azure from both the customer's and Microsoft operations' perspectives, this article, "Governance in Azure", is written to provide a comprehensive look at the Governance features available with Microsoft Azure.
 
 ## Azure platform
 
@@ -224,14 +224,14 @@ Resources do not need to reside in the same resource group to share a tag. You c
 Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values.
 
 > [!Note]
-> For more information, see [Apply resource policies for tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags).
+> For more information, see [Billing tags policy initiative](../azure-policy/scripts/billing-tags-policy-init.md).
 
 You can also view tagged resources through the Azure portal.
 
 The [usage report](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) for your subscription includes tag names and values, which enables you to break out costs by tags.
 
 > [!Note]
-> For more information about tags, see [Using tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+> For more information about tags, see [Billing tags policy initiative](../azure-policy/scripts/billing-tags-policy-init.md).
 
 The following limitations apply to tags:
 

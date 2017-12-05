@@ -21,7 +21,7 @@ ms.author: shigu;barbkess
 # Guidance for defining data types for tables in SQL Data Warehouse
 Use these recommendations to define table data types that are compatible with SQL Data Warehouse. In addition to compatibility, minimizing the size of data types improves query performance.
 
-SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) in the CREATE TABLE statement. 
+SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. 
 
 
 ## Minimize row length

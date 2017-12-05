@@ -2,21 +2,14 @@
 title: Azure Container Registry tutorial - Prepare a geo-replicated Azure container registry
 description: Create an Azure container registry, configure geo-replication, prepare a Docker image, and deploy it to the registry. Part one of a three-part series.
 services: container-registry
-documentationcenter: ''
 author: mmacy
 manager: timlt
-editor: mmacy
-tags: acr, azure-container-registry, geo-replication
-keywords: Docker, Containers, Registry, Azure
 
 ms.service: container-registry
-ms.devlang:
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
-ms.custom:
+ms.custom: mvc
 ---
 
 # Prepare a geo-replicated Azure container registry
@@ -205,8 +198,8 @@ docker images
 Output:
 
 ```bash
-REPOSITORY                                     TAG                 IMAGE ID            CREATED              SIZE
-uniqueregistryname.azurecr.io/acr-helloworld   v1                  c9ca1763cfb1        About a minute ago   285MB
+REPOSITORY                                      TAG    IMAGE ID        CREATED               SIZE
+uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a minute ago    284MB
 ...
 ```
 
@@ -224,14 +217,14 @@ Output:
 
 ```bash
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
-9716cfe18412: Pushed
-074867a942d5: Pushed
-a77666945b96: Pushed
-953ff32f2036: Pushed
-aa2e77726d3c: Pushed
-98b800c91d50: Pushed
+cd54739c444b: Pushed
+d6803756744a: Pushed
+b7b1f3a15779: Pushed
+a89567dff12d: Pushed
+59c7b561ff56: Pushed
+9a2f9413d9e4: Pushed
 a75caa09eb1f: Pushed
-v1: digest: sha256:c515bcebf249b591b558318e2d0ec21d1320340dbf335730eb32372ff7d34255 size: 1792
+v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543970 size: 1792
 ```
 
 ## Next steps

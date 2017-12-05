@@ -3,8 +3,8 @@ title: Create a policy assignment to identify non-compliant resources in your Az
 description: This article walks you through the steps to create a policy definition to identify non-compliant resources.
 services: azure-policy
 keywords:
-author: Jim-Parker
-ms.author: jimpark
+author: bandersmsft
+ms.author: banders
 ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
@@ -58,7 +58,7 @@ In this quickstart, we create a policy assignment and assign the *Audit Virtual 
 5. Provide a display **Name** for the policy assignment. In this case, let’s use *Audit VMs that do not use managed disks*. You can also add an optional **Description**. The description provides details about how this policy assignment identifies all virtual machines created in this environment that do not use managed disks.
 6. Change the pricing tier to **Standard** to ensure that the policy gets applied to existing resources.
 
-   There are two pricing tiers within Azure Policy – *Free* and *Standard*. With the Free tier, you can only enforce policies on future resources, while with Standard, you can also enforce them on existing resources to better understand your compliance state. Because we are in Limited Preview, we have not yet released a pricing model, so you will not receive a bill for selecting *Standard*. To read more about pricing, look at: [Azure Policy pricing](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   There are two pricing tiers within Azure Policy – *Free* and *Standard*. With the Free tier, you can only enforce policies on future resources, while with Standard, you can also enforce them on existing resources to better understand your compliance state. Because we are in Limited Preview, we have not yet released a pricing model, so you will not receive a bill for selecting *Standard*. To read more about pricing, look at: [Azure Policy pricing](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Select the **Scope** you would like the policy to be applied to.  A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups.
 8. Select the subscription (or resource group) you previously registered when you opted into Azure Policy. In this example, we are using this subscription - **Azure Analytics Capacity Dev**, but your options will differ.

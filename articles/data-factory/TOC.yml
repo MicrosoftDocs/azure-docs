@@ -4,6 +4,8 @@
   items:
   - name: Introduction to Data Factory
     href: introduction.md
+  - name: Compare versions 1 and 2
+    href: compare-versions.md   
 - name: Quickstarts
   expanded: true
   items:
@@ -18,7 +20,9 @@
     - name: REST   
       href: quickstart-create-data-factory-rest-api.md
     - name: Portal   
-      href: quickstart-create-data-factory-portal.md      
+      href: quickstart-create-data-factory-portal.md  
+    - name: Resource Manager template   
+      href: quickstart-create-data-factory-resource-manager-template.md          
 - name: Tutorials
   items:
   - name: 1 - Deploy SSIS packages to Azure
@@ -121,6 +125,8 @@
         href: connector-postgresql.md
       - name: Salesforce
         href: connector-salesforce.md
+      - name: Salesforce Service Cloud
+        href: connector-salesforce.md
       - name: SAP Business Warehouse
         href: connector-sap-business-warehouse.md
       - name: SAP HANA
@@ -222,6 +228,16 @@
       href: create-azure-ssis-integration-runtime.md     
     - name: Join Azure-SSIS integration runtime to a VNET
       href: join-azure-ssis-integration-runtime-virtual-network.md
+  - name: Run SSIS packages in Azure
+    items:
+    - name: Create Azure-SSIS integration runtime
+      href: create-azure-ssis-integration-runtime.md     
+    - name: Join Azure-SSIS integration runtime to a VNET
+      href: join-azure-ssis-integration-runtime-virtual-network.md    
+    - name: Manage Azure-SSIS integration runtime
+      href: manage-azure-ssis-integration-runtime.md      
+    - name: Configure Azure-SSIS integration runtime performance
+      href: configure-azure-ssis-integration-runtime-performance.md
 - name: Reference
   items:
   - name: .NET

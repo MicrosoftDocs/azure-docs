@@ -8,7 +8,7 @@
   expanded: true
   items:
   - name: Deploy Azure Stack
-    href: azure-stack-deploy-overview.md  
+    href: azure-stack-deploy-overview.md
 - name: Tutorials
   items:
   - name: Offer Virtual Machines
@@ -28,9 +28,11 @@
     - name: Development kit release notes
       href: azure-stack-asdk-release-notes.md
     - name: Integrated systems release notes
-      items:  
+      items:
+      - name: 1711 update
+        href: azure-stack-update-1711.md
       - name: 1710 update
-        href: azure-stack-update-1710.md  
+        href: azure-stack-update-1710.md
   - name: Key features and concepts
     href: azure-stack-key-features.md
   - name: Development kit architecture
@@ -46,7 +48,7 @@
     - name: Deploy
       href: azure-stack-run-powershell-script.md
     - name: Install PowerShell
-      href: azure-stack-powershell-configure-quickstart.md
+      href: azure-stack-powershell-install.md
     - name: Register
       href: azure-stack-register.md
     - name: Connect to Azure Stack
@@ -63,6 +65,8 @@
       href: azure-stack-integrate-identity.md
     - name: Publish endpoints
       href: azure-stack-integrate-endpoints.md
+    - name: External monitoring
+      href: azure-stack-integrate-monitor.md
     - name : Security
       href: azure-stack-integrate-security.md
   - name: Manage
@@ -86,7 +90,7 @@
       - name: Get up and running with PowerShell
         href: azure-stack-powershell-configure-quickstart.md
     - name: Access privileged endpoint
-      href: azure-stack-privileged-endpoint.md    
+      href: azure-stack-privileged-endpoint.md
     - name: Manage updates
       items:
       - name: Manage updates overview
@@ -94,7 +98,7 @@
       - name: Apply updates
         href: azure-stack-apply-updates.md
       - name: Monitor update status
-        href: azure-stack-monitor-update.md      
+        href: azure-stack-monitor-update.md
     - name: Monitor health and alerts
       href: azure-stack-monitor-health.md
     - name: Manage network resources
@@ -112,11 +116,11 @@
       - name: Replace disk
         href: azure-stack-replace-disk.md
       - name: Replace component
-        href: azure-stack-replace-component.md    
+        href: azure-stack-replace-component.md
   - name: Security, compliance & identity
     items:
     - name: Security overview
-      href: azure-stack-security-foundations.md 
+      href: azure-stack-security-foundations.md
     - name: Identity
       items:
       - name: Manage RBAC
@@ -155,10 +159,10 @@
         href: azure-stack-mysql-resource-provider-deploy.md
       - name: Deploy SQL resource provider
         href: azure-stack-sql-resource-provider-deploy.md
-      - name: Create SQL databases
-        href: azure-stack-sql-resource-provider-databases.md
       - name: Add hosting servers
         href: azure-stack-sql-resource-provider-hosting-servers.md
+      - name: Create SQL databases
+        href: azure-stack-sql-resource-provider-databases.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
@@ -181,11 +185,11 @@
         href: azure-stack-marketplace.md
       - name: Download marketplace items
         href: azure-stack-download-azure-marketplace-item.md
-      - name: Azure marketplace items for Azure Stack
+      - name: Azure Marketplace items for Azure Stack
         href: azure-stack-marketplace-azure-items.md
       - name: Create and publish a marketplace item
         href: azure-stack-create-and-publish-marketplace-item.md
-      - name: Use the Marketplace Publishing tool
+      - name: Use the marketplace publishing tool
         href: azure-stack-marketplace-publisher.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
@@ -209,6 +213,10 @@
       items:
       - name: Connect using VPN
         href: azure-stack-connect-vpn.md
+      - name: About VPN gateway
+        href: azure-stack-vpn-gateway-about-vpn-gateways.md
+      - name: VPN gateway settings
+        href: azure-stack-vpn-gateway-settings.md
       - name: Connect using ExpressRoute
         href: azure-stack-connect-expressroute.md
   - name: Troubleshoot
@@ -235,4 +243,3 @@
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Training and certification
     href: azure-stack-train-and-cert.md
-

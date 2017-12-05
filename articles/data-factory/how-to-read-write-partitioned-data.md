@@ -1,6 +1,6 @@
 ---
 title: How to read or write partitioned data in Azure Data Factory | Microsoft Docs
-description: Learn how to read or write partitioned data Azure Data Factory version 2. 
+description: Learn how to read or write partitioned data in Azure Data Factory version 2. 
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -35,19 +35,19 @@ For more information about the partitonedBy property, see [version 1 Azure Blob 
 
 In version 2, a way to achieve this behavior is to do the following actions: 
 
-1. Define a **pipeline parameter** of type string. In the following example, name of the pipeline parameter is **ScheduledRunTime**. 
-2. Set **folderPath** in the dataset definition to the value of pipeline parameter for as shown in the example. 
+1. Define a **pipeline parameter** of type string. In the following example, name of the pipeline parameter is **scheduledRunTime**. 
+2. Set **folderPath** in the dataset definition to the value of pipeline parameter. 
 3. Pass a hardcoded value for the parameter before running the pipeline. Or, pass a trigger's start time or scheduled time dynamically at runtime. 
 
 ```json
 "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.ScheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.ScheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.ScheduledRunTime, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
       "type": "Expression"
 },
 ```
 
 ## Pass in value from a trigger
-In the following trigger definition, scheduled time of the trigger is passed as a value for the ScheduledRunTime pipeline parameter: 
+In the following trigger definition, scheduled time of the trigger is passed as a value for the **scheduledRunTime** pipeline parameter: 
 
 ```json
 {
@@ -61,7 +61,7 @@ In the following trigger definition, scheduled time of the trigger is passed as 
                 "referenceName": "MyPipeline"
             },
             "parameters": {
-                "ScheduledRunTime": "@trigger().scheduledTime"
+                "scheduledRunTime": "@trigger().scheduledTime"
             }
         }
     }
@@ -77,7 +77,7 @@ Here is a sample dataset definition (that uses a parameter named: `date`):
   "type": "AzureBlob",
   "typeProperties": {
     "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.date, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.date, '%M'), '/dayno=', formatDateTime(pipeline().parameters.date, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
       "type": "Expression"
     },
     "format": {
@@ -131,15 +131,15 @@ Pipeline definition:
 						"type": "Expression"
 					},
 					"Year": {
-						"value": "@formatDateTime(pipeline().parameters.date, 'yyyy')",
+						"value": "@formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy')",
 						"type": "Expression"
 					},
 					"Month": {
-						"value": "@formatDateTime(pipeline().parameters.date, '%M')",
+						"value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%M')",
 						"type": "Expression"
 					},
 					"Day": {
-						"value": "@formatDateTime(pipeline().parameters.date, '%d')",
+						"value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%d')",
 						"type": "Expression"
 					}
 				}
@@ -151,7 +151,7 @@ Pipeline definition:
 			"name": "HivePartitionGameLogs"
 		}],
 		"parameters": {
-			"date": {
+			"scheduledRunTime": {
 				"type": "String"
 			},
 			"blobStorageAccount": {

@@ -13,36 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 12/04/2017
 ms.author: sngun
 
 ---
 # Install and configure CLI for use with Azure Stack
 
 In this article, we guide you through the process of using the Azure command-line interface (CLI) to manage Azure Stack Development Kit resources from Linux and Mac client platforms. 
-
-## Export the Azure Stack CA root certificate
-
-If you are using CLI from a virtual machine that is running within the Azure Stack Development Kit environment, the Azure Stack root certificate is already installed in the virtual machine so you can directly retrieve it. If you use CLI from a workstation outside the development kit, you must export the Azure Stack CA root certificate from the development kit and add it to the Python certificate store of your development workstation (external Linux or Mac platform). 
-
-To export the Azure Stack root certificate in PEM format, sign in to your development kit and run the following script:
-
-```powershell
-   $label = "AzureStackSelfSignedRootCert"
-   Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-   $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-   if (-not $root)
-   {
-       Log-Error "Certificate with subject CN=$label not found"
-       return
-   }
-
-   Write-Host "Exporting certificate"
-   Export-Certificate -Type CERT -FilePath root.cer -Cert $root
-
-   Write-Host "Converting certificate to PEM format"
-   certutil -encode root.cer root.pem
-```
 
 ## Install CLI
 
@@ -56,7 +33,7 @@ You should see the version of Azure CLI and other dependent libraries that are i
 
 ## Trust the Azure Stack CA root certificate
 
-To trust the Azure Stack CA root certificate, append it to the existing Python certificate. If you are running CLI from a Linux machine that is created within the Azure Stack environment, run the following bash command:
+Get the Azure Stack CA root certificate from the Azure Stack operator and trust it. To trust the Azure Stack CA root certificate, append it to the existing Python certificate. If you are running CLI from a Linux machine that is created within the Azure Stack environment, run the following bash command:
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
@@ -107,12 +84,11 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## Set up the virtual machine aliases endpoint
+## Get the virtual machine aliases endpoint
 
-Before users can create virtual machines by using CLI, the cloud administrator should set up a publicly accessible endpoint that contains virtual machine image aliases and register this endpoint with the cloud. The `endpoint-vm-image-alias-doc` parameter in the `az cloud register` command is used for this purpose. Cloud administrators must download the image to the Azure Stack marketplace before they add it to image aliases endpoint.
+Before users can create virtual machines by using CLI, they must contact the Azure Stack operator and get the virtual machine aliases endpoint URI. For example, Azure uses the following URI: 
+https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. The cloud administrator should set up a similar endpoint for Azure Stack with the images that are available in the Azure Stack marketplace. Users need pass the endpoint URI to the `endpoint-vm-image-alias-doc` parameter to the `az cloud register` command as shown in the next section. 
    
-For example, Azure uses the following URI: 
-https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. The cloud administrator should set up a similar endpoint for Azure Stack with the images that are available in the Azure Stack marketplace.
 
 ## Connect to Azure Stack
 
@@ -202,6 +178,15 @@ az group create \
 If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
 
 ![Resource group create output](media/azure-stack-connect-cli/image1.png)
+
+## Known issues
+There are some known issues that you must be aware of when using CLI in Azure Stack:
+
+* The CLI interactive mode i.e the `az interactive` command is not yet supported in Azure Stack.
+* To get the list of virtual machine images available in Azure Stack, use the `az vm images list --all` command instead of the `az vm image list` command. Specifying the `--all` option makes sure that response returns only the images that are available in your Azure Stack environment. 
+* Virtual machine image aliases that are available in Azure may not be applicable to Azure Stack. When using virtual machine images, you must use the entire URN parameter (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) instead of the image alias. This URN must match the image specifications as derived from the `az vm images list` command.
+* By default, CLI 2.0 uses “Standard_DS1_v2” as the default virtual machine image size. However, this size is not yet available in Azure Stack, so, you need to specify the `--size` parameter explicitly when creating a virtual machine. You can get the list of virtual machine sizes that are available in Azure Stack by using the `az vm list-sizes --location <locationName>` command.
+
 
 ## Next steps
 
