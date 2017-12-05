@@ -1,6 +1,6 @@
 ---
 title: "Security trimming with Azure Search"
-description: Implement security trimming using Azure Search filter.
+description: Implement security trimming using Azure Search filters.
 ms.custom: ""
 ms.date: "08/07/2017"
 ms.service: "azure"

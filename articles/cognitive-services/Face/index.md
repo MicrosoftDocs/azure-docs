@@ -21,43 +21,43 @@ ms.author: carolz
 <p style="margin-top: 6px; margin-bottom: 6px;">Detect and identify faces using:</p>
 <div class="ico48Case">
     <div class="ico48Link">
-        <a href="/articles/cognitive-services/Face/QuickStarts/CSharp.md">
+        <a href="/azure/cognitive-services/Face/QuickStarts/CSharp">
             <img src="media/index/logo_Csharp.svg" alt="">
             <span>C&#35;</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/articles/cognitive-services/Face/QuickStarts/curl.md">
+        <a href="/azure/cognitive-services/Face/QuickStarts/curl">
             <img src="media/index/logo_curl.svg" alt="">
             <span>cURL</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/articles/cognitive-services/Face/QuickStarts/Java.md">
+        <a href="/azure/cognitive-services/Face/QuickStarts/Java">
             <img src="media/index/logo_java.svg" alt="">
             <span>Java</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/articles/cognitive-services/Face/QuickStarts/JavaScript.md">
+        <a href="/azure/cognitive-services/Face/QuickStarts/JavaScript">
             <img src="media/index/logo_js.svg" alt="">
             <span>JavaScript</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/articles/cognitive-services/Face/QuickStarts/PHP.md">
+        <a href="/azure/cognitive-services/Face/QuickStarts/PHP">
             <img src="media/index/logo_php.svg" alt="">
             <span>PHP</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/articles/cognitive-services/Face/QuickStarts/Python.md">
+        <a href="/azure/cognitive-services/Face/QuickStarts/Python">
             <img src="media/index/logo_python.svg" alt="">
             <span>Python</span>
         </a>
     </div>
     <div class="ico48Link">
-        <a href="/articles/cognitive-services/Face/QuickStarts/Ruby.md">
+        <a href="/azure/cognitive-services/Face/QuickStarts/Ruby">
             <img src="media/index/logo_ruby.svg" alt="">
             <span>Ruby</span>
         </a>
@@ -67,9 +67,9 @@ ms.author: carolz
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Develop applications using the Face API:</p>
 <ol>
-    <li><a href="/articles/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial.md">C&#35; Tutorial</a></li>
-    <li><a href="/articles/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial.md">Java for Android Tutorial</a></li>
-    <li><a href="/articles/cognitive-services/Face/Tutorials/FaceAPIinPythonTutorial.md">Python Tutorial</a></li>
+    <li><a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">C&#35; Tutorial</a></li>
+    <li><a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Java for Android Tutorial</a></li>
+    <li><a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinPythonTutorial">Python Tutorial</a></li>
 </ol>
 
 <h2 style="margin-top: 36px">Reference</h2>
@@ -80,7 +80,7 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>APIs</h3>
-                        <p><a href="/articles/cognitive-services/Face/APIReference.md">API Reference</a></p>
+                        <p><a href="/azure/cognitive-services/Face/APIReference">API Reference</a></p>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@ ms.author: carolz
                         <h3>SDKs</h3>
                         <p><a href="https://github.com/Microsoft/Cognitive-Face-Android">Android</a></p>
                         <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>
-                        <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">Python</a></p>
+                        <p><a href="https://github.com/Microsoft/Cognitive-Face-Python">Python</a></p>
                         <p><a href="https://github.com/Microsoft/Cognitive-Face-Windows">Windows</a></p>
                     </div>
                 </div>
