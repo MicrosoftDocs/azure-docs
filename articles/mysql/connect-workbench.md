@@ -9,7 +9,7 @@ editor: seanli1988
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/23/2017
+ms.date: 09/22/2017
 ---
 
 # Azure Database for MySQL: Use MySQL Workbench to connect and query data
@@ -28,18 +28,18 @@ Get the connection information needed to connect to the Azure Database for MySQL
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you have created, such as **myserver4demo**.
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **myserver4demo**).
 
 3. Click the server name.
 
-4. Select the server's **Properties** page. Make a note of the **Server name** and **Server admin login name**.
+4. Select the server's **Properties** page, and then make a note of the **Server name** and **Server admin login name**.
 
  ![Azure Database for MySQL server name](./media/connect-workbench/1-server-properties-name-login.png)
  
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
+5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name, and if necessary reset the password.
 
-## Connect to the server using MySQL Workbench 
-To connect to Azure MySQL server using the GUI tool MySQL Workbench:
+## Connect to the server by using MySQL Workbench 
+To connect to Azure MySQL Server by using the GUI tool MySQL Workbench:
 
 1.	Launch the MySQL Workbench application on your computer. 
 
@@ -60,17 +60,17 @@ To connect to Azure MySQL server using the GUI tool MySQL Workbench:
 
 4.   Click **OK** to save the connection. 
 
-5.   In the listing of **MySQL Connections**, click the tile corresponding to your server and wait for the connection to be established.
+5.   In the listing of **MySQL Connections**, click the tile corresponding to your server, and then wait for the connection to be established.
 
-6.   A new SQL tab opens with a blank editor where you can type your queries.
-
-    > [!NOTE]
-    > By default, SSL connection security is required and enforced on your Azure Database for MySQL server. Typically no additional configuration with SSL certificates is required for MySQL Workbench to connect to your server. For more information on SSL, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).  If you need to disable SSL, visit the Azure portal and click the Connection security page to disable the Enforce SSL connection toggle button.
+        A new SQL tab opens with a blank editor where you can type your queries.
+    
+        > [!NOTE]
+        > By default, SSL connection security is required and enforced on your Azure Database for MySQL server. Typically no additional configuration with SSL certificates is required for MySQL Workbench to connect to your server. For more information on SSL, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md).  If you need to disable SSL, visit the Azure portal and click the Connection security page to disable the Enforce SSL connection toggle button.
 
 ## Create a table, insert data, read data, update data, delete data
 1. Copy and paste the sample SQL code into a blank SQL tab to illustrate some sample data.
 
-    This code creates an empty database named quickstartdb, and then creates a sample table named inventory. It inserts some rows, then reads the rows. It changes the data with an update statement, and reads the rows again. Finally it deletes a row, and reads the rows again.
+    This code creates an empty database named quickstartdb, and then creates a sample table named inventory. It inserts some rows, then reads the rows. It changes the data with an update statement, and reads the rows again. Finally it deletes a row, and then reads the rows again.
     
     ```sql
     -- Create a database
@@ -105,7 +105,7 @@ To connect to Azure MySQL server using the GUI tool MySQL Workbench:
 3. Notice the three tabbed results in the **Result Grid** section in the middle of the page. 
 4. Notice the **Output** list at the bottom of the page. The status of each command is shown. 
 
-Now, you have connected to Azure Database for MySQL using MySQL Workbench, and have queried data using the SQL language.
+Now, you have connected to Azure Database for MySQL by using MySQL Workbench, and you have queried data using the SQL language.
 
 ## Next steps
 > [!div class="nextstepaction"]

@@ -3,7 +3,7 @@ title: Configure redirection for Azure Application Gateway - PowerShell | Micros
 description: This page provides scenarios to configure redirection for Application Gateway utilizing PowerShell
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 
@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
-ms.author: gwallace
+ms.author: davidmu
 
 ---
 
@@ -111,8 +111,8 @@ $poolSetting = Get-AzureRmApplicationGatewayBackendHttpSettings -Name "appGatewa
 # Retrieve an existing backend pool
 $pool = Get-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw
 
-# Create a new path based rule
-$pathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule6" -Paths "/image/*" -BackendAddressPool $pool -BackendHttpSettings $poolSetting
+# Create a new path rule for the path map configuration
+$pathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule6" -Paths "/image/*" -RedirectConfiguration $redirectconfig
 
 # Create a path map to add to the rule
 Add-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $pathRule -DefaultBackendAddressPool $pool -DefaultBackendHttpSettings $poolSetting -ApplicationGateway $gw
@@ -121,7 +121,7 @@ Add-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $pat
 $urlPathMap = Get-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -ApplicationGateway $gw
 
 # Add a new rule to handle the redirect and use the new listener
-Add-AzureRmApplicationGatewayRequestRoutingRule -Name "rule6" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap -RedirectConfiguration $redirectconfig -ApplicationGateway $gw
+Add-AzureRmApplicationGatewayRequestRoutingRule -Name "rule6" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap -ApplicationGateway $gw
 
 # Update the application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw 
@@ -223,7 +223,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -Public
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp 
 
 # Create the redirect configuration that will point traffic to the 
-$redirectconfig = New-AzureRmApplicationGatewayRedirectConfiguration -Name myredirect -RedirectType Temporary -TargetUrl "http://bing.com" -IncludePath $true -IncludeQueryString $true
+$redirectconfig = New-AzureRmApplicationGatewayRedirectConfiguration -Name myredirect -RedirectType Temporary -TargetUrl "http://bing.com"
 
 #Create a load balancer routing rule that configures the load balancer behavior. In this example, a basic round robin rule is created.
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -HttpListener $listener -RedirectConfiguration $redirectconfig 

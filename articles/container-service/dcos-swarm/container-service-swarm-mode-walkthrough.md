@@ -45,7 +45,7 @@ Output:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westcentralus",
+  "location": "ukwest",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -65,7 +65,9 @@ The following example creates a cluster named *mySwarmCluster* with one Linux ma
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-After several minutes, the command completes and returns json formatted information about the cluster.
+In some cases, such as with a limited trial, an Azure subscription has limited access to Azure resources. If the deployment fails due to limited available cores, reduce the default agent count by adding `--agent-count 1` to the [az acs create](/cli/azure/acs#create) command. 
+
+After several minutes, the command completes and returns JSON-formatted information about the cluster.
 
 ## Connect to the cluster
 
@@ -171,7 +173,7 @@ In this quick start, pre-created container images have been used to create a Doc
 
 In this quick start, you deployed a Docker Swarm cluster and deployed a multi-container application to it.
 
-To learn about integrating Docker warm with Visual Studio Team Services, continue to the CI/CD with Docker Swarm and VSTS.
+To learn about integrating Docker swarm with Visual Studio Team Services, continue to the CI/CD with Docker Swarm and VSTS.
 
 > [!div class="nextstepaction"]
 > [CI/CD with Docker Swarm and VSTS](./container-service-docker-swarm-setup-ci-cd.md)

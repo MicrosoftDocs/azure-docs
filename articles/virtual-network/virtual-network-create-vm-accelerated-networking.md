@@ -52,7 +52,7 @@ The following limitations exist when using this capability:
 * **VM Size:** General purpose and compute-optimized instance sizes with eight or more cores. For more information, see the [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM sizes articles. The set of supported VM instance sizes will expand in the future.
 * **Deployment through Azure Resource Manager (ARM) only:** Accelerated Networking is not available for deployment through ASM/RDFE.
 
-Changes to these limitations are announced through the [Azure Virtual Networking updates](https://azure.microsoft.com/updates/accelerated-networking-in-preview) page.
+Changes to these limitations are announced through the [Azure Virtual Networking updates](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/) page.
 
 ## Create a Windows VM
 You can use the Azure portal or Azure [PowerShell](#windows-powershell) to create the VM.

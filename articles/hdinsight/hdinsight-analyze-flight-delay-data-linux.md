@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/24/2017
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -28,7 +28,7 @@ Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, a
 
 ## Prerequisites
 
-* **An HDInsight cluster**. See [Get started using Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) for steps on how to create a new Linux-based HDInsight cluster.
+* **An HDInsight cluster**. See [Get started using Hadoop in HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) for steps on how to create a new Linux-based HDInsight cluster.
 
 * **Azure SQL Database**. You use an Azure SQL database as a destination data store. If you don't have a SQL database, see [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).
 
@@ -163,9 +163,6 @@ Use the following steps to import data from the .csv file into a Hive table name
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
-   > [!NOTE]
-   > In this example, `localhost` is used because you're connected to the head node of the HDInsight cluster, which is where HiveServer2 is running.
-
 4. After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
 
     ```
@@ -263,7 +260,7 @@ If you don't already have a SQL database, use the information in [Create an Azur
 
     This command returns a list of databases, including the database in which you created the delays table earlier.
 
-2. Use the following command to export data from hivesampletable to the mobiledata table:
+2. Use the following command to export data from hivesampletable to the delays table:
 
     ```
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
@@ -271,13 +268,13 @@ If you don't already have a SQL database, use the information in [Create an Azur
 
     Sqoop connects to the database that contains the delays table, and exports data from the `/tutorials/flightdelays/output` directory to the delays table.
 
-3. After the command finishes, use the following to connect to the database by using the tsql utility:
+3. After the sqoop command finishes, use the tsql utility to connect to the database:
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    Use the following statements to verify that the data was exported to the mobiledata table:
+    Use the following statements to verify that the data was exported to the delays table:
 
     ```
     SELECT * FROM delays
@@ -286,7 +283,7 @@ If you don't already have a SQL database, use the information in [Create an Azur
 
     You should see a listing of data in the table. Type `exit` to exit the tsql utility.
 
-## <a id="nextsteps"></a> Next steps
+## Next steps
 
 To learn more ways to work with data in HDInsight, see the following articles:
 
@@ -306,15 +303,15 @@ To learn more ways to work with data in HDInsight, see the following articles:
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-streaming-python.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-get-started]: hadoop/apache-hadoop-linux-tutorial-get-started.md
+[hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
+[hdinsight-develop-streaming]:hadoop/apache-hadoop-streaming-python.md
+[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 

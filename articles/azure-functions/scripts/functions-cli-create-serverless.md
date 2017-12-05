@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 04/11/2017
+ms.date: 10/04/2017
 ms.author: cfowler
 ms.custom: mvc
 ---
@@ -27,7 +27,7 @@ This sample script creates an Azure Function App, which is a container for your 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 
@@ -43,12 +43,12 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](/cli/azure/storage/account#create) | Creates an Azure Storage account. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | Creates an Azure Function. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creates an Azure Storage account. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Creates a function app. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
 
 Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).

@@ -3,7 +3,7 @@ title: Azure Automation Source Control Integration with GitHub Enterprise | Micr
 description: Describes the details of how to configure integration with GitHub Enterprise  for source control of Automation runbooks.
 services: automation
 documentationCenter: ''
-authors: mgoedtel
+authors: eslesar
 manager: jwhit
 editor: ''
 

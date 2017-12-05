@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -155,5 +155,5 @@ If your device is not domain-joined and runs Windows 8.1, to do a Workplace Join
 
 
 ## Next steps
-[Azure Active Directory conditional access](active-directory-conditional-access.md)
+[Azure Active Directory conditional access](active-directory-conditional-access-azure-portal.md)
 

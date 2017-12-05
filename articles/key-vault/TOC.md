@@ -14,6 +14,9 @@
 ### [Service limits](key-vault-service-limits.md)
 ### [HSM-protected keys](key-vault-hsm-protected-keys.md)
 ### [Migrate to .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### [Save Web App secrets](vs-secure-secret-appsettings.md)
+### [Service authentication using .NET](service-to-service-authentication.md)
+
 ### Overviews
 #### [Security worlds](key-vault-ovw-security-worlds.md)
 #### [Soft-delete](key-vault-ovw-soft-delete.md)
@@ -25,9 +28,9 @@
 ### [Access behind firewalls](key-vault-access-behind-firewall.md)
 ### [Availability and redundancy](key-vault-disaster-recovery-guidance.md)
 ### [Change tenant ID](key-vault-subscription-move-fix.md)
-### [Create and manage using CLI 2.0](key-vault-manage-with-cli2.md)
+### [Create and manage using Azure CLI](key-vault-manage-with-cli2.md)
 ### [How to use Key Vault soft-delete with CLI](key-vault-soft-delete-cli.md)
-### [How to use Key Vault soft-delete with PowerShell](key-vault-soft-delete-powershell.md)
+### [How to use Key Vault soft-delete Azure PowerShell](key-vault-soft-delete-powershell.md)
 ### [Use groups to grant access](key-vault-group-permissions-for-apps.md)
 ### [Secure your key vault](key-vault-secure-your-key-vault.md)
 
@@ -36,8 +39,8 @@
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
-## [PowerShell](/powershell/module/azurerm.keyvault)
-## [Azure CLI 2](/cli/azure/keyvault)
+## [Azure PowerShell](/powershell/module/azurerm.keyvault)
+## [Azure CLI](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js

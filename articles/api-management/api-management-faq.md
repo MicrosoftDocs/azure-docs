@@ -1,6 +1,6 @@
 ---
 title: Azure API Management FAQ | Microsoft Docs
-description: Learn the answers to common questions, patterns, and best practices in Azure API Management.
+description: Learn the answers to frequently asked questions (FAQ), patterns, and best practices in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/19/2017
 ms.author: apimpm
 ---
 # Azure API Management FAQs
@@ -21,7 +21,6 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 
 ## Contact us
 * [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
-
 
 ## Frequently asked questions
 * [What does it mean when a feature is in preview?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -58,7 +57,7 @@ When a feature is in preview, it means that we're actively seeking feedback on h
 ### How can I secure the connection between the API Management gateway and my back-end services?
 You have several options to secure the connection between the API Management gateway and your back-end services. You can:
 
-* Use HTTP basic authentication. For more information, see [Configure API settings](api-management-howto-create-apis.md#configure-api-settings).
+* Use HTTP basic authentication. For more information, see [Import and publish your first API](import-and-publish.md).
 * Use SSL mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
 * Use IP whitelisting on your back-end service. If you have a Standard or Premium tier API Management instance, the IP address of the gateway remains constant. You can set your whitelist to allow this IP address. You can get the IP address of your API Management instance on the Dashboard in the Azure portal.
 * Connect your API Management instance to an Azure Virtual Network.
@@ -98,7 +97,7 @@ If the policy that you want to add appears dimmed or shaded in the policy editor
 You have a few options to use API versioning in API Management:
 
 * In API Management, you can configure APIs to represent different versions. For example, you might have two different APIs, MyAPIv1 and MyAPIv2. A developer can choose the version that the developer wants to use.
-* You also can configure your API with a service URL that doesn't include a version segment, for example, https://my.api. Then, configure a version segment on each operation's [Rewrite URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) template. For example, you can have an operation with a [URL template](api-management-howto-add-operations.md#url-template) called /resource and a [Rewrite URL](api-management-howto-add-operations.md#rewrite-url-template) template called /v1/Resource. You can change the version segment value separately for each operation.
+* You also can configure your API with a service URL that doesn't include a version segment, for example, https://my.api. Then, configure a version segment on each operation's [Rewrite URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) template. 
 * If you'd like to keep a "default" version segment in the API's service URL, on selected operations, set a policy that uses the [Set backend service](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) policy to change the back-end request path.
 
 ### How do I set up multiple environments in a single API?
@@ -133,10 +132,19 @@ API Management uses the [performance traffic routing method](../traffic-manager/
 Yes. See the [Azure API Management Service](http://aka.ms/apimtemplate) QuickStart templates.
 
 ### Can I use a self-signed SSL certificate for a back end?
-Yes. Here's how to use a self-signed Secure Sockets Layer (SSL) certificate for a back end:
+Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.
 
-1. Create a [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) entity by using API Management.
-2. Set the **skipCertificateChainValidation** property to **true**.
+#### Powershell method ####
+Use the [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (for new back end) or [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`. 
+
+```
+$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+```
+
+#### Direct API update method ####
+1. Create a [Backend](https://msdn.microsoft.com/library/azure/dn935030.aspx) entity by using API Management.		
+2. Set the **skipCertificateChainValidation** property to **true**.		
 3. If you no longer want to allow self-signed certificates, delete the Backend entity, or set the **skipCertificateChainValidation** property to **false**.
 
 ### Why do I get an authentication failure when I try to clone a Git repository?

@@ -4,7 +4,7 @@ description: Describes how to backup and restore an Azure Analysis Services data
 services: analysis-services
 documentationcenter: ''
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: owend
 
 ---

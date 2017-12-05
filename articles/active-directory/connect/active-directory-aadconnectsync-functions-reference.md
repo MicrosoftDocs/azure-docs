@@ -612,12 +612,12 @@ Results in "2007-12-25".
 Can result in "20140905081453.0Z"
 
 - - -
-### GUID
+### Guid
 **Description:**  
-The function GUID generates a new random GUID
+The function Guid generates a new random GUID
 
 **Syntax:**  
-`str GUID()`
+`str Guid()`
 
 - - -
 ### IIF
@@ -825,7 +825,7 @@ The Item function is useful together with the Contains function since the latter
 Throws an error if index is out of bounds.
 
 **Example:**  
-`Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
+`Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Returns the primary email address.
 
 - - -
@@ -1179,7 +1179,7 @@ Process all values in a multi-valued attribute (or output of an expression) base
 * condition: any function that can process an item in the attribute
 
 **Examples:**  
-`Select($item,[otherPhone],Replace($item,“-”,“”))`  
+`Select($item,[otherPhone],Replace($item,"-",""))`  
 Return all the values in the multi-valued attribute otherPhone after hyphens (-) have been removed.
 
 - - -

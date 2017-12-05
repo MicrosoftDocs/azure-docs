@@ -63,4 +63,4 @@ Now that you've migrated some data, check out how to [develop][develop].
 [develop]: sql-data-warehouse-overview-develop.md
 
 <!--Other Web references--> 
-[Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
+[Download Migration Utility]: https://www.microsoft.com/en-us/download/details.aspx?id=49100

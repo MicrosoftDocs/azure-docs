@@ -14,7 +14,7 @@ ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: data-management
+ms.workload: "On Demand"
 ms.date: 01/10/2017
 ms.author: carlrab
 

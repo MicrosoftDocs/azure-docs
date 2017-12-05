@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/10/2017
+ms.date: 11/03/2017
 ---
 
 # Create an Azure Database for PostgreSQL server in the Azure portal
@@ -120,7 +120,7 @@ There are a number of applications you can use to connect to your Azure Database
 
     psql parameter |Suggested value|Description
     ---|---|---
-    --host | Server name | The server name value that you used when you created the Azure Database for PostgreSQL server earlier. Our example server shown is **mypgserver-20170401.postgres.database.azure.com.** Use the fully qualified domain name (**\*.postgres.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
+    --host | Server name | The server name value that you used when you created the Azure Database for PostgreSQL server earlier. The example server shown is **mypgserver-20170401.postgres.database.azure.com.** Use the fully qualified domain name (**\*.postgres.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
     --port | 5432 | The port to use when you connect to the Azure Database for PostgreSQL server. 
     --username | Server admin login name |The server admin login username that you supplied when you created the Azure Database for PostgreSQL server earlier. If you don't remember your username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
     --dbname | *postgres* | The default, system-generated database name that was created for the first connection. Later, you create your own database.
@@ -147,7 +147,7 @@ There are a number of applications you can use to connect to your Azure Database
     > [!TIP]
     > If the firewall is not configured to allow the IP address of Cloud Shell, the following error occurs:
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required.Specify SSL options and retry.
+    > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
     > 
     > To resolve the error, make sure the server configuration matches the steps in the "Configure a server-level firewall rule" section of this article.
 
@@ -195,13 +195,13 @@ To connect to the Azure PostgreSQL server by using the GUI tool pgAdmin:
 
 6. In the **Browser** pane on the left, expand the **Servers** node. Select your server, for example, **Azure PostgreSQL Server**. Click to connect to it.
 
-7. Expand the server node, and then expand **Databases** under it. The list should include your existing *postgres* database and any newly created user database, such as **mypgsqldb**, which we created in the previous section. Notice that you can create multiple databases per server with Azure Database for PostgreSQL.
+7. Expand the server node, and then expand **Databases** under it. The list should include your existing *postgres* database and any newly created user database, such as **mypgsqldb**, which was created in the previous section. Notice that you can create multiple databases per server with Azure Database for PostgreSQL.
 
 8. Right-click **Databases**, choose the **Create** menu, and then select **Database**.
 
 9. Type a database name of your choice in the **Database** field, such as **mypgsqldb**, as shown in the example.
 
-10. Select the **Owner** for the database from the list box. Choose your server admin login name, such as our example, **mylogin**.
+10. Select the **Owner** for the database from the list box. Choose your server admin login name, such as the example, **mylogin**.
 
 11. Select **Save** to create a new blank database.
 
@@ -217,9 +217,9 @@ You can clean up the resources that you created in the Quickstart in one of two 
 > Other Quickstarts in this collection build on this Quickstart. If you plan to continue working with Quickstarts, don't clean up the resources that you created in this Quickstart. If you don't plan to continue, follow these steps to delete the resources that were created by this Quickstart in the portal.
 
 To delete the entire resource group, including the newly created server:
-1. Locate your resource group in the portal. On the menu on the left, select **Resource groups**. Then select the name of your resource group, such as our example, **myresourcegroup**.
+1. Locate your resource group in the portal. On the menu on the left, select **Resource groups**. Then select the name of your resource group, such as the example, **myresourcegroup**.
 
-2. On your resource group page, select **Delete**. Type the name of your resource group, such as our example, **myresourcegroup**, in the text box to confirm deletion. Select **Delete**.
+2. On your resource group page, select **Delete**. Type the name of your resource group, such as the example, **myresourcegroup**, in the text box to confirm deletion. Select **Delete**.
 
 To delete only the newly created server:
 1. Locate your server in the portal, if you don't have it open. On the menu on the left, select **All resources**. Then search for the server you created.
@@ -228,7 +228,7 @@ To delete only the newly created server:
 
     ![The "Delete" button](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Confirm the server name you want to delete, and show the databases under it that are affected. Type your server name in the text box, such as our example, **mypgserver-20170401**. Select **Delete**.
+3. Confirm the server name you want to delete, and view the databases under it that are affected. Type your server name in the text box, such as the example, **mypgserver-20170401**. Select **Delete**.
 
 ## Next steps
 > [!div class="nextstepaction"]

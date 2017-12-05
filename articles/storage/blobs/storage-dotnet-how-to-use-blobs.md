@@ -3,7 +3,7 @@ title: Get started with Azure Blob storage (object storage) using .NET | Microso
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
-ms.author: marsma
+ms.author: tamram
 ---
 # Get started with Azure Blob storage using .NET
 
@@ -401,4 +401,4 @@ to learn more.
 ### Conceptual guides
 * [Transfer data with the AzCopy command-line utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Get started with File storage for .NET](../files/storage-dotnet-how-to-use-files.md)
-* [How to use Azure blob storage with the WebJobs SDK](../../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [How to use Azure blob storage with the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)

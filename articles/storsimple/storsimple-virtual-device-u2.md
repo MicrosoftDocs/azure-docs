@@ -13,11 +13,14 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 
 ---
 # Deploy and manage a StorSimple virtual device in Azure
+> [!NOTE]
+> The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. To view the version of this article for the new Azure portal, go to [Deploy and manage a StorSimple virtual device in Azure](storsimple-8000-cloud-appliance-u2.md). For any questions regarding the move, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## Overview
 The StorSimple 8000 series virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts. This tutorial describes how to deploy and manage a virtual device in Azure and is applicable to all the virtual devices running software version Update 2 and lower.
 
@@ -60,7 +63,7 @@ The following table shows some key differences between the StorSimple virtual de
 | **Service data encryption key** |Regenerate on the physical device and then update the virtual device with the new key. |Cannot regenerate from the virtual device. |
 
 ## Prerequisites for the virtual device
-The following sections explain the configuration prerequisites for your StorSimple virtual device. Prior to deploying a virtual device, review the [security considerations for using a virtual device](storsimple-security.md#storsimple-virtual-device-security).
+The following sections explain the configuration prerequisites for your StorSimple virtual device. Prior to deploying a virtual device, review the [security considerations for using a virtual device](storsimple-8000-security.md#storsimple-cloud-appliance-security).
 
 #### Azure requirements
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
