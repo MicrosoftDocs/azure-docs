@@ -149,7 +149,12 @@ END
     ```
 
     If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again
-2. To create the Azure resource group, run the following command: 
+2. Define a variable for the location of the data factory: 
+
+    ```powershell
+    $location = "East US"
+    ```
+3. To create the Azure resource group, run the following command: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
@@ -162,11 +167,6 @@ END
 
     ```powershell
     $dataFactoryName = "ADFIncCopyTutorialFactory";
-    ```
-1. Define a variable for the location of the data factory: 
-
-    ```powershell
-    $location = "East US"
     ```
 5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet: 
     
@@ -723,7 +723,7 @@ You performed the following steps in this tutorial:
 > * Run the pipeline.
 > * Monitor the pipeline run. 
 
-In this tutorial, the pipeline copied data from a **single table** in an Azure SQL database to an Azure blob storage. Advance to the following tutorial to learn about copying data from **multiple tables** in an on-premises SQL Server database to an Azure SQL datbase. 
+In this tutorial, the pipeline copied data from a **single table** in an Azure SQL database to an Azure blob storage. Advance to the following tutorial to learn about copying data from **multiple tables** in an on-premises SQL Server database to an Azure SQL database. 
 
 > [!div class="nextstepaction"]
 >[Incrementally load data from multiple tables in SQL Server to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)

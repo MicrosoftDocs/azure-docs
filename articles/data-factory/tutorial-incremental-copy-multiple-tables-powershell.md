@@ -222,7 +222,12 @@ END
     ```
 
     If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again
-2. To create the Azure resource group, run the following command: 
+2. Define a variable for the location of the data factory: 
+
+    ```powershell
+    $location = "East US"
+    ```
+3. To create the Azure resource group, run the following command: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
@@ -235,11 +240,6 @@ END
 
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
-    ```
-1. Define a variable for the location of the data factory: 
-
-    ```powershell
-    $location = "East US"
     ```
 5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet: 
     
@@ -267,7 +267,7 @@ You create linked services in a data factory to link your data stores and comput
 ### Create SQL Server linked service.
 In this step, you link your on-premises SQL Server to the data factory.
 
-1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFTutorails\IncCopyMultiTableTutorial** folder with the following content: Select the right section based on the **authentication** you use to connect to SQL Server. Create the local folders if they do not already exist. 
+1. Create a JSON file named **SqlServerLinkedService.json** in **C:\ADFTutorials\IncCopyMultiTableTutorial** folder with the following content: Select the right section based on the **authentication** you use to connect to SQL Server. Create the local folders if they do not already exist. 
 
     > [!IMPORTANT]
     > Select the right section based on the **authentication** you use to connect to SQL Server.
@@ -323,7 +323,7 @@ In this step, you link your on-premises SQL Server to the data factory.
     > - Replace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, and **&lt;password>** with values of your SQL Server before saving the file.
     > - If you need to use a slash character (`\`) in your user account or server name, use the escape character (`\`). For example, `mydomain\\myuser`.
 
-2. In **Azure PowerShell**, switch to the **C:\ADFTutorails\IncCopyMultiTableTutorial** folder.
+2. In **Azure PowerShell**, switch to the **C:\ADFTutorials\IncCopyMultiTableTutorial** folder.
 3. Run the **Set-AzureRmDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. In the following example, you pass values for the **ResourceGroupName** and **DataFactoryName** parameters. 
 
     ```powershell
@@ -340,7 +340,7 @@ In this step, you link your on-premises SQL Server to the data factory.
     ```
 
 ### Create Azure SQL Database linked service.
-1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorails\IncCopyMultiTableTutorial** folder with the following content: (Create the folder ADF if it does not already exist.). Replace **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt;** with name of your Azure SQL server, name of your database, user ID, and password before saving the file. 
+1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyMultiTableTutorial** folder with the following content: (Create the folder ADF if it does not already exist.). Replace **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt;** with name of your Azure SQL server, name of your database, user ID, and password before saving the file. 
 
     ```json
     {
@@ -414,7 +414,7 @@ In this step, you create datasets to represent data source, data destination. an
 
 ### Create a sink dataset
 
-1. Create a JSON file named **SinkDataset.json** in the same folder with the following content: 
+1. Create a JSON file named **SinkDataset.json** in the same folder with the following content: The tableName is set by the pipeline dynamically at runtime. The ForEach activity in the pipeline iterates through a list of table names, and passes the table name to this dataset in each iteration. 
 
     ```json
     {
@@ -493,8 +493,14 @@ In this step, you create a dataset for storing a high watermark value.
     ```
 
 ## Create a pipeline
-In this tutorial, you create a pipeline with one ForEach activity, two Lookup activities, one Copy activity, and one Stored Procedure activity.   
+The pipeline takes a list of table names as a parameter. The **ForEach activity** iterates through the list of table names, and performs the following operations: 
 
+1. Use the **lookup activity** to retrieve the old watermark value (initial value or that was used in the last iteration).
+2. Use the **lookup activity** to retrieve the new watermark value (maximum value of watermark column in the source table).
+3. Use the **copy activity** to copy data between these two watermark values from the source database to the destination database. 
+4. Use the **stored procedure activity** to update the old watermark value to be used in the first step of the next iteration. 
+
+### Create the pipeline
 1. Create a JSON file: IncrementalCopyPipeline.json in same folder with the following content: 
 
     ```json
@@ -695,7 +701,7 @@ In this tutorial, you create a pipeline with one ForEach activity, two Lookup ac
 7. To switch back to the **Pipeline runs** view, click **Pipelines** as shown in the image. 
 
 ## Review the results
-In SQL Server Management Studio, run the following queries against the target database to verify that the data was copied from source tables to destination tables. 
+In SQL Server Management Studio, run the following queries against the target Azure SQL database to verify that the data was copied from source tables to destination tables. 
 
 **Query** 
 ```sql

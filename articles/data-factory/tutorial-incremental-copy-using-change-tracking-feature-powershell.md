@@ -153,7 +153,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```
 
     If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again
-2. To create the Azure resource group, run the following command: 
+2. Define a variable for the location of the data factory: 
+
+    ```powershell
+    $location = "East US"
+    ```
+3. To create the Azure resource group, run the following command: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
@@ -166,11 +171,6 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
     ```powershell
     $dataFactoryName = "IncCopyChgTrackingDF";
-    ```
-1. Define a variable for the location of the data factory: 
-
-    ```powershell
-    $location = "East US"
     ```
 5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet: 
     
