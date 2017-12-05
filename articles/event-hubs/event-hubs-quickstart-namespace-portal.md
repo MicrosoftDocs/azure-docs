@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 12/1/2017
 ms.author: sethm
 
 ---
@@ -62,6 +62,12 @@ An Event Hubs namespace provides a unique scoping container, referenced by its [
  
 5. Click **Create** to create the namespace. You may have to wait a few minutes for the system to fully provision the resources.
 
+6. In the portal list of namespaces, click the newly created namespace.
+
+7. Click **Shared access policies**, and then click **RootManageSharedAccessKey**.
+    
+8. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string in a temporary location, such as Notepad, to use later.
+    
 ## Create an event hub
 
 To create an event hub within the namespace, do the following:
@@ -103,9 +109,56 @@ The Event Processor Host is an intelligent agent that simplifies receiving event
    
     ![](./media/event-hubs-quickstart-namespace-portal/create-storage3.png)
 
+## Download and run the samples
+
+The next step is to run the sample code that sends events to an event hub, and receives those events using the Event Processor Host. 
+
+First, download the [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) and [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) samples from GitHub, or clone the [azure-event-hubs repo](https://github.com/Azure/azure-event-hubs).
+
+### Sender
+
+1. Open Visual Studio, then from the **File** menu, click **Open**, and then click **Project/Solution**.
+
+2. Locate the **SampleSender** sample folder you downloaded previously, then double-click the SampleSender.sln file to load the project in Visual Studio.
+
+3. In Solution Explorer, double-click Program.cs to open the file in the Visual Studio editor.
+
+4. Replace the `EventHubConnectionString` value with the connection string you obtained when you created the namespace.
+
+5. Replace `EventHubName` with the name of the event hub you created within that namespace.
+
+6. From the **Build** menu, click **Build Solution** to ensure there are no errors.
+
+### Receiver
+
+1. Open Visual Studio, then from the **File** menu, click **Open**, and then click **Project/Solution**.
+
+2. Locate the **SampleEphReceiver** sample folder you downloaded in step 1, then double-click the SampleEphReceiver.sln file to load the project in Visual Studio.
+
+3. In Solution Explorer, double-click Program.cs to open the file in the Visual Studio editor.
+
+4. Replace the following variable values:
+	1. `EventHubConnectionString`: Replace with the connection string you obtained when you created the namespace.
+	2. `EventHubName`: The name of the event hub you created within that namespace.
+	3. `StorageContainerName`: The name of a storage container. Give it a unique name, and the container is created for you when you run the app.
+	4. `StorageAccountName`: The name of the storage account you created.
+	5. `StorageAccountKey`: The storage account key you obtained from the Azure portal.
+
+5. From the **Build** menu, click **Build Solution** to ensure there are no errors.
+
+### Run the apps
+
+First, run the **SampleSender** application and observe 100 messages being sent. Press **Enter** to end the program.
+
+![][3]
+
+Then, run the **SampleEphReceiver** app, and observe the messages being received into the Event Processor Host.
+
+![][4]
+ 
 ## Next steps
 
-In this article, you’ve created the Event Hubs namespace and other resources required to send and receive events from your event hub. To learn how to send and receive events, continue with the following articles.
+In this article, you've created the Event Hubs namespace and other resources required to send and receive events from your event hub, and send and received a set of messages. To learn more, continue with the following articles.
 
 * [Send events to your event hub](event-hubs-dotnet-standard-getstarted-send.md)
 * [Receive events from your event hub](event-hubs-dotnet-standard-getstarted-receive-eph.md)
@@ -115,3 +168,5 @@ In this article, you’ve created the Event Hubs namespace and other resources r
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [1]: ./media/event-hubs-quickstart-namespace-portal/resource-groups1.png
 [2]: ./media/event-hubs-quickstart-namespace-portal/resource-groups2.png
+[3]: ./media/event-hubs-quickstart-namespace-portal/sender1.png
+[4]: ./media/event-hubs-quickstart-namespace-portal/receiver1.png
