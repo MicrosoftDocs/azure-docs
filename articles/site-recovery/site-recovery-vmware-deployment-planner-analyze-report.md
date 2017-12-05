@@ -125,7 +125,9 @@ In the public preview, the report does not specify which VMs should be included 
 
 ### Cost estimation
 The graph shows the summary view of the estimated total disaster recovery (DR) cost to Azure of your chosen target region and the currency that you have specified for report generation.
+
 ![Cost estimation summary](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
+
 The summary helps you to understand the cost that you need to pay for storage, compute, network, and license when you protect all your compatible VMs to Azure using Azure Site Recovery. The cost is calculated on for compatible VMs and not on all the profiled VMs.  
  
 You can view the cost either monthly or yearly. Learn more about [supported target regions](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) and [supported currencies](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
