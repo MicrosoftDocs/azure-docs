@@ -255,7 +255,7 @@ You should now have a `adal4jsample.war` file in your `/targets` directory. You 
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> It is very easy to deploy a WAR with the latest Tomcat servers. Simply navigate to `http://localhost:8080/manager/` and follow the instructions on uploading your ``adal4jsample.war` file. It will autodeploy for you with the correct endpoint.
+> It is very easy to deploy a WAR with the latest Tomcat servers. Simply navigate to `http://localhost:8080/manager/` and follow the instructions on uploading your `adal4jsample.war` file. It will autodeploy for you with the correct endpoint.
 > 
 > 
 
