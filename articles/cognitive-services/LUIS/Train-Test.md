@@ -46,7 +46,7 @@ To start the iterative process of training, you first need to train your LUIS ap
 >If you have one or more intents in your app that do not contain example utterances, you cannot train your app. Add utterances for all your intents. For more information, see [Add example utterances](Add-example-utterances.md).
 
 ## Test your app
-LUIS provides two types of testing: interactive testing and batch testing. Both are available from the [LUIS authoring APIs](https://aka.ms/luis-authoring-api). Only interactive testing is available in [LUIS.ai](http://www.luis.ai).
+[LUIS.ai](http://www.luis.ai) provides two types of testing: interactive testing and batch testing.
 
 ## Access the Test page
 
@@ -58,16 +58,16 @@ LUIS provides two types of testing: interactive testing and batch testing. Both 
 ## Interactive Testing
 Interactive testing enables you to test both the current and published versions of your app and compare their results in one screen. 
  
-The **Test** slide-out page displays a single section by default, the test panel. It has two sections: the test panel and the inspection panel. 
+The **Test** slide-out page displays a single test section by default. The second panel is the inspection panel.
 
 ![Train & Test App page](./media/luis-how-to-train-test/test-3-panel.png)
 
 * The **test panel** allows you to type the test utterance in the text box and press Enter to submit it to your LUIS app and view LUIS model results. 
 
-* The **inspection panel** allows you to inspect LUIS results, change the top scoring intent, and compare to the published model. Any identified entities are also shown.
+* The **inspection panel** allows you to inspect LUIS results, change the top scoring intent, and compare to the published model. The top identified entity is also shown.
 
 >[!NOTE]
->You can compare the trained but not yet published model against the published model. Be aware any testing against the published model will be deducted from your key balance. 
+>You can compare the trained but not yet published model against the published model. Be aware any testing against the published model will be deducted from your Azure subscription quota balance. 
 
 In an interactive test, you submit individual test utterances and view the LUIS score for each utterance separately. 
 
