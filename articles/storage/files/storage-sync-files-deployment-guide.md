@@ -130,7 +130,7 @@ To migrate a DFS-R deployment to Azure File Sync:
 9. Retire DFS-R.
 10. Cloud tiering may now be enabled on any server endpoint as desired.
 
-For more information, see [Azure File Sync interop with Distributed File System (DFS)](storage=sync-files-planning.md#distributed-file-system-dfs).
+For more information, see [Azure File Sync interop with Distributed File System (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
 ## Next steps
 - [Add or remove an Azure File Sync Server Endpoint](storage-sync-files-server-endpoint.md)
