@@ -59,7 +59,7 @@ The following steps will walk you through creating a web app and assigning it an
     ```azurecli-interactive
     az login
     ```
-2. Create a web application using the CLI. For more examples of how to use the CLI with App Service, see [App Service CLI samples](../app-service/scripts/app-service-cli-samples.md):
+2. Create a web application using the CLI. For more examples of how to use the CLI with App Service, see [App Service CLI samples](../app-service/app-service-cli-samples.md):
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location westus
