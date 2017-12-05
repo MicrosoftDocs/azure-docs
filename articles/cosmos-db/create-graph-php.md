@@ -29,7 +29,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 In addition:
-* [PHP](http://php.net/)
+* [PHP](http://php.net/) 5.6 or newer
 * [Composer](https://getcomposer.org/download/)
 
 ## Create a database account
