@@ -250,7 +250,7 @@
         href: mongodb-mongochef.md
       - name: Using Robomongo
         href: mongodb-robomongo.md
-      - name: Using Mongoose framework
+      - name: Using Mongoose
         href: mongodb-mongoose.md
       - name: MongoDB feature support
         href: mongodb-feature-support.md
