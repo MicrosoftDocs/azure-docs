@@ -13,10 +13,10 @@ ms.service: back up
 ms.workload: storage-back up-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
-ms.custom:
+ms.custom: mvc
 
 ---
 # Back up Windows Server to Azure

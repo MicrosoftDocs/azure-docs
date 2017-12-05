@@ -12,11 +12,12 @@ keywords: ''
 ms.assetid: ee2b652b-fb7c-455b-8275-b8d4d08ffeb3
 ms.service: container-registry
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: stevelas
+ms.custom: mvc
 ---
 # Introduction to private Docker container registries in Azure
 
