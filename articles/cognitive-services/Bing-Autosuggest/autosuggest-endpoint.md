@@ -12,6 +12,7 @@ ms.author: v-gedod
 ---
 
 # Autosuggest endpoint
+
 The **Autosuggest API**  includes one endpoint, which returns a list of suggested queries from a partial search term. 
 
 ##Endpoint
@@ -32,4 +33,4 @@ The response to a videos search request includes results as JSON objects. For ex
 The **Bing** APIs support search actions that return results according to their type. All search endpoints return results as JSON response objects.  All endpoints support queries that return a specific language and/or location by longitude, latitude, and search radius.
 
 For complete information about the parameters supported by each endpoint, see the reference pages for each type.
-For examples of basic requests using the Video search API, see [Autosuggest Quick-starts](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Autosuggest).
+For examples of basic requests using the Autosuggest API, see [Autosuggest Quick-starts](https://docs.microsoft.com/en-us/azure/cognitive-services/Bing-Autosuggest).
