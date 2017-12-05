@@ -30,9 +30,9 @@ The Content Moderator's video capability is available as a private preview **med
 
 [Submit](https://cognitive.uservoice.com/ "Contact Us") the following information to request access to the private preview:
 
-   1. Your Azure subscription ID
-   1. Your Azure Media Services account name
-   1. Your region
+   - Your Azure subscription ID
+   - Your Azure Media Services account name
+   - Your region
 
 ## Get Azure Active Directory credentials
 
@@ -40,7 +40,7 @@ The Content Moderator's video capability is available as a private preview **med
    1. Read the [Azure Media Services .NET article](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-get-started-with-aad) to learn how to use your Azure Active Directory credentials with the .NET SDK.
 
    > [!NOTE]
-   > The sample code in this quick start uses the **service principal authentication** method described in both the articles.
+   > The sample code in this quickstart uses the **service principal authentication** method described in both the articles.
 
 
 ## Scan your videos for possible adult and racy content
