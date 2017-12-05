@@ -104,7 +104,7 @@ The Device Provisioning Service is available in many regions. We maintain an upd
 > The Device Provisioning Service is global and not bound to a location. However, you must specify a region in which the metadata associated with your Device Provisioning Service profile will reside.
 
 ## Availability
-We maintain a 99.9% Service Level Agreement for the Device Provisioning Service, and you can [read the SLA](https://azure.microsoft.com/en-us/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
+We maintain a 99.9% Service Level Agreement for the Device Provisioning Service, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
 ## Quotas
 Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
