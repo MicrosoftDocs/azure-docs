@@ -43,8 +43,6 @@ sections:
           src: media/index/logo_python.svg
       - image:
           src: media/index/logo_gremlin.svg
-      - image:
-          src: media/index/logo_php.svg
     rows:
       - title: DocumentDB API
         values:
@@ -53,14 +51,12 @@ sections:
         - href: /azure/cosmos-db/create-documentdb-nodejs
         - href: /azure/cosmos-db/create-documentdb-python
         - href:
-        - href:
       - title: MongoDB API
         values:
           - href: /azure/cosmos-db/create-mongodb-java
           - href: /azure/cosmos-db/create-mongodb-dotnet
           - href: /azure/cosmos-db/create-mongodb-nodejs
           - href: /azure/cosmos-db/create-mongodb-flask
-          - href:
           - href:
       - title: Graph API
         values:
@@ -69,7 +65,6 @@ sections:
           - href: /azure/cosmos-db/create-graph-nodejs
           - href: /azure/cosmos-db/create-graph-python
           - href: /azure/cosmos-db/create-graph-gremlin-console
-          - href: /azure/cosmos-db/create-graph-php
       - title: Table API
         values:
           - href: /azure/cosmos-db/create-table-java
@@ -77,14 +72,12 @@ sections:
           - href: /azure/cosmos-db/create-table-nodejs
           - href: /azure/cosmos-db/create-table-python
           - href:
-          - href:
       - title: Cassandra API
         values:
           - href: /azure/cosmos-db/create-cassandra-java
           - href: /azure/cosmos-db/create-cassandra-dotnet
           - href: /azure/cosmos-db/create-cassandra-nodejs
           - href: /azure/cosmos-db/create-cassandra-python
-          - href:
           - href:
 - title: Step-by-Step Tutorials
   items:
