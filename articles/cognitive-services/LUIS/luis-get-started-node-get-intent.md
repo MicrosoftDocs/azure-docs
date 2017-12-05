@@ -13,8 +13,7 @@ ms.author: v-demak
 ---
 
 # Call a LUIS app using Node.js
-
-This quickstart shows you how to call your Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll be able to use Node.js code to pass utterances to a LUIS endpoint and get results.
+Pass utterances to a LUIS endpoint and get intent and entities back.
 
 ## Before you begin
 You need a Cognitive Services API key to make calls to the sample LUIS app we use in this walkthrough. 
