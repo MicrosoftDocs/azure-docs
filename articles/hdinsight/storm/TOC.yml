@@ -45,26 +45,17 @@
       href: apache-storm-sensor-data-analysis.md
   - name: Extend clusters
     items:
-    - name: Use secure enabled storage account
-      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-      maintainContext: true
     - name: Customize clusters using Bootstrap
       href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
       maintainContext: true
     - name: Customize clusters using Script Action
       href: ../hdinsight-hadoop-customize-cluster-linux.md
       maintainContext: true
-    - name: Connect HDInsight to your on-premises network
-      href: ../connect-on-premises-network.md
-      maintainContext: true
     - name: Develop script actions
       href: ../hdinsight-hadoop-script-actions-linux.md
       maintainContext: true
     - name: Install or update Mono
       href: ../hdinsight-hadoop-install-mono.md
-      maintainContext: true
-    - name: Use Virtual Network
-      href: ../hdinsight-extend-hadoop-virtual-network.md
       maintainContext: true
     - name: Build HDInsight applications
       items:
@@ -180,20 +171,6 @@
     - name: OS patching for HDInsight cluster
       href: ../hdinsight-os-patching.md
       maintainContext: true
-  - name: Monitor
-    items:
-    - name: Use Azure Log Analytics
-      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Cluster-specific dashboards
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-      maintainContext: true
-    - name: Use queries with Log Analytics
-      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-      maintainContext: true
-    - name: Monitor cluster performance
-      href: ../hdinsight-key-scenarios-to-monitor.md
-      maintainContext: true
   - name: Troubleshoot
     href: ../hdinsight-troubleshoot-guide.md
     maintainContext: true
@@ -220,6 +197,39 @@
       - name: Enable heap dumps for Hadoop services
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
+- name: Enterprise Readiness
+  items:
+  - name: Securing data
+    href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    maintainContext: true
+  - name: Network access
+    items:
+    - name: HDInsight in Azure VNET
+      href: ../hdinsight-extend-hadoop-virtual-network.md
+      maintainContext: true
+    - name: Connect HDInsight with on-prem network
+      href: ../connect-on-premises-network.md
+      maintainContext: true
+    - name: Create HBase cluster in Azure VNET
+      href: ../hbase/apache-hbase-provision-vnet.md
+      maintainContext: true
+    - name: HBase cluster replication in Azure VNET
+      href: ../hbase/apache-hbase-replication.md
+      maintainContext: true
+  - name: Monitoring using OMS
+    items:
+    - name: Use Azure Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      maintainContext: true
+    - name: Cluster-specific dashboards
+      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+      maintainContext: true
+    - name: Use queries with Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      maintainContext: true
+    - name: Monitor cluster performance
+      href: ../hdinsight-key-scenarios-to-monitor.md
+      maintainContext: true 
 - name: Reference
   items:
   - name: Code samples
