@@ -110,7 +110,7 @@ PowerShell is more complicated to use than Azure CLI. While Azure CLI provides d
 The cmdlets work can be piped in sequence. Here is an example of how to get all images for the **West US 2** region with a publisher that has the name **microsoft** in it.
 
 ```powershell
-Get-AzureRMVMImagePublisher -Location WestUS2 | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
+Get-AzureRmVMImagePublisher -Location WestUS2 | Where-Object PublisherName -Like *microsoft* | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
 ```
 
 ```
