@@ -154,6 +154,8 @@ svcat get plans
 
 This command uses Helm to install an updated Helm chart of WordPress that provisions an external Azure Database for MySQL instance in order to have WordPress use it. This process can take a few minutes.
 
+Please refer to the [Azure/helm-charts](https://github.com/Azure/helm-charts) repo to access other updated osba-based helm charts and for more details steps of how you can update your own helm charts to integrate with OSBA.
+
 ```azurecli-interactive
 helm install azure/wordpress --name wordpress --namespace wordpress
 ```
@@ -173,7 +175,7 @@ List installed secrets:
 kubectl get secrets -n wordpress -o yaml
 ```
 
-If you are interested in more charts to deploy using Open Service Broker for Azure, check out [Azure/helm-charts](https://github.com/Azure/helm-charts) repository.
+If you are interested in creating your own charts that work with the Open Service Broker for Azure, please refer to [Creating a New Chart](https://github.com/Azure/helm-charts#creating-a-new-chart).
 
 ## Summary
 
