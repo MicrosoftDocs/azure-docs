@@ -36,7 +36,7 @@ Azure Media Clipper enables you to:
 
 To request new features, provide ideas or feedback, submit to [UserVoice for Azure Media Services](http://aka.ms/amsvoice/). If you have and specific issues, questions or find any bugs, drop the Media Services team a line at amcinfo@microsoft.com.
 
-The image below illustrates the Clipper interface:
+The following image illustrates the Clipper interface:
 ![Azure Media Clipper](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)
 
 ## Release notes
