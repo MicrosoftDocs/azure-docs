@@ -32,6 +32,16 @@
     href: how-to-deploy-monitor.md
   - name: Provision an IoT Core device
     href: how-to-install-iot-core.md
+  - name: Use VS Code to develop IoT Edge solutions
+    items:
+      - name: Develop debug and deploy C# module
+        href: how-to-vscode-develop-csharp-module.md
+      - name: Debug C# module
+        href: how-to-vscode-debug-csharp-module.md
+      - name: Develop and deploy Azure Function (C#)
+        href: how-to-vscode-develop-csharp-function.md
+      - name: Debug Azure Functions (C#)
+        href: how-to-vscode-debug-csharp-function.md
 - name: Concepts
   items: 
   - name: Iot Edge modules
