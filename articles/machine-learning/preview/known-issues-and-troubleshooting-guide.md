@@ -110,6 +110,19 @@ Unfortunately there is no easy fix on this one. You have to perform the followin
    - remove desktop shortcut that launches the above script
    - download the installer https://aka.ms/azureml-wb-msi and reinstall.
 
+## Get stuck at "Checking experimentation account" screen after logging in
+After logging in, the Workbench app might get stuck on a blank screen with a message showing "Checking experimentation account" with a spinning wheel. To resolve this issue, take the following steps:
+1. Shutdown the app
+2. Delete the following file:
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. Restart the app.
+
 ## Can't delete Experimentation Account
 You can use CLI to delete an Experimentation Account, but you must delete the child workspaces and the child projects within those child workspaces first. Otherwise, you see an error.
 

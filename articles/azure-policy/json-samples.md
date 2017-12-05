@@ -11,7 +11,7 @@ tags:
 ms.assetid:
 ms.service: azure-policy
 ms.devlang: na
-ms.topic: article
+ms.topic: samples
 ms.tgt_pltfrm:
 ms.workload:
 ms.date: 11/13/2017

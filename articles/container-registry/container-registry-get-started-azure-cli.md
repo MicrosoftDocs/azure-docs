@@ -12,12 +12,12 @@ keywords: ''
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: quicksart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ---
 
 # Create a container registry using the Azure CLI

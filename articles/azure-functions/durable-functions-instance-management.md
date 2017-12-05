@@ -87,7 +87,7 @@ public static async Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
     [ManualTrigger] string instanceId)
 {
-    var status = await checker.GetStatusAsync(instanceId);
+    var status = await client.GetStatusAsync(instanceId);
     // do something based on the current status.
 }
 ```

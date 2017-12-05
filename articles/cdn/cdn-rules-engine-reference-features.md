@@ -643,7 +643,7 @@ Disabled|The X-EC-Debug response header will be excluded from the response.
 
 **Default Behavior:** Disabled.
 
-###Modify Client Response Header
+###Modify Client Request Header
 **Purpose:** Each request contains a set of [request headers]() that describe it. This feature can either:
 
 - Append or overwrite the value assigned to a request header. If the specified request header does not exist, then this feature will add it to the request.
@@ -679,7 +679,7 @@ Key information:
 ###Modify Client Response Header
 Each response contains a set of [response headers]() that describe it. This feature can either:
 
-- Append or overwrite the value assigned to a response header. If the specified request header does not exist, then this feature will add it to the response.
+- Append or overwrite the value assigned to a response header. If the specified response header does not exist, then this feature will add it to the response.
 - Delete a response header from the response.
 
 By default, response header values are defined by an origin server and by our edge servers.
@@ -688,9 +688,9 @@ One of the following actions can be performed on a response header:
 
 Option|Description|Example
 -|-|-
-Append|The specified value will be added to the end of the existing request header value.|**Response header value (Client):**Value1 <br/> **Response header value (HTTP Rules Engine):** Value2 <br/>**New Response header value:** Value1Value2
-Overwrite|The request header value will be set to the specified value.|**Response header value (Client):**Value1 <br/>**Response header value (HTTP Rules Engine):** Value2 <br/>**New response header value:** Value2 <br/>
-Delete|Deletes the specified request header.|**Request header value (Client):** Value1 <br/> **Modify Client Request Header configuration:** Delete the response header in question. <br/>**Result:** The specified response header will not be forwarded to the requester.
+Append|The specified value will be added to the end of the existing response header value.|**Response header value (Client):**Value1 <br/> **Response header value (HTTP Rules Engine):** Value2 <br/>**New Response header value:** Value1Value2
+Overwrite|The response header value will be set to the specified value.|**Response header value (Client):**Value1 <br/>**Response header value (HTTP Rules Engine):** Value2 <br/>**New response header value:** Value2 <br/>
+Delete|Deletes the specified response header.|**Response header value (Client):** Value1 <br/> **Modify Client Response Header configuration:** Delete the response header in question. <br/>**Result:** The specified response header will not be forwarded to the requester.
 
 Key information:
 
