@@ -102,7 +102,7 @@ Windows Server Failover Clustering is supported by Azure File Sync for the "File
 For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume. Currently, we do not support interoperability between Azure File Sync with cloud tiering enabled and Data Deduplication.
 
 ### Distributed File System (DFS)
-Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R) starting with the [Azure File Sync agent 1.2](https://support.microsoft.com/help/4042192/update-rollup-for-azure-file-sync-agent-preview-october-2017).
+Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R) starting with [Azure File Sync agent 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
 
 **DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the server endpoints and the cloud endpoint. For more information, see [DFS Namespaces overview](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
@@ -117,7 +117,7 @@ There are two caveats to deploying Azure File Sync and DFS-R together:
 1. Azure File Sync cloud tiering must be disabled on volumes with DFS-R replicated folders.
 2. Server endpoints should not be configured on DFS-R read-only replication folders.
 
-For more information, see [DFS Replication overview](https://technet.microsoft.com/library/jj127250).
+For more information, see [Migrate a DFS Replication (DFS-R) deployment to Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r) and [DFS Replication overview](https://technet.microsoft.com/library/jj127250).
 
 ### Antivirus solutions
 Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. Because tiered files have the "offline" attribute set, we recommend consulting with your software vendor to learn how to configure their solution to skip reading offline files. 

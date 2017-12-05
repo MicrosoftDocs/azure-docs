@@ -116,6 +116,22 @@ To add the server endpoint, select **Create**. Your files are now kept in sync a
 > [!Important]  
 > You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](storage-files-faq.md#afs-change-detection).
 
+## Migrate a DFS Replication (DFS-R) deployment to Azure File Sync
+To migrate a DFS-R deployment to Azure File Sync:
+
+1. Create a sync group to represent the DFS-R topology you are replacing.
+2. Start on the server that has the full set of data in your DFS-R topology to migrate. Install Azure File Sync on that server.
+3. Register that server and create a server endpoint for the first server to be migrated. Do not enable cloud tiering.
+4. Let all of the data sync to your Azure file share (cloud endpoint).
+5. Install and register the Azure File Sync agent on each of the remaining DFS-R servers.
+6. Disable DFS-R. 
+7. Create a server endpoint on each of the DFS-R servers. Do not enable cloud tiering.
+8. Ensure sync completes and test your topology as desired.
+9. Retire DFS-R.
+10. Cloud tiering may now be enabled on any server endpoint as desired.
+
+For more information, see [Azure File Sync interop with Distributed File System (DFS)](storage=sync-files-planning.md#distributed-file-system-dfs).
+
 ## Next steps
 - [Add or remove an Azure File Sync Server Endpoint](storage-sync-files-server-endpoint.md)
 - [Register or unregister a server with Azure File Sync](storage-sync-files-server-registration.md)
