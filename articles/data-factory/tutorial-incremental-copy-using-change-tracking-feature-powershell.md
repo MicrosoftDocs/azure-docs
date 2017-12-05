@@ -24,9 +24,9 @@ You perform the following steps in this tutorial:
 > * Prepare the source data store
 > * Create a data factory.
 > * Create linked services. 
-> * Create source, sink, change tracking datasets.
+> * Create source, sink, and change tracking datasets.
 > * Create, run, and monitor the full copy pipeline
-> * Add or update data in source tables
+> * Add or update data in the source table
 > * Create, run, and monitor the incremental copy pipeline
 
 > [!NOTE]
@@ -36,30 +36,30 @@ You perform the following steps in this tutorial:
 In a data integration solution, incrementally loading data after initial data loads is a widely used scenario. In some cases, the changed data within a period in your source data store can be easily to sliced up (for example, LastModifyTime, CreationTime). In some cases, there is no explicit way to identify the delta data from last time you processed the data. The Change Tracking technology supported by data stores such as Azure SQL Database and SQL Server can be used to identify the delta data.  This tutorial describes how to use Azure Data Factory version 2 to work with SQL Change Tracking technology to incrementally load delta data from Azure SQL Database into Azure Blob Storage.  For more concrete information about SQL Change Tracking technology, see [Change tracking in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
 
 ## End-to-end workflow
-Here are the typical end-to-end workflow steps to incrementally load data using the SQL Change Tracking technology.
+Here are the typical end-to-end workflow steps to incrementally load data using the Change Tracking technology.
 
 > [!NOTE]
 > Both Azure SQL Database and SQL Server support the Change Tracking technology. This tutorial uses Azure SQL Database as the source data store. You can also use an on-premises SQL Server. 
 
-1. **Initial loading of historical data** (run once first):
-    a. Enable Change Tracking technology in the source Azure SQL database.
-    b. Get the initial value of SYS_CHANGE_VERSION on the Azure SQL database as the baseline to capture changed data.
-    c. Load full data from the Azure SQL database into an Azure blob storage. 
+1. **Initial loading of historical data** (run once):
+    1. Enable Change Tracking technology in the source Azure SQL database.
+    2. Get the initial value of SYS_CHANGE_VERSION in the Azure SQL database as the baseline to capture changed data.
+    3. Load full data from the Azure SQL database into an Azure blob storage. 
 2. **Incremental loading of delta data on a schedule** (run periodically after the initial loading of data):
-    a. Get the old and new SYS_CHANGE_VERSION.
-    b. Load the delta data by joining the primary keys of changed rows (between two SYS_CHANGE_VERSION values) from sys.change_tracking_tables with data in the source table, and then move the delta data to destination.
-    c. Update the SYS_CHANGE_VERSION for the delta loading next time.
+    1. Get the old and new SYS_CHANGE_VERSION values.
+    3. Load the delta data by joining the primary keys of changed rows (between two SYS_CHANGE_VERSION values) from **sys.change_tracking_tables** with data in the **source table**, and then move the delta data to destination.
+    4. Update the SYS_CHANGE_VERSION for the delta loading next time.
 
 ## High-level solution
-In this tutorial, you use Data Factory version 2 to implement the solution. 
+In this tutorial, you create two pipelines that perform the following two operations:  
 
-1. **Initial load:** you create a pipeline with a copy activity that copies the entire data from the source data store (Azure SQL Database) to the destination data store (Azure Blob Storage.
+1. **Initial load:** you create a pipeline with a copy activity that copies the entire data from the source data store (Azure SQL Database) to the destination data store (Azure Blob Storage).
 
     ![Full loading of data](media/tutorial-incremental-copy-using-change-tracking-feature-powershell/full-load-flow-diagram.png)
 1.  **Incremental load:** you create a pipeline with the following activities, and run it periodically. 
-    a. Create **two lookup activities** to get the old and new SYS_CHANGE_VERSION from Azure SQL Database and pass it to copy activity.
-    b. Create **one copy activity** to copy the inserted/updated/deleted data between the two SYS_CHANGE_VERSION values from Azure SQL Database to Azure Blob Storage.
-    c. Create **one stored procedure activity** to update the value of SYS_CHANGE_VERSION for the next pipeline run.
+    1. Create **two lookup activities** to get the old and new SYS_CHANGE_VERSION from Azure SQL Database and pass it to copy activity.
+    2. Create **one copy activity** to copy the inserted/updated/deleted data between the two SYS_CHANGE_VERSION values from Azure SQL Database to Azure Blob Storage.
+    3. Create **one stored procedure activity** to update the value of SYS_CHANGE_VERSION for the next pipeline run.
 
     ![Increment load flow diagram](media/tutorial-incremental-copy-using-change-tracking-feature-powershell/incremental-load-flow-diagram.png)
 
@@ -69,7 +69,6 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Prerequisites
 * **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one. Create a container named **adftutorial**. 
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### Create a data source table in your Azure SQL database
 1. Launch **SQL Server Management Studio**, and connect to your Azure SQL server. 
@@ -193,6 +192,8 @@ Note the following points:
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and Azure SQL database. 
 
 ### Create Azure Storage linked service.
+In this step, you link your Azure Storage Account to the data factory.
+
 1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder with the following content: (Create the folder if it does not already exist.). Replace `<accountName>`,  `<accountKey>` with name and key of your Azure storage account before saving the file.
 
     ```json
@@ -226,6 +227,8 @@ You create linked services in a data factory to link your data stores and comput
     ```
 
 ### Create Azure SQL Database linked service.
+In this step, you link your Azure SQL database to the data factory.
+
 1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder with the following content: Replace **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt;** with name of your Azure SQL server, name of your database, user ID, and password before saving the file. 
 
     ```json
@@ -261,6 +264,7 @@ You create linked services in a data factory to link your data stores and comput
 In this step, you create datasets to represent data source, data destination. and the place to store the SYS_CHANGE_VERSION.
 
 ### Create a source dataset
+In this step, you create a dataset to represent the source data. 
 
 1. Create a JSON file named SourceDataset.json in the same folder with the following content: 
 
@@ -297,6 +301,7 @@ In this step, you create datasets to represent data source, data destination. an
     ```
 
 ### Create a sink dataset
+In this step, you create a dataset to represent the data that is copied from the source data store. 
 
 1. Create a JSON file named SinkDataset.json in the same folder with the following content: 
 
@@ -338,7 +343,7 @@ In this step, you create datasets to represent data source, data destination. an
     ```
 
 ### Create a change tracking dataset
-In this step, you create a dataset for storing the change tracking version. 
+In this step, you create a dataset for storing the change tracking version.  
 
 1. Create a JSON file named ChangeTrackingDataset.json in the same folder with the following content: 
 
@@ -376,6 +381,7 @@ In this step, you create a dataset for storing the change tracking version.
         ```
 
 ## Create a pipeline for the full copy
+In this step, you create a pipeline with a copy activity that copies the entire data from the source data store (Azure SQL Database) to the destination data store (Azure Blob Storage).
 
 1. Create a JSON file: FullCopyPipeline.json in same folder with the following content: 
 
@@ -483,6 +489,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ``` 
 
 ## Create a pipeline for the delta copy
+In this step, you create a pipeline with the following activities, and run it periodically. The **lookup activities** get the old and new SYS_CHANGE_VERSION from Azure SQL Database and pass it to copy activity. The **copy activity** copies the inserted/updated/deleted data between the two SYS_CHANGE_VERSION values from Azure SQL Database to Azure Blob Storage. The **stored procedure activity** updates the value of SYS_CHANGE_VERSION for the next pipeline run.
 
 1. Create a JSON file: IncrementalCopyPipeline.json in same folder with the following content: 
 
