@@ -1,6 +1,7 @@
 ---
 title: Troubleshoot Azure Backup Agent (MARS Agent) | Microsoft Docs
 description: Troubleshoot installation & registration of Azure Backup agent
+services: backup
 documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
@@ -18,7 +19,7 @@ ms.author: saurabhsensharma;
 ---
 
 # Troubleshooting Azure Backup Agent Configuration/Registration issues
-## **Recommended steps**
+## Recommended steps
 Refer to the recommended action(s) specified below to resolve corresponding errors seen during the configuration or registration of the Azure Backup agent.
 
 ## Error: Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service.
@@ -43,3 +44,10 @@ Refer to the recommended action(s) specified below to resolve corresponding erro
 | Error details | Possible Causes | Recommended Action(s) |
 | ---     | ---     | ---    |			
 | **Error** </br><ol><li>*The activation did not complete successfully. The current operation failed due to an internal service error [0x1FC07]. Please retry the operation after some time. If the issue persists, please contact Microsoft support* <li>*Error 34506. The encryption passphrase stored on this computer is not correctly configured* | <li> Scratch folder is located on a volume that has insufficient space <li> Scratch folder is moved incorrectly to another location <li> OnlineBackup.KEK file is missing | <li>Move the scratch folder or cache location to a volume with free space equivalent to 5-10% of the total size of backup data. Refer to the steps mentioned in [this article](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup) to correctly move the cache location.<li> Ensure that OnlineBackup.KEK file is present <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*
+
+## Need help? Contact support
+If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+## Next steps
+* Get more details on [backing up your Windows Server with the Azure Backup agent](tutorial-backup-windows-server-to-azure.md).
+* If you need to restore a backup, use this article to [restore files to a Windows machine](backup/backup-azure-restore-windows-server.md).
