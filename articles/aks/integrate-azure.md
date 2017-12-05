@@ -81,7 +81,7 @@ Create a [Service Principal](https://docs.microsoft.com/en-us/azure/aks/kubernet
 az ad sp create-for-rbac --skip-assignment
 ```
 
-Output looks something like the example below, `appId`, `password` and `tenant` values are used in the next step.
+Output looks something like the following example, `appId`, `password`, and `tenant` values are used in the next step.
 
 ```
 {
@@ -122,7 +122,7 @@ helm install azure/open-service-broker-azure --name osba --namespace osba \
     --set azure.clientSecret=$AZURE_CLIENT_SECRET
 ```
 
-Let's install the [Service Catalog CLI](https://github.com/Azure/service-catalog-cli) for easy-to-use command line interface for querying service brokers, service classes, service plans and more.
+Let's install the [Service Catalog CLI](https://github.com/Azure/service-catalog-cli) for easy-to-use command-line interface for querying service brokers, service classes, service plans and more.
 
 Installing Service Catalog CLI binary:
 
@@ -138,13 +138,13 @@ Listing installed service brokers:
 svcat get brokers
 ```
 
-Listing service classes. These are the available Azure-managed services that can be provisioned through Open Service Broker for Azure.
+Listing service classes. Listed service classes are the available Azure-managed services that can be provisioned through Open Service Broker for Azure.
 
 ```azurecli-interactive
 svcat get classes
 ```
 
-Finally, listing all available service plans. These are the service tiers for the Azure-managed services. For example, for Azure Database for MySQL, this ranges from `basic50` for Basic Tier with 50 Database Transaction Units (DTUs) to `standard800` for Standard Tier with 800 DTUs.
+Finally, listing all available service plans. Listed service plans are the service tiers for the Azure-managed services. For example, for Azure Database for MySQL, plans range from `basic50` for Basic Tier with 50 Database Transaction Units (DTUs) to `standard800` for Standard Tier with 800 DTUs.
 
 ```azurecli-interactive
 svcat get plans
@@ -154,7 +154,9 @@ svcat get plans
 
 This command uses Helm to install an updated Helm chart of WordPress that provisions an external Azure Database for MySQL instance in order to have WordPress use it. This process can take a few minutes.
 
-Please refer to the [Azure/helm-charts](https://github.com/Azure/helm-charts) repo to access other updated osba-based helm charts and for more details steps of how you can update your own helm charts to integrate with OSBA.
+Refer to the [Azure/helm-charts](https://github.com/Azure/helm-charts) repository to access other updated OSBA-based Helm charts. If you are interested in creating your own charts that work with OSBA, refer to [Creating a New Chart](https://github.com/Azure/helm-charts#creating-a-new-chart).
+
+For more information, about
 
 ```azurecli-interactive
 helm install azure/wordpress --name wordpress --namespace wordpress
@@ -175,7 +177,6 @@ List installed secrets:
 kubectl get secrets -n wordpress -o yaml
 ```
 
-If you are interested in creating your own charts that work with the Open Service Broker for Azure, please refer to [Creating a New Chart](https://github.com/Azure/helm-charts#creating-a-new-chart).
 
 ## Summary
 
