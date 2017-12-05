@@ -40,19 +40,21 @@ For more information about device twins and tags, see [Understand and use device
 
 1. Sign in to the [Azure portal][lnk-portal] and navigate to your IoT hub. 
 1. Select **IoT Edge (preview)**.
-1. Select **Create Edge Deployment**.
+1. Select **Add IoT Edge Deployment**.
 
 There are five steps to create a deployment. The following sections walk through each one. 
 
-### Step 1: Label deployment
+### Step 1: Name and Label
 
-1. Give your deployment a unique ID. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
+1. Give your deployment a unique name. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
 1. Add labels to help track your deployments. Labels are **Name**, **Value** pairs that describe your deployment. For example, `HostPlatform, Linux` or `Version, 3.0.1`.
 1. Select **Next** to move to step two. 
 
-### Step 2: Add modules
+### Step 2: Add Modules (optional)
 
 There are two types of modules that you can add to a deployment. The first is a module based off of an Azure service, like Storage Account or Stream Analytics. The second is a module based off of your own code. You can add multiple modules of either type to a deployment. 
+
+If you create a deployment with no modules, it removes any existing modules from the devices. 
 
 >[!NOTE]
 >Azure Machine Learning and Azure Functions don't support the automated Azure service deployment yet. Use the custom module deployment to manually add those services to your deployment. 
@@ -81,11 +83,11 @@ To add custom code as a module, or to manually add an Azure service module, foll
 
 Once you have all the modules for a deployment configured, select **Next** to move to step three.
 
-### Step 3: Specify routes (optional)
+### Step 3: Specify Routes (optional)
 
 Routes define how modules communicate with each other within a deployment. Specify any routes for your deployment, then select **Next** to move to step four. 
 
-### Step 4: Target devices
+### Step 4: Target Devices
 
 Use the tags property from your devices to target the specific devices that should receive this deployment. 
 
@@ -95,7 +97,7 @@ Since multiple deployments may target the same device, you should give each depl
 1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags and should match the expression format. For example, `tags.environment='test'`. 
 1. Select **Next** to move on to the final step.
 
-### Step 5: Review template
+### Step 5: Review Template
 
 Review your deployment information, then select **Submit**.
 
