@@ -13,10 +13,9 @@ ms.author: cahann
 ---
 
 # Subscription Keys on Azure
+When you need more endpoint access than the [programmatic key](manage-keys.md#programmatic-key) quota, you must create an Azure subscription for the LUIS service. The Azure subscription creates metered access keys to your endpoint following a payment plan. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information. 
 
-For unlimited traffic to your HTTP endpoint, you must create an Azure subscription for the LUIS service. The Azure subscription creates metered access keys to your endpoint following a payment plan. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information. 
-
-The metered plan allows requests to your LUIS account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an http error of "429: Too Many Requests." 
+The metered plan allows endpoint requests to your LUIS account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an http error of "429: Too Many Requests." 
 
 ## Create your LUIS service
 
