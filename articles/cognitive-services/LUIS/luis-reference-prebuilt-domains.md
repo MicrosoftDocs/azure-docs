@@ -17,29 +17,29 @@ This reference provides information about the prebuilt domains, which are prebui
 ## List of prebuilt domains
 LUIS offers 20 prebuilt domains. 
 
-| Prebuilt domain | Description |
-| ---------------- |-----------------------|
-| Calendar | The Calendar domain provides intent and entities for adding, deleting, or editing an appointment, checking participants availability, and finding information about a calendar event.|
-| Camera | The Camera domain provides intents and entities for taking pictures, recording videos, and broadcasting video to an application.|
-| Communication | Sending messages and making phone calls.|
-| Entertainment  | Handling queries related to music, movies, and TV.|
-| Events | Booking tickets for concerts, festivals, sports games and comedy shows.|
-| Fitness | Handling requests related to tracking fitness activities.|
-| Gaming | Handling requests related to a game party in a multiplayer game.|
-| HomeAutomation | Controlling smart home devices like lights and appliances.|
-| MovieTickets | Booking tickets to movies at a movie theater.|
-| Music | Playing music on a music player.|
-| Note | The Note domain provides intents and entities related to creating, editing, and finding notes.|
-| OnDevice | The OnDevice domain provides intents and entities related to controlling the device.|
-| Places  | Handling queries related to places like businesses, institutions, restaurants, public spaces, and addresses.|
-| Reminder | Handling requests related to creating, editing, and finding reminders.|
-| RestaurantReservation | Handling requests to manage restaurant reservations.|
-| Taxi | Handling bookings for a taxi.|
-| Translate | Translating text to a target language.|
-| TV | Controlling TVs.|
-| Utilities  | Handling requests that are common in many domains, like "help", "repeat", "start over."|
-| Weather | Getting weather reports and forecasts.|
-| Web | Navigating to a website.|
+| Prebuilt domain | Description | Supported Languages |
+| ---------------- |-----------------------|:------:|
+| Calendar | The Calendar domain provides intent and entities for adding, deleting, or editing an appointment, checking participants availability, and finding information about a calendar event.| en-US<br/> zh-CN |
+| Camera | The Camera domain provides intents and entities for taking pictures, recording videos, and broadcasting video to an application.| en-US |
+| Communication | Sending messages and making phone calls.| en-US <br/> zh-CN |
+| Entertainment  | Handling queries related to music, movies, and TV.| en-US |
+| Events | Booking tickets for concerts, festivals, sports games and comedy shows.| en-US |
+| Fitness | Handling requests related to tracking fitness activities.| en-US |
+| Gaming | Handling requests related to a game party in a multiplayer game.| en-US |
+| HomeAutomation | Controlling smart home devices like lights and appliances.| en-US<br/> zh-CN |
+| MovieTickets | Booking tickets to movies at a movie theater.| en-US |
+| Music | Playing music on a music player.| en-US<br/> zh-CN |
+| Note | The Note domain provides intents and entities related to creating, editing, and finding notes.| en-US<br/> zh-CN |
+| OnDevice | The OnDevice domain provides intents and entities related to controlling the device.| en-US<br/> zh-CN |
+| Places  | Handling queries related to places like businesses, institutions, restaurants, public spaces, and addresses.| en-US<br/> zh-CN |
+| Reminder | Handling requests related to creating, editing, and finding reminders.| en-US<br/> zh-CN |
+| RestaurantReservation | Handling requests to manage restaurant reservations.| en-US<br/> zh-CN |
+| Taxi | Handling bookings for a taxi.| en-US<br/> zh-CN |
+| Translate | Translating text to a target language.| en-US<br/> zh-CN |
+| TV | Controlling TVs.| en-US |
+| Utilities  | Handling requests that are common in many domains, like "help", "repeat", "start over."| en-US |
+| Weather | Getting weather reports and forecasts.| en-US<br/> zh-CN |
+| Web | Navigating to a website.| en-US<br/> zh-CN |
 
 For more detail on each domain, see the sections that follow.
 
