@@ -2858,9 +2858,7 @@ featureFlags:
                                         </div>
                                     </div>
                                 </a>
-                            </li>
-                        </ul>
-                    </li>
+                            </li>                            
                             <li>
                                 <a href="/en-us/azure/event-hubs/">
                                     <div class="cardSize">
