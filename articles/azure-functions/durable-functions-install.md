@@ -137,37 +137,37 @@ If you prefer, you can use the Azure portal for Durable Functions development.
 
 10. Use Postman or cURL to call the durable function. Before testing, replace in the URL **{functionName}** with the orchestrator function name - **HelloSequence**.  No data is required, just use POST verb. 
 
-```bash
-   curl -X POST https://{your function app name}.azurewebsites.net/api/orchestrators/HelloSequence
-```
+    ```bash
+    curl -X POST https://{your function app name}.azurewebsites.net/api/orchestrators/HelloSequence
+    ```
 
 11. Then, call the **“statusQueryGetUri”** endpoint and you see the current status of the Durable Function
 
-```json
-    {
-        "runtimeStatus": "Running",
-        "input": null,
-        "output": null,
-        "createdTime": "2017-12-01T05:37:33Z",
-        "lastUpdatedTime": "2017-12-01T05:37:36Z"
-    }
-```
+    ```json
+        {
+            "runtimeStatus": "Running",
+            "input": null,
+            "output": null,
+            "createdTime": "2017-12-01T05:37:33Z",
+            "lastUpdatedTime": "2017-12-01T05:37:36Z"
+        }
+    ```
 
 12. Continue calling the **“statusQueryGetUri”** endpoint until the status changes to **"Completed"** 
 
-```json
-   {
-        "runtimeStatus": "Completed",
-        "input": null,
-        "output": [
-            "Hello Tokyo!",
-            "Hello Seattle!",
-            "Hello London!"
-        ],
-        "createdTime": "2017-12-01T05:38:22Z",
-        "lastUpdatedTime": "2017-12-01T05:38:28Z"
-    }
-```
+    ```json
+    {
+            "runtimeStatus": "Completed",
+            "input": null,
+            "output": [
+                "Hello Tokyo!",
+                "Hello Seattle!",
+                "Hello London!"
+            ],
+            "createdTime": "2017-12-01T05:38:22Z",
+            "lastUpdatedTime": "2017-12-01T05:38:28Z"
+        }
+    ```
 
 Congratulations! Your first durable function is up and running in Azure Portal!
 
