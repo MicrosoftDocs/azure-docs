@@ -19,17 +19,17 @@ ms.author: genli
 ---
 # How to use PerfInsights 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) is an automated script that collects useful diagnostic information, runs I/O stress loads, and provides an analysis report to help troubleshoot Windows VM performance problems in Microsoft Azure. This can be run on the virtual machines as a standalone script or directly from the portal by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
+[PerfInsights](http://aka.ms/perfinsightsdownload) is an automated script that collects useful diagnostic information. It also runs I/O stress loads, and provides an analysis report to help troubleshoot Windows virtual machine performance problems in Azure. This can be run on virtual machines as a standalone script, or directly from the portal by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
 
-We recommend that you run this script before you open a Support ticket with Microsoft for VM performance issues.
+If you are experiencing performance problems with virtual machines, before contacting support, run this script.
 
 ## Supported troubleshooting scenarios
 
-PerfInsights can collect and analyze several kinds of information that are grouped into unique scenarios.
+PerfInsights can collect and analyze several kinds of information. The following sections cover common scenarios.
 
-### Collect basic Configuration 
+### Collect basic configuration 
 
-This scenario collects the disk configuration and other important information, including the following items:
+This scenario collects the disk configuration and other important information, including:
 
 -   Event logs
 
@@ -39,7 +39,7 @@ This scenario collects the disk configuration and other important information, i
 
 -   Task list for all applications that are currently running on the system
 
--   Information file created by msinfo32 for the virtual machine (VM)
+-   Information file created by msinfo32 for the virtual machine
 
 -   Microsoft SQL Server database configuration settings (if the VM is identified
     as a server that is running SQL Server)
@@ -60,26 +60,26 @@ This is a passive collection of information that shouldn't affect the system.
 This scenario runs the [diskspd](https://github.com/Microsoft/diskspd) benchmark test (IOPS and MBPS) for all drives that are attached to the VM. 
 
 > [!Note]
-> This scenario can affect the system and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
+> This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
 > increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.
 >
 
 ### Slow VM analysis 
 
-This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace by using the counters that are specified in the Generalcounters.txt file. If the VM is identified as a server that is running SQL Server, it runs a performance counter trace by using the counters that are found in the Sqlcounters.txt file. It also includes Performance Diagnostics data.
+This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace by using the counters that are specified in the Generalcounters.txt file. If the VM is identified as a server that is running SQL Server, it runs a performance counter trace. It does so by using the counters that are found in the Sqlcounters.txt file, and it also includes performance diagnostics data.
 
 ### Slow VM analysis and benchmarking
 
 This scenario runs a [performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) trace that is followed by a [diskspd](https://github.com/Microsoft/diskspd) benchmark test. 
 
 > [!Note]
-> This scenario can affect the system and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
+> This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
 > increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.
 >
 
 ### Azure Files analysis 
 
-This scenario runs a special performance counter capture together with a network trace. The capture includes all the "SMB Client Shares" counters. The following are some key SMB client share performance counters that are part of the capture:
+This scenario runs a special performance counter capture together with a network trace. The capture includes all the Server Message Block (SMB) client shares counters. The following are some key SMB client share performance counters that are part of the capture:
 
 | **Type**     | **SMB client shares counter** |
 |--------------|-------------------------------|
@@ -101,99 +101,99 @@ This scenario runs a special performance counter capture together with a network
 
 ### Custom slow VM analysis 
 
-When you run a custom slow VM analysis, you are running all traces (performance counter, xperf, network, storport) in parallel, depending how many different traces are selected. After tracing is completed, the tool runs the diskspd benchmark, if it is selected. 
+When you run a custom slow VM analysis, you select traces to run in parallel. You can run them all (performance counter, xperf, network, and storport) if you want. After tracing is completed, the tool runs the diskspd benchmark, if it is selected. 
 
 > [!Note]
-> This scenario can affect the system and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
+> This scenario can affect the system, and shouldn’t be run on a live production system. If necessary, run this scenario in a dedicated maintenance window to avoid any problems. An 
 > increased workload that is caused by a trace or benchmark test could adversely affect the performance of your VM.
 >
 
 ## What kind of information is collected by the script?
 
-Information about Windows VM, disks or storage pools configuration, performance counters, logs, and various traces are collected depending on the performance scenario used:
+Information about Windows VM, disks or storage pools configuration, performance counters, logs, and various traces are collected. It depends on the performance scenario you are using. The following table provides details:
 
-|Data collected                              |  |  | Performance Scenarios |  |  | |
+|Data collected                              |  |  | Performance scenarios |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Collect basic Configuration | Benchmarking | Slow VM analysis | Slow VM analysis and benchmarking | Azure Files analysis | Custom slow VM analysis |
-| Information from Event logs      | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+|                              | Collect basic configuration | Benchmarking | Slow VM analysis | Slow VM analysis and benchmarking | Azure Files analysis | Custom slow VM analysis |
+| Information from event logs      | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | System information               | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Volume Map                       | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Disk Map                         | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Running Tasks                    | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Storage Reliability Counters     | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Volume map                       | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Disk map                         | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Running tasks                    | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Storage reliability counters     | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | Storage information              | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | Fsutil output                    | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Filter Driver info               | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
+| Filter driver info               | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | Netstat output                   | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | Network configuration            | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | Firewall configuration           | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
 | SQL Server configuration         | Yes                        | Yes                                | Yes                      | Yes                            | Yes                  | Yes                  |
-| Performance Diagnostics Traces * | Yes                        | Yes                                | Yes                      |                                | Yes                  | Yes                  |
-| Performance counter Trace **     |                            |                                    |                          |                                |                      | Yes                  |
-| SMB counter Trace **             |                            |                                    |                          |                                | Yes                  |                      |
-| SQL Server counter Trace **      |                            |                                    |                          |                                |                      | Yes                  |
-| XPerf Trace                      |                            |                                    |                          |                                |                      | Yes                  |
-| StorPort Trace                   |                            |                                    |                          |                                |                      | Yes                  |
-| Network Trace                    |                            |                                    |                          |                                | Yes                  | Yes                  |
-| Diskspd Benchmark trace ***      |                            | Yes                                |                          | Yes                            |                      |                      |
+| Performance diagnostics traces * | Yes                        | Yes                                | Yes                      |                                | Yes                  | Yes                  |
+| Performance counter trace **     |                            |                                    |                          |                                |                      | Yes                  |
+| SMB counter trace **             |                            |                                    |                          |                                | Yes                  |                      |
+| SQL Server counter trace **      |                            |                                    |                          |                                |                      | Yes                  |
+| XPerf trace                      |                            |                                    |                          |                                |                      | Yes                  |
+| StorPort trace                   |                            |                                    |                          |                                |                      | Yes                  |
+| Network trace                    |                            |                                    |                          |                                | Yes                  | Yes                  |
+| Diskspd benchmark trace ***      |                            | Yes                                |                          | Yes                            |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
-### Performance Diagnostics trace (*)
+### Performance diagnostics trace (*)
 
 Runs a rule-based engine in the background to collect data and diagnose ongoing performance issues. The following rules are currently supported:
 
-- HighCpuUsage rule: Detects high CPU usage periods and shows the top CPU usage consumers during those periods.
-- HighDiskUsage rule: Detects high disk usage periods on physical disks and shows the top disk usage consumers during those periods.
-- HighResolutionDiskMetric rule: Shows IOPS, throughput, and IO latency metrics per 50 milliseconds for each physical disk. It helps to quickly identify disk throttling periods.
+- HighCpuUsage rule: Detects high CPU usage periods, and shows the top CPU usage consumers during those periods.
+- HighDiskUsage rule: Detects high disk usage periods on physical disks, and shows the top disk usage consumers during those periods.
+- HighResolutionDiskMetric rule: Shows IOPS, throughput, and I/O latency metrics per 50 milliseconds for each physical disk. It helps to quickly identify disk throttling periods.
 - HighMemoryUsage rule: Detects high memory usage periods, and shows the top memory usage consumers during those periods.
 
 > [!NOTE] 
 > Currently, Windows versions that include the .NET Framework 3.5 or later versions are supported.
 
-### Performance Counter trace (**)
+### Performance counter trace (**)
 
-Collects the following Performance Counters:
+Collects the following performance counters:
 
-- \Process, \Processor, \Memory, \Thread, \PhysicalDisk, \LogicalDisk
-- \Cache\Dirty Pages, \Cache\Lazy Write Flushes/sec, \Server\Pool Nonpaged, Failures, \Server\Pool Paged Failures
-- Selected counters under \Network Interface, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segments, \TCPv6\Segments,  \Network Adapter, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, \Network QoS Policy\Packets, \Per Processor Network Interface Card Activity, \Microsoft Winsock BSP
+- \Process, \Processor, \Memory, \Thread, \PhysicalDisk, and \LogicalDisk
+- \Cache\Dirty Pages, \Cache\Lazy Write Flushes/sec, \Server\Pool Nonpaged, Failures, and \Server\Pool Paged Failures
+- Selected counters under \Network Interface, \IPv4\Datagrams, \IPv6\Datagrams, \TCPv4\Segments, \TCPv6\Segments,  \Network Adapter, \WFPv4\Packets, \WFPv6\Packets, \UDPv4\Datagrams, \UDPv6\Datagrams, \TCPv4\Connection, \TCPv6\Connection, \Network QoS Policy\Packets, \Per Processor Network Interface Card Activity, and \Microsoft Winsock BSP
 
 #### For SQL Server instances
-- \SQL Server:Buffer Manager, \SQLServer:Resource Pool Stats, \SQLServer:SQL Statistics\
+- \SQL Server:Buffer Manager, \SQLServer:Resource Pool Stats, and \SQLServer:SQL Statistics\
 - \SQLServer:Locks, \SQLServer:General, Statistics
 - \SQLServer:Access Methods
 
 #### For Azure Files
 \SMB Client Shares
 
-### Diskspd Benchmark trace (***)
-Diskspd IO workload tests [OS Disk (write) and pool drives (read/write)]
+### Diskspd benchmark trace (***)
+Diskspd I/O workload tests (OS Disk [write] and pool drives [read/write])
 
-## Run the PerfInsights on your VM
+## Run the PerfInsights script on your VM
 
 ### What do I have to know before I run the script? 
 
-**Script requirements**
+#### Script requirements
 
-1.  This script must be run on the VM that has the performance issue. 
+-  This script must be run on the VM that has the performance issue. 
 
-2.  The following OSes are supported: Windows Server 2008 R2, 2012, 2012 R2, 2016; Windows 8.1 and Windows 10.
+-  The following operating systems are supported: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016; Windows 8.1 and Windows 10.
 
-**Possible issues when you run the script on production VMs:**
+#### Possible problems when you run the script on production VMs
 
-1.  When using any Benchmarking scenarios or "Custom slow VM analysis" scenario that is configured to use XPerf or DiskSpd, the script might adversely affect the performance of the VM. It is not recommended to run these scenarios in a production environment without the supervision of a CSS engineer.
+-  For any benchmarking scenarios or the "Custom slow VM analysis" scenario that is configured to use XPerf or DiskSpd, the script might adversely affect the performance of the VM. You should not run these scenarios in a production environment.
 
-2.  When using any Benchmarking scenarios or "Custom slow VM analysis" scenario that is configured to use DiskSpd, make sure that no other background activity interferes with the I/O workload on the tested disks.
+-  For any benchmarking scenarios or the "Custom slow VM analysis" scenario that is configured to use DiskSpd, ensure that no other background activity interferes with the I/O workload.
 
-3.  By default, the script uses the temporary storage drive to collect data. If tracing stays enabled for a longer time, the amount of data that is collected might be relevant. This can reduce the availability of space on the temporary disk, therefore affecting any application that relies on this drive.
+-  By default, the script uses the temporary storage drive to collect data. If tracing stays enabled for a longer time, the amount of data that is collected might be relevant. This can reduce the availability of space on the temporary disk, and can therefore affect any application that relies on this drive.
 
 ### How do I run PerfInsights? 
 
-You can run PerfInsights on a virtual machine by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md) or run it as a standalone script. 
+You can run PerfInsights on a virtual machine by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md). You can also run it as a standalone script. 
 
 **Install and run PerfInsights from the Azure portal**
 
-PerfInsights now can be run using a VM extension called Azure Performance Diagnostics Extension. For more information, see [Install Azure Performance Diagnostics extension](performance-diagnostics-vm-extension.md#install-the-extension).  
+For more information about this option, see [Install Azure Performance Diagnostics extension](performance-diagnostics-vm-extension.md#install-the-extension).  
 
 **Run PerfInsights script in standalone mode**
 
