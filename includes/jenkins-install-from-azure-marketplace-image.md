@@ -10,7 +10,7 @@
 
 1. Select **Create** to configure the Jenkins server in the Azure portal. 
 
-    ![Install the Jenkins Marketplace image](./media/jenkins-install-from-azure-marketplace-image/jenkins-marketplace-image-create.png)
+    ![Install the Jenkins Marketplace image](./media/jenkins-install-from-azure-marketplace-image/jenkins-marketplace-image-install.png)
 
 1. In the **Basics** tab, specify the following values:
 
@@ -45,13 +45,13 @@
 
 1. When the **Create** tab displays, select **Create** to create the Jenkins VM. When your server is ready, a notification displays in the Azure portal.
 
-    ![Jenkins is ready notification](./media/install-jenkins-solution-template/jenkins-creation-notification.png)
+    ![Jenkins is ready notification](./media/jenkins-install-from-azure-marketplace-image/jenkins-creation-notification.png)
 
 ## Connect to Jenkins
 
 Navigate to your virtual machine (for example, http://jenkins2517454.eastus.cloudapp.azure.com/) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
 
-![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
+![Unlock jenkins](./media/jenkins-install-from-azure-marketplace-image/jenkins-ssh-instructions.png)
 
 Set up the tunnel using the `ssh` command on the page from the command line, replacing `username` with the name of the virtual machine admin user chosen earlier when setting up the virtual machine from the solution template.
 
@@ -69,10 +69,10 @@ Get the initial password by running the following command in the command line wh
 
 Unlock the Jenkins dashboard for the first time using this initial password.
 
-![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-unlock.png)
+![Unlock jenkins](./media/jenkins-install-from-azure-marketplace-image/jenkins-unlock.png)
 
 Select **Install suggested plugins** on the next page and then create a Jenkins admin user used to access the Jenkins dashboard.
 
-![Jenkins is ready!](./media/install-jenkins-solution-template/jenkins-welcome.png)
+![Jenkins is ready!](./media/jenkins-install-from-azure-marketplace-image/jenkins-welcome.png)
 
 The Jenkins server is now ready to build code.
