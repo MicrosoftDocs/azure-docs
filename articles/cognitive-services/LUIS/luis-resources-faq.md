@@ -102,6 +102,7 @@ You can turn off the logging of user utterances by setting `log=false` in the UR
 
 * If you delete an utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
 * If you delete an account, all apps and their utterances are deleted. The data is retained on the servers for 60 days before it is deleted permanently.
+* You can always delete example utterances used for training LUIS.
 
 ## What are the transaction limits on the Authoring API?
 To edit your LUIS app programmatically, you use a programmatic key with the Authoring API. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second.
