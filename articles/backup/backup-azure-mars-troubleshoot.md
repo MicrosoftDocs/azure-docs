@@ -50,4 +50,4 @@ If you still need help, [contact support](https://portal.azure.com/?#blade/Micro
 
 ## Next steps
 * Get more details on [backing up your Windows Server with the Azure Backup agent](tutorial-backup-windows-server-to-azure.md).
-* If you need to restore a backup, use this article to [restore files to a Windows machine](backup/backup-azure-restore-windows-server.md).
+* If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).
