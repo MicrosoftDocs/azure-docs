@@ -119,7 +119,7 @@ The overview page for your server opens, showing you the fully qualified server 
 The following examples review the existing rules, enable a range of IP addresses on the server Contoso, and deletes a firewall rule:
    
 ```sql
-SELECT * FROM sys.firewall_rules ORDER BY name;
+SELECT * FROM sys.database_firewall_rules ORDER BY name;
 ```
   
 Next, add a firewall rule.
