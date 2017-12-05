@@ -8,7 +8,6 @@
 ## [Features & tools in Bash](features.md)
 ## [Features & tools in PowerShell](features-powershell.md)
 ## [Limitations](limitations.md)
-## [Troubleshooting](troubleshooting.md)
 
 # How-to
 ## [Persisting storage in Bash](persisting-shell-storage.md)
@@ -16,6 +15,8 @@
 ## [Using the window](using-the-shell-window.md)
 
 # [Pricing](pricing.md)
+
+# [Troubleshooting](troubleshooting.md)
 
 # Reference
 ## [Azure CLI](/cli/azure)

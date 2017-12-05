@@ -73,7 +73,7 @@ See [Windows VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvi
 ## See Also
 * [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/)
 * [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md)
-* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage-premium-storage.md)
+* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md)
 * [Azure Storage Replication](../storage-redundancy.md)
 * [Microsoft Azure Storage Performance and Scalability Checklist](../storage-performance-checklist.md)
 * [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

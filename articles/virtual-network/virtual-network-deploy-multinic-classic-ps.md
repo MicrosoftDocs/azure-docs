@@ -4,7 +4,7 @@ description: Learn how to create a VM (Classic) with multiple NICs using PowerSh
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 
@@ -150,7 +150,7 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 	-StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
 	-VM $vmConfig
 	```
-
+	
 6. Create to data disks for each VM.
 
 	```powershell
@@ -178,7 +178,7 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 	```
 
 ### Step 4 - Run the script
-Now that you downloaded and changed the script based on your needs, runt he script to create the back end database VMs with multiple NICs.
+Now that you downloaded and changed the script based on your needs, runt the script to create the back-end database VMs with multiple NICs.
 
 1. Save your script and run it from the **PowerShell** command prompt, or **PowerShell ISE**. You will see the initial output, as shown below.
 
@@ -188,7 +188,11 @@ Now that you downloaded and changed the script based on your needs, runt he scri
 		New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		
 		WARNING: No deployment found in service: 'IaaSStory-Backend'.
-2. Fill out the information needed in the credentials prompt and click **OK**. The output below is returned.
+2. Fill out the information needed in the credentials prompt and click **OK**. The following output is returned.
 
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+
+### Step 5 - Configure routing within the VM's operating system
+
+Azure DHCP assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. To configure routing for secondary network interfaces, see [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces).

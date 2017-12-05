@@ -5,7 +5,7 @@ services: virtual-machines-linux
 author: rothja 
 ms.author: jroth 
 manager: jhubbard
-ms.date: 10/04/2017
+ms.date: 10/25/2017
 ms.topic: article
 tags: azure-service-management
 ms.devlang: na
@@ -167,7 +167,7 @@ This tutorial directed you to create a Red Hat Enterprise Linux (RHEL) VM. If yo
 
    ```bash
    sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
-   sudo firewall-cmd –reload
+   sudo firewall-cmd –-reload
    ```
 
 ## Next steps

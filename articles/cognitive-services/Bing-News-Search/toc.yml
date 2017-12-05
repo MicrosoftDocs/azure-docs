@@ -33,6 +33,12 @@
     href: paging-news.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+- name: Tutorials
+  items:
+  - name: Single-page News app
+    href: tutorial-bing-news-search-single-page-app.md
+  - name: Single-page News app (source code)
+    href: tutorial-bing-news-search-single-page-app-source.md
 - name: Reference
   items:
   - name: REST v7

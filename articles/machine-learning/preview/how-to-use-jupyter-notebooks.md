@@ -2,14 +2,14 @@
 title: How to Use Jupyter Notebooks in Azure Machine Learning Workbench | Microsoft Docs
 description: Guide for the using the Jupyter Notebooks feature of Azure Machine Learning Workbench
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 11/09/2017
 ---
 # How to use Jupyter notebook in Azure Machine Learning Workbench
 
@@ -26,15 +26,15 @@ At a high level, Jupyter notebook architecture includes three components, each c
 - **Server**: web server hosting the notebook files (.ipynb files)
 - **Kernel**: the runtime environment where the actual execution of the notebook cells happens
 
-For more details, please reference the official [Jupyter documentation](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). Fowllowing is a diagram depicting how this client, server, and kernel architecture map to the components in Azure ML.
+For more details, please reference the official [Jupyter documentation](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). Following is a diagram depicting how this client, server, and kernel architecture map to the components in Azure ML.
 
 ![notebook architecture](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
 
 ## Kernels in Azure ML Workbench notebook
-You can access many different kernels in Azure ML Workbench by simply configure run configurations and compute targets in the `aml_config` folder in your project. Adding a new compute target by issuing `az ml computetarget attach` command is the equivalent of adding a new kernel.
+You can access many different kernels in Azure ML Workbench by configuring run configurations and compute targets in the `aml_config` folder in your project. Adding a new compute target by issuing `az ml computetarget attach` command is the equivalent of adding a new kernel.
 
 >[!NOTE]
->Review the [Configure Execution](experiment-execution-configuration.md) for more details on run configurations and compute targets.
+>Review the [Configure Execution](experimentation-service-configuration.md) for more details on run configurations and compute targets.
 
 ### Kernel naming convention
 The kernels are typically named in the format of "\<project name> \<run config name>". For example, if you have a run configuration named _docker-python_ in a project named _myIris_, you can find a kernel named "myIris docker-python" in the kernel list when you open a Jupyter notebook.
@@ -43,6 +43,9 @@ Currently, the Workbench supports the following types of kernels.
 
 ### Local Python kernel
 This Python kernel supports execution on local machine. It is integrated with Azure Machine Learning's Run History support. The name of the kernel is typically "my_project_name local".
+
+>[!NOTE]
+>Do not use the "Python 3" kernel. It is a standalone kernel provided by Jupyter by default. It is not integrated with Azure Machine Learning capabilities.
 
 ### Python Kernel in Docker (local or remote)
 This Python kernel runs in a Docker container either on your local machine, or in a remote Linux VM. The name of the kernel is typically "my_project docker". The associated `docker.runconfig` file has the `Framework` field set to `Python`.
@@ -54,7 +57,7 @@ This PySpark kernel executes scripts in a Spark context running inside of Docker
 This kernel runs in the remote HDInsight cluster that you attached as a compute target for your project. The kernel name is typically "my_project my_hdi". 
 
 >[!IMPORTANT]
->In the `.compute` file of the HDI compute target, you must change the `yarnDeployMode` field to `client` (the default value is `cluster`) in order to use this kernel. 
+>In the `.compute` file for the HDI compute target, you must change the `yarnDeployMode` field to `client` (the default value is `cluster`) in order to use this kernel. 
 
 ## Start Jupyter Server from the Workbench
 From Azure Machine Learning Workbench, notebooks can be accessed via the Workbench's  **Notebooks** tab. The _Classifying Iris_ sample project includes an `iris.ipynb` sample notebook.
@@ -100,7 +103,34 @@ You can now click on a `.ipynb` notebook file, open it, and set the kernel (if i
 
 ![project dashboard](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
 
+## Use magic commands to manage experiments
+
+You can use [magic commands](http://ipython.readthedocs.io/en/stable/interactive/magics.html) within your notebook cells to track your run history and save outputs, such as models or datasets.
+
+To track individual notebook cell runs, use "%azureml history on" magic command. After you turn on the history, each cell run will appear as entry in run history.
+
+```
+%azureml history on
+from azureml.logging import get_azureml_logger
+logger = get_azureml_logger()
+logger.log("Cell","Load Data")
+```
+
+To turn cell run tracking off, use "%azureml history off" magic command.
+
+You can use "%azureml upload" magic command to save model and data files from your run. The saved objects appear as outputs in run history view for given run.
+
+```
+modelpath = os.path.join("outputs","model.pkl")
+with open(modelpath,"wb") as f:
+    pickle.dump(model,f)
+%azureml upload outputs/model.pkl
+```
+
+>[!NOTE]
+>The outputs must be saved to a folder named "outputs"
+
 ## Next Steps
 - To learn how to use Jupyter notebook, visit the [Jupyter official documentation](http://jupyter-notebook.readthedocs.io/en/latest/).    
-- To gain a deeper understanding of Azure ML experimentation execution environment, review [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md)
+- To gain a deeper understanding of Azure ML experimentation execution environment, review [Overview of Azure Machine Learning experimentation service](experimentation-service-configuration.md)
 

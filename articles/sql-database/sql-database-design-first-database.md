@@ -14,7 +14,7 @@ ms.custom: mvc,develop databases
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: ''
+ms.workload: "Active"
 ms.date: 08/25/2017
 ms.author: carlrab
 

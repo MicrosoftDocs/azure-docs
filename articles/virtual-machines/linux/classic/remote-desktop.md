@@ -76,7 +76,7 @@ For OpenSUSE, use:
     #sudo systemctl start xrdp
     #sudo systemctl enable xrdp
 
-For Ubuntu, xrdp will be started and eanbled at boot-up automatically after installation.
+For Ubuntu, xrdp will be started and enabled at boot-up automatically after installation.
 
 ## Using xfce if you are using an Ubuntu version later than Ubuntu 12.04LTS
 Because the current version of xrdp does not support Gnome Desktop for  Ubuntu versions later than Ubuntu 12.04LTS, we will use `xfce` Desktop instead.

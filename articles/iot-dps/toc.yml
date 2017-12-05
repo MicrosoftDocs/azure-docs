@@ -29,12 +29,15 @@
     href: concepts-service.md
   - name: Security concepts
     href: concepts-security.md
+  - name: Security 
 - name: How-to guides
   items:
   - name: Manage device enrollments
     href: how-to-manage-enrollments.md
   - name: Use HSM with SDK
     href: use-hsm-with-sdk.md
+  - name: Control access to Provisioning Service
+    href: how-to-control-access.md
 - name: Reference
   items:
   - name: REST

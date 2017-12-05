@@ -11,7 +11,7 @@ editor: ''
 ms.assetid:
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: "Inactive"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article

@@ -1,5 +1,5 @@
 ---
-title: Predictive maintenance walkthrough | Microsoft Docs
+title: Predictive maintenance solution walkthrough - Azure | Microsoft Docs
 description: A walkthrough of the Azure IoT predictive maintenance preconfigured solution.
 services: ''
 suite: iot-suite

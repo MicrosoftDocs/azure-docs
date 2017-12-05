@@ -93,7 +93,7 @@ Since the steps in this document create both clusters in the same Azure resource
 
 In this example, you learned how to use Spark to read and write to Kafka. Use the following links to discover other ways to work with Kafka:
 
-* [Get started with Apache Kafka on HDInsight](hdinsight-apache-kafka-get-started.md)
-* [Use MirrorMaker to create a replica of Kafka on HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Get started with Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)
+* [Use MirrorMaker to create a replica of Kafka on HDInsight](kafka/apache-kafka-mirroring.md)
 * [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
 

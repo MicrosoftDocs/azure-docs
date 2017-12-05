@@ -1,10 +1,10 @@
 ---
-title: VM connectivity after failover to a secondary site with Azure Site Recovery | Microsoft Docs
+title: Connecting to VMs after failover to a secondary site with Azure Site Recovery | Microsoft Docs
 description: Networking guidance for connecting to VMs after failover to a secondary site with Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
+manager: prateek9us
 editor: ''
 
 ms.assetid: 67d73590-185c-49b2-a097-597bf54747a9
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
-ms.author: raynew
+ms.date: 11/05/2017
+ms.author: pratshar
 
 ---
-# VM connectivity after failover to a secondary site
+# Connecting to VMs after failover to a secondary site
 
 After reviewing deployment prerequisites, read this article to plan networking when replicating Hyper-V virtual machines (VMs) managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](site-recovery-overview.md) in the Azure portal. 
 

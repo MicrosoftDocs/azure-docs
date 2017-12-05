@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/27/2017
 ms.author: barlan
 ms.custom: end-user
 
@@ -48,7 +48,7 @@ Follow the steps that follow to access Azure AD self-service password reset, SSP
    > If you need to unlock your account, at this point choose the option "I know my password, but still can't sign in".
    >
 
-3. Depending on how your IT staff has configured SSPR you see one or more of the following. Either you or your IT staff have populated some of this information before using the article [Register for self-service password reset](active-directory-passwords-reset-register.md).
+3. Depending on how your IT staff has configured SSPR you see one or more of the following authentication methods. Either you or your IT staff have populated some of this information before using the article [Register for self-service password reset](active-directory-passwords-reset-register.md).
 
    * **Email my alternate email**
    * **Text my mobile phone**

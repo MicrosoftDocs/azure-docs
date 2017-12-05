@@ -80,18 +80,50 @@ DirSync and Azure AD Sync are no longer supported means of enabling password wri
 The steps below assume you have already configured Azure AD Connect in your environment using the [Express](./connect/active-directory-aadconnect-get-started-express.md) or [Custom](./connect/active-directory-aadconnect-get-started-custom.md) settings.
 
 1. To configure and enable password writeback log in to your Azure AD Connect server and start the **Azure AD Connect** configuration wizard.
-2. On the Welcome screen click **Configure**.
-3. On the Additional tasks screen click **Customize synchronization options** and then choose **Next**.
-4. On the Connect to Azure AD screen enter a Global Administrator credential and choose **Next**.
-5. On the Connect your directories and Domain and OU filtering screens you can choose **Next**.
-6. On the Optional features screen check the box next to **Password writeback** and click **Next**.
+2. On the Welcome screen, click **Configure**.
+3. On the Additional tasks screen, click **Customize synchronization options** and then choose **Next**.
+4. On the Connect to Azure AD screen, enter a Global Administrator credential and choose **Next**.
+5. On the Connect your directories and Domain and OU filtering screens, you can choose **Next**.
+6. On the Optional features screen, check the box next to **Password writeback** and click **Next**.
    ![Enable password writeback in Azure AD Connect][Writeback]
-7. On the Ready to configure screen click **Configure** and wait for the process to complete.
-8. When you see Configuration complete you can click **Exit**
+7. On the Ready to configure screen, click **Configure** and wait for the process to complete.
+8. When you see Configuration complete, click **Exit**
+
+For common troubleshooting tasks related to password writeback see the section [Troubleshoot password writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) in our troubleshooting article.
+
+## Active Directory permissions
+
+The account specified in the Azure AD Connect utility must have Reset Password, Change Password, Write Permissions on lockoutTime, and Write Permissions on pwdLastSet, extended rights on either the root object of **each domain** in that forest **OR** on the user OUs you wish to be in scope for SSPR.
+
+If you are not sure what account the above refers to, open the Azure Active Directory Connect configuration UI and click the View current configuration option. The account you need to add permission to is listed under "Synchronized Directories"
+
+Setting these permissions allows the MA service account for each forest to manage passwords on behalf of user accounts within that forest. **If you neglect to assign these permissions, then, even though writeback appears to be configured correctly, users encounter errors when attempting to manage their on-premises passwords from the cloud.**
+
+> [!NOTE]
+> It could take up to an hour or more for these permissions to replicate to all objects in your directory.
+>
+
+To set up the appropriate permissions for password writeback to occur
+
+1. Open Active Directory Users and Computers with an account that has the appropriate domain administration permissions
+2. From the View menu, make sure Advanced Features is turned on
+3. In the left panel, right-click the object that represents the root of the domain and choose properties
+    * Click the Security tab
+    * Then click Advanced.
+4. From the Permissions tab, click Add
+5. Pick the account that permissions are being applied to (from Azure AD Connect setup)
+6. In the Applies to drop down box select Descendent User objects
+7. Under permissions check the boxes for the following
+    * Unexpire-Password
+    * Reset Password
+    * Change Password
+    * Write lockoutTime
+    * Write pwdLastSet
+8. Click Apply/OK through to apply and exit any open dialog boxes.
 
 ## Licensing requirements for password writeback
 
-For information regarding licensing, see the topic [Licenses required for password writeback](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) or the following sites
+For information regarding licensing, see [Licenses required for password writeback](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) or the following sites
 
 * [Azure Active Directory Pricing site](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
@@ -156,9 +188,9 @@ Password writeback is a highly secure service.  To ensure your information is pr
 The encryption steps a password reset request goes through after a user submits it, before it arrives in your on-premises environment, to ensure maximum service reliability and security are described below.
 
 * **Step 1 - Password encryption with 2048-bit RSA Key** - Once a user submits a password to be written back to on-premises, first, the submitted password itself is encrypted with a 2048-bit RSA key.
-* **Step 2 - Package-level encryption with AES-GCM** - Then the entire package (password + required metadata) is encrypted using AES-GCM. This prevents anyone with direct access to the underlying ServiceBus channel from viewing/tampering with the contents.
-* **Step 3 - All communication occurs over TLS / SSL** - All the communication with ServiceBus happens in a SSL/TLS channel. This secures the contents from unauthorized 3rd parties.
-* **Automatic key rollover every six months** - Automatically every 6 months, or every time password writeback is disabled / re-enabled on Azure AD Connect, we rollover all these keys to ensure maximum service security and safety.
+* **Step 2 - Package-level encryption with AES-GCM** - Then the entire package (password + required metadata) is encrypted using AES-GCM. This encryption prevents anyone with direct access to the underlying ServiceBus channel from viewing/tampering with the contents.
+* **Step 3 - All communication occurs over TLS / SSL** - All the communication with ServiceBus happens in a SSL/TLS channel. This encryption secures the contents from unauthorized third parties.
+* **Automatic key rollover every six months** - Every 6 months, or every time password writeback is disabled / re-enabled on Azure AD Connect, we automatically rollover all keys to ensure maximum service security and safety.
 
 ### Password writeback bandwidth usage
 
@@ -179,17 +211,16 @@ The size of each of the message described above is typically under 1 kb, even un
 
 ## Next steps
 
-The following links provide additional information regarding password reset using Azure AD
-
-* [**Quick Start**](active-directory-passwords-getting-started.md) - Get up and running with Azure AD self service password management 
-* [**Licensing**](active-directory-passwords-licensing.md) - Configure your Azure AD Licensing
-* [**Data**](active-directory-passwords-data.md) - Understand the data that is required and how it is used for password management
-* [**Rollout**](active-directory-passwords-best-practices.md) - Plan and deploy SSPR to your users using the guidance found here
-* [**Customize**](active-directory-passwords-customize.md) - Customize the look and feel of the SSPR experience for your company.
-* [**Policy**](active-directory-passwords-policy.md) - Understand and set Azure AD password policies
-* [**Reporting**](active-directory-passwords-reporting.md) - Discover if, when, and where your users are accessing SSPR functionality
-* [**Technical Deep Dive**](active-directory-passwords-how-it-works.md) - Go behind the curtain to understand how it works
-* [**Frequently Asked Questions**](active-directory-passwords-faq.md) - How? Why? What? Where? Who? When? - Answers to questions you always wanted to ask
-* [**Troubleshoot**](active-directory-passwords-troubleshoot.md) - Learn how to resolve common issues that we see with SSPR
+* [How do I complete a successful rollout of SSPR?](active-directory-passwords-best-practices.md)
+* [Reset or change your password](active-directory-passwords-update-your-own-password.md).
+* [Register for self-service password reset](active-directory-passwords-reset-register.md).
+* [Do you have a Licensing question?](active-directory-passwords-licensing.md)
+* [What data is used by SSPR and what data should you populate for your users?](active-directory-passwords-data.md)
+* [What authentication methods are available to users?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [What are the policy options with SSPR?](active-directory-passwords-policy.md)
+* [How do I report on activity in SSPR?](active-directory-passwords-reporting.md)
+* [What are all of the options in SSPR and what do they mean?](active-directory-passwords-how-it-works.md)
+* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
+* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Enable password writeback in Azure AD Connect"

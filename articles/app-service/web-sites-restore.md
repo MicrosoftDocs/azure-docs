@@ -21,7 +21,7 @@ ms.author: cephalin
 This article shows you how to restore an app in [Azure App Service](../app-service/app-service-web-overview.md)
 that you have previously backed up (see [Back up your app in Azure](web-sites-backup.md)). You can restore your app
 with its linked databases on-demand to a previous state, or create a new app based on one of
-your original app's backup. Azure App Service supports the following databases for backup and restore:
+your original app's backups. Azure App Service supports the following databases for backup and restore:
 - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
 - [Azure Database for MySQL (Preview)](https://azure.microsoft.com/en-us/services/mysql)
 - [Azure Database for PostgreSQL (Preview)](https://azure.microsoft.com/en-us/services/postgres)
@@ -35,10 +35,10 @@ backups to be performed than **Standard** tier.
 <a name="PreviousBackup"></a>
 
 ## Restore an app from an existing backup
-1. On the **Settings** blade of your app in the Azure Portal, click **Backups** to display the **Backups** blade. Then click **Restore**.
+1. On the **Settings** page of your app in the Azure portal, click **Backups** to display the **Backups** page. Then click **Restore**.
    
     ![Choose restore now][ChooseRestoreNow]
-2. In the **Restore** blade, first select the backup source.
+2. In the **Restore** page, first select the backup source.
    
     ![](./media/web-sites-restore/021ChooseSource1.png)
    
@@ -62,9 +62,9 @@ backups to be performed than **Standard** tier.
 <a name="StorageAccount"></a>
 
 ## Download or delete a backup from a storage account
-1. From the main **Browse** blade of the Azure portal, select **Storage accounts**. A list of your existing storage accounts is displayed.
-2. Select the storage account that contains the backup that you want to download or delete.The blade for the storage account is displayed.
-3. In the storage account blade, select the container you want
+1. From the main **Browse** page of the Azure portal, select **Storage accounts**. A list of your existing storage accounts is displayed.
+2. Select the storage account that contains the backup that you want to download or delete. The page for the storage account is displayed.
+3. In the storage account page, select the container you want
    
     ![View Containers][ViewContainers]
 4. Select backup file you want to download or delete.
@@ -75,12 +75,21 @@ backups to be performed than **Standard** tier.
 <a name="OperationLogs"></a>
 
 ## Monitor a restore operation
-To see details about the success or failure of the app restore operation, navigate to the **Activity Log** blade in the Azure portal.  
+To see details about the success or failure of the app restore operation, navigate to the **Activity Log** page in the Azure portal.  
  
 
 Scroll down to find the desired restore operation and click to select it.
 
-The details blade displays the available information related to the restore operation.
+The details page displays the available information related to the restore operation.
+
+## Automate with scripts
+
+You can automate backup management with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
+
+For samples, see:
+
+- [Azure CLI samples](app-service-cli-samples.md)
+- [Azure PowerShell samples](app-service-powershell-samples.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

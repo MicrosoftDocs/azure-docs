@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 10/24/2017
 ---
 # Monitoring in Azure Database for MySQL
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MySQL provides various metrics that give insight into the behavior of the resources supporting the MySQL server. 
@@ -16,7 +16,7 @@ Monitoring data about your servers helps you troubleshoot and optimize for your 
 ## Metrics
 All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. 
 
-You can configure alerts on the metrics. For more information, see [Azure Alerts Overview](../monitoring-and-diagnostics/monitoring-overview-alerts.md) to learn how to configure alerts.
+You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). 
 
 Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
@@ -41,5 +41,5 @@ These metrics are available for Azure Database for MySQL:
 > Compute Unit is composed of Memory and CPU. The Compute Unit percentage is max(memory%, cpu%). Examine the memory and cpu charts to pinpoint which is contributing to Compute Unit percentage changes. For more information, see [compute units](concepts-compute-unit-and-storage.md).
 
 ## Next steps
-For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-
+- For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). 
+- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

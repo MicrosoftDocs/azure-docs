@@ -24,7 +24,7 @@ Virtual Network (VNet) service endpoints extend your virtual network private add
 
 This feature is available in preview for the following Azure services and regions:
 
-- **Azure Storage**: WestCentralUS, WestUS2, EastUS, WestUS, AustraliaEast, and AustraliaSouthEast
+- **Azure Storage**: All regions in the Azure public cloud.
 - **Azure SQL Database**: WestCentralUS, WestUS2, and EastUS.
 
 For the most up-to-date notifications for the preview, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.

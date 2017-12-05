@@ -1,6 +1,6 @@
 ---
-title: Sync data (Preview) | Microsoft Docs
-description: This overview introduces Azure SQL Data Sync (Preview).
+title: Azure SQL Data Sync (Preview) | Microsoft Docs
+description: This overview introduces Azure SQL Data Sync (Preview)
 services: sql-database
 documentationcenter: ''
 author: douglaslms
@@ -10,15 +10,15 @@ editor: ''
 ms.assetid: 
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: na
+ms.workload: "On Demand"
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
-
+ms.reviewer: douglasl
 ---
-# Sync data across multiple cloud and on-premises databases with SQL Data Sync
+# Sync data across multiple cloud and on-premises databases with SQL Data Sync (Preview)
 
 SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances.
 
@@ -40,7 +40,7 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 -   The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
 
 > [!NOTE]
-> If you're using an on premises database, you have to [configure a local agent.](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync)
+> If you're using an on premises database, you have to [configure a local agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Sync data between databases](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -54,7 +54,7 @@ Data Sync is useful in cases where data needs to be kept up to date across sever
 
 -   **Globally Distributed Applications:** Many businesses span several regions and even several countries. To minimize network latency, it's best to have your data in a region close to you. With Data Sync, you can easily keep databases in regions around the world synchronized.
 
-We don't recommend Data Sync for the following scenarios:
+Data Sync is not appropriate for the following scenarios:
 
 -   Disaster Recovery
 
@@ -73,48 +73,6 @@ We don't recommend Data Sync for the following scenarios:
 -   **Resolving conflicts:** Data Sync provides two options for conflict resolution, *Hub wins* or *Member wins*.
     -   If you select *Hub wins*, the changes in the hub always overwrite changes in the member.
     -   If you select *Member wins*, the changes in the member overwrite changes in the hub. If there's more than one member, the final value depends on which member syncs first.
-
-## Limitations and considerations
-
-### Performance impact
-Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking. These change tracking activities have an impact on your database workload. Assess your service tier and upgrade if needed.
-
-### Eventual consistency
-Since Data Sync is trigger-based, transactional consistency is not guaranteed. Microsoft guarantees that all changes are made eventually and that Data Sync does not cause data loss.
-
-### Unsupported data types
-
--   FileStream
-
--   SQL/CLR UDT
-
--   XMLSchemaCollection (XML supported)
-
--   Cursor, Timestamp, Hierarchyid
-
-### Requirements
-
--   Each table must have a primary key. Don't change the value of the primary key in any row. If you have to do this, delete the row and recreate it with the new primary key value. 
-
--   A table cannot have an identity column that is not the primary key.
-
--   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
-
--   Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
-### Limitations on service and database dimensions
-
-|                                                                 |                        |                             |
-|-----------------------------------------------------------------|------------------------|-----------------------------|
-| **Dimensions**                                                      | **Limit**              | **Workaround**              |
-| Maximum number of sync groups any database can belong to.       | 5                      |                             |
-| Maximum number of endpoints in a single sync group              | 30                     | Create multiple sync groups |
-| Maximum number of on-premises endpoints in a single sync group. | 5                      | Create multiple sync groups |
-| Database, table, schema, and column names                       | 50 characters per name |                             |
-| Tables in a sync group                                          | 500                    | Create multiple sync groups |
-| Columns in a table in a sync group                              | 1000                   |                             |
-| Data row size on a table                                        | 24 Mb                  |                             |
-| Minimum sync interval                                           | 5 Minutes              |                             |
 
 ## Common questions
 
@@ -139,26 +97,72 @@ This error message indicates one of the two following issues:
 Data Sync doesn’t handle circular references. Be sure to avoid them. 
 
 ### How can I export and import a database with Data Sync?
-After you export a database as a .bacpac file and import it to create a new database, you have to do the following two things to use Data Sync in the new database:
+After you export a database as a `.bacpac` file and import the file to create a new database, you have to do the following two things to use Data Sync in the new database:
 1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). This script deletes all of the required Data Sync objects from the database.
 2.  Recreate the sync group with the new database. If you no longer need the old sync group, delete it.
+
+## <a name="sync-req-lim"></a> Requirements and limitations
+
+### General requirements
+
+-   Each table must have a primary key. Don't change the value of the primary key in any row. If you have to do this, delete the row and recreate it with the new primary key value. 
+
+-   A table cannot have an identity column that is not the primary key.
+
+-   The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
+
+-   Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
+### General considerations
+
+#### Eventual consistency
+Since Data Sync is trigger-based, transactional consistency is not guaranteed. Microsoft guarantees that all changes are made eventually and that Data Sync does not cause data loss.
+
+#### Performance impact
+Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking. These change tracking activities have an impact on your database workload. Assess your service tier and upgrade if needed.
+
+### General limitations
+
+#### Unsupported data types
+
+-   FileStream
+
+-   SQL/CLR UDT
+
+-   XMLSchemaCollection (XML supported)
+
+-   Cursor, Timestamp, Hierarchyid
+
+#### Limitations on service and database dimensions
+
+| **Dimensions**                                                      | **Limit**              | **Workaround**              |
+|-----------------------------------------------------------------|------------------------|-----------------------------|
+| Maximum number of sync groups any database can belong to.       | 5                      |                             |
+| Maximum number of endpoints in a single sync group              | 30                     | Create multiple sync groups |
+| Maximum number of on-premises endpoints in a single sync group. | 5                      | Create multiple sync groups |
+| Database, table, schema, and column names                       | 50 characters per name |                             |
+| Tables in a sync group                                          | 500                    | Create multiple sync groups |
+| Columns in a table in a sync group                              | 1000                   |                             |
+| Data row size on a table                                        | 24 Mb                  |                             |
+| Minimum sync interval                                           | 5 Minutes              |                             |
+|||
 
 ## Next steps
 
 For more info about SQL Data Sync, see:
 
--   [Getting Started with SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   [Monitor Azure SQL Data Sync with OMS Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 -   Complete PowerShell examples that show how to configure SQL Data Sync:
     -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
-
--   [Download the complete SQL Data Sync technical documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 
 -   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 For more info about SQL Database, see:
 
 -   [SQL Database Overview](sql-database-technical-overview.md)
-
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)

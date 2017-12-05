@@ -14,8 +14,8 @@ ms.custom: "VNet Service endpoints"
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: ''
-ms.date: 10/13/2017
+ms.workload: "On Demand"
+ms.date: 10/30/2017
 ms.author: genemi
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database
@@ -23,6 +23,13 @@ ms.author: genemi
 *Virtual network rules* are one firewall security feature that controls whether your Azure SQL Database server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL Database.
 
 To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
+
+
+> [!NOTE]
+> For Azure SQL Database, this feature is available in Preview for the following Azure regions:
+>
+> - WestCentralUS, WestUS2, and EastUS.
+
 
 #### How to create a virtual network rule
 

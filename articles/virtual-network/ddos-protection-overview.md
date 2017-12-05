@@ -32,12 +32,12 @@ Azure DDoS Protection combined with application design best practices together p
 
 ![Azure DDoS Protection Standard](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
-For development and test scenarios, you are welcome to try DDoS Protection Standard and use these resources to provide feedback on your experiences:
+We encourage you to try DDoS Protection Standard, in development, test, or production environments. Use the following resources to provide feedback on your experiences:
 - [Azure DDoS Protection on the Microsoft Azure Forum](https://feedback.azure.com/forums/905032-azure-ddos-protection). 
 - [Azure DDoS Protection on the MSDN Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azureddosprotection)
 - [Azure DDos Protection on Stack Overflow](https://stackoverflow.com/tags/azure-ddos/info)
 
-For support issues, you can [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md).
+For support issues, you can [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md). While DDoS Protection Standard is in preview, support is provided on a best-effort basis.
 
 ## Types of DDoS attacks that DDoS Protection Standard mitigates
 

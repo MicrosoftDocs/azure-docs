@@ -3,7 +3,7 @@ title: IP addresses used by Application Insights and Log Analytics | Microsoft D
 description: Server firewall exceptions required by Application Insights
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 44d989f8-bae9-40ff-bfd5-8343d3e59358
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # IP addresses used by Application Insights and Log Analytics

@@ -34,7 +34,7 @@ The X.509 certificate-based security in the IoT Hub requires you to start with a
 You may choose either of the following ways to get your certificates:
 - Purchase X.509 certificates from a *root certificate authority (CA)*. This is recommended for production environments.
 OR,
-- Create your own X.509 certificates using a third party tool such as [OpenSSL](https://www.openssl.org/). This will be fine for test and development purposes. The sections titled [Create your X.509 certificates](iot-hub-security-x509-create-certificates.md#createcerts) and [Create X.509 certificate chain](iot-hub-security-x509-create-certificates.md#createcertchain) walk you through a sample PowerShell script to create the certificates using OpenSSL. The rest of this tutorial will use the OpenSSL environment set up in this *How to* guide to walk through the end-to-end X.509 security in Azure IoT Hub.
+- Create your own X.509 certificates using a third party tool such as [OpenSSL](https://www.openssl.org/). This will be fine for test and development purposes. The sections titled *Create your X.509 certificates* and *Create X.509 certificate chain* in the article [How to use PowerShell to create X.509 certificates](iot-hub-security-x509-create-certificates.md) walk you through a sample PowerShell script to create the certificates using OpenSSL and PowerShell. If you prefer to use **Bash** shell instead of PowerShell, please refer to the related sections of [Managing CA Certificates Sample](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). The rest of this tutorial will use the OpenSSL environment set up in this *How to* guide to walk you through the end-to-end X.509 security in Azure IoT Hub.
 
 
 <a id="registercerts"></a>

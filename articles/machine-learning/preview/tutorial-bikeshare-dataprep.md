@@ -344,7 +344,6 @@ Changing the data in the numeric columns to a range of 0-1 allows some models to
 
    ```python
    maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
-   maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
    minVal = min(df["HOURLYDRYBULBTEMPF_Mean"])
    df["HOURLYDRYBULBTEMPF_Mean"] = (df["HOURLYDRYBULBTEMPF_Mean"]-minVal)/(maxVal-minVal)
    df.rename(columns={"HOURLYDRYBULBTEMPF_Mean":"N_DryBulbTemp"},inplace=True)
@@ -489,7 +488,7 @@ Select __OK__ to apply the filter.
 
 ### Remove columns
 
-In the trip data, each row represents a bike pickup event. For this tutorial, you only need the **starttime** and **start station** columns. Remove the other columns by multi-selecting these two columns, right-click the column header, and then select **Keep Column**. Other columns are removed.
+In the trip data, each row represents a bike pickup event. For this tutorial, you only need the **starttime** and **start station id** columns. Remove the other columns by multi-selecting these two columns, right-click the column header, and then select **Keep Column**. Other columns are removed.
 
 ![Image of the keep column option](media/tutorial-bikeshare-dataprep/tripdatakeepcolumn.png)
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Discover, identify, and classify personal data in Microsoft Azure | Microsoft Docs
 description: Learn about searching, classifying, discovering, and identifying data
 services: security
@@ -149,13 +149,13 @@ Personal data associated with Hadoop clusters in Azure HDInsight can be imported
 
 #### How do I use Excel Power Query to import Hadoop clusters in Azure HDInsight into Excel?
 
-An HDInsight tutorial will walk you through this entire process. It explains prerequisites, and includes a link to a [Get started with Azure HDInsight](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md) tutorial. Instructions cover Excel 2016 as well as 2013 and 2010 (steps are slightly different for the older versions of Excel). If you don’t have the Excel Power Query add-in, the tutorial shows you how to get it. You’ll start the tutorial in Excel and will need to have an Azure Blob storage account associated with your cluster.
+An HDInsight tutorial will walk you through this entire process. It explains prerequisites, and includes a link to a [Get started with Azure HDInsight](../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md) tutorial. Instructions cover Excel 2016 as well as 2013 and 2010 (steps are slightly different for the older versions of Excel). If you don’t have the Excel Power Query add-in, the tutorial shows you how to get it. You’ll start the tutorial in Excel and will need to have an Azure Blob storage account associated with your cluster.
 
   ![Query in Excel](media/how-to-discover-classify-personal-data-azure/excel.png)
 
-To learn how to do this, visit the [Connect Excel to Hadoop by using Power Query](../hdinsight/hdinsight-connect-excel-power-query.md) tutorial.
+To learn how to do this, visit the [Connect Excel to Hadoop by using Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md) tutorial.
 
-Source: [Connect Excel to Hadoop by using Power Query](../hdinsight/hdinsight-connect-excel-power-query.md)
+Source: [Connect Excel to Hadoop by using Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md)
 
 ## Azure Information Protection: personal data classification for documents and email
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 11/03/2017
 ms.author: tomfitz
 
 ---
 # Apply resource policies for names and text
-This topic shows several [resource policies](resource-manager-policy.md) you can apply to establish naming and text conventions. These policies ensure consistency for resource names and tag values. 
+This article shows several [resource policies](resource-manager-policy.md) you can apply to establish naming and text conventions. These policies ensure consistency for resource names and tag values. 
 
 ## Set naming convention with wildcard
 The following example shows the use of wildcard, which is supported by the **like** condition. The condition states that if the name does match the mentioned pattern (namePrefix\*nameSuffix) then deny the request:
@@ -68,6 +68,34 @@ To require a date pattern of two digits, dash, three letters, dash, and four dig
   "then": {
     "effect": "deny"
   }
+}
+```
+
+## Set multiple naming patterns
+
+To specify more than one allowed naming convention, use the **allOf** and **not** operators. In the following example, if the provided name does not match either pattern, it is denied.
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "not": {
+                    "field": "name",
+                    "match": "contoso??????"
+                }
+            },
+            {
+                "not": {
+                    "field": "name",
+                    "match": "contoso-???-##"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
 }
 ```
 

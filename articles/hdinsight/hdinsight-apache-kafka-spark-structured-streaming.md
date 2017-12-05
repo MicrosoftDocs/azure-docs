@@ -154,4 +154,4 @@ From the Jupyter Notebook home page, select the __Spark-Structured-Streaming-Fro
 Now that you have learned how to use Spark Structured Streaming, see the following documents to learn more about working with Spark and Kafka:
 
 * [How to use Spark streaming (DStream) with Kafka](hdinsight-apache-spark-with-kafka.md).
-* [Start with Jupyter Notebook and Spark on HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md)
+* [Start with Jupyter Notebook and Spark on HDInsight](spark/apache-spark-jupyter-spark-sql.md)

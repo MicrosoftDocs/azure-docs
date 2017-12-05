@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Web Apps for Containers Documentation
+title: App Service on Linux Documentation
 metadata:
   document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
   title: Azure Web App for Containers Documentation - Tutorials, API Reference
-  meta.description: Learn how to use Web Apps for Containers to build and host websites and web applications leveraging Docker.
+  meta.description: Learn how to use App Service on Linux to build and host websites and web applications leveraging Docker.
   services: app-service
   author: syntaxc4
   manager: carolz
@@ -21,41 +21,49 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_net.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg
       text: .NET Core
-      href: https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-dotnetcore
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-dotnetcore
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_nodejs.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg
       text: Node.js
-      href: https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-nodejs
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-nodejs
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_php.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg
       text: PHP
-      href: https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-php
     - image:
-        src: https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_java.svg
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json
+      href: https://docs.microsoft.com/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_ruby.svg
+      text: Ruby
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_docker.svg
+      text: Docker
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image
   - type: paragraph
     text: 'Learn how to deploy continuously:'
   - type: list
     style: icon48
     items: 
     - image:
-        src: https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg
+        src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
       text: VSTS
-      href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/deploy-docker-webapp??toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
+      href: https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-docker-webapp??toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and monitor secure web application on Azure Web Apps for Containers
+    text: Learn how to deploy, manage, and monitor secure web application on App Service on Linux
   - type: list
     style: ordered
     items:
-    - html: Create an application using <a href="en-us/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core with Azure SQL DB</a> or <a href="en-us/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
-    - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
-    - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
-    - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
+    - html: Create an application using <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core with Azure SQL DB</a> or <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Bind an existing SSL certificate to your application</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
 - title: Samples
   items:
   - type: paragraph
@@ -64,7 +72,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+    - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
     - html: <a href="/cli/azure/appservice">Azure CLI</a>
 - title: Reference
   items:
@@ -73,8 +81,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
     - title: Languages
-      html: <p><a href="/en-us/dotnet/api">.NET</a></p><p><a href="/en-us/java/api/">Java</a></p>
+      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
     - title: REST
-      html: <p><a href="/en-us/rest/api/appservice">REST API Reference</a></p>
+      html: <p><a href="/rest/api/appservice">REST API Reference</a></p>

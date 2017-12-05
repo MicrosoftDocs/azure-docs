@@ -1,6 +1,6 @@
 ---
-title: How to Authenticate to Microsoft Speech Service | Microsoft Docs
-description: How to request authentication to use Microsoft Speech API
+title: Authenticate to Microsoft Speech Service | Microsoft Docs
+description: Request authentication to use the Microsoft Speech API
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -11,26 +11,26 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
 ---
-# How to authenticate to Microsoft Speech API
+# Authenticate to the Speech API
 
-Microsoft Speech Service supports authentication
+Speech Service supports authentication by using:
 
-- using subscription key
-- using authorization token
+- A subscription key.
+- An authorization token.
 
-## Using subscription key
+## Use a subscription key
 
-To use Microsoft Speech Service, you must first subscribe to Speech API that is part of Microsoft Cognitive Services (previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+To use Speech Service, you must first subscribe to the Speech API that's part of Cognitive Services (previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, select **Get API Key** to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you can use either key.
 
-For long-term use or an increased quota sign up an [Azure account](https://azure.microsoft.com/free/).
+For long-term use or an increased quota, sign up for an [Azure account](https://azure.microsoft.com/free/).
 
-For using Speech REST API, you need to pass the subscription key in the `Ocp-Apim-Subscription-Key` field in the request header.
+To use the Speech REST API, you need to pass the subscription key in the `Ocp-Apim-Subscription-Key` field in the request header.
 
 Name| Format| Description
 ----|-------|------------
 Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 
-The following is an example of request header.
+The following is an example of a request header:
 
 ```HTTP
 POST https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -43,18 +43,18 @@ Expect: 100-continue
 ```
 
 > [!IMPORTANT]
-> If you use [client libraries](../GetStarted/GetStartedClientLibraries.md) in your application, you need to verify that you can get the authorization token with your subscription key, as described in the next section. The client libraries use the subscription key to get authorization token, and then use the token for authentication.
+> If you use [client libraries](../GetStarted/GetStartedClientLibraries.md) in your application, verify that you can get the authorization token with your subscription key, as described in the following section. The client libraries use the subscription key to get an authorization token and then use the token for authentication.
 
-## Using authorization token
+## Use an authorization token
 
-Alternatively, you can use authorization token for authentication as proof of the authentication/authorization. To get this token, you must first obtain a subscription key from the Speech API, as described in the [preceding section](#using-subscription-key).
+Alternatively, you can use an authorization token for authentication as proof of authentication/authorization. To get this token, you must first obtain a subscription key from the Speech API, as described in the [preceding section](#use-a-subscription-key).
 
-### Get authorization token
+### Get an authorization token
 
-After you have a valid subscription key, send a POST request to the token service of Cognitive Services, and receive in the response the authorization token as a JSON Web Token (JWT).
+After you have a valid subscription key, send a POST request to the token service of Cognitive Services. In the response, you receive the authorization token as a JSON Web Token (JWT).
 
 > [!NOTE]
-> The token has an expiry of 10 minutes. See the following section for how to renew the token.
+> The token has an expiration of 10 minutes. To renew the token, see the following section.
 
 The token service URI is located here:
 
@@ -62,9 +62,9 @@ The token service URI is located here:
 https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-The code sample next shows how to get an access token. Note to replace *YOUR_SUBSCRIPTION_KEY* with your own subscription key.
+The following code sample shows how to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key:
 
-# [Powershell](#tab/Powershell)
+# [PowerShell](#tab/Powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -82,7 +82,7 @@ $OAuthToken
 
 # [curl](#tab/curl)
 
-The example uses curl on Linux with bash. If it is not available on your platform, you may need to install curl. The example should also work on Cygwin on Windows, Git Bash, zsh, and other shells.
+The example uses curl on Linux with bash. If it's not available on your platform, you might need to install curl. The example also works on Cygwin on Windows, Git Bash, zsh, and other shells.
 
 ```
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
@@ -129,7 +129,7 @@ curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Co
 
 ---
 
-The following is a sample POST request.
+The following is a sample POST request:
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken HTTP/1.1
@@ -140,16 +140,16 @@ Content-Length: 0
 Connection: Keep-Alive
 ```
 
-### Use authorization token in request
+### Use an authorization token in a request
 
-Each time when you call Speech API, you need to pass the authorization token in the `Authorization` header. The *Authorization* header must contain a JSON Web Token (JWT) access token.
+Each time you call the Speech API, you need to pass the authorization token in the `Authorization` header. The `Authorization` header must contain a JWT access token.
 
-The following example shows how to use authorization token when calling Speech REST API. 
+The following example shows how to use an authorization token when you call the Speech REST API. 
 
 > [!NOTE]
-> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file, and `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get authorization token](#get-authorization-token)
+> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get an authorization token](#get-an-authorization-token).
 
-# [Powershell](#tab/Powershell)
+# [PowerShell](#tab/Powershell)
 
 ```Powershell
 
@@ -220,11 +220,11 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ---
 
-### Renew authorization token
+### Renew an authorization token
 
-The authorization token will expire after a certain time period (currently 10 minutes). You need to renew the authorization token before its expiration.
+The authorization token expires after a certain time period (currently 10 minutes). You need to renew the authorization token before it expires.
 
-The following code is an example implementation in C# for how to renew the authorization token:
+The following code is an example implementation in C# of how to renew the authorization token:
 
 ```cs
     /*

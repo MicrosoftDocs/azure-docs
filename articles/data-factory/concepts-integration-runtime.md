@@ -153,8 +153,8 @@ Australia | Australia East | Australia East
 &nbsp; | Australia Southeast | Australia Southeast
 Japan | Japan East | Japan East
 &nbsp; | Japan West | Japan East
-Korea | Korea Central | Korea South
-&nbsp; | Korea South | Korea South
+Korea | Korea Central | Korea Central
+&nbsp; | Korea South | Korea Central
 India | Central India | Central India
 &nbsp; | West India | Central India
 &nbsp; | South India | Central India

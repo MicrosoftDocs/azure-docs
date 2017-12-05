@@ -33,7 +33,7 @@ HA Ports is configured by setting the frontend and backend ports to **0** and pr
 
 ## Why use HA ports
 
-### Network Virtual Appliances
+### <a name="nva"></a>Network Virtual Appliances
 
 You can use network virtual appliances (NVA) for securing your Azure workload from multiple types of security threats. When NVA are used in these scenarios, they must be reliable, highly available, and scale-out for demand.
 
@@ -136,6 +136,8 @@ Following are the supported configurations or exceptions for HA Ports:
 - A single Network Interface IP configuration can have one or more DSR load balancer rules with HA Ports, provided all of their respective frontend IP configurations are unique.
 - If all of the load balancing rules are HA Ports (DSR only), or, all of the rules are non-HA Ports (DSR & non-DSR), two (or more) Load Balancer rules pointing to the same backend pool can co-exist. Two such load balancing rules cannot co-exist if there is a combination of HA Ports and non-HA Ports rules.
 - HA Ports is not available for IPv6.
+- Flow symmetry for NVA scenarios is supported with single NIC only. See description and diagram for [Network Virtual Appliances](#nva). 
+
 
 
 ## Next steps

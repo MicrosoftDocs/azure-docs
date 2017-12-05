@@ -116,6 +116,15 @@ Network Watcher is available through Preview in Azure Government. For more infor
 ## Support for Service Bus
 Service Bus is generally available in Azure Government. For more information, see the [Service Bus public documentation](../service-bus/index.md).
 
+### Variations
+The URLs for accessing and managing the Service Bus service are different:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| Service Bus | *.servicebus.windows.net | *.servicebus.usgovcloudapi.net |
+
+
+
 ## Next Steps
 For supplemental information and updates please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
