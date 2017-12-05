@@ -176,7 +176,7 @@ The attributes are defined as follows:
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * [Create and deploy your first Service Fabric Java application on Linux using Service Fabric plug-in for Eclipse](service-fabric-get-started-eclipse.md)
 * [Create a Service Fabric cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md)
-* [Create a Service Fabric cluster by using the Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+* [Create a Service Fabric cluster by using Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Understand the Service Fabric application model](service-fabric-application-model.md)
 * [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md)
 * [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
