@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 ---
 # Sign in Microsoft Account and Azure Active Directory users in a single application
-In the past, application developers who wanted to support both personal Microsoft accounts and work accounts from Azure Active Directory had to integrate with two separate systems. The Azure Active Directory (Azure AD) v2.0 endpoint introduces a new authentication API version that simplifies this process. The Azure AD v2.0 endpoint enables sign in from both types of accounts by using a single integration. Applications that use the Azure AD v2.0 endpoint can also consume the REST APIs from the [Microsoft Graph API](https://graph.microsoft.io) by using either type of account.
+In the past, application developers who wanted to support both personal Microsoft accounts and work accounts from Azure Active Directory had to integrate with two separate systems. The Azure Active Directory (Azure AD) v2.0 endpoint introduces a new authentication API version that simplifies this process. The Azure AD v2.0 endpoint enables sign-in from both types of accounts by using a single integration. Applications that use the Azure AD v2.0 endpoint can also consume the REST APIs from the [Microsoft Graph API](https://graph.microsoft.io) by using either type of account.
 
 ## Getting started
 Choose your favorite platform from the following list to build an application by using the Microsoft open source libraries and frameworks. You can also use the OAuth 2.0 and OpenID Connect protocols to send and receive protocol messages directly without using an authentication library.
