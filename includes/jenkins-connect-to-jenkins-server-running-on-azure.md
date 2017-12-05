@@ -1,6 +1,12 @@
+1. In your browser, navigate to your Jenkins VM. The URL of the Jenkins VM will be the value you entered for the **Domain name label** when creating the Jenkins VM. Since the Jenkins dashboard is inaccessible through unsecured HTTP, a message displays indicating that you need to use SSH to first tunnel into the VM.
 
 
-Navigate to your virtual machine (for example, http://jenkins2517454.eastus.cloudapp.azure.com/) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
+
+
+
+
+
+1. Navigate to your virtual machine (for example, http://jenkins2517454.eastus.cloudapp.azure.com/) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
 
 ![Unlock jenkins](./media/jenkins-install-from-azure-marketplace-image/jenkins-ssh-instructions.png)
 
