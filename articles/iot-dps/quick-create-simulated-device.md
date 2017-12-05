@@ -15,7 +15,7 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Create and provision a simulated device using IoT Hub Device Provisioning Service (preview)
+# Create and provision a simulated device using IoT Hub Device Provisioning Services
 > [!div class="op_single_selector"]
 > * [TPM](quick-create-simulated-device.md)
 > * [X.509](quick-create-simulated-device-x509.md)
