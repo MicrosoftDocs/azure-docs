@@ -28,7 +28,7 @@ The files from any publicly accessible origin web server can be cached in Azure 
 You can also control cache settings from the Azure portal by setting [CDN caching rules](cdn-caching-rules.md). If you set up one or more caching rules and set their caching behavior to **Override** or **Bypass cache**, the origin-provided caching settings discussed in this article are ignored. For information about general caching concepts, see [How caching works](cdn-how-caching-works.md).
 
 > [!TIP]
-> You can choose to set no TTL on a file. In this case, Azure CDN automatically applies a default TTL of seven days, unless you have set up caching rules in the Azure portal.
+> You can choose to set no TTL on a file. In this case, Azure CDN automatically applies a default TTL of seven days, unless you have set up caching rules in the Azure portal. This default TTL applies only to general web delivery optimizations. For large file optimizations, the default TTL is one day, and for media streaming optimizations, the default TTL is one year.
 > 
 > For more information about how Azure CDN works to speed up access to files and other resources, see [Overview of the Azure Content Delivery Network](cdn-overview.md).
 > 

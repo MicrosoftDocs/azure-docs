@@ -2,22 +2,13 @@
 title: Run containerized tasks in Azure Container Instances
 description: Learn how to use Azure Container Instances to execute tasks that run to completion, such as in build, test, or image rendering jobs.
 services: container-instances
-documentationcenter: ''
 author: mmacy
 manager: timlt
-editor: ''
-tags:
-keywords: ''
 
-ms.assetid:
 ms.service: container-instances
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/18/2017
+ms.date: 11/16/2017
 ms.author: marsma
-ms.custom:
 ---
 
 # Run a containerized task in Azure Container Instances
@@ -144,7 +135,7 @@ Specify a command line when you create a container instance to override the comm
 
 For instance, you can have the example container analyze text other than *Hamlet* by specifying a different command line. The Python script executed by the container, *wordcount.py*, accepts a URL as an argument, and will process that page's content instead of the default.
 
-For example, to determine the top three five-letter words in *Romeo and Juliet*:
+For example, to determine the top 3 five-letter words in *Romeo and Juliet*:
 
 ```azurecli-interactive
 az container create \
@@ -169,6 +160,8 @@ Output:
 ```
 
 ## Next steps
+
+### Persist task output
 
 For details on how to persist the output of your containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 

@@ -13,10 +13,10 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
-ms.custom:
+ms.custom: mvc
 
 ---
 # Back up Azure virtual machines in Azure at scale

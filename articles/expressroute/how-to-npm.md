@@ -93,7 +93,8 @@ If you are already using Network Performance Monitor to monitor other objects or
 1. On the **Network Performance Monitor Configuration - TCP Setup page** for your resource, in the **Install OMS Agents** section, click the agent that corresponds to your server's processor and download the setup file.
 
   >[!NOTE]
-  >The Linux agent is currently not supported for ExpressRoute monitoring.
+  >The agent must be installed on a Windows Server (2008 SP1 or later). 
+  >Monitoring of ExpressRoute circuits using Windows Desktop OS and Linux OS is not supported. 
   >
   >
 2. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
@@ -102,6 +103,8 @@ If you are already using Network Performance Monitor to monitor other objects or
   ![PowerShell script](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: Install a monitoring agent on each monitoring server
+
+We recommend that you install at least two agents on each side of the ExpressRoute connection (i.e., on-premises, Azure VNETs) for redundancy. Use the following steps to install agents:
 
 1. Run **Setup** to install the agent on each server that you want to use for monitoring ExpressRoute. The server you use for monitoring can either be a VM, or on-premises and must have Internet access. You need to install at least one agent on-premises, and one agent on each network segment that you want to monitor in Azure.
 2. On the **Welcome** page, click **Next**.
