@@ -164,6 +164,8 @@
     items:
     - name: Prepay for VMs - Reserved Instances
       href: prepay-reserved-vm-instances.md
+    - name: VM usage
+      href: vm-usage.md
     - name: Common CLI tasks
       href: cli-manage.md
     - name: Move a VM
@@ -260,11 +262,11 @@
         href: cloudinit-update-vm.md
       - name: Add a user on a VM
         href: cloudinit-add-user.md
-        name: Configure swapfile
+      - name: Configure swapfile
         href: cloudinit-configure-swapfile.md
-        name: Run existing bash script
+      - name: Run existing bash script
         href: cloudinit-bash-script.md
-        name: Prepare existing VM for cloud-init
+      - name: Prepare existing VM for cloud-init
         href: cloudinit-prepare-custom-image.md  
     - name: Jenkins
       href: ../../jenkins/overview.md
