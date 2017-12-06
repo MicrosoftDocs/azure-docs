@@ -13,8 +13,9 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: raynew
+ms.custom: MVC
 
 ---
 # Prepare Azure resources for replication of on-premises machines

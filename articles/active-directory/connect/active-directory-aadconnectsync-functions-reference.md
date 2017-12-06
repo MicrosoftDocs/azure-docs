@@ -612,12 +612,12 @@ Results in "2007-12-25".
 Can result in "20140905081453.0Z"
 
 - - -
-### GUID
+### Guid
 **Description:**  
-The function GUID generates a new random GUID
+The function Guid generates a new random GUID
 
 **Syntax:**  
-`str GUID()`
+`str Guid()`
 
 - - -
 ### IIF
@@ -825,7 +825,7 @@ The Item function is useful together with the Contains function since the latter
 Throws an error if index is out of bounds.
 
 **Example:**  
-`Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
+`Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Returns the primary email address.
 
 - - -

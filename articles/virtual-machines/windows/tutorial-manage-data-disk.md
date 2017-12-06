@@ -38,7 +38,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 When an Azure virtual machine is created, two disks are automatically attached to the virtual machine. 
 
-**Operating system disk** - Operating system disks can be sized up to 1 terabyte, and hosts the VMs operating system.  The OS disk is assigned a drive letter of *c:* by default. The disk caching configuration of the OS disk is optimized for OS performance. The OS disk **should not** host applications or data. For applications and data, use a data disk, which is detailed later in this article.
+**Operating system disk** - Operating system disks can be sized up to 4 terabyte, and hosts the VMs operating system.  The OS disk is assigned a drive letter of *c:* by default. The disk caching configuration of the OS disk is optimized for OS performance. The OS disk **should not** host applications or data. For applications and data, use a data disk, which is detailed later in this article.
 
 **Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM size. Temporary disks are assigned a drive letter of *d:* by default.
 
@@ -55,7 +55,7 @@ When an Azure virtual machine is created, two disks are automatically attached t
 
 ## Azure data disks
 
-Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 1 terabyte. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM core, two data disks can be attached. 
+Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 1 terabyte. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM vCPU, two data disks can be attached. 
 
 ### Max data disks per VM
 
@@ -78,7 +78,7 @@ Standard Storage is backed by HDDs, and delivers cost-effective storage while st
 
 ### Premium disk
 
-Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30), the size of the disk determines the disk type. When selecting, a disk size the value is rounded up to the next type. For example, if the size is below 128 GB the disk type will be P10, between 129 and 512 P20, and over 512 P30. 
+Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. Premium disks come in three types (P10, P20, P30, P40, P50), the size of the disk determines the disk type. When selecting, a disk size the value is rounded up to the next type. For example, if the size is below 128 GB the disk type will be P10, between 129 and 512 P20,512 for P30,P40 for 2TB and P50 4TB . 
 
 ### Premium disk performance
 
@@ -88,7 +88,7 @@ Premium disks are backed by SSD-based high-performance, low-latency disk. Perfec
 | IOPS per disk | 500 | 2,300 | 5,000 |
 Throughput per disk | 100 MB/s | 150 MB/s | 200 MB/s |
 
-While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, 64 data disks can be attached to Standard_GS5 VM. If each of these disks are sized as a P30, a maximum of 80,000 IOPS can be achieved. For detailed information on max IOPS per VM, see [Linux VM sizes](./sizes.md).
+While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, 64 data disks can be attached to Standard_GS5 VM. If each of these disks are sized as a P30, a maximum of 80,000 IOPS can be achieved. For detailed information on max IOPS per VM, see [VM types and sizes](./sizes.md).
 
 ## Create and attach disks
 

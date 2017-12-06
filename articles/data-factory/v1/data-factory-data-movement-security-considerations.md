@@ -12,13 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 10/15/2017
 ms.author: abnarain
 
 robots: noindex
 ---
 
 # Azure Data Factory - Security considerations for data movement
+
+> [!NOTE]
+> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [data movement security considerations for Data Factory version 2](../data-movement-security-considerations.md).
+
 ## Introduction
 This article describes basic security infrastructure that data movement services in Azure Data Factory use to secure your data. Azure Data Factory management resources are built on Azure security infrastructure and use all possible security measures offered by Azure.
 
@@ -168,7 +172,7 @@ Some data stores in the cloud also require whitelisting of IP address of the mac
 The following cloud data stores require whitelisting of IP address of the gateway machine. Some of these data stores, by default, may not require whitelisting of the IP address. 
 
 - [Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) 
-- [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal)
+- [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 

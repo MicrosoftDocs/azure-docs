@@ -33,22 +33,18 @@ Visual Studio 2017 requires a configuration file for Visual Studio to connect to
 The Visual Studio extension allows for quickly and easily switching between Azure environments. 
 This can be installed like any other extension in Visual Studio: 
 
-1. Navigate to the Tools – Extension and Updates section.
-2. Click the “Online” tab on the left to search for extensions online and search for “azure environment selector”.
-3. Download the package, as shown in the screenshot below.
+1. In the **Tools** menu, open **Extension and Updates**
+2. Click the **Online** tab on the left and **Search “*azure environment selector*”**.
+3. **Download** the package, as shown in the screenshot below.
 
       ![download1](./media/documentation-government-get-started-connect-with-vs-extension1.png)   
 
-4. Restart Visual Studio to complete the installation of the extension.
-5. When you click the “Tools” menu item, you will find an “Azure Environment Selector” item in the menu:
+4. **Restart Visual Studio** to complete the installation of the extension.
+5. Once Visual Studio restarts, in the **Tools** menu, open the newly available **Azure Environment Selector**:
 
       ![download2](./media/documentation-government-get-started-connect-with-vs-extension2.png)
 
-6. Click the menu item and you will see the Azure Environment Selector dialog:
-
-      ![download3](./media/documentation-government-get-started-connect-with-vs-extension3.png)
-
-7. Use the dropdown to select a different environment, in this case Azure Government:
+6. In the Azure Environment Selector dialog, select **Azure Government** from the dropdown:
 
       ![download4](./media/documentation-government-get-started-connect-with-vs-extension4.png)
 

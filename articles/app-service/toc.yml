@@ -13,8 +13,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create .NET app
+  - name: Create .NET Core app
     href: app-service-web-get-started-dotnet.md
+  - name: Create .NET Framework app
+    href: app-service-web-get-started-dotnet-framework.md
   - name: Create Node.js app
     href: app-service-web-get-started-nodejs.md
   - name: Create PHP app
@@ -67,6 +69,8 @@
     href: web-sites-traffic-manager.md
   - name: Local cache
     href: app-service-local-cache-overview.md
+  - name: Diagnostics
+    href: app-service-diagnostics.md
 - name: How-To guides
   items:
   - name: Configure app
@@ -125,6 +129,8 @@
         href: app-service-mobile-how-to-configure-twitter-authentication.md
     - name: Use Managed Service Identity
       href: app-service-managed-service-identity.md
+    - name: Use SSL cert in application code
+      href: app-service-web-ssl-cert-load.md
     - name: Configure TLS mutual authentication
       href: app-service-web-configure-tls-mutual-auth.md
   - name: Scale app
@@ -143,6 +149,8 @@
       href: web-sites-enable-diagnostic-log.md
   - name: Manage app
     items:
+    - name: Manage the hosting plan
+      href: app-service-plan-manage.md
     - name: Back up an app
       href: web-sites-backup.md
     - name: Restore a backup

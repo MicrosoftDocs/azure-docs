@@ -3,7 +3,7 @@ title: Create your first function in Azure using Visual Studio | Microsoft Docs
 description: Create and publish a simple HTTP triggered function to Azure by using Azure Functions Tools for Visual Studio. 
 services: functions
 documentationcenter: na
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,16 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 12/1/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
 
 ---
 # Create your first function using Visual Studio
 
-Azure Functions lets you execute your code in a serverless environment without having to first create a VM or publish a web application.
+Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
 
 In this topic, you learn how to use the Visual Studio 2017 tools for Azure Functions to create and test a "hello world" function locally. You will then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2017 version 15.3, or a later version.
 
@@ -32,13 +34,10 @@ In this topic, you learn how to use the Visual Studio 2017 tools for Azure Funct
 
 To complete this tutorial, install:
 
-* [Visual Studio 2017 version 15.3](https://www.visualstudio.com/vs/preview/), including the **Azure development** workload.
+* [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/) or a later version, including the **Azure development** workload.
 
     ![Install Visual Studio 2017 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
-    >[!NOTE]  
-    >After you install or upgrade to Visual Studio 2017 version 15.3, you must manually update the Visual Studio 2017 tools for Azure Functions. You can update the tools from the **Tools** menu under **Extensions and Updates...** > **Updates** > **Visual Studio Marketplace** > **Azure Functions and Web Jobs Tools** > **Update**. 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## Create an Azure Functions project in Visual Studio
@@ -49,9 +48,9 @@ Now that you have created the project, you can create your first function.
 
 ## Create the function
 
-1. In **Solution Explorer**, right-click on your project node and select **Add** > **New Item**. Select **Azure Function** and click **Add**.
+1. In **Solution Explorer**, right-click on your project node and select **Add** > **New Item**. Select **Azure Function**, enter `HttpTriggerCSharp.cs` for **Name**, and click **Add**.
 
-2. Select **HttpTrigger**, type a **Function Name**, select **Anonymous** for **Access Rights**, and click **Create**. The function created is accessed by an HTTP request from any client. 
+2. Select **HttpTrigger**, select **Anonymous** for **Access rights**, and click **OK**. The function created is accessed by an HTTP request from any client. 
 
     ![Create a new Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 

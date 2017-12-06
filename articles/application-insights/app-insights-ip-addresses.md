@@ -1,9 +1,9 @@
 ﻿---
-title: IP addresses used by Application Insights | Microsoft Docs
+title: IP addresses used by Application Insights and Log Analytics | Microsoft Docs
 description: Server firewall exceptions required by Application Insights
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 44d989f8-bae9-40ff-bfd5-8343d3e59358
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
-ms.author: bwren
+ms.date: 10/04/2017
+ms.author: mbullwin
 
 ---
-# IP addresses used by Application Insights
+# IP addresses used by Application Insights and Log Analytics
 The [Azure Application Insights](app-insights-overview.md) service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
 
 > [!NOTE]
@@ -201,12 +201,18 @@ US : VA-Ashburn
 
 ```  
 
-## Data access API
+## Application Insights API
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
 | API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,443 |
 | API docs |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
 | Internal API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |dynamic|443 |
+
+## Log Analytics API
+| Purpose | URI | IP | Ports |
+| --- | --- | --- | --- |
+| API |api.loganalytics.io<br/>*.api.loganalytics.io |dynamic |80,443 |
+| API docs |dev.loganalytics.io<br/>docs.loganalytics.io<br/>www.loganalytics.io |dynamic |80,443 |
 
 ## Application Insights Analytics
 
@@ -217,6 +223,15 @@ US : VA-Ashburn
 | Media CDN | applicationanalyticsmedia.azureedge.net | dynamic | 80,443 |
 
 Note: *.applicationinsights.io domain is owned by Application Insights team.
+
+## Log Analytics Portal
+
+| Purpose | URI | IP | Ports |
+| --- | --- | --- | --- |
+| Portal | portal.loganalytics.io | dynamic | 80,443 |
+| CDN | applicationanalytics.azureedge.net | dynamic | 80,443 |
+
+Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
 ## Application Insights Azure Portal Extension
 

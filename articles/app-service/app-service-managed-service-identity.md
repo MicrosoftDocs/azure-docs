@@ -26,6 +26,10 @@ This topic shows you how to create a managed app identity for App Service and Az
 
 Creating an app with an identity requires an additional property to be set on the application.
 
+> [!NOTE] 
+> Only the primary slot for a site will receive the identity. Managed service identities for deployment slots are not yet supported.
+
+
 ### Using the Azure portal
 
 To set up a managed service identity in the portal, you will first create an application as normal and then enable the feature.
@@ -39,6 +43,35 @@ To set up a managed service identity in the portal, you will first create an app
 4. Switch **Register with Azure Active Directory** to **On**. Click **Save**.
 
 ![Managed Service Identity in App Service](media/app-service-managed-service-identity/msi-blade.png)
+
+### Using the Azure CLI
+
+To set up a managed service identity using the Azure CLI, you will need to use the `az webapp assign-identity` command against an existing application. You have three options for running the examples in this section:
+
+- Use [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure portal.
+- Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block below.
+- [Install the latest version of CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 or later) if you prefer to use a local CLI console. 
+
+The following steps will walk you through creating a web app and assigning it an identity using the CLI:
+
+1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login](/cli/azure/#login). Use an account that is associated with the Azure subscription under which you would like to deploy the application:
+
+    ```azurecli-interactive
+    az login
+    ```
+2. Create a web application using the CLI. For more examples of how to use the CLI with App Service, see [App Service CLI samples](../app-service/app-service-cli-samples.md):
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location westus
+    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
+    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    ```
+
+3. Run the `assign-identity` command to create the identity for this application:
+
+    ```azurecli-interactive
+    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    ```
 
 ### Using an Azure Resource Manager template
 
@@ -97,7 +130,7 @@ There is a simple REST protocol for obtaining a token in App Service and Azure F
 
 ### <a name="asal"></a>Using the Microsoft.Azure.Services.AppAuthentication library for .NET
 
-For .NET applications and functions, the simplest way to work with a managed service identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) or Active Directory Integrated Authentication. This section shows you how to get started with the library.
+For .NET applications and functions, the simplest way to work with a managed service identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference]. This section shows you how to get started with the library in your code.
 
 1. Add references to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet packages to your application.
 
@@ -113,7 +146,7 @@ string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https:
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
 
-To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference] and the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### Using the REST protocol
 
@@ -143,6 +176,9 @@ A successful 200 OK response includes a JSON body with the following properties:
 
 
 This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
+
+> [!NOTE] 
+> Environment variables are set up when the process first starts, so after enabling Managed Service Identity for your application you may need to restart your application, or redeploy its code, before `MSI_ENDPOINT` and `MSI_SECRET` are available to your code.
 
 ### REST protocol examples
 An example request might look like the following:
@@ -199,3 +235,6 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+
+[Microsoft.Azure.Services.AppAuthentication reference]: https://go.microsoft.com/fwlink/p/?linkid=862452

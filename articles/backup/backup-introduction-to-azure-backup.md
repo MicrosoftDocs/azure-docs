@@ -13,10 +13,10 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 
 ---
 # Overview of the features in Azure Backup
@@ -50,7 +50,7 @@ If you aren't sure which Azure Backup component works for your needs, see the fo
 
 | Component | Benefits | Limits | What is protected? | Where are backups stored? |
 | --- | --- | --- | --- | --- |
-| Azure Backup (MARS) agent |<li>Back up files and folders on physical or virtual Windows OS (VMs can be on-premises or in Azure)<li>No separate backup server required. |<li>Backup 3x per day <li>Not application aware; file, folder, and volume-level restore only, <li>  No support for Linux. |<li>Files, <li>Folders |Recovery Services vault |
+| Azure Backup (MARS) agent |<li>Back up files and folders on physical or virtual Windows OS (VMs can be on-premises or in Azure)<li>No separate backup server required. |<li>Backup 3x per day <li>Not application aware; file, folder, and volume-level restore only, <li>  No support for Linux. |<li>Files, <li>Folders, <li>System State |Recovery Services vault |
 | System Center DPM |<li>Application-aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Recovery Services vault<li>Linux support on Hyper-V and VMware VMs <li>Back up and restore VMware VMs using DPM 2012 R2 |Cannot back up Oracle workload.|<li>Files, <li>Folders,<li> Volumes, <li>VMs,<li> Applications,<li> Workloads |<li>Recovery Services vault,<li> Locally attached disk,<li>  Tape (on-premises only) |
 | Azure Backup Server |<li>App aware snapshots (VSS)<li>Full flexibility for when to take backups<li>Recovery granularity (all)<li>Can use Recovery Services vault<li>Linux support on Hyper-V and VMware VMs<li>Back up and restore VMware VMs <li>Does not require a System Center license |<li>Cannot back up Oracle workload.<li>Always requires live Azure subscription<li>No support for tape backup |<li>Files, <li>Folders,<li> Volumes, <li>VMs,<li> Applications,<li> Workloads |<li>Recovery Services vault,<li> Locally attached disk |
 | Azure IaaS VM Backup |<li>Native backups for Windows/Linux<li>No specific agent installation required<li>Fabric-level backup with no backup infrastructure needed |<li>Back up VMs once-a-day <li>Restore VMs only at disk level<li>Cannot back up on-premises |<li>VMs, <li>All disks (using PowerShell) |<p>Recovery Services vault</p> |
@@ -87,13 +87,13 @@ The following table shows the Azure Backup components that have support for Linu
 | Azure Backup (MARS) agent |No (Only Windows based agent) |
 | System Center DPM |<li> File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> <li> VM restore of Hyper-V and VMWare Linux Guest VMs </br> </br>  *File-consistent backup not available for Azure VM* <br/> |
 | Azure Backup Server |<li>File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> <li> VM restore of Hyper-V and VMWare Linux Guest VMs </br></br> *File-consistent backup not available for Azure VM*  |
-| Azure IaaS VM Backup |Application-consistent backup using [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/> [Granular file recovery](backup-azure-restore-files-from-vm.md)<br/> [Restore all VM disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM restore](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
+| Azure IaaS VM Backup |Application-consistent backup using [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/> [Granular file recovery](backup-azure-restore-files-from-vm.md)<br/> [Restore all VM disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM restore](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
 
 ## Using Premium Storage VMs with Azure Backup
-Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/common/storage-premium-storage.md).
+Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../virtual-machines/windows/premium-storage.md).
 
 ### Back up Premium Storage VMs
-While backing up Premium Storage VMs, the Backup service creates a temporary staging location, named "AzureBackup-", in the Premium Storage account. The size of the staging location is equal to the size of the recovery point snapshot. Be sure the Premium Storage account has adequate free space to accommodate the temporary staging location. For more information, see the article, [premium storage limitations](../storage/common/storage-premium-storage.md#scalability-and-performance-targets). Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../storage/common/storage-premium-storage.md#pricing-and-billing).
+While backing up Premium Storage VMs, the Backup service creates a temporary staging location, named "AzureBackup-", in the Premium Storage account. The size of the staging location is equal to the size of the recovery point snapshot. Be sure the Premium Storage account has adequate free space to accommodate the temporary staging location. For more information, see the article, [premium storage limitations](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > Do not modify or edit the staging location.
@@ -221,7 +221,10 @@ A Recovery Services vault is an online storage entity in Azure used to hold data
 Backup vaults, which are based on Azure Service Manager, were the first version of the vault. Recovery Services vaults, which add the Azure Resource Manager model features, are the second version of the vault. See the [Recovery Services vault overview article](backup-azure-recovery-services-vault-overview.md) for a full description of the feature differences. You can no longer create use the portal to create Backup vaults, but Backup vaults are still supported. You must use the Azure portal to manage your Backup vaults.
 
 > [!IMPORTANT]
-> You can now upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> After **October 15, 2017**, you will no longer be able to use PowerShell to create Backup vaults. <br/> By **November 1, 2017** any remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+> You can upgrade your Backup vaults to Recovery Services vaults. For details, see the article [Upgrade a Backup vault to a Recovery Services vault](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft encourages you to upgrade your Backup vaults to Recovery Services vaults.<br/> After **November 30, 2017**, you will no longer be able to use PowerShell to create Backup vaults. <br/>
+By November 30, 2017:
+- All remaining Backup vaults will be automatically upgraded to Recovery Services vaults.
+- You won't be able to access backup data in the Classic portal. Instead, use the Azure portal to access your backup data in Recovery Services vaults.
 
 
 

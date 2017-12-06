@@ -3,7 +3,7 @@ title: OMS Azure virtual machine extension for Linux | Microsoft Docs
 description: Deploy the OMS agent on Linux virtual machine using a virtual machine extension.
 services: virtual-machines-linux
 documentationcenter: ''
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: nepeters
+ms.author: danis
 
 ---
 # OMS virtual machine extension for Linux
@@ -38,6 +38,10 @@ The OMS Agent extension can be run against these Linux distributions.
 | Debian GNU/Linux | 6, 7, and 8 |
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 and 12 |
+
+### Azure Security Center
+
+Azure Security Center automatically provisions the OMS agent and connects it with the default log analytics workspace of the Azure subscription. If you are using Azure Security Center, do not run through the steps in this document. Doing so overwrites the configured workspace and break the connection with Azure Security Center.
 
 ### Internet connectivity
 
