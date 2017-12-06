@@ -47,16 +47,16 @@ If you have already created a Service Bus Messaging namespace, jump to the [Crea
 
 1. Log on to the [Azure portal][azure-portal].
 2. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**, or click on **All Resources**).
-3. Click the namespace in which you would like to create the topic. The namespace overview blade appears:
+3. Click the namespace in which you would like to create the topic. The namespace overview window appears:
    
     ![Create a topic][createtopic1]
-4. In the **Service Bus namespace** blade, click **Topics**, then click **Add topic**.
+4. In the **Service Bus namespace** window, click **Topics**, then click **Add topic**.
    
     ![Select Topics][createtopic2]
 5. Enter a name for the topic, and uncheck the **Enable partitioning** option. Leave the other options with their default values.
    
     ![Select New][createtopic3]
-6. At the bottom of the blade, click **Create**.
+6. At the bottom of the dialog, click **Create**.
 
 ## 3. Create a subscription to the topic
 
@@ -69,7 +69,7 @@ If you have already created a Service Bus Messaging namespace, jump to the [Crea
 
 ## 4. Send messages to the topic
 
-To send messages to the topic, we write a C# console application using Visual Studio.
+To send messages to the topic, write a C# console application using Visual Studio.
 
 ### Create a console application
 
@@ -82,7 +82,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
    
     ![Select a NuGet package][nuget-pkg]
 
-### Write some code to send a message to the topic
+### Write code to send a message to the topic
 
 1. Add the following `using` statements to the top of the Program.cs file.
    
@@ -220,7 +220,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     }
     ```
 
-3. Run the program, and check the Azure portal: click the name of your topic in the namespace **Overview** blade. The topic **Essentials** blade is displayed. In the subscription(s) listed near the bottom of the blade, notice that the **Message Count** value for each subscription should now be 1. Each time you run the sender application without retrieving the messages (as described in the next section), this value increases by 1. Also note that the current size of the topic increments the **Current** value on the **Essentials** blade each time the app adds a message to the topic/subscription.
+3. Run the program, and check the Azure portal: click the name of your topic in the namespace **Overview** window. The topic **Essentials** screen is displayed. In the subscription listed near the bottom of the window, notice that the **Message Count** value for the subscription should now be 10. Each time you run the sender application without retrieving the messages (as described in the next section), this value increases by 10. Also note that the current size of the topic increments the **Current** value in the **Essentials** window each time the app adds messages to the topic/subscription.
    
       ![Message size][topic-message]
 
@@ -328,7 +328,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     }    
     ```    
 
-Here is what your Program.cs file should look like:
+9. Here is what your Program.cs file should look like:
    
     ```csharp
     using System;
@@ -336,7 +336,6 @@ Here is what your Program.cs file should look like:
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
-
 
     namespace ConsoleApp4
     {
@@ -414,7 +413,7 @@ Here is what your Program.cs file should look like:
         }
     }
     ```
-4. Run the program, and check the portal again. Notice that the **Message Count** and **Current** values are now 0.
+10. Run the program, and check the portal again. Notice that the **Message Count** and **Current** values are now 0.
    
     ![Topic length][topic-message-receive]
 
