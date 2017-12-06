@@ -13,7 +13,7 @@ ms.author: cahann
 ---
 
 # Manage entities
-Entities describe information relevant to the [intent](luis-concept-intent.md), and may be essential for your app to perform its task. 
+[Entities](luis-concept-entity-types.md) are the important pieces of a command or question, and may be essential for your client app to perform its task. 
 
 You can add, edit, or delete entities in your app through the **Entities list** on the **Entities** page. LUIS offers two main types of entities: [prebuilt entities](luis-reference-prebuilt-entities.md), and your own custom entities.
 
