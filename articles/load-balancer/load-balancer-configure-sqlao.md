@@ -34,7 +34,7 @@ By using an internal load balancer on the listener, the SQL Server endpoint (for
 
 ![Internal load balancer SQL Server Always On](./media/load-balancer-configure-sqlao/sqlao1.png)
 
-## Add and internal load balancer to the service
+## Add an internal load balancer to the service
 
 1. In the following example, you configure a virtual network that contains a subnet called 'Subnet-1':
 
