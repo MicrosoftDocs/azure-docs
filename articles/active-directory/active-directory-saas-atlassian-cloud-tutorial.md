@@ -124,25 +124,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The Certificate download link](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_certificate.png) 
 
-6. Click **Save** button.
+6. Your Atlassian Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML Token Attributes configuration. By default User Identifier is mapped with user.userprincipalname. Please change this to map with **user.mail**. You can also choose any other appropriate value per your Organization setup but in most of the cases, email should work.
+
+	![The Certificate download link](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_attribute.png) 
+
+7. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_400.png)
 
-7. On the **Atlassian Cloud Configuration** section, click **Configure Atlassian Cloud** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+8. On the **Atlassian Cloud Configuration** section, click **Configure Atlassian Cloud** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Atlassian Cloud Configuration](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png) 
 
-8. To get SSO configured for your application, login to the Atlassian Portal using the administrator rights.
+9. To get SSO configured for your application, login to the Atlassian Portal using the administrator rights.
 
-9. Navigate to **Atlassian Site Administration** > **Organizations & Security**. If you haven't already, create and name your organization. Then in the left navigation, click **Domains**.
+10. Navigate to **Atlassian Site Administration** > **Organizations & Security**. If you haven't already, create and name your organization. Then in the left navigation, click **Domains**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_06.png)
 
-10. Select the way that you want to verify your domain - **DNS** or **HTTPS**.
+11. Select the way that you want to verify your domain - **DNS** or **HTTPS**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_17.png)
 
-11. For DNS verification, select **DNS** tab on the **Domains** page and perform follwing steps:
+12. For DNS verification, select **DNS** tab on the **Domains** page and perform follwing steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_18.png)
 
@@ -160,7 +164,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	e.	Save the record.
 
-12. Return to the **Domains page** in organization administration, and click the **Verify domain** button. Enter your domain name in the pop-up and click the **Verify domain** button.
+13. Return to the **Domains page** in organization administration, and click the **Verify domain** button. Enter your domain name in the pop-up and click the **Verify domain** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_19.png)	
 
@@ -169,7 +173,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_20.png)
 
-13.	For HTTPS verification, select the **HTTPS** tab on the **Domains** page and perform following steps:
+14.	For HTTPS verification, select the **HTTPS** tab on the **Domains** page and perform following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_21.png)
 
@@ -177,22 +181,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b.	Upload the HTML file to the root directory of your domain.
 
-14. Return to the **Domains** page in organization administration, and click the **Verify domain** button. Enter your **domain name** in the pop-up and click the **Verify domain** button.
+15. Return to the **Domains** page in organization administration, and click the **Verify domain** button. Enter your **domain name** in the pop-up and click the **Verify domain** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_22.png)
 
-15. If the verification process can locate the file you uploaded at the root directory, the status of the domain updates to **Verified**.
+16. If the verification process can locate the file you uploaded at the root directory, the status of the domain updates to **Verified**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_23.png)
 
 	> [!NOTE]
 	> For more information on domain verification, refer [Atlassian's domain verification documentation](https://confluence.atlassian.com/cloud/domain-verification-873871234.html)
 
-16. In the left navigation bar, click **SAML single sign-on**. If you haven't already, subscribe to Atlassian's Identity Manager.
+17. In the left navigation bar, click **SAML single sign-on**. If you haven't already, subscribe to Atlassian's Identity Manager.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
-17. In **Add SAML configuration** dialogue box, add the Identity provider settings as follows:
+18. In **Add SAML configuration** dialogue box, add the Identity provider settings as follows:
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
@@ -204,7 +208,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     
     d. Click **Save Configuration**.
      
-18. Update the Azure AD settings to make sure that you have setup the correct URLs.
+19. Update the Azure AD settings to make sure that you have setup the correct URLs.
   
     ![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
@@ -217,7 +221,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> Existing customers need to click on **Yes, update configuration** after updating the **SP Identity ID** and **SP Assertion Consumer Service URL** values in Azure Portal. New customers don't need to perform this step. 
 	
-19. In the Azure portal, click **Save** button.
+20. In the Azure portal, click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_400.png)
 
