@@ -30,13 +30,22 @@ The Content Moderator's video capability is available as a private preview **med
 
 [Submit](https://cognitive.uservoice.com/ "Contact Us") the following information to request access to the private preview:
 
-   1. Your Azure subscription ID
-   1. Your Azure Media Services account name
-   1. Your region
+   - Your Azure subscription ID
+   - Your Azure Media Services account name
+   - Your region
+
+## Get Azure Active Directory credentials
+
+   1. Read the [Azure Media Services portal article](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-get-started-with-aad) to learn how to use the Azure portal to get your Azure AD authentication credentials.
+   1. Read the [Azure Media Services .NET article](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-get-started-with-aad) to learn how to use your Azure Active Directory credentials with the .NET SDK.
+
+   > [!NOTE]
+   > The sample code in this quickstart uses the **service principal authentication** method described in both the articles.
+
 
 ## Scan your videos for possible adult and racy content
 
-After getting access to the Content Moderator media processor, use the following sample C# code to run a Content Moderator job. This code requires both the [Azure Media Services C# SDK](https://github.com/Azure/azure-sdk-for-media-services "Azure Media Services SDK") and [SDK Extensions packages](https://github.com/Azure/azure-sdk-for-media-services-extensions "SDK Extensions") (available on [NuGet](http://www.nuget.org/packages?q=Azure+Media+Services+.NET+SDK "Nuget")).
+After getting access to the Content Moderator media processor, use the following sample C# code to run a Content Moderator job. This code requires the **windowsazure.mediaservices** and **windowsazure.mediaservices.extensions** NuGet packages available on [NuGet](https://www.nuget.org/).
 
 
 	using System;
@@ -46,31 +55,53 @@ After getting access to the Content Moderator media processor, use the following
 	using System.IO;
 	using System.Threading;
 
-	namespace ContentModeratorAmsSample
+	namespace VideoModeratorQuickStart
 	{
-
-	class Program
-       {
+    class Program
+    {
         // declare constants and globals
         private static CloudMediaContext _context = null;
-        private static readonly string _accountName = { ACCOUNT_NAME };
-        private static readonly string _accountKey = { ACCOUNT_KEY };
-        private const string _mpName = "Azure Media Content Moderator";
-        private static readonly string _inputFile = { INPUT_FILE_PATH };
-        private static readonly string _outputFolder = { OUTPUT_FOLDER_PATH };
+    
+        // Azure Media Services authentication assuming Service Principal Authentication
+        private const string AZURE_AD_TENANT_NAME = "Your Azure AD Tenant Name";
+        private const string CLIENT_ID = "Your Client ID";
+        private const string CLIENT_SECRET = "Your Client Secret";
 
-        //a configuration file in the json format with the version number.
-        private static readonly string _moderatorConfiguration = { CONFIGURATION_FILE_PATH };
-        //Example file:
+        // REST API endpoint, example shown.      
+        private const string REST_API_ENDPOINT = "https://accountname.restv2.westcentralus.media.azure.net/API";
+
+        // Content Moderator Media Processor Name
+        private const string MEDIA_PROCESSOR = "Azure Media Content Moderator";
+
+        // Input (for example, test.mp4) and output files in the current directory of the executable
+        private const string INPUT_FILE = "INPUT VIDEO FILE";
+        private const string OUTPUT_FOLDER = "";
+
+        // A preset file with the version number, also in the current directory
+        private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
+        //Example file content:
         //        {
-        //             "version": "2.0",
+        //             "version": "2.0"
         //        }
 
         static void Main(string[] args)
         {
-            _context = new CloudMediaContext(_accountName, _accountKey);
-            string configuration = File.ReadAllText(_moderatorConfiguration);
-            RunContentModeratorJob(_inputFile, _outputFolder, configuration);
+           
+            // Read the preset settings
+            string configuration = File.ReadAllText(CONTENT_MODERATOR_PRESET_FILE);
+
+            // Get Azure AD credentials
+            var tokenCredentials = new AzureAdTokenCredentials(AZURE_AD_TENANT_NAME,
+                       new AzureAdClientSymmetricKey(CLIENT_ID, CLIENT_SECRET),
+                       AzureEnvironments.AzureCloudEnvironment);
+
+            // Initialize an Azure AD token
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+            // Create a media context
+            _context = new CloudMediaContext(new Uri(REST_API_ENDPOINT), tokenProvider);
+
+            RunContentModeratorJob(INPUT_FILE, OUTPUT_FOLDER, configuration);
         }
 
         static void RunContentModeratorJob(string inputFilePath, string output, string configuration)
@@ -79,17 +110,17 @@ After getting access to the Content Moderator media processor, use the following
             IAsset asset = _context.Assets.CreateFromFile(inputFilePath, AssetCreationOptions.None);
 
             // grab instance of Azure Media Content Moderator MP
-            IMediaProcessor mp = _context.MediaProcessors.GetLatestMediaProcessorByName(_mpName);
+            IMediaProcessor mp = _context.MediaProcessors.GetLatestMediaProcessorByName(MEDIA_PROCESSOR);
 
             // create Job with Content Moderator task
             IJob job = _context.Jobs.Create(String.Format("Content Moderator {0}",
                 Path.GetFileName(inputFilePath) + "_" + Guid.NewGuid()));
 
-            ITask contentModeratorTask = job.Tasks.AddNew("Adult classifier task",
-                mp,configuration,
+            ITask contentModeratorTask = job.Tasks.AddNew("Adult and racy classifier task",
+                mp, configuration,
                 TaskOptions.None);
             contentModeratorTask.InputAssets.Add(asset);
-            contentModeratorTask.OutputAssets.AddNew("Adult classifier output",
+            contentModeratorTask.OutputAssets.AddNew("Adult and racy classifier output",
             AssetCreationOptions.None);
 
             job.Submit();
@@ -171,16 +202,16 @@ After getting access to the Content Moderator media processor, use the following
         }
     }
 
-	}
+    }
 
 ## Analyze the JSON response
 
 After the Content Moderation job is completed, analyze the JSON response. It consists of these elements:
 
-1. Video summary
-1. **Shots** as "**fragments**", each including
-1. **Clips** as "**events**" with
-1. **Key frames** that include a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores (between 0 and 1).
+- Video summary
+- **Shots** as "**fragments**", each including
+- **Clips** as "**events**" with
+- **Key frames** that include a **reviewRecommended" (= true or false)"** flag based on **Adult** and **Racy** scores (between 0 and 1).
  
 > [!NOTE]
 > Location of a keyframe in seconds = timestamp/timescale

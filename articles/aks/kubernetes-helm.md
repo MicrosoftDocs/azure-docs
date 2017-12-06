@@ -1,24 +1,17 @@
 ---
-title: Deploy containers with Helm in Kubernetes on Azure | Microsoft Docs
+title: Deploy containers with Helm in Kubernetes on Azure
 description: Use the Helm packaging tool to deploy containers on a Kubernetes cluster in AKS
 services: container-service
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: ''
-tags: aks, azure-container-service
-keywords: ''
 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-
 ---
+
 # Use Helm with Azure Container Service (AKS)
 
 [Helm](https://github.com/kubernetes/helm/) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as *APT* and *Yum*, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.

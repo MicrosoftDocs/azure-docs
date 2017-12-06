@@ -4,7 +4,6 @@ description: Deploy and get started with Azure Container Instances
 services: container-instances
 author: seanmck
 manager: timlt
-editor: mmacy
 
 ms.service: container-instances
 ms.topic: quickstart

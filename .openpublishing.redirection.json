@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+        "source_path": "articles/media-services/media-services-licenses-partner-integration.md",
+        "redirect_url": "/azure/media-services/media-services-content-protection-overview",
+        "redirect_document_id": false 
+    },
+    {
         "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
         "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
         "redirect_document_id": false
@@ -11412,6 +11417,11 @@
         {
             "source_path": "articles/cloud-services/cloud-services-continuous-delivery-use-vso-git.md",
             "redirect_url": "/azure/cloud-services/cloud-services-dotnet-continuous-delivery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-nodejs-stage-application.md",
+            "redirect_url": "/azure/cloud-services/cloud-services-how-to-manage-portal",
             "redirect_document_id": false
         },
         {

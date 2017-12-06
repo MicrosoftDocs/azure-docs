@@ -1,5 +1,5 @@
 ---
-title: Web search endpoint | Microsoft Docs
+title: News search endpoints | Microsoft Docs
 description: Summary of the News search API endpoint.
 services: cognitive-services
 author: mikedodaro
@@ -11,24 +11,27 @@ ms.date: 11/28/2017
 ms.author: v-gedod
 ---
 
-# News Search endpoint
+# News Search endpoints
 The **News Search API** returns news articles, Web pages, images, videos, and [entities](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-entities-search/search-the-web). Entities contain summary information about a person, place, or topic. 
 ##Endpoints
 To get News search results using the Bing API, send a `GET` request to one of the following endpoints. The headers and URL parameters define further specifications.
 
-Endpoint 1:
-
+Endpoint 1 `GET`:
+```
 https://api.cognitive.microsoft.com/bing/v7.0/news  
+```
 Returns the top news items by category. You can specifically request the top business, sports, or entertainment articles using `category=business`, `category=sports`, or `category=entertainment`.  The `category` parameter can only be used with the `/news` URL. There are some formal requirements for specifying categories; refer to `category` in the [query parameter](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) documentation.
 
-Endpoint 2:
-
-https://api.cognitive.microsoft.com/bing/v7.0/news/search  
+Endpoint 2 `GET`:
+```
+https://api.cognitive.microsoft.com/bing/v7.0/news/search 
+``` 
 Returns news items based on the user's search query. If the search query is empty, the call returns the top news articles. The query `?q=""` option can also be used with the `/news` URL. 
 
-Endpoint 3:
-
-https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics  
+Endpoint 3 `GET`:
+```
+https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics 
+``` 
 Returns news topics that are currently trending on social networks. When the `/trendingtopics` option is included, Bing search ignores several other parameters, such as `freshness` and `?q=""`.
 
 For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing News search API v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-news-api-v7-reference) reference.

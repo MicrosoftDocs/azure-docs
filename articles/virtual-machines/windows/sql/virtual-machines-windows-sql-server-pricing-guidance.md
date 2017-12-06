@@ -98,8 +98,11 @@ To create a SQL Server 2016 Azure VM with one of these bring-your-own-license im
 - [SQL Server 2016 Enterprise Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)
 - [SQL Server 2016 Standard Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Let us know within 10 days how many SQL Server licenses you’ll use in Azure. The links to the previous images have instructions on how to do this.
+
+> [!NOTE]
+> It is not possible to change the licensing model of a pay-per-minute SQL Server VM to use your own license. In this case, you must create a new BYOL VM and migrate your databases to the new VM. 
 
 ## Avoid unnecessary costs
 
