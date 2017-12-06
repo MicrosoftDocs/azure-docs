@@ -137,7 +137,9 @@ Upload this new ZIP file to the Cloud Shell, using the same steps in [Upload the
 
 Then, in the Cloud Shell, deploy your uploaded ZIP file again.
 
+```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myUpdatedAppFiles.zip
+```
 
 Switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
