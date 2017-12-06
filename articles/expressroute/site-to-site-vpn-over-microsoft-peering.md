@@ -142,7 +142,7 @@ In the examples, the VPN gateway and the IPsec tunnel terminations are configure
 
 ### <a name="variables3"></a>3.1 Declare the variables
 
-In this example, the variable declarations correspond to the example network. When declaring variables, modify this to reflect your environment.
+In this example, the variable declarations correspond to the example network. When declaring variables, modify this section to reflect your environment.
 
 * The variable **localAddressPrefix** is an array of on-premises IP addresses to terminate the IPsec tunnels.
 * The **gatewaySku** determines the VPN throughput. For more information about gatewaySku and vpnType, see [VPN Gateway configuration settings](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). For pricing, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
@@ -366,7 +366,7 @@ When configuring your VPN device, you need the following items:
 * A shared key. This is the same shared key that you specify when creating your Site-to-Site VPN connection. The examples use a basic shared key. We recommend that you generate a more complex key to use.
 * The Public IP address of your VPN gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI. To find the Public IP address of your VPN gateway using the Azure portal, navigate to Virtual network gateways, then click the name of your gateway.
 
-Typically eBGP peers are directly connected (often over a WAN connection). However, when you are configuring eBGP over IPsec VPN tunnels via ExpressRoute Microsoft peering, there are multiple routing domains between the eBGP peers. Use the **ebgp-multihop** command to establish the eBGP neighbor relationship between the two not-directely connected peers. The integer that follows ebgp-multihop command specifies the TTL value in the BGP packets. The command **maximum-paths eibgp 2** enables load balancing of traffic between the two BGP paths.
+Typically eBGP peers are directly connected (often over a WAN connection). However, when you are configuring eBGP over IPsec VPN tunnels via ExpressRoute Microsoft peering, there are multiple routing domains between the eBGP peers. Use the **ebgp-multihop** command to establish the eBGP neighbor relationship between the two not-directly connected peers. The integer that follows ebgp-multihop command specifies the TTL value in the BGP packets. The command **maximum-paths eibgp 2** enables load balancing of traffic between the two BGP paths.
 
 ### <a name="cisco1"></a>Cisco CSR1000 example
 
