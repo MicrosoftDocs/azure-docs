@@ -59,7 +59,7 @@ $UserObjectId = Get-AzureADUser `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
-Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId
+Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 ```
 
 ## Task 4: Register the Azure AD Domain Services resource provider
