@@ -171,14 +171,14 @@ Once you have run the query you can begin to look at the data and analyze your r
 | [OPEN_rowgroup_rows_MAX] |As above |
 | [OPEN_rowgroup_rows_AVG] |As above |
 | [CLOSED_rowgroup_rows] |Look at the closed row group rows as a sanity check. |
-| [CLOSED_rowgroup_count] |The number of closed row groups should be low if any are seen at all. Closed row groups can be converted to compressed rowg roups using the ALTER INDEX ... REORGANISE command. However, this is not normally required. Closed groups are automatically converted to columnstore row groups by the background "tuple mover" process. |
+| [CLOSED_rowgroup_count] |The number of closed row groups should be low if any are seen at all. Closed row groups can be converted to compressed row groups using the ALTER INDEX ... REORGANISE command. However, this is not normally required. Closed groups are automatically converted to columnstore row groups by the background "tuple mover" process. |
 | [CLOSED_rowgroup_rows_MIN] |Closed row groups should have a very high fill rate. If the fill rate for a closed row group is low, then further analysis of the columnstore is required. |
 | [CLOSED_rowgroup_rows_MAX] |As above |
 | [CLOSED_rowgroup_rows_AVG] |As above |
 | [Rebuild_Index_SQL] |SQL to rebuild columnstore index for a table |
 
 ## Causes of poor columnstore index quality
-If you have identified tables with poor segment quality, you will want to identify the root cause.  Below are some other common causes of poor segment quaility:
+If you have identified tables with poor segment quality, you will want to identify the root cause.  Below are some other common causes of poor segment quality:
 
 1. Memory pressure when index was built
 2. High volume of DML operations
@@ -188,7 +188,7 @@ If you have identified tables with poor segment quality, you will want to identi
 These factors can cause a columnstore index to have significantly less than the optimal 1 million rows per row group.  They can also cause rows to go to the delta row group instead of a compressed row group. 
 
 ### Memory pressure when index was built
-The number of rows per compressed row group are directly related to the width of the row and the amount of memory available to process the row group.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Therefore, the best practice is to give the session which is writing to your columnstore index tables access to as much memory as possible.  Since there is a trade-off between memory and concurrency, the guidance on the right memory allocation depends on the data in each row of your table, the amount of DWU you've allocated to your system, and the amount of concurrency slots you can give to the session which is writing data to your table.  As a best practice, we recommend starting with xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
+The number of rows per compressed row group are directly related to the width of the row and the amount of memory available to process the row group.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Therefore, the best practice is to give the session which is writing to your columnstore index tables access to as much memory as possible.  Since there is a trade-off between memory and concurrency, the guidance on the right memory allocation depends on the data in each row of your table, the data warehouse units allocated to your system, and the number of concurrency slots you can give to the session which is writing data to your table.  As a best practice, we recommend starting with xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
 
 ### High volume of DML operations
 A high volume of DML operations that update and delete rows can introduce inefficiency into the columnstore. This is especially true when the majority of the rows in a row group are modified.
@@ -244,7 +244,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation][Columnstore Indexes Defragmentation] and the syntax topic [ALTER INDEX][ALTER INDEX].
+Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation][Columnstore Indexes Defragmentation], and [ALTER INDEX][ALTER INDEX].
 
 ### Step 3: Verify clustered columnstore segment quality has improved
 Rerun the query which identified table with poor segment quality and verify segment quality has improved.  If segment quality did not improve, it could be that the rows in your table are extra wide.  Consider using a higher resource class or DWU when rebuilding your indexes.
