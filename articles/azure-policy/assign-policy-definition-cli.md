@@ -16,7 +16,6 @@ ms.custom: mvc
 The first step in understanding compliance in Azure is knowing where you stand with your own current resources. This quickstart steps you through the process of creating a policy assignment to identify virtual machines that are not using managed disks.
 
 At the end of this process, you will have successfully identified what virtual machines are not using managed disks, and are therefore *non-compliant*.
-.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 

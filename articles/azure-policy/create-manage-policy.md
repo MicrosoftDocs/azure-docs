@@ -74,9 +74,9 @@ Now that we've assigned the policy definition, we're going to create a new polic
       - The policy rules/conditions, in this case – VM SKU size equal to G series
       - The policy effect, in this case – **Deny**.
 
-   Here's what the json should look like
+    Here's what the json should look like
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -96,11 +96,9 @@ Now that we've assigned the policy definition, we're going to create a new polic
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   To view samples of json code, look at this article  - [Templates for Azure Policy](json-samples.md)
+    To view samples of json code, read the [Templates for Azure Policy](json-samples.md) article.
 
 4. Select **Save**.
 
