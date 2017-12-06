@@ -18,7 +18,7 @@ ms.author: rwike77
 
 ---
 # Your Service Fabric application and next steps
-Your Azure Service Fabric application has been created. This article describes the makeup of your project and some potential next steps.
+Your Azure Service Fabric application has been created. This article describes the makeup of your project, some tutorials to try out, more information, and some potential next steps.
 
 ## The application project
 Every new application includes an application project. There may be one or two additional projects, depending on the type of service chosen.
@@ -29,29 +29,27 @@ The application project consists of:
 * Three publish profiles (1-Node Local, 5-Node Local, and Cloud) that you can use to maintain preferences for working with different environments--such as preferences related to a cluster endpoint and whether to perform upgrade deployments by default.
 * Three application parameter files (same as above) that you can use to maintain environment-specific application configurations, such as the number of partitions to create for a service. Learn how to [configure your application for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
 * A deployment script that you can use to deploy your application from the command line or as part of an automated continuous integration and deployment pipeline. Learn more about [deploying applications using PowerShell](service-fabric-deploy-remove-applications.md)
-* The application manifest, which describes the application. You can find the manifest under the ApplicationPackageRoot folder. Learn more about [application and service manifiests](service-fabric-application-model.md)
+* The application manifest, which describes the application. You can find the manifest under the ApplicationPackageRoot folder. Learn more about [application and service manifests](service-fabric-application-model.md)
 
-## Stateless service
-When you add a new stateless service, Visual Studio adds a service project to your solution that includes a type descended from `StatelessService`. The service increments a local variable in a counter.
+## Learn more about the different programming models
+Service Fabric offers multiple ways to write and manage your services. Services can choose to use the Service Fabric APIs to take full advantage of the platform's features and application frameworks. Services can also be any compiled executable program written in any language or code running in a guest executable or container hosted on a Service Fabric cluster.  Here's some overview information on [stateless and stateful Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [containers](service-fabric-containers-overview.md), [guest executables](service-fabric-deploy-existing-app.md), and [stateless and stateful ASP.NET Core services](service-fabric-reliable-services-communication-aspnetcore.md).
 
-## Stateful service
-When you add a new stateful service, Visual Studio adds a service project to your solution that includes a type descended from `StatefulService`. The service increments a counter in its `RunAsync` method and stores the result in a `ReliableDictionary`.
+## Get started coding
+Try out the .NET application tutorial.  Learn how to [build an app](service-fabric-tutorial-create-dotnet-app.md) with an ASP.NET core front-end and a stateful back-end, [deploy the application](service-fabric-tutorial-deploy-app-to-party-cluster.md) to a cluster, [configure CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), and [set up monitoring and diagnostics](service-fabric-tutorial-monitoring-aspnet.md).
 
-## Actor service
-When you add a new reliable actor, Visual Studio adds two projects to your solution: an actor project and an interface project.
+Or, try out one of the following walk-throughs and create your first...
+- [C# application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) 
+- [C# Reliable Services service on Windows](service-fabric-reliable-services-quick-start.md) 
+- [C# Reliable Actors service on Windows](service-fabric-reliable-actors-get-started.md) 
+- [Guest executable service on Windows](quickstart-guest-app.md) 
+- [Windows container application](service-fabric-get-started-containers.md) 
 
-The actor project provides methods for setting and getting the value of a counter that is reliably persisted within the actor's state. The interface project provides an interface that other services can use to invoke the actor.
 
-## Container
+## Learn about service communication
 
-## Stateless ASP.NET Core
-The stateless Web API project provides a basic web service that you can use to open your application to external clients. For more information about how the project structured, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md).
+## Learn about configuring security
 
-## Stateful ASP.NET core
-The Service Fabric SDK provides the same set of ASP.NET Core templates that are available for standalone ASP.NET Core projects: empty, [Web API][aspnet-webapi], and [Web Application][aspnet-webapp].
-
-## Guest executable
-A Service Fabric 'guest' is a service that is not built with the platform's programming models. You can package the binaries for a guest either [directly in the application package](service-fabric-deploy-existing-app.md) or [through a container image](service-fabric-deploy-container.md). In both cases, Visual Studio creates the necessary artifacts in the **ApplicationPackageRoot** folder of the application project. Visual Studio will not create a new service project because the code already exists elsewhere. If you would like to manage your guest projects alongside the Service Fabric application project, you can add them to the same Visual Studio solution.
+## Learn about the application life-cycle
 
 ## Next steps
 ### Create an Azure cluster
