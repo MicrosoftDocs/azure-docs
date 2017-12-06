@@ -174,7 +174,7 @@ See the language-specific example that reads a single document:
 
 ### Input - C# example
 
-The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that retrieves a single document from a specific database and collection. First, **id** and **maker** values for a **CarReview** instance are passed to a queue. 
+The following example shows a [precompiled C# function](functions-dotnet-class-library.md) that retrieves a single document from a specific database and collection. First, `Id` and `Maker` values for a `CarReview` instance are passed to a queue. 
 
  ```cs
     public class CarReview
@@ -188,7 +188,7 @@ The following example shows a [precompiled C# function](functions-dotnet-class-l
     }
  ```
 
-Then by **id** and **maker** from the queue message, the Cosmos DB binding retrieves the whole document stored in the database.
+The Cosmos DB binding uses `Id` and `Maker` from the queue message to retrieve the document from the database.
 
 ```cs
     using Microsoft.Azure.WebJobs;
@@ -202,10 +202,10 @@ Then by **id** and **maker** from the queue message, the Cosmos DB binding retri
             [FunctionName("SingleEntry")]
             public static void Run(
                 [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
-                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] object document,
+                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
                 TraceWriter log)
             {
-                log.Info( $"Selected Review - {document}");
+                log.Info( $"Selected Review - {document?.Review}");
             }
         }
     }
