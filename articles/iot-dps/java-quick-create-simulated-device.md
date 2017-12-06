@@ -25,7 +25,7 @@ These steps show how to create a simulated device on your development machine ru
 Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 > [!NOTE]
-> Be sure to note your _Id Scope_ and _Provisioning Service Global Endpoint_ for use later in this quick start.
+> Be sure to note your _Id Scope_ and _Provisioning Service Global Endpoint_ for use later in this Quickstart.
 >     ![DPS information][./media/java-quick-create-simulated-device/extract-dps-endpoints.png]
 
 <a id="setupdevbox"></a>
@@ -33,30 +33,38 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine.
 
-2. Download and install [Maven](https://maven.apache.org/install.html).
+1. Download and install [Maven](https://maven.apache.org/install.html).
 
-3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
+1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-4. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
+1. Open a command prompt. Clone the GitHub repo for device simulation code sample.
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-5. Create a folder in your local copy of this GitHub repo for CMake build process. 
+1. Run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
+
+    ```cmd/sh
+    .\azure-iot-sdk-java\provisioning\provisioning-tools\tpm-simulator\Simulator.exe
+    ```
+
+    ![TPM Simulator](./media/java-quick-create-simulated-device/simulator.png)
+
+1. In a separate command prompt, navigate to the root and build the project. 
 
     ```cmd/sh
     cd azure-iot-sdk-java
     mvn install -DskipTests=true
     ```
 
-1. Navigate to the sample root.
+1. Navigate to the sample folder.
 
     ```cmd/sh
     cd provisioning/provisioning-samples/provisioning-tpm-sample
     ```
 
-1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted from before.  
+1. Edit `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _Id Scope_ and _Provisioning Service Global Endpoint_ as noted before.  
 
     ```java
     private static final String idScope = "[Your ID scope here]";
@@ -67,17 +75,10 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     > [!NOTE]
     > You can choose one of available protocols [HTTPS, AMQP, MQTT, AMQP_WS, MQTT_WS] for registration.
 
-7. In a separate command prompt, navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
+1. Build the project. Navigate to the target folder and exeute the created jar file.
 
     ```cmd/sh
-    .\azure-iot-sdk-java\provisioning\provisioning-tools\tpm-simulator\Simulator.exe
-    ```
-
-    ![TPM Simulator](./media/java-quick-create-simulated-device/simulator.png)
-
-1. Navigate to the target root and exeute the created jar file.
-
-    ```cmd/sh
+    mvn clean install
     cd target
     java -jar ./provisioning-tpm-sample-{version}-with-deps.jar
     ```
@@ -89,11 +90,11 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
 ## Create a device enrollment entry in the Device Provisioning Service
 
-3. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-4. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
-5. Under the **Add enrollment list entry**, enter the following information:
+1. Under the **Add enrollment list entry**, enter the following information:
     - Select **TPM** as the identity attestation *Mechanism*.
     - Enter the *Registration ID* and *Endorsement key* for your TPM device as noted previously. 
     - Select an IoT hub linked with your provisioning service.
@@ -104,7 +105,6 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     ![Enter device enrollment information in the portal blade](./media/java-quick-create-simulated-device/enter-device-enrollment.png)  
 
    On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
-
 
 <a id="firstbootsequence"></a>
 ## Simulate first boot sequence for the device
