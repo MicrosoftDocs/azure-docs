@@ -14,5 +14,5 @@
   href: ./storm/apache-storm-overview.md
 - name: R Server
   href: ./r-server/r-server-overview.md
-- name: Enterprise Readiness
+- name: Enterprise readiness
   href: ./domain-joined/apache-domain-joined-introduction.md

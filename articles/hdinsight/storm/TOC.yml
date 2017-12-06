@@ -197,24 +197,18 @@
       - name: Enable heap dumps for Hadoop services
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
-- name: Enterprise Readiness
+- name: Enterprise readiness
   items:
   - name: Securing data
     href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     maintainContext: true
   - name: Network access
     items:
-    - name: HDInsight in Azure VNET
+    - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md
       maintainContext: true
-    - name: Connect HDInsight with on-prem network
+    - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
-      maintainContext: true
-    - name: Create HBase cluster in Azure VNET
-      href: ../hbase/apache-hbase-provision-vnet.md
-      maintainContext: true
-    - name: HBase cluster replication in Azure VNET
-      href: ../hbase/apache-hbase-replication.md
       maintainContext: true
   - name: Monitoring using OMS
     items:

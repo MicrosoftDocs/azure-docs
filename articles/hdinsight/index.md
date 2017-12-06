@@ -16,9 +16,9 @@ ms.author: carolz
 
 #Azure HDInsight Documentation
 
-Learn how to use Azure HDInsight to analyze streaming or historical data. Tutorials and other documentation show you how to create clusters, process and analyze big data, and develop solutions using the most popular open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm, R and more. 
+Learn how to use Azure HDInsight to analyze streaming or historical data. Tutorials and other documentation show you how to create clusters, process and analyze big data, and develop solutions using the most popular open-source frameworks, like Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more 
 
-Azure HDInsight is a fully managed, full spectrum open source analytics service for enterprises. HDInsight is a cloud service that makes it easy, fast, and cost-effective to process massive amounts of data. It HDInsight also enables a broad range of scenarios such as ETL, data warehousing, Machine Learning, and IoT.  
+Azure HDInsight is a fully managed, full-spectrum, open-source analytics service for enterprises. HDInsight is a cloud service that makes it easy, fast, and cost-effective to process massive amounts of data. HDInsight also supports a broad range of scenarios, like extract, transform, and load (ETL); data warehousing; machine learning; and IoT.  
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,7 +86,7 @@ Azure HDInsight is a fully managed, full spectrum open source analytics service 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Kafka on HDInsight</h3>
+                        <h3>Get started with Kafka on HDInsight</h3>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@ Azure HDInsight is a fully managed, full spectrum open source analytics service 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Storm on HDInsight</h3>
+                        <h3>Get started with Storm on HDInsight</h3>
                     </div>
                 </div>
             </div>
@@ -122,7 +122,7 @@ Azure HDInsight is a fully managed, full spectrum open source analytics service 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with HDInsight using an HBase cluster</h3>
+                        <h3>Get started with HBase on HDInsight</h3>
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@ Azure HDInsight is a fully managed, full spectrum open source analytics service 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with R Server on HDInsight</h3>
+                        <h3>Get started with R Server on HDInsight</h3>
                     </div>
                 </div>
             </div>
@@ -158,7 +158,7 @@ Azure HDInsight is a fully managed, full spectrum open source analytics service 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Install 3rd party applications on HDInsight</h3>
+                        <h3>Install third-party applications on HDInsight</h3>
                     </div>
                 </div>
             </div>
@@ -199,7 +199,7 @@ Azure HDInsight is a fully managed, full spectrum open source analytics service 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure HDInsight Video Library</h3>
+                        <h3>Azure HDInsight video library</h3>
                     </div>
                 </div>
             </div>

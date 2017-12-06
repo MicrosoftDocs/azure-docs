@@ -187,22 +187,22 @@
       - name: Optimize Hive queries
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
-- name: Enterprise Readiness
+- name: Enterprise readiness
   items:
   - name: Securing data
     href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     maintainContext: true
   - name: Network access
     items:
-    - name: HDInsight in Azure VNET
+    - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md
       maintainContext: true
-    - name: Connect HDInsight with on-prem network
+    - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-    - name: Create HBase cluster in Azure VNET
+    - name: Create HBase cluster in Azure VNet
       href: apache-hbase-provision-vnet.md
-    - name: HBase cluster replication in Azure VNET
+    - name: HBase cluster replication in Azure VNet
       href: apache-hbase-replication.md
   - name: Monitoring using OMS
     items:
