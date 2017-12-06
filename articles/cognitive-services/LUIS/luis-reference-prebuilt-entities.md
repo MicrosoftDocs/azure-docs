@@ -21,8 +21,8 @@ Language Understanding (LUIS) includes a set of prebuilt entities. When a prebui
 
 Pre-built entity   |   ```En-us```   |   ```fr-FR```   |   ```it-IT```   |   ```es-ES```   |   ```zh-CN```   |   ```de-DE```   |   ```pt-BR```   |   ```ja-JP```   |   ```ko-kr```
 ------|:------:|------|------|------|------|------|------|------|------|
-DatetimeV2   |    ✔   |   ✔   |   -   |   ✔   |    ✔   |   -   |   -   |   -   |   -   |
- Datetime   |    `*`   |    `*`   |    `*`   |    `*`   |    `*`   |    `*`   |    `*`   |    `*`   |   -   |
+DatetimeV2   |    ✔   |   ✔   |   -   |   ✔   |    ✔   |   `*`   |   `*`   |   -   |   -   |
+ Datetime   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |    `X`   |   -   |
 Number   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
 Ordinal   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
 Percentage   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
@@ -30,13 +30,15 @@ Temperature   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   
 Dimension   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
 Money   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
 Age   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |    ✔   |   -   |
-Geography   |    `*`   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
-Encyclopedia   |    `*`   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+Geography   |    `X`   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
+Encyclopedia   |    `X`   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 URL   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 Email   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 Phone number   |    ✔   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |   -   |
 
-`*` = See notes on [Deprecated prebuilt entities](#deprecated-prebuilt-entities)
+`*` = coming soon
+
+`X` = See notes on [Deprecated prebuilt entities](#deprecated-prebuilt-entities)
 
 ## Deprecated prebuilt entities
 
