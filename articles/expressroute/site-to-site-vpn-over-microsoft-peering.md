@@ -28,7 +28,7 @@ You can leverage Microsoft peering to establish a Site-to-Site IPsec/IKE VPN tun
 
   ![connectivity overview](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 
->[!NOTE]]
+>[!NOTE]
 >When you set up Site-to-Site VPN over Microsoft Peering, you are charged for the VPN gateway and VPN egress. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
@@ -38,8 +38,6 @@ For high availability and redundancy, you can configure multiple tunnels over th
   ![high availability options](./media/site-to-site-vpn-over-microsoft-peering/HighAvailability.png)
 
 VPN tunnels over Microsoft peering can be terminated either using VPN gateway, or using an appropriate Network Virtual Appliance (NVA) available through Azure Marketplace. You can exchange routes statically or dynamically over the encrypted tunnels without exposing the route exchange to the underlying Microsoft peering. In the examples in this article, BGP (different from the BGP session used to create the Microsoft peering) is used to dynamically exchange prefixes over the encrypted tunnels.
-
-
 
 >[!IMPORTANT]
 >For the on-premises side, typically Microsoft peering is terminated on the DMZ and private peering is terminated on the core network zone. The two zones would be segregated using firewalls. If you are configuring Microsoft peering exclusively for enabling secure tunneling over ExpressRoute, remember to filter through only the public IPs of interest that are getting advertised via Microsoft peering.
