@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 12/06/2017
 ms.author: glenga
 
 ---
@@ -23,11 +23,11 @@ This topic describes how to deploy your function app project files to Azure from
 This .zip file deployment uses the same Kudu service that powers continuous integration-based deployments, which includes the following functionality:
 
 + Deletion of files leftover from a previous deployment.
-+ [Deployment customization](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), including running deployment scripts. 
++ [Deployment customization](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), including running deployment scripts.
 + Deployment logs.
 + Synchronizing function triggers in a [Consumption plan](functions-scale.md) function app.
 
- For more information, see the [.zip push deployment reference topic]. 
+For more information, see the [.zip push deployment reference topic]. 
 
 ## Requirements of the deployment .zip file 
 The .zip file you use for push deployment must contains all of the project files in your function app, including your function code. 
@@ -70,6 +70,7 @@ When you are using the Azure CLI on your local computer, `<zip_file_path>` is th
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]
 
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
