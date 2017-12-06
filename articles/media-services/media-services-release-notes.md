@@ -498,7 +498,7 @@ Fixes for issues found in the November 2012 SDK:
 * IAssetFile.UploadAsync: Fixed an issue where no more than five files could be uploaded simultaneously.
 * IAssetFile.UploadProgressChanged: This event is now provided by the SDK.
 * IAssetFile.DownloadAsync( string, BlobTransferClient, ILocator, CancellationToken): This method overload is now provided.
-* IAssetFile.DownloadAsync: Fixed an issue were no more than five files could be downloaded simultaneously.
+* IAssetFile.DownloadAsync: Fixed an issue where no more than five files could be downloaded simultaneously.
 * IAssetFile.Delete(): Fixed an issue where calling delete may throw an exception if no file was uploaded for the IAssetFile.
 * Jobs: Fixed an issue where chaining an "MP4 to Smooth Streams task" with a "PlayReady Protection Task" using a job template would not create any tasks at all.
 * EncryptionUtils.GetCertificateFromStore(): This method no longer throws a null reference exception due to a failure finding the certificate based on certificate configuration issues.

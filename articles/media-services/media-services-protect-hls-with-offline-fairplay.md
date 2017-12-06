@@ -222,7 +222,7 @@ A sample boot.xml file:
 </HLSMoviePackage>
 ```
 
-# Summary
+## Summary
 In this document, we have provided the detailed steps and info for implementing FPS offline mode, including:
 1. Azure Media Services content protection configuration via AMS .NET API. This configures dynamic FairPlay encryption and FairPlay license delivery in AMS.
 2. iOS player based on the sample from Apple FPS Server SDK. This would set up an iOS player that can play FPS content either in online streaming mode or offline mode.
