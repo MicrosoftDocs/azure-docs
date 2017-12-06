@@ -25,10 +25,11 @@ This article reviews the high level concepts for managing device enrollments for
 ## Prerequisites
 * Connection string from a Device Provisioning Service instance
 * [**TPM**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
-    * Registration ID and TPM Endorsement Key from a physical device or from TPM Simulator
+    * Individual enrollment: Registration ID and TPM Endorsement Key from a physical device or from TPM Simulator.
+    * Enrollment group does not apply to TPM attestation.
 * [**X.509**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
-    * Individual enrollment: Client certificate from physical device or from DICE Emulator
-    * Enrollment Group: Signing certificate, which can be the [root certificate](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) or the [intermediate certificate](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), used to produce device certificate on physical device.  It can be generated from DICE Emulator.
+    * Individual enrollment: Client certificate from physical device or from DICE Emulator.
+    * Enrollment group: Signing certificate, which can be the [root certificate](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) or the [intermediate certificate](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), used to produce device certificate on physical device.  It can be generated from DICE Emulator.
 
 ## Create a device enrollment
 
@@ -74,7 +75,7 @@ After you have successfully created an enrollment, the Device Provisioning Servi
 
 You can perform bulk operation to create, update or remove multiple individual enrollments following this workflow:
 
-1. Create a variable that contains multiple ```IndividualEnrollment```.  The exact implementation of this differs by language.  Please review the bulk operation sample on GitHub for details.
+1. Create a variable that contains multiple ```IndividualEnrollment```.  Implementation of this is different for every language.  Please review the bulk operation sample on GitHub for details.
 2. Call ```runBulkOperation``` with a ```BulkOperationMode``` for desired operation and your variable for individual enrollments. Four modes are supported: create, update, updateIfMatchEtag, and delete.
 
 After you have successfully performed an operation, the Device Provisioning Service would return a bulk operation result.
