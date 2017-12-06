@@ -66,13 +66,13 @@ This section walks you through setting the Jenkins URL.
 
     ![Manage Jenkins plugins option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-configure-system.png)
 
-1. Under **Jenkins Location**, enter the URL of your Jenkins Master.
+1. Under **Jenkins Location**, enter the URL of your Jenkins server.
 
 1. Select **Save**.
 
 ## 4. Update Jenkins to allow Java Network Launch Protocol (JNLP)
 
-The slave, or agent, connects with the Jenkins Master via the Java Network Launch Protocol (JNLP), JNLP need to be allowed. 
+The Jenkins agent connects with the Jenkins server via the Java Network Launch Protocol (JNLP). This section explains how to specify a port for JNLP agents to use when communicating with the Jenkins server.
 
 1. In the Jenkins dashboard, select **Manage Jenkins**.
 
