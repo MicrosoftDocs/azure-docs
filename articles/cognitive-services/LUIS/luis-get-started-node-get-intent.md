@@ -56,4 +56,4 @@ You can use Node.js to access the same results you saw in the browser window in 
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [LUIS Endpoint API reference](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)
+> [Integrate LUIS with a bot](luis-nodejs-tutorial-build-bot-framework-sample.md)

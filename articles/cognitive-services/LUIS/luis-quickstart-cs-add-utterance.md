@@ -276,7 +276,6 @@ Requested training status.
 
  
 > [!div class="nextstepaction"] 
-> [Integrate LUIS with a bot](luis-nodejs-tutorial-build-bot-framework-sample.md)
+> [Build a LUIS app programmatically](luis-tutorial-node-import-utterances-csv.md) 
 
-
-[authoring-apis]:https://aka.ms/luis-authoring-api
+> [Authoring APIs](https://aka.ms/luis-authoring-api)
