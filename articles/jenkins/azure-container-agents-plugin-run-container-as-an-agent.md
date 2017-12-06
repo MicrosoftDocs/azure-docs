@@ -305,7 +305,7 @@ Once the build starts, a barber pole progress bar indicates that the build is ru
 
     The full log displays more verbose build information:
 
-    ![The full log displays more verbose build information.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-full.png)
+    ![The full log displays more verbose build information.](./media/azure-container-agents-plugin-run-container-as-an-agent/build-console-log-full.png)
     
 1. To view the build's disposition, scroll to the bottom of the log.
 
