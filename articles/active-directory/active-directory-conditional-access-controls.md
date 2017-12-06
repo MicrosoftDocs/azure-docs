@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -109,7 +109,7 @@ Providers currently offering a compatible service include:
 
 - RSA
 
-- Trusona
+- [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 For more information on those services, contact the providers directly.
 

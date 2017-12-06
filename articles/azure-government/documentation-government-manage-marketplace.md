@@ -20,14 +20,16 @@ ms.author: gsacavdm
 # Azure Government Marketplace
 The Azure Government Marketplace helps connect government agencies and partners with independent software vendors (ISVs) and start-ups that are offering their solutions in Azure Government.
 
+> [!NOTE]
+> For information on making your images available in Azure Government, see the [partner onboarding guidelines](documentation-government-manage-marketplace-partners.md).
+
 ## Variations
 The Azure Government Marketplace differs from the Azure Marketplace in the following ways:
 * Only Bring Your Own License (BYOL) images are available.
 * A different set of images is available. You can find the list of available images [here](../azure-government-image-gallery.md) 
 
 > [!NOTE]
-> For information on making your images available in Azure Government, see the [partner onboarding guidelines](documentation-government-manage-marketplace-partners.md).
-
+> Red Hat Enterprise Linux is available in Azure Government with Azure Marketplace billing. This is a special case exception to the above statement about license options in Azure Government.
 
 ## Enable the Azure Government Marketplace
 If your subscription is under an Enterprise Agreement (EA), the Azure Government Marketplace must be enabled before you can deploy a Marketplace solution to your subscription.
@@ -41,15 +43,19 @@ If your subscription is under an Enterprise Agreement (EA), the Azure Government
 1. **Log in** to the [Azure Government portal](https://portal.azure.us).
 
 1. Click on **+New**.
+
    ![alt text](./media/government-manage-marketplace-launch.png)  
 
 1. Browse through different products to find the right one. The marketplace publisher provides a list of certifications as part of the product description to help you make the right choice. 
+
    ![alt text](./media/government-manage-marketplace-service.png)
 
 1. Choose an product\image and click **Create**.
+
    ![alt text](./media/government-manage-marketplace-image.png)
 
 1. Enter the required parameters for deployment.
+
    > [!NOTE]
    > In the Location dropdown, only Azure Government locations are visible
   

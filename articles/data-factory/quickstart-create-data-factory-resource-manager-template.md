@@ -423,7 +423,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
     ```
 
 ## Monitor the pipeline
-1. After logging in to the [Azure portal](https://portal.azure.com/), Click **More services**, search with the keyword such as `data fa`, and select **Data factories**.
+1. After logging in to the [Azure portal](https://portal.azure.com/), Click **More services**, search with the keyword such as **data fa**, and select **Data factories**.
 
     ![Browse data factories menu](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. In the **Data Factories** page, click the data factory you created. If needed, filter the list with the name of your data factory.  

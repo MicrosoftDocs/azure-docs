@@ -55,7 +55,7 @@ The following properties are supported for Azure Data Lake Store linked service:
 Refer to the following sections on more properties and JSON samples for different authentication types respectively:
 
 - [Using service principal authentication](#using-service-principal-authentication)
-- [Using managed service identity authentication](#using-managed-service-identitiy-authentication)
+- [Using managed service identity authentication](#using-managed-service-identity-authentication)
 
 ### Using service principal authentication
 

@@ -2,22 +2,14 @@
 title: Quickstart - Create a private Docker registry in Azure with the Azure CLI
 description: Quickly learn to create a private Docker container registry with the Azure CLI.
 services: container-registry
-documentationcenter: ''
 author: neilpeterson
 manager: timlt
-editor: tysonn
-tags: ''
-keywords: ''
 
-ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
-ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: quicksart
 ms.date: 10/16/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ---
 
 # Create a container registry using the Azure CLI

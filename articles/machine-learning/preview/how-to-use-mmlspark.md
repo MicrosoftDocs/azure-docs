@@ -65,7 +65,7 @@ Open CLI window from Azure Machine Learning Workbench by going to "File" Menu an
 In CLI Window, run following commands:
 
 ```
-az ml computetarget attach --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+az ml computetarget attach cluster --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> 
 ```
 
 ```

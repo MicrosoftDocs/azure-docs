@@ -12,11 +12,11 @@ F-series VMs are an excellent choice for workloads that demand faster CPUs but d
 
 The Fs-series provides all the advantages of the F-series, in addition to Premium storage.
 
-## Fsv2-series
+## Fsv2-series*
 
 ACU: 195 - 210
 
-| Size             | vCPU's | Memory: GiB | Local SSD: GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (Mbps) |
+| Size             | vCPU's | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Moderate                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Moderate                                       |
@@ -25,7 +25,7 @@ ACU: 195 - 210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extremely High                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extremely High                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremely High                                 |
-
+*Fsv2-series VM’s feature Intel® Hyper-Threading Technology
 
 ## Fs-series*
 
