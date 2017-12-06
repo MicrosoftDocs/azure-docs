@@ -78,8 +78,8 @@ There are [two authentication methods](sql-database-control-access.md#authentica
 
 The traditional windows authentication is not supported. Azure Active Directory (AD) is a centralized identity and access management service. With this you can very conveniently provide a Single Sign-on Access (SSO) to all the personnel in your organization. What this means is that the credentials are shared across all Azure services for simpler authentication. AAD supports [MFA (Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) and a with a [few clicks](../active-directory/connect/active-directory-aadconnect-get-started-express.md) AAD can be integrated with Windows Server Active Directory. SQL Authentication works exactly like you’ve been using it in the past. You provide a username/password and you can authenticate users to any database on a given logical server. This also allows SQL Database and SQL Data Warehouse to offer multi-factor authentication and guest user accounts within an Azure AD domain. If you already have an Active Directory on-premises, you can federate the directory with Azure Active Directory to extend your directory to Azure.
 
-|If you...|SQL Database / SQL Data Warehouse|
-|---|:---:|
+|**If you...**|**SQL Database / SQL Data Warehouse**|
+|---|---|
 |Prefer not to use Azure Active Directory (AD) in Azure|Use [SQL authentication](sql-database-security-overview.md)|
 |Used AD on SQL Server on-premises|[Federate AD with Azure AD](../active-directory/connect/active-directory-aadconnect.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
 |Need to enforce multi-factor authentication (MFA)|Require MFA as a policy through [Microsoft Conditional Access](sql-database-conditional-access.md), and use [Azure AD Universal authentication with MFA support](sql-database-ssms-mfa-authentication.md).|
@@ -128,13 +128,13 @@ Encryption provides a strong mechanism to protect and secure your sensitive data
 In SQL Database, by default, your data at rest in the data and log files on the storage subsystem is completely and always encrypted via [Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Your backups are also encrypted. With TDE there are no changes required on your application side that is accessing this data. The encryption and decryption happen transparently; hence the name. 
 For protecting your sensitive data in-flight and at rest, SQL Database provides a feature called [Always Encrypted (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE is a form of client-side encryption which encrypts sensitive columns in your database (so they are in ciphertext to database administrators and unauthorized users). The server receives the encrypted data to begin with. The key for Always Encrypted is also stored on the client side, so only authorized clients can decrypt the sensitive columns. The server and data administrators cannot see the sensitive data since the encryption keys are stored on the client. AE encrypts sensitive columns in the table end to end, from unauthorized clients to the physical disk. AE supports equality comparisons today, so DBAs can continue to query encrypted columns as part of their SQL commands. Always Encrypted can be used with a variety of key store options, such as [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md), Windows certificate store, and local hardware security modules.
 
-|Characteristics|Always Encrypted|Transparent Data Encryption|
-|---|:---:|
-|Encryption span|End-to-end|At-rest data|
-|Database server can access sensitive data|No|Yes, since encryption is for the data at rest|
-|Allowed T-SQL operations|Equality comparison|All T-SQL surface area is available|
-|App changes required to use the feature|Minimal|Very Minimal|
-|Encryption granularity|Column level|Database level|
+|**Characteristics**|**Always Encrypted**|**Transparent Data Encryption**|
+|---|---|---|
+|**Encryption span**|End-to-end|At-rest data|
+|**Database server can access sensitive data**|No|Yes, since encryption is for the data at rest|
+|**Allowed T-SQL operations**|Equality comparison|All T-SQL surface area is available|
+|**App changes required to use the feature**|Minimal|Very Minimal|
+|**Encryption granularity**|Column level|Database level|
 ||||
 
 ### How can I limit access to sensitive data in my database?
@@ -229,7 +229,7 @@ For a comprehensive set of recommendations for tuning performance issues, see: [
 ### How do I ensure I am using the appropriate service tier and performance level?
 SQL Database offers various service tiers Basic, Standard, and Premium. Each service tier you get a guaranteed predictable performance tied to that service level. Depending on your workload, you may have bursts of activity where your resource utilization might hit the ceiling of the current performance level that you are in. In such cases, it is useful to first start by evaluating whether any tuning can help (for example, adding or altering an index etc.). If you still encounter limit issues, consider moving to a higher performance level or service level. 
 
-|||
+|**Service level**|**Common Use Case Scenarios**|
 |---|---|
 |**Basic**|Applications with a handful users and a database that doesn’t have high concurrency, scale, and performance requirements. |
 |**Standard**|Applications with a considerable concurrency, scale, and performance requirements coupled with low to medium IO demands. |
