@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/22/2017
+ms.date: 12/06/2017
 ms.author: adegeo
 ---
 
@@ -38,7 +38,8 @@ To create a Load Balancer rule, you need to collect the following information:
 - External port.
 - Internal port.
 
-## Azure CLI
+# [Azure CLI](#tab/azurecli)
+
 It only takes a single command to create a load balancer rule with the **Azure CLI**. You just need to know both the name of the load balancer and resource group to create a new rule.
 
 >[!NOTE]
@@ -66,7 +67,7 @@ The Azure CLI command has a few parameters that are described in the following t
 >[!NOTE]
 >For more information on how to create a load balancer with the Azure CLI, see [Create a load balancer with the Azure CLI](..\load-balancer\load-balancer-get-started-internet-arm-cli.md).
 
-## PowerShell
+# [PowerShell](#tab/powershell)
 
 PowerShell is a little more complicated than the Azure CLI. Follow these conceptual steps to create a rule:
 
@@ -101,6 +102,8 @@ Regarding the `New-AzureRmLoadBalancerRuleConfig` command, the `-FrontendPort` r
 
 >[!NOTE]
 >For more information on how to create a load balancer with PowerShell, see [Create a load balancer with PowerShell](..\load-balancer\load-balancer-get-started-internet-arm-ps.md).
+
+***
 
 ## Next steps
 
