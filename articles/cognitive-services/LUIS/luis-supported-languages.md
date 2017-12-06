@@ -45,6 +45,7 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
 
  - In the `zh-cn` culture, LUIS expects the simplified Chinese character set instead of the traditional character set.
  - The names of intents, entities, features, and regular expressions may be in Chinese or Roman characters.
+ - See the [prebuilt domains reference ](luis-reference-prebuilt-domains.md) for information on which prebuilt domains are supported in the `zh-cn` culture.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ## Rare or foreign words in an application
