@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: "Inactive"
-ms.date: 10/14/2016
+ms.date: 12/06/2016
 ms.author: Joe.Sack
 ms.suite: sql
 ms.prod_service: sql-database
@@ -93,6 +93,7 @@ The traditional windows authentication is not supported. Azure Active Directory 
 There are multiple techniques at your disposal that you could use to attain optimal connectivity organization for your application. 
 - Firewall Rules
 - VNET Service Endpoints
+- Reserved IPs
 
 #### Firewall
 A firewall prevents access to your server from an external entity by allowing only specific entities access to your logical server. By default, all connections and databases inside the logical server are disallowed, except connections coming in from other Azure Services. With a firewall rule you can open access to your server only to entities (for example, a developer machine) that you approve of, by allowing that computer’s IP address through the firewall. It also allows you to specify a range of IPs that you would want to allow access to the logical server. For example, developer machine IP addresses in your organization can be added at once by specifying a range in the Firewall settings page. 
@@ -106,6 +107,7 @@ Service endpoints (SE) allow you to expose your critical Azure resources only to
 
 ![VNET service endpoints](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
+#### Reserved IPs
 Another option is to provision [reserved IPs](../virtual-network/virtual-networks-reserved-public-ip.md) for your VMs, and whitelist those specific VM IP addresses in the server firewall settings. By assigning reserved IPs, you save the trouble of having to update the firewall rules with changing IP addresses.
 
 ### What port do I connect to SQL Database on?
@@ -118,7 +120,6 @@ With SQL Database, you can turn ON Auditing to track database events. [SQL Datab
 
 #### Threat Detection
 With [threat detection](sql-database-threat-detection.md), you get the ability to act upon security or policy violations discovered by Auditing very easily. You don’t need to be a security expert to address potential threats or violations in your system. Threat detection also has some built-in capabilities like SQL Injection detection. SQL Injection is an attempt to alter or compromise the data and a quite common way of attacking a database application in general. SQL Database Threat Detection runs multiple sets of algorithms which detect potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns (such as access from an unusual location or by an unfamiliar principal). Security officers or other designated administrators receive an email notification if a threat is detected on the database. Each notification provides details of the suspicious activity and recommendations on how to further investigate and mitigate the threat. To learn how to turn on Threat detection, see: [Enable SQL Database Threat Detection](sql-database-security-tutorial.md#enable-sql-database-threat-detection). 
-
 ### How do I protect my data in general on SQL Database?
 Encryption provides a strong mechanism to protect and secure your sensitive data from intruders. Your encrypted data is of no use to the intruder without the decryption key. Thus, it adds an extra layer of protection on top of the existing layers of security built in SQL Database. There are two aspects to protecting your data in SQL Database: 
 - Your data that is at-rest in the data and log files 
@@ -128,8 +129,7 @@ In SQL Database, by default, your data at rest in the data and log files on the 
 For protecting your sensitive data in-flight and at rest, SQL Database provides a feature called [Always Encrypted (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine). AE is a form of client-side encryption which encrypts sensitive columns in your database (so they are in ciphertext to database administrators and unauthorized users). The server receives the encrypted data to begin with. The key for Always Encrypted is also stored on the client side, so only authorized clients can decrypt the sensitive columns. The server and data administrators cannot see the sensitive data since the encryption keys are stored on the client. AE encrypts sensitive columns in the table end to end, from unauthorized clients to the physical disk. AE supports equality comparisons today, so DBAs can continue to query encrypted columns as part of their SQL commands. Always Encrypted can be used with a variety of key store options, such as [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md), Windows certificate store, and local hardware security modules.
 
 |Characteristics|Always Encrypted|Transparent Data Encryption|
-|---|:---:||
-||||
+|---|:---:|
 |Encryption span|End-to-end|At-rest data|
 |Database server can access sensitive data|No|Yes, since encryption is for the data at rest|
 |Allowed T-SQL operations|Equality comparison|All T-SQL surface area is available|
@@ -161,14 +161,6 @@ By default, the master key for Transparent Data Encryption is managed by the SQL
 The following diagram shows the key store options for the column master keys in Always Encrypted
 
 ![Always encrypted CMK store providers](./media/sql-database-manage-after-migration/always-encrypted.png)
-
-### How do I limit or control connectivity access to my database?
-
-**Select which resources connect to SQL Database**: By default, your SQL database is configured to “Allow all Azure services” – which means all VMs in Azure may attempt to connect to the database. Authentication of all logins still must occur. If you would not like your database to be accessible to all Azure IPs, you can disable “Allow all Azure services” and use [VNET Service Endpoints](sql-database-vnet-service-endpoint-rule-overview.md) to restrict inbound access to the database from only Azure resources that are within a given Azure VNET subnet.
-
-![VNET service endpoints](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
-
-An alternative option is to provision [reserved IPs](../virtual-network/virtual-networks-reserved-public-ip.md) for your VMs, and whitelist those specific VM IP addresses in the server firewall settings. By assigning reserved IPs, you save the trouble of having to update the firewall rules with changing IP addresses.
 
 ### How can I optimize and secure the traffic between my organization and SQL Database?
 The network traffic between your organization and SQL Database would generally get routed over the public network. However, if you choose to optimize this path and make it more secure, you can look into Express Route. Express route essentially lets you extend your corporate network into the Azure platform over a private connection. By doing so, you do not go over the public Internet. You also get higher security, reliability, and routing optimization that translates to lower network latencies and much faster speeds than you would normally experience going over the public internet. If you are planning on transferring a significant chunk of data between your organization and Azure, using Express Route can yield cost benefits. You can choose from three different connectivity models for the connection from your organization to Azure: 
@@ -226,11 +218,13 @@ From this chart, you can also configure alerts by resource. These alerts allow y
 ### I am noticing performance issues: How does my SQL Database troubleshooting methodology differ from SQL Server?
 A major portion of the troubleshooting techniques you would use for diagnosing query and database performance issues remain the same. After all the same SQL Server engine powers the cloud. However, the platform - Azure SQL DB has built in ‘intelligence’. It can help you troubleshoot and diagnose performance issues even more easily. It can also perform some of these corrective actions on your behalf and in some cases, proactively fix them - automatically. 
 
-Your approach towards troubleshooting performance issues can significantly benefit by using intelligent features such as [Query Performance Insight(QPI)](sql-database-query-performance.md) and [Database Advisor](sql-database-advisor.md) in conjunction and so the difference in methodology differs in that respect – you no longer need to do the manual work of grinding out the essential details that might help you troubleshoot the issue at hand. The platform does the hard work for you. One example of that is QPI. With QPI, you can drill all the way down to the query level and look at the historical trends and figure out when exactly the query regressed. The Database Advisor gives you recommendations on things that might help you improve your overall performance in general like - missing indexes, dropping indexes, parameterizing your queries etc. For more information on database performance tuning, see: [Tune your database](sql-database-performance-guidance.md#tune-your-database). 
+Your approach towards troubleshooting performance issues can significantly benefit by using intelligent features such as [Query Performance Insight(QPI)](sql-database-query-performance.md) and [Database Advisor](sql-database-advisor.md) in conjunction and so the difference in methodology differs in that respect – you no longer need to do the manual work of grinding out the essential details that might help you troubleshoot the issue at hand. The platform does the hard work for you. One example of that is QPI. With QPI, you can drill all the way down to the query level and look at the historical trends and figure out when exactly the query regressed. The Database Advisor gives you recommendations on things that might help you improve your overall performance in general like - missing indexes, dropping indexes, parameterizing your queries etc. 
 
-With performance troubleshooting, it is important to identify whether it is just the application or the database backing it, that’s impacting your application performance. Often the performance problem lies in the application layer. It could be the architecture or the data access pattern. For example, consider you have a chatty application that is sensitive to network latency. In this case, your application suffers because there would be many short requests going back and forth ("chatty") between the application and the server and on a congested network, these roundtrips add up fast. To improve the performance in this case, you can use [Batch Queries](sql-database-performance-guidance.md#batch-queries). Using batches helps you tremendously because now your requests get processed in a batch; thus, helping you cut down on the roundtrip latency and improve your application performance. For more on application performance tuning, see: [Tune your database](sql-database-performance-guidance.md#tune-your-database).
+With performance troubleshooting, it is important to identify whether it is just the application or the database backing it, that’s impacting your application performance. Often the performance problem lies in the application layer. It could be the architecture or the data access pattern. For example, consider you have a chatty application that is sensitive to network latency. In this case, your application suffers because there would be many short requests going back and forth ("chatty") between the application and the server and on a congested network, these roundtrips add up fast. To improve the performance in this case, you can use [Batch Queries](sql-database-performance-guidance.md#batch-queries). Using batches helps you tremendously because now your requests get processed in a batch; thus, helping you cut down on the roundtrip latency and improve your application performance. 
 
-Additionally, if you notice a degradation in the overall performance of your database, you can monitor the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamic management views in order to understand CPU, I/O, and memory consumption. Your performance maybe impacted because your database is starved of resources. It could be that you may need to change the performance level and/or service tier based on the growing and shrinking workload demands. For a comprehensive set of recommendations for tuning performance issues, see: [Tune your database](sql-database-performance-guidance.md#tune-your-database).
+Additionally, if you notice a degradation in the overall performance of your database, you can monitor the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) and [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamic management views in order to understand CPU, I/O, and memory consumption. Your performance maybe impacted because your database is starved of resources. It could be that you may need to change the performance level and/or service tier based on the growing and shrinking workload demands. 
+
+For a comprehensive set of recommendations for tuning performance issues, see: [Tune your database](sql-database-performance-guidance.md#tune-your-database).
 
 ### How do I ensure I am using the appropriate service tier and performance level?
 SQL Database offers various service tiers Basic, Standard, and Premium. Each service tier you get a guaranteed predictable performance tied to that service level. Depending on your workload, you may have bursts of activity where your resource utilization might hit the ceiling of the current performance level that you are in. In such cases, it is useful to first start by evaluating whether any tuning can help (for example, adding or altering an index etc.). If you still encounter limit issues, consider moving to a higher performance level or service level. 
