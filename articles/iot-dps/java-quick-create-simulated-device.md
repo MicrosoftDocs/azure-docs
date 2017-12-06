@@ -22,11 +22,12 @@ ms.custom: mvc
 
 These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
 
-Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
+Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 > [!NOTE]
 > Be sure to note your _Id Scope_ and _Provisioning Service Global Endpoint_ for use later in this Quickstart.
->     ![DPS information][./media/java-quick-create-simulated-device/extract-dps-endpoints.png]
+>     
+> ![DPS information][./media/java-quick-create-simulated-device/extract-dps-endpoints.png]
 
 <a id="setupdevbox"></a>
 ## Prepare the development environment 
@@ -43,7 +44,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-1. Run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
+1. Run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you need to keep this simulator running until the end of this Quickstart guide. 
 
     ```cmd/sh
     .\azure-iot-sdk-java\provisioning\provisioning-tools\tpm-simulator\Simulator.exe
@@ -51,16 +52,11 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
     ![TPM Simulator](./media/java-quick-create-simulated-device/simulator.png)
 
-1. In a separate command prompt, navigate to the root and build the project. 
+1. In a separate command prompt, navigate to the root and build the project. Then navigate to the sample folder.
 
     ```cmd/sh
     cd azure-iot-sdk-java
     mvn install -DskipTests=true
-    ```
-
-1. Navigate to the sample folder.
-
-    ```cmd/sh
     cd provisioning/provisioning-samples/provisioning-tpm-sample
     ```
 
@@ -75,7 +71,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     > [!NOTE]
     > You can choose one of available protocols [HTTPS, AMQP, MQTT, AMQP_WS, MQTT_WS] for registration.
 
-1. Build the project. Navigate to the target folder and exeute the created jar file.
+1. Build the project. Navigate to the target folder and execute the created jar file.
 
     ```cmd/sh
     mvn clean install
@@ -83,7 +79,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
     java -jar ./provisioning-tpm-sample-{version}-with-deps.jar
     ```
 
-1. The program will begin running. Note the _Endorsement Key_ and _Registration Id_ for the next section and leave the program running.
+1. The program begins running. Note the _Endorsement Key_ and _Registration Id_ for the next section and leave the program running.
 
     ![Java TPM device program](./media/java-quick-create-simulated-device/program.png)
     
@@ -104,7 +100,7 @@ Make sure to complete the steps in the [Set up IoT Hub Device Provisioning Servi
 
     ![Enter device enrollment information in the portal blade](./media/java-quick-create-simulated-device/enter-device-enrollment.png)  
 
-   On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
+   On successful enrollment, the *Registration ID* of your device appears in the list under the *Individual Enrollments* tab. 
 
 <a id="firstbootsequence"></a>
 ## Simulate first boot sequence for the device
