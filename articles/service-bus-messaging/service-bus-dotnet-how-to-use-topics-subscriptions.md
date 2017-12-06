@@ -155,7 +155,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     }
     ```
   
-6. Here is what your Program.cs file should look like.
+6. Here is what your sender Program.cs file should look like.
    
     ```csharp
     using System;
@@ -330,7 +330,7 @@ To receive the messages you just sent, create another .NET Core console applicat
     }    
     ```    
 
-8. Here is what your Program.cs file should look like:
+8. Here is what your receiver Program.cs file should look like:
    
     ```csharp
     using System;
