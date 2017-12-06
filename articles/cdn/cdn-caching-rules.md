@@ -39,6 +39,7 @@ How to set CDN caching rules:
 
 1. Open the Azure portal, select a CDN profile, then select an endpoint.
 2. In the left pane under Settings, click **Caching rules**.
+
    ![CDN Caching rules button](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
 1. Create a global caching rule as follows:
