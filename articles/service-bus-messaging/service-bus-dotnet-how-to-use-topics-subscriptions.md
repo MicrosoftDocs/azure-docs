@@ -339,7 +339,7 @@ To receive the message or messages you just sent, create another .NET Core conso
     using System.Threading;
     using System.Threading.Tasks;
 
-    namespace ConsoleApp4
+    namespace CoreReceiverApp
     {
         class Program
         {
