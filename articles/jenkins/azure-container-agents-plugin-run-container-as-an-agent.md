@@ -29,7 +29,7 @@ You learn how to:
 
 ## Prerequisites
 
-- **Sign into Azure** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin, and sign into your account.  
+- **Azure subscription** - To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 - **Azure CLI 2.0 or Azure Cloud Shell** - Install one of the following products into which to enter Azure commands:
 
