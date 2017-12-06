@@ -31,7 +31,6 @@ Pick the troubleshooting steps that correspond to the error message you encounte
 | *Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Delete the application called 'Azure AD Domain Services Sync' and then try to enable Domain Services for your Azure AD tenant.* |[Domain Services does not have adequate permissions to the Azure AD Domain Services Sync application](active-directory-ds-troubleshooting.md#inadequate-permissions) |
 | *Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Delete the application with the application identifier d87dcbc6-a371-462e-88e3-28ad15ec4e64 and then try to enable Domain Services for your Azure AD tenant.* |[The Domain Services application is not configured properly in your tenant](active-directory-ds-troubleshooting.md#invalid-configuration) |
 | *Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant.* |[The Microsoft Graph application is disabled in your Azure AD tenant](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
-| *Azure AD Domain Services and Azure AD B2C cannot be run concurrently on the same tenant. To restore your Azure AD Domain Services instance, disable Azure AD B2C and re-enable Azure AD DS.* | [Azure B2C is enabled in your tenant](active-directory-ds-troubleshooting.md#azure-b2c-conflict) |
 | *The IP address range for the virtual network %VIRTUAL_NETWORK% in which you have enabled Azure AD Domain Services is in a public IP range. Azure AD Domain Services must be enabled in a virtual network with a private IP address range. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.* | [Address is in a public IP range](active-directory-ds-troubleshooting.md#address-is-in-a-public-ip-range) |
 | *We have identified that the subnet of the virtual network in this domain may not have sufficient IP addresses. Azure AD Domain Services needs at-least two available IP addresses within the subnet it is enabled in. We recommend having at-least 3-5 spare IP addresses within the subnet. This may have occurred if other virtual machines are deployed within the subnet, thus exhausting the number of available IP addresses or if there is a restriction on the number of available IP addresses in the subnet.* | [Insufficient amount of IP addresses available](active-directory-ds-troubleshooting.md#insufficient-amount-of-ip-addresses-available) |
 | *error* | [Missing tenant](active-directory-ds-troubleshooting.md#missing-tenant) |
@@ -127,20 +126,6 @@ Check to see if you have disabled an application with the identifier 00000002-00
 
 To resolve this error, enable this application and then try to enable Domain Services for your Azure AD tenant.
 
-### Azure B2C conflict
-**Error message:**
-
-*Azure AD Domain Services and Azure AD B2C cannot be run concurrently on the same tenant. To restore your Azure AD Domain Services instance, disable Azure AD B2C and re-enable Azure AD DS.*
-
-**Remediation:**
-
-To restore your service, follow these steps:
-
-1. Navigate to the Azure portal (https://portal.azure.com/)
-2. Click on **More Services** within the left-hand navigation.
-3. Search for **Azure AD B2C**
-4. Click on **Overview**
-5. **?????**
 
 ### Address is in a public IP range
 **Error message:**
@@ -210,7 +195,7 @@ To restore your service, follow these steps:
 
 **Remediation:**
 
-To restore your service, use the
+To restore your service, use the [Troubleshooting Secure LDAP and NSG Configuration](active-directory-ds-troubleshoot-ldaps) article.
 
 ## Users are unable to sign in to the Azure AD Domain Services managed domain
 If one or more users in your Azure AD tenant are unable to sign in to the newly created managed domain, perform the following troubleshooting steps:
