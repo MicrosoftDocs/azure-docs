@@ -49,7 +49,7 @@ There are two ways you can enroll your devices with the provisioning service:
     1. Choose your ```attestation``` mechanism, which can be TPM or X.509.
         1. **TPM**: Using the Endorsement Key from a physical device or from TPM Simulator as the input, you can call ```TpmAttestation``` to create attestation for enrollment. 
         2. **X.509**:  Using the client certificate as the input, you can call ```X509Attestation.createFromClientCertificate``` to create attestation for enrollment.
-    2. Create a new ```IndividualEnrollment``` with using the ```attestation``` created and an unique ```registrationId``` as input, which is on your device or generated from the TPM Simulator.  Optionally, you can set parameters like ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
+    2. Create a new ```IndividualEnrollment``` with using the ```attestation``` created and a unique ```registrationId``` as input, which is on your device or generated from the TPM Simulator.  Optionally, you can set parameters like ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
     3. Call ```createOrUpdateIndividualEnrollment``` in your backend application with ```IndividualEnrollment``` to create an individual enrollment.
 
 After you have successfully created an enrollment, the Device Provisioning Service would return an enrollment result.
