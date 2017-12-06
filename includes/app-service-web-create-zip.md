@@ -1,6 +1,6 @@
 ## Create a project .ZIP file
 
-Create a ZIP archive of everything in your project. The commands below use the default tool in your terminal:
+Create a ZIP archive of everything in your project. The following command uses the default tool in your terminal:
 
 ```
 # Bash
@@ -10,4 +10,4 @@ zip -r myAppFiles .
 Compress-Archive -Path * -DestinationPath myAppFiles.zip
 ``` 
 
-Later, you will upload this .ZIP file to Azure and deploy it to App Service later.
+Later, you upload this .ZIP file to Azure and deploy it to App Service.

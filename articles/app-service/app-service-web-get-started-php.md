@@ -23,7 +23,7 @@ ms.custom: mvc
 
 ![Sample app running in Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
-You can follow the steps below using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
+You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
 ## Prerequisites
 
@@ -157,7 +157,7 @@ From the left menu, click **App Services**, and then click the name of your Azur
 
 You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
-![App Service blade in Azure portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+![App Service page in Azure portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
 The left menu provides different pages for configuring your app. 
 

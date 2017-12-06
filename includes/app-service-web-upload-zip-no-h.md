@@ -1,12 +1,12 @@
 In the Azure portal, click **Resource groups** > **cloud-shell-storage-\<your_region>** > **\<storage_account_name>**.
 
-![](../articles/app-service/media/app-service-deploy-zip/upload-choose-storage-account.png)
+![Find Cloud Shell storage account](../articles/app-service/media/app-service-deploy-zip/upload-choose-storage-account.png)
 
 In the **Overview** page of the storage account, select **Files**.
 
-Select the automatically generated file share (which is mounted in the Cloud Shell as `clouddrive`), and select **Upload**.
+Select the automatically generated file share and select **Upload**. This file share is mounted in the Cloud Shell as `clouddrive`.
 
-![](../articles/app-service/media/app-service-deploy-zip/upload-select-button.png)
+![Find Upload button](../articles/app-service/media/app-service-deploy-zip/upload-select-button.png)
 
 Click the file selector and select your .zip file, then click **Upload**. 
 

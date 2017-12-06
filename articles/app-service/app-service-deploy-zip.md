@@ -38,13 +38,15 @@ To complete the steps in this article:
 
 ## Create a project .ZIP file
 
-If you downloaded the files in a .zip file, extract the files first. If you downloaded a .zip file from GitHub, you cannot deploy that file as-is because GitHub adds additional nested directories, which do not work with App Service. 
+>[!NOTE]
+> If you downloaded the files in a .zip file, extract the files first. For example, if you downloaded a .zip file from GitHub, you cannot deploy that file as-is. GitHub adds additional nested directories, which do not work with App Service. 
+>
 
 In a local terminal window, navigate to the root directory of your app project. 
 
-This directory should contain the entry file to your web app, such as _index.html_, _index.php_ and _app.js_. It can also contain package management files like _project.json_, _composer.json_, _package.json_, _bower.json_, and _requirements.txt_.
+This directory should contain the entry file to your web app, such as _index.html_, _index.php_, and _app.js_. It can also contain package management files like _project.json_, _composer.json_, _package.json_, _bower.json_, and _requirements.txt_.
 
-Create a ZIP archive of everything in your project. The commands below use the default tool in your terminal:
+Create a ZIP archive of everything in your project. The following command uses the default tool in your terminal:
 
 ```
 # Bash
