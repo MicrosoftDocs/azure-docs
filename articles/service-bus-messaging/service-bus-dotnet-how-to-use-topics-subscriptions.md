@@ -93,7 +93,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     using Microsoft.Azure.ServiceBus;
     ```
 
-2. Within the `Program` class, declare the following variables. Set the `ServiceBusConnectionString` variable to the connection string that you obtained when creating the namespace, and set `TopicName` to the name that you used when creating the topic.
+2. Within the `Program` class, declare the following variables. Set the `ServiceBusConnectionString` variable to the connection string that you obtained when creating the namespace, and set `TopicName` to the name that you used when creating the topic:
    
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -237,7 +237,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
     using Microsoft.Azure.ServiceBus;
     ```
 
-3. Within the `Program` class, declare the following variables. Set the `ServiceBusConnectionString` variable to the connection string that you obtained when creating the namespace, set `TopicName` to the name that you used when creating the topic, and set `SubscriptionName` to the name that you used when creating the subscription to the topic.
+3. Within the `Program` class, declare the following variables. Set the `ServiceBusConnectionString` variable to the connection string that you obtained when creating the namespace, set `TopicName` to the name that you used when creating the topic, and set `SubscriptionName` to the name that you used when creating the subscription to the topic:
    
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
