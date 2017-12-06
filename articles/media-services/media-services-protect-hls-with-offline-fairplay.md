@@ -175,6 +175,7 @@ Three test samples have been set up in Azure Media Services that cover the follo
 1.	FPS protected, with video, audio and alternate audio track;
 2.	FPS protected, with video, audio but no alternate audio track;
 3.	FPS protected, with video only, no audio.
+
 These samples can be found at this [demo site](http://aka.ms/poc#22), with the corresponding application certificate  hosted in an Azure web app.
 We have noticed that, with either v3 or v4 sample of FPS Server SDK, if a master playlist contains alternate audio, during offline mode, it plays audio only. Therefore we need to strip alternate audio. In other words, among the three sample above, (2) and (3) work in both online and offline mode. But (1) will play audio only during offline mode while online streaming works fine.
 
@@ -185,16 +186,7 @@ Some frequently asked questions for troubleshooting:
 - **Is FPS offline mode also supported on iOS 11 in addition to iOS 10?** Yes, FPS offline mode is supported for both iOS 10 and iOS 11.
 - **Why can’t I find the document Offline Playback with FairPlay Streaming and HTTP Live Streaming in FPS Server SDK?** Since FPS Server SDK v 4, this document has been merged into FairPlay Streaming Programming Guide document.
 - **What does the last parameter stand for in the following API for FPS offline mode?**
-```csharp
-Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(
-    objX509Certificate2,
-    pfxPassword,
-    pfxPasswordId,
-    askId,
-    iv, 
-    RentalAndLeaseKeyType.PersistentUnlimited,
-    0x9999);
-```
+`Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
 The documentation for this API can be found [here](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). The parameter represents the duration of offline rental with hour as the unit.
 - **What is the downloaded/offline file structure on iOS devices?** The downloaded file structure on an iOS device looks like below (screenshot). `_keys` folder stores downloaded FPS licenses, one store file for each license service host. `.movpkg` folder stores audio and video content. The first folder with name ending with a dash followed by a numeric contains video content. The numeric value is the "PeakBandwidth" of the video renditions. The second folder with name ending with a dash followed by 0 contains audio content. The third folder named "Data" contains the master playlist of the FPS content. Boot.xml provides a complete description of `.movpkg` folder content (see below for a sample boot.xml file).
