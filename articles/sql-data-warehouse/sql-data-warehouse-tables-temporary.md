@@ -3,8 +3,8 @@ title: Temporary tables in SQL Data Warehouse | Microsoft Docs
 description: Getting started with temporary tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: ''
 
 ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: shigu;barbkess
+ms.date: 12/06/2017
+ms.author: barbkess
 
 ---
 # Temporary tables in SQL Data Warehouse

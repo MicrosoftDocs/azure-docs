@@ -3,8 +3,8 @@ title: Indexing tables in SQL Data Warehouse | Microsoft Azure
 description: Getting started with table indexing in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: ''
 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/12/2016
-ms.author: shigu;barbkess
+ms.date: 12/06/2017
+ms.author: barbkess
 
 ---
 # Indexing tables in SQL Data Warehouse
