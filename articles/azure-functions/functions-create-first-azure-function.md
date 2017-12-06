@@ -29,7 +29,7 @@ Azure Functions lets you execute your code in a [serverless](https://azure.micro
 
 ## Sign in to Azure
 
-Open the Azure portal. To do this, sign in to [Azure portal](https://portal.azure.com/) with your Azure account.
+Open the Azure portal. To do this, sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
 ## Create a function app
 
