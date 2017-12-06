@@ -62,25 +62,9 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 
 If you choose to run the Azure CLI from your local terminal instead, skip this step.
 
-Follow the steps here to upload your .zip file to the Cloud Shell.
+Follow the steps here to upload your .zip file to the Cloud Shell. 
 
-In the Azure portal, click **Resource groups** > **cloud-shell-storage-\<your_region>** > **\<storage_account_name>**.
-
-![](./media/app-service-deploy-zip/upload-choose-storage-account.png)
-
-In the **Overview** page of the storage account, select **Files**.
-
-Select the automatically generated file share (which is mounted in the Cloud Shell as `clouddrive`), and select **Upload**.
-
-![](./media/app-service-deploy-zip/upload-select-button.png)
-
-Click the file selector and select your .zip file, then click **Upload**. 
-
-In the Cloud Shell, use `ls` to verify that you can see the uploaded .zip file in the `clouddrive` share.
-
-```azurecli-interactive
-ls clouddrive
-```
+[!INCLUDE [app-service-web-upload-zip.md](../../includes/app-service-web-upload-zip-no-h.md)]
 
 For more information, see [Persist files in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
 
@@ -91,14 +75,14 @@ Deploy the uploaded .zip file to your web app by using the [az webapp deployment
 The following example deploys the .zip file you uploaded. When using a local installation of Azure CLI, specify the path to your local .zip file for `--src`.   
 
 ```azurecli-interactive
-az webapp deployment source config-zip --resource-group <group_name> --name <app_name> --src clouddrive/<filename>.zip
+az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
 This command deploys the files and directories from the .zip file to your default App Service application folder (`\home\site\wwwroot`) and restarts the app. If any additional custom build process is configured, it is run as well. For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
 To view the list of deployments for this app, you must use the REST APIs (see next section). 
 
-[!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)] 
+<!-- [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  -->
 
 ## Next steps
 

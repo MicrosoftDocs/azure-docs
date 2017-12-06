@@ -29,7 +29,6 @@ You can follow the steps below using a Mac, Windows, or Linux machine. Once the 
 
 To complete this quickstart:
 
-* <a href="https://git-scm.com/" target="_blank">Install Git</a>
 * <a href="https://php.net" target="_blank">Install PHP</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -59,9 +58,11 @@ You see the **Hello World!** message from the sample app displayed in the page.
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
+[!INCLUDE [Create .ZIP file](../../includes/app-service-web-create-zip.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
+[!INCLUDE [Upload zip file](../../includes/app-service-web-upload-zip.md)]
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
@@ -69,7 +70,30 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
+In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az_webapp_create) command. 
+
+In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.0`. To see all supported runtimes, run [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes). 
+
+```azurecli-interactive
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0"
+```
+
+When the web app has been created, the Azure CLI shows output similar to the following example:
+
+```json
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
 
 Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
 
@@ -79,32 +103,7 @@ http://<app name>.azurewebsites.net
 
 ![Empty web app page](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
-
-```bash
-Counting objects: 2, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-Total 2 (delta 1), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id '25f18051e9'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.php'
-remote: Ignoring: .git
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
-   cc39b1e..25f1805  master -> master
-```
+[!INCLUDE [Deploy uploaded .ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
 ## Browse to the app locally
 
@@ -128,14 +127,23 @@ Using a local text editor, open the `index.php` file within the PHP app, and mak
 echo "Hello Azure!";
 ```
 
-In the local terminal window, commit your changes in Git, and then push the code changes to Azure.
+In the local terminal window, navigate to your application's root directory, create a new .ZIP file for your updated project.
 
-```bash
-git commit -am "updated output"
-git push azure master
 ```
+# Bash
+zip -r myUpdatedAppFiles .
 
-Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
+# PowerShell
+Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
+``` 
+
+Upload this new .ZIP file to the Cloud Shell, using the same steps in [Upload the .ZIP file](#upload-the-.ZIP-file).
+
+Then, in the Cloud Shell, deploy your uploaded .ZIP file again.
+
+az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myUpdatedAppFiles.zip
+
+Switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
 ![Updated sample app running in Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
