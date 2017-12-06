@@ -83,7 +83,7 @@ This scenario assumes that a user:
 
 - Opens the Outlook application and signs in with the Azure AD credentials
 
-- Is prompted to install either Authenticor (iOS) or Company Portal (Android) to continue
+- Is prompted to install either Authenticator (iOS) or Company Portal (Android) to continue
 
 - Installs the application and can return to the Outlook app to continue
 
