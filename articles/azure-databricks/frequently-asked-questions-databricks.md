@@ -18,7 +18,7 @@ ms.author: nitinme
 ---
 # Frequently asked questions about Azure Databricks
 
-This article lists the top queries you might have related to Azure Databricks. It also lists some common problems you might have while using Databricks. For more information, see [What is Azure Databricks?](what-is-azure-databricks.md). 
+This article lists the top queries you might have related to Azure Databricks. It also lists some common problems you might have while using Databricks. For more information, see [What is Azure Databricks](what-is-azure-databricks.md). 
 
 ## Can I use my own keys for local encryption? 
 In the current release, using your own keys from Azure Key Vault is not supported. 
