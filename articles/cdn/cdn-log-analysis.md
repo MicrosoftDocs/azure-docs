@@ -37,7 +37,7 @@ As an Azure CDN user with a Verizon standard or a Verizon premium profile, you c
 ## Verizon premium reports
 
 With **Azure CDN Premium from Verizon**, you can also access the following reports:
-   * [Advanced HTTP reports](cdn-advanced-http-reports)
+   * [Advanced HTTP reports](cdn-advanced-http-reports.md)
    * [Real-time stats](cdn-real-time-stats.md)
    * [Edge node performance](cdn-edge-performance.md)
 
