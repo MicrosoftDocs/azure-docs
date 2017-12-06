@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
 
@@ -157,7 +157,6 @@ Passwords are written back in all the following situations:
   * Any administrator self-service voluntary change password operation
   * Any administrator self-service force change password operation, for example, password expiration
   * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com)
-  * Any administrator-initiated end-user password reset from the [Azure classic portal](https://manage.windowsazure.com)
   * Any administrator-initiated end-user password reset from the [Azure portal](https://portal.azure.com)
 
 ### User and admin operations that are not supported for password writeback
