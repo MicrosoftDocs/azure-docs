@@ -2,7 +2,7 @@
 
 The deployment process assumes that the .zip file you push contains a ready-to-run app. By default, no customizations are run. You can enable the same build processes you get with continuous integration by adding the following application setting to your app:
 
-        SCM_DO_BUILD_DURING_DEPLOYMENT=true 
+    SCM_DO_BUILD_DURING_DEPLOYMENT=true 
 
 When using .zip deployment, this setting is assumed to be false; it defaults to true for continuous integration deployments.
 
