@@ -29,25 +29,25 @@ Together with the [Kubernetes Service Catalog](https://github.com/kubernetes-inc
 
 The first step is to install Service Catalog in your Kubernetes cluster using a Helm chart. Upgrade your Tiller (Helm server) installation in your cluster with:
 
-```Bash
+```azurecli-interactive
 helm init --upgrade
 ```
 
 Now, add the Service Catalog chart to the Helm repository:
 
-```Bash
+```azurecli-interactive
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
 Finally, install Service Catalog with the Helm chart:
 
-```Bash
+```azurecli-interactive
 helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false
 ```
 
 After the Helm chart has been run, verify that `servicecatalog` appears in the output of the following command:
 
-```Bash
+```azurecli-interactive
 kubectl get apiservice
 ```
 
@@ -68,7 +68,7 @@ The next step is to install [Open Service Broker for Azure](https://github.com/A
 
 Let's start by adding the Open Service Broker for Azure Helm repository:
 
-```Bash
+```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
@@ -92,7 +92,7 @@ Output should be similar to the following. Take note of the `appId`, `password`,
 
 Set the following environment variables with the preceding values:
 
-```Bash
+```azurecli-interactive
 AZURE_CLIENT_ID=<appId>
 AZURE_CLIENT_SECRET=<password>
 AZURE_TENANT_ID=<tenant>
@@ -106,13 +106,13 @@ az account show --query id --output tsv
 
 Again, set the following environment variable with the preceding value:
 
-```Bash
+```azurecli-interactive
 AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
 ```
 
 Now that you've populated these environment variables, execute the following command to install the Open Service Broker for Azure using the Helm chart:
 
-```Bash
+```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \
     --set azure.subscriptionId=$AZURE_SUBSCRIPTION_ID \
     --set azure.tenantId=$AZURE_TENANT_ID \
@@ -124,14 +124,14 @@ Once the OSBA deployment is complete, install the [Service Catalog CLI](https://
 
 Execute the following commands to install the Service Catalog CLI binary:
 
-```Bash
+```azurecli-interactive
 curl -sLO https://servicecatalogcli.blob.core.windows.net/cli/latest/$(uname -s)/$(uname -m)/svcat
 chmod +x ./svcat
 ```
 
 Now, list installed service brokers:
 
-```Bash
+```azurecli-interactive
 ./svcat get brokers
 ```
 
@@ -145,13 +145,13 @@ You should see output similar to the following:
 
 Next, list the available service classes. The displayed service classes are the available Azure-managed services that can be provisioned through Open Service Broker for Azure.
 
-```Bash
+```azurecli-interactive
 ./svcat get classes
 ```
 
 Finally, list all available service plans. Service plans are the service tiers for the Azure-managed services. For example, for Azure Database for MySQL, plans range from `basic50` for Basic tier with 50 Database Transaction Units (DTUs), to `standard800` for Standard tier with 800 DTUs.
 
-```Bash
+```azurecli-interactive
 ./svcat get plans
 ```
 
@@ -159,20 +159,20 @@ Finally, list all available service plans. Service plans are the service tiers f
 
 In this step, you use Helm to install an updated Helm chart for WordPress. The chart provisions an external Azure Database for MySQL instance that WordPress can use. This process can take a few minutes.
 
-```Bash
+```azurecli-interactive
 helm install azure/wordpress --name wordpress --namespace wordpress
 ```
 
 In order to verify the installation has provisioned the right resources, list the installed service instances and bindings:
 
-```Bash
+```azurecli-interactive
 ./svcat get instances -n wordpress
 ./svcat get bindings -n wordpress
 ```
 
 List installed secrets:
 
-```Bash
+```azurecli-interactive
 kubectl get secrets -n wordpress -o yaml
 ```
 
