@@ -54,7 +54,7 @@ Jenkins needs to know it's own URL when it is creating links that point back to 
 
 This section walks you through setting the Jenkins URL.
 
-1. Open the Jenkins dashboard.
+1. In your browser, navigate to the Jenkins dashboard at `http://localhost:8080`.
 
 1. Select **Manage Jenkins**.
 
@@ -72,9 +72,7 @@ This section walks you through setting the Jenkins URL.
 
 The slave, or agent, connects with the Jenkins Master via the Java Network Launch Protocol (JNLP), JNLP need to be allowed. 
 
-1. Open the Jenkins dashboard. 
-
-1. Select **Manage Jenkins**.
+1. In the Jenkins dashboard, select **Manage Jenkins**.
 
     ![Manage Jenkins options in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
 
@@ -90,7 +88,7 @@ The slave, or agent, connects with the Jenkins Master via the Java Network Launc
 
 1. Using either Azure CLI 2.0 or Cloud Shell, enter the following command to create an inbound rule for your Jenkins network security group:
 
-    ```cli```
+    ```shell```
     az network nsg rule create  \
     --resource-group JenkinsResourceGroup \
     --nsg-name JenkinsNSG  \
@@ -149,7 +147,7 @@ You need an Azure service principal to deploy to Azure.
 
 Azure Container Instances must be placed in an Azure resource group. An Azure resource group is a container that holds related resources for an Azure solution.
 
-Using either Azure CLI 2.0 or Cloud Shell, enter the following command to create a resource group called `JenkinsAciResourceGroup` in eastus:
+Using either Azure CLI 2.0 or Cloud Shell, enter the following command to create a resource group called `JenkinsAciResourceGroup` in location `eastus`:
 
 ```shell```
 az group create --name JenkinsAciResourceGroup --location eastus
@@ -158,7 +156,7 @@ az group create --name JenkinsAciResourceGroup --location eastus
 When finished, the `az group create` command displays results similar to the following example:
 
 ```shell```
-tom@Azure:~$ az group create --name JenkinsAciResourceGroup --location eastus
+~$ az group create --name JenkinsAciResourceGroup --location eastus
 {
   "id": "/subscriptions/<subscriptionId>/resourceGroups/JenkinsAciResourceGroup",
   "location": "eastus",
@@ -173,9 +171,7 @@ tom@Azure:~$ az group create --name JenkinsAciResourceGroup --location eastus
 
 ## 7. Install the Azure Container Agents plugin for Jenkins
 
-1. Open and log in to the Jenkins dashboard.
-
-1. Select **Manage Jenkins**.
+1. In the Jenkins dashboard, select **Manage Jenkins**.
 
     ![Manage Jenkins options in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
 
@@ -203,9 +199,7 @@ tom@Azure:~$ az group create --name JenkinsAciResourceGroup --location eastus
 
 ## 8. Configure the Azure Container Agents plugin
 
-1. Open and log in to the Jenkins dashboard.
-
-1. Select **Manage Jenkins**.
+1. In the Jenkins dashboard, select **Manage Jenkins**.
 
     ![Manage Jenkins options in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-manage-jenkins.png)
 
@@ -247,9 +241,7 @@ tom@Azure:~$ az group create --name JenkinsAciResourceGroup --location eastus
 
 The following steps guide you through creating a Jenkins job - as a freestyle project - to build the Spring PetClinic Application.
 
-1. Open and log in to the Jenkins dashboard.
-
-1. Select **New Item**.
+1. In the Jenkins dashboard, select **New Item**.
 
     ![New item menu option in the Jenkins dashboard](./media/azure-container-agents-plugin-run-container-as-an-agent/jenkins-dashboard-new-item.png)
 
