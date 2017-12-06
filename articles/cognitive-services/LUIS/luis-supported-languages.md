@@ -55,7 +55,7 @@ To perform machine learning, LUIS breaks an utterance into tokens. A token is th
 
 Tokenization is based on the application's culture.
 
-|Language|  every space or special character | character level|compounded words
+|Language|  every space or special character | character level|compound words
 |--|:--:|:--:|:--:|
 |Chinese||✔||
 |Dutch|||✔|
