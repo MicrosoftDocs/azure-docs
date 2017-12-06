@@ -128,7 +128,7 @@ Recent SLES and openSUSE images in Azure have been pre-configured with DHCPv6. N
 
 ## CoreOS
 
-Recent CoreOS images in Azure have been pre-configured with DHCPv6. No additional changes are required when you use these images. If you have a VM based on an older or custom CoreOS image, use the following steps:
+Recent CoreOS images in Azure have been pre-configured with DHCPv6. No additional changes are required when you use these images. If you have a VM based on an older or custom CoreOS image, do the following:
 
 1. Edit the */etc/systemd/network/10_dhcp.network* file:
 
