@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/5/2017
+ms.date: 12/05/2017
 ms.author: LADocs; divswa
 
 ---
@@ -29,9 +29,9 @@ Here are the prerequisites to use the liquid action:
 [start with a free Azure account](https://azure.microsoft.com/free/). 
 Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Basic knowledge about [how to create logic apps](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Basic knowledge about [how to create logic apps](../logic-apps/logic-apps-create-a-logic-app.md).
 
-* A basic [Integration Account](logic-apps-enterprise-integration-create-integration-account.md)
+* A basic [Integration Account](logic-apps-enterprise-integration-create-integration-account.md).
 
 
 ## Create and add Liquid template or map to integration account
